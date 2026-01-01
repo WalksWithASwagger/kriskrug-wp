@@ -1,0 +1,141 @@
+name: Agent PR Generator
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  issues: write
+  pull-requests: write
+  contents: write
+
+jobs:
+  # Only trigger when 'auto-implement' label is added
+  check-trigger:
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'auto-implement'
+    outputs:
+      should_run: ${{ steps.check.outputs.result }}
+    steps:
+      - id: check
+        run: echo "result=true" >> $GITHUB_OUTPUT
+
+      - name: Acknowledge automation request
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              body: `🤖 **Agent Automation Initiated**\n\nThe agent swarm has been activated to work on this issue.\n\n**Pipeline stages:**\n1. ⏳ Analyzing issue and creating technical specification\n2. ⏳ Writing tests (TDD approach)\n3. ⏳ Implementing solution\n4. ⏳ Running tests and validations\n5. ⏳ Creating pull request\n\nYou can monitor progress in the [Actions tab](https://github.com/${context.repo.owner}/${context.repo.repo}/actions).\n\n*This is a fully automated workflow. A pull request will be created if all tests pass.*`
+            });
+
+  # Initialize agent state
+  initialize-agent-state:
+    needs: check-trigger
+    runs-on: ubuntu-latest
+    outputs:
+      state_file: ${{ steps.init.outputs.state_file }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create agent state directory
+        id: init
+        run: |
+          mkdir -p .github/agent-state/${{ github.event.issue.number }}
+          STATE_FILE=".github/agent-state/${{ github.event.issue.number }}/state.json"
+          echo "state_file=$STATE_FILE" >> $GITHUB_OUTPUT
+
+          # Initialize state file
+          cat > $STATE_FILE <<EOF
+          {
+            "issue_number": ${{ github.event.issue.number }},
+            "workflow_id": "${{ github.run_id }}",
+            "current_stage": "initialized",
+            "status": "in_progress",
+            "created_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "stages": {
+              "analysis": {"status": "pending"},
+              "test_writing": {"status": "pending"},
+              "implementation": {"status": "pending"},
+              "testing": {"status": "pending"},
+              "review": {"status": "pending"},
+              "pr_creation": {"status": "pending"}
+            },
+            "metadata": {
+              "branch_name": "feature/issue-${{ github.event.issue.number }}-auto-fix",
+              "base_branch": "main"
+            }
+          }
+          EOF
+
+      - name: Commit state file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/agent-state
+          git commit -m "Initialize agent state for issue #${{ github.event.issue.number }}" || true
+          git push || true
+
+  # Placeholder for actual agent orchestration
+  # This would integrate with gh agent-task or custom orchestration
+  simulate-agent-workflow:
+    needs: initialize-agent-state
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Placeholder - Agent Orchestration
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+
+            // This is a placeholder for the actual agent orchestration
+            // In a full implementation, this would:
+            // 1. Call gh agent-task create with custom agents
+            // 2. Monitor agent progress
+            // 3. Update state file after each stage
+            // 4. Create PR when all stages complete
+
+            core.info('Agent orchestration would run here');
+            core.info(`Issue: #${issue.number} - ${issue.title}`);
+            core.info('Agents: orchestrator → analyzer → test-writer → implementer → qa → reviewer → pr-creator');
+
+            // For now, just comment on the issue
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: `⚠️ **Agent Workflow - Development Mode**\n\nThe full agent swarm orchestration is not yet implemented in this workflow.\n\nTo enable full automation, you would need to:\n1. Set up custom agents in \`.github/agents/\` directory\n2. Configure \`gh agent-task\` integration\n3. Implement the orchestration logic\n\nFor now, this workflow demonstrates the structure and can be extended with actual agent calls.\n\n**Current capabilities:**\n- ✅ Issue auto-triage and labeling\n- ✅ Agent state initialization\n- ✅ Workflow triggers and permissions\n- ⏳ Agent orchestration (requires setup)\n- ⏳ Automated PR creation (requires agents)\n\nSee the [automation guide](../../docs/automation-guide.md) for setup instructions.`
+            });
+
+      - name: Update state - mark as awaiting setup
+        run: |
+          # In production, this would update based on actual agent progress
+          echo "Agent workflow simulation complete"
+          echo "Full implementation requires agent setup in .github/agents/"
+
+  # Cleanup on failure
+  handle-failure:
+    needs: [initialize-agent-state, simulate-agent-workflow]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              body: `❌ **Agent Automation Failed**\n\nThe automated workflow encountered an error.\n\nPlease check the [workflow logs](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${{ github.run_id }}) for details.\n\nThis issue will need manual attention. The \`needs-human-review\` label has been added.`
+            });
+
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              labels: ['needs-human-review']
+            });

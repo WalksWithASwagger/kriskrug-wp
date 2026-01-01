@@ -1,0 +1,137 @@
+name: Auto-Triage Issues
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  auto-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto-label based on title and body
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const title = issue.title.toLowerCase();
+            const body = (issue.body || '').toLowerCase();
+            const labelsToAdd = new Set();
+
+            // Bug detection
+            if (title.includes('bug') || title.includes('error') || title.includes('broken') ||
+                title.includes('not working') || title.includes('fix') || body.includes('bug')) {
+              labelsToAdd.add('bug');
+            }
+
+            // Feature/Enhancement detection
+            if (title.includes('feature') || title.includes('add') || title.includes('new') ||
+                title.includes('enhancement') || body.includes('feature request')) {
+              labelsToAdd.add('enhancement');
+            }
+
+            // Accessibility
+            if (title.includes('accessibility') || title.includes('a11y') || title.includes('wcag') ||
+                body.includes('accessibility') || body.includes('screen reader') || body.includes('keyboard')) {
+              labelsToAdd.add('accessibility');
+            }
+
+            // Performance
+            if (title.includes('performance') || title.includes('slow') || title.includes('speed') ||
+                title.includes('optimize') || body.includes('page load') || body.includes('core web vitals')) {
+              labelsToAdd.add('performance');
+            }
+
+            // SEO
+            if (title.includes('seo') || title.includes('meta') || title.includes('schema') ||
+                body.includes('search engine') || body.includes('google')) {
+              labelsToAdd.add('seo');
+            }
+
+            // Content/UX
+            if (title.includes('content') || title.includes('ux') || title.includes('ui') ||
+                title.includes('navigation') || body.includes('user experience')) {
+              labelsToAdd.add('content');
+            }
+
+            // Documentation
+            if (title.includes('documentation') || title.includes('docs') || title.includes('readme') ||
+                body.includes('documentation')) {
+              labelsToAdd.add('documentation');
+            }
+
+            // Security
+            if (title.includes('security') || title.includes('vulnerability') || title.includes('auth') ||
+                body.includes('security') || body.includes('password') || body.includes('xss') || body.includes('sql injection')) {
+              labelsToAdd.add('security');
+            }
+
+            // Mobile
+            if (title.includes('mobile') || title.includes('responsive') || body.includes('mobile') ||
+                body.includes('iphone') || body.includes('android') || body.includes('tablet')) {
+              labelsToAdd.add('mobile');
+            }
+
+            // Priority detection
+            if (title.includes('critical') || title.includes('urgent') || body.includes('critical') ||
+                body.includes('site down') || body.includes('completely broken')) {
+              labelsToAdd.add('priority:high');
+            } else if (title.includes('important') || body.includes('important')) {
+              labelsToAdd.add('priority:medium');
+            }
+
+            // Add labels if any were detected
+            if (labelsToAdd.size > 0) {
+              const labels = Array.from(labelsToAdd);
+              console.log(`Adding labels: ${labels.join(', ')}`);
+
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: labels
+              });
+
+              // Comment on the issue
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `🤖 Auto-triage has added the following labels: ${labels.map(l => '`' + l + '`').join(', ')}\n\nIf these labels are incorrect, please update them manually.`
+              });
+            }
+
+  check-ready-for-automation:
+    runs-on: ubuntu-latest
+    needs: auto-label
+    steps:
+      - name: Check if ready for agent automation
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+
+            // Check if issue has enough detail for automation
+            const hasBody = issue.body && issue.body.length > 100;
+            const hasLabels = issue.labels && issue.labels.length > 0;
+
+            // Check if it's a good candidate for automation
+            const isBug = issue.labels?.some(l => l.name === 'bug');
+            const isEnhancement = issue.labels?.some(l => l.name === 'enhancement');
+            const hasHighPriority = issue.labels?.some(l => l.name === 'priority:high');
+
+            // Simple issues that are well-defined
+            const isSimpleAndClear = hasBody && hasLabels && (isBug || isEnhancement);
+
+            if (isSimpleAndClear && !issue.labels?.some(l => l.name === 'auto-implement')) {
+              // Suggest automation
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `💡 This issue appears to be well-defined and might be a good candidate for automated implementation.\n\nTo enable AI agent automation, add the \`auto-implement\` label when ready.\n\nThe agent swarm will:\n1. Analyze the issue and create a technical specification\n2. Write tests (TDD approach)\n3. Implement the solution\n4. Run all tests and validations\n5. Create a pull request if all checks pass\n\n*Note: Agent-generated PRs still require human review before merging.*`
+              });
+            }

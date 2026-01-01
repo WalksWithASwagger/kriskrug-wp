@@ -1,0 +1,128 @@
+name: Content or UX Issue
+description: Report content issues, UX problems, or suggest improvements
+title: "[Content/UX]: "
+labels: ["content", "ux"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us improve the content and user experience of bc-ai.ca!
+
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Which page has the content/UX issue?
+      placeholder: https://bc-ai.ca/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Issue Type
+      description: What kind of issue is this?
+      options:
+        - Navigation/menu issue
+        - Content error (typo, outdated info)
+        - Layout problem
+        - Confusing user interface
+        - Missing information
+        - Broken links
+        - Form usability
+        - Mobile UX issue
+        - Design inconsistency
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Issue Description
+      description: What's the problem with the content or UX?
+      placeholder: The navigation carousel is not obviously scrollable, users might miss hidden menu items...
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_state
+    attributes:
+      label: Current State
+      description: How does it work/appear now?
+      placeholder: Menu items appear in tabs but there's no visual indicator they can be scrolled...
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired_state
+    attributes:
+      label: Desired State
+      description: How should it work/appear?
+      placeholder: Add scroll arrows or visual indicators showing more items are available...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user_impact
+    attributes:
+      label: User Impact
+      description: How does this affect users?
+      options:
+        - Users cannot complete a task
+        - Users are likely confused
+        - Users may miss important information
+        - Minor usability friction
+        - Visual polish/aesthetics
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested_solution
+    attributes:
+      label: Suggested Solution
+      description: How would you improve this? (Optional)
+      placeholder: Add carousel navigation arrows, show scroll indicators, make it more obvious...
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or Mockups
+      description: Visual examples help! (Optional)
+      placeholder: Drag and drop images here
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this?
+      options:
+        - High - Blocks key user journeys
+        - Medium - Noticeable friction
+        - Low - Nice to have
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other relevant information
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have checked this on the live site (bc-ai.ca)
+          required: true
+        - label: I have searched existing issues
+          required: true
+        - label: This suggestion aligns with BC+AI's mission and values
+          required: true

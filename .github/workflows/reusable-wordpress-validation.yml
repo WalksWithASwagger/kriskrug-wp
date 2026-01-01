@@ -1,0 +1,86 @@
+name: Reusable WordPress Validation
+
+on:
+  workflow_call:
+    inputs:
+      standard:
+        description: 'WordPress coding standard to use'
+        required: false
+        type: string
+        default: 'WordPress'
+      php-version:
+        description: 'PHP version to use'
+        required: false
+        type: string
+        default: '8.2'
+      files:
+        description: 'Files or directories to check'
+        required: false
+        type: string
+        default: '.'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ inputs.php-version }}
+          tools: composer, phpcs, phpcbf
+
+      - name: Install WordPress Coding Standards
+        run: |
+          composer global require wp-coding-standards/wpcs
+          phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+
+      - name: Verify WPCS installation
+        run: phpcs -i
+
+      - name: Run PHPCS
+        id: phpcs
+        run: |
+          phpcs --standard=${{ inputs.standard }} \
+                --report=summary \
+                --report-json=phpcs-report.json \
+                ${{ inputs.files }} || echo "exit_code=$?" >> $GITHUB_OUTPUT
+
+      - name: Parse results
+        if: always()
+        id: results
+        run: |
+          if [ -f "phpcs-report.json" ]; then
+            ERRORS=$(jq '.totals.errors' phpcs-report.json)
+            WARNINGS=$(jq '.totals.warnings' phpcs-report.json)
+            echo "errors=$ERRORS" >> $GITHUB_OUTPUT
+            echo "warnings=$WARNINGS" >> $GITHUB_OUTPUT
+          else
+            echo "errors=0" >> $GITHUB_OUTPUT
+            echo "warnings=0" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Upload PHPCS report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phpcs-report
+          path: phpcs-report.json
+
+      - name: Set status
+        if: always()
+        run: |
+          ERRORS=${{ steps.results.outputs.errors }}
+          WARNINGS=${{ steps.results.outputs.warnings }}
+
+          if [ "$ERRORS" -gt "0" ]; then
+            echo "❌ PHPCS found $ERRORS error(s) and $WARNINGS warning(s)"
+            exit 1
+          elif [ "$WARNINGS" -gt "0" ]; then
+            echo "⚠️  PHPCS found $WARNINGS warning(s)"
+            exit 0
+          else
+            echo "✅ No coding standard violations found"
+            exit 0
+          fi

@@ -1,0 +1,96 @@
+name: Sync Projects
+
+on:
+  issues:
+    types: [opened, closed, reopened, labeled, unlabeled]
+  pull_request:
+    types: [opened, closed, reopened, labeled, unlabeled, ready_for_review]
+
+permissions:
+  issues: write
+  pull-requests: write
+  repository-projects: write
+
+jobs:
+  sync-to-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync issue/PR to project board
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const isIssue = !!context.payload.issue;
+            const item = context.payload.issue || context.payload.pull_request;
+            const itemType = isIssue ? 'Issue' : 'Pull Request';
+
+            core.info(`Syncing ${itemType} #${item.number} to project board`);
+
+            // In a full implementation, this would:
+            // 1. Get or create organization/repo project
+            // 2. Add item to project if not already present
+            // 3. Update item status based on labels/state
+            // 4. Set custom fields (priority, size, etc.)
+
+            // For now, this is a placeholder showing the structure
+            core.info('Project sync would run here');
+            core.info(`Title: ${item.title}`);
+            core.info(`State: ${item.state}`);
+            core.info(`Labels: ${item.labels?.map(l => l.name).join(', ')}`);
+
+  update-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update project status based on activity
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const isIssue = !!context.payload.issue;
+            const item = context.payload.issue || context.payload.pull_request;
+            const action = context.payload.action;
+
+            let status = 'Unknown';
+
+            // Determine status based on action and labels
+            if (action === 'opened') {
+              status = 'Triage';
+            } else if (action === 'labeled') {
+              const label = context.payload.label?.name;
+
+              if (label === 'auto-implement') {
+                status = 'In Progress (Automated)';
+              } else if (label === 'priority:high') {
+                status = 'Triage';
+              }
+            } else if (!isIssue && action === 'ready_for_review') {
+              status = 'In Review';
+            } else if (action === 'closed') {
+              status = item.state_reason === 'completed' ? 'Done' : 'Closed';
+            }
+
+            core.info(`Would update project status to: ${status}`);
+
+  add-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add project metadata
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const isIssue = !!context.payload.issue;
+            const item = context.payload.issue || context.payload.pull_request;
+
+            // Extract metadata from labels
+            const labels = item.labels?.map(l => l.name) || [];
+
+            const priority = labels.find(l => l.startsWith('priority:'))?.split(':')[1] || 'medium';
+            const type = labels.includes('bug') ? 'Bug' :
+                        labels.includes('enhancement') ? 'Feature' :
+                        labels.includes('documentation') ? 'Docs' : 'Other';
+
+            core.info('Would set project fields:');
+            core.info(`  Priority: ${priority}`);
+            core.info(`  Type: ${type}`);
+            core.info(`  Labels: ${labels.join(', ')}`);
+
+            // In production, this would use GitHub Projects API v2
+            // to set custom fields on the project item

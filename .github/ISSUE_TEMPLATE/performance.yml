@@ -1,0 +1,142 @@
+name: Performance Issue
+description: Report a performance, speed, or optimization issue
+title: "[Performance]: "
+labels: ["performance"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us make bc-ai.ca faster! Report performance issues here.
+
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Which page has the performance issue?
+      placeholder: https://bc-ai.ca/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: metric
+    attributes:
+      label: Performance Metric
+      description: What aspect of performance is affected?
+      options:
+        - Page load time
+        - Time to Interactive (TTI)
+        - First Contentful Paint (FCP)
+        - Largest Contentful Paint (LCP)
+        - Cumulative Layout Shift (CLS)
+        - First Input Delay (FID)
+        - JavaScript execution time
+        - Image loading
+        - Overall Core Web Vitals
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Performance Issue Description
+      description: What's slow or inefficient?
+      placeholder: The homepage takes 8+ seconds to fully load...
+    validations:
+      required: true
+
+  - type: textarea
+    id: measurements
+    attributes:
+      label: Performance Measurements
+      description: Provide specific metrics if available
+      placeholder: |
+        - PageSpeed Insights score: 45
+        - Lighthouse Performance score: 52
+        - Load time: 8.3s
+        - LCP: 4.2s
+    validations:
+      required: false
+
+  - type: dropdown
+    id: device_type
+    attributes:
+      label: Device Type
+      description: Where is the performance issue most noticeable?
+      options:
+        - Mobile (3G/4G)
+        - Mobile (WiFi)
+        - Desktop
+        - Tablet
+        - All devices
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Impact Level
+      description: How bad is the performance issue?
+      options:
+        - Critical - Site unusable
+        - High - Significantly impacts UX
+        - Medium - Noticeable slowdown
+        - Low - Minor optimization opportunity
+    validations:
+      required: true
+
+  - type: textarea
+    id: cause
+    attributes:
+      label: Suspected Cause
+      description: If you have ideas about what's causing this (Optional)
+      placeholder: Large unoptimized images, blocking JavaScript, render-blocking CSS...
+    validations:
+      required: false
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Suggested Solution
+      description: Ideas for how to improve this (Optional)
+      placeholder: Lazy-load images, minify JavaScript, implement caching...
+    validations:
+      required: false
+
+  - type: textarea
+    id: tools_used
+    attributes:
+      label: Testing Tools Used
+      description: What tools did you use to measure performance? (Optional)
+      placeholder: PageSpeed Insights, Lighthouse, WebPageTest, Chrome DevTools...
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or Reports
+      description: Add screenshots from performance tools
+      placeholder: Drag and drop images here
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other relevant information
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have tested this on the live site (bc-ai.ca)
+          required: true
+        - label: I have checked existing performance issues
+          required: true
+        - label: I have provided specific measurements where possible
+          required: true
