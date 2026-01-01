@@ -1,0 +1,52 @@
+# EditorConfig for BC+AI
+# Ensures consistent coding styles across different editors and IDEs
+# https://editorconfig.org
+
+root = true
+
+# Defaults for all files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# PHP, JavaScript, CSS (WordPress standards: tabs)
+[*.{php,js,css,scss}]
+indent_style = tab
+indent_size = 4
+
+# YAML, JSON, Markdown (spaces for readability)
+[*.{yml,yaml,json,md}]
+indent_style = space
+indent_size = 2
+
+# Python (spaces, PEP 8)
+[*.py]
+indent_style = space
+indent_size = 4
+
+# Shell scripts
+[*.sh]
+indent_style = space
+indent_size = 2
+
+# Makefile (must use tabs)
+[Makefile]
+indent_style = tab
+
+# WordPress specific
+[*.php]
+indent_style = tab
+indent_size = 4
+# WordPress uses tabs, not spaces
+
+# Agent definition files
+[*.agent.md]
+indent_style = space
+indent_size = 2
+
+# Markdown (GitHub-flavored)
+[*.md]
+trim_trailing_whitespace = false
+# Allow trailing spaces for line breaks in markdown

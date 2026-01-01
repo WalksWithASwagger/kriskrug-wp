@@ -1,0 +1,104 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for bc-ai.ca
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature! Help us understand what you'd like to see.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve?
+      placeholder: Users have difficulty finding upcoming events because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How would you like this to work?
+      placeholder: Add a calendar view that shows all upcoming events in a monthly grid...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What other solutions have you thought about?
+      placeholder: Could also use a simple list view or integrate with Google Calendar...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Feature Type
+      description: What kind of enhancement is this?
+      options:
+        - New functionality
+        - Improvement to existing feature
+        - Performance optimization
+        - User experience enhancement
+        - Content addition
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: User Impact
+      description: How many users would benefit from this?
+      options:
+        - All users
+        - Most users
+        - Some users
+        - Specific user group
+        - Administrators only
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: considerations
+    attributes:
+      label: Important Considerations
+      description: Check all that apply
+      options:
+        - label: This feature should be accessible (WCAG 2.1 AA)
+        - label: This feature should work on mobile devices
+        - label: This feature may impact page load performance
+        - label: This feature requires new content or data
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: Mockups or Examples
+      description: Add mockups, sketches, or examples from other sites
+      placeholder: Drag and drop images or paste URLs
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Anything else we should know?
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues to avoid duplicates
+          required: true
+        - label: This feature aligns with BC+AI's mission
+          required: true
+        - label: I have considered accessibility implications
+          required: true

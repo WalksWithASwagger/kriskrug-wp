@@ -1,0 +1,137 @@
+name: Accessibility Issue
+description: Report an accessibility or WCAG compliance issue
+title: "[A11y]: "
+labels: ["accessibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping make bc-ai.ca accessible to everyone!
+
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Which page has the accessibility issue?
+      placeholder: https://bc-ai.ca/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: wcag_level
+    attributes:
+      label: WCAG Level
+      description: Which WCAG criterion does this relate to?
+      options:
+        - Level A
+        - Level AA (our target)
+        - Level AAA
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Type of Issue
+      description: What kind of accessibility issue is this?
+      options:
+        - Keyboard navigation
+        - Screen reader compatibility
+        - Color contrast
+        - Form labels/inputs
+        - Alternative text (images)
+        - Heading structure
+        - Focus indicators
+        - ARIA attributes
+        - Text sizing/readability
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Issue Description
+      description: Describe the accessibility barrier
+      placeholder: The navigation menu cannot be accessed using only keyboard...
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact on Users
+      description: Who is affected and how?
+      placeholder: Users who cannot use a mouse are unable to navigate the site...
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_behavior
+    attributes:
+      label: Current Behavior
+      description: What happens now?
+      placeholder: Tab key skips over the menu entirely...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: What should happen to be accessible?
+      placeholder: Tab key should navigate through all menu items...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this accessibility barrier?
+      options:
+        - Critical - Feature completely inaccessible
+        - High - Significant barrier to access
+        - Medium - Noticeable issue
+        - Low - Minor enhancement
+    validations:
+      required: true
+
+  - type: input
+    id: assistive_tech
+    attributes:
+      label: Assistive Technology Used
+      description: What tools did you use to discover this? (Optional)
+      placeholder: NVDA screen reader, keyboard only, WAVE browser extension, etc.
+    validations:
+      required: false
+
+  - type: textarea
+    id: suggested_fix
+    attributes:
+      label: Suggested Fix
+      description: If you have ideas on how to fix this (Optional)
+      placeholder: Add aria-label to the menu button, ensure proper focus order...
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Screenshots, code snippets, or other helpful information
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have checked this issue on the live site (bc-ai.ca)
+          required: true
+        - label: I have searched existing accessibility issues
+          required: true
+        - label: This issue affects real users or fails WCAG criteria
+          required: true

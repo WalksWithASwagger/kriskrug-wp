@@ -1,0 +1,87 @@
+# WordPress Core
+/wp-admin/
+/wp-includes/
+/wp-content/index.php
+/wp-content/languages
+/wp-content/plugins/index.php
+/wp-content/themes/index.php
+wp-*.php
+xmlrpc.php
+license.txt
+readme.html
+
+# WordPress Configuration
+wp-config.php
+wp-config-sample.php
+
+# Database
+*.sql
+*.sql.gz
+*.sqlite
+
+# Log Files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor Directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node
+node_modules/
+npm-debug.log
+package-lock.json
+yarn.lock
+
+# PHP
+vendor/
+composer.lock
+
+# Build Files
+/dist/
+/build/
+*.min.js
+*.min.css
+
+# Uploads (usually tracked via media management)
+/wp-content/uploads/
+
+# Cache
+/wp-content/cache/
+/wp-content/advanced-cache.php
+/wp-content/wp-cache-config.php
+
+# Backup Files
+*.bak
+*.backup
+*.old
+
+# Temporary Files
+*.tmp
+*.temp
+
+# Claude Agent State (keep in repo for tracking)
+# .github/agent-state/
+
+# Keep important config templates
+!.github/
+!.gitkeep

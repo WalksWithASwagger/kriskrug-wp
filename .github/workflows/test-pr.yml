@@ -1,0 +1,238 @@
+name: Test PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+      - develop
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  # Basic validation checks
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check PR title format
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const title = pr.title;
+
+            const validPrefixes = ['Fix:', 'Add:', 'Update:', 'Refactor:', 'Docs:', 'Chore:', 'Feature:'];
+            const hasValidPrefix = validPrefixes.some(prefix => title.startsWith(prefix));
+
+            if (!hasValidPrefix) {
+              core.warning(`PR title should start with one of: ${validPrefixes.join(', ')}`);
+            }
+
+      - name: Check PR links to issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const body = pr.body || '';
+
+            const hasIssueLink = /(?:fixes|closes|resolves)\s+#\d+/i.test(body);
+
+            if (!hasIssueLink) {
+              core.warning('PR should link to an issue using "Fixes #123" or similar');
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                body: `⚠️ **Missing Issue Link**\n\nThis PR doesn't appear to link to an issue.\n\nPlease add a line like:\n- \`Fixes #123\`\n- \`Closes #456\`\n- \`Resolves #789\`\n\nThis ensures the issue is automatically closed when the PR is merged.`
+              });
+            }
+
+  # WordPress/PHP validation
+  php-validation:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.changed_files, '.php')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer, phpcs
+
+      - name: Check if composer.json exists
+        id: check-composer
+        run: |
+          if [ -f "composer.json" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install dependencies
+        if: steps.check-composer.outputs.exists == 'true'
+        run: composer install --prefer-dist --no-progress
+
+      - name: Check for PHPCS
+        id: check-phpcs
+        run: |
+          if command -v phpcs &> /dev/null; then
+            echo "installed=true" >> $GITHUB_OUTPUT
+          else
+            echo "installed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: WordPress Coding Standards
+        if: steps.check-phpcs.outputs.installed == 'true'
+        run: |
+          # Install WordPress Coding Standards if not present
+          if ! phpcs -i | grep -q "WordPress"; then
+            composer global require wp-coding-standards/wpcs
+            phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+          fi
+
+          # Run PHPCS
+          phpcs --standard=WordPress --report=summary --report-checkstyle=phpcs-report.xml . || true
+
+      - name: Comment PHPCS results
+        if: steps.check-phpcs.outputs.installed == 'true' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const pr = context.payload.pull_request;
+
+            if (fs.existsSync('phpcs-report.xml')) {
+              const report = fs.readFileSync('phpcs-report.xml', 'utf8');
+
+              // Parse basic stats from report (simplified)
+              const errorMatch = report.match(/errors="(\d+)"/);
+              const warningMatch = report.match(/warnings="(\d+)"/);
+
+              const errors = errorMatch ? parseInt(errorMatch[1]) : 0;
+              const warnings = warningMatch ? parseInt(warningMatch[1]) : 0;
+
+              if (errors > 0 || warnings > 0) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number,
+                  body: `## WordPress Coding Standards\n\n**Errors:** ${errors}\n**Warnings:** ${warnings}\n\nPlease fix coding standard violations. Run locally:\n\`\`\`bash\nbash skills/github-workflow-automation/scripts/validate_wordpress.sh --fix\n\`\`\``
+                });
+
+                if (errors > 0) {
+                  core.setFailed(`PHPCS found ${errors} error(s)`);
+                }
+              } else {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number,
+                  body: `✅ **WordPress Coding Standards Check Passed**\n\nNo errors or warnings found!`
+                });
+              }
+            }
+
+  # JavaScript/Node validation
+  javascript-validation:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.changed_files, '.js') || contains(github.event.pull_request.changed_files, '.jsx') || contains(github.event.pull_request.changed_files, '.ts') || contains(github.event.pull_request.changed_files, '.tsx')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check for package.json
+        id: check-package
+        run: |
+          if [ -f "package.json" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install dependencies
+        if: steps.check-package.outputs.exists == 'true'
+        run: npm install
+
+      - name: Run linting
+        if: steps.check-package.outputs.exists == 'true'
+        run: |
+          if grep -q '"lint"' package.json; then
+            npm run lint || true
+          fi
+
+      - name: Run tests
+        if: steps.check-package.outputs.exists == 'true'
+        run: |
+          if grep -q '"test"' package.json; then
+            npm test || true
+          fi
+
+  # Security scanning
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  # Summarize all checks
+  summary:
+    needs: [validate, php-validation, javascript-validation, security-scan]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check all validations passed
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const jobs = ${{ toJSON(needs) }};
+
+            const allPassed = Object.values(jobs).every(job =>
+              job.result === 'success' || job.result === 'skipped'
+            );
+
+            if (allPassed) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                body: `✅ **All validation checks passed!**\n\nThis PR is ready for human review.`
+              });
+            } else {
+              const failedJobs = Object.entries(jobs)
+                .filter(([_, job]) => job.result === 'failure')
+                .map(([name, _]) => name);
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                body: `❌ **Some validation checks failed**\n\nFailed checks:\n${failedJobs.map(j => `- ${j}`).join('\n')}\n\nPlease fix the issues and push again.`
+              });
+
+              core.setFailed('Some validation checks failed');
+            }

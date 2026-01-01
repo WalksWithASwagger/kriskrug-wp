@@ -1,0 +1,137 @@
+# Agent Error Handling Configuration
+
+# Maximum retries per stage
+max_retries: 3
+
+# Retry strategy
+retry_strategy: exponential_backoff
+
+# Backoff timing (in seconds)
+backoff_intervals:
+  - 60    # 1 minute
+  - 120   # 2 minutes
+  - 240   # 4 minutes
+
+# Timeout per stage (in minutes)
+timeout_per_stage:
+  analysis: 10
+  test_writing: 15
+  implementation: 30
+  testing: 20
+  review: 10
+  pr_creation: 5
+
+# Error escalation rules
+escalation_rules:
+  - condition: "retry_count >= 3"
+    action: "label_issue"
+    labels:
+      - "automated-workflow-failed"
+      - "needs-human-review"
+    notify: "@maintainers"
+    comment: |
+      ❌ **Automated workflow failed after 3 attempts**
+
+      The agent swarm encountered persistent errors and has halted.
+
+      **Failed stage:** {stage}
+      **Error:** {error_message}
+
+      Please review the workflow logs and handle this issue manually.
+
+      [View logs]({workflow_url})
+
+  - condition: "stage == 'testing' AND qa_results.phpunit.failures > 0"
+    action: "provide_failure_context_to_implementer"
+    retry_stage: "implementation"
+    comment: |
+      ⚠️ **Tests failing - retrying implementation**
+
+      **Failed tests:** {failure_count}
+      **Attempt:** {retry_count}/3
+
+      The implementer agent will retry with failure context.
+
+  - condition: "stage == 'testing' AND qa_results.phpcs.errors > 0"
+    action: "auto_fix_and_retry"
+    command: "bash skills/github-workflow-automation/scripts/validate_wordpress.sh --fix"
+    retry_stage: "testing"
+
+  - condition: "stage == 'review' AND review_decision == 'changes_requested'"
+    action: "provide_review_feedback_to_implementer"
+    retry_stage: "implementation"
+    include_context:
+      - review_comments
+      - blocking_issues
+
+# Error categories and handling
+
+error_categories:
+  transient:
+    description: "Temporary errors that should auto-retry immediately"
+    patterns:
+      - "Network timeout"
+      - "Rate limit exceeded"
+      - "Temporary file lock"
+      - "GitHub API unavailable"
+    action: "immediate_retry"
+    max_retries: 5
+    backoff: false
+
+  recoverable:
+    description: "Errors that can be fixed by providing context and retrying"
+    patterns:
+      - "Test failures"
+      - "PHPCS violations"
+      - "Missing dependencies"
+      - "Code review changes requested"
+    action: "retry_with_context"
+    max_retries: 3
+    backoff: true
+
+  fatal:
+    description: "Errors that require human intervention"
+    patterns:
+      - "Invalid issue format"
+      - "Missing permissions"
+      - "Merge conflict"
+      - "Syntax error in specification"
+    action: "escalate_to_human"
+    labels:
+      - "needs-human-review"
+    notify: true
+
+# Notification settings
+notifications:
+  on_failure:
+    - type: "issue_comment"
+      template: "{stage} failed: {error_message}"
+    - type: "label"
+      labels: ["automated-workflow-failed"]
+
+  on_retry:
+    - type: "issue_comment"
+      template: "Retrying {stage} (attempt {retry_count}/{max_retries})"
+
+  on_success:
+    - type: "issue_comment"
+      template: "✅ {stage} completed successfully"
+
+# Rate limiting
+rate_limits:
+  max_concurrent_workflows: 3
+  max_agent_tasks_per_hour: 10
+  delay_between_stages_seconds: 5
+
+# State management
+state_management:
+  backup_frequency: "after_each_stage"
+  cleanup_completed_states_after_days: 30
+  keep_failed_states_indefinitely: true
+
+# Logging
+logging:
+  level: "info"  # debug, info, warn, error
+  include_timestamps: true
+  log_agent_outputs: true
+  log_file: ".github/agent-state/agent-orchestration.log"
