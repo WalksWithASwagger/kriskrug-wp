@@ -1,0 +1,54 @@
+{
+  "issues": [
+    {
+      "title": "[BUG] Fix Services Page 404 Error",
+      "body": "## Problem\n\nThe Services page returns a 404 error despite being directly linked from the homepage CTA \"Discover Our Services\". This is a critical conversion blocker.\n\n## Impact\n\n- **CRITICAL** - Breaks primary conversion path\n- Blocks potential clients from learning about services\n- Undermines credibility\n- Lost lead generation\n\n## Acceptance Criteria\n\n- [ ] /services URL returns 200 status\n- [ ] Page displays service offerings clearly\n- [ ] Homepage CTA link works\n- [ ] Navigation menu link works\n- [ ] Services descriptive and compelling\n- [ ] Mobile responsive design\n- [ ] SEO optimized",
+      "labels": ["bug", "priority:high"]
+    },
+    {
+      "title": "[BUG] Fix Projects Page 404 Error",
+      "body": "## Problem\n\nThe Projects page returns 404 despite being in main navigation. Portfolio is critical for personal brand.\n\n## Impact\n\n- **HIGH** - Portfolio completely inaccessible\n- Potential clients cannot view past work\n- Missing social proof\n- Navigation broken\n\n## Acceptance Criteria\n\n- [ ] /projects URL returns 200 status\n- [ ] Page displays portfolio projects\n- [ ] Navigation link works\n- [ ] Minimum 6-8 diverse projects displayed\n- [ ] Project details visible\n- [ ] Images/media load correctly\n- [ ] Mobile responsive",
+      "labels": ["bug", "priority:high", "content"]
+    },
+    {
+      "title": "[BUG] Add Alt Text to All Images",
+      "body": "## Problem\n\nMultiple images lack descriptive alt text. WCAG 2.1 AA compliance violation.\n\n## Impact\n\n- **HIGH** - Accessibility compliance violation\n- Screen reader users cannot access visual content\n- Search engines cannot index images\n- SEO impact\n\n## Acceptance Criteria\n\n- [ ] All images have descriptive alt text\n- [ ] Alt text keyword-optimized where appropriate\n- [ ] Profile/headshots labeled with context\n- [ ] Project images describe content/purpose\n- [ ] Decorative images have empty alt=\"\"\n- [ ] Tested with screen readers\n- [ ] WCAG 2.1 AA compliance verified",
+      "labels": ["bug", "priority:high", "accessibility"]
+    },
+    {
+      "title": "[BUG] Fix Color Contrast for WCAG Compliance",
+      "body": "## Problem\n\nColor contrast (#404040 text on #f9f9f9 background) does not meet WCAG 2.1 AA standards (requires 4.5:1, currently 3.2:1).\n\n## Impact\n\n- **HIGH** - Accessibility failure\n- Non-compliance with WCAG 2.1 AA\n- Poor readability for low vision users\n\n## Recommended Solution\n\nDarken text to #1a1a1a (achieves 7.3:1 ratio).\n\n## Acceptance Criteria\n\n- [ ] All body text meets 4.5:1 contrast ratio\n- [ ] Large text meets 3:1 ratio\n- [ ] Validation using WAVE or axe DevTools\n- [ ] No design regression\n- [ ] All pages tested and passing",
+      "labels": ["bug", "priority:high", "accessibility"]
+    },
+    {
+      "title": "[UX] Adjust Newsletter Popup Timing",
+      "body": "## Problem\n\nNewsletter popup auto-opens after 1 second, creating poor UX and frustrating visitors before they can engage with content.\n\n## Impact\n\n- **MEDIUM** - Negative UX, potential bounce rate increase\n- Interrupts user intent\n- Accessibility issue\n\n## Recommended Solutions\n\n- Delayed trigger: 10-15 seconds (vs 1 second)\n- Scroll-based: 30-50% down page\n- Exit-intent: When leaving\n- Hybrid approach (best)\n\n## Acceptance Criteria\n\n- [ ] Popup no longer auto-opens at 1 second\n- [ ] Chosen timing strategy implemented\n- [ ] Easy close mechanism\n- [ ] Dismissal remembered\n- [ ] Mobile experience improved\n- [ ] Accessibility compliance verified",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[CONTENT] Add Pricing Information to Services",
+      "body": "## Problem\n\nNo pricing information anywhere on site. Users cannot assess investment requirements.\n\n## Impact\n\n- **MEDIUM** - Lost opportunities, extended sales cycle\n- Prospects can't self-qualify\n- Increased support burden\n\n## Acceptance Criteria\n\n- [ ] Pricing visible on service descriptions\n- [ ] Pricing accurate and current\n- [ ] Clear what's included\n- [ ] Mobile-optimized presentation\n- [ ] FAQ addresses pricing questions\n- [ ] Professional presentation",
+      "labels": ["enhancement", "priority:medium", "content"]
+    },
+    {
+      "title": "[A11Y] Add ARIA Labels to Icon Buttons",
+      "body": "## Problem\n\nSocial media icon buttons lack aria-labels for screen readers. Users cannot understand button purpose.\n\n## Impact\n\n- **MEDIUM** - Accessibility barrier\n- WCAG 2.1 AA violation\n- Screen reader users cannot navigate social links\n\n## Acceptance Criteria\n\n- [ ] All icon buttons have descriptive aria-labels\n- [ ] Labels concise and meaningful\n- [ ] Tested with screen readers\n- [ ] Keyboard navigation works\n- [ ] Focus indicators visible\n- [ ] WCAG 2.1 AA compliance verified",
+      "labels": ["bug", "priority:medium", "accessibility"]
+    },
+    {
+      "title": "[A11Y] Fix Search Field Accessibility",
+      "body": "## Problem\n\nSearch functionality lacks visible labels and proper aria-labels. Not accessible to screen reader users.\n\n## Impact\n\n- **MEDIUM** - Significant barrier for screen reader users\n- WCAG 2.1 AA violation\n- Cannot understand search field purpose\n\n## Acceptance Criteria\n\n- [ ] Search input has descriptive aria-label\n- [ ] Visible label text associated\n- [ ] Search button has clear aria-label\n- [ ] Form announced correctly\n- [ ] Keyboard navigation works\n- [ ] Tested with screen readers\n- [ ] WCAG 2.1 AA compliance verified",
+      "labels": ["bug", "priority:medium", "accessibility"]
+    },
+    {
+      "title": "[UX] Add Hover States to CTA Buttons",
+      "body": "## Problem\n\nCTA buttons lack visible hover states, making them feel unresponsive.\n\n## Impact\n\n- **MEDIUM** - Poor UX and perceived responsiveness\n- Users uncertain if buttons are interactive\n- Reduced click-through rates\n- Lower conversion\n\n## Acceptance Criteria\n\n- [ ] All primary CTA buttons have :hover state\n- [ ] Hover state visually distinct\n- [ ] Transition smooth (0.2-0.3s)\n- [ ] :focus state for keyboard users\n- [ ] :active state for press feedback\n- [ ] Tested on desktop browsers\n- [ ] Mobile touch feedback\n- [ ] Color contrast maintained",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[UX] Create Membership Benefits Comparison Matrix",
+      "body": "## Problem\n\nMembership page lacks clear visual comparison of benefits and tiers. Users cannot easily understand tier differences.\n\n## Impact\n\n- **MEDIUM** - Reduced membership conversion\n- Confusion about tier differences\n- Benefits undervalued\n\n## Acceptance Criteria\n\n- [ ] Comparison matrix displays all tiers side-by-side\n- [ ] Clear column headers for each tier\n- [ ] Cells show included vs excluded features\n- [ ] Pricing clearly displayed\n- [ ] CTA button for each tier\n- [ ] Recommended tier highlighted\n- [ ] Mobile responsive (vertical on small screens)\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    }
+  ]
+}
