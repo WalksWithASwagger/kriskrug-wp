@@ -1,6 +1,6 @@
-# BC+AI Automation Guide
+# Kris Krug Automation Guide
 
-Complete guide to the AI-powered automation workflows for the BC+AI WordPress site.
+Complete guide to the AI-powered automation workflows for the Kris Krug WordPress site.
 
 ## Overview
 

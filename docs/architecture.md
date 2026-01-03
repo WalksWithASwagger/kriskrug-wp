@@ -1,4 +1,4 @@
-# BC+AI Agent Swarm Architecture
+# Kris Krug Agent Swarm Architecture
 
 Complete system architecture and how everything connects.
 
@@ -8,12 +8,12 @@ Complete system architecture and how everything connects.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     BC+AI ECOSYSTEM                         │
+│                     Kris Krug ECOSYSTEM                         │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  Production Site          GitHub Repository          Dev Server │
 │  ┌──────────────┐        ┌────────────────┐        ┌──────────┐ │
-│  │  bc-ai.ca    │◄──────►│ Issue Tracking │◄──────►│ Cloudways│ │
+│  │  kk.ca    │◄──────►│ Issue Tracking │◄──────►│ Cloudways│ │
 │  │  (Live WP)   │        │  Automation    │        │ (WP 6.9) │ │
 │  └──────────────┘        │  Agent Swarm   │        └──────────┘ │
 │                          └────────────────┘                   │
@@ -214,8 +214,8 @@ Admin: {credentials in Cloudways dashboard}
 
 # File paths
 WordPress root: ~/applications/fkgwevabgu/public_html
-Custom plugin: ~/applications/fkgwevabgu/public_html/wp-content/plugins/bc-ai-custom
-Custom theme: ~/applications/fkgwevabgu/public_html/wp-content/themes/bc-ai-theme
+Custom plugin: ~/applications/fkgwevabgu/public_html/wp-content/plugins/kk-custom
+Custom theme: ~/applications/fkgwevabgu/public_html/wp-content/themes/kk-theme
 ```
 
 ---

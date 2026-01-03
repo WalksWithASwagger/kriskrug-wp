@@ -6,14 +6,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        Help us make bc-ai.ca faster! Report performance issues here.
+        Help us make kk.ca faster! Report performance issues here.
 
   - type: input
     id: url
     attributes:
       label: URL
       description: Which page has the performance issue?
-      placeholder: https://bc-ai.ca/...
+      placeholder: https://kk.ca/...
     validations:
       required: true
 
@@ -134,7 +134,7 @@ body:
     attributes:
       label: Pre-submission Checklist
       options:
-        - label: I have tested this on the live site (bc-ai.ca)
+        - label: I have tested this on the live site (kk.ca)
           required: true
         - label: I have checked existing performance issues
           required: true

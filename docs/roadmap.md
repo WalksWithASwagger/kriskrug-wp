@@ -1,6 +1,6 @@
-# BC+AI Development Roadmap
+# Kris Krug Development Roadmap
 
-Current priorities and planned improvements for bc-ai.ca
+Current priorities and planned improvements for kk.ca
 
 ---
 
@@ -314,7 +314,7 @@ Current priorities and planned improvements for bc-ai.ca
 
 **Current:**
 - WordPress hosting
-- Domain (bc-ai.ca)
+- Domain (kk.ca)
 - GitHub repository
 
 **Needed:**

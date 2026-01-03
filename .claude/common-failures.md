@@ -18,14 +18,14 @@ Direct SQL queries without using `$wpdb->prepare()`
 
 **Bad Example:**
 ```php
-$results = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}bc_ai_events WHERE id = {$id}" );
+$results = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}kk_events WHERE id = {$id}" );
 ```
 
 **Good Example:**
 ```php
 $results = $wpdb->get_results(
     $wpdb->prepare(
-        "SELECT * FROM {$wpdb->prefix}bc_ai_events WHERE id = %d",
+        "SELECT * FROM {$wpdb->prefix}kk_events WHERE id = %d",
         $id
     )
 );
@@ -391,14 +391,14 @@ Code works in isolation but fails with other plugins active
 })(jQuery);
 
 // Check if function exists
-if ( ! function_exists( 'bc_ai_function' ) ) {
-    function bc_ai_function() {
+if ( ! function_exists( 'kk_function' ) ) {
+    function kk_function() {
         // Implementation
     }
 }
 
 // Use specific hook priority
-add_action( 'init', 'bc_ai_init', 5 );  // Run early
+add_action( 'init', 'kk_init', 5 );  // Run early
 ```
 
 **Prevention:**
@@ -430,7 +430,7 @@ if ( wp_using_ext_object_cache() ) {
 }
 
 // Or use options for persistent storage
-update_option( 'bc_ai_data', $data, false );  // false = don't autoload
+update_option( 'kk_data', $data, false );  // false = don't autoload
 ```
 
 **Prevention:**
@@ -562,7 +562,7 @@ if ( $_POST['action'] == 'delete' ) {
 ```php
 if ( $_POST['action'] == 'delete' ) {
     // Verify nonce
-    if ( ! wp_verify_nonce( $_POST['nonce'], 'bc_ai_delete' ) ) {
+    if ( ! wp_verify_nonce( $_POST['nonce'], 'kk_delete' ) ) {
         wp_die( 'Security check failed' );
     }
 

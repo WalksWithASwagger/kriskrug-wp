@@ -1,4 +1,4 @@
-# BC+AI WordPress Setup - Cloudways Development Server
+# Kris Krug WordPress Setup - Cloudways Development Server
 
 **Server Type:** Development/Staging
 **Environment:** Cloudways
@@ -27,8 +27,8 @@
 ### File Paths
 - **WordPress Root:** `/home/1569695.cloudwaysapps.com/fkgwevabgu/public_html`
 - **wp-content:** `/home/1569695.cloudwaysapps.com/fkgwevabgu/public_html/wp-content`
-- **Custom Plugins:** `/home/1569695.cloudwaysapps.com/fkgwevabgu/public_html/wp-content/plugins/bc-ai-*`
-- **Custom Theme:** `/home/1569695.cloudwaysapps.com/fkgwevabgu/public_html/wp-content/themes/bc-ai-*`
+- **Custom Plugins:** `/home/1569695.cloudwaysapps.com/fkgwevabgu/public_html/wp-content/plugins/kk-*`
+- **Custom Theme:** `/home/1569695.cloudwaysapps.com/fkgwevabgu/public_html/wp-content/themes/kk-*`
 
 ---
 
@@ -141,8 +141,8 @@ Or via WordPress admin.
 ### Strategy
 
 **Track ONLY custom code in git:**
-- `/wp-content/plugins/bc-ai-*/` - Our custom plugins
-- `/wp-content/themes/bc-ai-*/` - Our custom theme
+- `/wp-content/plugins/kk-*/` - Our custom plugins
+- `/wp-content/themes/kk-*/` - Our custom theme
 - NOT WordPress core
 - NOT third-party plugins/themes
 
@@ -153,11 +153,11 @@ Or via WordPress admin.
 cd /home/1569695.cloudwaysapps.com/fkgwevabgu/public_html/wp-content
 
 # Clone our repo (custom code only)
-git clone https://github.com/WalksWithASwagger/bc-ai-wp.git bc-ai-repo
+git clone https://github.com/WalksWithASwagger/kk-wp.git kk-repo
 
 # Copy/link custom code
-mkdir -p plugins/bc-ai-custom
-mkdir -p themes/bc-ai-theme
+mkdir -p plugins/kk-custom
+mkdir -p themes/kk-theme
 
 # Or symlink (if we create custom code in our repo first)
 ```
@@ -171,7 +171,7 @@ mkdir -p themes/bc-ai-theme
 **Option 1: Git Pull (Recommended)**
 ```bash
 # On Cloudways
-cd ~/applications/fkgwevabgu/public_html/wp-content/plugins/bc-ai-custom
+cd ~/applications/fkgwevabgu/public_html/wp-content/plugins/kk-custom
 git pull origin main
 ```
 
@@ -314,6 +314,6 @@ ssh cloudways-bcai-dev
 
 ---
 
-**This is a perfect development environment for BC+AI!** 🌲
+**This is a perfect development environment for Kris Krug!** 🌲
 
 WordPress is fresh, server is powerful, and we have all the tools we need to build and test safely before touching production.

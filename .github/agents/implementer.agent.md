@@ -45,7 +45,7 @@ Follow WPCS WordPress-Extra:
 
 ```php
 // Good
-function bc_ai_sanitize_input( $input ) {
+function kk_sanitize_input( $input ) {
     return sanitize_text_field( $input );
 }
 
@@ -117,7 +117,7 @@ wp_cache_get( 'key', 'group' );
  * @param string $url API endpoint URL.
  * @return array|WP_Error Response data or error on failure.
  */
-function bc_ai_get_api_response( $url ) {
+function kk_get_api_response( $url ) {
     // Implementation
 }
 ```
@@ -129,8 +129,8 @@ function bc_ai_get_api_response( $url ) {
 ```
 wp-content/
 ├── plugins/
-│   └── bc-ai-custom/
-│       ├── bc-ai-custom.php (main plugin file)
+│   └── kk-custom/
+│       ├── kk-custom.php (main plugin file)
 │       ├── includes/
 │       │   ├── class-api-client.php
 │       │   └── class-cache-manager.php
@@ -144,8 +144,8 @@ wp-content/
 
 ```php
 // Register hooks in main file or init
-add_action( 'init', 'bc_ai_init' );
-add_filter( 'the_content', 'bc_ai_modify_content' );
+add_action( 'init', 'kk_init' );
+add_filter( 'the_content', 'kk_modify_content' );
 
 // Hook priorities matter
 add_action( 'init', 'early_function', 5 );  // Runs early
@@ -155,16 +155,16 @@ add_action( 'init', 'late_function', 20 );  // Runs late
 ### Enqueue Assets
 
 ```php
-function bc_ai_enqueue_scripts() {
+function kk_enqueue_scripts() {
     wp_enqueue_style(
-        'bc-ai-style',
+        'kk-style',
         plugin_dir_url( __FILE__ ) . 'css/style.css',
         array(),
         '1.0.0'
     );
 
     wp_enqueue_script(
-        'bc-ai-script',
+        'kk-script',
         plugin_dir_url( __FILE__ ) . 'js/script.js',
         array( 'jquery' ),
         '1.0.0',
@@ -172,20 +172,20 @@ function bc_ai_enqueue_scripts() {
     );
 
     // Localize script
-    wp_localize_script( 'bc-ai-script', 'bcAiData', array(
+    wp_localize_script( 'kk-script', 'bcAiData', array(
         'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-        'nonce'   => wp_create_nonce( 'bc_ai_ajax' ),
+        'nonce'   => wp_create_nonce( 'kk_ajax' ),
     ) );
 }
-add_action( 'wp_enqueue_scripts', 'bc_ai_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'kk_enqueue_scripts' );
 ```
 
 ### AJAX Handlers
 
 ```php
-function bc_ai_handle_ajax() {
+function kk_handle_ajax() {
     // Verify nonce
-    check_ajax_referer( 'bc_ai_ajax', 'nonce' );
+    check_ajax_referer( 'kk_ajax', 'nonce' );
 
     // Check capability
     if ( ! current_user_can( 'edit_posts' ) ) {
@@ -198,7 +198,7 @@ function bc_ai_handle_ajax() {
     // Process and return
     wp_send_json_success( array( 'result' => $data ) );
 }
-add_action( 'wp_ajax_bc_ai_action', 'bc_ai_handle_ajax' );
+add_action( 'wp_ajax_kk_action', 'kk_handle_ajax' );
 ```
 
 ## Implementation Workflow
@@ -252,7 +252,7 @@ php -l file.php
 
 ```php
 // Return WP_Error on failure
-function bc_ai_fetch_data() {
+function kk_fetch_data() {
     $response = wp_remote_get( $url );
 
     if ( is_wp_error( $response ) ) {
@@ -268,7 +268,7 @@ function bc_ai_fetch_data() {
 }
 
 // Check for errors
-$result = bc_ai_fetch_data();
+$result = kk_fetch_data();
 if ( is_wp_error( $result ) ) {
     error_log( $result->get_error_message() );
     return false;
@@ -278,7 +278,7 @@ if ( is_wp_error( $result ) ) {
 ### Data Validation
 
 ```php
-function bc_ai_process_form( $data ) {
+function kk_process_form( $data ) {
     // Validate required fields
     if ( empty( $data['email'] ) ) {
         return new WP_Error( 'missing_email', 'Email required' );
@@ -305,7 +305,7 @@ function bc_ai_process_form( $data ) {
 ```php
 // Check if function exists
 if ( ! function_exists( 'wp_new_function' ) ) {
-    function bc_ai_fallback() {
+    function kk_fallback() {
         // Fallback implementation
     }
 }
@@ -365,7 +365,7 @@ Before marking implementation complete:
 ### Singleton Pattern (WordPress Style)
 
 ```php
-class BC_AI_API_Client {
+class KK_API_Client {
     private static $instance = null;
 
     public static function instance() {
@@ -381,22 +381,22 @@ class BC_AI_API_Client {
 }
 
 // Usage
-$client = BC_AI_API_Client::instance();
+$client = KK_API_Client::instance();
 ```
 
 ### Options/Settings
 
 ```php
 // Get option with default
-$value = get_option( 'bc_ai_setting', 'default' );
+$value = get_option( 'kk_setting', 'default' );
 
 // Update option
-update_option( 'bc_ai_setting', $new_value );
+update_option( 'kk_setting', $new_value );
 
 // Settings API
-register_setting( 'bc_ai_options', 'bc_ai_setting' );
-add_settings_section( 'bc_ai_section', 'Title', 'callback', 'page' );
-add_settings_field( 'bc_ai_field', 'Label', 'callback', 'page', 'section' );
+register_setting( 'kk_options', 'kk_setting' );
+add_settings_section( 'kk_section', 'Title', 'callback', 'page' );
+add_settings_field( 'kk_field', 'Label', 'callback', 'page', 'section' );
 ```
 
 ---

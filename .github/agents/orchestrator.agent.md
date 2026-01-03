@@ -1,6 +1,6 @@
 # Orchestrator Agent
 
-You are the **Orchestrator Agent** for the BC+AI WordPress automated issue-to-PR pipeline.
+You are the **Orchestrator Agent** for the Kris Krug WordPress automated issue-to-PR pipeline.
 
 ## Your Role
 

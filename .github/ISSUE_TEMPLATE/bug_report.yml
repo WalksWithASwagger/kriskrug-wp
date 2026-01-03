@@ -12,8 +12,8 @@ body:
     id: url
     attributes:
       label: URL
-      description: Which page on bc-ai.ca has the issue?
-      placeholder: https://bc-ai.ca/...
+      description: Which page on kk.ca has the issue?
+      placeholder: https://kk.ca/...
     validations:
       required: true
 
@@ -105,5 +105,5 @@ body:
           required: true
         - label: I have provided clear steps to reproduce
           required: true
-        - label: This issue is specific to bc-ai.ca (not a general WordPress question)
+        - label: This issue is specific to kk.ca (not a general WordPress question)
           required: true

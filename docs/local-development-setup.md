@@ -1,4 +1,4 @@
-# BC+AI Local Development Setup Guide
+# Kris Krug Local Development Setup Guide
 
 **CRITICAL:** This is a production site. We must have a completely separate local development environment.
 
@@ -47,7 +47,7 @@ Since you only have WordPress admin access, use a plugin-based export method.
 
 3. **Save Export File**
    ```
-   Save to: ~/Downloads/bc-ai-ca-export.wpress
+   Save to: ~/Downloads/kk-ca-export.wpress
    Size: Likely 100MB-2GB depending on media
    ```
 
@@ -57,7 +57,7 @@ Since you only have WordPress admin access, use a plugin-based export method.
 
 1. Install "Duplicator" plugin
 2. Packages → Create New
-3. Name: `bc-ai-local-dev`
+3. Name: `kk-local-dev`
 4. Build and download both files:
    - `installer.php`
    - `{site-name}_archive.zip`
@@ -73,7 +73,7 @@ Let me help you choose between **Local (Flywheel)** and **Docker**.
 **Pros:**
 - ✅ Beautiful GUI, super easy
 - ✅ One-click WordPress install
-- ✅ Built-in SSL (https://bc-ai.local)
+- ✅ Built-in SSL (https://kk.local)
 - ✅ Import .wpress files directly
 - ✅ Easy database access (Adminer included)
 - ✅ No terminal commands needed
@@ -143,15 +143,15 @@ npm install -g @wordpress/env
 3. **Import Production Site**
    ```
    Local → Click "+" → "Create from site backup"
-   Choose file: bc-ai-ca-export.wpress
-   Site name: bc-ai-local
+   Choose file: kk-ca-export.wpress
+   Site name: kk-local
 
    Wait for import (5-10 minutes)
    ```
 
 4. **Site is Ready!**
    ```
-   URL: https://bc-ai-local.local
+   URL: https://kk-local.local
    Admin: Your production credentials
    Database: Access via Adminer in Local
    ```
@@ -177,7 +177,7 @@ npm install -g @wordpress/env
 
 7. **Link to Our Git Repo**
    ```bash
-   cd ~/Local\ Sites/bc-ai-local/app/public
+   cd ~/Local\ Sites/kk-local/app/public
 
    # Copy our repo into WordPress directory
    # OR
@@ -215,8 +215,8 @@ npm install -g @wordpress/env
        "SCRIPT_DEBUG": true
      },
      "mappings": {
-       "wp-content/plugins/bc-ai-custom": "./wp-content/plugins/bc-ai-custom",
-       "wp-content/themes/bc-ai-theme": "./wp-content/themes/bc-ai-theme"
+       "wp-content/plugins/kk-custom": "./wp-content/plugins/kk-custom",
+       "wp-content/themes/kk-theme": "./wp-content/themes/kk-theme"
      }
    }
    ```
@@ -241,7 +241,7 @@ npm install -g @wordpress/env
    wp-env run cli wp db import ~/Downloads/database-export.sql
 
    # Search-replace URLs
-   wp-env run cli wp search-replace 'https://bc-ai.ca' 'http://localhost:8888'
+   wp-env run cli wp search-replace 'https://kk.ca' 'http://localhost:8888'
    ```
 
 ---
@@ -251,7 +251,7 @@ npm install -g @wordpress/env
 ### Directory Structure (Recommended)
 
 ```
-/Users/kk/Code/bc-ai-wp/              # Our git repo
+/Users/kk/Code/kk-wp/              # Our git repo
 ├── .git/                             # Git tracking
 ├── .github/                          # Workflows, agents
 ├── skills/                           # Custom skills
@@ -259,12 +259,12 @@ npm install -g @wordpress/env
 ├── .claude/                          # Context files
 ├── wp-content/                       # WordPress custom code (ONLY)
 │   ├── plugins/
-│   │   └── bc-ai-custom/            # Our custom plugin
+│   │   └── kk-custom/            # Our custom plugin
 │   └── themes/
-│       └── bc-ai-theme/             # Our custom theme (if any)
+│       └── kk-theme/             # Our custom theme (if any)
 └── README.md
 
-/Users/kk/Local Sites/bc-ai-local/    # Local by Flywheel
+/Users/kk/Local Sites/kk-local/    # Local by Flywheel
 └── app/
     └── public/                       # Full WordPress install
         ├── wp-admin/                 # NOT in git
@@ -276,8 +276,8 @@ npm install -g @wordpress/env
 ### What to Track in Git
 
 **DO track:**
-- ✅ Custom plugins in `wp-content/plugins/bc-ai-*`
-- ✅ Custom themes in `wp-content/themes/bc-ai-*`
+- ✅ Custom plugins in `wp-content/plugins/kk-*`
+- ✅ Custom themes in `wp-content/themes/kk-*`
 - ✅ Custom must-use plugins in `wp-content/mu-plugins/`
 - ✅ Documentation
 - ✅ GitHub workflows and agents
@@ -297,30 +297,30 @@ npm install -g @wordpress/env
 
 1. **Pull latest from git**
    ```bash
-   cd /Users/kk/Code/bc-ai-wp
+   cd /Users/kk/Code/kk-wp
    git pull origin main
    ```
 
 2. **Make changes in local WordPress**
    ```bash
-   cd ~/Local\ Sites/bc-ai-local/app/public
+   cd ~/Local\ Sites/kk-local/app/public
    # Edit files here, test in browser
    ```
 
 3. **Copy ONLY custom code to git repo**
    ```bash
    # Copy custom plugin
-   cp -r ~/Local\ Sites/bc-ai-local/app/public/wp-content/plugins/bc-ai-custom \
-         /Users/kk/Code/bc-ai-wp/wp-content/plugins/
+   cp -r ~/Local\ Sites/kk-local/app/public/wp-content/plugins/kk-custom \
+         /Users/kk/Code/kk-wp/wp-content/plugins/
 
    # Copy custom theme
-   cp -r ~/Local\ Sites/bc-ai-local/app/public/wp-content/themes/bc-ai-theme \
-         /Users/kk/Code/bc-ai-wp/wp-content/themes/
+   cp -r ~/Local\ Sites/kk-local/app/public/wp-content/themes/kk-theme \
+         /Users/kk/Code/kk-wp/wp-content/themes/
    ```
 
 4. **Test and validate**
    ```bash
-   cd /Users/kk/Code/bc-ai-wp
+   cd /Users/kk/Code/kk-wp
    make validate        # PHPCS check
    make test           # PHPUnit tests
    ```
@@ -353,7 +353,7 @@ npm install -g @wordpress/env
 
 **Create:** `.env.example` (in git)
 ```env
-# BC+AI Local Development Environment Variables
+# Kris Krug Local Development Environment Variables
 # Copy this to .env and fill in values (never commit .env)
 
 WP_HOME=http://localhost:8888
@@ -399,15 +399,15 @@ wp-env run cli wp db query "UPDATE wp_users SET user_email = CONCAT(user_login, 
 
 ```bash
 # Remove Local's empty directories
-rm -rf ~/Local\ Sites/bc-ai-local/app/public/wp-content/plugins/bc-ai-custom
-rm -rf ~/Local\ Sites/bc-ai-local/app/public/wp-content/themes/bc-ai-theme
+rm -rf ~/Local\ Sites/kk-local/app/public/wp-content/plugins/kk-custom
+rm -rf ~/Local\ Sites/kk-local/app/public/wp-content/themes/kk-theme
 
 # Create symlinks to git repo
-ln -s /Users/kk/Code/bc-ai-wp/wp-content/plugins/bc-ai-custom \
-      ~/Local\ Sites/bc-ai-local/app/public/wp-content/plugins/bc-ai-custom
+ln -s /Users/kk/Code/kk-wp/wp-content/plugins/kk-custom \
+      ~/Local\ Sites/kk-local/app/public/wp-content/plugins/kk-custom
 
-ln -s /Users/kk/Code/bc-ai-wp/wp-content/themes/bc-ai-theme \
-      ~/Local\ Sites/bc-ai-local/app/public/wp-content/themes/bc-ai-theme
+ln -s /Users/kk/Code/kk-wp/wp-content/themes/kk-theme \
+      ~/Local\ Sites/kk-local/app/public/wp-content/themes/kk-theme
 ```
 
 **Benefits:**
@@ -423,10 +423,10 @@ ln -s /Users/kk/Code/bc-ai-wp/wp-content/themes/bc-ai-theme \
 #!/bin/bash
 # Watch for changes and sync to Local WordPress
 
-fswatch -o /Users/kk/Code/bc-ai-wp/wp-content | while read; do
+fswatch -o /Users/kk/Code/kk-wp/wp-content | while read; do
   rsync -av --delete \
-    /Users/kk/Code/bc-ai-wp/wp-content/plugins/bc-ai-custom \
-    ~/Local\ Sites/bc-ai-local/app/public/wp-content/plugins/
+    /Users/kk/Code/kk-wp/wp-content/plugins/kk-custom \
+    ~/Local\ Sites/kk-local/app/public/wp-content/plugins/
 
   echo "✓ Synced to Local"
 done
@@ -455,11 +455,11 @@ local-logs: ## View Local WordPress logs
 sync-from-local: ## Copy custom code from Local to git repo
 	@echo "Syncing custom code from Local..."
 	@rsync -av --delete \
-		~/Local\ Sites/bc-ai-local/app/public/wp-content/plugins/bc-ai-custom/ \
-		./wp-content/plugins/bc-ai-custom/ || true
+		~/Local\ Sites/kk-local/app/public/wp-content/plugins/kk-custom/ \
+		./wp-content/plugins/kk-custom/ || true
 	@rsync -av --delete \
-		~/Local\ Sites/bc-ai-local/app/public/wp-content/themes/bc-ai-theme/ \
-		./wp-content/themes/bc-ai-theme/ || true
+		~/Local\ Sites/kk-local/app/public/wp-content/themes/kk-theme/ \
+		./wp-content/themes/kk-theme/ || true
 	@echo "✓ Sync complete"
 
 local-db-export: ## Export local database (for testing)
@@ -485,21 +485,21 @@ local-db-export: ## Export local database (for testing)
    Launch Local
    ```
 
-2. **Import BC+AI Site**
+2. **Import Kris Krug Site**
    ```
    Local → File → Import Site
    Or drag .wpress file into Local window
 
-   Site name: bc-ai-local
-   Domain: bc-ai.local (automatic SSL)
+   Site name: kk-local
+   Domain: kk.local (automatic SSL)
 
    Wait for import (5-15 minutes depending on size)
    ```
 
 3. **Site Running!**
    ```
-   URL: https://bc-ai.local
-   Admin: https://bc-ai.local/wp-admin
+   URL: https://kk.local
+   Admin: https://kk.local/wp-admin
    Username: (your production username)
    Password: (your production password)
    ```
@@ -507,18 +507,18 @@ local-db-export: ## Export local database (for testing)
 4. **Access Files**
    ```
    Right-click site → "Reveal in Finder"
-   Or: ~/Local Sites/bc-ai-local/app/public/
+   Or: ~/Local Sites/kk-local/app/public/
    ```
 
 5. **Create Symlinks to Git Repo**
    ```bash
    # Find what custom code exists
-   ls ~/Local\ Sites/bc-ai-local/app/public/wp-content/plugins/
-   ls ~/Local\ Sites/bc-ai-local/app/public/wp-content/themes/
+   ls ~/Local\ Sites/kk-local/app/public/wp-content/plugins/
+   ls ~/Local\ Sites/kk-local/app/public/wp-content/themes/
 
    # Create directories in git repo for custom code
-   mkdir -p wp-content/plugins/bc-ai-custom
-   mkdir -p wp-content/themes/bc-ai-theme
+   mkdir -p wp-content/plugins/kk-custom
+   mkdir -p wp-content/themes/kk-theme
 
    # Copy custom code to git repo (first time only)
    # Then create symlinks for live editing
@@ -536,7 +536,7 @@ local-db-export: ## Export local database (for testing)
    - Using All-in-One WP Migration or Duplicator
 
 2. **"What custom plugins/themes exist?"**
-   - List of bc-ai-specific custom code
+   - List of kk-specific custom code
    - Which directories to track in git
 
 3. **"What's the deployment process?"**
@@ -557,12 +557,12 @@ local-db-export: ## Export local database (for testing)
 
 ```bash
 # Morning: Start Local
-Open Local app → Start bc-ai-local site
+Open Local app → Start kk-local site
 
 # Work on issue
 git checkout -b feature/issue-123
 # Edit files in Local WordPress (symlinked to git repo)
-# Test in browser: https://bc-ai.local
+# Test in browser: https://kk.local
 
 # Validate changes
 make validate
@@ -609,10 +609,10 @@ Once Local is set up:
 
 ```makefile
 setup-local: ## First-time local setup guide
-	@echo "🌲 BC+AI Local Development Setup"
+	@echo "🌲 Kris Krug Local Development Setup"
 	@echo ""
 	@echo "1. Download Local by Flywheel: https://localwp.com/"
-	@echo "2. Install All-in-One WP Migration plugin on bc-ai.ca"
+	@echo "2. Install All-in-One WP Migration plugin on kk.ca"
 	@echo "3. Export site: WP Admin → All-in-One WP Migration → Export"
 	@echo "4. Import to Local: Drag .wpress file into Local app"
 	@echo "5. Create symlinks to this repo for custom code"
@@ -620,8 +620,8 @@ setup-local: ## First-time local setup guide
 	@echo "See docs/local-development-setup.md for detailed instructions"
 
 check-local: ## Check if Local WordPress is running
-	@if curl -s -o /dev/null -w "%{http_code}" https://bc-ai.local | grep -q "200\|301\|302"; then \
-		echo "✅ Local WordPress is running at https://bc-ai.local"; \
+	@if curl -s -o /dev/null -w "%{http_code}" https://kk.local | grep -q "200\|301\|302"; then \
+		echo "✅ Local WordPress is running at https://kk.local"; \
 	else \
 		echo "❌ Local WordPress not running. Start it in Local app."; \
 	fi
@@ -636,7 +636,7 @@ Before you download anything:
 - [ ] You have WordPress admin access ✅
 - [ ] You'll use plugin-based export (All-in-One WP Migration)
 - [ ] You'll set up Local by Flywheel (easy GUI)
-- [ ] Local will be at bc-ai.local (different from production)
+- [ ] Local will be at kk.local (different from production)
 - [ ] Git repo will only track custom code
 - [ ] Production credentials never committed
 - [ ] Changes tested locally before any production deployment
@@ -659,4 +659,4 @@ Before you download anything:
 
 **Remember:** Production stays safe. Local is our playground. Git tracks only custom code. Agents work in Local. We push only tested, reviewed code.
 
-🌲 **Let's build BC+AI's future safely and responsibly!** 🤖
+🌲 **Let's build Kris Krug's future safely and responsibly!** 🤖

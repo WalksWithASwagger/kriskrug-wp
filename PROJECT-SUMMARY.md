@@ -1,16 +1,16 @@
-# BC+AI Agent Swarm Project
+# Kris Krug Agent Swarm Project
 
-> AI-Powered Issue Tracking & Automation for bc-ai.ca WordPress Site
+> AI-Powered Issue Tracking & Automation for kk.ca WordPress Site
 
-**Repository:** https://github.com/WalksWithASwagger/bc-ai-wp
-**Live Site:** https://bc-ai.ca/
+**Repository:** https://github.com/WalksWithASwagger/kk-wp
+**Live Site:** https://kk.ca/
 **Dev Server:** https://wordpress-1569695-6109303.cloudwaysapps.com
 
 ---
 
 ## 🎯 What Is This?
 
-This repository is an **AI agent automation system** for managing the BC+AI WordPress website. It uses:
+This repository is an **AI agent automation system** for managing the Kris Krug WordPress website. It uses:
 
 - **GitHub** for issue tracking and project management
 - **7 specialized AI agents** for automated issue-to-PR conversion
@@ -18,14 +18,14 @@ This repository is an **AI agent automation system** for managing the BC+AI Word
 - **Cloudways** for development/staging environment
 - **Claude AI** for intelligent code generation
 
-**Purpose:** Automate WordPress development while maintaining BC+AI's values of accessibility, community focus, and responsible AI.
+**Purpose:** Automate WordPress development while maintaining Kris Krug's values of accessibility, community focus, and responsible AI.
 
 ---
 
 ## 🏗️ Project Structure
 
 ```
-bc-ai-wp/
+kk-wp/
 ├── .github/                    # GitHub configuration
 │   ├── agents/                 # 7 AI agent definitions
 │   ├── workflows/              # 5 GitHub Actions workflows
@@ -81,7 +81,7 @@ bc-ai-wp/
 
 ### Agent Capabilities
 
-- ✅ Understand BC+AI's mission and values
+- ✅ Understand Kris Krug's mission and values
 - ✅ Follow WordPress coding standards (WordPress-Extra)
 - ✅ Prioritize accessibility (WCAG 2.1 AA)
 - ✅ Write security-first code (sanitize, escape, nonces)
@@ -158,8 +158,8 @@ bc-ai-wp/
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/WalksWithASwagger/bc-ai-wp.git
-cd bc-ai-wp
+git clone https://github.com/WalksWithASwagger/kk-wp.git
+cd kk-wp
 
 # 2. Check system health
 make health
@@ -196,7 +196,7 @@ make dashboard
 **For Development:**
 - `docs/automation-guide.md` - Workflow documentation
 - `docs/cloudways-setup.md` - Server setup
-- `.claude/context/project-context.md` - BC+AI mission
+- `.claude/context/project-context.md` - Kris Krug mission
 
 **For Architecture:**
 - `docs/architecture.md` - System design
@@ -259,7 +259,7 @@ make dashboard
 
 ---
 
-## 🌲 BC+AI Values in Code
+## 🌲 Kris Krug Values in Code
 
 Every agent decision is guided by:
 
@@ -340,12 +340,12 @@ See `CONTRIBUTING.md` for detailed guidelines.
 ## 📞 Links & Resources
 
 **Project:**
-- Repository: https://github.com/WalksWithASwagger/bc-ai-wp
-- Issues: https://github.com/WalksWithASwagger/bc-ai-wp/issues
-- Actions: https://github.com/WalksWithASwagger/bc-ai-wp/actions
+- Repository: https://github.com/WalksWithASwagger/kk-wp
+- Issues: https://github.com/WalksWithASwagger/kk-wp/issues
+- Actions: https://github.com/WalksWithASwagger/kk-wp/actions
 
-**BC+AI:**
-- Website: https://bc-ai.ca/
+**Kris Krug:**
+- Website: https://kk.ca/
 - Mission: Building responsible & inclusive AI for British Columbia
 
 **Development:**
@@ -363,7 +363,7 @@ See `CONTRIBUTING.md` for detailed guidelines.
 
 This isn't just automation - it's **purposeful automation** that:
 
-- 🌲 Embodies BC+AI's grassroots community values
+- 🌲 Embodies Kris Krug's grassroots community values
 - ♿ Prioritizes accessibility in every decision
 - 🔒 Takes security seriously
 - ⚡ Optimizes for mobile and rural users

@@ -6,14 +6,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        Help us improve the content and user experience of bc-ai.ca!
+        Help us improve the content and user experience of kk.ca!
 
   - type: input
     id: url
     attributes:
       label: URL
       description: Which page has the content/UX issue?
-      placeholder: https://bc-ai.ca/...
+      placeholder: https://kk.ca/...
     validations:
       required: true
 
@@ -120,7 +120,7 @@ body:
     attributes:
       label: Pre-submission Checklist
       options:
-        - label: I have checked this on the live site (bc-ai.ca)
+        - label: I have checked this on the live site (kk.ca)
           required: true
         - label: I have searched existing issues
           required: true

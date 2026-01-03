@@ -34,4 +34,4 @@ Code Change → Content Analyzer → [README Writer, API Documenter, Tutorial Cr
 
 ## Status
 
-🆕 **In Development** - Coming soon to BC+AI!
+🆕 **In Development** - Coming soon to Kris Krug!

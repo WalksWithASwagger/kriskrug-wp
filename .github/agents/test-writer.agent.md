@@ -119,14 +119,14 @@ Test component interactions with WordPress:
 
 ```php
 public function test_cache_integration() {
-    $api = new BC_AI_API_Client();
+    $api = new KK_API_Client();
 
     // First call should hit API
     $result1 = $api->get_data('endpoint');
     $this->assertNotEmpty($result1);
 
     // Second call should use cache
-    $cached = get_transient('bc_ai_cache_endpoint');
+    $cached = get_transient('kk_cache_endpoint');
     $this->assertNotFalse($cached);
 
     $result2 = $api->get_data('endpoint');
@@ -338,9 +338,9 @@ class Test_API_Cache extends WP_UnitTestCase {
 
     public function setUp(): void {
         parent::setUp();
-        $this->api_client = new BC_AI_API_Client();
+        $this->api_client = new KK_API_Client();
         // Clear all transients
-        delete_transient('bc_ai_api_cache_test');
+        delete_transient('kk_api_cache_test');
     }
 
     public function tearDown(): void {
@@ -351,7 +351,7 @@ class Test_API_Cache extends WP_UnitTestCase {
     /**
      * Test that API responses are cached.
      *
-     * @covers BC_AI_API_Client::get_response
+     * @covers KK_API_Client::get_response
      */
     public function test_api_response_is_cached() {
         $url = 'https://example.com/api/test';
@@ -361,7 +361,7 @@ class Test_API_Cache extends WP_UnitTestCase {
         $this->assertNotEmpty($response1);
 
         // Verify cache was set
-        $cache_key = 'bc_ai_api_cache_' . md5($url);
+        $cache_key = 'kk_api_cache_' . md5($url);
         $cached = get_transient($cache_key);
         $this->assertNotFalse($cached, 'Cache should be set after first call');
 
@@ -373,11 +373,11 @@ class Test_API_Cache extends WP_UnitTestCase {
     /**
      * Test cache expires after configured time.
      *
-     * @covers BC_AI_API_Client::get_response
+     * @covers KK_API_Client::get_response
      */
     public function test_cache_expiration() {
         $url = 'https://example.com/api/test';
-        $cache_key = 'bc_ai_api_cache_' . md5($url);
+        $cache_key = 'kk_api_cache_' . md5($url);
 
         // Set cache with short expiration
         set_transient($cache_key, ['data' => 'test'], 1);
@@ -395,11 +395,11 @@ class Test_API_Cache extends WP_UnitTestCase {
     /**
      * Test cache can be manually cleared.
      *
-     * @covers BC_AI_API_Client::clear_cache
+     * @covers KK_API_Client::clear_cache
      */
     public function test_manual_cache_clear() {
         $url = 'https://example.com/api/test';
-        $cache_key = 'bc_ai_api_cache_' . md5($url);
+        $cache_key = 'kk_api_cache_' . md5($url);
 
         // Set cache
         set_transient($cache_key, ['data' => 'test'], 3600);
@@ -415,7 +415,7 @@ class Test_API_Cache extends WP_UnitTestCase {
     /**
      * Test admin can clear cache via admin interface.
      *
-     * @covers BC_AI_API_Client::admin_clear_cache
+     * @covers KK_API_Client::admin_clear_cache
      */
     public function test_admin_cache_clear() {
         // Create admin user
@@ -423,8 +423,8 @@ class Test_API_Cache extends WP_UnitTestCase {
         wp_set_current_user($admin_id);
 
         // Set up request
-        $_POST['action'] = 'bc_ai_clear_cache';
-        $_POST['nonce'] = wp_create_nonce('bc_ai_clear_cache');
+        $_POST['action'] = 'kk_clear_cache';
+        $_POST['nonce'] = wp_create_nonce('kk_clear_cache');
 
         // Execute admin action
         $result = $this->api_client->admin_clear_cache();
@@ -436,7 +436,7 @@ class Test_API_Cache extends WP_UnitTestCase {
     /**
      * Test non-admin cannot clear cache.
      *
-     * @covers BC_AI_API_Client::admin_clear_cache
+     * @covers KK_API_Client::admin_clear_cache
      */
     public function test_non_admin_cannot_clear_cache() {
         // Create subscriber user
