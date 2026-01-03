@@ -1,18 +1,18 @@
-# BC+AI WordPress Site - Issue Tracking & Automation
+# Kris Krug WordPress Site - Issue Tracking & Automation
 
 > Building a Responsible & Inclusive AI Future for British Columbia
 
-[![Infrastructure](https://img.shields.io/badge/Infrastructure-Complete-success)](https://github.com/WalksWithASwagger/bc-ai-wp)
-[![Agent Swarm](https://img.shields.io/badge/Agent%20Swarm-Validated-success)](https://github.com/WalksWithASwagger/bc-ai-wp/tree/main/.github/agents)
-[![Status](https://img.shields.io/badge/Status-Awaiting%20Production-blue)](https://bc-ai.ca)
+[![Infrastructure](https://img.shields.io/badge/Infrastructure-Complete-success)](https://github.com/WalksWithASwagger/kk-wp)
+[![Agent Swarm](https://img.shields.io/badge/Agent%20Swarm-Validated-success)](https://github.com/WalksWithASwagger/kk-wp/tree/main/.github/agents)
+[![Status](https://img.shields.io/badge/Status-Awaiting%20Production-blue)](https://kk.ca)
 
-**Status:** Infrastructure complete and validated. Agent swarm proven operational. Awaiting production bc-ai.ca import to begin real issue resolution.
+**Status:** Infrastructure complete and validated. Agent swarm proven operational. Awaiting production kk.ca import to begin real issue resolution.
 
-This repository serves as the issue tracking, project management, and automation hub for the **BC+AI** WordPress website at [bc-ai.ca](https://bc-ai.ca/).
+This repository serves as the issue tracking, project management, and automation hub for the **Kris Krug** WordPress website at [kk.ca](https://kk.ca/).
 
-## About BC+AI
+## About Kris Krug
 
-BC+AI is a grassroots AI ecosystem initiative focused on building a responsible and inclusive AI future for British Columbia. Our community brings together:
+Kris Krug is a grassroots AI ecosystem initiative focused on building a responsible and inclusive AI future for British Columbia. Our community brings together:
 
 - AI enthusiasts and professionals
 - Policy makers and educators
@@ -32,7 +32,7 @@ BC+AI is a grassroots AI ecosystem initiative focused on building a responsible 
 
 This repository is used for:
 
-1. **Issue Tracking** - Bugs, feature requests, enhancements for bc-ai.ca
+1. **Issue Tracking** - Bugs, feature requests, enhancements for kk.ca
 2. **Project Management** - Organizing development tasks and priorities
 3. **AI Agent Automation** - Automated issue-to-PR workflows powered by Claude agents
 4. **Documentation** - Technical documentation and development guidelines
@@ -56,7 +56,7 @@ The live WordPress site is not currently synced with version control. This repos
 - ✅ Autonomous code generation (944 lines generated during testing)
 - ✅ GitHub Actions workflows functional
 - ✅ Cloudways development environment configured
-- ✅ Ready for production bc-ai.ca issues
+- ✅ Ready for production kk.ca issues
 
 **Current Phase:** Awaiting production WordPress import
 
@@ -88,7 +88,7 @@ GitHub Issue → Analyzer → Test Writer → Implementer → QA → Reviewer �
 
 ### For Contributors
 
-1. Browse [open issues](https://github.com/WalksWithASwagger/bc-ai-wp/issues)
+1. Browse [open issues](https://github.com/WalksWithASwagger/kk-wp/issues)
 2. Read our [Contributing Guidelines](CONTRIBUTING.md)
 3. Use issue templates when creating new issues
 4. Follow WordPress coding standards for code contributions
@@ -123,17 +123,17 @@ See our [automation documentation](docs/automation-guide.md) for:
 
 ## Project Links
 
-- **Live Site**: [bc-ai.ca](https://bc-ai.ca/)
-- **Events**: [Luma Calendar](https://lu.ma/bc-ai)
+- **Live Site**: [kk.ca](https://kk.ca/)
+- **Events**: [Luma Calendar](https://lu.ma/kk)
 - **News**: Updates via Notion
-- **GitHub**: [WalksWithASwagger/bc-ai-wp](https://github.com/WalksWithASwagger/bc-ai-wp)
+- **GitHub**: [WalksWithASwagger/kk-wp](https://github.com/WalksWithASwagger/kk-wp)
 
 ## Contact
 
-For questions about this repository or BC+AI:
+For questions about this repository or Kris Krug:
 
 - Create an issue in this repository
-- Visit [bc-ai.ca](https://bc-ai.ca/) for general inquiries
+- Visit [kk.ca](https://kk.ca/) for general inquiries
 - Join our community events
 
 ## License

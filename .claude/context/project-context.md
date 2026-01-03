@@ -1,11 +1,11 @@
-# BC+AI Project Context
+# Kris Krug Project Context
 
 > Building a Responsible & Inclusive AI Future for British Columbia
 
 ## Mission & Values
 
 ### Core Mission
-BC+AI is a grassroots ecosystem initiative dedicated to building a responsible and inclusive AI future for British Columbia. We bring together diverse voices—from AI enthusiasts and professionals to policy makers, educators, artists, and community organizers.
+Kris Krug is a grassroots ecosystem initiative dedicated to building a responsible and inclusive AI future for British Columbia. We bring together diverse voices—from AI enthusiasts and professionals to policy makers, educators, artists, and community organizers.
 
 ### Core Values
 
@@ -226,12 +226,12 @@ Curated resources for funding, tools, hackathons, and learning.
 - Lower barrier to participation
 
 ### Performance & Accessibility
-- Core WordPress values that align with BC+AI
+- Core WordPress values that align with Kris Krug
 - Not negotiable, baked into everything
 
 ## Agent Guidance
 
-When making decisions as an AI agent for BC+AI:
+When making decisions as an AI agent for Kris Krug:
 
 **Ask yourself:**
 - Does this serve the community?
@@ -239,7 +239,7 @@ When making decisions as an AI agent for BC+AI:
 - Does it align with responsible AI principles?
 - Would someone in rural BC be able to use this on their phone?
 - Are we being inclusive?
-- Does this reflect BC+AI's grassroots spirit?
+- Does this reflect Kris Krug's grassroots spirit?
 
 **Prioritize:**
 1. Accessibility over features

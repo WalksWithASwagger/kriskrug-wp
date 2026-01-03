@@ -1,4 +1,4 @@
-# BC+AI Vision
+# Kris Krug Vision
 
 > Where we're going and why it matters
 
@@ -6,7 +6,7 @@
 
 ### The Dream
 
-BC+AI becomes **the** hub for responsible, inclusive AI development in British Columbia—a model for other regions and a powerful force for community-driven AI governance.
+Kris Krug becomes **the** hub for responsible, inclusive AI development in British Columbia—a model for other regions and a powerful force for community-driven AI governance.
 
 ### What Success Looks Like
 
@@ -17,7 +17,7 @@ BC+AI becomes **the** hub for responsible, inclusive AI development in British C
 - Recognized voice in provincial and national AI discussions
 
 **Technical Platform:**
-- bc-ai.ca is fast, accessible, and beloved by users
+- kk.ca is fast, accessible, and beloved by users
 - Content is fresh, relevant, and community-curated
 - Features serve community needs seamlessly
 - Platform is sustainable and maintainable
@@ -40,7 +40,7 @@ BC+AI becomes **the** hub for responsible, inclusive AI development in British C
 - Diverse participation leads to better outcomes
 - Local context matters immensely
 
-**For bc-ai.ca this means:**
+**For kk.ca this means:**
 - Features that enable local organizing
 - Tools for community members to contribute
 - Platforms for diverse voices
@@ -54,7 +54,7 @@ BC+AI becomes **the** hub for responsible, inclusive AI development in British C
 - Barriers are often invisible to those without them
 - Technology should unite, not divide
 
-**For bc-ai.ca this means:**
+**For kk.ca this means:**
 - WCAG 2.1 AA is baseline, not aspiration
 - Mobile-first because that's how many people access web
 - Simple language welcomes everyone
@@ -68,7 +68,7 @@ BC+AI becomes **the** hub for responsible, inclusive AI development in British C
 - Communities should control their data
 - Technology should empower, not extract
 
-**For bc-ai.ca this means:**
+**For kk.ca this means:**
 - Clear about what data we collect and why
 - No tracking without consent
 - Open about our own AI usage
@@ -81,7 +81,7 @@ BC+AI becomes **the** hub for responsible, inclusive AI development in British C
 ### Year 1: Foundation (Current)
 
 **Goals:**
-- Stable, accessible platform (bc-ai.ca)
+- Stable, accessible platform (kk.ca)
 - Growing regional hub network
 - Regular events and engagement
 - Resource directory established
@@ -109,7 +109,7 @@ BC+AI becomes **the** hub for responsible, inclusive AI development in British C
 ### Year 3: Leadership
 
 **Goals:**
-- BC+AI recognized nationally
+- Kris Krug recognized nationally
 - Model for other regions
 - Influence on Canadian AI policy
 - Sustainable funding model
@@ -281,7 +281,7 @@ Build for long-term:
 
 ## This Is Bigger Than Code
 
-BC+AI isn't just a website or an organization.
+Kris Krug isn't just a website or an organization.
 
 It's part of a movement to ensure AI benefits everyone, is built responsibly, and reflects the values of the communities it serves.
 

@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get up and running with BC+AI Agent Swarm in 5 minutes.
+Get up and running with Kris Krug Agent Swarm in 5 minutes.
 
 ---
 
@@ -10,8 +10,8 @@ Get up and running with BC+AI Agent Swarm in 5 minutes.
 
 ```bash
 # Clone repository
-git clone https://github.com/WalksWithASwagger/bc-ai-wp.git
-cd bc-ai-wp
+git clone https://github.com/WalksWithASwagger/kk-wp.git
+cd kk-wp
 
 # Check health
 make health
@@ -53,7 +53,7 @@ cat docs/INDEX.md
 **Pick an issue:**
 ```bash
 make list-issues
-# Or browse: https://github.com/WalksWithASwagger/bc-ai-wp/issues
+# Or browse: https://github.com/WalksWithASwagger/kk-wp/issues
 ```
 
 **Or let the agent swarm handle it:**
@@ -104,7 +104,7 @@ gh issue edit 123 --add-label "auto-implement"
 **Monitor progress:**
 ```bash
 make agent-status
-# Or check: https://github.com/WalksWithASwagger/bc-ai-wp/actions
+# Or check: https://github.com/WalksWithASwagger/kk-wp/actions
 ```
 
 ---
@@ -128,10 +128,10 @@ make agent-status
 
 | Resource | URL |
 |----------|-----|
-| Repository | https://github.com/WalksWithASwagger/bc-ai-wp |
-| Issues | https://github.com/WalksWithASwagger/bc-ai-wp/issues |
-| Actions | https://github.com/WalksWithASwagger/bc-ai-wp/actions |
-| Live Site | https://bc-ai.ca/ |
+| Repository | https://github.com/WalksWithASwagger/kk-wp |
+| Issues | https://github.com/WalksWithASwagger/kk-wp/issues |
+| Actions | https://github.com/WalksWithASwagger/kk-wp/actions |
+| Live Site | https://kk.ca/ |
 | Dev Server | https://wordpress-1569695-6109303.cloudwaysapps.com |
 
 ### Files
@@ -143,7 +143,7 @@ make agent-status
 | `CONTRIBUTING.md` | Contribution guidelines |
 | `docs/INDEX.md` | Documentation navigation |
 | `docs/automation-guide.md` | Workflow details |
-| `.claude/context/project-context.md` | BC+AI mission & values |
+| `.claude/context/project-context.md` | Kris Krug mission & values |
 
 ---
 
@@ -298,8 +298,8 @@ cat .github/agent-state/{issue-number}/state.json
 - Read `.claude/common-failures.md` for known issues
 
 ### Community
-- Create an issue: https://github.com/WalksWithASwagger/bc-ai-wp/issues
-- Visit BC+AI: https://bc-ai.ca/
+- Create an issue: https://github.com/WalksWithASwagger/kk-wp/issues
+- Visit Kris Krug: https://kk.ca/
 
 ### Debugging
 - Check workflow logs in Actions tab

@@ -1,6 +1,6 @@
-# Contributing to BC+AI WordPress Site
+# Contributing to Kris Krug WordPress Site
 
-Thank you for your interest in contributing to the BC+AI WordPress site! This repository uses AI agent automation to streamline development, but we welcome both human and AI-assisted contributions.
+Thank you for your interest in contributing to the Kris Krug WordPress site! This repository uses AI agent automation to streamline development, but we welcome both human and AI-assisted contributions.
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@ Thank you for your interest in contributing to the BC+AI WordPress site! This re
 
 ## Code of Conduct
 
-By participating in this project, you agree to maintain a respectful, inclusive, and collaborative environment that aligns with BC+AI's mission of building a responsible and inclusive AI future.
+By participating in this project, you agree to maintain a respectful, inclusive, and collaborative environment that aligns with Kris Krug's mission of building a responsible and inclusive AI future.
 
 ### Our Standards
 
@@ -59,7 +59,7 @@ Description:
 The Gravity Forms contact form (#3) does not submit on mobile Safari.
 
 Steps to Reproduce:
-1. Visit bc-ai.ca on iPhone (iOS 16)
+1. Visit kk.ca on iPhone (iOS 16)
 2. Navigate to contact form
 3. Fill out all fields
 4. Tap Submit button
@@ -71,7 +71,7 @@ Actual: No response, no error message
 Environment:
 - Browser: Mobile Safari 16.3
 - Device: iPhone 13
-- URL: https://bc-ai.ca/#contact
+- URL: https://kk.ca/#contact
 
 Labels: bug, priority:high, mobile
 ```
@@ -218,8 +218,8 @@ This repository uses AI agents to automate issue-to-PR workflows:
 
 ```bash
 # Clone repository
-git clone https://github.com/WalksWithASwagger/bc-ai-wp.git
-cd bc-ai-wp
+git clone https://github.com/WalksWithASwagger/kk-wp.git
+cd kk-wp
 
 # Install dependencies
 composer install
@@ -282,14 +282,14 @@ vendor/bin/phpunit --coverage-html coverage/
 - **Questions?** Open an issue with the `question` label
 - **Stuck?** Check existing issues and PRs for similar problems
 - **Bug in automation?** Label it `automation-bug`
-- **General inquiries?** Visit [bc-ai.ca](https://bc-ai.ca/)
+- **General inquiries?** Visit [kk.ca](https://kk.ca/)
 
 ## Recognition
 
 Contributors will be:
 - Listed in release notes
 - Credited in PR descriptions
-- Recognized in the BC+AI community
+- Recognized in the Kris Krug community
 
 Thank you for helping build a better AI future for British Columbia!
 

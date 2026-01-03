@@ -250,7 +250,7 @@ How to undo changes if something goes wrong.
     "complexity": "medium",
     "estimated_effort": "2-3 hours",
     "affected_files": [
-      "wp-content/themes/bc-ai/footer.php",
+      "wp-content/themes/kk/footer.php",
       "wp-content/plugins/custom/contact-form-handler.php"
     ],
     "new_files": [
@@ -274,7 +274,7 @@ How to undo changes if something goes wrong.
     "performance_impact": "minimal",
     "breaking_changes": false
   },
-  "spec": "## Technical Specification\n\n### Root Cause\nJavaScript event handler not compatible with mobile Safari touch events.\n\n### Fix\n1. Update form submit handler to support both click and touch events\n2. Add mobile-specific CSS fixes\n3. Test on iOS Safari, Chrome\n\n### Implementation\n- Modify: wp-content/themes/bc-ai/js/form-handler.js\n- Add touchstart event listener\n- Ensure backward compatibility with desktop\n\n...",
+  "spec": "## Technical Specification\n\n### Root Cause\nJavaScript event handler not compatible with mobile Safari touch events.\n\n### Fix\n1. Update form submit handler to support both click and touch events\n2. Add mobile-specific CSS fixes\n3. Test on iOS Safari, Chrome\n\n### Implementation\n- Modify: wp-content/themes/kk/js/form-handler.js\n- Add touchstart event listener\n- Ensure backward compatibility with desktop\n\n...",
   "test_plan": [
     "Test form submission on desktop Chrome",
     "Test form submission on mobile Safari iOS 16+",

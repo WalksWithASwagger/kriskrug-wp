@@ -19,7 +19,7 @@ python3 skills/github-workflow-automation/scripts/validate_input.py --input test
 # Result: ✓ Validation passed
 
 python3 skills/github-workflow-automation/scripts/batch_create_issues.py --input test-data/sample-issues.json
-# Result: ✓ Created: https://github.com/WalksWithASwagger/bc-ai-wp/issues/8
+# Result: ✓ Created: https://github.com/WalksWithASwagger/kk-wp/issues/8
 ```
 
 **Outcome:** ✅ PASS
@@ -35,7 +35,7 @@ bash skills/github-workflow-automation/scripts/gh_health_check.sh
 # Result:
 # ✓ gh CLI installed (v2.83.1)
 # ✓ Authenticated as WalksWithASwagger
-# ✓ Repository detected: WalksWithASwagger/bc-ai-wp
+# ✓ Repository detected: WalksWithASwagger/kk-wp
 # ✓ Write permissions confirmed
 ```
 
@@ -369,7 +369,7 @@ All artifacts committed to repository for reference.
 ### Full Pipeline Execution - Issue #8
 
 **Result:** ✅ **COMPLETE SUCCESS**
-**PR:** [#9 - Navigation Keyboard Accessibility](https://github.com/WalksWithASwagger/bc-ai-wp/pull/9)
+**PR:** [#9 - Navigation Keyboard Accessibility](https://github.com/WalksWithASwagger/kk-wp/pull/9)
 
 **Agent Pipeline:**
 1. ✅ Analyzer → Technical specification

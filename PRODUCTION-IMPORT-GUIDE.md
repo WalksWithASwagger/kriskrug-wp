@@ -1,6 +1,6 @@
 # Production Import Guide
 
-How to import production bc-ai.ca to Cloudways and unleash the agent swarm on real issues.
+How to import production kk.ca to Cloudways and unleash the agent swarm on real issues.
 
 ---
 
@@ -9,7 +9,7 @@ How to import production bc-ai.ca to Cloudways and unleash the agent swarm on re
 **Infrastructure:** ✅ Complete and validated
 **Cloudways:** ✅ WordPress 6.9 ready at https://wordpress-1569695-6109303.cloudwaysapps.com
 **Agent Swarm:** ✅ Proven operational
-**Waiting For:** Production bc-ai.ca export
+**Waiting For:** Production kk.ca export
 
 ---
 
@@ -21,7 +21,7 @@ How to import production bc-ai.ca to Cloudways and unleash the agent swarm on re
 - Sanitized database (fake emails OK for dev)
 
 **Or do it yourself:**
-1. Log into bc-ai.ca WordPress admin
+1. Log into kk.ca WordPress admin
 2. Install "All-in-One WP Migration" plugin
 3. Export → File
 4. Download .wpress file
@@ -39,7 +39,7 @@ How to import production bc-ai.ca to Cloudways and unleash the agent swarm on re
 **Option B: Add Second Application** (Recommended)
 1. Keep current WordPress as clean dev
 2. Add new application for production mirror
-3. Import bc-ai.ca to new app
+3. Import kk.ca to new app
 4. Now have: Clean dev + Production mirror
 
 ---
@@ -66,8 +66,8 @@ When agent creates PRs:
 1. Review code
 2. Test on Cloudways
 3. Merge to main
-4. Deploy to production bc-ai.ca (via your normal process)
+4. Deploy to production kk.ca (via your normal process)
 
 ---
 
-**Infrastructure is ready. Waiting for production bc-ai.ca!** 🌲
+**Infrastructure is ready. Waiting for production kk.ca!** 🌲

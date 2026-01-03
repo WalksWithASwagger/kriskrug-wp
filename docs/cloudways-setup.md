@@ -1,6 +1,6 @@
 # Cloudways Development Server Setup
 
-**Server:** Development/Staging for BC+AI WordPress
+**Server:** Development/Staging for Kris Krug WordPress
 **IP:** 24.144.80.107
 **Status:** NEW server (not production - safe to experiment)
 
@@ -9,7 +9,7 @@
 ## 🚨 Important: This is DEV, Not Production
 
 ✅ **Safe to experiment on this server**
-✅ **Production bc-ai.ca is separate**
+✅ **Production kk.ca is separate**
 ✅ **Can make mistakes here without affecting live site**
 
 ---
@@ -42,7 +42,7 @@ ssh master_qcteaefabe@24.144.80.107
 
 ```bash
 # Generate SSH key (if you don't have one)
-ssh-keygen -t ed25519 -C "kris@bc-ai-dev"
+ssh-keygen -t ed25519 -C "kris@kk-dev"
 # Save to: ~/.ssh/id_ed25519
 # Passphrase: (optional but recommended)
 
@@ -100,7 +100,7 @@ free -h  # Memory
 1. **Log into Cloudways**
 2. **Go to Applications**
 3. **Add Application** (if not already added)
-   - Application name: `bc-ai-dev`
+   - Application name: `kk-dev`
    - Choose: WordPress
    - Let it install
 
@@ -214,7 +214,7 @@ cd ~/applications/{app-name}/public_html/wp-content
 git init
 
 # Add our remote
-git remote add origin https://github.com/WalksWithASwagger/bc-ai-wp.git
+git remote add origin https://github.com/WalksWithASwagger/kk-wp.git
 
 # Fetch our repo
 git fetch origin
@@ -223,8 +223,8 @@ git fetch origin
 cat > .gitignore <<'EOF'
 # Track ONLY custom code
 /*
-!plugins/bc-ai-*/
-!themes/bc-ai-*/
+!plugins/kk-*/
+!themes/kk-*/
 !.gitignore
 EOF
 
@@ -236,8 +236,8 @@ git pull origin main
 
 ```bash
 # Make directories for our custom code
-mkdir -p plugins/bc-ai-custom
-mkdir -p themes/bc-ai-theme
+mkdir -p plugins/kk-custom
+mkdir -p themes/kk-theme
 
 # These will sync with our git repo
 ```
@@ -283,11 +283,11 @@ REMOTE_PATH="/home/master_qcteaefabe/applications/{app-name}/public_html/wp-cont
 echo "🚀 Deploying to Cloudways Dev Server..."
 
 # Deploy custom plugin
-scp -r wp-content/plugins/bc-ai-custom \
+scp -r wp-content/plugins/kk-custom \
     $USER@$HOST:$REMOTE_PATH/plugins/
 
 # Deploy custom theme
-scp -r wp-content/themes/bc-ai-theme \
+scp -r wp-content/themes/kk-theme \
     $USER@$HOST:$REMOTE_PATH/themes/
 
 echo "✅ Deployment complete!"
@@ -331,7 +331,7 @@ jobs:
 
 ```bash
 # Generate SSH key if you don't have one
-ssh-keygen -t ed25519 -C "bc-ai-cloudways-dev"
+ssh-keygen -t ed25519 -C "kk-cloudways-dev"
 # Save to: ~/.ssh/id_cloudways_bcai
 # Add passphrase for security
 
@@ -422,7 +422,7 @@ Cloudways provides free SSL:
 ```bash
 # 1. Confirm you're on DEV (not production!)
 hostname
-# Should NOT say anything about bc-ai.ca
+# Should NOT say anything about kk.ca
 
 # 2. Check WordPress location
 pwd
@@ -485,7 +485,7 @@ debug.log
 ```bash
 # Create encrypted credentials file (local only, never commit)
 cat > .cloudways-credentials <<'EOF'
-# BC+AI Cloudways Development Server
+# Kris Krug Cloudways Development Server
 # NEVER COMMIT THIS FILE
 
 Host: 24.144.80.107

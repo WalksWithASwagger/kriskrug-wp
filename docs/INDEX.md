@@ -1,4 +1,4 @@
-# BC+AI Documentation Index
+# Kris Krug Documentation Index
 
 Complete navigation for all project documentation.
 
@@ -51,11 +51,11 @@ Complete navigation for all project documentation.
 
 ---
 
-## 🌲 BC+AI Context & Philosophy
+## 🌲 Kris Krug Context & Philosophy
 
 **Understanding the mission:**
 
-- **[.claude/context/project-context.md](../.claude/context/project-context.md)** - BC+AI mission, values, audience
+- **[.claude/context/project-context.md](../.claude/context/project-context.md)** - Kris Krug mission, values, audience
 - **[.claude/agents-vibe.md](../.claude/agents-vibe.md)** - Agent philosophy & community values
 - **[vision.md](vision.md)** - Long-term vision (3-5 years)
 - **[roadmap.md](roadmap.md)** - Development roadmap & priorities
@@ -127,7 +127,7 @@ Complete navigation for all project documentation.
 **...set up development environment**
 → Read: `docs/cloudways-setup.md` or `docs/local-development-setup.md`
 
-**...understand BC+AI's mission**
+**...understand Kris Krug's mission**
 → Read: `.claude/context/project-context.md`, then `docs/vision.md`
 
 **...create issues**
@@ -182,7 +182,7 @@ pull_request_template.md - PR template
 ### Claude Context (`.claude/`)
 ```
 context/
-  project-context.md    - BC+AI mission & values (270 lines)
+  project-context.md    - Kris Krug mission & values (270 lines)
   wordpress-setup.md    - WordPress configuration
 agents-vibe.md          - Agent philosophy (360 lines)
 naming-conventions.md   - Code standards (240 lines)
@@ -243,7 +243,7 @@ github-workflow-automation/
 3. Explore `docs/architecture.md` to understand system
 4. Dive into specific docs as needed
 
-**Welcome to BC+AI Agent Swarm!** 🌲🤖
+**Welcome to Kris Krug Agent Swarm!** 🌲🤖
 
 ---
 
