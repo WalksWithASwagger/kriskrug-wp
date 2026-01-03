@@ -1,0 +1,19 @@
+{
+  "issue_number": 57,
+  "workflow_id": "20672043971",
+  "current_stage": "initialized",
+  "status": "in_progress",
+  "created_at": "2026-01-03T04:08:45Z",
+  "stages": {
+    "analysis": {"status": "pending"},
+    "test_writing": {"status": "pending"},
+    "implementation": {"status": "pending"},
+    "testing": {"status": "pending"},
+    "review": {"status": "pending"},
+    "pr_creation": {"status": "pending"}
+  },
+  "metadata": {
+    "branch_name": "feature/issue-57-auto-fix",
+    "base_branch": "main"
+  }
+}
