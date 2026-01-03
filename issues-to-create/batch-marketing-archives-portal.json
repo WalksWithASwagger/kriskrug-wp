@@ -1,0 +1,84 @@
+{
+  "issues": [
+    {
+      "title": "[MARKETING] Create Lead Magnet System - 5 Audience-Specific Guides",
+      "body": "## Problem\n\nSite has newsletter popup but lacks strategic lead magnets for different audiences (creatives, corporate, community organizers, journalists, Indigenous leaders).\n\n## Impact\n\n- **HIGH** - Missing 200-400 leads/month per magnet\n- No audience segmentation\n- Generic positioning\n\n## Recommended Lead Magnets\n\n1. \"Humanizing Tech in the AI Age\" (general)\n2. \"Creative Technologist's Toolkit\" (creatives)\n3. \"Community Building Playbook\" (organizers)\n4. \"AI for Media Professionals\" (journalists)\n5. \"Indigenous AI Sovereignty Framework\" (Indigenous leaders)\n\n## Acceptance Criteria\n\n- [ ] 5 lead magnets created (10-15 pages each)\n- [ ] Landing pages with email capture\n- [ ] Email automation sequences setup\n- [ ] 200-400 leads/month per magnet\n- [ ] Conversion tracking implemented",
+      "labels": ["enhancement", "priority:high", "marketing"]
+    },
+    {
+      "title": "[MARKETING] Launch Podcast Guesting Tour Strategy",
+      "body": "## Problem\n\nPodcast EPK exists but not actively used. Perfect credentials (National Geographic, TED photographer, 2,000+ community, CTO) but no systematic podcast tour.\n\n## Impact\n\n- **HIGH** - Missing 50-100K listeners/month\n- Underutilized speaking credential\n- Lost thought leadership opportunities\n\n## Strategy\n\n- Hire podcast booker ($1-2K/month)\n- Target 15-20 strategic podcasts in 6 months\n- 4 core interview angles prepared\n- Audio clips → social content\n\n## Acceptance Criteria\n\n- [ ] Podcast booker hired or strategy created\n- [ ] 15-20 podcast appearances secured\n- [ ] 50-100 qualified leads/month\n- [ ] Audio content repurposed for social\n- [ ] Speaking inquiries tracked",
+      "labels": ["enhancement", "priority:high", "marketing"]
+    },
+    {
+      "title": "[MARKETING] Implement Email Onboarding Sequences",
+      "body": "## Problem\n\nNo automated email sequences for new subscribers. Missing opportunity to nurture leads and convert to community/customers.\n\n## Impact\n\n- **HIGH** - 15-25% conversion opportunity missed\n- No lead nurturing\n- High unsubscribe rates\n\n## Required Sequences\n\n1. New subscriber (5 emails/14 days)\n2. Lead magnet download (10 emails/30 days)\n3. Event attendee (5 emails/30 days)\n4. Workshop inquiry (7 emails/14 days)\n5. Blog subscriber (weekly)\n6. Re-engagement (4 emails)\n\n## Acceptance Criteria\n\n- [ ] 6 email sequences created\n- [ ] Automation rules configured\n- [ ] 15-25% conversion to paid/community\n- [ ] Email platform integrated\n- [ ] A/B testing implemented",
+      "labels": ["enhancement", "priority:high", "marketing"]
+    },
+    {
+      "title": "[MARKETING] Create Content Syndication Strategy",
+      "body": "## Problem\n\nContent stays on kriskrug.co. Missing 10-15x reach through syndication to Medium, LinkedIn, Dev.to, Substack.\n\n## Impact\n\n- **MEDIUM-HIGH** - Missing 100K+ monthly readers\n- No backlinks for SEO\n- Limited audience growth\n\n## Platforms\n\n- Medium.com (30K-50K impressions/month)\n- LinkedIn Articles (30K-50K impressions/month)\n- Dev.to (5K-10K views/month)\n- Substack (500-1000 subscribers in 6 months)\n\n## Acceptance Criteria\n\n- [ ] Content on 4 syndication platforms\n- [ ] 2-3 reposts per month\n- [ ] 100K+ monthly reach\n- [ ] 150-300 leads/month from syndication\n- [ ] Backlinks tracked",
+      "labels": ["enhancement", "priority:medium", "marketing"]
+    },
+    {
+      "title": "[MARKETING] Build Community Referral Program",
+      "body": "## Problem\n\nNo referral program despite 250+ monthly community members who could drive organic growth.\n\n## Impact\n\n- **MEDIUM** - Missing 10-20% growth acceleration\n- Word-of-mouth not systematized\n\n## Program Structure\n\n- Membership referral (VIP tier unlock)\n- Newsletter referral (exclusive content)\n- Course referral (20% off)\n- Speaking referral ($500-1000 per booking)\n\n## Acceptance Criteria\n\n- [ ] Referral system implemented\n- [ ] 10-20% growth acceleration\n- [ ] 20-30 active referrers\n- [ ] Tracking dashboard\n- [ ] Rewards automated",
+      "labels": ["enhancement", "priority:medium", "marketing", "community"]
+    },
+    {
+      "title": "[MARKETING] Create Community Advocate Program",
+      "body": "## Problem\n\nEngaged community members not leveraged as growth engine. No advocate tier system.\n\n## Impact\n\n- **MEDIUM-HIGH** - Missing 200-600 new contacts/month\n- Community power untapped\n\n## Advocate Tiers\n\n- Bronze: Share content 1x/week (20-30 advocates)\n- Silver: Host meetups monthly (5-10 advocates)\n- Gold: Co-host quarterly events (2-3 advocates)\n\n## Acceptance Criteria\n\n- [ ] 3-tier advocate program launched\n- [ ] 30-40 advocates recruited\n- [ ] 300-1000 new contacts/month\n- [ ] Recognition system implemented\n- [ ] Monthly advocate support",
+      "labels": ["enhancement", "priority:medium", "marketing", "community"]
+    },
+    {
+      "title": "[MARKETING] Formalize Speaking Circuit Strategy",
+      "body": "## Problem\n\nSpeaking page exists but no structured speaking strategy. Perfect credentials underutilized.\n\n## Impact\n\n- **HIGH** - Missing 8-12 engagements/6 months\n- Revenue opportunity ($2K-10K per keynote)\n- Thought leadership visibility\n\n## Strategy\n\n- Hire speaking agent/booker\n- Target conferences, corporate workshops, universities\n- 4-5 core talk formats\n- Media kit creation\n- ROI tracking\n\n## Acceptance Criteria\n\n- [ ] Speaking agent engaged or strategy created\n- [ ] 8-12 speaking gigs secured/6 months\n- [ ] Media kit polished\n- [ ] $10-50K revenue from speaking\n- [ ] 50-100 leads per speaking gig",
+      "labels": ["enhancement", "priority:high", "marketing"]
+    },
+    {
+      "title": "[MARKETING] Social Media Amplification System",
+      "body": "## Problem\n\nBlog posts published but not systematically repurposed for social media. Missing 10x reach opportunity.\n\n## Impact\n\n- **MEDIUM-HIGH** - Content reach limited\n- Social engagement low\n\n## Repurposing Strategy\n\nEach blog post becomes:\n- LinkedIn article + 3-4 posts\n- Twitter thread (5-10 tweets)\n- TikTok/IG Reels (2-3 clips)\n- Instagram Stories (daily)\n- Pinterest pins (2-3)\n- Email snippet\n\n## Acceptance Criteria\n\n- [ ] Repurposing workflow documented\n- [ ] Tools selected (Buffer, Canva)\n- [ ] 10-15 pieces per blog post\n- [ ] 3-5x social reach\n- [ ] Content calendar 4 weeks ahead",
+      "labels": ["enhancement", "priority:medium", "marketing"]
+    },
+    {
+      "title": "[MARKETING] Cross-Promotion Framework with BC+AI",
+      "body": "## Problem\n\nNo systematic cross-promotion between kriskrug.co and BC+AI despite shared audience (2,000+ members).\n\n## Impact\n\n- **MEDIUM-HIGH** - Missing 20-60 subscribers/month each\n- Audience silos\n\n## Cross-Promotion Tactics\n\n- BC+AI newsletter mentions kriskrug.co\n- kriskrug.co features BC+AI prominently\n- Email list sharing (with permission)\n- Event cross-promotion\n\n## Acceptance Criteria\n\n- [ ] Cross-promotion agreement established\n- [ ] Monthly mentions in both newsletters\n- [ ] 1-3% cross-promotion conversion\n- [ ] 20-60 new subscribers/month each\n- [ ] Traffic increase tracked",
+      "labels": ["enhancement", "priority:medium", "marketing"]
+    },
+    {
+      "title": "[MARKETING] User-Generated Content Collection System",
+      "body": "## Problem\n\nEvent attendees create content but it's not systematically collected and leveraged.\n\n## Impact\n\n- **MEDIUM** - Missing authentic marketing content\n- Social proof not captured\n\n## UGC Types\n\n- Event photography contest\n- Attendee testimonials (video/text)\n- Story sharing essays\n- Workshop recaps (LinkedIn posts)\n- Community art/creations\n\n## Acceptance Criteria\n\n- [ ] UGC collection forms at every event\n- [ ] 50-100 unique photos/month\n- [ ] 10-20 testimonials/month\n- [ ] Hashtag landing page\n- [ ] Monthly community spotlight",
+      "labels": ["enhancement", "priority:low", "marketing", "community"]
+    },
+    {
+      "title": "[ARCHIVE] Create Photography Archive - Decades of Work",
+      "body": "## Problem\n\nDecades of photography work (National Geographic, Rolling Stone, tech luminaries) not systematically archived or accessible.\n\n## Impact\n\n- **HIGH** - Major credential invisible\n- Visual storytelling heritage not shown\n- Archival value at risk\n\n## Archive Structure\n\n- Timeline view (1990s-2026)\n- Geographic mapping\n- Searchable by location, theme, project\n- EXIF data preservation\n- Related project links\n\n## Acceptance Criteria\n\n- [ ] Archive page at /archive/photography\n- [ ] Timeline view implemented\n- [ ] 100+ photos organized\n- [ ] Metadata complete\n- [ ] Search functional\n- [ ] Mobile optimized\n- [ ] WCAG 2.1 AA compliant",
+      "labels": ["enhancement", "priority:high", "content"]
+    },
+    {
+      "title": "[ARCHIVE] Build Speaking Archive - Recordings, Slides, Transcripts",
+      "body": "## Problem\n\nNo centralized repository of speaking engagements, recordings, or materials.\n\n## Impact\n\n- **MEDIUM-HIGH** - Thought leadership not preserved\n- Speaking credibility hard to assess\n\n## Archive Components\n\n- Video recordings (YouTube/Vimeo)\n- Slide decks (PDF + interactive)\n- Transcripts (searchable)\n- Presentation notes\n- Event context\n\n## Acceptance Criteria\n\n- [ ] Speaking archive page created\n- [ ] 20+ talks documented\n- [ ] Recordings embedded\n- [ ] Transcripts searchable\n- [ ] Slides downloadable\n- [ ] Citation format provided",
+      "labels": ["enhancement", "priority:medium", "content"]
+    },
+    {
+      "title": "[ARCHIVE] Integrate Indigenomics Knowledge Base - 1.13M Words",
+      "body": "## Problem\n\nIndigenom ics has 1.13M+ words of knowledge (16 frameworks, 117 sessions, 100+ speakers) not surfaced on kriskrug.co.\n\n## Impact\n\n- **CRITICAL** - Massive knowledge asset invisible\n- SEO goldmine untapped\n- Research value hidden\n\n## Integration Strategy\n\n- Full-text search across all content\n- 16 frameworks explained\n- Speaker profiles\n- Session transcripts\n- Proper attribution to Indigenomics\n\n## Acceptance Criteria\n\n- [ ] Knowledge base at /knowledge/indigenomics\n- [ ] 1.13M words searchable\n- [ ] 16 frameworks documented\n- [ ] 100+ speaker profiles\n- [ ] Citation system working\n- [ ] Proper permissions/attribution",
+      "labels": ["enhancement", "priority:high", "content"]
+    },
+    {
+      "title": "[PORTAL] Unified Event Calendar - Luma API Integration",
+      "body": "## Problem\n\nEvents scattered across multiple Luma calendars, Google Calendar, manual entries. No single view.\n\n## Impact\n\n- **HIGH** - Users can't find all events\n- Event discoverability poor\n- Management overhead\n\n## Solution\n\nUnified calendar pulling from:\n- Luma (BC+AI events)\n- Luma (Indigenomics events)\n- Speaking engagements\n- Vancouver AI meetups\n- The Upgrade AI workshops\n\n## Acceptance Criteria\n\n- [ ] Unified calendar at /calendar\n- [ ] Luma API integrated\n- [ ] Filter by project/type/location\n- [ ] Subscribe to calendars (iCal)\n- [ ] RSVP integration working\n- [ ] Mobile responsive\n- [ ] Auto-sync daily",
+      "labels": ["enhancement", "priority:high", "platform"]
+    },
+    {
+      "title": "[PORTAL] Beautiful Constellation Navigation Design",
+      "body": "## Problem\n\nTraditional navigation doesn't show interconnectedness of 6 projects (BC+AI, Indigenomics, The Upgrade AI, Vancouver AI, Photography, Thought Leadership).\n\n## Impact\n\n- **MEDIUM-HIGH** - Polymath vision not visualized\n- Projects appear siloed\n- Beautiful portal vision unrealized\n\n## Constellation Concept\n\nAnimated constellation showing 6 projects as stars:\n- Hover → project description\n- Click → navigate to project\n- Lines show connections\n- Animation shows motion\n\n## Acceptance Criteria\n\n- [ ] Constellation navigation designed\n- [ ] Interactive and beautiful\n- [ ] Accessible (keyboard nav)\n- [ ] Mobile alternative view\n- [ ] Performance optimized\n- [ ] WCAG 2.1 AA compliant",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[PORTAL] Unified Search Across All 6 Projects",
+      "body": "## Problem\n\nNo comprehensive search across BC+AI, Indigenomics, The Upgrade AI, Vancouver AI, photography, and thought leadership content.\n\n## Impact\n\n- **HIGH** - Knowledge discoverability poor\n- Users can't find relevant content\n- SEO value fragmented\n\n## Search Scope\n\n- Blog posts\n- Indigenomics KB (1.13M words)\n- The Upgrade AI resources\n- Event transcripts\n- Photography portfolio\n- Speaking materials\n\n## Acceptance Criteria\n\n- [ ] Unified search at /search\n- [ ] Search across all projects\n- [ ] Filter by project/type/topic\n- [ ] Results < 500ms\n- [ ] Elasticsearch or similar\n- [ ] WCAG 2.1 AA compliant",
+      "labels": ["enhancement", "priority:high", "platform"]
+    }
+  ]
+}

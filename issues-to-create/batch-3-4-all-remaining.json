@@ -1,0 +1,129 @@
+{
+  "issues": [
+    {
+      "title": "[DESIGN] Full Homepage Redesign - Modern Full-Width Layout",
+      "body": "## Problem\n\nCurrent homepage uses traditional two-column layout. Full redesign needed for modern, bold, full-width aesthetic.\n\n## Impact\n\n- **HIGH** - First impression and credibility\n- Modernizes outdated design\n- Better portfolio showcase\n\n## Acceptance Criteria\n\n- [ ] Homepage template full-width layout\n- [ ] Sidebar removed\n- [ ] Hero section implemented\n- [ ] Work showcase grid\n- [ ] Mobile responsive 320px-1440px+\n- [ ] Page load < 3 seconds\n- [ ] WCAG 2.1 AA compliance\n- [ ] Tested with screen readers",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[DESIGN] Create Modern Component Library",
+      "body": "## Problem\n\nNo unified component system. Building with ad-hoc components creates inconsistency.\n\n## Impact\n\n- **HIGH** - Foundation for redesign\n- Enables consistent implementation\n\n## Acceptance Criteria\n\n- [ ] 20+ components created\n- [ ] All WCAG 2.1 AA compliant\n- [ ] Design tokens defined\n- [ ] BEM naming applied\n- [ ] Component guide complete\n- [ ] Responsive variants\n- [ ] Hover/focus/active states",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[DESIGN] Typography System Update",
+      "body": "## Problem\n\nTypography relies on size variation only. No explicit weights, reducing hierarchy and accessibility.\n\n## Impact\n\n- **MEDIUM-HIGH** - Weak visual hierarchy\n- CTAs don't stand out\n\n## Acceptance Criteria\n\n- [ ] Font weights defined (400, 600, 700)\n- [ ] Type scale defined (H1-H6)\n- [ ] Line heights optimized\n- [ ] Spacing system established\n- [ ] Responsive typography\n- [ ] WCAG 2.1 AA contrast verified",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[DESIGN] Color Palette Refinement",
+      "body": "## Problem\n\nNo defined color system. Colors chosen ad-hoc, creating accessibility issues.\n\n## Impact\n\n- **MEDIUM-HIGH** - Brand identity weak\n- Accessibility compliance uncertain\n\n## Acceptance Criteria\n\n- [ ] Primary, secondary, accent colors selected\n- [ ] Neutral palette (5+ shades)\n- [ ] Semantic colors (success, warning, error)\n- [ ] All combinations tested for WCAG AA contrast\n- [ ] CSS variables created\n- [ ] Usage guidelines documented",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[DESIGN] Navigation Redesign - Modern Mobile-First",
+      "body": "## Problem\n\nNavigation needs modern, mobile-first redesign with accessibility focus.\n\n## Impact\n\n- **HIGH** - Navigation is critical UX\n- Mobile experience must be excellent\n\n## Acceptance Criteria\n\n- [ ] Desktop navigation redesigned\n- [ ] Mobile menu (hamburger) implemented\n- [ ] Smooth animations\n- [ ] Active page highlighted\n- [ ] Focus indicators visible\n- [ ] Keyboard navigation functional\n- [ ] Screen reader compatible\n- [ ] Touch targets 48px+\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[DESIGN] Footer Redesign",
+      "body": "## Problem\n\nFooter lacks visual appeal and doesn't guide users to important content.\n\n## Impact\n\n- **MEDIUM-HIGH** - Important navigational element\n- Trust building opportunity\n\n## Acceptance Criteria\n\n- [ ] Footer with 4-5 sections\n- [ ] Dark background with proper contrast\n- [ ] All important links (privacy, terms, etc.)\n- [ ] Newsletter signup form\n- [ ] Social links visible\n- [ ] Mobile responsive\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[DESIGN] Photography Showcase Component",
+      "body": "## Problem\n\nNeed dedicated component for photography portfolio as credential.\n\n## Impact\n\n- **HIGH** - Photography differentiator\n- Visual assets not leveraged\n\n## Acceptance Criteria\n\n- [ ] Gallery component created\n- [ ] Images lazy load < 2 seconds\n- [ ] Grid layout responsive\n- [ ] Optional lightbox/modal\n- [ ] WCAG 2.1 AA compliance\n- [ ] Alt text on all images\n- [ ] Photography positioned as credential",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[DESIGN] Project Card Design Pattern",
+      "body": "## Problem\n\nThree major projects need consistent card design (BC+AI, Indigenomics, The Upgrade AI).\n\n## Impact\n\n- **HIGH** - Project cards are core structure\n- Inconsistency reduces professionalism\n\n## Acceptance Criteria\n\n- [ ] Card design system documented\n- [ ] 3 project cards with identical structure\n- [ ] Images optimized\n- [ ] Mobile: Cards stack vertically\n- [ ] Desktop: Cards in row\n- [ ] Hover states defined\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[DESIGN] Form Design Updates",
+      "body": "## Problem\n\nForms need modern redesign with accessibility improvements.\n\n## Impact\n\n- **MEDIUM** - Forms are conversion points\n- Accessibility violations present\n\n## Acceptance Criteria\n\n- [ ] Form component system created\n- [ ] All inputs have visible labels\n- [ ] Error messages clear\n- [ ] Success confirmation prominent\n- [ ] Mobile: Full-width, large touch targets\n- [ ] Keyboard navigation functional\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[DESIGN] Mobile-First Responsive System",
+      "body": "## Problem\n\nMobile-first approach mandatory. Responsive breakpoints and touch-friendly design required.\n\n## Impact\n\n- **CRITICAL** - Mobile-first non-negotiable\n- 60%+ users on mobile\n\n## Acceptance Criteria\n\n- [ ] Breakpoints defined (320px, 768px, 1024px, 1440px)\n- [ ] Mobile-first CSS\n- [ ] Typography scales fluidly\n- [ ] Touch targets 48px minimum\n- [ ] Images load appropriately per device\n- [ ] Lighthouse mobile score > 85\n- [ ] No horizontal scrolling",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[DESIGN] Hero Section Visual Treatment",
+      "body": "## Problem\n\nHero must communicate polymath positioning effectively.\n\n## Impact\n\n- **CRITICAL** - First impression\n- Sets tone for site\n\n## Acceptance Criteria\n\n- [ ] Hero full viewport width\n- [ ] Headline states value/expertise\n- [ ] Subheading reinforces positioning\n- [ ] Hero image optimized < 2s mobile\n- [ ] Text overlays readable (contrast)\n- [ ] Primary CTA prominent\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[DESIGN] CTA Button Design System",
+      "body": "## Problem\n\nCTA buttons need unified design with clear hierarchy and states.\n\n## Impact\n\n- **MEDIUM** - CTAs drive conversions\n- Inconsistency reduces professionalism\n\n## Acceptance Criteria\n\n- [ ] Button system documented\n- [ ] Primary, secondary, tertiary styles\n- [ ] Hover, active, disabled states\n- [ ] Minimum 48px height\n- [ ] Icons supported\n- [ ] WCAG 2.1 AA contrast\n- [ ] Keyboard focus visible",
+      "labels": ["enhancement", "priority:medium", "ux"]
+    },
+    {
+      "title": "[SEO] Add Unique Meta Descriptions",
+      "body": "## Problem\n\nPages lack unique meta descriptions. Critical SEO factor for CTR.\n\n## Impact\n\n- **MEDIUM-HIGH** - Direct SEO impact\n- 40-60% lower CTR without descriptions\n\n## Acceptance Criteria\n\n- [ ] All pages have unique descriptions\n- [ ] 150-160 characters each\n- [ ] Keywords naturally integrated\n- [ ] Search Console shows correct rendering\n- [ ] Guidelines documented",
+      "labels": ["enhancement", "priority:medium", "seo"]
+    },
+    {
+      "title": "[SEO] Create XML Sitemap",
+      "body": "## Problem\n\nNo XML sitemap at /sitemap.xml. Critical SEO requirement.\n\n## Impact\n\n- **MEDIUM-HIGH** - SEO degraded\n- Slower indexing\n- Some pages may not appear in search\n\n## Acceptance Criteria\n\n- [ ] /sitemap.xml returns valid XML\n- [ ] All public pages included\n- [ ] robots.txt references sitemap\n- [ ] Submitted to Google Search Console\n- [ ] Submitted to Bing Webmaster\n- [ ] Auto-updates with new content",
+      "labels": ["enhancement", "priority:medium", "seo"]
+    },
+    {
+      "title": "[SEO] Implement Internal Linking Strategy",
+      "body": "## Problem\n\nInternal linking weak and inconsistent. Undermines SEO and navigation.\n\n## Impact\n\n- **MEDIUM** - Affects rankings and user navigation\n- Deep pages don't rank well\n\n## Acceptance Criteria\n\n- [ ] All pages have 2-5 internal links\n- [ ] Important pages have 5+ links\n- [ ] No orphaned pages\n- [ ] All pages reachable within 3 clicks\n- [ ] Anchor text descriptive\n- [ ] Related content cross-linked\n- [ ] Session duration increased",
+      "labels": ["enhancement", "priority:medium", "seo"]
+    },
+    {
+      "title": "[SEO] Add Schema Markup (Person, Organization, Article)",
+      "body": "## Problem\n\nNo structured data/schema markup. Reduces rich snippet eligibility.\n\n## Impact\n\n- **MEDIUM** - Missed rich snippets\n- No knowledge graph visibility\n\n## Acceptance Criteria\n\n- [ ] Organization schema added (BC+AI, Indigenomics, The Upgrade AI)\n- [ ] Person schema for Kris Krug\n- [ ] Article schema on all blog posts\n- [ ] BreadcrumbList on multi-level pages\n- [ ] Schema validates without errors\n- [ ] Rich snippets begin appearing",
+      "labels": ["enhancement", "priority:medium", "seo"]
+    },
+    {
+      "title": "[SEO] Optimize Images for Performance and SEO",
+      "body": "## Problem\n\nImages not optimized. Large file sizes, missing metadata.\n\n## Impact\n\n- **MEDIUM-HIGH** - Performance and SEO impact\n- Slow page loads\n- Poor mobile experience\n\n## Acceptance Criteria\n\n- [ ] All images optimized and compressed\n- [ ] File sizes < 150KB average (WebP)\n- [ ] 100% alt text coverage\n- [ ] WebP with fallbacks\n- [ ] Lazy loading enabled\n- [ ] Responsive images (srcset)\n- [ ] Core Web Vitals green",
+      "labels": ["enhancement", "priority:medium", "seo"]
+    },
+    {
+      "title": "[PERFORMANCE] Reduce Plugin Bloat",
+      "body": "## Problem\n\nSite heavily plugin-dependent (Jetpack, PopupMaker, etc.), creating performance bloat.\n\n## Impact\n\n- **HIGH** - Page load > 3 seconds\n- Mobile performance degraded\n- SEO ranking penalties\n\n## Acceptance Criteria\n\n- [ ] Plugin audit completed\n- [ ] 3+ plugins removed/replaced\n- [ ] Performance improved 20%+\n- [ ] Page load < 2.5s\n- [ ] Mobile PageSpeed ≥ 85\n- [ ] Desktop PageSpeed ≥ 90",
+      "labels": ["enhancement", "priority:medium", "performance"]
+    },
+    {
+      "title": "[PERFORMANCE] Implement Lazy Loading for Images",
+      "body": "## Problem\n\nImages load synchronously, blocking page rendering.\n\n## Impact\n\n- **HIGH** - Performance degraded\n- Mobile users experience slow renders\n\n## Acceptance Criteria\n\n- [ ] Lazy loading on all images\n- [ ] Native HTML loading=\"lazy\" used\n- [ ] Placeholder effect visible\n- [ ] LCP improved 30%+\n- [ ] CLS score < 0.1\n- [ ] Tested on 3G network",
+      "labels": ["enhancement", "priority:medium", "performance"]
+    },
+    {
+      "title": "[SEO] Add Twitter Card Tags",
+      "body": "## Problem\n\nNo Twitter Card meta tags despite active presence. Shares show minimal preview.\n\n## Impact\n\n- **MEDIUM** - Social sharing not optimized\n- Reduced engagement\n\n## Acceptance Criteria\n\n- [ ] Twitter Card tags on all pages\n- [ ] Validated with Twitter Card Validator\n- [ ] Images 1200x630px\n- [ ] Site handle included\n- [ ] Tested across article types",
+      "labels": ["enhancement", "priority:medium", "seo"]
+    },
+    {
+      "title": "[CONTENT] Create Glossary Page for AI Terminology",
+      "body": "## Problem\n\nAI and Indigenous terminology used without definitions. Creates barriers for newcomers.\n\n## Impact\n\n- **MEDIUM-HIGH** - Exclusionary for newcomers\n- Jargon creates accessibility barrier\n\n## Acceptance Criteria\n\n- [ ] Glossary page at /glossary\n- [ ] 50+ terms defined\n- [ ] Alphabetically organized\n- [ ] Searchable\n- [ ] Links from main content\n- [ ] Mobile responsive\n- [ ] SEO optimized",
+      "labels": ["enhancement", "priority:low", "content"]
+    },
+    {
+      "title": "[SEO] Add RSS Feeds for Blog Categories",
+      "body": "## Problem\n\nNo category-specific RSS feeds. Users can't subscribe to specific topics.\n\n## Impact\n\n- **MEDIUM** - Reduced content distribution\n- Topic-specific audiences can't filter\n\n## Acceptance Criteria\n\n- [ ] Category RSS feeds created\n- [ ] Feed URLs follow pattern\n- [ ] All feeds include proper metadata\n- [ ] Tested in major readers\n- [ ] Feed discovery links visible\n- [ ] Promoted in newsletter",
+      "labels": ["enhancement", "priority:low", "seo"]
+    },
+    {
+      "title": "[A11Y] Full WCAG 2.1 AA Accessibility Audit",
+      "body": "## Problem\n\nSite lacks comprehensive WCAG 2.1 AA compliance audit and systematic remediation plan.\n\n## Impact\n\n- **HIGH** - Legal compliance risk\n- Excludes users with disabilities\n- Mission misalignment\n\n## Acceptance Criteria\n\n- [ ] Audit covers 100% of public pages\n- [ ] All WCAG 2.1 AA criteria evaluated\n- [ ] Automated + manual testing complete\n- [ ] Critical issues prioritized\n- [ ] Remediation roadmap created\n- [ ] Report deliverables complete\n- [ ] Audit by accessibility specialist",
+      "labels": ["enhancement", "priority:high", "accessibility"]
+    },
+    {
+      "title": "[A11Y] Keyboard Navigation Improvements",
+      "body": "## Problem\n\nComprehensive keyboard navigation incomplete. Many components lack proper support.\n\n## Impact\n\n- **HIGH** - Users unable to navigate keyboard-only\n- Blocks motor disability users\n- WCAG 2.1 AA violation\n\n## Acceptance Criteria\n\n- [ ] 100% interactive elements keyboard accessible\n- [ ] Tab order logical\n- [ ] Focus always visible\n- [ ] No keyboard traps\n- [ ] Modal focus management\n- [ ] Skip links functional\n- [ ] Forms keyboard navigable\n- [ ] Screen reader compatible",
+      "labels": ["enhancement", "priority:high", "accessibility"]
+    },
+    {
+      "title": "[A11Y] Create Accessibility Statement",
+      "body": "## Problem\n\nNo published Accessibility Statement. Legal risk and transparency gap.\n\n## Impact\n\n- **HIGH** - Legal compliance concern\n- Users don't know what's accessible\n- No reporting process\n\n## Acceptance Criteria\n\n- [ ] Statement published at /accessibility\n- [ ] Current status documented\n- [ ] Known issues listed transparently\n- [ ] Reporting mechanism clear\n- [ ] Accommodation process documented\n- [ ] Roadmap included\n- [ ] Linked from footer\n- [ ] Page itself WCAG 2.1 AAA accessible",
+      "labels": ["enhancement", "priority:high", "accessibility"]
+    }
+  ]
+}

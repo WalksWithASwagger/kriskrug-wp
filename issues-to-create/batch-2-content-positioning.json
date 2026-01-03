@@ -1,0 +1,64 @@
+{
+  "issues": [
+    {
+      "title": "[CONTENT] Update Homepage Hero to Reflect Polymath Positioning",
+      "body": "## Problem\n\nHomepage hero positions Kris primarily as \"event photographer\" when he's actually Executive Director of BC+AI (2,000+ members), CTO of Indigenomics.ai, and Co-founder of The Upgrade AI.\n\n## Impact\n\n- **HIGH** - Critical brand positioning issue\n- Misrepresents actual work and influence\n- Fails to convey thought leadership\n\n## New Positioning (Approved)\n\n\"Bridging art, AI, Indigenous wisdom, and justice. Executive Director of BC+AI. CTO of Indigenomics.ai. Co-founder of The Upgrade AI. 20+ years creating technology that serves communities.\"\n\n## Acceptance Criteria\n\n- [ ] Hero features three roles equally (BC+AI, Indigenomics, The Upgrade AI)\n- [ ] Impact metrics displayed (2,000+ members, $200B discovery, Fortune 500 training)\n- [ ] Professional but warm tone\n- [ ] Roles positioned as interconnected\n- [ ] Clear CTAs to each initiative\n- [ ] Mobile responsive 320px+\n- [ ] WCAG 2.1 AA compliance\n- [ ] Load time < 2 seconds",
+      "labels": ["enhancement", "priority:high", "content"]
+    },
+    {
+      "title": "[CONTENT] Create BC+AI Leadership Section",
+      "body": "## Problem\n\nExecutive Director role of BC+AI is invisible on personal website. 2,000+ member community, policy influence, and government advisory work not featured.\n\n## Impact\n\n- **HIGH** - Missing key leadership credential\n- Fails to communicate community building expertise\n- Policy influence invisible\n\n## Acceptance Criteria\n\n- [ ] Dedicated BC+AI section on homepage/about\n- [ ] Role: \"Executive Director, BC+AI\"\n- [ ] Stats: 2,000+ members, 250+ Vancouver AI monthly, policy advisory\n- [ ] Community impact areas highlighted\n- [ ] Link to bc-ai.ca\n- [ ] \"Join BC+AI\" CTA\n- [ ] Professional imagery\n- [ ] Mobile responsive\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:high", "content"]
+    },
+    {
+      "title": "[CONTENT] Create Indigenomics.ai CTO Section",
+      "body": "## Problem\n\nCTO role at Indigenomics.ai and $200B+ Indigenous economic discovery completely absent from website.\n\n## Impact\n\n- **HIGH** - Missing major leadership credential\n- Indigenous sovereignty focus invisible\n- Technology-for-justice work not communicated\n\n## Acceptance Criteria\n\n- [ ] Dedicated Indigenomics.ai section\n- [ ] Role: \"CTO, Indigenomics.ai\"\n- [ ] Impact: $200B+ Indigenous economic discovery\n- [ ] Indigenous sovereignty focus explained\n- [ ] Technology for justice emphasized\n- [ ] Link to indigenomics.ai\n- [ ] Partnership inquiry CTA\n- [ ] Mobile responsive\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:high", "content"]
+    },
+    {
+      "title": "[CONTENT] Create The Upgrade AI Co-Founder Section",
+      "body": "## Problem\n\nThe Upgrade AI co-founder role and Fortune 500 training work not featured on site.\n\n## Impact\n\n- **HIGH** - Missing education leadership credential\n- Enterprise credibility not established\n\n## Acceptance Criteria\n\n- [ ] Dedicated The Upgrade AI section\n- [ ] Co-founder role (with Peter Bittner)\n- [ ] Fortune 500 clients highlighted\n- [ ] Democratizing AI mission featured\n- [ ] Link to platform\n- [ ] Training inquiry CTA\n- [ ] Mobile responsive\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:high", "content"]
+    },
+    {
+      "title": "[CONTENT] Redesign About Page with Polymath Journey",
+      "body": "## Problem\n\nAbout page is philosophical but doesn't reflect current reality: polymath with three major roles.\n\n## Impact\n\n- **HIGH** - Doesn't showcase actual achievements\n- Journey not told effectively\n\n## Acceptance Criteria\n\n- [ ] Journey from photographer to community architect\n- [ ] All three current roles detailed (BC+AI, Indigenomics, The Upgrade AI)\n- [ ] Philosophy & values (Indigenous sovereignty, community-first)\n- [ ] Credentials section\n- [ ] Personal mission\n- [ ] Mobile responsive\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:high", "content"]
+    },
+    {
+      "title": "[CONTENT] Create Work/Projects Page Architecture",
+      "body": "## Problem\n\nNo Work page showcasing three major projects with photography as credential.\n\n## Impact\n\n- **HIGH** - Portfolio missing\n- Project achievements invisible\n\n## Acceptance Criteria\n\n- [ ] NEW Work page with three sections: BC+AI, Indigenomics, The Upgrade AI\n- [ ] Photography section as credential (8-12 images)\n- [ ] Each project: description, impact, outcomes, links\n- [ ] Mobile responsive\n- [ ] WCAG 2.1 AA compliance\n- [ ] Page load < 3 seconds",
+      "labels": ["enhancement", "priority:high", "content"]
+    },
+    {
+      "title": "[CONTENT] Create Vancouver AI Community Page",
+      "body": "## Problem\n\nVancouver AI Community (250+ monthly, grown from 80) has no dedicated page despite being major achievement.\n\n## Impact\n\n- **MEDIUM** - Community growth story not told\n- Participation details scattered\n\n## Acceptance Criteria\n\n- [ ] Dedicated page at /community/vancouver-ai\n- [ ] Meetup schedule and frequency\n- [ ] Attendee numbers and growth\n- [ ] How to join/participate\n- [ ] Events calendar\n- [ ] Resources and recordings\n- [ ] Member testimonials\n- [ ] Academic partnerships\n- [ ] Mobile responsive\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:medium", "content"]
+    },
+    {
+      "title": "[CONTENT] Add Community Impact Metrics Throughout Site",
+      "body": "## Problem\n\nImpressive metrics (2,000+ BC+AI, 250+ Vancouver AI, Fortune 500, $200B discovery, 20+ years) not prominently featured.\n\n## Impact\n\n- **MEDIUM** - Scale and credibility invisible\n- Trust signals missing\n\n## Acceptance Criteria\n\n- [ ] Impact metrics on homepage (stats section)\n- [ ] Numbers throughout About page\n- [ ] Visual stats cards with icons\n- [ ] Timeline visualization of growth\n- [ ] All numbers verified and sourced\n- [ ] Accessibility: metrics have alt text\n- [ ] Mobile responsive\n- [ ] Page load impact < 500ms",
+      "labels": ["enhancement", "priority:medium", "content"]
+    },
+    {
+      "title": "[CONTENT] Update Voice/Tone to Professional but Warm",
+      "body": "## Problem\n\nWebsite tone is corporate. Should be professional but warm, approachable, values-driven (not swearing, but authentic).\n\n## Impact\n\n- **MEDIUM** - Brand voice misaligned\n- Appears too corporate for community org\n\n## Acceptance Criteria\n\n- [ ] Content audit completed\n- [ ] Brand voice guide created\n- [ ] Homepage copy rewritten\n- [ ] About page narrative updated\n- [ ] Remove corporate jargon\n- [ ] Increase \"we\" language\n- [ ] Add storytelling elements\n- [ ] Reading level: grade 8-10\n- [ ] User testing: 80%+ find more approachable\n- [ ] WCAG 2.1 AA compliance maintained",
+      "labels": ["enhancement", "priority:medium", "content"]
+    },
+    {
+      "title": "[CONTENT] Create Photography Portfolio as Credential Section",
+      "body": "## Problem\n\nPhotography background (National Geographic, Rolling Stone, tech luminaries) invisible. Demonstrates visual storytelling that informs AI work.\n\n## Impact\n\n- **MEDIUM-HIGH** - Credibility builder missing\n- Multidisciplinary expertise not shown\n\n## Acceptance Criteria\n\n- [ ] Photography section on Work page\n- [ ] Brief: \"Visual storytelling shaped my approach\"\n- [ ] 8-12 high-impact images\n- [ ] Publication credits visible\n- [ ] Positioned as credential, not primary focus\n- [ ] Mobile responsive grid\n- [ ] Images lazy-loaded\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:medium", "content"]
+    },
+    {
+      "title": "[CONTENT] Add Indigenous Land Acknowledgment",
+      "body": "## Problem\n\nNo visible Indigenous land acknowledgment despite Vancouver location on unceded territories and Indigenous sovereignty being core value.\n\n## Impact\n\n- **MEDIUM** - Values alignment missing\n- Respect for Indigenous sovereignty not demonstrated\n\n## Acceptance Criteria\n\n- [ ] Land acknowledgment visible (footer or About page)\n- [ ] Coast Salish, Squamish, Tsleil-Waututh nations acknowledged\n- [ ] Respectful, authentic tone\n- [ ] Optional: Links to nation websites\n- [ ] Mobile responsive\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:medium", "content"]
+    },
+    {
+      "title": "[CONTENT] Reorganize Blog Categories",
+      "body": "## Problem\n\nBlog categories unclear, doesn't reflect Kris's work areas.\n\n## Impact\n\n- **MEDIUM-HIGH** - Content discoverability poor\n- SEO opportunity missed\n\n## Recommended Categories\n\n1. AI Strategy\n2. Community Building  \n3. Indigenous Tech & Futures\n4. Policy & Impact\n5. Photography & Visual Storytelling\n\n## Acceptance Criteria\n\n- [ ] 5 primary categories created\n- [ ] All posts categorized\n- [ ] Category filter on blog page\n- [ ] Search functionality\n- [ ] Featured posts by category\n- [ ] Category pages SEO optimized\n- [ ] Mobile responsive\n- [ ] WCAG 2.1 AA compliance",
+      "labels": ["enhancement", "priority:medium", "content"]
+    }
+  ]
+}
