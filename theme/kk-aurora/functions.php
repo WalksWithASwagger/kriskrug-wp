@@ -57,15 +57,31 @@ add_action('after_setup_theme', __NAMESPACE__ . '\\theme_setup');
  */
 function enqueue_assets(): void {
     // Main stylesheet is automatically enqueued by FSE themes
-    
+
+    // Refined typography
+    wp_enqueue_style(
+        'kk-aurora-typography',
+        get_theme_file_uri('assets/css/typography-refined.css'),
+        [],
+        KK_AURORA_VERSION
+    );
+
     // Custom animations CSS
     wp_enqueue_style(
         'kk-aurora-animations',
         get_theme_file_uri('assets/css/animations.css'),
-        [],
+        ['kk-aurora-typography'],
         KK_AURORA_VERSION
     );
-    
+
+    // Bleeding edge CSS (progressive enhancement)
+    wp_enqueue_style(
+        'kk-aurora-bleeding-edge',
+        get_theme_file_uri('assets/css/bleeding-edge.css'),
+        ['kk-aurora-animations'],
+        KK_AURORA_VERSION
+    );
+
     // Theme JavaScript (deferred)
     wp_enqueue_script(
         'kk-aurora-theme',
@@ -77,7 +93,19 @@ function enqueue_assets(): void {
             'in_footer' => true,
         ]
     );
-    
+
+    // Micro-interactions (no dependencies, vanilla JS)
+    wp_enqueue_script(
+        'kk-aurora-micro',
+        get_theme_file_uri('assets/js/micro-interactions.js'),
+        [],
+        KK_AURORA_VERSION,
+        [
+            'strategy' => 'defer',
+            'in_footer' => true,
+        ]
+    );
+
     // GSAP for animations (loaded from CDN for performance)
     wp_enqueue_script(
         'gsap',
@@ -89,7 +117,7 @@ function enqueue_assets(): void {
             'in_footer' => true,
         ]
     );
-    
+
     // GSAP ScrollTrigger
     wp_enqueue_script(
         'gsap-scrolltrigger',
@@ -101,7 +129,7 @@ function enqueue_assets(): void {
             'in_footer' => true,
         ]
     );
-    
+
     // Aurora animations (depends on GSAP)
     wp_enqueue_script(
         'kk-aurora-animations',
