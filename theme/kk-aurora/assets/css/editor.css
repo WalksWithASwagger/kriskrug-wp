@@ -1,0 +1,82 @@
+/**
+ * KK Aurora - Editor Styles
+ * 
+ * Styles specific to the WordPress block editor.
+ */
+
+/* Match editor background to theme */
+.editor-styles-wrapper {
+  background-color: var(--wp--preset--color--deep) !important;
+  color: var(--wp--preset--color--text-primary);
+}
+
+/* Ensure blocks have proper styling in editor */
+.editor-styles-wrapper .wp-block {
+  max-width: none;
+}
+
+/* Fix placeholder text color */
+.editor-styles-wrapper .block-editor-rich-text__editable:empty::before {
+  color: var(--wp--preset--color--text-muted);
+}
+
+/* Button styles in editor */
+.editor-styles-wrapper .wp-block-button.is-style-aurora-primary .wp-block-button__link {
+  background: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--deep);
+}
+
+.editor-styles-wrapper .wp-block-button.is-style-aurora-ghost .wp-block-button__link {
+  background: transparent;
+  border: 2px solid var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--text-primary);
+}
+
+/* Card styles in editor */
+.editor-styles-wrapper .is-style-aurora-card {
+  background: var(--wp--preset--color--surface);
+  border: 1px solid var(--wp--preset--color--elevated);
+  border-radius: var(--wp--custom--border--radius-lg);
+  padding: var(--wp--preset--spacing--60);
+}
+
+/* Glass style in editor */
+.editor-styles-wrapper .is-style-aurora-glass {
+  background: rgba(18, 18, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--wp--custom--border--radius-lg);
+  padding: var(--wp--preset--spacing--60);
+}
+
+/* Link colors in editor */
+.editor-styles-wrapper a {
+  color: var(--wp--preset--color--cyan);
+}
+
+/* Selection in editor */
+.editor-styles-wrapper ::selection {
+  background-color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--deep);
+}
+
+/* Code blocks in editor */
+.editor-styles-wrapper code,
+.editor-styles-wrapper .wp-block-code {
+  background: var(--wp--preset--color--surface);
+  color: var(--wp--preset--color--cyan);
+  font-family: var(--wp--preset--font-family--mono);
+}
+
+.editor-styles-wrapper pre.wp-block-code {
+  border: 1px solid var(--wp--preset--color--elevated);
+}
+
+/* Quote styles in editor */
+.editor-styles-wrapper .wp-block-quote {
+  border-left-color: var(--wp--preset--color--cyan);
+}
+
+/* Separator in editor */
+.editor-styles-wrapper .wp-block-separator {
+  border-color: var(--wp--preset--color--elevated);
+}

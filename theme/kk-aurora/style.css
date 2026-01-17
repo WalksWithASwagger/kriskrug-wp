@@ -1,0 +1,498 @@
+/*
+Theme Name: KK Aurora
+Theme URI: https://kriskrug.co
+Author: Kris Krug
+Author URI: https://kriskrug.co
+Description: A cyberpunk-inspired WordPress theme featuring flowing gradients, deep space aesthetics, and purposeful motion design. Built for Full Site Editing with WCAG 2.1 AA accessibility.
+Version: 1.0.0
+Requires at least: 6.4
+Tested up to: 6.9
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: kk-aurora
+Tags: full-site-editing, block-patterns, custom-colors, custom-menu, editor-style, featured-images, one-column, wide-blocks, dark-mode, accessibility-ready
+
+KK Aurora WordPress Theme
+Copyright 2026 Kris Krug
+*/
+
+/* ============================================
+   AURORA CUSTOM PROPERTIES
+   Extended tokens beyond theme.json
+   ============================================ */
+
+:root {
+  /* Glass Effect */
+  --aurora-glass-bg: rgba(18, 18, 26, 0.85);
+  --aurora-glass-blur: blur(16px);
+  --aurora-glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  
+  /* Gradient Animation */
+  --aurora-gradient-animated: linear-gradient(
+    135deg,
+    #00E5FF,
+    #00BFA5,
+    #8B5CF6,
+    #EC4899,
+    #00E5FF
+  );
+  --aurora-gradient-size: 300% 300%;
+  
+  /* Glow Effects */
+  --aurora-glow-xs: 0 0 8px;
+  --aurora-glow-sm: 0 0 15px;
+  --aurora-glow-md: 0 0 25px;
+  --aurora-glow-lg: 0 0 40px;
+  --aurora-glow-xl: 0 0 60px;
+  
+  /* Border Gradients */
+  --aurora-border-gradient: linear-gradient(135deg, rgba(0,229,255,0.5) 0%, rgba(139,92,246,0.5) 100%);
+  
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0, 0, 0.2, 1);
+  --transition-normal: 300ms cubic-bezier(0, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  
+  /* Focus Ring */
+  --focus-ring: 0 0 0 2px var(--wp--preset--color--deep), 0 0 0 4px var(--wp--preset--color--cyan);
+}
+
+/* ============================================
+   BASE RESETS & DEFAULTS
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--deep);
+}
+
+::-moz-selection {
+  background-color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--deep);
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* ============================================
+   TYPOGRAPHY ENHANCEMENTS
+   ============================================ */
+
+/* Gradient text utility */
+.has-gradient-text {
+  background: var(--wp--preset--gradient--aurora-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated gradient text */
+.has-animated-gradient-text {
+  background: var(--aurora-gradient-animated);
+  background-size: var(--aurora-gradient-size);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ============================================
+   LINK STYLES
+   ============================================ */
+
+a {
+  transition: color var(--transition-fast);
+}
+
+/* Animated underline for links */
+.aurora-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.aurora-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--wp--preset--gradient--aurora-cyan-teal);
+  transition: width var(--transition-normal);
+}
+
+.aurora-link:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+/* Primary button with glow */
+.wp-block-button.is-style-aurora-primary .wp-block-button__link {
+  position: relative;
+  background: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--deep);
+  border: none;
+  font-weight: 600;
+  transition: 
+    transform var(--transition-fast),
+    box-shadow var(--transition-normal);
+}
+
+.wp-block-button.is-style-aurora-primary .wp-block-button__link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--aurora-glow-md) rgba(0, 229, 255, 0.4);
+}
+
+/* Ghost button with gradient border */
+.wp-block-button.is-style-aurora-ghost .wp-block-button__link {
+  position: relative;
+  background: transparent;
+  color: var(--wp--preset--color--text-primary);
+  border: 2px solid transparent;
+  background-image: 
+    linear-gradient(var(--wp--preset--color--surface), var(--wp--preset--color--surface)),
+    var(--wp--preset--gradient--aurora-primary);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: 
+    background var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.wp-block-button.is-style-aurora-ghost .wp-block-button__link:hover {
+  background-image: 
+    var(--wp--preset--gradient--aurora-subtle),
+    var(--wp--preset--gradient--aurora-primary);
+  box-shadow: var(--aurora-glow-sm) rgba(0, 229, 255, 0.2);
+}
+
+/* ============================================
+   CARD STYLES
+   ============================================ */
+
+.aurora-card {
+  background: var(--wp--preset--color--surface);
+  border: 1px solid var(--wp--preset--color--elevated);
+  border-radius: var(--wp--custom--border--radius-lg);
+  padding: var(--wp--preset--spacing--60);
+  transition: 
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+.aurora-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 229, 255, 0.3);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    var(--aurora-glow-md) rgba(0, 229, 255, 0.15);
+}
+
+/* Card with gradient border on hover */
+.aurora-card-gradient {
+  position: relative;
+  background: var(--wp--preset--color--surface);
+  border-radius: var(--wp--custom--border--radius-lg);
+  padding: var(--wp--preset--spacing--60);
+}
+
+.aurora-card-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--aurora-border-gradient);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.aurora-card-gradient:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   GLASS MORPHISM
+   ============================================ */
+
+.aurora-glass {
+  background: var(--aurora-glass-bg);
+  backdrop-filter: var(--aurora-glass-blur);
+  -webkit-backdrop-filter: var(--aurora-glass-blur);
+  border: var(--aurora-glass-border);
+}
+
+/* ============================================
+   SECTION STYLES
+   ============================================ */
+
+.aurora-section {
+  padding-top: var(--wp--preset--spacing--160);
+  padding-bottom: var(--wp--preset--spacing--160);
+}
+
+.aurora-section-tight {
+  padding-top: var(--wp--preset--spacing--100);
+  padding-bottom: var(--wp--preset--spacing--100);
+}
+
+/* Section with gradient divider */
+.aurora-section-divided {
+  position: relative;
+}
+
+.aurora-section-divided::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(80%, 600px);
+  height: 1px;
+  background: var(--wp--preset--gradient--aurora-primary);
+  opacity: 0.5;
+}
+
+/* ============================================
+   BADGE / TAG STYLES
+   ============================================ */
+
+.aurora-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--30);
+  font-size: var(--wp--preset--font-size--xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--wp--custom--border--radius-full);
+  background: var(--wp--preset--color--surface);
+  border: 1px solid var(--wp--preset--color--elevated);
+  color: var(--wp--preset--color--text-secondary);
+  transition: 
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.aurora-badge:hover {
+  border-color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--cyan);
+}
+
+.aurora-badge-gradient {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
+}
+
+.aurora-badge-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--wp--preset--gradient--aurora-primary);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* ============================================
+   SCROLL ANIMATIONS (base setup for GSAP)
+   ============================================ */
+
+.aurora-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.aurora-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
+}
+
+.aurora-scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.aurora-scale-in.is-visible {
+  opacity: 1;
+  transform: scale(1);
+  transition: 
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
+}
+
+/* ============================================
+   LOADING / SKELETON STATES
+   ============================================ */
+
+.aurora-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--wp--preset--color--surface) 25%,
+    var(--wp--preset--color--elevated) 50%,
+    var(--wp--preset--color--surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--wp--preset--spacing--40);
+  z-index: 9999;
+  padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--50);
+  background: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--deep);
+  font-weight: 600;
+  border-radius: var(--wp--custom--border--radius-sm);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--wp--preset--spacing--40);
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+@media (max-width: 781px) {
+  .aurora-section {
+    padding-top: var(--wp--preset--spacing--100);
+    padding-bottom: var(--wp--preset--spacing--100);
+  }
+  
+  .aurora-hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 782px) {
+  .aurora-hide-desktop {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .aurora-glass,
+  .aurora-card,
+  .aurora-badge {
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  .aurora-fade-up,
+  .aurora-scale-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
