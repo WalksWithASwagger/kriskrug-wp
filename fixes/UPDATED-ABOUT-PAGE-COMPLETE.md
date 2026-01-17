@@ -18,11 +18,11 @@ My name is Kris Krüg—a boundary-pushing creative explorer, intuitive tech whi
 
 ### Executive Director, BC+AI
 
-I lead BC+AI, a grassroots movement of **2,000+ members** building a responsible and inclusive AI future for British Columbia.
+I lead BC+AI, a grassroots movement of **250 members** building a responsible and inclusive AI future for British Columbia.
 
 What started as monthly meetups in Vancouver with 80 people has grown into a province-wide community—proving that another tech future is possible. One built on ethics, creativity, and genuine community power, not extraction.
 
-**Vancouver AI Community:** 250+ monthly attendees
+**Vancouver AI Community:** 2,400+ attendees in 2024
 **Policy Influence:** Advising BC government on AI governance
 **Mission:** Proving communities, not corporations, should shape AI's future
 
@@ -30,15 +30,15 @@ What started as monthly meetups in Vancouver with 80 people has grown into a pro
 
 ---
 
-### CTO, Indigenomics.ai
+### Indigenomics.ai Ally
 
-As Chief Technology Officer of Indigenomics.ai, I work at the intersection of Indigenous wisdom and emerging technology, building platforms that serve Indigenous economic sovereignty.
+As a white settler ally, I work at the intersection of Indigenous wisdom and emerging technology, building AI tools that serve Indigenous economic sovereignty.
 
-Through the Indigenomics framework—grounded in Carol Anne Hilton's vision of Economy as Ceremony—we've discovered over **$200 billion** in previously unaccounted Indigenous economic activity across Canada.
+Through Carol Anne Hilton's Indigenomics framework—Economy as Ceremony—I contribute technical capabilities while centering Indigenous leadership and data sovereignty.
 
-This isn't about extracting from Indigenous communities. It's about building technology that honors Indigenous data sovereignty, respects protocols, and serves Nation-building on Indigenous terms.
+This isn't about extracting from Indigenous communities. It's about building technology that honors Indigenous protocols and serves Nation-building on Indigenous terms.
 
-**Technology without wisdom is just destruction.** Indigenomics proves we can build tech that serves justice.
+**Technology without wisdom is just destruction.** The Indigenomics work proves we can build tech that serves justice.
 
 [Explore Indigenomics →](https://indigenomics.ai)
 

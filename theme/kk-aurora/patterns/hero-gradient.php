@@ -20,7 +20,7 @@
       <!-- /wp:heading -->
       
       <!-- wp:paragraph {"align":"center","className":"aurora-hero-description","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"textColor":"text-secondary","fontSize":"lg"} -->
-      <p class="has-text-align-center aurora-hero-description has-text-secondary-color has-text-color has-lg-font-size" style="margin-top:var(--wp--preset--spacing--60)">Executive Director BC+AI · CTO Indigenomics.ai · Co-founder The Upgrade AI</p>
+      <p class="has-text-align-center aurora-hero-description has-text-secondary-color has-text-color has-lg-font-size" style="margin-top:var(--wp--preset--spacing--60)">Executive Director BC+AI · Co-founder The Upgrade AI · Techartist &amp; Culture Hacker</p>
       <!-- /wp:paragraph -->
       
       <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center"}} -->

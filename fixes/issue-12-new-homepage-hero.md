@@ -9,8 +9,8 @@ Bridging Art, AI, Indigenous Wisdom, and Justice
 
 ### Hero Subheading
 ```
-Executive Director of BC+AI (2,000+ members) • CTO of Indigenomics.ai •
-Co-founder of The Upgrade AI • 20+ years creating technology that serves
+Executive Director of BC+AI (250 members) • Indigenomics.ai ally •
+Co-founder of The Upgrade AI • 25+ years creating technology that serves
 communities, not extraction.
 ```
 
@@ -19,7 +19,7 @@ communities, not extraction.
 ```html
 <div class="role-badges">
   <span class="badge badge-bcai">BC+AI Executive Director</span>
-  <span class="badge badge-indigenomics">Indigenomics CTO</span>
+  <span class="badge badge-indigenomics">Indigenomics Ally</span>
   <span class="badge badge-upgrade">The Upgrade AI Co-founder</span>
 </div>
 ```
@@ -29,24 +29,24 @@ communities, not extraction.
 ```html
 <div class="impact-metrics">
   <div class="metric">
-    <span class="number">2,000+</span>
+    <span class="number">250</span>
     <span class="label">BC+AI Community Members</span>
   </div>
   <div class="metric">
-    <span class="number">250+</span>
-    <span class="label">Vancouver AI Monthly Attendees</span>
+    <span class="number">2,400+</span>
+    <span class="label">Vancouver AI Attendees (2024)</span>
   </div>
   <div class="metric">
-    <span class="number">$200B+</span>
-    <span class="label">Indigenous Economic Discovery</span>
+    <span class="number">130K+</span>
+    <span class="label">Photos Under CC License</span>
   </div>
   <div class="metric">
     <span class="number">Fortune 500</span>
     <span class="label">Clients Trained</span>
   </div>
   <div class="metric">
-    <span class="number">20+</span>
-    <span class="label">Years of Experience</span>
+    <span class="number">25+</span>
+    <span class="label">Years in Tech</span>
   </div>
 </div>
 ```
@@ -71,22 +71,22 @@ communities, not extraction.
 
     <div class="role-badges">
       <span class="badge badge-bcai">BC+AI Executive Director</span>
-      <span class="badge badge-indigenomics">Indigenomics CTO</span>
+      <span class="badge badge-indigenomics">Indigenomics Ally</span>
       <span class="badge badge-upgrade">The Upgrade AI Co-founder</span>
     </div>
 
     <p class="hero-subheading">
-      20+ years creating technology that serves communities, not extraction.
+      25+ years creating technology that serves communities, not extraction.
     </p>
 
     <div class="impact-metrics">
       <div class="metric">
-        <span class="number">2,000+</span>
+        <span class="number">250</span>
         <span class="label">BC+AI Members</span>
       </div>
       <div class="metric">
         <span class="number">250+</span>
-        <span class="label">Vancouver AI Monthly</span>
+        <span class="label">Vancouver AI (2024)</span>
       </div>
       <div class="metric">
         <span class="number">$200B+</span>
