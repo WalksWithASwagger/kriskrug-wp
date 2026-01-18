@@ -85,3 +85,5 @@ composer.lock
 # Keep important config templates
 !.github/
 !.gitkeep
+*.zip
+*.zip
