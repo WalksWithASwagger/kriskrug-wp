@@ -1,0 +1,19 @@
+HTTP/2 200 
+date: Fri, 15 May 2026 05:23:58 GMT
+content-type: application/json; charset=UTF-8
+vary: Accept-Encoding
+server: Pagely-ARES/1.22.2
+x-gateway-request-id: 0372e87e9b9d0be29e99de960569e971
+vary: accept,content-type,Origin
+x-robots-tag: noindex
+x-content-type-options: nosniff
+access-control-expose-headers: X-WP-Total, X-WP-TotalPages, Link
+access-control-allow-headers: Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+x-wp-total: 941
+x-wp-totalpages: 95
+link: <https://kriskrug.co/wp-json/wp/v2/posts?page=2>; rel="next"
+allow: GET
+x-gateway-cache-key: 0|https|kriskrug.co|/wp-json/wp/v2/posts
+x-gateway-cache-status: MISS
+x-gateway-skip-cache: 0
+
