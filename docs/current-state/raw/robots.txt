@@ -1,0 +1,5 @@
+Sitemap: https://kriskrug.co/sitemap.xml
+Sitemap: https://kriskrug.co/news-sitemap.xml
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php

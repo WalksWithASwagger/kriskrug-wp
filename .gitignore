@@ -33,3 +33,12 @@ vendor/
 # Temporary files
 *.tmp
 *~
+
+# Local site backups — never commit DB dumps, media, or wp-config
+backup/
+
+# Python virtualenvs and bytecode (scripts/notion-to-wp/.venv, etc.)
+.venv/
+__pycache__/
+*.pyc
+*.pyo

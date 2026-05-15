@@ -1,0 +1,9 @@
+HTTP/2 404 
+date: Fri, 15 May 2026 05:15:32 GMT
+content-type: text/html; charset=UTF-8
+vary: Accept-Encoding
+server: Pagely-ARES/1.22.2
+x-gateway-request-id: af3b49d5ad47ef33a59c30db17151f36
+vary: accept,content-type
+link: <https://kriskrug.co/wp-json/>; rel="https://api.w.org/"
+

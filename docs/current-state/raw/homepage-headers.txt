@@ -1,0 +1,12 @@
+HTTP/2 200 
+date: Fri, 15 May 2026 05:16:58 GMT
+content-type: text/html; charset=UTF-8
+vary: Accept-Encoding
+server: Pagely-ARES/1.22.2
+x-gateway-request-id: c8b2d3a5bc444fa17c76a78748be8fb6
+vary: accept,content-type,Accept-Encoding
+link: <https://kriskrug.co/wp-json/>; rel="https://api.w.org/", <https://kriskrug.co/wp-json/wp/v2/pages/3930>; rel="alternate"; title="JSON"; type="application/json", <https://wp.me/PaMVFO-11o>; rel=shortlink
+x-gateway-cache-key: 1778813377.383|standard|https|kriskrug.co|||/
+x-gateway-cache-status: HIT
+x-gateway-skip-cache: 0
+
