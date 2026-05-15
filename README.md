@@ -4,11 +4,11 @@
 
 [![Infrastructure](https://img.shields.io/badge/Infrastructure-Complete-success)](https://github.com/WalksWithASwagger/kk-wp)
 [![Agent Swarm](https://img.shields.io/badge/Agent%20Swarm-Validated-success)](https://github.com/WalksWithASwagger/kk-wp/tree/main/.github/agents)
-[![Status](https://img.shields.io/badge/Status-Awaiting%20Production-blue)](https://kk.ca)
+[![Status](https://img.shields.io/badge/Status-Awaiting%20Production-blue)](https://kriskrug.co)
 
-**Status:** Infrastructure complete and validated. Agent swarm proven operational. Awaiting production kk.ca import to begin real issue resolution.
+**Status:** Infrastructure complete and validated. Agent swarm proven operational. Awaiting production kriskrug.co import to begin real issue resolution.
 
-This repository serves as the issue tracking, project management, and automation hub for the **Kris Krug** WordPress website at [kk.ca](https://kk.ca/).
+This repository serves as the issue tracking, project management, and automation hub for the **Kris Krug** WordPress website at [kriskrug.co](https://kriskrug.co/).
 
 ## About Kris Krug
 
@@ -32,20 +32,62 @@ Kris Krug is a grassroots AI ecosystem initiative focused on building a responsi
 
 This repository is used for:
 
-1. **Issue Tracking** - Bugs, feature requests, enhancements for kk.ca
-2. **Project Management** - Organizing development tasks and priorities
-3. **AI Agent Automation** - Automated issue-to-PR workflows powered by Claude agents
-4. **Documentation** - Technical documentation and development guidelines
+1. **Site audits + state snapshots** of the live kriskrug.co WordPress install
+2. **Content pipeline** — Notion → kriskrug.co publisher with safety guards
+3. **Custom WordPress code** — schema markup, theme tweaks, helper plugins
+4. **Issue tracking + project management** for fixes, content, and automation
+5. **AI agent automation** — automated issue-to-PR workflows (older — not used in current sessions)
 
 ### Why a Separate Repo?
 
-The live WordPress site is not currently synced with version control. This repository allows us to:
+The live WordPress site is not file-synced with this repo (it runs on Pagely). This repo holds everything *adjacent* to the site: audit data, draft content before publication, deployment-ready code snippets, and runbooks. See [Project Structure](#project-structure) for the layout.
 
-- Track issues and feature requests systematically
-- Build AI-powered automation for website improvements
-- Document development processes
-- Test agent-driven development workflows
-- Eventually sync with WordPress custom themes/plugins
+## Project Structure
+
+```
+content/drafts/                  # Notion-derived post drafts before publication
+  └── YYYY-MM-DD-<slug>/         # post.md, post.html, images/, seo-meta.md, etc.
+
+scripts/notion-to-wp/            # Notion → kriskrug.co publisher
+  ├── kk_notion_to_wp.py         # Single-file CLI: fetch, convert, upload, publish
+  ├── block_rules.py             # Notion block → Gutenberg block mapping
+  └── README.md                  # Setup + safety notes
+
+fixes/                           # Production-ready code snippets / migrations
+  ├── schema-snippets.php        # JSON-LD (Person + WebSite + Article + Breadcrumb + Service)
+  ├── schema-snippets-deployed.php  # The version actually running on prod
+  ├── llms-txt-template.md       # Curated llms.txt for AI search
+  ├── robots-txt-update.txt      # Two AI-crawler stance options
+  └── issue-*.{css,php,md}       # Older queued fixes from earlier batches
+
+docs/current-state/              # Frozen baseline snapshot — what was true on 2026-05-14
+  ├── README.md                  # Index of the snapshot
+  ├── SITE_INVENTORY.md          # Live-site fingerprint: host, theme, plugins, content shape
+  ├── REPO_STATE.md              # What's actually built vs. just documented
+  ├── ACCESS_CHANNELS.md         # MCP / REST / Chrome / SSH — what works today
+  ├── BACKUP_PLAN.md             # The four pieces of a real WP backup + paths to get them
+  ├── ROLLBACK_PLAYBOOK.md       # If a change breaks prod, here's the order of operations
+  ├── SEO_AUDIT.md               # Technical SEO + on-page + AI/generative-search readiness
+  ├── CONTENT_AUDIT.md           # Per-page review of all 34 pages + recent post inventory
+  ├── FIX_QUEUE.md               # P0 → P3 backlog
+  ├── ROADMAP.md                 # Where this is heading next
+  ├── INCIDENT-2026-05-15-overwritten-post.md   # Postmortem for the connector overwrite
+  └── raw/                       # Underlying API/HTML evidence behind the audit
+
+issues-to-create/                # Markdown drafts of GitHub issues waiting to be filed
+
+inc/                             # Custom WordPress modules (e.g., digital-composting CPT)
+
+skills/                          # Claude Code skills used in this repo
+.github/                         # Agent swarm definitions + workflows (older pipeline)
+```
+
+### Where to start
+
+- **Reading the site state:** `docs/current-state/README.md`
+- **Planning next work:** `docs/current-state/ROADMAP.md` and `FIX_QUEUE.md`
+- **Publishing a Notion post:** `scripts/notion-to-wp/README.md`
+- **Filing an issue:** `issues-to-create/` for drafts; existing ones at [WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
 
 ## 🤖 Agent Swarm - Infrastructure Complete ✅
 
@@ -56,7 +98,7 @@ The live WordPress site is not currently synced with version control. This repos
 - ✅ Autonomous code generation (944 lines generated during testing)
 - ✅ GitHub Actions workflows functional
 - ✅ Cloudways development environment configured
-- ✅ Ready for production kk.ca issues
+- ✅ Ready for production kriskrug.co issues
 
 **Current Phase:** Awaiting production WordPress import
 
@@ -123,7 +165,7 @@ See our [automation documentation](docs/automation-guide.md) for:
 
 ## Project Links
 
-- **Live Site**: [kk.ca](https://kk.ca/)
+- **Live Site**: [kriskrug.co](https://kriskrug.co/)
 - **Events**: [Luma Calendar](https://lu.ma/kk)
 - **News**: Updates via Notion
 - **GitHub**: [WalksWithASwagger/kk-wp](https://github.com/WalksWithASwagger/kk-wp)
@@ -133,7 +175,7 @@ See our [automation documentation](docs/automation-guide.md) for:
 For questions about this repository or Kris Krug:
 
 - Create an issue in this repository
-- Visit [kk.ca](https://kk.ca/) for general inquiries
+- Visit [kriskrug.co](https://kriskrug.co/) for general inquiries
 - Join our community events
 
 ## License
