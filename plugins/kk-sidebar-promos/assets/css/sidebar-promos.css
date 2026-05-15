@@ -1,0 +1,159 @@
+/*
+ * KK Sidebar Promos — sidebar widget styling.
+ *
+ * Inherits theme tokens via CSS custom properties so it looks at home in any
+ * sidebar context. Tone classes (--tone-event/course/community) shift the
+ * accent color. The text-only fallback (no featured image) renders as a
+ * branded card so the sidebar still looks intentional when an image is
+ * missing.
+ */
+
+.kk-sp {
+	--kk-sp-bg:        var(--wp--preset--color--base, #fff);
+	--kk-sp-fg:        var(--wp--preset--color--contrast, #1a1a1a);
+	--kk-sp-muted:     color-mix(in srgb, var(--kk-sp-fg) 65%, transparent);
+	--kk-sp-accent:    var(--wp--preset--color--primary, #ff5a1f);
+	--kk-sp-event:     #2563eb;
+	--kk-sp-course:    #7c3aed;
+	--kk-sp-community: #059669;
+	--kk-sp-radius:    14px;
+	--kk-sp-gap:       1.25rem;
+	--kk-sp-border:    color-mix(in srgb, var(--kk-sp-fg) 12%, transparent);
+
+	display: flex;
+	flex-direction: column;
+	gap: var(--kk-sp-gap);
+	font-family: inherit;
+}
+
+.kk-sp__heading {
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--kk-sp-muted);
+	margin: 0 0 -0.25rem;
+}
+
+.kk-sp__card {
+	position: relative;
+	display: block;
+	background: var(--kk-sp-bg);
+	border: 1px solid var(--kk-sp-border);
+	border-radius: var(--kk-sp-radius);
+	overflow: hidden;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.kk-sp__card:hover,
+.kk-sp__card:focus-within {
+	transform: translateY(-2px);
+	box-shadow: 0 12px 24px -16px rgba(0, 0, 0, 0.3);
+	border-color: color-mix(in srgb, var(--kk-sp-accent) 40%, var(--kk-sp-border));
+}
+
+.kk-sp__link {
+	display: block;
+	color: inherit;
+	text-decoration: none;
+}
+
+.kk-sp__link:focus-visible {
+	outline: 2px solid var(--kk-sp-accent);
+	outline-offset: 2px;
+}
+
+/* Image */
+.kk-sp__image-wrap {
+	position: relative;
+	aspect-ratio: 4 / 3;
+	background: color-mix(in srgb, var(--kk-sp-fg) 5%, transparent);
+}
+
+.kk-sp__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.kk-sp__badge {
+	position: absolute;
+	top: 0.6rem;
+	left: 0.6rem;
+	background: var(--kk-sp-accent);
+	color: #fff;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	padding: 0.25rem 0.55rem;
+	border-radius: 999px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* Body */
+.kk-sp__body {
+	padding: 1rem 1.1rem 1.1rem;
+}
+
+.kk-sp__title {
+	font-size: 1.05rem;
+	font-weight: 700;
+	line-height: 1.25;
+	margin: 0 0 0.4rem;
+	color: var(--kk-sp-fg);
+}
+
+.kk-sp__excerpt {
+	font-size: 0.92rem;
+	line-height: 1.5;
+	color: var(--kk-sp-muted);
+	margin: 0 0 0.7rem;
+}
+
+.kk-sp__cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3rem;
+	font-size: 0.88rem;
+	font-weight: 600;
+	color: var(--kk-sp-accent);
+}
+
+.kk-sp__card:hover .kk-sp__cta span[aria-hidden] {
+	transform: translateX(2px);
+	transition: transform 0.2s ease;
+}
+
+/* Tone variants tint the accent so similar promos read together. */
+.kk-sp__card--tone-event    { --kk-sp-accent: var(--kk-sp-event); }
+.kk-sp__card--tone-course   { --kk-sp-accent: var(--kk-sp-course); }
+.kk-sp__card--tone-community { --kk-sp-accent: var(--kk-sp-community); }
+
+/* Featured cards get a subtle accent rail at the top. */
+.kk-sp__card--featured {
+	box-shadow: inset 0 4px 0 var(--kk-sp-accent);
+}
+
+/* Text-only fallback card (no featured image set) — designed to still
+   look intentional, with a typographic header in the brand accent. */
+.kk-sp__card--text-only .kk-sp__body {
+	padding-top: 1.4rem;
+}
+
+.kk-sp__card--text-only::before {
+	content: "";
+	display: block;
+	height: 6px;
+	background: linear-gradient(90deg, var(--kk-sp-accent), color-mix(in srgb, var(--kk-sp-accent) 40%, transparent));
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.kk-sp__card,
+	.kk-sp__card:hover,
+	.kk-sp__cta span[aria-hidden] {
+		transition: none;
+		transform: none;
+	}
+}
