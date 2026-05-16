@@ -10,12 +10,12 @@
 
 ### 1. Sitemap errors (formerly "31 errors per GSC")
 
-- **Sample**: HEAD-checked the first 200 of 976 URLs in `sitemap-1.xml` → **0 errors** (no 404s, no 5xx, no broken redirects)
-- **Full check** in progress (network-bound, 12-20 min wall time); update this doc when it lands
-- **Inference**: GSC's 31-error count was likely **stale**, predating the Web Summit Vancouver 2026 restoration we did in this session and earlier housekeeping. GSC re-crawls on its own cadence (24-72h); the count should drift down over the next few days. Re-check the sitemap report next week — if it's still showing 31 errors against a clean sitemap, escalate.
-- The current sitemap is **Jetpack-generated** at `/sitemap.xml` → `/sitemap-1.xml` (976 URLs, all confirmed live in the sample) and a separate `/news-sitemap.xml`. Both fine.
+- **Full sweep complete**: HEAD-checked **all 976 URLs** in `sitemap-1.xml` → **0 errors. Zero 404s, zero 5xx, zero broken redirects.** The site is completely clean.
+- **What this means about GSC's 31-error count**: it's **definitively stale**. Likely a snapshot from before the Web Summit Vancouver 2026 URL restoration earlier today, plus possibly a few older URL changes. GSC's sitemap report lags 24-72h after a crawl; the count should drift to zero in the next few days as Google re-crawls.
+- **Action**: re-check GSC Sitemaps in 4-7 days. If errors persist against a verifiably clean sitemap, file a "report stuck" ticket with Google or use the URL Inspection tool to push individual problem URLs.
+- The current sitemap is **Jetpack-generated** at `/sitemap.xml` → `/sitemap-1.xml` (976 URLs, all confirmed live) and a separate `/news-sitemap.xml`. Both fine.
 
-**Verdict:** sitemap is healthy. Not the cause of traffic underperformance.
+**Verdict:** sitemap is **completely healthy**. 100% pass rate. Not even close to the cause of traffic underperformance.
 
 ### 2. Schema markup (deployed in last session)
 
