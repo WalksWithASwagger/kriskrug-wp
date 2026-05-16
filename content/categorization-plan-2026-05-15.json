@@ -1,0 +1,1030 @@
+{
+  "categories": {
+    "indigenous-reconciliation-in-tech": 1675,
+    "vancouver-ai-ecosystem": 1662,
+    "events-reports": 1676,
+    "conversations-interviews": 1677,
+    "ai-ethics-philosophy": 1678,
+    "ai-for-journalism-media": 1679,
+    "generative-ai-tools": 1680,
+    "ai-for-creatives": 1665,
+    "field-notes": 1681
+  },
+  "posts": [
+    {
+      "id": 11765,
+      "title": "Calling Us All In",
+      "current": [
+        1662,
+        1664
+      ],
+      "target_slug": "ai-ethics-philosophy",
+      "target_id": 1678,
+      "needs_change": true
+    },
+    {
+      "id": 11826,
+      "title": "Web Summit Vancouver 2026",
+      "current": [
+        1
+      ],
+      "target_slug": "events-reports",
+      "target_id": 1676,
+      "needs_change": true
+    },
+    {
+      "id": 11700,
+      "title": "Punk Rock AI",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-ethics-philosophy",
+      "target_id": 1678,
+      "needs_change": true
+    },
+    {
+      "id": 11620,
+      "title": "Applied Ethical AI: Responsible AI Professional Certification (RAP)",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-ethics-philosophy",
+      "target_id": 1678,
+      "needs_change": true
+    },
+    {
+      "id": 11358,
+      "title": "Spa at the End of Time",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-ethics-philosophy",
+      "target_id": 1678,
+      "needs_change": true
+    },
+    {
+      "id": 11252,
+      "title": "Name the Bias",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-ethics-philosophy",
+      "target_id": 1678,
+      "needs_change": true
+    },
+    {
+      "id": 11171,
+      "title": "Both Hands Full",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 11014,
+      "title": "Vancouver Tech Journal Isn&#8217;t Journalism",
+      "current": [
+        1
+      ],
+      "target_slug": "vancouver-ai-ecosystem",
+      "target_id": 1662,
+      "needs_change": true
+    },
+    {
+      "id": 9937,
+      "title": "AI Training for Media, PR, and Creative Professionals",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-journalism-media",
+      "target_id": 1679,
+      "needs_change": true
+    },
+    {
+      "id": 9774,
+      "title": "What Journalists Need to Know About AI\u2014Right Now",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-journalism-media",
+      "target_id": 1679,
+      "needs_change": true
+    },
+    {
+      "id": 9549,
+      "title": "AI Ate the Future",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 9374,
+      "title": "BC + AI Ecosystem Industry Association Is Live",
+      "current": [
+        1
+      ],
+      "target_slug": "vancouver-ai-ecosystem",
+      "target_id": 1662,
+      "needs_change": true
+    },
+    {
+      "id": 9197,
+      "title": "Vancouver AI Meetup #16: Where Tech, Creativity, and Community Collide",
+      "current": [
+        1
+      ],
+      "target_slug": "vancouver-ai-ecosystem",
+      "target_id": 1662,
+      "needs_change": true
+    },
+    {
+      "id": 9044,
+      "title": "DIY AI in Vancouver: Building a Grassroots BC\u00a0AI Industry Association",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 8947,
+      "title": "Web Summit Vancouver 2025 Survival Guide",
+      "current": [
+        1
+      ],
+      "target_slug": "events-reports",
+      "target_id": 1676,
+      "needs_change": true
+    },
+    {
+      "id": 8856,
+      "title": "How Indigenomics AI is Flipping The Script On Economic Power in Canada",
+      "current": [
+        1
+      ],
+      "target_slug": "indigenous-reconciliation-in-tech",
+      "target_id": 1675,
+      "needs_change": true
+    },
+    {
+      "id": 8859,
+      "title": "We Don\u2019t Do Panels. We Do Portals.",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 8802,
+      "title": "How to Build an AI Second Brain That Actually Works for You",
+      "current": [
+        1
+      ],
+      "target_slug": "generative-ai-tools",
+      "target_id": 1680,
+      "needs_change": true
+    },
+    {
+      "id": 8786,
+      "title": "A Creative Technologists AI Age Manifesto",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-ethics-philosophy",
+      "target_id": 1678,
+      "needs_change": true
+    },
+    {
+      "id": 8663,
+      "title": "&#8220;Is A Hotdog A Sandwich?&#8221;: Vancouver AI Data Storytelling Hackathon w/ Andrew Reid",
+      "current": [
+        1
+      ],
+      "target_slug": "vancouver-ai-ecosystem",
+      "target_id": 1662,
+      "needs_change": true
+    },
+    {
+      "id": 8544,
+      "title": "Transcending Tech&#8217;s Darker Impulses",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 8508,
+      "title": "Data Storytelling Hackathon: Where AI Meets Art, And Data Sings Its Truth",
+      "current": [
+        1
+      ],
+      "target_slug": "events-reports",
+      "target_id": 1676,
+      "needs_change": true
+    },
+    {
+      "id": 8418,
+      "title": "Vancouver AI: The Community Building BC&#8217;s AI Future &#8211; February Meetup Recap",
+      "current": [
+        1
+      ],
+      "target_slug": "vancouver-ai-ecosystem",
+      "target_id": 1662,
+      "needs_change": true
+    },
+    {
+      "id": 8407,
+      "title": "Shane Gibson&#8217;s AI Sales Dojo",
+      "current": [
+        1
+      ],
+      "target_slug": "conversations-interviews",
+      "target_id": 1677,
+      "needs_change": true
+    },
+    {
+      "id": 8314,
+      "title": "BC&#8217;s AI Ecosystem: A Mycelial Network of Creation",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 8182,
+      "title": "Vancouver AI January 2025 Recap: One Year of Creative Rebellion &amp; Open-Source Disruption",
+      "current": [
+        1
+      ],
+      "target_slug": "vancouver-ai-ecosystem",
+      "target_id": 1662,
+      "needs_change": true
+    },
+    {
+      "id": 7500,
+      "title": "Human Biography Podcast w/ Sharad Khar\u00e9",
+      "current": [
+        1
+      ],
+      "target_slug": "conversations-interviews",
+      "target_id": 1677,
+      "needs_change": true
+    },
+    {
+      "id": 7927,
+      "title": "AI&#8217;s Next Chapter: Notes from BC&#8217;s AI Ecosystem",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 7781,
+      "title": "Vancouver\u2019s AI Meetups: Where Code Meets Culture",
+      "current": [
+        1
+      ],
+      "target_slug": "events-reports",
+      "target_id": 1676,
+      "needs_change": true
+    },
+    {
+      "id": 7810,
+      "title": "Fears, Hopes, and Dreams for Our Relationship with AI",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 7751,
+      "title": "Generative AI Cinematic Podcasts &amp; How Kevin Friel is Hacking the Future of Media",
+      "current": [
+        1
+      ],
+      "target_slug": "conversations-interviews",
+      "target_id": 1677,
+      "needs_change": true
+    },
+    {
+      "id": 7696,
+      "title": "NeuRIPS Vancouver: Best AI &amp; ML Papers of 2024",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 7692,
+      "title": "Field Notes from NeurIPS&#8217; Latent Lounge",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 7631,
+      "title": "AlphaPrism: Post-Photographic Cybernetic Portraiture",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 6322,
+      "title": "Great Creative Reckoning: A Techartist&#8217;s Manifesto on Generative Artificial Intelligence.",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-ethics-philosophy",
+      "target_id": 1678,
+      "needs_change": true
+    },
+    {
+      "id": 7411,
+      "title": "Paddling Together: A Future Built on Connection, Creativity, and Community",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 7450,
+      "title": "Redefining the Future of Indigenous Economic Sovereignty through AI",
+      "current": [
+        1
+      ],
+      "target_slug": "indigenous-reconciliation-in-tech",
+      "target_id": 1675,
+      "needs_change": true
+    },
+    {
+      "id": 7322,
+      "title": "Kicking Ass in 2025: A Techartist&#8217;s Guide to Creative Survival",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 7250,
+      "title": "Indigenous Innovation in Technology and the Future of Indigenous Economies",
+      "current": [
+        1
+      ],
+      "target_slug": "indigenous-reconciliation-in-tech",
+      "target_id": 1675,
+      "needs_change": true
+    },
+    {
+      "id": 7177,
+      "title": "Future Proof: Inside Vancouver&#8217;s Thriving AI Ecosystem",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 7143,
+      "title": "Healing Through Creativity: My Journey with DeepWell DTX &amp; Dave Zaboski",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 6988,
+      "title": "AI for the People: Why Open-Source is the Future of Tech Sovereignty",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-ethics-philosophy",
+      "target_id": 1678,
+      "needs_change": true
+    },
+    {
+      "id": 6937,
+      "title": "The Human Algorithm: Enya Learning Keynote",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 6901,
+      "title": "The Outsider&#8217;s Insider Guide to Web Summit Vancouver",
+      "current": [
+        1
+      ],
+      "target_slug": "events-reports",
+      "target_id": 1676,
+      "needs_change": true
+    },
+    {
+      "id": 6896,
+      "title": "AI Upgrade for Creatives &#8211; Professor Peter and KK the Pirate King",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 6815,
+      "title": "August Vancouver AI Community Meetup Recap &#8211; Hackers, Hustlers &amp; Heretics",
+      "current": [
+        1
+      ],
+      "target_slug": "vancouver-ai-ecosystem",
+      "target_id": 1662,
+      "needs_change": true
+    },
+    {
+      "id": 6727,
+      "title": "Web Summit Vancouver 2025 And How You Can Shape It",
+      "current": [
+        1
+      ],
+      "target_slug": "events-reports",
+      "target_id": 1676,
+      "needs_change": true
+    },
+    {
+      "id": 6670,
+      "title": "LLMs and Beyond: Reframing the Future of Artificial Intelligence",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 6552,
+      "title": "AI and Music: The Digital Renaissance You Didn&#8217;t See Coming",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 6554,
+      "title": "AI Meetup Mayhem: Stickers, Startups, and Squamish Songs!",
+      "current": [
+        1
+      ],
+      "target_slug": "indigenous-reconciliation-in-tech",
+      "target_id": 1675,
+      "needs_change": true
+    },
+    {
+      "id": 6517,
+      "title": "Hacker Artists Revolutionizing Music &amp; Dance w/ AI Punk Quentin Nolot",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 6453,
+      "title": "Small File Rebellion: Hacking the Digital Carbon Footprint at Our Networks 2024",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 6470,
+      "title": "The Raw Truth About Building Communities That Actually Give a Shit",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 6435,
+      "title": "Digital Rebellion w/ Lori Emerson&#8217;s  at Our Networks 2024",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 6344,
+      "title": "Fuck the Status Quo: AI&#8217;s Messy Love Child with Creativity",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 6251,
+      "title": "Creativity in the Age of AI: Vancouver AI Community Meetup &#8211; June 2024 Highlights",
+      "current": [
+        1
+      ],
+      "target_slug": "vancouver-ai-ecosystem",
+      "target_id": 1662,
+      "needs_change": true
+    },
+    {
+      "id": 6221,
+      "title": "New Segment on CBC Radio Early Edition: AI Sandbox with Kris Kr\u00fcg",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 6169,
+      "title": "A Love Letter to Vancouver: Minimal Viable Demos",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 6144,
+      "title": "AI is Not Your Friend: Why We Need to Rethink Our Relationship with Artificial Intelligence",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 6108,
+      "title": ": The Revolution of Governance and Cybersecurity &#8211; A Night with Anthony Green",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 6038,
+      "title": "Rise of the Vancouver Technopunks: Hosting the Web Summit on Our Terms",
+      "current": [
+        1
+      ],
+      "target_slug": "vancouver-ai-ecosystem",
+      "target_id": 1662,
+      "needs_change": true
+    },
+    {
+      "id": 6019,
+      "title": "Augie Studio Review: AI-Driven Video Production Analysis",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 5833,
+      "title": "The Cyborg Art of Autolume: When AI Meets the Human Lens",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 5975,
+      "title": "Building Community: Elevating the Ecosystem Panel at Vancouver Startup Week",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 5915,
+      "title": "Hacking AI for the People&#8217;s (r)evolution",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 5823,
+      "title": "You&#8217;re Doing it Wrong! How you *should* be using AIs",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 5847,
+      "title": "Future Hackers: Vancouver&#8217;s Startup Ecosystem",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 5768,
+      "title": "Vancouver AI Community Meetup Recap: June 2024 at Future Proof Creatives Studio",
+      "current": [
+        1
+      ],
+      "target_slug": "vancouver-ai-ecosystem",
+      "target_id": 1662,
+      "needs_change": true
+    },
+    {
+      "id": 5723,
+      "title": "Unpacking AI Ethics at American Marketing Association#VisionConf2024",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-ethics-philosophy",
+      "target_id": 1678,
+      "needs_change": true
+    },
+    {
+      "id": 5698,
+      "title": "Jennifer Podemski Storytelling Masterclass &#8211; Yorkton Film Festival",
+      "current": [
+        1
+      ],
+      "target_slug": "events-reports",
+      "target_id": 1676,
+      "needs_change": true
+    },
+    {
+      "id": 5680,
+      "title": "AI in Filmmaking at the Yorkton Film Festival",
+      "current": [
+        1
+      ],
+      "target_slug": "events-reports",
+      "target_id": 1676,
+      "needs_change": true
+    },
+    {
+      "id": 5661,
+      "title": "Lisa Jackson&#8217;s &#8220;Wilfred Buck&#8221; documentary premier at the Yorkton Film Festival",
+      "current": [
+        1
+      ],
+      "target_slug": "events-reports",
+      "target_id": 1676,
+      "needs_change": true
+    },
+    {
+      "id": 5626,
+      "title": "Love in the Time of AI: My Affair with Sexy Companion Chatbots",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 5590,
+      "title": "Exploring the Power of Custom GPTs: My AI Creations",
+      "current": [
+        1
+      ],
+      "target_slug": "generative-ai-tools",
+      "target_id": 1680,
+      "needs_change": true
+    },
+    {
+      "id": 5505,
+      "title": "The Metacreative Code: Philippe Pasquier&#8217;s Remix of AI and Creative Arts",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 5489,
+      "title": "Cognitive AI, Creativity, and Ethics w/ Professor Steve DiPaola",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-ethics-philosophy",
+      "target_id": 1678,
+      "needs_change": true
+    },
+    {
+      "id": 5357,
+      "title": "AI Mindset Keynote at Innovate West 2024 in Vancouver",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 5385,
+      "title": "The Creative Disruption: AI Crashes the Art Party",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 5371,
+      "title": "Not All White Guys: Unpacking the Wealth Tax Debate in Canada",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 5344,
+      "title": "From Timbits to Tech Titans: Guy Kawasaki&#8217;s Blueprint for Innovation",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 5285,
+      "title": "The Cyborg Future: When Sci-Fi Gets Real (And Complicated)",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 5236,
+      "title": "AI Skills for Tomorrow&#8217;s Storytellers with OpenAI Creator Community Specialist Souki Mansoor",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 5217,
+      "title": "Spaceport Vancouver: AI Community Meetup",
+      "current": [
+        1
+      ],
+      "target_slug": "events-reports",
+      "target_id": 1676,
+      "needs_change": true
+    },
+    {
+      "id": 5160,
+      "title": "The Adaptability Paradox",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 5078,
+      "title": "The Future is Verified: Insights and Critical Reflections from Interac&#8217;s VIP Talk at SXSW",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 5020,
+      "title": "Death of the Follower &amp; the Future of Creativity on the Web",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 4997,
+      "title": "Exploring the Intersection of Gaming and Mental Health",
+      "current": [],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 4980,
+      "title": "The Poet of Code: Unmasking AI&#8217;s Coded Gaze at SXSW",
+      "current": [],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 4960,
+      "title": "Broetry, Content Farms, TL;DR\u2014Is the Internet OK?",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 4948,
+      "title": "The Inside-Out Evolution",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 4892,
+      "title": "Global Indigenous Technology House",
+      "current": [
+        1
+      ],
+      "target_slug": "indigenous-reconciliation-in-tech",
+      "target_id": 1675,
+      "needs_change": true
+    },
+    {
+      "id": 4877,
+      "title": "Navigating Names and Narratives: My Reflections on &#8220;Frontier&#8221;",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 4851,
+      "title": "The Art of AI Storytelling",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 4826,
+      "title": "Future Proof Creatives Community &#038; Event Series",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 4803,
+      "title": "Building AI Communities",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 4773,
+      "title": "Creative Toolbox: Best of the Best AI Tools",
+      "current": [],
+      "target_slug": "generative-ai-tools",
+      "target_id": 1680,
+      "needs_change": true
+    },
+    {
+      "id": 4763,
+      "title": "Adding Heart to AI&#8217;s Brains",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 4706,
+      "title": "Vancouver Community &#038; Connections at the Intersection of Creativity and AI",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    },
+    {
+      "id": 4635,
+      "title": "Bridging Innovation and Ethics: Future Proof Creatives and the Path Forward in AI",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-ethics-philosophy",
+      "target_id": 1678,
+      "needs_change": true
+    },
+    {
+      "id": 4539,
+      "title": "Exploring the Intersection of Photography and Generative AI",
+      "current": [
+        1
+      ],
+      "target_slug": "ai-for-creatives",
+      "target_id": 1665,
+      "needs_change": true
+    },
+    {
+      "id": 4495,
+      "title": "Inside the Innaugural Vancouver AI Community Meetup",
+      "current": [
+        1
+      ],
+      "target_slug": "vancouver-ai-ecosystem",
+      "target_id": 1662,
+      "needs_change": true
+    },
+    {
+      "id": 4174,
+      "title": "2024: The Year of AI Revolution &#8211; A Rebel&#8217;s Guide to the Future",
+      "current": [
+        1
+      ],
+      "target_slug": "field-notes",
+      "target_id": 1681,
+      "needs_change": true
+    }
+  ]
+}
