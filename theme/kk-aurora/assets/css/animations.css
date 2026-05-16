@@ -1,0 +1,354 @@
+/**
+ * KK Aurora - Animation Styles
+ * 
+ * Keyframe animations, transitions, and motion effects.
+ * All animations respect prefers-reduced-motion.
+ */
+
+/* ============================================
+   GRADIENT ANIMATIONS
+   ============================================ */
+
+/* Slow gradient shift for backgrounds */
+@keyframes aurora-gradient-bg {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.aurora-gradient-animated {
+  background: linear-gradient(
+    135deg,
+    var(--wp--preset--color--cyan),
+    var(--wp--preset--color--teal),
+    var(--wp--preset--color--purple),
+    var(--wp--preset--color--pink),
+    var(--wp--preset--color--cyan)
+  );
+  background-size: 300% 300%;
+  animation: aurora-gradient-bg 15s ease infinite;
+}
+
+/* Gradient border rotation */
+@keyframes aurora-border-rotate {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+/* Subtle pulse glow */
+@keyframes aurora-pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 229, 255, 0.4);
+  }
+}
+
+.aurora-pulse {
+  animation: aurora-pulse-glow 3s ease-in-out infinite;
+}
+
+/* ============================================
+   ENTRANCE ANIMATIONS
+   ============================================ */
+
+/* Fade up */
+@keyframes aurora-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.aurora-animate-fade-up {
+  animation: aurora-fade-up 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+/* Fade in */
+@keyframes aurora-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.aurora-animate-fade-in {
+  animation: aurora-fade-in 0.5s ease forwards;
+}
+
+/* Scale in */
+@keyframes aurora-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.aurora-animate-scale-in {
+  animation: aurora-scale-in 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+/* Slide in from left */
+@keyframes aurora-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.aurora-animate-slide-left {
+  animation: aurora-slide-left 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+/* Slide in from right */
+@keyframes aurora-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.aurora-animate-slide-right {
+  animation: aurora-slide-right 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+/* ============================================
+   INTERACTIVE ANIMATIONS
+   ============================================ */
+
+/* Button press effect */
+.aurora-button-press {
+  transition: transform 0.1s ease;
+}
+
+.aurora-button-press:active {
+  transform: scale(0.98);
+}
+
+/* Card lift on hover */
+.aurora-card-lift {
+  transition: 
+    transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.3s ease;
+}
+
+.aurora-card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(0, 229, 255, 0.15);
+}
+
+/* Link underline slide */
+.aurora-link-slide {
+  position: relative;
+  text-decoration: none;
+}
+
+.aurora-link-slide::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--wp--preset--gradient--aurora-cyan-teal);
+  transition: width 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.aurora-link-slide:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   SCROLL INDICATOR
+   ============================================ */
+
+@keyframes aurora-scroll-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.aurora-scroll-indicator {
+  animation: aurora-scroll-bounce 2s ease-in-out infinite;
+}
+
+/* ============================================
+   LOADING ANIMATIONS
+   ============================================ */
+
+/* Spinner */
+@keyframes aurora-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.aurora-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--wp--preset--color--elevated);
+  border-top-color: var(--wp--preset--color--cyan);
+  border-radius: 50%;
+  animation: aurora-spin 0.8s linear infinite;
+}
+
+/* Dots loading */
+@keyframes aurora-dots {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.aurora-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.aurora-dots span {
+  width: 8px;
+  height: 8px;
+  background: var(--wp--preset--color--cyan);
+  border-radius: 50%;
+  animation: aurora-dots 1.4s ease-in-out infinite both;
+}
+
+.aurora-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.aurora-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+/* ============================================
+   STAGGER DELAYS
+   Used with JS to create staggered effects
+   ============================================ */
+
+[data-aurora-delay="1"] { animation-delay: 0.1s; }
+[data-aurora-delay="2"] { animation-delay: 0.2s; }
+[data-aurora-delay="3"] { animation-delay: 0.3s; }
+[data-aurora-delay="4"] { animation-delay: 0.4s; }
+[data-aurora-delay="5"] { animation-delay: 0.5s; }
+[data-aurora-delay="6"] { animation-delay: 0.6s; }
+[data-aurora-delay="7"] { animation-delay: 0.7s; }
+[data-aurora-delay="8"] { animation-delay: 0.8s; }
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-gradient-animated,
+  .aurora-pulse,
+  .aurora-animate-fade-up,
+  .aurora-animate-fade-in,
+  .aurora-animate-scale-in,
+  .aurora-animate-slide-left,
+  .aurora-animate-slide-right,
+  .aurora-scroll-indicator,
+  .aurora-spinner,
+  .aurora-dots span {
+    animation: none;
+  }
+  
+  .aurora-animate-fade-up,
+  .aurora-animate-fade-in,
+  .aurora-animate-scale-in,
+  .aurora-animate-slide-left,
+  .aurora-animate-slide-right {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .aurora-card-lift:hover {
+    transform: none;
+  }
+  
+  .aurora-link-slide::after {
+    width: 100%;
+    transition: none;
+  }
+}
+
+/* ============================================
+   NUMBER COUNTER (JS controlled)
+   ============================================ */
+
+.aurora-counter {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ============================================
+   HERO SPECIFIC ANIMATIONS
+   ============================================ */
+
+/* Hero text word reveal */
+.aurora-hero-text .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.aurora-hero-text.is-visible .word {
+  animation: aurora-fade-up 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.aurora-hero-text.is-visible .word:nth-child(1) { animation-delay: 0s; }
+.aurora-hero-text.is-visible .word:nth-child(2) { animation-delay: 0.1s; }
+.aurora-hero-text.is-visible .word:nth-child(3) { animation-delay: 0.2s; }
+.aurora-hero-text.is-visible .word:nth-child(4) { animation-delay: 0.3s; }
+.aurora-hero-text.is-visible .word:nth-child(5) { animation-delay: 0.4s; }
+.aurora-hero-text.is-visible .word:nth-child(6) { animation-delay: 0.5s; }
+.aurora-hero-text.is-visible .word:nth-child(7) { animation-delay: 0.6s; }
+.aurora-hero-text.is-visible .word:nth-child(8) { animation-delay: 0.7s; }
+
+/* Reduced motion override */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-hero-text .word,
+  .aurora-hero-text.is-visible .word {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

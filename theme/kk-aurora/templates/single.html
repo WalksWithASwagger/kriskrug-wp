@@ -1,0 +1,81 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|120","bottom":"var:preset|spacing|160"}}},"layout":{"type":"constrained","contentSize":"720px"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--120);padding-bottom:var(--wp--preset--spacing--160)">
+  
+  <!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
+  <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--60)">
+    <!-- wp:post-terms {"term":"category","style":{"typography":{"fontSize":"0.75rem","textTransform":"uppercase","letterSpacing":"0.05em","fontWeight":"600"},"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}},"textColor":"purple"} /-->
+    
+    <!-- wp:post-title {"level":1,"style":{"typography":{"fontSize":"clamp(2rem, 5vw, 3rem)","fontStyle":"normal","fontWeight":"700","lineHeight":"1.2"}}} /-->
+    
+    <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+    <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--40)">
+      <!-- wp:post-date {"textColor":"text-muted","fontSize":"sm"} /-->
+      <!-- wp:paragraph {"textColor":"text-muted","fontSize":"sm"} -->
+      <p class="has-text-muted-color has-text-color has-sm-font-size">·</p>
+      <!-- /wp:paragraph -->
+      <!-- wp:paragraph {"textColor":"text-muted","fontSize":"sm"} -->
+      <p class="has-text-muted-color has-text-color has-sm-font-size">5 min read</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
+  </div>
+  <!-- /wp:group -->
+  
+  <!-- wp:post-featured-image {"style":{"border":{"radius":"0.75rem"},"spacing":{"margin":{"bottom":"var:preset|spacing|80"}}}} /-->
+  
+  <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+  
+  <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|80"},"padding":{"top":"var:preset|spacing|60"},"border":{"top":{"color":"var:preset|color|elevated","width":"1px"}}}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
+  <div class="wp-block-group" style="border-top-color:var(--wp--preset--color--elevated);border-top-width:1px;margin-top:var(--wp--preset--spacing--80);padding-top:var(--wp--preset--spacing--60)">
+    <!-- wp:paragraph {"textColor":"text-muted","fontSize":"sm"} -->
+    <p class="has-text-muted-color has-text-color has-sm-font-size">Tagged:</p>
+    <!-- /wp:paragraph -->
+    <!-- wp:post-terms {"term":"post_tag","style":{"typography":{"fontSize":"0.75rem"}},"textColor":"text-secondary"} /-->
+  </div>
+  <!-- /wp:group -->
+  
+  <!-- wp:separator {"style":{"spacing":{"margin":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"backgroundColor":"elevated"} -->
+  <hr class="wp-block-separator has-text-color has-elevated-color has-alpha-channel-opacity has-elevated-background-color has-background" style="margin-top:var(--wp--preset--spacing--80);margin-bottom:var(--wp--preset--spacing--80)"/>
+  <!-- /wp:separator -->
+  
+  <!-- wp:group {"className":"aurora-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|60","right":"var:preset|spacing|60"}},"border":{"radius":"0.75rem"}},"backgroundColor":"surface","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
+  <div class="wp-block-group aurora-card has-surface-background-color has-background" style="border-radius:0.75rem;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--60)">
+    
+    <!-- wp:post-author-biography {"avatarSize":64,"showBio":false,"byline":"","style":{"layout":{"selfStretch":"fit"}}} /-->
+    
+    <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}}} -->
+    <div class="wp-block-group">
+      <!-- wp:post-author-name {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"textColor":"text-primary"} /-->
+      
+      <!-- wp:paragraph {"textColor":"text-secondary","fontSize":"sm"} -->
+      <p class="has-text-secondary-color has-text-color has-sm-font-size">Executive Director BC+AI · CTO Indigenomics.ai · Co-founder The Upgrade AI</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
+    
+  </div>
+  <!-- /wp:group -->
+  
+  <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"var:preset|spacing|100","bottom":"var:preset|spacing|60"}},"typography":{"fontSize":"1.5rem","fontStyle":"normal","fontWeight":"700"}},"textColor":"text-primary"} -->
+  <h3 class="wp-block-heading has-text-primary-color has-text-color" style="margin-top:var(--wp--preset--spacing--100);margin-bottom:var(--wp--preset--spacing--60);font-size:1.5rem;font-style:normal;font-weight:700">Related Posts</h3>
+  <!-- /wp:heading -->
+  
+  <!-- wp:query {"queryId":3,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"}} -->
+  <div class="wp-block-query">
+    <!-- wp:post-template {"layout":{"type":"default"}} -->
+      <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"},"border":{"bottom":{"color":"var:preset|color|elevated","width":"1px"}}}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center","justifyContent":"space-between"}} -->
+      <div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--elevated);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)">
+        <!-- wp:post-title {"level":4,"isLink":true,"style":{"typography":{"fontSize":"1rem","fontStyle":"normal","fontWeight":"500"}}} /-->
+        <!-- wp:post-date {"textColor":"text-muted","fontSize":"xs"} /-->
+      </div>
+      <!-- /wp:group -->
+    <!-- /wp:post-template -->
+  </div>
+  <!-- /wp:query -->
+  
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
