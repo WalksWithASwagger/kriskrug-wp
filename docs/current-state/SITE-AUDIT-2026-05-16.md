@@ -179,3 +179,32 @@ Items 1–6 are mechanical and unblock next session's Track A work without any t
 - **Email / Beehiiv funnel beyond the popup trigger** — Track A scope is the site, not the marketing stack
 
 When Aurora ships (Track B), most of the P2 polish items resolve automatically. P0 and P1 items should ship on the current theme first — they affect SEO and UX in the wait window before redesign.
+
+---
+
+## Track A in-progress (2026-05-16)
+
+### Completed via REST PATCH this session
+
+1. **Homepage hero rewrite** (page ID 3930, not 247 as initially suspected) — replaced the "I believe in the power of connection / quilt of creative awesomeness" opening with current positioning: "Generative engines now spill out adequate everything..." plus a second paragraph naming KK as ED of BC + AI Ecosystem and founder of TheUpgrade.ai. Inline `<a>` links added directly (no auto-link pass needed). Verified live at https://kriskrug.co/.
+2. **Homepage H1 added** — inserted `<h1>Kris Krüg, Generative AI for Creative Professionals</h1>` at top of content. Confirmed live via curl. Note: the theme still emits an empty `<h1 class="entry-title">` above the content — that is a theme issue for Track B / Aurora and cannot be removed via REST.
+3. **Homepage "Why Choose Me?" demoted** from H1 to H2 (in same PATCH as #1/#2).
+4. **About page H1 demotions** (page ID 1208) — `Publications`, `Portraits:`, `Clients` all demoted to H2. Verified live at https://kriskrug.co/about/. Only remaining H1 is the theme-emitted `entry-title`.
+
+Backups of pre-PATCH raw content saved to `/tmp/old-homepage-hero.html` and `/tmp/old-about.html` (session-local; re-fetch via `?context=edit` if a future session needs them).
+
+### Skipped — require wp-admin / plugin access
+
+5. **Popup Maker trigger change (P0)** — requires the wp-admin Popup Maker settings UI. Steps for KK:
+   - wp-admin → Popup Maker → Popups → edit the "subscribe" popup
+   - Triggers tab → change from "Auto Open" to "Click Open" (or add a 30s+ delay with a 7-day cookie so it fires once per visitor)
+   - Save and test in an incognito window
+
+6. **`/work/` redirect fix (P1)** — requires the Redirection plugin OR a Code Snippet using `template_redirect`. Steps for KK:
+   - Install/activate "Redirection" plugin if not present (Tools → Redirection)
+   - Add a 301: source `/work/` → target `/portfolio/` (or whichever current-projects page KK wants; confirm target first)
+   - Test by hitting https://kriskrug.co/work/ in incognito; should land on the target with a 301
+
+7. **`/services/` → `/generative-ai-services/` 301 (P1)** — same Redirection-plugin pattern as #6. Source `/services/`, target `/generative-ai-services/`, type 301.
+
+Items 5–7 are roughly 10-15 minutes of wp-admin clicking once Redirection is installed. A future Claude Code session with Chrome MCP wp-admin auth could also execute them.
