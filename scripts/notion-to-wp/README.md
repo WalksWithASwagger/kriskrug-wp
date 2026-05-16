@@ -87,6 +87,17 @@ Every run writes a `publish.log` next to the draft. Includes the exact REST requ
 
 See `block_rules.py` for the Notion → Gutenberg mapping. Each rule is a small function — tweak as the writing style evolves.
 
+## Polish pass (em-dash purge + auto-link)
+
+After block rendering, every post goes through `text_polish.py`:
+
+1. **Em-dash purge** — `—` becomes `, ` and prose en-dashes become `-`. Numeric en-dash ranges like `0–5` are preserved. KK's rule: em-dashes read as AI in 2026.
+2. **Auto-link first occurrence** — proper nouns in `LINK_MAP` get hyperlinked the first time they appear in body HTML (skipped inside headings, captions, existing links, code blocks). Self-link guard prevents a post from linking to itself.
+
+To add a new term, edit the `LINK_MAP` list in `text_polish.py` and add a tuple of `(regex, url, optional_title)`. Longer phrases should come first.
+
+The polish report (which terms were linked) is written to the publish log so you can audit each run.
+
 ## Graduation path
 
 After 2–3 successful publishes, this folder graduates to `skills/notion-to-wp/SKILL.md` so it can be invoked as a Claude Code skill (e.g., "publish my Notion post to kriskrug.co").

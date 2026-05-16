@@ -34,8 +34,12 @@ vendor/
 *.tmp
 *~
 
-# Local site backups — never commit DB dumps, media, or wp-config
-backup/
+# Local site backups — track manifests, ignore the archives themselves
+backup/**/*.gz
+backup/**/*.zip
+backup/**/*.tar
+backup/**/*.sql
+backup/**/*.sql.gz
 
 # Python virtualenvs and bytecode (scripts/notion-to-wp/.venv, etc.)
 .venv/

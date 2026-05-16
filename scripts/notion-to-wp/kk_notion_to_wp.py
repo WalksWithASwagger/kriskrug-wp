@@ -64,9 +64,10 @@ import requests
 import yaml
 from dotenv import dotenv_values
 
-# Local module
+# Local modules
 sys.path.insert(0, str(Path(__file__).parent))
 import block_rules  # noqa: E402
+import text_polish  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # Config + paths
@@ -605,15 +606,24 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
     # 3. Convert blocks → Gutenberg HTML (with local image URLs for now)
     body_html = block_rules.render_blocks(blocks, ctx={"image_map": image_map})
 
+    # 3a. Polish pass — em-dash purge + auto-link first occurrence of proper nouns.
+    #     See scripts/notion-to-wp/text_polish.py for the rules. Self-link guard
+    #     uses the canonical URL the post will live at.
+    canonical_url = f"{cfg.wp_base_url.rstrip('/')}/{pub_date.replace('-', '/')}/{slug}/"
+    body_html, polish_report = text_polish.polish_html(body_html, self_url=canonical_url)
+    if polish_report["links_added"]:
+        log(f"auto-linked {len(polish_report['links_added'])} proper nouns: " +
+            ", ".join(x["text"] for x in polish_report["links_added"]))
+
     # 4. Build excerpt + SEO meta from KK voice in the article body itself.
     #    The Notion AI summary is third-person and NOT used here (it remains
     #    available in ai_summary if you want to inspect it).
-    excerpt = derive_excerpt(blocks, max_chars=300)
+    excerpt = text_polish.polish_text(derive_excerpt(blocks, max_chars=300))
     if not excerpt and ai_summary:
         excerpt = ai_summary.strip()  # last-ditch fallback, flagged in log
         log("WARNING: no body-derived excerpt — fell back to Notion AI summary (third-person voice).")
     meta_desc = excerpt  # Jetpack accepts up to ~300 chars; same source as excerpt for consistency
-    seo_title = derive_seo_title(title, max_chars=60)
+    seo_title = text_polish.polish_text(derive_seo_title(title, max_chars=60))
 
     category_name = TYPE_TO_CATEGORY.get(type_notion, "Misc")
 
@@ -702,7 +712,11 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
 
     # Re-render body with WP-hosted image URLs and real media IDs
     body_html = block_rules.render_blocks(blocks, ctx={"image_map": image_map})
+    body_html, _ = text_polish.polish_html(body_html, self_url=canonical_url)
     payload["content"] = body_html
+    payload["meta"]["jetpack_publicize_message"] = text_polish.polish_text(
+        payload["meta"]["jetpack_publicize_message"]
+    )
 
     # Featured image — use the first uploaded image
     first_img = next((m for m in image_map.values() if isinstance(m.get("id"), int)), None)
