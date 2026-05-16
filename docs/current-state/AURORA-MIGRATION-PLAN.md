@@ -2,7 +2,17 @@
 
 **Decision (KK, 2026-05-15):** "Migrate to staging (Cloudways dev) + iterate before going live."
 
-This doc captures the approach so the next session can execute without re-deciding.
+**Refresh note (2026-05-16):** This is Track B's owning doc per [`TWO-TRACK-MODEL.md`](TWO-TRACK-MODEL.md). The current Aurora branch (`origin/claude/setup-wordpress-rebuild-KVLxh`) has been **idle since 2026-01-18 — 4 months stale**. Its diff against `main` shows 142 files changed, 8,090 insertions, and **31,999 deletions** — it would erase `scripts/notion-to-wp/`, `docs/current-state/`, the connector, the incident postmortem, and the backup manifest if merged directly. **Do NOT merge as-is.**
+
+The first Track B session must:
+1. Create a fresh `aurora/v2` branch from current `main`
+2. Cherry-pick `theme/kk-aurora/` and `demo/` from the old branch onto it
+3. Validate that Track A's work (connector, docs, fixes, backup manifest) is intact on the new branch
+4. Only then proceed with the staging install steps below
+
+The original migration steps in this doc still hold — they were always staging-first, never assumed a direct main merge. Section "Open decisions" at the bottom is the live status.
+
+This doc captures the approach so any Track B session can execute without re-deciding.
 
 ---
 
