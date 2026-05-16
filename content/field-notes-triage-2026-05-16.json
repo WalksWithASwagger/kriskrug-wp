@@ -1,0 +1,323 @@
+{
+  "moves": [
+    {
+      "id": 11171,
+      "title": "Both Hands Full",
+      "new_slug": "ai-for-creatives",
+      "new_id": 1665,
+      "score": 3,
+      "hits": [
+        "body:creative professional",
+        "body:filmmaker",
+        "body:photographer"
+      ]
+    },
+    {
+      "id": 8314,
+      "title": "BC&#8217;s AI Ecosystem: A Mycelial Network of Creation",
+      "new_slug": "ai-for-creatives",
+      "new_id": 1665,
+      "score": 3,
+      "hits": [
+        "body:creators",
+        "body:artists",
+        "body:creative work"
+      ]
+    },
+    {
+      "id": 5823,
+      "title": "You&#8217;re Doing it Wrong! How you *should* be using AIs",
+      "new_slug": "generative-ai-tools",
+      "new_id": 1680,
+      "score": 3,
+      "hits": [
+        "body:ai tool",
+        "body:workflow",
+        "body:open-source ai"
+      ]
+    },
+    {
+      "id": 5020,
+      "title": "Death of the Follower &amp; the Future of Creativity on the Web",
+      "new_slug": "ai-for-creatives",
+      "new_id": 1665,
+      "score": 3,
+      "hits": [
+        "body:creative professional",
+        "body:creators",
+        "body:artists"
+      ]
+    },
+    {
+      "id": 4948,
+      "title": "The Inside-Out Evolution",
+      "new_slug": "generative-ai-tools",
+      "new_id": 1680,
+      "score": 3,
+      "hits": [
+        "body:midjourney",
+        "body:ai tool",
+        "body:ai model"
+      ]
+    }
+  ],
+  "stays": [
+    {
+      "id": 9549,
+      "title": "AI Ate the Future",
+      "score": 1,
+      "hits": [
+        "body:panel discussion"
+      ]
+    },
+    {
+      "id": 9044,
+      "title": "DIY AI in Vancouver: Building a Grassroots BC\u00a0AI Industry Association",
+      "score": 1,
+      "hits": [
+        "body:vancouver ai"
+      ]
+    },
+    {
+      "id": 8859,
+      "title": "We Don\u2019t Do Panels. We Do Portals.",
+      "score": 1,
+      "hits": [
+        "body:tsleil-waututh"
+      ]
+    },
+    {
+      "id": 8544,
+      "title": "Transcending Tech&#8217;s Darker Impulses",
+      "score": 0,
+      "hits": []
+    },
+    {
+      "id": 7927,
+      "title": "AI&#8217;s Next Chapter: Notes from BC&#8217;s AI Ecosystem",
+      "score": 1,
+      "hits": [
+        "body:manifesto"
+      ]
+    },
+    {
+      "id": 7810,
+      "title": "Fears, Hopes, and Dreams for Our Relationship with AI",
+      "score": 1,
+      "hits": [
+        "body:midjourney"
+      ]
+    },
+    {
+      "id": 7696,
+      "title": "NeuRIPS Vancouver: Best AI &amp; ML Papers of 2024",
+      "score": 1,
+      "hits": [
+        "body:workflow"
+      ]
+    },
+    {
+      "id": 7692,
+      "title": "Field Notes from NeurIPS&#8217; Latent Lounge",
+      "score": 1,
+      "hits": [
+        "body:artists"
+      ]
+    },
+    {
+      "id": 7411,
+      "title": "Paddling Together: A Future Built on Connection, Creativity, and Community",
+      "score": 1,
+      "hits": [
+        "body:tsleil-waututh"
+      ]
+    },
+    {
+      "id": 7177,
+      "title": "Future Proof: Inside Vancouver&#8217;s Thriving AI Ecosystem",
+      "score": 1,
+      "hits": [
+        "body:vancouver ai"
+      ]
+    },
+    {
+      "id": 7143,
+      "title": "Healing Through Creativity: My Journey with DeepWell DTX &amp; Dave Zaboski",
+      "score": 0,
+      "hits": []
+    },
+    {
+      "id": 6937,
+      "title": "The Human Algorithm: Enya Learning Keynote",
+      "score": 1,
+      "hits": [
+        "body:land acknowledgment"
+      ]
+    },
+    {
+      "id": 6552,
+      "title": "AI and Music: The Digital Renaissance You Didn&#8217;t See Coming",
+      "score": 1,
+      "hits": [
+        "body:artists"
+      ]
+    },
+    {
+      "id": 6453,
+      "title": "Small File Rebellion: Hacking the Digital Carbon Footprint at Our Networks 2024",
+      "score": 0,
+      "hits": []
+    },
+    {
+      "id": 6470,
+      "title": "The Raw Truth About Building Communities That Actually Give a Shit",
+      "score": 0,
+      "hits": []
+    },
+    {
+      "id": 6435,
+      "title": "Digital Rebellion w/ Lori Emerson&#8217;s  at Our Networks 2024",
+      "score": 0,
+      "hits": []
+    },
+    {
+      "id": 6344,
+      "title": "Fuck the Status Quo: AI&#8217;s Messy Love Child with Creativity",
+      "score": 1,
+      "hits": [
+        "body:vancouver ai"
+      ]
+    },
+    {
+      "id": 6221,
+      "title": "New Segment on CBC Radio Early Edition: AI Sandbox with Kris Kr\u00fcg",
+      "score": 0,
+      "hits": []
+    },
+    {
+      "id": 6169,
+      "title": "A Love Letter to Vancouver: Minimal Viable Demos",
+      "score": 2,
+      "hits": [
+        "body:musqueam",
+        "body:tsleil-waututh"
+      ]
+    },
+    {
+      "id": 6108,
+      "title": ": The Revolution of Governance and Cybersecurity &#8211; A Night with Anthony Green",
+      "score": 1,
+      "hits": [
+        "body:ai ethics"
+      ]
+    },
+    {
+      "id": 6019,
+      "title": "Augie Studio Review: AI-Driven Video Production Analysis",
+      "score": 1,
+      "hits": [
+        "body:creators"
+      ]
+    },
+    {
+      "id": 5915,
+      "title": "Hacking AI for the People&#8217;s (r)evolution",
+      "score": 1,
+      "hits": [
+        "body:openai"
+      ]
+    },
+    {
+      "id": 5626,
+      "title": "Love in the Time of AI: My Affair with Sexy Companion Chatbots",
+      "score": 0,
+      "hits": []
+    },
+    {
+      "id": 5371,
+      "title": "Not All White Guys: Unpacking the Wealth Tax Debate in Canada",
+      "score": 0,
+      "hits": []
+    },
+    {
+      "id": 5344,
+      "title": "From Timbits to Tech Titans: Guy Kawasaki&#8217;s Blueprint for Innovation",
+      "score": 0,
+      "hits": []
+    },
+    {
+      "id": 5285,
+      "title": "The Cyborg Future: When Sci-Fi Gets Real (And Complicated)",
+      "score": 0,
+      "hits": []
+    },
+    {
+      "id": 5160,
+      "title": "The Adaptability Paradox",
+      "score": 1,
+      "hits": [
+        "body:midjourney"
+      ]
+    },
+    {
+      "id": 5078,
+      "title": "The Future is Verified: Insights and Critical Reflections from Interac&#8217;s VIP Talk at SXSW",
+      "score": 2,
+      "hits": [
+        "body:midjourney",
+        "body:language model"
+      ]
+    },
+    {
+      "id": 4997,
+      "title": "Exploring the Intersection of Gaming and Mental Health",
+      "score": 0,
+      "hits": []
+    },
+    {
+      "id": 4980,
+      "title": "The Poet of Code: Unmasking AI&#8217;s Coded Gaze at SXSW",
+      "score": 1,
+      "hits": [
+        "body:creators"
+      ]
+    },
+    {
+      "id": 4960,
+      "title": "Broetry, Content Farms, TL;DR\u2014Is the Internet OK?",
+      "score": 1,
+      "hits": [
+        "body:journalism"
+      ]
+    },
+    {
+      "id": 4877,
+      "title": "Navigating Names and Narratives: My Reflections on &#8220;Frontier&#8221;",
+      "score": 0,
+      "hits": []
+    },
+    {
+      "id": 4803,
+      "title": "Building AI Communities",
+      "score": 0,
+      "hits": []
+    },
+    {
+      "id": 4706,
+      "title": "Vancouver Community &#038; Connections at the Intersection of Creativity and AI",
+      "score": 2,
+      "hits": [
+        "body:midjourney",
+        "body:ai tool"
+      ]
+    },
+    {
+      "id": 4174,
+      "title": "2024: The Year of AI Revolution &#8211; A Rebel&#8217;s Guide to the Future",
+      "score": 1,
+      "hits": [
+        "body:artists"
+      ]
+    }
+  ]
+}
