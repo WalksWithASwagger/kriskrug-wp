@@ -193,18 +193,12 @@ When Aurora ships (Track B), most of the P2 polish items resolve automatically. 
 
 Backups of pre-PATCH raw content saved to `/tmp/old-homepage-hero.html` and `/tmp/old-about.html` (session-local; re-fetch via `?context=edit` if a future session needs them).
 
-### Skipped — require wp-admin / plugin access
+### Completed via Chrome MCP wp-admin sweep (2026-05-16, later session)
 
-5. **Popup Maker trigger change (P0)** — requires the wp-admin Popup Maker settings UI. Steps for KK:
-   - wp-admin → Popup Maker → Popups → edit the "subscribe" popup
-   - Triggers tab → change from "Auto Open" to "Click Open" (or add a 30s+ delay with a 7-day cookie so it fires once per visitor)
-   - Save and test in an incognito window
+5. **Popup Maker trigger change (P0)** — changed the BEEHIIV POPUP (`popmake-3884`) trigger delay from `1000` ms to `30000` ms (30 seconds). Cookie behavior left as-is (1-month suppression on close). The hidden form input `popup_settings[triggers][0][settings]` was mutated client-side then submitted via Gutenberg's Save, which propagates meta-box form submission. Verified live by parsing the `data-popmake` JSON on `https://kriskrug.co/`. KK can revisit the popup admin to swap to `click_open` or another trigger type if a longer wait is still too aggressive.
 
-6. **`/work/` redirect fix (P1)** — requires the Redirection plugin OR a Code Snippet using `template_redirect`. Steps for KK:
-   - Install/activate "Redirection" plugin if not present (Tools → Redirection)
-   - Add a 301: source `/work/` → target `/portfolio/` (or whichever current-projects page KK wants; confirm target first)
-   - Test by hitting https://kriskrug.co/work/ in incognito; should land on the target with a 301
+6. **`/work/` redirect fix (P1)** — installed the Redirection plugin (John Godley, v5.7.5, 2M+ installs) via wp-admin → Add Plugins. Walked the setup wizard with "Monitor permalink changes" + "Keep a log" enabled (IP storage skipped for GDPR). Imported existing WP old-slug redirects. Added a fresh 301: `/work/` → `/recent-projects-include/`. Verified live: `curl -I https://kriskrug.co/work/` returns `301` → `https://kriskrug.co/recent-projects-include/`. The old stale redirect to the 2011 UN HIV post is now superseded — the Redirection plugin handles `/work/` before WP's internal slug resolution kicks in.
 
-7. **`/services/` → `/generative-ai-services/` 301 (P1)** — same Redirection-plugin pattern as #6. Source `/services/`, target `/generative-ai-services/`, type 301.
+7. **`/services/` → `/generative-ai-services/` 301 (P1)** — added in the same Redirection session. Verified live: `curl -I https://kriskrug.co/services/` returns `301` → `https://kriskrug.co/generative-ai-services/`.
 
-Items 5–7 are roughly 10-15 minutes of wp-admin clicking once Redirection is installed. A future Claude Code session with Chrome MCP wp-admin auth could also execute them.
+All 7 top punch-list items are now closed. Remaining audit items are P2 or require Chrome MCP investigation (mobile pass, deep-inspect of remaining nav pages, vision-LLM alt-text batch, blog index H1 — deferred to Aurora).
