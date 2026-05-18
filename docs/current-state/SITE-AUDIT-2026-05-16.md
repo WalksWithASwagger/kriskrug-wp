@@ -202,3 +202,73 @@ Backups of pre-PATCH raw content saved to `/tmp/old-homepage-hero.html` and `/tm
 7. **`/services/` → `/generative-ai-services/` 301 (P1)** — added in the same Redirection session. Verified live: `curl -I https://kriskrug.co/services/` returns `301` → `https://kriskrug.co/generative-ai-services/`.
 
 All 7 top punch-list items are now closed. Remaining audit items are P2 or require Chrome MCP investigation (mobile pass, deep-inspect of remaining nav pages, vision-LLM alt-text batch, blog index H1 — deferred to Aurora).
+
+---
+
+## Audit round 2 — 2026-05-17 (nav deep-inspect)
+
+Read-only `curl` pass over the four nav pages not covered in round 1. Mobile pass is pending — needs Chrome MCP at a time when it's not interrupting KK's other browser work.
+
+### Per-page summary
+
+| Page | HTTP | Size | H1 count | Notes |
+|---|---|---|---|---|
+| `/generative-ai-services/` | 200 | 130 KB | 1 ✓ | Entry-title is correct |
+| `/events/` | 200 | 150 KB | 1 ✓ | 126 external links, mix of current + dated |
+| `/motleykrug-podcast/` | 200 | 152 KB | 1 ✓ | Strong external footprint |
+| `/recent-projects-include/` | 200 | 203 KB | 1 ✓ | Entry-title slug is awkward (already covered in round 1) |
+
+**Good news:** H1 hierarchy is clean on all four. The earlier About-page H1 disease is not site-wide.
+
+### 🟡 P1 — title separator missing site-wide
+
+All 4 page titles render as e.g. *"Generative AI Creative Services & Strategy Kris Krüg | Generative AI Tools & Techniques"* — no separator between the page name and the site name. Should be ` | ` or ` — `. Affects every page on the site. Looks broken in SERPs and browser tabs.
+
+**Root cause likely:** Jetpack SEO is appending the site title without a delimiter, OR Catch Responsive's `wp_title` filter is concatenating without one.
+
+**Fix paths:**
+- a) Jetpack → Tools → Title Format settings — set the separator
+- b) Add a Code Snippet PHP filter: `add_filter('document_title_parts', function($parts){ /* ensure parts are joined with " | " */ })` — surgical, theme-agnostic
+- c) Aurora will fix natively at migration
+
+Recommend (b) — 5-line snippet, immediate effect, survives the Aurora migration.
+
+### 🟡 P1 — broken Twitter link site-wide
+
+Every page that links to `http://www.twitter.com/feelmoreplants` returns HTTP 520 (Cloudflare/origin error). Twitter rebranded to X.com; the old domain is partially functional but apparently unhealthy on HEAD requests, which means SEO crawlers and link-checkers see it as dead.
+
+The schema snippet ([`fixes/schema-snippets-deployed.php`](../../fixes/schema-snippets-deployed.php)) already uses the new URLs (`twitter.com/kriskrug` and `x.com/kriskrug`), so this is just inline-link rot in older posts/pages.
+
+**Fix:** sitewide search-and-replace `twitter.com/feelmoreplants` → `x.com/kriskrug`. Can be done via WP-CLI:
+```
+wp search-replace 'twitter.com/feelmoreplants' 'x.com/kriskrug' --dry-run
+# review, then drop --dry-run
+```
+Or via REST PATCH for each affected post if WP-CLI access isn't available.
+
+### 🟢 P2 — external link rot on older pages
+
+Sample HEAD checks (random 8-12 external links per page):
+
+| Page | Sample | Dead/broken | Rate |
+|---|---|---|---|
+| `/events/` | 12 | 3 (chinafashionweek.org DNS fail, nmxlive.com DNS fail, twitter 520) | 25% |
+| `/motleykrug-podcast/` | 8 | 1-2 (twitter 520, beehiiv 403 may be HEAD-blocked-not-broken) | 13-25% |
+| `/recent-projects-include/` | 10 | 3 (accesstomedia.org 404, skeenawild.org 406, twitter 520) | 30% |
+
+The dead-link rate is normal-to-slightly-high for older curated link lists (10+ years of accumulated content). Worth a Broken Link Checker plugin pass OR a one-shot script that HEAD-checks every external link site-wide and writes a CSV of dead ones for KK to triage.
+
+**Action (cheap):** Run Broken Link Checker (free WP plugin, much like Redirection) for a one-shot scan. Disable after first cleanup since it can be heavy on cron.
+
+### 🟢 P2 — `/events/` content freshness
+
+Year mention frequency on `/events/`: 2026 (41), 2024 (25), 2023 (7), 2019 (6), 2025 (5), 2010/2013-2016 (1-3 each). Not a deal-breaker — the page covers years of speaking history — but if `/events/` is supposed to be a "what's coming up" page, the old entries dominate the visual real estate. Consider splitting into "Upcoming" vs "Past" sections, or filtering by recency in the template.
+
+### Next punch-list additions
+
+1. **🟡 Title separator filter** (5-line Code Snippet, immediate site-wide fix)
+2. **🟡 Twitter → X URL search-replace** (WP-CLI or REST batch)
+3. **🟢 Broken-link scan** (Broken Link Checker plugin, one-shot)
+4. **🟢 /events/ split** into upcoming vs. archive (template-level, defer to Aurora)
+5. **🟢 Mobile pass via Chrome MCP** (pending — needs a slot when KK isn't using Brave for other work)
+
