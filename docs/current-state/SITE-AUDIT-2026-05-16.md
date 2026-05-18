@@ -270,5 +270,54 @@ Year mention frequency on `/events/`: 2026 (41), 2024 (25), 2023 (7), 2019 (6), 
 2. **🟡 Twitter → X URL search-replace** (WP-CLI or REST batch)
 3. **🟢 Broken-link scan** (Broken Link Checker plugin, one-shot)
 4. **🟢 /events/ split** into upcoming vs. archive (template-level, defer to Aurora)
-5. **🟢 Mobile pass via Chrome MCP** (pending — needs a slot when KK isn't using Brave for other work)
+5. **🟢 Mobile pass** — done analytically (see next section)
+
+---
+
+## Audit round 2 (continued) — 2026-05-17 (mobile baseline)
+
+Brave's MCP-controlled window minimum is ~600px wide, so true iPhone-width visual screenshots weren't possible. Instead this is an analytical mobile audit: viewport meta, CSS breakpoints, mobile UA response, srcset usage, touch-target sizing. Visual mobile QA still belongs on KK's actual phone or via Chrome DevTools device emulation.
+
+### What's working
+
+- **Viewport meta is correct**: `<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">`. Site is properly configured for responsive rendering — not a forced-desktop disaster.
+- **Multiple CSS breakpoints**: Catch Responsive ships breakpoints at 1280, 1152, 1100, 990, 767, 700, 600, 540, 480, 400, 319 px. Site container width scales: 1200 → 740 → 660 → 380 → 320 across the cascade. Reasonable smooth degradation.
+- **Responsive images**: Posts serve `srcset` via Jetpack Photon (`i0.wp.com`), so phones get smaller image variants. The LaSalle gallery + slide images on the recent enriched posts use this correctly.
+- **Touch targets near Apple's minimum**: nav menu links are 46px line-height (Apple recommends ≥44px). Mobile hamburger trigger is 46px height. Search toggle is 40px — slightly under but workable.
+- **No UA-based response variation**: server sends the same HTML regardless of mobile/desktop UA (24-byte diff is noise — probably cookie or query string differences). Standard CSS-driven responsive — easier to maintain than separate mobile templates.
+
+### 🟡 P1 — sidebar/widget stacking order on narrow viewports
+
+The CSS for `<=480px` collapses the columns by setting widget areas to full width and removing floats. But the SOURCE order of HTML is: `#main` (content) then `.sidebar-primary` (right rail). When stacked vertically on mobile, that means **all sidebar widgets appear BELOW the post content**. For a long post like Make Culture (now 34K chars / ~5,000 words), that's 8+ scrolls of content before mobile readers see the "Subscribe" / "Recent Posts" / category cloud widgets. Aurora handles this natively via FSE template parts; on the current theme, fixing the order requires reshuffling widget HTML positions via a theme filter.
+
+**Recommendation:** defer to Aurora. Or, as an interim, audit which sidebar widgets actually matter on mobile and remove the rest (the tag cloud / category cloud are particularly noisy below-fold).
+
+### 🟡 P1 — popup at 30s on mobile, untested
+
+The popup auto-open delay was changed from 1s to 30s earlier today (good for desktop UX). On mobile, 30s is a long scroll session — by the time it fires, the user is mid-content and a modal interruption mid-read is more annoying than mid-hero. Worth user-testing whether mobile users should get scroll-based trigger instead of timer-based, OR a smaller mobile-only popup variant.
+
+**Recommendation:** in Popup Maker → BEEHIIV popup → Display Presets, add a tablet/mobile-specific config OR disable the popup on mobile entirely and let the (already strong) byline links carry the conversion.
+
+### 🟢 P2 — gallery + YouTube + pullquote blocks on narrow viewports
+
+Visually unverified but analytically reasonable: Gutenberg's wp:gallery has a `columns-3` class on Your Taste; at <=767px CSS the gallery should single-column-stack (Gutenberg's stock behavior). YouTube embed inherits 100% width after the earlier aspect-ratio class strip — should fluidly scale on mobile. Pull-quote has `padding:4em 0` which is dense on a narrow screen — may need a mobile override to reduce vertical padding.
+
+**Recommendation:** when KK visits the post on his phone, screenshot what the gallery + pull-quote look like; if either reads cramped, a 5-line Code Snippet CSS override fixes it.
+
+### Couldn't verify analytically (require KK's phone or Chrome DevTools emulation)
+
+- Actual touch behavior on hamburger menu open/close
+- Image gallery swipe / lightbox behavior
+- Form input keyboard handling on Contact page
+- iOS safe-area-inset compliance (notch + home indicator)
+- Page weight / Core Web Vitals on a real mobile network (separate Lighthouse pass)
+
+### Next punch-list additions (mobile)
+
+6. **🟡 Audit sidebar widget order for mobile readers** — remove low-value widgets, or move important ones to template parts (deferred to Aurora)
+7. **🟡 Popup mobile variant** — disable on mobile OR add scroll-based trigger; current 30s timer is desktop-tuned
+8. **🟢 Personal phone QA pass** — KK on his phone, walk homepage + a recent post + a content-heavy page (About), report layout breaks
+9. **🟢 Lighthouse mobile run** — separate session with Chrome DevTools to capture LCP/INP/CLS on 3G throttle
+
+Aurora's FSE template architecture solves items 6, parts of 7, and most of the design-quality concerns natively. Track A items 7-9 are worth doing on the current theme only if Aurora migration slips materially.
 
