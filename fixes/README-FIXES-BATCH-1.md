@@ -1,5 +1,7 @@
 # Kris Krug Website Fixes - Batch 1 (10 Issues)
 
+> **STATUS: Historical.** These January batch fixes need a fresh review against the May 2026 current-state docs before deployment.
+
 **Status:** ✅ Ready to Deploy
 **Location:** `/Users/kk/Code/kriskrug-wp/fixes/`
 

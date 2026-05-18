@@ -1,5 +1,7 @@
 # Kris Krug WordPress Setup - Cloudways Development Server
 
+> **STATUS: Historical.** This describes the old Cloudways development server, not the Pagely production source of truth.
+
 **Server Type:** Development/Staging
 **Environment:** Cloudways
 **Status:** ✅ Active and Accessible

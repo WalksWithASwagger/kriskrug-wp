@@ -1,5 +1,7 @@
 # Kris Krug Local Development Setup Guide
 
+> **STATUS: Historical.** This setup guide predates the current two-track model. Use `docs/current-state/TWO-TRACK-MODEL.md` first.
+
 **CRITICAL:** This is a production site. We must have a completely separate local development environment.
 
 ---

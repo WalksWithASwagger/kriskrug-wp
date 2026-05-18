@@ -1,5 +1,7 @@
 # Kris Krug Agent Swarm Architecture
 
+> **STATUS: Historical.** This describes the dormant GitHub Actions agent swarm. Current sessions use `AGENTS.md` and `docs/current-state/TWO-TRACK-MODEL.md`.
+
 Complete system architecture and how everything connects.
 
 ---

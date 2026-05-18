@@ -1,5 +1,7 @@
 # Testing Results - Agent Swarm System
 
+> **STATUS: Historical.** These results validate the dormant era-1 agent swarm, not the current two-track operating model.
+
 Date: 2026-01-01
 Status: ✅ All Core Systems Validated
 
