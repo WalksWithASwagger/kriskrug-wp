@@ -18,6 +18,7 @@ This folder is the source of truth for "what was true on May 14, 2026" — not a
 | [CONTENT_AUDIT.md](CONTENT_AUDIT.md) | Per-page review of all 34 pages, posts inventory (101 recent), taxonomy, multilingual, IA proposal. |
 | [FIX_QUEUE.md](FIX_QUEUE.md) | Prioritized P0→P3 backlog from both audits. |
 | [ROADMAP.md](ROADMAP.md) | Six-phase, 3-month plan that synthesizes FIX_QUEUE + postmortem follow-ups + content pipeline next steps. **Start here.** |
+| [FULL-AUDIT-ROADMAP-2026-05-18.md](FULL-AUDIT-ROADMAP-2026-05-18.md) | Current post-closeout audit of repo, GitHub queue, Track A, Track B, and human decisions. |
 | [AGENT-SWARM-OPERATING-PLAN-2026-05-18.md](AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) | Current swarm lanes across GitHub issues, draft publishing, Aurora, and content/nav structure. |
 | [SWARM-STATUS-2026-05-18.md](SWARM-STATUS-2026-05-18.md) | Current command-desk status after the first bounded issue/content/Aurora swarm. |
 | [DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md](DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md) | Next-batch Notion inventory and local dry-run packs. |
@@ -37,6 +38,7 @@ This folder is the source of truth for "what was true on May 14, 2026" — not a
 |---|---|
 | [`../../content/source-packs/keynotes-2026/README.md`](../../content/source-packs/keynotes-2026/README.md) | Curated source pack and publish-ready payloads for issue #76, the Speaking/Work/About page overhaul. |
 | [`../../backup/20260518-111546/page-snapshots/`](../../backup/20260518-111546/page-snapshots/) | Page-level REST/HTML rollback snapshots for the issue #76 target pages. |
+| [`../../backup/20260518-113350/page-snapshots/`](../../backup/20260518-113350/page-snapshots/) | Verified post-deploy rollback snapshots and Redirection export for issue #76. |
 
 ## Ready-to-paste fix snippets (in `../../../fixes/`)
 

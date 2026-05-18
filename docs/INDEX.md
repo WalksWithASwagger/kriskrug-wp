@@ -23,6 +23,7 @@ The canonical "what's true right now" snapshot lives in [`docs/current-state/`](
 | [`current-state/CONTENT_AUDIT.md`](current-state/CONTENT_AUDIT.md) | Per-page review + post inventory + IA proposal |
 | [`current-state/FIX_QUEUE.md`](current-state/FIX_QUEUE.md) | P0 → P3 backlog |
 | [`current-state/ROADMAP.md`](current-state/ROADMAP.md) | Six-phase, 3-month plan |
+| [`current-state/FULL-AUDIT-ROADMAP-2026-05-18.md`](current-state/FULL-AUDIT-ROADMAP-2026-05-18.md) | Current post-closeout audit, roadmap, and human decision list |
 | [`current-state/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md`](current-state/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) | Current agent-swarm lanes and execution order |
 | [`current-state/SWARM-STATUS-2026-05-18.md`](current-state/SWARM-STATUS-2026-05-18.md) | Current command-desk status after the first bounded swarm |
 | [`current-state/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md`](current-state/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md) | Next-batch Notion inventory and local dry-run packs |
