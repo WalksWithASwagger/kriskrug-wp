@@ -30,6 +30,7 @@ The canonical "what's true right now" snapshot lives in [`docs/current-state/`](
 | [`current-state/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md`](current-state/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md) | Read-only audit of public posts, local draft packs, and issue lanes after the overwrite incident |
 | [`current-state/TRACK-A-QUICK-FIX-PACK-2026-05-18.md`](current-state/TRACK-A-QUICK-FIX-PACK-2026-05-18.md) | Production-safe current-site quick-fix pack |
 | [`current-state/NAV-IA-DECISION-PACK-2026-05-18.md`](current-state/NAV-IA-DECISION-PACK-2026-05-18.md) | Navigation and IA decision pack |
+| [`current-state/AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md`](current-state/AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md) | Aurora visual redesign audit, benchmark frame, and Track B issue rollout map |
 | [`current-state/AURORA-STAGING-REPORT-2026-05-18.md`](current-state/AURORA-STAGING-REPORT-2026-05-18.md) | Local Aurora smoke results and current redesign blocker |
 | [`current-state/SITE-AUDIT-2026-05-16.md`](current-state/SITE-AUDIT-2026-05-16.md) | Reader-facing site audit (Track A punch-list) |
 | [`current-state/POST-ENRICHMENT-2026-05-16.md`](current-state/POST-ENRICHMENT-2026-05-16.md) | Post-enrichment pass + connector rules |
