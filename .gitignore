@@ -61,6 +61,7 @@ composer.lock
 /build/
 *.min.js
 *.min.css
+/plugins/*.zip
 
 # Uploads (usually tracked via media management)
 /wp-content/uploads/
