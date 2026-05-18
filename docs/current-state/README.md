@@ -26,6 +26,7 @@ This folder is the source of truth for "what was true on May 14, 2026" — not a
 | [TRACK-A-QUICK-FIX-PACK-2026-05-18.md](TRACK-A-QUICK-FIX-PACK-2026-05-18.md) | Production-safe snippets, commands, checks, and rollback notes for current-site fixes. |
 | [NAV-IA-DECISION-PACK-2026-05-18.md](NAV-IA-DECISION-PACK-2026-05-18.md) | Navigation and IA decisions for current theme and Aurora. |
 | [OWNED-SITES-LINKING-RECOMMENDATION-2026-05-18.md](OWNED-SITES-LINKING-RECOMMENDATION-2026-05-18.md) | Where to place KK's related AI sites across About, Work, Speaking, sidebar/footer, and nav. |
+| [AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md](AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md) | Track B visual redesign audit, 2026 benchmark frame, media/motion direction, and issue rollout map. |
 | [AURORA-STAGING-REPORT-2026-05-18.md](AURORA-STAGING-REPORT-2026-05-18.md) | Local Aurora smoke results and the current redesign blocker. |
 | [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md) | Postmortem for the connector overwrite incident on 2026-05-15. Lessons + safety guards. |
 | `raw/` | Raw API snapshots + HTML fetches: `wp-json/`, `pages.json`, `posts-page1.json`, fingerprint HTML for 16 pages, sitemaps, robots — the underlying evidence behind the other files. |
