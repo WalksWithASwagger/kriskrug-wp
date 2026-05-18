@@ -1,250 +1,88 @@
-# Kris Krug Documentation Index
+# Documentation Index
 
-Complete navigation for all project documentation.
+Navigation for everything in this repo. Entries are grouped by what they're for, not by file path.
 
----
-
-## 📖 Start Here
-
-**New to the project?** Read these first:
-
-1. **[PROJECT-SUMMARY.md](../PROJECT-SUMMARY.md)** - What this project is and how it works
-2. **[QUICK-START.md](../QUICK-START.md)** - Get up and running in 5 minutes
-3. **[README.md](../README.md)** - Project overview and features
-4. **[CONTRIBUTING.md](../CONTRIBUTING.md)** - How to contribute
+> **Agents start here:** [`/AGENTS.md`](../AGENTS.md) — then come back to this index.
 
 ---
 
-## 🏗️ Architecture & System Design
+## 🟢 Current — read these first
 
-**Understanding how it all works:**
+The canonical "what's true right now" snapshot lives in [`docs/current-state/`](current-state/). Written May 14–17, 2026.
 
-- **[architecture.md](architecture.md)** - Complete system architecture
-- **[automation-guide.md](automation-guide.md)** - GitHub Actions workflows explained
-- **[testing-results.md](testing-results.md)** - Validation and test results
+| File | What it covers |
+|---|---|
+| [`current-state/README.md`](current-state/README.md) | Index of the baseline snapshot |
+| [`current-state/TWO-TRACK-MODEL.md`](current-state/TWO-TRACK-MODEL.md) | Active operating model — Track A (content/SEO) vs Track B (Aurora theme) |
+| [`current-state/REPO_STATE.md`](current-state/REPO_STATE.md) | What's actually checked in vs. just documented |
+| [`current-state/SITE_INVENTORY.md`](current-state/SITE_INVENTORY.md) | Live-site fingerprint: host, theme, plugins, content shape |
+| [`current-state/ACCESS_CHANNELS.md`](current-state/ACCESS_CHANNELS.md) | MCP / REST / Chrome / SSH — what works today |
+| [`current-state/BACKUP_PLAN.md`](current-state/BACKUP_PLAN.md) | The four pieces of a real WP backup and how to get them |
+| [`current-state/ROLLBACK_PLAYBOOK.md`](current-state/ROLLBACK_PLAYBOOK.md) | Order of operations if a prod change breaks |
+| [`current-state/SEO_AUDIT.md`](current-state/SEO_AUDIT.md) | Technical SEO + AI search readiness |
+| [`current-state/CONTENT_AUDIT.md`](current-state/CONTENT_AUDIT.md) | Per-page review + post inventory + IA proposal |
+| [`current-state/FIX_QUEUE.md`](current-state/FIX_QUEUE.md) | P0 → P3 backlog |
+| [`current-state/ROADMAP.md`](current-state/ROADMAP.md) | Six-phase, 3-month plan |
+| [`current-state/SITE-AUDIT-2026-05-16.md`](current-state/SITE-AUDIT-2026-05-16.md) | Reader-facing site audit (Track A punch-list) |
+| [`current-state/POST-ENRICHMENT-2026-05-16.md`](current-state/POST-ENRICHMENT-2026-05-16.md) | Post-enrichment pass + connector rules |
+| [`current-state/TRAFFIC-DIAGNOSTIC-2026-05-15.md`](current-state/TRAFFIC-DIAGNOSTIC-2026-05-15.md) | GSC / traffic dive |
+| [`current-state/AURORA-MIGRATION-PLAN.md`](current-state/AURORA-MIGRATION-PLAN.md) | Track B migration plan |
+| [`current-state/INCIDENT-2026-05-15-overwritten-post.md`](current-state/INCIDENT-2026-05-15-overwritten-post.md) | Postmortem + safety rules every agent follows |
 
-**Agent swarm:**
-- **[.github/agents/](../.github/agents/)** - All 7 agent definitions
-  - `orchestrator.agent.md` - Pipeline coordinator
-  - `analyzer.agent.md` - Issue analysis
-  - `test-writer.agent.md` - TDD testing
-  - `implementer.agent.md` - Code implementation
-  - `qa.agent.md` - Quality assurance
-  - `reviewer.agent.md` - Code review
-  - `pr-creator.agent.md` - PR generation
+## 🟢 Current — content & code references
 
----
+| File | What it covers |
+|---|---|
+| [`../scripts/notion-to-wp/README.md`](../scripts/notion-to-wp/README.md) | Notion → WP publisher: setup, dry-run, safety guards |
+| [`kris-krug-roles-module.md`](kris-krug-roles-module.md) | KK's role-switching framework (voice / tone reference) |
+| [`../.claude/context/project-context.md`](../.claude/context/project-context.md) | Mission, values, audience, voice |
+| [`../.claude/agents-vibe.md`](../.claude/agents-vibe.md) | Agent philosophy & community values |
+| [`../.claude/naming-conventions.md`](../.claude/naming-conventions.md) | Code naming standards |
+| [`../.claude/common-failures.md`](../.claude/common-failures.md) | Known failure patterns to avoid |
+| [`../skills/github-workflow-automation/SKILL.md`](../skills/github-workflow-automation/SKILL.md) | Batch issue creation + PR helpers |
 
-## 🛠️ Development Setup
+## 🟢 Current — entry points & contribution
 
-**Setting up your environment:**
-
-- **[cloudways-setup.md](cloudways-setup.md)** - Cloudways server setup and SSH
-- **[local-development-setup.md](local-development-setup.md)** - Local WordPress with Flywheel/Docker
-- **[../.editorconfig](../.editorconfig)** - Code formatting standards
-- **[../Makefile](../Makefile)** - Quick development commands
-
-**WordPress-specific:**
-- **[.claude/context/wordpress-setup.md](../.claude/context/wordpress-setup.md)** - Current WordPress configuration
-- **[.claude/naming-conventions.md](../.claude/naming-conventions.md)** - Naming standards
-- **[.claude/wordpress-patterns.md](../.claude/wordpress-patterns.md)** - Common code patterns (future)
-
----
-
-## 🌲 Kris Krug Context & Philosophy
-
-**Understanding the mission:**
-
-- **[.claude/context/project-context.md](../.claude/context/project-context.md)** - Kris Krug mission, values, audience
-- **[.claude/agents-vibe.md](../.claude/agents-vibe.md)** - Agent philosophy & community values
-- **[vision.md](vision.md)** - Long-term vision (3-5 years)
-- **[roadmap.md](roadmap.md)** - Development roadmap & priorities
+| File | What it covers |
+|---|---|
+| [`../README.md`](../README.md) | Project overview |
+| [`../AGENTS.md`](../AGENTS.md) | Agent orientation — read first if you're an LLM |
+| [`../CONTRIBUTING.md`](../CONTRIBUTING.md) | How to contribute (human + agent) |
 
 ---
 
-## 🤖 Automation & Skills
+## 🟡 Historical — reference only, may drift
 
-**Custom automation tools:**
+These were written in the era-1 push (Jan–early May 2026) when the plan was "GitHub Actions agent swarm runs against a Cloudways-imported clone of production". That plan was superseded by the two-track model in May 2026. These docs still have architectural and reference value but **do not describe how work happens today**.
 
-- **[skills/github-workflow-automation/SKILL.md](../skills/github-workflow-automation/SKILL.md)** - Skill documentation
-- **[skills/github-workflow-automation/references/batch-issues-guide.md](../skills/github-workflow-automation/references/batch-issues-guide.md)** - JSON/CSV schemas
+| File | What it was for |
+|---|---|
+| [`architecture.md`](architecture.md) | Architecture of the dormant GitHub Actions agent swarm |
+| [`automation-guide.md`](automation-guide.md) | How to operate the dormant swarm |
+| [`vision.md`](vision.md) | Long-term vision (3–5 years) from era 1 |
+| [`roadmap.md`](roadmap.md) | Superseded by [`current-state/ROADMAP.md`](current-state/ROADMAP.md) |
+| [`cloudways-setup.md`](cloudways-setup.md) | Cloudways dev-server setup. Relevant if/when Track B needs staging |
+| [`local-development-setup.md`](local-development-setup.md) | Local WordPress with Flywheel/Docker. Relevant if/when Track B needs local |
+| [`../.claude/context/wordpress-setup.md`](../.claude/context/wordpress-setup.md) | Cloudways WP config; **not** the prod config |
+| [`../fixes/README-FIXES-BATCH-1.md`](../fixes/README-FIXES-BATCH-1.md) | Index of the original Batch 1 fixes |
+| [`../.github/agents/`](../.github/agents/) | 10 agent definitions (orchestrator + workflow + doc-swarm) for the dormant pipeline |
 
-**Scripts:**
-- `skills/github-workflow-automation/scripts/` - All 6 automation scripts
-  - `batch_create_issues.py` - Batch issue creation
-  - `create_pr_from_issue.py` - PR automation
-  - `validate_wordpress.sh` - PHPCS validation
-  - `run_tests.sh` - Test execution
-  - `validate_input.py` - Input validation
-  - `gh_health_check.sh` - System health
-
----
-
-## 🔧 Configuration Files
-
-**Project configuration:**
-
-- **[.gitignore](../.gitignore)** - Git ignore rules (WordPress-specific)
-- **[.editorconfig](../.editorconfig)** - Code formatting (tabs/spaces)
-- **[Makefile](../Makefile)** - Development commands
-- **[.github/agent-config/error-handling.yml](../.github/agent-config/error-handling.yml)** - Error handling & retries
-
-**GitHub configuration:**
-- **[.github/ISSUE_TEMPLATE/](../.github/ISSUE_TEMPLATE/)** - 5 issue templates
-- **[.github/pull_request_template.md](../.github/pull_request_template.md)** - PR template
-- **[.github/workflows/](../.github/workflows/)** - 5 GitHub Actions workflows
+Each historical doc carries a `STATUS: Historical` banner at the top pointing at its current replacement (if one exists).
 
 ---
 
-## 📚 Reference Documentation
+## 📂 Other directories worth knowing
 
-**Learning & patterns:**
-
-- **[.claude/common-failures.md](../.claude/common-failures.md)** - Common errors & solutions
-- **[.claude/naming-conventions.md](../.claude/naming-conventions.md)** - Code naming standards
-- **[.github/agent-state/README.md](../.github/agent-state/README.md)** - State management guide
-
-**WordPress resources:**
-- [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/)
-- [WordPress Plugin Handbook](https://developer.wordpress.org/plugins/)
-- [WP-CLI Commands](https://developer.wordpress.org/cli/commands/)
-
----
-
-## 🎯 By Task
-
-### I Want To...
-
-**...understand the project**
-→ Read: `PROJECT-SUMMARY.md`, then `README.md`
-
-**...contribute code**
-→ Read: `CONTRIBUTING.md`, then `QUICK-START.md`
-
-**...understand the automation**
-→ Read: `docs/automation-guide.md`, then `docs/architecture.md`
-
-**...set up development environment**
-→ Read: `docs/cloudways-setup.md` or `docs/local-development-setup.md`
-
-**...understand Kris Krug's mission**
-→ Read: `.claude/context/project-context.md`, then `docs/vision.md`
-
-**...create issues**
-→ Use templates: `.github/ISSUE_TEMPLATE/`
-
-**...understand the agents**
-→ Browse: `.github/agents/` (start with `orchestrator.agent.md`)
-
-**...deploy code**
-→ Read: `docs/cloudways-setup.md` (deployment workflow section)
-
-**...troubleshoot**
-→ Read: `.claude/common-failures.md`, then `docs/automation-guide.md` (troubleshooting section)
+| Path | What's there |
+|---|---|
+| [`../content/drafts/`](../content/drafts/) | Notion-derived post drafts before publication |
+| [`../fixes/`](../fixes/) | Production-ready code snippets + per-issue fix proposals |
+| [`../inc/`](../inc/) | Custom WordPress modules (currently: `digital-composting.php`) |
+| [`../issues-to-create/`](../issues-to-create/) | Markdown drafts of GitHub issues waiting to be filed |
+| [`../backup/`](../backup/) | Backup manifests (archives themselves are gitignored) |
+| [`../skills/`](../skills/) | Claude Code skills used by this repo |
+| [`../.github/`](../.github/) | Workflows, agent definitions, issue templates |
 
 ---
 
-## 📂 File Directory
-
-### Root Level
-```
-PROJECT-SUMMARY.md      - Master project overview
-QUICK-START.md          - This file (fast onboarding)
-README.md               - Project description
-CONTRIBUTING.md         - Contribution guidelines
-Makefile                - Development commands
-.editorconfig           - Code formatting
-.gitignore              - Git ignore rules
-```
-
-### Documentation (`docs/`)
-```
-INDEX.md                - This file (documentation navigation)
-architecture.md         - System architecture
-automation-guide.md     - Workflow documentation (400+ lines)
-cloudways-setup.md      - Server setup guide
-local-development-setup.md - Local WordPress setup
-vision.md               - 3-5 year vision
-roadmap.md              - Development roadmap
-testing-results.md      - Test validation results
-```
-
-### GitHub (`.github/`)
-```
-agents/                 - 7 AI agent definitions
-workflows/              - 5 GitHub Actions workflows
-ISSUE_TEMPLATE/         - 5 issue templates
-agent-state/            - Agent pipeline state tracking
-agent-config/           - Error handling configuration
-pull_request_template.md - PR template
-```
-
-### Claude Context (`.claude/`)
-```
-context/
-  project-context.md    - Kris Krug mission & values (270 lines)
-  wordpress-setup.md    - WordPress configuration
-agents-vibe.md          - Agent philosophy (360 lines)
-naming-conventions.md   - Code standards (240 lines)
-common-failures.md      - Failure patterns (280 lines)
-```
-
-### Automation (`skills/`)
-```
-github-workflow-automation/
-  SKILL.md              - Skill documentation
-  scripts/              - 6 Python/Bash scripts
-  references/           - Guides and templates
-```
-
----
-
-## 🔍 Documentation by Role
-
-### For Contributors (Human)
-1. QUICK-START.md
-2. CONTRIBUTING.md
-3. docs/automation-guide.md
-4. .claude/naming-conventions.md
-
-### For Maintainers
-1. docs/cloudways-setup.md
-2. docs/automation-guide.md
-3. docs/architecture.md
-4. .github/agent-config/error-handling.yml
-
-### For Agents (AI)
-1. .claude/context/project-context.md (mission)
-2. .claude/agents-vibe.md (philosophy)
-3. .claude/naming-conventions.md (standards)
-4. .claude/common-failures.md (learn from mistakes)
-5. .github/agents/{agent-name}.agent.md (specific role)
-
-### For Leadership
-1. docs/vision.md
-2. docs/roadmap.md
-3. PROJECT-SUMMARY.md
-
----
-
-## 📊 Documentation Stats
-
-- **Total Files:** 14 markdown documents
-- **Total Lines:** ~4,500 lines of documentation
-- **Coverage:** All major aspects documented
-- **Status:** Complete and comprehensive
-
----
-
-## 🚀 Next Steps
-
-1. Read `PROJECT-SUMMARY.md` for overview
-2. Follow `QUICK-START.md` to get started
-3. Explore `docs/architecture.md` to understand system
-4. Dive into specific docs as needed
-
-**Welcome to Kris Krug Agent Swarm!** 🌲🤖
-
----
-
-**Last Updated:** 2026-01-01
+**Last updated:** 2026-05-17. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.
