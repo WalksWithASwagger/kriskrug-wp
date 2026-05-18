@@ -35,7 +35,7 @@ Git-history cleanup decision:
 
 ## What Is Already Published
 
-Verified from the live public WordPress REST API on 2026-05-18:
+Verified from authenticated, read-only WordPress REST calls on 2026-05-18:
 
 | WP ID | Slug | Live status | Notes |
 |---:|---|---|---|
@@ -51,8 +51,23 @@ Authenticated exact-slug checks found no existing WP post or draft for:
 - `sovereign-ai-for-whom`
 - `comox-valley-ai-is-becoming-its-own-thing`
 - `why-we-built-the-responsible-ai-professional-certification`
+- `welcome-to-web-summit-now-show-us-the-numbers`
 
 Recent Notion rows marked `Published` but not found by exact WP slug should be treated as inventory follow-up, not proof they are missing. They may have been posted under different titles/slugs or to another surface.
+
+Authenticated WordPress draft inventory:
+
+| Surface | Count | Publishing implication |
+|---|---:|---|
+| Draft posts | 32 | Old admin draft queue; not automatically connected to the current Notion batch |
+| Draft pages | 3 | Old placeholders; not near-term publishing work |
+| Draft posts in `Misc` | 32 | Category handling must be fixed before any batch publishing |
+| Draft posts with empty slugs | 32 | Slug assignment must be deliberate during any rescue/publish pass |
+| Draft posts with no images | 26 | Most admin drafts still need media decisions |
+| Metric-level candidate | 1 | Worth editorial review, but not automatically next |
+| Needs prep / hold | 31 | Requires editorial triage before any WordPress write |
+
+The full authenticated draft-title inventory should stay out of this public repo. Use a private/local admin inventory when assigning draft-rescue workers.
 
 ## Candidate Ranking
 
@@ -156,6 +171,6 @@ Do not publish another batch while `Feature` silently lands in `Misc`.
 1. Rotate the exposed WordPress app password.
 2. Fix connector category behavior for `Feature` or manually override categories before WP draft creation.
 3. Prep `Sovereign AI for Whom?` as the next WP draft, with fact-check and high-stakes claim review.
-4. Prep RAP second only after comparing it to the April 17 live RAP post.
-5. Prep Comox third as a community recap after editorial TODOs and imagery are resolved.
-
+4. Run a private editorial triage pass on the 32 existing WordPress admin drafts before rescuing any of them.
+5. Prep RAP second only after comparing it to the April 17 live RAP post.
+6. Prep Comox third as a community recap after editorial TODOs and imagery are resolved.
