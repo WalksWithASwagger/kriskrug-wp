@@ -8,7 +8,7 @@ A small, single-file CLI that pulls a Notion page from KK's "News & Content Data
 2. Converts Notion blocks into Gutenberg core-block HTML (paragraph, heading, list, quote, callout, image, code, separator, mark).
 3. Downloads embedded images from Notion's expiring S3 URLs into `content/drafts/<slug>/images/`.
 4. Drafts an SEO-prepped post locally (`content/drafts/<slug>/post.md` + `post.html` + `seo-meta.md` + `alt-text.md` + `internal-links.md`).
-5. If `--publish` is passed: uploads each image to `kriskrug.co`'s Media Library (alt text set), rewrites image URLs, then `POST`s the post body to `/wp-json/wp/v2/posts` with `status=draft`.
+5. In live mode: uploads each image to `kriskrug.co`'s Media Library (alt text set), rewrites image URLs, then sends the post body to `/wp-json/wp/v2/posts`. Default status is `draft`; `--publish` sets `status=publish`.
 6. Records the WP post ID + edit URL in `content/drafts/<slug>/publish.log`.
 
 It does NOT inject schema. The `kk-schema` mu-plugin handles that sitewide. The connector just sets the fields the mu-plugin needs (featured_media, categories, tags, excerpt).
@@ -56,8 +56,11 @@ python kk_notion_to_wp.py --dry-run https://www.notion.so/<page-id>
 # Live: also uploads images, creates a DRAFT post on kriskrug.co
 python kk_notion_to_wp.py https://www.notion.so/<page-id>
 
-# Live + publish immediately (skip the draft step)
+# Live + publish immediately
 python kk_notion_to_wp.py --publish https://www.notion.so/<page-id>
+
+# Live update of an existing slug, guarded by title similarity
+python kk_notion_to_wp.py --update https://www.notion.so/<page-id>
 ```
 
 ## Notion property mapping
@@ -71,7 +74,7 @@ KK's "News & Content Database" has these properties; the connector reads them:
 | Tags | tags | auto-created if missing |
 | Type | category routing | `Report` → "Vancouver AI Ecosystem"; others → "Misc" until categorized |
 | Featured | post meta `kk_featured` | "YES" sets it |
-| Status | publish gate | `Ready` + `--publish` flag → published; otherwise draft |
+| Status | publish context | recorded from Notion, but not a publish gate |
 | Publication Date | post date | if absent, uses today |
 | Author / Owner | post author | mapped to WP user ID 1 (kk) for now |
 
@@ -83,9 +86,19 @@ Default behavior is CREATE-only:
 
 - If no post with the slug exists, the connector creates a new WP post.
 - If a post with the slug already exists, the connector aborts instead of silently updating.
-- To update an existing post, pass `--update`. The update path also checks that the existing title is similar to the new title before it sends a REST PATCH.
+- To update an existing post, pass `--update`. The update path also checks that the existing title is similar to the new title before it sends a REST update. The current threshold lives in `TITLE_SIMILARITY_UPDATE_THRESHOLD` and is covered by tests.
 
 This makes reruns safe by default. If you need a new version rather than an update, pass `--slug` with a new slug.
+
+## Local tests
+
+The connector has focused stdlib tests for the post-incident safety guards:
+
+```bash
+scripts/notion-to-wp/.venv/bin/python -m unittest discover scripts/notion-to-wp/tests
+```
+
+These tests do not call Notion or WordPress.
 
 ## Logs & debugging
 
