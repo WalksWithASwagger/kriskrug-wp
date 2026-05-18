@@ -166,11 +166,12 @@ These unblock specific items but aren't blockers for the bigger arcs:
 
 **Authoritative state docs (read in this order to onboard):**
 1. [`RESUME-HERE.md`](RESUME-HERE.md) — this file
-2. [`TWO-TRACK-MODEL.md`](TWO-TRACK-MODEL.md) — how Track A vs Track B work
-3. [`SITE-AUDIT-2026-05-16.md`](SITE-AUDIT-2026-05-16.md) — punch list (closed + open) with deep-inspect findings
-4. [`AURORA-MIGRATION-PLAN.md`](AURORA-MIGRATION-PLAN.md) — Track B's playbook (refreshed with rebase-first instructions)
-5. [`ROADMAP.md`](ROADMAP.md) — 3-month plan, partially executed (use as backlog reference)
-6. [`POST-ENRICHMENT-2026-05-16.md`](POST-ENRICHMENT-2026-05-16.md) — what changed on the two flagship posts
+2. [`AGENT-SWARM-OPERATING-PLAN-2026-05-18.md`](AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) — current lanes for issue swarms, draft publishing, Aurora, and content/nav structure
+3. [`TWO-TRACK-MODEL.md`](TWO-TRACK-MODEL.md) — how Track A vs Track B work
+4. [`SITE-AUDIT-2026-05-16.md`](SITE-AUDIT-2026-05-16.md) — punch list (closed + open) with deep-inspect findings
+5. [`AURORA-MIGRATION-PLAN.md`](AURORA-MIGRATION-PLAN.md) — Track B's playbook (refreshed with rebase-first instructions)
+6. [`ROADMAP.md`](ROADMAP.md) — 3-month plan, partially executed (use as backlog reference)
+7. [`POST-ENRICHMENT-2026-05-16.md`](POST-ENRICHMENT-2026-05-16.md) — what changed on the two flagship posts
 
 **Reference docs (when needed):**
 - [`TRAFFIC-DIAGNOSTIC-2026-05-15.md`](TRAFFIC-DIAGNOSTIC-2026-05-15.md) — why traffic is what it is + highest-leverage fixes
