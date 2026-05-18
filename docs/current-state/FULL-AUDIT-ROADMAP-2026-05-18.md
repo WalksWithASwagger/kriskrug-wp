@@ -56,7 +56,7 @@ Done:
 
 Still open:
 
-- Git history still contains the old leaked value unless KK explicitly approves a coordinated history rewrite and force-push.
+- KK selected a coordinated history rewrite and force-push to remove the old leaked value from public git history; this has not been executed yet.
 - Issue `#75` is still open because the acceptance criteria include category routing and pre-publish review/diff gates.
 
 ### Track A page overhaul
@@ -154,8 +154,8 @@ Goal: make future agent work safe.
 1. Finish issue `#75`.
 2. Add connector category routing or explicit category override for `Type=Feature`.
 3. Add a pre-publish diff/review gate for `--update`, or document the manual equivalent.
-4. Decide whether to rewrite public git history to remove the revoked leaked password.
-5. Confirm the backup path before any new production writes: page snapshots are useful, but a full backup/restore drill is still the real insurance.
+4. Execute the approved public git-history rewrite for the revoked leaked password, with a preflight summary immediately before force-push.
+5. Use page-level snapshots for small content/snippet production writes; still prefer a full backup/restore drill before major structural, theme, plugin, or bulk-publishing changes.
 6. Remove misleading `auto-implement` labels from stale/live-WP-gated issues.
 
 ### P1 - Aurora P0 sprint on `aurora/v2`
@@ -199,20 +199,22 @@ Goal: reduce backlog noise before swarming.
 4. Comment on stale design issues `#24-#35` with the new Aurora audit and remove `auto-implement` until they are reframed.
 5. Close or re-scope page/content issues already satisfied by the Work/Speaking/About overhaul.
 
-## Human Decisions Needed
+## KK Decisions Received
 
-These are the questions where KK should steer before agents run too far:
+Captured from KK's 2026-05-18 answers:
 
-1. **Git history:** Do you want to force-rewrite public git history to remove the already-revoked application password, or is revocation plus current-tree cleanup enough?
-2. **Backup gate:** Can we treat page-level snapshots as enough for small Track A fixes, or do you want a full Updraft/Pagely backup and restore drill before any more production writes?
-3. **Aurora hero media:** Which asset should lead the redesign: keynote stage, portrait, community room, photography/action shot, or project montage?
-4. **Primary CTA:** Should Aurora optimize first for "Book a keynote", "Work with Kris", "Explore my work", or something campaign-specific?
-5. **Brand edge:** Should Aurora lean more premium/editorial/human, or keep more cyberpunk/AI weirdness?
-6. **Photography role:** Is photography a supporting credibility band, a full section, or a major pillar in v1?
-7. **Next post:** Should `Sovereign AI for Whom?` be the next WP draft, or should the lower-risk RAP/Comox lane go first?
-8. **Issue strategy:** Should I mutate existing issues `#24-#35`, or file clean Aurora epics and leave old issues as references until each is replaced?
-9. **PR #74:** Do you want static preview pages merged into `main`, or should they stay as PR-only design references?
-10. **PR #73:** Do you want to pursue the sidebar-promo plugin now, or park it until Aurora/current-site priorities settle?
+| Decision | KK answer | Operational implication |
+|---|---|---|
+| Git history | Rewrite public git history and force-push to remove the revoked leaked password. | Treat as approved direction, but run as a dedicated controlled operation with final preflight before force-push. |
+| Backup threshold | Page-level snapshots are acceptable for small content/snippet changes. | Small Track A fixes can proceed with targeted snapshots; major/bulk/theme/plugin work still needs stronger backup discipline. |
+| Aurora hero media | Community room / event energy. | Lead with human proof and real gathering energy, not a solo abstract AI hero. |
+| Aurora primary CTA | Combine "Explore my work" and "Work with Kris." | Homepage should route to Work first, with a clear collaboration path. |
+| Aurora brand edge | Hybrid: mostly premium/editorial with weird AI details. | Avoid generic startup/cyberpunk, but keep a little future-facing strangeness in motion/details. |
+| Photography role | Supporting credibility band. | Photography should validate the brand, not dominate v1. |
+| Next post batch | Prep all three, publish none until review. | Draft-prep worker can clean Sovereign/RAP/Comox in parallel; WordPress publishing remains serialized and review-gated. |
+| Aurora issues | File clean new epics, then comment/close old ones gradually. | Use `issues-to-create/aurora-v2-redesign-epics.md` as the source, then reduce old `#24-#35` drift. |
+| PR `#74` | Close after extracting useful ideas. | Do not merge static preview pages into `main`; harvest useful design direction first. |
+| PR `#73` | Park until Aurora/current-site priorities settle. | Leave sidebar-promo plugin out of the immediate swarm. |
 
 ## Recommended Swarm Shape
 
