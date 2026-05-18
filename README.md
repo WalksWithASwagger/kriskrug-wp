@@ -77,6 +77,7 @@ docs/current-state/              # Frozen baseline snapshot — what was true on
   ├── CONTENT_AUDIT.md           # Per-page review of all 34 pages + recent post inventory
   ├── FIX_QUEUE.md               # P0 → P3 backlog
   ├── ROADMAP.md                 # Where this is heading next
+  ├── FULL-AUDIT-ROADMAP-2026-05-18.md # Current queue audit + next roadmap
   ├── INCIDENT-2026-05-15-overwritten-post.md   # Postmortem for the connector overwrite
   └── raw/                       # Underlying API/HTML evidence behind the audit
 
@@ -91,7 +92,7 @@ skills/                          # Claude Code skills used in this repo
 ### Where to start
 
 - **Reading the site state:** `docs/current-state/README.md`
-- **Planning next work:** `docs/current-state/ROADMAP.md` and `FIX_QUEUE.md`
+- **Planning next work:** `docs/current-state/FULL-AUDIT-ROADMAP-2026-05-18.md`, then `docs/current-state/ROADMAP.md` and `FIX_QUEUE.md`
 - **Publishing a Notion post:** `scripts/notion-to-wp/README.md`
 - **Filing an issue:** `issues-to-create/` for drafts; existing ones at [WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
 
