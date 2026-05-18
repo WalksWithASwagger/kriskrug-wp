@@ -48,6 +48,12 @@ The live WordPress site is not file-synced with this repo (it runs on Pagely). T
 content/drafts/                  # Notion-derived post drafts before publication
   └── YYYY-MM-DD-<slug>/         # post.md, post.html, images/, seo-meta.md, etc.
 
+content/source-packs/            # Curated source packs for page/content overhauls
+  └── keynotes-2026/             # Speaking/Work/About payloads and source notes for issue #76
+
+backup/                          # Manifests and page-level rollback snapshots; archives are ignored
+  └── YYYYMMDD-HHMMSS/           # Small REST/HTML snapshots used for targeted rollback
+
 scripts/notion-to-wp/            # Notion → kriskrug.co publisher
   ├── kk_notion_to_wp.py         # Single-file CLI: fetch, convert, upload, publish
   ├── block_rules.py             # Notion block → Gutenberg block mapping

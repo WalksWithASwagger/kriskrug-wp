@@ -1,0 +1,40 @@
+{
+  "pages": [
+    {
+      "id": 1887,
+      "slug": "speaking",
+      "title": "AI Keynote Speaker Kris Krüg",
+      "comment_status": "closed",
+      "ping_status": "closed",
+      "content_file": "speaking.html",
+      "meta": {
+        "jetpack_seo_html_title": "AI Keynote Speaker Kris Krüg | Humanizing AI, Creativity & Community",
+        "advanced_seo_description": "Book Kris Krüg for keynotes on AI, creativity, community, and responsible technology. Talks include Both Hands Full, Punk Rock AI, Developing an AI Mindset, and Compost AI."
+      }
+    },
+    {
+      "id": 2672,
+      "slug": "recent-projects-include",
+      "title": "Work",
+      "comment_status": "closed",
+      "ping_status": "closed",
+      "content_file": "work.html",
+      "meta": {
+        "jetpack_seo_html_title": "Work | Kris Krüg",
+        "advanced_seo_description": "Explore Kris Krüg's work across BC+AI, AI keynotes, community infrastructure, creative technology, training, and visual storytelling."
+      }
+    },
+    {
+      "id": 1208,
+      "slug": "about",
+      "title": "About Kris Krüg",
+      "comment_status": "closed",
+      "ping_status": "closed",
+      "content_file": "about.html",
+      "meta": {
+        "jetpack_seo_html_title": "About Kris Krüg | AI Speaker, Creative Technologist & Community Builder",
+        "advanced_seo_description": "About Kris Krüg: AI keynote speaker, creative technologist, community builder, photographer, and founder/operator working across BC+AI, AI education, and human-centered technology."
+      }
+    }
+  ]
+}
