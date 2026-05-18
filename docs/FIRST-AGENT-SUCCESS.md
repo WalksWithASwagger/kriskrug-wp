@@ -1,5 +1,7 @@
 # 🎉 First Agent Swarm Success Story
 
+> **STATUS: Historical.** This captures the era-1 GitHub Actions agent swarm proof of concept.
+
 **Date:** 2026-01-01
 **Issue:** [#8 - Navigation Menu Keyboard Accessibility](https://github.com/WalksWithASwagger/kk-wp/issues/8)
 **Pull Request:** [#9 - Fix: Navigation Menu Keyboard Accessibility](https://github.com/WalksWithASwagger/kk-wp/pull/9)

@@ -1,5 +1,7 @@
 # Cloudways Development Server Setup
 
+> **STATUS: Historical.** This Cloudways dev-server path was not the active production workflow. Use `docs/current-state/TWO-TRACK-MODEL.md` and `docs/current-state/AURORA-MIGRATION-PLAN.md` for current staging decisions.
+
 **Server:** Development/Staging for Kris Krug WordPress
 **IP:** 24.144.80.107
 **Status:** NEW server (not production - safe to experiment)

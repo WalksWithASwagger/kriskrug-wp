@@ -1,5 +1,7 @@
 # Kris Krug Automation Guide
 
+> **STATUS: Historical.** This describes the dormant GitHub Actions agent swarm. Current sessions use `AGENTS.md` and `docs/current-state/TWO-TRACK-MODEL.md`.
+
 Complete guide to the AI-powered automation workflows for the Kris Krug WordPress site.
 
 ## Overview

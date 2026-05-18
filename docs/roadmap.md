@@ -1,5 +1,7 @@
 # Kris Krug Development Roadmap
 
+> **STATUS: Historical.** Superseded by `docs/current-state/ROADMAP.md`.
+
 Current priorities and planned improvements for kk.ca
 
 ---

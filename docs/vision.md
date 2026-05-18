@@ -1,5 +1,7 @@
 # Kris Krug Vision
 
+> **STATUS: Historical.** This is era-1 vision context. Current planning lives in `docs/current-state/ROADMAP.md` and `docs/current-state/RESUME-HERE.md`.
+
 > Where we're going and why it matters
 
 ## Long-Term Vision (3-5 Years)
