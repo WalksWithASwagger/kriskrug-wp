@@ -4,6 +4,8 @@
 
 **Mode:** Read-only analysis. No WordPress writes, no connector live runs, no GitHub issue edits except creating the incident-tracking issue `#75`.
 
+**Verification update:** After the first public-corpus pass, an authenticated read-only WordPress REST pass was run through the local connector credentials. No dedicated WordPress MCP tool was exposed in the current Codex tool surface, but authenticated WordPress access did work.
+
 ---
 
 ## Trust Boundary
@@ -16,7 +18,7 @@ The 2026-05-15 incident is real and should remain the operating constraint:
 - Local draft folders can say `status: draft` even when the post is now live.
 - Notion `Published` or `Review` status is not proof of WordPress state.
 
-Current rule: WordPress public API and explicit WP IDs/slugs are truth for public posts. Local `content/drafts/` is a staging/capture area, not current production truth.
+Current rule: authenticated WordPress state plus explicit WP IDs/slugs are truth for posts and pages. The public REST API proves only what is visible publicly. Local `content/drafts/` is a staging/capture area, not current production truth.
 
 ## Security Gate
 
@@ -31,15 +33,22 @@ Do not use the connector for live WordPress writes until:
 
 Issue created: [#75 - Lock down Notion-to-WordPress publishing after overwrite incident](https://github.com/WalksWithASwagger/kriskrug-wp/issues/75).
 
-## Live Public Corpus
+## Authenticated WordPress Corpus
 
-Verified from the unauthenticated WordPress REST API on 2026-05-18:
+Verified from authenticated, read-only WordPress REST calls on 2026-05-18:
 
-| Surface | Count | What this proves |
-|---|---:|---|
-| Published posts | 944 | Public posts reachable through `/wp-json/wp/v2/posts` |
-| Published pages | 34 | Public pages reachable through `/wp-json/wp/v2/pages` |
-| Private drafts | Unknown | Public API returns `rest_forbidden_status` for draft visibility |
+| Surface | Publish | Draft | Pending | Future | Private | Trash |
+|---|---:|---:|---:|---:|---:|---:|
+| Posts | 944 | 32 | 0 | 0 | 0 | 0 |
+| Pages | 34 | 3 | 0 | 0 | 0 | 0 |
+
+Important admin-state findings:
+
+- Every authenticated draft post currently has an empty slug and the `Misc` category.
+- The three draft pages are old placeholders, not near-term publish candidates.
+- Exact-slug authenticated `status=any` checks found no post or draft for `sovereign-ai-for-whom`, `comox-valley-ai-is-becoming-its-own-thing`, `why-we-built-the-responsible-ai-professional-certification`, or `welcome-to-web-summit-now-show-us-the-numbers`.
+- Exact-slug checks did find `web-summit-vancouver-2026` as WP `11826`, `calling-us-all-in` as WP `11765`, `your-taste-is-your-moat` as WP `11178`, `make-culture-not-content` as WP `10594`, and the April RAP post as WP `11620`.
+- Revision checks for the recent key posts returned empty revision arrays through REST, so do not assume WordPress has a usable revision safety net for incident recovery.
 
 Recent published posts:
 
@@ -80,7 +89,7 @@ Public post distribution by year:
 
 ## Category State
 
-Post-by-post aggregation from public REST data:
+Post-by-post aggregation from public REST data, used only for the public corpus distribution:
 
 | Category | Public post count |
 |---|---:|
@@ -107,13 +116,39 @@ Important category gap:
 
 | Local pack | WP state | Readiness | Blockers | Next action |
 |---|---|---|---|---|
-| `content/drafts/2026-05-06-comox-valley-ai-is-becoming-its-own-thing/` | No public exact-slug post found | Promising, not publish-ready | Draft-status excerpt/meta, body TODOs, `Misc`, no images, zero internal links | Editorial prep first; do not publish |
+| `content/drafts/2026-05-06-comox-valley-ai-is-becoming-its-own-thing/` | No authenticated exact-slug post or draft found | Promising, not publish-ready | Draft-status excerpt/meta, body TODOs, `Misc`, no images, zero internal links | Editorial prep first; do not publish |
 | `content/drafts/2026-05-07-web-summit-vancouver-2026/` | Published as WP `11826` | Recovery pack, not normal draft | Tied to overwrite recovery; local frontmatter may still say draft/Misc | No publish action |
-| `content/drafts/2026-05-13-sovereign-ai-for-whom/` | No public exact-slug post found | Strongest next candidate, high-risk | Fact-check claims/quotes, opening formatting glitch, `Misc`, alt text polish | Prep as next WP draft only after gates |
+| `content/drafts/2026-05-13-sovereign-ai-for-whom/` | No authenticated exact-slug post or draft found | Strongest next candidate, high-risk | Fact-check claims/quotes, opening formatting glitch, `Misc`, alt text polish | Prep as next WP draft only after gates |
 | `content/drafts/2026-05-14-calling-us-all-in/` | Published as WP `11765` | Live post pack | First connector run caused overwrite incident | No publish action; future edits require exact WP ID/slug verification |
-| `content/drafts/2026-05-16-why-we-built-the-responsible-ai-professional-certification/` | No public exact-slug post found; related RAP post exists as WP `11620` | Useful, not ready | Possible duplicate/replacement conflict, Notion workspace links, weak excerpt/meta, `Misc`, repetitive/truncated alt text | Compare against live RAP post before deciding |
+| `content/drafts/2026-05-16-why-we-built-the-responsible-ai-professional-certification/` | No authenticated exact-slug post or draft found; related RAP post exists as WP `11620` | Useful, not ready | Possible duplicate/replacement conflict, Notion workspace links, weak excerpt/meta, `Misc`, repetitive/truncated alt text | Compare against live RAP post before deciding |
 | `content/drafts/wp-draft-10594-post-10594/` | Published as WP `10594` | Historical polish capture | Local capture conflicts with current live state | Treat as historical |
 | `content/drafts/wp-draft-11178-post-11178/` | Published as WP `11178` | Historical polish capture | Local capture conflicts with current live state | Treat as historical |
+
+## Admin Draft Summary
+
+The full authenticated WordPress draft inventory is intentionally not committed here because this GitHub repository is public.
+
+Read-only draft triage found:
+
+| Signal | Count |
+|---|---:|
+| Draft posts | 32 |
+| Draft posts in `Misc` | 32 |
+| Draft posts with empty slugs | 32 |
+| Draft posts with no images | 26 |
+| Draft posts under 250 words | 8 |
+| Draft posts with explicit TODO/draft language | 4 |
+| Empty-title draft posts | 1 |
+| Metric-level candidate | 1 |
+| Needs editorial prep | 18 |
+| Hold/archive | 13 |
+
+Interpretation:
+
+- The admin draft pile is mostly an old rescue/archive queue, not a ready publish queue.
+- Metric-level candidate does not mean publish-ready; it means enough body length, media, and links to justify a human/editorial pass.
+- The current Notion batch remains the cleaner next publishing lane once security and connector gates are fixed.
+- If a private draft-title inventory is needed, keep it local or in a private system; do not paste it into this public repo.
 
 Recommended publishing order after gates:
 
@@ -123,7 +158,14 @@ Recommended publishing order after gates:
 
 ## GitHub Backlog State
 
-Open issues after first hygiene pass: 63.
+Open issues after first hygiene pass and creation of #75: 64.
+
+Label drift:
+
+| Label | Open issue count | Note |
+|---|---:|---|
+| `auto-implement` | 62 | Overbroad; many of these touch live WordPress, product decisions, or Track B theme work. |
+| `needs-human-review` | 2 | Currently #23 and #75; more issues probably need this label before agents run. |
 
 PRs:
 
@@ -193,4 +235,3 @@ Next safe wave:
 4. **Corpus worker:** make a compact CSV/Markdown inventory of the 944 public posts by year/category/topic for future content planning.
 
 Production publisher remains a separate, serialized session after password rotation and backup confirmation.
-

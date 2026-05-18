@@ -11,25 +11,33 @@ Every way Claude / this repo can currently observe or modify the live site, and 
 - **Limits:** Cannot read draft/private content, plugin configs, options, or user PII. Can't write anything.
 - **Used for:** Building this snapshot. Reusable for fingerprinting after any change.
 
-### 2. WordPress.com MCP — `claude.ai WordPress.com` connector
+### 2. Authenticated WordPress REST via local connector
+- **Status:** Verified read-only on 2026-05-18 through `scripts/notion-to-wp/`.
+- **Auth:** WordPress application password loaded from the gitignored local `.env`; never paste or commit it.
+- **Capability:** Read private draft status, authenticated `status=any` post/page lookups, categories, revisions, and other endpoints supported by the current app-password user.
+- **Write capability:** Technically possible through the connector, but operationally blocked until password rotation, backup confirmation, dry-run review, and slug/ID verification are complete.
+- **Used for:** Confirming 944 published posts, 32 draft posts, 34 published pages, 3 draft pages, exact-slug status, and recent-post revision availability.
+
+### 3. WordPress.com MCP — `claude.ai WordPress.com` connector
 - **Status:** Authenticated as Kris on 2026-05-14.
 - **Site visible:** kriskrug.co (blog ID 159424804).
 - **Capability:** ⚠️ **Effectively zero** — every site-scoped operation (`posts.*`, `pages.*`, `media.*`, `theme.*`, `patterns.*`, etc.) returns *"This operation is disabled in your MCP settings."*
 - **Why:** Site is on Jetpack **Free**. MCP requires **Jetpack AI** or **Jetpack Complete**. See `https://jetpack.com/pricing/`.
 - **Unblock:** Upgrade Jetpack plan, then re-enable MCP operations in Jetpack settings.
+- **Codex note:** On 2026-05-18, Codex tool discovery did not expose a dedicated WordPress MCP tool. The authenticated REST connector above is the verified admin-data path in this repo.
 
-### 3. Chrome MCP (`mcp__claude-in-chrome__*`)
+### 4. Chrome MCP (`mcp__claude-in-chrome__*`)
 - **Status:** Available if the Chrome extension is connected.
 - **Capability:** Drive `wp-admin` in a real browser session — log in, edit posts/pages/settings, install plugins, run any UI action. Verify with on-page screenshots.
 - **Risk profile:** Every action is a real action. We should preview each change and confirm with you, especially anything that hits "Update" or "Save."
 - **When to use:** Whenever a wp-admin action is the cleanest path (e.g. installing a backup plugin, exporting via UI, toggling a setting that has no REST endpoint).
 
-### 4. Computer-use MCP
+### 5. Computer-use MCP
 - **Status:** Available, but browser-tier (read-only) for Safari/Chrome/etc.
 - **Capability:** Native macOS apps at full tier (Finder, Terminal at click-only, etc.). Useful for moving downloaded files, taking screenshots, opening apps.
 - **Not useful for:** Driving wp-admin (that's a browser → use Chrome MCP).
 
-### 5. Git + GitHub
+### 6. Git + GitHub
 - **Repo:** `kriskrug-wp` (this one)
 - **Capability:** All standard git/gh operations. The agent swarm in `.github/` can be triggered via issues + labels.
 
@@ -52,19 +60,22 @@ Every way Claude / this repo can currently observe or modify the live site, and 
 
 ## Modification matrix — which channel can do what
 
-| Action | REST | WP.com MCP | Chrome MCP | SSH | Notes |
-|---|---|---|---|---|---|
-| Read public posts/pages | ✅ | 🚫 (disabled) | ✅ | ✅ | REST is fine |
-| Edit a page | 🚫 | 🚫 (disabled) | ✅ | ✅ (via wp-cli) | Chrome MCP today, MCP after upgrade |
-| Install plugin | 🚫 | 🚫 | ✅ | ✅ | Wp-admin > Plugins > Add New |
-| Edit theme file | 🚫 | 🚫 | ⚠️ (Appearance > Editor, fragile) | ✅ | SSH strongly preferred |
-| Update theme code permanently | 🚫 | 🚫 | 🚫 | ✅ | Needs file write |
-| Export full site | 🚫 | 🚫 | ✅ (via plugin) | ✅ (cleanest) | UpdraftPlus / AIO-WP-Migration / wp-cli |
-| Database query | 🚫 | 🚫 | 🚫 | ✅ | Via wp-cli or wp-admin's tools |
-| Roll back a code change | 🚫 | 🚫 | ⚠️ (only if change made via UI) | ✅ | SSH + git on the server |
+| Action | Public REST | Auth REST connector | WP.com MCP | Chrome MCP | SSH | Notes |
+|---|---|---|---|---|---|---|
+| Read public posts/pages | ✅ | ✅ | 🚫 (disabled) | ✅ | ✅ | Public REST is fine for public corpus checks |
+| Read drafts/private status | 🚫 | ✅ | 🚫 (disabled) | ✅ | ✅ | Use authenticated connector for inventory; do not expose private draft dumps publicly |
+| Create a post draft | 🚫 | ⚠️ gated | 🚫 (disabled) | ✅ | ✅ (via wp-cli) | Backup + dry-run + slug verification required |
+| Edit a page | 🚫 | ⚠️ gated | 🚫 (disabled) | ✅ | ✅ (via wp-cli) | Chrome or SSH after backup; connector only after safety gates |
+| Install plugin | 🚫 | 🚫 | 🚫 | ✅ | ✅ | Wp-admin > Plugins > Add New |
+| Edit theme file | 🚫 | 🚫 | 🚫 | ⚠️ (Appearance > Editor, fragile) | ✅ | SSH strongly preferred |
+| Update theme code permanently | 🚫 | 🚫 | 🚫 | 🚫 | ✅ | Needs file write |
+| Export full site | 🚫 | 🚫 | 🚫 | ✅ (via plugin) | ✅ (cleanest) | UpdraftPlus / AIO-WP-Migration / wp-cli |
+| Database query | 🚫 | 🚫 | 🚫 | 🚫 | ✅ | Via wp-cli or wp-admin's tools |
+| Roll back a code change | 🚫 | 🚫 | 🚫 | ⚠️ (only if change made via UI) | ✅ | SSH + git on the server |
 
 ## Recommendation for ordering
 
-1. **Today, without SSH:** use Chrome MCP for any wp-admin-driven action (install backup plugin, export, install code via a custom-code plugin like Code Snippets). Treat every action as preview + confirm.
-2. **Once SSH lands:** switch primary channel to SSH + wp-cli. Use Chrome MCP only for things that genuinely need the UI (block editor, Jetpack settings, etc.).
-3. **If you upgrade Jetpack:** the WordPress.com MCP becomes a fast option for content edits (posts/pages/patterns), but it still can't touch theme files, plugins, or the database — those stay SSH-only.
+1. **Today, without SSH:** use authenticated REST for read-only admin inventory and exact-slug checks; use Chrome MCP for wp-admin-driven actions such as backup plugins or UI-only settings. Treat every action as preview + confirm.
+2. **For production writes:** rotate the exposed app password, verify backup, run dry-run/diff, then use the least risky path for the specific change.
+3. **Once SSH lands:** switch primary infrastructure channel to SSH + wp-cli. Use Chrome MCP only for things that genuinely need the UI (block editor, Jetpack settings, etc.).
+4. **If Jetpack MCP is upgraded/enabled:** WordPress.com MCP may become a fast option for content edits, but it still cannot replace SSH for theme files, plugins, database export, or rollback.
