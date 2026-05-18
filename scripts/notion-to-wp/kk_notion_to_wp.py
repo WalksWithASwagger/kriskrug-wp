@@ -82,6 +82,7 @@ WP_DEFAULT_AUTHOR_ID = 1   # kk
 KKAI_ENV_PATH = Path("/Users/kk/Code/notion-local/kk-ai-ecosystem/.env")
 SCRIPT_DIR = Path(__file__).resolve().parent
 LOCAL_ENV_PATH = SCRIPT_DIR / ".env"
+TITLE_SIMILARITY_UPDATE_THRESHOLD = 0.5
 
 # ---------------------------------------------------------------------------
 # Tiny config loader (no print of secrets)
@@ -346,6 +347,11 @@ def title_similarity(a: str, b: str) -> float:
     if not a or not b:
         return 0.0
     return difflib.SequenceMatcher(None, a, b).ratio()
+
+
+def update_title_guard(new_title: str, existing_title: str) -> tuple[bool, float]:
+    sim = title_similarity(new_title, existing_title)
+    return sim >= TITLE_SIMILARITY_UPDATE_THRESHOLD, sim
 
 
 def derive_social_message(excerpt: str, max_chars: int = 280) -> str:
@@ -743,7 +749,7 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
     else:
         existing = wp.get_post(existing_id)
         existing_title = (existing.get("title") or {}).get("raw", "")
-        sim = title_similarity(title, existing_title)
+        title_match, sim = update_title_guard(title, existing_title)
         log(f"  existing post title: {existing_title!r}")
         log(f"  new post title:      {title!r}")
         log(f"  title similarity:    {sim:.2f}")
@@ -751,14 +757,24 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
             log("ABORTING: an existing post with this slug was found and --update was not passed.")
             log("If you intended to overwrite it, re-run with --update. Otherwise pick a different --slug.")
             return 2
-        if sim < 0.5:
-            log(f"ABORTING: existing title is too different from new title (similarity {sim:.2f} < 0.5).")
+        if not title_match:
+            log(f"ABORTING: existing title is too different from new title "
+                f"(similarity {sim:.2f} < {TITLE_SIMILARITY_UPDATE_THRESHOLD}).")
             log("This is the 2026-05-15 incident's safety net. If you're SURE you want to overwrite, "
-                "use --update --force-update — but consider whether you've identified the right post first.")
+                "stop and verify the slug, WP ID, and intended target before changing the connector.")
             return 3
         result = wp.update_post(existing_id, payload)
         log(f"UPDATEd existing WP post {result['id']} — {result['link']}")
     log(f"edit URL: {cfg.wp_base_url}/wp-admin/post.php?post={result['id']}&action=edit")
+    try:
+        verified = wp.get_post(result["id"])
+        log("verified WP readback: "
+            f"id={verified.get('id')} "
+            f"status={verified.get('status')!r} "
+            f"slug={verified.get('slug')!r} "
+            f"link={verified.get('link')!r}")
+    except Exception as e:
+        log(f"WARNING: post-write verification GET failed: {e}")
     return 0
 
 
