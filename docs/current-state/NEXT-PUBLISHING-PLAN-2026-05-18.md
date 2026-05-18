@@ -2,7 +2,7 @@
 
 **Purpose:** Decide what publishes next after the first draft-publishing swarm, with explicit security and quality gates.
 
-**Hard rule:** No live WordPress publishing until the exposed application password is rotated.
+**Hard rule:** The exposed application password has been rotated, but live WordPress publishing still requires backup confirmation, dry-run review, slug/ID verification, and category cleanup.
 
 ---
 
@@ -12,24 +12,38 @@ Current-file status:
 
 - The plaintext WordPress application password is no longer present in the current tracked docs.
 - A working-tree scan excluding the gitignored local `.env` found no pasted app password.
+- The local `.env` remains gitignored and untracked.
+- Token-shaped examples in the connector docs were replaced with non-secret placeholders.
+- Raw HTML snapshots were sanitized for token-like Stripe/Jetpack values that were not needed for the audit record.
 
 History status:
 
 - The credential was introduced in commit `ca94502` (`docs: comprehensive resume-here handoff doc`).
 - It was redacted from current docs in commit `d746ecb` (`docs: record swarm results`).
 - Because `ca94502` was pushed, the credential should be treated as public even though current files are clean.
-- A read-only authenticated slug check still worked on 2026-05-18, so the exposed app password appears to remain active.
+- On 2026-05-18 at 11:14 PT, the exposed application password was revoked and replaced.
+- The older `MCP AI` application password was also revoked during the rotation.
+- A read-only authenticated check verified that only the new connector application password remains active.
 
-Required before any live connector use:
+Completed:
 
-1. Rotate/revoke the exposed WordPress application password in wp-admin.
-2. Store the replacement only in `scripts/notion-to-wp/.env`, which is gitignored.
-3. Re-run a read-only authenticated check without printing credentials.
-4. Keep the old credential out of docs, issue comments, commit messages, and terminal output.
+1. Revoked the exposed `kk-notion-to-wp` application password.
+2. Revoked the older `MCP AI` application password.
+3. Created a replacement connector password.
+4. Stored the replacement only in `scripts/notion-to-wp/.env`, which is gitignored.
+5. Re-ran a read-only authenticated check without printing credentials.
+
+Still required before any live connector publishing:
+
+1. Confirm a fresh backup/rollback path.
+2. Re-run connector `--dry-run`.
+3. Verify slug, title, WP ID, and target status before any update.
+4. Fix category routing so `Feature` posts do not silently land in `Misc`.
+5. Keep credentials out of docs, issue comments, commit messages, and terminal output.
 
 Git-history cleanup decision:
 
-- Rotating the password is mandatory.
+- Password rotation is complete.
 - Rewriting public git history is optional cleanup and requires explicit approval because it means force-pushing `main`.
 - If history rewrite is approved, coordinate with any active clones/worktrees first, scrub the secret from `ca94502`, force-push with lease, then verify the GitHub file view and commit diff no longer expose it.
 
