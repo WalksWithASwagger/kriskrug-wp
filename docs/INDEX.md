@@ -23,6 +23,7 @@ The canonical "what's true right now" snapshot lives in [`docs/current-state/`](
 | [`current-state/CONTENT_AUDIT.md`](current-state/CONTENT_AUDIT.md) | Per-page review + post inventory + IA proposal |
 | [`current-state/FIX_QUEUE.md`](current-state/FIX_QUEUE.md) | P0 → P3 backlog |
 | [`current-state/ROADMAP.md`](current-state/ROADMAP.md) | Six-phase, 3-month plan |
+| [`current-state/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md`](current-state/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) | Current agent-swarm lanes and execution order |
 | [`current-state/SITE-AUDIT-2026-05-16.md`](current-state/SITE-AUDIT-2026-05-16.md) | Reader-facing site audit (Track A punch-list) |
 | [`current-state/POST-ENRICHMENT-2026-05-16.md`](current-state/POST-ENRICHMENT-2026-05-16.md) | Post-enrichment pass + connector rules |
 | [`current-state/TRAFFIC-DIAGNOSTIC-2026-05-15.md`](current-state/TRAFFIC-DIAGNOSTIC-2026-05-15.md) | GSC / traffic dive |

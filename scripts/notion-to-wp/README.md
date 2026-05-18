@@ -77,7 +77,15 @@ KK's "News & Content Database" has these properties; the connector reads them:
 
 ## Idempotency
 
-On first publish, the script writes the Notion page ID to WP post meta `kk_notion_source_id`. Re-running with the same Notion URL **updates** that post rather than creating a duplicate. Safe to re-run after edits in Notion.
+The 2026-05-15 incident proved that Notion-ID meta lookups are not safe unless the meta key is registered with `show_in_rest`. The connector now uses **slug-based lookup** for identity checks.
+
+Default behavior is CREATE-only:
+
+- If no post with the slug exists, the connector creates a new WP post.
+- If a post with the slug already exists, the connector aborts instead of silently updating.
+- To update an existing post, pass `--update`. The update path also checks that the existing title is similar to the new title before it sends a REST PATCH.
+
+This makes reruns safe by default. If you need a new version rather than an update, pass `--slug` with a new slug.
 
 ## Logs & debugging
 
