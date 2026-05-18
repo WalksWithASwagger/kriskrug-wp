@@ -19,6 +19,11 @@ This folder is the source of truth for "what was true on May 14, 2026" — not a
 | [FIX_QUEUE.md](FIX_QUEUE.md) | Prioritized P0→P3 backlog from both audits. |
 | [ROADMAP.md](ROADMAP.md) | Six-phase, 3-month plan that synthesizes FIX_QUEUE + postmortem follow-ups + content pipeline next steps. **Start here.** |
 | [AGENT-SWARM-OPERATING-PLAN-2026-05-18.md](AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) | Current swarm lanes across GitHub issues, draft publishing, Aurora, and content/nav structure. |
+| [SWARM-STATUS-2026-05-18.md](SWARM-STATUS-2026-05-18.md) | Current command-desk status after the first bounded issue/content/Aurora swarm. |
+| [DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md](DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md) | Next-batch Notion inventory and local dry-run packs. |
+| [TRACK-A-QUICK-FIX-PACK-2026-05-18.md](TRACK-A-QUICK-FIX-PACK-2026-05-18.md) | Production-safe snippets, commands, checks, and rollback notes for current-site fixes. |
+| [NAV-IA-DECISION-PACK-2026-05-18.md](NAV-IA-DECISION-PACK-2026-05-18.md) | Navigation and IA decisions for current theme and Aurora. |
+| [AURORA-STAGING-REPORT-2026-05-18.md](AURORA-STAGING-REPORT-2026-05-18.md) | Local Aurora smoke results and the current redesign blocker. |
 | [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md) | Postmortem for the connector overwrite incident on 2026-05-15. Lessons + safety guards. |
 | `raw/` | Raw API snapshots + HTML fetches: `wp-json/`, `pages.json`, `posts-page1.json`, fingerprint HTML for 16 pages, sitemaps, robots — the underlying evidence behind the other files. |
 
