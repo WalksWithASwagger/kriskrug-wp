@@ -27,6 +27,7 @@ The canonical "what's true right now" snapshot lives in [`docs/current-state/`](
 | [`current-state/SWARM-STATUS-2026-05-18.md`](current-state/SWARM-STATUS-2026-05-18.md) | Current command-desk status after the first bounded swarm |
 | [`current-state/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md`](current-state/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md) | Next-batch Notion inventory and local dry-run packs |
 | [`current-state/NEXT-PUBLISHING-PLAN-2026-05-18.md`](current-state/NEXT-PUBLISHING-PLAN-2026-05-18.md) | Security gate, live-post verification, and ranked next publishing plan |
+| [`current-state/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md`](current-state/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md) | Read-only audit of public posts, local draft packs, and issue lanes after the overwrite incident |
 | [`current-state/TRACK-A-QUICK-FIX-PACK-2026-05-18.md`](current-state/TRACK-A-QUICK-FIX-PACK-2026-05-18.md) | Production-safe current-site quick-fix pack |
 | [`current-state/NAV-IA-DECISION-PACK-2026-05-18.md`](current-state/NAV-IA-DECISION-PACK-2026-05-18.md) | Navigation and IA decision pack |
 | [`current-state/AURORA-STAGING-REPORT-2026-05-18.md`](current-state/AURORA-STAGING-REPORT-2026-05-18.md) | Local Aurora smoke results and current redesign blocker |
