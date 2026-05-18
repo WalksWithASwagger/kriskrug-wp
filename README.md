@@ -1,14 +1,14 @@
-# Kris Krug WordPress Site - Issue Tracking & Automation
+# kriskrug-wp — Operations Hub for kriskrug.co
 
 > Building a Responsible & Inclusive AI Future for British Columbia
 
-[![Infrastructure](https://img.shields.io/badge/Infrastructure-Complete-success)](https://github.com/WalksWithASwagger/kk-wp)
-[![Agent Swarm](https://img.shields.io/badge/Agent%20Swarm-Validated-success)](https://github.com/WalksWithASwagger/kk-wp/tree/main/.github/agents)
-[![Status](https://img.shields.io/badge/Status-Awaiting%20Production-blue)](https://kriskrug.co)
+**Live site:** [kriskrug.co](https://kriskrug.co/) (Pagely-hosted WordPress, Catch Responsive theme)
+**Repo:** [WalksWithASwagger/kriskrug-wp](https://github.com/WalksWithASwagger/kriskrug-wp)
+**Operating model:** Two tracks — see [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md)
 
-**Status:** Infrastructure complete and validated. Agent swarm proven operational. Awaiting production kriskrug.co import to begin real issue resolution.
+This repository is the **operations + content hub** for [kriskrug.co](https://kriskrug.co/). The live WordPress install is not file-synced here (it runs on Pagely). This repo holds everything *adjacent* to the site: audit snapshots, draft content before publication, deployment-ready code snippets, and the Notion → WordPress publisher.
 
-This repository serves as the issue tracking, project management, and automation hub for the **Kris Krug** WordPress website at [kriskrug.co](https://kriskrug.co/).
+**If you're an AI agent landing in this repo cold, start at [`AGENTS.md`](AGENTS.md).**
 
 ## About Kris Krug
 
@@ -32,11 +32,11 @@ Kris Krug is a grassroots AI ecosystem initiative focused on building a responsi
 
 This repository is used for:
 
-1. **Site audits + state snapshots** of the live kriskrug.co WordPress install
-2. **Content pipeline** — Notion → kriskrug.co publisher with safety guards
-3. **Custom WordPress code** — schema markup, theme tweaks, helper plugins
-4. **Issue tracking + project management** for fixes, content, and automation
-5. **AI agent automation** — automated issue-to-PR workflows (older — not used in current sessions)
+1. **Site audits + state snapshots** of the live kriskrug.co WordPress install (see [`docs/current-state/`](docs/current-state/))
+2. **Content pipeline** — Notion → kriskrug.co publisher with safety guards (see [`scripts/notion-to-wp/`](scripts/notion-to-wp/))
+3. **Custom WordPress code** — schema markup, theme tweaks, helper plugins (see [`fixes/`](fixes/) and [`inc/`](inc/))
+4. **Aurora v2 theme work** — separate `aurora/v2` branch, paced sprints (see [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/AURORA-MIGRATION-PLAN.md))
+5. **Issue tracking + project management** for fixes, content, and theme work
 
 ### Why a Separate Repo?
 
@@ -89,67 +89,50 @@ skills/                          # Claude Code skills used in this repo
 - **Publishing a Notion post:** `scripts/notion-to-wp/README.md`
 - **Filing an issue:** `issues-to-create/` for drafts; existing ones at [WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
 
-## 🤖 Agent Swarm - Infrastructure Complete ✅
+## How work happens here
 
-**Validation Status:** Proven operational through proof-of-concept testing
+Two parallel tracks. Pick one per session — don't mix.
 
-**What was validated:**
-- ✅ Complete agent pipeline (7 specialized agents)
-- ✅ Autonomous code generation (944 lines generated during testing)
-- ✅ GitHub Actions workflows functional
-- ✅ Cloudways development environment configured
-- ✅ Ready for production kriskrug.co issues
+### Track A — Content + SEO (on `main`, weekly cadence)
 
-**Current Phase:** Awaiting production WordPress import
+Notion → kriskrug.co publishing, post-publish enrichment, schema maintenance, alt-text batches, category sweeps, GSC + sitemap health.
 
-This repository includes production-ready AI agent automation:
+- Publish a post: [`scripts/notion-to-wp/README.md`](scripts/notion-to-wp/README.md)
+- Enrichment + link-graph helper: [`scripts/notion-to-wp/text_polish.py`](scripts/notion-to-wp/text_polish.py)
+- Active backlog: [`docs/current-state/FIX_QUEUE.md`](docs/current-state/FIX_QUEUE.md), [`docs/current-state/SITE-AUDIT-2026-05-16.md`](docs/current-state/SITE-AUDIT-2026-05-16.md)
+- Deployed schema: [`fixes/schema-snippets-deployed.php`](fixes/schema-snippets-deployed.php)
 
-### Agent Swarm Pipeline
+### Track B — Aurora v2 theme migration (on `aurora/v2`, paced sprints)
 
-```
-GitHub Issue → Analyzer → Test Writer → Implementer → QA → Reviewer → PR Creator
-```
+FSE theme rebuild on a separate branch. Touches `theme/`, FSE templates, theme.json. Never touches post content.
 
-**7 Specialized Agents:**
-1. **Orchestrator** - Coordinates the entire pipeline
-2. **Analyzer** - Parses issues and creates technical specifications
-3. **Test Writer** - Writes tests before implementation (TDD)
-4. **Implementer** - Writes WordPress-compliant code
-5. **QA** - Runs automated tests and validation
-6. **Reviewer** - Code review with best practices checks
-7. **PR Creator** - Generates comprehensive pull requests
+- Migration plan: [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/AURORA-MIGRATION-PLAN.md)
 
-### Automated Workflows
+### Which track am I in?
 
-- **Auto-triage** - Automatically labels and categorizes issues
-- **Agent PR Generator** - Converts issues to pull requests automatically
-- **Test Validation** - Runs WordPress coding standards and tests
-- **Project Sync** - Keeps project boards updated
+See the decision rule in [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md#how-to-know-which-track-youre-in). If you're editing a post, page, schema, redirect, or category → Track A. If you're editing theme files or FSE templates → Track B.
 
 ## Getting Started
 
-### For Contributors
+### For agents
+Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](docs/current-state/README.md).
 
-1. Browse [open issues](https://github.com/WalksWithASwagger/kk-wp/issues)
-2. Read our [Contributing Guidelines](CONTRIBUTING.md)
-3. Use issue templates when creating new issues
-4. Follow WordPress coding standards for code contributions
+### For human contributors
+1. Browse [open issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
+2. Read [`CONTRIBUTING.md`](CONTRIBUTING.md)
+3. Use issue templates when filing new issues
+4. Follow WordPress coding standards for PHP/JS in `fixes/` and `inc/`
 
-### For Maintainers
-
-See our [automation documentation](docs/automation-guide.md) for:
-- Setting up the agent swarm
-- Using gh CLI extensions
-- Configuring workflows
-- Managing the pipeline
+### Dormant: GitHub Actions agent swarm
+`.github/agents/` and `.github/workflows/` define an older issue-to-PR pipeline (orchestrator → analyzer → test-writer → implementer → QA → reviewer → PR creator). It produced PRs #71 and #72 in May 2026 and is not used by current sessions. See [`docs/architecture.md`](docs/architecture.md) and [`docs/automation-guide.md`](docs/automation-guide.md) for reference if/when it's revived.
 
 ## Technology Stack
 
-- **Platform**: WordPress
-- **Automation**: GitHub Actions + Claude AI Agents
-- **CLI Tools**: GitHub CLI (gh), Claude Code
-- **Testing**: PHPUnit, WordPress Coding Standards (PHPCS)
-- **Language**: PHP, JavaScript, Bash, Python
+- **Platform:** WordPress 6.9+ on Pagely (production), Catch Responsive theme
+- **Content pipeline:** Python (Notion API → WordPress REST API)
+- **Custom code:** PHP snippets (Code Snippets plugin on prod), one custom module (`inc/digital-composting.php`)
+- **CLI Tools:** GitHub CLI (`gh`), Claude Code / Cursor agents
+- **Languages:** PHP, JavaScript, Python, Bash
 
 ## Issue Labels
 
@@ -165,10 +148,10 @@ See our [automation documentation](docs/automation-guide.md) for:
 
 ## Project Links
 
-- **Live Site**: [kriskrug.co](https://kriskrug.co/)
-- **Events**: [Luma Calendar](https://lu.ma/kk)
-- **News**: Updates via Notion
-- **GitHub**: [WalksWithASwagger/kk-wp](https://github.com/WalksWithASwagger/kk-wp)
+- **Live Site:** [kriskrug.co](https://kriskrug.co/)
+- **Events:** [Luma Calendar](https://lu.ma/kk)
+- **GitHub:** [WalksWithASwagger/kriskrug-wp](https://github.com/WalksWithASwagger/kriskrug-wp)
+- **Issues:** [github.com/WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
 
 ## Contact
 
@@ -180,8 +163,4 @@ For questions about this repository or Kris Krug:
 
 ## License
 
-This repository is for project management and automation purposes. WordPress core and third-party plugins/themes maintain their respective licenses.
-
----
-
-**Powered by AI Agent Automation** - This repository uses Claude AI agents to automatically convert issues into pull requests with full test coverage.
+This repository is for project management, content publishing, and theme development. WordPress core and third-party plugins/themes maintain their respective licenses.

@@ -24,6 +24,9 @@ vendor/
 .vscode/
 .idea/
 
+# Agent worktrees (local scaffolding — branches live in their own checkouts)
+.claude/worktrees/
+
 # Backups
 *.sql
 *.sql.gz
