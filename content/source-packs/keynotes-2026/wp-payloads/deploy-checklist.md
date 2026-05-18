@@ -1,6 +1,8 @@
 # Deploy Checklist
 
-Do not deploy these payloads until the live-write safety gate clears.
+Status: deployed and verified on 2026-05-18. See `../verification/DEPLOY-VERIFICATION-2026-05-18.md`.
+
+Do not re-deploy these payloads unless a fresh readback shows drift or a rollback/reapply is intentional.
 
 Continuation issue: https://github.com/WalksWithASwagger/kriskrug-wp/issues/76
 

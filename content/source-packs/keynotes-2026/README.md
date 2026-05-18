@@ -11,6 +11,10 @@ This is a selective publishing pack, not a Notion mirror. It keeps the useful pu
 - `About` keeps the voice/photo-story energy and makes the 2026 AI, community, and speaking story obvious.
 - This is the next larger overhaul after the smaller owned-sites network rollout captured in `docs/current-state/OWNED-SITES-LINKING-RECOMMENDATION-2026-05-18.md`.
 
+## Deploy Status
+
+Applied and verified on 2026-05-18. See `verification/DEPLOY-VERIFICATION-2026-05-18.md`.
+
 ## Source Inputs
 
 - Notion page: `Keynotes` (`cd4ce83f-afa5-440d-8405-4caf04a480d1`)
@@ -39,6 +43,7 @@ This is a selective publishing pack, not a Notion mirror. It keeps the useful pu
 - `wp-payloads/about.html` - publish-ready content for page `1208`.
 - `wp-payloads/page-meta.json` - target titles, SEO meta, slugs, and comment settings.
 - `wp-payloads/deploy-checklist.md` - live-write gate and verification checklist.
+- `verification/DEPLOY-VERIFICATION-2026-05-18.md` - REST, URL, screenshot, and rollback verification after deploy.
 
 ## Safety Notes
 
@@ -60,6 +65,6 @@ Fresh page-level rollback snapshots were captured before preparing payloads:
 - `backup/20260518-111546/page-snapshots/page-2672-work.html`
 - `backup/20260518-111546/page-snapshots/sha256sums.txt`
 
-Full-site backup status: blocked on authenticated UpdraftPlus admin access at the time this pack was prepared. Do not live-write the pages until that gate is cleared or KK explicitly authorizes a narrower rollback path.
+Full-site backup status: blocked on authenticated UpdraftPlus admin access at the time this pack was prepared. KK explicitly authorized the narrower rollback path on 2026-05-18, and the live deploy is documented in `verification/DEPLOY-VERIFICATION-2026-05-18.md`.
 
 Continuation issue: https://github.com/WalksWithASwagger/kriskrug-wp/issues/76
