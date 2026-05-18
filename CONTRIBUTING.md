@@ -1,6 +1,8 @@
-# Contributing to Kris Krug WordPress Site
+# Contributing to kriskrug-wp
 
-Thank you for your interest in contributing to the Kris Krug WordPress site! This repository uses AI agent automation to streamline development, but we welcome both human and AI-assisted contributions.
+Thank you for your interest in contributing to the [kriskrug.co](https://kriskrug.co/) operations repo. We welcome both human contributors and AI-assisted contributions.
+
+**If you're an AI agent, read [`AGENTS.md`](AGENTS.md) and [`docs/current-state/README.md`](docs/current-state/README.md) first to understand the two-track operating model.**
 
 ## Table of Contents
 
@@ -56,10 +58,10 @@ By participating in this project, you agree to maintain a respectful, inclusive,
 Title: Contact form submission fails on mobile devices
 
 Description:
-The Gravity Forms contact form (#3) does not submit on mobile Safari.
+The contact form does not submit on mobile Safari.
 
 Steps to Reproduce:
-1. Visit kk.ca on iPhone (iOS 16)
+1. Visit kriskrug.co on iPhone (iOS 16)
 2. Navigate to contact form
 3. Fill out all fields
 4. Tap Submit button
@@ -71,7 +73,7 @@ Actual: No response, no error message
 Environment:
 - Browser: Mobile Safari 16.3
 - Device: iPhone 13
-- URL: https://kk.ca/#contact
+- URL: https://kriskrug.co/#contact
 
 Labels: bug, priority:high, mobile
 ```
@@ -95,12 +97,11 @@ Labels: bug, priority:high, mobile
 
 ### Before Submitting
 
-- [ ] All tests pass (`vendor/bin/phpunit`)
-- [ ] Code follows WordPress Coding Standards (`phpcs --standard=WordPress`)
-- [ ] No PHPCS errors or warnings
+- [ ] PHP/JS in `fixes/` and `inc/` follows WordPress Coding Standards (`phpcs --standard=WordPress` if you have it installed locally — no CI gate enforces this currently)
 - [ ] Changes are documented in PR description
 - [ ] Issue is linked (use `Fixes #123` or `Closes #456`)
 - [ ] Commit messages are clear and descriptive
+- [ ] If you changed content via the Notion → WP publisher, you ran with `--dry-run` first and confirmed the slug-based idempotency match (see [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md))
 
 ### PR Template
 
@@ -115,10 +116,10 @@ Your PR should include:
 
 ### Review Process
 
-1. **Automated checks** run (PHPCS, PHPUnit, security scans)
-2. **AI reviewer** may provide initial feedback
-3. **Human maintainer** reviews and approves
-4. **Merge** once all checks pass and approved
+1. **Human maintainer** (KK) reviews and approves
+2. **Merge** once approved
+
+> The older GitHub Actions agent swarm (`.github/workflows/`) included automated PHPCS / test / reviewer steps. Those workflows are dormant in current sessions; PRs are reviewed manually.
 
 ## Coding Standards
 
@@ -173,63 +174,40 @@ phpcbf --standard=WordPress-Extra path/to/file.php
 - Use semantic HTML5 elements
 - Include alt text for images
 
-## Agent Automation
+## Agent Sessions (current model)
 
-### How It Works
+Day-to-day work happens through Claude Code / Cursor agent sessions, not via the dormant GitHub Actions agent swarm. Two modes:
 
-This repository uses AI agents to automate issue-to-PR workflows:
+- **Publisher mode (Track A):** Notion → kriskrug.co publishing, content enrichment, schema/SEO tweaks. Operates on `main`.
+- **Architect mode (Track B):** Aurora v2 theme migration. Operates on `aurora/v2`.
 
-1. **Create an issue** with clear requirements
-2. **Add label** `auto-implement` when ready
-3. **Agent swarm activates**:
-   - Analyzes issue
-   - Writes tests (TDD)
-   - Implements solution
-   - Runs all tests
-   - Creates PR if tests pass
-4. **Review and merge** the generated PR
+See [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) for the decision rule.
 
-### When to Use Automation
-
-**Good candidates:**
-- Bug fixes with clear reproduction steps
-- Feature additions with detailed specs
-- Code refactoring with specific goals
-- Performance optimizations
-- Accessibility improvements
-
-**Not suitable:**
-- Vague or unclear requirements
-- Major architectural changes
-- Security-critical modifications (needs human review)
-- Content changes requiring editorial judgment
-
-### Working with Agent-Generated PRs
-
-- Review thoroughly even though tests pass
-- Check for edge cases the agent might have missed
-- Verify WordPress best practices are followed
-- Ensure documentation is complete
-- Test manually on staging if possible
+**Safety rules every agent must follow** (post 2026-05-15 incident):
+- Backup before destructive operations
+- Slug-based idempotency for the Notion → WP connector (never PATCH without verified target)
+- No theme file changes on `main` — that's Track B's branch only
 
 ## Development Workflow
 
-### Local Development Setup
+### Local Setup
 
 ```bash
 # Clone repository
-git clone https://github.com/WalksWithASwagger/kk-wp.git
-cd kk-wp
+git clone https://github.com/WalksWithASwagger/kriskrug-wp.git
+cd kriskrug-wp
 
-# Install dependencies
-composer install
+# Notion → WP publisher (Python)
+cd scripts/notion-to-wp
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+# Then see scripts/notion-to-wp/README.md for env vars + dry-run usage
 
-# Run tests
-vendor/bin/phpunit
-
-# Check coding standards
-phpcs --standard=WordPress-Extra
+# WordPress coding standards (optional, if you have PHPCS installed)
+phpcs --standard=WordPress-Extra fixes/ inc/
 ```
+
+> There is no `composer.json` or `vendor/` in this repo. There are no PHPUnit tests checked in. Anything in earlier docs that references `vendor/bin/phpunit` is a leftover from the original era-1 plan and should be ignored.
 
 ### Branch Naming
 
@@ -256,33 +234,19 @@ Bad:
 
 ## Testing
 
-### Running Tests
+This repo does not currently have automated tests checked in. Validation is manual:
 
-```bash
-# All tests
-vendor/bin/phpunit
+- **Content publishing:** dry-run the connector first (`--dry-run`), eyeball the rendered post on staging or with the WP REST API, then publish for real.
+- **PHP snippets in `fixes/`:** paste into Code Snippets on prod, save as inactive, toggle on, watch Query Monitor / front-end behavior.
+- **Aurora theme (Track B):** stand up on Cloudways or Local by Flywheel, render every post type (Make Culture and Your Taste are the stress tests per [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md)).
 
-# Specific test file
-vendor/bin/phpunit tests/test-api-cache.php
-
-# With coverage
-vendor/bin/phpunit --coverage-html coverage/
-```
-
-### Writing Tests
-
-- Extend `WP_UnitTestCase` for WordPress tests
-- Use factory methods for test data
-- Clean up after each test
-- Test both success and failure cases
-- Mock external API calls
+If/when a PHPUnit suite is added, this section will get updated.
 
 ## Getting Help
 
 - **Questions?** Open an issue with the `question` label
 - **Stuck?** Check existing issues and PRs for similar problems
-- **Bug in automation?** Label it `automation-bug`
-- **General inquiries?** Visit [kk.ca](https://kk.ca/)
+- **General inquiries?** Visit [kriskrug.co](https://kriskrug.co/)
 
 ## Recognition
 
