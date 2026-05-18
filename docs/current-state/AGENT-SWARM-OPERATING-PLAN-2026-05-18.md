@@ -1,8 +1,8 @@
 # Agent Swarm Operating Plan — 2026-05-18
 
-**Purpose:** Turn the current 69-issue backlog, draft-post pipeline, Aurora redesign, and content/nav audits into work lanes that agents can safely execute in parallel.
+**Purpose:** Turn the current issue backlog, draft-post pipeline, Aurora redesign, and content/nav audits into work lanes that agents can safely execute in parallel.
 
-**Current repo baseline at planning time:** `main` was synced to `origin/main`; Track A lives on `main`; Track B lives on `aurora/v2`.
+**Current repo baseline at planning time:** `main` was synced to `origin/main`; Track A lives on `main`; Track B lives on `aurora/v2`. After the first hygiene pass, GitHub shows 64 open issues, 62 of which still carry the overbroad `auto-implement` label.
 
 ---
 
@@ -17,7 +17,7 @@ The backlog is big, but it is not one clean queue. It contains:
 - a real near-term Track A cleanup queue,
 - a real Track B redesign queue.
 
-The best next move is not "turn all 69 loose." The best next move is a controlled swarm with clear lanes, read/write boundaries, and one serialized publisher/cutover lane for anything that touches production WordPress.
+The best next move is not "turn the whole queue loose." The best next move is a controlled swarm with clear lanes, read/write boundaries, and one serialized publisher/cutover lane for anything that touches production WordPress.
 
 ---
 
@@ -47,7 +47,7 @@ The best next move is not "turn all 69 loose." The best next move is a controlle
 
 ## Where The Draft-Post Pipeline Stands
 
-Four recent posts are already live:
+Four recent posts from the previous publishing push are already live:
 
 | Post | WP ID | Status | Local evidence |
 |---|---:|---|---|
@@ -56,9 +56,24 @@ Four recent posts are already live:
 | `Your Taste Is Your Moat` | 11178 | live, enriched | `content/drafts/wp-draft-11178-post-11178/` |
 | `Make Culture, Not Content` | 10594 | live, enriched | `content/drafts/wp-draft-10594-post-10594/` |
 
-I do not see an obvious unprocessed local draft folder still waiting for first publication. The two `wp-draft-*` folders are historical proposal/capture artifacts for posts that are now live.
+Authenticated WordPress REST, run read-only on 2026-05-18, now shows:
 
-The next draft-post swarm therefore needs a Notion-source inventory step: find candidate pages in the News & Content Database, dry-run them through `scripts/notion-to-wp/kk_notion_to_wp.py`, and create fresh `content/drafts/<slug>/` review packs before any live publish.
+| Surface | Count | Notes |
+|---|---:|---|
+| Published posts | 944 | Public corpus |
+| Draft posts | 32 | Older admin draft queue; all empty-slug and `Misc` |
+| Published pages | 34 | Public pages |
+| Draft pages | 3 | Old placeholders |
+
+The next local/Notion candidates are not already present in WordPress by exact slug:
+
+| Candidate | Current verdict |
+|---|---|
+| `sovereign-ai-for-whom` | Strongest next candidate, but high-risk and needs fact-check/human review |
+| `why-we-built-the-responsible-ai-professional-certification` | Useful but must be compared against live RAP post `11620` first |
+| `comox-valley-ai-is-becoming-its-own-thing` | Promising community recap, but needs editorial cleanup, links, and image decision |
+
+The older authenticated WP draft queue should get a private editorial triage lane before rescue. Do not commit the full admin draft-title inventory to this public repo.
 
 ---
 
@@ -189,19 +204,20 @@ Inspect docs/current-state/SITE-AUDIT-2026-05-16.md and the live site. Prepare a
 
 ### Lane 2 — Draft Publishing Relaunch
 
-**Goal:** Restart the Notion-to-WP cadence with the hardened connector.
+**Goal:** Restart the Notion-to-WP cadence with the hardened connector and separate the old WP admin draft queue from the current Notion batch.
 
 **Write scope:** local draft artifacts only until publisher approval.
 
 **Tasks:**
-- Inventory Notion candidate posts.
+- Inventory Notion candidate posts and compare each against authenticated WordPress `status=any` by slug.
 - Dry-run the next 3-5 candidates.
+- Privately triage the 32 existing WordPress admin drafts by ID/title/readiness without committing private draft dumps to GitHub.
 - For each generated draft pack, review body, images, alt text, SEO, links, category/tags.
 - Prepare publish-ready checklists.
 
 **Worker prompt:**
 ```
-Work in scripts/notion-to-wp and content/drafts. For assigned Notion pages, run dry-run only, then review generated post.html, seo-meta.md, alt-text.md, and internal-links.md. Produce a publish-readiness report. Do not publish or update WordPress.
+Work in scripts/notion-to-wp and content/drafts. For assigned Notion pages, run dry-run only, then review generated post.html, seo-meta.md, alt-text.md, and internal-links.md. Use authenticated read-only WordPress only for slug/status checks and private draft triage. Produce a publish-readiness report. Do not publish or update WordPress.
 ```
 
 ### Lane 3 — Connector Hardening
@@ -299,7 +315,7 @@ Do not implement a portal. Scope the archive/marketing issues into realistic fir
 
 1. Lane 0: clean/update the issue queue.
 2. Lane 4: restart Aurora staging and capture first smoke screenshots.
-3. Lane 2: inventory the next Notion posts; dry-run only.
+3. Lane 2: inventory the next Notion posts and the private WP draft queue; dry-run only.
 4. Lane 3: fix connector README drift and add first safety tests.
 
 ### Next 3 Days
