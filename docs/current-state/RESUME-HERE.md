@@ -1,12 +1,13 @@
-# Resume here — 2026-05-17 handoff
+# Resume here — 2026-05-18 handoff
 
-**Last session ended:** 2026-05-17, after Track A + Track B parallel work landed.
-**Author:** Claude Code working with KK across an intensive multi-session push (2026-05-15 → 2026-05-17).
+**Last session ended:** 2026-05-18, after the first bounded issue/content/Aurora swarm.
+**Author:** Claude Code / Codex working with KK across an intensive multi-session push (2026-05-15 -> 2026-05-18).
 
 This doc is the **single thing to read first** when picking up. It complements but doesn't replace:
 - [`ROADMAP.md`](ROADMAP.md) — the 3-month plan written 2026-05-15 (still good, partially executed)
 - [`TWO-TRACK-MODEL.md`](TWO-TRACK-MODEL.md) — Track A vs Track B operating split
 - [`SITE-AUDIT-2026-05-16.md`](SITE-AUDIT-2026-05-16.md) — reader-facing punch list with completion notes
+- [`SWARM-STATUS-2026-05-18.md`](SWARM-STATUS-2026-05-18.md) — command-desk status after the first bounded swarm
 
 ---
 
@@ -157,7 +158,8 @@ These unblock specific items but aren't blockers for the bigger arcs:
 - Permission flow has been flaky for KK this session — granting via System Settings appears to work, then the tool reports not granted. If you hit this loop, surface it once and pivot to non-computer-use paths rather than retrying repeatedly. Most things have a Bash/MCP equivalent.
 
 ### WP credentials
-- `scripts/notion-to-wp/.env` has `WP_USER=wpadmin5102` and `WP_APP_PASSWORD=O1l8 sNC5 niIx 9IvI Sxfz N2EU` (strip spaces for Basic auth). Stored locally, gitignored. Use for any REST PATCH operations.
+- WordPress application credentials belong only in the gitignored `scripts/notion-to-wp/.env`; do not paste them into tracked docs or issue comments.
+- A previous handoff pasted an application password in this tracked file. Treat that credential as exposed in git history and rotate it before the next live publishing session.
 - Posts published via the connector should be assigned to author id 1 (kk) so the byline reads "Kris Krüg".
 
 ---
@@ -166,12 +168,15 @@ These unblock specific items but aren't blockers for the bigger arcs:
 
 **Authoritative state docs (read in this order to onboard):**
 1. [`RESUME-HERE.md`](RESUME-HERE.md) — this file
-2. [`AGENT-SWARM-OPERATING-PLAN-2026-05-18.md`](AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) — current lanes for issue swarms, draft publishing, Aurora, and content/nav structure
-3. [`TWO-TRACK-MODEL.md`](TWO-TRACK-MODEL.md) — how Track A vs Track B work
-4. [`SITE-AUDIT-2026-05-16.md`](SITE-AUDIT-2026-05-16.md) — punch list (closed + open) with deep-inspect findings
-5. [`AURORA-MIGRATION-PLAN.md`](AURORA-MIGRATION-PLAN.md) — Track B's playbook (refreshed with rebase-first instructions)
-6. [`ROADMAP.md`](ROADMAP.md) — 3-month plan, partially executed (use as backlog reference)
-7. [`POST-ENRICHMENT-2026-05-16.md`](POST-ENRICHMENT-2026-05-16.md) — what changed on the two flagship posts
+2. [`SWARM-STATUS-2026-05-18.md`](SWARM-STATUS-2026-05-18.md) — what the first swarm completed and what is next
+3. [`AGENT-SWARM-OPERATING-PLAN-2026-05-18.md`](AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) — current lanes for issue swarms, draft publishing, Aurora, and content/nav structure
+4. [`DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md`](DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md) — next-batch post packs and publisher checks
+5. [`AURORA-STAGING-REPORT-2026-05-18.md`](AURORA-STAGING-REPORT-2026-05-18.md) — Local Aurora smoke and current header/nav blocker
+6. [`TWO-TRACK-MODEL.md`](TWO-TRACK-MODEL.md) — how Track A vs Track B work
+7. [`SITE-AUDIT-2026-05-16.md`](SITE-AUDIT-2026-05-16.md) — punch list (closed + open) with deep-inspect findings
+8. [`AURORA-MIGRATION-PLAN.md`](AURORA-MIGRATION-PLAN.md) — Track B's playbook (refreshed with rebase-first instructions)
+9. [`ROADMAP.md`](ROADMAP.md) — 3-month plan, partially executed (use as backlog reference)
+10. [`POST-ENRICHMENT-2026-05-16.md`](POST-ENRICHMENT-2026-05-16.md) — what changed on the two flagship posts
 
 **Reference docs (when needed):**
 - [`TRAFFIC-DIAGNOSTIC-2026-05-15.md`](TRAFFIC-DIAGNOSTIC-2026-05-15.md) — why traffic is what it is + highest-leverage fixes
@@ -184,7 +189,7 @@ These unblock specific items but aren't blockers for the bigger arcs:
 **Working dirs:**
 - `scripts/notion-to-wp/` — connector + `text_polish.py` polish module
 - `fixes/` — schema PHP, planned CSS/PHP fixes
-- `content/drafts/` — Notion → WP staging area (gitignored except for the staged-publishes)
+- `content/drafts/` — Notion -> WP staging area (tracked for selected review packs)
 - `backup/2026-05-16/` — UpdraftPlus archive manifests
 - `theme/kk-aurora/` (on `aurora/v2` branch only) — the v2 theme
 - `docs/current-state/` — all the state docs above
