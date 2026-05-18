@@ -13,7 +13,7 @@ This is a selective publishing pack, not a Notion mirror. It keeps the useful pu
 
 ## Deploy Status
 
-Applied and verified on 2026-05-18. See `verification/DEPLOY-VERIFICATION-2026-05-18.md`.
+Applied and verified on 2026-05-18. See `verification/DEPLOY-VERIFICATION-2026-05-18.md` and the second-pass polish record in `verification/POLISH-VERIFICATION-2026-05-18.md`.
 
 ## Source Inputs
 
@@ -37,13 +37,16 @@ Applied and verified on 2026-05-18. See `verification/DEPLOY-VERIFICATION-2026-0
 - `notion/keynotes-sanitized-snapshot.md` - curated public-safe Notion findings.
 - `talk-topic-bank.md` - keynote and workshop topics suitable for public pages.
 - `testimonial-bank.md` - verified or source-backed quotes only, plus rejected/unverified patterns.
+- `wp-draft-candidates-2026-05-18.md` - authenticated draft scan for future speaking/AI authority posts.
 - `assets/asset-manifest.md` - selected stable teaser assets and local copies.
+- `video-research/README.md` - public YouTube metadata, thumbnails, transcripts, and future post candidates.
 - `wp-payloads/speaking.html` - publish-ready content for page `1887`.
 - `wp-payloads/work.html` - publish-ready content for page `2672`.
 - `wp-payloads/about.html` - publish-ready content for page `1208`.
 - `wp-payloads/page-meta.json` - target titles, SEO meta, slugs, and comment settings.
 - `wp-payloads/deploy-checklist.md` - live-write gate and verification checklist.
 - `verification/DEPLOY-VERIFICATION-2026-05-18.md` - REST, URL, screenshot, and rollback verification after deploy.
+- `verification/POLISH-VERIFICATION-2026-05-18.md` - second-pass Work/About/Speaking polish verification.
 
 ## Safety Notes
 

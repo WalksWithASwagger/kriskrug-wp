@@ -2,63 +2,87 @@
 <style>
 .kk-overhaul { --kk-ink:#171717; --kk-muted:#57534e; --kk-line:#d8d4cc; --kk-paper:#fffaf0; --kk-card:#ffffff; --kk-accent:#0f766e; --kk-hot:#b91c1c; color:var(--kk-ink); }
 .kk-overhaul a { font-weight:700; }
-.kk-hero { padding:2rem 0 1.25rem; border-bottom:1px solid var(--kk-line); }
+.kk-hero { padding:1.35rem 0 1.4rem; border-bottom:1px solid var(--kk-line); }
 .kk-kicker { margin:0 0 .5rem; text-transform:uppercase; letter-spacing:.08em; font-size:.78rem; color:var(--kk-hot); font-weight:800; }
-.kk-lead { font-size:1.2rem; line-height:1.65; max-width:54rem; }
+.kk-display { margin:.15rem 0 .75rem; font-size:1.9rem; line-height:1.18; max-width:54rem; }
+.kk-lead { font-size:1.14rem; line-height:1.65; max-width:54rem; }
 .kk-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin:1.25rem 0; }
 .kk-button { display:inline-block; padding:.72rem 1rem; border:2px solid var(--kk-ink); border-radius:4px; text-decoration:none; background:var(--kk-ink); color:#fff !important; }
 .kk-button.secondary { background:#fff; color:var(--kk-ink) !important; }
 .kk-section { padding:2rem 0; border-bottom:1px solid var(--kk-line); }
-.kk-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
+.kk-section-intro { max-width:54rem; margin-bottom:1rem; color:var(--kk-muted); }
+.kk-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(235px,1fr)); gap:1rem; }
 .kk-card { border:1px solid var(--kk-line); border-radius:6px; background:var(--kk-card); overflow:hidden; }
-.kk-card img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; }
+.kk-card img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:#eee; }
 .kk-card-body { padding:1rem; }
-.kk-card h3 { margin-top:0; margin-bottom:.4rem; font-size:1.15rem; }
+.kk-card h3 { margin-top:0; margin-bottom:.4rem; font-size:1.12rem; }
 .kk-card p { margin:.45rem 0; color:var(--kk-muted); }
+.kk-tag { display:inline-block; margin:0 0 .55rem; color:var(--kk-hot); font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; }
 .kk-callout { background:var(--kk-paper); border:1px solid var(--kk-line); border-radius:6px; padding:1rem; }
-.kk-list { columns:2 16rem; padding-left:1.2rem; }
-@media (max-width:700px){ .kk-actions{display:block;} .kk-actions a{margin:.35rem 0;} }
+.kk-proof { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:.75rem; margin-top:1rem; }
+.kk-proof div { border:1px solid var(--kk-line); border-radius:6px; padding:.9rem; background:#fff; }
+.kk-proof strong { display:block; font-size:1.35rem; line-height:1.1; }
+.kk-archive { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
+.kk-archive .kk-card img { aspect-ratio:4/3; }
+.kk-archive .kk-card:nth-child(1) { grid-column:span 2; }
+.kk-archive .kk-card:nth-child(1) img { aspect-ratio:16/9; }
+.kk-link-row { display:flex; flex-wrap:wrap; gap:.55rem; margin-top:.75rem; }
+.kk-link-row a { border:1px solid var(--kk-line); border-radius:999px; padding:.28rem .62rem; text-decoration:none; background:#fff; }
+@media (max-width:760px){ .kk-display{font-size:1.45rem;} .kk-actions{display:block;} .kk-actions a{margin:.35rem 0;} .kk-archive .kk-card:nth-child(1){grid-column:auto;} }
 </style>
 
 <div class="kk-overhaul">
   <section class="kk-hero">
     <p class="kk-kicker">Current work, living systems, and useful experiments</p>
-    <h1>Work</h1>
-    <p class="kk-lead">I build community infrastructure, AI learning systems, keynote portals, and cultural field notes for people trying to meet the future without losing the plot. The throughline is simple: humanize technology, make creative work more alive, and turn networks into things people can actually use.</p>
+    <h2 class="kk-display">Community infrastructure, AI learning systems, keynote portals, and cultural field notes.</h2>
+    <p class="kk-lead">I build things that help people meet the future without losing the plot: public AI communities, practical training, talks that become portals, and long-running story systems that make technology feel human again.</p>
     <div class="kk-actions">
       <a class="kk-button" href="/speaking/">Book a keynote</a>
       <a class="kk-button secondary" href="/services/">Work with me</a>
+    </div>
+    <div class="kk-proof">
+      <div><strong>AI + culture</strong><span>Keynotes, workshops, and field notes.</span></div>
+      <div><strong>Community</strong><span>BC+AI, meetups, associations, and convening.</span></div>
+      <div><strong>Media</strong><span>Photography, documentary, podcast, and broadcast.</span></div>
     </div>
   </section>
 
   <section class="kk-section">
     <h2>Current focus</h2>
+    <p class="kk-section-intro">The center of gravity right now is AI, creativity, place-based community, and helping teams build practical confidence without flattening the weird human parts.</p>
     <div class="kk-grid">
       <article class="kk-card">
         <img src="https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&amp;ssl=1" alt="BC AI ecosystem network graphic" loading="lazy" />
         <div class="kk-card-body">
+          <span class="kk-tag">Ecosystem</span>
           <h3><a href="https://bc-ai.ca/">BC + AI Ecosystem</a></h3>
           <p>A province-wide community and industry association for responsible, inclusive, place-rooted AI in British Columbia.</p>
         </div>
       </article>
       <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/07/ai-courses-workshops-trainings.png?w=1200&amp;ssl=1" alt="The Upgrade AI courses workshops and trainings graphic" loading="lazy" />
         <div class="kk-card-body">
+          <span class="kk-tag">Training</span>
           <h3>The Upgrade AI</h3>
           <p>Training, workshops, and applied AI sessions for creative professionals, organizations, community builders, and leadership teams.</p>
           <p><a href="/services/">Explore services</a></p>
         </div>
       </article>
       <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-25-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krug speaking on stage at LaSalle College Vancouver" loading="lazy" />
         <div class="kk-card-body">
+          <span class="kk-tag">Speaking</span>
           <h3>AI Keynotes</h3>
           <p>Talks and workshops on AI mindset, creative rebellion, human agency, archives, culture, and leadership after the point of no return.</p>
           <p><a href="/speaking/">See speaking topics</a></p>
         </div>
       </article>
       <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-cmvan-keynote-header.png?w=1280&amp;ssl=1" alt="Punk Rock AI CreativeMornings Vancouver keynote banner" loading="lazy" />
         <div class="kk-card-body">
+          <span class="kk-tag">Field-building</span>
           <h3>Creative Technology + Community</h3>
-          <p>Field-building work across convening, storytelling, media, digital strategy, and relationship-first technology adoption.</p>
+          <p>Convening, storytelling, digital strategy, and relationship-first technology adoption for people building culture, not just content.</p>
           <p><a href="/about/">Read the backstory</a></p>
         </div>
       </article>
@@ -67,25 +91,28 @@
 
   <section class="kk-section">
     <h2>Keynote and project portals</h2>
-    <p>These standalone sites are public extensions of talks, communities, and field work. They carry the graphics, exercises, scripts, prompts, resources, and arguments beyond a single event.</p>
+    <p class="kk-section-intro">Some talks become working websites: scripts, exercises, prompts, resource libraries, and field notes that keep moving after the room empties.</p>
     <div class="kk-grid">
       <article class="kk-card">
         <img src="https://www.bothhandsfull.com/opengraph-image?46af5f0ff830fe03" alt="Both Hands Full portal graphic" loading="lazy" />
         <div class="kk-card-body">
+          <span class="kk-tag">Synthetic media + soul</span>
           <h3><a href="https://www.bothhandsfull.com/">Both Hands Full</a></h3>
           <p>A World AI Film Festival keynote portal for filmmakers and creative workers navigating synthetic media, authorship, taste, and responsibility.</p>
         </div>
       </article>
       <article class="kk-card">
-        <img src="https://i0.wp.com/www.punkrockai.com/public/photos/michelle-diamond/195.webp?w=1200&amp;ssl=1" alt="Punk Rock AI CreativeMornings talk photo" loading="lazy" />
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-cmvan-keynote-header.png?w=1280&amp;ssl=1" alt="Punk Rock AI CreativeMornings keynote artwork" loading="lazy" />
         <div class="kk-card-body">
+          <span class="kk-tag">Creative rebellion</span>
           <h3><a href="https://www.punkrockai.com/">Punk Rock AI</a></h3>
-          <p>A CreativeMornings Vancouver keynote rebuilt as a maker-first portal about agency, taste, and creative rebellion in the AI age.</p>
+          <p>A CreativeMornings Vancouver keynote rebuilt as a maker-first portal about agency, taste, and refusing to become a content machine.</p>
         </div>
       </article>
       <article class="kk-card">
         <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/04/AI-Immortality-w-Guy-Kawasaki.png?fit=1200%2C604&amp;ssl=1" alt="Developing an AI Mindset keynote graphic" loading="lazy" />
         <div class="kk-card-body">
+          <span class="kk-tag">AI adoption</span>
           <h3><a href="http://developinganaimindset.com/">Developing an AI Mindset</a></h3>
           <p>A practical AI adoption resource for teams that need shared language, demos, and a humane first step into the tools.</p>
         </div>
@@ -93,6 +120,7 @@
       <article class="kk-card">
         <img src="https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&amp;ssl=1" alt="BC plus AI ecosystem site graphic" loading="lazy" />
         <div class="kk-card-body">
+          <span class="kk-tag">Association</span>
           <h3><a href="https://bc-ai.ca/">BC + AI Ecosystem</a></h3>
           <p>The public home for events, membership, partner work, resources, and the growing British Columbia AI network.</p>
         </div>
@@ -124,20 +152,63 @@
 
   <section class="kk-section">
     <h2>Archive highlights</h2>
-    <ul class="kk-list">
-      <li>UN Global Youth Summit on HIV, Bamako</li>
-      <li>World People's Conference on Climate Change and the Rights of Mother Earth</li>
-      <li>Tribal Journeys / Qatuwas Festival documentation</li>
-      <li>Art Island documentary series</li>
-      <li>Future in Review podcast production</li>
-      <li>Generative AI workshops for artists and teams</li>
-      <li>Midway Island documentary fieldwork</li>
-      <li>Alberta Tar Sands documentary work</li>
-      <li>SkeenaWild youth filmmaking camp</li>
-      <li>Digital Forage / AMES media education</li>
-      <li>Douglas Coupland / Marshall McLuhan documentation</li>
-      <li>EcoArt artist-in-residency teaching in Uganda</li>
-    </ul>
+    <p class="kk-section-intro">The back catalog matters. It shows the pattern: cameras, communities, weird rooms, culture, civic technology, and enough miles on the road to know when an idea is real.</p>
+    <div class="kk-archive">
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5637672371_fca291d598_o-1.jpg?w=800&amp;ssl=1" alt="Kris Krug presenting at the UN Global Youth Summit on HIV in Bamako" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">UN + youth media</span>
+          <h3>UN Global Youth Summit on HIV, Bamako</h3>
+          <p>Keynote and youth activist media mentoring work with UNAIDS in Mali, bringing online organizing and movement storytelling into a global room.</p>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/4190423843_069037fecb_o.jpg?w=1200&amp;ssl=1" alt="Kris Krug with Daryl Hannah at COP15 in Copenhagen" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Climate + media</span>
+          <h3>COP15 and climate storytelling</h3>
+          <p>Hosted conversations and produced media around open culture, climate action, and digital community at major international gatherings.</p>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/6283381617_43f79f3848_o.jpg?w=1200&amp;ssl=1" alt="Kris Krug with Mikhail Gorbachev backstage at WE Day" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Backstage culture</span>
+          <h3>WE Day, conferences, and impossible rooms</h3>
+          <p>Photography and video work in rooms where politics, celebrity, activism, and youth culture all collided.</p>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/05/9818127715_416df9a481_o.jpg?w=612&amp;ssl=1" alt="Kris Krug with Jack Dorsey at University of Waterloo" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Tech culture</span>
+          <h3>Founders, networks, and the social web</h3>
+          <p>Years documenting and convening the early social internet, startup communities, conferences, and the people who shaped the platforms.</p>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/20190210_170149-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krug with Post Malone at the Grammy Awards" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Music + culture</span>
+          <h3>Festivals, artists, and pop-cultural fieldwork</h3>
+          <p>From Grammys corridors to festival fields, the work has always followed the living edge of culture.</p>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/PopTech-2013-Camden-Maine-USA-PopTech_10460205104_o.jpg?w=640&amp;ssl=1" alt="Kris Krug with skateboarder Rodney Mullen at PopTech" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Ideas festivals</span>
+          <h3>PopTech, SXSW, TEDx, and idea circuits</h3>
+          <p>Speaking, hosting, photographing, and learning inside the strange, generative spaces where culture and technology cross-pollinate.</p>
+        </div>
+      </article>
+    </div>
+    <div class="kk-link-row">
+      <a href="/about/">More backstory</a>
+      <a href="/speaking/">Speaking archive</a>
+      <a href="/blog/">Writing</a>
+      <a href="/contact/">Start a project</a>
+    </div>
   </section>
 
   <section class="kk-section">

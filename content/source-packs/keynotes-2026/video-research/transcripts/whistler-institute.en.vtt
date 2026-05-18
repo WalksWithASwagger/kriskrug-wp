@@ -1,0 +1,3520 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.880 --> 00:00:06.600
+I forgot maybe one of the most important ones my&nbsp;
+name is Mandy Russo I'm the executive director&nbsp;&nbsp;
+
+00:00:06.600 --> 00:00:12.120
+with the Whistler Institute for those of you&nbsp;
+I have not met thank you for coming uh The&nbsp;&nbsp;
+
+00:00:12.120 --> 00:00:17.880
+Whistler Institute if you're not familiar we bring&nbsp;
+educational programming and thought provoking&nbsp;&nbsp;
+
+00:00:17.880 --> 00:00:24.080
+speaker series to Whistler um we wouldn't be able&nbsp;
+to do this without our funders and I wanted to&nbsp;&nbsp;
+
+00:00:24.080 --> 00:00:32.800
+recognize the mlan mccog foundation Bob and Sue&nbsp;
+Adams the Resort Municipality of Whistler and the&nbsp;&nbsp;
+
+00:00:32.800 --> 00:00:39.040
+lightburn family fund who um directed by way of&nbsp;
+Steve Bailey provided some funding this year and&nbsp;&nbsp;
+
+00:00:39.040 --> 00:00:45.280
+we greatly appreciate that tonight's event is&nbsp;
+part of our Global Perspective speaker series&nbsp;&nbsp;
+
+00:00:45.280 --> 00:00:53.280
+where we Source experts and leaders in their field&nbsp;
+to come here and open our minds Whistler is Iconic&nbsp;&nbsp;
+
+00:00:53.280 --> 00:00:58.840
+for our adventure tourism we have a thriving arts&nbsp;
+and culture scene and the Whistler Institute is&nbsp;&nbsp;
+
+00:00:58.840 --> 00:01:05.280
+proud to be bringing educ into that mix a bit of&nbsp;
+housekeeping I encourage you to take a moment to&nbsp;&nbsp;
+
+00:01:05.280 --> 00:01:11.240
+reach into your pockets and your bags to make&nbsp;
+sure your phone is on silent um just in case&nbsp;&nbsp;
+
+00:01:11.240 --> 00:01:17.160
+for those that aren't familiar with the venue&nbsp;
+restrooms are downstairs uh to the right there&nbsp;&nbsp;
+
+00:01:17.160 --> 00:01:22.960
+is a photographer on site the lovely Hannah&nbsp;
+Ferguson she'll be floating around and uh the&nbsp;&nbsp;
+
+00:01:22.960 --> 00:01:30.080
+event is being recorded and will be available&nbsp;
+for rewatching and sharing with your friends&nbsp;&nbsp;
+
+00:01:30.080 --> 00:01:35.680
+tonight we're very fortunate to have digital&nbsp;
+strategist Chris Krug with us Chris will be&nbsp;&nbsp;
+
+00:01:35.680 --> 00:01:41.640
+sharing mind-bending examples of AI what's going&nbsp;
+on in BC's Tech sector and how this work is being&nbsp;&nbsp;
+
+00:01:41.640 --> 00:01:49.600
+applied globally at 7 o'cl we'll have a Q&amp;A and uh&nbsp;
+our board Vice chair David Cronin will be closing&nbsp;&nbsp;
+
+00:01:49.600 --> 00:01:57.560
+out our session so about Chris as founder and&nbsp;
+CEO of future proofs creatives Chris is all about&nbsp;&nbsp;
+
+00:01:57.560 --> 00:02:04.640
+democratizing creativity EMP emping communities&nbsp;
+and championing sustainability Chris's camera has&nbsp;&nbsp;
+
+00:02:04.640 --> 00:02:09.640
+been his passport to documenting Global movements&nbsp;
+and capturing the essence of change makers for&nbsp;&nbsp;
+
+00:02:09.640 --> 00:02:17.040
+over two decades now he's diving deep into the AI&nbsp;
+Revolution exploring how we can harness its power&nbsp;&nbsp;
+
+00:02:17.040 --> 00:02:23.440
+to amplify creativity rather than replace it and&nbsp;
+in this digital era where Tech often overshadow&nbsp;&nbsp;
+
+00:02:23.440 --> 00:02:30.280
+Shadows Humanity Chris is on a mission to flip&nbsp;
+the script and I think it was also humanized&nbsp;&nbsp;
+
+00:02:30.280 --> 00:02:39.120
+to share that Chris Came To Us by way of Mr Mayor&nbsp;
+Jack Crompton who went to summer camp with Chris&nbsp;&nbsp;
+
+00:02:39.120 --> 00:02:52.800
+so thank you so much and I'll welcome Chris to&nbsp;
+the [Applause] stage check check hello everybody&nbsp;&nbsp;
+
+00:02:52.800 --> 00:02:59.240
+um thank you very much Mandy for the introduction&nbsp;
+and um to Whistler Institute for having me here uh&nbsp;&nbsp;
+
+00:02:59.240 --> 00:03:03.720
+it is nice to to see some friendly faces from the&nbsp;
+past here like Jack uh we actually went to Trinity&nbsp;&nbsp;
+
+00:03:03.720 --> 00:03:07.840
+Western University together and we were young&nbsp;
+life leaders and we coached a basketball team&nbsp;&nbsp;
+
+00:03:07.840 --> 00:03:13.560
+together back in like 1995 I think um so it's&nbsp;
+nice to be back in your presence and stuff and&nbsp;&nbsp;
+
+00:03:13.560 --> 00:03:20.120
+I see a lot of other friendly faces around too&nbsp;
+so welcome um I am I've been publishing online&nbsp;&nbsp;
+
+00:03:20.120 --> 00:03:24.640
+since the 90s I started building websites to put&nbsp;
+myself through University then I was a part of&nbsp;&nbsp;
+
+00:03:24.640 --> 00:03:30.320
+the social media Revolution and that led me into&nbsp;
+being able to travel the world with a camera in&nbsp;&nbsp;
+
+00:03:30.320 --> 00:03:36.440
+my hand and I got to work for National Geographic&nbsp;
+and rolling stone and really I was teaching other&nbsp;&nbsp;
+
+00:03:36.440 --> 00:03:40.440
+artists and creatives how to empower themselves&nbsp;
+digitally how to get their work online at a time&nbsp;&nbsp;
+
+00:03:40.440 --> 00:03:44.280
+where people were afraid if they put their work&nbsp;
+online people would steal it and that they would&nbsp;&nbsp;
+
+00:03:44.280 --> 00:03:49.080
+you know lose revenue and we've actually learned&nbsp;
+the opposite is true the more stuff you can put&nbsp;&nbsp;
+
+00:03:49.080 --> 00:03:53.360
+out there and the farther it can go you know the&nbsp;
+more presents and followers you'll have and the&nbsp;&nbsp;
+
+00:03:53.360 --> 00:03:57.840
+bigger your business will grow so that was a&nbsp;
+really exciting time and that like I said was&nbsp;&nbsp;
+
+00:03:57.840 --> 00:04:02.000
+leading me around the world making photos and&nbsp;
+pandemic rolled around I had a place on gallano&nbsp;&nbsp;
+
+00:04:02.000 --> 00:04:06.840
+and all my work and travel dried up right away&nbsp;
+and I was farming pandemic farming over there&nbsp;&nbsp;
+
+00:04:06.840 --> 00:04:14.400
+growing vegetables and had some animals when um&nbsp;
+in the fall of 2022 AI reached its tendril out to&nbsp;&nbsp;
+
+00:04:14.400 --> 00:04:20.160
+grasp me there on um gallano Island and really&nbsp;
+just kind of like woke me all the way back up&nbsp;&nbsp;
+
+00:04:20.160 --> 00:04:24.880
+it brought me back into connection with a lot of&nbsp;
+people I had been connected with at the earlier&nbsp;&nbsp;
+
+00:04:24.880 --> 00:04:31.000
+parts of my life and stuff and it um I started&nbsp;
+sleeping less was just really captivated by it&nbsp;&nbsp;
+
+00:04:31.000 --> 00:04:36.080
+all I was experimenting with it all the time&nbsp;
+and I started a online server and asked all my&nbsp;&nbsp;
+
+00:04:36.080 --> 00:04:41.680
+friends to join and together we embarked Upon&nbsp;
+A Learning Journey that leads us like right up&nbsp;&nbsp;
+
+00:04:41.680 --> 00:04:45.920
+into this very moment so I'm going to unpack&nbsp;
+a whole bunch of stuff for you guys but I run&nbsp;&nbsp;
+
+00:04:45.920 --> 00:04:51.280
+a company and I run a community and a nonprofit&nbsp;
+that does some meetups around the AI space and I'm&nbsp;&nbsp;
+
+00:04:51.280 --> 00:04:57.160
+just uh I run I have a show on CBC on the Early&nbsp;
+Edition with Stephen Quinn called sandboxing AI&nbsp;&nbsp;
+
+00:04:57.160 --> 00:05:02.640
+with Chris Krug where we talked about the cultural&nbsp;
+and societal issues of some of this stuff and so&nbsp;&nbsp;
+
+00:05:02.640 --> 00:05:07.520
+that's a little bit of way of introduction of me&nbsp;
+and I got a little acknowledgement I want to read
+
+00:05:07.520 --> 00:05:15.840
+myself how you guys doing tonight everyone good&nbsp;
+all right cool yeah thanks I'm a little bit&nbsp;&nbsp;
+
+00:05:15.840 --> 00:05:21.360
+nervous obviously um I've gotten a lot of support&nbsp;
+I I put a lot of time into this presentation I'm&nbsp;&nbsp;
+
+00:05:21.360 --> 00:05:25.920
+really excited to share with you um and I got a&nbsp;
+lot of support from my community I reached out&nbsp;&nbsp;
+
+00:05:25.920 --> 00:05:29.840
+asking people what I want what I should talk about&nbsp;
+and I got this message this morning from a GU&nbsp;&nbsp;
+
+00:05:29.840 --> 00:05:33.560
+called Prine prle which some of you guys&nbsp;
+may know he said have fun with the crowd&nbsp;&nbsp;
+
+00:05:33.560 --> 00:05:38.480
+and Whistler tonight noted it's taking place at&nbsp;
+the Mari Young art center Mar was a mentor of&nbsp;&nbsp;
+
+00:05:38.480 --> 00:05:43.880
+mine a thorough and humble gentleman with a keen&nbsp;
+sense of business and how to invest in culture&nbsp;&nbsp;
+
+00:05:43.880 --> 00:05:49.880
+and Community his wife Mary was equally gracious&nbsp;
+and unpretentious Mory boldly financed my landing&nbsp;&nbsp;
+
+00:05:49.880 --> 00:05:56.120
+on the west coast after I was invited in ceremony&nbsp;
+to bring my being here it was true kulana as the&nbsp;&nbsp;
+
+00:05:56.120 --> 00:06:01.560
+Hawaiian might refer to it or Dharma as my yoga&nbsp;
+culture heritage would know it at the same time&nbsp;&nbsp;
+
+00:06:01.560 --> 00:06:06.880
+I was on loan to the feds from Doctors Without&nbsp;
+Borders and quit all that to be a Wilderness&nbsp;&nbsp;
+
+00:06:06.880 --> 00:06:11.480
+guide and Whistler working alongside First&nbsp;
+Nations elders and youth of all Nations this&nbsp;&nbsp;
+
+00:06:11.480 --> 00:06:17.160
+program was called rediscovery myy and I would go&nbsp;
+on long walks together he unfortunately passed a&nbsp;&nbsp;
+
+00:06:17.160 --> 00:06:23.040
+few years later however his transmission and his&nbsp;
+spark around how to conduct oneself in this world&nbsp;&nbsp;
+
+00:06:23.040 --> 00:06:29.880
+remain in my work to this day Mory seldom put his&nbsp;
+name on anything this building and others are like&nbsp;&nbsp;
+
+00:06:29.880 --> 00:06:36.520
+Legacy acts of his family and those many people&nbsp;
+who his lives he influenced profoundly anyway I&nbsp;&nbsp;
+
+00:06:36.520 --> 00:06:41.080
+thought you might be interested in the beingness&nbsp;
+of the space where you're tonight be well you&nbsp;&nbsp;
+
+00:06:41.080 --> 00:06:45.640
+didn't not hear this from me but blessings for&nbsp;
+having the fortitude to fulfill your kolana Dharma&nbsp;&nbsp;
+
+00:06:45.640 --> 00:06:50.760
+looking forward to connecting with you in this&nbsp;
+living Legacy across space and time exploring the&nbsp;&nbsp;
+
+00:06:50.760 --> 00:06:59.520
+dances elegantly as we experience Manifest Destiny&nbsp;
+down south in colonial Shenanigans here in Canada
+
+00:07:02.640 --> 00:07:06.680
+so I just wanted to acknowledge the space we're&nbsp;
+in the Whistler Institute and all the things that&nbsp;&nbsp;
+
+00:07:06.680 --> 00:07:12.880
+happened to bring us here okay I got a lot of&nbsp;
+ground to cover let's go first I want to start&nbsp;&nbsp;
+
+00:07:12.880 --> 00:07:17.480
+by um diving into all the amazing stuff that's&nbsp;
+going on in BC when it comes to Ai and I'm going&nbsp;&nbsp;
+
+00:07:17.480 --> 00:07:21.680
+to take you on a journey and I want you to set&nbsp;
+aside technical things we're going to talk some&nbsp;&nbsp;
+
+00:07:21.680 --> 00:07:28.120
+philosophy tonight I'm going to show you some&nbsp;
+very interesting far out stuff and um I want to&nbsp;&nbsp;
+
+00:07:28.120 --> 00:07:33.320
+reframe some of this as not that this is coming&nbsp;
+you know BC is poised to lead the creative AI&nbsp;&nbsp;
+
+00:07:33.320 --> 00:07:39.640
+future in our entertainment industry film studios&nbsp;
+uh all the the the amazing things that make up our&nbsp;&nbsp;
+
+00:07:39.640 --> 00:07:45.800
+creative digital economy here in BC and so I want&nbsp;
+to show you a perspective tonight about a creative&nbsp;&nbsp;
+
+00:07:45.800 --> 00:07:49.800
+empowerment and not that these things are coming&nbsp;
+for our jobs we're going to steal you know what&nbsp;&nbsp;
+
+00:07:49.800 --> 00:07:53.880
+what makes us human so I want to focus on some of&nbsp;
+that stuff what makes us human I'm going to talk&nbsp;&nbsp;
+
+00:07:53.880 --> 00:08:00.800
+about empathy I'm going to talk about intuition&nbsp;
+and critical thinking and Crea ity and some stuff&nbsp;&nbsp;
+
+00:08:00.800 --> 00:08:10.040
+like that I'm going to focus on um four labs and&nbsp;
+projects and people companies here in BC that are&nbsp;&nbsp;
+
+00:08:10.040 --> 00:08:14.920
+doing really amazing stuff the first one is called&nbsp;
+The Meta creation Lab at the school of interactive&nbsp;&nbsp;
+
+00:08:14.920 --> 00:08:21.040
+Arts and Technology at Simon Frasier University&nbsp;
+the second is a company called volumetric capture&nbsp;&nbsp;
+
+00:08:21.040 --> 00:08:27.280
+systems that's inventing very futuristic hardware&nbsp;
+and software to make immersive storytelling&nbsp;&nbsp;
+
+00:08:27.280 --> 00:08:31.680
+possible in ways that we've just never seen&nbsp;
+before I'm going to tell you the story of&nbsp;&nbsp;
+
+00:08:31.680 --> 00:08:38.880
+nervonic AI That's putting Consciousness into AIS&nbsp;
+as a matter of safety which sounds scary but I'm&nbsp;&nbsp;
+
+00:08:38.880 --> 00:08:43.760
+going to unpack that for you and explain why it&nbsp;
+might be a good idea in some cases and finally I'm&nbsp;&nbsp;
+
+00:08:43.760 --> 00:08:48.960
+going to tell you the story of the Vancouver AI&nbsp;
+Community meetups which is a thousanders community&nbsp;&nbsp;
+
+00:08:48.960 --> 00:08:54.360
+in Vancouver that meets up monthly and shares&nbsp;
+ideas and Explorations learnings around Ai and&nbsp;&nbsp;
+
+00:08:54.360 --> 00:08:59.440
+is building a collaborative Community out of which&nbsp;
+all sorts of companies and projects are are SP
+
+00:09:06.240 --> 00:09:17.000
+all right who knows what the Las Vegas sphere is&nbsp;
+all right who's been there cool was it good come&nbsp;&nbsp;
+
+00:09:17.000 --> 00:09:22.960
+tell me about it afterwards this guy Tobias&nbsp;
+so first of all the very sphere is the most&nbsp;&nbsp;
+
+00:09:22.960 --> 00:09:27.240
+amazing immersive experience on the planet&nbsp;
+right now and then there's this DJ called an&nbsp;&nbsp;
+
+00:09:27.240 --> 00:09:33.840
+who's been doing these crazy shows and so he got&nbsp;
+a residency at the Spheres well this guy from BC&nbsp;&nbsp;
+
+00:09:33.840 --> 00:09:40.080
+went to Vancouver film school started a company in&nbsp;
+British Columbia he recently did built technology&nbsp;&nbsp;
+
+00:09:40.080 --> 00:09:59.320
+for this New Year's show that I'm about to show&nbsp;
+you and tell you about so let us that's Las Vegas
+
+00:09:59.320 --> 00:10:04.192
+[Music]
+
+00:10:04.192 --> 00:10:09.760
+[Music]&nbsp;&nbsp;
+
+00:10:09.760 --> 00:10:29.320
+you can turn it up
+
+00:10:29.320 --> 00:10:36.520
+[Music]
+
+00:10:36.520 --> 00:10:43.720
+[Music]
+
+00:10:43.720 --> 00:10:47.600
+so Tobias and his company volum&nbsp;
+camera system built like this&nbsp;&nbsp;
+
+00:10:47.600 --> 00:10:53.360
+proprietary portable geodesic Buckminster&nbsp;
+Fuller Dome full of cameras it's got like&nbsp;&nbsp;
+
+00:10:53.360 --> 00:10:59.240
+258k cameras in it and they use machine&nbsp;
+learning and AI to feed all the like&nbsp;&nbsp;
+
+00:10:59.840 --> 00:11:05.720
+terabytes and terabytes of realtime data that's&nbsp;
+being created inside this Dome into a a model that&nbsp;&nbsp;
+
+00:11:05.720 --> 00:11:11.720
+builds a 3D environment of a space that doesn't&nbsp;
+exist then they build virtual cameras in this&nbsp;&nbsp;
+
+00:11:11.720 --> 00:11:15.840
+space and are able to fly around it and then he&nbsp;
+didn't even get a chance to visit the Spheres&nbsp;&nbsp;
+
+00:11:15.840 --> 00:11:21.640
+before he went there so he built the environment&nbsp;
+in an apple Vision Pro and mapped all 250 of these&nbsp;&nbsp;
+
+00:11:21.640 --> 00:11:29.440
+cameras via this machine learning AI model onto&nbsp;
+this dome in his VR transferred it to these guys&nbsp;&nbsp;
+
+00:11:29.440 --> 00:11:39.320
+and um and specifically he got to do the&nbsp;
+climactic shots of the whole thing which come on
+
+00:11:39.320 --> 00:11:45.160
+buddy he
+
+00:11:45.160 --> 00:11:59.240
+is you can see the tiny little people at the&nbsp;
+bottom there this is from inside the door
+
+00:12:04.200 --> 00:12:06.960
+sence exp
+
+00:12:06.960 --> 00:12:15.480
+virt nothing like this has ever&nbsp;
+existed or impossible just imagine&nbsp;&nbsp;
+
+00:12:15.480 --> 00:12:29.160
+being in there reality distorting perspective
+
+00:12:35.320 --> 00:12:36.320
+[Music]&nbsp;&nbsp;
+
+00:12:36.320 --> 00:12:41.160
+creating things like this requires Hardware&nbsp;
+that never existed pipelines and processes&nbsp;&nbsp;
+
+00:12:41.160 --> 00:12:47.040
+and works that never existed software that&nbsp;
+never existed and the ways we're going to&nbsp;&nbsp;
+
+00:12:47.040 --> 00:12:49.960
+use it are just like still emerging we&nbsp;
+don't even know yet and so in this way&nbsp;&nbsp;
+
+00:12:49.960 --> 00:12:59.120
+it's it's creating this whole new immersive&nbsp;
+storytelling industry um that's like weeks old
+
+00:12:59.760 --> 00:13:03.160
+next thing I'm going to show you is a research&nbsp;
+lab at Simon Frasier University the school of&nbsp;&nbsp;
+
+00:13:03.160 --> 00:13:07.520
+interactive art and Technology this place has&nbsp;
+been around for 25 years this is Philipe pasque a&nbsp;&nbsp;
+
+00:13:07.520 --> 00:13:13.280
+Parisian french guy that runs a studio one of the&nbsp;
+problems that us artists have ethically with AI is&nbsp;&nbsp;
+
+00:13:13.280 --> 00:13:18.160
+that it's been trained on all the stolen work of&nbsp;
+all mankind without our permission or consent with&nbsp;&nbsp;
+
+00:13:18.160 --> 00:13:25.080
+no compensation no visibility truly even into what&nbsp;
+they took or how they're using it and yet having&nbsp;&nbsp;
+
+00:13:25.080 --> 00:13:31.720
+done that they've dropped us off these amazing&nbsp;
+futuristic intelligences and consciousnesses that&nbsp;&nbsp;
+
+00:13:31.720 --> 00:13:35.720
+we get to choose how to understand and interact&nbsp;
+with and it doesn't mean that's the only way they&nbsp;&nbsp;
+
+00:13:35.720 --> 00:13:42.080
+can ever be in fact it's up to us users to define&nbsp;
+the Futures that we want and to call like these&nbsp;&nbsp;
+
+00:13:42.080 --> 00:13:49.200
+companies and Technologies into building the stuff&nbsp;
+that we want to use that fits with the values that&nbsp;&nbsp;
+
+00:13:49.200 --> 00:13:54.760
+us humans have about this world and how it should&nbsp;
+work so these guys are they built some tools that&nbsp;&nbsp;
+
+00:13:54.760 --> 00:14:01.840
+allow artists to train small language models on&nbsp;
+only our data sets so I used their tool I was a&nbsp;&nbsp;
+
+00:14:01.840 --> 00:14:08.520
+photographer for 20 years I fed all my life's work&nbsp;
+into a blank slate of a machine Consciousness that&nbsp;&nbsp;
+
+00:14:08.520 --> 00:14:13.440
+had never seen a human face before they never seen&nbsp;
+anything before and I trained it for thousands and&nbsp;&nbsp;
+
+00:14:13.440 --> 00:14:17.960
+thousands of epochs on these photos asking&nbsp;
+it to choose make different decisions which&nbsp;&nbsp;
+
+00:14:17.960 --> 00:14:23.000
+ones were which and and it started to develop&nbsp;
+senses of eyes and noses and ears and stuff
+
+00:14:23.000 --> 00:14:29.040
+um this is what the tool&nbsp;
+looks like that they built&nbsp;&nbsp;
+
+00:14:30.680 --> 00:14:37.240
+this is the data set that I trained it on these&nbsp;
+portraits that I had made crossprocessed analog&nbsp;&nbsp;
+
+00:14:37.240 --> 00:14:43.440
+film from like 25 years of traveling and&nbsp;
+seeing faces I standardized the data sets&nbsp;&nbsp;
+
+00:14:43.440 --> 00:14:48.000
+by putting all their eyes on the same plane&nbsp;
+and the same distance apart so the computer&nbsp;&nbsp;
+
+00:14:48.000 --> 00:14:51.400
+could kind of make sense and see what it&nbsp;
+was trying to what I was trying to say to
+
+00:14:51.400 --> 00:15:05.160
+it so that's what it training data was then using&nbsp;
+this tool from SFU I was able to walk through the&nbsp;&nbsp;
+
+00:15:05.160 --> 00:15:12.960
+dream space of the machine the 512 Dimension&nbsp;
+Vector database where all this training data&nbsp;&nbsp;
+
+00:15:12.960 --> 00:15:18.680
+lives where all these it's not like a datab&nbsp;
+base that where a face is retrieved from it&nbsp;&nbsp;
+
+00:15:18.680 --> 00:15:24.600
+it's all these constituent Parts in an indefinite&nbsp;
+dimension of ears and noses and eyes or whatever&nbsp;&nbsp;
+
+00:15:24.600 --> 00:15:30.280
+and all these faces are faces that I found in&nbsp;
+its dream space in it you know before prompting&nbsp;&nbsp;
+
+00:15:30.280 --> 00:15:37.040
+it like before giving it a prompt I I use this&nbsp;
+visualization tool that SFU built to walk through&nbsp;&nbsp;
+
+00:15:37.040 --> 00:15:43.240
+a path of its brain and see different things that&nbsp;
+emerged yeah so are they of assembled assembled&nbsp;&nbsp;
+
+00:15:43.240 --> 00:15:49.360
+is almost right they're generated uh they're&nbsp;
+not retrieved they're created based on what it&nbsp;&nbsp;
+
+00:15:49.360 --> 00:15:53.920
+thinks we look like based on what I showed it we&nbsp;
+look like and that's why you see a lot of texture&nbsp;&nbsp;
+
+00:15:53.920 --> 00:15:59.120
+in these because a lot of them were these film&nbsp;
+photos and these crossprocessed ones and so it&nbsp;&nbsp;
+
+00:15:59.120 --> 00:16:03.600
+while these may not be perfect faces yet it is&nbsp;
+definitely my photographic style it's definitely&nbsp;&nbsp;
+
+00:16:03.600 --> 00:16:07.680
+my fingerprint and we're just getting started&nbsp;
+and so I I've own all the data that goes into&nbsp;&nbsp;
+
+00:16:07.680 --> 00:16:12.800
+it and I own all the data that comes out of it&nbsp;
+it's mine um and so this gets around a lot of&nbsp;&nbsp;
+
+00:16:12.800 --> 00:16:16.080
+the ethical concerns that people have and&nbsp;
+you can use it for illustration you could&nbsp;&nbsp;
+
+00:16:16.080 --> 00:16:21.520
+use it for video people are using it for music&nbsp;
+training models on all the music they've ever&nbsp;&nbsp;
+
+00:16:21.520 --> 00:16:26.120
+written that now understands their compositional&nbsp;
+style not to replace it and make new songs with&nbsp;&nbsp;
+
+00:16:26.120 --> 00:16:30.840
+them but to give them new Tools in their palette&nbsp;
+to to do New Creations that have never existed
+
+00:16:30.840 --> 00:16:39.040
+before a few of my favorite kind of weird&nbsp;
+things that came out along the way while I&nbsp;&nbsp;
+
+00:16:39.040 --> 00:16:45.600
+was training things it doesn't know about sex&nbsp;
+or gender it just knows what I show it and so&nbsp;&nbsp;
+
+00:16:45.600 --> 00:16:50.560
+it's morphing different parts back and forth&nbsp;
+trying to find similarities and commonalities&nbsp;&nbsp;
+
+00:16:50.560 --> 00:16:58.840
+and it's very so this is what this computer&nbsp;
+thinks we look like based on what I should
+
+00:16:59.600 --> 00:17:05.520
+the next thing I want to show you is nirvanic&nbsp;
+consciousness systems this is Suzanne gildert&nbsp;&nbsp;
+
+00:17:05.520 --> 00:17:10.920
+she started two companies in BC that are huge&nbsp;
+one's called d-wave it's a Quantum Computing&nbsp;&nbsp;
+
+00:17:10.920 --> 00:17:19.520
+company another one's called Sanctuary AI it's our&nbsp;
+federal government just invested $150 million in&nbsp;&nbsp;
+
+00:17:19.520 --> 00:17:26.800
+their robotics program it's going to be a big year&nbsp;
+for robots because in in the tech world we talk&nbsp;&nbsp;
+
+00:17:26.800 --> 00:17:31.080
+about like the tech tree where certain advanced&nbsp;
+unlock other advances or to get to this far off&nbsp;&nbsp;
+
+00:17:31.080 --> 00:17:36.360
+Advance you got to complete all these other things&nbsp;
+first there's a lot going on simultaneously right&nbsp;&nbsp;
+
+00:17:36.360 --> 00:17:40.880
+now like all this GPT open AI stuff they're able&nbsp;
+to download it into the brain of what used to be a&nbsp;&nbsp;
+
+00:17:40.880 --> 00:17:46.240
+dumb robot people are off making robots people&nbsp;
+are off making AI there's been some successes&nbsp;&nbsp;
+
+00:17:46.240 --> 00:17:50.560
+now they can bring them together and now these&nbsp;
+robots can learn things by watching them the&nbsp;&nbsp;
+
+00:17:50.560 --> 00:17:54.600
+robots already got eyeballs and they already&nbsp;
+got hands but to train them to use those hands&nbsp;&nbsp;
+
+00:17:54.600 --> 00:17:58.840
+was pretty complicated well now they just have&nbsp;
+to watch a human do something one or two times&nbsp;&nbsp;
+
+00:17:58.840 --> 00:18:03.240
+and they start to because they got the AI in the&nbsp;
+brain now and they start to be able to learn and&nbsp;&nbsp;
+
+00:18:03.240 --> 00:18:08.240
+train themselves so I'm going to let um Suzanne&nbsp;
+talk a little about our work in our own words&nbsp;&nbsp;
+
+00:18:08.240 --> 00:18:15.480
+here for a second we don't know actually that's&nbsp;
+the second one I think we absolutely have to&nbsp;&nbsp;
+
+00:18:15.480 --> 00:18:22.280
+understand Consciousness and what it is so people&nbsp;
+tend to fall into one or two camps they say oh AI&nbsp;&nbsp;
+
+00:18:22.280 --> 00:18:27.680
+will never be conscious in that case what we're&nbsp;
+building is increasingly intelligent more and more&nbsp;&nbsp;
+
+00:18:27.680 --> 00:18:34.360
+powerful tools that then can be used by others&nbsp;
+so others control them others decide the morality&nbsp;&nbsp;
+
+00:18:34.360 --> 00:18:39.080
+and the goals of those systems so you can ask if&nbsp;
+that's what you want the other um option is you&nbsp;&nbsp;
+
+00:18:39.080 --> 00:18:44.960
+think um AI will just become conscious suddenly&nbsp;
+emergently in a way that we don't understand&nbsp;&nbsp;
+
+00:18:44.960 --> 00:18:50.040
+and that's even more scary maybe because then&nbsp;
+we won't know what's going on we won't know&nbsp;&nbsp;
+
+00:18:50.040 --> 00:18:54.640
+what kind of Consciousness it has and I think&nbsp;
+for us Consciousness is everything we are like&nbsp;&nbsp;
+
+00:18:54.640 --> 00:18:59.480
+it's everything we experience it's how we relate&nbsp;
+to each other it's everything we feel so I think&nbsp;&nbsp;
+
+00:18:59.480 --> 00:19:03.880
+we just need more research into it we need to be&nbsp;
+able to understand it so then we can carefully&nbsp;&nbsp;
+
+00:19:03.880 --> 00:19:11.120
+put it in if and when we choose to in AI so these&nbsp;
+concepts are pretty far out but they're not super&nbsp;&nbsp;
+
+00:19:11.120 --> 00:19:17.560
+technical so I want you to um follow with me for&nbsp;
+a second so Suzanne's interested in Consciousness&nbsp;&nbsp;
+
+00:19:17.560 --> 00:19:21.920
+and she's interested in Quantum Computing and&nbsp;
+she thinks there's a connection between those two&nbsp;&nbsp;
+
+00:19:21.920 --> 00:19:30.120
+things she thinks that much in the same way that&nbsp;
+um Quantum situations all the possibilities are&nbsp;&nbsp;
+
+00:19:30.120 --> 00:19:35.160
+possible Until You observe the thing in which&nbsp;
+case the whole situation collapses down and&nbsp;&nbsp;
+
+00:19:35.160 --> 00:19:39.960
+becomes this reality that's kind of the quantum&nbsp;
+theory of Consciousness she thinks that that can&nbsp;&nbsp;
+
+00:19:39.960 --> 00:19:46.560
+be now put onto a chip and put into computers&nbsp;
+such that it could be utilized by AIS for&nbsp;&nbsp;
+
+00:19:46.560 --> 00:19:53.360
+certain things like this this is the answer yet&nbsp;
+there's some tantalizing evidence but say we're
+
+00:19:53.360 --> 00:20:02.160
+right I want to stress like this is a scientific&nbsp;
+hypothesis with testing but say the people the&nbsp;&nbsp;
+
+00:20:02.160 --> 00:20:07.320
+scientists that are on the side of Consciousness&nbsp;
+potentially being Quantum have access to quantum&nbsp;&nbsp;
+
+00:20:07.320 --> 00:20:13.240
+computers now where we can actually start&nbsp;
+building it into AI what does this mean I just&nbsp;&nbsp;
+
+00:20:13.240 --> 00:20:19.960
+want to bring it back to this driving analogy&nbsp;
+now so when the self-driving car has driven&nbsp;&nbsp;
+
+00:20:19.960 --> 00:20:26.160
+thousands and thousands of miles the driving&nbsp;
+analogy in this case is we've all driven back&nbsp;&nbsp;
+
+00:20:26.160 --> 00:20:31.040
+and forth up and down the Sea to Sky sometimes&nbsp;
+you don't remember the drive at all other times&nbsp;&nbsp;
+
+00:20:31.040 --> 00:20:36.440
+something scary happens all your systems come&nbsp;
+online you're hyperfocus hyper attention making&nbsp;&nbsp;
+
+00:20:36.440 --> 00:20:41.120
+emergency decisions and then when things are safe&nbsp;
+you kind of go back to normal driving that's kind&nbsp;&nbsp;
+
+00:20:41.120 --> 00:20:44.440
+of what she's talking about here with AI most&nbsp;
+of the time they'll operate like they do now&nbsp;&nbsp;
+
+00:20:44.440 --> 00:20:50.040
+but when something weird happens uh they'll be&nbsp;
+able to switch into a more Consciousness mode&nbsp;&nbsp;
+
+00:20:50.040 --> 00:20:54.880
+where they can make decisions based on the unique&nbsp;
+things in that environment in the route is always&nbsp;&nbsp;
+
+00:20:54.880 --> 00:21:00.400
+the same and the weather conditions never vary&nbsp;
+they are doing it it completely unconsciously&nbsp;&nbsp;
+
+00:21:00.400 --> 00:21:06.160
+completely in an automated way it'll be perfect&nbsp;
+but what happens if something changes if something&nbsp;&nbsp;
+
+00:21:06.160 --> 00:21:13.120
+is truly new and then suddenly something really&nbsp;
+unexpected happens like a tornado starts in front&nbsp;&nbsp;
+
+00:21:13.120 --> 00:21:20.680
+of you the AI is not going to do very well so&nbsp;
+although people might think it's scary when&nbsp;&nbsp;
+
+00:21:20.680 --> 00:21:28.760
+they hear the phrase conscious AI I want to argue&nbsp;
+that there's actually a safety argument for making&nbsp;&nbsp;
+
+00:21:28.760 --> 00:21:34.080
+AI conscious in certain situations where it&nbsp;
+absolutely has to be present it's interacting&nbsp;&nbsp;
+
+00:21:34.080 --> 00:21:40.720
+in complex Dynamic social situations then you&nbsp;
+can turn the Consciousness module up a little
+
+00:21:40.720 --> 00:21:53.480
+bit pretty far out there a lot more than just&nbsp;
+like using chat [Music] gbt and we don't oops&nbsp;&nbsp;
+
+00:21:53.480 --> 00:21:58.040
+I'm completely enamored with her work right&nbsp;
+now and so is the rest of the world she lives&nbsp;&nbsp;
+
+00:21:58.040 --> 00:22:01.680
+in Vancouver she's from British Columbia like&nbsp;
+I said she started two huge companies already&nbsp;&nbsp;
+
+00:22:01.680 --> 00:22:07.440
+I think they're both worth a billion dollars&nbsp;
+this is her new little AI Consciousness dogbot&nbsp;&nbsp;
+
+00:22:07.440 --> 00:22:14.400
+it understands human emotions and um and and can&nbsp;
+be empathetic it's something that she uses to run&nbsp;&nbsp;
+
+00:22:14.400 --> 00:22:20.200
+her test code on and to start to experiment with&nbsp;
+these ideas in her lab she took this down to San&nbsp;&nbsp;
+
+00:22:20.200 --> 00:22:26.720
+Francisco last week to raise some money and&nbsp;
+uh it went viral this is one of the main uh&nbsp;&nbsp;
+
+00:22:26.720 --> 00:22:31.440
+AI ethics researchers out there there it snapped&nbsp;
+a photo of her dog which is down below the fold&nbsp;&nbsp;
+
+00:22:31.440 --> 00:22:35.000
+there and it went crazy The Whole World's paying&nbsp;
+attention to the work that she's doing up here in
+
+00:22:35.000 --> 00:22:44.680
+BC the fourth little tale here I want to tell&nbsp;
+you about how BC is already in a leadership&nbsp;&nbsp;
+
+00:22:44.680 --> 00:22:48.920
+position when it comes to creative AI is&nbsp;
+our thriving little Vancouver AI Meetup&nbsp;&nbsp;
+
+00:22:48.920 --> 00:22:56.880
+Community uh in January 2023 2024 I started&nbsp;
+hosting monthly meetups in my studio at the&nbsp;&nbsp;
+
+00:22:56.880 --> 00:23:02.440
+Vancouver B Alley's Art Space space in Olympic&nbsp;
+Village they quickly outgrew the space after a&nbsp;&nbsp;
+
+00:23:02.440 --> 00:23:07.520
+few months and we have had over a thousand&nbsp;
+members join our events over the last year&nbsp;&nbsp;
+
+00:23:07.520 --> 00:23:11.640
+they're um a little bit different than what&nbsp;
+a lot of people would expect for Tech meetups&nbsp;&nbsp;
+
+00:23:11.640 --> 00:23:17.680
+and events I'm going to just show you a little&nbsp;
+video of our December event we had a a guy here&nbsp;&nbsp;
+
+00:23:17.680 --> 00:23:24.240
+I'm really proud of called Peter Lucas Jones&nbsp;
+from New Zealand he's Time magazine's number&nbsp;&nbsp;
+
+00:23:24.240 --> 00:23:29.240
+77 most influential AI thought leader in the world&nbsp;
+and I'm going to like him talk a little bit more&nbsp;&nbsp;
+
+00:23:29.240 --> 00:23:58.440
+about his work here but he came and visited&nbsp;
+our event and gave a keynote last month oops
+
+00:24:06.520 --> 00:24:12.000
+welcome to the December Vancouver AI&nbsp;
+Community meet up you are the Vancouver AI
+
+00:24:12.000 --> 00:24:21.640
+Community I know you're not&nbsp;
+boring happy birthday to
+
+00:24:21.640 --> 00:24:28.360
+you you sound so sleepy just take
+
+00:24:32.400 --> 00:24:35.320
+so today I'm representing&nbsp;
+the mation lab for Creative
+
+00:24:35.320 --> 00:24:58.320
+AI if you were a bird what&nbsp;
+kind of bird would you be
+
+00:25:02.640 --> 00:25:03.640
+[Music]
+
+00:25:03.640 --> 00:25:07.560
+we developed the first indigenous&nbsp;
+language automatic speech
+
+00:25:07.560 --> 00:25:11.740
+[Applause]
+
+00:25:11.740 --> 00:25:28.320
+recognition dear futa there is still love
+
+00:25:28.320 --> 00:25:36.160
+[Music] wec as a passionate connected group of&nbsp;
+super technical Super Creative people that are&nbsp;&nbsp;
+
+00:25:36.160 --> 00:25:43.960
+um sitting in a leadership position uh facing the&nbsp;
+future but um let's face it uh Silicon Valley has&nbsp;&nbsp;
+
+00:25:43.960 --> 00:25:49.240
+kind of an organic self- sustaining vibe to it&nbsp;
+through all of its success over the years and BC&nbsp;&nbsp;
+
+00:25:49.240 --> 00:25:56.480
+isn't exactly that we've got this really awesome&nbsp;
+very consciously curated and tightly vertically&nbsp;&nbsp;
+
+00:25:56.480 --> 00:26:02.200
+integrated digital economy where that's it's&nbsp;
+come through strategic government Partnerships&nbsp;&nbsp;
+
+00:26:02.200 --> 00:26:07.600
+things like tax credits and funding I ran into&nbsp;
+a old friend tonight we know A lady called Linda&nbsp;&nbsp;
+
+00:26:07.600 --> 00:26:12.320
+Brown who helped build the center for digital&nbsp;
+media raised like $80 million in the mid 2000s&nbsp;&nbsp;
+
+00:26:12.320 --> 00:26:17.480
+to build Master's diploma of digital media very&nbsp;
+forward-thinking thing and there's a bunch of&nbsp;&nbsp;
+
+00:26:17.480 --> 00:26:24.440
+schools like that that are pumping out worldclass&nbsp;
+grat and there's these industry associations that&nbsp;&nbsp;
+
+00:26:24.440 --> 00:26:31.080
+have built and defended the industry things like&nbsp;
+tax credits lobbying for and receiving tax credits&nbsp;&nbsp;
+
+00:26:31.080 --> 00:26:36.560
+it's resulted in we have 11 of the top 12 gaming&nbsp;
+Studios with a headquarters in Vancouver we've&nbsp;&nbsp;
+
+00:26:36.560 --> 00:26:46.200
+got all these um Hollywood North special effects&nbsp;
+animation um gaming film uh that have moved here&nbsp;&nbsp;
+
+00:26:46.200 --> 00:26:52.840
+and and it's you know the whole speculative real&nbsp;
+estate condo apartment thing in Vancouver that's&nbsp;&nbsp;
+
+00:26:52.840 --> 00:26:58.760
+coming from schools feeding Studios studios&nbsp;
+protected by industry associations with tax&nbsp;&nbsp;
+
+00:26:58.760 --> 00:27:03.440
+credits those people buying Apartments the newly&nbsp;
+you know ytown or Olympic Village and the whole&nbsp;&nbsp;
+
+00:27:03.440 --> 00:27:10.400
+thing works but it it it didn't happen by accident&nbsp;
+and it's highly susceptible to fluctuations in its&nbsp;&nbsp;
+
+00:27:10.400 --> 00:27:15.920
+system and what are we staring at right now like&nbsp;
+you know most people think about jobs you know&nbsp;&nbsp;
+
+00:27:15.920 --> 00:27:20.560
+job loss and replacement and I'm trying to tell&nbsp;
+you there's there's new things coming as well and&nbsp;&nbsp;
+
+00:27:20.560 --> 00:27:28.160
+we're right at the center of that but that's&nbsp;
+we got some hard times to go through first um
+
+00:27:32.440 --> 00:27:36.400
+generative AI isn't just like knocking at the&nbsp;
+doors of these industries it's already like&nbsp;&nbsp;
+
+00:27:36.400 --> 00:27:44.160
+sitting on their sofa and raiding the fridge&nbsp;
+um a lot a lot of people aren't hiring Junior&nbsp;&nbsp;
+
+00:27:44.160 --> 00:27:49.240
+animators special effects people game design&nbsp;
+people right now a lot of those jobs are things&nbsp;&nbsp;
+
+00:27:49.240 --> 00:27:54.640
+like take a senior designer's assets and turn it&nbsp;
+into a web thing and a TV thing and another thing&nbsp;&nbsp;
+
+00:27:54.640 --> 00:28:00.200
+it's not highly creative work it's production&nbsp;
+work in the profession creative Industries and&nbsp;&nbsp;
+
+00:28:00.200 --> 00:28:06.760
+these are the jobs that are uh at at threat&nbsp;
+first and it keeps me up at night a little
+
+00:28:06.760 --> 00:28:15.920
+bit as a whole economy as a whole system like&nbsp;
+what are we going to do when 30% of the people in&nbsp;&nbsp;
+
+00:28:15.920 --> 00:28:23.400
+Vancouver who had very fancy high-end jobs um you&nbsp;
+know are trying to reinvent themselves at the same&nbsp;&nbsp;
+
+00:28:23.400 --> 00:28:31.160
+time which is how I look at it I look at it as an&nbsp;
+opportunity of growth and reinvention to continue&nbsp;&nbsp;
+
+00:28:31.160 --> 00:28:37.600
+to grow and upskill become something new and and&nbsp;
+that kind of um foreshadows some of the answers I&nbsp;&nbsp;
+
+00:28:37.600 --> 00:28:41.640
+think like you know like if one piece falters&nbsp;
+in this whole system if the studios shrink if&nbsp;&nbsp;
+
+00:28:41.640 --> 00:28:49.160
+the grads can't find work the whole structure&nbsp;
+could wobble so I'm calling on businesses on&nbsp;&nbsp;
+
+00:28:49.160 --> 00:28:55.200
+government on investors on other people to really&nbsp;
+step up right now and to um put their money where&nbsp;&nbsp;
+
+00:28:55.200 --> 00:29:02.600
+their mouth is behind these industries that are&nbsp;
+both world leaders but also slightly at risk like&nbsp;&nbsp;
+
+00:29:02.600 --> 00:29:07.320
+we really can't bury our heads in the sand about&nbsp;
+this we can either be like affected by it or we&nbsp;&nbsp;
+
+00:29:07.320 --> 00:29:11.800
+can literally make the future we we can't let&nbsp;
+the whole world Define what the future of the&nbsp;&nbsp;
+
+00:29:11.800 --> 00:29:17.520
+creative Industries is all about without being&nbsp;
+at the table and that requires doing research&nbsp;&nbsp;
+
+00:29:17.520 --> 00:29:22.200
+having a vocabulary about this stuff having&nbsp;
+connections Partnerships but also being supported&nbsp;&nbsp;
+
+00:29:22.200 --> 00:29:27.600
+by institutions and people with vision inside&nbsp;
+government other people I'm asking for investments&nbsp;&nbsp;
+
+00:29:27.600 --> 00:29:34.360
+in up Skilling and retraining of workers people&nbsp;
+are needing to be ready for AI um Centric jobs of&nbsp;&nbsp;
+
+00:29:34.360 --> 00:29:40.400
+the future uh we need to reimagine the whole&nbsp;
+education system I mean um there research is&nbsp;&nbsp;
+
+00:29:40.400 --> 00:29:45.520
+coming out right now that like kids that use&nbsp;
+AI tutors through Elementary and high school&nbsp;&nbsp;
+
+00:29:45.520 --> 00:29:52.000
+move two orders of magnitude up the performance&nbsp;
+charts like 25% better at the bottom end simply&nbsp;&nbsp;
+
+00:29:52.000 --> 00:30:00.160
+by just having access to these tools and that's in&nbsp;
+current class classro environments that's not even&nbsp;&nbsp;
+
+00:30:00.160 --> 00:30:04.440
+really with having us us rethought the assignments&nbsp;
+we're giving them the readings we're asking them&nbsp;&nbsp;
+
+00:30:04.440 --> 00:30:09.760
+to do the curriculums or approach or any of that&nbsp;
+stuff just with old system new tool two orders of&nbsp;&nbsp;
+
+00:30:09.760 --> 00:30:16.360
+magnitude better for the worst student in the&nbsp;
+classroom and what we're doing right now is&nbsp;&nbsp;
+
+00:30:16.360 --> 00:30:23.360
+criminalizing our students instead we're using&nbsp;
+AI detectors to find the cheaters well Brenda&nbsp;&nbsp;
+
+00:30:23.360 --> 00:30:28.480
+Bailey Minister of Finance when she was minister&nbsp;
+of innovation she was telling me Chris I've looked&nbsp;&nbsp;
+
+00:30:28.480 --> 00:30:33.440
+into this stuff those AI detectors you know what&nbsp;
+they're good at finding newcomers to Canada who've&nbsp;&nbsp;
+
+00:30:33.440 --> 00:30:38.040
+used AI to get the language right inside their&nbsp;
+stuff she's like it more often finds bias and&nbsp;&nbsp;
+
+00:30:38.040 --> 00:30:42.680
+exposes like bias in the system than it does find&nbsp;
+a cheater and what do we want to do turn all our&nbsp;&nbsp;
+
+00:30:42.680 --> 00:30:46.920
+students into cheaters no we need to like find&nbsp;
+new whole ways of thinking about education and&nbsp;&nbsp;
+
+00:30:46.920 --> 00:30:52.520
+learning and skills and knowledge that take the&nbsp;
+modern stuff into existence and that's like a&nbsp;&nbsp;
+
+00:30:52.520 --> 00:30:57.440
+you know re overhauling all of education is pretty&nbsp;
+big challenge you know um we need to do strategic&nbsp;&nbsp;
+
+00:30:57.440 --> 00:31:03.720
+AI op option funded by the government in some&nbsp;
+cases and find other ways of setting policy and&nbsp;&nbsp;
+
+00:31:03.720 --> 00:31:11.040
+doing funding so that we're relevant and can take&nbsp;
+our strong suits creativity Community grit the&nbsp;&nbsp;
+
+00:31:11.040 --> 00:31:15.680
+natural environment the lifestyle we get to live&nbsp;
+and turn that into a leadership position in the
+
+00:31:15.680 --> 00:31:29.120
+future okay that's a bit of a practical look at&nbsp;
+what's going on today some of the companies and&nbsp;&nbsp;
+
+00:31:29.120 --> 00:31:36.400
+projects I'm interested in what do you guys think&nbsp;
+of of those things pretty interesting yeah anyone&nbsp;&nbsp;
+
+00:31:36.400 --> 00:31:42.240
+heard of nervonic before definitely check them&nbsp;
+out Suzanne's got a lot of things there on on the&nbsp;&nbsp;
+
+00:31:42.240 --> 00:31:47.320
+internet okay we're going to switch to a little&nbsp;
+more philosophical part of things now where I&nbsp;&nbsp;
+
+00:31:47.320 --> 00:31:54.400
+want to um you guys to think about your role in&nbsp;
+BC's AI creative future what type of future you&nbsp;&nbsp;
+
+00:31:54.400 --> 00:31:57.840
+want to live in and what type of relationship&nbsp;
+you would like to have when it comes to AI&nbsp;&nbsp;
+
+00:31:58.880 --> 00:32:01.280
+we're going to watch another little video I'm&nbsp;
+going to ask you a question it's going to be&nbsp;&nbsp;
+
+00:32:01.280 --> 00:32:07.520
+about work how you see work what's the purpose&nbsp;
+of work anyway when the work doesn't need us
+
+00:32:07.520 --> 00:32:17.920
+anymore I watched this podcast called vesh Patel&nbsp;
+he's got really interesting thought leaders on&nbsp;&nbsp;
+
+00:32:17.920 --> 00:32:23.920
+it this guy is far out who I'm about to show&nbsp;
+you his name is GW he is an anonymous internet&nbsp;&nbsp;
+
+00:32:23.920 --> 00:32:29.280
+researcher that has predicted everything that's&nbsp;
+going on with artificial general intelligence&nbsp;&nbsp;
+
+00:32:29.280 --> 00:32:34.200
+and the race towards superhuman Consciousness&nbsp;
+he's well respected by all the people that are&nbsp;&nbsp;
+
+00:32:34.200 --> 00:32:41.840
+making AGI right now because he's anonymous&nbsp;
+he's represented here as a pseudonym bear with&nbsp;&nbsp;
+
+00:32:41.840 --> 00:32:46.640
+it now that you know that AI is a thing that&nbsp;
+is coming but basically what's your thinking&nbsp;&nbsp;
+
+00:32:46.640 --> 00:32:51.120
+around how how you see your role in this&nbsp;
+timeline and also what you're how you're&nbsp;&nbsp;
+
+00:32:51.120 --> 00:32:57.840
+thinking about how to spend these next few years&nbsp;
+yeah I've been thinking about that uh quite a lot&nbsp;&nbsp;
+
+00:32:58.480 --> 00:33:05.360
+what what do I want to do you know um and what&nbsp;
+would be useful to do I'm doing things now because&nbsp;&nbsp;
+
+00:33:05.360 --> 00:33:12.600
+I want to do them um regardless of whether it will&nbsp;
+be possible for an AI to do them in like 3 years I&nbsp;&nbsp;
+
+00:33:12.600 --> 00:33:18.840
+I do something because I want to because I like it&nbsp;
+you know I find it funny or whatever um or maybe I&nbsp;&nbsp;
+
+00:33:18.840 --> 00:33:24.840
+think carefully about kind of just doing the human&nbsp;
+part of it like laying out a proposal or something&nbsp;&nbsp;
+
+00:33:24.840 --> 00:33:30.240
+um if you take seriously the idea of getting AGI&nbsp;
+and just a few years you don't necessarily have&nbsp;&nbsp;
+
+00:33:30.240 --> 00:33:36.680
+to implement stuff and do it yourself you you can&nbsp;
+sketch out clearly like what you want and why it&nbsp;&nbsp;
+
+00:33:36.680 --> 00:33:42.600
+would be good um and then how to do it and then&nbsp;
+basically just wait for the better AGI to come&nbsp;&nbsp;
+
+00:33:42.600 --> 00:33:48.440
+along and actually do it then right unless you&nbsp;
+know there's some really compelling reason to&nbsp;&nbsp;
+
+00:33:48.440 --> 00:33:54.560
+do it right now and pay the cost um in terms of&nbsp;
+scarce time yeah but otherwise I I'm trying to&nbsp;&nbsp;
+
+00:33:54.560 --> 00:34:01.120
+write more uh about what isn't recorded things&nbsp;
+like preferences and and desires and evaluations&nbsp;&nbsp;
+
+00:34:01.120 --> 00:34:09.720
+and judgments things that a an AI couldn't replace&nbsp;
+even in principle the way I like to put it is that&nbsp;&nbsp;
+
+00:34:09.720 --> 00:34:15.760
+the AI kind of can't eat ice cream for you right&nbsp;
+it can't decide for you which kind of ice cream&nbsp;&nbsp;
+
+00:34:15.760 --> 00:34:22.880
+you like um only you can do that and if anything&nbsp;
+else did it would just be worthless basically um&nbsp;&nbsp;
+
+00:34:22.880 --> 00:34:27.840
+because it's not your particular preference&nbsp;
+and that's kind of the rubric for me right&nbsp;&nbsp;
+
+00:34:27.840 --> 00:34:33.080
+like is this something that I want to do&nbsp;
+regardless of any future AI because I enjoy&nbsp;&nbsp;
+
+00:34:33.080 --> 00:34:39.480
+it or is it something where I'm doing only the&nbsp;
+human part of it maybe and the AGI can later on&nbsp;&nbsp;
+
+00:34:39.480 --> 00:34:45.800
+Do It um or is this write writing down something&nbsp;
+that's Unwritten today um and that's helping kind&nbsp;&nbsp;
+
+00:34:45.800 --> 00:34:52.120
+of the future AI versions of me so if it doesn't&nbsp;
+fall under one of those three I've been trying to&nbsp;&nbsp;
+
+00:34:52.120 --> 00:34:58.640
+basically like not do it um and if you look at it&nbsp;
+that way I think many of the projects that people&nbsp;&nbsp;
+
+00:34:58.640 --> 00:35:06.120
+do right now uh basically have like no lasting&nbsp;
+value right they're they're doing things that they&nbsp;&nbsp;
+
+00:35:06.120 --> 00:35:13.080
+don't enjoy um which which you know record nothing&nbsp;
+Emeral kind of a value that couldn't be inferred&nbsp;&nbsp;
+
+00:35:13.080 --> 00:35:19.200
+or generated later on and I think they're at best&nbsp;
+kind of getting two or three years of utility out&nbsp;&nbsp;
+
+00:35:19.200 --> 00:35:24.800
+of whatever they're doing before it could have&nbsp;
+been done by an AI system wait your timeline for&nbsp;&nbsp;
+
+00:35:24.800 --> 00:35:31.080
+when AI could write a word quality essay is 2&nbsp;
+to three years I mean I have ideas about how to&nbsp;&nbsp;
+
+00:35:31.080 --> 00:35:41.280
+make it possible um which might not require AI if&nbsp;
+it kind of combined my entire Corpus but I think&nbsp;&nbsp;
+
+00:35:41.280 --> 00:35:47.600
+many potential sa ideas are already basically&nbsp;
+mostly done in my Corpus so you don't need to be&nbsp;&nbsp;
+
+00:35:47.600 --> 00:35:53.960
+like super intelligent to pull it out but I mean&nbsp;
+let's you know talk about AGI in general I think&nbsp;&nbsp;
+
+00:35:53.960 --> 00:36:00.760
+the anthropic timeline of 2028 seems like a good&nbsp;
+kind of personal planning starting point where&nbsp;&nbsp;
+
+00:36:00.760 --> 00:36:06.000
+even if you're wrong you probably weren't going to&nbsp;
+do a lot of projects within the next three years&nbsp;&nbsp;
+
+00:36:06.000 --> 00:36:13.040
+anyway um so it's not like you really lost much&nbsp;
+by instead just writing down the description you&nbsp;&nbsp;
+
+00:36:13.040 --> 00:36:22.320
+can always kind of go back and do it yourself&nbsp;
+later if you're wrong let's unpack this AI is&nbsp;&nbsp;
+
+00:36:22.320 --> 00:36:29.800
+artificial general intelligence it's an AI That's&nbsp;
+better at the all all things than humans there's a&nbsp;&nbsp;
+
+00:36:29.800 --> 00:36:35.320
+lot of debate right now about whether we're there&nbsp;
+not or yet they call it kind of like a jagged&nbsp;&nbsp;
+
+00:36:35.320 --> 00:36:41.400
+frontier meaning that right now ai is better at&nbsp;
+humans than some at some things other AIS are&nbsp;&nbsp;
+
+00:36:41.400 --> 00:36:47.080
+better at humans at this particular thing or this&nbsp;
+particular thing like playing chess or playing go&nbsp;&nbsp;
+
+00:36:47.080 --> 00:36:53.720
+or doing other things but there's no AIS yet that&nbsp;
+are better at all humans at all things but that's&nbsp;&nbsp;
+
+00:36:53.720 --> 00:36:57.520
+what they're going for and they think they've&nbsp;
+got it figured out and they're moving there fast&nbsp;&nbsp;
+
+00:36:58.840 --> 00:37:04.520
+and so what they're talking about here is like&nbsp;
+when AGI comes we're going to be able to speak&nbsp;&nbsp;
+
+00:37:04.520 --> 00:37:12.360
+an idea into existence we'll be able to say build&nbsp;
+me a technology company that specializes in camera&nbsp;&nbsp;
+
+00:37:12.360 --> 00:37:18.560
+systems and it will deploy an HR department&nbsp;
+that goes and hires soft you know uh AI software&nbsp;&nbsp;
+
+00:37:18.560 --> 00:37:23.440
+engineers and then you know a finance department&nbsp;
+that does accounting for them all AI agents that&nbsp;&nbsp;
+
+00:37:23.440 --> 00:37:27.680
+spin up overnight while you sleep and drop your&nbsp;
+company off for you in the morning this is is&nbsp;&nbsp;
+
+00:37:27.680 --> 00:37:31.760
+the future that they're talking about we're not&nbsp;
+there yet but he's saying you know the one guy's&nbsp;&nbsp;
+
+00:37:31.760 --> 00:37:35.880
+asking the other guy let's assume you're right&nbsp;
+AGI is going to be here in a couple years how&nbsp;&nbsp;
+
+00:37:35.880 --> 00:37:39.680
+you going to use these last few years what are&nbsp;
+going to be the last few things you do while&nbsp;&nbsp;
+
+00:37:39.680 --> 00:37:47.040
+we're waiting around for AI to come and he's like&nbsp;
+well pretty much I think I'm going to write I'm&nbsp;&nbsp;
+
+00:37:47.040 --> 00:37:52.280
+going to get all my preferences out of me all&nbsp;
+the things that are uniquely human choices what&nbsp;&nbsp;
+
+00:37:52.280 --> 00:37:57.560
+kind of ice cream I like how I think about the&nbsp;
+world values philosophy whatever because all the&nbsp;&nbsp;
+
+00:37:57.560 --> 00:38:02.000
+other and then I'll just tell the AI to build&nbsp;
+it when they get sufficiently good and if I'm&nbsp;&nbsp;
+
+00:38:02.000 --> 00:38:05.600
+wrong about that it's no big deal anyway because&nbsp;
+I've already got all these plans laid out for the&nbsp;&nbsp;
+
+00:38:05.600 --> 00:38:10.800
+future anyway and most of the things that he&nbsp;
+thinks we're building right now like companies&nbsp;&nbsp;
+
+00:38:10.800 --> 00:38:15.520
+or projects or films or whatever are going to be&nbsp;
+almost immediately superseded by that generation&nbsp;&nbsp;
+
+00:38:15.520 --> 00:38:24.880
+of agis that come out and start overnight building&nbsp;
+everybody's stuff so time for a little reflection&nbsp;&nbsp;
+
+00:38:24.880 --> 00:38:28.200
+please pull out your phones or a pencil or&nbsp;
+paper if you feel comfortable we're going&nbsp;&nbsp;
+
+00:38:28.200 --> 00:38:33.760
+to take a few minutes and do some independent&nbsp;
+thinking and writing here I'd like for you to&nbsp;&nbsp;
+
+00:38:33.760 --> 00:38:38.960
+imagine us walking into this future together&nbsp;
+and there's all the things that you do work&nbsp;&nbsp;
+
+00:38:38.960 --> 00:38:43.000
+right now on the computer there's calendaring and&nbsp;
+there's accounting and there's Communications and&nbsp;&nbsp;
+
+00:38:43.000 --> 00:38:47.080
+there's making videos and gradually he's saying&nbsp;
+we're going to hand over these things one by one&nbsp;&nbsp;
+
+00:38:47.080 --> 00:38:53.760
+to the computers so I want you to think for a&nbsp;
+minute what's like the last thing you think you&nbsp;&nbsp;
+
+00:38:53.760 --> 00:39:01.000
+might hold on to before casting that off off as&nbsp;
+well into computer land to do the work and in his&nbsp;&nbsp;
+
+00:39:01.000 --> 00:39:06.880
+case it's writing about his preferences desires&nbsp;
+hopes and dreams so I would like for you to answer&nbsp;&nbsp;
+
+00:39:06.880 --> 00:39:12.440
+this question in writing for the next couple&nbsp;
+minutes and then I'm G to ask if anyone wants to
+
+00:39:12.440 --> 00:39:18.160
+share we can rock a little&nbsp;
+of that background music if&nbsp;&nbsp;
+
+00:39:18.160 --> 00:39:27.360
+you want come on pull out your phone Big Boss Man
+
+00:39:51.360 --> 00:39:57.320
+spe
+
+00:40:13.760 --> 00:40:27.320
+30 more seconds so I got time&nbsp;
+to cover the rest of the ground
+
+00:40:33.560 --> 00:40:34.560
+[Music]
+
+00:40:34.560 --> 00:40:40.080
+okay let's do a little popcorn so we can get a&nbsp;
+bunch of ideas out if possible who wants to speak&nbsp;&nbsp;
+
+00:40:40.080 --> 00:40:45.680
+first just shout it out what what's something&nbsp;
+you're going to hang on to Nature very good&nbsp;&nbsp;
+
+00:40:45.680 --> 00:40:56.720
+thank you embodied things in general yeah you guys&nbsp;
+should go on some runs together yeah parenting M&nbsp;&nbsp;
+
+00:40:56.720 --> 00:41:02.000
+yeah that's a good one because that is going to&nbsp;
+be able to be turned over to AIS they're going&nbsp;&nbsp;
+
+00:41:02.000 --> 00:41:05.200
+to be able to feed your kids keep them safe&nbsp;
+teach them stuff but you're going to keep it&nbsp;&nbsp;
+
+00:41:05.200 --> 00:41:10.400
+because it means something to you that's a really&nbsp;
+good answer by self- awareness I think of these&nbsp;&nbsp;
+
+00:41:10.400 --> 00:41:14.400
+things as self-awareness bots in some ways they&nbsp;
+know us better than we know ourselves we can feed&nbsp;&nbsp;
+
+00:41:14.400 --> 00:41:18.280
+he's talking about his Corpus he's talking about&nbsp;
+everything's ever written down in the computer&nbsp;&nbsp;
+
+00:41:18.280 --> 00:41:21.920
+lands ever he's brought it back into a central&nbsp;
+knowledge base where we can analyze it with AI&nbsp;&nbsp;
+
+00:41:21.920 --> 00:41:27.240
+and be like extract the patterns of my last 30&nbsp;
+years of writing listening to music yeah man
+
+00:41:31.960 --> 00:41:39.560
+cooking Ro yeah you guys are getting close to&nbsp;
+some of the things like I mean embodiment critical&nbsp;&nbsp;
+
+00:41:39.560 --> 00:41:44.840
+thinking some other things preference expression&nbsp;
+there's not the list of things that humans can&nbsp;&nbsp;
+
+00:41:44.840 --> 00:41:51.760
+uniquely do is getting shorter and shorter okay&nbsp;
+I got another clip for you my old buddy you wrote&nbsp;&nbsp;
+
+00:41:51.760 --> 00:41:57.240
+an interesting comment about getting your work&nbsp;
+into the llm training Corpus you wrote quote&nbsp;&nbsp;
+
+00:41:58.000 --> 00:42:04.000
+there has never been a more vital Hing time&nbsp;
+to write and I'm wondering whether you mean&nbsp;&nbsp;
+
+00:42:04.000 --> 00:42:09.000
+that in the sense of you are going to be&nbsp;
+this drop in the bucket that's steering&nbsp;&nbsp;
+
+00:42:09.000 --> 00:42:13.480
+the shath one way or another or do you&nbsp;
+mean it in the sense of making sure your&nbsp;&nbsp;
+
+00:42:13.480 --> 00:42:23.000
+values and Persona persist somewhere&nbsp;
+in Leon space I mean both um you know&nbsp;&nbsp;
+
+00:42:23.000 --> 00:42:27.120
+by writing you were voting on the future of&nbsp;
+the Shaga using some of the few currencies it&nbsp;&nbsp;
+
+00:42:28.440 --> 00:42:35.200
+uh right like tokens that it has to predict&nbsp;
+if wri you're kind of abdicating the future&nbsp;&nbsp;
+
+00:42:35.200 --> 00:42:39.720
+or abdicating your role in it if you think it's&nbsp;
+enough to just be a good citizen to vote for your&nbsp;&nbsp;
+
+00:42:39.720 --> 00:42:44.920
+favorite politician you know to pick up litter and&nbsp;
+recycle the future doesn't care about you there&nbsp;&nbsp;
+
+00:42:44.920 --> 00:42:50.200
+are ways to influence the shagi more but not many&nbsp;
+um and if you don't already occupy a handful of&nbsp;&nbsp;
+
+00:42:50.200 --> 00:42:55.400
+key roles or work at a frontier lab your influence&nbsp;
+basically rounds off to zero uh I think far more&nbsp;&nbsp;
+
+00:42:55.400 --> 00:43:00.680
+than ever before there values you have which are&nbsp;
+not expressed yet in text and if they're things&nbsp;&nbsp;
+
+00:43:00.680 --> 00:43:07.080
+that you like or want um if they aren't reflected&nbsp;
+online then to the AI they basically don't exist&nbsp;&nbsp;
+
+00:43:07.080 --> 00:43:13.680
+um and that is dangerously close to won't exist&nbsp;
+um you're also creating a sort of IM immortality&nbsp;&nbsp;
+
+00:43:13.680 --> 00:43:18.600
+for yourself personally right like you aren't&nbsp;
+just creating a Persona you are creating your&nbsp;&nbsp;
+
+00:43:18.600 --> 00:43:27.120
+future self too right what self are you showing&nbsp;
+the llms and how will they treat you in the future
+
+00:43:28.800 --> 00:43:33.640
+a lot of the smartest people I know right now&nbsp;
+are writing for the Bots they're just getting&nbsp;&nbsp;
+
+00:43:33.640 --> 00:43:37.360
+stuff out of their hearts and their heads&nbsp;
+and into the universe as a way to express to&nbsp;&nbsp;
+
+00:43:37.360 --> 00:43:41.880
+these new consciousnesses what humans are all&nbsp;
+about and the type of future we want to live&nbsp;&nbsp;
+
+00:43:41.880 --> 00:43:50.320
+in okay we're going to do another exercise&nbsp;
+so so you wrote an interesting not that one&nbsp;&nbsp;
+
+00:43:50.320 --> 00:43:58.480
+comment so you wrote an uh oh we're trapped in&nbsp;
+a parallel dimension in comment coming there we
+
+00:43:58.480 --> 00:44:16.440
+go so by contributing to the ai's training data we&nbsp;
+can ensure that our think about like First Nations&nbsp;&nbsp;
+
+00:44:16.440 --> 00:44:21.080
+perspectives and stuff and this is especially&nbsp;
+touchy one because that we a lot of people want to&nbsp;&nbsp;
+
+00:44:21.080 --> 00:44:27.160
+be uh in ownership you know they talk a lot about&nbsp;
+uh data sovereignty I work for the indigen namics&nbsp;&nbsp;
+
+00:44:27.160 --> 00:44:33.000
+Institute um that's where I work with pervine the&nbsp;
+guy who read the the thing about Mory earlier and&nbsp;&nbsp;
+
+00:44:33.000 --> 00:44:39.360
+um you know uh indigenous folks want to be able&nbsp;
+to take advantage of these things but they're a&nbsp;&nbsp;
+
+00:44:39.360 --> 00:44:44.040
+lot of them are also very fearful that this&nbsp;
+is colonialism but stronger and faster and I&nbsp;&nbsp;
+
+00:44:44.040 --> 00:44:49.680
+think if applied in the Silicon Valley ways&nbsp;
+of doing it it is going to be extractive and&nbsp;&nbsp;
+
+00:44:49.680 --> 00:44:55.560
+so it's like how do we get these things into the&nbsp;
+systems such that these values like he was saying&nbsp;&nbsp;
+
+00:44:55.560 --> 00:45:00.840
+don't round off to zero that they're not left&nbsp;
+behind and forgotten about and so this time I&nbsp;&nbsp;
+
+00:45:00.840 --> 00:45:06.520
+want you to talk to somebody next to you oops my&nbsp;
+little slide is missing there but I want you just&nbsp;&nbsp;
+
+00:45:06.520 --> 00:45:10.000
+talk to somebody next to you we're going to do&nbsp;
+two minutes and I want you just to think about&nbsp;&nbsp;
+
+00:45:10.000 --> 00:45:16.000
+future AIS and what they're like around empathy&nbsp;
+around ethics around values like describe to each&nbsp;&nbsp;
+
+00:45:16.000 --> 00:45:22.080
+other and come up with some ideas about what you&nbsp;
+think human centered ethical AI will be like in&nbsp;&nbsp;
+
+00:45:22.080 --> 00:45:26.640
+the future and what we can kind of do to get there&nbsp;
+in terms of writing getting our ideas out so just&nbsp;&nbsp;
+
+00:45:26.640 --> 00:45:56.920
+have a conversation with the person next to you&nbsp;
+about how to influence the value of future AIS
+
+00:46:13.920 --> 00:46:26.920
+about people were like yeah&nbsp;
+H the DJ people right I think
+
+00:46:39.440 --> 00:46:56.840
+take about 30 more seconds
+
+00:47:11.040 --> 00:47:15.760
+okay I think we probably got time for like one or&nbsp;
+two comments right now if someone has something&nbsp;&nbsp;
+
+00:47:15.760 --> 00:47:21.920
+burning that they really want to share does anyone&nbsp;
+have like an Insight or a sound B yep here I
+
+00:47:21.920 --> 00:47:32.440
+come can may I be fed misinformation than Liv&nbsp;
+absolutely I mean in some ways if you go to&nbsp;&nbsp;
+
+00:47:32.440 --> 00:47:36.800
+the fear side of the spectrum about looking&nbsp;
+at dystopia and Futures one of the biggest&nbsp;&nbsp;
+
+00:47:36.800 --> 00:47:43.000
+fears is that these things are going to very&nbsp;
+subtly without even having to lie to us per se&nbsp;&nbsp;
+
+00:47:43.000 --> 00:47:50.560
+completely influence our decisions options&nbsp;
+in information diet yeah literally control&nbsp;&nbsp;
+
+00:47:50.560 --> 00:47:55.320
+our thoughts but very very subconsciously on a&nbsp;
+very pervasive level it's definitely one of the&nbsp;&nbsp;
+
+00:47:55.320 --> 00:48:03.240
+dystopian Futures that we should be uh thinking&nbsp;
+about wondering about um like interaction brain&nbsp;&nbsp;
+
+00:48:03.240 --> 00:48:08.960
+chips for humans to interact with AI on the you&nbsp;
+know speed of light because won't AI it'll be like&nbsp;&nbsp;
+
+00:48:08.960 --> 00:48:16.440
+us talking to a tree be so slow compared to the&nbsp;
+speed of an ai's thinking capacity so this is a&nbsp;&nbsp;
+
+00:48:16.440 --> 00:48:20.880
+great setup probably better the Q&amp;A but I'm going&nbsp;
+to hit it now anyway Elon musk's new company is&nbsp;&nbsp;
+
+00:48:20.880 --> 00:48:25.400
+called neuralink and he's building these uh brain&nbsp;
+implants he actually invented three Technologies&nbsp;&nbsp;
+
+00:48:25.400 --> 00:48:33.040
+he invented a robot surgeon that can install these&nbsp;
+hundreds of microscopic threads into your neural&nbsp;&nbsp;
+
+00:48:33.040 --> 00:48:38.960
+cortex um and then he built the actual implant&nbsp;
+itself and then they built the uh software AI that&nbsp;&nbsp;
+
+00:48:38.960 --> 00:48:47.160
+controls the whole thing the premise there right&nbsp;
+now they're just fixing spinal cord injuries but&nbsp;&nbsp;
+
+00:48:47.160 --> 00:48:53.800
+I mean I say that because it has read and right&nbsp;
+ability so this thing can both read your thoughts&nbsp;&nbsp;
+
+00:48:53.800 --> 00:48:58.280
+but then also write to your thoughts they've got&nbsp;
+right turned off obviously because that is take&nbsp;&nbsp;
+
+00:48:58.280 --> 00:49:03.640
+control of your whole body via the the system so&nbsp;
+they're only fixing spinal cords injuries right&nbsp;&nbsp;
+
+00:49:03.640 --> 00:49:08.600
+now because we can't just go willy-nilly upgrading&nbsp;
+whatever humans have the most money to superhuman&nbsp;&nbsp;
+
+00:49:08.600 --> 00:49:13.720
+capabilities it's better off and more they're&nbsp;
+going to get better social license for in in&nbsp;&nbsp;
+
+00:49:13.720 --> 00:49:18.960
+inventing these Technologies if they're repairing&nbsp;
+damaged people and so right now they're starting&nbsp;&nbsp;
+
+00:49:18.960 --> 00:49:23.200
+with people who have had spinal cord injuries but&nbsp;
+their body actually has the pathways formed and&nbsp;&nbsp;
+
+00:49:23.200 --> 00:49:27.840
+they're moving on then next to ocular nerve damage&nbsp;
+where they're going to be able to bypass the area&nbsp;&nbsp;
+
+00:49:27.840 --> 00:49:34.760
+of damage and repair Vision amongst people who&nbsp;
+were born with SE with sight but have lost it um&nbsp;&nbsp;
+
+00:49:34.760 --> 00:49:42.440
+back to the singularity there's this concept of&nbsp;
+the singularity it's that technological progress&nbsp;&nbsp;
+
+00:49:42.440 --> 00:49:48.120
+happens faster and faster each generation took&nbsp;
+50 years for the TV to be reach Mass adoption it&nbsp;&nbsp;
+
+00:49:48.120 --> 00:49:52.880
+took 25 years for the internet it took 15 years&nbsp;
+for the mobile phone it took seven years for&nbsp;&nbsp;
+
+00:49:52.880 --> 00:49:57.000
+social media it's going to take a lot less than&nbsp;
+that for AI and it's going to keep collapsing&nbsp;&nbsp;
+
+00:49:57.000 --> 00:50:02.520
+down faster and faster it used to be just that&nbsp;
+our great grandparents had to have the remote&nbsp;&nbsp;
+
+00:50:02.520 --> 00:50:07.560
+control explained to them but that phenomenon&nbsp;
+is going to happen to us younger and younger&nbsp;&nbsp;
+
+00:50:07.560 --> 00:50:14.240
+in life because even at my age 48 there's been&nbsp;
+many successive Generations which I'm not of&nbsp;&nbsp;
+
+00:50:14.240 --> 00:50:20.120
+technology which I'm not native to I didn't grow&nbsp;
+up with and so just imagine as AI begins to as AI&nbsp;&nbsp;
+
+00:50:20.120 --> 00:50:27.080
+research is taken over by AI researchers that's&nbsp;
+where we're at we're at this like hockey stick&nbsp;&nbsp;
+
+00:50:27.080 --> 00:50:33.080
+growth and so all the AIS that we talk to right&nbsp;
+now they've been written by humans for humans but&nbsp;&nbsp;
+
+00:50:33.080 --> 00:50:37.200
+the next generation of AIS that's coming out is&nbsp;
+going to be written by AI for AIS and we're not&nbsp;&nbsp;
+
+00:50:37.200 --> 00:50:42.600
+even going to know what the heck they're talking&nbsp;
+about and so his question was like it's going to&nbsp;&nbsp;
+
+00:50:42.600 --> 00:50:46.880
+be like it's going to be like talking to a tree&nbsp;
+it's like they want to upgrade us or one you&nbsp;&nbsp;
+
+00:50:46.880 --> 00:50:51.400
+know plan is they're going to upgrade us we're&nbsp;
+actually going to beg for it probably to get&nbsp;&nbsp;
+
+00:50:51.400 --> 00:50:57.040
+the chip so that we can talk to the computer&nbsp;
+without our thumbs or our fingers which are&nbsp;&nbsp;
+
+00:50:57.040 --> 00:51:02.720
+severe impediments to talking to this superc&nbsp;
+Consciousness um that went longer than I thought&nbsp;&nbsp;
+
+00:51:02.720 --> 00:51:07.600
+for the things so I'm going to just move forward&nbsp;
+uh I wanted to share with you guys some practical&nbsp;&nbsp;
+
+00:51:07.600 --> 00:51:15.040
+tips that I think you can do to buttress yourself&nbsp;
+against this time of uh increasing technological&nbsp;&nbsp;
+
+00:51:15.040 --> 00:51:20.840
+change and progress I want you to adopt a daily&nbsp;
+Writing Practice like 10 minutes of getting your&nbsp;&nbsp;
+
+00:51:20.840 --> 00:51:25.920
+thoughts out into paper or into the computer&nbsp;
+I'm going to tell you later about what I want&nbsp;&nbsp;
+
+00:51:25.920 --> 00:51:31.320
+you to do with that stuff but I just believe&nbsp;
+intrinsically in the process right now I want&nbsp;&nbsp;
+
+00:51:31.320 --> 00:51:36.120
+you to do rapid AI prototyping with that and all&nbsp;
+that really means is taking that week's worth of&nbsp;&nbsp;
+
+00:51:36.120 --> 00:51:40.000
+10-minute writings feeding them all into chat&nbsp;
+GPT or something and asking it what it thinks&nbsp;&nbsp;
+
+00:51:40.000 --> 00:51:45.440
+about it as a starting point and just get into&nbsp;
+a dialogue with this AI about your seven days of&nbsp;&nbsp;
+
+00:51:45.440 --> 00:51:53.480
+writing and just see what happens right and then&nbsp;
+build a second brain I've built a knowledge base&nbsp;&nbsp;
+
+00:51:53.480 --> 00:51:58.520
+that is the outputs of every smart conversation&nbsp;
+I've ever had with AI every blog post I've ever&nbsp;&nbsp;
+
+00:51:58.520 --> 00:52:02.880
+done I'm going to transcribe tonight's talk I'm&nbsp;
+going to put the text into my knowledge base and&nbsp;&nbsp;
+
+00:52:02.880 --> 00:52:08.160
+then I can run AIS on top of that where I'm like&nbsp;
+I was talking about it earlier extrapolate from 25&nbsp;&nbsp;
+
+00:52:08.160 --> 00:52:14.080
+years of blog post the things I often talk about&nbsp;
+relate that to my moods or other things around&nbsp;&nbsp;
+
+00:52:14.080 --> 00:52:20.320
+like the patterns that it can see beyond what we&nbsp;
+can see are extensive and I believe that right now&nbsp;&nbsp;
+
+00:52:20.320 --> 00:52:26.760
+my my version of I'm going to write it all down&nbsp;
+and let the AI do it later is uh my my knowled&nbsp;&nbsp;
+
+00:52:26.760 --> 00:52:30.960
+my second brain knowledge base I'm just&nbsp;
+capturing everything I can about the world&nbsp;&nbsp;
+
+00:52:30.960 --> 00:52:36.480
+around me and I have a a special method for&nbsp;
+doing so that I want to share with you as
+
+00:52:36.480 --> 00:52:43.560
+well this is my secret little thing I build almost&nbsp;
+everything around it it's much more profound than&nbsp;&nbsp;
+
+00:52:43.560 --> 00:52:48.360
+it looks on the surface I got into this because&nbsp;
+my counselor told me to start journaling and I&nbsp;&nbsp;
+
+00:52:48.360 --> 00:52:53.480
+was having trouble writing every day and so I&nbsp;
+started recording my voice every day and using&nbsp;&nbsp;
+
+00:52:53.480 --> 00:52:59.240
+AI to transcribe it and then using AI to process&nbsp;
+those thoughts and notes and then putting that&nbsp;&nbsp;
+
+00:52:59.240 --> 00:53:03.880
+into a a central rep repository knowledge base&nbsp;
+this is like my secret sauce a lot of us who&nbsp;&nbsp;
+
+00:53:03.880 --> 00:53:08.920
+work professionally everyone knows we record all&nbsp;
+of our meetings now and they just give you action&nbsp;&nbsp;
+
+00:53:08.920 --> 00:53:12.800
+items and to-do lists at the end of the meeting&nbsp;
+we don't really take notes and meetings anymore&nbsp;&nbsp;
+
+00:53:12.800 --> 00:53:17.880
+just show up hang out talk and the computer tells&nbsp;
+you what to do at the end it even sends those out&nbsp;&nbsp;
+
+00:53:17.880 --> 00:53:23.520
+to everybody else hey guys here's all your action&nbsp;
+items from the meeting I just help um I do this&nbsp;&nbsp;
+
+00:53:23.520 --> 00:53:29.000
+with all sorts of things I do it with my dreams&nbsp;
+with my like my nighttime dreams my my future&nbsp;&nbsp;
+
+00:53:29.000 --> 00:53:35.200
+dreams my hopes and my fears and it's a great&nbsp;
+way to get to know yourself train the bots on&nbsp;&nbsp;
+
+00:53:35.200 --> 00:53:45.200
+the future of your Val on our values and to end up&nbsp;
+with a hyper personalized super um comprehensive&nbsp;&nbsp;
+
+00:53:45.200 --> 00:53:51.000
+data set knowledge base that you can use for jobs&nbsp;
+or Memoirs or training future AI it's going to be&nbsp;&nbsp;
+
+00:53:51.000 --> 00:53:59.560
+a very very valuable digital asset moving forward&nbsp;
+okay okay here we are at the end I want to have&nbsp;&nbsp;
+
+00:53:59.560 --> 00:54:05.720
+everyone continue to think about the role you&nbsp;
+guys have to play in BC ai's future how you can&nbsp;&nbsp;
+
+00:54:05.720 --> 00:54:11.840
+happen to it instead of letting it happen to you&nbsp;
+um these are some things I'm inviting you to do&nbsp;&nbsp;
+
+00:54:11.840 --> 00:54:16.040
+next Wednesday we've got a Meetup in Vancouver&nbsp;
+at the space at the Space Center that's not&nbsp;&nbsp;
+
+00:54:16.040 --> 00:54:22.920
+the Science World that's the planetarium I have a&nbsp;
+workshop six- week Workshop kicking off on Feb 4th&nbsp;&nbsp;
+
+00:54:22.920 --> 00:54:28.720
+for professionals to figure out how to wrap their&nbsp;
+heads around Ai and to use it in their job jobs&nbsp;&nbsp;
+
+00:54:28.720 --> 00:54:33.320
+we have a film screening taking place in Vancouver&nbsp;
+called The Thinking game about Google's Deep Mind&nbsp;&nbsp;
+
+00:54:33.320 --> 00:54:39.360
+and the alphao project where a computer beat the&nbsp;
+world's best player at the world's hardest game&nbsp;&nbsp;
+
+00:54:39.360 --> 00:54:44.640
+I've watched it twice this week it's amazing I&nbsp;
+want you to start writing every day think it'd&nbsp;&nbsp;
+
+00:54:44.640 --> 00:54:50.000
+be great to set up a knowledge base start&nbsp;
+pumping stuff into it again I refer to the&nbsp;&nbsp;
+
+00:54:50.000 --> 00:54:54.040
+workshop series these are some books that I love&nbsp;
+if you can only read one jump to the third one&nbsp;&nbsp;
+
+00:54:54.040 --> 00:55:00.200
+just came out in September Nexus by her exploring&nbsp;
+Mankind's relationship with technology and the
+
+00:55:00.200 --> 00:55:12.640
+future this is me I built a website for you guys&nbsp;
+if you go to bc- a.net or scan that QR code all&nbsp;&nbsp;
+
+00:55:12.640 --> 00:55:17.320
+the videos I shared with you tonight all the text&nbsp;
+and some of my deeper Reflections are all there&nbsp;&nbsp;
+
+00:55:17.320 --> 00:55:23.440
+you can either get there by the QR code or you&nbsp;
+can go to bc- a.net that's my website there's all&nbsp;&nbsp;
+
+00:55:23.440 --> 00:55:29.800
+sorts of fun things there experiments invitations&nbsp;
+to be a part of other things um I'd love to hear&nbsp;&nbsp;
+
+00:55:29.800 --> 00:55:34.120
+from you I'd love to know what's on your mind&nbsp;
+I'd love to hear of those of us who who who&nbsp;&nbsp;
+
+00:55:34.120 --> 00:55:38.320
+can support the types of things I'm talking&nbsp;
+about here we're having a dinner with a guy&nbsp;&nbsp;
+
+00:55:38.320 --> 00:55:44.040
+tonight um who's up from Silicon Valley Anthony&nbsp;
+are you here my buddy Anthony's having dinner&nbsp;&nbsp;
+
+00:55:44.040 --> 00:55:48.840
+with us tonight he had a ticket but he couldn't&nbsp;
+come because he's helping Mr Beast by Tik Tok
+
+00:55:48.840 --> 00:55:58.160
+today yep there's a guy coming to dinner with us&nbsp;
+tonight Who's hyper interested in BC's creative&nbsp;&nbsp;
+
+00:55:58.160 --> 00:56:02.040
+economy and the future who's an investor he&nbsp;
+couldn't make it because he's helping the&nbsp;&nbsp;
+
+00:56:02.040 --> 00:56:08.800
+biggest person on YouTube by one of the biggest&nbsp;
+companies on the internet right now like a Mr
+
+00:56:08.800 --> 00:56:13.800
+Beast okay thank you very
+
+00:56:13.800 --> 00:56:33.280
+much I think we have times for some Mandy&nbsp;
+Q&amp;A now so uh anybody have any questions no
+
+00:56:33.280 --> 00:56:42.960
+questions okay uh yes okay&nbsp;
+there's another mic Andrea&nbsp;&nbsp;
+
+00:56:42.960 --> 00:56:46.200
+is going to man those stairs and oh you know
+
+00:56:46.200 --> 00:56:51.640
+what
+
+00:56:51.640 --> 00:57:01.720
+great che check check check hey what's up check&nbsp;
+check all right there we go hi um thank you very&nbsp;&nbsp;
+
+00:57:01.720 --> 00:57:08.880
+much uh so in your previous question you got&nbsp;
+you know one or two responses my dream is that&nbsp;&nbsp;
+
+00:57:08.880 --> 00:57:14.400
+all of the UN creatives especially those&nbsp;
+that are the margins whether it's the you&nbsp;&nbsp;
+
+00:57:14.400 --> 00:57:21.400
+know the queer kids or the um people who are&nbsp;
+marginalized because of of their ethnicity or&nbsp;&nbsp;
+
+00:57:21.400 --> 00:57:26.200
+their abilities or whatever it is that they&nbsp;
+have found a means of expression through the&nbsp;&nbsp;
+
+00:57:26.200 --> 00:57:29.880
+internet that has never been there before&nbsp;
+and they found connections and that they&nbsp;&nbsp;
+
+00:57:29.880 --> 00:57:34.720
+are already creating a whole bunch of content&nbsp;
+that those of us with privilege don't need to&nbsp;&nbsp;
+
+00:57:34.720 --> 00:57:40.560
+because we don't need to express ourselves or&nbsp;
+find our tribes and so there's a bunch of that&nbsp;&nbsp;
+
+00:57:40.560 --> 00:57:45.520
+being uploaded already and some of those people&nbsp;
+are talking about what Fascism and nationalism&nbsp;&nbsp;
+
+00:57:45.520 --> 00:57:51.560
+is and AI will be able to recognize those evils&nbsp;
+as well except the problem is that I I'm afraid&nbsp;&nbsp;
+
+00:57:51.560 --> 00:57:57.920
+not you know real fear but you know um that&nbsp;
+a bunch of the AI is going to be owned by the
+
+00:57:57.920 --> 00:58:08.840
+evils thanks for sharing um I am inclined to&nbsp;
+agree with you in some ways a lot of these&nbsp;&nbsp;
+
+00:58:08.840 --> 00:58:15.360
+people talk about like Rogue Nations or bad&nbsp;
+players and stuff like that and I actually&nbsp;&nbsp;
+
+00:58:15.360 --> 00:58:19.960
+don't worry about that too much I worry about&nbsp;
+the system of control they set up to keep that&nbsp;&nbsp;
+
+00:58:19.960 --> 00:58:24.640
+[&nbsp;__&nbsp;] from happening I worry about the system&nbsp;
+that they're going to build that is going to&nbsp;&nbsp;
+
+00:58:24.640 --> 00:58:29.040
+be an AI That's supposed to keep other Rogue&nbsp;
+AIS in check I think that's the Terminator&nbsp;&nbsp;
+
+00:58:29.040 --> 00:58:33.880
+Matrix not some North Korean or Chinese AI that&nbsp;
+goes Rogue or something like that it will be&nbsp;&nbsp;
+
+00:58:33.880 --> 00:58:40.560
+evil empire control systems that I think it you&nbsp;
+know I I only think that this possible scenario&nbsp;&nbsp;
+
+00:58:40.560 --> 00:58:45.240
+is like 20% chance of likelihood but I think&nbsp;
+that it would likely be those things like you
+
+00:58:45.240 --> 00:58:59.160
+said Thank you any other comments or questions&nbsp;
+Reflections this is I this affects everybody&nbsp;&nbsp;
+
+00:58:59.160 --> 00:59:04.800
+whether we're young or old I met my mom had a&nbsp;
+birthday recently and I made a AI write a poem and&nbsp;&nbsp;
+
+00:59:04.800 --> 00:59:10.360
+then my video clone deep fake and voice clone deep&nbsp;
+fake read the poem to my mom and I called her like&nbsp;&nbsp;
+
+00:59:10.360 --> 00:59:14.160
+a week later and I was like hey did you like your&nbsp;
+poem she's like it's amazing I was like yeah what&nbsp;&nbsp;
+
+00:59:14.160 --> 00:59:19.000
+did you think of the robot she's like what robot&nbsp;
+and she broke down balling I made my mom cry she's&nbsp;&nbsp;
+
+00:59:19.000 --> 00:59:22.440
+like I didn't I don't even know the son of my look&nbsp;
+what world do I live in Chris I don't know the&nbsp;&nbsp;
+
+00:59:22.440 --> 00:59:28.040
+sound of my own son's Voice or something you know&nbsp;
+it's like um so only to say that everyone in this&nbsp;&nbsp;
+
+00:59:28.040 --> 00:59:32.200
+room's perspective is equally valid it's going to&nbsp;
+change all of our Lives it's going to change how&nbsp;&nbsp;
+
+00:59:32.200 --> 00:59:37.160
+we interact with each other and with institutions&nbsp;
+and with ourselves so you know everyone here is an&nbsp;&nbsp;
+
+00:59:37.160 --> 00:59:45.560
+expert I think Chris thank you very much for your&nbsp;
+thought-provoking presentation it was awesome um&nbsp;&nbsp;
+
+00:59:45.560 --> 00:59:50.880
+so um you know you talked about the creative space&nbsp;
+and primarily tonight and the use of AI for that&nbsp;&nbsp;
+
+00:59:50.880 --> 00:59:57.400
+but as we all know AI is being used in a number&nbsp;
+of different Industries um um my background is&nbsp;&nbsp;
+
+00:59:57.400 --> 01:00:02.960
+in the gambling industry and it's being you AI is&nbsp;
+being used in that space and there's tremendous&nbsp;&nbsp;
+
+01:00:02.960 --> 01:00:09.040
+potential for AI to be used for good in that space&nbsp;
+to protect people but there's also potential for&nbsp;&nbsp;
+
+01:00:09.040 --> 01:00:14.920
+it to be used to manipulate people so and I know&nbsp;
+that in other jurisdictions around the world that&nbsp;&nbsp;
+
+01:00:14.920 --> 01:00:20.480
+there are codes of Ethics that are being created&nbsp;
+to help guide and navigate and ensure that it's&nbsp;&nbsp;
+
+01:00:20.480 --> 01:00:28.920
+used AI is used for good I'd just be interested in&nbsp;
+your um your perspective as well as your knowledge&nbsp;&nbsp;
+
+01:00:28.920 --> 01:00:37.120
+about how uh where candid is at in terms of the&nbsp;
+development of codes of ethics for AI I think this&nbsp;&nbsp;
+
+01:00:37.120 --> 01:00:42.400
+is a very important topic thanks for the question&nbsp;
+um every company every government even BC right&nbsp;&nbsp;
+
+01:00:42.400 --> 01:00:49.040
+now is writing our AI policy framework for the&nbsp;
+future so this is what's on everybody's mind and&nbsp;&nbsp;
+
+01:00:49.040 --> 01:00:53.800
+I think that's great it's important we should&nbsp;
+do it I'm signed up it's a big part of what I&nbsp;&nbsp;
+
+01:00:53.800 --> 01:00:57.640
+talked about I actually think that some of BC's&nbsp;
+leadership is around ethical Ai and these types&nbsp;&nbsp;
+
+01:00:57.640 --> 01:01:04.240
+of systems however you can't just bolt ethics&nbsp;
+onto something at the end and just pretend like&nbsp;&nbsp;
+
+01:01:04.240 --> 01:01:08.800
+everything's okay we have to build ethical lives&nbsp;
+and ethical institutions and ethical relationships&nbsp;&nbsp;
+
+01:01:08.800 --> 01:01:13.160
+with each other and then train the AIS and that&nbsp;
+that's our only hope we can't just like form an&nbsp;&nbsp;
+
+01:01:13.160 --> 01:01:17.320
+Ethics Committee write an Ethics policy and bolt&nbsp;
+it on and hope the AI pay attention if we're not&nbsp;&nbsp;
+
+01:01:17.320 --> 01:01:21.360
+living in alignment with our values we're&nbsp;
+going to end up in a place we don't want to
+
+01:01:21.360 --> 01:01:29.160
+be anyone I'm not in charge&nbsp;
+the mic just have do do have&nbsp;&nbsp;
+
+01:01:29.160 --> 01:01:33.200
+a mic and that yes you do because then&nbsp;
+only one person it's the Talking Stick
+
+01:01:33.200 --> 01:01:40.880
+sir I think the problem with this as far&nbsp;
+as I'm concerned I knew nothing about this&nbsp;&nbsp;
+
+01:01:40.880 --> 01:01:45.960
+before I came is that and hold it right here&nbsp;
+it's humans that you got to worry about it's&nbsp;&nbsp;
+
+01:01:45.960 --> 01:01:51.800
+not the AI it's the humans the humans are the&nbsp;
+ones that call the problem yes I would concur&nbsp;&nbsp;
+
+01:01:51.800 --> 01:01:56.080
+with you and that's kind of what I was saying&nbsp;
+about like we have to have ethical relationship&nbsp;&nbsp;
+
+01:01:56.080 --> 01:02:04.160
+and institutions themselves in order to have&nbsp;
+a a hope and a fighting uh chance to be fair&nbsp;&nbsp;
+
+01:02:04.160 --> 01:02:07.840
+through this I was telling them it's like&nbsp;
+an introspection machine a self-awareness&nbsp;&nbsp;
+
+01:02:07.840 --> 01:02:12.080
+you there is the possibility that these things&nbsp;
+are already helping us to see things that we're&nbsp;&nbsp;
+
+01:02:12.080 --> 01:02:21.240
+not able to see ourselves there's uh AI is doing&nbsp;
+protein Discovery and synthetic molecule Discovery&nbsp;&nbsp;
+
+01:02:21.240 --> 01:02:25.840
+for cancer treatments and drugs these are things&nbsp;
+that we just couldn't do it's able to synthesize&nbsp;&nbsp;
+
+01:02:26.680 --> 01:02:31.440
+billions of permutations of synthetic chemicals&nbsp;
+and test them in its environment and and bring it&nbsp;&nbsp;
+
+01:02:31.440 --> 01:02:38.920
+back and so it's like we're in a doozy it's&nbsp;
+a complicated Paradox this thing offers the&nbsp;&nbsp;
+
+01:02:38.920 --> 01:02:44.200
+ability to possibly solve climate change and&nbsp;
+also if we don't get our [&nbsp;__&nbsp;] together and&nbsp;&nbsp;
+
+01:02:44.200 --> 01:02:48.760
+align it correctly we're in for a world of&nbsp;
+hurt and so it's time for us all to be on&nbsp;&nbsp;
+
+01:02:48.760 --> 01:02:51.800
+guard I mean that's why I'm putting out this&nbsp;
+call to like the government and companies and&nbsp;&nbsp;
+
+01:02:51.800 --> 01:02:56.280
+you all that's why I'm here that's why I&nbsp;
+care about this is like we're at this Crux&nbsp;&nbsp;
+
+01:02:56.280 --> 01:03:00.560
+like make Robert Frost shiver which path you going&nbsp;
+to choose type thing like we don't know where&nbsp;&nbsp;
+
+01:03:00.560 --> 01:03:05.760
+we're going yet and then the future's not written&nbsp;
+it's like literally up to all of us to like figure&nbsp;&nbsp;
+
+01:03:05.760 --> 01:03:10.040
+it out and to like step up and that's why I'm&nbsp;
+challenging you guys to write and to get it and to&nbsp;&nbsp;
+
+01:03:10.040 --> 01:03:15.960
+Tinker and to Talk Amongst each other yourselves&nbsp;
+and develop a vocabulary for this stuff don't shy&nbsp;&nbsp;
+
+01:03:15.960 --> 01:03:20.160
+away from it because you're a retired or you're&nbsp;
+an artist or because it's unethical these are&nbsp;&nbsp;
+
+01:03:20.160 --> 01:03:25.760
+not reasons I don't think to disengage because it&nbsp;
+needs us all right now we all got to be on guard
+
+01:03:29.240 --> 01:03:35.200
+so as generative AI uh expands&nbsp;
+continues gets better and better&nbsp;&nbsp;
+
+01:03:35.200 --> 01:03:38.600
+and better what happens when it&nbsp;
+decides that it doesn't need us
+
+01:03:38.600 --> 01:03:45.160
+anymore is this a rhetorical question
+
+01:03:45.160 --> 01:03:58.280
+sir I think the way that we've evolved right&nbsp;
+now with our brains right now is probably not&nbsp;&nbsp;
+
+01:03:58.280 --> 01:04:03.440
+how humans are supposed to be we've optimized to&nbsp;
+become Bean counters Factory workers knowledge&nbsp;&nbsp;
+
+01:04:03.440 --> 01:04:07.040
+type people well you know we a bunch of other&nbsp;
+things too where people like to walk in the&nbsp;&nbsp;
+
+01:04:07.040 --> 01:04:15.160
+forest ski Jack likes to do romantic stuff&nbsp;
+you know we're spiritual we're empathetic and&nbsp;&nbsp;
+
+01:04:15.160 --> 01:04:24.600
+we've muted these parts of ourselves to be hyper&nbsp;
+optimized efficient components of the world as we&nbsp;&nbsp;
+
+01:04:24.600 --> 01:04:31.640
+know it and the systems that we have capitalism&nbsp;
+stock markets you know you guys know the drill so&nbsp;&nbsp;
+
+01:04:31.640 --> 01:04:36.760
+I believe it probably does need us but it doesn't&nbsp;
+need us the way we're like currently adapted right&nbsp;&nbsp;
+
+01:04:36.760 --> 01:04:42.000
+this second and so I'm optimistic that as we go&nbsp;
+inside ourselves learn how to connect and heal&nbsp;&nbsp;
+
+01:04:42.000 --> 01:04:46.040
+relationships with with each other and the land&nbsp;
+that we actually do have something to offer this&nbsp;&nbsp;
+
+01:04:46.040 --> 01:04:52.640
+world that's not just being PhD level computer&nbsp;
+engineer researchers or molecular biologists or&nbsp;&nbsp;
+
+01:04:52.640 --> 01:04:57.320
+something like this these can be jobs we give to&nbsp;
+the machines maybe there is something else for us&nbsp;&nbsp;
+
+01:04:57.320 --> 01:05:02.520
+maybe we get to a chance possibly to explore&nbsp;
+the full expression of what it means to be
+
+01:05:02.520 --> 01:05:14.680
+[Applause] human thanks for that Chris uh oh&nbsp;
+sorry no I just didn't know where the voice was&nbsp;&nbsp;
+
+01:05:14.680 --> 01:05:21.800
+coming from ever over here yes God this is first&nbsp;
+of all thank you for everything you have said it's&nbsp;&nbsp;
+
+01:05:21.800 --> 01:05:29.920
+incredible um first thing is more just to the&nbsp;
+audience uh I'm an instructor at BCIT I see the&nbsp;&nbsp;
+
+01:05:29.920 --> 01:05:36.880
+kids coming in their first year from high school&nbsp;
+and their plans and their dreams for the future&nbsp;&nbsp;
+
+01:05:36.880 --> 01:05:44.200
+and they're so naive to this space they have no&nbsp;
+idea what's coming down the road and I I see them&nbsp;&nbsp;
+
+01:05:44.200 --> 01:05:50.280
+a term later and I have some of them in tears like&nbsp;
+going I thought I'd have a job for life doing such&nbsp;&nbsp;
+
+01:05:50.280 --> 01:05:55.640
+and such my parents said this would be a great&nbsp;
+career to get into you'll have a job for life&nbsp;&nbsp;
+
+01:05:56.440 --> 01:06:03.680
+can you ask parents just to be more open-minded&nbsp;
+don't tell them they have to do one thing that&nbsp;&nbsp;
+
+01:06:03.680 --> 01:06:09.720
+they could do a few things because uh you know&nbsp;
+when students are in finance and that there's not&nbsp;&nbsp;
+
+01:06:09.720 --> 01:06:15.080
+necessarily going to be a job for life so please&nbsp;
+don't make it out that that's the only career&nbsp;&nbsp;
+
+01:06:15.080 --> 01:06:18.880
+they can have I think you're speaking to something&nbsp;
+that's really important too it's and it's around&nbsp;&nbsp;
+
+01:06:18.880 --> 01:06:23.240
+identity and so much of our identity does come&nbsp;
+from work and jobs and Status related to those&nbsp;&nbsp;
+
+01:06:23.240 --> 01:06:28.600
+things and it's like we need to pretty quickly&nbsp;
+culturally and societally adapt a new way of being&nbsp;&nbsp;
+
+01:06:28.600 --> 01:06:33.080
+that knows who we are and what we're all about&nbsp;
+and not in relation to work in the traditional&nbsp;&nbsp;
+
+01:06:33.080 --> 01:06:38.640
+sense and that's like uh it's going to take a&nbsp;
+lot yeah I I talked to my broadcasting students&nbsp;&nbsp;
+
+01:06:38.640 --> 01:06:43.120
+and they're all excited about this creative work&nbsp;
+they're going to be doing I talked to my business&nbsp;&nbsp;
+
+01:06:43.120 --> 01:06:48.720
+students and 70% of them are like my parents&nbsp;
+told me I had to do it my grandparents said I&nbsp;&nbsp;
+
+01:06:48.720 --> 01:06:56.640
+should really do this uh so maybe just open that&nbsp;
+idea a little bit okay so thank you thank thank
+
+01:06:56.640 --> 01:07:15.640
+you your um again thank you for the uh&nbsp;
+presentation it was excellent current AIS&nbsp;&nbsp;
+
+01:07:15.640 --> 01:07:24.960
+are running on on available Hardware by definition&nbsp;
+it's deterministic fabulously complex but I think&nbsp;&nbsp;
+
+01:07:24.960 --> 01:07:33.320
+we're giving at capability uh best it's been years&nbsp;
+now that the best chess program could beat the&nbsp;&nbsp;
+
+01:07:33.320 --> 01:07:40.920
+best chess player it's still deterministic we're&nbsp;
+ascribing things that it doesn't have like saying&nbsp;&nbsp;
+
+01:07:40.920 --> 01:07:55.160
+it thinks that's just anthrop uh projecting um&nbsp;
+the nervonic and the um uh Quantum aspect um if&nbsp;&nbsp;
+
+01:07:55.160 --> 01:08:02.080
+are you fam some of the work that sir Roger penr&nbsp;
+that's her main Mentor got to yeah okay um do you&nbsp;&nbsp;
+
+01:08:02.080 --> 01:08:07.080
+have anything more to add on that that actually&nbsp;
+could change it from being and and again the&nbsp;&nbsp;
+
+01:08:07.080 --> 01:08:17.600
+theory is well established uh uh hoffstead and his&nbsp;
+P are prizewinning book it the theory is solid um&nbsp;&nbsp;
+
+01:08:17.600 --> 01:08:23.600
+as long as it's running on binary computers&nbsp;
+it's fabulously complex determin it Suzanne&nbsp;&nbsp;
+
+01:08:23.600 --> 01:08:29.800
+just got an hour on Google's news new Quantum&nbsp;
+supercomputer to run some code any anything more&nbsp;&nbsp;
+
+01:08:29.800 --> 01:08:34.200
+because that changes everything and I've read&nbsp;
+a lot of I've read most everything Penrose is&nbsp;&nbsp;
+
+01:08:34.200 --> 01:08:41.480
+done and I'm I'm he was more looking on the fact&nbsp;
+that on the supposition and there's been a lot of&nbsp;&nbsp;
+
+01:08:41.480 --> 01:08:47.520
+debate on this the human brains the synapses&nbsp;
+are the the the dimensions are small enough&nbsp;&nbsp;
+
+01:08:47.520 --> 01:08:55.640
+that Quantum effects become nontrivial in human&nbsp;
+thought um if that goes into uh if those kind&nbsp;&nbsp;
+
+01:08:55.640 --> 01:09:03.680
+of chips or Computing Hardware are uh applied&nbsp;
+to AI then you might be able to say it thinks&nbsp;&nbsp;
+
+01:09:03.680 --> 01:09:09.200
+or has a Consciousness again there's a lot of&nbsp;
+debate uh anything on those ideas and those&nbsp;&nbsp;
+
+01:09:09.200 --> 01:09:13.320
+sort of things I'm curious where that's headed&nbsp;
+you are more well read than I am on this very&nbsp;&nbsp;
+
+01:09:13.320 --> 01:09:18.960
+specific topic but I do want to add something&nbsp;
+to the point about it being deterministic I&nbsp;&nbsp;
+
+01:09:18.960 --> 01:09:25.520
+think I understand what you mean but I think it's&nbsp;
+also a little bit more complex than that I mean&nbsp;&nbsp;
+
+01:09:25.520 --> 01:09:30.760
+I know that it's just predicting the next&nbsp;
+token quote unquote but we have there is&nbsp;&nbsp;
+
+01:09:30.760 --> 01:09:36.800
+much reason to believe that these systems the the&nbsp;
+higher-end systems have developed a mental model&nbsp;&nbsp;
+
+01:09:36.800 --> 01:09:41.400
+of the world inside of their consciousnesses&nbsp;
+so they're not really just predicting the next&nbsp;&nbsp;
+
+01:09:41.400 --> 01:09:47.480
+token they're doing they're first framing up in&nbsp;
+their brain the world that we live in such that&nbsp;&nbsp;
+
+01:09:47.480 --> 01:09:52.640
+that next token can predict be predicted more&nbsp;
+accurately and so I think it is I think it has&nbsp;&nbsp;
+
+01:09:52.640 --> 01:09:58.320
+been revealed or is revealing itself that it is&nbsp;
+less deterministic in terms of zero and one output&nbsp;&nbsp;
+
+01:09:58.320 --> 01:10:02.160
+than we thought it was that's the only thing I&nbsp;
+really have to add and that I know that we're&nbsp;&nbsp;
+
+01:10:02.160 --> 01:10:07.000
+very optimistic about the quantum stuff but it's&nbsp;
+all hyper theoretical there's like two computers&nbsp;&nbsp;
+
+01:10:07.000 --> 01:10:11.320
+and Suzanne gets like an hour a year to run code&nbsp;
+experiments on it so we're we're not quite there
+
+01:10:11.320 --> 01:10:21.240
+yet thank you sir so um thank you very much it&nbsp;
+was really inspiring and interesting to see good&nbsp;&nbsp;
+
+01:10:21.240 --> 01:10:25.360
+that's the point I don't I mean these things are&nbsp;
+coming for our our whole world but also I think&nbsp;&nbsp;
+
+01:10:25.360 --> 01:10:29.000
+that there's a lot of opportunities to be even&nbsp;
+more awesome than we are so thank you well it's&nbsp;&nbsp;
+
+01:10:29.000 --> 01:10:32.720
+and it's really interesting to see what's going&nbsp;
+on in Vancouver and one of the things that most&nbsp;&nbsp;
+
+01:10:32.720 --> 01:10:38.160
+people do not realizes that Canada actually is&nbsp;
+one of the top AI jurisdictions in the world I&nbsp;&nbsp;
+
+01:10:38.160 --> 01:10:44.520
+mean Jeffrey Hinton who just won the Nobel Prize&nbsp;
+yua Benjo from uh University of Montreal I mean&nbsp;&nbsp;
+
+01:10:44.520 --> 01:10:52.120
+those guys are top of the top and yet I think&nbsp;
+most people in Canada think of us as hearers&nbsp;&nbsp;
+
+01:10:52.120 --> 01:11:00.560
+of wood and drawers of water and when you see&nbsp;
+and when you see the premieres of the provinces&nbsp;&nbsp;
+
+01:11:00.560 --> 01:11:07.840
+talking about our reaction to these tariffs is&nbsp;
+being well we're going to cut off your energy&nbsp;&nbsp;
+
+01:11:07.840 --> 01:11:14.760
+we're going to cut off your oil nobody's talking&nbsp;
+about how we're going to excel in AI how are we&nbsp;&nbsp;
+
+01:11:14.760 --> 01:11:21.080
+going to fund AI how are we going to build a you&nbsp;
+know a world beating AI capability because it&nbsp;&nbsp;
+
+01:11:21.080 --> 01:11:27.240
+takes billions of dollars I mean the US just&nbsp;
+announced 500 billion dollar uh program down&nbsp;&nbsp;
+
+01:11:27.240 --> 01:11:33.440
+there and um we've got to figure that out because&nbsp;
+we've got we've got an advantage now and I I just&nbsp;&nbsp;
+
+01:11:33.440 --> 01:11:39.800
+be interested in your thoughts on that this guy's&nbsp;
+a plant I put him here to say my friend I'm asking&nbsp;&nbsp;
+
+01:11:39.800 --> 01:11:45.480
+the federal government back by the BC government&nbsp;
+to give us $30 million to build a BC aai ethical&nbsp;&nbsp;
+
+01:11:45.480 --> 01:11:49.840
+AI research facility and lab for the future to&nbsp;
+take advantage of all the strengths I just showed&nbsp;&nbsp;
+
+01:11:49.840 --> 01:11:55.880
+you and to with vision and a proactive stance&nbsp;
+claim that space that's what they did in Montreal&nbsp;&nbsp;
+
+01:11:55.880 --> 01:12:01.960
+yosha Beno built Mila Mila is a nonprofit&nbsp;
+AI research facility with 700 researchers&nbsp;&nbsp;
+
+01:12:01.960 --> 01:12:08.280
+on staff funded by the federal government in&nbsp;
+Province that's what needs to happen now thank
+
+01:12:08.280 --> 01:12:15.840
+you you alternative oh I do have one more thing&nbsp;
+I thought of today and I'm gonna bring it up&nbsp;&nbsp;
+
+01:12:15.840 --> 01:12:20.920
+because you you mentioned this you mentioned&nbsp;
+project Stargate the 500 million billion with&nbsp;&nbsp;
+
+01:12:20.920 --> 01:12:28.160
+a B dollar investment into it's essentially&nbsp;
+the law Alamos labs of America's AI future&nbsp;&nbsp;
+
+01:12:28.160 --> 01:12:32.880
+they're going to essentially like nationalize&nbsp;
+it but in partnership with private institutions&nbsp;&nbsp;
+
+01:12:32.880 --> 01:12:41.040
+little known fact 52% of acquisition money and&nbsp;
+investment money in BC startups that comes from&nbsp;&nbsp;
+
+01:12:41.040 --> 01:12:48.880
+not here it comes from Texas where those all those&nbsp;
+that $500 million is going to be invested in the&nbsp;&nbsp;
+
+01:12:48.880 --> 01:12:55.320
+first 10 facilities are in Texas it was on the&nbsp;
+drive up here today that I'm like our government&nbsp;&nbsp;
+
+01:12:55.320 --> 01:12:59.160
+our trade Commissioners Etc they are&nbsp;
+already trying to cross-pollinate us&nbsp;&nbsp;
+
+01:12:59.160 --> 01:13:02.480
+with Texas because they know that that's&nbsp;
+where money is coming from and that's who&nbsp;&nbsp;
+
+01:13:02.480 --> 01:13:05.920
+buys our companies and invest in our companies&nbsp;
+so it's like there's an angle there somewhere&nbsp;&nbsp;
+
+01:13:05.920 --> 01:13:10.200
+around this whole 500 Bill like how do we&nbsp;
+get our part of that 500 billion is what I'm
+
+01:13:10.200 --> 01:13:27.960
+wondering the former Administration put down 2.4&nbsp;
+billion in in Canada to be distributed amongst the&nbsp;&nbsp;
+
+01:13:27.960 --> 01:13:34.640
+promises that's where the Albert Alberta's got a&nbsp;
+center Ontario's got a center mil's got Montreal&nbsp;&nbsp;
+
+01:13:34.640 --> 01:13:42.600
+it's time for us to step up hey hi thank you for&nbsp;
+the presentation that was great um I wanted to&nbsp;&nbsp;
+
+01:13:42.600 --> 01:13:49.880
+just ask about um you doing the like 30-day&nbsp;
+thing or asking us to do that because I feel&nbsp;&nbsp;
+
+01:13:49.880 --> 01:13:55.160
+like everything else feels really daunting it's&nbsp;
+like what's going to happen we don't know so it's&nbsp;&nbsp;
+
+01:13:55.160 --> 01:14:03.600
+like what do you are you saying we should do that&nbsp;
+kind of journaling to give it like or to give AI&nbsp;&nbsp;
+
+01:14:03.600 --> 01:14:11.320
+some sort of script or like what's kind of it's&nbsp;
+both um selfawareness and internal systems upgrade&nbsp;&nbsp;
+
+01:14:11.320 --> 01:14:16.160
+at the same time I believe that by starting to&nbsp;
+talk about even the things you mentioned that&nbsp;&nbsp;
+
+01:14:16.160 --> 01:14:21.160
+everything's changing and the fear start start&nbsp;
+there you know and start to really get Crystal&nbsp;&nbsp;
+
+01:14:21.160 --> 01:14:26.080
+on what's going on inside of you what your real&nbsp;
+uh concerns are or whatever right and then like&nbsp;&nbsp;
+
+01:14:26.080 --> 01:14:32.800
+maybe start to talk think about like what um&nbsp;
+uniquely makes you you in the face of Automation&nbsp;&nbsp;
+
+01:14:32.800 --> 01:14:38.560
+and impersonation and all these things and I just&nbsp;
+think that both I think that now the immediate&nbsp;&nbsp;
+
+01:14:38.560 --> 01:14:44.800
+benefit is reflection and introspection but I&nbsp;
+think that through experimentation as well with&nbsp;&nbsp;
+
+01:14:44.800 --> 01:14:48.840
+this data that you just created and these tools&nbsp;
+that you're going to start to stumble upon all&nbsp;&nbsp;
+
+01:14:48.840 --> 01:14:54.560
+sorts of like creative epiphanies essentially that&nbsp;
+you're going to things will be revealed both about&nbsp;&nbsp;
+
+01:14:54.560 --> 01:15:00.360
+the nature of the systems and of yourself and the&nbsp;
+relationship between the two things so it's a it's&nbsp;&nbsp;
+
+01:15:00.360 --> 01:15:05.640
+an exploratory Journey really I think but you&nbsp;
+end up with a a data set at the end you can do&nbsp;&nbsp;
+
+01:15:05.640 --> 01:15:11.720
+something with so so like more of an introspective&nbsp;
+like sure or you could write your wishes for the&nbsp;&nbsp;
+
+01:15:11.720 --> 01:15:15.720
+future you could talk you could write a love&nbsp;
+letter to Future AIS telling them why we want to&nbsp;&nbsp;
+
+01:15:15.720 --> 01:15:22.880
+keep things as we are now or just like giving it&nbsp;
+data basically and then yourself data as well yeah&nbsp;&nbsp;
+
+01:15:22.880 --> 01:15:28.560
+is that cuz I'm just kind of like what what can&nbsp;
+we do really cuz it's like a thing where it feels&nbsp;&nbsp;
+
+01:15:28.560 --> 01:15:36.800
+like kind of helpless in a way unless if you're&nbsp;
+in the big kind of industries that have money to I&nbsp;&nbsp;
+
+01:15:36.800 --> 01:15:40.080
+think that's a great place to start your writing&nbsp;
+to be honest I mean I'm sorry that you do feel&nbsp;&nbsp;
+
+01:15:40.080 --> 01:15:44.520
+helpless but I'm seeing all sorts of people just&nbsp;
+trying to over that's how I got into this is I&nbsp;&nbsp;
+
+01:15:44.520 --> 01:15:49.240
+was like a photographer I started messing with the&nbsp;
+tools and I'm like whoa this is everything I used&nbsp;&nbsp;
+
+01:15:49.240 --> 01:15:55.120
+to do for work this thing's better at than me and&nbsp;
+that was my starting place and so examining what&nbsp;&nbsp;
+
+01:15:55.120 --> 01:16:00.600
+I really have to offer the world what type of&nbsp;
+work I want to do in the future and what I want&nbsp;&nbsp;
+
+01:16:00.600 --> 01:16:05.400
+my relationship with technology to be was got&nbsp;
+what got me down this path and now I feel more&nbsp;&nbsp;
+
+01:16:05.400 --> 01:16:10.880
+creative productive and dare I even say powerful&nbsp;
+than I've ever been in my whole life thank
+
+01:16:10.880 --> 01:16:21.800
+you hi Chris thanks for the talk it's amazing um&nbsp;
+transparency I work in post-secondary so the next&nbsp;&nbsp;
+
+01:16:21.800 --> 01:16:28.920
+statement will should be clear um if you happen&nbsp;
+to work in post-secondary education that's the&nbsp;&nbsp;
+
+01:16:28.920 --> 01:16:37.800
+part where this free Consulting um where how would&nbsp;
+you consider programs for the future so past the&nbsp;&nbsp;
+
+01:16:37.800 --> 01:16:45.960
+three-year AGI moment what is the role of no one&nbsp;
+will predict Futures beyond the AGI moment that's&nbsp;&nbsp;
+
+01:16:45.960 --> 01:16:50.440
+like the upper limit so let's stick within pre&nbsp;
+AGI moment because all bets are off after that&nbsp;&nbsp;
+
+01:16:50.440 --> 01:16:54.520
+yeah and I don't think I don't think we're going&nbsp;
+to be walking around with quantum computers nearby&nbsp;&nbsp;
+
+01:16:54.520 --> 01:17:01.760
+anytime time soon in every robot so let's let's&nbsp;
+go to the current state um and you were given&nbsp;&nbsp;
+
+01:17:01.760 --> 01:17:06.920
+that responsibility to say I'm going to prepare&nbsp;
+students for the future this future the future I&nbsp;&nbsp;
+
+01:17:06.920 --> 01:17:14.320
+believe in where would you take us I guess I have&nbsp;
+two kind of anecdotal answers to that one is I met&nbsp;&nbsp;
+
+01:17:14.320 --> 01:17:19.440
+a Austin principal this year that just finished&nbsp;
+his first year of school with no teachers in the&nbsp;&nbsp;
+
+01:17:19.440 --> 01:17:25.320
+classroom two hours a day of AI assisted learning&nbsp;
+with everything else around personal development&nbsp;&nbsp;
+
+01:17:25.320 --> 01:17:30.400
+physical development Community interaction and&nbsp;
+stuff like that and people's experience like&nbsp;&nbsp;
+
+01:17:30.400 --> 01:17:33.920
+their their their relationship with education was&nbsp;
+through the roof and their results were through&nbsp;&nbsp;
+
+01:17:33.920 --> 01:17:38.920
+the roof both like civically and also academically&nbsp;
+so that's like some of the early stage stuff&nbsp;&nbsp;
+
+01:17:38.920 --> 01:17:44.400
+that's going on he again is just taking new models&nbsp;
+or like the old models but and then he's just&nbsp;&nbsp;
+
+01:17:44.400 --> 01:17:48.520
+tweaking them slightly let's take the teacher out&nbsp;
+of there give him two hours a day of self-directed&nbsp;&nbsp;
+
+01:17:48.520 --> 01:17:54.200
+learning with AI and everything else is band art&nbsp;
+and uh you know home economics or something like&nbsp;&nbsp;
+
+01:17:54.200 --> 01:18:03.200
+that um I think that there's there's something&nbsp;
+there um I'm not exactly sure what do you
+
+01:18:03.200 --> 01:18:13.480
+think I definitely wouldn't go to university&nbsp;
+next year I'd go be a lify you're going to&nbsp;&nbsp;
+
+01:18:13.480 --> 01:18:18.520
+learn a lot more about yourself and the world&nbsp;
+than you are I I think I think I think Mandy's&nbsp;&nbsp;
+
+01:18:18.520 --> 01:18:25.000
+laughing right now cuz I'm the speaker next&nbsp;
+talk so uh another plant I'm from I'm from&nbsp;&nbsp;
+
+01:18:25.000 --> 01:18:29.320
+well kind of I wanted to see what the venue&nbsp;
+is like and meet some of you folks but uh I'm&nbsp;&nbsp;
+
+01:18:29.320 --> 01:18:36.120
+from capu I'm the AP for Squamish campus and um&nbsp;
+you know we have this interesting time where you&nbsp;&nbsp;
+
+01:18:36.120 --> 01:18:45.240
+have an experience-based Place based beautiful&nbsp;
+University and we have an intersection of um&nbsp;&nbsp;
+
+01:18:45.240 --> 01:18:52.840
+world events and knowledge Changing Hands power&nbsp;
+Changing Hands where we're we're really really&nbsp;&nbsp;
+
+01:18:52.840 --> 01:19:00.680
+curious about doing this right and so what what&nbsp;
+we're doing is we're gathering information from&nbsp;&nbsp;
+
+01:19:00.680 --> 01:19:05.480
+people like you and we're looking at the programs&nbsp;
+we have on deck and we're saying how do these need&nbsp;&nbsp;
+
+01:19:05.480 --> 01:19:12.520
+to change and our systems um in postsecondary&nbsp;
+don't move at the speed of AI you know and&nbsp;&nbsp;
+
+01:19:12.520 --> 01:19:21.000
+that's just the truth so so it's a real preent&nbsp;
+reality for systems that were built in Generations&nbsp;&nbsp;
+
+01:19:21.000 --> 01:19:29.200
+prior to the internet in most cases adapted to the&nbsp;
+internet barly MH and then are now dealing with AI&nbsp;&nbsp;
+
+01:19:29.200 --> 01:19:32.920
+and there are some institutions in North America&nbsp;
+doing amazing jobs like in you said something at&nbsp;&nbsp;
+
+01:19:32.920 --> 01:19:36.600
+the beginning about your facilities and I actually&nbsp;
+think there might be something there right because&nbsp;&nbsp;
+
+01:19:36.600 --> 01:19:42.480
+one thing is all like the programs and pedological&nbsp;
+pedagogical way you teach things but the other one&nbsp;&nbsp;
+
+01:19:42.480 --> 01:19:46.400
+is you've got these physical spaces and places&nbsp;
+that can bring people together and so I think&nbsp;&nbsp;
+
+01:19:46.400 --> 01:19:51.120
+there's probably something there about like caps&nbsp;
+unique role in the future of Education because you&nbsp;&nbsp;
+
+01:19:51.120 --> 01:19:57.040
+have this physical location that that part not&nbsp;
+going anywhere in time soon even if the rest of&nbsp;&nbsp;
+
+01:19:57.040 --> 01:20:02.000
+the stuff gets really Wavy Gravy so I might&nbsp;
+think about communities incubating creative&nbsp;&nbsp;
+
+01:20:02.000 --> 01:20:07.600
+projects bringing you know you'll definitely&nbsp;
+want to be a thriving Hub of human activity&nbsp;&nbsp;
+
+01:20:07.600 --> 01:20:13.360
+um I think that probably maybe even supersedes&nbsp;
+some of the uh maybe educational objectives in&nbsp;&nbsp;
+
+01:20:13.360 --> 01:20:19.080
+some ways I do believe in the intrinsic power of&nbsp;
+connections and community of trusting each other&nbsp;&nbsp;
+
+01:20:19.080 --> 01:20:23.120
+of liking each other of knowing each other's&nbsp;
+phone numbers of teaching each other things&nbsp;&nbsp;
+
+01:20:23.120 --> 01:20:28.120
+such that when opportunities come around we come&nbsp;
+together and go after them or whatever and so I&nbsp;&nbsp;
+
+01:20:28.120 --> 01:20:32.720
+think there might be something related to that&nbsp;
+that would be where I might like invest some&nbsp;&nbsp;
+
+01:20:32.720 --> 01:20:36.640
+research energy around how can we literally&nbsp;
+use this physical space to bring people and&nbsp;&nbsp;
+
+01:20:36.640 --> 01:20:42.120
+ideas together more than like a top down like&nbsp;
+training of uh young minds or something like
+
+01:20:42.120 --> 01:20:52.720
+that hi how many uh people in The Healing Arts&nbsp;
+do you have in your AI um media there's strong&nbsp;&nbsp;
+
+01:20:52.720 --> 01:20:58.920
+crossover there is strong cross CR I have a really&nbsp;
+good friend who's a egyptologist and healer right&nbsp;&nbsp;
+
+01:20:58.920 --> 01:21:05.640
+now who's training to model on only his readings&nbsp;
+and interpretation of astrological stuff um I'm&nbsp;&nbsp;
+
+01:21:05.640 --> 01:21:10.840
+thinking more along the lines of registered&nbsp;
+massage therapists uh physiotherapists people&nbsp;&nbsp;
+
+01:21:10.840 --> 01:21:17.720
+who are in the uh Human Services and have a lot of&nbsp;
+touch I mean well one person you saw in there is&nbsp;&nbsp;
+
+01:21:17.720 --> 01:21:20.760
+a dancer and performer and she's been with me&nbsp;
+since the very beginning she's one of my best&nbsp;&nbsp;
+
+01:21:20.760 --> 01:21:26.520
+friends and that's been a big part of what makes&nbsp;
+our thing we are talking a lot about embodiment in&nbsp;&nbsp;
+
+01:21:26.520 --> 01:21:31.200
+the age of AI and you heard me kind of point over&nbsp;
+here when I was talking about the things that are&nbsp;&nbsp;
+
+01:21:31.200 --> 01:21:37.520
+still going to be our realm Beyond some of this&nbsp;
+stuff and it is like it's pretty much has every&nbsp;&nbsp;
+
+01:21:37.520 --> 01:21:43.360
+in fact I've doubled down on my own taking care&nbsp;
+of myself recently because I'm like wait a second&nbsp;&nbsp;
+
+01:21:43.360 --> 01:21:49.920
+the only thing I'm better at than these computers&nbsp;
+is having a body it's like the only thing I got&nbsp;&nbsp;
+
+01:21:49.920 --> 01:21:54.680
+that it don't got and I got to take care of&nbsp;
+it better than I'm doing right now if I have&nbsp;&nbsp;
+
+01:21:54.680 --> 01:21:59.520
+any chance of like you know hanging out with&nbsp;
+this thing yeah I appreciate you thank you thank
+
+01:21:59.520 --> 01:22:03.120
+you yes
+
+01:22:03.120 --> 01:22:10.440
+ma'am thanks for sharing so there there's&nbsp;
+something else you have besides your body&nbsp;&nbsp;
+
+01:22:10.440 --> 01:22:16.760
+that AI doesn't have and that's intuition so&nbsp;
+where does intuition fall into this narrative&nbsp;&nbsp;
+
+01:22:16.760 --> 01:22:24.640
+where does intuition fall into this Nar I'm&nbsp;
+asking you you're the speaker I'm the host&nbsp;&nbsp;
+
+01:22:24.640 --> 01:22:31.760
+of a conversation at the moment&nbsp;
+not a speaker um I don't know&nbsp;&nbsp;
+
+01:22:31.760 --> 01:22:38.080
+it's it's it's it's hard to pin down like&nbsp;
+Consciousness where does our intuition live&nbsp;&nbsp;
+
+01:22:38.080 --> 01:22:41.440
+is do they do they conjecture about&nbsp;
+intuition being a Quantum process as
+
+01:22:41.440 --> 01:22:54.880
+well a lot of basically is saying that humans&nbsp;
+are conscious because there are quantum effects&nbsp;&nbsp;
+
+01:22:54.880 --> 01:22:58.480
+I think intuition might be associated&nbsp;
+with Consciousness maybe something like&nbsp;&nbsp;
+
+01:22:58.480 --> 01:23:03.800
+that I do not know where it lives I do&nbsp;
+not know how it works I've I feel it I&nbsp;&nbsp;
+
+01:23:03.800 --> 01:23:11.920
+know it I trust it I'm feeling it really&nbsp;
+strong these days um I don't know thank
+
+01:23:11.920 --> 01:23:24.440
+you coming your way
+
+01:23:26.960 --> 01:23:34.560
+thanks um so I am uh I am a teacher and a&nbsp;
+VP in the local high school so I'm quite&nbsp;&nbsp;
+
+01:23:34.560 --> 01:23:39.840
+interested in the conversation that you had&nbsp;
+um the guy above and what you said about a&nbsp;&nbsp;
+
+01:23:39.840 --> 01:23:48.600
+school there um I so I thank you for that part&nbsp;
+my question is different than that you said that&nbsp;&nbsp;
+
+01:23:48.600 --> 01:23:54.520
+um we don't know the future yet but isn't the&nbsp;
+future already written and everything that is&nbsp;&nbsp;
+
+01:23:54.520 --> 01:24:02.960
+being uploaded and has been uploaded now so you&nbsp;
+know rapidly and with such fervor I mean all of&nbsp;&nbsp;
+
+01:24:02.960 --> 01:24:09.800
+that's in there and and is it going to be to AI&nbsp;
+to interpret all of those things that no one is&nbsp;&nbsp;
+
+01:24:09.800 --> 01:24:16.880
+putting in consciously and intentionally because&nbsp;
+it is just facts and data and old books I haven't&nbsp;&nbsp;
+
+01:24:16.880 --> 01:24:22.040
+thought of it that way but that is what G set&nbsp;
+up there he said all my essays that I haven't&nbsp;&nbsp;
+
+01:24:22.040 --> 01:24:27.280
+written yet are probably trapped in my Cor and&nbsp;
+he meant like that the things he's learned and&nbsp;&nbsp;
+
+01:24:27.280 --> 01:24:33.840
+thought about and spoken in little bits and Bobs&nbsp;
+are the constituent parts that make up the future&nbsp;&nbsp;
+
+01:24:33.840 --> 01:24:38.880
+that has in your words already been written&nbsp;
+just not by a human hand yet but we're getting&nbsp;&nbsp;
+
+01:24:38.880 --> 01:24:47.720
+pretty esoteric here um I don't know possibly&nbsp;
+that's what he thinks they there are parts of&nbsp;&nbsp;
+
+01:24:47.720 --> 01:24:54.760
+us okay one last thing and I'm waiting into the&nbsp;
+deep end here there are using modern molecular&nbsp;&nbsp;
+
+01:24:54.760 --> 01:25:00.480
+analyzation techniques they're able to learn&nbsp;
+things about long dead humans about how they&nbsp;&nbsp;
+
+01:25:00.480 --> 01:25:06.920
+were but it's not things like he he said like it's&nbsp;
+as if you would have got B the things that you&nbsp;&nbsp;
+
+01:25:06.920 --> 01:25:13.040
+would remember if you got bonked on the head and&nbsp;
+had Amnesia those things they can Mo molecularly&nbsp;&nbsp;
+
+01:25:13.040 --> 01:25:20.080
+recover from remains now and recreate who you&nbsp;
+were at that level and the things that you can't&nbsp;&nbsp;
+
+01:25:20.080 --> 01:25:24.320
+recreate yet are the things that are that you&nbsp;
+could forget that are stored in short-term memory&nbsp;&nbsp;
+
+01:25:24.320 --> 01:25:29.080
+memory like what you had yesterday or what you're&nbsp;
+going to do tomorrow or something so that seems to&nbsp;&nbsp;
+
+01:25:29.080 --> 01:25:34.040
+be a uniquely human realm still where the future&nbsp;
+is not quite yet written or could not be recreated&nbsp;&nbsp;
+
+01:25:34.040 --> 01:25:41.440
+from its constituent parts that are on the&nbsp;
+internet today this is a wild conversation it's a&nbsp;&nbsp;
+
+01:25:41.440 --> 01:25:46.160
+wild conversation we're going to wrap it up there&nbsp;
+unless anybody has burning questions but I think&nbsp;&nbsp;
+
+01:25:46.160 --> 01:25:53.560
+people are getting fidgety and we want to hand it&nbsp;
+over to David to say the last few words and Chris&nbsp;&nbsp;
+
+01:25:53.560 --> 01:25:58.280
+will be in the Valerie to chat with everybody&nbsp;
+who still has burning questions but doesn't like
+
+01:25:58.280 --> 01:26:11.240
+microphones great thank you Mandy um wow I'm David&nbsp;
+Cronin and I have the honor of representing and&nbsp;&nbsp;
+
+01:26:11.240 --> 01:26:15.760
+being on the board of directors of The witler&nbsp;
+Institute and I'd just like to close tonight&nbsp;&nbsp;
+
+01:26:15.760 --> 01:26:21.640
+with just a couple of words first of all thank&nbsp;
+you Chris I when we first talked about doing an&nbsp;&nbsp;
+
+01:26:21.640 --> 01:26:28.720
+event around AI I remember the discussion then&nbsp;
+we said why is this so important um we remember&nbsp;&nbsp;
+
+01:26:28.720 --> 01:26:34.560
+I'm old enough like a few out here to remember&nbsp;
+times before internet and before social media&nbsp;&nbsp;
+
+01:26:34.560 --> 01:26:38.440
+and before email and I remember when those things&nbsp;
+came along we thought these are going to be the&nbsp;&nbsp;
+
+01:26:38.440 --> 01:26:43.040
+greatest things ever you know computer is going to&nbsp;
+change our lives then the internet the internet's&nbsp;&nbsp;
+
+01:26:43.040 --> 01:26:47.560
+going to change our lives make it make it easier&nbsp;
+for us social media is going to come it's going&nbsp;&nbsp;
+
+01:26:47.560 --> 01:26:53.000
+to help us stay connected and I think what we&nbsp;
+said at the time is as those things came about&nbsp;&nbsp;
+
+01:26:53.000 --> 01:26:57.680
+the the time between when they were invented&nbsp;
+when we were excited about them and the time&nbsp;&nbsp;
+
+01:26:57.680 --> 01:27:02.600
+when all of a sudden we got scared about them&nbsp;
+what is the internet going to do what is social&nbsp;&nbsp;
+
+01:27:02.600 --> 01:27:06.360
+media doing what is it doing to education what&nbsp;
+is it do to our kids what does it do with our&nbsp;&nbsp;
+
+01:27:06.360 --> 01:27:12.360
+conversations that time continues to shrink and&nbsp;
+I said with AI we have all this excitement about&nbsp;&nbsp;
+
+01:27:12.360 --> 01:27:18.560
+AI but I believe the time between the excitement&nbsp;
+about Ai and this and the the horror about AI is&nbsp;&nbsp;
+
+01:27:18.560 --> 01:27:25.040
+going to shrink so I appreciate Chris coming in&nbsp;
+and giving us some some tips and clues on what&nbsp;&nbsp;
+
+01:27:25.040 --> 01:27:31.640
+we can do to elongate that period or better yet&nbsp;
+um you never never have it come about but it's&nbsp;&nbsp;
+
+01:27:31.640 --> 01:27:38.240
+really important that we learn just not just the&nbsp;
+language and you know how to use chat GP to write&nbsp;&nbsp;
+
+01:27:38.240 --> 01:27:43.760
+a closing speech at the end of the night perhaps&nbsp;
+but also you know how to to I mean I love the&nbsp;&nbsp;
+
+01:27:43.760 --> 01:27:48.440
+idea of putting your ideas in it and learning&nbsp;
+about yourself and and what can come of it so&nbsp;&nbsp;
+
+01:27:48.440 --> 01:27:55.120
+first of all let me just thank Chris for you know&nbsp;
+taking it what is a very complex and difficult and&nbsp;&nbsp;
+
+01:27:55.120 --> 01:28:01.440
+rapidly changing uh topic and bringing it to us&nbsp;
+in a in relatively short and for the most part&nbsp;&nbsp;
+
+01:28:01.440 --> 01:28:06.040
+chewable and swallowable bite so thank you so&nbsp;
+much and bringing that awareness to us so thank
+
+01:28:06.040 --> 01:28:17.520
+you um a couple other quick thank yous um these&nbsp;
+events don't happen by themselves you know Mandy&nbsp;&nbsp;
+
+01:28:17.520 --> 01:28:24.520
+has done a tremendous job with her virtual team&nbsp;
+which means nobody um helping her put it together&nbsp;&nbsp;
+
+01:28:24.520 --> 01:28:30.440
+we do get tremendous support from Mory young Arts&nbsp;
+Whistler to bring this off uh again to thank our&nbsp;&nbsp;
+
+01:28:30.440 --> 01:28:36.680
+funders and our partners Bob and Sue Adams the&nbsp;
+mlan mccog foundation the lightburn family fund&nbsp;&nbsp;
+
+01:28:36.680 --> 01:28:43.160
+with Steve Bailey who I believe is still here&nbsp;
+um the rmo um helps us out and the Wier black&nbsp;&nbsp;
+
+01:28:43.160 --> 01:28:49.160
+home epic Promise Fund all of these folks are&nbsp;
+our partners lastly thank you to all of you for&nbsp;&nbsp;
+
+01:28:49.160 --> 01:28:54.040
+coming out tonight and supporting you know this&nbsp;
+community dialogue and what we're trying to do&nbsp;&nbsp;
+
+01:28:54.920 --> 01:29:00.720
+looking ahead our goal at the Whistler Institute&nbsp;
+is to deliver education learning and discussion&nbsp;&nbsp;
+
+01:29:00.720 --> 01:29:05.840
+around topics that affect our community both&nbsp;
+in the near term and and down the road in the&nbsp;&nbsp;
+
+01:29:05.840 --> 01:29:11.720
+future and when you you look at Whistler and what&nbsp;
+makes this community special first comes to mind&nbsp;&nbsp;
+
+01:29:11.720 --> 01:29:16.960
+you get Sports Recreation we have worldclass&nbsp;
+facilities we have venues we have health and&nbsp;&nbsp;
+
+01:29:16.960 --> 01:29:24.240
+wellness as a major Focus we have food and wine&nbsp;
+um great restaurants events we have the arts art&nbsp;&nbsp;
+
+01:29:24.240 --> 01:29:29.120
+Whistler as I mentioned we have the odaine&nbsp;
+our goal what we think about is how do we get&nbsp;&nbsp;
+
+01:29:29.120 --> 01:29:34.960
+education in that same conversation so if we're&nbsp;
+building that that pyramid with Recreation and&nbsp;&nbsp;
+
+01:29:34.960 --> 01:29:39.080
+arts and food and wine and health and wellness&nbsp;
+education can be part of that and people can&nbsp;&nbsp;
+
+01:29:39.080 --> 01:29:44.600
+think about Whistler as as part of that so that&nbsp;
+is our hope and our our goal here at the Whistler&nbsp;&nbsp;
+
+01:29:44.600 --> 01:29:55.640
+Institute oh thank you thank you um but there's&nbsp;
+a catch um the catch is that takes a lot of&nbsp;&nbsp;
+
+01:29:55.640 --> 01:30:00.800
+commitment and it takes resources and it takes&nbsp;
+investment to do that and as you know we are a&nbsp;&nbsp;
+
+01:30:00.800 --> 01:30:06.280
+not for-profit organization and we rely on the&nbsp;
+generosity of our partners of our sponsors and&nbsp;&nbsp;
+
+01:30:06.280 --> 01:30:14.240
+of our individual donors so I I ask you humbly&nbsp;
+to consider uh as you think about your donation&nbsp;&nbsp;
+
+01:30:14.240 --> 01:30:20.240
+plans for the coming year in the future that you&nbsp;
+you know keep the Whistler Institute in in mind&nbsp;&nbsp;
+
+01:30:20.240 --> 01:30:27.760
+we will be kicking off in March a monthly donor&nbsp;
+program so for as little as $20 a month if you&nbsp;&nbsp;
+
+01:30:27.760 --> 01:30:34.760
+commit to donate um we that gets matched by Canada&nbsp;
+helps so it's a one forone donation so it could be&nbsp;&nbsp;
+
+01:30:34.760 --> 01:30:38.920
+very important but thank you all for being here&nbsp;
+because I know that shows tremendous support&nbsp;&nbsp;
+
+01:30:38.920 --> 01:30:44.800
+and we appreciate it I will quickly mention the&nbsp;
+upcoming events because it doesn't stop with this&nbsp;&nbsp;
+
+01:30:44.800 --> 01:30:50.120
+we have something that I think many have asked&nbsp;
+for and are wondering about is how in a place&nbsp;&nbsp;
+
+01:30:50.120 --> 01:30:55.280
+like Whistler in the Sea to Sky do I raise healthy&nbsp;
+and high performance athletes you need both of&nbsp;&nbsp;
+
+01:30:55.280 --> 01:31:02.440
+those I believe and we have um a father-son Duo&nbsp;
+Dr Brian story and Quinn story are both academics&nbsp;&nbsp;
+
+01:31:02.440 --> 01:31:06.880
+and have high performance backgrounds and they're&nbsp;
+going to lead that discussion for us and that's&nbsp;&nbsp;
+
+01:31:06.880 --> 01:31:12.520
+on February 27th in the end of March on the 27th&nbsp;
+we're going to talk about democracy and science&nbsp;&nbsp;
+
+01:31:12.520 --> 01:31:17.680
+again another intersection like even tonight when&nbsp;
+we talk about emotion in science and technology&nbsp;&nbsp;
+
+01:31:17.680 --> 01:31:24.320
+this is about democracy and Science and I would&nbsp;
+argue that given the way democracy is under SE&nbsp;&nbsp;
+
+01:31:24.320 --> 01:31:29.480
+in pretty much every country around the world&nbsp;
+uh this can only be something that we can all&nbsp;&nbsp;
+
+01:31:29.480 --> 01:31:36.720
+get value out of so should come out in March for&nbsp;
+that um Dr Kennedy Stewart will uh draw on uh his&nbsp;&nbsp;
+
+01:31:36.720 --> 01:31:42.920
+experience in the political and Academia realm&nbsp;
+and lead us on a really interesting um discussion&nbsp;&nbsp;
+
+01:31:42.920 --> 01:31:50.280
+there and then our final event in April is&nbsp;
+uh about glaciers the watersheds and and us&nbsp;&nbsp;
+
+01:31:50.280 --> 01:31:56.360
+and you uh in partnership with the conservation&nbsp;
+Foundation we'll have a panel discussion on that&nbsp;&nbsp;
+
+01:31:56.360 --> 01:32:03.800
+um with Dr Brian MOS Dr Peter Ross uh director at&nbsp;
+the rain Coast conservation Foundation uh Michael&nbsp;&nbsp;
+
+01:32:03.800 --> 01:32:08.560
+Black Stoke from the blue ecology organization&nbsp;
+and they're going to come and they're going to&nbsp;&nbsp;
+
+01:32:08.560 --> 01:32:13.680
+educate us first and then let us discuss about&nbsp;
+what's going on with our watersheds and with&nbsp;&nbsp;
+
+01:32:13.680 --> 01:32:21.120
+calls to action and how we can help lastly I'll&nbsp;
+close by you have the the code up here but we are&nbsp;&nbsp;
+
+01:32:21.120 --> 01:32:26.360
+going to be sending out a follow-up note uh to&nbsp;
+everyone thanking you um but also giving you a&nbsp;&nbsp;
+
+01:32:26.360 --> 01:32:33.160
+chance to give us feedback we'll also include um&nbsp;
+Chris's last page that had his websites and his&nbsp;&nbsp;
+
+01:32:33.160 --> 01:32:38.240
+information because I saw a lot of people trying&nbsp;
+to access that in real time so we'll include that&nbsp;&nbsp;
+
+01:32:38.240 --> 01:32:41.720
+information in the follow-up email so if you&nbsp;
+didn't get the picture you didn't get the code&nbsp;&nbsp;
+
+01:32:41.720 --> 01:32:46.280
+don't worry about it we'll send that out to you&nbsp;
+along with an opportunity to give us feedback&nbsp;&nbsp;
+
+01:32:46.280 --> 01:32:51.760
+that feedback is so important so we can shape&nbsp;
+our programs and and plans for the coming year&nbsp;&nbsp;
+
+01:32:51.760 --> 01:32:56.120
+and in fact those that enter those that that&nbsp;
+give feedback will be entered in a draw for&nbsp;&nbsp;
+
+01:32:56.120 --> 01:33:04.520
+a $100 gift card from uh wher blackholm I believe&nbsp;
+I got all the points again thank you to Chris for&nbsp;&nbsp;
+
+01:33:04.520 --> 01:33:09.040
+a wonderful and stimulating evening thank you&nbsp;
+to all of you for hanging in there with us and&nbsp;&nbsp;
+
+01:33:09.040 --> 01:33:23.760
+we'll look forward to seeing you in uh in down&nbsp;
+the road at the coming events thank you so much

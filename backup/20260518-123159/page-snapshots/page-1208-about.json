@@ -1,0 +1,189 @@
+{
+  "id": 1208,
+  "date": "2007-04-10T11:33:23",
+  "date_gmt": "2007-04-10T19:33:23",
+  "guid": {
+    "rendered": "http://kriskrug.co/?page_id=1208",
+    "raw": "http://kriskrug.co/?page_id=1208"
+  },
+  "modified": "2026-05-18T10:35:13",
+  "modified_gmt": "2026-05-18T18:35:13",
+  "password": "",
+  "slug": "about",
+  "status": "publish",
+  "type": "page",
+  "link": "https://kriskrug.co/about/",
+  "title": {
+    "raw": "About Kris Krüg",
+    "rendered": "About Kris Krüg"
+  },
+  "content": {
+    "raw": "<!-- wp:html -->\n<style>\n.kk-overhaul { --kk-ink:#171717; --kk-muted:#57534e; --kk-line:#d8d4cc; --kk-paper:#fffaf0; --kk-card:#ffffff; --kk-accent:#0f766e; --kk-hot:#b91c1c; color:var(--kk-ink); }\n.kk-overhaul a { font-weight:700; }\n.kk-hero { padding:2rem 0 1.25rem; border-bottom:1px solid var(--kk-line); }\n.kk-kicker { margin:0 0 .5rem; text-transform:uppercase; letter-spacing:.08em; font-size:.78rem; color:var(--kk-hot); font-weight:800; }\n.kk-lead { font-size:1.2rem; line-height:1.65; max-width:54rem; }\n.kk-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin:1.25rem 0; }\n.kk-button { display:inline-block; padding:.72rem 1rem; border:2px solid var(--kk-ink); border-radius:4px; text-decoration:none; background:var(--kk-ink); color:#fff !important; }\n.kk-button.secondary { background:#fff; color:var(--kk-ink) !important; }\n.kk-section { padding:2rem 0; border-bottom:1px solid var(--kk-line); }\n.kk-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1rem; }\n.kk-card { border:1px solid var(--kk-line); border-radius:6px; background:var(--kk-card); overflow:hidden; }\n.kk-card img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; }\n.kk-card-body { padding:1rem; }\n.kk-card h3 { margin-top:0; margin-bottom:.4rem; font-size:1.15rem; }\n.kk-card p { margin:.45rem 0; color:var(--kk-muted); }\n.kk-callout { background:var(--kk-paper); border:1px solid var(--kk-line); border-radius:6px; padding:1rem; }\n.kk-two { display:grid; grid-template-columns:minmax(0,1fr) minmax(260px,.8fr); gap:1.25rem; align-items:start; }\n.kk-list { columns:2 16rem; padding-left:1.2rem; }\n@media (max-width:700px){ .kk-two{grid-template-columns:1fr;} .kk-actions{display:block;} .kk-actions a{margin:.35rem 0;} }\n</style>\n\n<div class=\"kk-overhaul\">\n  <section class=\"kk-hero\">\n    <p class=\"kk-kicker\">About Kris Krüg</p>\n    <h1>Techartist, quasi-sage, cyberpunk anti-hero from the future.</h1>\n    <p class=\"kk-lead\">My name is Kris Krüg. I am an AI keynote speaker, creative technologist, photographer, community builder, and culture hacker working at the messy edge where technology, creativity, ethics, and human weirdness collide.</p>\n    <p class=\"kk-lead\">The mission has not changed: humanize technology, fight apathy, democratize creative tools, and build communities with enough courage and imagination to shape what comes next.</p>\n    <div class=\"kk-actions\">\n      <a class=\"kk-button\" href=\"/speaking/\">Book me to speak</a>\n      <a class=\"kk-button secondary\" href=\"/recent-projects-include/\">See current work</a>\n    </div>\n  </section>\n\n  <section class=\"kk-section\">\n    <div class=\"kk-two\">\n      <div>\n        <h2>What I am building now</h2>\n        <p>These days my work orbits AI, community infrastructure, and creative practice. I help people make sense of machine intelligence without surrendering taste, culture, relationships, or responsibility.</p>\n        <p>I lead and support AI ecosystem work in British Columbia, give keynotes and workshops for creative and leadership audiences, build standalone learning portals around major talks, and help teams turn AI from vague pressure into useful practice.</p>\n      </div>\n      <img src=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=1200&amp;ssl=1\" alt=\"Portrait of Kris Krug\" loading=\"lazy\" />\n    </div>\n  </section>\n\n  <section class=\"kk-section\">\n    <h2>Start with the live projects</h2>\n    <div class=\"kk-grid\">\n      <article class=\"kk-card\">\n        <img src=\"https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&amp;ssl=1\" alt=\"BC plus AI ecosystem graphic\" loading=\"lazy\" />\n        <div class=\"kk-card-body\">\n          <h3><a href=\"https://bc-ai.ca/\">BC + AI Ecosystem</a></h3>\n          <p>Community and industry infrastructure for a responsible and inclusive AI future in British Columbia.</p>\n        </div>\n      </article>\n      <article class=\"kk-card\">\n        <img src=\"https://www.bothhandsfull.com/opengraph-image?46af5f0ff830fe03\" alt=\"Both Hands Full keynote graphic\" loading=\"lazy\" />\n        <div class=\"kk-card-body\">\n          <h3><a href=\"https://www.bothhandsfull.com/\">Both Hands Full</a></h3>\n          <p>A keynote portal about keeping our souls intact while the machines get very good at making everything.</p>\n        </div>\n      </article>\n      <article class=\"kk-card\">\n        <img src=\"https://i0.wp.com/www.punkrockai.com/public/photos/michelle-diamond/195.webp?w=1200&amp;ssl=1\" alt=\"Kris Krug speaking at CreativeMornings Vancouver\" loading=\"lazy\" />\n        <div class=\"kk-card-body\">\n          <h3><a href=\"https://www.punkrockai.com/\">Punk Rock AI</a></h3>\n          <p>Creative rebellion, human agency, and making culture with the tools without flattening ourselves into content machines.</p>\n        </div>\n      </article>\n      <article class=\"kk-card\">\n        <img src=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/04/AI-Immortality-w-Guy-Kawasaki.png?fit=1200%2C604&amp;ssl=1\" alt=\"Developing an AI Mindset graphic\" loading=\"lazy\" />\n        <div class=\"kk-card-body\">\n          <h3><a href=\"http://developinganaimindset.com/\">Developing an AI Mindset</a></h3>\n          <p>A practical starting point for teams and organizations learning to work with AI.</p>\n        </div>\n      </article>\n    </div>\n  </section>\n\n  <section class=\"kk-section\">\n    <h2>The throughline</h2>\n    <div class=\"kk-grid\">\n      <div class=\"kk-callout\">\n        <h3>Humanize technology</h3>\n        <p>Technology should resonate with the heartbeat of human experience, not bulldoze it. The point is not novelty. The point is agency, empathy, ethics, and imagination.</p>\n      </div>\n      <div class=\"kk-callout\">\n        <h3>Fight apathy</h3>\n        <p>I would rather be in the ring than in the stands: challenging indifference, turning passive media consumption into active creation, and helping people participate.</p>\n      </div>\n      <div class=\"kk-callout\">\n        <h3>Democratize art</h3>\n        <p>Art is not a rarefied luxury. It is a common language. The best creative tools should help more people find their voice, not make everyone sound the same.</p>\n      </div>\n      <div class=\"kk-callout\">\n        <h3>Build community</h3>\n        <p>Communities are how ideas become durable. Convening is not a side quest; it is infrastructure for trust, courage, and collective action.</p>\n      </div>\n    </div>\n  </section>\n\n  <section class=\"kk-section\">\n    <h2>From camera to community infrastructure</h2>\n    <p>For decades I have worked as a photographer, media maker, organizer, educator, and digital strategist across technology, arts, activism, conferences, festivals, and social movements. The camera taught me how to pay attention. The internet taught me how networks move. AI is teaching all of us how much more fiercely we need to protect context, consent, taste, and memory.</p>\n    <div class=\"kk-grid\">\n      <figure class=\"kk-card\">\n        <img src=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/05/9818127715_416df9a481_o.jpg?w=612&amp;ssl=1\" alt=\"Kris Krug with Jack Dorsey at University of Waterloo\" loading=\"lazy\" />\n        <figcaption class=\"kk-card-body\">With Jack Dorsey at University of Waterloo with C100.</figcaption>\n      </figure>\n      <figure class=\"kk-card\">\n        <img src=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5637672371_fca291d598_o-1.jpg?w=800&amp;ssl=1\" alt=\"Kris Krug presenting at the UN Global Youth Summit on HIV in Bamako\" loading=\"lazy\" />\n        <figcaption class=\"kk-card-body\">Presenting at the UN Global Youth Summit on HIV in Bamako, Mali.</figcaption>\n      </figure>\n      <figure class=\"kk-card\">\n        <img src=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/20190210_170149-scaled.jpg?w=1200&amp;ssl=1\" alt=\"Kris Krug with Post Malone at the Grammy Awards\" loading=\"lazy\" />\n        <figcaption class=\"kk-card-body\">Making TikToks with Post Malone at the Grammy Awards.</figcaption>\n      </figure>\n    </div>\n  </section>\n\n  <section class=\"kk-section\">\n    <h2>Things people bring me in for</h2>\n    <ul class=\"kk-list\">\n      <li>AI keynote speaking</li>\n      <li>AI mindset workshops</li>\n      <li>Creative technology strategy</li>\n      <li>Community and ecosystem building</li>\n      <li>Executive AI briefings</li>\n      <li>Event design and facilitation</li>\n      <li>Documentary and editorial photography</li>\n      <li>Knowledge-base and archive strategy</li>\n      <li>Digital storytelling</li>\n      <li>Responsible AI conversations</li>\n    </ul>\n  </section>\n\n  <section class=\"kk-section\">\n    <div class=\"kk-callout\">\n      <h2>Want the useful door?</h2>\n      <p>For current projects, start with Work. For keynotes, go to Speaking. For applied help with AI, creative strategy, or community systems, start with Services. For everything strange and specific, contact me directly.</p>\n      <div class=\"kk-actions\">\n        <a class=\"kk-button\" href=\"/recent-projects-include/\">Work</a>\n        <a class=\"kk-button secondary\" href=\"/speaking/\">Speaking</a>\n        <a class=\"kk-button secondary\" href=\"/services/\">Services</a>\n        <a class=\"kk-button secondary\" href=\"/contact/\">Contact</a>\n      </div>\n    </div>\n  </section>\n</div>\n<!-- /wp:html -->\n",
+    "rendered": "\n<style>\n.kk-overhaul { --kk-ink:#171717; --kk-muted:#57534e; --kk-line:#d8d4cc; --kk-paper:#fffaf0; --kk-card:#ffffff; --kk-accent:#0f766e; --kk-hot:#b91c1c; color:var(--kk-ink); }\n.kk-overhaul a { font-weight:700; }\n.kk-hero { padding:2rem 0 1.25rem; border-bottom:1px solid var(--kk-line); }\n.kk-kicker { margin:0 0 .5rem; text-transform:uppercase; letter-spacing:.08em; font-size:.78rem; color:var(--kk-hot); font-weight:800; }\n.kk-lead { font-size:1.2rem; line-height:1.65; max-width:54rem; }\n.kk-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin:1.25rem 0; }\n.kk-button { display:inline-block; padding:.72rem 1rem; border:2px solid var(--kk-ink); border-radius:4px; text-decoration:none; background:var(--kk-ink); color:#fff !important; }\n.kk-button.secondary { background:#fff; color:var(--kk-ink) !important; }\n.kk-section { padding:2rem 0; border-bottom:1px solid var(--kk-line); }\n.kk-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1rem; }\n.kk-card { border:1px solid var(--kk-line); border-radius:6px; background:var(--kk-card); overflow:hidden; }\n.kk-card img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; }\n.kk-card-body { padding:1rem; }\n.kk-card h3 { margin-top:0; margin-bottom:.4rem; font-size:1.15rem; }\n.kk-card p { margin:.45rem 0; color:var(--kk-muted); }\n.kk-callout { background:var(--kk-paper); border:1px solid var(--kk-line); border-radius:6px; padding:1rem; }\n.kk-two { display:grid; grid-template-columns:minmax(0,1fr) minmax(260px,.8fr); gap:1.25rem; align-items:start; }\n.kk-list { columns:2 16rem; padding-left:1.2rem; }\n@media (max-width:700px){ .kk-two{grid-template-columns:1fr;} .kk-actions{display:block;} .kk-actions a{margin:.35rem 0;} }\n</style>\n\n<div class=\"kk-overhaul\">\n  <section class=\"kk-hero\">\n    <p class=\"kk-kicker\">About Kris Krüg</p>\n    <h1>Techartist, quasi-sage, cyberpunk anti-hero from the future.</h1>\n    <p class=\"kk-lead\">My name is Kris Krüg. I am an AI keynote speaker, creative technologist, photographer, community builder, and culture hacker working at the messy edge where technology, creativity, ethics, and human weirdness collide.</p>\n    <p class=\"kk-lead\">The mission has not changed: humanize technology, fight apathy, democratize creative tools, and build communities with enough courage and imagination to shape what comes next.</p>\n    <div class=\"kk-actions\">\n      <a class=\"kk-button\" href=\"/speaking/\">Book me to speak</a>\n      <a class=\"kk-button secondary\" href=\"/recent-projects-include/\">See current work</a>\n    </div>\n  </section>\n\n  <section class=\"kk-section\">\n    <div class=\"kk-two\">\n      <div>\n        <h2>What I am building now</h2>\n        <p>These days my work orbits AI, community infrastructure, and creative practice. I help people make sense of machine intelligence without surrendering taste, culture, relationships, or responsibility.</p>\n        <p>I lead and support AI ecosystem work in British Columbia, give keynotes and workshops for creative and leadership audiences, build standalone learning portals around major talks, and help teams turn AI from vague pressure into useful practice.</p>\n      </div>\n      <img decoding=\"async\" src=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=1200&amp;ssl=1\" alt=\"Portrait of Kris Krug\" loading=\"lazy\" />\n    </div>\n  </section>\n\n  <section class=\"kk-section\">\n    <h2>Start with the live projects</h2>\n    <div class=\"kk-grid\">\n      <article class=\"kk-card\">\n        <img decoding=\"async\" src=\"https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&amp;ssl=1\" alt=\"BC plus AI ecosystem graphic\" loading=\"lazy\" />\n        <div class=\"kk-card-body\">\n          <h3><a href=\"https://bc-ai.ca/\">BC + AI Ecosystem</a></h3>\n          <p>Community and industry infrastructure for a responsible and inclusive AI future in British Columbia.</p>\n        </div>\n      </article>\n      <article class=\"kk-card\">\n        <img decoding=\"async\" src=\"https://www.bothhandsfull.com/opengraph-image?46af5f0ff830fe03\" alt=\"Both Hands Full keynote graphic\" loading=\"lazy\" />\n        <div class=\"kk-card-body\">\n          <h3><a href=\"https://www.bothhandsfull.com/\">Both Hands Full</a></h3>\n          <p>A keynote portal about keeping our souls intact while the machines get very good at making everything.</p>\n        </div>\n      </article>\n      <article class=\"kk-card\">\n        <img decoding=\"async\" src=\"https://i0.wp.com/www.punkrockai.com/public/photos/michelle-diamond/195.webp?w=1200&amp;ssl=1\" alt=\"Kris Krug speaking at CreativeMornings Vancouver\" loading=\"lazy\" />\n        <div class=\"kk-card-body\">\n          <h3><a href=\"https://www.punkrockai.com/\">Punk Rock AI</a></h3>\n          <p>Creative rebellion, human agency, and making culture with the tools without flattening ourselves into content machines.</p>\n        </div>\n      </article>\n      <article class=\"kk-card\">\n        <img decoding=\"async\" src=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/04/AI-Immortality-w-Guy-Kawasaki.png?fit=1200%2C604&amp;ssl=1\" alt=\"Developing an AI Mindset graphic\" loading=\"lazy\" />\n        <div class=\"kk-card-body\">\n          <h3><a href=\"http://developinganaimindset.com/\">Developing an AI Mindset</a></h3>\n          <p>A practical starting point for teams and organizations learning to work with AI.</p>\n        </div>\n      </article>\n    </div>\n  </section>\n\n  <section class=\"kk-section\">\n    <h2>The throughline</h2>\n    <div class=\"kk-grid\">\n      <div class=\"kk-callout\">\n        <h3>Humanize technology</h3>\n        <p>Technology should resonate with the heartbeat of human experience, not bulldoze it. The point is not novelty. The point is agency, empathy, ethics, and imagination.</p>\n      </div>\n      <div class=\"kk-callout\">\n        <h3>Fight apathy</h3>\n        <p>I would rather be in the ring than in the stands: challenging indifference, turning passive media consumption into active creation, and helping people participate.</p>\n      </div>\n      <div class=\"kk-callout\">\n        <h3>Democratize art</h3>\n        <p>Art is not a rarefied luxury. It is a common language. The best creative tools should help more people find their voice, not make everyone sound the same.</p>\n      </div>\n      <div class=\"kk-callout\">\n        <h3>Build community</h3>\n        <p>Communities are how ideas become durable. Convening is not a side quest; it is infrastructure for trust, courage, and collective action.</p>\n      </div>\n    </div>\n  </section>\n\n  <section class=\"kk-section\">\n    <h2>From camera to community infrastructure</h2>\n    <p>For decades I have worked as a photographer, media maker, organizer, educator, and digital strategist across technology, arts, activism, conferences, festivals, and social movements. The camera taught me how to pay attention. The internet taught me how networks move. AI is teaching all of us how much more fiercely we need to protect context, consent, taste, and memory.</p>\n    <div class=\"kk-grid\">\n      <figure class=\"kk-card\">\n        <img decoding=\"async\" src=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/05/9818127715_416df9a481_o.jpg?w=612&amp;ssl=1\" alt=\"Kris Krug with Jack Dorsey at University of Waterloo\" loading=\"lazy\" />\n        <figcaption class=\"kk-card-body\">With Jack Dorsey at University of Waterloo with C100.</figcaption>\n      </figure>\n      <figure class=\"kk-card\">\n        <img decoding=\"async\" src=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5637672371_fca291d598_o-1.jpg?w=800&amp;ssl=1\" alt=\"Kris Krug presenting at the UN Global Youth Summit on HIV in Bamako\" loading=\"lazy\" />\n        <figcaption class=\"kk-card-body\">Presenting at the UN Global Youth Summit on HIV in Bamako, Mali.</figcaption>\n      </figure>\n      <figure class=\"kk-card\">\n        <img decoding=\"async\" src=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/20190210_170149-scaled.jpg?w=1200&amp;ssl=1\" alt=\"Kris Krug with Post Malone at the Grammy Awards\" loading=\"lazy\" />\n        <figcaption class=\"kk-card-body\">Making TikToks with Post Malone at the Grammy Awards.</figcaption>\n      </figure>\n    </div>\n  </section>\n\n  <section class=\"kk-section\">\n    <h2>Things people bring me in for</h2>\n    <ul class=\"kk-list\">\n      <li>AI keynote speaking</li>\n      <li>AI mindset workshops</li>\n      <li>Creative technology strategy</li>\n      <li>Community and ecosystem building</li>\n      <li>Executive AI briefings</li>\n      <li>Event design and facilitation</li>\n      <li>Documentary and editorial photography</li>\n      <li>Knowledge-base and archive strategy</li>\n      <li>Digital storytelling</li>\n      <li>Responsible AI conversations</li>\n    </ul>\n  </section>\n\n  <section class=\"kk-section\">\n    <div class=\"kk-callout\">\n      <h2>Want the useful door?</h2>\n      <p>For current projects, start with Work. For keynotes, go to Speaking. For applied help with AI, creative strategy, or community systems, start with Services. For everything strange and specific, contact me directly.</p>\n      <div class=\"kk-actions\">\n        <a class=\"kk-button\" href=\"/recent-projects-include/\">Work</a>\n        <a class=\"kk-button secondary\" href=\"/speaking/\">Speaking</a>\n        <a class=\"kk-button secondary\" href=\"/services/\">Services</a>\n        <a class=\"kk-button secondary\" href=\"/contact/\">Contact</a>\n      </div>\n    </div>\n  </section>\n</div>\n\n",
+    "protected": false,
+    "block_version": 1
+  },
+  "excerpt": {
+    "raw": "My name is Kris Krug – a boundary-pushing Creative Explorer, an intuitive Tech Whisperer, and a tenacious Culture Hacker. \n\nIn the fabric of the digital era, where technology often overshadows humanity, I've taken it upon myself to chart a different course. I’m on a relentless mission to humanize technology, to infuse it with empathy, ethics, and emotion.",
+    "rendered": "<p>My name is Kris Krug – a boundary-pushing Creative Explorer, an intuitive Tech Whisperer, and a tenacious Culture Hacker. </p>\n<p>In the fabric of the digital era, where technology often overshadows humanity, I&#8217;ve taken it upon myself to chart a different course. I’m on a relentless mission to humanize technology, to infuse it with empathy, ethics, and emotion. <a class=\"more-link\" href=\"https://kriskrug.co/about/\">Read More &#8230;</a></p>\n",
+    "protected": false
+  },
+  "author": 1,
+  "featured_media": 3960,
+  "parent": 0,
+  "menu_order": 2,
+  "comment_status": "closed",
+  "ping_status": "closed",
+  "template": "",
+  "meta": {
+    "advanced_seo_description": "About Kris Krüg: AI keynote speaker, creative technologist, community builder, photographer, and founder/operator working across BC+AI, AI education, and human-centered technology.",
+    "jetpack_seo_html_title": "About Kris Krüg | AI Speaker, Creative Technologist & Community Builder",
+    "jetpack_seo_noindex": false,
+    "footnotes": ""
+  },
+  "permalink_template": "https://kriskrug.co/%pagename%/",
+  "generated_slug": "about-kris-krug",
+  "class_list": [
+    "post-1208",
+    "page",
+    "type-page",
+    "status-publish",
+    "has-post-thumbnail",
+    "hentry"
+  ],
+  "jetpack_sharing_enabled": true,
+  "jetpack_shortlink": "https://wp.me/PaMVFO-ju",
+  "jetpack-related-posts": [
+    {
+      "id": 2672,
+      "url": "https://kriskrug.co/recent-projects-include/",
+      "url_meta": {
+        "origin": 1208,
+        "position": 0
+      },
+      "title": "Work",
+      "author": "Krüg",
+      "date": "August 20, 2023",
+      "format": false,
+      "excerpt": "Current work, living systems, and useful experiments Work I build community infrastructure, AI learning systems, keynote portals, and cultural field notes for people trying to meet the future without losing the plot. The throughline is simple: humanize technology, make creative work more alive, and turn networks into things people can…",
+      "rel": "",
+      "context": "Similar post",
+      "block_context": {
+        "text": "Similar post",
+        "link": ""
+      },
+      "img": {
+        "alt_text": "",
+        "src": "",
+        "width": 0,
+        "height": 0
+      },
+      "classes": []
+    },
+    {
+      "id": 1887,
+      "url": "https://kriskrug.co/speaking/",
+      "url_meta": {
+        "origin": 1208,
+        "position": 1
+      },
+      "title": "AI Keynote Speaker Kris Krüg",
+      "author": "Kris Krüg",
+      "date": "February 1, 2011",
+      "format": false,
+      "excerpt": "AI keynotes, workshops, and culture-shifting rooms AI Keynote Speaker Kris Krüg I help people stop treating AI like a software rollout and start treating it like a cultural shift. My talks mix live demos, field stories, creative rebellion, practical workflows, and the hard questions about power, taste, trust, memory, and…",
+      "rel": "",
+      "context": "Similar post",
+      "block_context": {
+        "text": "Similar post",
+        "link": ""
+      },
+      "img": {
+        "alt_text": "",
+        "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5156893053_e4e246abb4_k.jpg?fit=1200%2C800&ssl=1&resize=350%2C200",
+        "width": 350,
+        "height": 200,
+        "srcset": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5156893053_e4e246abb4_k.jpg?fit=1200%2C800&ssl=1&resize=350%2C200 1x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5156893053_e4e246abb4_k.jpg?fit=1200%2C800&ssl=1&resize=525%2C300 1.5x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5156893053_e4e246abb4_k.jpg?fit=1200%2C800&ssl=1&resize=700%2C400 2x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5156893053_e4e246abb4_k.jpg?fit=1200%2C800&ssl=1&resize=1050%2C600 3x"
+      },
+      "classes": []
+    }
+  ],
+  "jetpack_likes_enabled": true,
+  "_links": {
+    "self": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/1208",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/types/page"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/users/1"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/comments?post=1208"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 0,
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/1208/revisions"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/media/3960"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/media?parent=1208"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/1208"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/1208"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/1208"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,914 @@
+I'm watching a [&nbsp;__&nbsp;] blood bath out
+there as generative AI comes for one
+industry after another. You guys are
+probably seeing it like customer service
+reps, software developers, graphic
+designers, these jobs are seriously
+under threat as AI comes in and kind of
+just kicks over the whole table in our
+um careers and our workplaces and stuff
+like that. So, I'm going to talk to you
+a little bit today about what I see
+going on up there. Manuj, thanks a lot
+for setting that up. you know, um I see
+companies like yours and like mine, like
+Earls and Shane's, you know, we're
+building lifeboats for people to try to
+figure out, you know, where to go from
+here. And it's going to require a lot of
+like upskilling, AI adoption, and and um
+you know, integrating with these things
+to try to figure them out. And so, I'm
+going to go through some of that kind of
+stuff here today. I got to thank Julian
+for putting together this like six AI
+person master class for you all. I think
+it's a pretty interesting time to do
+that. We've got a lot of different
+perspectives here and um there's a lot
+of experts in this room. I'm going to
+talk a little bit more about community
+and the role that it's going to play as
+we kind of embrace all these tools and
+technologies and techniques and stuff
+like that along the way. Oh, by the way,
+I'm a genius, too.
+Um, I work at the Google News Initiative
+in their AI for journalism lab. I have
+65 journalists right now that are at
+representing 15 newsrooms that are on a
+six-month journey of trying to figure
+out AI. not necessarily on the
+journalistic side, but let's call it the
+back of the house side. Subscriber
+growth, audience reach, competitive
+analysis, research, all the things that
+it takes to run a successful news
+operation these days. I also started a
+company called The Upgrade, the
+Upgrade.ai. Shane's an instructor there.
+He recently launched the AI upgrade for
+sales leaders. I've run six cohorts of a
+certification program called AI upgrade
+for creative professionals. This isn't
+just artists. It's marketing managers,
+it's writers, it's coders, it's anyone
+who makes something from nothing, those
+jobs are about to change. And in
+particular, if there's a correct and
+right verifiable answer that you produce
+for your job, you better watch out
+because those are the jobs AI is coming
+for first. You know, we were told when
+we were kids, become a lawyer, become a
+doctor, software developer, skip the
+drivers and factory worker jobs. Those
+ones are going away. All us white collar
+workers, info workers will be safe.
+Turns out the opposite is true. The
+first place we're seeing big
+encroachments is in these uh area these
+these white collar jobs where there is a
+right answer. A couple things stuck out.
+Uh some quotes recently.
+Um Microsoft CEO a month ago said 25% of
+our production code has been written by
+AI. It's pretty that's pretty crazy.
+It's a big stat. 25% of Microsoft's
+production code right now has been
+written by AIS. Sam Alman the very next
+week referring to that comment said
+talking about the percentage of code
+that AI writes is not that useful. I'll
+tell you most of our important functions
+today are written by AI. So for Sam it's
+80% of the most effective powerful
+things he does those things are being
+written by AI today. So we're not
+talking about the future we are talking
+about right now.
+Uh, another thing I wanted to mention
+too that brought came up while Man was
+talking, Sam also said a couple weeks
+ago, he said he's really enjoying
+looking over people's shoulders right
+now to see how they're using AI. And
+he's particularly interested in how
+different generations are using it. So,
+he said older people are using it as a
+Google
+replacement. Middle-aged people are
+using it as a a life coach, life
+decision maker for everything. He said
+20s and 30s year olds will not make a
+life decision without consulting AIs
+first. Everything from how to break up
+with their girlfriend, what type of, you
+know, career they should explore, what
+the best school for this type of thing
+is, every single decision being run
+through AI. not to make the decisions as
+you said maybe but to inform the array
+of possibilities that are presented and
+just to explore those ideas and to
+really consider the implications and I
+think then make a decision either based
+on intuition
+or belief belief in oneself and then he
+said finally that the youngest people
+are using AI as an operating system for
+life tying all the bits and bobs
+together and recycling and remixing them
+through these different models and I
+think that you're performing ing one age
+bracket down from where you're at.
+You're definitely using it in this
+middle way as a life decision maker,
+life advisor and guide. And I'm trying
+to use it one level down too where I'm
+tying, you know, in the even the younger
+age where where I'm trying to tie all
+these different systems together through
+APIs, Python scripts, knowledge bases,
+assistance, agents, and this type of
+thing. And so I I thought that's an
+interesting lens to to look through.
+Right
+now, I wanted to give a shout out to
+Shane. Shane, good job yesterday, man.
+You really crushed it. I really enjoyed
+your presentation a lot. He talked about
+that Iron Man suit that he's building,
+and then he showed us a bunch of the
+augmentations that he had built to do
+discovery, coaching, proposal
+generation,
+uh, objection handling. I mean, you've
+got quite the the the group of
+assistants and agents there. And u, I
+thought that was pretty awesome. So, at
+the core of what Shane's got is he's
+built
+this second brain. Man calls it brain
+butler.
+Essentially I build a knowledge base of
+it starts with me and I do concentric
+circles out from there. So when I first
+started getting into AI, I was like
+rewrite my resume, update my content for
+my website. Uh here's some articles and
+transcripts of me giving keynotes back
+in the day. Let's turn those into text.
+And I started to build a knowledge base
+of these documents that kind of gave the
+baby computer brain an idea of who it
+was dealing with in terms of my values,
+my perspectives, my goals, experience,
+my connections. In fact, uh I think a
+lowhanging fruit for everybody in this
+room I'd love to see you give a try to
+is set up a custom assistant either on
+GPT in Google they're called gems in uh
+Microsoft they're called agents. uh
+confusingly enough. Um but all an
+assistant is is a system prompt plus a
+knowledge base. A system prompt can be
+as simple as you write for me. And a
+knowledge base can be as simple as your
+resume. So just go to chat GPT, make a
+free account, say make custom GPT, tell
+it what you want it to do, think for me,
+write for me, do whatever. Don't over
+complicate it. Export your LinkedIn as a
+PDF, attach it, hit save, start asking
+it questions. You'll have gone from the
+whole wide world of generalized AI slop
+with those five clicks into like a very
+focused 10% of the depth of the AI
+knowledge, the thousand miles deep that
+Manuj was talking about. It's it's quite
+incredible, you know, like think about
+yourself as a ven diagram and the school
+you went to and the era and where you
+live and the jobs you've held all
+overlapping. And when you really drill
+down into that middle area, that's you
+on one level. And you it you you don't
+need a lot of information to tell the AI
+how to get there. Now, that being said,
+this is a very iterative approach and
+this is the exciting part about it,
+right? So, we can now go click edit on
+that same assistant. We can maybe add a
+writing style guide. One of my favorite
+things to do is just point a bunch of
+emails or sometimes I even export my
+text messages or uh different things.
+you start have to start to think about
+like people say data is the new gold
+mine or data is the well what data for
+you is gold start to think about that
+find it bring it together clean it up
+feed it into some of these assistants
+and watch like some of the magic that
+starts to come out um so the things that
+I like to do are uh I feed in a bunch of
+stuff I've written I say I'm hiring a
+new intern next week they're going to do
+all my writing for me analyze all this
+stuff and make a ghost writing style
+guide for my intern So, make sure that
+everything that comes out of their thing
+is exactly the way I would write it. I'm
+going set that one
+aside. Then, one of my favorite things
+to do, the best way for me to interact
+with AIS right now is via my voice. I
+love recording and transcribing. Such a
+great way to get things out of yourself
+or out of other people and into the AIS.
+So, then I might just like have a little
+rant or have someone interview me,
+record myself, five minutes, whatever,
+right? feed it, transcribe it, feed it
+to the AI, and say something like, "I'm
+also going to give that intern a
+worldview and perspectives document so
+that it knows how I think, what I value,
+where I'm coming from." So now our
+little assistant has access to three
+documents. It's got our LinkedIn, it's
+got our writing style guide, it's got
+our worldview and perspectives document.
+I also export the endorsements from my
+LinkedIn and other places because what
+you say about yourself is one thing, but
+how much more valuable is what everybody
+else says about you? It shows the
+computer brain you from various
+perspectives. So I start to just work my
+way through this world of personal data
+that I can use
+to give this thing depth. Over time it
+is possible to have these you know tools
+quote direct childhood stories or
+excerpts from meetings or other things.
+Your books even you know books are a
+gold mine. you know, attaching your
+books to any sort of assistant, just
+think of the rich amount of depth and
+data you're given that intelligence
+about who you are and what you care
+about.
+Um, assistance. So, I was talking to you
+a little bit about the assistance and
+the very basic ones. You know, you write
+for me, attach a style guide. I uh some
+of the geeks in this room, I wanted to
+give you another tool that's like my
+favorite that doesn't come up very
+often. I mentioned to the guy from PAX,
+hey, do you know Daniel Measler, the
+security professional? Hey, I get some
+nods out there. All right, Daniel
+Masler. I'm so hip to what this guy's
+doing right now. He's built this
+community-maintained open-source
+prompting framework. That is gold. You
+showed your um your really cool uh
+prompt making assistant, an AI that
+writes new prompts. That's awesome. You
+can take that little one, you write for
+me, and stick it in Manuja's prompt
+upgrader. You're going to get a much
+better writing prompt. But now imagine
+tapping into 12,000 people that are a
+part of Daniel Measler's open- source
+community that maintains the you write
+for me prompt. I go to his thing.
+Actually, it's updated automatically in
+the background of my computer every day.
+I have hundreds of securitybased and
+career
+assistantbased community-maintained
+prompts. Some of these things are like
+1,500 lines of code as a markdown file.
+That's a single prompt. I mean, they are
+very very complicated and and
+fascinating. So, check out Daniel
+Masler's open- source prompting
+framework called Fabric. It's amazing.
+You can install in half an hour. It also
+integrates with Olama. Ola is an open
+source tool for downloading models and
+running them on your machine. On my Mac
+right there, I'm running like four
+terabytes of LLMs, open source LLMs. And
+I I use Daniel Masler's project to
+interact with them. He also has another
+project called Telos. And it's the idea
+of making these markdown files that know
+us. That structured way
+of documenting on ourselves for these
+machines so that they can understand us
+and prioritize different things. So
+between this open- source prompting
+framework fabric and this other project
+he's got called Telos, we have a lot of
+the open- source infrastructure to build
+really powerful assistants and agents
+right out of the box. Uh specifically
+you security guys. Check out fabric.
+Half the prompts he wrote are
+like very technical, very easily usable
+prompts and you can steal them, use
+them, remix them. I um take those
+prompts and I build assistance out of
+them. So I take one of his prompts, I
+modify it to my specific needs and then
+I build either a gem or a custom GPT and
+they're quite
+amazing. Um I said that assistants are
+just a system prompt plus a knowledge
+base.
+Well, what are agents then? Agents are
+assistants tied together more or less.
+You know, something initiates a process,
+an assistant does its job using a
+knowledge base and some system prompts.
+It takes those results, it passes them
+to the next assistant. In my case, I've
+built a tool called Whisper Forge. Would
+you grab me a water,
+Shane? There's one right there.
+Actually, I built this tool called
+Whisper Forge.
+Thanks.
+That'll work.
+Um, so I told you I love transcriptions
+and uh that they're the best way to get
+things out of my head and heart and into
+the world. So I built this tool called
+Whisper Forge that uh takes my
+transcriptions or takes my audio files
+and sends them off to the Whisper API
+from Open API for transcription,
+receives them back. Then it starts to
+run through a series. It's an agent that
+runs through a series of assistants. A
+few of the assistants have these Daniel
+Mesler prompts at their core. The first
+one's like uh okay, I got back a
+transcription. First one is wisdom
+expander. It looks for the key ideas,
+the best quotes, all the proper nouns
+that you mentioned like people's names,
+company names, things like that. Looks
+up a URL for them and then starts to uh
+synthesize the quotes, ideas, and links
+into analysis.
+Then the agent passes the transcript and
+the wisdom expanded to an outline
+generator. Creates an outline with H1's,
+H2s, H3s, starts to thread links into
+the whole thing. Then the agent passes
+the outline, the wisdom, and the
+transcript to a social media editor,
+social media content creator, an image
+prompter that makes a bunch of images
+that represent the key ideas in that
+thing. And um and then it creates a blog
+post, an article. I I don't call it a a
+blog post. I call it
+a,250word featurelength article for
+either New Yorker or Wired because it it
+does a better job than if I just tell it
+to write a blog post. Then uh I realized
+this thing gets way better when it's
+recursive one time. So I put an editor
+in there that just thrashes the whole
+thing, gives it 50% revision, and pops
+it back to the beginning of the agentic
+process where it runs through again.
+Now, the editor's notes are passed
+through with the transcript, with the
+outline, with the wisdom into social
+media content, image prompts, and the
+and the blog post in the end. So, this
+is my little agentic system called
+Whisper Forge. Um, you know, I have in
+my notes here that I wanted to call out
+to to Mike at Nexus in the back
+yesterday. He said something really
+important. We he was up here and it was
+just a little tiny thing. A lot of you
+guys might have missed it, but he we
+were talking about AIS and and jobs and
+and he was like, "Yo, we got that." He's
+like, "All my customer service people,
+they're pretty much just human tenders
+essentially." He's like, "When a ticket
+comes in, we triage it. We go find the
+answer." I think you call it
+remediation. You give them a remediation
+button. Would you just shout out real
+quick the little system that you guys
+built for your customer support people,
+please?
+What's that, bro?
+Yeah, so effect just tell us how it
+works real quick if I missed some of it.
+I thought it was pretty
+of everyone I heard yesterday, I feel
+like this guy's company has their head
+most wrapped around AI.
+So we've done a lot of AI work but one
+we've done on our verb is again we've
+automated the ticket process except for
+we're in touch with the customer because
+we're all in the customer service
+industry customer service you could do
+AI and customer service at the same
+time. Thanks man I really appreciate it.
+You know, also I came up to tell you
+last night that that uh I thought that
+that was pretty important little thing
+that you dropped and I sat there for a
+little while and we listened and um and
+maybe I'll save more of the explanation
+for a second, but he was talking about
+other ways they're using AI inside their
+organization and we we hit on another
+really novel way. Um he's got a bunch of
+junior interns and he's lined them up
+with a bunch of vibe coding tools and
+he's having and and correct me at the
+end if I'm wrong or whatever, but he's
+got his senior people writing unit
+tests,
+eval frameworks that pretty much
+say keep iterating my interns code until
+it passes all of these tests and then
+once it passes all of these tests then
+bring it over into deployment. And um I
+think that's that's a really fascinating
+way to to integrate vibe coding, the
+kind of latest and greatest trendy kind
+of thing when it comes to AI into a
+production code business like you're
+doing. Um and I want I'll get into that
+a little bit in again in a second.
+So yesterday you guys saw me maybe
+running around up here doing all sorts
+of stuff and and maybe you weren't sure
+exactly what I was doing. We got a
+little media making table up here. But
+um I I've been running a test here using
+this Whisper Forge tool and I've built
+Julian a [&nbsp;__&nbsp;] gold mine, man. I
+recorded every single session yesterday
+and um in real time was running it
+through Whisper Forge, transcribing it,
+expanding the wisdom, making outlines,
+social media content, blog posts, all
+this kind of stuff. So I gave him back
+at the end of the day a knowledge base.
+It's called like Julian's next channel
+next 2025 knowledge base. And it's got
+everyone's talks, all the stuff, all the
+assets built out. And that's quite
+amazing cuz like by the end of the day
+when I closed my laptop, all that [&nbsp;__&nbsp;]
+was done and ready to go, shared with
+his team who's making content, all these
+channels. But there's something deeper
+going on too. And that's like the
+unlocking of new human capabilities. And
+and what I mean here, I know it sounds a
+little hyperbolic, but what would you
+have had to do before yesterday to
+synthesize all the knowledge that is
+passed in a room like this? Like you
+guys are the zeitgeist of the industry.
+And what was shared here from the stage
+yesterday when taken in aggregate and
+analyzed with meta tools represents
+where we're going as a group, where this
+industry is going, where the future is
+going. Right? So Julie and I sat down
+this morning and we started asking
+yesterday questions. We're like, "What
+were the top five themes that emerged
+across all of these speakers or thread
+together the four AI talks that happened
+yesterday so I can give my people a
+cohesive message?" And you know, we
+realized you would have had to hire a
+journalist per session to record,
+transcribe, write all that content,
+synthesize it, but then you'd have to
+get all those journalists together at
+the end of the day and get them talking
+and agree into some stuff, actually
+sharing their info, making some
+analysis, i.e. it would have been
+impossible. you know, we don't have 15
+journalists on this team. We don't have
+the ability to synthesize all that stuff
+and then write that type of content. So,
+we are able to see and ask this thing
+questions that have not been possible
+before. And, you know, I've been joking.
+It's like, you know, God came down from
+the mountain and gave us these tools,
+but we don't even know what to do with
+them yet. We we have to live with them
+for a while before we our brains really
+start to unlock and we figure out what's
+possible. And so I point to this example
+like I don't even know what I want to
+ask to that database next but I know
+that there's gold in there and I know
+that there's analysis to be done. In
+fact I've got this hunch that like maybe
+it reinvigorates the whole conference
+world in some ways tools like this like
+maybe we come together to make community
+knowledge and out from that come some
+sort of reports or tools or something
+that the world needs you know or
+whatever. And so all of a sudden it
+starts making sense for us to spend the
+great resources to fly across the
+country and the world to come together
+to share ideas and mix and
+cross-pollinate because we can reflect
+and analyze and share and repackage and
+go all content waterfall like Earl does
+on it at the end. You know I can take
+this keynote or any of these you know
+the whole conference and start to I
+could have you know I could set up a
+year's worth of podcast blog posts deep
+analysis links back and forth to you
+guys. all the content came from the
+stage yesterday and like sure planted
+lots of seeds in our head but other than
+that a lot of the value dissipates. It
+just kind of blends off into the ether
+especially the ability to make those
+meta analysis and draw conclusions and
+connections. So that tool exists. I
+wanted to do a talk window slides
+because it's a personal edge for me. I
+just thought I'd get up here and talk
+about what I care about and what I love.
+And so that's why I'm not demoing it,
+but I'd be happy to show you down there.
+Happy to send you a link. Me and Julian
+got some some things we're cooking up
+with Shane and Manuj and the other
+folks. What an exciting time it is to be
+a geek. A lot of you are in this for the
+tech. Yeah, we've been successful. We've
+started businesses now. Sometimes we're
+salespeople, we're CEOs, but it's the
+coolest time ever to be a geek. There's
+very, very powerful tools available to
+us. You know, fire up your GitHub, check
+out Daniel Masler's code repository.
+There's a lot of great stuff happening
+out there. And that brings me into this
+idea of vibe coding. And I mentioned um
+how Michael's doing at Nexus there where
+he's lining up all his interns with
+these vibe coding tools and just letting
+them bang away on stuff and make all
+sorts of experiments and explorations,
+but through this framework that his
+senior developers put down where code's
+got to pass all these tests and
+compliances before it's even considered
+for production deployment. Well, I'm
+using vibe coding in a different way,
+and I haven't really kind of like shared
+this idea in public before, so bear with
+me as I stumble through it a bit, but
+I've watched in the last three months
+how we prototype and iterate things with
+our clients completely change. So, and
+this is happened two times significantly
+for me in the last couple months.
+Clients or partners come to me and
+they're like, I want a tool that does
+this. I want to analyze this hashtag,
+make some media analysis on it, surface
+some stories from it, and I need you to
+build it for me, whatever. Right? The
+old model, the old model was I'd listen
+to that person, write down what they
+say, make a requirements document, make
+sure it was cool with them, go off,
+share it with my team, disseminate that
+info, build some interface prototypes,
+come back to them, share them. And by
+the time I delivered the product,
+usually we realized that the person
+didn't ask for the right thing to begin
+with. They didn't really even know what
+they wanted when they asked. They just
+had like an idea and they came to us,
+right? So then we burn money and cycles
+and energy. Think of all the staff
+people who are like, "Ah, I build all
+this cool [&nbsp;__&nbsp;] for my work, but it never
+gets deployed." You know that like what
+kind of a demoralizing feeling is that?
+And then a lot of these tools could be
+super effective or powerful, but we
+actually never get to the finish line
+because of the process of trying to
+going through this development process.
+Well, now, and it's happened a couple
+times for me recently. While I'm
+listening to the person on the phone,
+I'm jotting down their requirements. I'm
+recording bits and bobs. I head over
+into Lovable or Vzero or N8N or Cursor
+or any of these really cool vibe coding
+tools that are out and I start to just
+prototype what they're telling me and I
+show it back to them and I'm like, "Yo,
+is this what you're talking about? Let's
+go let's go click around the interface."
+And you, you know, like I'm dealing with
+like marketing managers and CEOs who are
+trying to get products built. They're
+not thinking about UX interactions and
+hovers and how things go and user flows
+and stuff like this. And so now like in
+a one-hour call, I can present someone
+back three functional prototypes that
+represent exactly what came out of their
+mouth and they can click on them and I
+can be like, I'm going to talk to you in
+a week after you played with that and
+you tell me if this is what you actually
+want. And so I'm I'm seeing
+a significant change coming in how we as
+like service providers meet the needs of
+our clients in terms of like showing
+them back to them their ideas, iterating
+on that feedback before then you know
+building something um production styles.
+There's another thing about that too and
+this kind of relates to some of the
+stuff you're building. You know you and
+I have been building the minut. I'm
+talking to building like assistants and
+agents and stuff. I've started to use
+the vibe coding tools as like my
+finishing school for all my assistants.
+So, it's like once you've got your
+system prompt and your knowledge base
+and you've gotten the back and forth
+going of like, yeah, this thing is
+useful and valuable and I like it and
+you know, this is good. You know, you
+build it, you iterate on it and you're
+like, "This is good." Well, then I take
+those guys over into any vibe coding
+tool and I start to build an app. Either
+my own personal app, it's just the same
+stuff, right? It's just uh now it's a
+what what's an app in relation to an
+assistant? If an assistant is a system
+prompt plus a knowledge base, an app in
+this case is like a system plus a
+knowledge base plus a UI or a system
+prompt plus a knowledgebased plus a UI
+plus API integration to different other
+tools that can go out there and stuff
+like that. So I'm really hyped on this
+vibe coding stuff right now. not just as
+a way to like get the computer to write
+code for me, but as a whole new way of
+like re-imagining how tools and software
+and stuff like that is
+built community. All right. I run the BC
+AI industry association out in British
+Columbia. This is like a 200 or so
+member organization representing the
+interests
+of companies that are exploring AI,
+people, projects, research labs, etc.
+Um, this is a very very useful
+experimental laboratory for me
+to grow and learn, not just for myself,
+but as a group of people. You know,
+there's way too much to learn right now
+about all this stuff. It's really
+changing fast. There's new [&nbsp;__&nbsp;] coming
+out all the time. I find the only way to
+stay ahead is to form like a virtuous
+learning circle inside a community where
+you can go deep down rabbit holes, bring
+that research back to everybody else,
+and share that with them and get them
+hyped on it. and and with the kind of
+promise that other people are doing the
+same thing and you're all kind of
+lifting each other up. And guess what
+guys, that's what this is. That's what
+you guys already have with this
+community. This isn't not just an event.
+It's a community. You all get together a
+bunch of years in a row. Julian, I love
+his story. Dude got into mouse pads as
+his entree into this world. He started
+making and selling mouse pads until
+China dropped the floor out. Then he
+told me a story of uh he ran cataloges,
+physical world cataloges until the very
+first online store came to him and asked
+him to buy his catalog SKs on a CDROM.
+And he's like, "Why the heck do you want
+that? You starting your own catalog?"
+He's like, "No online store." And his
+business for a while became selling his
+SKS on CDROM to these people to start
+online stores. And then this community
+grew from that. And a lot of you have
+been with Julian for a long long time,
+you know, and he's cultivated uh great
+vibes and camaraderie here amongst this
+crew. And this is the type of thing that
+can buttress or stabilize us through
+this tidal wave, through this blood
+bath, through these uncertain times. So
+I encourage you to lean on each other uh
+that form subgroups within this group.
+You know, people who are interested in
+security, people who are interested in
+AI and agents and stuff like that. This
+is very well the container you need to
+hold and develop your personal and
+company growth as it relates to
+AI. Now I want to encourage you again
+like manuj did what can you do this
+week? Are you willing to take my
+challenge of like build an assistant
+today with a oneline system prompt and
+just a PDF document that says something
+about you? There's very lowhanging
+fruit. And I'll tell you one last thing
+that has revealed itself to
+me. I've understood this idea of
+compounding effort much like compounding
+interest in the finance world through
+every smart conversation I have with AI.
+By taking the best of that and bringing
+it into my central knowledge base and
+day by day adding to that, I've created
+a 10,000 tendril crystalline octopus of
+knowledge and wisdom that I can deploy
+at a moment's notice. as any new AI
+comes out, I can just skim the best off
+of my knowledge base, plug it in, and
+this thing is no longer a dumb tool, but
+a hyper, you know, focused assistant
+that knows and thinks like me. So, I
+would say there's lowhanging fruit. Take
+the daily challenge, build yourself an
+assistant, and then I got one more
+challenge for you. I call them, I don't
+know, like daily mind dumps or something
+like that, but five minutes a day, just
+record stuff. I do it in the morning
+when I wake up. I just record my dreams,
+my to-do list for the day, my what I
+didn't sleep well about or something.
+Just get it out of you. Throw it into
+that little assistant that you just made
+that knows that writes for you and knows
+who you are and just be like, "Analyze
+my stuff and give me back a to-do list."
+And then, you know, you've done that for
+a week and you're going to have a
+knowledge base of a lot of very
+interesting things that matter
+specifically to you. So, anyway, that is
+my kind of renegade take on AI. Thank
+you, Julian, for some time up here. And
+um can we do Q&A? Where where we at with
+time? Do I got one minute left?
+Let's see. Any burning questions? Yeah,
+Mike.
+Yeah. I mean, I have a little formula
+that I use or whatever, but it's like
+write down three bottlenecks in your
+company. Write down three like blue sky
+things in your company. things would be
+awesome if you could do then find which
+one's like a lowhanging fruit assign a
+KPI to that thing and three little
+metrics to test on and then map out the
+workflow. So just you know could be
+support in your case you know or you you
+find your bottlenecks you find your blue
+skies you pick one that's low hanging
+you assign a KPI in it so you can test
+over time and then you start sprinting
+build a little sprint around that thing
+report on the progress say like uh we
+want to increase a newsletter click
+something like that we want to build a
+content building automation to do so
+we're going to send out five emails
+during our test period so I think it's
+just lining up the ideas things that
+hurt or things that you want to do that
+you can't starting to map some numbers
+refers to those things, break down the
+workflows in the process, and then once
+you got that, it becomes pretty freaking
+obvious where AIs can assist along the
+way. And you often don't need fancy
+things from the get-go. You can start to
+pick away at that thing um and learn
+along the way. And then once you've got
+something that like feels good, that's
+the time to really automate that or to
+spend some money on it or to, you know,
+lock it down, something like that. Yeah.
+Any other ones you really want to fire
+off?
+All right. Well, thank you very much.
+Yeah,
+Shane built a
+massive association
+largely as a one person
+running so to speak with your AI
+and could you just kind of share with us
+like some of your your hacks or approach
+is to engaging a community on mass as a
+one person like I think that's
+a business
+I got really lucky from the very first
+day that I got shown AI I got showed
+Mjourney first and I went to the
+Midjourney Discord server which is where
+it all took place at the time and when I
+got there I saw chaos just looked like
+the Matrix like just stuff streaming
+past the screen written in code I really
+didn't know what it meant and I wanted
+to dig in because I was just seeing the
+power but I didn't know how or where and
+so that very day I just you're allowed
+to make your own Discord server and then
+run the midjourney bot on it. So I built
+the Discord server through the
+midjourney bot on it and then I invited
+all my connections from like the last 20
+years in tech into that space and um and
+so from the very get-go of my AI
+journey, it's been about like community
+and exploring things together. And I
+think that that's a big part of it is
+like I'm truly trying to lift people up
+and to I'm going down my own rabbit
+holes. I'm bringing back the best of my
+knowledge. I'm sharing it in ways that I
+hopefully will lift people up. I try to
+talk more about other people than I do
+about myself the best I can. I try to
+form a strong opinion that's defendable
+and and and from my core. And uh you
+know, I guess the last thing I will say,
+thank you for just being a little bit
+permissive. I gave you guys five minutes
+back of your clock earlier because you
+said you were behind. So now I'll just
+take two two minutes of it. um of of it
+back. But uh it's back to that ven
+diagram thing. It's like uh there's only
+one you and that very unique part of you
+is the part that we want to amplify
+using this AI stuff. And so just getting
+really clear about that value that you
+offer to the world, who you are, what
+your perspective is, and leaning into
+that. I think more than ever we're being
+invited to be very unique individuals as
+opposed to like vanilla conformists or
+whatever because there's going to be a
+lot of that that AI is gonna be really
+good at giving us kind of vanilla um
+aggregate mainstream type of stuff but
+it's going to be about having strong
+opinions having those in community
+having those in you know safe learning
+circles where you can share and kind of
+just like lift up other people that you
+believe in. Thanks in
