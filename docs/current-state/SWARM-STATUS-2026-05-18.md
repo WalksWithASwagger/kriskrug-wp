@@ -61,7 +61,7 @@ Do these in one serialized publisher session after a fresh backup:
 
 ## Security Note
 
-`RESUME-HERE.md` previously pasted a WordPress application password in tracked documentation. It has been redacted from current tracked files, but the credential is still exposed in git history and remained active enough for read-only authenticated checks on 2026-05-18. Rotate it before the next live publishing session.
+`RESUME-HERE.md` previously pasted a WordPress application password in tracked documentation. It has been redacted from current tracked files. On 2026-05-18 at 11:14 PT, the exposed `kk-notion-to-wp` application password and the older `MCP AI` application password were revoked, and a fresh connector credential was stored only in the gitignored local `.env`. Git history still contains the old leaked value unless a coordinated history rewrite is approved.
 
 ## Recommended Next Swarm
 

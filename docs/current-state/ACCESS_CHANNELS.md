@@ -12,10 +12,10 @@ Every way Claude / this repo can currently observe or modify the live site, and 
 - **Used for:** Building this snapshot. Reusable for fingerprinting after any change.
 
 ### 2. Authenticated WordPress REST via local connector
-- **Status:** Verified read-only on 2026-05-18 through `scripts/notion-to-wp/`.
+- **Status:** Verified read-only on 2026-05-18 through `scripts/notion-to-wp/`. Application password rotated on 2026-05-18 at 11:14 PT; only the fresh connector credential remains active.
 - **Auth:** WordPress application password loaded from the gitignored local `.env`; never paste or commit it.
 - **Capability:** Read private draft status, authenticated `status=any` post/page lookups, categories, revisions, and other endpoints supported by the current app-password user.
-- **Write capability:** Technically possible through the connector, but operationally blocked until password rotation, backup confirmation, dry-run review, and slug/ID verification are complete.
+- **Write capability:** Technically possible through the connector, but operationally blocked until backup confirmation, dry-run review, slug/ID verification, and category cleanup are complete.
 - **Used for:** Confirming 944 published posts, 32 draft posts, 34 published pages, 3 draft pages, exact-slug status, and recent-post revision availability.
 
 ### 3. WordPress.com MCP — `claude.ai WordPress.com` connector
@@ -76,6 +76,6 @@ Every way Claude / this repo can currently observe or modify the live site, and 
 ## Recommendation for ordering
 
 1. **Today, without SSH:** use authenticated REST for read-only admin inventory and exact-slug checks; use Chrome MCP for wp-admin-driven actions such as backup plugins or UI-only settings. Treat every action as preview + confirm.
-2. **For production writes:** rotate the exposed app password, verify backup, run dry-run/diff, then use the least risky path for the specific change.
+2. **For production writes:** verify backup, run dry-run/diff, verify target slug/ID/status, then use the least risky path for the specific change.
 3. **Once SSH lands:** switch primary infrastructure channel to SSH + wp-cli. Use Chrome MCP only for things that genuinely need the UI (block editor, Jetpack settings, etc.).
 4. **If Jetpack MCP is upgraded/enabled:** WordPress.com MCP may become a fast option for content edits, but it still cannot replace SSH for theme files, plugins, database export, or rollback.

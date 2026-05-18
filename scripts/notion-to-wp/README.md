@@ -27,7 +27,7 @@ Generate one **once**:
 2. Scroll to **Application Passwords** (near the bottom of the page).
 3. Application Name: `kk-notion-to-wp`
 4. Click **Add New Application Password**.
-5. WordPress shows the password ONCE — copy it immediately. It looks like `aBcD 1234 EfGh 5678 IjKl 9012`.
+5. WordPress shows the password ONCE — copy it immediately into the local `.env`. Do not paste it into docs, issues, commits, or chat.
 6. Paste it into `scripts/notion-to-wp/.env` (copy from `.env.example`):
 
 ```bash

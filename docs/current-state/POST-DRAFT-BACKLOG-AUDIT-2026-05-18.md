@@ -22,14 +22,17 @@ Current rule: authenticated WordPress state plus explicit WP IDs/slugs are truth
 
 ## Security Gate
 
-The exposed WordPress application password must be rotated before any live connector use.
+The exposed WordPress application password was rotated on 2026-05-18 at 11:14 PT.
 
-Do not use the connector for live WordPress writes until:
+Completed:
 
-1. The exposed app password is revoked.
-2. New credentials are stored only in gitignored `scripts/notion-to-wp/.env`.
-3. A read-only auth check verifies the new credential without printing it.
-4. A fresh backup/rollback path is confirmed.
+1. The exposed `kk-notion-to-wp` application password was revoked.
+2. The older `MCP AI` application password was revoked.
+3. A replacement connector credential was created.
+4. New credentials are stored only in gitignored `scripts/notion-to-wp/.env`.
+5. A read-only auth check verified the new credential without printing it.
+
+Do not use the connector for live WordPress writes until a fresh backup/rollback path is confirmed, a dry-run is reviewed, target slug/ID/status are verified, and category routing is fixed.
 
 Issue created: [#75 - Lock down Notion-to-WordPress publishing after overwrite incident](https://github.com/WalksWithASwagger/kriskrug-wp/issues/75).
 
