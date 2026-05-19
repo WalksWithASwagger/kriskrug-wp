@@ -13,11 +13,11 @@ Status: source-expanded package; local draft candidate prepared, but do not publ
 
 | Field | Recommendation |
 | --- | --- |
-| Title | `AI Sandbox, Podcast Guesting, And Media Appearances` |
-| Slug | `ai-sandbox-podcast-guesting-media-appearances` |
-| SEO title | `AI Media Appearances And Podcast Guesting | Kris Krug` |
-| Meta description | `A curated media proof page for Kris Krug's CBC AI Sandbox work, podcast guest appearances, interviews, hosting, and AI commentary.` |
-| Excerpt | `Key media and podcast appearances showing Kris Krug as a clear, lively guest on generative AI, creative technology, community, and responsible adoption.` |
+| Title | `AI Media Appearances, Podcast Guesting, and Broadcast Commentary` |
+| Slug | `ai-media-appearances-podcast-guesting` |
+| SEO title | `AI Media Appearances and Podcast Guesting | Kris Krug` |
+| Meta description | `Kris Krug's CBC AI Sandbox, podcast interviews, Horizons videos, Vancouver AI hosting, and event-media appearances in one media proof stack.` |
+| Excerpt | `Kris Krug's public proof stack for AI podcast guesting, CBC commentary, produced video interviews, live hosting, panels, and event emcee work.` |
 | Category | `Media & Interviews` |
 | Secondary tags | `CBC`, `Podcast Guesting`, `AI Commentary`, `Speaking`, `Hosting` |
 
@@ -56,6 +56,10 @@ This should not be a single thin recap unless the CBC draft has enough substance
 
 ## Ready For WP Draft?
 
-Yes, as a local draft candidate only. Public source collection was added in `../media-appearances/public-source-inventory-2026-05-19.md`, and a standalone local draft exists at `../../../drafts/2026-05-19-ai-media-appearances-podcast-guesting/`.
+Yes, as a local draft candidate only. Public source collection was added in `../media-appearances/public-source-inventory-2026-05-19.md`, and a polished standalone local draft exists at `../../../drafts/2026-05-19-ai-media-appearances-podcast-guesting/`.
 
 The `/podcast-guesting-page-epk/` refresh was deployed first on 2026-05-19. Publish the standalone roundup only if KK wants an archive-style post after review.
+
+## 2026-05-19 Polish Note
+
+The local draft now includes the user-requested Vancouver AI March 2026 video (`https://www.youtube.com/watch?v=T5ANAthZewE`) and positions the post as a supporting authority/archive page, not the primary producer-facing EPK.

@@ -1,19 +1,20 @@
-# SEO snapshot - AI Media Appearances, Podcast Guesting, And Broadcast Commentary
+# SEO snapshot - AI Media Appearances, Podcast Guesting, and Broadcast Commentary
 
 | Field | Value |
 |---|---|
-| Visible title (H1) | AI Media Appearances, Podcast Guesting, And Broadcast Commentary |
-| SEO title (`<title>`) | AI Media Appearances And Podcast Guesting \| Kris Krug |
+| Visible title (H1) | AI Media Appearances, Podcast Guesting, and Broadcast Commentary |
+| SEO title (`<title>`) | AI Media Appearances and Podcast Guesting \| Kris Krug |
 | Slug | `ai-media-appearances-podcast-guesting` |
-| Meta description | A curated roundup of Kris Krug's podcast interviews, CBC AI Sandbox work, produced video appearances, event interviews, hosting, and AI commentary. |
+| Meta description | Kris Krug's CBC AI Sandbox, podcast interviews, Horizons videos, Vancouver AI hosting, and event-media appearances in one media proof stack. |
 | Category | Conversations & Interviews |
 | Tags | Podcast Guesting, Media Appearances, CBC, Speaking, AI Interviews |
-| Excerpt | A curated proof stack for Kris Krug as an AI podcast guest, broadcast commentator, produced-video interview subject, host, moderator, and event emcee. |
+| Excerpt | Kris Krug's public proof stack for AI podcast guesting, CBC commentary, produced video interviews, live hosting, panels, and event emcee work. |
 | Featured | NO until final image selected |
 | Source inventory | `content/source-packs/keynotes-2026/media-appearances/public-source-inventory-2026-05-19.md` |
 
 ## Next-step checks after publish
 
 - Confirm all public source links return `200`.
-- Confirm the EPK page and Speaking page link strategy before publishing.
-- Decide whether this should be a standalone post or source copy for `/podcast-guesting-page-epk/`.
+- Confirm final featured image or embed-only treatment.
+- Confirm the standalone post links back to `/podcast-guesting-page-epk/`, `/speaking/`, `/recent-projects-include/`, `/about/`, and `/contact/`.
+- Add backlinks from `/speaking/`, `/about/`, and the Podcast EPK only after the standalone post is live.

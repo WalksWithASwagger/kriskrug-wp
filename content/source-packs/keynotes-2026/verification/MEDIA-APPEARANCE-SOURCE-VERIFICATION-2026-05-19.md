@@ -48,6 +48,8 @@ rg -n -i "<standard source-pack sensitive-string pattern>" content/source-packs/
 
 Follow-up completed: `/podcast-guesting-page-epk/` was refreshed and verified on 2026-05-19; see `PODCAST-EPK-DEPLOY-VERIFICATION-2026-05-19.md`.
 
+Follow-up completed: the standalone local appearances roundup was polished and re-verified on 2026-05-19; see `APPEARANCES-ROUNDUP-DRAFT-VERIFICATION-2026-05-19.md`.
+
 Before any live write:
 
 - snapshot the current Podcast EPK page,

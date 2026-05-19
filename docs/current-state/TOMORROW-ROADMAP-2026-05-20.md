@@ -54,6 +54,7 @@ Do:
 - Keep building review-ready draft packages from `content/source-packs/keynotes-2026/`.
 - Prioritize source-backed proofs and internal linking quality.
 - Keep publish actions gated behind explicit review.
+- Treat `content/drafts/2026-05-19-ai-media-appearances-podcast-guesting/` as review-ready local support content, not yet a live post. It now includes the Vancouver AI March 2026 video and all current draft links returned `200` during the 2026-05-19 polish pass.
 
 Done when:
 

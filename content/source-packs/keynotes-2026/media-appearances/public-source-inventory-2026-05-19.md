@@ -14,6 +14,7 @@ Status: public-source inventory for review. No live WordPress writes.
 | P1 | E-ChannelNews: Interview with AI Expert Kris Krug at ChannelNext Central 2025 | Event interview / trade media | `https://www.e-channelnews.com/interview-with-kris-krug-at-channelnext-central-2025/` | External trade-media proof tied to ChannelNext and MSP/business AI audiences. | Good for EPK and ChannelNext companion links. |
 | P1 | The Kurty D Show: Widen The Lens with Kris Krug | Podcast interview | `https://podcasts.apple.com/us/podcast/053-widen-the-lens-with-kris-krug/id1575595225?i=1000634160006` | Photography, beauty, AI, internet culture, creative process. | Good archive proof; not central to AI booking page. |
 | P1 | Teen2Life Experience: CEO of Future Proof Creatives, Artist | Podcast interview | `https://music.amazon.com/es-us/podcasts/ba75295d-60de-4701-8eb6-12e17e49838a/teen2life-experience` | Entrepreneur/artist profile, photography/social proof, broad audience. | Useful lower-page archive proof; Amazon Music is the crawler-friendlier live link, while Podtail remains a source-pack fallback because curl sees `403`. |
+| P1 | Vancouver AI Meetup: We Trained AI on Stolen Work... And I'm More Creative Than Ever | Live talk / community video | `https://www.youtube.com/watch?v=T5ANAthZewE` | Creator-rights and AI-for-artists proof from the Vancouver AI community stage. User explicitly flagged it as a high-response video to include. | Good for the supporting appearances roundup and Speaking proof stack; use YouTube embed or link, not imported thumbnail art. |
 
 ## Owned / Hosted Podcast Surfaces
 
@@ -29,11 +30,12 @@ Status: public-source inventory for review. No live WordPress writes.
 2. **Produced interview series** - Horizons.
 3. **Long-form podcasts** - Human Biography, Rachel Thexton, Kurty D, Teen2Life.
 4. **Trade/event interviews** - E-ChannelNews / ChannelNext.
-5. **Hosting and owned shows** - Vancouver AI Pods, MOTLEYKRUG.
+5. **Hosting, community, and live video** - Vancouver AI Pods, MOTLEYKRUG, Vancouver AI Meetup March 2026.
 
 ## Claims To Avoid Until Rechecked
 
 - Do not call CBC "weekly" or "ongoing" without a current CBC source or KK confirmation.
 - Do not use third-party podcast art in WordPress unless rights are clear.
+- Do not import YouTube thumbnails as featured images unless rights/usage are clear; embed or link is safer.
 - Do not imply third-party endorsement beyond public appearance.
 - Do not publish personal contact details from existing live site headers, raw page snapshots, or older EPK pages.
