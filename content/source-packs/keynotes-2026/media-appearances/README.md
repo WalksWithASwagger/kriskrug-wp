@@ -1,8 +1,8 @@
 # Media Appearances Source Pack
 
-Public-source inventory for the next Speaking and Podcast EPK pass.
+Public-source inventory for the Speaking and Podcast EPK pass.
 
-This folder supports a future refresh of `/podcast-guesting-page-epk/`, a possible media/appearances post, and the Speaking page's podcast, broadcast, hosting, and produced-interview proof sections.
+This folder supports the refreshed `/podcast-guesting-page-epk/`, a possible media/appearances post, and the Speaking page's podcast, broadcast, hosting, and produced-interview proof sections.
 
 ## Files
 
@@ -11,13 +11,13 @@ This folder supports a future refresh of `/podcast-guesting-page-epk/`, a possib
 
 ## Current Editorial Decision
 
-Use the existing Podcast EPK page as the booking surface, then support it with one publishable appearances roundup if KK wants a public archive-style post.
+Use the existing Podcast EPK page as the booking surface. The live refresh was deployed and verified on 2026-05-19; see `../verification/PODCAST-EPK-DEPLOY-VERIFICATION-2026-05-19.md`.
 
 Recommended flow:
 
-1. Refresh `/podcast-guesting-page-epk/` as the producer-facing page.
-2. Publish one supporting post: `AI Media Appearances And Podcast Guesting`.
-3. Link the refreshed EPK from `/speaking/`, `/about/`, and the supporting post.
+1. Keep `/podcast-guesting-page-epk/` as the producer-facing page.
+2. Publish one supporting post: `AI Media Appearances And Podcast Guesting`, only after KK review.
+3. Add or tighten internal links from `/speaking/`, `/about/`, and the supporting post as future polish allows.
 
 ## Safety Notes
 

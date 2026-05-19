@@ -26,6 +26,7 @@ The source pack now includes:
 - Verification records at `content/source-packs/keynotes-2026/verification/DEPLOY-VERIFICATION-2026-05-18.md`, `POLISH-VERIFICATION-2026-05-18.md`, `SPEAKING-GUESTING-VERIFICATION-2026-05-18.md`, `SPEAKING-HORIZONS-VERIFICATION-2026-05-18.md`, and `IA-POLISH-CONTINUATION-VERIFICATION-2026-05-18.md`.
 - Public video research, captions, thumbnails, and metadata under `content/source-packs/keynotes-2026/video-research/`.
 - Authenticated WordPress draft candidates for future speaking/AI authority posts.
+- A deployed Podcast EPK refresh at `/podcast-guesting-page-epk/`, with rollback snapshots under `backup/20260519-105949/` and verification in `content/source-packs/keynotes-2026/verification/PODCAST-EPK-DEPLOY-VERIFICATION-2026-05-19.md`.
 
 Live public checks after the latest pass confirmed:
 
@@ -72,7 +73,7 @@ Goal: turn the new authority pages into a stronger supporting network, not just 
 Recommended order:
 
 1. **Speaking proof posts and clips** - turn the public video intake into source-backed post packages for Bass Coast, Whistler Institute, ChannelNext, Vancouver AI March 2026, and Horizons. Start with review-ready drafts; do not publish without KK review.
-2. **Podcast / appearance hub** - decide whether to upgrade `/podcast-guesting-page-epk/`, the MØTLEYKRÜG page, or a new `/media/` page into the home for guest appearances, hosting, emcee work, CBC, and produced interviews.
+2. **Podcast / appearance support post** - the EPK page is now the home for guest appearances, hosting, emcee work, CBC, and produced interviews. Next step is deciding whether to publish the supporting appearances roundup after KK review.
 3. **Photo and asset source pack** - inventory better LaSalle, CreativeMornings, Vancouver AI meetup, and Whistler photos; use WP-hosted or owned stable assets only.
 4. **About proof-source cleanup** - keep the publication/client lists, but progressively source, group, and link the most impressive proof instead of expanding an unsourced wall of names.
 5. **Current-theme technical quick wins** - title separator snippet, Twitter-to-X replacement, and broken-link scan.

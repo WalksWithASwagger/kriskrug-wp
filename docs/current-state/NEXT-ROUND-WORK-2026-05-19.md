@@ -103,7 +103,7 @@ Speaking companion drafts were prepared locally on 2026-05-19:
 - `content/drafts/2026-05-19-dear-ai-bass-coast-brain-stage/`
 - `content/drafts/2026-05-19-ai-media-appearances-podcast-guesting/`
 
-CBC/media appearance sources were collected in `content/source-packs/keynotes-2026/media-appearances/`. Next in that lane: use the source inventory to refresh `/podcast-guesting-page-epk/` after a fresh page snapshot, or publish the standalone appearances roundup only after KK review.
+CBC/media appearance sources were collected in `content/source-packs/keynotes-2026/media-appearances/`. The `/podcast-guesting-page-epk/` refresh was deployed and verified on 2026-05-19 after a fresh page snapshot. Next in that lane: publish the standalone appearances roundup only after KK review, then tighten internal links from `/speaking/` and `/about/` if needed.
 
 ### 5. Clean GitHub Backlog Safely
 

@@ -19,6 +19,8 @@ Applied after the polish deploy: the `Speaking` payload now includes podcast gue
 
 Applied after the Horizons update: an IA polish continuation tightened Work hierarchy, About interlinking/proof lists, and Speaking booking lanes. See `verification/IA-POLISH-CONTINUATION-VERIFICATION-2026-05-18.md`.
 
+Applied after the media-appearance intake: `/podcast-guesting-page-epk/` is now the podcast, broadcast, produced-interview, hosting, moderation, and emcee booking surface. See `verification/PODCAST-EPK-DEPLOY-VERIFICATION-2026-05-19.md`.
+
 ## Source Inputs
 
 - Notion page: `Keynotes` (`cd4ce83f-afa5-440d-8405-4caf04a480d1`)
@@ -51,6 +53,7 @@ Applied after the Horizons update: an IA polish continuation tightened Work hier
 - `wp-payloads/speaking.html` - publish-ready content for page `1887`.
 - `wp-payloads/work.html` - publish-ready content for page `2672`.
 - `wp-payloads/about.html` - publish-ready content for page `1208`.
+- `wp-payloads/podcast-guesting-page-epk.html` - deployed content for page `3609`.
 - `wp-payloads/page-meta.json` - target titles, SEO meta, slugs, and comment settings.
 - `wp-payloads/deploy-checklist.md` - live-write gate and verification checklist.
 - `verification/DEPLOY-VERIFICATION-2026-05-18.md` - REST, URL, screenshot, and rollback verification after deploy.
@@ -62,6 +65,7 @@ Applied after the Horizons update: an IA polish continuation tightened Work hier
 - `verification/P0-DRAFT-PREP-VERIFICATION-2026-05-19.md` - P0 Speaking companion-post local draft prep verification.
 - `verification/P1-DRAFT-PREP-VERIFICATION-2026-05-19.md` - P1 Speaking companion-post local draft prep verification.
 - `verification/MEDIA-APPEARANCE-SOURCE-VERIFICATION-2026-05-19.md` - public CBC/podcast/media appearance source and draft verification.
+- `verification/PODCAST-EPK-DEPLOY-VERIFICATION-2026-05-19.md` - live Podcast EPK deploy, rollback, REST, link, and screenshot verification.
 - `media-appearances/public-source-inventory-2026-05-19.md` - public CBC/podcast/media appearance source inventory.
 
 ## Local Draft Outputs
@@ -95,6 +99,9 @@ Fresh page-level rollback snapshots were captured before preparing payloads:
 - `backup/20260518-111546/page-snapshots/page-2672-work.json`
 - `backup/20260518-111546/page-snapshots/page-2672-work.html`
 - `backup/20260518-111546/page-snapshots/sha256sums.txt`
+- `backup/20260519-105949/page-snapshots/page-3609-podcast-guesting-page-epk.json`
+- `backup/20260519-105949/page-snapshots/page-3609-podcast-guesting-page-epk.html`
+- `backup/20260519-105949/page-snapshots/sha256sums.txt`
 
 Full-site backup status: blocked on authenticated UpdraftPlus admin access at the time this pack was prepared. KK explicitly authorized the narrower rollback path on 2026-05-18, and the live deploy is documented in `verification/DEPLOY-VERIFICATION-2026-05-18.md`.
 

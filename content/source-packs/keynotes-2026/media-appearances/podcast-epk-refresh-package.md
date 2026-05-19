@@ -1,10 +1,10 @@
 # Podcast EPK Refresh Package
 
-Status: review-ready package; do not publish without KK review and Track A backup/snapshot.
+Status: deployed on 2026-05-19 after KK's `proceed`, with Track A page snapshot and verification.
 
 ## Target Surface
 
-Recommended live target: `/podcast-guesting-page-epk/`
+Live target: `/podcast-guesting-page-epk/`
 
 Reason: this is already the producer-facing URL linked from Speaking. Refreshing it is cleaner than creating a new top-level nav item.
 
@@ -40,14 +40,16 @@ Reason: this is already the producer-facing URL linked from Speaking. Refreshing
 - Rachel Thexton: `https://music.amazon.com/es-ar/podcasts/efb24614-5724-4412-a377-755e3b3ebdd4/episodes/cd1d024c-e3d4-496f-ace3-2901c89c3882/rachel-thexton-connects-03x08-kris-kr%C3%BCg-one-of-canada%27s-leading-ai-voices-talks-tech-and-tells-his-story`
 - E-ChannelNews: `https://www.e-channelnews.com/interview-with-kris-krug-at-channelnext-central-2025/`
 - Kurty D: `https://podcasts.apple.com/us/podcast/053-widen-the-lens-with-kris-krug/id1575595225?i=1000634160006`
-- Teen2Life: `https://podtail.se/podcast/teen2life-experience/047-ceo-of-future-proof-creatives-artist-kris-krug/`
+- Teen2Life: `https://music.amazon.com/es-us/podcasts/ba75295d-60de-4701-8eb6-12e17e49838a/teen2life-experience`
 
 ## Publish Gate
 
-- [ ] Snapshot existing page ID for `/podcast-guesting-page-epk/`.
-- [ ] Confirm page ID and slug before any REST write.
-- [ ] Remove or replace any outdated direct contact details if they appear in body content.
-- [ ] Choose WP-hosted headshot or approved stage/interview image.
-- [ ] Confirm final list of featured appearances with KK.
-- [ ] Curl-check all source links.
-- [ ] After publish, verify `/speaking/` still links cleanly to EPK.
+- [x] Snapshot existing page ID for `/podcast-guesting-page-epk/`.
+- [x] Confirm page ID and slug before any REST write.
+- [x] Remove or replace outdated direct contact details from body content.
+- [x] Choose WP-hosted headshot and stable owned-site images.
+- [x] Confirm final list from public-source inventory and KK-provided Horizons link.
+- [x] Curl-check all source links in the live payload.
+- [x] After publish, verify `/speaking/` still returns `200`.
+
+Deploy verification: `../verification/PODCAST-EPK-DEPLOY-VERIFICATION-2026-05-19.md`.

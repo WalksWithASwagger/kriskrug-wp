@@ -58,4 +58,4 @@ This should not be a single thin recap unless the CBC draft has enough substance
 
 Yes, as a local draft candidate only. Public source collection was added in `../media-appearances/public-source-inventory-2026-05-19.md`, and a standalone local draft exists at `../../../drafts/2026-05-19-ai-media-appearances-podcast-guesting/`.
 
-The better live move may still be refreshing `/podcast-guesting-page-epk/` first, then publishing the standalone roundup only if KK wants an archive-style post.
+The `/podcast-guesting-page-epk/` refresh was deployed first on 2026-05-19. Publish the standalone roundup only if KK wants an archive-style post after review.

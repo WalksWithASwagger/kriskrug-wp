@@ -84,7 +84,7 @@ What exists:
 Ordered roughly by leverage / effort ratio:
 
 1. **🟡 Speaking proof network** — turn public video intake into review-ready post packages for Bass Coast, Whistler Institute, ChannelNext, Vancouver AI March 2026, and Horizons; no publish without KK review.
-2. **🟡 Podcast / appearance hub** — decide whether `/podcast-guesting-page-epk/`, MØTLEYKRÜG, or a new `/media/` page becomes the home for guest appearances, hosting, emcee work, CBC, and produced interviews.
+2. **🟢 Podcast / appearance hub** — `/podcast-guesting-page-epk/` is now the home for guest appearances, hosting, emcee work, CBC, and produced interviews. Next move is a supporting appearances roundup only after KK review.
 3. **🟡 Better photo/source inventory** — inventory LaSalle, CreativeMornings, Vancouver AI meetup, and Whistler photos; use WP-hosted or owned stable assets only.
 4. **🟡 About proof-source cleanup** — keep the publication/client/portrait lists, but progressively source, group, and link the best proof.
 5. **🟡 Title separator filter** (5-line Code Snippet) — every page title currently reads *"PageName Kris Krüg | Site Title"* with no delimiter. Hooks `document_title_parts` and inserts ` | ` between page name and site name. Site-wide fix in 10 minutes.

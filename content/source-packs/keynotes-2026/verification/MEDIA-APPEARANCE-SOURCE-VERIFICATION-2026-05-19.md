@@ -46,7 +46,7 @@ rg -n -i "<standard source-pack sensitive-string pattern>" content/source-packs/
 
 ## Publish Gate
 
-Recommended next live move is to refresh `/podcast-guesting-page-epk/`, not create a new top-level nav item.
+Follow-up completed: `/podcast-guesting-page-epk/` was refreshed and verified on 2026-05-19; see `PODCAST-EPK-DEPLOY-VERIFICATION-2026-05-19.md`.
 
 Before any live write:
 

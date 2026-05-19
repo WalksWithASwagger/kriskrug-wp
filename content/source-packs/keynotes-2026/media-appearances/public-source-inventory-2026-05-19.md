@@ -13,7 +13,7 @@ Status: public-source inventory for review. No live WordPress writes.
 | P1 | Rachel Thexton Connects | Podcast interview | `https://music.amazon.com/es-ar/podcasts/efb24614-5724-4412-a377-755e3b3ebdd4/episodes/cd1d024c-e3d4-496f-ace3-2901c89c3882/rachel-thexton-connects-03x08-kris-kr%C3%BCg-one-of-canada%27s-leading-ai-voices-talks-tech-and-tells-his-story` | Long-form profile: AI, digital, photography, technology, and heart. | Good for EPK; verify best locale-neutral URL before publishing. |
 | P1 | E-ChannelNews: Interview with AI Expert Kris Krug at ChannelNext Central 2025 | Event interview / trade media | `https://www.e-channelnews.com/interview-with-kris-krug-at-channelnext-central-2025/` | External trade-media proof tied to ChannelNext and MSP/business AI audiences. | Good for EPK and ChannelNext companion links. |
 | P1 | The Kurty D Show: Widen The Lens with Kris Krug | Podcast interview | `https://podcasts.apple.com/us/podcast/053-widen-the-lens-with-kris-krug/id1575595225?i=1000634160006` | Photography, beauty, AI, internet culture, creative process. | Good archive proof; not central to AI booking page. |
-| P1 | Teen2Life Experience: CEO of Future Proof Creatives, Artist | Podcast interview | `https://podtail.se/podcast/teen2life-experience/047-ceo-of-future-proof-creatives-artist-kris-krug/` | Entrepreneur/artist profile, photography/social proof, broad audience. | Useful lower-page archive proof. |
+| P1 | Teen2Life Experience: CEO of Future Proof Creatives, Artist | Podcast interview | `https://music.amazon.com/es-us/podcasts/ba75295d-60de-4701-8eb6-12e17e49838a/teen2life-experience` | Entrepreneur/artist profile, photography/social proof, broad audience. | Useful lower-page archive proof; Amazon Music is the crawler-friendlier live link, while Podtail remains a source-pack fallback because curl sees `403`. |
 
 ## Owned / Hosted Podcast Surfaces
 
@@ -21,7 +21,7 @@ Status: public-source inventory for review. No live WordPress writes.
 | --- | --- | --- |
 | Vancouver AI Pods | `https://music.amazon.com/podcasts/369594c8-9548-47ed-9dee-b61dae6c7c5a/vancouver-ai-pods` | Hosted/community audio archive; supports hosting and community convening. |
 | MOTLEYKRUG / Vancouver AI Pods page | `https://kriskrug.co/motleykrug-podcast/` | Existing owned podcast page; useful as archive but needs IA cleanup before being the main booking page. |
-| Podcast Guesting EPK | `https://kriskrug.co/podcast-guesting-page-epk/` | Existing booking surface; recommended refresh target. |
+| Podcast Guesting EPK | `https://kriskrug.co/podcast-guesting-page-epk/` | Refreshed booking surface for podcasts, interviews, broadcasts, panels, hosting, and emcee work. |
 
 ## Recommended EPK Grouping
 
