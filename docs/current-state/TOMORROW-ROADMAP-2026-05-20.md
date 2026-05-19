@@ -15,9 +15,12 @@
    - `#88` merged to `main` (KK Sidebar Promos plugin + CI fix)
    - `#89` merged to `main` (queue-recovery documentation)
 4. Open PR queue: none.
-5. Remaining remote branches:
-   - `claude/automate-sidebar-graphics-55OBU`
-   - `claude/setup-wordpress-rebuild-KVLxh`
+5. Branch hygiene follow-through completed:
+   - Remaining `claude/*` remotes were deleted after local backup refs were created.
+   - Aurora side worktrees were repointed to fresh branches off `origin/aurora/v2`.
+6. Current remote branches:
+   - `origin/main`
+   - `origin/aurora/v2`
 
 ## Non-Negotiable Guardrails
 
@@ -28,40 +31,7 @@
 
 ## Next Session Priority Order
 
-### 1) Local/worktree reconciliation after rewrite (P0)
-
-Goal: prevent accidental work on stale pre-rewrite branch pointers.
-
-Do:
-
-- Fetch/prune in each active worktree.
-- Confirm branch tracking and divergence for:
-  - `/Users/kk/Code/kriskrug-wp` (main worktree)
-  - `/Users/kk/Code/kriskrug-wp-aurora-redesign`
-  - `/Users/kk/Code/kriskrug-wp-aurora-staging-qa`
-- Preserve uncommitted local content assets before any resets/rebases.
-
-Done when:
-
-- Each active worktree has an explicit sync decision logged (rebase/reset/keep-diverged).
-
-### 2) Branch hygiene pass on remaining remote branches (P1)
-
-Goal: clean branch surface without deleting needed work.
-
-Do:
-
-- Compare each remaining remote branch to its intended base.
-- Identify unique commits not already merged.
-- Either:
-  - open a clean replacement PR (if unique work still matters), or
-  - archive/delete branch with a short audit note.
-
-Done when:
-
-- `origin` branch list only contains active branches with clear ownership.
-
-### 3) Aurora review prep refresh (P1, Track B)
+### 1) Aurora review prep refresh (P1, Track B)
 
 Goal: keep Aurora demo narrative current after merge to `aurora/v2`.
 
@@ -75,7 +45,7 @@ Done when:
 
 - Fresh smoke artifacts and one current review packet are present under `docs/current-state/`.
 
-### 4) Track A content lane continuation (P2)
+### 2) Track A content lane continuation (P2)
 
 Goal: continue authority/support content without crossing into risky publish actions.
 
@@ -89,7 +59,7 @@ Done when:
 
 - Next draft batch has clear review verdicts and no accidental publish.
 
-### 5) Issue queue alignment for swarming (P2)
+### 3) Issue queue alignment for swarming (P2)
 
 Goal: keep the issue board trustworthy for agentic execution.
 
@@ -116,6 +86,5 @@ git branch -r
 
 Ask KK before:
 
-- Any destructive branch cleanup on branches with uncertain unique commits.
 - Any production publish operation from draft packs.
 - Any Aurora move that changes public production theme state.

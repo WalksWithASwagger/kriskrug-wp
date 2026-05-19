@@ -24,7 +24,7 @@ The canonical "what's true right now" snapshot lives in [`docs/current-state/`](
 | [`current-state/FIX_QUEUE.md`](current-state/FIX_QUEUE.md) | P0 → P3 backlog |
 | [`current-state/ROADMAP.md`](current-state/ROADMAP.md) | Six-phase, 3-month plan |
 | [`current-state/FULL-AUDIT-ROADMAP-2026-05-18.md`](current-state/FULL-AUDIT-ROADMAP-2026-05-18.md) | Current post-closeout audit, roadmap, and human decision list |
-| [`current-state/TOMORROW-ROADMAP-2026-05-20.md`](current-state/TOMORROW-ROADMAP-2026-05-20.md) | Next-session roadmap for credential-history cleanup, Aurora P0, draft prep, and backlog hygiene |
+| [`current-state/TOMORROW-ROADMAP-2026-05-20.md`](current-state/TOMORROW-ROADMAP-2026-05-20.md) | Refreshed next-session roadmap after rewrite recovery and branch/worktree cleanup |
 | [`current-state/NEXT-ROUND-WORK-2026-05-19.md`](current-state/NEXT-ROUND-WORK-2026-05-19.md) | Next-round command sheet after queue sweep, Track A prep, and authority-page polish |
 | [`current-state/AURORA-ISSUE-SWARM-2026-05-19.md`](current-state/AURORA-ISSUE-SWARM-2026-05-19.md) | Filed Aurora epics and routed stale design issues into the Track B lane |
 | [`current-state/CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md`](current-state/CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md) | Redacted history-scan findings and safe rewrite/force-push preflight |

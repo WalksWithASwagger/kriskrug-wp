@@ -25,11 +25,24 @@ This note records the queue recovery actions so reviewers have a clean audit tra
 - `main`: includes sidebar promos plugin + CI allow-plugins fix from PR #88
 - `aurora/v2`: includes Aurora redesign merge from PR #87
 
-## Remaining branch hygiene (manual decision)
+## Branch hygiene follow-through
 
-Remote branches still present that were not touched in this recovery:
+Follow-up cleanup completed after the initial recovery:
 
-- `claude/automate-sidebar-graphics-55OBU`
-- `claude/setup-wordpress-rebuild-KVLxh`
+1. Created local backup refs for both remaining `claude/*` branches before deletion:
+   - `backup/claude-automate-sidebar-graphics-55OBU-20260519`
+   - `backup/claude-setup-wordpress-rebuild-KVLxh-20260519`
+2. Deleted remote branches:
+   - `claude/automate-sidebar-graphics-55OBU`
+   - `claude/setup-wordpress-rebuild-KVLxh`
+3. Reconciled local Aurora worktrees onto fresh branches tracking `origin/aurora/v2`:
+   - `/Users/kk/Code/kriskrug-wp-aurora-redesign` -> `codex/aurora-redesign-sync-2026-05-19`
+   - `/Users/kk/Code/kriskrug-wp-aurora-staging-qa` -> `codex/aurora-staging-qa-sync-2026-05-19`
+4. Deleted obsolete local stale branches:
+   - `codex/aurora-redesign-2026-05-18`
+   - `codex/aurora-staging-qa-2026-05-18`
 
-Recommend deciding whether to archive/delete these in a separate branch-hygiene pass.
+### Remote branch state after follow-through
+
+- `origin/main`
+- `origin/aurora/v2`
