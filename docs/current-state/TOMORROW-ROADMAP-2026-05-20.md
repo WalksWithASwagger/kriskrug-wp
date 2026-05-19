@@ -1,167 +1,121 @@
 # Tomorrow Roadmap - 2026-05-20
 
-**Prepared after:** 2026-05-19 Speaking/Work/About authority-page continuation, Horizons proof, and Track A issue-swarm docs integration
-**Use for:** The next operating session. If the calendar has drifted, treat this as the next-session plan rather than a date-bound promise.
-**Tracks:** Track A on `main`; Track B on `aurora/v2`.
+**Prepared after:** 2026-05-19 credential-history rewrite execution, queue recovery, and merge pass  
+**Use for:** Next operating session (date can drift; treat as next-session plan)
+**Tracks:** Track A on `main`; Track B on `aurora/v2`
 
-Current pointer: [`NEXT-ROUND-WORK-2026-05-19.md`](NEXT-ROUND-WORK-2026-05-19.md) is the fresher command sheet after the queue sweep, Track A prep, and keynote closeout.
+## Where We Ended (Verified)
 
-## Where We Ended
-
-Local `main` was fetched and rebased onto `origin/main` before this closeout. The three newer remote docs/preview commits are integrated:
-
-- `9fbbc76 preview: add redesign direction pages`
-- `b292fd9 docs: record queue sweep and revert static previews`
-- `8285831 docs: prepare Track A issue swarm`
-
-The live Speaking, Work, and About authority pages have now had three connected Track A passes:
-
-- `63e49e4 content: polish keynote authority pages` - second-pass overhaul of the live Speaking, Work, and About pages.
-- `ca332f7 content: add horizons speaking proof` - source-backed Horizons by Compass Datacenters proof point and video card on Speaking.
-- `793f364 content: polish authority page IA` - tighter Work hierarchy, About interlinking/proof-list structure, and Speaking booking-lane cards.
-
-The source pack now includes:
-
-- Fresh page-level rollback snapshots under `backup/20260518-123159/`, `backup/20260518-215912/`, `backup/20260518-223014/`, and `backup/20260518-224340/`.
-- Verification records at `content/source-packs/keynotes-2026/verification/DEPLOY-VERIFICATION-2026-05-18.md`, `POLISH-VERIFICATION-2026-05-18.md`, `SPEAKING-GUESTING-VERIFICATION-2026-05-18.md`, `SPEAKING-HORIZONS-VERIFICATION-2026-05-18.md`, and `IA-POLISH-CONTINUATION-VERIFICATION-2026-05-18.md`.
-- Public video research, captions, thumbnails, and metadata under `content/source-packs/keynotes-2026/video-research/`.
-- Authenticated WordPress draft candidates for future speaking/AI authority posts.
-- A deployed Podcast EPK refresh at `/podcast-guesting-page-epk/`, with rollback snapshots under `backup/20260519-105949/` and verification in `content/source-packs/keynotes-2026/verification/PODCAST-EPK-DEPLOY-VERIFICATION-2026-05-19.md`.
-
-Live public checks after the latest pass confirmed:
-
-- `/speaking/`, `/recent-projects-include/`, `/work/`, and `/about/` return `200`.
-- `/work/` still redirects to `/recent-projects-include/`.
-- The authority-page markers are present, images lazy-load cleanly in Playwright, and no target page shows `Leave a Reply`.
-
-The current strategic decisions are recorded in `FULL-AUDIT-ROADMAP-2026-05-18.md`:
-
-- Rewrite public git history to remove the revoked leaked password, but do it as a controlled standalone operation.
-- Page-level snapshots are acceptable for small Track A content/snippet writes.
-- Aurora should lead with community-room / event-energy media.
-- Aurora's primary path should combine "Explore my work" and "Work with Kris."
-- Brand direction is premium/editorial/human with weird AI details.
-- Photography is a supporting credibility band in v1.
-- Prep all three next posts, publish none until review.
-- File clean Aurora epics, then comment/close old design issues gradually.
-- Close PR `#74` after extracting useful design ideas.
-- Park PR `#73` until Aurora/current-site priorities settle.
+1. Credential-history rewrite is complete and documented:
+   - `CREDENTIAL-HISTORY-REWRITE-EXECUTION-2026-05-19.md`
+2. Post-rewrite PR recovery is complete and documented:
+   - `GITHUB-QUEUE-RECOVERY-2026-05-19.md`
+3. Replacement PR merges:
+   - `#87` merged to `aurora/v2` (Aurora redesign lane)
+   - `#88` merged to `main` (KK Sidebar Promos plugin + CI fix)
+   - `#89` merged to `main` (queue-recovery documentation)
+4. Open PR queue: none.
+5. Remaining remote branches:
+   - `claude/automate-sidebar-graphics-55OBU`
+   - `claude/setup-wordpress-rebuild-KVLxh`
 
 ## Non-Negotiable Guardrails
 
-1. Do not run a production connector write without a fresh dry-run and target slug/ID/status verification.
-2. Do not use `--publish` for the next post batch.
-3. Do not activate Aurora on production.
-4. Do not mix Track A content/page work and Track B theme work in one commit.
-5. Do not rewrite git history casually; use a final preflight summary immediately before force-push.
+1. Track separation stays strict: no theme edits on `main`, no content-payload rewrites on Track B branches.
+2. Keep Notion -> WP writes dry-run first, slug-verified, and no `--publish` without explicit approval.
+3. Keep rollback snapshots before production writes.
+4. No casual history rewrites; today’s rewrite is complete and should be treated as a closed operation.
 
-## Tomorrow's Recommended Order
+## Next Session Priority Order
 
-### 1. Verify this closeout
+### 1) Local/worktree reconciliation after rewrite (P0)
 
-If not already done:
+Goal: prevent accidental work on stale pre-rewrite branch pointers.
 
-1. Fetch/prune origin.
-2. Confirm `git rev-list --left-right --count main...origin/main` returns `0 0`.
-3. Verify GitHub shows the Horizons proof commit, the IA polish commit, and the documentation closeout commit.
-4. Use [`NEXT-ROUND-WORK-2026-05-19.md`](NEXT-ROUND-WORK-2026-05-19.md) as the current work order.
+Do:
 
-### 2. Choose the next Track A authority round
+- Fetch/prune in each active worktree.
+- Confirm branch tracking and divergence for:
+  - `/Users/kk/Code/kriskrug-wp` (main worktree)
+  - `/Users/kk/Code/kriskrug-wp-aurora-redesign`
+  - `/Users/kk/Code/kriskrug-wp-aurora-staging-qa`
+- Preserve uncommitted local content assets before any resets/rebases.
 
-Goal: turn the new authority pages into a stronger supporting network, not just prettier pages.
+Done when:
 
-Recommended order:
+- Each active worktree has an explicit sync decision logged (rebase/reset/keep-diverged).
 
-1. **Speaking proof posts and clips** - turn the public video intake into source-backed post packages for Bass Coast, Whistler Institute, ChannelNext, Vancouver AI March 2026, and Horizons. Start with review-ready drafts; do not publish without KK review.
-2. **Podcast / appearance support post** - the EPK page is now the home for guest appearances, hosting, emcee work, CBC, and produced interviews. Next step is deciding whether to publish the supporting appearances roundup after KK review.
-3. **Photo and asset source pack** - inventory better LaSalle, CreativeMornings, Vancouver AI meetup, and Whistler photos; use WP-hosted or owned stable assets only.
-4. **About proof-source cleanup** - keep the publication/client lists, but progressively source, group, and link the most impressive proof instead of expanding an unsourced wall of names.
-5. **Current-theme technical quick wins** - title separator snippet, Twitter-to-X replacement, and broken-link scan.
+### 2) Branch hygiene pass on remaining remote branches (P1)
 
-### 3. Run the credential-history rewrite preflight
+Goal: clean branch surface without deleting needed work.
 
-Goal: make the force-push boring before doing it.
+Do:
 
-Preflight should list:
+- Compare each remaining remote branch to its intended base.
+- Identify unique commits not already merged.
+- Either:
+  - open a clean replacement PR (if unique work still matters), or
+  - archive/delete branch with a short audit note.
 
-- The exact commit(s) containing the revoked credential.
-- The exact replacement/redaction rule.
-- The branches/tags that would be rewritten.
-- The active local worktrees that need coordination.
-- The recovery plan: backup ref, clone safety copy, and force-push-with-lease command.
+Done when:
 
-Do not perform the force-push until the preflight is written down and the working tree is clean.
+- `origin` branch list only contains active branches with clear ownership.
 
-### 4. Start Aurora P0 on `aurora/v2`
+### 3) Aurora review prep refresh (P1, Track B)
 
-Goal: get from "prototype with broken render" to "judgable design surface."
+Goal: keep Aurora demo narrative current after merge to `aurora/v2`.
 
-First worker scope:
+Do:
 
-- Branch/worktree: `aurora/v2` only.
-- Fix desktop header/nav render.
-- Re-run the six-page Local smoke from `AURORA-STAGING-REPORT-2026-05-18.md`.
-- Capture desktop/mobile screenshots.
-- Add a compact media inventory that prioritizes community-room/event-energy assets.
+- Re-run Aurora smoke screenshots on current `aurora/v2`.
+- Update the review packet if visuals or behavior shifted after merge.
+- Confirm nav/header render and mobile quality baseline.
 
-Do not:
+Done when:
 
-- Merge Aurora into `main`.
-- Activate Aurora on production.
-- Rewrite content payloads from the theme branch.
+- Fresh smoke artifacts and one current review packet are present under `docs/current-state/`.
 
-### 5. Prep the three-post draft batch
+### 4) Track A content lane continuation (P2)
 
-Goal: create reviewable post packages, not live posts.
+Goal: continue authority/support content without crossing into risky publish actions.
 
-The `Speaking` payload update for podcast guesting, hosting, emcee, and moderation positioning has been deployed and verified. Use `content/source-packs/keynotes-2026/verification/SPEAKING-GUESTING-VERIFICATION-2026-05-18.md` as the evidence trail.
+Do:
 
-Post-prep order:
+- Keep building review-ready draft packages from `content/source-packs/keynotes-2026/`.
+- Prioritize source-backed proofs and internal linking quality.
+- Keep publish actions gated behind explicit review.
 
-1. `Sovereign AI for Whom?`
-2. RAP/certification follow-up
-3. Comox Valley AI recap
+Done when:
 
-Output for each:
+- Next draft batch has clear review verdicts and no accidental publish.
 
-- Clean excerpt/meta.
-- Category recommendation.
-- Internal-link recommendations.
-- Image/featured-image decision.
-- Fact-check or privacy checklist.
-- Clear "ready for WP draft?" verdict.
+### 5) Issue queue alignment for swarming (P2)
 
-No WordPress writes until all three have been reviewed.
+Goal: keep the issue board trustworthy for agentic execution.
 
-### 6. File and clean up Aurora issues
+Do:
 
-Goal: make the backlog swarm-safe.
+- Re-check open Aurora issues `#80-#86` against merged state.
+- Close, relabel, or split issues whose acceptance criteria drifted.
+- Keep labels consistent with Track A/Track B ownership.
 
-1. File clean Aurora epics from `issues-to-create/aurora-v2-redesign-epics.md`.
-2. Comment on old design issues `#24-#35` with the new audit/epic pointer.
-3. Remove stale `auto-implement` labels from old design issues until each issue has current acceptance criteria.
-4. Close PR `#74` after extracting any useful preview ideas into the Aurora audit or issue comments.
-5. Leave PR `#73` parked.
+Done when:
 
-## Suggested Swarm
+- Top-of-queue issues map cleanly to current code reality.
 
-Run these in bounded lanes:
+## Suggested Opening Commands
 
-| Lane | Track | Write scope | Done when |
-|---|---|---|---|
-| Credential rewrite preflight | Git | Docs/commands only until final approval | Preflight names exact commits, rewrite plan, and recovery path |
-| Speaking proof network | A | `content/source-packs/keynotes-2026/`, `content/drafts/` | Video/appearance post packages are review-ready; no publish without approval |
-| Aurora P0 | B | `aurora/v2`, `theme/kk-aurora/`, Aurora docs | Header/nav smoke passes and screenshots exist |
-| Draft prep | A | `content/drafts/`, draft-prep docs | Three posts have review-ready packages; no WP writes |
-| Issue hygiene | GitHub | Issues/labels/comments | New Aurora epics filed; stale design issues linked or cleaned |
-| PR triage | GitHub | PR comments/state only | PR `#74` closed after extraction; PR `#73` explicitly parked |
+```bash
+git fetch --all --prune
+git worktree list --porcelain
+gh pr list --state open
+git branch -r
+```
 
 ## Human Checkpoints
 
 Ask KK before:
 
-- The actual git-history force-push.
-- Any production WordPress write beyond page-level content/snippet changes.
-- Publishing any of the three next posts.
-- Choosing final Aurora hero media if the available community/event assets are weak.
-- Closing old issues that may still carry useful business intent.
+- Any destructive branch cleanup on branches with uncertain unique commits.
+- Any production publish operation from draft packs.
+- Any Aurora move that changes public production theme state.
