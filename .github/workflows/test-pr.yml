@@ -117,6 +117,7 @@ jobs:
         run: |
           # Install WordPress Coding Standards if not present
           if ! phpcs -i | grep -q "WordPress"; then
+            composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
             composer global require wp-coding-standards/wpcs
             phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
           fi
