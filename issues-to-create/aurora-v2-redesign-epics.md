@@ -2,9 +2,9 @@
 
 **Created:** 2026-05-18
 **Source brief:** `docs/current-state/AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md`
-**Status:** Local issue drafts only. Not filed in GitHub yet.
+**Status:** Filed in GitHub on 2026-05-19 as issues #80-#86.
 
-These drafts replace the January-era broad design tickets with a smaller Track B set. If filed, keep them on `aurora/v2` and remove stale `auto-implement` labels from issues `#24` through `#35` until each old issue has current acceptance criteria.
+These drafts replace the January-era broad design tickets with a smaller Track B set. The stale `auto-implement` labels were removed from issues `#24` through `#35` during the 2026-05-19 issue hygiene pass.
 
 ---
 
