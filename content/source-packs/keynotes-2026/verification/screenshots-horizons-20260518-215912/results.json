@@ -1,0 +1,34 @@
+[
+  {
+    "label": "desktop",
+    "status": 200,
+    "finalUrl": "https://kriskrug.co/speaking/",
+    "screenshotPath": "/Users/kk/Code/kriskrug-wp/content/source-packs/keynotes-2026/verification/screenshots-horizons-20260518-215912/speaking-desktop.png",
+    "title": "AI Keynote Speaker Kris Krüg | Humanizing AI, Creativity & Community",
+    "h1": [
+      "AI Keynote Speaker Kris Krüg"
+    ],
+    "hasHorizons": true,
+    "hasHorizonsEmbed": true,
+    "leaveReply": false,
+    "unloaded": 0,
+    "width": 1440,
+    "height": 7682
+  },
+  {
+    "label": "mobile",
+    "status": 200,
+    "finalUrl": "https://kriskrug.co/speaking/",
+    "screenshotPath": "/Users/kk/Code/kriskrug-wp/content/source-packs/keynotes-2026/verification/screenshots-horizons-20260518-215912/speaking-mobile.png",
+    "title": "AI Keynote Speaker Kris Krüg | Humanizing AI, Creativity & Community",
+    "h1": [
+      "AI Keynote Speaker Kris Krüg"
+    ],
+    "hasHorizons": true,
+    "hasHorizonsEmbed": true,
+    "leaveReply": false,
+    "unloaded": 0,
+    "width": 390,
+    "height": 16173
+  }
+]

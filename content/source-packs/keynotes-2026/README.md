@@ -33,6 +33,8 @@ Applied after the polish deploy: the `Speaking` payload now includes podcast gue
   - `http://developinganaimindset.com/`
   - `https://bc-ai.ca/`
   - `https://kriskrug.co/`
+- Public produced-interview proof:
+  - `https://horizons.compassdatacenters.com/series/exploring-ai-models-the-future-of-machine-learning/`
 
 ## Files
 
@@ -50,6 +52,7 @@ Applied after the polish deploy: the `Speaking` payload now includes podcast gue
 - `verification/DEPLOY-VERIFICATION-2026-05-18.md` - REST, URL, screenshot, and rollback verification after deploy.
 - `verification/POLISH-VERIFICATION-2026-05-18.md` - second-pass Work/About/Speaking polish verification.
 - `verification/SPEAKING-GUESTING-VERIFICATION-2026-05-18.md` - Speaking-page guesting/hosting addition verification.
+- `verification/SPEAKING-HORIZONS-VERIFICATION-2026-05-18.md` - Speaking-page Horizons produced-interview addition verification.
 
 ## Safety Notes
 
