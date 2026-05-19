@@ -15,6 +15,8 @@ This is a selective publishing pack, not a Notion mirror. It keeps the useful pu
 
 Applied and verified on 2026-05-18. See `verification/DEPLOY-VERIFICATION-2026-05-18.md` and the second-pass polish record in `verification/POLISH-VERIFICATION-2026-05-18.md`.
 
+Applied after the polish deploy: the `Speaking` payload now includes podcast guesting, hosting, emcee, and moderation positioning based on the Vancouver AI March 2026 video intake. See `verification/SPEAKING-GUESTING-VERIFICATION-2026-05-18.md`.
+
 ## Source Inputs
 
 - Notion page: `Keynotes` (`cd4ce83f-afa5-440d-8405-4caf04a480d1`)
@@ -47,6 +49,7 @@ Applied and verified on 2026-05-18. See `verification/DEPLOY-VERIFICATION-2026-0
 - `wp-payloads/deploy-checklist.md` - live-write gate and verification checklist.
 - `verification/DEPLOY-VERIFICATION-2026-05-18.md` - REST, URL, screenshot, and rollback verification after deploy.
 - `verification/POLISH-VERIFICATION-2026-05-18.md` - second-pass Work/About/Speaking polish verification.
+- `verification/SPEAKING-GUESTING-VERIFICATION-2026-05-18.md` - Speaking-page guesting/hosting addition verification.
 
 ## Safety Notes
 
