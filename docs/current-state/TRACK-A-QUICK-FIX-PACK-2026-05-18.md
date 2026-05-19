@@ -2,7 +2,24 @@
 
 **Lane:** Track A — Content + SEO  
 **Ownership:** planning artifact only. Do not touch production WordPress from this lane.  
-**Sources inspected:** `SITE-AUDIT-2026-05-16.md`, `RESUME-HERE.md`, `fixes/schema-snippets-deployed.php`, `fixes/issue-43-twitter-cards.php`, live unauthenticated `curl` spot checks on 2026-05-18.
+**Sources inspected:** `SITE-AUDIT-2026-05-16.md`, `RESUME-HERE.md`, `fixes/schema-snippets-deployed.php`, `fixes/issue-43-twitter-cards.php`, live unauthenticated `curl` spot checks on 2026-05-18 and 2026-05-19.
+
+## 2026-05-19 read-only refresh
+
+No production writes were made in this refresh.
+
+Still pending:
+
+- Services `<title>` and `og:title` still render without the needed separator: `Generative AI Creative Services &amp; Strategy Kris Krüg | Generative AI Tools &amp; Techniques`.
+- `twitter:site` still renders `@feelmoreplants`, and `feelmoreplants` is still present in live HTML.
+- Popup Maker `pum-3884` still reports `delay=30000`, `disable_on_mobile=false`, `disable_on_tablet=false`.
+- Homepage renders the intended H1, `Kris Krüg, Generative AI for Creative Professionals`, but Catch Responsive also emits an empty `<h1 class="entry-title"></h1>` wrapper.
+
+Still good:
+
+- `/services/` returns `301` to `/generative-ai-services/`, then `200`.
+- `/work/` returns `301` to `/recent-projects-include/`, then `200`.
+- About, Services, Work, and Speaking each showed one non-empty H1 in the spot check.
 
 ## Current live evidence
 
@@ -241,4 +258,3 @@ These are the remaining high-signal checks for the current Catch Responsive site
 4. Disable Popup Maker on mobile/tablet.
 5. Run Broken Link Checker as a one-shot scan; export CSV; disable plugin.
 6. Update `RESUME-HERE.md` only after the production session actually completes.
-

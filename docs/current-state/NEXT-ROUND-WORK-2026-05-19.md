@@ -7,12 +7,13 @@ Use this as the next-session command sheet after the GitHub queue sweep, Track A
 - Track A branch: `main`.
 - Track B branch: `aurora/v2`.
 - Aurora redesign PR: `#77`, draft, base `aurora/v2`, clean but not production-ready.
-- Sidebar promos PR: `#73`, base `main`, parked because it is production-adjacent plugin work and mergeability currently reports `UNKNOWN`.
+- Sidebar promos PR: `#73`, base `main`, parked because it is production-adjacent plugin work and mergeability currently reports `DIRTY`.
 - Queue sweep correction PR `#78` merged to `main` as `b292fd9`.
 - Track A prep PR `#79` merged to `main` as `8285831`.
 - Keynote authority-page commits were rebased on top of current `origin/main` before this closeout:
   - `ca332f7 content: add horizons speaking proof`
   - `793f364 content: polish authority page IA`
+- Speaking authority post packages landed in `6dd220e content: add speaking post packages`.
 
 ## What Just Landed
 
@@ -60,9 +61,10 @@ Use these review anchors:
 
 - Local preview: `http://kriskrug-local.local`
 - Branch: `codex/aurora-redesign-2026-05-18`
-- Smoke report: `docs/current-state/AURORA-REDESIGN-SMOKE-2026-05-18.md`
-- Desktop screenshot: `docs/current-state/aurora-smoke-2026-05-18/aurora-home-desktop.png`
-- Mobile screenshot: `docs/current-state/aurora-smoke-2026-05-18/aurora-home-mobile.png`
+- Smoke report on PR #77 branch: `docs/current-state/AURORA-REDESIGN-SMOKE-2026-05-18.md`
+- Desktop screenshot on PR #77 branch: `docs/current-state/aurora-smoke-2026-05-18/aurora-home-desktop.png`
+- Mobile screenshot on PR #77 branch: `docs/current-state/aurora-smoke-2026-05-18/aurora-home-mobile.png`
+- Current issue routing: `docs/current-state/AURORA-ISSUE-SWARM-2026-05-19.md`
 
 Decision needed after review: continue implementation, file/update GitHub issues, or collect feedback first.
 
@@ -94,7 +96,8 @@ Parallel authority-post lane now exists in `content/source-packs/keynotes-2026/p
 - Keep PR `#73` parked until mergeability is clarified, capability hardening, staging activation, backup/deploy approval, and checks are handled.
 - Keep PR `#77` draft until Aurora has review sign-off and smoke evidence.
 - Treat `claude/setup-wordpress-rebuild-KVLxh` as an archival deletion candidate, not a merge candidate.
-- Comment/relabel stale design issues `#24`-`#35` toward the active Aurora lane instead of implementing them on `main`.
+- Filed Aurora epics `#80`-`#86`.
+- Routed stale design issues `#24`-`#35` toward the active Aurora lane and removed their stale `auto-implement` labels.
 
 ### 6. Credential-History Cleanup Preflight
 
@@ -108,6 +111,8 @@ Next safe step is a preflight doc only:
 - active worktrees to coordinate,
 - backup refs and recovery commands,
 - force-push-with-lease command to run only after explicit approval.
+
+Preflight now exists at `docs/current-state/CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md`; the rewrite itself has not been run.
 
 ## Recommended Swarm Lanes
 
