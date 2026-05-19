@@ -93,6 +93,14 @@ For each: clean excerpt/meta, category recommendation, internal links, image dec
 
 Parallel authority-post lane now exists in `content/source-packs/keynotes-2026/post-packages/`. Use that pack when preparing companion posts for LaSalle College, Whistler Institute, Vancouver AI March 2026, Horizons, ChannelNext, Bass Coast, or CBC/appearance proof.
 
+P0 speaking companion drafts were prepared locally on 2026-05-19:
+
+- `content/drafts/2026-05-19-both-hands-full-ai-creatives-lasalle-college/`
+- `content/drafts/2026-05-19-inside-vancouvers-ai-boom-whistler-institute/`
+- `content/drafts/2026-05-19-both-hands-full-vancouver-ai-march-2026/`
+
+Next in that lane: prepare Horizons, ChannelNext, and Bass Coast P1 drafts; keep CBC/media appearances as a research queue until public podcast and CBC sources are collected.
+
 ### 5. Clean GitHub Backlog Safely
 
 - Keep PR `#73` parked until mergeability is clarified, capability hardening, staging activation, backup/deploy approval, and checks are handled.

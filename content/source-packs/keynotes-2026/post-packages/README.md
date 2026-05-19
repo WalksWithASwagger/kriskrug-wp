@@ -35,3 +35,13 @@ These are not live WordPress payloads. They turn the public video intake, transc
 7. CBC AI Sandbox and broader appearances inventory.
 
 This order gives the site a clean spine: keynote topic, regional authority, community proof, media proof, enterprise proof, festival/workshop proof, then broadcast/archive depth.
+
+## Local Draft Status
+
+P0 local draft folders were prepared on 2026-05-19:
+
+- `../../../drafts/2026-05-19-both-hands-full-ai-creatives-lasalle-college/`
+- `../../../drafts/2026-05-19-inside-vancouvers-ai-boom-whistler-institute/`
+- `../../../drafts/2026-05-19-both-hands-full-vancouver-ai-march-2026/`
+
+These are not published. Each has a `publish-gate.md` file for KK review, final image choice, and fact-check/privacy checks.
