@@ -38,10 +38,13 @@ This order gives the site a clean spine: keynote topic, regional authority, comm
 
 ## Local Draft Status
 
-P0 local draft folders were prepared on 2026-05-19:
+P0 and P1 local draft folders were prepared on 2026-05-19:
 
 - `../../../drafts/2026-05-19-both-hands-full-ai-creatives-lasalle-college/`
 - `../../../drafts/2026-05-19-inside-vancouvers-ai-boom-whistler-institute/`
 - `../../../drafts/2026-05-19-both-hands-full-vancouver-ai-march-2026/`
+- `../../../drafts/2026-05-19-horizons-ai-models-future-machine-learning/`
+- `../../../drafts/2026-05-19-ai-keynote-chaos-creativity-channelnext/`
+- `../../../drafts/2026-05-19-dear-ai-bass-coast-brain-stage/`
 
 These are not published. Each has a `publish-gate.md` file for KK review, final image choice, and fact-check/privacy checks.
