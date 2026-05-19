@@ -429,11 +429,209 @@ abbr {
 }
 
 /* ============================================
+   AURORA VISUAL SYSTEM SURFACES
+   ============================================ */
+
+.aurora-glass-panel,
+.is-style-aurora-glass {
+  background: var(--wp--custom--glass--surface-strong);
+  border: 1px solid var(--wp--custom--glass--border);
+  border-radius: var(--wp--custom--border--radius-lg);
+  box-shadow: var(--wp--preset--shadow--md);
+  backdrop-filter: blur(var(--wp--custom--glass--blur));
+  -webkit-backdrop-filter: blur(var(--wp--custom--glass--blur));
+}
+
+.aurora-glass-nav {
+  background: var(--wp--custom--glass--surface-soft);
+  border: 1px solid var(--wp--custom--glass--border);
+  border-radius: var(--wp--custom--border--radius-full);
+  backdrop-filter: blur(var(--wp--custom--glass--blur));
+  -webkit-backdrop-filter: blur(var(--wp--custom--glass--blur));
+}
+
+.aurora-glass-media {
+  background: var(--wp--custom--glass--surface-soft);
+  border: 1px solid var(--wp--custom--glass--border);
+  border-radius: var(--wp--custom--border--radius-lg);
+  box-shadow:
+    inset 0 1px 0 var(--wp--custom--glass--highlight),
+    var(--wp--preset--shadow--sm);
+}
+
+/* ============================================
+   TYPOGRAPHY TIERS
+   ============================================ */
+
+.aurora-hero-title {
+  font-size: var(--wp--preset--font-size--hero);
+  line-height: var(--wp--custom--line-height--tight);
+  letter-spacing: var(--wp--custom--letter-spacing--tighter);
+  max-width: 14ch;
+}
+
+.aurora-page-title {
+  font-size: var(--wp--preset--font-size--5xl);
+  line-height: var(--wp--custom--line-height--tight);
+  letter-spacing: var(--wp--custom--letter-spacing--tight);
+  max-width: 18ch;
+}
+
+.aurora-panel-title {
+  font-size: var(--wp--preset--font-size--2xl);
+  line-height: var(--wp--custom--line-height--snug);
+}
+
+.aurora-article-body {
+  font-size: var(--wp--preset--font-size--base);
+  line-height: var(--wp--custom--line-height--loose);
+  max-width: 70ch;
+}
+
+.aurora-meta {
+  font-size: var(--wp--preset--font-size--xs);
+  letter-spacing: var(--wp--custom--letter-spacing--wider);
+  text-transform: uppercase;
+  color: var(--wp--preset--color--text-muted);
+}
+
+.aurora-caption {
+  font-size: var(--wp--preset--font-size--sm);
+  line-height: var(--wp--custom--line-height--normal);
+  color: var(--wp--preset--color--text-muted);
+}
+
+/* ============================================
+   BUTTON + CTA STATES
+   ============================================ */
+
+.wp-block-button__link,
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+  min-height: var(--wp--custom--button--min-height);
+  border-radius: var(--wp--custom--button--radius);
+  transition:
+    background-color var(--wp--custom--motion--micro-duration) var(--wp--custom--animation--ease-out),
+    color var(--wp--custom--motion--micro-duration) var(--wp--custom--animation--ease-out),
+    border-color var(--wp--custom--motion--micro-duration) var(--wp--custom--animation--ease-out),
+    box-shadow var(--wp--custom--motion--depth-duration) var(--wp--custom--animation--ease-smooth),
+    transform var(--wp--custom--motion--micro-duration) var(--wp--custom--animation--ease-out);
+}
+
+.wp-block-button.is-style-aurora-primary .wp-block-button__link {
+  background: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--deep);
+  border: 1px solid transparent;
+}
+
+.wp-block-button.is-style-aurora-secondary .wp-block-button__link {
+  background: var(--wp--preset--color--surface);
+  color: var(--wp--preset--color--text-primary);
+  border: 1px solid var(--wp--preset--color--cyan);
+}
+
+.wp-block-button.is-style-aurora-ghost .wp-block-button__link {
+  background: transparent;
+  color: var(--wp--preset--color--text-primary);
+  border: 1px solid var(--wp--preset--color--elevated);
+}
+
+.wp-block-button.is-style-aurora-utility .wp-block-button__link,
+.wp-block-button.is-style-aurora-icon .wp-block-button__link {
+  min-width: var(--wp--custom--button--min-height);
+  min-height: var(--wp--custom--button--min-height);
+  padding: 0;
+  border-radius: var(--wp--custom--button--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--wp--custom--button--icon-size);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .wp-block-button.is-style-aurora-primary .wp-block-button__link:hover {
+    background: var(--wp--preset--color--teal);
+    transform: translateY(-1px);
+    box-shadow: var(--wp--preset--shadow--glow-teal);
+  }
+
+  .wp-block-button.is-style-aurora-secondary .wp-block-button__link:hover,
+  .wp-block-button.is-style-aurora-ghost .wp-block-button__link:hover {
+    border-color: var(--wp--preset--color--cyan);
+    color: var(--wp--preset--color--cyan);
+  }
+}
+
+.wp-block-button__link:active,
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active,
+input[type="reset"]:active {
+  transform: translateY(1px);
+}
+
+.wp-block-button__link[aria-disabled="true"],
+.wp-block-button__link:disabled,
+button:disabled,
+input[type="submit"]:disabled,
+input[type="button"]:disabled,
+input[type="reset"]:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.wp-block-button__link:focus-visible,
+button:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="button"]:focus-visible,
+input[type="reset"]:focus-visible {
+  outline: var(--wp--custom--focus--ring-width) solid var(--wp--custom--focus--ring-color);
+  outline-offset: var(--wp--custom--focus--ring-offset);
+  box-shadow:
+    0 0 0 2px var(--wp--custom--focus--ring-offset-color),
+    var(--wp--custom--focus--ring-glow);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .wp-block-button__link,
+  button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"] {
+    min-height: var(--wp--custom--button--mobile-min-height);
+  }
+
+  .wp-block-button__link:active,
+  button:active,
+  input[type="submit"]:active,
+  input[type="button"]:active,
+  input[type="reset"]:active {
+    transform: scale(0.99);
+  }
+}
+
+/* ============================================
    REDUCED MOTION
    Typography doesn't need animation
    ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
+  .aurora-glass-panel,
+  .aurora-glass-nav,
+  .aurora-glass-media,
+  .wp-block-button__link,
+  button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"] {
+    transition-duration: var(--wp--custom--motion--reduce-duration) !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
   * {
     transition-property: color, background-color, border-color, text-decoration-color !important;
   }
