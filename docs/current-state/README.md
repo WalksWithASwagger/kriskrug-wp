@@ -23,6 +23,7 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 | [NEXT-ROUND-WORK-2026-05-19.md](NEXT-ROUND-WORK-2026-05-19.md) | Current next-round command sheet after the queue sweep, Track A prep, and keynote authority-page polish. |
 | [AURORA-ISSUE-SWARM-2026-05-19.md](AURORA-ISSUE-SWARM-2026-05-19.md) | Filed Aurora epics #80-#86 and routed old design issues #24-#35. |
 | [CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md](CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md) | Redacted history-scan findings and safe force-push preflight; no rewrite performed. |
+| [CREDENTIAL-HISTORY-REWRITE-EXECUTION-2026-05-19.md](CREDENTIAL-HISTORY-REWRITE-EXECUTION-2026-05-19.md) | Execution log for the credential history rewrite, affected branch force-updates, and post-rewrite follow-ups. |
 | [GITHUB-QUEUE-SWEEP-2026-05-18.md](GITHUB-QUEUE-SWEEP-2026-05-18.md) | PR, branch, and issue classification after the GitHub queue sweep. |
 | [AGENT-SWARM-OPERATING-PLAN-2026-05-18.md](AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) | Current swarm lanes across GitHub issues, draft publishing, Aurora, and content/nav structure. |
 | [SWARM-STATUS-2026-05-18.md](SWARM-STATUS-2026-05-18.md) | Current command-desk status after the first bounded issue/content/Aurora swarm. |
