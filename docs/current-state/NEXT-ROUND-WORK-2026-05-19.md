@@ -62,8 +62,10 @@ Use these review anchors:
 - Local preview: `http://kriskrug-local.local`
 - Branch: `codex/aurora-redesign-2026-05-18`
 - Smoke report on PR #77 branch: `docs/current-state/AURORA-REDESIGN-SMOKE-2026-05-18.md`
+- Review packet on PR #77 branch: `docs/current-state/AURORA-REVIEW-PACKET-2026-05-19.md`
 - Desktop screenshot on PR #77 branch: `docs/current-state/aurora-smoke-2026-05-18/aurora-home-desktop.png`
 - Mobile screenshot on PR #77 branch: `docs/current-state/aurora-smoke-2026-05-18/aurora-home-mobile.png`
+- Fresh desktop/mobile screenshots on PR #77 branch: `docs/current-state/aurora-review-2026-05-19/`
 - Current issue routing: `docs/current-state/AURORA-ISSUE-SWARM-2026-05-19.md`
 
 Decision needed after review: continue implementation, file/update GitHub issues, or collect feedback first.

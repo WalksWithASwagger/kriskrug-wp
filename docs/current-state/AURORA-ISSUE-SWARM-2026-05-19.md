@@ -78,8 +78,11 @@ Branch-only review docs and screenshots:
 
 - `docs/current-state/AURORA-REDESIGN-SMOKE-2026-05-18.md`
 - `docs/current-state/AURORA-TOMORROW-ROADMAP-2026-05-19.md`
+- `docs/current-state/AURORA-REVIEW-PACKET-2026-05-19.md`
 - `docs/current-state/aurora-smoke-2026-05-18/aurora-home-desktop.png`
 - `docs/current-state/aurora-smoke-2026-05-18/aurora-home-mobile.png`
+- `docs/current-state/aurora-review-2026-05-19/aurora-home-desktop-live.png`
+- `docs/current-state/aurora-review-2026-05-19/aurora-home-mobile-live.png`
 
 Important: those files currently live on PR #77's branch, not on `main`.
 
