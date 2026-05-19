@@ -3,6 +3,8 @@
 **Branch:** `aurora/v2` (commit `daf5f31` — feat: aurora/v2)
 **Status:** Theme + demo cherry-picked from the stale rebuild branch onto current `main`. Track A (connector, audits, fixes, backup) verified intact. Nothing installed or deployed yet.
 
+**2026-05-18 update:** A first visual redesign implementation now exists on `codex/aurora-redesign-2026-05-18`. Start with `AURORA-REDESIGN-SMOKE-2026-05-18.md` for the current preview state, screenshot artifacts, Local backup paths, and remaining review items. Use `AURORA-TOMORROW-ROADMAP-2026-05-19.md` to guide the next review and implementation session.
+
 ---
 
 ## Where to pick up
