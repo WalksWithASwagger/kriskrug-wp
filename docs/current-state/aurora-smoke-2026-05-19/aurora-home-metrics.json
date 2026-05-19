@@ -1,0 +1,210 @@
+[
+  {
+    "viewport": {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    "metrics": {
+      "url": "http://localhost:10003/",
+      "title": "Kris Krüg | Generative AI Tools & Techniques – Empowering Events & Organizations for the AI Age",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440,
+      "horizontalOverflow": 0,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 74,
+        "top": 0
+      },
+      "nav": {
+        "x": 348,
+        "y": 25,
+        "width": 716,
+        "height": 23,
+        "top": 25
+      },
+      "newsletterVisible": true,
+      "cta": {
+        "x": 1175,
+        "y": 16,
+        "width": 113,
+        "height": 41,
+        "top": 16
+      },
+      "hero": {
+        "x": 0,
+        "y": 98,
+        "width": 1440,
+        "height": 980,
+        "top": 98
+      },
+      "navText": [
+        "About",
+        "Work",
+        "Services",
+        "Speaking",
+        "Events",
+        "Writing",
+        "Contact"
+      ]
+    }
+  },
+  {
+    "viewport": {
+      "name": "tablet",
+      "width": 900,
+      "height": 900
+    },
+    "metrics": {
+      "url": "http://localhost:10003/",
+      "title": "Kris Krüg | Generative AI Tools & Techniques – Empowering Events & Organizations for the AI Age",
+      "scrollWidth": 900,
+      "viewportWidth": 900,
+      "horizontalOverflow": 0,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 108,
+        "top": 0
+      },
+      "nav": {
+        "x": 27,
+        "y": 70,
+        "width": 846,
+        "height": 23,
+        "top": 70
+      },
+      "newsletterVisible": true,
+      "cta": {
+        "x": 764,
+        "y": 16,
+        "width": 109,
+        "height": 40,
+        "top": 16
+      },
+      "hero": {
+        "x": 0,
+        "y": 132,
+        "width": 900,
+        "height": 774,
+        "top": 132
+      },
+      "navText": [
+        "About",
+        "Work",
+        "Services",
+        "Speaking",
+        "Events",
+        "Writing",
+        "Contact"
+      ]
+    }
+  },
+  {
+    "viewport": {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    },
+    "metrics": {
+      "url": "http://localhost:10003/",
+      "title": "Kris Krüg | Generative AI Tools & Techniques – Empowering Events & Organizations for the AI Age",
+      "scrollWidth": 390,
+      "viewportWidth": 390,
+      "horizontalOverflow": 0,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 138,
+        "top": 0
+      },
+      "nav": {
+        "x": 16,
+        "y": 58,
+        "width": 358,
+        "height": 67,
+        "top": 58
+      },
+      "newsletterVisible": true,
+      "cta": {
+        "x": 272,
+        "y": 10,
+        "width": 102,
+        "height": 40,
+        "top": 10
+      },
+      "hero": {
+        "x": 0,
+        "y": 162,
+        "width": 390,
+        "height": 726,
+        "top": 162
+      },
+      "navText": [
+        "About",
+        "Work",
+        "Services",
+        "Speaking",
+        "Events",
+        "Writing",
+        "Contact"
+      ]
+    }
+  },
+  {
+    "viewport": {
+      "name": "narrow",
+      "width": 320,
+      "height": 720
+    },
+    "metrics": {
+      "url": "http://localhost:10003/",
+      "title": "Kris Krüg | Generative AI Tools & Techniques – Empowering Events & Organizations for the AI Age",
+      "scrollWidth": 320,
+      "viewportWidth": 320,
+      "horizontalOverflow": 0,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 138,
+        "top": 0
+      },
+      "nav": {
+        "x": 16,
+        "y": 58,
+        "width": 288,
+        "height": 67,
+        "top": 58
+      },
+      "newsletterVisible": false,
+      "cta": {
+        "x": 202,
+        "y": 10,
+        "width": 102,
+        "height": 40,
+        "top": 10
+      },
+      "hero": {
+        "x": 0,
+        "y": 162,
+        "width": 320,
+        "height": 752,
+        "top": 162
+      },
+      "navText": [
+        "About",
+        "Work",
+        "Services",
+        "Speaking",
+        "Events",
+        "Writing",
+        "Contact"
+      ]
+    }
+  }
+]

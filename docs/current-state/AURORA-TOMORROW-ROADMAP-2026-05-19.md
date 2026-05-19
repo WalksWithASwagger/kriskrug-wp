@@ -1,8 +1,14 @@
 # Aurora Tomorrow Roadmap - 2026-05-19
 
-Track: B - Aurora v2 theme  
-Starting branch: `codex/aurora-redesign-2026-05-18`  
+Track: B - Aurora v2 theme
+Starting branch: `aurora/v2` after PR `#93`
 Preview target: `http://kriskrug-local.local`
+
+## 2026-05-19 P0 Update
+
+The first visual redesign branch merged into `aurora/v2` via PR `#87`, and the first swarm-wave header/visual-system work merged via PR `#93`. The immediate P0 follow-up is `codex/aurora-p0-staging-rescue-2026-05-19`, which addresses issue `#80` with remaining mobile header/nav polish, fresh desktop/mobile screenshots, Local smoke, focus checks, and reduced-motion checks.
+
+Use `AURORA-P0-STAGING-RESCUE-2026-05-19.md` as the latest proof packet before starting a new Aurora lane.
 
 ## Goal
 
@@ -50,7 +56,7 @@ Ask reviewers to focus on:
 ### Lane 3 - Mobile Polish
 
 - Re-check 390-500px widths after media changes.
-- Decide whether the mobile nav stays expanded or becomes a compact menu.
+- Current P0 direction keeps the mobile nav expanded but compact; revisit a collapsed menu only if human review says it still feels too tall.
 - Tighten the hero crop for phone screens.
 - Confirm no text wraps awkwardly in project cards, CTA buttons, or footer links.
 
@@ -84,3 +90,10 @@ Ask reviewers to focus on:
 - Final media direction is chosen or explicitly blocked.
 - Next code slice is scoped tightly enough for one branch/commit.
 - Local preview still returns 200 for home, key pages, and sample posts.
+
+## Next Best Slice After P0
+
+1. Merge or respond to the P0 header/nav PR.
+2. Open a media-source-of-truth issue for Aurora hero/project imagery.
+3. Replace temporary or externally sourced imagery with KK-owned or approved media.
+4. Re-smoke the same URL set and update `aurora-smoke-YYYY-MM-DD/`.
