@@ -1,0 +1,964 @@
+Incoming transmission from the future.
+Vancouver AI community meetup.
+I'm going to share a couple things here
+tonight. Um,
+a little bit about what I think we're
+all about and what makes us different
+around here and and I want to tell you a
+little bit about some of the trips I've
+been on recently and stuff like that.
+Um, so, you know, most of us have been a
+part of a lot of AI conversations lately
+and I find that almost every AI
+conversation I'm a part of falls into
+one of these two camps. You got like the
+boosters on one side that are like get
+on board, it's the future. Ships already
+sailing and if you're not on board like
+you're going to get left behind. It's
+going to, you know, you should be
+worried about your job.
+You know, all all these all these
+things. If you don't adopt AI, you
+should adopt it everywhere all the time
+fast as you can. Um, a lot of these
+people are in finance, you know, they're
+venture capitalists, they're they're
+they work at startups, they're involved
+in the space somehow. Um, and they have
+a vested interest in in saying that,
+right?
+And then there's another camp is like
+the doomers, you know, and this is the
+people who are like, well, what about
+the power and water and what about the
+fact that it's been stolen on all the
+work of mankind and oh man, have you
+seen that it's biased and uh and it's
+owned by just a few companies and and
+you know, we've just consoli- they
+should power into a few hands and and I
+think that ultimately both of these
+positions are kind of lazy. Um, the
+first one neglects all of these
+important things that we got to think
+about about the societies we want and
+the lives we want and the futures we
+want.
+And the complete resister camp doesn't
+tell us what to do about this moment
+that we're in right now. It just lets
+you be a purist and kind of hold your
+values close, but it doesn't tell you
+what field to tell your children to go
+into in the future, what jobs are left,
+where to engage or invest your energy or
+how to prepare yourself for what's
+coming. And so, I ultimately want to
+examine kind of both of these positions
+for a second and you may have heard me
+say I think the answer and I think what
+makes this community unique is we're
+walking forward with both hands full.
+We're walking forward critiquing and
+holding to account and interrogating the
+things that we got a problem with and
+that we're also, you know, investigating
+the transformational power of this kind
+of stuff to change our own creative
+practices, our careers, build new
+companies, build new robots, explore all
+sorts of capabilities that haven't been
+possible before.
+AI has been stolen trained on the stolen
+work of all mankind is full of
+misogyny, homophobia, racism,
+transphobia and I'm more creative,
+powerful, productive, and curious than
+I've ever been in my whole life and both
+of those things are true.
+That's what's going on in this moment
+right now for a lot of people.
+I want to stop for a second before we
+continue and I want to give voice to
+some of these things. These are some of
+the ones that I could think of.
+Lawrence, are you busy? No.
+Will you take this mic from Kevin, the
+one that he tells you to take?
+What are some of the things that you
+guys are hearing that aren't on this
+list that are maybe a little bit deeper
+that are kind of like
+&gt;&gt; Yeah, yeah. Um, you're going to go here
+You know what? Um,
+you know what? [snorts] You go back to
+your robot, I'll do it.
+&gt;&gt; [laughter]
+&gt;&gt; Um,
+let's talk a little bit about the
+problems. Maybe some of the ones that
+aren't on this list.
+Does anyone got something they want to
+Kush? What am I missing in terms of the
+resist
+bad things category?
+&gt;&gt; cuz I got to read the list.
+Uh,
+So, what is he what is he missing? What
+is he missing from the list? What's the
+list about again? Just tell me.
+The fears. All right.
+Um, You are a [ __ ] Claude Coding. No,
+I'm not. You know I'm not. You know, you
+know I [ __ ] hate Anthropic like a
+[ __ ] [ __ ] Um,
+uh
+Loss of attention. Yeah. [ __ ] Anthropic.
+That's that's what I [ __ ] feel.
+&gt;&gt; What [snorts] are some of the things
+you're hearing in your workplaces around
+adoption? Why people are not interested.
+We're coming here and then to Katherine
+Warren.
+The slop. So much slop. Thank you for
+inviting me. So much slop.
+I We had a drinks at the base side way
+back in the day when you were running
+for office.
+Um, Katherine.
+The slop.
+Uh, concerns about data sovereignty in
+particular for indigenous people. Yeah.
+You know what? You know what? I'm just
+pause right there.
+So, I was in Banff last week at the
+National Summit on AI with Evan Solomon
+and a bunch of other people and I was
+going to use this talk to surface some
+things from that week and you've started
+to do it. So, one of the things that was
+on everybody's mind was sovereignty.
+However, it really meant a lot of
+different things to a lot of different
+people and so I just wanted to kind of
+report back on what the national
+conversation on sovereignty is. So, on
+one hand you got Mark Carney and Evan
+Solomon talking about sovereignty in
+terms of freeness from American pressure
+and leverage. On another hand you have
+what you're talking about, indigenous
+data sovereignty, being in control of
+their own data
+with the ability to profit off of it and
+know how it's used and stuff like that.
+Um, in the first camp of the kind of
+ministers and their take on AI
+sovereignty,
+um, some of it's just like leverage
+against America, but some of it's
+forming the You may have heard we signed
+a bunch of AI deals with Germany,
+Australia, the UAE, and a few other
+people in the last 1 month.
+These deals relate to Carney's deal and
+Solomon's deal to to make a coalition of
+middle powers that have a third
+alternative to the China-America gun to
+their head race to AI.
+Where everyone's just releasing whatever
+they can as fast as they can, as much as
+they can without testing in a way that
+makes it prohibitive for a lot of people
+to adopt that kind of uh
+&gt;&gt; [snorts]
+&gt;&gt; race that's going on or whatever and so
+that that's one of So, I just wanted to
+point out that the sovereignty
+conversation is a little bit confusing
+for me right now because it means
+different things in different places. It
+either means like anti-America,
+middle power coalition, indigenous
+sovereignty and right to profit and own
+own data and I think probably other Oh,
+one more thing.
+When it comes to the Canadian AI
+sovereignty, it breaks down again.
+There's people that just think like
+Telus and Nvidia data centers located in
+Canada is AI sovereignty in Canada. And
+there's other people who think, no, open
+source on the edge compute in
+communities with GPU clusters at, you
+know, not hyperscaled things, but that
+this is truly the path to Canadian
+sovereignty around AI decoupling from
+that Silicon Valley hyperscaler business
+model or whatever. So, um, thanks for
+bringing that up. I hope that
+is informative to some of you all who
+are wondering about the current national
+conversation on sovereignty. James.
+Uh, what it's doing to kids' brains.
+What is it doing to kids' brains that
+you hear? Their development. Um, more
+just like their creativity isn't as high
+as it used to be. Like they can't
+imagine that new things. They're always
+referencing something else that already
+exists.
+Coming your way.
+Jen. Jen Moss.
+Um, just the lack of
+the overvaluing of efficiency and the
+undervaluing of chaos
+and the lack of um
+um friction in the creative process. The
+lack of valuing of friction in the
+creative process.
+&gt;&gt; [applause]
+&gt;&gt; Kevin, can you cut to the next slide?
+One more.
+I think we are doing it wrong. I think
+that we're hyper automating the art part
+of the process while, you know, and when
+we should be instead embracing that
+friction as a way to truly, you know,
+um, expand our creativity and our art.
+Um, anyway, Kevin, go back a couple,
+please, but is there anyone else who
+kind of wants to talk who wants to give
+voice to? I've got a mic back here. I've
+got a mic back here if anyone back here
+&gt;&gt; Oh, yeah. Alex, let's keep to one mic
+for right now. Hold on.
+&gt;&gt; Sounds good. No.
+&gt;&gt; Climate.
+Um, no, Eileen, I want you to say it for
+the record.
+Climate. Climate. Um, resource depletion
+you know, complete uncontrolled buildout
+without the consideration of of that
+the social good, right? It's
+Yeah, this is Depleting the social good.
+Sure, sure. So,
+at first you said climate and then you
+said social good and I think both are
+worth talking about, right? You know,
+it's like in certain communities where
+these hyperscale data centers are being
+built, um, communities are having to
+compete with these factories for water
+or for power and the result is that the
+cost is going up, you know, there's not
+like droughts at the moment and things,
+but the cost is going up for a lot of
+people around these things. Um, yeah.
+Let's get I'm going to do these last two
+and then I'm going to keep going.
+Yeah, I just want to echo what she said.
+Um, in BC,
+the government is now having to tell AI
+um, companies that they cannot have any
+more electricity because we've already
+allocated more than enough
+&gt;&gt; Yeah. and the the astonishing amount of
+energy in this endeavor is just amazing.
+Yeah, um, officially what happened is
+Adrian Dix and David Eby put out a an
+extension to the Bitcoin mining
+moratorium that had outlawed Bitcoin
+mining in BC data centers. And what they
+did is they put together a a regulatory
+bid process where 100 megawatts per year
+are going to be allocated for AI
+projects inside data centers and no
+more. And most of those 100 megawatts
+for this season cuz I went to all the BC
+Hydro calls, um, I've already been
+allocated to grandfathered in projects.
+So, actually, uh for those of you who
+are on the uh more like resister side
+and concerns around climate, your local
+representatives are representing you
+well. They have put in some pretty stern
+and strict regulations. Like it's very
+hard to build an AI data center British
+Columbia at all whatsoever. There will
+only be 100 megawatts per year. That's a
+drop in the bucket compared to the [ __ ]
+that everybody else is building. And um
+Isn't that NIMBYism? No, birds are
+taking up. Yeah, it's just good news. We
+can talk uh
+&gt;&gt; [clears throat]
+&gt;&gt; I said that if you are on the resistor
+side, that if you have concerns about
+the power and water usage, then your
+then your representatives are
+representing you well. Your point is or
+I don't want to say your point. The the
+the the the alternative perspective, the
+people that are like this is crap that
+we shouldn't be doing this is like,
+well, what do we use to power the in
+Where do we buy those tokens from that
+power the innovation that powers the
+companies of the future? And I actually
+think that there's a middle ground where
+we could have like indigenous-owned
+green hydropower data centers that cost
+15% more than the tokens coming out of
+Silicon Valley, but that a lot of
+people's company would be willing to pay
+for that because of the ethical stuff
+that otherwise prevents them from
+engaging in the situation. To say, it's
+a complicated dialogue, Alvaro.
+Model collapse,
+not just for the AIs, but for us.
+It's
+our own cognition is more more dependent
+upon artificial intelligence, which is
+now responsible for arguably a large
+amount of what's out there. Intelligence
+collapse, you mean that we're going to
+get smarter here to cliff and then we're
+all going to get dumb like Idiocracy
+styles? It It's the gray goo scenario.
+It's photo copies of photo copies all
+the way down.
+I'm just in the neighborhood, so why
+don't you get one in two?
+Okay, I'm going to be the devil's
+advocate here.
+&gt;&gt; What about the dangers using AI for like
+military applications?
+&gt;&gt; No, that's not devil's advocate. No, no.
+I mean, I'm a
+I don't know. It's like so much
+happiness in the room, right?
+Uh
+And then the uh
+I mean, it's always
+the [ __ ] up [laughter]
+[ __ ] so Well, well, I'll go I'll go even
+further. Hackers using these tools to
+[ __ ] [ __ ] up. So, I There you go.
+Yo, I absolutely I'm glad you brought
+that point up. So,
+Minister Solomon and Mark Carney feel
+like a big part of
+Canada's AI future is killer robots.
+Despite the fact we've got Geoffrey
+Hinton out as our Canadian AI Nobel
+Prize laureate in physics who quit
+Google for that very sad reason. Um if
+you look at even other organizations in
+British Columbia, they are retooling all
+their messaging around what do you call
+it? Dual-use defense AI.
+Like they're hoping to get the contracts
+and bring them here. There There There
+is a consortium of people that are
+putting forth British Columbia as the
+place to do that.
+Whereas many people in this room like
+Philippe and Tony I can't be here
+tonight, locked out from DigiBC, Loki
+from Circle Innovation, myself, we're
+trying to put forward a vision for
+British Columbia AI center of excellence
+federally funded in the creative
+industries, you know, that supports
+film, television, animation, special
+effects, the
+digital industries that prop up our
+whole city.
+Um there's three federal centers of AI
+in Canada,
+Mila, the Vector Institute, and Ami in
+Toronto, Montreal, and Edmonton
+respectively.
+We don't have one because we have
+not been able to come together
+necessarily and tell a cohesive story
+about what why we're unique and the
+economic impact that something like that
+would have here. I should have named
+Catherine Warren in that other list of
+people who is also pulling for a BC AI
+center of excellence in the creative
+industries.
+But um
+we're doing that work. That was a big
+part of what we did last week at
+at Banff.
+Uh I was there with a couple goals. One
+of my goals was to introduce ourselves.
+We're a 9-month-old nonprofit. We've
+been having events for 2 years, but this
+was the highest level conversation. It
+was um
+Screenwriters Guild of Canada,
+the National Film Board of Canada, CBC,
+the Indigenous Film Office, Telefilm
+Canada,
+all sorts of folks like that. And um
+And so I was there to introduce
+ourselves and I got to do that. I got to
+meet Minister Solomon and um
+Philippe, this ain't the moment, but me
+and Philippe got to demo his lab's
+open-source software to the ministers.
+It was quite incredible.
+Uh Ana Serrano, the Chancellor of OCAD
+U, the Ontario College of Art and Design
+University, she moderated a panel on
+community, creativity, and culture. And
+in her opening remarks, she named one
+organization
+at this whole thing. She named our
+organization, the BC AI ecosystem. She
+said that we are representative of an
+emerging hybrid, grassroots,
+community-based regional organization
+that is impacting national policy around
+AI.
+So, that's the that's what we're getting
+up to around here. And that was um
+I didn't know she was going to say that.
+I do have it recorded, so I can prove
+it.
+&gt;&gt; Um really really blew me out of the
+water. Um before we go on,
+one of my pet peeves in this whole thing
+is this talk about bias in AI. Like
+let's name it. It's not just bias. And
+when you call it that, it's easy to
+sweep it under the rug. It is misogyny.
+It is homophobia. It's racism. It's
+transphobia. It's all sorts of embedded,
+crusty, old, ancient worldviews that are
+um still right there into the system.
+And there's ways that we can um
+work around those things. And And that's
+how we're able to walk forward both
+hands full like I'm saying. And I'm
+going to I'm going to share a little bit
+about those tonight and ask you to to
+think about them too a little bit. So,
+when someone says bias, if they're
+willing to sweep it under the rug, call
+them out. Say, "What are you talking
+about when you mean bias?" And get them
+to unpack it a little bit.
+Both hands full, that's where we're
+going. All right, Kev.
+Keep going, please.
+&gt;&gt; I think that due to
+the way that universities and jobs have
+worked for the last couple hundred
+years, we've hyper-optimized to become
+human encyclopedias, human spreadsheets,
+human calculators, and let atrophy
+probably many of the things that are
+like most innately unique about us being
+human.
+Our ability to
+empathize, our ability to be embodied. I
+mean, like
+pay attention to your body. It's the one
+thing you got right now that these
+intelligences don't have, you know. Many
+of them are probably smarter
+[clears throat] than a lot of us in the
+room, but they don't got this. And so,
+I've been asking myself a lot around a
+lot what that means and and how I can um
+focus on some of those embodied
+characteristics of my humanity in the
+face of, you know, synthetic everything.
+Um so, this may be a moment where we get
+to move back to some of Maybe they'll be
+our children who don't have their heads
+full of the exact same Excel spreadsheet
+calculation formulas and how to write
+them or some other archaic [ __ ]
+Even like 15 coding languages, you know,
+like drops up a lot You spend a lot of
+time learning that stuff, drops up a lot
+of brain space. What are the other ways
+that we might use our minds and our
+intuitions and our creativity in the
+future?
+Um
+I want to talk a little bit about
+self-knowledge. And And you could think
+of If you're not super introspective
+psychologically, you can think about
+this around your career. But this for me
+is the answer to a lot of um
+Well, first of all, the bias, all those
+things that we were talking about, but
+also um
+kind of like the
+This is where I embed my heart and my
+head and my values and my worldview into
+the machines.
+So, um you know, like a lot of you guys
+have taken my AI courses and stuff, but
+one of the things that we talk about a
+lot is like having this knowledge base
+or this second brain.
+And what I've been thinking about
+lately, someone called it like a
+a portable personality document
+briefcase or something like that. But
+essentially, you know,
+having AI analyze a your blog from the
+last 10 years or your
+thesis that you did a couple years ago
+in university or something like that and
+start to have it extract from that your
+writing style. Say, "Hey, I'm going to
+hire a ghostwriter next week. Analyze
+these 30 docs that I think are awesome
+and help me build a a job description
+for my ghostwriter that's working next
+week." And feed that into an AI as an
+assistant, you know. And And then start
+to ask yourself like, "What other things
+could I add to that that would continue
+to imbue myself into these machines?"
+And so, like another one that I have
+started to do is like a worldview and
+perspectives document. I'll analyze the
+same interviews or podcasts I've done or
+blog posts and be like, "Help me pull
+out from here what I value, what I care
+about, what I think and why and how I
+make decisions and stuff like that." And
+now this AI like knows how to write like
+me and kind of knows how to think like
+me a little bit and what I care about.
+From there, I've gone on to build like
+glossaries and anti-glossaries. Here's
+words I use. Here's anti-racist,
+anti-colonial words I never use. When
+you're writing,
+write Use my style guide, but also check
+it against glossary and anti-glossary at
+the editing phase to make sure we're on
+the right track.
+And then I add all sorts of other stuff
+to it along the way.
+You really need to talk? Go for it, Jen.
+Just a quick question. You can't however
+How old are you? I'm 49. Okay, so you
+got 49 years to figure out your
+self-knowledge and your voice.
+What about people who are like
+14?
+Isn't this the question of the moment?
+I would love to see
+I'm just going to go there with you.
+I would love to see schools change a
+lot. I would love to see students given
+AI tutors when they start middle school.
+Something that's like a portfolio/tutor.
+That all these make-work assignments
+that are [ __ ] [ __ ] where they're
+just doing exercises so the teacher can
+grade them and throw them away. That
+doesn't exist anymore. Instead, you come
+up with something you care about at the
+beginning, you know. You're like, "I
+want to build this nonprofit or this
+company or something." And then all your
+lessons are tailored through the lens of
+building this nonprofit, math for
+nonprofits,
+governance for nonprofits, spelling and
+English literature, history of all this
+[ __ ] or whatever. It can be more
+diversified based on liberal arts cuz I
+think that's another part of the whole
+thing. But imagine if like your junior
+high and high school, you end with this
+digital portfolio, this knowledge base
+that I just said, of all your writings,
+your daily explanations. Like, the best
+assignments I've heard teachers give
+right now are having
+students in class or orally audit AI
+outputs. Be like, here's the book
+report, here's five different summaries
+of the book report. Now, student
+critique the five different summaries
+from the AIs and tell me which one you
+identify with the most and why or
+something like that.
+Um, so like, what if all that make-work
+project ended up in a portfolio? And
+what if like at the end of each year the
+teacher didn't flush all knowledge of
+that person down the toilet, but it
+carried over a summer,
+compounded upon it? Like, that's one of
+my unlocks of the AI world is that
+through
+Matt Lambert, are you here? He's not
+here. Ah, damn. Matt has come up with
+this really interesting concept around
+looping and iteration. And um
+through this looping iteration process,
+we build like compounding skills and
+knowledge, but not just that.
+And I'm going to get there, but I'll
+just maybe give it now cuz it's natural
+and skip those slides later.
+These human taste, judgment, critical
+thinking,
+some stuff like that. It's a pretty
+short list. I think that's what we got
+left and I think it's an area to focus
+on, right? And then you're like, well,
+if it's an area to focus on and you're
+44 and you got a 49, you got those
+things already. How do I get it for my
+14-year-old? And it's like, well, AI
+allows us to loop really fast. Like to
+test a bunch of ideas, to get feedback
+on them in different ways, to iterate
+upon those things in a way that was like
+not possible before. I feel like I
+shortchanged the whole photographic eye
+development process because of the
+my adoption of digital social media
+technology really early.
+Like, all my peers would photograph
+stuff on film, get the film developed,
+send it to their editor, the guy would
+edit it, put it in a magazine, the
+magazine get published, somebody had
+good or negative feedback, they write a
+letter to the editor. 6 months
+afterwards, a photographer would get
+close the loop of feedback on that
+thing.
+Well, through adoption of Flickr on the
+day that it started, I started posting
+photos every day, getting comments every
+day, receiving those,
+shooting tomorrow and doing the whole
+loop again. And so, what used to take
+you 25 years to become a master, I I
+became a master in five.
+Because I shot every day and just did
+this iterative iterative looping. As
+long as you're not handing over the
+decision-making of what is good to the
+AI. Agreed. Well, I just told you that I
+think the decision-making about what is
+good is what we got left. And I think
+it's where we should focus. I think it's
+how we should look at ourselves as
+creatives. Let's hit it cuz we're Oh,
+we're getting getting there. So, I mean,
+at first they said DJs were losers
+stealing other people's music, that they
+weren't original, there was nothing
+creative about it.
+And then we saw whole genres emerge,
+whole new art forms emerge. And
+hit it, Kev. And this hearkens me back
+to one of my favorite documentaries of
+all time called RIP: A Remix Manifesto,
+made by Brett Gaylor on in Victoria,
+funded by the NFB.
+And this is what that was based on in
+2006. I'll let you read it.
+Um what we saw was
+as our understanding of these tools
+changed, that new expressions and and
+art forms emerged. And so, I think that
+that is probably where we're we're
+headed. I want to give you a little
+taste of this film and why I like it.
+Um, Darb, will you hit the bottom light?
+&gt;&gt; [music]
+&gt;&gt; Whether or not you think this music is
+original isn't the point because the
+rules of this game don't depend on who
+made the songs.
+They depend on who owns the copyright.
+And according to the people that do,
+sampling even a single note is grounds
+for a lawsuit.
+That means these kids should not be
+dancing.
+And you shouldn't be watching because
+using these songs in my movie is against
+the rules, too.
+And the fact that there are people out
+there calling my favorite artist a
+criminal is exactly why I need to make
+this film.
+20 years have passed, but like in many
+ways we're right in the same moment.
+Darb, second light from the top, please.
+here we are again trying to figure out
+like, is it original? Someone else
+talked about a remix of a remix of a
+remix, you know? And and so, it remains
+to be determined, I think, where we're
+going with this stuff ultimately.
+Um, are you guys enjoying this? Yeah.
+Cool.
+I'm going to take you on a little trip
+further then and then we will turn it
+over to the rest of the night. So, I'm
+going to show you two clips that rocked
+my [ __ ] world like a year and a half
+ago and I think you'll see why. The
+first one's talking about writing
+as a way to get our ideas into the bots.
+Or sorry, the second one's about writing
+as a way to get in the bots. The first
+one is about that, figuring out our
+unique, special, creative, human
+place we should focus as all these bots
+get good at making all sorts of
+synthetic everything. Darb, you bottom
+light, please. Roll it, Kev. This guy
+who he's about to you're about to see
+him, he works for OpenAI and he has to
+disguise his voice and his face. And so,
+it's a real human. He's one of the
+preeminent preeminent AI researchers in
+the whole wide world and disguising his
+voice via AI.
+So, you wrote an interesting comment
+about getting your work into the LLM
+training corpus. You wrote, quote,
+there has never been a more vital hingy
+time to write. And I'm wondering whether
+you mean that in the sense of you are
+going to be this drop in the bucket
+that's steering the Shoggoth one way or
+another, or do you mean it in the sense
+of making sure your values and persona
+persist somewhere in latent space?
+I mean both. Um, you know, I think by
+writing you're voting on the future of
+the Shoggoth using some of the few
+currencies it acknowledges.
+Right, like tokens that it has to
+predict. If you aren't writing,
+you're kind of abdicating the future,
+abdicating your role in it. If you think
+it's enough to just be a good citizen,
+to vote for your favorite politician,
+you know, to pick up litter and recycle,
+the future doesn't care about you. There
+ways to influence the Shoggoth more, but
+not many. Um, and if you don't already
+occupy a handful of key roles or work at
+a frontier lab, your influence basically
+rounds off to zero, I think, far more
+than ever before. There are [snorts]
+values you have which are not expressed
+yet in text. And if there are things
+that you like or want, if they aren't
+reflected online, then to the AI they
+basically don't exist. Um, and that is
+dangerously close to won't exist. Mhm.
+Um, you're also creating a sort of
+immortality for yourself personally,
+right? Like, you aren't just creating a
+persona, you are creating your future
+self, too, right? What self are you
+showing the LLMs and how will they treat
+you in the future?
+Um, anyway, what this has encouraged me
+to do is to go into this knowledge-based
+creation mode that I was talking about
+before, where I'm writing and speaking
+my ideas out, specifically preferences,
+how I make or why I make decisions,
+um things that I think are beautiful and
+why and stuff like that. The real kind
+of like soft skills around that stuff.
+As a way to imbue those values into
+whatever this future future thing is
+coming.
+I found this really confronting, right?
+Cuz I Does anyone in here work for a
+foundational lab? I don't. So, I mean,
+he's like, yo, if you don't work for a
+foundational lab, your influence, your
+ability to have agency in the future
+rounds off to more or less zero. And
+like
+And like the only way you can kind of
+control your own little personal sphere
+is through, you know, like the creation
+of the, you know, writing out your
+ideas, getting your things out of your
+heart and your head and into the world,
+especially if it's not documented
+somewhere else.
+Pretty pretty crazy to me. Um, where we
+at, Kevin?
+All right.
+Um, let's just blast into the next clip.
+Now that you know that AI is a thing
+that is coming, but basically what's
+your thinking around
+how you how you see your role in this
+timeline and also what your how you're
+thinking about how to spend these next
+few years. Yeah, I've been thinking
+about that uh quite a lot.
+What what do I want to do, you know?
+And and what would be useful to do?
+I'm doing things now because I want to
+do them, um regardless of whether it
+would be possible for an AI to do them
+in like 3 years.
+I I do something because I want to,
+because I like it, you know, I find it
+funny or whatever. Um, or maybe I think
+carefully about kind of just doing the
+human part of it, like laying out a
+proposal or something. Um, if you take
+seriously the idea of getting AGI in
+just a few years, you don't necessarily
+have to implement stuff and do it
+yourself.
+You can sketch out clearly like what you
+want and why it would be good and then
+how to do it. And then basically just
+wait for the better AGI to come along
+and actually do it then.
+Unless, you know, there's some really
+compelling reason to do it right now and
+pay the cost in terms of scarce time.
+But otherwise, I'm trying to write more
+about what isn't recorded. Things like
+preferences and and desires and
+evaluations and judgments.
+Things that a an AI couldn't replace
+even in principle.
+The way I like to put it is that the AI
+kind of can't eat ice cream for you.
+Right, it can't decide for you which
+kind of ice cream you like.
+Only you can do that. And if anything
+else did, it would just be worthless,
+basically. Because it's not your
+particular preference. That's kind of
+the rubric for me. Right, like, is this
+something that I want to do regardless
+of any future AI because I enjoy it, or
+is it something where I'm doing only the
+human part of it, maybe, and the AGI can
+later on do it.
+Or is this writing down something that's
+unwritten today
+and thus helping kind of the future AI
+versions of me. So, if it doesn't fall
+into one of those three, I've been
+trying to basic
+These clips kind of keep getting cut
+off, but it's no big deal.
+Second life darts. I mean, isn't that
+crazy? I found that another confronting
+idea is like don't waste your time doing
+anything right now. Instead, get these
+ideas out of you and into the world and
+then, you know, there'll be some days be
+these AIs that can just like do it in
+you know, in an afternoon just spin up
+some virtual workers in an Nvidia
+factory and boom, you've got your whole
+company built in a day. Um so anyway,
+this is the type of stuff that I has
+been inspiring me that I've been
+reflecting on and trying to share
+through some of the things we're doing
+Um You know, I'm watching AI come and
+kick over the table in almost every
+single industry right now. And so, a lot
+of us coming together here is kind of
+building a lifeboat. It's really pretty
+kind of hard to see where things are
+going, but I believe that we're stronger
+together than we are on our own,
+especially if we can articulate a vision
+for the economy here in BC around the
+creative industries and some of this
+other stuff. Um I think that we have
+gained voice and a lot of recognition.
+Um people are listening looking to us.
+This isn't going on in every city. This
+is not going on anywhere There's one
+There's a one interesting thing going on
+in Toronto that brings in ethics and
+governance and creativity and
+performance and other things, but this
+is a really unique take. This both hands
+full holding it to account on one hand
+while exploring the possibilities on
+another.
+You can just blast me on through. Oh,
+this is where I talked about looping
+earlier. Matt Locke's going to come
+back. He's got a whole process he's
+developing for developing intuition, for
+developing these soft skills that I
+thought previously were the realm of
+privileged liberal arts educations or
+whatever. This is how you you know,
+through having a great network and going
+to 10 years of school, you develop these
+types of things or whatever. Well, he's
+got some ways to use AI to shortcut that
+process that can inspire the youths, I
+think.
+Got one more message here for the most
+skeptical in the room. Thanks for being
+here. That means you're my people. It's
+the folks that are opting out and
+burying the head in the sand that I
+think are problem because we need the
+most critical voices in the room at the
+table. And if those people don't demand
+a seat at the table that's deciding the
+future, all the seats going to be taken
+up by the hypers, by the tech bros, by
+the Silicon Valley elite, and everyone
+else who's trying to push an agenda as
+it relates to this stuff. So, please, if
+you're skeptical, if you're critical,
+you're welcome here. Raise your voice
+and demand your seat at the table.
+That's it.
+All right. Thank you very much.
+&gt;&gt; Thanks for letting me go first. I always
+cut my keynote off at the end to to let
+other people go, but you know, um I want
+to say thank you to everybody for last
+month. We've done this 27 months in a
+row, and last month was the first month
+I wasn't here, and it happened awesome
+anyway. And that was by design. We grow
+in many different dimensions right now,
+and and I'll try not to be a bottleneck.
+So, thanks to Kevin and Loki and
+everybody else who Alex and who made
+this kind of the stuff happen last
+month.
