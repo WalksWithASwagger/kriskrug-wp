@@ -61,6 +61,12 @@ Screenshot artifacts:
 - `docs/current-state/aurora-smoke-2026-05-18/aurora-home-desktop.png`
 - `docs/current-state/aurora-smoke-2026-05-18/aurora-home-mobile.png`
 
+Fresh review packet:
+
+- `docs/current-state/AURORA-REVIEW-PACKET-2026-05-19.md`
+- `docs/current-state/aurora-review-2026-05-19/aurora-home-desktop-live.png`
+- `docs/current-state/aurora-review-2026-05-19/aurora-home-mobile-live.png`
+
 Next-session roadmap:
 
 `docs/current-state/AURORA-TOMORROW-ROADMAP-2026-05-19.md`
