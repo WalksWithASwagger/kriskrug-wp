@@ -29,6 +29,7 @@ The canonical "what's true right now" snapshot lives in [`docs/current-state/`](
 | [`current-state/AURORA-ISSUE-SWARM-2026-05-19.md`](current-state/AURORA-ISSUE-SWARM-2026-05-19.md) | Filed Aurora epics and routed stale design issues into the Track B lane |
 | [`current-state/CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md`](current-state/CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md) | Redacted history-scan findings and safe rewrite/force-push preflight |
 | [`current-state/CREDENTIAL-HISTORY-REWRITE-EXECUTION-2026-05-19.md`](current-state/CREDENTIAL-HISTORY-REWRITE-EXECUTION-2026-05-19.md) | Execution log of the rewrite, force-updated branches, and post-rewrite recovery steps |
+| [`current-state/GITHUB-QUEUE-RECOVERY-2026-05-19.md`](current-state/GITHUB-QUEUE-RECOVERY-2026-05-19.md) | Queue recovery after rewrite: replacement PRs, CI gate fix, merges, and cleanup |
 | [`current-state/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md`](current-state/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) | Current agent-swarm lanes and execution order |
 | [`current-state/SWARM-STATUS-2026-05-18.md`](current-state/SWARM-STATUS-2026-05-18.md) | Current command-desk status after the first bounded swarm |
 | [`current-state/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md`](current-state/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md) | Next-batch Notion inventory and local dry-run packs |
