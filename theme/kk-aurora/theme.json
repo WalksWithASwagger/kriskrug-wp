@@ -356,8 +356,8 @@
         "loose": "1.8"
       },
       "letterSpacing": {
-        "tighter": "-0.03em",
-        "tight": "-0.015em",
+        "tighter": "0",
+        "tight": "0",
         "normal": "0",
         "wide": "0.015em",
         "wider": "0.03em"

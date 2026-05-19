@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.0.0');
+define('KK_AURORA_VERSION', '1.1.0');
 
 /**
  * Theme setup
@@ -56,13 +56,18 @@ add_action('after_setup_theme', __NAMESPACE__ . '\\theme_setup');
  * Enqueue frontend styles and scripts
  */
 function enqueue_assets(): void {
-    // Main stylesheet is automatically enqueued by FSE themes
+    wp_enqueue_style(
+        'kk-aurora-style',
+        get_stylesheet_uri(),
+        [],
+        KK_AURORA_VERSION
+    );
 
     // Refined typography
     wp_enqueue_style(
         'kk-aurora-typography',
         get_theme_file_uri('assets/css/typography-refined.css'),
-        [],
+        ['kk-aurora-style'],
         KK_AURORA_VERSION
     );
 
