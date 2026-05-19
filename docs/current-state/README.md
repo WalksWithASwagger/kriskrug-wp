@@ -3,7 +3,7 @@
 **Snapshot date:** 2026-05-14
 **Purpose:** Document the live site, the repo, the access channels, and the rollback paths *before* we start making modifications. If we break something, this is what we return to.
 
-This folder is the source of truth for "what was true on May 14, 2026" — not a living document. Future changes go elsewhere; this stays frozen for reference.
+This folder is the source of truth for "what was true on May 14, 2026" and for dated working addenda that came out of the May 2026 recovery/redesign push. Treat the baseline files as historical snapshots and the dated `2026-05-*` files as current handoff material.
 
 ## Files in this folder
 
@@ -20,12 +20,16 @@ This folder is the source of truth for "what was true on May 14, 2026" — not a
 | [ROADMAP.md](ROADMAP.md) | Six-phase, 3-month plan that synthesizes FIX_QUEUE + postmortem follow-ups + content pipeline next steps. **Start here.** |
 | [FULL-AUDIT-ROADMAP-2026-05-18.md](FULL-AUDIT-ROADMAP-2026-05-18.md) | Current post-closeout audit of repo, GitHub queue, Track A, Track B, and human decisions. |
 | [TOMORROW-ROADMAP-2026-05-20.md](TOMORROW-ROADMAP-2026-05-20.md) | Next-session roadmap for credential-history cleanup, Aurora P0, draft prep, and backlog hygiene. |
+| [NEXT-ROUND-WORK-2026-05-19.md](NEXT-ROUND-WORK-2026-05-19.md) | Current next-round command sheet after the queue sweep, Track A prep, and keynote authority-page polish. |
+| [GITHUB-QUEUE-SWEEP-2026-05-18.md](GITHUB-QUEUE-SWEEP-2026-05-18.md) | PR, branch, and issue classification after the GitHub queue sweep. |
 | [AGENT-SWARM-OPERATING-PLAN-2026-05-18.md](AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) | Current swarm lanes across GitHub issues, draft publishing, Aurora, and content/nav structure. |
 | [SWARM-STATUS-2026-05-18.md](SWARM-STATUS-2026-05-18.md) | Current command-desk status after the first bounded issue/content/Aurora swarm. |
 | [DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md](DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md) | Next-batch Notion inventory and local dry-run packs. |
 | [NEXT-PUBLISHING-PLAN-2026-05-18.md](NEXT-PUBLISHING-PLAN-2026-05-18.md) | Security gate, live-post verification, and ranked next publishing plan. |
 | [POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md](POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md) | Read-only audit of public posts, local draft packs, and issue lanes after the overwrite incident. |
 | [TRACK-A-QUICK-FIX-PACK-2026-05-18.md](TRACK-A-QUICK-FIX-PACK-2026-05-18.md) | Production-safe snippets, commands, checks, and rollback notes for current-site fixes. |
+| [TRACK-A-SEO-SOCIAL-PREP-2026-05-18.md](TRACK-A-SEO-SOCIAL-PREP-2026-05-18.md) | Prep notes for issues #36 and #43 covering Jetpack-owned SEO/social metadata, verification, and deployment cautions. |
+| [INTERNAL-LINKING-STRATEGY-2026-05-18.md](INTERNAL-LINKING-STRATEGY-2026-05-18.md) | Report-only strategy artifact for issue #38. |
 | [NAV-IA-DECISION-PACK-2026-05-18.md](NAV-IA-DECISION-PACK-2026-05-18.md) | Navigation and IA decisions for current theme and Aurora. |
 | [OWNED-SITES-LINKING-RECOMMENDATION-2026-05-18.md](OWNED-SITES-LINKING-RECOMMENDATION-2026-05-18.md) | Where to place KK's related AI sites across About, Work, Speaking, sidebar/footer, and nav. |
 | [AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md](AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md) | Track B visual redesign audit, 2026 benchmark frame, media/motion direction, and issue rollout map. |
@@ -40,6 +44,9 @@ This folder is the source of truth for "what was true on May 14, 2026" — not a
 | [`../../content/source-packs/keynotes-2026/README.md`](../../content/source-packs/keynotes-2026/README.md) | Curated source pack and publish-ready payloads for issue #76, the Speaking/Work/About page overhaul. |
 | [`../../backup/20260518-111546/page-snapshots/`](../../backup/20260518-111546/page-snapshots/) | Page-level REST/HTML rollback snapshots for the issue #76 target pages. |
 | [`../../backup/20260518-113350/page-snapshots/`](../../backup/20260518-113350/page-snapshots/) | Verified post-deploy rollback snapshots and Redirection export for issue #76. |
+| [`../../backup/20260518-215912/page-snapshots/`](../../backup/20260518-215912/page-snapshots/) | Speaking page rollback snapshot before the Horizons proof update. |
+| [`../../backup/20260518-223014/page-snapshots/`](../../backup/20260518-223014/page-snapshots/) | Page-level rollback snapshots before the IA-polish continuation. |
+| [`../../backup/20260518-224340/page-snapshots/`](../../backup/20260518-224340/page-snapshots/) | About page rollback snapshot before the final proof-list/interlink pass. |
 
 ## Ready-to-paste fix snippets (in `../../../fixes/`)
 
@@ -53,6 +60,6 @@ This folder is the source of truth for "what was true on May 14, 2026" — not a
 
 - **Site is on Pagely** (managed WP host), running **WordPress 6.9.4** with the **Catch Responsive** classic theme.
 - **Jetpack is on the Free plan**, which is why WordPress.com MCP write access is currently blocked.
-- **We have no local backup yet.** The repo contains planning, automation tooling, and 12 prepared fixes — but zero theme code, plugin code, database, or media.
+- **Baseline note:** the May 14 snapshot started before later page-level snapshots, source packs, and Aurora theme work were added. Read the dated addenda above for current operating state.
 - **Read-only fingerprinting works** through the public WP REST API; that's how this snapshot was built.
 - **Path to "safe to modify":** get SSH on Pagely → take a `wp db export` + `wp-content/` archive → commit a `backup/` reference set → then start modifying.
