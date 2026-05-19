@@ -4,7 +4,7 @@ This file is the entry point for any AI agent (Claude Code, Cursor, Codex, etc.)
 
 ## What this repo is
 
-The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running Catch Responsive. The repo is **adjacent to** the live site, not a mirror of it. There is no theme code, plugin code, database, or media in this repo. There is one custom WP module (`inc/digital-composting.php`) which is merged but not yet deployed to prod.
+The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running Catch Responsive. The repo is **adjacent to** the live site, not a mirror of it. `main` does not contain a full production theme/plugin/database/media mirror; Track B theme code lives on `aurora/v2`, and curated source-pack media/proofs are tracked. There is one custom WP module (`inc/digital-composting.php`) which is merged but not yet deployed to prod.
 
 ## Read this in order (top of repo, top of context)
 
