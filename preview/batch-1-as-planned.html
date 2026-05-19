@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kris Krug — Batch 1 as planned</title>
+<style>
+  /* Faithful render of what fixes/issue-12 + fixes/issue-13-14-15 + fixes/issue-22 + issue-5 + issue-9 would produce */
+  :root {
+    --text: #1a1a1a;
+    --muted: #666;
+    --link: #0052CC;
+    --link-hover: #003A99;
+    --bg: #ffffff;
+    --bg-soft: #f5f5f5;
+    --card: #ffffff;
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  a { color: var(--link); text-decoration: none; }
+  a:hover, a:focus { color: var(--link-hover); text-decoration: underline; }
+
+  /* nav (not in plan but minimal so it doesn't feel naked) */
+  .site-header {
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+  }
+  .site-header .brand { font-weight: 700; font-size: 18px; }
+  .site-header nav a { margin-left: 24px; color: var(--text); }
+
+  /* hero (from fixes/issue-12-new-homepage-hero.md) */
+  .hero-section {
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
+  .hero-headline {
+    font-size: 48px;
+    line-height: 1.2;
+    margin: 0 0 24px;
+    color: #1a1a1a;
+  }
+  .role-badges {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 24px 0;
+    flex-wrap: wrap;
+  }
+  .badge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .hero-subheading { max-width: 680px; margin: 0 auto; color: #1a1a1a; }
+  .impact-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 24px;
+    margin: 40px auto;
+    max-width: 900px;
+  }
+  .metric .number {
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    color: #0052CC;
+  }
+  .metric .label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+  }
+  .hero-ctas { display: flex; gap: 16px; justify-content: center; margin-top: 32px; }
+
+  /* button (from fixes/issue-9-button-hover-states.css) */
+  .button {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    background: #0052CC;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid #0052CC;
+  }
+  .button:hover {
+    background-color: #003A99;
+    border-color: #003A99;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-decoration: none;
+  }
+  .button:active { transform: translateY(0); }
+  .button:focus { outline: 2px solid #0052CC; outline-offset: 2px; }
+  .button-secondary {
+    background: transparent;
+    color: #0052CC;
+  }
+  .button-secondary:hover { background: #0052CC; color: #fff; }
+
+  /* three projects (from fixes/issue-13-14-15-project-sections.md) */
+  .three-projects { padding: 60px 20px; background: #fafafa; }
+  .section-title {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 40px;
+  }
+  .section-title h2 { font-size: 32px; margin: 0 0 12px; }
+  .section-title p { color: #666; margin: 0; }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .project-card {
+    background: #fff;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card h3 { font-size: 22px; margin: 0 0 16px; color: #1a1a1a; }
+  .project-card p { line-height: 1.6; margin: 0 0 20px; }
+  .project-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #666;
+  }
+  .project-metrics span {
+    padding: 4px 8px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    align-self: flex-start;
+  }
+  .project-card .button { margin-top: auto; align-self: flex-start; }
+
+  /* land acknowledgment (from fixes/issue-22-land-acknowledgment.md) */
+  .land-acknowledgment {
+    padding: 24px;
+    background: #f5f5f5;
+    border-left: 4px solid #0052CC;
+    margin: 40px auto;
+    max-width: 1200px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .land-acknowledgment a { font-weight: 600; }
+
+  footer.site-footer {
+    padding: 40px 20px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    border-top: 1px solid #eee;
+  }
+
+  @media (max-width: 768px) {
+    .hero-headline { font-size: 32px; }
+    .impact-metrics { grid-template-columns: repeat(2, 1fr); }
+    .hero-ctas { flex-direction: column; align-items: center; }
+    .site-header { padding: 16px; }
+    .site-header nav a { margin-left: 12px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">Kris Krug</div>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-headline">Bridging Art, AI, Indigenous Wisdom, and Justice</h1>
+
+      <div class="role-badges">
+        <span class="badge">BC+AI Executive Director</span>
+        <span class="badge">Indigenomics CTO</span>
+        <span class="badge">The Upgrade AI Co-founder</span>
+      </div>
+
+      <p class="hero-subheading">
+        20+ years creating technology that serves communities, not extraction.
+      </p>
+
+      <div class="impact-metrics">
+        <div class="metric"><span class="number">2,000+</span><span class="label">BC+AI Members</span></div>
+        <div class="metric"><span class="number">250+</span><span class="label">Vancouver AI Monthly</span></div>
+        <div class="metric"><span class="number">$200B+</span><span class="label">Indigenous Economic Discovery</span></div>
+        <div class="metric"><span class="number">Fortune 500</span><span class="label">Clients Trained</span></div>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#work" class="button">Explore My Work</a>
+        <a href="#contact" class="button button-secondary">Let's Connect</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="three-projects" id="work">
+    <div class="section-title">
+      <h2>The Work</h2>
+      <p>Three intertwined projects building responsible, inclusive AI.</p>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>BC+AI: Building a Responsible AI Ecosystem</h3>
+        <p>
+          As Executive Director, I lead a grassroots movement of 2,000+ members
+          building responsible AI across British Columbia. From 80 to 250+ monthly
+          Vancouver AI meetups, advising BC government, fostering Indigenous-academic-tech
+          collaboration.
+        </p>
+        <div class="project-metrics">
+          <span>2,000+ Members</span>
+          <span>250+ Monthly Attendees</span>
+          <span>BC Government Advisory</span>
+        </div>
+        <a href="#" class="button">Explore BC+AI →</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Indigenomics: Technology for Sovereignty</h3>
+        <p>
+          As CTO of Indigenomics.ai, I build technology serving Indigenous economic
+          sovereignty. Discovered $200B+ in Indigenous economic activity. Technology
+          honoring Indigenous protocols, serving Nation-building, proving we can build
+          tech for justice, not extraction.
+        </p>
+        <div class="project-metrics">
+          <span>$200B+ Discovery</span>
+          <span>Indigenous Data Sovereignty</span>
+          <span>CTO Leadership</span>
+        </div>
+        <a href="#" class="button">Learn About Indigenomics →</a>
+      </div>
+
+      <div class="project-card">
+        <h3>The Upgrade AI: Democratizing AI Access</h3>
+        <p>
+          Co-founder (with Peter Bittner) training Fortune 500 companies AND
+          independent creatives. Making AI accessible to everyone—creators,
+          storytellers, community builders. Collaborate with AI, maintain human
+          agency, build with responsibility.
+        </p>
+        <div class="project-metrics">
+          <span>Fortune 500 Trained</span>
+          <span>Democratized Access</span>
+          <span>Co-founder</span>
+        </div>
+        <a href="#" class="button">Explore The Upgrade →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="land-acknowledgment">
+    <p>
+      I live and work on the unceded traditional territories of the Coast Salish,
+      Squamish (Sḵwx̱wú7mesh), and Tsleil-Waututh (səl̓ilw̓ətaʔɬ) peoples. I'm
+      grateful for the opportunity to build community on these lands and committed
+      to Indigenous sovereignty.
+    </p>
+    <a href="#">Learn more about reconciliation →</a>
+  </div>
+
+  <footer class="site-footer">
+    <p>© Kris Krug — Batch 1 as planned (faithful render of fixes/ snippets)</p>
+  </footer>
+
+</body>
+</html>
