@@ -1,0 +1,13 @@
+{
+  "desktopTitle": "Kris Krug | Generative AI Tools & Techniques - Empowering Events & Organizations for the AI Age",
+  "mobileTitle": "Kris Krug | Generative AI Tools & Techniques - Empowering Events & Organizations for the AI Age",
+  "desktopUrl": "http://localhost:10003/",
+  "mobileUrl": "http://localhost:10003/",
+  "markers": {
+    "hero": 1,
+    "signalStrip": 1,
+    "workGrid": 1,
+    "footer": 1,
+    "stylesheets": 1
+  }
+}

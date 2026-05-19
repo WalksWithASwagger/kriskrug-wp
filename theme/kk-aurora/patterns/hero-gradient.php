@@ -15,8 +15,8 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"900px"}} -->
     <div class="wp-block-group">
       
-      <!-- wp:heading {"textAlign":"center","level":1,"className":"aurora-hero-headline has-animated-gradient-text","style":{"typography":{"fontSize":"clamp(2.5rem, 7vw, 5rem)","fontStyle":"normal","fontWeight":"700","lineHeight":"1.1","letterSpacing":"-0.03em"}}} -->
-      <h1 class="wp-block-heading has-text-align-center aurora-hero-headline has-animated-gradient-text" style="font-size:clamp(2.5rem, 7vw, 5rem);font-style:normal;font-weight:700;letter-spacing:-0.03em;line-height:1.1">Bridging Art, AI, Indigenous Wisdom &amp; Justice</h1>
+      <!-- wp:heading {"textAlign":"center","level":1,"className":"aurora-hero-headline has-animated-gradient-text","style":{"typography":{"fontSize":"clamp(2.5rem, 7vw, 5rem)","fontStyle":"normal","fontWeight":"700","lineHeight":"1.1","letterSpacing":"0"}}} -->
+      <h1 class="wp-block-heading has-text-align-center aurora-hero-headline has-animated-gradient-text" style="font-size:clamp(2.5rem, 7vw, 5rem);font-style:normal;font-weight:700;letter-spacing:0;line-height:1.1">Bridging Art, AI, Indigenous Wisdom &amp; Justice</h1>
       <!-- /wp:heading -->
       
       <!-- wp:paragraph {"align":"center","className":"aurora-hero-description","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"textColor":"text-secondary","fontSize":"lg"} -->
