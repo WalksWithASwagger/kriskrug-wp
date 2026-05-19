@@ -234,13 +234,20 @@ Bad:
 
 ## Testing
 
-This repo does not currently have automated tests checked in. Validation is manual:
+This repo has focused automated tests for the Notion publisher safety guards, plus manual validation for production-adjacent WordPress changes.
+
+Automated tests:
+
+- `scripts/notion-to-wp/.venv/bin/python -m unittest discover -s scripts/notion-to-wp/tests -v`
+- `make test` (runs the same suite from repo root)
+
+Manual validation:
 
 - **Content publishing:** dry-run the connector first (`--dry-run`), eyeball the rendered post on staging or with the WP REST API, then publish for real.
 - **PHP snippets in `fixes/`:** paste into Code Snippets on prod, save as inactive, toggle on, watch Query Monitor / front-end behavior.
 - **Aurora theme (Track B):** stand up on Cloudways or Local by Flywheel, render every post type (Make Culture and Your Taste are the stress tests per [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md)).
 
-If/when a PHPUnit suite is added, this section will get updated.
+If broader automated coverage is added (for example PHPUnit, Playwright, or end-to-end staging checks), extend this section with exact run commands.
 
 ## Getting Help
 

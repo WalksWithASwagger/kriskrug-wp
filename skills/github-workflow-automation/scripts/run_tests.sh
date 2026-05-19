@@ -13,6 +13,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 VERBOSE=false
+TESTS_DETECTED=false
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -34,6 +35,7 @@ echo
 
 # Detect and run PHPUnit
 if [ -f "phpunit.xml" ] || [ -f "phpunit.xml.dist" ] || [ -f "composer.json" ]; then
+    TESTS_DETECTED=true
     echo "Detected: PHPUnit"
 
     if command -v vendor/bin/phpunit &> /dev/null; then
@@ -63,6 +65,7 @@ fi
 
 # Detect and run WordPress tests
 if [ -n "${WP_TESTS_DIR:-}" ] || [ -f "tests/bootstrap.php" ]; then
+    TESTS_DETECTED=true
     echo "Detected: WordPress Test Suite"
 
     if command -v vendor/bin/phpunit &> /dev/null; then
@@ -82,6 +85,7 @@ fi
 
 # Detect and run Python tests
 if [ -f "pytest.ini" ] || [ -f "setup.py" ] || [ -f "requirements.txt" ]; then
+    TESTS_DETECTED=true
     echo "Detected: Python project"
 
     if command -v pytest &> /dev/null; then
@@ -104,8 +108,31 @@ if [ -f "pytest.ini" ] || [ -f "setup.py" ] || [ -f "requirements.txt" ]; then
     fi
 fi
 
+# Detect and run this repo's Notion publisher tests from the root checkout
+if [ -d "scripts/notion-to-wp/tests" ]; then
+    TESTS_DETECTED=true
+    echo "Detected: Notion publisher tests"
+
+    PYTHON_BIN="python3"
+    if [ -x "scripts/notion-to-wp/.venv/bin/python" ]; then
+        PYTHON_BIN="scripts/notion-to-wp/.venv/bin/python"
+    elif command -v python &> /dev/null; then
+        PYTHON_BIN="python"
+    fi
+
+    echo "Running unittest for scripts/notion-to-wp/tests..."
+    if [ "$VERBOSE" = true ]; then
+        "$PYTHON_BIN" -m unittest discover -s scripts/notion-to-wp/tests -v
+    else
+        "$PYTHON_BIN" -m unittest discover -s scripts/notion-to-wp/tests
+    fi
+    echo -e "${GREEN}✓ Notion publisher tests passed${NC}"
+    echo
+fi
+
 # Detect and run Node.js tests
 if [ -f "package.json" ]; then
+    TESTS_DETECTED=true
     echo "Detected: Node.js project"
 
     if command -v npm &> /dev/null; then
@@ -126,9 +153,7 @@ if [ -f "package.json" ]; then
 fi
 
 # If no tests detected
-if [ ! -f "phpunit.xml" ] && [ ! -f "phpunit.xml.dist" ] && \
-   [ ! -f "pytest.ini" ] && [ ! -f "package.json" ] && \
-   [ ! -f "composer.json" ]; then
+if [ "$TESTS_DETECTED" = false ]; then
     echo -e "${YELLOW}⚠ No test configuration detected${NC}"
     echo "Supported: PHPUnit, pytest, npm test, WordPress tests"
     echo
