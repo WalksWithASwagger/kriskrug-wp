@@ -28,8 +28,13 @@
 .kk-photo-grid .kk-card:nth-child(1) img, .kk-photo-grid .kk-card:nth-child(2) img { aspect-ratio:16/9; }
 .kk-chip-cloud { display:flex; flex-wrap:wrap; gap:.45rem; margin:.75rem 0 0; }
 .kk-chip-cloud span, .kk-chip-cloud a { display:inline-block; border:1px solid var(--kk-line); border-radius:999px; padding:.28rem .58rem; background:#fff; color:var(--kk-ink); text-decoration:none; font-size:.9rem; }
-.kk-details { border:1px solid var(--kk-line); border-radius:6px; padding:1rem; background:#fff; }
+.kk-details { border:1px solid var(--kk-line); border-radius:6px; padding:1rem; background:#fff; align-self:start; }
 .kk-details summary { cursor:pointer; font-weight:800; }
+.kk-pathways { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:.85rem; }
+.kk-pathways a { display:block; border:1px solid var(--kk-line); border-radius:6px; padding:.9rem; background:#fff; text-decoration:none; }
+.kk-pathways strong { display:block; font-size:1.05rem; }
+.kk-pathways span { display:block; color:var(--kk-muted); font-weight:400; margin-top:.25rem; }
+.kk-proof-note { margin-top:1rem; color:var(--kk-muted); max-width:54rem; }
 @media (max-width:760px){ .kk-display{font-size:1.45rem;} .kk-two{grid-template-columns:1fr;} .kk-actions{display:block;} .kk-actions a{margin:.35rem 0;} .kk-photo-grid .kk-card:nth-child(1), .kk-photo-grid .kk-card:nth-child(2){grid-column:auto;} }
 </style>
 
@@ -106,6 +111,19 @@
   </section>
 
   <section class="kk-section">
+    <h2>Find the right thread</h2>
+    <p class="kk-section-intro">This page is the biography. The deeper proof lives across a few focused pages, so search engines and humans can both follow the actual story.</p>
+    <div class="kk-pathways">
+      <a href="/recent-projects-include/"><strong>Work</strong><span>Current projects, portals, archive highlights, and active initiatives.</span></a>
+      <a href="/speaking/"><strong>Speaking</strong><span>Keynotes, workshops, podcast guesting, hosting, and selected videos.</span></a>
+      <a href="/services/"><strong>Services</strong><span>AI training, strategy, creative technology, and practical team support.</span></a>
+      <a href="/publications/"><strong>Publications</strong><span>The legacy proof archive, cleaned up and linked from here.</span></a>
+      <a href="/testimonials/"><strong>Testimonials</strong><span>More outside voices and social proof.</span></a>
+      <a href="/podcast-guesting-page-epk/"><strong>Podcast EPK</strong><span>For producers, hosts, and interview bookers.</span></a>
+    </div>
+  </section>
+
+  <section class="kk-section">
     <h2>The throughline</h2>
     <div class="kk-grid">
       <div class="kk-callout">
@@ -175,6 +193,7 @@
         <div class="kk-chip-cloud">
           <span>BBC News</span><span>BC Business</span><span>Boing Boing</span><span>Boston Globe</span><span>Business Insider</span><span>CBC</span><span>CNET</span><span>Daily Hive</span><span>DeSmog</span><span>Fast Company</span><span>Financial Times</span><span>Forbes</span><span>Fortune</span><span>Georgia Straight</span><span>Globe &amp; Mail</span><span>Huffington Post</span><span>LA Times</span><span>Mashable</span><span>Motherboard</span><span>National Geographic</span><span>National Observer</span><span>New Scientist</span><span>NPR</span><span>Quartz</span><span>Reuters</span><span>Rolling Stone</span><span>Slate</span><span>TechCrunch</span><span>TED</span><span>The Atlantic</span><span>The Daily Beast</span><span>The Guardian</span><span>The Narwhal</span><span>The Nation</span><span>The Tyee</span><span>The Verge</span><span>The Walrus</span><span>Thrasher</span><span>Time Magazine</span><span>Toronto Star</span><span>USA Today</span><span>Vice</span><span>Wall Street Journal</span><span>Washington Post</span><span>WIRED</span><span>Yale Environment 360</span>
         </div>
+        <p class="kk-proof-note"><a href="/publications/">See the publications page</a> for the deeper legacy list and source trail.</p>
       </details>
       <details class="kk-details">
         <summary>Portraits, interviews, and backstage moments</summary>
@@ -189,6 +208,7 @@
         </div>
       </details>
     </div>
+    <p class="kk-proof-note">The point is not name-dropping for its own sake. The range matters because it shows a career built inside real rooms: broadcast, activism, education, technology, culture, policy, festivals, and public imagination.</p>
   </section>
 
   <section class="kk-section">
