@@ -1,6 +1,6 @@
 # Post Package: CBC AI Sandbox And Appearance Queue
 
-Status: research package; needs source expansion before a WP draft.
+Status: source-expanded package; local draft candidate prepared, but do not publish without KK review.
 
 ## Known Source Evidence
 
@@ -56,4 +56,6 @@ This should not be a single thin recap unless the CBC draft has enough substance
 
 ## Ready For WP Draft?
 
-No. It is the right package to do next, but it needs public source collection and the WP draft `7056` review first.
+Yes, as a local draft candidate only. Public source collection was added in `../media-appearances/public-source-inventory-2026-05-19.md`, and a standalone local draft exists at `../../../drafts/2026-05-19-ai-media-appearances-podcast-guesting/`.
+
+The better live move may still be refreshing `/podcast-guesting-page-epk/` first, then publishing the standalone roundup only if KK wants an archive-style post.
