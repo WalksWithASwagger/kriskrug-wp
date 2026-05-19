@@ -1,7 +1,7 @@
 # AURORA Swarm 80 Smoke — 2026-05-19
 
-Branch: `codex/swarm-80-header-nav`  
-Worktree: `/Users/kk/Code/kriskrug-wp-swarm-80`  
+Branch: `codex/swarm-80-header-nav`
+Worktree: `/Users/kk/Code/kriskrug-wp-swarm-80`
 Issue: [#80](https://github.com/WalksWithASwagger/kriskrug-wp/issues/80)
 
 ## Scope

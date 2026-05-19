@@ -1,8 +1,8 @@
 # Aurora Swarm #81 - Visual System Checklist (2026-05-19)
 
-Track: B (Aurora v2 theme)  
-Issue: [#81](https://github.com/WalksWithASwagger/kriskrug-wp/issues/81)  
-Branch: `codex/swarm-81-visual-system`  
+Track: B (Aurora v2 theme)
+Issue: [#81](https://github.com/WalksWithASwagger/kriskrug-wp/issues/81)
+Branch: `codex/swarm-81-visual-system`
 Scope: token, typography, interaction-state hardening only
 
 ## Acceptance Criteria Checklist
