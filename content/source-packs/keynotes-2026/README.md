@@ -47,6 +47,7 @@ Applied after the Horizons update: an IA polish continuation tightened Work hier
 - `assets/asset-manifest.md` - selected stable teaser assets and local copies.
 - `video-research/README.md` - public YouTube metadata, thumbnails, transcripts, and future post candidates.
 - `post-packages/README.md` - review-ready companion-post packages for the speaking authority network.
+- `media-appearances/README.md` - public-source inventory and Podcast EPK refresh package.
 - `wp-payloads/speaking.html` - publish-ready content for page `1887`.
 - `wp-payloads/work.html` - publish-ready content for page `2672`.
 - `wp-payloads/about.html` - publish-ready content for page `1208`.
@@ -60,6 +61,8 @@ Applied after the Horizons update: an IA polish continuation tightened Work hier
 - `verification/POST-PACKAGE-VERIFICATION-2026-05-19.md` - Speaking authority companion-post package verification.
 - `verification/P0-DRAFT-PREP-VERIFICATION-2026-05-19.md` - P0 Speaking companion-post local draft prep verification.
 - `verification/P1-DRAFT-PREP-VERIFICATION-2026-05-19.md` - P1 Speaking companion-post local draft prep verification.
+- `verification/MEDIA-APPEARANCE-SOURCE-VERIFICATION-2026-05-19.md` - public CBC/podcast/media appearance source and draft verification.
+- `media-appearances/public-source-inventory-2026-05-19.md` - public CBC/podcast/media appearance source inventory.
 
 ## Local Draft Outputs
 
@@ -71,6 +74,7 @@ Prepared on 2026-05-19 as local draft folders only:
 - `../../drafts/2026-05-19-horizons-ai-models-future-machine-learning/`
 - `../../drafts/2026-05-19-ai-keynote-chaos-creativity-channelnext/`
 - `../../drafts/2026-05-19-dear-ai-bass-coast-brain-stage/`
+- `../../drafts/2026-05-19-ai-media-appearances-podcast-guesting/`
 
 ## Safety Notes
 
