@@ -27,7 +27,7 @@ This folder is source material for page copy, future post drafts, clips, and tra
 - Treat transcripts as raw research, not final public copy.
 - Pull short, source-backed excerpts into posts only after reviewing the surrounding context.
 - Use public YouTube embeds on WordPress unless there is a deliberate reason to upload edited clips.
-- Useful post candidates from this batch: Horizons produced-interview roundup, Bass Coast Brain Stage recap, Whistler Institute AI ecosystem recap, ChannelNext AI leadership recap, Vancouver AI March 2026 appearance recap, and a CBC AI Sandbox roundup.
+- Useful post candidates from this batch now have review-ready packages in `../post-packages/`: Horizons produced-interview roundup, Bass Coast Brain Stage recap, Whistler Institute AI ecosystem recap, ChannelNext AI leadership recap, Vancouver AI March 2026 appearance recap, LaSalle College `Both Hands Full` recap, and a CBC AI Sandbox/appearance queue package.
 
 ## Privacy Notes
 

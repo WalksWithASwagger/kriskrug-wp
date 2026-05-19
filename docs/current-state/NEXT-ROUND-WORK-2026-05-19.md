@@ -31,10 +31,11 @@ These are prep artifacts only. They do not close the issues because no live Word
 - `content/source-packs/keynotes-2026/wp-payloads/about.html`
 - `content/source-packs/keynotes-2026/wp-payloads/speaking.html`
 - `content/source-packs/keynotes-2026/wp-payloads/work.html`
+- `content/source-packs/keynotes-2026/post-packages/README.md`
 - `content/source-packs/keynotes-2026/verification/SPEAKING-HORIZONS-VERIFICATION-2026-05-18.md`
 - `content/source-packs/keynotes-2026/verification/IA-POLISH-CONTINUATION-VERIFICATION-2026-05-18.md`
 
-These record the latest Speaking, Work, and About payload and verification evidence after the Horizons proof and IA-polish passes.
+These record the latest Speaking, Work, and About payload, verification evidence, and the next companion-post queue after the Horizons proof and IA-polish passes.
 
 ## Next Work, In Order
 
@@ -85,6 +86,8 @@ Output should be review-ready packages, not live posts:
 3. Comox Valley AI recap
 
 For each: clean excerpt/meta, category recommendation, internal links, image decision, fact-check/privacy checklist, and a clear "ready for WP draft?" verdict.
+
+Parallel authority-post lane now exists in `content/source-packs/keynotes-2026/post-packages/`. Use that pack when preparing companion posts for LaSalle College, Whistler Institute, Vancouver AI March 2026, Horizons, ChannelNext, Bass Coast, or CBC/appearance proof.
 
 ### 5. Clean GitHub Backlog Safely
 
