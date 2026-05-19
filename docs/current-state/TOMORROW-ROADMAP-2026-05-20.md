@@ -1,23 +1,35 @@
 # Tomorrow Roadmap - 2026-05-20
 
-**Prepared after:** 2026-05-18 keynote authority polish and roadmap-decision capture
+**Prepared after:** 2026-05-19 Speaking/Work/About authority-page continuation, Horizons proof, and Track A issue-swarm docs integration
 **Use for:** The next operating session. If the calendar has drifted, treat this as the next-session plan rather than a date-bound promise.
 **Tracks:** Track A on `main`; Track B on `aurora/v2`.
 
 ## Where We Ended
 
-The repo has one completed local commit ready to push before this roadmap commit:
+Local `main` was fetched and rebased onto `origin/main` before this closeout. The three newer remote docs/preview commits are integrated:
 
-- `63e49e4 content: polish keynote authority pages`
+- `9fbbc76 preview: add redesign direction pages`
+- `b292fd9 docs: record queue sweep and revert static previews`
+- `8285831 docs: prepare Track A issue swarm`
 
-That commit includes:
+The live Speaking, Work, and About authority pages have now had three connected Track A passes:
 
-- Second-pass polish for the live Speaking, Work, and About pages.
-- Fresh page-level rollback snapshots under `backup/20260518-123159/page-snapshots/`.
-- Verification record at `content/source-packs/keynotes-2026/verification/POLISH-VERIFICATION-2026-05-18.md`.
-- Scrolled contact-sheet screenshots for the polished pages.
+- `63e49e4 content: polish keynote authority pages` - second-pass overhaul of the live Speaking, Work, and About pages.
+- `ca332f7 content: add horizons speaking proof` - source-backed Horizons by Compass Datacenters proof point and video card on Speaking.
+- `793f364 content: polish authority page IA` - tighter Work hierarchy, About interlinking/proof-list structure, and Speaking booking-lane cards.
+
+The source pack now includes:
+
+- Fresh page-level rollback snapshots under `backup/20260518-123159/`, `backup/20260518-215912/`, `backup/20260518-223014/`, and `backup/20260518-224340/`.
+- Verification records at `content/source-packs/keynotes-2026/verification/DEPLOY-VERIFICATION-2026-05-18.md`, `POLISH-VERIFICATION-2026-05-18.md`, `SPEAKING-GUESTING-VERIFICATION-2026-05-18.md`, `SPEAKING-HORIZONS-VERIFICATION-2026-05-18.md`, and `IA-POLISH-CONTINUATION-VERIFICATION-2026-05-18.md`.
 - Public video research, captions, thumbnails, and metadata under `content/source-packs/keynotes-2026/video-research/`.
 - Authenticated WordPress draft candidates for future speaking/AI authority posts.
+
+Live public checks after the latest pass confirmed:
+
+- `/speaking/`, `/recent-projects-include/`, `/work/`, and `/about/` return `200`.
+- `/work/` still redirects to `/recent-projects-include/`.
+- The authority-page markers are present, images lazy-load cleanly in Playwright, and no target page shows `Leave a Reply`.
 
 The current strategic decisions are recorded in `FULL-AUDIT-ROADMAP-2026-05-18.md`:
 
@@ -42,16 +54,28 @@ The current strategic decisions are recorded in `FULL-AUDIT-ROADMAP-2026-05-18.m
 
 ## Tomorrow's Recommended Order
 
-### 1. Push and verify today's closeout
+### 1. Push and verify this closeout
 
 If not already done:
 
 1. Push `main`.
-2. Confirm `git rev-list --left-right --count main...origin/main` returns `0 0`.
-3. Verify GitHub shows the keynote polish commit and this roadmap commit.
-4. Comment on issue `#76` only if the polish pass needs a public issue breadcrumb beyond the already-closed deploy verification.
+2. Confirm `git rev-list --left-right --count HEAD...origin/main` returns `0 0`.
+3. Verify GitHub shows the Horizons proof commit, the IA polish commit, and this documentation closeout commit.
+4. Comment on issue `#76` only if the authority-page polish needs a public issue breadcrumb beyond the committed verification notes.
 
-### 2. Run the credential-history rewrite preflight
+### 2. Choose the next Track A authority round
+
+Goal: turn the new authority pages into a stronger supporting network, not just prettier pages.
+
+Recommended order:
+
+1. **Speaking proof posts and clips** - turn the public video intake into source-backed post packages for Bass Coast, Whistler Institute, ChannelNext, Vancouver AI March 2026, and Horizons. Start with review-ready drafts; do not publish without KK review.
+2. **Podcast / appearance hub** - decide whether to upgrade `/podcast-guesting-page-epk/`, the MØTLEYKRÜG page, or a new `/media/` page into the home for guest appearances, hosting, emcee work, CBC, and produced interviews.
+3. **Photo and asset source pack** - inventory better LaSalle, CreativeMornings, Vancouver AI meetup, and Whistler photos; use WP-hosted or owned stable assets only.
+4. **About proof-source cleanup** - keep the publication/client lists, but progressively source, group, and link the most impressive proof instead of expanding an unsourced wall of names.
+5. **Current-theme technical quick wins** - title separator snippet, Twitter-to-X replacement, and broken-link scan.
+
+### 3. Run the credential-history rewrite preflight
 
 Goal: make the force-push boring before doing it.
 
@@ -65,7 +89,7 @@ Preflight should list:
 
 Do not perform the force-push until the preflight is written down and the working tree is clean.
 
-### 3. Start Aurora P0 on `aurora/v2`
+### 4. Start Aurora P0 on `aurora/v2`
 
 Goal: get from "prototype with broken render" to "judgable design surface."
 
@@ -83,7 +107,7 @@ Do not:
 - Activate Aurora on production.
 - Rewrite content payloads from the theme branch.
 
-### 4. Prep the three-post draft batch
+### 5. Prep the three-post draft batch
 
 Goal: create reviewable post packages, not live posts.
 
@@ -106,7 +130,7 @@ Output for each:
 
 No WordPress writes until all three have been reviewed.
 
-### 5. File and clean up Aurora issues
+### 6. File and clean up Aurora issues
 
 Goal: make the backlog swarm-safe.
 
@@ -123,6 +147,7 @@ Run these in bounded lanes:
 | Lane | Track | Write scope | Done when |
 |---|---|---|---|
 | Credential rewrite preflight | Git | Docs/commands only until final approval | Preflight names exact commits, rewrite plan, and recovery path |
+| Speaking proof network | A | `content/source-packs/keynotes-2026/`, `content/drafts/` | Video/appearance post packages are review-ready; no publish without approval |
 | Aurora P0 | B | `aurora/v2`, `theme/kk-aurora/`, Aurora docs | Header/nav smoke passes and screenshots exist |
 | Draft prep | A | `content/drafts/`, draft-prep docs | Three posts have review-ready packages; no WP writes |
 | Issue hygiene | GitHub | Issues/labels/comments | New Aurora epics filed; stale design issues linked or cleaned |

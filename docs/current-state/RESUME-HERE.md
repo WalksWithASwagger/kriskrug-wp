@@ -1,7 +1,7 @@
-# Resume here — 2026-05-18 handoff
+# Resume here — 2026-05-19 handoff
 
-**Last session ended:** 2026-05-18, after the first bounded issue/content/Aurora swarm.
-**Author:** Claude Code / Codex working with KK across an intensive multi-session push (2026-05-15 -> 2026-05-18).
+**Last session ended:** 2026-05-19, after the live Speaking/Work/About authority-page continuation and closeout push prep.
+**Author:** Claude Code / Codex working with KK across an intensive multi-session push (2026-05-15 -> 2026-05-19).
 
 This doc is the **single thing to read first** when picking up. It complements but doesn't replace:
 - [`ROADMAP.md`](ROADMAP.md) — the 3-month plan written 2026-05-15 (still good, partially executed)
@@ -14,16 +14,23 @@ This doc is the **single thing to read first** when picking up. It complements b
 ## Where we are (snapshot)
 
 ### Track A — Content + SEO (lives on `main`)
-**Health: green.** Both recent flagship posts are live and richly enriched. 7 of 7 top SITE-AUDIT items shipped. Reader-facing audit + mobile baseline + nav deep-inspect are all committed.
+**Health: green.** Both recent flagship posts are live and richly enriched. 7 of 7 top SITE-AUDIT items shipped. Reader-facing audit + mobile baseline + nav deep-inspect are committed. The Speaking, Work, and About authority pages are now live as a connected authority system with rollback snapshots and Playwright verification.
 
 What's live:
 - **Make Culture, Not Content** (`/2026/05/16/make-culture-not-content/`) — 34K chars, 5 illustrative slides, pull-quote, 58 em-dashes purged, internal + external cross-links
 - **Your Taste Is Your Moat** (`/2026/05/15/your-taste-is-your-moat/`) — 23K chars, 10 visuals (5-photo LaSalle gallery near top, 5 keynote slides interspersed), YouTube embed at top, pull-quote, hyperlinks
 - **Homepage** — new H1 ("Kris Krüg, Generative AI for Creative Professionals"), rewrote hero copy from 2018 event-photographer positioning to current AI-educator voice. "Why Choose Me?" demoted from H1 to H2.
-- **About page** — 3 inner H1s demoted to H2 (`Publications`, `Portraits`, `Clients`)
+- **Speaking page** — rebuilt as `AI Keynote Speaker Kris Krüg`, with keynote topics, selected videos, CBC, Horizons by Compass Datacenters, Vancouver AI video proof, podcast guesting, hosting/emcee/moderation, testimonials, stage list, and booking CTAs.
+- **Work page** (`/recent-projects-include/`, with `/work/` redirect) — retitled `Work`, reorganized around featured work, public artifacts, thumbnail-led bodies of work, owned-site portals, and photo-heavy archive highlights.
+- **About page** — refreshed as `About Kris Krüg` with current AI/community work, project pathway links, photo proof, the wild publication/client/portrait index, stronger links to Work/Speaking/Services/Publications/Testimonials/Podcast EPK, and no in-body H1 clutter.
 - **Beehiiv popup** — delay changed from 1s → 30s (Popup Maker post 3884). Visitors get to read before being interrupted.
 - **Redirection plugin installed.** Two new 301s live: `/work/` → `/recent-projects-include/` (was bouncing to a 2011 UN HIV post); `/services/` → `/generative-ai-services/` (was 404)
 - **YouTube embed spacer fix** on Your Taste — stripped `wp-has-aspect-ratio` to kill Jetpack's phantom 438px spacer
+
+Authority-page evidence:
+- Source pack: [`../../content/source-packs/keynotes-2026/README.md`](../../content/source-packs/keynotes-2026/README.md)
+- Latest verification: [`../../content/source-packs/keynotes-2026/verification/IA-POLISH-CONTINUATION-VERIFICATION-2026-05-18.md`](../../content/source-packs/keynotes-2026/verification/IA-POLISH-CONTINUATION-VERIFICATION-2026-05-18.md)
+- Latest rollback snapshots: `backup/20260518-223014/page-snapshots/` and `backup/20260518-224340/page-snapshots/`
 
 ### Track B — Aurora v2 redesign (lives on `aurora/v2`, pushed to origin)
 **Health: staging is up.** Aurora rebased onto current `main`, theme cherry-picked from the stale 4-month-old branch without erasing Track A's work.
@@ -51,16 +58,20 @@ What exists:
 
 Ordered roughly by leverage / effort ratio:
 
-1. **🟡 Title separator filter** (5-line Code Snippet) — every page title currently reads *"PageName Kris Krüg | Site Title"* with no delimiter. Hooks `document_title_parts` and inserts ` | ` between page name and site name. Site-wide fix in 10 minutes.
-2. **🟡 Twitter → X URL search-replace** — `twitter.com/feelmoreplants` is HTTP 520 on every page that links it. Sitewide search-replace to `x.com/kriskrug`. Run via WP-CLI dry-run first, then real.
-3. **🟢 Broken Link Checker scan** — install the plugin (free), run a one-shot scan, export the dead-link CSV, triage. 13–30% rot rate on older curated pages per audit round 2 sampling.
-4. **🟢 Sidebar widget order** — on mobile, all sidebar widgets stack BELOW post content. Audit which widgets matter, remove the rest, OR defer to Aurora.
-5. **🟢 Mobile popup variant** — current 30s timer is desktop-tuned; mobile users hit the modal mid-scroll through long posts. Either disable on mobile in Popup Maker → Display Presets, or add a scroll-based trigger.
-6. **🟢 Personal phone QA pass** — visual mobile audit needs your actual phone (Brave's MCP window won't shrink below ~600px). Walk homepage + a recent post + About, flag layout breaks.
-7. **🟢 Lighthouse mobile run** — separate Chrome DevTools session with 3G throttle; capture LCP/INP/CLS. Concrete numbers will quantify how much Catch Responsive's stack costs you.
-8. **🟢 Stewart Butterfield testimonial** decision — keep / re-caption with "then-CEO of Slack" / rotate to a newer testimonial. Needs your call.
-9. **🟢 Image alt-text vision-LLM batch** (ROADMAP Phase 4) — top-100 most-trafficked images, generate alt, CSV for review, REST batch-update. Massive accessibility + AI-search win when you're ready.
-10. **🟢 GSC Performance capture** — open GSC → Performance → last 16 months, note top queries / impressions / CTR. Needed to measure whether categorization + recency improvements moved the needle.
+1. **🟡 Speaking proof network** — turn public video intake into review-ready post packages for Bass Coast, Whistler Institute, ChannelNext, Vancouver AI March 2026, and Horizons; no publish without KK review.
+2. **🟡 Podcast / appearance hub** — decide whether `/podcast-guesting-page-epk/`, MØTLEYKRÜG, or a new `/media/` page becomes the home for guest appearances, hosting, emcee work, CBC, and produced interviews.
+3. **🟡 Better photo/source inventory** — inventory LaSalle, CreativeMornings, Vancouver AI meetup, and Whistler photos; use WP-hosted or owned stable assets only.
+4. **🟡 About proof-source cleanup** — keep the publication/client/portrait lists, but progressively source, group, and link the best proof.
+5. **🟡 Title separator filter** (5-line Code Snippet) — every page title currently reads *"PageName Kris Krüg | Site Title"* with no delimiter. Hooks `document_title_parts` and inserts ` | ` between page name and site name. Site-wide fix in 10 minutes.
+6. **🟡 Twitter → X URL search-replace** — `twitter.com/feelmoreplants` is HTTP 520 on every page that links it. Sitewide search-replace to `x.com/kriskrug`. Run via WP-CLI dry-run first, then real.
+7. **🟢 Broken Link Checker scan** — install the plugin (free), run a one-shot scan, export the dead-link CSV, triage. 13–30% rot rate on older curated pages per audit round 2 sampling.
+8. **🟢 Sidebar widget order** — on mobile, all sidebar widgets stack BELOW post content. Audit which widgets matter, remove the rest, OR defer to Aurora.
+9. **🟢 Mobile popup variant** — current 30s timer is desktop-tuned; mobile users hit the modal mid-scroll through long posts. Either disable on mobile in Popup Maker → Display Presets, or add a scroll-based trigger.
+10. **🟢 Personal phone QA pass** — visual mobile audit needs your actual phone (Brave's MCP window won't shrink below ~600px). Walk homepage + a recent post + About, flag layout breaks.
+11. **🟢 Lighthouse mobile run** — separate Chrome DevTools session with 3G throttle; capture LCP/INP/CLS. Concrete numbers will quantify how much Catch Responsive's stack costs you.
+12. **🟢 Stewart Butterfield testimonial** decision — keep / re-caption with "then-CEO of Slack" / rotate to a newer testimonial. Needs your call.
+13. **🟢 Image alt-text vision-LLM batch** (ROADMAP Phase 4) — top-100 most-trafficked images, generate alt, CSV for review, REST batch-update. Massive accessibility + AI-search win when you're ready.
+14. **🟢 GSC Performance capture** — open GSC → Performance → last 16 months, note top queries / impressions / CTR. Needed to measure whether categorization + recency improvements moved the needle.
 
 ### Track B — Aurora v2 next steps
 
