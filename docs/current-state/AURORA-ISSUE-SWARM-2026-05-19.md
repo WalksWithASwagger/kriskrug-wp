@@ -60,19 +60,22 @@ Verification after routing:
 - open `aurora-v2` issues: 19
 - old design issues #24-#35 still carrying `auto-implement`: 0
 
-## PR State
+## PR State (post-rewrite recovery)
 
-Open PRs after refresh:
+The old open-PR references are superseded:
 
-| PR | State | Read |
-|---|---|---|
-| #77 `[codex] Redesign Aurora visual system` | Draft, clean, base `aurora/v2` | This is the active Aurora review surface. Keep draft until human review and next polish pass. |
-| #73 `Auto-managed sidebar promos` | Open, merge state `DIRTY`, base `main` | Keep parked. It is production-adjacent plugin work and needs its own staging/backup/deploy lane. |
+- Aurora redesign was recovered as replacement PR `#87` and merged into `aurora/v2`.
+- Sidebar promos was recovered as replacement PR `#88` and merged into `main`.
+- Queue recovery and follow-through are documented in:
+  - `docs/current-state/GITHUB-QUEUE-RECOVERY-2026-05-19.md`
+  - `docs/current-state/TOMORROW-ROADMAP-2026-05-20.md`
 
 ## Aurora Review Packet
 
-PR #77 branch: `codex/aurora-redesign-2026-05-18`
-Worktree: `/Users/kk/Code/kriskrug-wp-aurora-redesign`
+Merged branch history now lives in `aurora/v2` (via PR `#87`).
+Primary local worktree for current Track B iteration:
+
+- `/Users/kk/Code/kriskrug-wp-aurora-redesign`
 
 Branch-only review docs and screenshots:
 
