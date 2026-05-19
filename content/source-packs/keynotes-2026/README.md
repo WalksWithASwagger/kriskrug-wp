@@ -58,6 +58,15 @@ Applied after the Horizons update: an IA polish continuation tightened Work hier
 - `verification/SPEAKING-HORIZONS-VERIFICATION-2026-05-18.md` - Speaking-page Horizons produced-interview addition verification.
 - `verification/IA-POLISH-CONTINUATION-VERIFICATION-2026-05-18.md` - Work hierarchy, About interlinking/proof-list, and Speaking booking-lane continuation verification.
 - `verification/POST-PACKAGE-VERIFICATION-2026-05-19.md` - Speaking authority companion-post package verification.
+- `verification/P0-DRAFT-PREP-VERIFICATION-2026-05-19.md` - P0 Speaking companion-post local draft prep verification.
+
+## Local Draft Outputs
+
+Prepared on 2026-05-19 as local draft folders only:
+
+- `../../drafts/2026-05-19-both-hands-full-ai-creatives-lasalle-college/`
+- `../../drafts/2026-05-19-inside-vancouvers-ai-boom-whistler-institute/`
+- `../../drafts/2026-05-19-both-hands-full-vancouver-ai-march-2026/`
 
 ## Safety Notes
 
