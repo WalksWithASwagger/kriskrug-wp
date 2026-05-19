@@ -75,3 +75,5 @@ Before any live WordPress write:
 - snapshot/check the target slug before creating or updating anything live,
 - avoid third-party podcast art, CBC art, Horizons art, or YouTube thumbnail imports unless rights are confirmed,
 - add backlinks from `/speaking/`, `/about/`, and `/podcast-guesting-page-epk/` only after the post URL exists.
+
+Follow-up note: a WP draft publisher pass on 2026-05-19 stopped before the live write because a fresh full-site backup was unavailable. See `APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`.

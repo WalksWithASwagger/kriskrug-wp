@@ -54,7 +54,7 @@ Do:
 - Keep building review-ready draft packages from `content/source-packs/keynotes-2026/`.
 - Prioritize source-backed proofs and internal linking quality.
 - Keep publish actions gated behind explicit review.
-- Treat `content/drafts/2026-05-19-ai-media-appearances-podcast-guesting/` as review-ready local support content, not yet a live post. It now includes the Vancouver AI March 2026 video and all current draft links returned `200` during the 2026-05-19 polish pass.
+- Treat `content/drafts/2026-05-19-ai-media-appearances-podcast-guesting/` as review-ready local support content, not yet a live post. It includes the Vancouver AI March 2026 video, all current draft links returned `200`, and the private WP draft pass is blocked only by the fresh full-site backup gate documented in `content/source-packs/keynotes-2026/verification/APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`.
 
 Done when:
 
