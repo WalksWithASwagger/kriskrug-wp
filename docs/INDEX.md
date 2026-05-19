@@ -25,6 +25,7 @@ The canonical "what's true right now" snapshot lives in [`docs/current-state/`](
 | [`current-state/ROADMAP.md`](current-state/ROADMAP.md) | Six-phase, 3-month plan |
 | [`current-state/FULL-AUDIT-ROADMAP-2026-05-18.md`](current-state/FULL-AUDIT-ROADMAP-2026-05-18.md) | Current post-closeout audit, roadmap, and human decision list |
 | [`current-state/TOMORROW-ROADMAP-2026-05-20.md`](current-state/TOMORROW-ROADMAP-2026-05-20.md) | Next-session roadmap for credential-history cleanup, Aurora P0, draft prep, and backlog hygiene |
+| [`current-state/NEXT-ROUND-WORK-2026-05-19.md`](current-state/NEXT-ROUND-WORK-2026-05-19.md) | Next-round command sheet after queue sweep, Track A prep, and authority-page polish |
 | [`current-state/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md`](current-state/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) | Current agent-swarm lanes and execution order |
 | [`current-state/SWARM-STATUS-2026-05-18.md`](current-state/SWARM-STATUS-2026-05-18.md) | Current command-desk status after the first bounded swarm |
 | [`current-state/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md`](current-state/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md) | Next-batch Notion inventory and local dry-run packs |
@@ -96,4 +97,4 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 
 ---
 
-**Last updated:** 2026-05-18. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.
+**Last updated:** 2026-05-19. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.

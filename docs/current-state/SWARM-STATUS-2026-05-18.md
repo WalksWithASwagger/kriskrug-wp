@@ -11,9 +11,11 @@
 The backlog is now less foggy:
 
 - GitHub issue hygiene started: completed/duplicate/dormant issues were closed or relabeled.
+- Follow-up queue sweep merged PR `#78` to correct the accidental static-preview merge into `main`, then merged PR `#79` with repo-local prep artifacts for issues `#36`, `#38`, `#43`, `#44`, and `#48`.
 - The next publishing batch exists locally as three dry-run packs, and authenticated WordPress now shows 32 older admin draft posts plus 3 draft pages.
 - The connector has focused post-incident tests and a small readback verification step.
 - Track A quick fixes are packaged with snippets, dry-run commands, verification, and rollback.
+- The keynote authority-page source pack now includes the Horizons produced-interview proof and IA-polish continuation verification.
 - Nav/IA decisions are packaged for KK review.
 - Aurora remains the gating lane for redesign cutover. Local renders with Aurora active, but the desktop header/nav is broken, so no production activation should happen yet.
 
@@ -27,6 +29,7 @@ The backlog is now less foggy:
 | Lane 3 - Connector hardening | Tests and readback guard added | `scripts/notion-to-wp/tests/`, `kk_notion_to_wp.py`, `README.md` | Keep behavior small; consider `--diff` later after next successful batch |
 | Lane 4 - Aurora staging | Local staging alive, but not cutover-ready | [`AURORA-STAGING-REPORT-2026-05-18.md`](AURORA-STAGING-REPORT-2026-05-18.md) | Fix desktop header/nav on `aurora/v2`, rerun six-page smoke, then decide iterate vs pivot |
 | Lane 5 - Nav/IA structure | Decision pack created | [`NAV-IA-DECISION-PACK-2026-05-18.md`](NAV-IA-DECISION-PACK-2026-05-18.md) | KK decision on Work vs Projects, Speaking in nav, Newsletter as CTA, Events/Web Summit split |
+| GitHub queue follow-up | Completed safe slice | [`GITHUB-QUEUE-SWEEP-2026-05-18.md`](GITHUB-QUEUE-SWEEP-2026-05-18.md), PR `#78`, PR `#79` | Keep PR `#77` draft, keep PR `#73` parked, use [`NEXT-ROUND-WORK-2026-05-19.md`](NEXT-ROUND-WORK-2026-05-19.md) for the next batch |
 
 ## Next Batch Of Posts
 

@@ -4,6 +4,8 @@
 **Use for:** The next operating session. If the calendar has drifted, treat this as the next-session plan rather than a date-bound promise.
 **Tracks:** Track A on `main`; Track B on `aurora/v2`.
 
+Current pointer: [`NEXT-ROUND-WORK-2026-05-19.md`](NEXT-ROUND-WORK-2026-05-19.md) is the fresher command sheet after the queue sweep, Track A prep, and keynote closeout.
+
 ## Where We Ended
 
 Local `main` was fetched and rebased onto `origin/main` before this closeout. The three newer remote docs/preview commits are integrated:
@@ -54,14 +56,14 @@ The current strategic decisions are recorded in `FULL-AUDIT-ROADMAP-2026-05-18.m
 
 ## Tomorrow's Recommended Order
 
-### 1. Push and verify this closeout
+### 1. Verify this closeout
 
 If not already done:
 
-1. Push `main`.
-2. Confirm `git rev-list --left-right --count HEAD...origin/main` returns `0 0`.
-3. Verify GitHub shows the Horizons proof commit, the IA polish commit, and this documentation closeout commit.
-4. Comment on issue `#76` only if the authority-page polish needs a public issue breadcrumb beyond the committed verification notes.
+1. Fetch/prune origin.
+2. Confirm `git rev-list --left-right --count main...origin/main` returns `0 0`.
+3. Verify GitHub shows the Horizons proof commit, the IA polish commit, and the documentation closeout commit.
+4. Use [`NEXT-ROUND-WORK-2026-05-19.md`](NEXT-ROUND-WORK-2026-05-19.md) as the current work order.
 
 ### 2. Choose the next Track A authority round
 

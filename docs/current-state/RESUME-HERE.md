@@ -8,8 +8,33 @@ This doc is the **single thing to read first** when picking up. It complements b
 - [`TWO-TRACK-MODEL.md`](TWO-TRACK-MODEL.md) — Track A vs Track B operating split
 - [`SITE-AUDIT-2026-05-16.md`](SITE-AUDIT-2026-05-16.md) — reader-facing punch list with completion notes
 - [`SWARM-STATUS-2026-05-18.md`](SWARM-STATUS-2026-05-18.md) — command-desk status after the first bounded swarm
+- [`NEXT-ROUND-WORK-2026-05-19.md`](NEXT-ROUND-WORK-2026-05-19.md) — current next-session command sheet after the queue and keynote closeout
 
 ---
+
+## 2026-05-19 closeout addendum
+
+Recent queue work made `main` safe again after a static-preview detour:
+
+- PR `#78` merged to `main` as `b292fd9`, reverting static preview pages from Track A and recording the GitHub queue sweep.
+- PR `#79` merged to `main` as `8285831`, adding prep artifacts for issues `#36`, `#38`, `#43`, `#44`, and `#48`.
+- Local keynote authority-page commits were rebased on top of that current `origin/main`:
+  - `ca332f7 content: add horizons speaking proof`
+  - `793f364 content: polish authority page IA`
+
+The next operating sheet is [`NEXT-ROUND-WORK-2026-05-19.md`](NEXT-ROUND-WORK-2026-05-19.md). Start there before launching another swarm.
+
+Current PR posture:
+
+- PR `#77` stays open as the Aurora Track B draft.
+- PR `#73` stays parked because it is production-adjacent plugin work and its mergeability currently reports `UNKNOWN`.
+
+Current highest-leverage next round:
+
+1. Get more eyes on the Aurora prototype and decide continue / issue-file / feedback-first.
+2. Run one Track A publisher quick-fix session after backup or page snapshots.
+3. Prep, but do not publish, the next three post packages.
+4. Do a credential-history rewrite preflight doc only; no force-push without explicit approval.
 
 ## Where we are (snapshot)
 
@@ -147,7 +172,7 @@ These unblock specific items but aren't blockers for the bigger arcs:
 - `main` is for Track A (content/SEO). Push as you go.
 - `aurora/v2` is for Track B. Push to the same branch as iterations land.
 - Don't merge Track B back into main until cutover (that IS the cutover).
-- Local main is currently in sync with origin (last commit `ed77f3e`).
+- After the 2026-05-19 closeout push, local `main` should match `origin/main`. Verify with `git rev-list --left-right --count main...origin/main` before starting new work.
 
 ### Connector
 - `scripts/notion-to-wp/kk_notion_to_wp.py` — fully hardened. CREATE is default; UPDATE requires `--update`; title similarity check ≥0.5; em-dash purge + auto-link via `text_polish.py` run automatically.
