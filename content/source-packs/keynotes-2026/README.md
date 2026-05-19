@@ -46,6 +46,7 @@ Applied after the Horizons update: an IA polish continuation tightened Work hier
 - `wp-draft-candidates-2026-05-18.md` - authenticated draft scan for future speaking/AI authority posts.
 - `assets/asset-manifest.md` - selected stable teaser assets and local copies.
 - `video-research/README.md` - public YouTube metadata, thumbnails, transcripts, and future post candidates.
+- `post-packages/README.md` - review-ready companion-post packages for the speaking authority network.
 - `wp-payloads/speaking.html` - publish-ready content for page `1887`.
 - `wp-payloads/work.html` - publish-ready content for page `2672`.
 - `wp-payloads/about.html` - publish-ready content for page `1208`.
@@ -56,6 +57,7 @@ Applied after the Horizons update: an IA polish continuation tightened Work hier
 - `verification/SPEAKING-GUESTING-VERIFICATION-2026-05-18.md` - Speaking-page guesting/hosting addition verification.
 - `verification/SPEAKING-HORIZONS-VERIFICATION-2026-05-18.md` - Speaking-page Horizons produced-interview addition verification.
 - `verification/IA-POLISH-CONTINUATION-VERIFICATION-2026-05-18.md` - Work hierarchy, About interlinking/proof-list, and Speaking booking-lane continuation verification.
+- `verification/POST-PACKAGE-VERIFICATION-2026-05-19.md` - Speaking authority companion-post package verification.
 
 ## Safety Notes
 
