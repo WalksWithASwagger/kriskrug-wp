@@ -1,7 +1,7 @@
 # Issue Swarm Roadmap - 2026-05-19
 
 **Prepared:** 2026-05-19  
-**Queue snapshot:** 71 open issues, 0 open PRs  
+**Queue snapshot:** 70 open issues, 0 open PRs after PR `#92` merged
 **Scope:** Convert the current backlog into bounded parallel lanes with clear stop rules.
 
 ## Assumptions
@@ -12,10 +12,10 @@
 
 ## Queue Baseline
 
-- Open issues: `71`
+- Open issues: `70`
 - `auto-implement`: `50`
-- `track-b` + `aurora-v2`: `19`
-- `priority:high`: `34`
+- `track-b` + `aurora-v2`: `18`
+- `priority:high`: `33`
 - `needs-human-review`: `2` (`#23`, `#75`)
 
 ## Canonical 72-Hour Swarm
@@ -116,3 +116,4 @@ Done when:
 
 - Legacy design issues `#24-#35` remain open but routed; they are not standalone build targets.
 - `docs/current-state/AURORA-ISSUE-SWARM-2026-05-19.md` still references old PR `#77` and should be refreshed against rewrite-recovery reality (`#87` merged).
+- Media appearances are not an issue-swarm lane until the fresh full-site backup gate is cleared; see `APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`.
