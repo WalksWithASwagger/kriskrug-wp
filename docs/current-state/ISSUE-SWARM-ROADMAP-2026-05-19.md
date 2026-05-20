@@ -41,11 +41,15 @@ Goal: mechanical stability + visual system verification.
 - `#80` `[AURORA P0] Rescue staging header/nav render`
 - `#81` `[AURORA P1] Define the 2026 visual system`
 
+Current status (2026-05-20):
+
+- `#80` closed after PR `#94` merged into `aurora/v2`.
+- `#81` remains open pending explicit closure checklist comment against acceptance criteria.
+
 Done when:
 
-- Six-page smoke is rerun on current `aurora/v2`.
-- Fresh desktop/mobile artifacts are attached.
-- Token/state checklist evidence exists.
+- P0 smoke and screenshot evidence are landed on `aurora/v2` (`AURORA-P0-STAGING-RESCUE-2026-05-19.md` + `aurora-smoke-2026-05-19/`).
+- Visual-system checklist evidence is posted and issue `#81` is closed or left open with an explicit blocker.
 
 ### Lane 2 - Aurora Wave 2 (parallel, Track B)
 
@@ -115,5 +119,5 @@ Done when:
 ## Notes
 
 - Legacy design issues `#24-#35` remain open but routed; they are not standalone build targets.
-- `docs/current-state/AURORA-ISSUE-SWARM-2026-05-19.md` still references old PR `#77` and should be refreshed against rewrite-recovery reality (`#87` merged).
+- `docs/current-state/AURORA-ISSUE-SWARM-2026-05-19.md` was refreshed on 2026-05-20 to remove old PR `#77` references and reflect PR `#93/#94` outcomes.
 - Media appearances are not an issue-swarm lane until the fresh full-site backup gate is cleared; see `APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`.

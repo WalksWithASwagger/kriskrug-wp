@@ -3,6 +3,7 @@
 **Track:** B - Aurora v2 theme
 **Scope:** GitHub issue hygiene, PR review packet, and next Track B work lanes.
 **Production status:** No production WordPress writes. No theme activation. No merge to `main`.
+**Refresh:** 2026-05-20 queue + merge reconciliation pass.
 
 ## Summary
 
@@ -65,6 +66,8 @@ Verification after routing:
 The old open-PR references are superseded:
 
 - Aurora redesign was recovered as replacement PR `#87` and merged into `aurora/v2`.
+- Wave 1 implementation landed through PR `#93` to `aurora/v2`.
+- P0 staging rescue landed through PR `#94` to `aurora/v2` and issue `#80` is now closed.
 - Sidebar promos was recovered as replacement PR `#88` and merged into `main`.
 - Queue recovery and follow-through are documented in:
   - `docs/current-state/GITHUB-QUEUE-RECOVERY-2026-05-19.md`
@@ -72,22 +75,17 @@ The old open-PR references are superseded:
 
 ## Aurora Review Packet
 
-Merged branch history now lives in `aurora/v2` (via PR `#87`).
-Primary local worktree for current Track B iteration:
+Merged Aurora evidence now lives on `aurora/v2` and is no longer tied to old PR `#77`.
 
-- `/Users/kk/Code/kriskrug-wp-aurora-redesign`
+Current review anchors:
 
-Branch-only review docs and screenshots:
-
-- `docs/current-state/AURORA-REDESIGN-SMOKE-2026-05-18.md`
-- `docs/current-state/AURORA-TOMORROW-ROADMAP-2026-05-19.md`
+- `docs/current-state/AURORA-P0-STAGING-RESCUE-2026-05-19.md`
+- `docs/current-state/AURORA-SWARM-81-VISUAL-SYSTEM-2026-05-19.md`
 - `docs/current-state/AURORA-REVIEW-PACKET-2026-05-19.md`
-- `docs/current-state/aurora-smoke-2026-05-18/aurora-home-desktop.png`
-- `docs/current-state/aurora-smoke-2026-05-18/aurora-home-mobile.png`
-- `docs/current-state/aurora-review-2026-05-19/aurora-home-desktop-live.png`
-- `docs/current-state/aurora-review-2026-05-19/aurora-home-mobile-live.png`
-
-Important: those files currently live on PR #77's branch, not on `main`.
+- `docs/current-state/aurora-smoke-2026-05-19/aurora-home-desktop.png`
+- `docs/current-state/aurora-smoke-2026-05-19/aurora-home-mobile.png`
+- `docs/current-state/aurora-smoke-2026-05-19/aurora-home-metrics.json`
+- `docs/current-state/aurora-smoke-2026-05-19/aurora-accessibility-checks.json`
 
 Review read:
 
@@ -99,10 +97,10 @@ Review read:
 
 Run Track B work in isolated Aurora worktrees only.
 
-1. **#80 P0 staging rescue:** confirm current PR #77 header/nav state against Local, fix mobile/header density and any desktop regressions, then rerun six-page smoke.
-2. **#82 homepage polish:** choose final hero media, tighten mobile crop, validate CTA hierarchy.
-3. **#81 visual system:** document tokens, focus states, glass usage, and motion rules before adding more effects.
-4. **#86 QA:** capture browser console, reduced-motion behavior, keyboard nav, and desktop/mobile screenshots.
+1. **#81 visual-system closure pass:** post explicit acceptance checklist status and close only when criterion-by-criterion evidence is complete.
+2. **#82 homepage lane:** media-led first viewport, CTA hierarchy, responsive crop/fallback behavior, and smoke artifacts.
+3. **#83 Work/Speaking templates lane:** reusable authority modules with media proof and mobile-safe hierarchy.
+4. **#84 + #85 hardening, then #86 QA gate:** keep Wave 3 queued until Wave 2 merges are complete.
 
 Do not:
 

@@ -28,6 +28,10 @@
    - Local package: `content/drafts/2026-05-19-ai-media-appearances-podcast-guesting/`
    - Blocker note: `content/source-packs/keynotes-2026/verification/APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`
    - Reason: fresh full-site backup gate was not satisfied, so no live WordPress write happened.
+9. Aurora Wave 1 state after queue reconciliation:
+   - PR `#93` merged (`#80/#81` wave implementation baseline).
+   - PR `#94` merged (P0 rescue closeout), and issue `#80` is now closed.
+   - Issue `#81` remains open pending explicit acceptance closeout comment.
 
 ## Non-Negotiable Guardrails
 
@@ -38,67 +42,48 @@
 
 ## Next Session Priority Order
 
-### 1) Clear the media-appearance draft backup gate (P0, Track A)
+### 1) Aurora Wave 2 serial launch (P0, Track B)
 
-Goal: finish the private WordPress draft safely, not publicly publish.
-
-Do:
-
-- Take a fresh full-site backup through wp-admin/UpdraftPlus, Pagely SSH, or another approved full-site backup path.
-- Re-run the existing slug/category/tag/link/privacy preflight from `APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`.
-- Create only a private WP draft for `ai-media-appearances-podcast-guesting`, with embed-only media and `featured_media=0`.
-- Do not publish and do not add backlinks until KK reviews the draft in wp-admin.
-
-Done when:
-
-- WP draft ID, edit URL, REST readback, rollback/delete note, and verification evidence are documented.
-
-### 2) Aurora review prep refresh (P1, Track B)
-
-Goal: keep Aurora demo narrative current after merge to `aurora/v2`.
+Goal: execute Track B only, one lane at a time, with evidence-gated merges.
 
 Do:
 
-- Start with issues `#80` and `#81`.
-- Re-run Aurora smoke screenshots on current `aurora/v2`.
-- Update the review packet if visuals or behavior shifted after merge.
-- Confirm nav/header render and mobile quality baseline.
+- Run `#81` explicit closure checklist comment first (close only if complete).
+- Execute `#82` in an isolated `aurora/v2` worktree.
+- After `#82` merge, execute `#83` in a fresh worktree rebased from updated `origin/aurora/v2`.
+- Keep scope strict to theme/templates/components; no Track A publish operations in this wave.
 
 Done when:
 
-- Fresh smoke artifacts and one current review packet are present under `docs/current-state/`.
-- Header/nav render and visual-system decisions are clear enough to unblock the next Aurora wave.
+- `#82` and `#83` each have artifacts, PR merge evidence, and scoped Track B diffs.
 
-### 3) Track A content lane continuation (P2)
+### 2) Queue bookkeeping and Wave 3 gate prep (P1)
 
-Goal: continue authority/support content without crossing into risky publish actions.
+Goal: leave the board explicitly ready for the next Aurora hardening wave.
 
 Do:
 
-- Keep building review-ready draft packages from `content/source-packs/keynotes-2026/`.
-- Prioritize source-backed proofs and internal linking quality.
-- Keep publish actions gated behind explicit review.
-- Treat `content/drafts/2026-05-19-ai-media-appearances-podcast-guesting/` as review-ready local support content, not yet a live post. It includes the Vancouver AI March 2026 video, all current draft links returned `200`, and the private WP draft pass is blocked only by the fresh full-site backup gate documented in `content/source-packs/keynotes-2026/verification/APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`.
-- Prioritize content issues `#65-#68` after Aurora Wave 1: About, Homepage hero, Services, and Work/Projects.
+- Refresh issue/PR counts and roadmap docs after `#82/#83` merges.
+- Confirm `#84` and `#85` are queued as the next implementation pair.
+- Keep `#86` as the final QA gate after both `#84` and `#85` merge.
 
 Done when:
 
-- Next draft batch has clear review verdicts and no accidental publish.
+- Wave 3 start conditions are explicit in both GitHub comments and `docs/current-state/`.
 
-### 4) Issue queue alignment for swarming (P2)
+### 3) Track A backlog remains queued (P2, deferred this wave)
 
-Goal: keep the issue board trustworthy for agentic execution.
+Goal: preserve Track A readiness without mixing tracks.
 
 Do:
 
-- Re-check open Aurora issues `#80-#86` against merged state.
-- Close, relabel, or split issues whose acceptance criteria drifted.
-- Keep labels consistent with Track A/Track B ownership.
-- Current live snapshot before shutdown: `70` open issues, `0` open PRs, `50` `auto-implement` issues, and `2` human-review blockers (`#23`, `#75`).
+- Keep media-appearance draft lane blocked on fresh full-site backup gate.
+- Keep authority/content prep artifacts as review-ready local docs only.
+- Revisit Track A content issues (`#65-#68`) after Wave 2 completion.
 
 Done when:
 
-- Top-of-queue issues map cleanly to current code reality.
+- No accidental Track A writes happened during Track B Wave 2 execution.
 
 ## Suggested Opening Commands
 
