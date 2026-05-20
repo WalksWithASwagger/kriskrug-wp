@@ -1439,6 +1439,13 @@ a {
 .aurora-page-content :where(img, video, iframe),
 .aurora-prose :where(img, video, iframe) {
   border-radius: var(--aurora-radius-card);
+  height: auto;
+  max-width: 100%;
+}
+
+.aurora-page-content :where(a:has(> img)),
+.aurora-prose :where(a:has(> img)) {
+  display: inline-block;
   max-width: 100%;
 }
 
