@@ -1,0 +1,564 @@
+{
+  "generatedAt": "2026-05-20T04:44:08.846Z",
+  "baseUrl": "http://localhost:10003",
+  "branch": "codex/swarm-86-aurora-qa-2026-05-20",
+  "waitStrategy": "domcontentloaded plus 700ms settle delay",
+  "targets": {
+    "home": {
+      "desktop": {
+        "route": "/",
+        "viewport": "desktop",
+        "status": 200,
+        "finalUrl": "http://localhost:10003/",
+        "gotoError": null,
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 404 ()"
+        ],
+        "pageErrors": [],
+        "screenshot": "home-desktop.png",
+        "title": "Kris Krüg | Generative AI Tools & Techniques – Empowering Events & Organizations for the AI Age",
+        "horizontalOverflowDetected": false,
+        "focusableCount": 58,
+        "images": {
+          "count": 4,
+          "incomplete": 0
+        },
+        "markers": {
+          "header": true,
+          "footer": true,
+          "main": true,
+          "newsletterUtility": true,
+          "searchUtility": false,
+          "prose": false,
+          "proofGrid": false,
+          "speakingReel": false
+        },
+        "timing": {
+          "domContentLoaded": 542,
+          "load": 643,
+          "transferSize": 13254
+        },
+        "screenshotBytes": 1186108
+      },
+      "mobile": {
+        "route": "/",
+        "viewport": "mobile",
+        "status": 200,
+        "finalUrl": "http://localhost:10003/",
+        "gotoError": null,
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 404 ()"
+        ],
+        "pageErrors": [],
+        "screenshot": "home-mobile.png",
+        "title": "Kris Krüg | Generative AI Tools & Techniques – Empowering Events & Organizations for the AI Age",
+        "horizontalOverflowDetected": false,
+        "focusableCount": 58,
+        "images": {
+          "count": 4,
+          "incomplete": 0
+        },
+        "markers": {
+          "header": true,
+          "footer": true,
+          "main": true,
+          "newsletterUtility": true,
+          "searchUtility": false,
+          "prose": false,
+          "proofGrid": false,
+          "speakingReel": false
+        },
+        "timing": {
+          "domContentLoaded": 562,
+          "load": 570,
+          "transferSize": 13254
+        },
+        "screenshotBytes": 330395
+      }
+    },
+    "about": {
+      "desktop": {
+        "route": "/about/",
+        "viewport": "desktop",
+        "status": 200,
+        "finalUrl": "http://localhost:10003/about/",
+        "gotoError": null,
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 ()"
+        ],
+        "pageErrors": [],
+        "screenshot": "about-desktop.png",
+        "title": "Techartist, quasi-sage, cyberpunk anti-hero from the future. – Kris Krüg | Generative AI Tools & Techniques",
+        "horizontalOverflowDetected": false,
+        "focusableCount": 104,
+        "images": {
+          "count": 13,
+          "incomplete": 13
+        },
+        "markers": {
+          "header": true,
+          "footer": true,
+          "main": true,
+          "newsletterUtility": true,
+          "searchUtility": false,
+          "prose": false,
+          "proofGrid": false,
+          "speakingReel": false
+        },
+        "timing": {
+          "domContentLoaded": 481,
+          "load": 775,
+          "transferSize": 21252
+        },
+        "screenshotBytes": 164708
+      },
+      "mobile": {
+        "route": "/about/",
+        "viewport": "mobile",
+        "status": 200,
+        "finalUrl": "http://localhost:10003/about/",
+        "gotoError": null,
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 ()"
+        ],
+        "pageErrors": [],
+        "screenshot": "about-mobile.png",
+        "title": "Techartist, quasi-sage, cyberpunk anti-hero from the future. – Kris Krüg | Generative AI Tools & Techniques",
+        "horizontalOverflowDetected": false,
+        "focusableCount": 104,
+        "images": {
+          "count": 13,
+          "incomplete": 13
+        },
+        "markers": {
+          "header": true,
+          "footer": true,
+          "main": true,
+          "newsletterUtility": true,
+          "searchUtility": false,
+          "prose": false,
+          "proofGrid": false,
+          "speakingReel": false
+        },
+        "timing": {
+          "domContentLoaded": 444,
+          "load": 667,
+          "transferSize": 21252
+        },
+        "screenshotBytes": 83996
+      }
+    },
+    "work": {
+      "desktop": {
+        "route": "/recent-projects-include/",
+        "viewport": "desktop",
+        "status": 200,
+        "finalUrl": "http://localhost:10003/recent-projects-include/",
+        "gotoError": null,
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 400 ()",
+          "Failed to load resource: the server responded with a status of 404 ()"
+        ],
+        "pageErrors": [],
+        "screenshot": "work-desktop.png",
+        "title": "Recent Projects Include: – Kris Krüg | Generative AI Tools & Techniques",
+        "horizontalOverflowDetected": false,
+        "focusableCount": 42,
+        "images": {
+          "count": 4,
+          "incomplete": 1
+        },
+        "markers": {
+          "header": true,
+          "footer": true,
+          "main": true,
+          "newsletterUtility": true,
+          "searchUtility": false,
+          "prose": false,
+          "proofGrid": true,
+          "speakingReel": false
+        },
+        "timing": {
+          "domContentLoaded": 550,
+          "load": 588,
+          "transferSize": 10093
+        },
+        "screenshotBytes": 256748
+      },
+      "mobile": {
+        "route": "/recent-projects-include/",
+        "viewport": "mobile",
+        "status": 200,
+        "finalUrl": "http://localhost:10003/recent-projects-include/",
+        "gotoError": null,
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 400 ()",
+          "Failed to load resource: the server responded with a status of 404 ()"
+        ],
+        "pageErrors": [],
+        "screenshot": "work-mobile.png",
+        "title": "Recent Projects Include: – Kris Krüg | Generative AI Tools & Techniques",
+        "horizontalOverflowDetected": false,
+        "focusableCount": 42,
+        "images": {
+          "count": 4,
+          "incomplete": 1
+        },
+        "markers": {
+          "header": true,
+          "footer": true,
+          "main": true,
+          "newsletterUtility": true,
+          "searchUtility": false,
+          "prose": false,
+          "proofGrid": true,
+          "speakingReel": false
+        },
+        "timing": {
+          "domContentLoaded": 472,
+          "load": 548,
+          "transferSize": 10093
+        },
+        "screenshotBytes": 156420
+      }
+    },
+    "speaking": {
+      "desktop": {
+        "route": "/speaking/",
+        "viewport": "desktop",
+        "status": 200,
+        "finalUrl": "http://localhost:10003/speaking/",
+        "gotoError": null,
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 404 ()"
+        ],
+        "pageErrors": [],
+        "screenshot": "speaking-desktop.png",
+        "title": "Speaking – Kris Krüg | Generative AI Tools & Techniques",
+        "horizontalOverflowDetected": false,
+        "focusableCount": 36,
+        "images": {
+          "count": 1,
+          "incomplete": 0
+        },
+        "markers": {
+          "header": true,
+          "footer": true,
+          "main": true,
+          "newsletterUtility": true,
+          "searchUtility": false,
+          "prose": false,
+          "proofGrid": false,
+          "speakingReel": true
+        },
+        "timing": {
+          "domContentLoaded": 560,
+          "load": 618,
+          "transferSize": 10018
+        },
+        "screenshotBytes": 277243
+      },
+      "mobile": {
+        "route": "/speaking/",
+        "viewport": "mobile",
+        "status": 200,
+        "finalUrl": "http://localhost:10003/speaking/",
+        "gotoError": null,
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 404 ()"
+        ],
+        "pageErrors": [],
+        "screenshot": "speaking-mobile.png",
+        "title": "Speaking – Kris Krüg | Generative AI Tools & Techniques",
+        "horizontalOverflowDetected": false,
+        "focusableCount": 36,
+        "images": {
+          "count": 1,
+          "incomplete": 0
+        },
+        "markers": {
+          "header": true,
+          "footer": true,
+          "main": true,
+          "newsletterUtility": true,
+          "searchUtility": false,
+          "prose": false,
+          "proofGrid": false,
+          "speakingReel": true
+        },
+        "timing": {
+          "domContentLoaded": 490,
+          "load": 526,
+          "transferSize": 10018
+        },
+        "screenshotBytes": 138403
+      }
+    },
+    "makeCulture": {
+      "desktop": {
+        "route": "/2026/05/16/make-culture-not-content/",
+        "viewport": "desktop",
+        "status": 200,
+        "finalUrl": "http://localhost:10003/2026/05/16/make-culture-not-content/",
+        "gotoError": null,
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 ()"
+        ],
+        "pageErrors": [],
+        "screenshot": "makeCulture-desktop.png",
+        "title": "Make Culture, Not Content – Kris Krüg | Generative AI Tools & Techniques",
+        "horizontalOverflowDetected": false,
+        "focusableCount": 59,
+        "images": {
+          "count": 1,
+          "incomplete": 1
+        },
+        "markers": {
+          "header": true,
+          "footer": true,
+          "main": true,
+          "newsletterUtility": true,
+          "searchUtility": false,
+          "prose": true,
+          "proofGrid": false,
+          "speakingReel": false
+        },
+        "timing": {
+          "domContentLoaded": 585,
+          "load": 674,
+          "transferSize": 21560
+        },
+        "screenshotBytes": 69579
+      },
+      "mobile": {
+        "route": "/2026/05/16/make-culture-not-content/",
+        "viewport": "mobile",
+        "status": 200,
+        "finalUrl": "http://localhost:10003/2026/05/16/make-culture-not-content/",
+        "gotoError": null,
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 ()"
+        ],
+        "pageErrors": [],
+        "screenshot": "makeCulture-mobile.png",
+        "title": "Make Culture, Not Content – Kris Krüg | Generative AI Tools & Techniques",
+        "horizontalOverflowDetected": false,
+        "focusableCount": 59,
+        "images": {
+          "count": 1,
+          "incomplete": 1
+        },
+        "markers": {
+          "header": true,
+          "footer": true,
+          "main": true,
+          "newsletterUtility": true,
+          "searchUtility": false,
+          "prose": true,
+          "proofGrid": false,
+          "speakingReel": false
+        },
+        "timing": {
+          "domContentLoaded": 500,
+          "load": 702,
+          "transferSize": 21560
+        },
+        "screenshotBytes": 50218
+      }
+    },
+    "callingUsAllIn": {
+      "desktop": {
+        "route": "/2026/05/14/calling-us-all-in/",
+        "viewport": "desktop",
+        "status": 200,
+        "finalUrl": "http://localhost:10003/2026/05/14/calling-us-all-in/",
+        "gotoError": null,
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 ()"
+        ],
+        "pageErrors": [],
+        "screenshot": "callingUsAllIn-desktop.png",
+        "title": "Calling Us All In – Kris Krüg | Generative AI Tools & Techniques",
+        "horizontalOverflowDetected": false,
+        "focusableCount": 108,
+        "images": {
+          "count": 7,
+          "incomplete": 7
+        },
+        "markers": {
+          "header": true,
+          "footer": true,
+          "main": true,
+          "newsletterUtility": true,
+          "searchUtility": false,
+          "prose": true,
+          "proofGrid": false,
+          "speakingReel": false
+        },
+        "timing": {
+          "domContentLoaded": 573,
+          "load": 647,
+          "transferSize": 20381
+        },
+        "screenshotBytes": 94514
+      },
+      "mobile": {
+        "route": "/2026/05/14/calling-us-all-in/",
+        "viewport": "mobile",
+        "status": 200,
+        "finalUrl": "http://localhost:10003/2026/05/14/calling-us-all-in/",
+        "gotoError": null,
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "Failed to load resource: the server responded with a status of 404 ()"
+        ],
+        "pageErrors": [],
+        "screenshot": "callingUsAllIn-mobile.png",
+        "title": "Calling Us All In – Kris Krüg | Generative AI Tools & Techniques",
+        "horizontalOverflowDetected": false,
+        "focusableCount": 108,
+        "images": {
+          "count": 7,
+          "incomplete": 7
+        },
+        "markers": {
+          "header": true,
+          "footer": true,
+          "main": true,
+          "newsletterUtility": true,
+          "searchUtility": false,
+          "prose": true,
+          "proofGrid": false,
+          "speakingReel": false
+        },
+        "timing": {
+          "domContentLoaded": 478,
+          "load": 561,
+          "transferSize": 20381
+        },
+        "screenshotBytes": 65198
+      }
+    }
+  },
+  "keyboard": {
+    "homeFirstTabs": [
+      {
+        "tag": "A",
+        "text": "Skip to content",
+        "href": "http://localhost:10003/#aurora-main",
+        "outlineStyle": "solid",
+        "outlineWidth": "2px"
+      },
+      {
+        "tag": "A",
+        "text": "Skip to content",
+        "href": "http://localhost:10003/#aurora-main",
+        "outlineStyle": "solid",
+        "outlineWidth": "2px"
+      },
+      {
+        "tag": "A",
+        "text": "KK\nKris Krug\nAI, culture, community",
+        "href": "http://localhost:10003/",
+        "outlineStyle": "solid",
+        "outlineWidth": "2px"
+      },
+      {
+        "tag": "A",
+        "text": "About",
+        "href": "http://localhost:10003/about/",
+        "outlineStyle": "solid",
+        "outlineWidth": "2px"
+      },
+      {
+        "tag": "A",
+        "text": "Work",
+        "href": "http://localhost:10003/work/",
+        "outlineStyle": "solid",
+        "outlineWidth": "2px"
+      },
+      {
+        "tag": "A",
+        "text": "Services",
+        "href": "http://localhost:10003/generative-ai-services/",
+        "outlineStyle": "solid",
+        "outlineWidth": "2px"
+      },
+      {
+        "tag": "A",
+        "text": "Speaking",
+        "href": "http://localhost:10003/speaking/",
+        "outlineStyle": "solid",
+        "outlineWidth": "2px"
+      },
+      {
+        "tag": "A",
+        "text": "Events",
+        "href": "http://localhost:10003/events/",
+        "outlineStyle": "solid",
+        "outlineWidth": "2px"
+      },
+      {
+        "tag": "A",
+        "text": "Writing",
+        "href": "http://localhost:10003/blog/",
+        "outlineStyle": "solid",
+        "outlineWidth": "2px"
+      },
+      {
+        "tag": "A",
+        "text": "Contact",
+        "href": "http://localhost:10003/contact/",
+        "outlineStyle": "solid",
+        "outlineWidth": "2px"
+      },
+      {
+        "tag": "A",
+        "text": "Newsletter\n(opens in new tab)",
+        "href": "https://kriskrug.beehiiv.com/",
+        "outlineStyle": "solid",
+        "outlineWidth": "2px"
+      },
+      {
+        "tag": "A",
+        "text": "Book Kris",
+        "href": "http://localhost:10003/speaking/",
+        "outlineStyle": "solid",
+        "outlineWidth": "2px"
+      }
+    ]
+  },
+  "reducedMotion": {
+    "post": {
+      "mediaQueryMatches": true,
+      "progressDisplay": "none",
+      "firstButtonTransition": "1e-05s"
+    }
+  },
+  "contrast": {
+    "textOnBlack": 19.09,
+    "softTextOnBlack": 12.45,
+    "mutedTextOnBlack": 6.82,
+    "cyanOnBlack": 13.34,
+    "blackOnCyan": 12.54,
+    "errorOnBlack": 12.15,
+    "tealOnBlack": 8.79
+  }
+}
