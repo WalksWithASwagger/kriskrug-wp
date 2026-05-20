@@ -1,10 +1,19 @@
 # Aurora Review Packet - 2026-05-19
 
 Track: B - Aurora v2 theme
-Branch: `codex/aurora-redesign-2026-05-18`
-PR: `#77`
+Branch: `origin/aurora/v2`
+Current review baseline: merged PRs `#87`, `#93`, `#94`, `#100`, and `#101`
 
-Status update: PR `#77` was superseded after the 2026-05-19 credential-history rewrite. The replacement PR `#87` merged this design direction into `aurora/v2`. For the current P0 header/nav rescue evidence, use `AURORA-P0-STAGING-RESCUE-2026-05-19.md`.
+Status update: PR `#77` was superseded after the 2026-05-19 credential-history rewrite. The replacement PR `#87` merged this design direction into `aurora/v2`; PRs `#93` and `#94` then landed the visual-system and P0 staging-rescue baseline; PRs `#100` and `#101` landed the media-led homepage and Work/Speaking template lanes.
+
+Use this packet with the current evidence anchors:
+
+- `docs/current-state/AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md`
+- `docs/current-state/AURORA-P0-STAGING-RESCUE-2026-05-19.md`
+- `docs/current-state/AURORA-SWARM-81-VISUAL-SYSTEM-2026-05-19.md`
+- `docs/current-state/AURORA-SWARM-82-SMOKE-2026-05-20.md`
+- `docs/current-state/AURORA-SWARM-83-TEMPLATES-2026-05-20.md`
+- `docs/current-state/AURORA-SWARM-96-REVIEW-REFRESH-2026-05-20.md`
 
 ## Purpose
 
@@ -29,6 +38,21 @@ Local DB backup before the temporary URL switch:
 `/tmp/kriskrug-local-before-aurora-review-20260518-2342.sql`
 
 ## Fresh Screenshot Evidence
+
+Current screenshots and JSON artifacts:
+
+- Home desktop: `docs/current-state/aurora-smoke-2026-05-20/aurora-home-desktop.png`
+- Home mobile: `docs/current-state/aurora-smoke-2026-05-20/aurora-home-mobile.png`
+- Home metrics: `docs/current-state/aurora-smoke-2026-05-20/aurora-home-metrics.json`
+- Home accessibility/behavior checks: `docs/current-state/aurora-smoke-2026-05-20/aurora-accessibility-checks.json`
+- Work desktop: `docs/current-state/aurora-smoke-2026-05-20/aurora-work-desktop.png`
+- Work mobile: `docs/current-state/aurora-smoke-2026-05-20/aurora-work-mobile.png`
+- Speaking desktop: `docs/current-state/aurora-smoke-2026-05-20/aurora-speaking-desktop.png`
+- Speaking mobile: `docs/current-state/aurora-smoke-2026-05-20/aurora-speaking-mobile.png`
+- Work/Speaking checks: `docs/current-state/aurora-smoke-2026-05-20/aurora-work-speaking-checks.json`
+- Work/Speaking metrics: `docs/current-state/aurora-smoke-2026-05-20/aurora-work-speaking-metrics.json`
+
+Older superseded screenshots remain useful for provenance:
 
 - Desktop: `docs/current-state/aurora-review-2026-05-19/aurora-home-desktop-live.png`
 - Mobile: `docs/current-state/aurora-review-2026-05-19/aurora-home-mobile-live.png`
@@ -74,13 +98,12 @@ Marker check from this run:
 
 ## Recommended Next Implementation Slice
 
-Do this only after the first feedback pass:
+The first feedback and recovery pass is complete. The next implementation slice is Wave 3:
 
-1. Tighten mobile header/nav into a premium compact pattern.
-2. Move or duplicate the primary CTAs so one clear action is visible in the first mobile viewport.
-3. Replace placeholder/borrowed media with final KK-owned assets.
-4. Add one video or motion module only where it strengthens the personal-brand proof.
-5. Re-smoke home, About, Speaking, Work, and two long-form posts.
+1. `#84` long-form and media-heavy post template hardening.
+2. `#85` restrained component library and state matrix.
+3. `#86` final staging QA gate after both implementation lanes merge.
+4. Replace placeholder/borrowed media with final KK-owned assets before production planning.
 
 ## Stop Rules
 

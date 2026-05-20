@@ -51,7 +51,8 @@ Scope: token, typography, interaction-state hardening only
 
 - [x] Documentation points back to the visual redesign audit.
   - This checklist references issue `#81` and the active Aurora review packet at `docs/current-state/AURORA-REVIEW-PACKET-2026-05-19.md`.
-  - Note: the issue references `docs/current-state/AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md`, which is not present in this branch snapshot. Current operational replacement is the review packet + roadmap docs.
+  - `docs/current-state/AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md` has been restored to the Track B branch as the canonical audit anchor referenced by issue `#81`.
+  - `docs/current-state/AURORA-REVIEW-PACKET-2026-05-19.md` now points at the current `origin/aurora/v2` review baseline and merged Wave 1/2 evidence.
 
 ## Reduced Motion + Focus Evidence
 
