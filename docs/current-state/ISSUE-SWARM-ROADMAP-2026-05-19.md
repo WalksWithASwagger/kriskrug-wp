@@ -1,7 +1,8 @@
 # Issue Swarm Roadmap - 2026-05-19
 
-**Prepared:** 2026-05-19  
-**Queue snapshot:** 73 open issues, 0 open PRs after Wave 2 merges `#100` and `#101`
+**Prepared:** 2026-05-19
+**Last refreshed:** 2026-05-20 (UTC)
+**Queue snapshot (as of 2026-05-20 04:40 UTC):** 68 open issues, 0 open PRs
 **Scope:** Convert the current backlog into bounded parallel lanes with clear stop rules.
 
 ## Assumptions
@@ -12,10 +13,10 @@
 
 ## Queue Baseline
 
-- Open issues: `73`
+- Open issues: `68`
 - `auto-implement`: `51`
-- `track-b` + `aurora-v2`: `19`
-- `priority:high`: `33`
+- `track-b` + `aurora-v2`: `14`
+- `priority:high`: `31`
 - `needs-human-review`: `3` (`#23`, `#75`, `#95`)
 
 ## Roadmap Issues Added
@@ -53,7 +54,7 @@ Goal: mechanical stability + visual system verification.
 Current status (2026-05-20):
 
 - `#80` closed after PR `#94` merged into `aurora/v2`.
-- `#81` remains open pending explicit closure checklist comment against acceptance criteria.
+- `#81` closed after PR `#93` implementation evidence plus PR `#102` acceptance reconciliation.
 
 Done when:
 
@@ -93,8 +94,9 @@ Done when:
 
 Current gate note (2026-05-20):
 
-- `#84` and `#85` are now the next implementation pair.
-- `#86` remains the QA gate after both `#84` and `#85` merge.
+- `#84` closed after PR `#104` merged to `aurora/v2`.
+- `#85` remains open (PR `#103` landed inventory/docs foundation only).
+- `#86` remains the final QA gate after `#85` closes.
 
 ### Lane 4 - Track A Content Sprint (parallel after Aurora Wave 1)
 
@@ -139,5 +141,5 @@ Done when:
 ## Notes
 
 - Legacy design issues `#24-#35` remain open but routed; they are not standalone build targets.
-- `docs/current-state/AURORA-ISSUE-SWARM-2026-05-19.md` was refreshed on 2026-05-20 to remove old PR `#77` references and reflect PR `#93/#94` outcomes.
+- `docs/current-state/AURORA-ISSUE-SWARM-2026-05-19.md` now reflects Wave 1/2/3 progress through PRs `#93/#94/#100/#101/#102/#103/#104`.
 - Media appearances are parked in `#95` until the fresh full-site backup gate is cleared; see `APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`.

@@ -1,5 +1,8 @@
 # Next Round Work - 2026-05-19
 
+> STATUS: Historical command sheet from 2026-05-19.
+> Superseded by `docs/current-state/TOMORROW-ROADMAP-2026-05-20.md` and `docs/current-state/WORK-PLAN-2026-05-20.md`.
+
 Use this as the next-session command sheet after the GitHub queue sweep, Track A prep swarm, and keynote authority-page polish.
 
 ## Current Snapshot

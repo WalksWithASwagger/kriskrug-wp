@@ -20,7 +20,8 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 | [ROADMAP.md](ROADMAP.md) | Six-phase, 3-month plan that synthesizes FIX_QUEUE + postmortem follow-ups + content pipeline next steps. **Start here.** |
 | [FULL-AUDIT-ROADMAP-2026-05-18.md](FULL-AUDIT-ROADMAP-2026-05-18.md) | Current post-closeout audit of repo, GitHub queue, Track A, Track B, and human decisions. |
 | [TOMORROW-ROADMAP-2026-05-20.md](TOMORROW-ROADMAP-2026-05-20.md) | Refreshed next-session roadmap after rewrite recovery, branch hygiene follow-through, and worktree reconciliation. |
-| [NEXT-ROUND-WORK-2026-05-19.md](NEXT-ROUND-WORK-2026-05-19.md) | Current next-round command sheet after the queue sweep, Track A prep, and keynote authority-page polish. |
+| [WORK-PLAN-2026-05-20.md](WORK-PLAN-2026-05-20.md) | Current execution plan after Wave 3 partial completion (`#84` closed; `#85/#86` open). |
+| [NEXT-ROUND-WORK-2026-05-19.md](NEXT-ROUND-WORK-2026-05-19.md) | Historical 2026-05-19 handoff sheet (superseded by the 2026-05-20 roadmap/work-plan docs). |
 | [ISSUE-SWARM-ROADMAP-2026-05-19.md](ISSUE-SWARM-ROADMAP-2026-05-19.md) | 72-hour swarm-ready issue roadmap with parallel lanes, stop rules, and wave labels. |
 | [AURORA-ISSUE-SWARM-2026-05-19.md](AURORA-ISSUE-SWARM-2026-05-19.md) | Filed Aurora epics #80-#86 and routed old design issues #24-#35. |
 | [CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md](CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md) | Redacted history-scan findings and safe force-push preflight; no rewrite performed. |

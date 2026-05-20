@@ -1,9 +1,12 @@
 # Resume here — 2026-05-19 handoff
 
+> STATUS: Historical handoff from 2026-05-19.
+> For current startup context, use `docs/current-state/README.md`, `docs/current-state/TOMORROW-ROADMAP-2026-05-20.md`, and `docs/current-state/WORK-PLAN-2026-05-20.md`.
+
 **Last session ended:** 2026-05-19, after the live Speaking/Work/About authority-page continuation and closeout push prep.
 **Author:** Claude Code / Codex working with KK across an intensive multi-session push (2026-05-15 -> 2026-05-19).
 
-This doc is the **single thing to read first** when picking up. It complements but doesn't replace:
+This doc was the primary handoff on 2026-05-19. It complements but does not replace the current roadmap docs:
 - [`ROADMAP.md`](ROADMAP.md) — the 3-month plan written 2026-05-15 (still good, partially executed)
 - [`TWO-TRACK-MODEL.md`](TWO-TRACK-MODEL.md) — Track A vs Track B operating split
 - [`SITE-AUDIT-2026-05-16.md`](SITE-AUDIT-2026-05-16.md) — reader-facing punch list with completion notes

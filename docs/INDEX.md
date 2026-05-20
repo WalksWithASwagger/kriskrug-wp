@@ -25,7 +25,8 @@ The canonical "what's true right now" snapshot lives in [`docs/current-state/`](
 | [`current-state/ROADMAP.md`](current-state/ROADMAP.md) | Six-phase, 3-month plan |
 | [`current-state/FULL-AUDIT-ROADMAP-2026-05-18.md`](current-state/FULL-AUDIT-ROADMAP-2026-05-18.md) | Current post-closeout audit, roadmap, and human decision list |
 | [`current-state/TOMORROW-ROADMAP-2026-05-20.md`](current-state/TOMORROW-ROADMAP-2026-05-20.md) | Refreshed next-session roadmap after rewrite recovery and branch/worktree cleanup |
-| [`current-state/NEXT-ROUND-WORK-2026-05-19.md`](current-state/NEXT-ROUND-WORK-2026-05-19.md) | Next-round command sheet after queue sweep, Track A prep, and authority-page polish |
+| [`current-state/WORK-PLAN-2026-05-20.md`](current-state/WORK-PLAN-2026-05-20.md) | Current execution plan after Wave 3 partial completion (`#84` closed; `#85/#86` open) |
+| [`current-state/NEXT-ROUND-WORK-2026-05-19.md`](current-state/NEXT-ROUND-WORK-2026-05-19.md) | Historical command sheet from 2026-05-19 (superseded by 2026-05-20 roadmap/work-plan docs) |
 | [`current-state/ISSUE-SWARM-ROADMAP-2026-05-19.md`](current-state/ISSUE-SWARM-ROADMAP-2026-05-19.md) | 72-hour swarm roadmap with bounded parallel lanes, wave labels, and stop rules |
 | [`current-state/AURORA-ISSUE-SWARM-2026-05-19.md`](current-state/AURORA-ISSUE-SWARM-2026-05-19.md) | Filed Aurora epics and routed stale design issues into the Track B lane |
 | [`current-state/CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md`](current-state/CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md) | Redacted history-scan findings and safe rewrite/force-push preflight |
@@ -102,4 +103,4 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 
 ---
 
-**Last updated:** 2026-05-19. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.
+**Last updated:** 2026-05-20. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.

@@ -1,6 +1,7 @@
 # Tomorrow Roadmap - 2026-05-20
 
-**Prepared after:** 2026-05-19 credential-history rewrite execution, queue recovery, and merge pass  
+**Prepared after:** 2026-05-19 credential-history rewrite execution, queue recovery, and merge pass
+**Last refreshed:** 2026-05-20 (UTC, post PR `#103/#104`)
 **Use for:** Next operating session (date can drift; treat as next-session plan)
 **Tracks:** Track A on `main`; Track B on `aurora/v2`
 
@@ -32,7 +33,7 @@
 9. Aurora Wave 1 state after queue reconciliation:
    - PR `#93` merged (`#80/#81` wave implementation baseline).
    - PR `#94` merged (P0 rescue closeout), and issue `#80` is now closed.
-   - Issue `#81` remains open pending explicit acceptance closeout comment.
+   - Issue `#81` is now closed after PR `#102` acceptance reconciliation.
 10. Roadmap-to-issue conversion completed:
    - `#95` media appearances backup gate and private WP draft
    - `#96` Aurora post-`#87` smoke/review packet refresh
@@ -43,6 +44,10 @@
    - PR `#100` merged (`#82` media-led homepage lane)
    - PR `#101` merged (`#83` Work/Speaking media templates lane)
    - issues `#82` and `#83` are now closed
+12. Aurora Wave 3 current state:
+   - PR `#103` merged (component inventory foundation for `#85`; issue still open)
+   - PR `#104` merged (long-form lane for `#84`; issue now closed)
+   - `#85` and `#86` are now the remaining Track B gates
 
 ## Non-Negotiable Guardrails
 
@@ -53,20 +58,20 @@
 
 ## Next Session Priority Order
 
-### 1) Aurora Wave 3 implementation pair (P0, Track B)
+### 1) Aurora Wave 3 closeout (P0, Track B)
 
-Goal: run the next two Track B implementation lanes before final QA.
+Goal: finish the last implementation lane, then run the final QA gate.
 
 Do:
 
-- Execute `#84` in an isolated `aurora/v2` worktree with long-form/media-heavy template evidence.
-- After `#84` merge, execute `#85` in a fresh worktree rebased from updated `origin/aurora/v2`.
+- Execute `#85` implementation in an isolated `aurora/v2` worktree using the inventory in `AURORA-COMPONENT-INVENTORY-2026-05-20.md`.
+- After `#85` merges, execute `#86` as the staging QA gate with explicit accessibility/performance evidence.
 - Keep scope strict to theme/templates/components and proof artifacts.
 - Keep Track A publish operations out of this wave.
 
 Done when:
 
-- `#84` and `#85` each have artifacts, PR merge evidence, and scoped Track B diffs.
+- `#85` is closed with evidence and `#86` has a complete QA packet plus close/hold decision.
 
 ### 2) Queue bookkeeping and QA gate prep (P1)
 
@@ -74,9 +79,9 @@ Goal: leave the board explicitly ready for the final QA gate.
 
 Do:
 
-- Use `#97` and `#98` to refresh issue/PR counts, issue labels, and Aurora handoff docs after `#84/#85` merges.
-- Keep `#86` as the final QA gate and run it only after both `#84` and `#85` land.
-- Keep `#81` open only until acceptance wording/evidence references are reconciled.
+- Refresh issue/PR counts and Aurora handoff docs after each Track B merge.
+- Keep `#86` as the final QA gate and run it only after `#85` implementation lands.
+- Preserve prior closeouts (`#81`, `#82`, `#83`, `#84`) as closed unless a regression is verified.
 
 Done when:
 
@@ -95,7 +100,7 @@ Do:
 
 Done when:
 
-- No accidental Track A writes happened during Track B Wave 2 execution.
+- No accidental Track A writes happened during Track B Wave 3 closeout.
 
 ## Suggested Opening Commands
 

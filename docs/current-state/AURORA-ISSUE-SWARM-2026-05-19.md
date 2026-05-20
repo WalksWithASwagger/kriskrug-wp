@@ -3,7 +3,7 @@
 **Track:** B - Aurora v2 theme
 **Scope:** GitHub issue hygiene, PR review packet, and next Track B work lanes.
 **Production status:** No production WordPress writes. No theme activation. No merge to `main`.
-**Refresh:** 2026-05-20 queue + merge reconciliation pass.
+**Refresh:** 2026-05-20 queue + merge reconciliation pass (through PR `#104`).
 
 ## Summary
 
@@ -58,7 +58,7 @@ Current mapping:
 
 Verification after routing:
 
-- open `aurora-v2` issues: 19
+- open `aurora-v2` issues: 14
 - old design issues #24-#35 still carrying `auto-implement`: 0
 
 ## PR State (post-rewrite recovery)
@@ -70,6 +70,9 @@ The old open-PR references are superseded:
 - P0 staging rescue landed through PR `#94` to `aurora/v2` and issue `#80` is now closed.
 - Wave 2 homepage lane landed through PR `#100` and issue `#82` is now closed.
 - Wave 2 Work/Speaking templates lane landed through PR `#101` and issue `#83` is now closed.
+- Visual-system acceptance reconciliation landed through PR `#102` and issue `#81` is now closed.
+- Component inventory foundation landed through PR `#103`; issue `#85` remains open for implementation closeout.
+- Long-form template lane landed through PR `#104`; issue `#84` is now closed.
 - Sidebar promos was recovered as replacement PR `#88` and merged into `main`.
 - Queue recovery and follow-through are documented in:
   - `docs/current-state/GITHUB-QUEUE-RECOVERY-2026-05-19.md`
@@ -105,10 +108,9 @@ Review read:
 
 Run Track B work in isolated Aurora worktrees only.
 
-1. **#81 visual-system closure pass:** post explicit acceptance checklist status and close only when criterion-by-criterion evidence is complete.
-2. **#84 long-form/media-heavy templates:** harden post/article template behavior for dense content and embeds.
-3. **#85 restrained component library:** finalize reusable component/state matrix for Track B.
-4. **#86 QA gate:** run final staging QA only after `#84` and `#85` merges.
+1. **#85 restrained component library implementation pass:** use `AURORA-COMPONENT-INVENTORY-2026-05-20.md` as the bounded write set and close with criterion-by-criterion evidence.
+2. **#86 QA gate:** run final staging QA only after `#85` closes.
+3. **Queue truth refresh:** keep `docs/current-state/` lane docs aligned with live issue/PR state after each merge.
 
 Do not:
 
