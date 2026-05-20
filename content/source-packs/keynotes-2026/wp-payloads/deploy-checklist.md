@@ -27,6 +27,14 @@ Payload files:
 - `work.html` -> page `2672`
 - `about.html` -> page `1208`
 
+## Homepage Hero Candidate
+
+Status: prepared, not deployed. See `../verification/HOMEPAGE-HERO-VERIFICATION-2026-05-20.md`.
+
+- `homepage-hero.html` -> page `3930`, public URL `/`
+- Insert before existing page content unless KK approves replacing the current top copy.
+- The separate `/home/` page ID `2315` is the old latest-posts page and is not the target for this hero.
+
 ## Post-Deploy REST Checks
 
 Check these fields after update:

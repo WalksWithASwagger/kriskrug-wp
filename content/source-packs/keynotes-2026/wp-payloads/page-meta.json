@@ -1,6 +1,20 @@
 {
   "pages": [
     {
+      "id": 3930,
+      "slug": "empowering-events-organizations-for-the-ai-age",
+      "live_url": "https://kriskrug.co/",
+      "title": "Kris Krüg | Generative AI Tools & Techniques",
+      "comment_status": "closed",
+      "ping_status": "closed",
+      "content_file": "homepage-hero.html",
+      "placement": "insert before existing page content",
+      "meta": {
+        "jetpack_seo_html_title": "Kris Krüg | AI Speaker, Creative Technologist & Community Builder",
+        "advanced_seo_description": "Kris Krüg bridges art, AI, Indigenous wisdom, and justice through BC+AI, Indigenomics AI, The Upgrade AI, keynote speaking, and community-first technology."
+      }
+    },
+    {
       "id": 1887,
       "slug": "speaking",
       "title": "AI Keynote Speaker Kris Krüg",

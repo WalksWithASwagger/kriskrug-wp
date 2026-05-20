@@ -21,6 +21,8 @@ Applied after the Horizons update: an IA polish continuation tightened Work hier
 
 Applied after the media-appearance intake: `/podcast-guesting-page-epk/` is now the podcast, broadcast, produced-interview, hosting, moderation, and emcee booking surface. See `verification/PODCAST-EPK-DEPLOY-VERIFICATION-2026-05-19.md`.
 
+Prepared but not deployed on 2026-05-20: a homepage hero candidate for page `3930` that leads with the BC+AI, Indigenomics AI, and The Upgrade AI authority story. See `verification/HOMEPAGE-HERO-VERIFICATION-2026-05-20.md`.
+
 ## Source Inputs
 
 - Notion page: `Keynotes` (`cd4ce83f-afa5-440d-8405-4caf04a480d1`)
@@ -54,6 +56,7 @@ Applied after the media-appearance intake: `/podcast-guesting-page-epk/` is now 
 - `wp-payloads/work.html` - publish-ready content for page `2672`.
 - `wp-payloads/about.html` - publish-ready content for page `1208`.
 - `wp-payloads/podcast-guesting-page-epk.html` - deployed content for page `3609`.
+- `wp-payloads/homepage-hero.html` - prepared homepage hero candidate for page `3930`; not deployed.
 - `wp-payloads/page-meta.json` - target titles, SEO meta, slugs, and comment settings.
 - `wp-payloads/deploy-checklist.md` - live-write gate and verification checklist.
 - `verification/DEPLOY-VERIFICATION-2026-05-18.md` - REST, URL, screenshot, and rollback verification after deploy.
@@ -66,6 +69,8 @@ Applied after the media-appearance intake: `/podcast-guesting-page-epk/` is now 
 - `verification/P1-DRAFT-PREP-VERIFICATION-2026-05-19.md` - P1 Speaking companion-post local draft prep verification.
 - `verification/MEDIA-APPEARANCE-SOURCE-VERIFICATION-2026-05-19.md` - public CBC/podcast/media appearance source and draft verification.
 - `verification/PODCAST-EPK-DEPLOY-VERIFICATION-2026-05-19.md` - live Podcast EPK deploy, rollback, REST, link, and screenshot verification.
+- `verification/ABOUT-ROLE-SECTIONS-VERIFICATION-2026-05-20.md` - About-page role-section source grounding and publish gate.
+- `verification/HOMEPAGE-HERO-VERIFICATION-2026-05-20.md` - homepage hero source grounding, issue comment, and publish gate.
 - `media-appearances/public-source-inventory-2026-05-19.md` - public CBC/podcast/media appearance source inventory.
 
 ## Local Draft Outputs
