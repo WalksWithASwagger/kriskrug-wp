@@ -3,7 +3,7 @@
 **Track:** B - Aurora v2 theme
 **Scope:** GitHub issue hygiene, PR review packet, and next Track B work lanes.
 **Production status:** No production WordPress writes. No theme activation. No merge to `main`.
-**Refresh:** 2026-05-20 queue + merge reconciliation pass (through PR `#104`).
+**Refresh:** 2026-05-20 queue + merge reconciliation pass (through PR `#106`).
 
 ## Summary
 
@@ -71,8 +71,10 @@ The old open-PR references are superseded:
 - Wave 2 homepage lane landed through PR `#100` and issue `#82` is now closed.
 - Wave 2 Work/Speaking templates lane landed through PR `#101` and issue `#83` is now closed.
 - Visual-system acceptance reconciliation landed through PR `#102` and issue `#81` is now closed.
-- Component inventory foundation landed through PR `#103`; issue `#85` remains open for implementation closeout.
+- Component inventory foundation landed through PR `#103`.
 - Long-form template lane landed through PR `#104`; issue `#84` is now closed.
+- Restrained component library implementation landed through PR `#105`; issue `#85` is now closed.
+- Local Aurora QA packet landed through PR `#106`; issue `#86` remains open for real staging QA, production-like media, and backup/rollback evidence.
 - Sidebar promos was recovered as replacement PR `#88` and merged into `main`.
 - Queue recovery and follow-through are documented in:
   - `docs/current-state/GITHUB-QUEUE-RECOVERY-2026-05-19.md`
@@ -93,10 +95,15 @@ Current review anchors:
 - `docs/current-state/aurora-smoke-2026-05-19/aurora-accessibility-checks.json`
 - `docs/current-state/AURORA-SWARM-82-SMOKE-2026-05-20.md`
 - `docs/current-state/AURORA-SWARM-83-TEMPLATES-2026-05-20.md`
+- `docs/current-state/AURORA-COMPONENT-INVENTORY-2026-05-20.md`
+- `docs/current-state/AURORA-SWARM-84-LONGFORM-2026-05-20.md`
+- `docs/current-state/AURORA-SWARM-85-COMPONENTS-2026-05-20.md`
+- `docs/current-state/AURORA-SWARM-86-QA-2026-05-20.md`
 - `docs/current-state/aurora-smoke-2026-05-20/aurora-work-desktop.png`
 - `docs/current-state/aurora-smoke-2026-05-20/aurora-work-mobile.png`
 - `docs/current-state/aurora-smoke-2026-05-20/aurora-speaking-desktop.png`
 - `docs/current-state/aurora-smoke-2026-05-20/aurora-speaking-mobile.png`
+- `docs/current-state/aurora-qa-2026-05-20/aurora-qa-checks.json`
 
 Review read:
 
@@ -108,8 +115,8 @@ Review read:
 
 Run Track B work in isolated Aurora worktrees only.
 
-1. **#85 restrained component library implementation pass:** use `AURORA-COMPONENT-INVENTORY-2026-05-20.md` as the bounded write set and close with criterion-by-criterion evidence.
-2. **#86 QA gate:** run final staging QA only after `#85` closes.
+1. **#86 real staging QA gate:** use PR `#106` as the local baseline, then rerun screenshots, keyboard/focus, reduced-motion, contrast, console/media, and performance checks on a staging surface with production-like media.
+2. **Backup/rollback gate:** confirm a fresh backup and rollback path before any production theme activation or merge-to-main cutover.
 3. **Queue truth refresh:** keep `docs/current-state/` lane docs aligned with live issue/PR state after each merge.
 
 Do not:

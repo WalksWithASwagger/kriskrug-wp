@@ -2,7 +2,7 @@
 
 **Prepared:** 2026-05-19
 **Last refreshed:** 2026-05-20 (UTC)
-**Queue snapshot (as of 2026-05-20 04:40 UTC):** 68 open issues, 0 open PRs
+**Queue snapshot (as of 2026-05-20 04:49 UTC):** 67 open issues, 0 open PRs
 **Scope:** Convert the current backlog into bounded parallel lanes with clear stop rules.
 
 ## Assumptions
@@ -13,18 +13,20 @@
 
 ## Queue Baseline
 
-- Open issues: `68`
+- Open issues: `67`
 - `auto-implement`: `51`
-- `track-b` + `aurora-v2`: `14`
+- `track-b` + `aurora-v2`: `13`
 - `priority:high`: `31`
 - `needs-human-review`: `3` (`#23`, `#75`, `#95`)
+- `swarm-ready`: `17`
+- `swarm-parked`: `11`
 
 ## Roadmap Issues Added
 
 - `#95` `[CONTENT P0] Clear backup gate and create private AI media appearances WP draft` - blocked until a fresh full-site backup is available.
-- `#96` `[AURORA P1] Refresh review packet and smoke artifacts after #87 merge` - Track B Wave 1 review/smoke refresh.
-- `#97` `[QUEUE P2] Reconcile Aurora and legacy design issues after rewrite recovery` - queue hygiene for sub-agent routing.
-- `#98` `[DOCS] Refresh Aurora issue-swarm handoff after #87 merge` - repo-local docs refresh.
+- `#96` `[AURORA P1] Refresh review packet and smoke artifacts after #87 merge` - closed after the refreshed review packet landed.
+- `#97` `[QUEUE P2] Reconcile Aurora and legacy design issues after rewrite recovery` - closed after the legacy routing decision was recorded.
+- `#98` `[DOCS] Refresh Aurora issue-swarm handoff after #87 merge` - closed after repo-local handoff docs were refreshed.
 - `#99` `[CONTENT P2] Build next review-ready keynote source-pack draft batch` - Track A Wave 2 local draft prep.
 
 ## Canonical 72-Hour Swarm
@@ -95,8 +97,8 @@ Done when:
 Current gate note (2026-05-20):
 
 - `#84` closed after PR `#104` merged to `aurora/v2`.
-- `#85` remains open (PR `#103` landed inventory/docs foundation only).
-- `#86` remains the final QA gate after `#85` closes.
+- `#85` closed after PR `#103` inventory plus PR `#105` component implementation merged to `aurora/v2`.
+- `#86` has local QA evidence from PR `#106` and remains open for real staging QA with production-like media, backup, and rollback evidence.
 
 ### Lane 4 - Track A Content Sprint (parallel after Aurora Wave 1)
 
@@ -141,5 +143,5 @@ Done when:
 ## Notes
 
 - Legacy design issues `#24-#35` remain open but routed; they are not standalone build targets.
-- `docs/current-state/AURORA-ISSUE-SWARM-2026-05-19.md` now reflects Wave 1/2/3 progress through PRs `#93/#94/#100/#101/#102/#103/#104`.
+- `docs/current-state/AURORA-ISSUE-SWARM-2026-05-19.md` now reflects Wave 1/2/3 progress through PRs `#93/#94/#100/#101/#102/#103/#104/#105/#106`.
 - Media appearances are parked in `#95` until the fresh full-site backup gate is cleared; see `APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`.

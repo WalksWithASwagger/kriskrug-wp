@@ -1,7 +1,7 @@
 # Tomorrow Roadmap - 2026-05-20
 
 **Prepared after:** 2026-05-19 credential-history rewrite execution, queue recovery, and merge pass
-**Last refreshed:** 2026-05-20 (UTC, post PR `#103/#104`)
+**Last refreshed:** 2026-05-20 (UTC, post PR `#106`)
 **Use for:** Next operating session (date can drift; treat as next-session plan)
 **Tracks:** Track A on `main`; Track B on `aurora/v2`
 
@@ -44,10 +44,12 @@
    - PR `#100` merged (`#82` media-led homepage lane)
    - PR `#101` merged (`#83` Work/Speaking media templates lane)
    - issues `#82` and `#83` are now closed
-12. Aurora Wave 3 current state:
-   - PR `#103` merged (component inventory foundation for `#85`; issue still open)
+12. Aurora Wave 3 implementation and local QA state:
+   - PR `#103` merged (component inventory foundation for `#85`)
    - PR `#104` merged (long-form lane for `#84`; issue now closed)
-   - `#85` and `#86` are now the remaining Track B gates
+   - PR `#105` merged (restrained component library implementation for `#85`; issue now closed)
+   - PR `#106` merged (local QA packet, screenshots, contrast/focus/reduced-motion checks, and mobile overflow fix)
+   - `#86` remains open as the real staging QA and production-readiness gate
 
 ## Non-Negotiable Guardrails
 
@@ -58,20 +60,21 @@
 
 ## Next Session Priority Order
 
-### 1) Aurora Wave 3 closeout (P0, Track B)
+### 1) Aurora staging QA gate (P0, Track B)
 
-Goal: finish the last implementation lane, then run the final QA gate.
+Goal: rerun the Aurora QA packet on a staging surface with production-like media before any cutover decision.
 
 Do:
 
-- Execute `#85` implementation in an isolated `aurora/v2` worktree using the inventory in `AURORA-COMPONENT-INVENTORY-2026-05-20.md`.
-- After `#85` merges, execute `#86` as the staging QA gate with explicit accessibility/performance evidence.
-- Keep scope strict to theme/templates/components and proof artifacts.
-- Keep Track A publish operations out of this wave.
+- Use PR `#106` and `docs/current-state/aurora-qa-2026-05-20/` as the local baseline.
+- Rerun desktop/mobile screenshots, keyboard/focus checks, reduced-motion checks, contrast sampling, console/media checks, and performance notes on staging.
+- Resolve or explicitly document missing production-like media/upload gaps.
+- Confirm fresh backup and rollback gates before any production theme activation.
+- Keep Track A publish operations out of this gate.
 
 Done when:
 
-- `#85` is closed with evidence and `#86` has a complete QA packet plus close/hold decision.
+- `#86` has staging evidence, a close/hold decision, and any production activation blockers are explicitly filed.
 
 ### 2) Queue bookkeeping and QA gate prep (P1)
 
@@ -80,12 +83,12 @@ Goal: leave the board explicitly ready for the final QA gate.
 Do:
 
 - Refresh issue/PR counts and Aurora handoff docs after each Track B merge.
-- Keep `#86` as the final QA gate and run it only after `#85` implementation lands.
-- Preserve prior closeouts (`#81`, `#82`, `#83`, `#84`) as closed unless a regression is verified.
+- Keep `#86` as the final Track B QA gate.
+- Preserve prior closeouts (`#81`, `#82`, `#83`, `#84`, `#85`) as closed unless a regression is verified.
 
 Done when:
 
-- Wave 3 start conditions are explicit in both GitHub comments and `docs/current-state/`.
+- The live board shows no open PRs, `#86` is the only remaining Aurora epic gate, and `docs/current-state/` matches that truth.
 
 ### 3) Track A backlog remains queued (P2, deferred this wave)
 
@@ -96,7 +99,7 @@ Do:
 - Keep media-appearance draft lane blocked on fresh full-site backup gate in `#95`.
 - Keep next keynote source-pack draft-batch work queued in `#99`.
 - Keep authority/content prep artifacts as review-ready local docs only.
-- Revisit Track A content issues (`#65-#68`) after Wave 2 completion.
+- Revisit Track A content issues (`#65-#68`) after the Aurora QA gate is either closed or intentionally held.
 
 Done when:
 
