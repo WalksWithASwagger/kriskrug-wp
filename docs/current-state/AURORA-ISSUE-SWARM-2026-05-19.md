@@ -68,6 +68,8 @@ The old open-PR references are superseded:
 - Aurora redesign was recovered as replacement PR `#87` and merged into `aurora/v2`.
 - Wave 1 implementation landed through PR `#93` to `aurora/v2`.
 - P0 staging rescue landed through PR `#94` to `aurora/v2` and issue `#80` is now closed.
+- Wave 2 homepage lane landed through PR `#100` and issue `#82` is now closed.
+- Wave 2 Work/Speaking templates lane landed through PR `#101` and issue `#83` is now closed.
 - Sidebar promos was recovered as replacement PR `#88` and merged into `main`.
 - Queue recovery and follow-through are documented in:
   - `docs/current-state/GITHUB-QUEUE-RECOVERY-2026-05-19.md`
@@ -86,6 +88,12 @@ Current review anchors:
 - `docs/current-state/aurora-smoke-2026-05-19/aurora-home-mobile.png`
 - `docs/current-state/aurora-smoke-2026-05-19/aurora-home-metrics.json`
 - `docs/current-state/aurora-smoke-2026-05-19/aurora-accessibility-checks.json`
+- `docs/current-state/AURORA-SWARM-82-SMOKE-2026-05-20.md`
+- `docs/current-state/AURORA-SWARM-83-TEMPLATES-2026-05-20.md`
+- `docs/current-state/aurora-smoke-2026-05-20/aurora-work-desktop.png`
+- `docs/current-state/aurora-smoke-2026-05-20/aurora-work-mobile.png`
+- `docs/current-state/aurora-smoke-2026-05-20/aurora-speaking-desktop.png`
+- `docs/current-state/aurora-smoke-2026-05-20/aurora-speaking-mobile.png`
 
 Review read:
 
@@ -98,9 +106,9 @@ Review read:
 Run Track B work in isolated Aurora worktrees only.
 
 1. **#81 visual-system closure pass:** post explicit acceptance checklist status and close only when criterion-by-criterion evidence is complete.
-2. **#82 homepage lane:** media-led first viewport, CTA hierarchy, responsive crop/fallback behavior, and smoke artifacts.
-3. **#83 Work/Speaking templates lane:** reusable authority modules with media proof and mobile-safe hierarchy.
-4. **#84 + #85 hardening, then #86 QA gate:** keep Wave 3 queued until Wave 2 merges are complete.
+2. **#84 long-form/media-heavy templates:** harden post/article template behavior for dense content and embeds.
+3. **#85 restrained component library:** finalize reusable component/state matrix for Track B.
+4. **#86 QA gate:** run final staging QA only after `#84` and `#85` merges.
 
 Do not:
 

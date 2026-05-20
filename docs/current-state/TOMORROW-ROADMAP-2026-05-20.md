@@ -39,6 +39,10 @@
    - `#97` Aurora/legacy design issue reconciliation
    - `#98` Aurora issue-swarm handoff refresh
    - `#99` next keynote source-pack draft batch
+11. Aurora Wave 2 completed:
+   - PR `#100` merged (`#82` media-led homepage lane)
+   - PR `#101` merged (`#83` Work/Speaking media templates lane)
+   - issues `#82` and `#83` are now closed
 
 ## Non-Negotiable Guardrails
 
@@ -49,31 +53,30 @@
 
 ## Next Session Priority Order
 
-### 1) Aurora Wave 2 serial launch (P0, Track B)
+### 1) Aurora Wave 3 implementation pair (P0, Track B)
 
-Goal: execute Track B only, one lane at a time, with evidence-gated merges.
+Goal: run the next two Track B implementation lanes before final QA.
 
 Do:
 
-- Reconcile new issue `#96` with the already-merged `#93/#94` evidence before opening another Aurora review PR.
-- Run `#81` explicit closure checklist comment first (close only if complete).
-- Execute `#82` in an isolated `aurora/v2` worktree.
-- After `#82` merge, execute `#83` in a fresh worktree rebased from updated `origin/aurora/v2`.
-- Keep scope strict to theme/templates/components; no Track A publish operations in this wave.
+- Execute `#84` in an isolated `aurora/v2` worktree with long-form/media-heavy template evidence.
+- After `#84` merge, execute `#85` in a fresh worktree rebased from updated `origin/aurora/v2`.
+- Keep scope strict to theme/templates/components and proof artifacts.
+- Keep Track A publish operations out of this wave.
 
 Done when:
 
-- `#82` and `#83` each have artifacts, PR merge evidence, and scoped Track B diffs.
+- `#84` and `#85` each have artifacts, PR merge evidence, and scoped Track B diffs.
 
-### 2) Queue bookkeeping and Wave 3 gate prep (P1)
+### 2) Queue bookkeeping and QA gate prep (P1)
 
-Goal: leave the board explicitly ready for the next Aurora hardening wave.
+Goal: leave the board explicitly ready for the final QA gate.
 
 Do:
 
-- Use `#97` and `#98` to refresh issue/PR counts, issue labels, and Aurora handoff docs after `#82/#83` merges.
-- Confirm `#84` and `#85` are queued as the next implementation pair.
-- Keep `#86` as the final QA gate after both `#84` and `#85` merge.
+- Use `#97` and `#98` to refresh issue/PR counts, issue labels, and Aurora handoff docs after `#84/#85` merges.
+- Keep `#86` as the final QA gate and run it only after both `#84` and `#85` land.
+- Keep `#81` open only until acceptance wording/evidence references are reconciled.
 
 Done when:
 

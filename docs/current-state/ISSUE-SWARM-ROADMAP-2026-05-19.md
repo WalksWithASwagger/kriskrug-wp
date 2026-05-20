@@ -1,7 +1,7 @@
 # Issue Swarm Roadmap - 2026-05-19
 
 **Prepared:** 2026-05-19  
-**Queue snapshot:** 75 open issues, 0 open PRs after roadmap-to-issue conversion through `#99`
+**Queue snapshot:** 73 open issues, 0 open PRs after Wave 2 merges `#100` and `#101`
 **Scope:** Convert the current backlog into bounded parallel lanes with clear stop rules.
 
 ## Assumptions
@@ -12,10 +12,10 @@
 
 ## Queue Baseline
 
-- Open issues: `75`
+- Open issues: `73`
 - `auto-implement`: `51`
-- `track-b` + `aurora-v2`: `21`
-- `priority:high`: `35`
+- `track-b` + `aurora-v2`: `19`
+- `priority:high`: `33`
 - `needs-human-review`: `3` (`#23`, `#75`, `#95`)
 
 ## Roadmap Issues Added
@@ -67,6 +67,11 @@ Goal: homepage + Work/Speaking authority surfaces.
 - `#82` media-led homepage
 - `#83` Work/Speaking media templates
 
+Current status (2026-05-20):
+
+- `#82` closed after PR `#100` merged to `aurora/v2`.
+- `#83` closed after PR `#101` merged to `aurora/v2`.
+
 Done when:
 
 - Responsive behavior is validated across mobile/tablet/desktop/wide.
@@ -85,6 +90,11 @@ Done when:
 - Component/state matrix exists.
 - Long-form validation evidence is attached.
 - QA packet confirms keyboard/focus/reduced-motion/contrast/perf readiness.
+
+Current gate note (2026-05-20):
+
+- `#84` and `#85` are now the next implementation pair.
+- `#86` remains the QA gate after both `#84` and `#85` merge.
 
 ### Lane 4 - Track A Content Sprint (parallel after Aurora Wave 1)
 
