@@ -1,8 +1,8 @@
 # Issue Swarm Roadmap - 2026-05-19
 
 **Prepared:** 2026-05-19
-**Last refreshed:** 2026-05-20 (UTC)
-**Queue snapshot (as of 2026-05-20 04:49 UTC):** 67 open issues, 0 open PRs
+**Last refreshed:** 2026-05-20 (UTC, diagnostic polish pass)
+**Queue snapshot (as of 2026-05-20 17:30 UTC):** 63 open issues, 0 open PRs
 **Scope:** Convert the current backlog into bounded parallel lanes with clear stop rules.
 
 ## Assumptions
@@ -13,12 +13,12 @@
 
 ## Queue Baseline
 
-- Open issues: `67`
-- `auto-implement`: `51`
+- Open issues: `63`
+- `auto-implement`: `47` (historical readiness label; does not start the parked Agent PR Generator)
 - `track-b` + `aurora-v2`: `13`
-- `priority:high`: `31`
+- `priority:high`: `28`
 - `needs-human-review`: `3` (`#23`, `#75`, `#95`)
-- `swarm-ready`: `17`
+- `swarm-ready`: `13`
 - `swarm-parked`: `11`
 
 ## Roadmap Issues Added
@@ -138,6 +138,8 @@ Done when:
 - `swarm-parked`: intentionally deferred / broad / dependency-heavy
 - `swarm-wave-1`: Aurora Wave 1 + first Track A quick wins
 - `swarm-wave-2`: second execution wave
+
+Note: `auto-implement` is now a historical intent label only. `agent-pr-generator.yml` no longer auto-runs from that label.
 - `swarm-wave-3`: final hardening/QA wave
 
 ## Notes

@@ -1,17 +1,18 @@
 # Aurora State-of-the-Art Roadmap - Summer 2026
 
-**Prepared:** 2026-05-20  
-**Snapshot time:** 2026-05-20 05:54:46 UTC  
-**Track:** B (`aurora/v2`)  
+**Prepared:** 2026-05-20
+**Snapshot time:** 2026-05-20 17:30 UTC
+**Track:** B (`aurora/v2`)
 **Purpose:** Step back from issue-by-issue execution and align Aurora to a true summer-2026 quality bar.
 
 ## Current Truth (before new implementation)
 
 - Open PRs: `0`
-- Open issues: `66`
+- Open issues: `63`
 - Open `track-b` + `aurora-v2` issues: `13` (`#24-#35`, `#86`)
 - Active Aurora hard gate: `#86` (staging performance/accessibility QA)
 - Working rule remains: no Track A content writes mixed into Track B theme lanes.
+- Motion budget addendum: `AURORA-MOTION-GOVERNANCE-2026-05-20.md`.
 
 ## What "State of the Art" Means for Aurora (Summer 2026)
 
@@ -172,4 +173,3 @@ If any gate is red, do not launch.
 - [web.dev - INP](https://web.dev/articles/inp)
 - [web.dev - CLS](https://web.dev/articles/cls)
 - [WordPress - Block themes documentation](https://wordpress.org/documentation/article/block-themes/)
-

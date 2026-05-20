@@ -1,7 +1,7 @@
 # BC+AI Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test validate health issues pr dashboard stats clean
+.PHONY: help test validate health issues pr dashboard stats agent-status clean
 
 # Default target
 .DEFAULT_GOAL := help
@@ -93,9 +93,11 @@ stats: ## Show repository statistics
 	@echo "Recent Activity:"
 	@gh run list --limit 5
 
-agent-status: ## Show active agent automations
+agent-status: ## Show parked agent automation state records
 	@echo "🤖 Agent Automation Status"
 	@echo ""
+	@echo "  Agent PR Generator is parked; auto-implement labels do not start automation."
+	@echo "  Historical state records:"
 	@if [ -d ".github/agent-state" ]; then \
 		find .github/agent-state -name "state.json" -exec sh -c 'jq -r "select(.status == \"in_progress\") | \"Issue #\" + (.issue_number | tostring) + \": \" + .current_stage" {} 2>/dev/null || true' \; | \
 		while read line; do \
@@ -104,7 +106,7 @@ agent-status: ## Show active agent automations
 			fi; \
 		done; \
 	fi
-	@echo "  (No active automations)" 2>/dev/null || true
+	@echo "  (These records are not proof of active automation.)" 2>/dev/null || true
 
 clean: ## Clean up test artifacts and temporary files
 	@echo "Cleaning up..."

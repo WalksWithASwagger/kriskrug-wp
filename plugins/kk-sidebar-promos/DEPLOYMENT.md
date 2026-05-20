@@ -35,6 +35,17 @@ If Luma changes the URL format and the sync starts failing, the plugin logs an a
 - 4 published Pillar promos: Animation Accelerator, RAP Certification, BC+AI Membership, Vancouver AI Community.
 - Two daily WP-Cron jobs: `kk_sp_expire_featured` and `kk_sp_luma_sync`.
 
+## Pre-deploy checks
+
+Run these locally before zipping or uploading the plugin:
+
+```bash
+php plugins/kk-sidebar-promos/tests/smoke.php
+find plugins/kk-sidebar-promos -name '*.php' -print0 | xargs -0 -n1 php -l
+```
+
+The smoke test covers the no-promos empty state, featured-image alt handling, featured-promo expiry behavior, and the Luma iCal parser without requiring a full WordPress install.
+
 ## Replacing the existing sidebar graphics
 
 Once the block is rendering, edit each of the seeded Pillar promos and:

@@ -3,7 +3,7 @@
 **Track:** B - Aurora v2 theme
 **Scope:** GitHub issue hygiene, PR review packet, and next Track B work lanes.
 **Production status:** No production WordPress writes. No theme activation. No merge to `main`.
-**Refresh:** 2026-05-20 queue + merge reconciliation pass (through PR `#106`).
+**Refresh:** 2026-05-20 queue + merge reconciliation pass (through PR `#106`, diagnostic polish refresh at 17:30 UTC).
 
 ## Summary
 
@@ -58,7 +58,7 @@ Current mapping:
 
 Verification after routing:
 
-- open `aurora-v2` issues: 14
+- open `aurora-v2` issues: 13
 - old design issues #24-#35 still carrying `auto-implement`: 0
 
 ## PR State (post-rewrite recovery)

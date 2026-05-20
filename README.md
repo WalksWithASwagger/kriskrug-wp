@@ -6,7 +6,7 @@
 **Repo:** [WalksWithASwagger/kriskrug-wp](https://github.com/WalksWithASwagger/kriskrug-wp)
 **Operating model:** Two tracks — see [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md)
 
-This repository is the **operations + content hub** for [kriskrug.co](https://kriskrug.co/). The live WordPress install is not file-synced here (it runs on Pagely). This repo holds everything *adjacent* to the site: audit snapshots, draft content before publication, deployment-ready code snippets, and the Notion → WordPress publisher.
+This repository is the **operations + content hub** for [kriskrug.co](https://kriskrug.co/). The live WordPress install is not file-synced here (it runs on Pagely). This repo holds everything *adjacent* to the site: audit snapshots, draft content before publication, deployment-ready code snippets, packaged helper plugins, and the Notion → WordPress publisher.
 
 **If you're an AI agent landing in this repo cold, start at [`AGENTS.md`](AGENTS.md).**
 
@@ -34,7 +34,7 @@ This repository is used for:
 
 1. **Site audits + state snapshots** of the live kriskrug.co WordPress install (see [`docs/current-state/`](docs/current-state/))
 2. **Content pipeline** — Notion → kriskrug.co publisher with safety guards (see [`scripts/notion-to-wp/`](scripts/notion-to-wp/))
-3. **Custom WordPress code** — schema markup, theme tweaks, helper plugins (see [`fixes/`](fixes/) and [`inc/`](inc/))
+3. **Custom WordPress code** — schema markup, theme tweaks, helper plugins (see [`fixes/`](fixes/), [`inc/`](inc/), and [`plugins/`](plugins/))
 4. **Aurora v2 theme work** — separate `aurora/v2` branch, paced sprints (see [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/AURORA-MIGRATION-PLAN.md))
 5. **Issue tracking + project management** for fixes, content, and theme work
 
@@ -66,6 +66,9 @@ fixes/                           # Production-ready code snippets / migrations
   ├── robots-txt-update.txt      # Two AI-crawler stance options
   └── issue-*.{css,php,md}       # Older queued fixes from earlier batches
 
+plugins/
+  └── kk-sidebar-promos/         # Packaged helper plugin for auto-expiring sidebar promos
+
 docs/current-state/              # Frozen baseline snapshot — what was true on 2026-05-14
   ├── README.md                  # Index of the snapshot
   ├── SITE_INVENTORY.md          # Live-site fingerprint: host, theme, plugins, content shape
@@ -86,12 +89,13 @@ issues-to-create/                # Markdown drafts of GitHub issues waiting to b
 inc/                             # Custom WordPress modules (e.g., digital-composting CPT)
 
 skills/                          # Claude Code skills used in this repo
-.github/                         # Agent swarm definitions + workflows (older pipeline)
+.github/                         # PR validation plus parked historical agent-swarm definitions
 ```
 
 ### Where to start
 
 - **Reading the site state:** `docs/current-state/README.md`
+- **Latest diagnostic truth:** `docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`
 - **Planning next work:** `docs/current-state/FULL-AUDIT-ROADMAP-2026-05-18.md`, then `docs/current-state/ROADMAP.md` and `FIX_QUEUE.md`
 - **Publishing a Notion post:** `scripts/notion-to-wp/README.md`
 - **Reviewing staged drafts:** `content/drafts/README.md`
@@ -131,14 +135,14 @@ Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](do
 3. Use issue templates when filing new issues
 4. Follow WordPress coding standards for PHP/JS in `fixes/` and `inc/`
 
-### Dormant: GitHub Actions agent swarm
-`.github/agents/` and `.github/workflows/` define an older issue-to-PR pipeline (orchestrator → analyzer → test-writer → implementer → QA → reviewer → PR creator). It produced PRs #71 and #72 in May 2026 and is not used by current sessions. See [`docs/architecture.md`](docs/architecture.md) and [`docs/automation-guide.md`](docs/automation-guide.md) for reference if/when it's revived.
+### Historical / parked: GitHub Actions agent swarm
+`.github/agents/` defines an older issue-to-PR pipeline (orchestrator → analyzer → test-writer → implementer → QA → reviewer → PR creator). It produced PRs #71 and #72 in May 2026 and is not used by current sessions. `agent-pr-generator.yml` is now a manual, read-only diagnostic stub and no longer runs from the `auto-implement` label. `test-pr.yml` remains active PR validation. See [`docs/architecture.md`](docs/architecture.md) and [`docs/automation-guide.md`](docs/automation-guide.md) for reference if/when the swarm is rebuilt intentionally.
 
 ## Technology Stack
 
 - **Platform:** WordPress 6.9+ on Pagely (production), Catch Responsive theme
 - **Content pipeline:** Python (Notion API → WordPress REST API)
-- **Custom code:** PHP snippets (Code Snippets plugin on prod), one custom module (`inc/digital-composting.php`)
+- **Custom code:** PHP snippets (Code Snippets plugin on prod), `inc/digital-composting.php`, and packaged helper plugins such as `plugins/kk-sidebar-promos/`
 - **CLI Tools:** GitHub CLI (`gh`), Claude Code / Cursor agents
 - **Languages:** PHP, JavaScript, Python, Bash
 
@@ -151,7 +155,7 @@ Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](do
 - `seo` - Search engine optimization
 - `content` - Content updates and UX
 - `documentation` - Documentation improvements
-- `auto-implement` - Ready for agent automation
+- `auto-implement` - Historical automation-intent label; does not currently start the parked Agent PR Generator
 - `needs-human-review` - Requires manual review
 
 ## Project Links

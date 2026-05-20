@@ -108,16 +108,17 @@ function kk_sp_render( $args = [] ) {
 			$type      = get_post_meta( $p->ID, KK_SP_META_TYPE, true ) ?: 'pillar';
 			$tone      = get_post_meta( $p->ID, KK_SP_META_TONE, true ) ?: 'default';
 			$link      = get_post_meta( $p->ID, KK_SP_META_LINK, true );
-			$cta       = get_post_meta( $p->ID, KK_SP_META_CTA, true );
-			$end       = get_post_meta( $p->ID, KK_SP_META_END, true );
-			$thumb_id  = get_post_thumbnail_id( $p->ID );
-			$has_image = (bool) $thumb_id;
-			$classes   = [
-				'kk-sp__card',
-				'kk-sp__card--' . $type,
-				'kk-sp__card--tone-' . $tone,
-				$has_image ? 'kk-sp__card--has-image' : 'kk-sp__card--text-only',
-			];
+				$cta       = get_post_meta( $p->ID, KK_SP_META_CTA, true );
+				$end       = get_post_meta( $p->ID, KK_SP_META_END, true );
+				$thumb_id  = get_post_thumbnail_id( $p->ID );
+				$has_image = (bool) $thumb_id;
+				$image_alt = $has_image ? kk_sp_get_image_alt( $thumb_id ) : '';
+				$classes   = [
+					'kk-sp__card',
+					'kk-sp__card--' . $type,
+					'kk-sp__card--tone-' . $tone,
+					$has_image ? 'kk-sp__card--has-image' : 'kk-sp__card--text-only',
+				];
 			?>
 			<article class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 				<?php if ( $link ) : ?>
@@ -133,7 +134,7 @@ function kk_sp_render( $args = [] ) {
 							[
 								'class'   => 'kk-sp__image',
 								'loading' => 'lazy',
-								'alt'     => esc_attr( get_the_title( $p ) ),
+								'alt'     => $image_alt,
 							]
 						); ?>
 						<?php if ( $type === 'featured' && $end ) : ?>
@@ -162,6 +163,12 @@ function kk_sp_render( $args = [] ) {
 	</div>
 	<?php
 	return (string) ob_get_clean();
+}
+
+function kk_sp_get_image_alt( $thumb_id ) {
+	$alt = trim( (string) get_post_meta( $thumb_id, '_wp_attachment_image_alt', true ) );
+
+	return $alt;
 }
 
 function kk_sp_format_until( $end ) {

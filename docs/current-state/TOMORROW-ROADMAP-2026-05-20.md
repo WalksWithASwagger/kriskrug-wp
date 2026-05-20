@@ -1,7 +1,7 @@
 # Tomorrow Roadmap - 2026-05-20
 
 **Prepared after:** 2026-05-19 credential-history rewrite execution, queue recovery, and merge pass
-**Last refreshed:** 2026-05-20 (UTC, post PR `#106`)
+**Last refreshed:** 2026-05-20 (UTC, diagnostic polish pass after PR `#106`)
 **Use for:** Next operating session (date can drift; treat as next-session plan)
 **Tracks:** Track A on `main`; Track B on `aurora/v2`
 
@@ -50,6 +50,11 @@
    - PR `#105` merged (restrained component library implementation for `#85`; issue now closed)
    - PR `#106` merged (local QA packet, screenshots, contrast/focus/reduced-motion checks, and mobile overflow fix)
    - `#86` remains open as the real staging QA and production-readiness gate
+13. Diagnostic polish pass completed:
+   - `DIAGNOSTIC-POLISH-2026-05-20.md`
+   - `FIXES-LIVE-RECONCILIATION-2026-05-20.md`
+   - `AURORA-MOTION-GOVERNANCE-2026-05-20.md`
+   - `agent-pr-generator.yml` is parked as a manual, read-only diagnostic stub.
 
 ## Non-Negotiable Guardrails
 
@@ -57,6 +62,7 @@
 2. Keep Notion -> WP writes dry-run first, slug-verified, and no `--publish` without explicit approval.
 3. Keep rollback snapshots before production writes.
 4. No casual history rewrites; today’s rewrite is complete and should be treated as a closed operation.
+5. `auto-implement` no longer starts the parked Agent PR Generator workflow.
 
 ## Next Session Priority Order
 
