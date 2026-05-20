@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-05-20T02:12:02.228Z",
+  "baseUrl": "http://localhost:10003",
+  "captures": [
+    {
+      "file": "aurora-work-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000,
+        "bytes": 238501
+      },
+      "horizontalOverflowDetected": false
+    },
+    {
+      "file": "aurora-work-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "image": {
+        "width": 390,
+        "height": 844,
+        "bytes": 135278
+      },
+      "horizontalOverflowDetected": false
+    },
+    {
+      "file": "aurora-speaking-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000,
+        "bytes": 267812
+      },
+      "horizontalOverflowDetected": false
+    },
+    {
+      "file": "aurora-speaking-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "image": {
+        "width": 390,
+        "height": 844,
+        "bytes": 144598
+      },
+      "horizontalOverflowDetected": false
+    }
+  ]
+}

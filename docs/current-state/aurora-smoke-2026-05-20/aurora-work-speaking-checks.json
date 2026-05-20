@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-05-20T02:12:02.313Z",
+  "urls": {
+    "work": "/recent-projects-include/",
+    "speaking": "/speaking/"
+  },
+  "workChecks": {
+    "hasWorkTemplateClass": true,
+    "hasProofGrid": true,
+    "hasSourceCaption": true,
+    "hasModuleActions": true
+  },
+  "speakingChecks": {
+    "hasSpeakingTemplateClass": true,
+    "hasReel": true,
+    "hasTopics": true,
+    "hasQuotes": true,
+    "hasLogoRow": true
+  },
+  "cssChecks": {
+    "hasReusablePartStyles": true,
+    "hasMobileGridCollapse": true,
+    "hasReducedMotionGuard": true
+  }
+}
