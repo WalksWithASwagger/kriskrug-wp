@@ -1,7 +1,7 @@
 <!-- wp:template-part {"slug":"header","area":"header"} /-->
 
 <!-- wp:html -->
-<div class="aurora-reading-progress" aria-hidden="true"></div>
+<div class="aurora-reading-progress" aria-hidden="true"><span></span></div>
 <!-- /wp:html -->
 
 <!-- wp:group {"tagName":"main","className":"aurora-single-2026","layout":{"type":"constrained","contentSize":"920px"}} -->
@@ -17,16 +17,37 @@
       <!-- wp:group {"className":"aurora-article-meta","layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
       <div class="wp-block-group aurora-article-meta">
         <!-- wp:post-date /-->
+        <!-- wp:html -->
+        <span class="aurora-meta-divider" aria-hidden="true">/</span>
+        <!-- /wp:html -->
         <!-- wp:paragraph -->
         <p>Field note</p>
         <!-- /wp:paragraph -->
+        <!-- wp:html -->
+        <span class="aurora-meta-divider" aria-hidden="true">/</span>
+        <!-- /wp:html -->
         <!-- wp:post-author-name /-->
+        <!-- wp:html -->
+        <span class="aurora-meta-divider aurora-read-time-divider" aria-hidden="true" hidden>/</span>
+        <span class="aurora-read-time" data-aurora-read-time hidden></span>
+        <!-- /wp:html -->
       </div>
       <!-- /wp:group -->
+
+      <!-- wp:paragraph {"className":"aurora-article-proof"} -->
+      <p class="aurora-article-proof">Proof trail: reported from Kris Krug's field notes, photography, talks, and working project archives.</p>
+      <!-- /wp:paragraph -->
     </div>
     <!-- /wp:group -->
 
     <!-- wp:post-featured-image {"className":"aurora-featured-media"} /-->
+
+    <!-- wp:html -->
+    <details class="aurora-article-map" data-aurora-article-map hidden>
+      <summary>Article map</summary>
+      <nav aria-label="Article sections"></nav>
+    </details>
+    <!-- /wp:html -->
 
     <!-- wp:post-content {"className":"aurora-prose","layout":{"type":"constrained","contentSize":"720px"}} /-->
 

@@ -44,9 +44,12 @@
   // ============================================
 
   function initSmoothScroll() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        const target = href && href.length > 1 ? document.querySelector(href) : null;
         
         if (target) {
           e.preventDefault();
@@ -57,7 +60,7 @@
           
           window.scrollTo({
             top: offsetPosition,
-            behavior: 'smooth'
+            behavior: prefersReducedMotion ? 'auto' : 'smooth'
           });
           
           // Update focus for accessibility
@@ -139,27 +142,78 @@
 
   function initReadingProgress() {
     const progressBar = document.querySelector('.aurora-reading-progress');
-    const article = document.querySelector('article, .entry-content');
+    const progressFill = progressBar?.querySelector('span') || progressBar;
+    const article = document.querySelector('.aurora-article');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    if (!progressBar || !article) return;
+    if (!progressBar || !progressFill || !article || prefersReducedMotion) return;
     
     function updateProgress() {
       const articleRect = article.getBoundingClientRect();
       const articleTop = articleRect.top + window.pageYOffset;
-      const articleHeight = articleRect.height;
+      const articleHeight = Math.max(articleRect.height - window.innerHeight, 1);
       const windowHeight = window.innerHeight;
       const scrollTop = window.pageYOffset;
       
       const progress = Math.min(
-        Math.max((scrollTop - articleTop + windowHeight) / articleHeight, 0),
+        Math.max((scrollTop - articleTop + windowHeight * 0.35) / articleHeight, 0),
         1
       );
       
-      progressBar.style.transform = `scaleX(${progress})`;
+      progressFill.style.transform = `scaleX(${progress})`;
     }
     
     window.addEventListener('scroll', updateProgress, { passive: true });
     updateProgress();
+  }
+
+  // ============================================
+  // ARTICLE READING HELPERS
+  // ============================================
+
+  function initArticleReadingHelpers() {
+    const article = document.querySelector('.aurora-article');
+    const content = article?.querySelector('.aurora-prose');
+
+    if (!article || !content) return;
+
+    const readTime = article.querySelector('[data-aurora-read-time]');
+    const words = content.textContent.trim().split(/\s+/).filter(Boolean).length;
+
+    if (readTime && words > 120) {
+      const minutes = Math.max(1, Math.ceil(words / 225));
+      readTime.textContent = `${minutes} min read`;
+      readTime.hidden = false;
+      article.querySelector('.aurora-read-time-divider')?.removeAttribute('hidden');
+    }
+
+    const map = article.querySelector('[data-aurora-article-map]');
+    const nav = map?.querySelector('nav');
+    const headings = Array.from(content.querySelectorAll('h2, h3'))
+      .filter((heading) => heading.textContent.trim().length > 0)
+      .slice(0, 12);
+
+    if (!map || !nav || headings.length < 3) return;
+
+    const list = document.createElement('ol');
+
+    headings.forEach((heading, index) => {
+      if (!heading.id) {
+        heading.id = `article-section-${index + 1}`;
+      }
+
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+
+      link.href = `#${heading.id}`;
+      link.textContent = heading.textContent.trim();
+      link.className = heading.tagName === 'H3' ? 'is-subsection' : '';
+      item.appendChild(link);
+      list.appendChild(item);
+    });
+
+    nav.appendChild(list);
+    map.hidden = false;
   }
 
   // ============================================
@@ -226,6 +280,7 @@
     initExternalLinks();
     initCodeCopy();
     initReadingProgress();
+    initArticleReadingHelpers();
     initLazyImages();
     initForms();
     initColorScheme();

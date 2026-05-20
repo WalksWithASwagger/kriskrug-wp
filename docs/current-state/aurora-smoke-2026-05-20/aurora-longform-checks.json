@@ -1,0 +1,155 @@
+{
+  "generatedAt": "2026-05-20T04:30:06.740Z",
+  "baseUrl": "http://localhost:10003",
+  "localMediaRewrite": "Requests to http://localhost/wp-content/* were rewritten to http://localhost:10003/wp-content/* for screenshots because Local content contains hardcoded no-port media URLs.",
+  "pages": {
+    "makeCulture": {
+      "route": "/2026/05/16/make-culture-not-content/",
+      "status": 200,
+      "finalUrl": "http://localhost:10003/2026/05/16/make-culture-not-content/",
+      "title": "Make Culture, Not Content – Kris Krüg | Generative AI Tools & Techniques",
+      "statusMarkers": {
+        "hasArticle": true,
+        "hasProse": true,
+        "hasProofLine": true,
+        "hasReadTimeNode": true,
+        "readTimeVisible": true,
+        "readTimeText": "10 min read",
+        "hasArticleMap": true,
+        "articleMapVisible": true,
+        "articleMapLinkCount": 12,
+        "hasFeaturedMedia": true,
+        "hasReadingProgress": true
+      },
+      "images": {
+        "count": 1,
+        "incomplete": 1
+      },
+      "horizontalOverflowDetected": false
+    },
+    "yourTaste": {
+      "route": "/2026/05/15/your-taste-is-your-moat/",
+      "status": 200,
+      "finalUrl": "http://localhost:10003/2026/05/15/your-taste-is-your-moat/",
+      "title": "Why Judgment Beats “Creativity” in the AI Era – Kris Krüg | Generative AI Tools & Techniques",
+      "statusMarkers": {
+        "hasArticle": true,
+        "hasProse": true,
+        "hasProofLine": true,
+        "hasReadTimeNode": true,
+        "readTimeVisible": true,
+        "readTimeText": "7 min read",
+        "hasArticleMap": true,
+        "articleMapVisible": true,
+        "articleMapLinkCount": 9,
+        "hasFeaturedMedia": true,
+        "hasReadingProgress": true
+      },
+      "images": {
+        "count": 1,
+        "incomplete": 1
+      },
+      "horizontalOverflowDetected": false
+    },
+    "callingUsAllIn": {
+      "route": "/2026/05/14/calling-us-all-in/",
+      "status": 200,
+      "finalUrl": "http://localhost:10003/2026/05/14/calling-us-all-in/",
+      "title": "Calling Us All In – Kris Krüg | Generative AI Tools & Techniques",
+      "statusMarkers": {
+        "hasArticle": true,
+        "hasProse": true,
+        "hasProofLine": true,
+        "hasReadTimeNode": true,
+        "readTimeVisible": true,
+        "readTimeText": "9 min read",
+        "hasArticleMap": true,
+        "articleMapVisible": true,
+        "articleMapLinkCount": 9,
+        "hasFeaturedMedia": true,
+        "hasReadingProgress": true
+      },
+      "images": {
+        "count": 7,
+        "incomplete": 7
+      },
+      "horizontalOverflowDetected": false
+    },
+    "webSummit": {
+      "route": "/2026/05/07/web-summit-vancouver-2026/",
+      "status": 200,
+      "finalUrl": "http://localhost:10003/2026/05/07/web-summit-vancouver-2026/",
+      "title": "Web Summit Vancouver 2026 – Kris Krüg | Generative AI Tools & Techniques",
+      "statusMarkers": {
+        "hasArticle": true,
+        "hasProse": true,
+        "hasProofLine": true,
+        "hasReadTimeNode": true,
+        "readTimeVisible": true,
+        "readTimeText": "10 min read",
+        "hasArticleMap": true,
+        "articleMapVisible": true,
+        "articleMapLinkCount": 12,
+        "hasFeaturedMedia": true,
+        "hasReadingProgress": true
+      },
+      "images": {
+        "count": 11,
+        "incomplete": 11
+      },
+      "horizontalOverflowDetected": false
+    }
+  },
+  "captures": [
+    {
+      "page": "makeCulture",
+      "route": "/2026/05/16/make-culture-not-content/",
+      "status": 200,
+      "file": "aurora-longform-makeCulture-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "bytes": 69579
+    },
+    {
+      "page": "makeCulture",
+      "route": "/2026/05/16/make-culture-not-content/",
+      "status": 200,
+      "file": "aurora-longform-makeCulture-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "bytes": 50218
+    },
+    {
+      "page": "callingUsAllIn",
+      "route": "/2026/05/14/calling-us-all-in/",
+      "status": 200,
+      "file": "aurora-longform-callingUsAllIn-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "bytes": 96545
+    },
+    {
+      "page": "callingUsAllIn",
+      "route": "/2026/05/14/calling-us-all-in/",
+      "status": 200,
+      "file": "aurora-longform-callingUsAllIn-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "bytes": 65198
+    }
+  ],
+  "reducedMotion": {
+    "progressDisplay": "none",
+    "progressHidden": true,
+    "prosePresent": true,
+    "mediaQueryMatches": true
+  }
+}
