@@ -1,0 +1,120 @@
+{
+  "reduced": {
+    "viewport": "390x844",
+    "headerHeight": 138,
+    "headerBackdropFilter": "none",
+    "prefersReducedMotion": true,
+    "sampled": [
+      {
+        "tag": "A",
+        "transitionDuration": "1e-05s",
+        "animationName": "none"
+      },
+      {
+        "tag": "A",
+        "transitionDuration": "1e-05s",
+        "animationName": "none"
+      },
+      {
+        "tag": "A",
+        "transitionDuration": "1e-05s",
+        "animationName": "none"
+      },
+      {
+        "tag": "IMG",
+        "transitionDuration": "1e-05s",
+        "animationName": "none"
+      },
+      {
+        "tag": "IMG",
+        "transitionDuration": "1e-05s",
+        "animationName": "none"
+      },
+      {
+        "tag": "IMG",
+        "transitionDuration": "1e-05s",
+        "animationName": "none"
+      }
+    ]
+  },
+  "focus": [
+    {
+      "text": "Skip to content",
+      "tag": "A",
+      "href": "#aurora-main",
+      "boxShadow": "rgb(13, 13, 18) 0px 0px 0px 2px, rgb(0, 229, 255) 0px 0px 0px 4px",
+      "outline": "rgb(0, 229, 255) solid 2px",
+      "rect": {
+        "x": 4,
+        "y": 4,
+        "width": 163,
+        "height": 49
+      }
+    },
+    {
+      "text": "Skip to content",
+      "tag": "A",
+      "href": "#aurora-main",
+      "boxShadow": "rgb(13, 13, 18) 0px 0px 0px 2px, rgb(0, 229, 255) 0px 0px 0px 4px",
+      "outline": "rgb(0, 229, 255) solid 2px",
+      "rect": {
+        "x": 16,
+        "y": 16,
+        "width": 165,
+        "height": 48
+      }
+    },
+    {
+      "text": "KK Kris Krug AI, culture, community",
+      "tag": "A",
+      "href": "/",
+      "boxShadow": "rgb(13, 13, 18) 0px 0px 0px 2px, rgb(0, 229, 255) 0px 0px 0px 4px",
+      "outline": "rgb(0, 229, 255) solid 2px",
+      "rect": {
+        "x": 16,
+        "y": 14,
+        "width": 169,
+        "height": 32
+      }
+    },
+    {
+      "text": "About",
+      "tag": "A",
+      "href": "/about/",
+      "boxShadow": "rgb(13, 13, 18) 0px 0px 0px 2px, rgb(0, 229, 255) 0px 0px 0px 4px",
+      "outline": "rgb(0, 229, 255) solid 2px",
+      "rect": {
+        "x": 16,
+        "y": 59,
+        "width": 57,
+        "height": 29
+      }
+    },
+    {
+      "text": "Work",
+      "tag": "A",
+      "href": "/work/",
+      "boxShadow": "rgb(13, 13, 18) 0px 0px 0px 2px, rgb(0, 229, 255) 0px 0px 0px 4px",
+      "outline": "rgb(0, 229, 255) solid 2px",
+      "rect": {
+        "x": 79,
+        "y": 59,
+        "width": 52,
+        "height": 29
+      }
+    },
+    {
+      "text": "Services",
+      "tag": "A",
+      "href": "/generative-ai-services/",
+      "boxShadow": "rgb(13, 13, 18) 0px 0px 0px 2px, rgb(0, 229, 255) 0px 0px 0px 4px",
+      "outline": "rgb(0, 229, 255) solid 2px",
+      "rect": {
+        "x": 138,
+        "y": 59,
+        "width": 73,
+        "height": 29
+      }
+    }
+  ]
+}

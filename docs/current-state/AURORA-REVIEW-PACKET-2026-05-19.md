@@ -4,6 +4,8 @@ Track: B - Aurora v2 theme
 Branch: `codex/aurora-redesign-2026-05-18`
 PR: `#77`
 
+Status update: PR `#77` was superseded after the 2026-05-19 credential-history rewrite. The replacement PR `#87` merged this design direction into `aurora/v2`. For the current P0 header/nav rescue evidence, use `AURORA-P0-STAGING-RESCUE-2026-05-19.md`.
+
 ## Purpose
 
 Use this packet to get fast human feedback on whether Aurora is moving in the right personal-brand direction before deeper implementation continues.
@@ -82,7 +84,7 @@ Do this only after the first feedback pass:
 
 ## Stop Rules
 
-- Do not merge PR `#77` into `aurora/v2` until review feedback is captured.
+- Do not use PR `#77` for current decision-making; it was superseded by PR `#87`.
 - Do not merge Aurora into `main`; Track B merges to production are cutover events.
 - Do not activate Aurora on production.
 - Do not do Track A content edits from the Aurora branch.
