@@ -23,6 +23,8 @@ Applied after the media-appearance intake: `/podcast-guesting-page-epk/` is now 
 
 Prepared but not deployed on 2026-05-20: a homepage hero candidate for page `3930` that leads with the BC+AI, Indigenomics AI, and The Upgrade AI authority story. See `verification/HOMEPAGE-HERO-VERIFICATION-2026-05-20.md`.
 
+Prepared but not deployed on 2026-05-20: a Services page candidate for page `2666` at `/generative-ai-services/` that realigns the offer around AI strategy, community ecosystem building, The Upgrade AI training, Indigenomics advisory, and keynotes/workshops. See `verification/SERVICES-ROLE-ALIGNMENT-VERIFICATION-2026-05-20.md`.
+
 ## Source Inputs
 
 - Notion page: `Keynotes` (`cd4ce83f-afa5-440d-8405-4caf04a480d1`)
@@ -53,6 +55,7 @@ Prepared but not deployed on 2026-05-20: a homepage hero candidate for page `393
 - `post-packages/README.md` - review-ready companion-post packages for the speaking authority network.
 - `media-appearances/README.md` - public-source inventory and Podcast EPK refresh package.
 - `wp-payloads/speaking.html` - publish-ready content for page `1887`.
+- `wp-payloads/services.html` - prepared Services page replacement for page `2666`; not deployed.
 - `wp-payloads/work.html` - publish-ready content for page `2672`.
 - `wp-payloads/about.html` - publish-ready content for page `1208`.
 - `wp-payloads/podcast-guesting-page-epk.html` - deployed content for page `3609`.
@@ -71,6 +74,7 @@ Prepared but not deployed on 2026-05-20: a homepage hero candidate for page `393
 - `verification/PODCAST-EPK-DEPLOY-VERIFICATION-2026-05-19.md` - live Podcast EPK deploy, rollback, REST, link, and screenshot verification.
 - `verification/ABOUT-ROLE-SECTIONS-VERIFICATION-2026-05-20.md` - About-page role-section source grounding and publish gate.
 - `verification/HOMEPAGE-HERO-VERIFICATION-2026-05-20.md` - homepage hero source grounding, issue comment, and publish gate.
+- `verification/SERVICES-ROLE-ALIGNMENT-VERIFICATION-2026-05-20.md` - Services page source grounding, issue comment, and publish gate.
 - `media-appearances/public-source-inventory-2026-05-19.md` - public CBC/podcast/media appearance source inventory.
 
 ## Local Draft Outputs

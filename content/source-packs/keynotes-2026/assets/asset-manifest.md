@@ -19,6 +19,11 @@ The live WordPress payloads use stable owned-site URLs, not temporary Notion-hos
 - `https://i0.wp.com/www.punkrockai.com/public/photos/michelle-diamond/195.webp?w=1200&ssl=1`
 - `https://www.bothhandsfull.com/opengraph-image?46af5f0ff830fe03`
 - `https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/04/AI-Immortality-w-Guy-Kawasaki.png?fit=1200%2C604&ssl=1`
+- `https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/09/AI_Meetup_August2024_MichelleDiamond-184-scaled.jpg?w=1200&ssl=1`
+- `https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/04/image-19.png?w=1200&ssl=1`
+- `https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/07/ai-courses-workshops-trainings.png?w=1200&ssl=1`
+- `https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-10-scaled.jpg?w=1200&ssl=1`
+- `https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-25-scaled.jpg?w=1200&ssl=1`
 - `https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=1200&ssl=1`
 - `https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5637672371_fca291d598_o-1.jpg?w=800&ssl=1`
 - `https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/05/9818127715_416df9a481_o.jpg?w=612&ssl=1`
