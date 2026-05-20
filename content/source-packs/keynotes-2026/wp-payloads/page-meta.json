@@ -39,6 +39,18 @@
       }
     },
     {
+      "id": 2666,
+      "slug": "generative-ai-services",
+      "title": "AI Services, Training & Strategy",
+      "comment_status": "closed",
+      "ping_status": "closed",
+      "content_file": "services.html",
+      "meta": {
+        "jetpack_seo_html_title": "AI Services, Training & Strategy | Kris Krüg",
+        "advanced_seo_description": "AI strategy, responsible AI consulting, BC+AI community building, The Upgrade AI training, Indigenomics advisory, and keynote/workshop support with Kris Krüg."
+      }
+    },
+    {
       "id": 1208,
       "slug": "about",
       "title": "About Kris Krüg",
