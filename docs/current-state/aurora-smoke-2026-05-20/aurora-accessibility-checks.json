@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-05-20T02:03:46.229Z",
+  "baseUrl": "http://localhost:10003",
+  "homeChecks": {
+    "hasHeroLabel": true,
+    "hasPathRow": true,
+    "hasPrimaryCta": true,
+    "hasReelCta": true,
+    "hasMediaSourceCaption": true
+  },
+  "cssChecks": {
+    "hasFocusVisible": true,
+    "hasReducedMotionFallback": true,
+    "hasMobileCropRule": true,
+    "hasPathRowStyles": true
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-05-20T02:03:35.308Z",
+  "baseUrl": "http://localhost:10003",
+  "captures": [
+    {
+      "file": "aurora-home-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000,
+        "bytes": 1103175
+      },
+      "horizontalOverflowDetected": false
+    },
+    {
+      "file": "aurora-home-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "image": {
+        "width": 390,
+        "height": 844,
+        "bytes": 284226
+      },
+      "horizontalOverflowDetected": false
+    }
+  ]
+}
