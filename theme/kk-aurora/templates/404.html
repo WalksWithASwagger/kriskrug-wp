@@ -31,7 +31,19 @@
   </div>
   <!-- /wp:buttons -->
   
-  <!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search for something...","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"style":{"spacing":{"margin":{"top":"var:preset|spacing|80"}}}} /-->
+  <!-- wp:group {"className":"aurora-search-utility","style":{"spacing":{"margin":{"top":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
+  <div class="wp-block-group aurora-search-utility" style="margin-top:var(--wp--preset--spacing--80)">
+    <!-- wp:heading {"textAlign":"center","level":2} -->
+    <h2 class="wp-block-heading has-text-align-center">Search the field notes</h2>
+    <!-- /wp:heading -->
+
+    <!-- wp:paragraph {"align":"center"} -->
+    <p class="has-text-align-center">Try a topic, project, talk, or person.</p>
+    <!-- /wp:paragraph -->
+
+    <!-- wp:search {"label":"Search kriskrug.co","showLabel":true,"placeholder":"Search topics, talks, projects...","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"className":"aurora-search-form"} /-->
+  </div>
+  <!-- /wp:group -->
   
 </main>
 <!-- /wp:group -->

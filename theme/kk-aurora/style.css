@@ -544,6 +544,53 @@ a {
   background: rgba(0, 229, 255, 0.1);
 }
 
+.aurora-button:focus-visible,
+.aurora-theme :where(a, button, input, select, textarea, summary):focus-visible,
+.aurora-theme .wp-block-button__link:focus-visible {
+  outline: 2px solid var(--wp--preset--color--cyan);
+  outline-offset: 3px;
+}
+
+.aurora-button:active,
+.aurora-theme .wp-block-button__link:active {
+  transform: translateY(0);
+}
+
+.aurora-button[aria-disabled="true"],
+.aurora-button.is-disabled,
+.aurora-theme .wp-block-button__link[aria-disabled="true"],
+.aurora-theme button:disabled,
+.aurora-theme input:disabled,
+.aurora-theme select:disabled,
+.aurora-theme textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.aurora-button.is-loading,
+.aurora-theme button.is-loading {
+  cursor: progress;
+  position: relative;
+}
+
+.aurora-button.is-loading::after,
+.aurora-theme button.is-loading::after {
+  content: "";
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 999px;
+  height: 0.8em;
+  margin-left: 0.55rem;
+  width: 0.8em;
+  animation: aurora-spin 800ms linear infinite;
+}
+
+@keyframes aurora-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .aurora-kicker {
   color: var(--wp--preset--color--cyan);
   font-size: clamp(0.78rem, 0.74rem + 0.18vw, 0.92rem);
@@ -1215,6 +1262,30 @@ a {
   gap: 0.55rem;
 }
 
+.aurora-media-card a:focus-visible,
+.aurora-proof-module a:focus-visible,
+.aurora-topic-card:focus-within,
+.aurora-quote-card:focus-within,
+.aurora-article-row a:focus-visible {
+  outline: 2px solid var(--wp--preset--color--cyan);
+  outline-offset: 4px;
+}
+
+.aurora-media-card a:active,
+.aurora-proof-module a:active,
+.aurora-article-row a:active {
+  transform: translateY(1px);
+}
+
+.aurora-empty-state,
+.aurora-component-empty {
+  background: rgba(247, 247, 242, 0.035);
+  border: 1px dashed var(--aurora-line);
+  border-radius: var(--aurora-radius-card);
+  color: var(--aurora-ink-muted);
+  padding: 1rem;
+}
+
 .aurora-speaking-reel {
   align-items: stretch;
   background: linear-gradient(135deg, rgba(0, 229, 255, 0.07), rgba(247, 247, 242, 0.02));
@@ -1673,6 +1744,131 @@ a {
   color: var(--wp--preset--color--cyan);
 }
 
+.aurora-utility-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.aurora-search-utility,
+.aurora-newsletter-utility,
+.aurora-form {
+  background: rgba(247, 247, 242, 0.035);
+  border: 1px solid var(--aurora-line);
+  border-radius: var(--aurora-radius-card);
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+}
+
+.aurora-search-utility h2,
+.aurora-search-utility h3,
+.aurora-newsletter-utility h3 {
+  color: var(--aurora-ink);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.aurora-search-utility p,
+.aurora-newsletter-utility p,
+.aurora-form-message {
+  color: var(--aurora-ink-muted);
+  margin: 0;
+}
+
+.aurora-footer-brand .aurora-newsletter-utility {
+  margin-top: 1rem;
+  max-width: 34rem;
+}
+
+.aurora-search-form,
+.aurora-theme .wp-block-search {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.aurora-search-form .wp-block-search__inside-wrapper,
+.aurora-theme .wp-block-search__inside-wrapper {
+  background: rgba(3, 4, 5, 0.6);
+  border: 1px solid var(--aurora-line);
+  border-radius: var(--aurora-radius-control);
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.35rem;
+}
+
+.aurora-search-form label,
+.aurora-theme .wp-block-search__label,
+.aurora-form label {
+  color: var(--aurora-ink);
+  font-size: 0.82rem;
+  font-weight: 760;
+}
+
+.aurora-search-form input[type="search"],
+.aurora-theme .wp-block-search__input,
+.aurora-form :where(input, select, textarea),
+.aurora-theme :where(.gform_wrapper, .wp-block-jetpack-contact-form) :where(input, select, textarea) {
+  background: rgba(247, 247, 242, 0.06);
+  border: 1px solid var(--aurora-line);
+  border-radius: var(--aurora-radius-control);
+  color: var(--aurora-ink);
+  min-height: 44px;
+  padding: 0.72rem 0.85rem;
+  width: 100%;
+}
+
+.aurora-search-form input[type="search"]::placeholder,
+.aurora-theme .wp-block-search__input::placeholder,
+.aurora-form :where(input, textarea)::placeholder {
+  color: var(--aurora-ink-muted);
+}
+
+.aurora-search-form .wp-block-search__button,
+.aurora-theme .wp-block-search__button,
+.aurora-form button,
+.aurora-theme :where(.gform_wrapper, .wp-block-jetpack-contact-form) button {
+  align-items: center;
+  background: var(--wp--preset--color--cyan);
+  border: 1px solid var(--wp--preset--color--cyan);
+  border-radius: var(--aurora-radius-control);
+  color: #041013;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.72rem 0.95rem;
+}
+
+.aurora-search-form .wp-block-search__button:hover,
+.aurora-theme .wp-block-search__button:hover,
+.aurora-form button:hover {
+  box-shadow: 0 0 28px rgba(0, 229, 255, 0.22);
+}
+
+.aurora-form-row {
+  display: grid;
+  gap: 0.42rem;
+}
+
+.aurora-form-message,
+.aurora-form-error,
+.aurora-form-success {
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.aurora-form-error,
+.aurora-theme :where(.gform_validation_errors, .jetpack-field-error) {
+  color: #ffb4b4;
+}
+
+.aurora-form-success,
+.aurora-theme :where(.gform_confirmation_message, .contact-form-submission) {
+  color: var(--wp--preset--color--teal);
+}
+
 .aurora-footer-bottom {
   border-top: 1px solid var(--aurora-line);
   color: var(--aurora-ink-muted);
@@ -1739,7 +1935,8 @@ a {
   }
 
   .aurora-speaking-band,
-  .aurora-footer-shell {
+  .aurora-footer-shell,
+  .aurora-utility-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1836,8 +2033,15 @@ a {
 
   .aurora-signal-strip,
   .aurora-work-grid,
-  .aurora-footer-nav {
+  .aurora-footer-nav,
+  .aurora-search-form .wp-block-search__inside-wrapper,
+  .aurora-theme .wp-block-search__inside-wrapper {
     grid-template-columns: 1fr;
+  }
+
+  .aurora-search-form .wp-block-search__inside-wrapper,
+  .aurora-theme .wp-block-search__inside-wrapper {
+    display: grid;
   }
 
   .aurora-topic-grid,
@@ -1926,7 +2130,9 @@ a {
   .aurora-button,
   .aurora-theme .wp-block-button__link,
   .aurora-article-row,
-  .aurora-reading-progress span {
+  .aurora-reading-progress span,
+  .aurora-button.is-loading::after {
+    animation: none;
     transition: none;
   }
 
