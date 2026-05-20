@@ -1,7 +1,7 @@
 # Issue Swarm Roadmap - 2026-05-19
 
 **Prepared:** 2026-05-19  
-**Queue snapshot:** 70 open issues, 0 open PRs after PR `#92` merged
+**Queue snapshot:** 75 open issues, 0 open PRs after roadmap-to-issue conversion through `#99`
 **Scope:** Convert the current backlog into bounded parallel lanes with clear stop rules.
 
 ## Assumptions
@@ -12,11 +12,19 @@
 
 ## Queue Baseline
 
-- Open issues: `70`
-- `auto-implement`: `50`
-- `track-b` + `aurora-v2`: `18`
-- `priority:high`: `33`
-- `needs-human-review`: `2` (`#23`, `#75`)
+- Open issues: `75`
+- `auto-implement`: `51`
+- `track-b` + `aurora-v2`: `21`
+- `priority:high`: `35`
+- `needs-human-review`: `3` (`#23`, `#75`, `#95`)
+
+## Roadmap Issues Added
+
+- `#95` `[CONTENT P0] Clear backup gate and create private AI media appearances WP draft` - blocked until a fresh full-site backup is available.
+- `#96` `[AURORA P1] Refresh review packet and smoke artifacts after #87 merge` - Track B Wave 1 review/smoke refresh.
+- `#97` `[QUEUE P2] Reconcile Aurora and legacy design issues after rewrite recovery` - queue hygiene for sub-agent routing.
+- `#98` `[DOCS] Refresh Aurora issue-swarm handoff after #87 merge` - repo-local docs refresh.
+- `#99` `[CONTENT P2] Build next review-ready keynote source-pack draft batch` - Track A Wave 2 local draft prep.
 
 ## Canonical 72-Hour Swarm
 
@@ -30,15 +38,16 @@ Goal: remove ambiguity before implementation.
 
 Primary issues:
 
-- `#75`, `#23`
-- `#80-#86`
+- `#75`, `#23`, `#95`
+- `#96`, `#97`, `#98`
+- `#81-#86`
 - legacy design set `#24-#35`
 
 ### Lane 1 - Aurora Wave 1 (parallel, Track B)
 
 Goal: mechanical stability + visual system verification.
 
-- `#80` `[AURORA P0] Rescue staging header/nav render`
+- `#96` `[AURORA P1] Refresh review packet and smoke artifacts after #87 merge`
 - `#81` `[AURORA P1] Define the 2026 visual system`
 
 Current status (2026-05-20):
@@ -82,6 +91,7 @@ Done when:
 Goal: high-impact content surfaces using draft-first workflow.
 
 - `#65`, `#66`, `#67`, `#68`
+- `#99` next review-ready keynote source-pack draft batch
 - Supersede/merge intent from `#12`, `#16`, `#17` where duplicated
 
 Done when:
@@ -120,4 +130,4 @@ Done when:
 
 - Legacy design issues `#24-#35` remain open but routed; they are not standalone build targets.
 - `docs/current-state/AURORA-ISSUE-SWARM-2026-05-19.md` was refreshed on 2026-05-20 to remove old PR `#77` references and reflect PR `#93/#94` outcomes.
-- Media appearances are not an issue-swarm lane until the fresh full-site backup gate is cleared; see `APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`.
+- Media appearances are parked in `#95` until the fresh full-site backup gate is cleared; see `APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`.

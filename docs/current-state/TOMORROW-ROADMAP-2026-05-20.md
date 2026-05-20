@@ -28,10 +28,17 @@
    - Local package: `content/drafts/2026-05-19-ai-media-appearances-podcast-guesting/`
    - Blocker note: `content/source-packs/keynotes-2026/verification/APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`
    - Reason: fresh full-site backup gate was not satisfied, so no live WordPress write happened.
+   - GitHub issue: `#95`
 9. Aurora Wave 1 state after queue reconciliation:
    - PR `#93` merged (`#80/#81` wave implementation baseline).
    - PR `#94` merged (P0 rescue closeout), and issue `#80` is now closed.
    - Issue `#81` remains open pending explicit acceptance closeout comment.
+10. Roadmap-to-issue conversion completed:
+   - `#95` media appearances backup gate and private WP draft
+   - `#96` Aurora post-`#87` smoke/review packet refresh
+   - `#97` Aurora/legacy design issue reconciliation
+   - `#98` Aurora issue-swarm handoff refresh
+   - `#99` next keynote source-pack draft batch
 
 ## Non-Negotiable Guardrails
 
@@ -48,6 +55,7 @@ Goal: execute Track B only, one lane at a time, with evidence-gated merges.
 
 Do:
 
+- Reconcile new issue `#96` with the already-merged `#93/#94` evidence before opening another Aurora review PR.
 - Run `#81` explicit closure checklist comment first (close only if complete).
 - Execute `#82` in an isolated `aurora/v2` worktree.
 - After `#82` merge, execute `#83` in a fresh worktree rebased from updated `origin/aurora/v2`.
@@ -63,7 +71,7 @@ Goal: leave the board explicitly ready for the next Aurora hardening wave.
 
 Do:
 
-- Refresh issue/PR counts and roadmap docs after `#82/#83` merges.
+- Use `#97` and `#98` to refresh issue/PR counts, issue labels, and Aurora handoff docs after `#82/#83` merges.
 - Confirm `#84` and `#85` are queued as the next implementation pair.
 - Keep `#86` as the final QA gate after both `#84` and `#85` merge.
 
@@ -77,7 +85,8 @@ Goal: preserve Track A readiness without mixing tracks.
 
 Do:
 
-- Keep media-appearance draft lane blocked on fresh full-site backup gate.
+- Keep media-appearance draft lane blocked on fresh full-site backup gate in `#95`.
+- Keep next keynote source-pack draft-batch work queued in `#99`.
 - Keep authority/content prep artifacts as review-ready local docs only.
 - Revisit Track A content issues (`#65-#68`) after Wave 2 completion.
 
