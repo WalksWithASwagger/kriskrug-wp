@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-05-20T04:36:37.923Z",
+  "baseUrl": "http://localhost:10003",
+  "pages": {
+    "homeDesktop": {
+      "status": 200,
+      "finalUrl": "http://localhost:10003/",
+      "hasNewsletterUtility": true,
+      "hasSearchUtility": false,
+      "hasSearchForm": false,
+      "hasFooterNav": true,
+      "newsletterRect": {
+        "width": 544,
+        "height": 260
+      },
+      "searchRect": null,
+      "focusableCount": 58,
+      "horizontalOverflowDetected": false
+    },
+    "homeMobile": {
+      "status": 200,
+      "finalUrl": "http://localhost:10003/",
+      "hasNewsletterUtility": true,
+      "hasSearchUtility": false,
+      "hasSearchForm": false,
+      "hasFooterNav": true,
+      "newsletterRect": {
+        "width": 358,
+        "height": 264
+      },
+      "searchRect": null,
+      "focusableCount": 58,
+      "horizontalOverflowDetected": false
+    },
+    "notFoundDesktop": {
+      "status": 404,
+      "finalUrl": "http://localhost:10003/definitely-not-real-aurora-component-test/",
+      "hasNewsletterUtility": true,
+      "hasSearchUtility": true,
+      "hasSearchForm": true,
+      "hasFooterNav": true,
+      "newsletterRect": {
+        "width": 544,
+        "height": 260
+      },
+      "searchRect": {
+        "width": 600,
+        "height": 232
+      },
+      "focusableCount": 36,
+      "horizontalOverflowDetected": false
+    },
+    "notFoundMobile": {
+      "status": 404,
+      "finalUrl": "http://localhost:10003/definitely-not-real-aurora-component-test/",
+      "hasNewsletterUtility": true,
+      "hasSearchUtility": true,
+      "hasSearchForm": true,
+      "hasFooterNav": true,
+      "newsletterRect": {
+        "width": 358,
+        "height": 264
+      },
+      "searchRect": {
+        "width": 358,
+        "height": 279
+      },
+      "focusableCount": 36,
+      "horizontalOverflowDetected": false
+    }
+  },
+  "captures": [
+    {
+      "page": "404",
+      "status": 404,
+      "file": "aurora-components-404-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "bytes": 270684
+    },
+    {
+      "page": "404",
+      "status": 404,
+      "file": "aurora-components-404-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "bytes": 148135
+    }
+  ]
+}
