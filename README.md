@@ -69,7 +69,7 @@ fixes/                           # Production-ready code snippets / migrations
 plugins/
   └── kk-sidebar-promos/         # Packaged helper plugin for auto-expiring sidebar promos
 
-docs/current-state/              # Frozen baseline snapshot — what was true on 2026-05-14
+docs/current-state/              # Frozen baseline snapshot plus dated recovery/redesign handoffs
   ├── README.md                  # Index of the snapshot
   ├── SITE_INVENTORY.md          # Live-site fingerprint: host, theme, plugins, content shape
   ├── REPO_STATE.md              # What's actually built vs. just documented
@@ -95,8 +95,9 @@ skills/                          # Claude Code skills used in this repo
 ### Where to start
 
 - **Reading the site state:** `docs/current-state/README.md`
+- **Planning next work:** `docs/current-state/WORK-PLAN-2026-05-21.md`
 - **Latest diagnostic truth:** `docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`
-- **Planning next work:** `docs/current-state/FULL-AUDIT-ROADMAP-2026-05-18.md`, then `docs/current-state/ROADMAP.md` and `FIX_QUEUE.md`
+- **Longer roadmap references:** `docs/current-state/ROADMAP.md` and `docs/current-state/FIX_QUEUE.md`
 - **Publishing a Notion post:** `scripts/notion-to-wp/README.md`
 - **Reviewing staged drafts:** `content/drafts/README.md`
 - **Filing an issue:** `issues-to-create/` for drafts; existing ones at [WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)

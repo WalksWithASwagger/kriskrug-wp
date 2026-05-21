@@ -6,9 +6,9 @@ Navigation for everything in this repo. Entries are grouped by what they're for,
 
 ---
 
-## 🟢 Current — read these first
+## 🟢 Current State And Dated Evidence
 
-The canonical "what's true right now" snapshot lives in [`docs/current-state/`](current-state/). Written May 14–17, 2026.
+The canonical baseline snapshot and current handoffs live in [`docs/current-state/`](current-state/). The May 14 files are frozen evidence; the latest dated work plan is the active front door.
 
 | File | What it covers |
 |---|---|
@@ -22,10 +22,14 @@ The canonical "what's true right now" snapshot lives in [`docs/current-state/`](
 | [`current-state/SEO_AUDIT.md`](current-state/SEO_AUDIT.md) | Technical SEO + AI search readiness |
 | [`current-state/CONTENT_AUDIT.md`](current-state/CONTENT_AUDIT.md) | Per-page review + post inventory + IA proposal |
 | [`current-state/FIX_QUEUE.md`](current-state/FIX_QUEUE.md) | P0 → P3 backlog |
-| [`current-state/ROADMAP.md`](current-state/ROADMAP.md) | Six-phase, 3-month plan |
-| [`current-state/FULL-AUDIT-ROADMAP-2026-05-18.md`](current-state/FULL-AUDIT-ROADMAP-2026-05-18.md) | Current post-closeout audit, roadmap, and human decision list |
-| [`current-state/TOMORROW-ROADMAP-2026-05-20.md`](current-state/TOMORROW-ROADMAP-2026-05-20.md) | Refreshed next-session roadmap after rewrite recovery and branch/worktree cleanup |
-| [`current-state/WORK-PLAN-2026-05-20.md`](current-state/WORK-PLAN-2026-05-20.md) | Current execution plan after Wave 3 partial completion (`#84` closed; `#85/#86` open) |
+| [`current-state/ROADMAP.md`](current-state/ROADMAP.md) | Six-phase, 3-month plan; use as longer-range reference after the latest work plan |
+| [`current-state/FULL-AUDIT-ROADMAP-2026-05-18.md`](current-state/FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit, roadmap, and human decision list |
+| [`current-state/WORK-PLAN-2026-05-21.md`](current-state/WORK-PLAN-2026-05-21.md) | Current next-session front door after diagnostic/polish closeout and docs tidy pass |
+| [`current-state/DIAGNOSTIC-POLISH-2026-05-20.md`](current-state/DIAGNOSTIC-POLISH-2026-05-20.md) | Repo-truth, technical-debt, SOTA, live-fix, and workflow diagnostic |
+| [`current-state/FIXES-LIVE-RECONCILIATION-2026-05-20.md`](current-state/FIXES-LIVE-RECONCILIATION-2026-05-20.md) | Current disposition of `fixes/` artifacts against live evidence |
+| [`current-state/AURORA-MOTION-GOVERNANCE-2026-05-20.md`](current-state/AURORA-MOTION-GOVERNANCE-2026-05-20.md) | Motion budget and QA rules for Aurora |
+| [`current-state/TOMORROW-ROADMAP-2026-05-20.md`](current-state/TOMORROW-ROADMAP-2026-05-20.md) | Historical next-session roadmap after rewrite recovery and branch/worktree cleanup |
+| [`current-state/WORK-PLAN-2026-05-20.md`](current-state/WORK-PLAN-2026-05-20.md) | Historical execution plan after Wave 3 completion and Track B QA setup |
 | [`current-state/NEXT-ROUND-WORK-2026-05-19.md`](current-state/NEXT-ROUND-WORK-2026-05-19.md) | Historical command sheet from 2026-05-19 (superseded by 2026-05-20 roadmap/work-plan docs) |
 | [`current-state/ISSUE-SWARM-ROADMAP-2026-05-19.md`](current-state/ISSUE-SWARM-ROADMAP-2026-05-19.md) | 72-hour swarm roadmap with bounded parallel lanes, wave labels, and stop rules |
 | [`current-state/AURORA-ISSUE-SWARM-2026-05-19.md`](current-state/AURORA-ISSUE-SWARM-2026-05-19.md) | Filed Aurora epics and routed stale design issues into the Track B lane |
@@ -103,4 +107,4 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 
 ---
 
-**Last updated:** 2026-05-20. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.
+**Last updated:** 2026-05-21. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.

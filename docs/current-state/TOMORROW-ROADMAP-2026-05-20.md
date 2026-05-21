@@ -1,5 +1,7 @@
 # Tomorrow Roadmap - 2026-05-20
 
+> STATUS: Historical handoff. Superseded by [WORK-PLAN-2026-05-21.md](WORK-PLAN-2026-05-21.md).
+
 **Prepared after:** 2026-05-19 credential-history rewrite execution, queue recovery, and merge pass
 **Last refreshed:** 2026-05-20 (UTC, diagnostic polish pass after PR `#106`)
 **Use for:** Next operating session (date can drift; treat as next-session plan)

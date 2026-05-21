@@ -12,7 +12,9 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 2. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
 3. [`docs/current-state/REPO_STATE.md`](docs/current-state/REPO_STATE.md) — what's actually built vs. just documented
 4. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
-5. [`docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`](docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md) — latest repo-truth, workflow, fix-queue, and polish diagnostic
+5. [`docs/current-state/WORK-PLAN-2026-05-21.md`](docs/current-state/WORK-PLAN-2026-05-21.md) — current next-session front door and stop rules
+
+For the detailed diagnostic behind that plan, read [`docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`](docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md).
 
 After those five, the rest of the repo will make sense.
 
@@ -67,4 +69,4 @@ Read [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODE
 
 ---
 
-**Last verified:** 2026-05-20. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` as the source of truth and flag the drift for a fresh audit.
+**Last verified:** 2026-05-21. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` as the source of truth and flag the drift for a fresh audit.
