@@ -35,7 +35,7 @@ Run `php plugins/kk-sidebar-promos/tests/smoke.php` before packaging. It checks 
 = 0.1.2 =
 * Clamp shortcode, block, and widget promo limits to the supported 1-8 range.
 * Refine card focus and hover states so keyboard focus is stable and visible while hover lift stays pointer-only.
-* Expand smoke coverage for limit normalization.
+* Expand smoke coverage for limit normalization, selection, and weekly pillar rotation.
 
 = 0.1.1 =
 * Preserve real attachment alt text in promo images; treat missing alt as decorative instead of repeating the visible promo title.

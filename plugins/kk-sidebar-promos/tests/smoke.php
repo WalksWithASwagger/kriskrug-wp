@@ -24,6 +24,7 @@ $GLOBALS['kk_sp_test_meta']  = [];
 $GLOBALS['kk_sp_test_posts'] = [];
 $GLOBALS['kk_sp_updated_posts'] = [];
 $GLOBALS['kk_sp_inserted_comments'] = [];
+$GLOBALS['kk_sp_get_posts_handler'] = null;
 
 function add_shortcode() {}
 function add_action() {}
@@ -40,7 +41,11 @@ function current_time( $type ) {
 	return '';
 }
 
-function get_posts() {
+function get_posts( $args = [] ) {
+	if ( is_callable( $GLOBALS['kk_sp_get_posts_handler'] ) ) {
+		return $GLOBALS['kk_sp_get_posts_handler']( $args );
+	}
+
 	return $GLOBALS['kk_sp_test_posts'];
 }
 
@@ -105,6 +110,41 @@ function kk_sp_assert_same( $expected, $actual, $message ) {
 	}
 }
 
+function kk_sp_test_post( $id, $title = '' ) {
+	return (object) [
+		'ID'           => $id,
+		'post_title'   => $title ?: 'Promo ' . $id,
+		'post_excerpt' => '',
+		'post_content' => '',
+	];
+}
+
+function kk_sp_test_ids( $posts ) {
+	return array_map(
+		static function ( $post ) {
+			return is_object( $post ) ? $post->ID : $post;
+		},
+		$posts
+	);
+}
+
+function kk_sp_test_meta_query_value( $query, $value ) {
+	foreach ( $query as $clause ) {
+		if ( is_array( $clause ) && isset( $clause['value'] ) && $clause['value'] === $value ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function kk_sp_test_rotated_pillar_ids( $pillars, $limit ) {
+	$offset  = (int) gmdate( 'W' ) % count( $pillars );
+	$rotated = array_merge( array_slice( $pillars, $offset ), array_slice( $pillars, 0, $offset ) );
+
+	return array_slice( kk_sp_test_ids( $rotated ), 0, $limit );
+}
+
 $GLOBALS['kk_sp_test_meta'][123]['_wp_attachment_image_alt'] = 'Kris speaking at a packed Vancouver AI meetup.';
 kk_sp_assert_same( 1, kk_sp_normalize_limit( 0 ), 'Limit should never fall below one card.' );
 kk_sp_assert_same( 4, kk_sp_normalize_limit( 4 ), 'Limit should preserve normal values.' );
@@ -123,6 +163,62 @@ kk_sp_assert_same( '', kk_sp_get_image_alt( 999 ), 'Missing attachment alt shoul
 
 kk_sp_assert_same( '', kk_sp_render(), 'Rendering should be empty when no promos are published.' );
 
+$featured = kk_sp_test_post( 101, 'Featured event' );
+$pillars  = [
+	kk_sp_test_post( 201, 'Pillar one' ),
+	kk_sp_test_post( 202, 'Pillar two' ),
+	kk_sp_test_post( 203, 'Pillar three' ),
+	kk_sp_test_post( 204, 'Pillar four' ),
+];
+$GLOBALS['kk_sp_get_posts_handler'] = static function ( $args ) use ( $featured, $pillars ) {
+	$meta_query = $args['meta_query'] ?? [];
+	if ( kk_sp_test_meta_query_value( $meta_query, 'featured' ) ) {
+		return [ $featured ];
+	}
+	if ( kk_sp_test_meta_query_value( $meta_query, 'pillar' ) ) {
+		$excluded = $args['post__not_in'] ?? [];
+
+		return array_values( array_filter(
+			$pillars,
+			static function ( $post ) use ( $excluded ) {
+				return ! in_array( $post->ID, $excluded, true );
+			}
+		) );
+	}
+
+	return [];
+};
+
+kk_sp_assert_same(
+	array_merge( [ 101 ], kk_sp_test_rotated_pillar_ids( $pillars, 3 ) ),
+	kk_sp_test_ids( kk_sp_get_promos( 4 ) ),
+	'Featured promo should lead, then rotated pillars should fill remaining slots.'
+);
+kk_sp_assert_same(
+	[ 101 ],
+	kk_sp_test_ids( kk_sp_get_promos( 0 ) ),
+	'Normalized limit of one should return only the featured promo when one exists.'
+);
+
+$GLOBALS['kk_sp_get_posts_handler'] = static function ( $args ) use ( $pillars ) {
+	$meta_query = $args['meta_query'] ?? [];
+	if ( kk_sp_test_meta_query_value( $meta_query, 'featured' ) ) {
+		return [];
+	}
+	if ( kk_sp_test_meta_query_value( $meta_query, 'pillar' ) ) {
+		return $pillars;
+	}
+
+	return [];
+};
+
+kk_sp_assert_same(
+	kk_sp_test_rotated_pillar_ids( $pillars, 3 ),
+	kk_sp_test_ids( kk_sp_get_promos( 3 ) ),
+	'Pillars should fill all visible slots when there is no featured promo.'
+);
+
+$GLOBALS['kk_sp_get_posts_handler'] = null;
 $GLOBALS['kk_sp_test_posts'] = [ 321, 322 ];
 kk_sp_expire_featured_promos();
 kk_sp_assert_same(

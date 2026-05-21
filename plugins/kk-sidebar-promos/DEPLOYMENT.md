@@ -44,7 +44,7 @@ php plugins/kk-sidebar-promos/tests/smoke.php
 find plugins/kk-sidebar-promos -name '*.php' -print0 | xargs -0 -n1 php -l
 ```
 
-The smoke test covers limit normalization, the no-promos empty state, featured-image alt handling, featured-promo expiry behavior, and the Luma iCal parser without requiring a full WordPress install.
+The smoke test covers limit normalization, selection and weekly pillar rotation, the no-promos empty state, featured-image alt handling, featured-promo expiry behavior, and the Luma iCal parser without requiring a full WordPress install.
 
 ## Replacing the existing sidebar graphics
 
