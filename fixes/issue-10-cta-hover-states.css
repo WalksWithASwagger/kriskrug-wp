@@ -1,0 +1,155 @@
+/*
+ * Issue #10: CTA interaction states.
+ * Paste after existing button/color CSS in Customizer Additional CSS or a CSS snippet.
+ */
+
+.entry-content .wp-block-button__link,
+.entry-content .wp-element-button,
+.entry-content .button,
+.entry-content .btn,
+.kk-button,
+.kk-home-button,
+.kk-services-button,
+input[type="submit"],
+button[type="submit"],
+.wp-block-jetpack-button .wp-block-button__link {
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+    -webkit-tap-highlight-color: rgba(0, 82, 204, 0.22);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .entry-content .wp-block-button__link:hover,
+    .entry-content .wp-element-button:hover,
+    .entry-content .button:hover,
+    .entry-content .btn:hover,
+    .kk-button:hover,
+    .kk-home-button:hover,
+    .kk-services-button:hover,
+    input[type="submit"]:hover,
+    button[type="submit"]:hover,
+    .wp-block-jetpack-button .wp-block-button__link:hover {
+        background-color: #003A99;
+        border-color: #003A99;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+        color: #ffffff !important;
+        text-decoration: none;
+        transform: translateY(-1px);
+    }
+
+    .entry-content .button-secondary:hover,
+    .kk-button.secondary:hover,
+    .kk-home-button.secondary:hover,
+    .kk-services-button.secondary:hover {
+        background-color: #171717;
+        border-color: #171717;
+        color: #ffffff !important;
+    }
+}
+
+.entry-content .wp-block-button__link:focus,
+.entry-content .wp-element-button:focus,
+.entry-content .button:focus,
+.entry-content .btn:focus,
+.kk-button:focus,
+.kk-home-button:focus,
+.kk-services-button:focus,
+input[type="submit"]:focus,
+button[type="submit"]:focus,
+.wp-block-jetpack-button .wp-block-button__link:focus {
+    outline: 3px solid #0052CC;
+    outline-offset: 3px;
+}
+
+.entry-content .wp-block-button__link:focus-visible,
+.entry-content .wp-element-button:focus-visible,
+.entry-content .button:focus-visible,
+.entry-content .btn:focus-visible,
+.kk-button:focus-visible,
+.kk-home-button:focus-visible,
+.kk-services-button:focus-visible,
+input[type="submit"]:focus-visible,
+button[type="submit"]:focus-visible,
+.wp-block-jetpack-button .wp-block-button__link:focus-visible {
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.85), 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+.entry-content .wp-block-button__link:active,
+.entry-content .wp-element-button:active,
+.entry-content .button:active,
+.entry-content .btn:active,
+.kk-button:active,
+.kk-home-button:active,
+.kk-services-button:active,
+input[type="submit"]:active,
+button[type="submit"]:active,
+.wp-block-jetpack-button .wp-block-button__link:active {
+    background-color: #002F7A;
+    border-color: #002F7A;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    color: #ffffff !important;
+    transform: translateY(0);
+}
+
+.entry-content a.more-link {
+    transition: color 0.22s ease, text-decoration-color 0.22s ease;
+}
+
+.entry-content a.more-link:hover,
+.entry-content a.more-link:focus {
+    color: #003A99;
+    text-decoration: underline;
+    text-decoration-thickness: 0.12em;
+    text-underline-offset: 0.18em;
+}
+
+.entry-content .wp-block-button__link:disabled,
+.entry-content .wp-element-button:disabled,
+.entry-content .button:disabled,
+.entry-content .btn:disabled,
+.kk-button[aria-disabled="true"],
+.kk-home-button[aria-disabled="true"],
+.kk-services-button[aria-disabled="true"],
+input[type="submit"]:disabled,
+button[type="submit"]:disabled,
+.wp-block-jetpack-button .wp-block-button__link:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    transform: none;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .entry-content .wp-block-button__link:active,
+    .entry-content .wp-element-button:active,
+    .entry-content .button:active,
+    .entry-content .btn:active,
+    .kk-button:active,
+    .kk-home-button:active,
+    .kk-services-button:active,
+    input[type="submit"]:active,
+    button[type="submit"]:active,
+    .wp-block-jetpack-button .wp-block-button__link:active {
+        background-color: #003A99;
+        border-color: #003A99;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+        color: #ffffff !important;
+        transform: scale(0.98);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .entry-content .wp-block-button__link,
+    .entry-content .wp-element-button,
+    .entry-content .button,
+    .entry-content .btn,
+    .entry-content a.more-link,
+    .kk-button,
+    .kk-home-button,
+    .kk-services-button,
+    input[type="submit"],
+    button[type="submit"],
+    .wp-block-jetpack-button .wp-block-button__link {
+        transition: none;
+    }
+}
