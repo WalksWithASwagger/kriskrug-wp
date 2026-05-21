@@ -3,7 +3,7 @@
 **Snapshot date:** 2026-05-14
 **Purpose:** Document the live site, the repo, the access channels, and the rollback paths *before* we start making modifications. If we break something, this is what we return to.
 
-This folder is the source of truth for "what was true on May 14, 2026" and for dated working addenda that came out of the May 2026 recovery/redesign push. Treat the baseline files as historical snapshots and the dated `2026-05-*` files as current handoff material.
+This folder is the source of truth for "what was true on May 14, 2026" and for dated working addenda that came out of the May 2026 recovery/redesign push. Treat the baseline files as historical snapshots and the latest dated `2026-05-*` work plan as the current handoff.
 
 ## Files in this folder
 
@@ -17,10 +17,14 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 | [SEO_AUDIT.md](SEO_AUDIT.md) | Technical SEO + on-page + AI/generative-search readiness, with specific findings. |
 | [CONTENT_AUDIT.md](CONTENT_AUDIT.md) | Per-page review of all 34 pages, posts inventory (101 recent), taxonomy, multilingual, IA proposal. |
 | [FIX_QUEUE.md](FIX_QUEUE.md) | Prioritized P0→P3 backlog from both audits. |
-| [ROADMAP.md](ROADMAP.md) | Six-phase, 3-month plan that synthesizes FIX_QUEUE + postmortem follow-ups + content pipeline next steps. **Start here.** |
-| [FULL-AUDIT-ROADMAP-2026-05-18.md](FULL-AUDIT-ROADMAP-2026-05-18.md) | Current post-closeout audit of repo, GitHub queue, Track A, Track B, and human decisions. |
-| [TOMORROW-ROADMAP-2026-05-20.md](TOMORROW-ROADMAP-2026-05-20.md) | Refreshed next-session roadmap after rewrite recovery, branch hygiene follow-through, and worktree reconciliation. |
-| [WORK-PLAN-2026-05-20.md](WORK-PLAN-2026-05-20.md) | Current execution plan after Wave 3 implementation completion and final Track B QA gate (`#86`). |
+| [ROADMAP.md](ROADMAP.md) | Six-phase, 3-month plan that synthesizes FIX_QUEUE + postmortem follow-ups + content pipeline next steps. Use as longer-range reference after the latest work plan. |
+| [FULL-AUDIT-ROADMAP-2026-05-18.md](FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit of repo, GitHub queue, Track A, Track B, and human decisions. |
+| [WORK-PLAN-2026-05-21.md](WORK-PLAN-2026-05-21.md) | Current next-session front door after the diagnostic/polish branch, docs tidy pass, and sidebar promo hardening. |
+| [TOMORROW-ROADMAP-2026-05-20.md](TOMORROW-ROADMAP-2026-05-20.md) | Historical next-session roadmap after rewrite recovery, branch hygiene follow-through, and worktree reconciliation. Superseded by `WORK-PLAN-2026-05-21.md`. |
+| [WORK-PLAN-2026-05-20.md](WORK-PLAN-2026-05-20.md) | Historical execution plan after Wave 3 implementation completion and final Track B QA gate (`#86`). Superseded by `WORK-PLAN-2026-05-21.md`. |
+| [DIAGNOSTIC-POLISH-2026-05-20.md](DIAGNOSTIC-POLISH-2026-05-20.md) | Repository truth-refresh, technical-debt audit, SOTA direction, and polish/action checklist from the 2026-05-20 diagnostic pass. |
+| [FIXES-LIVE-RECONCILIATION-2026-05-20.md](FIXES-LIVE-RECONCILIATION-2026-05-20.md) | Current disposition of every `fixes/` artifact against live-site evidence after schema/page updates. |
+| [AURORA-MOTION-GOVERNANCE-2026-05-20.md](AURORA-MOTION-GOVERNANCE-2026-05-20.md) | Motion budget and QA rules for Aurora so visual polish does not degrade accessibility or Core Web Vitals. |
 | [NEXT-ROUND-WORK-2026-05-19.md](NEXT-ROUND-WORK-2026-05-19.md) | Historical 2026-05-19 handoff sheet (superseded by the 2026-05-20 roadmap/work-plan docs). |
 | [ISSUE-SWARM-ROADMAP-2026-05-19.md](ISSUE-SWARM-ROADMAP-2026-05-19.md) | 72-hour swarm-ready issue roadmap with parallel lanes, stop rules, and wave labels. |
 | [AURORA-ISSUE-SWARM-2026-05-19.md](AURORA-ISSUE-SWARM-2026-05-19.md) | Filed Aurora epics #80-#86 and routed old design issues #24-#35. |
@@ -62,11 +66,13 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 | `fixes/llms-txt-template.md` | Curated `llms.txt` content for site root (P0.2). |
 | `fixes/robots-txt-update.txt` | Two robots.txt options with explicit AI-crawler stances (P0.4). |
 | `fixes/schema-snippets.php` | Mu-plugin: `Person`, `WebSite`, `Article`, `BreadcrumbList`, `Service` JSON-LD (P0.3). Supersedes the older `issue-39-schema-markup.php`. |
+| `fixes/schema-snippets-deployed.php` | Production Code Snippets version. Public HTML appears to include this schema path as of 2026-05-20; verify in wp-admin before editing. |
 
 ## TL;DR
 
 - **Site is on Pagely** (managed WP host), running **WordPress 6.9.4** with the **Catch Responsive** classic theme.
 - **Jetpack is on the Free plan**, which is why WordPress.com MCP write access is currently blocked.
 - **Baseline note:** the May 14 snapshot started before later page-level snapshots, source packs, and Aurora theme work were added. Read the dated addenda above for current operating state.
+- **Current addendum:** the 2026-05-21 work plan is the latest front door; the 2026-05-20 diagnostic pass remains the detailed repo-truth refresh for live fix status, workflow governance, and plugin hardening.
 - **Read-only fingerprinting works** through the public WP REST API; that's how this snapshot was built.
 - **Path to "safe to modify":** get SSH on Pagely → take a `wp db export` + `wp-content/` archive → commit a `backup/` reference set → then start modifying.

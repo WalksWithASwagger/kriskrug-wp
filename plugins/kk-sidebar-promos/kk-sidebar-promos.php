@@ -3,7 +3,7 @@
  * Plugin Name:       KK Sidebar Promos
  * Plugin URI:        https://github.com/WalksWithASwagger/kriskrug-wp
  * Description:       Auto-managed sidebar promo system. Featured promos auto-expire on their end date; evergreen "pillar" promos rotate to fill the rest. Pulls the next Vancouver AI meetup from Luma automatically. Block, classic widget, and [kk_sidebar_promos] shortcode all available.
- * Version:           0.1.0
+ * Version:           0.1.2
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Author:            Kris Krüg
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'KK_SP_VERSION', '0.1.0' );
+define( 'KK_SP_VERSION', '0.1.2' );
 define( 'KK_SP_PATH', plugin_dir_path( __FILE__ ) );
 define( 'KK_SP_URL', plugin_dir_url( __FILE__ ) );
 define( 'KK_SP_FILE', __FILE__ );

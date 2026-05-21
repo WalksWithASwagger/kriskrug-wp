@@ -1,7 +1,7 @@
 # Resume here — 2026-05-19 handoff
 
 > STATUS: Historical handoff from 2026-05-19.
-> For current startup context, use `docs/current-state/README.md`, `docs/current-state/TOMORROW-ROADMAP-2026-05-20.md`, and `docs/current-state/WORK-PLAN-2026-05-20.md`.
+> For current startup context, use `docs/current-state/README.md` and `docs/current-state/WORK-PLAN-2026-05-21.md`.
 
 **Last session ended:** 2026-05-19, after the live Speaking/Work/About authority-page continuation and closeout push prep.
 **Author:** Claude Code / Codex working with KK across an intensive multi-session push (2026-05-15 -> 2026-05-19).

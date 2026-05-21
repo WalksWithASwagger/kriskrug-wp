@@ -4,7 +4,7 @@ This file is the entry point for any AI agent (Claude Code, Cursor, Codex, etc.)
 
 ## What this repo is
 
-The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running Catch Responsive. The repo is **adjacent to** the live site, not a mirror of it. `main` does not contain a full production theme/plugin/database/media mirror; Track B theme code lives on `aurora/v2`, and curated source-pack media/proofs are tracked. There is one custom WP module (`inc/digital-composting.php`) which is merged but not yet deployed to prod.
+The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running Catch Responsive. The repo is **adjacent to** the live site, not a mirror of it. `main` does not contain a full production theme/database/media mirror; Track B theme code lives on `aurora/v2`, and curated source-pack media/proofs are tracked. Custom repo-side WP code now includes `inc/digital-composting.php` (merged, not yet deployed to prod) and `plugins/kk-sidebar-promos/` (packaged helper plugin, deploy only after backup/rollback proof).
 
 ## Read this in order (top of repo, top of context)
 
@@ -12,8 +12,11 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 2. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
 3. [`docs/current-state/REPO_STATE.md`](docs/current-state/REPO_STATE.md) — what's actually built vs. just documented
 4. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
+5. [`docs/current-state/WORK-PLAN-2026-05-21.md`](docs/current-state/WORK-PLAN-2026-05-21.md) — current next-session front door and stop rules
 
-After those four, the rest of the repo will make sense.
+For the detailed diagnostic behind that plan, read [`docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`](docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md).
+
+After those five, the rest of the repo will make sense.
 
 ## Two tracks — pick one per session
 
@@ -35,9 +38,11 @@ Full decision tree: [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md
 3. **No theme file changes on `main`.** Theme work belongs on `aurora/v2`.
 4. **Don't run the connector on production without `--dry-run` first.**
 
-## What's dormant (don't get distracted)
+## What's historical or parked (don't get distracted)
 
-- **`.github/agents/` + `.github/workflows/`** — the older GitHub Actions agent swarm (orchestrator → analyzer → test-writer → implementer → QA → reviewer → PR creator). It produced PRs #71 and #72 in May 2026 and is not used by current sessions.
+- **`.github/agents/`** — the older GitHub Actions agent swarm (orchestrator → analyzer → test-writer → implementer → QA → reviewer → PR creator). It produced PRs #71 and #72 in May 2026 and is not used by current sessions.
+- **`.github/workflows/agent-pr-generator.yml`** — parked on 2026-05-20. It is now a manual, read-only diagnostic stub and no longer auto-runs when `auto-implement` is labeled.
+- **`.github/workflows/test-pr.yml`** — still active PR validation. Do not describe all workflows as dormant.
 - **`docs/architecture.md`, `docs/automation-guide.md`** — reference docs for the dormant swarm.
 - **`docs/cloudways-setup.md`, `docs/local-development-setup.md`, `.claude/context/wordpress-setup.md`** — Cloudways dev-server setup that was never used as planned. Relevant if/when Track B needs staging, otherwise ignore.
 - **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. The current roadmap is [`docs/current-state/ROADMAP.md`](docs/current-state/ROADMAP.md).
@@ -64,4 +69,4 @@ Read [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODE
 
 ---
 
-**Last verified:** 2026-05-17. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` as the source of truth and flag the drift for a fresh audit.
+**Last verified:** 2026-05-21. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` as the source of truth and flag the drift for a fresh audit.

@@ -1,11 +1,22 @@
 # Fix Queue — Prioritized Backlog
 
-**As of:** 2026-05-14
+**As of:** 2026-05-14 baseline. Reconciled against live evidence on 2026-05-20 in [FIXES-LIVE-RECONCILIATION-2026-05-20.md](FIXES-LIVE-RECONCILIATION-2026-05-20.md).
 **Source:** [SEO_AUDIT.md](SEO_AUDIT.md) + [CONTENT_AUDIT.md](CONTENT_AUDIT.md).
 
 Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these first. Items list dependencies so we don't get tripped up.
 
 **Hard prerequisite for everything below**: a working backup (see [BACKUP_PLAN.md](BACKUP_PLAN.md)). Don't apply P0 until at least one verified backup exists.
+
+## 2026-05-20 live-state addendum
+
+- Keep P0.1 as the hard gate. No production writes until backup and restore proof exist.
+- Use `make backup-check BACKUP_DIR=backup/YYYY-MM-DD STRICT=1` as the mechanical gate check. `backup/2026-05-16/` is useful but not sufficient because uploads were skipped and no restore drill is documented.
+- P0.2 is still open: `/llms.txt` currently returns `404`.
+- P0.3 has changed status: public HTML on homepage, About, Work, and Speaking now includes JSON-LD, so schema appears deployed through the Code Snippets path represented by `fixes/schema-snippets-deployed.php`. Verify in wp-admin before changing schema; do not blindly deploy `schema-snippets.php` over it.
+- P0.4 is still open: `/robots.txt` exists but does not yet include the explicit AI-crawler stance from `fixes/robots-txt-update.txt`.
+- P0.5/P0.6 are still open: homepage still has duplicate H1 behavior and the most visible pages still contain empty image alts.
+- Work page social metadata is now an explicit P0/P1 cleanup candidate: `/work/` resolves to `/recent-projects-include/` and the page still emits a blank WordPress.com OG image.
+- Use [FIXES-LIVE-RECONCILIATION-2026-05-20.md](FIXES-LIVE-RECONCILIATION-2026-05-20.md) before deploying any January-era `fixes/` file.
 
 ---
 
@@ -26,8 +37,9 @@ Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these 
 - **Dependencies:** P0.1.
 - **Verify:** `curl -i https://kriskrug.co/llms.txt` returns 200 + `Content-Type: text/plain`.
 
-### P0.3 — Deploy schema-snippets.php as mu-plugin
-- **Why:** Single highest-leverage SEO + AI change. Adds `Person`, `WebSite`, `Article`, `BreadcrumbList`, `Service` schema sitewide. Before this, every page is invisible to AI structured-data extraction.
+### P0.3 — Verify deployed schema and decide whether to migrate to mu-plugin
+- **Current status:** Public HTML now appears to include the deployed Code Snippets schema path. Treat this as verification/migration work, not a first deploy.
+- **Why:** Single highest-leverage SEO + AI change. Adds `Person`, `WebSite`, `Article`, `BreadcrumbList`, `Service` schema sitewide.
 - **Path:**
   1. Verify constants in `fixes/schema-snippets.php` (LinkedIn, X, YouTube, headshot URL, BC + AI URL — all marked `VERIFY` in the file).
   2. Drop file into `wp-content/mu-plugins/kk-schema.php` (SSH/SFTP).

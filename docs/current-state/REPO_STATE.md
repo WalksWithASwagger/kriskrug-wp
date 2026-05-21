@@ -1,18 +1,24 @@
-# Repo State — `kriskrug-wp/` as of 2026-05-14
+# Repo State — `kriskrug-wp/`
+
+**Baseline date:** 2026-05-14.
+**Latest reconciliation:** 2026-05-20. Read dated addenda in this folder for current handoffs, especially `DIAGNOSTIC-POLISH-2026-05-20.md`.
 
 This repo was set up earlier in 2026 as an **issue tracking + automation hub** for kriskrug.co, not as a code mirror of the WordPress install. As of today the repo and the live site share almost no files.
 
 ## What's actually checked in (built, not just documented)
 
-### PHP modules — exactly one
+### Repo-side WordPress code
 
 | Path | What it is | Status |
 |---|---|---|
 | `inc/digital-composting.php` | Custom Post Type + Taxonomy module for ingesting transcripts ("digital composting") | Merged via PR #71 + #72 on 2026-05-07. **Not yet deployed to production.** |
+| `plugins/kk-sidebar-promos/` | Packaged helper plugin for auto-expiring sidebar promos, evergreen pillar cards, and Luma iCal import | Built in May 2026. **Do not deploy until backup/rollback proof is current.** |
 
-### Prepared but undeployed fixes (`fixes/`)
+### Prepared fixes and live-state reconciliation (`fixes/`)
 
-A staging area of 12 ready-to-paste solutions tied to specific GitHub issues. **None of these have been applied to production.**
+`fixes/` is a staging area for ready-to-paste snippets, content packs, and migration notes tied to GitHub issues. It is no longer accurate to say that none have reached production: `owned-sites-network-rollout.md` documents applied page/widget/menu content, and public HTML on key pages now appears to include the schema path represented by `schema-snippets-deployed.php`.
+
+Use `FIXES-LIVE-RECONCILIATION-2026-05-20.md` before deploying anything from `fixes/`. Several January files are now historical or superseded.
 
 | File | Tied to | Type |
 |---|---|---|
@@ -29,16 +35,21 @@ A staging area of 12 ready-to-paste solutions tied to specific GitHub issues. **
 | `issue-68-work-page-complete.md` | #68 | Content |
 | `UPDATED-ABOUT-PAGE-COMPLETE.md` | About | Content |
 | `README-FIXES-BATCH-1.md` | — | Index |
+| `llms-txt-template.md` | P0.2 | AI search |
+| `robots-txt-update.txt` | P0.4 | Robots / AI crawler policy |
+| `schema-snippets.php` | P0.3 | Future mu-plugin schema path |
+| `schema-snippets-deployed.php` | P0.3 | Code Snippets production schema source |
+| `owned-sites-network-rollout.md` | Owned-sites IA | Applied production record |
 
-### Agent swarm (`.github/agents/` + `.github/workflows/`)
+### Agent swarm and workflows (`.github/agents/` + `.github/workflows/`)
 
-A 10-agent hierarchical automation system for converting GitHub issues into PRs:
+A historical 10-agent hierarchical automation system for converting GitHub issues into PRs:
 - **Workflow agents:** orchestrator, analyzer, test-writer, implementer, qa, reviewer, pr-creator
 - **Doc swarm:** content-analyzer, readme-writer, link-validator
-- **Workflows:** `auto-triage`, `agent-pr-generator`, `sync-projects`, `test-pr`, `reusable-wordpress-validation`
-- **Per-issue state:** `.github/agent-state/<issue>/state.json` exists for 11 issues (2, 4, 5, 12, 22, 34, 41, 57, 60, 66, 70)
+- **Workflows:** `test-pr` remains active PR validation. `agent-pr-generator` is parked as a manual, read-only diagnostic stub as of 2026-05-20. Older swarm docs remain for reference.
+- **Per-issue state:** `.github/agent-state/<issue>/state.json` exists for 12 historical issues (2, 4, 5, 12, 22, 34, 41, 57, 60, 66, 70, 99). Treat these as evidence records, not live automation state.
 
-> The system is described as "Infrastructure complete, Agent swarm validated, awaiting production import" in the README. It has produced PRs (#71, #72 most recently) but the bulk of issues haven't been processed.
+> The old system produced PRs #71 and #72, but it is not the current implementation path. Do not add `auto-implement` expecting autonomous PR creation unless the swarm is rebuilt intentionally.
 
 ### Skills (`skills/`)
 
@@ -103,12 +114,8 @@ df77d7f  feat: implement enhanced digital composting module       (2026-05-07)
 9672d86  Initial commit                                            (2026-01)
 ```
 
-Cadence: heavy setup work in January, dormant Feb–April, picked back up in early May.
+Cadence: heavy setup work in January, dormant Feb-April, picked back up in early May. Since 2026-05-18, commit activity has been mostly documentation and content-pack work, with smaller code hardening passes.
 
-## How to interpret the README
+## How to interpret older docs
 
-The repo's `README.md` says: *"Status: Infrastructure complete and validated. Agent swarm proven operational. Awaiting production kk.ca import to begin real issue resolution."*
-
-That status is accurate. **"Production import"** = importing the live site into a local dev environment so the agent swarm has something to operate against. That hasn't happened yet, which is why everything in `fixes/` is staged but undeployed.
-
-The README also references the site as **`kk.ca`** in several places. The actual production URL is **`kriskrug.co`**. Likely a historical naming the docs haven't caught up to — flag for a sweep later.
+Older docs may describe the agent swarm as "infrastructure complete" or mention `kk.ca`. Treat that as historical. The production URL is `kriskrug.co`, the old autonomous swarm is parked, and current work should follow the two-track model plus the dated handoff docs in `docs/current-state/`.
