@@ -53,6 +53,9 @@ pip install -r requirements.txt
 # Dry-run: writes content/drafts/<slug>/, prints REST payload, does NOT post
 python kk_notion_to_wp.py --dry-run https://www.notion.so/<page-id>
 
+# Dry-run with an explicit category decision
+python kk_notion_to_wp.py --dry-run --category "AI Ethics & Philosophy" https://www.notion.so/<page-id>
+
 # Live: also uploads images, creates a DRAFT post on kriskrug.co
 python kk_notion_to_wp.py https://www.notion.so/<page-id>
 
@@ -63,6 +66,18 @@ python kk_notion_to_wp.py --publish https://www.notion.so/<page-id>
 python kk_notion_to_wp.py --update https://www.notion.so/<page-id>
 ```
 
+## Live-write gate
+
+Do not run the connector against production WordPress until all of these are true:
+
+1. `make backup-check BACKUP_DIR=backup/YYYY-MM-DD STRICT=1` passes.
+2. A dry-run package has been reviewed in `content/drafts/<slug>/`.
+3. The target slug, title, category, and update/create intent are verified.
+4. For `Type=Feature`, the category is intentional: either the tags route it clearly or `--category` is passed.
+5. `--publish` is only used after KK signs off on the reviewed WP draft.
+
+Without WordPress credentials the command is always effectively dry-run only.
+
 ## Notion property mapping
 
 KK's "News & Content Database" has these properties; the connector reads them:
@@ -72,7 +87,7 @@ KK's "News & Content Database" has these properties; the connector reads them:
 | Title | post title | required |
 | AI summary | excerpt (→ meta description) | falls back to Summary if absent |
 | Tags | tags | auto-created if missing |
-| Type | category routing | `Report` → "Vancouver AI Ecosystem"; others → "Misc" until categorized |
+| Type | category routing | Known types map directly; `Feature` uses tag hints or requires `--category`; unknown types fall back to "Misc" only for non-Feature content. |
 | Featured | post meta `kk_featured` | "YES" sets it |
 | Status | publish context | recorded from Notion, but not a publish gate |
 | Publication Date | post date | if absent, uses today |
@@ -89,6 +104,27 @@ Default behavior is CREATE-only:
 - To update an existing post, pass `--update`. The update path also checks that the existing title is similar to the new title before it sends a REST update. The current threshold lives in `TITLE_SIMILARITY_UPDATE_THRESHOLD` and is covered by tests.
 
 This makes reruns safe by default. If you need a new version rather than an update, pass `--slug` with a new slug.
+
+## Category routing
+
+Known Notion types map directly:
+
+| Notion Type | WP Category |
+|---|---|
+| `Report` | `Vancouver AI Ecosystem` |
+| `Manifesto` | `AI Ethics & Philosophy` |
+| `Interview` | `Conversations & Interviews` |
+| `Tutorial` | `AI for Creatives` |
+| `Field Note` | `Field Notes` |
+
+`Feature` is intentionally guarded. It routes from obvious tags:
+
+- community/event tags such as `BC + AI`, `Comox`, `Vancouver AI`, `Web Summit`, `Recap` → `Vancouver AI Ecosystem`
+- ethics/certification tags such as `AI Ethics`, `Responsible AI`, `Certification` → `AI Ethics & Philosophy`
+- creative workflow tags such as `Creative`, `Artist`, `Tools`, `Workflow` → `AI for Creatives`
+- appearance tags such as `Interview`, `Podcast`, `Media` → `Conversations & Interviews`
+
+If a `Feature` post has ambiguous tags, dry-run output is marked `NEEDS CATEGORY REVIEW`, and live mode aborts before uploading media or creating a WP draft. Re-run with `--category "..."` after the editorial decision.
 
 ## Local tests
 
