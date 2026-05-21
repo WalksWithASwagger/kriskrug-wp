@@ -101,10 +101,24 @@ A backup that's never been restored is a hope, not a backup. After the first arc
 1. Spin up **Local by Flywheel** (or Docker) — see `docs/local-development-setup.md`.
 2. Restore the archive into the local instance.
 3. Confirm: homepage renders, an arbitrary recent post renders, wp-admin opens, plugin settings are intact.
-4. Note any breakage in `backup/<date>/restore-notes.md`.
+4. Note the result in `backup/<date>/restore-notes.md`.
 5. Run `make backup-check BACKUP_DIR=backup/<date> STRICT=1`.
 
 Until step 4 is done, the backup is unverified.
+
+Strict mode requires the restore notes to include one of these markers:
+
+```yaml
+restore_status: passed
+```
+
+or:
+
+```yaml
+production_write_gate: passed
+```
+
+Use `failed` or omit the marker when the restore is incomplete.
 
 ## Cadence going forward
 

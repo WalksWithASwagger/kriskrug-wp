@@ -93,6 +93,14 @@ fi
 
 if [[ -f "$backup_dir/restore-notes.md" ]]; then
   ok "restore-notes.md present"
+
+  if [[ "$allow_incomplete" -eq 0 ]]; then
+    if grep -Eiq '^(restore_status|production_write_gate):[[:space:]]*passed[[:space:]]*$' "$backup_dir/restore-notes.md"; then
+      ok "restore proof is marked passed"
+    else
+      fail "restore-notes.md must include 'restore_status: passed' or 'production_write_gate: passed'"
+    fi
+  fi
 else
   if [[ "$allow_incomplete" -eq 1 ]]; then
     warn "restore-notes.md missing; archive can be inspected but the production-write gate is not satisfied"
