@@ -10,6 +10,7 @@ Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these 
 ## 2026-05-20 live-state addendum
 
 - Keep P0.1 as the hard gate. No production writes until backup and restore proof exist.
+- Use `make backup-check BACKUP_DIR=backup/YYYY-MM-DD STRICT=1` as the mechanical gate check. `backup/2026-05-16/` is useful but not sufficient because uploads were skipped and no restore drill is documented.
 - P0.2 is still open: `/llms.txt` currently returns `404`.
 - P0.3 has changed status: public HTML on homepage, About, Work, and Speaking now includes JSON-LD, so schema appears deployed through the Code Snippets path represented by `fixes/schema-snippets-deployed.php`. Verify in wp-admin before changing schema; do not blindly deploy `schema-snippets.php` over it.
 - P0.4 is still open: `/robots.txt` exists but does not yet include the explicit AI-crawler stance from `fixes/robots-txt-update.txt`.

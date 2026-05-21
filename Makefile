@@ -1,7 +1,7 @@
 # BC+AI Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test validate health issues pr dashboard stats agent-status clean
+.PHONY: help test validate health issues pr dashboard stats agent-status backup-check clean
 
 # Default target
 .DEFAULT_GOAL := help
@@ -107,6 +107,17 @@ agent-status: ## Show parked agent automation state records
 		done; \
 	fi
 	@echo "  (These records are not proof of active automation.)" 2>/dev/null || true
+
+backup-check: ## Verify a backup set (use BACKUP_DIR=backup/YYYY-MM-DD; STRICT=1 requires restore proof)
+	@if [ -z "$(BACKUP_DIR)" ]; then \
+		echo "❌ Error: Please specify BACKUP_DIR=backup/YYYY-MM-DD"; \
+		exit 1; \
+	fi
+	@if [ "$(STRICT)" = "1" ]; then \
+		bash scripts/verify-backup-set.sh "$(BACKUP_DIR)"; \
+	else \
+		bash scripts/verify-backup-set.sh --allow-incomplete "$(BACKUP_DIR)"; \
+	fi
 
 clean: ## Clean up test artifacts and temporary files
 	@echo "Cleaning up..."

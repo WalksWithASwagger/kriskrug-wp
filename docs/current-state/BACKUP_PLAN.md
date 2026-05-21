@@ -2,14 +2,35 @@
 
 **Goal:** before any modification touches production, we have a local archive sufficient to rebuild the site from scratch.
 
+## 2026-05-21 gate status
+
+The repo has a local UpdraftPlus archive set from 2026-05-16 in `backup/2026-05-16/` with database, plugins, themes, mu-plugins, and other `wp-content` files. That set has checksums and a tracked manifest, but it is **not enough to reopen production writes** because:
+
+- the 13 GB uploads archive was skipped and is only accounted for in the manifest;
+- no `restore-notes.md` exists yet proving a local restore drill.
+
+Use this command to inspect an archive set without claiming the production-write gate is satisfied:
+
+```bash
+make backup-check BACKUP_DIR=backup/2026-05-16
+```
+
+Use strict mode for the actual gate before live WordPress changes:
+
+```bash
+make backup-check BACKUP_DIR=backup/YYYY-MM-DD STRICT=1
+```
+
+Strict mode must pass before `/llms.txt`, robots, homepage H1/alt, Work metadata, sidebar promo deploy, schema migration, or Notion-to-WP production writes.
+
 ## The four pieces of a real WordPress backup
 
 | Piece | What it contains | Have it locally? | How to get it |
 |---|---|---|---|
-| **Database dump** | Every post, page, comment, user, option, plugin setting | ❌ | `wp db export` (SSH) or AIO-WP-Migration / UpdraftPlus (plugin) |
-| **`wp-content/themes/`** | Active theme + child theme + any others | ❌ | rsync over SSH, or plugin archive |
-| **`wp-content/plugins/`** | All installed plugins | ❌ | rsync over SSH, or plugin archive |
-| **`wp-content/uploads/`** | All media files (likely the largest piece — could be many GB) | ❌ | rsync over SSH, or plugin archive |
+| **Database dump** | Every post, page, comment, user, option, plugin setting | Partial: 2026-05-16 archive exists | `wp db export` (SSH) or AIO-WP-Migration / UpdraftPlus (plugin) |
+| **`wp-content/themes/`** | Active theme + child theme + any others | Partial: 2026-05-16 archive exists | rsync over SSH, or plugin archive |
+| **`wp-content/plugins/`** | All installed plugins | Partial: 2026-05-16 archive exists | rsync over SSH, or plugin archive |
+| **`wp-content/uploads/`** | All media files (likely the largest piece — could be many GB) | Missing locally; 2026-05-16 manifest accounts for the gap | rsync over SSH, Pagely backup export, or plugin archive |
 
 Plus, optionally: `wp-config.php` (gitignore — has secrets), mu-plugins, drop-ins, root `.htaccess`.
 
@@ -43,6 +64,7 @@ Steps:
 4. When the archive set finishes, download all 5 files to `~/Downloads/kriskrug-backup-YYYY-MM-DD/`
 5. Move that folder into `kriskrug-wp/backup/2026-05-14/` (gitignored)
 6. Record what we got in `backup/<date>/manifest.md`
+7. Run `make backup-check BACKUP_DIR=backup/<date>` to verify checksums and surface any missing restore proof.
 
 Alternative plugin: **All-in-One WP Migration** — one `.wpress` file, simpler but a single proprietary format. Fine if UpdraftPlus has trouble.
 
@@ -80,6 +102,7 @@ A backup that's never been restored is a hope, not a backup. After the first arc
 2. Restore the archive into the local instance.
 3. Confirm: homepage renders, an arbitrary recent post renders, wp-admin opens, plugin settings are intact.
 4. Note any breakage in `backup/<date>/restore-notes.md`.
+5. Run `make backup-check BACKUP_DIR=backup/<date> STRICT=1`.
 
 Until step 4 is done, the backup is unverified.
 
