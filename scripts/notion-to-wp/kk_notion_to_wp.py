@@ -30,6 +30,8 @@ Usage:
         --title "Custom Title"        Override the title derived from Notion
         --slug custom-slug            Override the slug derived from the title
         --date 2026-05-07T11:37:33    Override the post date
+        --category "AI Ethics & Philosophy"
+                                      Override Notion Type → WP category routing
 
 Auth:
     - Notion: NOTION_TOKEN from scripts/notion-to-wp/.env OR
@@ -536,12 +538,74 @@ TYPE_TO_CATEGORY = {
     "Field Note": "Field Notes",
 }
 
+CATEGORY_REVIEW_REQUIRED = "NEEDS CATEGORY REVIEW"
+
+FEATURE_CATEGORY_TAG_HINTS = (
+    ("Vancouver AI Ecosystem", (
+        "bc + ai",
+        "comox",
+        "community spotlight",
+        "industry",
+        "recap",
+        "vancouver ai",
+        "web summit",
+    )),
+    ("AI Ethics & Philosophy", (
+        "ai ethics",
+        "certification",
+        "responsible ai",
+        "sovereign ai",
+        "values",
+    )),
+    ("AI for Creatives", (
+        "artist",
+        "creative",
+        "creatives",
+        "tools",
+        "workflow",
+    )),
+    ("Conversations & Interviews", (
+        "appearance",
+        "interview",
+        "media",
+        "podcast",
+    )),
+)
+
+
+def resolve_category(
+    type_notion: str,
+    tags_notion: list[str],
+    category_override: str | None = None,
+) -> tuple[str, str]:
+    override = (category_override or "").strip()
+    if override:
+        return override, "override"
+
+    notion_type = (type_notion or "").strip()
+    if notion_type in TYPE_TO_CATEGORY:
+        return TYPE_TO_CATEGORY[notion_type], f"type:{notion_type}"
+
+    if notion_type.lower() == "feature":
+        tags_text = " ".join(str(tag).lower() for tag in (tags_notion or []))
+        for category, hints in FEATURE_CATEGORY_TAG_HINTS:
+            if any(hint in tags_text for hint in hints):
+                return category, "feature-tags"
+        return CATEGORY_REVIEW_REQUIRED, "feature-needs-category"
+
+    return "Misc", "fallback"
+
+
+def category_requires_review(category_name: str) -> bool:
+    return category_name == CATEGORY_REVIEW_REQUIRED
+
 
 def run(notion_url: str, dry_run: bool, force_publish: bool,
         allow_update: bool = False,
         title_override: str | None = None,
         slug_override: str | None = None,
-        date_override: str | None = None) -> int:
+        date_override: str | None = None,
+        category_override: str | None = None) -> int:
     cfg = load_config()
     nclient = Notion(cfg.notion_token)
     page_id = parse_page_id(notion_url)
@@ -631,7 +695,11 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
     meta_desc = excerpt  # Jetpack accepts up to ~300 chars; same source as excerpt for consistency
     seo_title = text_polish.polish_text(derive_seo_title(title, max_chars=60))
 
-    category_name = TYPE_TO_CATEGORY.get(type_notion, "Misc")
+    category_name, category_route = resolve_category(type_notion, tags_notion, category_override)
+    log(
+        f"category route: Type={type_notion!r}, tags={tags_notion!r} "
+        f"→ {category_name!r} ({category_route})"
+    )
 
     frontmatter = {
         "title": title,
@@ -700,6 +768,14 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
         log(json.dumps({**payload, "content": payload["content"][:400] + "...(truncated)"}, indent=2)[:2000])
         log("To publish: add WP_USER + WP_APP_PASSWORD to scripts/notion-to-wp/.env and re-run without --dry-run.")
         return 0
+
+    if category_requires_review(category_name):
+        log("ABORTING: Notion Type=Feature needs an explicit category decision before a live WP write.")
+        log(
+            'Re-run with --category "AI Ethics & Philosophy", '
+            '--category "Vancouver AI Ecosystem", or another intentional category.'
+        )
+        return 4
 
     # 6. Live mode — upload images, then create/update post
     wp = WordPress(cfg.wp_base_url, cfg.wp_user, cfg.wp_app_password)
@@ -882,6 +958,11 @@ def main():
                    help="Override the post slug (otherwise slugified from title).")
     p.add_argument("--date", default=None,
                    help="Override the post date, ISO format e.g. 2026-05-07T11:37:33.")
+    p.add_argument(
+        "--category",
+        default=None,
+        help="Override Notion Type → WP category routing. Required for Feature posts when tags are ambiguous.",
+    )
     args = p.parse_args()
     sys.exit(run(
         args.notion_url,
@@ -891,6 +972,7 @@ def main():
         title_override=args.title,
         slug_override=args.slug,
         date_override=args.date,
+        category_override=args.category,
     ))
 
 
