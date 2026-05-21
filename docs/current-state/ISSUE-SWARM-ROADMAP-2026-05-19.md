@@ -1,8 +1,8 @@
 # Issue Swarm Roadmap - 2026-05-19
 
 **Prepared:** 2026-05-19
-**Last refreshed:** 2026-05-20 (UTC, diagnostic polish pass)
-**Queue snapshot (as of 2026-05-20 17:30 UTC):** 63 open issues, 0 open PRs
+**Last refreshed:** 2026-05-21 (post-PR `#113` and branch cleanup)
+**Queue snapshot (as of 2026-05-21):** 63 open issues, 0 open PRs
 **Scope:** Convert the current backlog into bounded parallel lanes with clear stop rules.
 
 ## Assumptions
@@ -20,6 +20,21 @@
 - `needs-human-review`: `3` (`#23`, `#75`, `#95`)
 - `swarm-ready`: `13`
 - `swarm-parked`: `11`
+- `swarm-wave-1`: `7`
+- `swarm-wave-2`: `4`
+- `swarm-wave-3`: `2`
+- Open PRs: `0`
+- Branch hygiene: merged remote `codex/swarm-*` branches from PRs `#102`-`#106` were deleted; only `main` and `aurora/v2` remain as remote heads.
+
+## Swarm Launch Protocol
+
+Use this before assigning agents:
+
+1. Run `git fetch --prune`, `gh pr list --state open --limit 50`, `gh issue list --state open --limit 200`, and `git worktree list --porcelain`.
+2. Keep the main checkout clean; create one isolated worktree per lane.
+3. If PRs appear, inspect checks, draft state, scope, and issue linkage before editing.
+4. Do not start `needs-human-review`, live WordPress, or Aurora activation work without the relevant gate cleared.
+5. Leave concise GitHub breadcrumbs for start, blocker, fix, and final state.
 
 ## Roadmap Issues Added
 
@@ -37,7 +52,8 @@ Goal: remove ambiguity before implementation.
 
 - Normalize canonical issue mappings (old design tickets to Aurora epics).
 - Mark issues as `swarm-ready` vs `swarm-parked`.
-- Keep `#23` and `#75` explicitly blocked for human review.
+- Keep `#23`, `#75`, and `#95` explicitly blocked for human review or backup proof.
+- Keep branch cleanup evidence in the handoff before deleting more refs.
 
 Primary issues:
 
@@ -98,7 +114,7 @@ Current gate note (2026-05-20):
 
 - `#84` closed after PR `#104` merged to `aurora/v2`.
 - `#85` closed after PR `#103` inventory plus PR `#105` component implementation merged to `aurora/v2`.
-- `#86` has local QA evidence from PR `#106` and remains open for real staging QA with production-like media, backup, and rollback evidence.
+- `#86` has local QA evidence from PR `#106` and remains open for real staging QA with production-like media, backup, and rollback evidence. Do not treat it as a generic quick-win issue.
 
 ### Lane 4 - Track A Content Sprint (parallel after Aurora Wave 1)
 
@@ -123,6 +139,15 @@ Done when:
 
 - Each issue has a narrow proof artifact or patch.
 - Any broad/refactor-shaped scope is split into smaller follow-up issues.
+- No lane performs a live WordPress write before the backup/restore proof gate passes.
+
+### Lane 6 - Duplicate and shipped-scope reconciliation
+
+Goal: reduce queue noise before another broad wave.
+
+- Verify whether `#3`, `#12`, and `#16` are already satisfied by merged work; close only with evidence.
+- Consolidate Work/Projects scope across `#17` and `#68`.
+- Consolidate photography/archive scope across `#21`, `#30`, and `#59`.
 
 ## Stop Rules
 
@@ -138,12 +163,13 @@ Done when:
 - `swarm-parked`: intentionally deferred / broad / dependency-heavy
 - `swarm-wave-1`: Aurora Wave 1 + first Track A quick wins
 - `swarm-wave-2`: second execution wave
+- `swarm-wave-3`: final hardening/QA wave
 
 Note: `auto-implement` is now a historical intent label only. `agent-pr-generator.yml` no longer auto-runs from that label.
-- `swarm-wave-3`: final hardening/QA wave
 
 ## Notes
 
 - Legacy design issues `#24-#35` remain open but routed; they are not standalone build targets.
 - `docs/current-state/AURORA-ISSUE-SWARM-2026-05-19.md` now reflects Wave 1/2/3 progress through PRs `#93/#94/#100/#101/#102/#103/#104/#105/#106`.
 - Media appearances are parked in `#95` until the fresh full-site backup gate is cleared; see `APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`.
+- PR `#113` satisfies the Feature/category routing slice of the publishing-trust gate, but `#75` remains open for credential, scan, backup, inventory, and publish sign-off evidence.
