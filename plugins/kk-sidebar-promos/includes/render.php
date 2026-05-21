@@ -21,6 +21,7 @@ add_action( 'widgets_init', 'kk_sp_register_widget' );
 add_action( 'init', 'kk_sp_register_block' );
 
 function kk_sp_get_promos( $limit = 4 ) {
+	$limit = kk_sp_normalize_limit( $limit );
 	$today = current_time( 'Y-m-d' );
 	$out   = [];
 
@@ -91,7 +92,8 @@ function kk_sp_render( $args = [] ) {
 		'title' => '',
 	] );
 
-	$promos = kk_sp_get_promos( (int) $args['limit'] );
+	$limit  = kk_sp_normalize_limit( $args['limit'] );
+	$promos = kk_sp_get_promos( $limit );
 	if ( ! $promos ) {
 		return '';
 	}
@@ -99,15 +101,15 @@ function kk_sp_render( $args = [] ) {
 	wp_enqueue_style( 'kk-sidebar-promos' );
 
 	ob_start();
-	?>
-	<div class="kk-sp">
-		<?php if ( ! empty( $args['title'] ) ) : ?>
-			<h2 class="kk-sp__heading"><?php echo esc_html( $args['title'] ); ?></h2>
-		<?php endif; ?>
-		<?php foreach ( $promos as $p ) :
-			$type      = get_post_meta( $p->ID, KK_SP_META_TYPE, true ) ?: 'pillar';
-			$tone      = get_post_meta( $p->ID, KK_SP_META_TONE, true ) ?: 'default';
-			$link      = get_post_meta( $p->ID, KK_SP_META_LINK, true );
+		?>
+		<div class="kk-sp">
+			<?php if ( ! empty( $args['title'] ) ) : ?>
+				<h2 class="kk-sp__heading"><?php echo esc_html( $args['title'] ); ?></h2>
+			<?php endif; ?>
+			<?php foreach ( $promos as $p ) :
+				$type      = get_post_meta( $p->ID, KK_SP_META_TYPE, true ) ?: 'pillar';
+				$tone      = get_post_meta( $p->ID, KK_SP_META_TONE, true ) ?: 'default';
+				$link      = get_post_meta( $p->ID, KK_SP_META_LINK, true );
 				$cta       = get_post_meta( $p->ID, KK_SP_META_CTA, true );
 				$end       = get_post_meta( $p->ID, KK_SP_META_END, true );
 				$thumb_id  = get_post_thumbnail_id( $p->ID );
@@ -119,7 +121,7 @@ function kk_sp_render( $args = [] ) {
 					'kk-sp__card--tone-' . $tone,
 					$has_image ? 'kk-sp__card--has-image' : 'kk-sp__card--text-only',
 				];
-			?>
+				?>
 			<article class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 				<?php if ( $link ) : ?>
 					<a href="<?php echo esc_url( $link ); ?>" class="kk-sp__link" rel="noopener">
@@ -163,6 +165,12 @@ function kk_sp_render( $args = [] ) {
 	</div>
 	<?php
 	return (string) ob_get_clean();
+}
+
+function kk_sp_normalize_limit( $limit ) {
+	$limit = (int) $limit;
+
+	return max( 1, min( 8, $limit ) );
 }
 
 function kk_sp_get_image_alt( $thumb_id ) {
@@ -218,7 +226,7 @@ function kk_sp_register_block() {
 		],
 		'render_callback' => static function ( $attrs ) {
 			return kk_sp_render( [
-				'limit' => isset( $attrs['limit'] ) ? (int) $attrs['limit'] : 4,
+				'limit' => isset( $attrs['limit'] ) ? kk_sp_normalize_limit( $attrs['limit'] ) : 4,
 				'title' => isset( $attrs['title'] ) ? (string) $attrs['title'] : '',
 			] );
 		},
@@ -236,7 +244,7 @@ class KK_SP_Widget extends WP_Widget {
 
 	public function widget( $args, $instance ) {
 		$title = $instance['title'] ?? '';
-		$limit = (int) ( $instance['limit'] ?? 4 );
+		$limit = kk_sp_normalize_limit( $instance['limit'] ?? 4 );
 		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo kk_sp_render( [ 'limit' => $limit, 'title' => $title ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -244,7 +252,7 @@ class KK_SP_Widget extends WP_Widget {
 
 	public function form( $instance ) {
 		$title = $instance['title'] ?? '';
-		$limit = (int) ( $instance['limit'] ?? 4 );
+		$limit = kk_sp_normalize_limit( $instance['limit'] ?? 4 );
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Heading (optional):', 'kk-sidebar-promos' ); ?></label>
@@ -260,7 +268,7 @@ class KK_SP_Widget extends WP_Widget {
 	public function update( $new, $old ) {
 		return [
 			'title' => sanitize_text_field( $new['title'] ?? '' ),
-			'limit' => max( 1, min( 8, (int) ( $new['limit'] ?? 4 ) ) ),
+			'limit' => kk_sp_normalize_limit( $new['limit'] ?? 4 ),
 		];
 	}
 }

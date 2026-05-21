@@ -106,6 +106,11 @@ function kk_sp_assert_same( $expected, $actual, $message ) {
 }
 
 $GLOBALS['kk_sp_test_meta'][123]['_wp_attachment_image_alt'] = 'Kris speaking at a packed Vancouver AI meetup.';
+kk_sp_assert_same( 1, kk_sp_normalize_limit( 0 ), 'Limit should never fall below one card.' );
+kk_sp_assert_same( 4, kk_sp_normalize_limit( 4 ), 'Limit should preserve normal values.' );
+kk_sp_assert_same( 8, kk_sp_normalize_limit( 99 ), 'Limit should never exceed eight cards.' );
+kk_sp_assert_same( 1, kk_sp_normalize_limit( 'not-a-number' ), 'Limit should coerce invalid values to one card.' );
+
 kk_sp_assert_same(
 	'Kris speaking at a packed Vancouver AI meetup.',
 	kk_sp_get_image_alt( 123 ),
