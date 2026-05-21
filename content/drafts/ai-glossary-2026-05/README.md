@@ -3,6 +3,20 @@
 Status: editorial draft for GitHub issue #44. Not published. Definitions are plain-language starters for review, not final authority. Terms touching Indigenous governance, law, culture, rights, and protocol need KK and subject-matter review before publication.
 
 Target page: `/glossary/`
+Term count: 69
+
+## Review Status
+
+This draft is ready for editorial and SME review, not direct publication. The general AI definitions can move into WordPress after a normal copyedit. The Indigenous governance, rights, protocol, and cultural terms must be reviewed with KK and appropriate subject-matter sources before any public page treats them as settled language.
+
+Current acceptance coverage:
+
+- 50+ terms: met with 69 draft terms.
+- Alphabetical: met by letter sections and terms sorted within each section.
+- Searchable: content is structured for an accessible in-page filter; implementation is still a publisher task.
+- Internal links: draft includes a related-reading module and post-publication link map.
+- Mobile: draft avoids tables and long multi-column layouts.
+- SEO: title, meta description, slug, excerpt, and schema notes are drafted below.
 
 ## Draft Page Copy
 
@@ -11,6 +25,18 @@ Target page: `/glossary/`
 AI conversations get hard to enter when every sentence assumes you already know the vocabulary. This glossary is a plain-language bridge for readers of KrisKrug.co, especially people arriving through posts about creative AI, local AI, data centres, Indigenous governance, public-interest technology, and community accountability.
 
 The goal is not to flatten complex ideas. The goal is to give newcomers enough context to keep reading, ask better questions, and notice when a term is being used too loosely.
+
+## Related Reading
+
+- [AI Services, Training & Strategy](/generative-ai-services/)
+- [About Kris Krug](/about/)
+- [Web Summit Vancouver 2026](/2026/05/07/web-summit-vancouver-2026/)
+- [Calling Us All In](/2026/05/14/calling-us-all-in/)
+- [Reconciliation & Indigenous Land Acknowledgement](/reconciliation-indigenous-land-acknowledgement/) - include only after the sensitive-term review is complete.
+
+## Browse by Letter
+
+[A](#a) | [B](#b) | [C](#c) | [D](#d) | [E](#e) | [F](#f) | [G](#g) | [H](#h) | [I](#i) | [L](#l) | [M](#m) | [O](#o) | [P](#p) | [R](#r) | [S](#s) | [T](#t) | [U](#u) | [V](#v) | [W](#w)
 
 ## A
 
@@ -142,11 +168,11 @@ The goal is not to flatten complex ideas. The goal is to give newcomers enough c
 
 ## R
 
-**Retrieval-augmented generation (RAG):** A method where an AI system retrieves relevant documents or data before generating an answer, making it easier to cite sources and use current context.
-
 **Reconciliation:** The ongoing work of repairing relationships and systems shaped by colonialism. In technology work, this should include material commitments, governance, accountability, and respect for Indigenous rights.
 
 **Red teaming:** Testing a system by trying to make it fail, break rules, expose vulnerabilities, or produce harmful outputs.
+
+**Retrieval-augmented generation (RAG):** A method where an AI system retrieves relevant documents or data before generating an answer, making it easier to cite sources and use current context.
 
 **Rights holder:** A person, people, or Nation with legal, inherent, or recognized rights affected by a decision. Rights holders require a different level of respect and authority than general stakeholders.
 
@@ -188,6 +214,74 @@ The goal is not to flatten complex ideas. The goal is to give newcomers enough c
 
 **Workflow automation:** Software that connects steps in a process so repeated work can happen with less manual effort. Good automation should still keep accountability clear.
 
+## SEO Metadata
+
+- Page title: `AI Glossary`
+- SEO title: `AI Glossary | Kris Krug`
+- Target slug: `/glossary/`
+- Meta description: `Plain-language definitions for AI, local technology, data governance, Indigenous governance, and creative AI terms used on KrisKrug.co.`
+- Social title: `AI Glossary | Kris Krug`
+- Social description: `A plain-language field guide to AI terms, community technology language, and governance concepts used across KrisKrug.co.`
+- Suggested excerpt: `Plain-language definitions for the AI, local technology, data governance, Indigenous governance, and creative AI terms that show up across KrisKrug.co.`
+- Suggested focus keyphrase: `AI glossary`
+- Suggested secondary keyphrases: `AI terminology`, `generative AI glossary`, `local AI`, `data governance`, `Indigenous data sovereignty`
+- Suggested schema: `WebPage` plus `BreadcrumbList`. Do not add `DefinedTermSet` schema until sensitive terms are reviewed and source attribution is settled.
+
+## Accessibility and Mobile Notes
+
+- Use one H1 only: `AI Glossary`.
+- Use letter sections as H2s.
+- Use a definition list, term heading plus paragraph blocks, or equivalent semantic blocks. Do not use a dense table.
+- Add a visible label for the glossary search input, for example `Search glossary terms`.
+- Keep the search/filter usable by keyboard, screen readers, and mobile touch.
+- Do not hide all terms by default; the full glossary should remain readable when JavaScript is disabled.
+- If a filter is added, announce the result count in an `aria-live="polite"` region.
+- Avoid fixed-width layouts. Long terms such as `retrieval-augmented generation` and `free, prior and informed consent` must wrap without horizontal scrolling.
+- Check the page at mobile widths before publication.
+
+## Search Implementation Brief
+
+Preferred MVP: add a small in-page filter above the A-Z links. It should filter by term name and definition text, leave anchor links intact, and show a clear no-results state. Browser find or the site-wide WordPress search is not enough to call issue #44 fully complete unless KK explicitly accepts that narrower interpretation.
+
+Publisher acceptance for search:
+
+- Typing `data` shows terms such as `Data centre`, `Data governance`, `Data sovereignty`, `Indigenous data sovereignty`, and `Training data`.
+- Typing `rights` shows `Free, prior and informed consent (FPIC)`, `Indigenous rights holder`, `Rights holder`, and related definitions where the word appears.
+- Typing a term with punctuation, such as `RAG`, still finds `Retrieval-augmented generation (RAG)`.
+- Clearing the input restores the full A-Z glossary.
+
+## Sensitive-Term Review Queue
+
+Do not publish these as final definitions without KK/SME review, source checks, and attribution where appropriate:
+
+- `Community benefits agreement`
+- `Consent`
+- `Consultation`
+- `Data sovereignty`
+- `Digital colonialism`
+- `Free, prior and informed consent (FPIC)`
+- `Host Nation`
+- `Indigenomics`
+- `Indigenous AI`
+- `Indigenous data sovereignty`
+- `Indigenous governance`
+- `Indigenous rights holder`
+- `OCAP`
+- `Reconciliation`
+- `Rights holder`
+- `Self-determination`
+- `Sovereign AI`
+- `Traditional knowledge`
+- `Two-Eyed Seeing`
+- `Unceded territory`
+
+Review questions:
+
+- Does each term use language that the relevant Nation, organization, or framework would recognize?
+- Does any definition blur legal rights, inherent rights, cultural protocol, and general stakeholder engagement?
+- Are source links needed inside the public page, in a footnote section, or in editor notes?
+- Should any term be removed, narrowed, or moved to a separate Indigenous governance glossary?
+
 ## Editorial Review Notes
 
 - This draft includes more than 50 terms to satisfy the issue acceptance criterion while leaving room to cut or merge terms during editorial review.
@@ -195,7 +289,7 @@ The goal is not to flatten complex ideas. The goal is to give newcomers enough c
 - Consider adding short source links for FPIC, OCAP, Two-Eyed Seeing, Indigenous data sovereignty, and land/territory language.
 - Decide whether this should be a general glossary or a narrower "AI, community, and Indigenous governance glossary."
 - Keep the page plain. Avoid dense tables so the page stays mobile friendly and screen-reader friendly.
-- If "searchable" means strict in-page filtering, scope a small accessible search/filter enhancement after the editorial content is approved. A-Z anchors plus browser/site search may be enough for the first draft, but issue #44 should confirm the expectation.
+- Treat accessible in-page filtering as the recommended interpretation of "searchable" unless KK explicitly accepts browser/site search as the MVP.
 
 ## Suggested Internal Links After Publication
 
@@ -204,18 +298,21 @@ The goal is not to flatten complex ideas. The goal is to give newcomers enough c
 - Link `local AI`, `model`, `open weights`, `RAG`, and `vector database` from posts about local AI stacks and creative workflows.
 - Link `reconciliation`, `unceded territory`, `Host Nation`, and `Traditional knowledge` from the reconciliation page only after review.
 - Link from `/generative-ai-services/`, `/about/`, `/blog/`, and future AI education pages if KK wants the glossary to become a permanent reader aid.
+- Add reciprocal links from the glossary back to the highest-value internal pages listed in the Related Reading section.
 
 ## Publication Checklist
 
 - [ ] Confirm the page title: `AI Glossary`.
 - [ ] Confirm target slug `/glossary/` is available.
+- [ ] Confirm final term count after editorial cuts remains 50 or higher.
 - [ ] Review all Indigenous, legal, and governance terms with appropriate sources or reviewers.
 - [ ] Add A-Z anchor links at the top of the WordPress page.
-- [ ] Decide whether to ship MVP search via browser/site search or build an accessible in-page filter.
+- [ ] Build or explicitly waive accessible in-page search/filter.
 - [ ] Use semantic headings only: one H1, then letter sections as H2s.
 - [ ] Avoid tables; use definition list or heading plus paragraph blocks.
 - [ ] Add SEO title: `AI Glossary | Kris Krug`.
 - [ ] Add meta description: `Plain-language definitions for AI, local technology, data governance, Indigenous governance, and creative AI terms used on KrisKrug.co.`
+- [ ] Add internal related-reading links.
 - [ ] Check mobile layout with long terms such as `retrieval-augmented generation`.
 - [ ] Run accessibility checks on the draft page before publishing.
 - [ ] Add internal links from relevant pages and posts after publication.
