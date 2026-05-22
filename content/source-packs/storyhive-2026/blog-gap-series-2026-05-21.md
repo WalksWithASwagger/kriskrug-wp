@@ -313,7 +313,13 @@ Created 2026-05-21:
 - `content/drafts/2026-05-21-i-wont-fake-the-people-who-showed-up/`
 - `content/drafts/2026-05-21-speak-it-into-existence-ai-voice-first-workflows/`
 
-Each package includes `post.md`, `seo-meta.md`, `internal-links.md`, and `publish-gate.md`. They are draft-only and should not be published until the Track A backup/restore proof gate is clear.
+Each package includes `post.md`, `seo-meta.md`, `internal-links.md`, and `publish-gate.md`. Private WordPress drafts were created on 2026-05-22 for review:
+
+- `The 75% Rule` - WP draft `11876`, edit URL: <https://kriskrug.co/wp-admin/post.php?post=11876&action=edit>
+- `I Won't Fake The People Who Showed Up` - WP draft `11877`, edit URL: <https://kriskrug.co/wp-admin/post.php?post=11877&action=edit>
+- `Speak It Into Existence` - WP draft `11878`, edit URL: <https://kriskrug.co/wp-admin/post.php?post=11878&action=edit>
+
+Do not publish until KK review and the public-write backup posture are cleared.
 
 ## First Three Draft Briefs
 

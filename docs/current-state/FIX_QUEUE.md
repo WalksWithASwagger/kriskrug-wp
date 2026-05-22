@@ -5,11 +5,11 @@
 
 Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these first. Items list dependencies so we don't get tripped up.
 
-**Hard prerequisite for everything below**: a working backup (see [BACKUP_PLAN.md](BACKUP_PLAN.md)). Don't apply P0 until at least one verified backup exists.
+**Hard prerequisite for production-visible or destructive changes below**: a working backup (see [BACKUP_PLAN.md](BACKUP_PLAN.md)). Private, create-only WordPress drafts may proceed for review after dry-run, slug, category, and draft-status checks.
 
 ## 2026-05-20 live-state addendum
 
-- Keep P0.1 as the hard gate. No production writes until backup and restore proof exist.
+- Keep P0.1 as the hard gate for public publish, existing-content updates, destructive cleanup, plugin/theme/schema/robots changes, media-heavy imports, bulk writes, and any `--update` run. Private create-only drafts for review are temporarily unblocked after dry-run and slug checks.
 - Use `make backup-check BACKUP_DIR=backup/YYYY-MM-DD STRICT=1` as the mechanical gate check. `backup/2026-05-16/` is useful but not sufficient because uploads were skipped and no restore drill is documented.
 - P0.2 is still open: `/llms.txt` currently returns `404`.
 - P0.3 has changed status: public HTML on homepage, About, Work, and Speaking now includes JSON-LD, so schema appears deployed through the Code Snippets path represented by `fixes/schema-snippets-deployed.php`. Verify in wp-admin before changing schema; do not blindly deploy `schema-snippets.php` over it.
@@ -22,13 +22,13 @@ Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these 
 
 ## P0 — do these first (high impact, low effort)
 
-### P0.1 — Take and verify the first full backup [**🚨 HARD PREREQUISITE — INCIDENT 2026-05-15**]
-- **Why:** Every change below modifies production. Nothing else ships until this lands. We *just* lived through what happens without it — see [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md). The post was recoverable only because we had the Notion source; without that, the content would be permanently lost.
+### P0.1 — Take and verify the first full backup [**PUBLIC/DESTRUCTIVE WRITE GATE — INCIDENT 2026-05-15**]
+- **Why:** Public changes and destructive edits below modify production. They should not ship until this lands. We *just* lived through what happens without it — see [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md). The post was recoverable only because we had the Notion source; without that, the content would be permanently lost.
 - **Path:** UpdraftPlus (via wp-admin) → download archive → drop in `backup/YYYY-MM-DD/` → restore drill into Local by Flywheel.
 - **Effort:** 1–2 hours.
 - **Dependencies:** none.
 - **Done when:** `backup/YYYY-MM-DD/` contains DB + themes + plugins + uploads archive AND `manifest.md` AND a `restore-notes.md` proving local restore works.
-- **Blocks:** every other production-modifying task in this queue.
+- **Blocks:** every public publish, existing-content update, destructive cleanup, plugin/theme/schema/robots change, media-heavy import, bulk write, or `--update` run in this queue. Does not block private create-only draft review runs with dry-run and slug checks.
 
 ### P0.2 — Add `llms.txt` at site root
 - **Why:** Zero-cost AI-discoverability win. Curated map for ChatGPT, Claude, Perplexity browsing.

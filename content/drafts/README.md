@@ -27,13 +27,20 @@ For live status, verify against WordPress directly:
 curl -ILs https://kriskrug.co/<path>/ | sed -n '1,8p'
 ```
 
-## Minimum safety steps before live publish
+## Minimum safety steps before private WP draft creation
 
 1. Run connector `--dry-run` first.
-2. Confirm slug and title are the intended target.
+2. Confirm the slug is a create-only target and the title is intentional.
 3. Review excerpt/meta, categories/tags, and internal links.
-4. Confirm image rights + alt text quality.
-5. Use backup/page-snapshot discipline from `docs/current-state/BACKUP_PLAN.md`.
+4. Keep status as `draft`; do not publish from the first live run.
+5. Confirm image rights + alt text quality, or keep the draft image-free.
+6. Record the WP post ID and edit URL in the draft package.
+
+## Minimum safety steps before live publish or update
+
+1. KK has reviewed the WordPress draft.
+2. Slug, title, excerpt/meta, categories/tags, links, and media are final.
+3. Backup/page-snapshot discipline from `docs/current-state/BACKUP_PLAN.md` is satisfied.
 
 ## Quick readiness checklist (per draft)
 

@@ -1,7 +1,7 @@
 # Fixes vs Live State Reconciliation - 2026-05-20
 
 **Purpose:** Prevent duplicate, stale, or conflicting deploys from `fixes/` after the May 2026 content and schema work.
-**Rule:** This is a repo-side audit only. Production changes still require the backup gate in `BACKUP_PLAN.md` and `FIX_QUEUE.md`.
+**Rule:** This is a repo-side audit only. Public publish, existing-content updates, destructive cleanup, plugin/theme/schema/robots changes, media-heavy imports, bulk writes, and `--update` runs still require the backup gate in `BACKUP_PLAN.md` and `FIX_QUEUE.md`. Private create-only drafts for review can proceed under the temporary dry-run and slug-check unblock.
 
 ## Current live checks
 

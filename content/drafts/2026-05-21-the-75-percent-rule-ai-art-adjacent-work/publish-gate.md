@@ -1,6 +1,12 @@
 # Publish Gate - The 75% Rule
 
-**Status:** draft package only. Not ready for live WordPress publish.
+**Status:** private WordPress draft created for review. Not ready for live WordPress publish.
+
+## WordPress Draft
+
+- WP draft ID: `11876`
+- Edit URL: <https://kriskrug.co/wp-admin/post.php?post=11876&action=edit>
+- Verified readback: status `draft`, slug `the-75-percent-rule-ai-art-adjacent-work`
 
 ## Human Review
 
@@ -19,11 +25,11 @@
 
 ## WordPress Safety
 
-- [ ] Track A backup/restore proof gate is cleared.
-- [ ] Run Notion/WP connector with `--dry-run` first.
-- [ ] Confirm slug match is create-only or explicitly intended.
-- [ ] Confirm title, slug, excerpt, categories, tags, and metadata before live publish.
-- [ ] Capture or reference a rollback/page snapshot before any production write.
+- [x] Create a private WP draft only; do not publish from the first live run.
+- [x] Run Notion/WP connector or local publisher dry-run first.
+- [x] Confirm slug match is create-only.
+- [x] Confirm title, slug, excerpt, categories, tags, and metadata before draft creation.
+- [ ] Capture or reference a rollback/page snapshot before public publish or any existing-content update.
 
 ## Media
 

@@ -38,7 +38,7 @@ Use this before assigning agents:
 
 ## Roadmap Issues Added
 
-- `#95` `[CONTENT P0] Clear backup gate and create private AI media appearances WP draft` - blocked until a fresh full-site backup is available.
+- `#95` `[CONTENT P0] Clear backup gate and create private AI media appearances WP draft` - private create-only draft work can proceed after dry-run and slug checks; public publish or existing-content updates remain blocked until a fresh full-site backup is available.
 - `#96` `[AURORA P1] Refresh review packet and smoke artifacts after #87 merge` - closed after the refreshed review packet landed.
 - `#97` `[QUEUE P2] Reconcile Aurora and legacy design issues after rewrite recovery` - closed after the legacy routing decision was recorded.
 - `#98` `[DOCS] Refresh Aurora issue-swarm handoff after #87 merge` - closed after repo-local handoff docs were refreshed.
@@ -52,7 +52,7 @@ Goal: remove ambiguity before implementation.
 
 - Normalize canonical issue mappings (old design tickets to Aurora epics).
 - Mark issues as `swarm-ready` vs `swarm-parked`.
-- Keep `#23`, `#75`, and `#95` explicitly blocked for human review or backup proof.
+- Keep `#23`, `#75`, and public/destructive parts of `#95` explicitly blocked for human review or backup proof. Private create-only draft review can proceed with dry-run and slug checks.
 - Keep branch cleanup evidence in the handoff before deleting more refs.
 
 Primary issues:
@@ -139,7 +139,7 @@ Done when:
 
 - Each issue has a narrow proof artifact or patch.
 - Any broad/refactor-shaped scope is split into smaller follow-up issues.
-- No lane performs a live WordPress write before the backup/restore proof gate passes.
+- No lane performs public publish, existing-content updates, destructive cleanup, plugin/theme/schema/robots changes, media-heavy imports, bulk writes, or `--update` before the backup/restore proof gate passes. Private create-only drafts for review are allowed with dry-run and slug checks.
 
 ### Lane 6 - Duplicate and shipped-scope reconciliation
 
@@ -171,5 +171,5 @@ Note: `auto-implement` is now a historical intent label only. `agent-pr-generato
 
 - Legacy design issues `#24-#35` remain open but routed; they are not standalone build targets.
 - `docs/current-state/AURORA-ISSUE-SWARM-2026-05-19.md` now reflects Wave 1/2/3 progress through PRs `#93/#94/#100/#101/#102/#103/#104/#105/#106`.
-- Media appearances are parked in `#95` until the fresh full-site backup gate is cleared; see `APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`.
+- Media appearances in `#95` are unparked for private create-only draft review after dry-run and slug checks; public publish or existing-content updates remain gated. See `APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md` for the older blocked state.
 - PR `#113` satisfies the Feature/category routing slice of the publishing-trust gate, but `#75` remains open for credential, scan, backup, inventory, and publish sign-off evidence.

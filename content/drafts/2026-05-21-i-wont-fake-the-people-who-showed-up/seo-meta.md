@@ -30,4 +30,4 @@ AI can help around documentary work: search the archive, draft captions, pull cl
 - Select a real KK documentary/photo image, not generated community imagery.
 - Replace the local relative link to `The 75% Rule` with the live URL after publish.
 - Confirm source note is retained or converted to editorial metadata.
-- Do not publish until the current Track A backup/restore proof gate is cleared.
+- Create the private WP draft after dry-run and create-only slug checks. Do not publish until KK review and the public-write backup posture are cleared.

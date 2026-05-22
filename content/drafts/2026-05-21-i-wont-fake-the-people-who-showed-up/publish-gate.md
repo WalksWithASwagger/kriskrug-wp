@@ -1,6 +1,12 @@
 # Publish Gate - I Won't Fake The People Who Showed Up
 
-**Status:** draft package only. Not ready for live WordPress publish.
+**Status:** private WordPress draft created for review. Not ready for live WordPress publish.
+
+## WordPress Draft
+
+- WP draft ID: `11877`
+- Edit URL: <https://kriskrug.co/wp-admin/post.php?post=11877&action=edit>
+- Verified readback: status `draft`, slug `i-wont-fake-the-people-who-showed-up`
 
 ## Human Review
 
@@ -18,11 +24,12 @@
 
 ## WordPress Safety
 
-- [ ] Track A backup/restore proof gate is cleared.
-- [ ] Run Notion/WP connector with `--dry-run` first.
-- [ ] Confirm title, slug, excerpt, categories, tags, and metadata before live publish.
+- [x] Create a private WP draft only; do not publish from the first live run.
+- [x] Run Notion/WP connector or local publisher dry-run first.
+- [x] Confirm slug match is create-only.
+- [x] Confirm title, slug, excerpt, categories, tags, and metadata before draft creation.
 - [ ] Replace draft-local relative link with live URL.
-- [ ] Capture or reference a rollback/page snapshot before any production write.
+- [ ] Capture or reference a rollback/page snapshot before public publish or any existing-content update.
 
 ## Media
 

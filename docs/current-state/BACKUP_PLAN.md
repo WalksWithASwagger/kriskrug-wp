@@ -1,13 +1,15 @@
 # Backup Plan — Getting a Full Local Copy of kriskrug.co
 
-**Goal:** before any modification touches production, we have a local archive sufficient to rebuild the site from scratch.
+**Goal:** before public, destructive, or existing-content modifications touch production, we have a local archive sufficient to rebuild the site from scratch.
 
-## 2026-05-21 gate status
+## 2026-05-22 gate status
 
-The repo has a local UpdraftPlus archive set from 2026-05-16 in `backup/2026-05-16/` with database, plugins, themes, mu-plugins, and other `wp-content` files. That set has checksums and a tracked manifest, but it is **not enough to reopen production writes** because:
+The repo has a local UpdraftPlus archive set from 2026-05-16 in `backup/2026-05-16/` with database, plugins, themes, mu-plugins, and other `wp-content` files. That set has checksums and a tracked manifest, but it is **not enough to reopen public/destructive production writes** because:
 
 - the 13 GB uploads archive was skipped and is only accounted for in the manifest;
 - no `restore-notes.md` exists yet proving a local restore drill.
+
+Temporary unblock: private, create-only WordPress drafts may be created for review without strict backup/restore proof when the publisher uses dry-run first, verifies the slug as create-only, keeps status as `draft`, and records the WP edit URL. This exception exists only to unblock draft review. It does not cover public publish, updating existing content, destructive cleanup, plugin/theme/schema/robots changes, media-heavy imports, bulk writes, or any `--update` run.
 
 Use this command to inspect an archive set without claiming the production-write gate is satisfied:
 
@@ -15,13 +17,13 @@ Use this command to inspect an archive set without claiming the production-write
 make backup-check BACKUP_DIR=backup/2026-05-16
 ```
 
-Use strict mode for the actual gate before live WordPress changes:
+Use strict mode for the actual gate before public/destructive live WordPress changes:
 
 ```bash
 make backup-check BACKUP_DIR=backup/YYYY-MM-DD STRICT=1
 ```
 
-Strict mode must pass before `/llms.txt`, robots, homepage H1/alt, Work metadata, sidebar promo deploy, schema migration, or Notion-to-WP production writes.
+Strict mode must pass before `/llms.txt`, robots, homepage H1/alt, Work metadata, sidebar promo deploy, schema migration, public publish, updating existing content, destructive cleanup, media-heavy imports, bulk writes, or any Notion-to-WP `--update` run.
 
 ## The four pieces of a real WordPress backup
 
