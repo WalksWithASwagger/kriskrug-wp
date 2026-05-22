@@ -157,3 +157,21 @@ The older WordPress admin draft queue remains untriaged. Do not treat it as a sc
 6. Repeat for the next StoryHive post after the first one proves the improved pipeline.
 
 Do not batch-create more WP drafts until one draft has gone all the way from local source to preview-approved schedule.
+
+## 2026-05-22 Rescue Pass
+
+After KK review flagged the first StoryHive drafts as weak, the three new StoryHive idea posts were rebuilt and updated in WordPress for review:
+
+- `11876` - `the-75-percent-rule-ai-art-adjacent-work`
+- `11877` - `i-wont-fake-the-people-who-showed-up`
+- `11878` - `speak-it-into-existence-ai-voice-first-workflows`
+
+Review packet:
+
+- [review-ready-drafts-2026-05-22.md](../../content/source-packs/storyhive-2026/review-ready-drafts-2026-05-22.md)
+
+Process improvement:
+
+- Added `scripts/notion-to-wp/prepare_review_draft.py`.
+- The script generates Gutenberg block HTML from local `post.md`, writes `post.html`, checks minimum words/links/images/private markers/weak AI-copy phrases, and can update an existing WP draft only after slug, draft-status, and title checks.
+- This is now the required path for local markdown drafts before WordPress review.

@@ -1,12 +1,13 @@
 # Publish Gate - The 75% Rule
 
-**Status:** private WordPress draft created for review. Not ready for live WordPress publish.
+**Status:** rebuilt and updated in WordPress for KK review. Not ready for live WordPress publish.
 
 ## WordPress Draft
 
 - WP draft ID: `11876`
 - Edit URL: <https://kriskrug.co/wp-admin/post.php?post=11876&action=edit>
 - Verified readback: status `draft`, slug `the-75-percent-rule-ai-art-adjacent-work`
+- Verified readback after rebuild: 1,745 rendered words, 8 links, 1 inline image, 110 WordPress blocks, featured media `11838`
 
 ## Human Review
 
@@ -29,11 +30,14 @@
 - [x] Run Notion/WP connector or local publisher dry-run first.
 - [x] Confirm slug match is create-only.
 - [x] Confirm title, slug, excerpt, categories, tags, and metadata before draft creation.
+- [x] Rebuilt from stronger StoryHive/source-spine copy.
+- [x] Generated Gutenberg block HTML via `scripts/notion-to-wp/prepare_review_draft.py`.
+- [x] Updated existing WP draft only after slug/status/title checks.
 - [ ] Capture or reference a rollback/page snapshot before public publish or any existing-content update.
 
 ## Media
 
-- [ ] Select featured image.
-- [ ] Confirm image rights.
-- [ ] Write real alt text.
+- [x] Select featured image.
+- [x] Confirm image is existing WP media.
+- [x] Write real alt text.
 - [ ] Avoid generated fake documentary imagery.

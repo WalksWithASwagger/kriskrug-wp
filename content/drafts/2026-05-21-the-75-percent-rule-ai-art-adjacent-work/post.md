@@ -1,5 +1,5 @@
 ---
-title: "The 75% Rule: Automate The Art-Adjacent, Protect The Art"
+title: "The 75% Rule: Send AI After The Art-Adjacent Work"
 slug: the-75-percent-rule-ai-art-adjacent-work
 post_date: '2026-05-21'
 status: draft
@@ -13,188 +13,223 @@ tags:
 - Both Hands Full
 - Artist Workflows
 - Responsible AI
-featured: false
-excerpt: Most artists do not need AI to replace the sacred center of the work. They need it to attack the admin sludge around the work so more time, attention, and care can go back into the art.
+featured: true
+featured_media_id: 11838
+excerpt: Most artists do not need AI to replace the art. They need it to attack the admin sludge, archive chaos, file naming, captioning, clip pulling, CRM wrangling, and proposal boilerplate that keeps them from the art.
 seo:
   meta_title: "The 75% Rule: AI For Artists | Kris Krug"
-  meta_description: "A practical AI rule for artists and creative pros: automate the art-adjacent work first, protect the human craft, and keep documentary truth intact."
+  meta_description: "A practical AI rule for artists and creative pros: send AI after the art-adjacent work first, protect the human craft, and keep documentary truth intact."
 source_pack:
   analysis: content/source-packs/storyhive-2026/blog-gap-series-2026-05-21.md
   kb_recap: /Users/kk/Code/notion-local/kk-ai-ecosystem/content/media/interviews/2026-05-20-storyhive-on-location-victoria-recap.md
   kb_transcript: /Users/kk/Code/notion-local/kk-ai-ecosystem/content/media/interviews/2026-05-20-storyhive-on-location-victoria-transcript.md
 ---
 
-The first thing I tell artists about AI is boring on purpose:
+The first time Midjourney really got its hooks in me, I was not sitting in some sterile innovation lab with a branded lanyard and a tiny muffin.
 
-Do not start by replacing the art.
+I was on Galiano. Greenhouse energy. End of 2022. A friend showed me this weird Discord image machine while we were supposed to be doing something practical with distillery hardware, because apparently that is how the future likes to arrive now: sideways, in work boots, when you are already late for something else.
 
-Start by murdering the spreadsheet.
+Ten minutes later I knew two things.
 
-Start with the filenames, the captions, the invoices, the CRM, the archive, the grant boilerplate, the show notes, the clip list, the deck you have rebuilt from scratch twelve times because somehow every festival, funder, client, school, agency, and "quick opportunity" needs the same story in a slightly different costume.
+First: the client pre-viz part of professional photography was never going back in the box. If I could sketch the visual direction before booking the crew, renting the gear, wrangling the schedule, feeding the humans, and burning a day of everybody's life, why would I not do that?
 
-That is where the bodies are buried.
+Second: the tool was not coming for the sacred center first.
 
-Not in the painting. Not in the portrait. Not in the weird little sentence that finally lands after three hours of pacing around the kitchen. Not in the moment when a real person stands in front of your lens and trusts you enough to be seen.
+It was coming for the orbit.
 
-The first good use of AI for most working artists is not "make me more art."
+The budgets. The creative briefs. The contact sheets. The captions. The invoices. The image archive that has one perfect photo in it and a filename like `DSC_4837-final-final-realfinal.jpg` because past-you was clearly living through something.
 
-It is "help me survive the part of being an artist that keeps me from making the art."
+That is where I want artists to start.
+
+Not with "make me more art."
+
+With: "help me survive the work around the art so I can get back to the art with my soul still attached."
 
 That is the 75% Rule.
 
-## The Sacred Center And The Sludge Ring
+![AI Is a Mirror slide from Kris Krug's Both Hands Full keynote](https://kriskrug.co/wp-content/uploads/2026/05/12-ai-is-a-mirror.jpg)
 
-I do not mean 75% as a peer-reviewed statistic. I mean it as a working artist's weather report.
+## 75% Is Not A Statistic. It Is A Weather Report.
 
-Take any artist, photographer, filmmaker, designer, musician, writer, or creative technologist and look at the actual week. Not the romantic version. The actual one.
+Please do not cite me in a grant application as if "75%" came down from a peer-reviewed mountain wearing a lab coat.
 
-How much time is spent making the thing?
+I mean it like a working artist means it after looking at the week honestly.
 
-How much time is spent around the thing?
+How much time did you spend making the thing?
 
-The around-the-thing work is enormous. Tagging images. Titling selects. Finding the photo from that one night where the lighting was magic and the person's name is on the tip of your tongue but your folder structure was designed by a sleep-deprived version of you from 2019. Writing the same bio again. Making the invoice. Answering the email. Building the sponsor deck. Pulling quotes from the transcript. Turning the workshop into a recap. Turning the recap into social posts. Turning the social posts into proof that the event mattered.
+How much time did you spend making the thing findable, fundable, explainable, invoiceable, captionable, archivable, shareable, defensible, legible to a client, legible to a funder, legible to a search engine, legible to your future self at 11:48 p.m. trying to remember who that brilliant person in the red jacket was?
+
+That second pile is huge.
+
+For photographers, it is selects, metadata, releases, caption drafts, gallery delivery, client notes, archive search, usage reminders, and the eternal psychic violence of renaming files one by one like a medieval monk with Lightroom presets.
+
+For musicians, it is stems, set lists, tour blurbs, grant language, show notes, release plans, lyrics in twelve formats, and the little admin swamp between "song exists" and "people can actually hear it."
+
+For filmmakers, it is transcripts, paper edits, B-roll lists, clip pulls, rights notes, continuity checks, festival bios, pitch decks, and the twenty-seven versions of the same synopsis required by every platform on earth.
+
+For writers, designers, dancers, curators, educators, and artists who make strange hybrid things nobody has named yet, same story. Different costume.
 
 That is art-adjacent work.
 
-And art-adjacent work is not fake work. It is not beneath us. It is how the art travels, gets funded, gets remembered, gets found, gets taught, gets booked, gets cited, gets paid for, gets invited back.
+It is not fake work. It is not beneath us. It is how the work travels, gets paid for, gets remembered, gets taught, gets booked, gets cited, and gets invited back.
 
-But it can eat the whole damn practice if you let it.
+It can also eat the whole damn practice if you let it.
 
-AI is very good at eating that kind of work back.
+So let the machine chew there first.
 
-Good. Let it.
+## Do Not Send The Robot Into The Ceremony First
 
-## Protect The Art First
+The dumb AI move is to look at a creative practice and immediately ask, "Which human can we replace?"
 
-Here is where people get the conversation twisted.
+Gross. Also lazy. Also usually bad business if you have to keep trust after the invoice clears.
 
-If I am documenting a community gathering, I am not going to generate fake portraits of people who were not there.
+The better question is:
 
-I am not going to replace a real portrait of a real community member with a synthetic face that looks "close enough."
+Where is the drag?
 
-I am not going to pretend an AI-generated crowd shot is documentary evidence.
+Where is the repeating task?
 
-That is not innovation. That is a trust leak wearing a novelty hat.
+Where is the same paragraph being rewritten for the eighth portal?
 
-Documentary work is not just output. It is witness. It is presence. It is consent, timing, attention, relationship, and the strange little moral weight of having been in the room when the room changed.
+Where is the archive trying to help but buried under bad naming, missing tags, and folder structures designed by a version of you who had not eaten dinner?
 
-The camera is not valuable because it makes pixels. The camera is valuable because someone showed up with a body, an eye, a responsibility, and enough patience to catch the truth as it flickered past.
+Where is the creative energy leaking out before it reaches the actual work?
 
-AI can help around that. Hell yes.
+AI is useful there. Wildly useful.
 
-It can help search the archive. It can help identify recurring faces, if the consent and privacy context is right. It can help draft captions. It can help build a contact sheet. It can help turn a transcript into a useful set of takeaways. It can help find the forgotten quote that should have been the headline all along.
+Use it to find the forgotten photo.
 
-But it does not get to fake the human beings who trusted us by showing up.
+Use it to summarize the three-hour transcript.
 
-That is the line.
+Use it to pull the five clips worth cutting.
 
-## The Better First Question
+Use it to draft the sponsor recap.
 
-The lazy question is: "Will AI replace artists?"
+Use it to compare the last ten artist statements and tell you what you keep repeating because you probably mean it.
 
-The better question is: "Which parts of my creative life are asking to be protected from automation, and which parts are begging for help?"
+Use it to build the CRM, tag the archive, prepare the shot list, draft the alt text, format the workshop handout, and remind you that the grant deadline is not "next week" in the spiritual sense. It is Tuesday.
 
-Those are different questions. One turns you into a pundit. The other turns you back into a practitioner.
+But do not send it into the sacred center just because you can.
 
-If you are a painter, maybe AI should not touch the mark-making. Maybe it should help with studio inventory, applications, reference sorting, collector notes, and the artist statement you rewrite every time someone asks for it in a new portal.
+Do not replace a portrait of a community member with a synthetic almost-person.
 
-If you are a musician, maybe AI should not write the song that came out of grief, sweat, longing, and the weird physics of a room full of people listening. Maybe it should help organize stems, transcribe rehearsals, draft tour blurbs, build merch copy, or summarize the last ten grant applications so you stop reinventing your own origin story.
+Do not generate fake documentation of a gathering because the deck needs proof and nobody remembered to hire a photographer.
 
-If you are a photographer, maybe AI should not replace the portrait. Maybe it should help find the portrait.
+Do not flatten ceremony into content.
 
-If you are a filmmaker, maybe AI should not invent the elder, the witness, the archive, or the community. Maybe it should help wrangle the transcripts, build the rough paper edit, pull B-roll needs, and find continuity errors before they become expensive.
+Some work is not asking to be optimized. It is asking to be witnessed.
 
-This is not anti-AI.
+## The Sacred Center Is Not Always The Same Place
 
-This is anti-stupid-AI.
+This is why blanket AI advice is mostly garbage with a keynote microphone.
 
-There is a difference, and we should say so more often.
+The sacred center changes by practice.
 
-## A Seven-Day Audit For Your Practice
+For one photographer, the sacred center is the human encounter. For another, it is the edit. For a third, it is the weird post-photographic experiment where the whole point is bending the machine until it tells on itself.
 
-Try this before your next tool demo bender.
+For a musician, the sacred center might be the lyric, the vocal take, the improvised trumpet line, the arrangement, or the private ritual of making noise before the song admits what it is about.
 
-For one week, keep a stupidly honest list of everything you do for your creative practice.
+For a filmmaker, it might be the interview room, the story structure, the edit, the relationship with the subject, or the long boring patience required to not exploit the most dramatic moment just because it cuts well.
 
-Not just the sexy stuff. Especially not the sexy stuff.
+For an educator, it might be the moment a student stops performing competence and asks the real question.
 
-Write down every task that touches the work.
+You have to know your own practice well enough to draw the line.
 
-Then sort it into three buckets.
+That is why I keep coming back to [Both Hands Full](https://kriskrug.co/2026/01/24/both-hands-full/). Curiosity in one hand. Boundaries in the other. The point is not to become a clean little binary for the internet's convenience. The point is to stay capable and accountable at the same time.
 
-**Sacred center:** The stuff that feels alive, embodied, relational, risky, handmade, intuitive, ceremonial, or meaning-heavy. This is where you slow down. This is where you protect the human signal.
+## The Seven-Day Art-Adjacent Audit
 
-**Art-adjacent:** The stuff that helps the work move through the world. Captions, grant drafts, bios, invoices, archive notes, image tags, CRM updates, clip pulls, newsletters, social variants, research, scheduling, decks, proposals, internal summaries.
+Try this before you buy another tool, join another Discord, or ask a chatbot to "make it more viral" like a cursed little intern.
 
-**Trash fire:** The repetitive nonsense that nobody should be doing manually in the year of our weird little machine gods. Duplicate data entry. Reformatting the same paragraph six ways. Hunting for the same link. Renaming files one by one. Copying information from one system into another because two platforms refuse to shake hands like civilized software.
+For seven days, write down every task connected to your practice.
+
+Not just the sexy work.
+
+Especially not the sexy work.
+
+Then sort the list into three buckets.
+
+**Sacred center.** The work that feels alive, relational, embodied, risky, intuitive, ceremonial, meaning-heavy, or actually yours. This is where you slow down.
+
+**Art-adjacent.** The work that helps the art move through the world: titles, captions, proposals, emails, invoices, CRM updates, pitch decks, archive tags, clip lists, bios, newsletters, social variants, research, grant drafts, scheduling, show notes, documentation, and follow-up.
+
+**Trash fire.** Duplicate data entry. Reformatting the same thing six ways. Hunting for the same link. Copy-paste chores between platforms that refuse to shake hands like civilized software. Anything that makes you mutter at a screen while your actual creative life quietly dies in another tab.
 
 Start with the trash fire.
 
-Then move to the art-adjacent work.
+Then the art-adjacent layer.
 
-Leave the sacred center alone until you can explain exactly why the machine belongs there, what it is allowed to do, what it is not allowed to do, and who might be affected if you get it wrong.
+Leave the sacred center alone until you can explain why the machine belongs there, what it is allowed to do, what it is not allowed to do, who benefits, who might be harmed, and how you will label the work honestly.
 
-That is both hands full in practice.
+That is not anti-AI.
 
-One hand holds curiosity and capability.
+That is anti-stupid-AI.
 
-The other hand holds boundaries.
+There is a difference.
 
-## The Archive Wants To Help You
+## Your Archive Already Knows Things About You
 
-Here is the part that still feels like magic to me.
+The best thing AI has done for my creative life is not make a new picture.
 
-If you have been making work in public for years, your archive is not just storage. It is a mirror.
+It has helped me look back at thirty years of public work and ask: what is the pattern here?
 
-Your finished work knows things about you.
+Photos. Captions. Talks. Blog posts. Interviews. Half-built systems. Community docs. Receipts from the open web. A weird little compost pile of everything I have cared about long enough to make public.
 
-Your photos know what kind of light you chase. Your writing knows which arguments keep coming back because you have not finished wrestling them yet. Your talks know which stories still get a room to lean forward. Your sketchbooks know which half-formed idea has been quietly tapping on the window for a decade.
+That archive knows things about me.
 
-AI can help you see those patterns faster.
+It knows what kind of light I chase.
 
-Not perfectly. Not with oracle authority. Do not believe everything you think, and definitely do not believe everything a chatbot says back to you with theatre-kid confidence.
+It knows which arguments keep coming back because I have not finished wrestling them yet.
 
-But as a mirror? As a pattern finder? As a way to ask your own archive, "What am I actually doing here?" That is useful.
+It knows which rooms matter.
 
-The trick is to aim the machine at your own work before you ask it to make new work in your name.
+It knows which words I use when I mean them and which words make me sound like I was trapped overnight in a SaaS booth.
 
-Feed it your talks. Your captions. Your essays. Your selects. Your values. Your refusal lines. Your weird little phrases. Your anti-glossary. The words you use because you mean them and the words you will not use because they smell like corporate anesthesia.
+Pointing AI at your own finished work can be powerful because it gives you something to argue with. Not worship. Not obey. Argue with.
 
-Then ask it what it sees.
+"Who am I?" is a dangerous question to ask a machine if you think it is an oracle.
 
-Then argue with it.
+It is a useful question if you treat the answer like a strange mirror and keep your hand on the wheel.
 
-That argument is part of the art.
+This is where [taste becomes the moat](https://kriskrug.co/2026/05/15/your-taste-is-your-moat/). Not because you can generate infinite options. Because you can recognize which options belong to your actual practice and which ones are wearing your clothes badly.
 
-## The Point Is Not Less Work
+## The Point Is Not A More Efficient Content Factory
 
-The point is not to become a hyper-efficient little content factory.
+Please, no more beige productivity cult.
 
-Please no.
+The world does not need another artist turned into a tiny media company with panic in its eyes and a Notion dashboard where a nervous system used to be.
 
-The world has enough synthetic beige mush. It is piled to the rafters already, smiling at us in brand-safe gradients and LinkedIn carousels.
-
-The point is to get enough of your life back that you can make the work only you can make.
+The point is to get enough of your life back to make the work only you can make.
 
 The work with fingerprints.
 
 The work with weather in it.
 
-The work that remembers where it came from.
-
 The work that required you to be in relationship with people, place, history, body, grief, joy, craft, and time.
 
-AI can absolutely help. It can sharpen the edges of a practice. It can surface lost material. It can reduce admin drag. It can make your archive more alive. It can help a small team operate like a larger one. It can turn a three-hour transcript into a map of what mattered.
+AI can help. I am not pretending otherwise. It can make a small team dangerous. It can turn a transcript into a map. It can help a creative professional stop drowning in production sludge. It can make [culture instead of content](https://kriskrug.co/2026/05/16/make-culture-not-content/) when the human using it still has culture in the loop.
 
-But it should not be allowed to flatten the reason you started making things in the first place.
+But if the tool makes your taste quieter, your boundaries blurrier, or your responsibility lighter, it is not serving the work.
 
-That is the 75% Rule:
+It is replacing the wrong thing.
 
-Automate the art-adjacent.
+The 75% Rule is simple:
+
+Send AI after the art-adjacent work first.
+
+Make the archive searchable.
+
+Make the admin less deadly.
+
+Make the real work easier to find, fund, explain, and share.
+
+Then return to the sacred center with more time, more attention, and fewer tabs open.
+
+Automate the sludge.
 
 Protect the art.
 
-And if the machine comes for the sacred center, make it knock first.
+And if the machine wants to come closer, make it knock first.
 
 ## Related
 
@@ -203,5 +238,3 @@ And if the machine comes for the sacred center, make it knock first.
 - [Why Judgment Beats "Creativity" in the AI Era](https://kriskrug.co/2026/05/15/your-taste-is-your-moat/)
 - [AI Training for Media, PR, and Creative Professionals](https://kriskrug.co/2025/07/08/ai-training-for-media-pr-and-creative-professionals/)
 - [Book an AI keynote or creative AI workshop](https://kriskrug.co/speaking/)
-
-Source note: this draft is based on the local STORYHIVE On Location Victoria interview recap/transcript and the 2026-05-21 StoryHive blog-gap analysis. It intentionally avoids the sensitive personal voice-clone stories and does not publish raw transcript material.
