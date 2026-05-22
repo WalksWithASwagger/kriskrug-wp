@@ -1,29 +1,29 @@
 # Backup Plan — Getting a Full Local Copy of kriskrug.co
 
-**Goal:** before public, destructive, or existing-content modifications touch production, we have a local archive sufficient to rebuild the site from scratch.
+**Goal:** keep a practical backup and rollback discipline for kriskrug.co without blocking ordinary publishing work on strict restore-drill proof.
 
-## 2026-05-22 gate status
+## 2026-05-22 operating status
 
-The repo has a local UpdraftPlus archive set from 2026-05-16 in `backup/2026-05-16/` with database, plugins, themes, mu-plugins, and other `wp-content` files. That set has checksums and a tracked manifest, but it is **not enough to reopen public/destructive production writes** because:
+The strict backup/restore proof gate is retired. Do not use missing restore proof as a blanket blocker for drafts, publish work, small page edits, or other bounded Track A work.
+
+The repo still has a local UpdraftPlus archive set from 2026-05-16 in `backup/2026-05-16/` with database, plugins, themes, mu-plugins, and other `wp-content` files. That set has checksums and a tracked manifest, with two known gaps:
 
 - the 13 GB uploads archive was skipped and is only accounted for in the manifest;
 - no `restore-notes.md` exists yet proving a local restore drill.
 
-Temporary unblock: private, create-only WordPress drafts may be created for review without strict backup/restore proof when the publisher uses dry-run first, verifies the slug as create-only, keeps status as `draft`, and records the WP edit URL. This exception exists only to unblock draft review. It does not cover public publish, updating existing content, destructive cleanup, plugin/theme/schema/robots changes, media-heavy imports, bulk writes, or any `--update` run.
-
-Use this command to inspect an archive set without claiming the production-write gate is satisfied:
+Use this command to inspect an archive set:
 
 ```bash
 make backup-check BACKUP_DIR=backup/2026-05-16
 ```
 
-Use strict mode for the actual gate before public/destructive live WordPress changes:
+Use strict mode only when a task specifically needs restore-drill proof, such as theme activation, bulk destructive cleanup, or a high-blast-radius migration:
 
 ```bash
 make backup-check BACKUP_DIR=backup/YYYY-MM-DD STRICT=1
 ```
 
-Strict mode must pass before `/llms.txt`, robots, homepage H1/alt, Work metadata, sidebar promo deploy, schema migration, public publish, updating existing content, destructive cleanup, media-heavy imports, bulk writes, or any Notion-to-WP `--update` run.
+For ordinary Track A work, use the smallest reliable rollback path: draft-first publishing, exact slug/ID/status checks, page/post snapshots before overwriting existing content, reversible snippets, and live readback after the change.
 
 ## The four pieces of a real WordPress backup
 

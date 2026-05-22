@@ -11,7 +11,7 @@ Recommended excerpt: `KrisKrug.co is working to improve accessibility across cur
 ## Package Boundaries
 
 - This is a Track A editorial page package only.
-- No live WordPress writes are included.
+- WordPress draft creation is allowed after slug checks; public publish still needs review and QA.
 - No footer, menu, theme, plugin, schema, redirect, or production setting changes are included.
 - The statement is intentionally transparent and review-gated. It does not claim full WCAG conformance.
 - The public page should be created as a WordPress draft first, then reviewed before publication.
@@ -133,12 +133,11 @@ Build the WordPress page itself as the accessible reference implementation:
 | Reporting mechanism | Needs human confirmation | Uses `/contact/` as the proposed reporting channel. |
 | Accommodation process | Needs human/legal confirmation | Describes good-faith review and possible alternative formats without committing timing. |
 | Roadmap | Ready for review | Lists practical near-term accessibility improvements. |
-| Footer link | Live task blocked | Add after the page exists and is reviewed. No live WP writes in this lane. |
+| Footer link | Publish task | Add after the page exists, is reviewed, and is published. |
 | Page itself accessible | Ready as build guidance | Plain semantic page requirements are included. Must be verified in WordPress draft before publish. |
 
 ## Publication Checklist
 
-- [ ] Verify backup/snapshot path before editing production WordPress.
 - [ ] Confirm no existing live page, redirect, or menu item already owns `/accessibility/`.
 - [ ] Create the page as a WordPress draft first, not published.
 - [ ] Confirm page title: `Accessibility`.

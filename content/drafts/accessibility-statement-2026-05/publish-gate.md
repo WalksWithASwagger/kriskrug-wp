@@ -1,22 +1,28 @@
 # Accessibility Statement Publish Gate
 
-Status: review-ready local package; do not publish without KK approval and accessibility/legal review as needed.
+Status: private WordPress page draft created; do not publish without KK approval and accessibility/legal review as needed.
 
 Issue: #48 `[A11Y] Create Accessibility Statement`
 Target URL: `/accessibility/`
 Draft source: `content/drafts/accessibility-statement-2026-05/README.md`
 
+## WordPress Draft
+
+- WP page draft ID: `11886`
+- Edit URL: <https://kriskrug.co/wp-admin/post.php?post=11886&action=edit>
+- Verified readback: status `draft`, slug `accessibility`
+
 ## Gate Summary
 
-The accessibility statement package is ready for human review, not live publication. It includes transparent current-status language, known issues, a proposed reporting mechanism, an accommodation process, an accessibility roadmap, footer-link instructions, and page-level accessibility requirements.
+The accessibility statement package is ready for WordPress draft creation and human review, not live publication. It includes transparent current-status language, known issues, a proposed reporting mechanism, an accommodation process, an accessibility roadmap, footer-link instructions, and page-level accessibility requirements.
 
-No live WordPress writes were performed in this lane. The page and footer link remain blocked until the normal Track A backup/restore gate, WordPress draft creation, review, and live QA are complete.
+The strict backup/restore proof gate is retired. Create the WordPress draft after slug checks; add the footer link only after review, publication, and live QA.
 
 ## Acceptance Check
 
 | Requirement | Status | Notes |
 |---|---|---|
-| `/accessibility` statement | Drafted | Page copy is ready for WordPress draft creation at `/accessibility/`. |
+| `/accessibility` statement | Ready for draft creation | Page copy is ready for WordPress draft creation at `/accessibility/`. |
 | Current status | Drafted | Says no independent audit and no full-compliance claim. |
 | Known issues | Drafted | Names current review areas without overstating severity or completeness. |
 | Reporting mechanism | Needs confirmation | Proposed mechanism is the existing contact page. Confirm before publish. |
@@ -32,10 +38,10 @@ No live WordPress writes were performed in this lane. The page and footer link r
 - Legal review if the statement needs jurisdiction-specific compliance language.
 - Publisher review that `/accessibility/` is available and does not collide with an existing page, redirect, menu item, or plugin route.
 
-## WordPress Draft Gate
+## WordPress Draft Checks
 
-- [ ] Backup/restore proof gate is current before live WordPress editing.
-- [ ] Page is created as a private or draft WordPress page before publication.
+- [x] Authenticated slug check confirms no existing `/accessibility/` page collision.
+- [x] Page is created as a private or draft WordPress page before publication.
 - [ ] Slug is exactly `/accessibility/`.
 - [ ] Page title is `Accessibility`.
 - [ ] SEO title is `Accessibility | Kris Krug`.

@@ -185,7 +185,7 @@ Aurora uses rich visuals and animation. That can only ship if performance, acces
 - [ ] Contrast pass covers major components and template surfaces.
 - [ ] Media loading strategy is documented, including hero/poster dimensions and lazy loading.
 - [ ] Console errors are captured and resolved or documented.
-- [ ] Cutover remains blocked until QA passes and backup/rollback gates are ready.
+- [ ] Cutover remains blocked until QA passes and activation rollback gates are ready.
 
 ### References
 

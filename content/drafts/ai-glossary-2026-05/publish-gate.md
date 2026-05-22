@@ -1,10 +1,16 @@
 # AI Glossary Publish Gate
 
-Status: not ready for live WordPress publication.
+Status: private WordPress page draft created; not ready for live WordPress publication.
 
 Issue: #44 `[CONTENT] Create Glossary Page for AI Terminology`
 Target URL: `/glossary/`
 Draft source: `content/drafts/ai-glossary-2026-05/README.md`
+
+## WordPress Draft
+
+- WP page draft ID: `11887`
+- Edit URL: <https://kriskrug.co/wp-admin/post.php?post=11887&action=edit>
+- Verified readback: status `draft`, slug `glossary`
 
 ## Gate Summary
 
@@ -16,7 +22,7 @@ Do not publish until the sensitive-term review is complete or the sensitive term
 
 | Requirement | Status | Notes |
 |---|---|---|
-| `/glossary` page | Blocked | No live WP writes in this lane. Publisher must create the page after backup/restore gate and review. |
+| `/glossary` page | Draft created | Private WordPress draft exists at slug `/glossary/`. Public publish waits for review. |
 | 50+ terms | Ready | Draft has 69 terms before editorial cuts. |
 | Alphabetical | Ready | Letter sections and terms are sorted in-page. |
 | Searchable | Needs build | Recommended MVP is an accessible in-page filter, not just browser find. |

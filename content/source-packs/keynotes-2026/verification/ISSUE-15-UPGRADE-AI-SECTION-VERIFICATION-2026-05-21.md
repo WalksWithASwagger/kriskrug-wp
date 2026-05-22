@@ -9,7 +9,7 @@
 
 ## Decision
 
-Issue #15 is repo-ready for the normal backup/restore and WordPress publish gate, but it should not close yet.
+Issue #15 is repo-ready for the normal target-check, rollback-note, and WordPress publish flow, but it should not close yet.
 
 The local source pack already contains a dedicated `The Upgrade AI` card in the About-page `Current operating roles` section. It names the role as `Co-founder / AI training`, links to `https://www.theupgrade.ai/`, references Peter Bittner, and describes cohorts, custom trainings, resource portals, workshops, team workflows, AI for creative professionals, PR/communications training, and enterprise-ready adoption.
 

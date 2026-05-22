@@ -42,7 +42,7 @@
 | All three roles featured equally | Done | Three same-level cards in the same section. |
 | Mobile responsive | Locally ready | Uses existing auto-fit grid and mobile media query; full browser render still belongs in the live/staging publish pass. |
 | WCAG 2.1 AA | Locally ready | Semantic headings, text-based CTAs, alt text retained, no low-contrast decorative text added; full automated scan belongs in the live/staging render pass. |
-| Updated content ready to publish | Done | Payload is ready for the normal backup/snapshot gate before any WP write. |
+| Updated content ready to publish | Done | Payload is ready for the normal target-check and snapshot/rollback step before any WP write. |
 
 ## Verification
 

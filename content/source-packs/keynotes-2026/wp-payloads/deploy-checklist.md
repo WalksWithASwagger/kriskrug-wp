@@ -8,7 +8,7 @@ Continuation issue: https://github.com/WalksWithASwagger/kriskrug-wp/issues/76
 
 ## Safety Gate
 
-- Complete a fresh full-site backup or get explicit KK approval to proceed with a narrower rollback path.
+- Capture the relevant page snapshots or get explicit KK approval to proceed with a narrower rollback path.
 - Confirm rollback snapshots exist under `backup/20260518-111546/page-snapshots/`.
 - Confirm target page IDs:
   - `1208` -> `/about/`
@@ -42,7 +42,7 @@ Status: prepared, not deployed. See `../verification/HOMEPAGE-HERO-VERIFICATION-
 Status: prepared, not deployed. See `../verification/SERVICES-ROLE-ALIGNMENT-VERIFICATION-2026-05-20.md`.
 
 - `services.html` -> page `2666`, public URL `/generative-ai-services/`
-- Replace the current page content after a fresh live backup or an explicitly approved narrower rollback path.
+- Replace the current page content after a page snapshot or an explicitly approved narrower rollback path.
 - Keep the existing `/generative-ai-services/` slug for this pass; menu label can remain `Services`.
 - Close comments and pings on the page.
 

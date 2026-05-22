@@ -106,7 +106,7 @@ Target: make polish consistent and maintainable.
 Target: safely decide go-live timing.
 
 1. **Staging-to-production checklist**
-   - backup and rollback proof attached
+   - activation rollback proof attached
    - environment parity notes
    - QA regression checklist rerun after final content/media swap
 
@@ -154,7 +154,7 @@ Recommendation:
 2. **Usability gate:** Can a new visitor understand offers and navigate in under 30 seconds?
 3. **Performance gate:** Are LCP/INP/CLS within acceptable range on representative mobile?
 4. **Accessibility gate:** Are keyboard, focus, reduced-motion, and contrast behavior reliable?
-5. **Operations gate:** Are backup/rollback and QA artifacts complete enough to recover from mistakes?
+5. **Operations gate:** Are rollback and QA artifacts complete enough to recover from mistakes?
 
 If any gate is red, do not launch.
 

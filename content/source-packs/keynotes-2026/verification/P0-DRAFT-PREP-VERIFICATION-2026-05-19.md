@@ -53,7 +53,7 @@ Before any of these becomes a live WordPress draft or post:
 - confirm event naming and title tone,
 - review ethical, environmental, public-official, and ecosystem claims,
 - avoid transcript dumps,
-- take the normal Track A backup or page/post snapshot required for live writes.
+- take the normal Track A page/post snapshot or other rollback note required for live writes.
 
 ## Next Best Move
 

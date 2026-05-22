@@ -1,7 +1,7 @@
 # Fixes vs Live State Reconciliation - 2026-05-20
 
 **Purpose:** Prevent duplicate, stale, or conflicting deploys from `fixes/` after the May 2026 content and schema work.
-**Rule:** This is a repo-side audit only. Public publish, existing-content updates, destructive cleanup, plugin/theme/schema/robots changes, media-heavy imports, bulk writes, and `--update` runs still require the backup gate in `BACKUP_PLAN.md` and `FIX_QUEUE.md`. Private create-only drafts for review can proceed under the temporary dry-run and slug-check unblock.
+**Rule:** This is a repo-side audit only. The strict backup/restore proof gate was retired on 2026-05-22. Live work now requires task-specific target checks, rollback notes, and explicit deploy intent.
 
 ## Current live checks
 
@@ -23,8 +23,8 @@ Checked with public `curl` fetches on 2026-05-20:
 | `fixes/schema-snippets-deployed.php` | Current source of truth for live schema. | Keep synced with the Code Snippets version. Verify in wp-admin before editing. |
 | `fixes/schema-snippets.php` | SSH/mu-plugin version, not the live deploy path today. | Keep as deploy target for a future mu-plugin migration. Do not install blindly over the Code Snippet. |
 | `fixes/issue-39-schema-markup.php` | Obsolete-replaced. | Keep historical only; do not deploy because the newer schema files supersede it. |
-| `fixes/llms-txt-template.md` | Still needed. | Deploy only after backup proof; verify `/llms.txt` returns `200` text. |
-| `fixes/robots-txt-update.txt` | Still needed. | Pick the final AI-crawler stance after backup proof and verify with curl/Search Console. |
+| `fixes/llms-txt-template.md` | Still needed. | Deploy with a target path and rollback note; verify `/llms.txt` returns `200` text. |
+| `fixes/robots-txt-update.txt` | Still needed. | Pick the final AI-crawler stance, capture current robots output first, and verify with curl/Search Console. |
 | `fixes/issue-12-new-homepage-hero.md` | Needs review. | Compare with the latest homepage polymath hero draft before any copy-paste. |
 | `fixes/issue-13-14-15-project-sections.md` | Needs review. | Compare against current Work/About/Speaking source packs and live pages. |
 | `fixes/UPDATED-ABOUT-PAGE-COMPLETE.md` | Likely superseded by May 2026 About updates. | Treat as historical unless a diff against live proves a missing section. |
@@ -41,7 +41,7 @@ Checked with public `curl` fetches on 2026-05-20:
 
 ## Safe next deployment set
 
-After backup/restore proof, the smallest safe live batch is:
+The smallest safe live batch is:
 
 1. `/llms.txt`.
 2. Robots AI-crawler stance.

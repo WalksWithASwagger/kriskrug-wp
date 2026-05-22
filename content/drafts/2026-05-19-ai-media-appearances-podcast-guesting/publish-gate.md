@@ -1,6 +1,12 @@
 # Publish Gate
 
-Status: local draft polished as a standalone support post; do not publish without KK review.
+Status: private WordPress draft created as a standalone support post; do not publish without KK review.
+
+## WordPress Draft
+
+- WP draft ID: `11879`
+- Edit URL: <https://kriskrug.co/wp-admin/post.php?post=11879&action=edit>
+- Verified readback: status `draft`, slug `ai-media-appearances-podcast-guesting`
 
 ## WP draft attempt - 2026-05-19
 
@@ -10,9 +16,9 @@ Status: local draft polished as a standalone support post; do not publish withou
 - [x] Confirmed exact target slug has zero authenticated WordPress matches.
 - [x] Confirmed all links in `post.html` returned `200`.
 - [x] Confirmed sensitive-string privacy scan had no matches.
-- [ ] Fresh full-site backup was not available, so no WordPress draft was created.
+- [x] WordPress draft created after backup gate retirement and fresh slug check.
 
-Blocked status: stop before live WordPress write. See `../../source-packs/keynotes-2026/verification/APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`.
+Status: the earlier backup blocker is retired. See `../../source-packs/keynotes-2026/verification/APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md` for the older stopped attempt.
 
 ## Editorial decision
 
@@ -26,7 +32,7 @@ Blocked status: stop before live WordPress write. See `../../source-packs/keynot
 - [ ] Choose final featured image or embed-only treatment.
 - [ ] Check every public source link before live use.
 - [ ] Confirm no third-party endorsement is implied beyond the public appearances.
-- [ ] If creating a WP draft, snapshot/check the target slug before any live WordPress write.
+- [ ] If creating a WP draft, check the target slug before any live WordPress write.
 - [ ] If publishing publicly, add backlinks from `/speaking/`, `/about/`, and `/podcast-guesting-page-epk/` after the post URL exists.
 
 ## Safety notes

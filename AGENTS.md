@@ -4,7 +4,7 @@ This file is the entry point for any AI agent (Claude Code, Cursor, Codex, etc.)
 
 ## What this repo is
 
-The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running Catch Responsive. The repo is **adjacent to** the live site, not a mirror of it. `main` does not contain a full production theme/database/media mirror; Track B theme code lives on `aurora/v2`, and curated source-pack media/proofs are tracked. Custom repo-side WP code now includes `inc/digital-composting.php` (merged, not yet deployed to prod) and `plugins/kk-sidebar-promos/` (packaged helper plugin, deploy only after backup/rollback proof).
+The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running Catch Responsive. The repo is **adjacent to** the live site, not a mirror of it. `main` does not contain a full production theme/database/media mirror; Track B theme code lives on `aurora/v2`, and curated source-pack media/proofs are tracked. Custom repo-side WP code now includes `inc/digital-composting.php` (merged, not yet deployed to prod) and `plugins/kk-sidebar-promos/` (packaged helper plugin, deploy only with an explicit rollback path and KK approval).
 
 ## Read this in order (top of repo, top of context)
 
@@ -33,7 +33,7 @@ Full decision tree: [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md
 
 ## Hard safety rules (post 2026-05-15 incident)
 
-1. **Backup before destructive operations.** No exceptions for "small" changes. See [`BACKUP_PLAN.md`](docs/current-state/BACKUP_PLAN.md).
+1. **Rollback path before destructive operations.** The strict backup/restore proof gate was retired on 2026-05-22. Use dry-runs, slug/ID checks, page/post snapshots, reversible deploy steps, and KK approval for risky live changes. Use a full backup when the blast radius justifies it, but do not block ordinary publish/review work solely on restore-drill proof.
 2. **Slug-based idempotency** for the Notion → WP connector. Never PATCH a WP post without first verifying that the slug match is the intended target. See [`INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md).
 3. **No theme file changes on `main`.** Theme work belongs on `aurora/v2`.
 4. **Don't run the connector on production without `--dry-run` first.**
@@ -69,4 +69,4 @@ Read [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODE
 
 ---
 
-**Last verified:** 2026-05-21. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` as the source of truth and flag the drift for a fresh audit.
+**Last verified:** 2026-05-22. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` as the source of truth and flag the drift for a fresh audit.

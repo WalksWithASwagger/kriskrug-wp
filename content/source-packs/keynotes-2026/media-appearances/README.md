@@ -34,4 +34,4 @@ On 2026-05-19, the standalone support-post package was tightened to:
 - Use public URLs only.
 - Do not publish private production notes, direct personal contact details, or unpublished client details.
 - Treat third-party podcast descriptions as source evidence, not copy to paste wholesale.
-- If the live Podcast EPK is updated, use Track A backup/snapshot rules first.
+- If the live Podcast EPK is updated, use Track A snapshot/rollback rules first.

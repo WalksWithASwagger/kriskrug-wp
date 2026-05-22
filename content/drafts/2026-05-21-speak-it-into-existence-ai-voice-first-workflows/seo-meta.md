@@ -30,4 +30,4 @@ Voice-first AI is not just faster typing. It gets more of your actual cadence, u
 - Replace draft-local relative links with live URLs after publish.
 - Add a workshop CTA only if the relevant offering is live and accurate.
 - Confirm no client/private workflow examples are implied.
-- Create the private WP draft after dry-run and create-only slug checks. Do not publish until KK review and the public-write backup posture are cleared.
+- Create the private WP draft after dry-run and create-only slug checks. Do not publish until KK review is complete and a rollback note is recorded.

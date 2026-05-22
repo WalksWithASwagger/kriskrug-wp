@@ -27,7 +27,7 @@
 | Local QA still had missing media: About 13 incomplete images, Work 1, Make Culture 1, Calling Us All In 7. | `origin/aurora/v2:docs/current-state/AURORA-SWARM-86-QA-2026-05-20.md` and `aurora-qa-checks.json` | Blocks staging sign-off |
 | Earlier Aurora staging report found desktop header/nav render problems on Local WordPress. | `docs/current-state/AURORA-STAGING-REPORT-2026-05-18.md` | Must be revalidated after later fixes |
 | The current work plan says #86 is done only when staging uses production-like media and QA notes are recorded. | `docs/current-state/WORK-PLAN-2026-05-21.md` | Not yet satisfied |
-| Backup archive set exists for 2026-05-16, but uploads are missing and restore proof is absent. | `make backup-check BACKUP_DIR=backup/2026-05-16` | Production-write gate not satisfied |
+| Backup archive set exists for 2026-05-16, but uploads are missing and restore proof is absent. | `make backup-check BACKUP_DIR=backup/2026-05-16` | Resilience gap; not a blanket launch blocker after 2026-05-22 gate retirement |
 | Rollback playbook exists, but no Aurora-specific activation rollback drill/proof was found. | `docs/current-state/ROLLBACK_PLAYBOOK.md` | Needs activation-specific proof |
 
 ## Current Gate Checklist
@@ -45,12 +45,11 @@
 
 - [ ] Fresh backup exists before staging activation or any production-adjacent operation.
 - [ ] Backup accounts for database, themes, plugins, mu-plugins, other `wp-content`, and uploads.
-- [ ] `make backup-check BACKUP_DIR=backup/YYYY-MM-DD STRICT=1` passes.
-- [ ] Restore drill is documented in `backup/YYYY-MM-DD/restore-notes.md`.
-- [ ] Restore notes include `restore_status: passed` or `production_write_gate: passed`.
+- [ ] Activation rollback plan is documented.
+- [ ] Existing active theme/options state is captured before cutover.
 - [ ] Restored copy verifies homepage, one recent post, wp-admin, and plugin settings.
 
-Current state: `backup/2026-05-16` can be inspected, but it is not enough for activation or production writes because uploads are absent and restore proof is missing.
+Current state: `backup/2026-05-16` can be inspected, but uploads are absent and restore proof is missing. The strict backup gate is retired; Aurora still needs an activation-specific rollback plan before production cutover.
 
 ### 3. Screenshot Matrix
 
@@ -106,7 +105,7 @@ Local PR #106 screenshots are useful baseline evidence, but they do not satisfy 
 3. Production-like uploads/media are present or missing assets are intentionally replaced.
 4. Desktop/mobile screenshot matrix is attached or linked.
 5. Keyboard, focus, reduced-motion, contrast, overflow, console, media, and perf notes are recorded.
-6. Fresh backup and restore proof pass strict verification.
+6. Activation rollback plan and post-cutover verification are ready.
 7. Activation rollback plan is documented and accepted.
 8. Any remaining launch blockers are filed separately with clear owners.
 
@@ -114,7 +113,7 @@ Local PR #106 screenshots are useful baseline evidence, but they do not satisfy 
 
 Do not close #86 now.
 
-The repo proves Aurora is healthier after the local Wave 3 work and PR #106, but the current evidence is still local-only and has known media gaps. There is no verified staging URL/admin evidence in this lane, no production-like media pass, no strict backup/restore proof, and no activation-specific rollback drill. Aurora activation, staging promotion, or production cutover should remain blocked until those items are complete.
+The repo proves Aurora is healthier after the local Wave 3 work and PR #106, but the current evidence is still local-only and has known media gaps. There is no verified staging URL/admin evidence in this lane, no production-like media pass, and no activation-specific rollback drill. Aurora activation, staging promotion, or production cutover should remain blocked until those items are complete.
 
 ## Verification Run For This Artifact
 

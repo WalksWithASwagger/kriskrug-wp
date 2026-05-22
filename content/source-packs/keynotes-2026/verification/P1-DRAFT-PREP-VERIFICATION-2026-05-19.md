@@ -53,7 +53,7 @@ Before any of these becomes a live WordPress draft or post:
 - confirm Horizons/Compass, ChannelNext, and Bass Coast naming,
 - review rights for any public YouTube planning thumbnails,
 - avoid transcript dumps,
-- take the normal Track A backup or page/post snapshot required for live writes.
+- take the normal Track A page/post snapshot or other rollback note required for live writes.
 
 ## Next Best Move
 

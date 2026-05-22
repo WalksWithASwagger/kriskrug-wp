@@ -75,4 +75,4 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 - **Baseline note:** the May 14 snapshot started before later page-level snapshots, source packs, and Aurora theme work were added. Read the dated addenda above for current operating state.
 - **Current addendum:** the 2026-05-21 work plan is the latest front door; the 2026-05-20 diagnostic pass remains the detailed repo-truth refresh for live fix status, workflow governance, and plugin hardening.
 - **Read-only fingerprinting works** through the public WP REST API; that's how this snapshot was built.
-- **Path to "safe to modify":** get SSH on Pagely → take a `wp db export` + `wp-content/` archive → commit a `backup/` reference set → then start modifying.
+- **Path to "safe to modify":** the strict backup/restore proof gate was retired on 2026-05-22. Use dry-runs, exact slug/ID/status checks, page/post snapshots or reversible diffs, and explicit rollback notes. Keep improving backup coverage as resilience, not as a blanket blocker.

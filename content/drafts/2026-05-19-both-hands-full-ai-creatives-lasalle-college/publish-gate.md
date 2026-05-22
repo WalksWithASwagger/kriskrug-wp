@@ -1,6 +1,12 @@
 # Publish Gate
 
-Status: local draft prepared; do not publish without KK review.
+Status: private WordPress draft created; do not publish without KK review.
+
+## WordPress Draft
+
+- WP draft ID: `11881`
+- Edit URL: <https://kriskrug.co/wp-admin/post.php?post=11881&action=edit>
+- Verified readback: status `draft`, slug `both-hands-full-ai-creatives-lasalle-college`
 
 ## Issue #99 source-pack readiness
 
@@ -11,7 +17,7 @@ Status: local draft prepared; do not publish without KK review.
 - [x] Draft avoids raw transcript dumps, audience names, private client claims, private contact, travel, or credential material.
 - [x] Link check and privacy scan are recorded in `content/source-packs/keynotes-2026/verification/DRAFT-BATCH-READINESS-VERIFICATION-2026-05-20.md`.
 
-Ready for WP draft? Yes, for private draft creation after the normal Track A backup, slug-check, and rollback gates. Do not publish publicly until KK completes the review items below.
+Ready for WP draft? Created on 2026-05-22 after dry-run/create-only slug checks. Do not publish publicly until KK completes the review items below and a rollback note is recorded.
 
 ## Required review
 

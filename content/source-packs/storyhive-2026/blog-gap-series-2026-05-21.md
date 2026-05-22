@@ -319,7 +319,7 @@ Each package includes `post.md`, `seo-meta.md`, `internal-links.md`, and `publis
 - `I Won't Fake The People Who Showed Up` - WP draft `11877`, edit URL: <https://kriskrug.co/wp-admin/post.php?post=11877&action=edit>
 - `Speak It Into Existence` - WP draft `11878`, edit URL: <https://kriskrug.co/wp-admin/post.php?post=11878&action=edit>
 
-Do not publish until KK review and the public-write backup posture are cleared.
+Do not publish until KK review is complete and a rollback note is recorded.
 
 ## First Three Draft Briefs
 

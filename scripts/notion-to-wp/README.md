@@ -66,11 +66,11 @@ python kk_notion_to_wp.py --publish https://www.notion.so/<page-id>
 python kk_notion_to_wp.py --update https://www.notion.so/<page-id>
 ```
 
-## Live-write gate
+## Live-write safety checks
 
-Temporary 2026-05-22 operating stance: private, create-only WordPress drafts may be created without strict backup/restore proof so review URLs can move again.
+2026-05-22 operating stance: the strict backup/restore proof gate is retired. The connector can create drafts and publish/update intentionally, but every live run must still be boringly explicit about target, intent, and rollback path.
 
-Private draft creation is allowed only when all of these are true:
+Create-only draft runs are allowed when all of these are true:
 
 1. A dry-run package has been reviewed in `content/drafts/<slug>/`.
 2. The target slug is verified as a create-only draft target; do not pass `--update`.
@@ -80,7 +80,7 @@ Private draft creation is allowed only when all of these are true:
 6. Media uploads are approved and have alt text, or the draft is image-free.
 7. The resulting WP post ID, edit URL, and run notes are recorded in `publish.log`.
 
-Strict backup/restore proof is still required before public publish, updates to existing posts/pages, destructive cleanup, plugin/theme/schema/robots changes, bulk writes, or any `--update` run.
+Public publish or `--update` runs require explicit KK sign-off, a fresh dry-run/review, authenticated slug/ID/status verification, and a rollback note. Bulk edits, destructive cleanup, plugin/theme/schema/robots changes, and media-heavy imports need a narrower deploy plan before they run.
 
 Without WordPress credentials the command is always effectively dry-run only.
 

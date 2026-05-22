@@ -12,7 +12,7 @@ This repo was set up earlier in 2026 as an **issue tracking + automation hub** f
 | Path | What it is | Status |
 |---|---|---|
 | `inc/digital-composting.php` | Custom Post Type + Taxonomy module for ingesting transcripts ("digital composting") | Merged via PR #71 + #72 on 2026-05-07. **Not yet deployed to production.** |
-| `plugins/kk-sidebar-promos/` | Packaged helper plugin for auto-expiring sidebar promos, evergreen pillar cards, and Luma iCal import | Built in May 2026. **Do not deploy until backup/rollback proof is current.** |
+| `plugins/kk-sidebar-promos/` | Packaged helper plugin for auto-expiring sidebar promos, evergreen pillar cards, and Luma iCal import | Built in May 2026. Deploy only with explicit KK approval, a reversible activation path, and post-activation smoke/readback. |
 
 ### Prepared fixes and live-state reconciliation (`fixes/`)
 

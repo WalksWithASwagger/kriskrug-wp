@@ -49,7 +49,7 @@ The existing source-pack payload already covered the Work page, BC+AI, The Upgra
 | Each major section has description, impact, outcomes, links | Done | BC+AI, Indigenomics AI, and The Upgrade AI cards each include narrative description, `Impact`, `Outcome`, and link rows. Photography includes credential proof and remains supported by archive links. |
 | Mobile responsive | Locally ready | Existing auto-fit grids and mobile media queries are retained; `h2=6`, `img=17`, `links=26`, `external=27` after edits. Full browser/mobile QA belongs to the live/staging review pass. |
 | Professional presentation | Done | The payload keeps the existing Work page visual system and adds content without changing theme files. |
-| Ready for publication | Prepared | JSON, content markers, URL checks, privacy scan, and `git diff --check` passed locally. Live publish still needs backup/snapshot and human approval per repo rules. |
+| Ready for publication | Prepared | JSON, content markers, URL checks, privacy scan, and `git diff --check` passed locally. Live publish still needs a target check, snapshot/rollback note, and human approval per repo rules. |
 
 ## Source Grounding Notes
 
@@ -85,7 +85,7 @@ Results:
 
 Before applying this payload to live WordPress:
 
-1. Take the required fresh backup/restore proof or stop.
+1. Capture the required page snapshot/rollback note or stop.
 2. Snapshot page ID `2672` to rollback JSON and HTML.
 3. Verify REST target identity before PATCH: `id=2672`, slug `recent-projects-include`, title `Work`, status `publish`.
 4. Apply only `work.html` plus the Work entry metadata from `page-meta.json`.

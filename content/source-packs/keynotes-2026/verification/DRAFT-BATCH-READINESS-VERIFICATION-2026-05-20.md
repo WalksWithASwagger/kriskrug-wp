@@ -106,4 +106,13 @@ The six selected draft packages satisfy issue `#99` for repo-local readiness:
 - link checks passed for all selected public/internal URLs;
 - privacy scan returned no matches.
 
-Ready for WP draft? Yes, as private draft candidates only, after the normal Track A backup, authenticated exact-slug check, and rollback gates. Public publishing, media upload, and live backlinks remain out of scope for this issue.
+Ready for WP draft? Created on 2026-05-22 after authenticated exact-slug checks and draft-payload review:
+
+- `ai-keynote-chaos-creativity-channelnext` - WP draft `11880`
+- `both-hands-full-ai-creatives-lasalle-college` - WP draft `11881`
+- `both-hands-full-vancouver-ai-march-2026` - WP draft `11882`
+- `dear-ai-bass-coast-brain-stage` - WP draft `11883`
+- `horizons-ai-models-future-machine-learning` - WP draft `11884`
+- `inside-vancouvers-ai-boom-whistler-institute` - WP draft `11885`
+
+Public publishing, media upload, and live backlinks remain out of scope for this issue until KK review and a rollback note are complete.

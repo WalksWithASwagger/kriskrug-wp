@@ -5,12 +5,12 @@
 
 Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these first. Items list dependencies so we don't get tripped up.
 
-**Hard prerequisite for production-visible or destructive changes below**: a working backup (see [BACKUP_PLAN.md](BACKUP_PLAN.md)). Private, create-only WordPress drafts may proceed for review after dry-run, slug, category, and draft-status checks.
+**Operating prerequisite for production-visible or destructive changes below**: a target check, rollback note, and explicit deploy path. The strict backup/restore proof gate was retired on 2026-05-22; keep backup work moving as resilience, not as a blanket blocker.
 
 ## 2026-05-20 live-state addendum
 
-- Keep P0.1 as the hard gate for public publish, existing-content updates, destructive cleanup, plugin/theme/schema/robots changes, media-heavy imports, bulk writes, and any `--update` run. Private create-only drafts for review are temporarily unblocked after dry-run and slug checks.
-- Use `make backup-check BACKUP_DIR=backup/YYYY-MM-DD STRICT=1` as the mechanical gate check. `backup/2026-05-16/` is useful but not sufficient because uploads were skipped and no restore drill is documented.
+- P0.1 is no longer a hard gate. Use `make backup-check` when a task needs backup inspection, but do not block ordinary Track A work solely on strict restore proof.
+- `backup/2026-05-16/` is useful resilience evidence with known gaps: uploads were skipped and no restore drill is documented.
 - P0.2 is still open: `/llms.txt` currently returns `404`.
 - P0.3 has changed status: public HTML on homepage, About, Work, and Speaking now includes JSON-LD, so schema appears deployed through the Code Snippets path represented by `fixes/schema-snippets-deployed.php`. Verify in wp-admin before changing schema; do not blindly deploy `schema-snippets.php` over it.
 - P0.4 is still open: `/robots.txt` exists but does not yet include the explicit AI-crawler stance from `fixes/robots-txt-update.txt`.
@@ -22,19 +22,19 @@ Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these 
 
 ## P0 — do these first (high impact, low effort)
 
-### P0.1 — Take and verify the first full backup [**PUBLIC/DESTRUCTIVE WRITE GATE — INCIDENT 2026-05-15**]
-- **Why:** Public changes and destructive edits below modify production. They should not ship until this lands. We *just* lived through what happens without it — see [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md). The post was recoverable only because we had the Notion source; without that, the content would be permanently lost.
+### P0.1 — Improve backup resilience [**NOT A BLOCKING GATE — INCIDENT 2026-05-15**]
+- **Why:** Backups still matter, but the strict restore-proof gate is no longer allowed to clog ordinary publishing. The 2026-05-15 overwrite incident is addressed primarily through slug-based idempotency, dry-runs, target checks, and rollback notes; backup work remains the resilience layer.
 - **Path:** UpdraftPlus (via wp-admin) → download archive → drop in `backup/YYYY-MM-DD/` → restore drill into Local by Flywheel.
 - **Effort:** 1–2 hours.
 - **Dependencies:** none.
 - **Done when:** `backup/YYYY-MM-DD/` contains DB + themes + plugins + uploads archive AND `manifest.md` AND a `restore-notes.md` proving local restore works.
-- **Blocks:** every public publish, existing-content update, destructive cleanup, plugin/theme/schema/robots change, media-heavy import, bulk write, or `--update` run in this queue. Does not block private create-only draft review runs with dry-run and slug checks.
+- **Blocks:** nothing by itself. High-blast-radius work should still choose an appropriate backup/snapshot path before execution.
 
 ### P0.2 — Add `llms.txt` at site root
 - **Why:** Zero-cost AI-discoverability win. Curated map for ChatGPT, Claude, Perplexity browsing.
 - **Path:** Take template from `fixes/llms-txt-template.md`, fill in verified URLs (BC + AI association URL, Indigenomics.ai, social handles), drop at server root via SSH/SFTP, OR use the mu-plugin rewrite approach from the template.
 - **Effort:** 30 min (template is ready).
-- **Dependencies:** P0.1.
+- **Dependencies:** target path and rollback note.
 - **Verify:** `curl -i https://kriskrug.co/llms.txt` returns 200 + `Content-Type: text/plain`.
 
 ### P0.3 — Verify deployed schema and decide whether to migrate to mu-plugin
@@ -45,7 +45,7 @@ Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these 
   2. Drop file into `wp-content/mu-plugins/kk-schema.php` (SSH/SFTP).
   3. Test with [Google Rich Results Test](https://search.google.com/test/rich-results) on homepage + a post + a service page.
 - **Effort:** 1–2 hours (mostly verifying constants and rich-results testing).
-- **Dependencies:** P0.1.
+- **Dependencies:** target path and rollback note.
 - **Done when:** Person, WebSite, Article schemas all validate.
 - **Note:** This supersedes `fixes/issue-39-schema-markup.php` (which has narrower scope and a stale org URL).
 
@@ -53,32 +53,32 @@ Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these 
 - **Why:** Explicit > implicit. Pick the "Be Cited" stance (recommended) so all AI crawlers know they're welcome.
 - **Path:** Replace robots.txt with Option A from `fixes/robots-txt-update.txt`.
 - **Effort:** 15 min.
-- **Dependencies:** P0.1.
+- **Dependencies:** target path and rollback note.
 - **Verify:** `curl https://kriskrug.co/robots.txt` + Google Search Console robots.txt tester.
 
 ### P0.5 — Fix the empty H1 + duplicate H1 problem on homepage
 - **Why:** Confuses crawlers about page's main topic. The current state — empty H1 + "Why Choose Me?" — sends a noisy signal.
 - **Path:** Edit theme template (`front-page.php` or `home.php` in a child theme — Catch Responsive). Replace logo wrapper from `<h1>` to `<p class="site-title">`. Set page H1 to a descriptive heading (e.g. the page title or first content heading).
 - **Effort:** 30 min in a child theme.
-- **Dependencies:** P0.1; ideally do in a Local by Flywheel copy first.
+- **Dependencies:** target path and rollback note; ideally do in a Local by Flywheel copy first.
 
 ### P0.6 — Add `alt` text to homepage hero + About page portrait
 - **Why:** First-impression images are the most-shared and most-AI-cited. Empty `alt` makes them invisible to Google Images, Pinterest, AI image search.
 - **Path:** wp-admin → Media → find each image → fill in `Alt Text` with descriptive sentence (not keyword stuffing).
 - **Effort:** 30 min for the 5 most-visible.
-- **Dependencies:** P0.1.
+- **Dependencies:** target path and rollback note.
 
 ### P0.7 — Fix the two empty-title pages (3930 and 2808)
 - **Why:** They're in your sitemap with no title. Either fix or `noindex`.
 - **Path:** Open each in wp-admin, set title (or trash/redirect if no longer needed).
 - **Effort:** 15 min.
-- **Dependencies:** P0.1.
+- **Dependencies:** target path and rollback note.
 
 ### P0.8 — Remove duplicate Pinterest verification meta tag
 - **Why:** Two `p:domain_verify` tags is ugly and one of them is wrong/stale.
 - **Path:** Find where each is being injected (likely one from Jetpack settings, one from a manual `<head>` snippet or Site Kit). Remove the stale one.
 - **Effort:** 15–30 min to track down source.
-- **Dependencies:** P0.1.
+- **Dependencies:** target path and rollback note.
 
 **P0 total: ~5–8 hours of work for huge AI/SEO gains.**
 
@@ -104,7 +104,7 @@ Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these 
   2. Bulk-edit posts in pages of 20: select → Quick Edit → assign category. Use the search filter to bulk-process by topic (e.g. search "vancouver" + apply Vancouver AI category).
   3. Keep `Misc` for true outliers.
 - **Effort:** 3–4 hours.
-- **Dependencies:** P0.1.
+- **Dependencies:** target path and rollback note.
 
 ### P1.3 — Fix the multilingual welcome pages
 - **Why:** 7 variants + 1 duplicate + 0 hreflang = SEO confusion.
@@ -112,13 +112,13 @@ Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these 
   - **Route A (formal):** Install Polylang. Set each variant as a translation of an English master. Polylang generates hreflang. Add language switcher in header.
   - **Route B (informal):** `noindex` each variant. Delete the Swahili duplicate. Add a single switcher widget pointing to them as fun easter eggs.
 - **Effort:** 2-4 hours (Route A) or 30 min (Route B).
-- **Dependencies:** P0.1.
+- **Dependencies:** target path and rollback note.
 
 ### P1.4 — Add `alt` text to the 100 most recent posts' featured images + in-line images
 - **Why:** Recent posts get the most traffic and citations. Highest-leverage image-SEO target.
 - **Path:** Either manual sweep (slow) or use a vision-LLM tool (e.g. AI Engine for WordPress, or a custom script using Claude API) to draft alt text in batches, then KK reviews and approves.
 - **Effort:** 4-8 hours manually; 1 hour + review with LLM-assist.
-- **Dependencies:** P0.1.
+- **Dependencies:** target path and rollback note.
 
 ### P1.5 — Rewrite long titles to fit 60-char SERP window
 - **Why:** 5 of 17 audited titles are over 60 chars; they truncate in Google.
@@ -208,7 +208,7 @@ Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these 
 - **Why:** Heavy theme + jQuery + Popup Maker is likely costing INP. CWV is a ranking factor.
 - **Path:** Run Lighthouse → identify worst offender → dequeue / defer / replace.
 - **Effort:** Variable; 1 day for a meaningful pass.
-- **Dependencies:** P0.1.
+- **Dependencies:** target path and rollback note.
 
 ### P3.6 — Hreflang for English variants
 - **Why:** If P1.3 goes the formal route, extend to mark the main site as `en-CA` or `en-US` and any future translations.

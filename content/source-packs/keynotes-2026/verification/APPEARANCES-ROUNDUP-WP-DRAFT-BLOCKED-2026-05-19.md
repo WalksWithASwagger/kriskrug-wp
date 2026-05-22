@@ -1,5 +1,7 @@
 # Appearances Roundup WP Draft Blocked - 2026-05-19
 
+> Superseded 2026-05-22: the strict backup gate was retired and private WP draft `11879` was created at <https://kriskrug.co/wp-admin/post.php?post=11879&action=edit>. This file remains as historical evidence of the stopped 2026-05-19 attempt.
+
 Scope: Track A publisher preflight for creating a private WordPress draft from `../../../drafts/2026-05-19-ai-media-appearances-podcast-guesting/`.
 
 Result: stopped before the live WordPress write. No WordPress post, page, media, tag, category, or backlink was created or changed.
@@ -89,5 +91,5 @@ Result: no matches.
 
 1. Take a fresh full backup through wp-admin/UpdraftPlus, Pagely SSH, or another approved full-site backup path.
 2. Re-run the slug/category/tag/link/privacy preflight.
-3. Create the private WordPress draft only after the backup gate passes.
+3. Create the private WordPress draft after a fresh slug check and review of the draft payload.
 4. Do not publish or add backlinks until KK reviews the wp-admin draft.

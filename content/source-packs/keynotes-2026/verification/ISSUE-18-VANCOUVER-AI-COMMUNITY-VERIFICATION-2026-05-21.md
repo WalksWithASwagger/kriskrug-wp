@@ -14,7 +14,7 @@
 - Proposed page title: `Vancouver AI Community`
 - Proposed slug: `vancouver-ai-community`
 - Proposed URL after draft creation: `https://kriskrug.co/vancouver-ai-community/`
-- Proposed WordPress status: `draft` until backup/restore proof and KK review are complete.
+- Proposed WordPress status: `draft` until KK review is complete.
 - Proposed content payload: `content/source-packs/keynotes-2026/wp-payloads/vancouver-ai-community.html`
 
 ## Source Grounding
@@ -95,7 +95,7 @@ Add links only after the draft exists and KK approves the page as a destination:
 
 Before any live WordPress draft or publish action:
 
-1. Confirm full-site backup and restore proof, or stop.
+1. Confirm target slug/page status and rollback note.
 2. Create a WordPress draft, not a published page.
 3. Confirm the draft slug is exactly `vancouver-ai-community`.
 4. Paste only `wp-payloads/vancouver-ai-community.html` into the draft content.
@@ -122,7 +122,7 @@ Issue `#18` should remain open after this repo-side package because live deploym
 It can close after:
 
 - the WordPress draft or published page exists,
-- backup/restore proof is documented,
+- rollback note is documented,
 - target slug/title/content readback passes,
 - selected image and social metadata are verified,
 - approved internal links are applied or explicitly deferred,

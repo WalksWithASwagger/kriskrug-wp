@@ -30,4 +30,4 @@ Most artists do not need AI to replace the art. They need it to murder the sprea
 - Choose a real photo or abstract workflow image for featured media; do not use a generated fake portrait of a real community context.
 - Confirm category mapping is intentional and does not silently fall back to `Misc`.
 - Review all links after connector dry-run.
-- Create the private WP draft after dry-run and create-only slug checks. Do not publish until KK review and the public-write backup posture are cleared.
+- Create the private WP draft after dry-run and create-only slug checks. Do not publish until KK review is complete and a rollback note is recorded.

@@ -119,7 +119,7 @@ All selected image URLs returned `200` with image content types:
 
 Before any live WordPress update:
 
-1. Take a fresh full-site backup, or get explicit KK approval for a narrower rollback path.
+1. Capture the relevant page snapshots or get explicit KK approval for a narrower rollback path.
 2. Snapshot page ID `2666` to JSON and HTML.
 3. Dry-run the REST payload.
 4. Patch only page `2666` after slug readback confirms `generative-ai-services`.

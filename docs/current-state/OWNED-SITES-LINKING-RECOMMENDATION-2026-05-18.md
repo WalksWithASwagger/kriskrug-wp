@@ -12,7 +12,7 @@
 1. `kriskrug.co` remains the home base and personal/professional entity hub.
 2. The other sites are proof objects in KK's wider AI work, not peers that should all become top-level nav items.
 3. The current Catch Responsive top nav is already near capacity.
-4. Any WordPress production edits still need the repo's Track A safety gates: backup first, small copy changes, live verification after publish.
+4. Any WordPress production edits still need the repo's Track A safety checks: target verification, small copy changes, rollback notes, and live verification after publish.
 
 ## Short Recommendation
 

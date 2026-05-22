@@ -116,7 +116,7 @@ Review read:
 Run Track B work in isolated Aurora worktrees only.
 
 1. **#86 real staging QA gate:** use PR `#106` as the local baseline, then rerun screenshots, keyboard/focus, reduced-motion, contrast, console/media, and performance checks on a staging surface with production-like media.
-2. **Backup/rollback gate:** confirm a fresh backup and rollback path before any production theme activation or merge-to-main cutover.
+2. **Rollback gate:** confirm an activation-specific rollback path before any production theme activation or merge-to-main cutover.
 3. **Queue truth refresh:** keep `docs/current-state/` lane docs aligned with live issue/PR state after each merge.
 
 Do not:

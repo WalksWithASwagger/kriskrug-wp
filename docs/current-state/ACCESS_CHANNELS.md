@@ -15,7 +15,7 @@ Every way Claude / this repo can currently observe or modify the live site, and 
 - **Status:** Verified read-only on 2026-05-18 through `scripts/notion-to-wp/`. Application password rotated on 2026-05-18 at 11:14 PT; only the fresh connector credential remains active.
 - **Auth:** WordPress application password loaded from the gitignored local `.env`; never paste or commit it.
 - **Capability:** Read private draft status, authenticated `status=any` post/page lookups, categories, revisions, and other endpoints supported by the current app-password user.
-- **Write capability:** Technically possible through the connector. Private create-only drafts are temporarily unblocked after dry-run review, slug/ID verification, category checks, and draft-status confirmation. Public publish, existing-content updates, destructive cleanup, plugin/theme/schema/robots changes, media-heavy imports, bulk writes, and any `--update` run still require backup confirmation.
+- **Write capability:** Technically possible through the connector. Live writes are no longer blocked by strict backup/restore proof. Use dry-run review, slug/ID/status verification, category checks, rollback notes, and explicit KK approval for risky publish/update work.
 - **Used for:** Confirming 944 published posts, 32 draft posts, 34 published pages, 3 draft pages, exact-slug status, and recent-post revision availability.
 
 ### 3. WordPress.com MCP — `claude.ai WordPress.com` connector
@@ -65,7 +65,7 @@ Every way Claude / this repo can currently observe or modify the live site, and 
 | Read public posts/pages | ✅ | ✅ | 🚫 (disabled) | ✅ | ✅ | Public REST is fine for public corpus checks |
 | Read drafts/private status | 🚫 | ✅ | 🚫 (disabled) | ✅ | ✅ | Use authenticated connector for inventory; do not expose private draft dumps publicly |
 | Create a post draft | 🚫 | ✅ create-only | 🚫 (disabled) | ✅ | ✅ (via wp-cli) | Dry-run + slug verification + draft status required |
-| Edit a page | 🚫 | ⚠️ gated | 🚫 (disabled) | ✅ | ✅ (via wp-cli) | Chrome or SSH after backup; connector only after safety gates |
+| Edit a page | 🚫 | ✅ with checks | 🚫 (disabled) | ✅ | ✅ (via wp-cli) | Snapshot/readback + slug/ID/status verification required |
 | Install plugin | 🚫 | 🚫 | 🚫 | ✅ | ✅ | Wp-admin > Plugins > Add New |
 | Edit theme file | 🚫 | 🚫 | 🚫 | ⚠️ (Appearance > Editor, fragile) | ✅ | SSH strongly preferred |
 | Update theme code permanently | 🚫 | 🚫 | 🚫 | 🚫 | ✅ | Needs file write |
@@ -77,6 +77,6 @@ Every way Claude / this repo can currently observe or modify the live site, and 
 
 1. **Today, without SSH:** use authenticated REST for read-only admin inventory and exact-slug checks; use Chrome MCP for wp-admin-driven actions such as backup plugins or UI-only settings. Treat every action as preview + confirm.
 2. **For private create-only drafts:** run dry-run/diff, verify target slug/ID/status, keep status as `draft`, then use the least risky path for the specific change.
-3. **For public or destructive production writes:** verify backup, run dry-run/diff, verify target slug/ID/status, then use the least risky path for the specific change.
+3. **For public or destructive production writes:** run dry-run/diff or preview, verify target slug/ID/status, capture a page/post snapshot or reversible diff where appropriate, then use the least risky path for the specific change.
 4. **Once SSH lands:** switch primary infrastructure channel to SSH + wp-cli. Use Chrome MCP only for things that genuinely need the UI (block editor, Jetpack settings, etc.).
 5. **If Jetpack MCP is upgraded/enabled:** WordPress.com MCP may become a fast option for content edits, but it still cannot replace SSH for theme files, plugins, database export, or rollback.

@@ -46,7 +46,7 @@ Before any package becomes a WordPress draft:
 - choose a final WP-hosted image or approved embed,
 - review named people, audience comments, client/event claims, and public-source links,
 - avoid raw transcript dumps,
-- create or update the WP draft only after the normal Track A backup/snapshot rules are satisfied.
+- create or update the WP draft only after the normal Track A slug checks and snapshot/rollback notes are satisfied.
 
 ## Best Next Move
 

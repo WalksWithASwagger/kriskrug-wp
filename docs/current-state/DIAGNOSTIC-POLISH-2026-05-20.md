@@ -49,7 +49,7 @@ The site should keep moving toward native platform polish, editorial proof, meas
 
 ## Interface polish and QoL backlog
 
-Do these only after the backup gate is proven:
+Do these only after target checks, rollback notes, and explicit deploy intent are ready:
 
 - Replace hard-coded sidebar image blocks with `kk-sidebar-promos` after a plugin deploy check and rollback path.
 - Fix the homepage duplicate/empty H1 and the highest-visibility empty image alts.
@@ -64,7 +64,7 @@ Do these only after the backup gate is proven:
 
 - [x] Refresh repo truth around issue counts, Aurora divergence, schema status, and plugin status.
 - [x] Stop the placeholder Agent PR Generator from auto-triggering on issue labels.
-- [x] Document that live WordPress writes remain blocked behind backup/restore proof.
+- [x] Document that live WordPress writes use target checks, rollback notes, and explicit deploy intent after the 2026-05-22 backup-gate retirement.
 - [x] Audit `fixes/` against current live state at the queue level.
 - [x] Add focused `kk-sidebar-promos` smoke coverage.
 - [x] Fix sidebar promo image alt behavior.
