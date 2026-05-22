@@ -20,6 +20,7 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 | [ROADMAP.md](ROADMAP.md) | Six-phase, 3-month plan that synthesizes FIX_QUEUE + postmortem follow-ups + content pipeline next steps. Use as longer-range reference after the latest work plan. |
 | [FULL-AUDIT-ROADMAP-2026-05-18.md](FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit of repo, GitHub queue, Track A, Track B, and human decisions. |
 | [WORK-PLAN-2026-05-21.md](WORK-PLAN-2026-05-21.md) | Current next-session front door after the diagnostic/polish branch, docs tidy pass, and sidebar promo hardening. |
+| [DRAFT-QUALITY-RESET-2026-05-22.md](DRAFT-QUALITY-RESET-2026-05-22.md) | Active Track A publishing correction: live draft counts, why the May 21-22 drafts are not schedule-ready, and the required editorial/link/image/block QA gate. |
 | [TOMORROW-ROADMAP-2026-05-20.md](TOMORROW-ROADMAP-2026-05-20.md) | Historical next-session roadmap after rewrite recovery, branch hygiene follow-through, and worktree reconciliation. Superseded by `WORK-PLAN-2026-05-21.md`. |
 | [WORK-PLAN-2026-05-20.md](WORK-PLAN-2026-05-20.md) | Historical execution plan after Wave 3 implementation completion and final Track B QA gate (`#86`). Superseded by `WORK-PLAN-2026-05-21.md`. |
 | [DIAGNOSTIC-POLISH-2026-05-20.md](DIAGNOSTIC-POLISH-2026-05-20.md) | Repository truth-refresh, technical-debt audit, SOTA direction, and polish/action checklist from the 2026-05-20 diagnostic pass. |
