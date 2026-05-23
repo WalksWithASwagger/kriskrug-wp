@@ -123,6 +123,14 @@ Required output per post:
 
 No posts or pages are currently scheduled in WordPress.
 
+The durable draft queue inventory now lives in
+[DRAFT-QUEUE-AUDIT-2026-05-22.md](DRAFT-QUEUE-AUDIT-2026-05-22.md).
+Refresh it with the read-only audit command:
+
+```bash
+scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py
+```
+
 ### Workbench Drafts
 
 The May 21-22 StoryHive/keynote drafts are useful as raw material only. They should be rebuilt or updated in place after passing the gate.

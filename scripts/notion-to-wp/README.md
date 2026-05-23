@@ -66,6 +66,22 @@ python kk_notion_to_wp.py --publish https://www.notion.so/<page-id>
 python kk_notion_to_wp.py --update https://www.notion.so/<page-id>
 ```
 
+## Draft queue audit
+
+Before promoting anything from the WordPress draft pile, refresh the read-only queue audit:
+
+```bash
+scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py
+```
+
+The audit reports live WP draft/future/pending/private counts, local `content/drafts/` package metrics, exact slug matches across published and draft posts/pages, and draft quality signals. It does not create, update, schedule, or publish anything.
+
+Use `--local-only` when WordPress credentials are unavailable:
+
+```bash
+scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py --local-only
+```
+
 ## Live-write safety checks
 
 2026-05-22 operating stance: the strict backup/restore proof gate is retired. The connector can create drafts and publish/update intentionally, but every live run must still be boringly explicit about target, intent, and rollback path.
