@@ -1,21 +1,22 @@
 # Issue Queue Audit - 2026-05-22
 
-**Purpose:** route the 63 open GitHub issues into actionable lanes after the backup-gate retirement, StoryHive draft reset, and WordPress 7 readiness work.
+**Purpose:** route the current GitHub issue backlog into actionable lanes after the backup-gate retirement, StoryHive draft reset, WordPress 7 readiness work, and the first queue-hygiene pass.
 **Track:** queue control for Track A on `main`; Track B/Aurora stays separate.
-**Snapshot:** 2026-05-22 18:00 PDT.
+**Snapshot:** 2026-05-22 18:55 PDT.
 
 ## Queue Truth
 
 - Open PRs: `0`.
-- Open issues: `63`.
-- Open issues with historical `auto-implement`: `47`.
+- Open issues: `61`.
+- Open issues with historical `auto-implement`: `45`.
 - Open `track-b` + `aurora-v2`: `13`.
 - Open `needs-human-review`: `3`.
 - Open `swarm-ready`: `13`.
 - Open `swarm-parked`: `11`.
-- Open `priority:high`: `28`.
+- Open `priority:high`: `26`.
 - `auto-implement` is historical only. It no longer starts the parked Agent PR Generator.
 - Do not close issues from title memory. Close only after target checks and a short evidence comment.
+- First hygiene pass closed `#16` and `#17`; re-scoped `#3`, `#12`, `#68`, and `#95` with evidence comments.
 
 ## Close Or Re-Scope First
 
@@ -23,11 +24,11 @@ These are the queue-fog reducers. They should be checked before starting new fea
 
 | Issue | Current read | Next action |
 |---|---|---|
-| `#3` Projects page 404 | The public story now centers Work, not a standalone Projects page. | Verify `/projects/`, `/work/`, nav, and redirects. Close as superseded by Work only if evidence is attached. |
-| `#12` Homepage polymath hero | Homepage positioning work likely shipped after January issue creation. | Verify live homepage copy, H1 behavior, role proof, CTAs, mobile, and close or re-scope to H1/alt polish. |
-| `#16` About polymath journey | About role-section work shipped through May content passes. | Verify live About page against acceptance criteria, then close or re-scope residual polish. |
-| `#17` Work/Projects architecture | Overlaps heavily with `#68`. | Keep one canonical Work issue. Prefer `#68` for the current Work page target and close/re-scope `#17`. |
-| `#68` Work page from recent projects | Still useful, but acceptance should include current `/work/` URL/canonical/OG reality. | Re-scope as Work metadata/content polish if the page already exists. |
+| `#3` Projects page 404 | Public `/projects/` still returns `404`; `/work/` exists. | Re-scoped to redirect `/projects/` to the canonical Work page. Keep open. |
+| `#12` Homepage polymath hero | Homepage has an empty H1 plus `Kris Krüg, Generative AI for Creative Professionals`; BC+AI was not visible in fetched homepage text. | Re-scoped to homepage H1 and role-proof hero polish. Keep open. |
+| `#16` About polymath journey | Live About page now has the current role spine: BC+AI, Indigenomics, The Upgrade AI, Work/Projects, and Kris Krug. | Closed as completed on 2026-05-22. |
+| `#17` Work/Projects architecture | Work page exists and carries project proof content; remaining gap belongs to `#68`. | Closed as superseded by `#68` on 2026-05-22. |
+| `#68` Work page from recent projects | `/work/` returns `200` but resolves/canonicalizes/OGs to `/recent-projects-include/`. | Re-scoped to Work page canonical, OG, and proof metadata. Keep open. |
 
 ## Track A Polish And Site Quality
 
@@ -50,7 +51,7 @@ These are current-site improvements. They can move after target checks, rollback
 This lane exists so WordPress drafts stop pretending to be a schedule.
 
 - `#75` remains the publishing-trust gate. Credential rotation and Feature/category guarding are partly done; keep it open for secret-scan evidence, queue reconciliation, and publish sign-off rules.
-- `#95` is stale in title/body because the strict backup gate is retired and private draft `11879` exists. Re-scope it to review, image decision, preview QA, rollback/delete note, and no publish/backlinks without KK approval.
+- `#95` is re-scoped because the strict backup gate is retired and private draft `11879` exists. It now tracks review, image decision, preview QA, rollback/delete note, and no publish/backlinks without KK approval.
 - `#44` glossary page exists as a draft lane; run it through the same draft quality gate as posts.
 
 Current draft audit command:
@@ -107,8 +108,8 @@ Recommended handling:
 
 ## Recommended Next Issue Actions
 
-1. Comment and re-scope `#95` because the issue text is now stale.
-2. Verify and close/re-scope `#3`, `#12`, and `#16` with live evidence.
-3. Consolidate `#17` and `#68` around the current Work page URL/canonical/OG fix.
-4. Run one StoryHive proof post through review, preview QA, and schedule decision before adding more drafts.
-5. Batch `#8`, `#9`, `#10`, `#36`, `#43`, and `#48` only after target checks identify exact current-theme surfaces.
+1. Implement `#3` and `#68` together as a small Work routing/metadata polish packet: `/projects/` redirect, `/work/` canonical decision, OG URL, and rollback note.
+2. Implement `#12` as homepage H1 plus role-proof hero polish.
+3. Run one StoryHive proof post through review, preview QA, and schedule decision before adding more drafts.
+4. Batch `#8`, `#9`, `#10`, `#36`, `#43`, and `#48` only after target checks identify exact current-theme surfaces.
+5. Keep broad strategy issues parked until there is a concrete source pack, owner, and deploy path.
