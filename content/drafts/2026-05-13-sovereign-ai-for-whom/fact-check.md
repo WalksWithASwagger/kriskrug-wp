@@ -1,16 +1,24 @@
 # Fact-check register - Sovereign AI for Whom?
 
 **Last checked:** 2026-05-22 PT  
-**Status:** local prep only; not WordPress-ready until the unresolved items below are cleared or rewritten.  
-**Verdict:** the argument is strong, but the post is high-stakes and should stay guarded. Several claims are source-supported; several others need KK/source confirmation because they come from live stage remarks, hallway context, or secondary reporting.
+**Status:** guarded WordPress draft `11905` exists; not schedule-ready.
+**Verdict:** the argument is strong, but the post is high-stakes and should stay guarded. The brittle claims have been either sourced, softened, or rewritten as public questions. Several items still need KK/source confirmation before scheduling.
 
-## Must Fix Before WP Draft
+## Cleared For WP Draft By Rewrite
 
-1. Verify or soften all direct stage quotes from Ministers Solomon and Robertson against the YouTube source or a clean transcript.
-2. Confirm the 111 East 5th/5th-vs-6th site language and the exact municipal application wording before repeating the broader use list.
-3. Confirm whether 150 West Georgia has a public municipal approval, pre-application file, or other city record that supports the current wording.
-4. Keep TELUS sustainability numbers attributed to TELUS unless signed agreements/EIAs are available.
-5. Keep the project status precise: proposed, advancing, non-binding MOU process, and no federal funding committed or distributed as of the Canada.ca release.
+1. Direct stage quotes from Ministers Solomon and Robertson were removed or paraphrased so the draft does not depend on a transcript.
+2. The unverified "160 proposals" line was removed from the body pending direct confirmation.
+3. The 111 East 5th broader use list was removed; the draft now sticks to the Shape Your City Bulk Data Storage / AI inference public file.
+4. The 150 West Georgia language was softened into a public-record question instead of asserting a pre-application status.
+5. The BC Hydro/TELUS power-allocation language was softened into a public question about which pathway applies.
+
+## Still Required Before Scheduling
+
+1. Verify the stage remarks against a clean source if direct quotes are restored.
+2. Confirm whether 150 West Georgia has a public municipal approval, pre-application file, or other city record that should be linked.
+3. Keep TELUS sustainability numbers attributed to TELUS unless signed agreements/EIAs are available.
+4. Confirm BC + AI membership/training/governance metrics with KK/internal records.
+5. Open and review the wp-admin preview before any schedule decision.
 
 ## Claim Register
 
@@ -23,21 +31,21 @@
 | TELUS B.C. cluster specs: 60,000+ GPUs, initial 85 MW, over 150 MW by 2032, Kamloops/Mount Pleasant/150 West Georgia sites. | TELUS release provides the specs and schedule, with forward-looking caution. | https://www.telus.com/en/about/news-and-events/media-releases/TELUS-and-Government-of-Canada-advance-work-to-scale-Canadas-sovereign-AI-infrastructure | Supported, forward-looking | Attribute to TELUS; avoid presenting projected dates as guaranteed. |
 | TELUS sustainability claims: 98% renewable energy, district-energy integration, 80% cooling-energy reduction, 90% lower water use, recycled BC Place water, heat equivalent to 150,000 homes. | TELUS release states these as design/plan claims. | https://www.telus.com/en/about/news-and-events/media-releases/TELUS-and-Government-of-Canada-advance-work-to-scale-Canadas-sovereign-AI-infrastructure | Supported as TELUS claims only | Keep "TELUS says"; do not state as proven without signed agreements or EIA. |
 | BC Hydro launched a competitive process with up to 400 MW for AI/data centres in the first two years. | B.C. news release and allocation framework support this; framework later breaks it into 300 MW for AI and 100 MW for data-centre projects. | https://archive.news.gov.bc.ca/releases/news_releases_2024-2028/2026ECS0005-000095.htm and https://www2.gov.bc.ca/gov/content/industry/electricity-alternative-energy/electricity/industrial-electricity-allocation-framework | Supported | The 150/400 = 37.5% math is fine. The process-status question for TELUS remains unresolved. |
-| TELUS "locked in" 85 MW/150 MW outside the BC Hydro call. | TELUS says it secured an initial 85 MW; public sources do not prove whether it competed in the call or qualified through an existing-queue carve-out. | TELUS release; B.C. allocation framework | Unresolved | Keep as a public question, not an asserted end-run. |
+| TELUS "secured" 85 MW/150 MW and the process-status question. | TELUS says it secured an initial 85 MW; public sources do not prove whether it competed in the call, qualified through an existing-queue carve-out, or used another pathway. | TELUS release; B.C. allocation framework | Handled for draft; unresolved before publish | Body now attributes the MW claim to TELUS and asks the pathway question instead of asserting an end-run. |
 | 111 East 5th Avenue Q&A ran January 28 to February 10, 2026. | Shape Your City page lists the Q&A dates and says the period concluded. | https://www.shapeyourcity.ca/111-e-5?tool=qanda | Supported | Keep dates. |
 | 111 East 5th is a Bulk Data Storage rezoning with AI/data-centre use. | Shape Your City page says Bulk Data Storage in existing building; Q&A says intended AI inference data center. | https://www.shapeyourcity.ca/111-e-5?tool=qanda | Supported | Keep core claim. |
-| 111 East 5th application listed "AI training, cryptocurrency mining, biotech simulations, visual effects render farms." | This appears in secondary/public-watch material; not yet verified in the city application booklet during this pass. | https://cityhallwatch.wordpress.com/2026/01/24/datacentre-rezoning-115-e5th-qa-jan28-feb10-2026/ | Needs primary-source verification | Verify city booklet before WP; otherwise remove the broader list. |
-| 150 West Georgia facility timing and inclusion in TELUS cluster. | TELUS release says 150 West Georgia comes online in 2029. | https://www.telus.com/en/about/news-and-events/media-releases/TELUS-and-Government-of-Canada-advance-work-to-scale-Canadas-sovereign-AI-infrastructure | Supported as TELUS plan | Verify municipal approval/pre-application wording separately. |
+| 111 East 5th application listed "AI training, cryptocurrency mining, biotech simulations, visual effects render farms." | This appears in secondary/public-watch material; not yet verified in the city application booklet during this pass. | https://cityhallwatch.wordpress.com/2026/01/24/datacentre-rezoning-115-e5th-qa-jan28-feb10-2026/ | Removed from draft body | Verify city booklet before restoring the broader list. |
+| 150 West Georgia facility timing and inclusion in TELUS cluster. | TELUS release says 150 West Georgia comes online in 2029. | https://www.telus.com/en/about/news-and-events/media-releases/TELUS-and-Government-of-Canada-advance-work-to-scale-Canadas-sovereign-AI-infrastructure | Supported as TELUS plan; municipal path unresolved | Body now asks for the public trail instead of asserting pre-application/no-rezoning status. |
 | Canada.ca/TELUS releases name no First Nations as partners. | The public Canada.ca and TELUS releases checked here do not list host Nations as partners. Federal criteria do prefer Indigenous participation. | Canada.ca release; TELUS release; https://ised-isde.canada.ca/site/ised/en/enabling-large-scale-sovereign-ai-data-centres | Supported as public-record observation | Keep careful phrasing; do not speak for Nations. |
 | CHPC heard 43 witnesses on AI and creative industries. | CHPC report states seven meetings, 43 witnesses, eight briefs. | https://www.ourcommons.ca/documentviewer/en/45-1/CHPC/report-4/page-57 | Supported | Keep. |
 | Indigenous Screen Office brief proposed safeguards/Indigenous AI advisory council. | CHPC report references ISO framework and an Indigenous advisory council recommendation. | https://www.ourcommons.ca/documentviewer/en/45-1/CHPC/report-4/page-114 | Supported | Keep with source link. |
 | Marc-Olivier Ducharme "digital feudalism" line and METACREATION Lab artist-trained model example. | CHPC evidence includes both the phrase and the SFU/METACREATION example. | https://www.ourcommons.ca/documentviewer/en/45-1/CHPC/meeting-6/evidence | Supported | Keep, ideally link directly to evidence if published. |
 | Nanaimo data centre has a Water Usage Covenant and 25.2M litres/year cap. | City project page lists the permit and Water Usage Covenant; NanaimoNewsNOW reports the 25.2M litres/year figure from the covenant. | https://www.nanaimo.ca/whatsbuilding/Folder/DP001376 and https://nanaimonewsnow.com/2026/03/11/water-use-limits-set-for-planned-nanaimo-data-centre/ | Supported, but use official covenant if possible | Before WP, open/download the covenant PDF and cite the official document if accessible. |
-| PacifiCan announced $13.8M for defence innovation in AI and aerospace in B.C. | PacifiCan backgrounder states the amount and purpose. | https://www.canada.ca/en/pacific-economic-development/news/2026/03/backgrounder-pacifican-invests-138-million-to-advance-defence-innovation-in-ai-and-aerospace-in-british-columbia.html | Supported | Keep separated from claims about TELUS cluster workloads unless allocation policy is sourced. |
-| Minister stage quotes and "160 proposals" line. | Secondary reporting supports 160 proposals; direct quotes need broadcast/transcript confirmation. | https://betakit.com/steel-concrete-and-code-feds-and-telus-announce-three-ai-data-centres-in-bc/ and https://www.youtube.com/live/sxDwQRTZfCA | Needs source confirmation | Verify against raw broadcast before publish. |
-| BC + AI metrics: 250 paid members, 3,000 attendees, 150 trained, 75-100% completion, Indigenous governance. | Internal/community knowledge; not verified in public sources during this pass. | Internal BC + AI/The Upgrade records needed | Needs KK confirmation | Keep if KK approves; otherwise soften to "by our count" with a link to a public about page. |
+| PacifiCan announced $13.8M for defence innovation in AI and aerospace in B.C. | PacifiCan backgrounder states the amount and purpose. | https://www.canada.ca/en/pacific-economic-development/news/2026/03/backgrounder-pacifican-invests-138-million-to-advance-defence-innovation-in-ai-and-aerospace-in-british-columbia.html | Supported | Body now says the public cannot tell what workloads federally supported compute will run without an allocation policy. |
+| Minister stage quotes and "160 proposals" line. | Secondary reporting supports 160 proposals; direct quotes need broadcast/transcript confirmation. | https://betakit.com/steel-concrete-and-code-feds-and-telus-announce-three-ai-data-centres-in-bc/ and https://www.youtube.com/live/sxDwQRTZfCA | Removed/softened for draft | Verify against raw broadcast before restoring direct quotes or the 160-proposals line. |
+| BC + AI metrics: 250 paid members, 3,000 attendees, 150 trained, 75-100% completion, Indigenous governance. | Internal/community knowledge; not verified in public sources during this pass. | Internal BC + AI/The Upgrade records needed | Needs KK confirmation before schedule | Acceptable for KK review draft if treated as an internal count; soften or source before publish. |
 
 ## Editorial Notes
 
 - The post can stay sharp. It should not stay sloppy. The punch lands harder when every hard number is either sourced, attributed, or clearly framed as a question.
-- Suggested publishing posture: create a WP draft only after the unresolved items above are either verified or rewritten. Do not schedule before KK source/voice review.
+- Suggested publishing posture: review guarded WP draft `11905` now that the brittle public claims have been rewritten. Do not schedule before KK source/voice review.

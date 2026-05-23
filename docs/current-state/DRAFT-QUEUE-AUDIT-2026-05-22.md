@@ -3,6 +3,7 @@
 **Purpose:** durable inventory for the kriskrug.co draft queue after the StoryHive/keynote draft quality reset.
 **Track:** Track A content + SEO.
 **Status:** active publishing triage artifact.
+**2026-05-23 addendum:** `sovereign-ai-for-whom` now exists as WordPress draft `11905` with featured media `11899`. Current live queue count is 43 draft posts and 5 draft pages.
 
 ## Verdict
 
@@ -12,12 +13,12 @@ Authenticated read-only WordPress REST checks show:
 
 | Surface | Future | Draft | Pending | Private |
 |---|---:|---:|---:|---:|
-| Posts | 0 | 42 | 0 | 0 |
+| Posts | 0 | 43 | 0 | 0 |
 | Pages | 0 | 5 | 0 | 0 |
 
 The strongest near-term publishing path is:
 
-1. Prep `Sovereign AI for Whom?` as the next heavyweight local candidate.
+1. Review `Sovereign AI for Whom?` as WP draft `11905`; do not create a duplicate.
 2. Schedule only one proof post after KK review, likely `The 75% Rule`.
 3. Prep `Comox Valley AI Is Becoming Its Own Thing` after image/category cleanup.
 4. Hold the RAP post until duplicate/replacement positioning is decided.
@@ -43,7 +44,7 @@ The audit command checks local `content/drafts/` packages, live WP draft/future/
 
 | Package | WP match | State | Needed |
 |---|---|---|---|
-| `sovereign-ai-for-whom` | no WP slug match | Strongest local next candidate; local prep pass added fact-check/publish gates, fixed opening/meta/category/alt | Verify remaining high-stakes claims, then create guarded WP draft for KK preview |
+| `sovereign-ai-for-whom` | WP post `11905` draft | Reviewable heavyweight draft: 4,110 local words, 80 links, 6 images, 110 blocks | KK source/voice review, desktop/mobile preview QA, no duplicate draft |
 | `the-75-percent-rule-ai-art-adjacent-work` | WP post `11876` draft | Reviewable StoryHive draft: 1,793 local words, 9 links, 1 image, 110 blocks | KK title/frame approval, preview QA, stronger image pass, schedule decision |
 | `i-wont-fake-the-people-who-showed-up` | WP post `11877` draft | Reviewable StoryHive draft: 1,462 local words, 6 links, 1 image, 127 blocks | Decide standalone vs merge, documentary-boundary review, preview QA |
 | `speak-it-into-existence-ai-voice-first-workflows` | WP post `11878` draft | Reviewable StoryHive draft: 1,597 local words, 7 links, 1 image, 151 blocks | Tool-specific vs evergreen decision, CTA check, neurodivergent framing review |
@@ -79,6 +80,7 @@ Newer WP drafts:
 | 11885 | `inside-vancouvers-ai-boom-whistler-institute` | 629 | 4 | 0 | 0 | 0 | Needs expansion/fact-check/media |
 | 11886 | `accessibility` | 632 | 1 | 0 | 0 | 0 | Page QA required |
 | 11887 | `glossary` | 1,755 | 24 | 0 | 0 | 0 | Page QA/search review required |
+| 11905 | `sovereign-ai-for-whom` | 3,706 | 80 | 6 | 110 | 11899 | Reviewable, high-stakes source/voice review required |
 
 Older admin draft rescue candidates:
 
@@ -111,8 +113,9 @@ Do not schedule a draft until it passes all of this:
 1. **Sovereign AI for Whom?**
    - Local prep pass completed: opening, meta, category, alt text, and HTML alt bug fixed.
    - Fact-check and publish gates added in `content/drafts/2026-05-13-sovereign-ai-for-whom/`.
-   - Remaining gate: verify direct stage quotes, 111 East 5th application wording, 150 West Georgia municipal status, TELUS sustainability paperwork, and BC + AI internal metrics.
-   - Create a guarded WP draft only after those checks are cleared or rewritten.
+   - Guarded WordPress draft `11905` now exists with featured media `11899`.
+   - Remaining gate: verify direct stage quotes before restoring them, 150 West Georgia municipal status before stronger wording, TELUS sustainability paperwork, and BC + AI internal metrics.
+   - Do not create another draft; review `11905` in wp-admin and schedule only after KK approval.
 
 2. **StoryHive proof post**
    - Recommended first proof: `The 75% Rule`.
@@ -142,7 +145,10 @@ git fetch --prune
 git rev-list --left-right --count HEAD...@{upstream}
 scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py
 scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py --local-only --format json
+scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py --dry-run content/drafts/2026-05-13-sovereign-ai-for-whom/post.md
+scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py --execute content/drafts/2026-05-13-sovereign-ai-for-whom/post.md
 scripts/notion-to-wp/.venv/bin/python -m unittest scripts/notion-to-wp/tests/test_draft_queue_audit.py
+scripts/notion-to-wp/.venv/bin/python -m unittest discover scripts/notion-to-wp/tests
 ```
 
 Acceptance notes:
@@ -151,4 +157,5 @@ Acceptance notes:
 - The audit command is read-only.
 - Published collisions are surfaced, including `web-summit-vancouver-2026` and `calling-us-all-in`.
 - The command tolerates imperfect draft frontmatter with unquoted colons.
+- `Sovereign AI for Whom?` WP readback verified status `draft`, slug `sovereign-ai-for-whom`, 6 images, 110 blocks, no local image paths, and no restored high-risk stale phrases.
 - Unrelated WP7 working-tree files were left untouched.

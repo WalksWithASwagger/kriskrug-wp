@@ -16,6 +16,7 @@ tags:
 - Digital Sovereignty
 - Vancouver AI
 featured: true
+featured_media_id: 11899
 excerpt: A Web Summit Vancouver open letter asking who sovereign AI is really for;
   the neighbourhoods, host Nations, artists, builders, and citizens expected to carry
   the load.
@@ -49,7 +50,7 @@ images:
 
 [Minister Solomon](https://www.canada.ca/en/government/ministers/evan-solomon.html), the panel you sat on Monday night was called *AI for All*. So let me start there. AI for all of *whom?*
 
-You sat down with [Cohere](https://cohere.com/)&#x27;s [Joelle Pineau](https://en.wikipedia.org/wiki/Jo%C3%ABlle_Pineau) on that stage and laid out the two camps you see in this moment. Team Pompoms, the cheerleaders. And Team Pitchforks, which you described in your own words: *&quot;team pitchforks are like, stop building.&quot;*
+You sat down with [Cohere](https://cohere.com/)&#x27;s [Joelle Pineau](https://en.wikipedia.org/wiki/Jo%C3%ABlle_Pineau) on that stage and framed the room around two camps: the cheerleaders with pompoms and the people saying stop building with pitchforks. I&#x27;m paraphrasing until I can work from a clean transcript, but the contrast landed clearly.
 
 Look. I&#x27;m not on Team Pom Pom and I&#x27;m not on Team Pitchfork. Neither is anyone I work with.
 
@@ -57,7 +58,7 @@ We&#x27;ve got [both hands full](https://kriskrug.co/2026/05/16/make-culture-not
 
 That&#x27;s a thing I&#x27;ve been saying for two years now and I&#x27;m gonna keep saying it because it keeps being true. One hand is building. We use this stuff every day. We train people on it. We ship with it. We want more compute, cleaner compute, closer to home. The other hand is holding ethics: consent, inclusion, host Nation governance, fair pay for the people whose work trains the models. Both hands. Full. At the same time. That&#x27;s not a contradiction. That&#x27;s the actual job.
 
-And right before you got to the pitchfork line on stage, you said something I want to hold onto. You said the concerns about *&quot;sustainability, about water usage, heat usage, power usage, job training, security issues&quot;* are *&quot;very, very real and present issues.&quot;* You said *&quot;citizens move at the speed of trust.&quot;* You said you wanna build *&quot;the kind of company that is seven generations.&quot;*
+And right before that framing, you named the concerns I want to hold onto: sustainability, water, heat, power, job training, security, trust, and seven-generation responsibility. You treated them as real problems, not side quests.
 
 I agree with all of that. So I&#x27;m writing this the morning after, before tonight&#x27;s keynotes, before the news cycle moves on, because the deal you announced doesn&#x27;t match the speech you gave. Yet. The MOU isn&#x27;t signed. The window is still open. Let&#x27;s use it.
 
@@ -85,17 +86,17 @@ So let me hand them to you. Both hands full.
 
 Credit where it&#x27;s due. The announcement isn&#x27;t nothing.
 
-You named our advantage. *&quot;Digital sovereignty looks like infrastructure,&quot;* you said. You&#x27;re right. 
+You named the thing Canada keeps circling around: digital sovereignty is infrastructure. You&#x27;re right.
 
 A country that can&#x27;t host its own training and inference is a tenant on someone else&#x27;s metal. And right now that someone else is three American hyperscalers running on the dirtiest grids in North America. Refusing to build in BC doesn&#x27;t make AI smaller. It just sends our tokens south, to Texas gas and Virginia coal, with zero leverage over what runs on them. Building on [BC Hydro](https://www.bchydro.com/)&#x27;s 98% renewable grid is, on its face, the cleanest sovereign-compute option on the continent.
 
-You also did the thing the federal government rarely does. You put federal capital into BC. Budget 2024 put $2.4 billion toward Canada&#x27;s AI package, including $2 billion for the [Canadian Sovereign AI Compute Strategy](https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy). A hundred and sixty proposals received in the program&#x27;s first call. [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory) named publicly as the first project moving forward, though you were careful to say on stage it&#x27;s *&quot;moving forward on towards the MOU.&quot;* So the deal isn&#x27;t signed.
+You also did the thing the federal government rarely does. You put federal capital into BC. Budget 2024 put $2.4 billion toward Canada&#x27;s AI package, including $2 billion for the [Canadian Sovereign AI Compute Strategy](https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy). [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory) was named publicly as the first project moving forward through a non-binding MOU process. So the deal isn&#x27;t signed, and the public still has a window.
 
 After two years of arguing that the federal AI conversation runs through Vancouver. Clean power, Pacific positioning, Indigenous governance, deployment muscle. Federal capital actually showed up. That&#x27;s the hard part to admit. Thank you.
 
 You got the urban data centre design right, too. Heat recovery into the city instead of dissipated into the atmosphere, water recycled from [BC Place](https://www.bcplace.com/) instead of pulled from drought-stressed watersheds, sites that sit inside neighbourhoods instead of on the edge of them. This is the *good* version of an AI data centre. 
 
-Honestly, it&#x27;s the most Canadian thing in the announcement: building AI infrastructure that also keeps the neighbours warm in February. We&#x27;d want our name on that idea. It is what the rest of the cluster, and the rest of the federal program&#x27;s hundred and sixty proposals, should look like. Don&#x27;t let it be the exception. Make it the model.
+Honestly, it&#x27;s the most Canadian thing in the announcement: building AI infrastructure that also keeps the neighbours warm in February. We&#x27;d want our name on that idea. It is what the rest of the cluster, and the rest of the federal program, should look like. Don&#x27;t let it be the exception. Make it the model.
 
 So this isn&#x27;t a &quot;no thanks.&quot; This is a &quot;yes, and.&quot; And because the MOU isn&#x27;t signed, the *and* matters more than usual.
 
@@ -109,21 +110,21 @@ Five answers to the question. Each one a not-yet.
 
 Walk through Monday&#x27;s three sites with me, because the paper trail matters.
 
-Mount Pleasant, the former [Hootsuite](https://www.hootsuite.com/) headquarters at 111 East 5th Avenue, went to a public Q&amp;A from **January 28 to February 10, 2026**. The applicant was [Westbank](https://westbankcorp.com/). The rezoning was filed as *&quot;Bulk Data Storage,&quot;* with uses listed as *&quot;AI training, cryptocurrency mining, biotech simulations, visual effects render farms.&quot;* No mention of a federal sovereign-compute cluster. No mention of [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory). No mention that thirty thousand Mount Pleasant residents were being asked to host a flagship of Canadian AI strategy. Two-week online window, closed two months before any of this became public. That&#x27;s not consultation. That&#x27;s permitting. The people I represent know the difference.
+Mount Pleasant, the former [Hootsuite](https://www.hootsuite.com/) headquarters at 111 East 5th Avenue, went to a public Q&amp;A from **January 28 to February 10, 2026**. The applicant was [Westbank](https://westbankcorp.com/). The city file describes a rezoning for *&quot;Bulk Data Storage&quot;* in the existing building, and the public Q&amp;A says the intended use is an AI inference data centre. No mention of a federal sovereign-compute cluster. No mention of [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory). No mention that a whole neighbourhood was being asked to host a flagship of Canadian AI strategy. Two-week online window, closed two months before any of this became public. That&#x27;s not consultation. That&#x27;s permitting. The people I represent know the difference.
 
-The downtown facility at 150 West Georgia isn&#x27;t even rezoned. It&#x27;s a [Westbank](https://westbankcorp.com/) tower in pre-application stage, quietly repositioned to include a data centre alongside hotel rooms and condos. A residential tower where someone will sleep on top of a server room. No public file yet. But there is, as of Monday, a federal press release describing it as a 2029 facility.
+The downtown facility at 150 West Georgia is harder for the public to read. [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory) describes it as a 2029 facility in the proposed cluster, but the municipal trail I could verify during this pass does not explain how the data-centre use lands in the tower file. If there is an approval path, publish it. If there is a community-benefits path, name it.
 
-The Kamloops expansion sits on [Tk&#x27;emlúps te Secwépemc](https://tkemlups.ca/) territory. [Minister Robertson](https://www.canada.ca/en/government/ministers/gregor-robertson.html), you opened Monday night by acknowledging the unceded homelands of *&quot;*[*Musqueam*](https://www.musqueam.bc.ca/)*, *[*Squamish*](https://www.squamish.net/)*, and *[*Tsleil-Waututh*](https://twnation.ca/)* peoples for countless generations&quot;* and thanking them for their *&quot;stewardship and welcoming.&quot;* Right thing to say at a podium. It&#x27;s not the same as putting host Nations on the deal. 
+The Kamloops expansion sits on [Tk&#x27;emlúps te Secwépemc](https://tkemlups.ca/) territory. [Minister Robertson](https://www.canada.ca/en/government/ministers/gregor-robertson.html), you opened Monday night by acknowledging the unceded homelands of [Musqueam](https://www.musqueam.bc.ca/), [Squamish](https://www.squamish.net/), and [Tsleil-Waututh](https://twnation.ca/) peoples and thanking them for stewardship and welcome. Right thing to say at a podium. It&#x27;s not the same as putting host Nations on the deal.
 
 The [Canada.ca](http://canada.ca/) release names zero First Nations as partners on any of the three sites. Words on a stage, not structure in a contract. I won&#x27;t speak for the Nations whose territory these sites sit on. That&#x27;s not my place. I will say what&#x27;s true on its face: a sovereign-compute strategy that opens with land acknowledgment and closes with an MOU naming no host Nation is using a word that doesn&#x27;t belong to it.
 
-Three sites. Zero public partnership files. One online Q&amp;A that buried its real purpose. That&#x27;s not consent. That&#x27;s a press conference held on someone else&#x27;s lawn.
+Three sites. Zero public partnership files. One online Q&amp;A with no federal context. That&#x27;s not consent. That&#x27;s a press conference held on someone else&#x27;s lawn.
 
 ### **2. Not for the people you called pitchforks.**
 
 Coming back to your framing, Minister, because I think it&#x27;s the most important thing you said Monday. And the part that contradicts itself in the same paragraph.
 
-You said the concerns are *&quot;very, very real and present issues.&quot;* Your words. Then you said the people raising them are pitchforks who want to *&quot;stop building.&quot;* Pick one. Either the concerns are real and present, or the people with both hands full asking about them are pitchforks. You can&#x27;t have both.
+From the stage, you acknowledged these concerns as real. Then the people raising the hard version of them got folded into the pitchfork side of the frame. Pick one. Either the concerns are real and present, or the people with both hands full asking about them are the problem. You can&#x27;t have both.
 
 The people in my replies this morning aren&#x27;t asking you to stop building. They&#x27;re asking you to build *with us*. 
 
@@ -131,7 +132,7 @@ They&#x27;re a local hero who runs cultural infrastructure across the street fro
 
 They&#x27;re a retired professor in Nanaimo who spent two years getting water caps on a data centre on Vancouver Island. 
 
-They&#x27;re housing advocates noticing that the 150 West Georgia tower now lists &quot;data centre&quot; beside &quot;residential&quot; in the same building. 
+They&#x27;re housing advocates asking what it means for the 150 West Georgia tower to include data-centre use alongside the rest of its planning story.
 
 They&#x27;re artists who watched the CHPC committee hear forty-three witnesses on AI and creative labour last fall and got another task force at the end of it. 
 
@@ -141,7 +142,7 @@ These aren&#x27;t people charging at things they don&#x27;t understand. These ar
 
 Both hands full. 
 
-And asking for their seat at the table. Which is, by the way, the speed-of-trust work you said citizens need.
+And asking for their seat at the table. Which is, by the way, the trust work citizens need.
 
 The opposite of Team Pitchfork isn&#x27;t Team Pom Pom. It&#x27;s Team Receipt. That&#x27;s the team I&#x27;m building.
 
@@ -149,9 +150,9 @@ The opposite of Team Pitchfork isn&#x27;t Team Pom Pom. It&#x27;s Team Receipt. 
 
 In January 2026, [BC Hydro](https://www.bchydro.com/) opened a competitive call for emerging industries (AI and data centres) with a total allocation of up to **400 megawatts** over two years. The utility&#x27;s own CEO said without a structured process, [BC Hydro](https://www.bchydro.com/) could be *&quot;easily overwhelmed.&quot;*
 
-[TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory) just locked in 85 MW now, scaling to 150 MW by 2032. That&#x27;s roughly **38% of the entire two-year allocation for the province**. Going to one company, one cluster, without appearing through the call [BC Hydro](https://www.bchydro.com/) literally just published.
+[TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory) says it has secured an initial 85 MW, scaling to more than 150 MW by 2032. That&#x27;s roughly **38% of the entire two-year allocation for the province**. I have not found the public record showing whether that power came through the new call, through an existing queue, or through another path.
 
-So I&#x27;ll ask in public: did [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory) compete in that call, or did the federal MOU end-run it? And what&#x27;s the rest of BC&#x27;s AI ecosystem (the startups, the academic labs, the Indigenous data initiatives, the artist-trained-model researchers we work with at [SFU](https://www.sfu.ca/)&#x27;s [METACREATION Lab](https://www.metacreation.net/)) supposed to do with what&#x27;s left? Sovereign compute that encloses a public utility&#x27;s allocation in a single MOU isn&#x27;t sovereignty for the province. It&#x27;s sovereignty for one telco.
+So I&#x27;ll ask in public: did [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory) compete in that call, qualify through an existing queue, or move through a separate federal/provincial path? And what&#x27;s the rest of BC&#x27;s AI ecosystem (the startups, the academic labs, the Indigenous data initiatives, the artist-trained-model researchers we work with at [SFU](https://www.sfu.ca/)&#x27;s [METACREATION Lab](https://www.metacreation.net/)) supposed to do with what&#x27;s left? If sovereign compute encloses a public utility&#x27;s allocation in a single MOU, it isn&#x27;t sovereignty for the province. It&#x27;s sovereignty for one telco.
 
 ### **4. Not for the artists. Compute money for steel. Still no rights layer.**
 
@@ -159,7 +160,7 @@ The CHPC committee heard forty-three witnesses on AI and creative industries las
 
 The federal compute strategy puts billions toward infrastructure. Monday&#x27;s announcement has no federal funding committed yet, but the public signal is clear: steel, concrete, GPUs, and grid capacity are moving faster than compensation and consent rails for the people whose work will train what runs in the building. The consent infrastructure exists. [SFU](https://www.sfu.ca/)&#x27;s [METACREATION Lab](https://www.metacreation.net/) and our collaboration on artist-trained models won an [Ars Electronica](https://ars.electronica.art/) honourable mention for a proof-of-concept where artists train models on their own work and retain ownership. The community demand exists. Ottawa chose to advance the substrate before the rights layer.
 
-On stage Monday you said *&quot;when we talk about competing, we should also talk about competing for the worldview we want.&quot;* Agreed. A worldview that funds the building and not the people inside it isn&#x27;t the one I&#x27;m here to compete for.
+On stage Monday, you framed competition as a fight over the worldview we want. Agreed. A worldview that funds the building and not the people inside it isn&#x27;t the one I&#x27;m here to compete for.
 
 ### **5. Not yet for the climate. The numbers need paperwork.**
 
@@ -179,9 +180,9 @@ That&#x27;s the playbook. That&#x27;s how a permit picks up conditions. That&#x2
 
 If you wanna lead this, lead it. Don&#x27;t get out in front of it by calling them pitchforks.
 
-## **And to **[**Minister Robertson**](https://www.canada.ca/en/government/ministers/gregor-robertson.html)
+## **And to Minister Robertson**
 
-[Minister Robertson](https://www.canada.ca/en/government/ministers/gregor-robertson.html), you were on the opening-night stage Monday. You welcomed [Web Summit](https://vancouver.websummit.com/) to Vancouver, named the unceded homelands of [Musqueam](https://www.musqueam.bc.ca/), [Squamish](https://www.squamish.net/), and [Tsleil-Waututh](https://twnation.ca/), and walked through a list of BC tech anchor companies the province is proud of: *&quot;*[*Electronic Arts*](https://www.ea.com/)* to era wireless, *[*Slack*](https://slack.com/)* to *[*Stemcell*](https://www.stemcell.com/)*, *[*Hootsuite*](https://www.hootsuite.com/)*, *[*Clio*](https://www.clio.com/)*, Avante.&quot;*
+[Minister Robertson](https://www.canada.ca/en/government/ministers/gregor-robertson.html), you were on the opening-night stage Monday. You welcomed [Web Summit](https://vancouver.websummit.com/) to Vancouver, named the unceded homelands of [Musqueam](https://www.musqueam.bc.ca/), [Squamish](https://www.squamish.net/), and [Tsleil-Waututh](https://twnation.ca/), and walked through BC tech anchors like [Electronic Arts](https://www.ea.com/), [Slack](https://slack.com/), [Stemcell](https://www.stemcell.com/), [Hootsuite](https://www.hootsuite.com/), [Clio](https://www.clio.com/), and Avante.
 
 You said [Hootsuite](https://www.hootsuite.com/) from the same stage where, the same day, your government co-announced the conversion of [Hootsuite](https://www.hootsuite.com/)&#x27;s former Mount Pleasant headquarters into a [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory) data centre. The building keeps the address. The legacy gets replaced. The neighbourhood that hosted [Hootsuite](https://www.hootsuite.com/) for fifteen years wasn&#x27;t asked.
 
@@ -189,7 +190,7 @@ So this part&#x27;s for you. Because two of your files landed on that stage Mond
 
 You hold **Housing and Infrastructure**. The single most ambitious environmental claim in the announcement (that waste heat from the two Vancouver facilities will warm enough homes to heat 150,000 households) isn&#x27;t a [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory) deliverable. It&#x27;s your portfolio&#x27;s deliverable. Heat recovery from a data centre needs district energy pipe in the ground, customer agreements, and federal or municipal capital to lay it. [Creative Energy](https://creative.energy/) already runs a downtown thermal loop. Mount Pleasant has nothing comparable. The 150,000-home claim only becomes operational if your portfolio chooses to make it operational. Right now, no one in Ottawa is on the hook to deliver it. The number lives in a press release. It needs to live in a contract.
 
-You also hold the [**PacifiCan**](https://www.canada.ca/en/pacific-economic-development.html)** file**. In March your agency announced **$13.8 million** for defence innovation in AI and aerospace in BC under the Regional Defence Investment Initiative. That money is already flowing. The cluster announced Monday will, without a published allocation policy, run defence and surveillance workloads alongside everything else. I&#x27;m not against defence research in Canada. I&#x27;m against a public grid powering it without a public conversation. 150 megawatts is gonna run something. We deserve to know what. And right now you&#x27;re the cabinet member who can answer.
+You also hold the [**PacifiCan**](https://www.canada.ca/en/pacific-economic-development.html)** file**. In March your agency announced **$13.8 million** for defence innovation in AI and aerospace in BC under the Regional Defence Investment Initiative. That money is already flowing. Without a published allocation policy, the public cannot tell whether federally supported compute on this cluster will run civic, research, commercial, defence, or surveillance-adjacent workloads. I&#x27;m not against defence research in Canada. I&#x27;m against a public grid powering it without a public conversation. 150 megawatts is gonna run something. We deserve to know what. And right now you&#x27;re the cabinet member who can answer.
 
 Here&#x27;s the part that matters to me, and I think to you. You used to be the mayor of this city. You know Mount Pleasant. You know what density without consultation produces. You spent ten years working on the housing crisis from the other side of the table, and you came back to Ottawa with a portfolio that lets you shape it from this side. The two new data centres are in your old neighbourhood, drawing on your old grid, with waste heat that lands in your current file.
 
@@ -197,7 +198,10 @@ You&#x27;re uniquely positioned to be the cabinet member who makes this announce
 
 I wanna work with the first version of you. Here&#x27;s what that looks like:
 
-A **federal-municipal heat-recovery agreement** between Housing and Infrastructure, the City of Vancouver, [Creative Energy](https://creative.energy/), and [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory), naming actual buildings and a build timeline for the 150,000-home number. The [YWCA](https://ywcabc.org/)&#x27;s social enterprise hotel across from 111 East 5th is a natural first signatory.A **public allocation framework** for any compute purchased on this cluster with federal defence dollars, with a Parliamentary review window before the first GPU racks up.A **Mount Pleasant community benefits agreement** with neighbourhood representatives at the table. The kind you used to advocate for as a mayor.A [**PacifiCan**](https://www.canada.ca/en/pacific-economic-development.html)** line item** for the BC creator-rights and consent infrastructure work the CHPC committee heard about and Ottawa hasn&#x27;t yet funded.
+- A **federal-municipal heat-recovery agreement** between Housing and Infrastructure, the City of Vancouver, [Creative Energy](https://creative.energy/), and [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory), naming actual buildings and a build timeline for the 150,000-home number. The [YWCA](https://ywcabc.org/)&#x27;s social enterprise hotel across from 111 East 5th is a natural first signatory.
+- A **public allocation framework** for any compute purchased on this cluster with federal defence dollars, with a Parliamentary review window before the first GPU racks up.
+- A **Mount Pleasant community benefits agreement** with neighbourhood representatives at the table. The kind you used to advocate for as a mayor.
+- A [**PacifiCan**](https://www.canada.ca/en/pacific-economic-development.html)** line item** for the BC creator-rights and consent infrastructure work the CHPC committee heard about and Ottawa hasn&#x27;t yet funded.
 
 You made this city work by partnering with people who knew it. You&#x27;re back at the table. Partner with us.
 
@@ -205,7 +209,11 @@ You made this city work by partnering with people who knew it. You&#x27;re back 
 
 Your panel was titled *AI for All*. These are the five conditions that would make the title true. Public. Signed. Before the MOU is.
 
-**Independent environmental impact assessments** for each of the three sites, published, with a public comment window that names the federal partnership.**A published allocation policy for the cluster**: what percentage of compute is reserved for academic, civic, Indigenous, and public-interest workloads; what&#x27;s excluded.**A community benefits agreement** for each Vancouver site, with neighbourhood representatives and the [YWCA](https://ywcabc.org/) hotel as named signatories on waste-heat recovery.**Indigenous governance built into the project structure**, on the terms of the host Nations, before construction proceeds at Kamloops. And a meaningful share of the remaining [BC Hydro](https://www.bchydro.com/) emerging-industries allocation reserved for Indigenous-led or Indigenous-zoned data infrastructure, as a real pathway to economic reconciliation.**A creator-rights line item in the next federal AI budget**: funding for consent infrastructure, artist compensation rails, and the research the CHPC committee heard about and didn&#x27;t fund.
+1. **Independent environmental impact assessments** for each of the three sites, published, with a public comment window that names the federal partnership.
+2. **A published allocation policy for the cluster**: what percentage of compute is reserved for academic, civic, Indigenous, and public-interest workloads; what&#x27;s excluded.
+3. **A community benefits agreement** for each Vancouver site, with neighbourhood representatives and the [YWCA](https://ywcabc.org/) hotel as named signatories on waste-heat recovery.
+4. **Indigenous governance built into the project structure**, on the terms of the host Nations, before construction proceeds at Kamloops. And a meaningful share of the remaining [BC Hydro](https://www.bchydro.com/) emerging-industries allocation reserved for Indigenous-led or Indigenous-zoned data infrastructure, as a real pathway to economic reconciliation.
+5. **A creator-rights line item in the next federal AI budget**: funding for consent infrastructure, artist compensation rails, and the research the CHPC committee heard about and didn&#x27;t fund.
 
 Five conditions. We&#x27;d sign onto an announcement that meets them.
 
@@ -217,7 +225,7 @@ There&#x27;s a version of Monday&#x27;s announcement we sign onto. Host Nations 
 
 I&#x27;m offering that version. So is the community I represent. We&#x27;ll be in Vancouver, where we already live, when you come back to break the next set of ground.
 
-[Minister Solomon](https://www.canada.ca/en/government/ministers/evan-solomon.html), you closed your panel Monday by saying you wanna build *&quot;the kind of company that is seven generations.&quot;* That&#x27;s borrowed from Indigenous teaching. If you mean it, the host Nations are signatories, not stage acknowledgments. Seven generations of consent, not two weeks of online comment.
+[Minister Solomon](https://www.canada.ca/en/government/ministers/evan-solomon.html), you closed your panel Monday by invoking seven generations. That&#x27;s borrowed from Indigenous teaching. If you mean it, the host Nations are signatories, not stage acknowledgments. Seven generations of consent, not two weeks of online comment.
 
 So. Sovereign AI for whom?
 

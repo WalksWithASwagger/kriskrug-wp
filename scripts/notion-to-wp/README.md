@@ -82,6 +82,24 @@ Use `--local-only` when WordPress credentials are unavailable:
 scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py --local-only
 ```
 
+## Local draft package to WordPress draft
+
+Use `create_local_wp_draft.py` only for reviewed local packages where `post.html` is already the canonical Gutenberg body. This is the right path for rebuilt or manually polished packages that should not be fetched from Notion again.
+
+The helper defaults to dry-run and refuses to create a duplicate when a post or page already owns the slug:
+
+```bash
+scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py content/drafts/<dated-slug>/post.md
+```
+
+After slug, media, and preview intent are approved, make the write explicit:
+
+```bash
+scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py content/drafts/<dated-slug>/post.md --execute
+```
+
+It uploads frontmatter images, rewrites local image paths in `post.html`, sets the first uploaded image as featured media, keeps status as `draft`, and records media/post IDs in `publish.log`.
+
 ## Live-write safety checks
 
 2026-05-22 operating stance: the strict backup/restore proof gate is retired. The connector can create drafts and publish/update intentionally, but every live run must still be boringly explicit about target, intent, and rollback path.
