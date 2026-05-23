@@ -118,9 +118,9 @@ article p,
   }
 }
 
-/* Drop cap for first paragraph */
-article > p:first-of-type::first-letter,
-.entry-content > p:first-of-type::first-letter {
+/* Drop cap for first paragraph — single posts only (kept off generic pages
+   to avoid the giant first-letter glitch on Contact/Services intros). */
+body.single .entry-content > p:first-of-type::first-letter {
   float: left;
   font-size: 3.5em;
   line-height: 0.8;

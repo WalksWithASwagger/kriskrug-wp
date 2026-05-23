@@ -109,15 +109,18 @@
   // ============================================
   
   function initScrollReveal() {
+    // Signal the non-deferred head failsafe (functions.php) that the reveal
+    // system is live, so it stands down. Base hiding styles now live in
+    // animations.css, gated on html.aurora-js (progressive enhancement).
+    document.documentElement.classList.add('aurora-revealed-init');
+
+    const targets = document.querySelectorAll('[data-reveal], [data-reveal-stagger]');
+
     if (prefersReducedMotion) {
-      // Just show everything
-      document.querySelectorAll('[data-reveal]').forEach(el => {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-      });
+      targets.forEach(el => el.classList.add('is-revealed'));
       return;
     }
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -129,44 +132,8 @@
       threshold: 0.1,
       rootMargin: '0px 0px -10% 0px'
     });
-    
-    document.querySelectorAll('[data-reveal]').forEach(el => {
-      observer.observe(el);
-    });
-    
-    // Add base styles
-    const style = document.createElement('style');
-    style.textContent = `
-      [data-reveal] {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: 
-          opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
-          transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-      }
-      
-      [data-reveal].is-revealed {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      
-      /* Stagger children */
-      [data-reveal-stagger] > * {
-        opacity: 0;
-        transform: translateY(15px);
-        transition: 
-          opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
-          transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-      }
-      
-      [data-reveal-stagger].is-revealed > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
-      [data-reveal-stagger].is-revealed > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
-      [data-reveal-stagger].is-revealed > *:nth-child(3) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
-      [data-reveal-stagger].is-revealed > *:nth-child(4) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
-      [data-reveal-stagger].is-revealed > *:nth-child(5) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
-      [data-reveal-stagger].is-revealed > *:nth-child(6) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
-    `;
-    document.head.appendChild(style);
+
+    targets.forEach(el => observer.observe(el));
   }
 
   // ============================================

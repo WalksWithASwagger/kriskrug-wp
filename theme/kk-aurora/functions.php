@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.1.0');
+define('KK_AURORA_VERSION', '1.1.1');
 
 /**
  * Theme setup
@@ -275,6 +275,32 @@ function theme_color_meta(): void {
     <?php
 }
 add_action('wp_head', __NAMESPACE__ . '\\theme_color_meta', 2);
+
+/**
+ * Reveal bootstrap — runs synchronously (NOT deferred), so it is immune to
+ * Jetpack Boost JS deferral/concatenation:
+ *  - adds html.aurora-js so the [data-reveal] opacity:0 hiding (animations.css)
+ *    only applies when JS is present; without JS, content is visible by default;
+ *  - failsafe: if the deferred reveal script never marks itself initialised,
+ *    reveal everything on load so content can never get stuck invisible.
+ */
+function reveal_bootstrap(): void {
+    ?>
+    <script>
+    document.documentElement.classList.add('aurora-js');
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        if (!document.documentElement.classList.contains('aurora-revealed-init')) {
+          document.querySelectorAll('[data-reveal],[data-reveal-stagger]').forEach(function (el) {
+            el.classList.add('is-revealed');
+          });
+        }
+      }, 1200);
+    });
+    </script>
+    <?php
+}
+add_action('wp_head', __NAMESPACE__ . '\\reveal_bootstrap', 3);
 
 /**
  * Remove WordPress emoji scripts for performance
