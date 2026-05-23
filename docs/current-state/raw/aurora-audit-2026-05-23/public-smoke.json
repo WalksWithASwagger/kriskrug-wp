@@ -1,0 +1,137 @@
+{
+  "base_url": "https://kriskrug.co",
+  "checks": [
+    {
+      "details": {
+        "content_type": "text/html; charset=UTF-8",
+        "final_url": "https://kriskrug.co/",
+        "plugins": {
+          "google-site-kit": "1.179.0",
+          "jetpack": "52dbe7cc70e522fe47c0",
+          "popup-maker": "1.22.0",
+          "zero-bs-crm": "5ba5dddc04be2306aaf0"
+        },
+        "status": 200,
+        "theme": "kk-aurora 1.1.0",
+        "wordpress_version": "6.9.4"
+      },
+      "failures": [],
+      "path": "/",
+      "status": "pass",
+      "url": "https://kriskrug.co/",
+      "warnings": []
+    },
+    {
+      "details": {
+        "content_type": "text/html; charset=UTF-8",
+        "final_url": "https://kriskrug.co/blog/",
+        "status": 200
+      },
+      "failures": [],
+      "path": "/blog/",
+      "status": "pass",
+      "url": "https://kriskrug.co/blog/",
+      "warnings": []
+    },
+    {
+      "details": {
+        "content_type": "text/html; charset=UTF-8",
+        "final_url": "https://kriskrug.co/speaking/",
+        "status": 200
+      },
+      "failures": [],
+      "path": "/speaking/",
+      "status": "pass",
+      "url": "https://kriskrug.co/speaking/",
+      "warnings": []
+    },
+    {
+      "details": {
+        "content_type": "text/html; charset=UTF-8",
+        "final_url": "https://kriskrug.co/recent-projects-include/",
+        "status": 200
+      },
+      "failures": [],
+      "path": "/work/",
+      "status": "pass",
+      "url": "https://kriskrug.co/work/",
+      "warnings": []
+    },
+    {
+      "details": {
+        "content_type": "text/html; charset=UTF-8",
+        "final_url": "https://kriskrug.co/contact/",
+        "status": 200
+      },
+      "failures": [],
+      "path": "/contact/",
+      "status": "pass",
+      "url": "https://kriskrug.co/contact/",
+      "warnings": []
+    },
+    {
+      "details": {
+        "namespaces": [
+          "akismet/v1",
+          "code-snippets/v1",
+          "google-site-kit/v1",
+          "jetpack-boost-ds",
+          "jetpack-boost/v1",
+          "jetpack-protect/v1",
+          "jetpack/v4",
+          "jetpack/v4/blaze",
+          "jetpack/v4/blaze-app",
+          "jetpack/v4/explat",
+          "jetpack/v4/import",
+          "jetpack/v4/stats-app",
+          "mcp",
+          "my-jetpack/v1",
+          "oembed/1.0",
+          "popup-maker/v1",
+          "popup-maker/v2",
+          "pum/v1",
+          "redirection/v1",
+          "wp-abilities/v1",
+          "wp-block-editor/v1",
+          "wp-site-health/v1",
+          "wp/v2",
+          "wpcom/v2",
+          "wpcom/v3",
+          "zbscrm/v1"
+        ],
+        "site_name": "Kris Kr\u00fcg | Generative AI Tools &amp; Techniques"
+      },
+      "failures": [],
+      "path": "/wp-json/",
+      "status": "pass",
+      "url": "https://kriskrug.co/wp-json/",
+      "warnings": []
+    },
+    {
+      "details": {
+        "content_type": "text/xml; charset=UTF-8",
+        "final_url": "https://kriskrug.co/sitemap.xml",
+        "status": 200
+      },
+      "failures": [],
+      "path": "/sitemap.xml",
+      "status": "pass",
+      "url": "https://kriskrug.co/sitemap.xml",
+      "warnings": []
+    },
+    {
+      "details": {
+        "content_type": "text/html; charset=UTF-8",
+        "final_url": "https://kriskrug.co/?s=ai",
+        "status": 200
+      },
+      "failures": [],
+      "path": "/?s=ai",
+      "status": "pass",
+      "url": "https://kriskrug.co/?s=ai",
+      "warnings": []
+    }
+  ],
+  "observed_wordpress_version": "6.9.4",
+  "started_at": "2026-05-23T17:06:33Z"
+}

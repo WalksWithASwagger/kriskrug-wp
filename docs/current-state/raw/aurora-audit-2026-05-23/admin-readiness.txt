@@ -1,0 +1,32 @@
+WordPress admin readiness: https://kriskrug.co
+Auth user: {"can_activate_plugins": true, "can_update_core": true, "can_update_plugins": true, "id": 18, "roles": ["administrator"], "slug": "wpadmin5102"}
+
+Theme: KK Aurora (kk-aurora) 1.1.0 [active]
+
+Active plugins:
+  - Abilities API 0.4.0 (abilities-api/abilities-api)
+  - Akismet Anti-spam: Spam Protection 5.7 (akismet/akismet)
+  - Categories to Tags Converter Importer 0.6.3 (wpcat2tag-importer/wpcat2tag-importer)
+  - Code Snippets 3.9.6 (code-snippets/code-snippets)
+  - Jetpack 15.8 (jetpack/jetpack)
+  - Jetpack Boost 4.5.9 (jetpack-boost/jetpack-boost)
+  - Jetpack CRM 6.8.0 (zero-bs-crm/ZeroBSCRM)
+  - Jetpack Protect 5.0.0 (jetpack-protect/jetpack-protect)
+  - MCP Adapter 0.5.0 (mcp-adapter/mcp-adapter)
+  - Popup Maker 1.22.0 (popup-maker/popup-maker)
+  - Redirection 5.7.5 (redirection/redirection)
+  - Site Kit by Google 1.179.0 (google-site-kit/google-site-kit)
+  - WPCode Lite 2.3.5 (insert-headers-and-footers/ihaf)
+
+Inactive plugins:
+  - AMP 2.5.5 (amp/amp)
+  - MobileMonkey X-Ray Installer 1.1 (mobilemonkey-x-ray-installer/mobilemonkey-x-ray-installer)
+  - Regenerate Thumbnails 3.1.6 (regenerate-thumbnails/regenerate-thumbnails)
+
+Site Health REST tests:
+  - good: Your website is using an active HTTPS connection
+  - good: Your site can perform loopback requests
+  - good: Can communicate with WordPress.org
+  - recommended: The authorization header is invalid
+  - critical: Background updates are not working as expected
+  - critical: Page cache is detected but the server response time is still slow

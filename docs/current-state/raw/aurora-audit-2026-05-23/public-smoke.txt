@@ -1,0 +1,14 @@
+WordPress public smoke: https://kriskrug.co
+Started: 2026-05-23T17:06:07Z
+Observed WordPress version: 6.9.4
+
+PASS /
+     theme: kk-aurora 1.1.0
+     plugins: google-site-kit=1.179.0, jetpack=52dbe7cc70e522fe47c0, popup-maker=1.22.0, zero-bs-crm=5ba5dddc04be2306aaf0
+PASS /blog/
+PASS /speaking/
+PASS /work/
+PASS /contact/
+PASS /wp-json/
+PASS /sitemap.xml
+PASS /?s=ai
