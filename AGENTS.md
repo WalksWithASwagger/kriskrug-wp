@@ -12,7 +12,7 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 2. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
 3. [`docs/current-state/REPO_STATE.md`](docs/current-state/REPO_STATE.md) — what's actually built vs. just documented
 4. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
-5. [`docs/current-state/WORK-PLAN-2026-05-21.md`](docs/current-state/WORK-PLAN-2026-05-21.md) — current next-session front door and stop rules
+5. [`docs/current-state/WORK-PLAN-2026-05-23.md`](docs/current-state/WORK-PLAN-2026-05-23.md) — current roadmap, next-session front door, and stop rules
 
 For the detailed diagnostic behind that plan, read [`docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`](docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md).
 
@@ -45,7 +45,7 @@ Full decision tree: [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md
 - **`.github/workflows/test-pr.yml`** — still active PR validation. Do not describe all workflows as dormant.
 - **`docs/architecture.md`, `docs/automation-guide.md`** — reference docs for the dormant swarm.
 - **`docs/cloudways-setup.md`, `docs/local-development-setup.md`, `.claude/context/wordpress-setup.md`** — Cloudways dev-server setup that was never used as planned. Relevant if/when Track B needs staging, otherwise ignore.
-- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. The current roadmap is [`docs/current-state/ROADMAP.md`](docs/current-state/ROADMAP.md).
+- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. The current execution roadmap is [`docs/current-state/WORK-PLAN-2026-05-23.md`](docs/current-state/WORK-PLAN-2026-05-23.md); the longer-range reference roadmap is [`docs/current-state/ROADMAP.md`](docs/current-state/ROADMAP.md).
 
 Anything banner-tagged `STATUS: Historical` at the top is reference-only.
 
@@ -69,4 +69,4 @@ Read [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODE
 
 ---
 
-**Last verified:** 2026-05-22. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` as the source of truth and flag the drift for a fresh audit.
+**Last verified:** 2026-05-23. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` as the source of truth and flag the drift for a fresh audit.

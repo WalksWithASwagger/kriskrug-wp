@@ -19,7 +19,8 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 | [FIX_QUEUE.md](FIX_QUEUE.md) | Prioritized P0→P3 backlog from both audits. |
 | [ROADMAP.md](ROADMAP.md) | Six-phase, 3-month plan that synthesizes FIX_QUEUE + postmortem follow-ups + content pipeline next steps. Use as longer-range reference after the latest work plan. |
 | [FULL-AUDIT-ROADMAP-2026-05-18.md](FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit of repo, GitHub queue, Track A, Track B, and human decisions. |
-| [WORK-PLAN-2026-05-21.md](WORK-PLAN-2026-05-21.md) | Current next-session front door after the diagnostic/polish branch, docs tidy pass, and sidebar promo hardening. |
+| [WORK-PLAN-2026-05-23.md](WORK-PLAN-2026-05-23.md) | Current roadmap and execution front door after the Sovereign AI draft pipeline closeout: Track A polish, draft queue, issue hygiene, WP 7 staging, and Aurora separation. |
+| [WORK-PLAN-2026-05-21.md](WORK-PLAN-2026-05-21.md) | Historical next-session front door after the diagnostic/polish branch, docs tidy pass, and sidebar promo hardening. Superseded by `WORK-PLAN-2026-05-23.md`. |
 | [DRAFT-QUALITY-RESET-2026-05-22.md](DRAFT-QUALITY-RESET-2026-05-22.md) | Active Track A publishing correction: live draft counts, why the May 21-22 drafts are not schedule-ready, and the required editorial/link/image/block QA gate. |
 | [DRAFT-QUEUE-AUDIT-2026-05-22.md](DRAFT-QUEUE-AUDIT-2026-05-22.md) | Active draft queue routing with the 2026-05-23 Sovereign AI addendum: WP draft `11905`, 43 draft posts, and no duplicate-create rule. |
 | [STORYHIVE-DRAFT-AUDIT-2026-05-22.md](STORYHIVE-DRAFT-AUDIT-2026-05-22.md) | Fine-toothed audit of the rebuilt StoryHive drafts, live WP readback, review-gate verification, and release roadmap. |
@@ -78,8 +79,8 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 - **Site is on Pagely** (managed WP host), running **WordPress 6.9.4** with the **Catch Responsive** classic theme.
 - **Jetpack is on the Free plan**, which is why WordPress.com MCP write access is currently blocked.
 - **Baseline note:** the May 14 snapshot started before later page-level snapshots, source packs, and Aurora theme work were added. Read the dated addenda above for current operating state.
-- **Current addendum:** use the 2026-05-22 WP 7, draft queue, issue queue, and quality-reset artifacts as the live operating surface; the 2026-05-21 work plan remains the session front door.
-- **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-05-22 19:10 PDT / 2026-05-23 02:10 UTC. Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
+- **Current addendum:** use [`WORK-PLAN-2026-05-23.md`](WORK-PLAN-2026-05-23.md) as the session front door. It ties together the WP 7, draft queue, issue queue, and quality-reset artifacts.
+- **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-05-22 19:46 PDT / 2026-05-23 02:46 UTC. Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
 - **Draft queue addendum:** use [`DRAFT-QUEUE-AUDIT-2026-05-22.md`](DRAFT-QUEUE-AUDIT-2026-05-22.md) before touching the publishing queue; `sovereign-ai-for-whom` is already WP draft `11905`.
 - **Issue queue addendum:** use [`ISSUE-QUEUE-AUDIT-2026-05-22.md`](ISSUE-QUEUE-AUDIT-2026-05-22.md) before starting another issue swarm; the open count is currently 61 after the first hygiene pass.
 - **Read-only fingerprinting works** through the public WP REST API; that's how this snapshot was built.

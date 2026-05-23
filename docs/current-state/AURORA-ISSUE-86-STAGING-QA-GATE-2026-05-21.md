@@ -26,7 +26,7 @@
 | Keyboard focus, reduced-motion behavior, and major contrast pairs were checked locally. | `origin/aurora/v2:docs/current-state/AURORA-SWARM-86-QA-2026-05-20.md` | Local-only pass |
 | Local QA still had missing media: About 13 incomplete images, Work 1, Make Culture 1, Calling Us All In 7. | `origin/aurora/v2:docs/current-state/AURORA-SWARM-86-QA-2026-05-20.md` and `aurora-qa-checks.json` | Blocks staging sign-off |
 | Earlier Aurora staging report found desktop header/nav render problems on Local WordPress. | `docs/current-state/AURORA-STAGING-REPORT-2026-05-18.md` | Must be revalidated after later fixes |
-| The current work plan says #86 is done only when staging uses production-like media and QA notes are recorded. | `docs/current-state/WORK-PLAN-2026-05-21.md` | Not yet satisfied |
+| The current work plan says #86 is done only when staging uses production-like media and QA notes are recorded. | `docs/current-state/WORK-PLAN-2026-05-23.md` | Not yet satisfied |
 | Backup archive set exists for 2026-05-16, but uploads are missing and restore proof is absent. | `make backup-check BACKUP_DIR=backup/2026-05-16` | Resilience gap; not a blanket launch blocker after 2026-05-22 gate retirement |
 | Rollback playbook exists, but no Aurora-specific activation rollback drill/proof was found. | `docs/current-state/ROLLBACK_PLAYBOOK.md` | Needs activation-specific proof |
 
