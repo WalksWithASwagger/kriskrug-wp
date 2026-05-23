@@ -66,6 +66,24 @@ python kk_notion_to_wp.py --publish https://www.notion.so/<page-id>
 python kk_notion_to_wp.py --update https://www.notion.so/<page-id>
 ```
 
+## Local draft package publisher
+
+Use `create_local_wp_draft.py` when the reviewed package already exists under
+`content/drafts/...` and `post.html` is the canonical Gutenberg body. This
+path does not fetch Notion, defaults to dry-run, refuses post/page slug
+collisions, uploads package images with alt text, rewrites local image paths to
+WP media URLs, and creates only a WordPress `draft` when `--execute` is passed.
+If a retry happens after media upload, it reuses media IDs already recorded in
+`publish.log`.
+
+```bash
+# Validate slug availability and payload shape; no WordPress writes.
+scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py content/drafts/<date-slug>/post.md
+
+# Explicit create-only WP draft run.
+scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py content/drafts/<date-slug>/post.md --execute
+```
+
 ## Draft queue audit
 
 Before promoting anything from the WordPress draft pile, refresh the read-only queue audit:
@@ -81,24 +99,6 @@ Use `--local-only` when WordPress credentials are unavailable:
 ```bash
 scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py --local-only
 ```
-
-## Local draft package to WordPress draft
-
-Use `create_local_wp_draft.py` only for reviewed local packages where `post.html` is already the canonical Gutenberg body. This is the right path for rebuilt or manually polished packages that should not be fetched from Notion again.
-
-The helper defaults to dry-run and refuses to create a duplicate when a post or page already owns the slug:
-
-```bash
-scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py content/drafts/<dated-slug>/post.md
-```
-
-After slug, media, and preview intent are approved, make the write explicit:
-
-```bash
-scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py content/drafts/<dated-slug>/post.md --execute
-```
-
-It uploads frontmatter images, rewrites local image paths in `post.html`, sets the first uploaded image as featured media, keeps status as `draft`, and records media/post IDs in `publish.log`.
 
 ## Live-write safety checks
 

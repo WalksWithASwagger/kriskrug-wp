@@ -29,7 +29,7 @@ curl -ILs https://kriskrug.co/<path>/ | sed -n '1,8p'
 
 ## Minimum safety steps before private WP draft creation
 
-1. Run connector `--dry-run` first.
+1. Run connector/local publisher `--dry-run` first.
 2. Confirm the slug is a create-only target and the title is intentional.
 3. Review excerpt/meta, categories/tags, and internal links.
 4. Keep status as `draft`; do not publish from the first live run.
@@ -40,7 +40,7 @@ curl -ILs https://kriskrug.co/<path>/ | sed -n '1,8p'
 
 1. KK has reviewed the WordPress draft.
 2. Slug, title, excerpt/meta, categories/tags, links, and media are final.
-3. Backup/page-snapshot discipline from `docs/current-state/BACKUP_PLAN.md` is satisfied.
+3. Rollback/page-snapshot discipline from `docs/current-state/BACKUP_PLAN.md` is satisfied for the blast radius.
 
 ## Quick readiness checklist (per draft)
 
@@ -53,5 +53,6 @@ curl -ILs https://kriskrug.co/<path>/ | sed -n '1,8p'
 ## Related docs
 
 - `scripts/notion-to-wp/README.md`
+- `scripts/notion-to-wp/create_local_wp_draft.py`
 - `docs/current-state/NEXT-PUBLISHING-PLAN-2026-05-18.md`
 - `docs/current-state/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md`
