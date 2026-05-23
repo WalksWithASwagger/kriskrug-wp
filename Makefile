@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test validate health issues pr dashboard stats agent-status backup-check clean
+.PHONY: help test validate health issues pr dashboard stats agent-status backup-check draft-queue-audit wp7-smoke wp7-admin-readiness clean
 
 # Default target
 .DEFAULT_GOAL := help
@@ -9,7 +9,7 @@
 help: ## Show this help message
 	@echo "kriskrug-wp Development Commands"
 	@echo ""
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
 	@echo ""
 	@echo "Examples:"
 	@echo "  make health"
@@ -118,6 +118,19 @@ backup-check: ## Verify a backup set (use BACKUP_DIR=backup/YYYY-MM-DD; STRICT=1
 	else \
 		bash scripts/verify-backup-set.sh --allow-incomplete "$(BACKUP_DIR)"; \
 	fi
+
+draft-queue-audit: ## Run read-only draft queue audit (LOCAL_ONLY=1 FORMAT=json)
+	@if [ "$${LOCAL_ONLY:-0}" = "1" ]; then \
+		python3 scripts/notion-to-wp/draft_queue_audit.py --local-only --format "$${FORMAT:-markdown}"; \
+	else \
+		scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py --format "$${FORMAT:-markdown}"; \
+	fi
+
+wp7-smoke: ## Run read-only public WP 7 rollout smoke checks (BASE_URL=https://kriskrug.co EXPECT_VERSION=6.9.4)
+	@python3 scripts/wp7-public-smoke.py --base-url "$${BASE_URL:-https://kriskrug.co}" $${EXPECT_VERSION:+--expect-version "$$EXPECT_VERSION"}
+
+wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (ENV_FILE=scripts/notion-to-wp/.env)
+	@python3 scripts/wp7-admin-readiness.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"
 
 clean: ## Clean up test artifacts and temporary files
 	@echo "Cleaning up..."

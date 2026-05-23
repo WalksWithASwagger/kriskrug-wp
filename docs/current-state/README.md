@@ -22,6 +22,8 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 | [WORK-PLAN-2026-05-21.md](WORK-PLAN-2026-05-21.md) | Current next-session front door after the diagnostic/polish branch, docs tidy pass, and sidebar promo hardening. |
 | [DRAFT-QUALITY-RESET-2026-05-22.md](DRAFT-QUALITY-RESET-2026-05-22.md) | Active Track A publishing correction: live draft counts, why the May 21-22 drafts are not schedule-ready, and the required editorial/link/image/block QA gate. |
 | [STORYHIVE-DRAFT-AUDIT-2026-05-22.md](STORYHIVE-DRAFT-AUDIT-2026-05-22.md) | Fine-toothed audit of the rebuilt StoryHive drafts, live WP readback, review-gate verification, and release roadmap. |
+| [WP-7-UPGRADE-2026-05-22.md](WP-7-UPGRADE-2026-05-22.md) | Track A WordPress 7.0 staging-first upgrade runbook, smoke command, Pagely gate, rollback plan, and "AI connectors stay empty" rule. |
+| [ISSUE-QUEUE-AUDIT-2026-05-22.md](ISSUE-QUEUE-AUDIT-2026-05-22.md) | Current 63-issue routing audit: close/re-scope candidates, Track A polish, draft publishing, WP 7 readiness, Aurora, and parked strategy lanes. |
 | [TOMORROW-ROADMAP-2026-05-20.md](TOMORROW-ROADMAP-2026-05-20.md) | Historical next-session roadmap after rewrite recovery, branch hygiene follow-through, and worktree reconciliation. Superseded by `WORK-PLAN-2026-05-21.md`. |
 | [WORK-PLAN-2026-05-20.md](WORK-PLAN-2026-05-20.md) | Historical execution plan after Wave 3 implementation completion and final Track B QA gate (`#86`). Superseded by `WORK-PLAN-2026-05-21.md`. |
 | [DIAGNOSTIC-POLISH-2026-05-20.md](DIAGNOSTIC-POLISH-2026-05-20.md) | Repository truth-refresh, technical-debt audit, SOTA direction, and polish/action checklist from the 2026-05-20 diagnostic pass. |
@@ -76,5 +78,7 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 - **Jetpack is on the Free plan**, which is why WordPress.com MCP write access is currently blocked.
 - **Baseline note:** the May 14 snapshot started before later page-level snapshots, source packs, and Aurora theme work were added. Read the dated addenda above for current operating state.
 - **Current addendum:** the 2026-05-21 work plan is the latest front door; the 2026-05-20 diagnostic pass remains the detailed repo-truth refresh for live fix status, workflow governance, and plugin hardening.
+- **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-05-22 17:58 PDT. Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
+- **Issue queue addendum:** use [`ISSUE-QUEUE-AUDIT-2026-05-22.md`](ISSUE-QUEUE-AUDIT-2026-05-22.md) before starting another issue swarm; it routes the current 63 open issues into concrete lanes.
 - **Read-only fingerprinting works** through the public WP REST API; that's how this snapshot was built.
 - **Path to "safe to modify":** the strict backup/restore proof gate was retired on 2026-05-22. Use dry-runs, exact slug/ID/status checks, page/post snapshots or reversible diffs, and explicit rollback notes. Keep improving backup coverage as resilience, not as a blanket blocker.

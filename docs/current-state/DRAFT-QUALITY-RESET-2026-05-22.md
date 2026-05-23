@@ -119,6 +119,17 @@ Required output per post:
 
 ## Queue Status
 
+### Audit Command
+
+Use the read-only audit before promoting any draft:
+
+```bash
+make draft-queue-audit
+LOCAL_ONLY=1 make draft-queue-audit
+```
+
+`make draft-queue-audit` uses the connector virtualenv and compares local draft packages with the live WordPress draft queue. `LOCAL_ONLY=1` uses plain `python3` and skips WordPress REST checks. Neither mode creates, updates, schedules, or publishes content.
+
 ### Not Scheduled
 
 No posts or pages are currently scheduled in WordPress.

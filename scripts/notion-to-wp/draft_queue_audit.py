@@ -18,8 +18,6 @@ from typing import Any
 
 import yaml
 
-from kk_notion_to_wp import WordPress, load_config
-
 
 STATUSES = ("future", "draft", "pending", "private")
 
@@ -131,7 +129,7 @@ def collect_local_drafts(repo_root: Path) -> list[LocalDraft]:
     return [local_draft_metrics(path) for path in sorted(drafts_root.iterdir()) if path.is_dir()]
 
 
-def collect_wp_items(wp: WordPress, kind: str, status: str) -> list[dict[str, Any]]:
+def collect_wp_items(wp: Any, kind: str, status: str) -> list[dict[str, Any]]:
     items: list[dict[str, Any]] = []
     page = 1
     while True:
@@ -176,7 +174,7 @@ def wp_draft_metrics(kind: str, post: dict[str, Any]) -> WPDraft:
     )
 
 
-def collect_slug_matches(wp: WordPress, slugs: list[str]) -> dict[str, list[WPMatch]]:
+def collect_slug_matches(wp: Any, slugs: list[str]) -> dict[str, list[WPMatch]]:
     matches: dict[str, list[WPMatch]] = {slug: [] for slug in slugs}
     for slug in slugs:
         for kind in ("posts", "pages"):
@@ -203,6 +201,8 @@ def collect_slug_matches(wp: WordPress, slugs: list[str]) -> dict[str, list[WPMa
 
 
 def collect_wp_audit(slugs: list[str] | None = None) -> tuple[list[dict[str, Any]], list[WPDraft], dict[str, list[WPMatch]]]:
+    from kk_notion_to_wp import WordPress, load_config
+
     cfg = load_config()
     wp = WordPress(cfg.wp_base_url, cfg.wp_user, cfg.wp_app_password)
     summary: list[dict[str, Any]] = []
