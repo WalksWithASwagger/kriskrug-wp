@@ -1,42 +1,49 @@
 <!-- wp:html -->
 <style>
-.kk-services { --kk-ink:#171717; --kk-muted:#57534e; --kk-line:#d8d4cc; --kk-paper:#fffaf0; --kk-card:#ffffff; --kk-accent:#0f766e; --kk-hot:#b91c1c; color:var(--kk-ink); }
-.kk-services a { font-weight:700; }
-.kk-services-hero { padding:1.35rem 0 1.5rem; border-bottom:1px solid var(--kk-line); }
-.kk-services-kicker { margin:0 0 .5rem; text-transform:uppercase; letter-spacing:.08em; font-size:.78rem; color:var(--kk-hot); font-weight:800; }
-.kk-services-display { margin:.15rem 0 .75rem; font-size:1.9rem; line-height:1.18; max-width:56rem; }
-.kk-services-lead { font-size:1.14rem; line-height:1.65; max-width:56rem; }
-.kk-services-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin:1.25rem 0 0; }
-.kk-services-button { display:inline-block; padding:.72rem 1rem; border:2px solid var(--kk-ink); border-radius:4px; text-decoration:none; background:var(--kk-ink); color:#fff !important; }
-.kk-services-button.secondary { background:#fff; color:var(--kk-ink) !important; }
-.kk-services-section { padding:2rem 0; border-bottom:1px solid var(--kk-line); }
-.kk-services-section-intro { max-width:56rem; margin-bottom:1rem; color:var(--kk-muted); }
-.kk-services-hero-grid { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(280px,.92fr); gap:1.25rem; align-items:center; }
-.kk-services-hero-photo { margin:0; border:1px solid var(--kk-line); border-radius:6px; overflow:hidden; background:#fff; }
+.kk-services { --kk-ink:#f0f0f5; --kk-ink-2:#fff; --kk-muted:#a6a6b3; --kk-line:rgba(255,255,255,.14); --kk-paper:rgba(255,255,255,.05); --kk-card:rgba(255,255,255,.04); --kk-accent:#00e5ff; --kk-hot:#ff6a6a; --kk-r:14px; --kk-sh:0 1px 2px rgba(0,0,0,.45),0 12px 28px -14px rgba(0,0,0,.7); color:var(--kk-ink); }
+.kk-services p::first-letter { initial-letter:normal!important; font-size:inherit!important; font-weight:inherit!important; float:none!important; margin:0!important; line-height:inherit!important; color:inherit!important; }
+.kk-services a { color:var(--kk-accent); font-weight:700; text-decoration:none; }
+.kk-services a:hover { text-decoration:underline; text-underline-offset:3px; }
+.kk-services-hero { padding:.4rem 0 1.8rem; border-bottom:1px solid var(--kk-line); }
+.kk-services-kicker { margin:0 0 .6rem; text-transform:uppercase; letter-spacing:.14em; font-size:.74rem; color:var(--kk-hot); font-weight:800; }
+.kk-services-display { margin:.1rem 0 .8rem; font-size:2.2rem; line-height:1.1; letter-spacing:-.02em; font-weight:800; max-width:48rem; color:var(--kk-ink-2); }
+.kk-services-lead { font-size:1.14rem; line-height:1.62; max-width:48rem; color:var(--kk-ink); }
+.kk-services-actions { display:flex; flex-wrap:wrap; gap:.6rem; margin:1.4rem 0 0; }
+.kk-services-button { display:inline-block; padding:.7rem 1.1rem; border:2px solid var(--kk-accent); border-radius:8px; text-decoration:none!important; background:var(--kk-accent); color:#04121a!important; font-weight:700; transition:transform .15s,box-shadow .15s; }
+.kk-services-button:hover { transform:translateY(-2px); box-shadow:var(--kk-sh); }
+.kk-services-button.secondary { background:transparent; color:var(--kk-ink)!important; border-color:var(--kk-line); }
+.kk-services-button.secondary:hover { border-color:var(--kk-accent); color:var(--kk-accent)!important; }
+.kk-services-section { padding:2.4rem 0; border-bottom:1px solid var(--kk-line); }
+.kk-services-section > h2 { position:relative; padding-top:1.1rem; margin:0 0 1rem; font-size:1.6rem; line-height:1.14; letter-spacing:-.015em; font-weight:800; color:var(--kk-ink-2); }
+.kk-services-section > h2::before { content:""; position:absolute; top:0; left:0; width:2.4rem; height:4px; border-radius:3px; background:var(--kk-hot); }
+.kk-services-section-intro { max-width:48rem; margin-bottom:1.2rem; color:var(--kk-muted); line-height:1.6; }
+.kk-services-hero-grid { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(280px,.92fr); gap:1.5rem; align-items:center; }
+.kk-services-hero-photo { margin:0; border:1px solid var(--kk-line); border-radius:var(--kk-r); overflow:hidden; background:var(--kk-card); box-shadow:var(--kk-sh); }
 .kk-services-hero-photo img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; }
-.kk-services-proof { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:.75rem; margin-top:1.1rem; }
-.kk-services-proof div { border:1px solid var(--kk-line); border-radius:6px; padding:.9rem; background:#fff; }
-.kk-services-proof strong { display:block; font-size:1.35rem; line-height:1.1; }
+.kk-services-proof { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:.7rem; margin-top:1.1rem; }
+.kk-services-proof div { border:1px solid var(--kk-line); border-top:3px solid var(--kk-accent); border-radius:10px; padding:.95rem 1rem; background:var(--kk-card); }
+.kk-services-proof strong { display:block; font-size:1.25rem; line-height:1.15; color:var(--kk-ink-2); }
 .kk-services-proof span { display:block; color:var(--kk-muted); margin-top:.25rem; }
-.kk-services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
-.kk-services-card { border:1px solid var(--kk-line); border-radius:6px; background:var(--kk-card); overflow:hidden; }
-.kk-services-card img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:#eee; }
-.kk-services-card-body { padding:1rem; }
-.kk-services-card h3 { margin-top:0; margin-bottom:.4rem; font-size:1.12rem; }
+.kk-services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.1rem; }
+.kk-services-card { border:1px solid var(--kk-line); border-radius:var(--kk-r); background:var(--kk-card); overflow:hidden; box-shadow:var(--kk-sh); transition:transform .18s,box-shadow .18s,border-color .18s; }
+.kk-services-card:hover { transform:translateY(-3px); border-color:rgba(0,229,255,.4); }
+.kk-services-card img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:rgba(255,255,255,.06); }
+.kk-services-card-body { padding:1.1rem; }
+.kk-services-card h3 { margin-top:0; margin-bottom:.4rem; font-size:1.15rem; color:var(--kk-ink-2); }
 .kk-services-card p { margin:.45rem 0; color:var(--kk-muted); }
-.kk-services-card ul { margin:.6rem 0 .8rem 1.1rem; }
+.kk-services-card ul { margin:.6rem 0 .8rem 1.1rem; color:var(--kk-muted); }
 .kk-services-card li { margin:.25rem 0; }
-.kk-services-tag { display:inline-block; margin:0 0 .55rem; color:var(--kk-hot); font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; }
-.kk-services-two { display:grid; grid-template-columns:minmax(0,1fr) minmax(260px,.82fr); gap:1.25rem; align-items:start; }
-.kk-services-callout { background:var(--kk-paper); border:1px solid var(--kk-line); border-radius:6px; padding:1rem; }
+.kk-services-tag { display:inline-block; margin:0 0 .6rem; background:rgba(255,106,106,.16); color:var(--kk-hot); padding:.28rem .6rem; border-radius:999px; font-size:.66rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
+.kk-services-two { display:grid; grid-template-columns:minmax(0,1fr) minmax(260px,.82fr); gap:1.5rem; align-items:start; }
+.kk-services-callout { background:var(--kk-paper); border:1px solid var(--kk-line); border-radius:var(--kk-r); padding:1.2rem; }
 .kk-services-models { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:.85rem; margin-top:1rem; }
-.kk-services-model { border:1px solid var(--kk-line); border-radius:6px; padding:1rem; background:#fff; }
-.kk-services-model h3 { margin-top:0; margin-bottom:.45rem; font-size:1.05rem; }
+.kk-services-model { border:1px solid var(--kk-line); border-radius:var(--kk-r); padding:1.1rem; background:var(--kk-card); box-shadow:var(--kk-sh); }
+.kk-services-model h3 { margin-top:0; margin-bottom:.45rem; font-size:1.05rem; color:var(--kk-ink-2); }
 .kk-services-model p { color:var(--kk-muted); margin:.45rem 0; }
 .kk-services-quote { border-left:4px solid var(--kk-accent); padding-left:1rem; margin:0; }
-.kk-services-quote p { margin:.25rem 0; }
-.kk-services-links { columns:2 16rem; padding-left:1.2rem; }
-@media (max-width:760px){ .kk-services-display{font-size:1.45rem;} .kk-services-hero-grid,.kk-services-two{grid-template-columns:1fr;} .kk-services-actions{display:block;} .kk-services-actions a{margin:.35rem 0;} .kk-services-links{columns:1;} }
+.kk-services-quote p { margin:.25rem 0; color:var(--kk-ink); }
+.kk-services-links { columns:2 16rem; padding-left:1.2rem; color:var(--kk-muted); }
+@media (max-width:760px){ .kk-services-display{font-size:1.6rem;} .kk-services-hero-grid,.kk-services-two{grid-template-columns:1fr;} .kk-services-actions{display:block;} .kk-services-links{columns:1;} }
 </style>
 
 <div class="kk-services">
@@ -46,7 +53,7 @@
         <p class="kk-services-kicker">AI strategy, training, community, and keynote work</p>
         <h2 class="kk-services-display">Build AI capacity that serves people, communities, and culture.</h2>
         <p class="kk-services-lead">I help organizations move from AI pressure to practical fluency: responsible strategy, community systems, custom training, Indigenous-tech advisory, and talks that make complicated technology feel usable without sanding off the weird, human, and political edges.</p>
-        <p class="kk-services-lead">This is not generic AI consulting. It is field-building work shaped by BC+AI, Indigenomics AI, The Upgrade AI, and two decades of creative technology, media, and community practice.</p>
+        <p class="kk-services-lead">This is not generic AI consulting. It is field-building work shaped by BC+AI, the Responsible AI Professional program, The Upgrade AI, and two decades of creative technology, media, and community practice.</p>
         <div class="kk-services-actions">
           <a class="kk-services-button" href="/contact/">Start a conversation</a>
           <a class="kk-services-button secondary" href="/speaking/">Book a keynote</a>
@@ -60,7 +67,7 @@
     <div class="kk-services-proof">
       <div><strong>250+</strong><span>BC+AI members in a growing provincial ecosystem.</span></div>
       <div><strong>3,000+</strong><span>BC+AI event attendees across public learning rooms.</span></div>
-      <div><strong>$100B</strong><span>Indigenous economy vision supported through Indigenomics AI.</span></div>
+      <div><strong>Responsible&nbsp;AI</strong><span>New four-week certification turning AI ethics into daily practice.</span></div>
       <div><strong>20+ years</strong><span>Creative technology, media, storytelling, and community work.</span></div>
     </div>
   </section>
@@ -121,9 +128,9 @@
         <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/04/image-19.png?w=1200&amp;ssl=1" alt="Indigenomics AI visual from Kris Krug's public writing" loading="lazy" />
         <div class="kk-services-card-body">
           <span class="kk-services-tag">Advisory</span>
-          <h3>Indigenomics Advisory</h3>
+          <h3>Indigenous-Tech Advisory</h3>
           <p><strong>For:</strong> Indigenous-led organizations, public-sector teams, allies, institutions, and technology groups trying to work with data, AI, and economic evidence without extractive shortcuts.</p>
-          <p><strong>What we do:</strong> CTO-level support around sovereign data, dashboard strategy, AI assistants, evidence systems, respectful technology architecture, and public storytelling.</p>
+          <p><strong>What we do:</strong> Advisory support, drawing on my 2024–25 CTO work at Indigenomics.ai, around sovereign data, dashboard strategy, AI assistants, evidence systems, respectful technology architecture, and public storytelling.</p>
           <ul>
             <li>Sovereign-data and governance questions</li>
             <li>Dashboard and evidence-product strategy</li>
