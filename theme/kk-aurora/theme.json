@@ -54,7 +54,7 @@
         {
           "slug": "text-muted",
           "name": "Text Muted",
-          "color": "#6B6B80"
+          "color": "#7C7C98"
         },
         {
           "slug": "cyan",
@@ -339,6 +339,17 @@
         "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
         "easeSmooth": "cubic-bezier(0.25, 0.1, 0.25, 1)"
       },
+      "motion": {
+        "revealDuration": "280ms",
+        "depthDuration": "420ms",
+        "continuityDuration": "520ms",
+        "proofDuration": "600ms",
+        "microDuration": "150ms",
+        "readingDuration": "220ms",
+        "revealDistance": "16px",
+        "depthDistance": "6px",
+        "reduceDuration": "1ms"
+      },
       "border": {
         "radiusSm": "0.25rem",
         "radiusMd": "0.5rem",
@@ -346,6 +357,29 @@
         "radiusXl": "1rem",
         "radius2xl": "1.5rem",
         "radiusFull": "9999px"
+      },
+      "button": {
+        "paddingInline": "var(--wp--preset--spacing--60)",
+        "paddingBlock": "var(--wp--preset--spacing--30)",
+        "radius": "var(--wp--custom--border--radius-md)",
+        "radiusPill": "var(--wp--custom--border--radius-full)",
+        "minHeight": "44px",
+        "mobileMinHeight": "48px",
+        "iconSize": "1.125rem"
+      },
+      "focus": {
+        "ringColor": "var(--wp--preset--color--cyan)",
+        "ringOffsetColor": "var(--wp--preset--color--deep)",
+        "ringWidth": "2px",
+        "ringOffset": "3px",
+        "ringGlow": "0 0 0 4px rgba(0, 229, 255, 0.24)"
+      },
+      "glass": {
+        "surfaceSoft": "rgba(18, 18, 26, 0.68)",
+        "surfaceStrong": "rgba(18, 18, 26, 0.84)",
+        "border": "rgba(240, 240, 245, 0.12)",
+        "highlight": "rgba(240, 240, 245, 0.18)",
+        "blur": "18px"
       },
       "lineHeight": {
         "none": "1",
@@ -356,8 +390,8 @@
         "loose": "1.8"
       },
       "letterSpacing": {
-        "tighter": "-0.03em",
-        "tight": "-0.015em",
+        "tighter": "0",
+        "tight": "0",
         "normal": "0",
         "wide": "0.015em",
         "wider": "0.03em"
@@ -477,7 +511,8 @@
           "text": "var(--wp--preset--color--cyan)"
         },
         "typography": {
-          "textDecoration": "none"
+          "textDecoration": "none",
+          "textUnderlineOffset": "0.16em"
         },
         ":hover": {
           "color": {
@@ -492,10 +527,10 @@
             "text": "var(--wp--preset--color--cyan)"
           },
           "outline": {
-            "color": "var(--wp--preset--color--cyan)",
-            "offset": "2px",
+            "color": "var(--wp--custom--focus--ring-color)",
+            "offset": "var(--wp--custom--focus--ring-offset)",
             "style": "solid",
-            "width": "2px"
+            "width": "var(--wp--custom--focus--ring-width)"
           }
         }
       },
@@ -507,30 +542,32 @@
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--body)",
           "fontSize": "var(--wp--preset--font-size--base)",
-          "fontWeight": "600"
+          "fontWeight": "600",
+          "letterSpacing": "var(--wp--custom--letter-spacing--normal)"
         },
         "border": {
-          "radius": "var(--wp--custom--border--radius-md)"
+          "radius": "var(--wp--custom--button--radius)"
         },
         "spacing": {
           "padding": {
-            "top": "var(--wp--preset--spacing--30)",
-            "bottom": "var(--wp--preset--spacing--30)",
-            "left": "var(--wp--preset--spacing--60)",
-            "right": "var(--wp--preset--spacing--60)"
+            "top": "var(--wp--custom--button--padding-block)",
+            "bottom": "var(--wp--custom--button--padding-block)",
+            "left": "var(--wp--custom--button--padding-inline)",
+            "right": "var(--wp--custom--button--padding-inline)"
           }
         },
         ":hover": {
           "color": {
-            "background": "var(--wp--preset--color--teal)"
+            "background": "var(--wp--preset--color--teal)",
+            "text": "var(--wp--preset--color--deep)"
           }
         },
         ":focus": {
           "outline": {
-            "color": "var(--wp--preset--color--cyan)",
-            "offset": "2px",
+            "color": "var(--wp--custom--focus--ring-color)",
+            "offset": "var(--wp--custom--focus--ring-offset)",
             "style": "solid",
-            "width": "2px"
+            "width": "var(--wp--custom--focus--ring-width)"
           }
         }
       },
@@ -760,6 +797,16 @@
       "name": "footer",
       "title": "Footer",
       "area": "footer"
+    },
+    {
+      "name": "work-proof-grid",
+      "title": "Work Proof Grid",
+      "area": "uncategorized"
+    },
+    {
+      "name": "speaking-proof-grid",
+      "title": "Speaking Proof Grid",
+      "area": "uncategorized"
     }
   ],
   "customTemplates": [
