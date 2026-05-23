@@ -1,0 +1,64 @@
+{
+  "issues": [
+    {
+      "title": "[AURORA P0] Homepage content renders intermittently invisible (reveal race w/ Jetpack Boost)",
+      "body": "## Problem\n\nOn the live homepage, the hero copy and below-the-fold sections frequently render at `opacity:0` (black/empty hero) on cache-cold loads. GSAP loads fine (`gsapDefined:true`); the cause is a race condition: CSS hides `[data-reveal]` elements at `opacity:0` and Jetpack Boost defers the reveal JS (`hasJpDeferAttr:true`), so the reveal never fires in time (sometimes never on scroll).\n\n## Impact\n\n- **CRITICAL** - First impression on the live homepage is a broken/empty hero\n- Intermittent (cache-dependent), so it's easy to miss but hits real visitors\n- Affects every `[data-reveal]` element site-wide, incl. `/blog/`\n\n## Recommended fix\n\n- Make reveal progressive: content visible by default; only hide+animate when JS confirms it ran (in `assets/js/micro-interactions.js` and the inline reveal CSS)\n- And/or exclude `theme.js`, `micro-interactions.js`, `aurora-animations.js` from Jetpack Boost \"Defer JS / Concatenate JS\"\n- Regenerate Jetpack Boost Critical CSS after\n\n## Acceptance Criteria\n\n- [ ] Hard-reload `/` 5x cache-cold: hero copy + all sections visible every time\n- [ ] No `[data-reveal]` element stuck at opacity:0 with JS disabled\n- [ ] Reduced-motion still shows content immediately\n- [ ] Verified on desktop + mobile",
+      "labels": ["bug", "priority:high", "aurora-v2"]
+    },
+    {
+      "title": "[AURORA P0] /blog/ renders the homepage clone instead of a post archive",
+      "body": "## Problem\n\n`/blog/` (the WordPress Posts page) shows the marketing homepage hero, not a list of articles. `templates/home.html` is a duplicate of `templates/front-page.html`, and WordPress uses `home.html` for the Posts page.\n\n## Impact\n\n- **CRITICAL** - The blog/Writing destination is effectively missing; no articles listed\n- Inherits the P0 invisible-hero bug\n- Hurts SEO (post archive not crawlable as expected)\n\n## Recommended fix\n\nRebuild `templates/home.html` as a real post archive. The card layout in `templates/index.html` already exists — base `home.html` on it (query loop + pagination). Keep `front-page.html` as the static front page.\n\n## Acceptance Criteria\n\n- [ ] `/blog/` lists recent posts with excerpts/dates/categories\n- [ ] Pagination works\n- [ ] Post cards link to single posts\n- [ ] Mobile responsive",
+      "labels": ["bug", "priority:high", "aurora-v2"]
+    },
+    {
+      "title": "[AURORA P1] Generic page template prints a duplicate title (two H1s)",
+      "body": "## Problem\n\n`templates/page.html` outputs the WP page title H1 above the page content, but content blocks already include their own hero heading — producing a duplicate title (clearly visible on `/about/`). Affects every page using the generic template.\n\n## Impact\n\n- **MEDIUM/HIGH** - Duplicate H1 hurts SEO and looks broken\n- Affects the whole long tail of content pages\n\n## Acceptance Criteria\n\n- [ ] Exactly one H1 per page\n- [ ] `/about/` no longer shows \"About Kris Krüg\" twice\n- [ ] Fix in `templates/page.html` (drop the title block) or give key pages custom templates\n- [ ] No regression on pages that rely on the auto title",
+      "labels": ["bug", "priority:high", "aurora-v2"]
+    },
+    {
+      "title": "[AURORA P1] Broken hotlinked image (Upgrade AI 400) + migrate proof images into media library",
+      "body": "## Problem\n\nAll hero/proof images are hotlinked from external sites. `theupgrade.ai` share image returns **HTTP 400**, producing a black card on the Work page and homepage. The rest are fragile (one already dead) and lack rights/alt governance.\n\n## Impact\n\n- **HIGH** - Broken/black image cards on key conversion pages\n- Any source-site path change breaks kriskrug.co imagery\n\n## Recommended fix\n\nPer `docs/current-state/AURORA-MEDIA-GAPS-2026-05-23.md`: upload canonical assets into the kriskrug.co media library, rewrite `src`/`srcset` in `templates/front-page.html`, `parts/work-proof-grid.html`, `parts/speaking-proof-grid.html`; set alt text + confirm rights.\n\n## Acceptance Criteria\n\n- [ ] Every proof/hero image served 200 from kriskrug.co media library (no external hotlinks)\n- [ ] Upgrade AI card image displays\n- [ ] All images have descriptive alt text\n- [ ] michelle-diamond/195 no longer reused 4x (distinct images)",
+      "labels": ["bug", "priority:high", "aurora-v2", "content"]
+    },
+    {
+      "title": "[AURORA P1] Both Hands Full proof card has text/image overlap",
+      "body": "## Problem\n\nOn the Work page proof grid, the Both Hands Full card's image (og-image, loads 200) overlaps the card title/caption text.\n\n## Impact\n\n- **MEDIUM** - Looks broken on a key page\n\n## Acceptance Criteria\n\n- [ ] Image and caption/title no longer overlap\n- [ ] Card layout consistent with the other proof cards\n- [ ] Fix in `parts/work-proof-grid.html` / associated CSS\n- [ ] Verified desktop + mobile",
+      "labels": ["bug", "priority:medium", "aurora-v2"]
+    },
+    {
+      "title": "[AURORA P1] Low-contrast body text fails WCAG AA",
+      "body": "## Problem\n\nDek/body paragraphs (About, Services, Speaking) render as dim grey on near-black, below the 4.5:1 WCAG 2.1 AA threshold.\n\n## Impact\n\n- **MEDIUM/HIGH** - Accessibility violation; poor readability\n\n## Acceptance Criteria\n\n- [ ] All body text ≥ 4.5:1 contrast (validate with axe/WAVE)\n- [ ] Large text ≥ 3:1\n- [ ] Adjust `text-secondary`/dek token in `theme.json` or CSS\n- [ ] No design regression",
+      "labels": ["bug", "priority:high", "aurora-v2", "accessibility"]
+    },
+    {
+      "title": "[AURORA P1] ~25 generic content pages are undesigned (bare title + legacy content)",
+      "body": "## Problem\n\nServices, marketing offer pages, authority pages, and multilingual intro pages render as bare WP title + legacy content on Aurora base styles — awkward spacing, old structure, no Aurora treatment (e.g. `/generative-ai-services/`).\n\n## Impact\n\n- **MEDIUM** - Large band of pages look unfinished post-launch\n\n## Acceptance Criteria\n\n- [ ] Define an approach: improved generic `page` template and/or custom templates for high-value pages\n- [ ] Services page redesigned (tracked separately)\n- [ ] Consistent spacing/hero treatment across content pages\n- [ ] Prioritized list of which pages get bespoke treatment vs. template polish",
+      "labels": ["enhancement", "priority:medium", "aurora-v2", "content"]
+    },
+    {
+      "title": "[AURORA P2] Contact page intro drop-cap glitch (giant 'P')",
+      "body": "## Problem\n\nThe Contact page intro renders a giant drop-cap \"P\" on \"Pls fill out the form below...\" — legacy first-letter styling clashing with Aurora.\n\n## Acceptance Criteria\n\n- [ ] Intro paragraph renders normally (no giant first letter)\n- [ ] Fix in page content or CSS\n- [ ] Jetpack contact form still renders/works",
+      "labels": ["bug", "priority:medium", "aurora-v2"]
+    },
+    {
+      "title": "[AURORA P2] 'Work' nav link 301-hops via /work/; point directly + remove duplicate template",
+      "body": "## Problem\n\nThe header \"Work\" link points to `/work/`, which 301-redirects to `/recent-projects-include/` (extra hop). Also `templates/page-2672.html` is a redundant duplicate of `templates/page-recent-projects-include.html` (both target the Work page).\n\n## Acceptance Criteria\n\n- [ ] \"Work\" nav links directly to the canonical Work URL (no redirect hop)\n- [ ] Remove the redundant `page-2672.html` template\n- [ ] Work page still renders correctly",
+      "labels": ["enhancement", "priority:medium", "aurora-v2"]
+    },
+    {
+      "title": "[AURORA P2] Performance + Jetpack Boost Critical CSS regeneration",
+      "body": "## Problem\n\nHomepage cold load ~4.3s. Heavy JS payload + GSAP from CDN. Jetpack Boost Critical CSS was cleared by the theme change and needs regeneration.\n\n## Acceptance Criteria\n\n- [ ] Regenerate Jetpack Boost Critical CSS\n- [ ] Run Lighthouse; record LCP/INP/CLS\n- [ ] Consider self-hosting GSAP + trimming unused JS\n- [ ] Homepage LCP within target on cold load",
+      "labels": ["enhancement", "priority:medium", "aurora-v2", "performance"]
+    },
+    {
+      "title": "[AURORA P2] Work page OG image is blank",
+      "body": "## Problem\n\n`/recent-projects-include/` (Work) returns `og:image` = `https://s0.wp.com/i/blank.jpg` — no social share image.\n\n## Acceptance Criteria\n\n- [ ] Work page has a real, relevant og:image\n- [ ] Validated in a social-share debugger",
+      "labels": ["bug", "priority:medium", "aurora-v2", "seo"]
+    },
+    {
+      "title": "[AURORA P2] Dedicated mobile / responsive QA pass",
+      "body": "## Problem\n\nMobile rendering could not be reliably captured during the launch audit. Needs a dedicated device/breakpoint review.\n\n## Acceptance Criteria\n\n- [ ] Mobile nav collapses to a working hamburger menu (open/close, focus trap, Escape)\n- [ ] Hero image crop/scale acceptable on small screens\n- [ ] Proof/work grids stack correctly\n- [ ] No horizontal overflow\n- [ ] Tested at 360/390/768 widths",
+      "labels": ["bug", "priority:medium", "aurora-v2", "accessibility"]
+    }
+  ]
+}

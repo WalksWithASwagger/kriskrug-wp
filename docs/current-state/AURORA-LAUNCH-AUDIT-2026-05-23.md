@@ -34,6 +34,14 @@ the problems concentrate.
 | Header / Footer | parts | ✅ Good | Nav resolves; "Work" → `/work/` 301-hops to `/recent-projects-include/` |
 | wp-admin Site Editor | — | ✅ Works | Earlier 503 was transient during the switch |
 
+## Filed GitHub issues
+
+P0/P1/actionable-P2 findings are tracked as issues **#116–#127** (label `aurora-v2`):
+#116 invisible hero (P0) · #117 /blog/ homepage clone (P0) · #118 duplicate title ·
+#119 broken/hotlinked images · #120 BHF card overlap · #121 low contrast ·
+#122 undesigned generic pages · #123 contact drop-cap · #124 Work nav hop + dup template ·
+#125 perf + Boost CSS · #126 Work blank og:image · #127 mobile QA.
+
 ## Findings
 
 ### P0 — launch blockers (fix immediately)
