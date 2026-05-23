@@ -30,7 +30,8 @@
 8. Media appearances WP draft is prepared but not created:
    - Local package: `content/drafts/2026-05-19-ai-media-appearances-podcast-guesting/`
    - Blocker note: `content/source-packs/keynotes-2026/verification/APPEARANCES-ROUNDUP-WP-DRAFT-BLOCKED-2026-05-19.md`
-   - Reason: fresh full-site backup gate was not satisfied, so no live WordPress write happened.
+   - Original reason: fresh full-site backup gate was not satisfied, so no live WordPress write happened at the time.
+   - 2026-05-22 update: the strict full-site backup gate is retired; private create-only draft work can proceed with dry-run, slug/status checks, and rollback notes.
    - GitHub issue: `#95`
 9. Aurora Wave 1 state after queue reconciliation:
    - PR `#93` merged (`#80/#81` wave implementation baseline).
@@ -104,7 +105,7 @@ Goal: preserve Track A readiness without mixing tracks.
 
 Do:
 
-- Keep media-appearance draft lane blocked on fresh full-site backup gate in `#95`.
+- Media-appearance draft lane is no longer blocked on the retired full-site backup gate; use the 2026-05-22 draft-quality gate, KK review, image decision, preview QA, and rollback/delete note instead.
 - Keep next keynote source-pack draft-batch work queued in `#99`.
 - Keep authority/content prep artifacts as review-ready local docs only.
 - Revisit Track A content issues (`#65-#68`) after the Aurora QA gate is either closed or intentionally held.

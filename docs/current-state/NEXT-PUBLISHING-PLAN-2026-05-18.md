@@ -2,7 +2,7 @@
 
 **Purpose:** Decide what publishes next after the first draft-publishing swarm, with explicit security and quality gates.
 
-**Hard rule:** The exposed application password has been rotated, but live WordPress publishing still requires backup confirmation, dry-run review, slug/ID verification, and category cleanup.
+**Current rule:** The exposed application password has been rotated, and the strict backup/restore proof gate was retired on 2026-05-22. Live WordPress publishing still requires dry-run review, slug/ID/status verification, category cleanup, and a task-specific rollback path; use a full backup when the blast radius justifies it.
 
 ---
 
@@ -35,7 +35,7 @@ Completed:
 
 Still required before any live connector publishing:
 
-1. Confirm a fresh backup/rollback path.
+1. Confirm the rollback path appropriate to the change: create-only draft, page/post snapshot, reversible diff, or full backup for larger-risk work.
 2. Re-run connector `--dry-run`.
 3. Verify slug, title, WP ID, and target status before any update.
 4. Fix category routing so `Feature` posts do not silently land in `Misc`.

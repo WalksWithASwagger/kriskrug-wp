@@ -6,41 +6,44 @@ status: draft
 post_type: post
 author_wp_id: 1
 categories:
-- Misc
+- AI Ethics & Philosophy
 tags:
 - Industry
 - BC + AI
 - Web Summit Vancouver
+- Sovereign AI
+- Data Centres
+- Digital Sovereignty
+- Vancouver AI
 featured: true
-excerpt: For all of us… we can have clean, green, sovereign tokens, where inclusion
-  happens, consent is respected, and the power goes toward the future we actually
-  want. I wanna help build that version.
+excerpt: A Web Summit Vancouver open letter asking who sovereign AI is really for;
+  the neighbourhoods, host Nations, artists, builders, and citizens expected to carry
+  the load.
 seo:
   meta_title: Sovereign AI for Whom? | Kris Krüg
-  meta_description: For all of us… we can have clean, green, sovereign tokens, where
-    inclusion happens, consent is respected, and the power goes toward the future
-    we actually want. I wanna help build that version.
+  meta_description: A Web Summit Vancouver open letter asking who sovereign AI is
+    really for; neighbourhoods, host Nations, artists, builders, and citizens expected
+    to carry the load.
 notion_source:
   url: https://www.notion.so/35ec6f799a33809a8a6ef6507b8e7b0a
   page_id: 35ec6f79-9a33-809a-8a6e-f6507b8e7b0a
   fetched: '2026-05-18T17:09:57.318090+00:00'
 images:
 - file: images/01-sovereign-ai-for-whom.png
-  alt: Minister Solomon, the panel you sat on Monday night was called AI for All.
+  alt: BC + AI illustration with forests, mountains, DNA strands, microscopes, community circles, and the title Sovereign AI for Whom?
 - file: images/02-sovereign-ai-for-whom.jpg
-  alt: That's a thing I've been saying for two years now and I'm gonna keep saying
-    it because it keeps being true.
+  alt: Close-up selfie of two attendees inside the Web Summit Vancouver venue.
 - file: images/03-sovereign-ai-for-whom.png
-  alt: Who's writing this — I run BC + AI.
+  alt: BC + AI ecosystem poster over a kelp background with a QR code and community values.
 - file: images/04-sovereign-ai-for-whom.jpg
-  alt: Who's writing this — And we've been at Web Summit all week.
+  alt: Gregor Robertson and Web Summit attendees stand near a British Columbia display on the conference floor.
 - file: images/05-sovereign-ai-for-whom.jpeg
-  alt: What we want — Five conditions.
+  alt: Illustrated badge cluster for public trust, data provenance, creative sovereignty, ethics, and community agency.
 - file: images/06-sovereign-ai-for-whom.jpg
-  alt: The invitation — Kris Krüg is Executive Director of BC + AI Ecosystem Association.
+  alt: Kris Krug selfie beside a large blue Web Summit sign with Vancouver waterfront structures in the background.
 ---
 
-**For all of us… w**e can have clean, green, sovereign tokens, where inclusion happens, consent is respected, and the power goes toward the future we actually want. I wanna help build that version.
+**For all of us:** We can have clean, green, sovereign compute where inclusion happens, consent is respected, and the power goes toward the future we actually want. I wanna help build that version.
 
 *An open letter to Ministers Solomon and Robertson the morning after *[*Web Summit*](https://vancouver.websummit.com/)* Vancouver. We can have clean, green sovereign compute. We just need to know who it&#x27;s for.*
 
@@ -86,7 +89,7 @@ You named our advantage. *&quot;Digital sovereignty looks like infrastructure,&
 
 A country that can&#x27;t host its own training and inference is a tenant on someone else&#x27;s metal. And right now that someone else is three American hyperscalers running on the dirtiest grids in North America. Refusing to build in BC doesn&#x27;t make AI smaller. It just sends our tokens south, to Texas gas and Virginia coal, with zero leverage over what runs on them. Building on [BC Hydro](https://www.bchydro.com/)&#x27;s 98% renewable grid is, on its face, the cleanest sovereign-compute option on the continent.
 
-You also did the thing the federal government rarely does. You put federal capital into BC. $2.4 billion in the [Canadian Sovereign AI Compute Strategy](https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy). A hundred and sixty proposals received in the program&#x27;s first call. [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory) named publicly as the first project moving forward, though you were careful to say on stage it&#x27;s *&quot;moving forward on towards the MOU.&quot;* So the deal isn&#x27;t signed. 
+You also did the thing the federal government rarely does. You put federal capital into BC. Budget 2024 put $2.4 billion toward Canada&#x27;s AI package, including $2 billion for the [Canadian Sovereign AI Compute Strategy](https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy). A hundred and sixty proposals received in the program&#x27;s first call. [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory) named publicly as the first project moving forward, though you were careful to say on stage it&#x27;s *&quot;moving forward on towards the MOU.&quot;* So the deal isn&#x27;t signed.
 
 After two years of arguing that the federal AI conversation runs through Vancouver. Clean power, Pacific positioning, Indigenous governance, deployment muscle. Federal capital actually showed up. That&#x27;s the hard part to admit. Thank you.
 
@@ -150,11 +153,11 @@ In January 2026, [BC Hydro](https://www.bchydro.com/) opened a competitive call 
 
 So I&#x27;ll ask in public: did [TELUS](https://www.telus.com/en/business/medium-large/ai/sovereign-ai-factory) compete in that call, or did the federal MOU end-run it? And what&#x27;s the rest of BC&#x27;s AI ecosystem (the startups, the academic labs, the Indigenous data initiatives, the artist-trained-model researchers we work with at [SFU](https://www.sfu.ca/)&#x27;s [METACREATION Lab](https://www.metacreation.net/)) supposed to do with what&#x27;s left? Sovereign compute that encloses a public utility&#x27;s allocation in a single MOU isn&#x27;t sovereignty for the province. It&#x27;s sovereignty for one telco.
 
-### **4. Not for the artists. $2.4 billion for steel. Zero for them.**
+### **4. Not for the artists. Compute money for steel. Still no rights layer.**
 
 The CHPC committee heard forty-three witnesses on AI and creative industries last fall: [SOCAN](https://www.socan.com/)&#x27;s two hundred thousand music creators, the [Writers Guild](https://www.wgc.ca/), [Access Copyright](https://www.accesscopyright.ca/) and [Copibec](https://www.copibec.ca/), and the [Indigenous Screen Office](https://iso-bea.ca/), whose brief on OCAP principles and an Indigenous AI Advisory Council was one of the most important submissions in the record. They heard, in plain language, that creative work is being ingested at scale, without consent, without compensation, and that what&#x27;s happening is what Marc-Olivier Ducharme called *&quot;digital feudalism.&quot;*
 
-Monday&#x27;s announcement is $2.4 billion for steel and concrete and zero new federal dollars for the people whose work will train what runs in the building. The consent infrastructure exists. [SFU](https://www.sfu.ca/)&#x27;s [METACREATION Lab](https://www.metacreation.net/) and our collaboration on artist-trained models won an [Ars Electronica](https://ars.electronica.art/) honourable mention for a proof-of-concept where artists train models on their own work and retain ownership. The community demand exists. Ottawa chose to fund the substrate and not the rights layer.
+The federal compute strategy puts billions toward infrastructure. Monday&#x27;s announcement has no federal funding committed yet, but the public signal is clear: steel, concrete, GPUs, and grid capacity are moving faster than compensation and consent rails for the people whose work will train what runs in the building. The consent infrastructure exists. [SFU](https://www.sfu.ca/)&#x27;s [METACREATION Lab](https://www.metacreation.net/) and our collaboration on artist-trained models won an [Ars Electronica](https://ars.electronica.art/) honourable mention for a proof-of-concept where artists train models on their own work and retain ownership. The community demand exists. Ottawa chose to advance the substrate before the rights layer.
 
 On stage Monday you said *&quot;when we talk about competing, we should also talk about competing for the worldview we want.&quot;* Agreed. A worldview that funds the building and not the people inside it isn&#x27;t the one I&#x27;m here to compete for.
 

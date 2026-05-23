@@ -32,7 +32,7 @@ Completed:
 4. New credentials are stored only in gitignored `scripts/notion-to-wp/.env`.
 5. A read-only auth check verified the new credential without printing it.
 
-Do not use the connector for live WordPress writes until a fresh backup/rollback path is confirmed, a dry-run is reviewed, target slug/ID/status are verified, and category routing is fixed.
+Do not use the connector for live WordPress writes until the change-appropriate rollback path is confirmed, a dry-run is reviewed, target slug/ID/status are verified, and category routing is fixed. The strict full backup/restore proof gate was retired on 2026-05-22; create-only drafts can proceed with slug checks and rollback notes, while larger-risk changes still justify a full backup.
 
 Issue created: [#75 - Lock down Notion-to-WordPress publishing after overwrite incident](https://github.com/WalksWithASwagger/kriskrug-wp/issues/75).
 
@@ -237,4 +237,4 @@ Next safe wave:
 3. **Draft-prep worker:** clean `Sovereign AI for Whom?` locally and produce a fact-check checklist, without WP writes.
 4. **Corpus worker:** make a compact CSV/Markdown inventory of the 944 public posts by year/category/topic for future content planning.
 
-Production publisher remains a separate, serialized session after password rotation and backup confirmation.
+Production publisher remains a separate, serialized session after password rotation, dry-run review, slug/ID/status checks, and an explicit rollback path.

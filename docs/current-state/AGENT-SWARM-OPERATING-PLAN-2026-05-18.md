@@ -29,7 +29,7 @@ The best next move is not "turn the whole queue loose." The best next move is a 
 
 2. **Production writes are serialized.**
    - Many agents can audit, draft, validate, and prepare patches.
-   - One publisher agent applies WordPress REST/wp-admin changes after backup, dry-run, and target checks.
+   - One publisher agent applies WordPress REST/wp-admin changes after dry-run, target checks, and an explicit rollback path. Full backup is still preferred for bulk, plugin, theme, schema, or destructive work, but it is no longer a blanket blocker for create-only draft/review work.
 
 3. **Aurora should move fast, but not blind.**
    - `aurora/v2` is real and contains the theme.

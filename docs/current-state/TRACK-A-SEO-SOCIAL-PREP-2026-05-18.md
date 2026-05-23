@@ -8,7 +8,7 @@
 
 - This prep note is the only SEO/social file in this lane.
 - Production remains untouched from this branch.
-- Any later production session starts with backup confirmation and read-only preflight checks.
+- Any later production session starts with read-only preflight checks and a change-appropriate rollback path; full backup is for higher-risk/bulk work, not an ordinary-content blocker.
 - Jetpack is treated as the current meta, Open Graph, and Twitter-card owner unless admin verification proves otherwise.
 - Success for this note means future implementers can decide what to apply, what to skip, and what evidence closes each issue.
 

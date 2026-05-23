@@ -43,7 +43,7 @@ The audit command checks local `content/drafts/` packages, live WP draft/future/
 
 | Package | WP match | State | Needed |
 |---|---|---|---|
-| `sovereign-ai-for-whom` | no WP slug match | Strongest local next candidate: 4,163 words, 83 links, 6 images, 110 blocks | Fact-check, category fix, opening glitch, high-stakes claim review, image/alt polish, then WP draft |
+| `sovereign-ai-for-whom` | no WP slug match | Strongest local next candidate; local prep pass added fact-check/publish gates, fixed opening/meta/category/alt | Verify remaining high-stakes claims, then create guarded WP draft for KK preview |
 | `the-75-percent-rule-ai-art-adjacent-work` | WP post `11876` draft | Reviewable StoryHive draft: 1,793 local words, 9 links, 1 image, 110 blocks | KK title/frame approval, preview QA, stronger image pass, schedule decision |
 | `i-wont-fake-the-people-who-showed-up` | WP post `11877` draft | Reviewable StoryHive draft: 1,462 local words, 6 links, 1 image, 127 blocks | Decide standalone vs merge, documentary-boundary review, preview QA |
 | `speak-it-into-existence-ai-voice-first-workflows` | WP post `11878` draft | Reviewable StoryHive draft: 1,597 local words, 7 links, 1 image, 151 blocks | Tool-specific vs evergreen decision, CTA check, neurodivergent framing review |
@@ -109,10 +109,10 @@ Do not schedule a draft until it passes all of this:
 ## Recovery Order
 
 1. **Sovereign AI for Whom?**
-   - Fix opening glitch.
-   - Build a fact-check register for minister quotes, MOU status, data centre sites, power/water/heat claims, host Nation governance, and creator-rights claims.
-   - Move out of `Misc`.
-   - Create a guarded WP draft only after review.
+   - Local prep pass completed: opening, meta, category, alt text, and HTML alt bug fixed.
+   - Fact-check and publish gates added in `content/drafts/2026-05-13-sovereign-ai-for-whom/`.
+   - Remaining gate: verify direct stage quotes, 111 East 5th application wording, 150 West Georgia municipal status, TELUS sustainability paperwork, and BC + AI internal metrics.
+   - Create a guarded WP draft only after those checks are cleared or rewritten.
 
 2. **StoryHive proof post**
    - Recommended first proof: `The 75% Rule`.
