@@ -19,7 +19,10 @@ SLUG = "data-center-protest-signs"
 DATE = "2026-05-23T12:00:00"
 CATEGORY_ID = 1678  # AI Ethics & Philosophy
 TAGS = ["data-centers","ai-infrastructure","sovereign-ai","protest","vancouver","both-hands-full","generative-art","bc-ai"]
-FEATURED_FILE = "02-both-hands-full.png"
+# KK's call (2026-05-23): Jetpack ties og:image to the featured image, so to get
+# the "thirsty data center" share card, it IS the featured image. both-hands-full
+# stays as the first in-body image.
+FEATURED_FILE = "06-who-s-a-thirsty-little-data-center.png"
 OG_FILE = "06-who-s-a-thirsty-little-data-center.png"
 BHF_URL = "https://kriskrug.co/2026/01/24/both-hands-full/"
 LINK39_OLD = "[critique and curiosity in the same two hands](https://kriskrug.co)"
