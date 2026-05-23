@@ -232,6 +232,7 @@ def count_images(markdown: str) -> int:
 def quality_issues(pkg: DraftPackage, html_body: str) -> list[str]:
     issues: list[str] = []
     body = pkg.body
+    frontmatter_text = yaml.safe_dump(pkg.frontmatter, sort_keys=False)
     if not pkg.title:
         issues.append("missing frontmatter title")
     if not pkg.slug:
@@ -244,6 +245,8 @@ def quality_issues(pkg: DraftPackage, html_body: str) -> list[str]:
         issues.append("no markdown image and no featured_media_id")
     if re.search(r"\]\(\.\.?/", body):
         issues.append("public body contains a draft-local relative link")
+    if "/Users/" in frontmatter_text:
+        issues.append("frontmatter contains an absolute local path")
     for pattern in BANNED_BODY_PATTERNS:
         if pattern in body:
             issues.append(f"public body contains private/source marker: {pattern}")

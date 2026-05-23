@@ -36,6 +36,23 @@ class PrepareReviewDraftTests(unittest.TestCase):
 
         self.assertTrue(any("/Users/" in issue for issue in issues))
 
+    def test_quality_gate_flags_absolute_frontmatter_paths(self):
+        pkg = prepare_review_draft.DraftPackage(
+            path=Path("post.md"),
+            frontmatter={
+                "title": "Draft",
+                "slug": "draft",
+                "featured_media_id": 1,
+                "source_pack": {"kb_recap": "/Users/kk/private.md"},
+            },
+            body="word " * 950 + "[one](https://example.com)\n" * 4,
+        )
+        html = prepare_review_draft.markdown_to_blocks(pkg.body)
+
+        issues = prepare_review_draft.quality_issues(pkg, html)
+
+        self.assertIn("frontmatter contains an absolute local path", issues)
+
 
 if __name__ == "__main__":
     unittest.main()

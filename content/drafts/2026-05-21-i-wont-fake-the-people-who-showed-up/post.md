@@ -21,8 +21,10 @@ seo:
   meta_description: "A documentary ethics essay for the synthetic age: AI can help around the frame, but it should not replace real people, real presence, or real witness."
 source_pack:
   analysis: content/source-packs/storyhive-2026/blog-gap-series-2026-05-21.md
-  kb_recap: /Users/kk/Code/notion-local/kk-ai-ecosystem/content/media/interviews/2026-05-20-storyhive-on-location-victoria-recap.md
-  kb_transcript: /Users/kk/Code/notion-local/kk-ai-ecosystem/content/media/interviews/2026-05-20-storyhive-on-location-victoria-transcript.md
+  kb_repo: WalksWithASwagger/kk-kb
+  kb_recap_path: content/media/interviews/2026-05-20-storyhive-on-location-victoria-recap.md
+  kb_transcript_path: content/media/interviews/2026-05-20-storyhive-on-location-victoria-transcript.md
+  kb_prep_path: content/media/interviews/storyhive-on-location-prep-2026-05-20.md
 ---
 
 Here is a sentence that should not need to be radical:
