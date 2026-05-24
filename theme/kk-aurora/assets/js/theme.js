@@ -39,6 +39,37 @@
     });
   }
 
+  function initPrimaryNavKeyboard() {
+    const nav = document.querySelector('.aurora-primary-nav');
+    if (!nav) return;
+
+    const links = Array.from(nav.querySelectorAll('a[href]'));
+    if (links.length < 2) return;
+
+    links.forEach((link, index) => {
+      link.addEventListener('keydown', (event) => {
+        let targetIndex = index;
+
+        if (event.key === 'ArrowRight') {
+          targetIndex = index + 1 >= links.length ? 0 : index + 1;
+        } else if (event.key === 'ArrowLeft') {
+          targetIndex = index - 1 < 0 ? links.length - 1 : index - 1;
+        } else if (event.key === 'Home') {
+          targetIndex = 0;
+        } else if (event.key === 'End') {
+          targetIndex = links.length - 1;
+        } else {
+          return;
+        }
+
+        event.preventDefault();
+        const target = links[targetIndex];
+        target.focus();
+        target.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      });
+    });
+  }
+
   // ============================================
   // SMOOTH SCROLL FOR ANCHOR LINKS
   // ============================================
@@ -276,6 +307,7 @@
 
   function init() {
     initMobileMenu();
+    initPrimaryNavKeyboard();
     initSmoothScroll();
     initExternalLinks();
     initCodeCopy();

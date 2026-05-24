@@ -2,7 +2,7 @@
 
 > Building a Responsible & Inclusive AI Future for British Columbia
 
-**Live site:** [kriskrug.co](https://kriskrug.co/) (Pagely-hosted WordPress, Catch Responsive theme)
+**Live site:** [kriskrug.co](https://kriskrug.co/) (Pagely-hosted WordPress, Aurora `kk-aurora` theme)
 **Repo:** [WalksWithASwagger/kriskrug-wp](https://github.com/WalksWithASwagger/kriskrug-wp)
 **Operating model:** Two tracks — see [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md)
 
@@ -35,7 +35,7 @@ This repository is used for:
 1. **Site audits + state snapshots** of the live kriskrug.co WordPress install (see [`docs/current-state/`](docs/current-state/))
 2. **Content pipeline** — Notion → kriskrug.co publisher with safety guards (see [`scripts/notion-to-wp/`](scripts/notion-to-wp/))
 3. **Custom WordPress code** — schema markup, theme tweaks, helper plugins (see [`fixes/`](fixes/), [`inc/`](inc/), and [`plugins/`](plugins/))
-4. **Aurora v2 theme work** — separate `aurora/v2` branch, paced sprints (see [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/AURORA-MIGRATION-PLAN.md))
+4. **Aurora theme work** — canonical theme source now tracked on `main` (merged via PR #129), with lane-scoped feature branches for larger slices
 5. **Issue tracking + project management** for fixes, content, and theme work
 
 ### Why a Separate Repo?
@@ -95,7 +95,8 @@ skills/                          # Claude Code skills used in this repo
 ### Where to start
 
 - **Reading the site state:** `docs/current-state/README.md`
-- **Planning next work:** `docs/current-state/WORK-PLAN-2026-05-23.md`
+- **Planning next work:** `docs/current-state/HANDOFF-2026-05-24.md` and `docs/current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md`
+- **Latest startup truth:** `docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md`
 - **Latest diagnostic truth:** `docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`
 - **Longer roadmap references:** `docs/current-state/ROADMAP.md` and `docs/current-state/FIX_QUEUE.md`
 - **Publishing a Notion post:** `scripts/notion-to-wp/README.md`
@@ -104,7 +105,7 @@ skills/                          # Claude Code skills used in this repo
 
 ## How work happens here
 
-Two parallel tracks. Pick one per session — don't mix.
+Two parallel lanes. Keep one lane per commit — don't mix unrelated theme/content changes in the same commit.
 
 ### Track A — Content + SEO (on `main`, weekly cadence)
 
@@ -115,15 +116,15 @@ Notion → kriskrug.co publishing, post-publish enrichment, schema maintenance, 
 - Active backlog: [`docs/current-state/FIX_QUEUE.md`](docs/current-state/FIX_QUEUE.md), [`docs/current-state/SITE-AUDIT-2026-05-16.md`](docs/current-state/SITE-AUDIT-2026-05-16.md)
 - Deployed schema: [`fixes/schema-snippets-deployed.php`](fixes/schema-snippets-deployed.php)
 
-### Track B — Aurora v2 theme migration (on `aurora/v2`, paced sprints)
+### Track B — Aurora theme (on `main` via lane-scoped branches)
 
-FSE theme rebuild on a separate branch. Touches `theme/`, FSE templates, theme.json. Never touches post content.
+FSE theme rebuild and polish. Touches `theme/kk-aurora/`, FSE templates, theme.json. Avoid bundling theme edits with content publishing changes in the same commit.
 
 - Migration plan: [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/AURORA-MIGRATION-PLAN.md)
 
 ### Which track am I in?
 
-See the decision rule in [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md#how-to-know-which-track-youre-in). If you're editing a post, page, schema, redirect, or category → Track A. If you're editing theme files or FSE templates → Track B.
+If you're editing a post, page, schema, redirect, or category → Track A. If you're editing theme files or FSE templates → Track B. Use the two-track model doc for historical context, but prefer the 2026-05-24 handoff docs for current branch/layout truth.
 
 ## Getting Started
 
@@ -141,7 +142,7 @@ Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](do
 
 ## Technology Stack
 
-- **Platform:** WordPress 6.9+ on Pagely (production), Catch Responsive theme
+- **Platform:** WordPress 6.9+ on Pagely (production), Aurora `kk-aurora` theme
 - **Content pipeline:** Python (Notion API → WordPress REST API)
 - **Custom code:** PHP snippets (Code Snippets plugin on prod), `inc/digital-composting.php`, and packaged helper plugins such as `plugins/kk-sidebar-promos/`
 - **CLI Tools:** GitHub CLI (`gh`), Claude Code / Cursor agents
