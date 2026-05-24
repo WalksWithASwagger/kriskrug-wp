@@ -1,0 +1,26 @@
+01-fuck-ai.jpg|Protest sign reading FUCK AI in bold black letters on a red ground
+02-ai-sucks-up-our-drinking-water.jpg|Hand-painted sign: AI SUCKS UP ALL OF OUR DRINKING WATER, with blue water drops
+03-dirty-water-you-pick.jpg|Sign: Drink water? Dirty water? AI! You pick! beside a glass of murky brown water
+04-people-need-water-not-ai.jpg|Sign reading People need WATER not AI
+05-no-ai-data-centres-vancouver.jpg|Orange sign: NO A.I. DATA CENTRES IN VANCOUVER
+06-software-engineers-against-data-centres.jpg|Sign: Software engineers and SREs against AI data centres in the city
+07-stop-giving-billionaires-money.jpg|Two signs: STOP GIVING BILLIONAIRES MORE MONEY and SAY NO TO A.I. DATA CENTRES
+08-housing-not-ai.jpg|Sign with a crossed-out AI symbol reading HOUSING NOT AI
+09-ai-public-health-hazard.jpg|Pink sign: AI IS A PUBLIC HEALTH HAZARD
+10-people-over-profit.jpg|Sign reading PEOPLE OVER PROFIT
+11-i-believe-in-being-human.jpg|Sign reading I BELIEVE IN BEING HUMAN
+12-make-love-not-data-centres.jpg|Sign reading MAKE LOVE NOT DATA CENTRES
+13-fuck-ai-nimby.jpg|Sign reading FUCK AI NIMBY
+14-ai-sucks.jpg|Sign reading AI SUCKS held above the crowd
+15-canadian-animation-guild.jpg|Banner reading The Canadian Animation Guild
+16-ai-thirsty-roommate.jpg|Hand-drawn sign about AI as a wasteful, thirsty roommate
+17-use-your-brain-painting.jpg|A painted canvas of a human brain mounted as a protest placard
+18-crossed-out-ai-symbol.jpg|A large hand-drawn crossed-out AI symbol held overhead
+19-cra-cpu-me-a-river.jpg|Pun sign: AI, CRA-CPU me a river
+20-meep-morp-ctrl-alt-del.jpg|Cartoon-robot sign reading MEEP MORP, CTRL ALT DEL AI
+21-no-ai-in-our-neighbourhood.jpg|Sign with crossed-out AI reading not in our neighbourhood
+22-used-to-see-ai-as-a-tool.jpg|Sign: I used to see AI as a tool, now I see it as a threat
+23-water-not-slop-ubi-not-ai.jpg|Two signs in the crowd: WATER NOT SLOP and UBI NOT AI
+24-best-case-mass-construction.jpg|Sign weighing AI's best case against its worst case
+25-save-the-world-shut-ai-down.jpg|Sign reading Save the world, shut AI down
+26-clean-water-matters-more.jpg|Sign: clean water matters more than data centres
