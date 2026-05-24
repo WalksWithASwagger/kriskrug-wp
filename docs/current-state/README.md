@@ -37,6 +37,7 @@ Then use historical plans for context:
 | [FULL-AUDIT-ROADMAP-2026-05-18.md](FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit of repo, GitHub queue, Track A, Track B, and human decisions. |
 | [HANDOFF-2026-05-24.md](HANDOFF-2026-05-24.md) | Authoritative cross-track state as of 2026-05-24 (Aurora live, branch divergence warning, deploy mechanics). |
 | [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md) | Track A/Track B lane handoff with ownership boundaries and public-surface updates. |
+| [AURORA-V3-QA-ROADMAP-2026-05-24.md](AURORA-V3-QA-ROADMAP-2026-05-24.md) | Reconciled Aurora v1.3.0 line, local QA evidence, and post-merge rollout priorities. |
 | [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md) | Read-only truth memo with live evidence, drift flags, and verification matrix for safe next-session startup. |
 | `reports/` | Timestamped outputs from `make morning-truth` (read-only startup truth reports). |
 | [WORK-PLAN-2026-05-23.md](WORK-PLAN-2026-05-23.md) | Historical Track A baseline after the Sovereign AI draft pipeline closeout. Counts and queue state have drifted; verify live before acting. |
@@ -99,7 +100,7 @@ Then use historical plans for context:
 - **Site is on Pagely** (managed WP host), publicly reporting **WordPress 6.9.4** with **`kk-aurora` active** as of 2026-05-24.
 - **Jetpack is on the Free plan**, which is why WordPress.com MCP write access is currently blocked.
 - **Baseline note:** the May 14 snapshot started before later page-level snapshots, source packs, and Aurora theme work were added. Read the dated addenda above for current operating state.
-- **Current addendum:** use the 2026-05-24 handoff set first ([`HANDOFF-2026-05-24.md`](HANDOFF-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](TRACK-A-MORNING-TRUTH-2026-05-24.md)).
+- **Current addendum:** use the 2026-05-24 handoff set first ([`HANDOFF-2026-05-24.md`](HANDOFF-2026-05-24.md), [`AURORA-V3-QA-ROADMAP-2026-05-24.md`](AURORA-V3-QA-ROADMAP-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](TRACK-A-MORNING-TRUTH-2026-05-24.md)).
 - **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-05-22 19:46 PDT / 2026-05-23 02:46 UTC. Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
 - **Draft queue addendum:** use [`DRAFT-QUEUE-AUDIT-2026-05-22.md`](DRAFT-QUEUE-AUDIT-2026-05-22.md) before touching the publishing queue; `sovereign-ai-for-whom` is already WP draft `11905`.
 - **Issue queue addendum:** use [`ISSUE-QUEUE-AUDIT-2026-05-22.md`](ISSUE-QUEUE-AUDIT-2026-05-22.md) as context only; refresh live counts before action (`gh issue list --state open --limit 200`).

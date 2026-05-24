@@ -477,14 +477,17 @@
   // ============================================
   
   function init() {
-    initCursorGlow();
-    initCardSpotlight();
     initScrollReveal();
     initButtonRipple();
-    initTextSplit();
     initCounters();
     initHeaderTransform();
     initImageReveal();
+    const motionProfile = document.body?.dataset?.auroraMotionProfile;
+    if (motionProfile === 'enhanced') {
+      initCursorGlow();
+      initCardSpotlight();
+      initTextSplit();
+    }
     // initLinkPreview(); // Disabled - too distracting
   }
   

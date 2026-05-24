@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.3.0');
+define('KK_AURORA_VERSION', '1.3.1');
 
 /**
  * Theme setup
@@ -336,3 +336,69 @@ function manual_excerpt_dek_only(string $block_content, array $block): string {
     return $block_content;
 }
 add_filter('render_block', __NAMESPACE__ . '\\manual_excerpt_dek_only', 10, 2);
+
+/**
+ * Redirect the legacy /projects path to the canonical Work page permalink.
+ */
+function redirect_legacy_projects_path(): void {
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
+        return;
+    }
+
+    if (defined('REST_REQUEST') && REST_REQUEST) {
+        return;
+    }
+
+    $request_uri = isset($_SERVER['REQUEST_URI']) ? wp_unslash((string) $_SERVER['REQUEST_URI']) : '';
+    $request_path = trim((string) wp_parse_url($request_uri, PHP_URL_PATH), '/');
+    if ($request_path !== 'projects') {
+        return;
+    }
+
+    $method = isset($_SERVER['REQUEST_METHOD']) ? strtoupper((string) $_SERVER['REQUEST_METHOD']) : 'GET';
+    if (!in_array($method, ['GET', 'HEAD'], true)) {
+        return;
+    }
+
+    $target_url = home_url('/recent-projects-include/');
+    $work_page = get_page_by_path('recent-projects-include');
+    if (!$work_page instanceof \WP_Post) {
+        $work_page = get_page_by_path('work');
+    }
+
+    if ($work_page instanceof \WP_Post) {
+        $permalink = get_permalink($work_page);
+        if ($permalink !== false) {
+            $target_url = $permalink;
+        }
+    }
+
+    wp_safe_redirect($target_url, 301, 'KK Aurora');
+    exit;
+}
+add_action('template_redirect', __NAMESPACE__ . '\\redirect_legacy_projects_path', 1);
+
+/**
+ * Set a real social fallback image on Work when Jetpack emits a blank og:image.
+ *
+ * @param array<string, string> $tags Existing Open Graph tags.
+ * @return array<string, string>
+ */
+function work_page_open_graph_fallback(array $tags): array {
+    if (!is_page(['recent-projects-include', 'work'])) {
+        return $tags;
+    }
+
+    $image = 'https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&ssl=1';
+
+    $tags['og:image'] = $image;
+    $tags['og:image:secure_url'] = $image;
+    $tags['og:image:width'] = '1200';
+    $tags['og:image:height'] = '630';
+    $tags['og:image:alt'] = 'BC + AI ecosystem graphic showing community programs and events';
+    $tags['twitter:image'] = $image;
+    $tags['twitter:image:alt'] = 'BC + AI ecosystem graphic showing community programs and events';
+
+    return $tags;
+}
+add_filter('jetpack_open_graph_tags', __NAMESPACE__ . '\\work_page_open_graph_fallback');
