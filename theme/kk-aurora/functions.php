@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.3.0');
+define('KK_AURORA_VERSION', '1.3.1');
 
 /**
  * Theme setup
@@ -307,6 +307,35 @@ function theme_color_meta(): void {
     <?php
 }
 add_action('wp_head', __NAMESPACE__ . '\\theme_color_meta', 2);
+
+function single_post_first_paint_css(): void {
+    if (!is_single()) {
+        return;
+    }
+    ?>
+    <style id="kk-aurora-single-first-paint">
+    .single-post .aurora-article-dek {
+      border-left: 3px solid rgba(83, 207, 241, 0.5);
+      color: #d9dbe5;
+      font-size: clamp(1.12rem, 1.75vw, 1.46rem);
+      line-height: 1.58;
+      margin: 1rem 0 0;
+      max-width: 62ch;
+      padding-left: 1rem;
+    }
+    .single-post .aurora-article-dek .wp-block-post-excerpt__excerpt {
+      margin: 0;
+    }
+    .single-post .aurora-featured-media img {
+      aspect-ratio: 16 / 9;
+      border-radius: clamp(0.9rem, 2vw, 1.35rem);
+      object-fit: cover;
+      width: 100%;
+    }
+    </style>
+    <?php
+}
+add_action('wp_head', __NAMESPACE__ . '\\single_post_first_paint_css', 3);
 
 /**
  * Remove WordPress emoji scripts for performance

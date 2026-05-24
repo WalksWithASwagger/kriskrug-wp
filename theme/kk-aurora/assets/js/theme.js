@@ -184,7 +184,6 @@
       const minutes = Math.max(1, Math.ceil(words / 225));
       readTime.textContent = `${minutes} min read`;
       readTime.hidden = false;
-      article.querySelector('.aurora-read-time-divider')?.removeAttribute('hidden');
     }
 
     const map = article.querySelector('[data-aurora-article-map]');

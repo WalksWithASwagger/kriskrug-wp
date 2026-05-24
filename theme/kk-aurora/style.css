@@ -1772,8 +1772,26 @@ a {
 }
 
 .aurora-article-meta {
-  gap: 0.8rem;
-  margin-top: 1.4rem;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem 0;
+  margin-top: 1.25rem;
+}
+
+.aurora-article-meta > :where(*:not([hidden])) {
+  align-items: center;
+  display: inline-flex;
+}
+
+.aurora-article-meta > :where(*:not([hidden])) + :where(*:not([hidden])) {
+  margin-left: 0.72rem;
+}
+
+.aurora-article-meta > :where(*:not([hidden])) + :where(*:not([hidden]))::before {
+  color: rgba(247, 247, 242, 0.24);
+  content: "/";
+  margin-right: 0.72rem;
 }
 
 .aurora-article-meta p,
@@ -1793,33 +1811,54 @@ a {
   margin: 0;
 }
 
-.aurora-article-meta a:hover {
-  color: var(--wp--preset--color--cyan);
+.aurora-article-meta .wp-block-post-terms,
+.aurora-article-meta .wp-block-post-terms a {
+  margin: 0;
+  text-decoration: none;
 }
 
-.aurora-meta-divider {
-  color: rgba(247, 247, 242, 0.24);
+.aurora-article-meta :where(a:hover) {
+  color: var(--wp--preset--color--cyan);
 }
 
 .aurora-article-dek {
   color: var(--aurora-ink-soft);
-  font-size: clamp(1.12rem, 1.6vw, 1.4rem);
-  line-height: 1.55;
-  margin: 1.4rem 0 0;
+  font-size: clamp(1.12rem, 1.75vw, 1.46rem);
+  line-height: 1.58;
+  margin: 1rem 0 0;
   max-width: 62ch;
-  font-style: italic;
+  border-left: 3px solid rgba(83, 207, 241, 0.5);
+  padding-left: 1rem;
+  text-wrap: pretty;
 }
 .aurora-article-dek .wp-block-post-excerpt__excerpt { margin: 0; }
 .aurora-article-dek .wp-block-post-excerpt__more-text { display: none; }
 
 .aurora-featured-media {
-  margin-bottom: clamp(2rem, 5vw, 4rem);
+  margin: clamp(1.8rem, 4.2vw, 3rem) 0 clamp(2.3rem, 5.2vw, 4.4rem);
 }
 
 .aurora-featured-media img {
-  border-radius: var(--aurora-radius-card);
-  box-shadow: var(--aurora-shadow-deep);
+  aspect-ratio: 16 / 9;
+  background: rgba(6, 9, 18, 0.85);
+  border: 1px solid rgba(247, 247, 242, 0.14);
+  border-radius: clamp(0.9rem, 2vw, 1.35rem);
+  box-shadow:
+    0 32px 70px rgba(4, 6, 12, 0.5),
+    0 0 0 1px rgba(83, 207, 241, 0.14) inset;
+  object-fit: cover;
+  object-position: center;
+  max-height: min(70vh, 680px);
   width: 100%;
+}
+
+.aurora-featured-media figcaption,
+.aurora-featured-media .wp-element-caption {
+  color: var(--aurora-ink-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+  margin-top: 0.85rem;
+  text-align: left;
 }
 
 .aurora-article-map {
