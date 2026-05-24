@@ -4,7 +4,7 @@ This file is the entry point for any AI agent (Claude Code, Cursor, Codex, etc.)
 
 ## What this repo is
 
-The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running Catch Responsive. The repo is **adjacent to** the live site, not a mirror of it. `main` does not contain a full production theme/database/media mirror; Track B theme code lives on `aurora/v2`, and curated source-pack media/proofs are tracked. Custom repo-side WP code now includes `inc/digital-composting.php` (merged, not yet deployed to prod) and `plugins/kk-sidebar-promos/` (packaged helper plugin, deploy only with an explicit rollback path and KK approval).
+The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site currently running the Aurora theme (`kk-aurora`) in production as of 2026-05-24. The repo is **adjacent to** the live site, not a mirror of it. `main` does not contain a full production theme/database/media mirror; Track B theme code lives on `aurora/v2`, and curated source-pack media/proofs are tracked. Custom repo-side WP code now includes `inc/digital-composting.php` (merged, not yet deployed to prod) and `plugins/kk-sidebar-promos/` (packaged helper plugin, deploy only with an explicit rollback path and KK approval).
 
 ## Read this in order (top of repo, top of context)
 
@@ -12,7 +12,10 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 2. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
 3. [`docs/current-state/REPO_STATE.md`](docs/current-state/REPO_STATE.md) — what's actually built vs. just documented
 4. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
-5. [`docs/current-state/WORK-PLAN-2026-05-23.md`](docs/current-state/WORK-PLAN-2026-05-23.md) — current roadmap, next-session front door, and stop rules
+5. [`docs/current-state/HANDOFF-2026-05-24.md`](docs/current-state/HANDOFF-2026-05-24.md) — authoritative cross-track state as of 2026-05-24
+6. [`docs/current-state/SESSION-HANDOFF-2026-05-24.md`](docs/current-state/SESSION-HANDOFF-2026-05-24.md) — Track A/Track B ownership and latest lane handoff
+7. [`docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md`](docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md) — latest read-only truth memo and verification matrix
+8. [`docs/current-state/WORK-PLAN-2026-05-23.md`](docs/current-state/WORK-PLAN-2026-05-23.md) — historical Track A baseline; keep for context, not for current counts
 
 For the detailed diagnostic behind that plan, read [`docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`](docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md).
 
@@ -46,6 +49,7 @@ Full decision tree: [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md
 - **`docs/architecture.md`, `docs/automation-guide.md`** — reference docs for the dormant swarm.
 - **`docs/cloudways-setup.md`, `docs/local-development-setup.md`, `.claude/context/wordpress-setup.md`** — Cloudways dev-server setup that was never used as planned. Relevant if/when Track B needs staging, otherwise ignore.
 - **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. The current execution roadmap is [`docs/current-state/WORK-PLAN-2026-05-23.md`](docs/current-state/WORK-PLAN-2026-05-23.md); the longer-range reference roadmap is [`docs/current-state/ROADMAP.md`](docs/current-state/ROADMAP.md).
+- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. The current front door is the 2026-05-24 handoff set in `docs/current-state/`; `WORK-PLAN-2026-05-23.md` is now historical context.
 
 Anything banner-tagged `STATUS: Historical` at the top is reference-only.
 
@@ -67,6 +71,10 @@ See [`scripts/notion-to-wp/README.md`](scripts/notion-to-wp/README.md). Short ve
 
 Read [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md). If that doesn't answer it, stop and ask the human.
 
+## Morning truth command
+
+Run `make morning-truth` at session start (or before execution) to emit a timestamped read-only report under `docs/current-state/reports/` with git/issue/worktree state, WP smoke, draft queue counts, and current-state drift flags.
+
 ---
 
-**Last verified:** 2026-05-23. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` as the source of truth and flag the drift for a fresh audit.
+**Last verified:** 2026-05-24. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` as the source of truth and flag the drift for a fresh audit.

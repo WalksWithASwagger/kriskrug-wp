@@ -32,6 +32,7 @@ vendor/
 *.sql.gz
 *.zip
 *.tar.gz
+*.tgz
 
 # Temporary files
 *.tmp
