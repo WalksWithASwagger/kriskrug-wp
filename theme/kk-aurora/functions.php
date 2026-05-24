@@ -321,3 +321,18 @@ function disable_emojis(): void {
     remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
 }
 add_action('init', __NAMESPACE__ . '\\disable_emojis');
+
+/**
+ * Article dek: render the single-post excerpt block ONLY when the author wrote a
+ * manual excerpt. Replaces the old hardcoded "proof trail" line — per-post control,
+ * blank by default (no auto-generated filler).
+ */
+function manual_excerpt_dek_only(string $block_content, array $block): string {
+    if (($block['blockName'] ?? '') === 'core/post-excerpt'
+        && is_singular()
+        && ! has_excerpt(get_the_ID())) {
+        return '';
+    }
+    return $block_content;
+}
+add_filter('render_block', __NAMESPACE__ . '\\manual_excerpt_dek_only', 10, 2);

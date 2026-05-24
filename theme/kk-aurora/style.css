@@ -1801,13 +1801,16 @@ a {
   color: rgba(247, 247, 242, 0.24);
 }
 
-.aurora-article-proof {
+.aurora-article-dek {
   color: var(--aurora-ink-soft);
-  font-size: clamp(1rem, 1.3vw, 1.16rem);
-  line-height: 1.65;
-  margin: 1.2rem 0 0;
+  font-size: clamp(1.12rem, 1.6vw, 1.4rem);
+  line-height: 1.55;
+  margin: 1.4rem 0 0;
   max-width: 62ch;
+  font-style: italic;
 }
+.aurora-article-dek .wp-block-post-excerpt__excerpt { margin: 0; }
+.aurora-article-dek .wp-block-post-excerpt__more-text { display: none; }
 
 .aurora-featured-media {
   margin-bottom: clamp(2rem, 5vw, 4rem);
