@@ -167,6 +167,18 @@
       [data-reveal-stagger].is-revealed > *:nth-child(6) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
     `;
     document.head.appendChild(style);
+
+    // #116: reveal anything already in the initial viewport on the next frame, so the
+    // hero/above-the-fold never waits on the async observer — no cold-load flash, and a
+    // hard guarantee against a blank first paint even if the observer is slow to fire.
+    requestAnimationFrame(() => {
+      document.querySelectorAll('[data-reveal]:not(.is-revealed)').forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) {
+          el.classList.add('is-revealed');
+        }
+      });
+    });
   }
 
   // ============================================
