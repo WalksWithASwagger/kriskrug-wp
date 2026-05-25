@@ -5,15 +5,17 @@
 
 This folder is the source of truth for "what was true on May 14, 2026" and for dated working addenda that came out of the May 2026 recovery/redesign push. Treat the baseline files as historical snapshots and the latest dated handoff/truth docs plus the newest committed `reports/morning-truth-*.md` artifact as the current front door.
 
-## Current Front Door (verified 2026-05-25 02:19 UTC)
+## Current Front Door (verified 2026-05-25 22:40 UTC)
 
 Read these first for current execution context:
 
-1. [HANDOFF-2026-05-24.md](HANDOFF-2026-05-24.md)
-2. [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md)
-3. [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md) plus `reports/morning-truth-20260525-021945Z.md`
-4. [TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)
-5. [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)
+1. [AURORA-CONTENT-RECOVERY-2026-05-25.md](AURORA-CONTENT-RECOVERY-2026-05-25.md)
+2. [AURORA-LIVE-QA-2026-05-25.md](AURORA-LIVE-QA-2026-05-25.md)
+3. [HANDOFF-2026-05-24.md](HANDOFF-2026-05-24.md)
+4. [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md)
+5. [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md) plus `reports/morning-truth-20260525-220258Z.md`
+6. [TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)
+7. [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)
 
 Then use historical plans for context:
 
@@ -36,6 +38,8 @@ Then use historical plans for context:
 | [ROADMAP.md](ROADMAP.md) | Six-phase, 3-month plan that synthesizes FIX_QUEUE + postmortem follow-ups + content pipeline next steps. Use as longer-range reference after the latest work plan. |
 | [FULL-AUDIT-ROADMAP-2026-05-18.md](FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit of repo, GitHub queue, Track A, Track B, and human decisions. |
 | [HANDOFF-2026-05-24.md](HANDOFF-2026-05-24.md) | Authoritative cross-track state as of 2026-05-24 (Aurora live, branch divergence warning, deploy mechanics). |
+| [AURORA-CONTENT-RECOVERY-2026-05-25.md](AURORA-CONTENT-RECOVERY-2026-05-25.md) | Recovery note for stale Aurora 1.3.0 production templates masking rich page content, plus the 1.3.3/1.3.4 deploy artifacts and verification markers. |
+| [AURORA-LIVE-QA-2026-05-25.md](AURORA-LIVE-QA-2026-05-25.md) | Live QA closeout for the 1.3.3 recovery deploy and 1.3.4 polish pass, including desktop/mobile screenshot artifact paths and residual CDN notes. |
 | [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md) | Track A/Track B lane handoff with ownership boundaries and public-surface updates. |
 | [AURORA-V3-QA-ROADMAP-2026-05-24.md](AURORA-V3-QA-ROADMAP-2026-05-24.md) | Reconciled Aurora v1.3.0 line, local QA evidence, and post-merge rollout priorities. |
 | [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md) | Read-only truth memo with live evidence, drift flags, and verification matrix for safe next-session startup. |
@@ -97,10 +101,10 @@ Then use historical plans for context:
 
 ## TL;DR
 
-- **Site is on Pagely** (managed WP host), publicly reporting **WordPress 6.9.4** with **`kk-aurora` active** as of 2026-05-25 02:19 UTC.
+- **Site is on Pagely** (managed WP host), publicly reporting **WordPress 6.9.4** with **`kk-aurora` 1.3.4 active** as of 2026-05-25 22:40 UTC.
 - **Jetpack is on the Free plan**, which is why WordPress.com MCP write access is currently blocked.
 - **Baseline note:** the May 14 snapshot started before later page-level snapshots, source packs, and Aurora theme work were added. Read the dated addenda above for current operating state.
-- **Current addendum:** use the 2026-05-24 handoff set first ([`HANDOFF-2026-05-24.md`](HANDOFF-2026-05-24.md), [`AURORA-V3-QA-ROADMAP-2026-05-24.md`](AURORA-V3-QA-ROADMAP-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](TRACK-A-MORNING-TRUTH-2026-05-24.md)), then verify against `reports/morning-truth-20260525-021945Z.md` or a newer generated report.
+- **Current addendum:** start with the Aurora recovery/QA closeout docs, then use the 2026-05-24 handoff set ([`HANDOFF-2026-05-24.md`](HANDOFF-2026-05-24.md), [`AURORA-V3-QA-ROADMAP-2026-05-24.md`](AURORA-V3-QA-ROADMAP-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](TRACK-A-MORNING-TRUTH-2026-05-24.md)), then verify against `reports/morning-truth-20260525-220258Z.md` or a newer generated report.
 - **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-05-25 02:19 UTC (`make morning-truth` / `make wp7-smoke EXPECT_VERSION=6.9.4`). Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
 - **Draft queue addendum:** `make draft-queue-audit` reported `0` future posts, `71` draft posts, and `5` draft pages on 2026-05-25 02:19 UTC; `sovereign-ai-for-whom` is already WP draft `11905`.
 - **Issue queue addendum:** `gh pr list --state open --limit 100` returned `0` open PRs and `gh issue list --state open --limit 200` returned `66` open issues on 2026-05-25 02:19 UTC.

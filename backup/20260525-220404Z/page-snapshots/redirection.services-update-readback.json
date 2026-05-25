@@ -1,0 +1,28 @@
+{
+  "item": {
+    "id": 4,
+    "url": "/services/",
+    "match_url": "/services",
+    "match_data": {
+      "source": {
+        "flag_query": "pass",
+        "flag_case": true,
+        "flag_trailing": true,
+        "flag_regex": false
+      }
+    },
+    "action_code": 301,
+    "action_type": "url",
+    "action_data": {
+      "url": "/generative-ai-services/"
+    },
+    "match_type": "url",
+    "title": "",
+    "hits": 28,
+    "regex": false,
+    "group_id": 1,
+    "position": 3,
+    "last_access": "May 25, 2026",
+    "enabled": true
+  }
+}

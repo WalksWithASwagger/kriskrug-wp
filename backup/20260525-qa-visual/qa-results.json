@@ -1,0 +1,1802 @@
+[
+  {
+    "key": "home",
+    "requestedUrl": "https://kriskrug.co/",
+    "viewportName": "desktop",
+    "durationMs": 939,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Authored judgment in the age": true,
+      "aurora-home-2026": true
+    },
+    "finalUrl": "https://kriskrug.co/",
+    "h1s": [
+      "Authored judgment in the age of generative everything."
+    ],
+    "h2s": [
+      "Proof without the logo soup.",
+      "Living projects, not dusty credentials.",
+      "Rooms that need clarity, courage, and a useful next step.",
+      "The rooms already know the work.",
+      "Fresh proof belongs here before launch.",
+      "Field notes",
+      "The dispatch from the edge.",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention."
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 6,
+    "mainClass": "wp-block-group aurora-home-2026 aurora-keynote-first is-layout-flow wp-block-group-is-layout-flow",
+    "missingAltVisible": [],
+    "overflowElements": [
+      {
+        "cls": "aurora-cursor-glow",
+        "left": -200,
+        "right": 200,
+        "tag": "div",
+        "text": "",
+        "width": 400
+      }
+    ],
+    "title": "Kris Krüg | Generative AI Tools & Techniques - Empowering Events & Organizations for the AI Age",
+    "viewport": {
+      "height": 720,
+      "scrollHeight": 7936,
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    "visibleTop": [
+      {
+        "alt": "Kris Krug speaking on stage at CreativeMornings Vancouver",
+        "cls": "",
+        "tag": "img",
+        "text": ""
+      },
+      {
+        "alt": "",
+        "cls": "aurora-kicker",
+        "tag": "p",
+        "text": "AI KEYNOTE SPEAKER. CREATIVE TECHNOLOGIST. COMMUNITY BUILDER."
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "h1",
+        "text": "Authored judgment in the age of generative everything."
+      }
+    ]
+  },
+  {
+    "key": "blog",
+    "requestedUrl": "https://kriskrug.co/blog/",
+    "viewportName": "desktop",
+    "durationMs": 837,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Field notes for the age of generative everything": true,
+      "aurora-writing-archive": true
+    },
+    "finalUrl": "https://kriskrug.co/blog/",
+    "h1s": [
+      "Field notes for the age of generative everything."
+    ],
+    "h2s": [
+      "The AI Mindset: Adapting to the New Creative Paradigm",
+      "You Can’t Drink Data",
+      "Make Culture, Not Content",
+      "Why Judgment Beats “Creativity” in the AI Era",
+      "Calling Us All In",
+      "Web Summit Vancouver 2026",
+      "Punk Rock AI",
+      "Applied Ethical AI: Responsible AI Professional Certification (RAP)"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 19,
+    "mainClass": "wp-block-group aurora-writing-archive is-layout-flow wp-block-group-is-layout-flow",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Blog — Kris Krug | AI Keynote Speaker & Creative Technologist",
+    "viewport": {
+      "height": 720,
+      "scrollHeight": 4427,
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-kicker",
+        "tag": "p",
+        "text": "WRITING"
+      },
+      {
+        "alt": "",
+        "cls": "wp-block-heading aurora-writing-archive-title",
+        "tag": "h1",
+        "text": "Field notes for the age of generative everything."
+      },
+      {
+        "alt": "",
+        "cls": "aurora-writing-archive-dek",
+        "tag": "p",
+        "text": "Essays on AI, culture, community, creative practice, consent, taste, and what stays human when the tools get loud."
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": ""
+      },
+      {
+        "alt": "The AI Mindset: Adapting to the New Creative Paradigm",
+        "cls": "attachment-post-thumbnail size-post-thumbnail wp-post-image",
+        "tag": "img",
+        "text": ""
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": ""
+      },
+      {
+        "alt": "You Can’t Drink Data",
+        "cls": "attachment-post-thumbnail size-post-thumbnail wp-post-image",
+        "tag": "img",
+        "text": ""
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": "AI ETHICS & PHILOSOPHY"
+      },
+      {
+        "alt": "",
+        "cls": "aurora-writing-card-title wp-block-post-title",
+        "tag": "h2",
+        "text": "You Can’t Drink Data"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": "You Can’t Drink Data"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": ""
+      },
+      {
+        "alt": "Make Culture, Not Content",
+        "cls": "attachment-post-thumbnail size-post-thumbnail wp-post-image",
+        "tag": "img",
+        "text": ""
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": "AI FOR CREATIVES"
+      },
+      {
+        "alt": "",
+        "cls": "aurora-writing-card-title wp-block-post-title",
+        "tag": "h2",
+        "text": "Make Culture, Not Content"
+      }
+    ]
+  },
+  {
+    "key": "work",
+    "requestedUrl": "https://kriskrug.co/recent-projects-include/",
+    "viewportName": "desktop",
+    "durationMs": 709,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "A portfolio of AI culture": true,
+      "Archive highlights": true,
+      "Featured work": true
+    },
+    "finalUrl": "https://kriskrug.co/recent-projects-include/",
+    "h1s": [
+      "Work"
+    ],
+    "h2s": [
+      "A portfolio of AI culture, community infrastructure, keynote systems, and long-haul visual storytelling.",
+      "Featured work",
+      "Public artifacts",
+      "How the work shows up",
+      "Archive highlights",
+      "Need a speaker, strategist, trainer, or weirdly useful AI collaborator?",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 19,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Work | Kris Krüg",
+    "viewport": {
+      "height": 720,
+      "scrollHeight": 8711,
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Work"
+      },
+      {
+        "alt": "",
+        "cls": "kk-kicker",
+        "tag": "p",
+        "text": "CURRENT WORK, LIVING SYSTEMS, AND USEFUL EXPERIMENTS"
+      },
+      {
+        "alt": "",
+        "cls": "kk-display",
+        "tag": "h2",
+        "text": "A portfolio of AI culture, community infrastructure, keynote systems, and long-haul visual storytelling."
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "I build things that help people meet the future without losing the plot: public AI communities, practical training, talks that become reusable portals, and stor"
+      },
+      {
+        "alt": "",
+        "cls": "kk-button",
+        "tag": "a",
+        "text": "Book a keynote"
+      },
+      {
+        "alt": "",
+        "cls": "kk-button secondary",
+        "tag": "a",
+        "text": "Work with me"
+      }
+    ]
+  },
+  {
+    "key": "speaking",
+    "requestedUrl": "https://kriskrug.co/speaking/",
+    "viewportName": "desktop",
+    "durationMs": 777,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Common formats": true,
+      "Horizons: Exploring AI Models": true,
+      "I help audiences meet AI with courage": true
+    },
+    "finalUrl": "https://kriskrug.co/speaking/",
+    "h1s": [
+      "AI Keynote Speaker Kris Krüg"
+    ],
+    "h2s": [
+      "I help audiences meet AI with courage, taste, and usable imagination.",
+      "Bring me in when the room needs courage, clarity, and a little voltage.",
+      "Signature keynote topics",
+      "Watch selected talks",
+      "Keynote portals",
+      "Broadcast and recurring rooms",
+      "Podcasts, interviews, hosting, and emcee work",
+      "Stage energy"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 16,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "AI Keynote Speaker Kris Krüg | Humanizing AI, Creativity & Community",
+    "viewport": {
+      "height": 720,
+      "scrollHeight": 11317,
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "AI Keynote Speaker Kris Krüg"
+      },
+      {
+        "alt": "",
+        "cls": "kk-kicker",
+        "tag": "p",
+        "text": "AI KEYNOTES, WORKSHOPS, AND CULTURE-SHIFTING ROOMS"
+      },
+      {
+        "alt": "",
+        "cls": "kk-display",
+        "tag": "h2",
+        "text": "I help audiences meet AI with courage, taste, and usable imagination."
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "I am an AI keynote speaker, creative technologist, photographer, and community builder. My talks mix live demos, field stories, creative rebellion, practical wo"
+      },
+      {
+        "alt": "Kris Krug speaking on stage at LaSalle College Vancouver",
+        "cls": "",
+        "tag": "img",
+        "text": ""
+      }
+    ]
+  },
+  {
+    "key": "services",
+    "requestedUrl": "https://kriskrug.co/generative-ai-services/",
+    "viewportName": "desktop",
+    "durationMs": 784,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Build AI capacity that serves people": true,
+      "How I Can Help": true,
+      "Indigenous-Tech Advisory": true
+    },
+    "finalUrl": "https://kriskrug.co/generative-ai-services/",
+    "h1s": [
+      "Generative AI Creative Services & Strategy"
+    ],
+    "h2s": [
+      "Build AI capacity that serves people, communities, and culture.",
+      "How I Can Help",
+      "Engagement Models",
+      "Proof and Source Trails",
+      "Where Photography Fits Now",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results",
+      "No results found"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 7,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Generative AI Creative Services & Strategy Kris Krüg | Generative AI Tools & Techniques",
+    "viewport": {
+      "height": 720,
+      "scrollHeight": 7092,
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Generative AI Creative Services & Strategy"
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-kicker",
+        "tag": "p",
+        "text": "AI STRATEGY, TRAINING, COMMUNITY, AND KEYNOTE WORK"
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-display",
+        "tag": "h2",
+        "text": "Build AI capacity that serves people, communities, and culture."
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-lead",
+        "tag": "p",
+        "text": "I help organizations move from AI pressure to practical fluency: responsible strategy, community systems, custom training, Indigenous-tech advisory, and talks t"
+      },
+      {
+        "alt": "Kris Krug speaking on stage about creativity and AI",
+        "cls": "",
+        "tag": "img",
+        "text": ""
+      }
+    ]
+  },
+  {
+    "key": "publications",
+    "requestedUrl": "https://kriskrug.co/publications/",
+    "viewportName": "desktop",
+    "durationMs": 755,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Georgia Straight: Geek Speak": true,
+      "Popular Science: NASA Needs": true,
+      "The public record behind the rooms": true
+    },
+    "finalUrl": "https://kriskrug.co/publications/",
+    "h1s": [
+      "Publications"
+    ],
+    "h2s": [
+      "The public record behind the rooms, photos, essays, interviews, and weird internet artifacts.",
+      "Featured trail",
+      "Interviews and video archive",
+      "Published, featured, or cited by",
+      "Need the current media kit?",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results",
+      "No results found"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 1,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Publications, Interviews & Media Archive | Kris Krüg",
+    "viewport": {
+      "height": 720,
+      "scrollHeight": 4327,
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Publications"
+      },
+      {
+        "alt": "",
+        "cls": "kk-publications-kicker",
+        "tag": "p",
+        "text": "PUBLICATIONS, INTERVIEWS, CITATIONS, AND SOURCE TRAIL"
+      },
+      {
+        "alt": "",
+        "cls": "kk-publications-display",
+        "tag": "h2",
+        "text": "The public record behind the rooms, photos, essays, interviews, and weird internet artifacts."
+      },
+      {
+        "alt": "",
+        "cls": "kk-publications-lead",
+        "tag": "p",
+        "text": "This page restores the useful part of the old Publications archive: the links, media appearances, and publication trail that show how the work has moved through"
+      },
+      {
+        "alt": "",
+        "cls": "kk-publications-lead",
+        "tag": "p",
+        "text": "It is not trying to be a perfect vanity bibliography. It is a proof map, a source trail, and a way to find the older interviews without burying them inside the "
+      }
+    ]
+  },
+  {
+    "key": "about",
+    "requestedUrl": "https://kriskrug.co/about/",
+    "viewportName": "desktop",
+    "durationMs": 814,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Amanda Tapping": true,
+      "Mette-Marit": true,
+      "Roy Henry Vickers": true,
+      "Trailer Park Boys": true
+    },
+    "finalUrl": "https://kriskrug.co/about/",
+    "h1s": [
+      "About Kris Krüg"
+    ],
+    "h2s": [
+      "Techartist, quasi-sage, cyberpunk anti-hero from the future.",
+      "What I am building now",
+      "Five rooms I’m in right now",
+      "Start with the live projects",
+      "Find the right thread",
+      "The throughline",
+      "Photo proof, or how I got here",
+      "The wild index"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 19,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "About Kris Krüg | AI Speaker, Creative Technologist & Community Builder",
+    "viewport": {
+      "height": 720,
+      "scrollHeight": 11220,
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "About Kris Krüg"
+      },
+      {
+        "alt": "",
+        "cls": "kk-kicker",
+        "tag": "p",
+        "text": "ABOUT KRIS KRÜG"
+      },
+      {
+        "alt": "",
+        "cls": "kk-display",
+        "tag": "h2",
+        "text": "Techartist, quasi-sage, cyberpunk anti-hero from the future."
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "I’m Kris Krüg — AI keynote speaker, creative technologist, photographer, and community builder working the messy edge where technology, creativity, ethics, and "
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "The mission hasn’t changed in twenty years: humanize the tech, fight apathy, put creative tools in more hands, and build rooms with enough courage and imaginati"
+      }
+    ]
+  },
+  {
+    "key": "podcast-epk",
+    "requestedUrl": "https://kriskrug.co/podcast-guesting-page-epk/",
+    "viewportName": "desktop",
+    "durationMs": 965,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "AI Commentator": true,
+      "Event Host": true,
+      "Podcast Guest": true
+    },
+    "finalUrl": "https://kriskrug.co/podcast-guesting-page-epk/",
+    "h1s": [
+      "Podcast Guest, AI Commentator, Event Host"
+    ],
+    "h2s": [
+      "Bring me in when your audience needs AI to sound human, useful, and alive.",
+      "What I bring to the mic",
+      "Featured appearances",
+      "Conversation lanes",
+      "Producer notes",
+      "More appearances and archive links",
+      "Book Kris for a podcast, broadcast segment, panel, or hosted event",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention."
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 7,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Podcast Guest, AI Commentator, Event Host | Kris Krug",
+    "viewport": {
+      "height": 720,
+      "scrollHeight": 8152,
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Podcast Guest, AI Commentator, Event Host"
+      },
+      {
+        "alt": "",
+        "cls": "kk-kicker",
+        "tag": "p",
+        "text": "PODCASTS, BROADCAST, PRODUCED INTERVIEWS, PANELS, HOSTING"
+      },
+      {
+        "alt": "",
+        "cls": "kk-display",
+        "tag": "h2",
+        "text": "Bring me in when your audience needs AI to sound human, useful, and alive."
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "I am an AI keynote speaker, creative technologist, photographer, community builder, podcast guest, broadcast commentator, host, moderator, and emcee. I help aud"
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "For producers, that means a guest who can move between practical demos, big-picture stakes, sharp cultural critique, and warm human stories without turning the "
+      }
+    ]
+  },
+  {
+    "key": "events",
+    "requestedUrl": "https://kriskrug.co/events/",
+    "viewportName": "desktop",
+    "durationMs": 793,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Events": true
+    },
+    "finalUrl": "https://kriskrug.co/events/",
+    "h1s": [
+      "Events",
+      "I don’t just attend the AI conversation — I host the room."
+    ],
+    "h2s": [
+      "The rooms I build and keep building.",
+      "Keynotes, festivals, and the rooms that travel.",
+      "The nights people still talk about.",
+      "Come to a room, or let’s build one.",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results",
+      "No results found",
+      "Filter options"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 1,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Events Kris Krüg | Generative AI Tools & Techniques",
+    "viewport": {
+      "height": 720,
+      "scrollHeight": 7460,
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Events"
+      },
+      {
+        "alt": "",
+        "cls": "aurora-kicker",
+        "tag": "p",
+        "text": "EVENTS I BUILD, HOST & SPEAK AT"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "h1",
+        "text": "I don’t just attend the AI conversation — I host the room."
+      }
+    ]
+  },
+  {
+    "key": "contact",
+    "requestedUrl": "https://kriskrug.co/contact/",
+    "viewportName": "desktop",
+    "durationMs": 807,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Contact": true
+    },
+    "finalUrl": "https://kriskrug.co/contact/",
+    "h1s": [
+      "Contact Kris Krüg"
+    ],
+    "h2s": [
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results",
+      "No results found",
+      "Filter options"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 1,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Contact Kris Krüg Kris Krüg | Generative AI Tools & Techniques",
+    "viewport": {
+      "height": 720,
+      "scrollHeight": 2740,
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Contact Kris Krüg"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "p",
+        "text": "Pls fill out the form below or contact by email or phone. Thank you!"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": "email"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": "phone"
+      }
+    ]
+  },
+  {
+    "key": "work-alias",
+    "requestedUrl": "https://kriskrug.co/work/",
+    "viewportName": "desktop",
+    "durationMs": 791,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "A portfolio of AI culture": true
+    },
+    "finalUrl": "https://kriskrug.co/recent-projects-include/",
+    "h1s": [
+      "Work"
+    ],
+    "h2s": [
+      "A portfolio of AI culture, community infrastructure, keynote systems, and long-haul visual storytelling.",
+      "Featured work",
+      "Public artifacts",
+      "How the work shows up",
+      "Archive highlights",
+      "Need a speaker, strategist, trainer, or weirdly useful AI collaborator?",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 19,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Work | Kris Krüg",
+    "viewport": {
+      "height": 720,
+      "scrollHeight": 8711,
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Work"
+      },
+      {
+        "alt": "",
+        "cls": "kk-kicker",
+        "tag": "p",
+        "text": "CURRENT WORK, LIVING SYSTEMS, AND USEFUL EXPERIMENTS"
+      },
+      {
+        "alt": "",
+        "cls": "kk-display",
+        "tag": "h2",
+        "text": "A portfolio of AI culture, community infrastructure, keynote systems, and long-haul visual storytelling."
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "I build things that help people meet the future without losing the plot: public AI communities, practical training, talks that become reusable portals, and stor"
+      },
+      {
+        "alt": "",
+        "cls": "kk-button",
+        "tag": "a",
+        "text": "Book a keynote"
+      },
+      {
+        "alt": "",
+        "cls": "kk-button secondary",
+        "tag": "a",
+        "text": "Work with me"
+      }
+    ]
+  },
+  {
+    "key": "services-alias",
+    "requestedUrl": "https://kriskrug.co/services/",
+    "viewportName": "desktop",
+    "durationMs": 787,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Build AI capacity that serves people": true
+    },
+    "finalUrl": "https://kriskrug.co/generative-ai-services/",
+    "h1s": [
+      "Generative AI Creative Services & Strategy"
+    ],
+    "h2s": [
+      "Build AI capacity that serves people, communities, and culture.",
+      "How I Can Help",
+      "Engagement Models",
+      "Proof and Source Trails",
+      "Where Photography Fits Now",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results",
+      "No results found"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 7,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Generative AI Creative Services & Strategy Kris Krüg | Generative AI Tools & Techniques",
+    "viewport": {
+      "height": 720,
+      "scrollHeight": 7092,
+      "scrollWidth": 1280,
+      "width": 1280
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Generative AI Creative Services & Strategy"
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-kicker",
+        "tag": "p",
+        "text": "AI STRATEGY, TRAINING, COMMUNITY, AND KEYNOTE WORK"
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-display",
+        "tag": "h2",
+        "text": "Build AI capacity that serves people, communities, and culture."
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-lead",
+        "tag": "p",
+        "text": "I help organizations move from AI pressure to practical fluency: responsible strategy, community systems, custom training, Indigenous-tech advisory, and talks t"
+      },
+      {
+        "alt": "Kris Krug speaking on stage about creativity and AI",
+        "cls": "",
+        "tag": "img",
+        "text": ""
+      }
+    ]
+  },
+  {
+    "key": "home",
+    "requestedUrl": "https://kriskrug.co/",
+    "viewportName": "mobile",
+    "durationMs": 946,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Authored judgment in the age": true,
+      "aurora-home-2026": true
+    },
+    "finalUrl": "https://kriskrug.co/",
+    "h1s": [
+      "Authored judgment in the age of generative everything."
+    ],
+    "h2s": [
+      "Proof without the logo soup.",
+      "Living projects, not dusty credentials.",
+      "Rooms that need clarity, courage, and a useful next step.",
+      "The rooms already know the work.",
+      "Fresh proof belongs here before launch.",
+      "Field notes",
+      "The dispatch from the edge.",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention."
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 6,
+    "mainClass": "wp-block-group aurora-home-2026 aurora-keynote-first is-layout-flow wp-block-group-is-layout-flow",
+    "missingAltVisible": [],
+    "overflowElements": [
+      {
+        "cls": "aurora-cursor-glow",
+        "left": -200,
+        "right": 200,
+        "tag": "div",
+        "text": "",
+        "width": 400
+      }
+    ],
+    "title": "Kris Krüg | Generative AI Tools & Techniques - Empowering Events & Organizations for the AI Age",
+    "viewport": {
+      "height": 844,
+      "scrollHeight": 10033,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "visibleTop": [
+      {
+        "alt": "Kris Krug speaking on stage at CreativeMornings Vancouver",
+        "cls": "",
+        "tag": "img",
+        "text": ""
+      },
+      {
+        "alt": "",
+        "cls": "aurora-kicker",
+        "tag": "p",
+        "text": "AI KEYNOTE SPEAKER. CREATIVE TECHNOLOGIST. COMMUNITY BUILDER."
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "h1",
+        "text": "Authored judgment in the age of generative everything."
+      },
+      {
+        "alt": "",
+        "cls": "aurora-hero-dek",
+        "tag": "p",
+        "text": "The machines now spill out adequate everything. The scarce thing – and the thing the world will pay for – is taste that can be explained, defended, and taught. "
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": "Executive Director, BC + AI (opens in new tab)"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": "Founder, TheUpgrade.ai (opens in new tab)"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": "20+ years on stage"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": "Culture, code, community"
+      }
+    ]
+  },
+  {
+    "key": "blog",
+    "requestedUrl": "https://kriskrug.co/blog/",
+    "viewportName": "mobile",
+    "durationMs": 743,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Field notes for the age of generative everything": true,
+      "aurora-writing-archive": true
+    },
+    "finalUrl": "https://kriskrug.co/blog/",
+    "h1s": [
+      "Field notes for the age of generative everything."
+    ],
+    "h2s": [
+      "The AI Mindset: Adapting to the New Creative Paradigm",
+      "You Can’t Drink Data",
+      "Make Culture, Not Content",
+      "Why Judgment Beats “Creativity” in the AI Era",
+      "Calling Us All In",
+      "Web Summit Vancouver 2026",
+      "Punk Rock AI",
+      "Applied Ethical AI: Responsible AI Professional Certification (RAP)"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 19,
+    "mainClass": "wp-block-group aurora-writing-archive is-layout-flow wp-block-group-is-layout-flow",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Blog — Kris Krug | AI Keynote Speaker & Creative Technologist",
+    "viewport": {
+      "height": 844,
+      "scrollHeight": 11660,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-kicker",
+        "tag": "p",
+        "text": "WRITING"
+      },
+      {
+        "alt": "",
+        "cls": "wp-block-heading aurora-writing-archive-title",
+        "tag": "h1",
+        "text": "Field notes for the age of generative everything."
+      },
+      {
+        "alt": "",
+        "cls": "aurora-writing-archive-dek",
+        "tag": "p",
+        "text": "Essays on AI, culture, community, creative practice, consent, taste, and what stays human when the tools get loud."
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": ""
+      },
+      {
+        "alt": "The AI Mindset: Adapting to the New Creative Paradigm",
+        "cls": "attachment-post-thumbnail size-post-thumbnail wp-post-image",
+        "tag": "img",
+        "text": ""
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": "AI FOR CREATIVES"
+      },
+      {
+        "alt": "",
+        "cls": "aurora-writing-card-title wp-block-post-title",
+        "tag": "h2",
+        "text": "The AI Mindset: Adapting to the New Creative Paradigm"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": "The AI Mindset: Adapting to the New Creative Paradigm"
+      }
+    ]
+  },
+  {
+    "key": "work",
+    "requestedUrl": "https://kriskrug.co/recent-projects-include/",
+    "viewportName": "mobile",
+    "durationMs": 774,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "A portfolio of AI culture": true,
+      "Archive highlights": true,
+      "Featured work": true
+    },
+    "finalUrl": "https://kriskrug.co/recent-projects-include/",
+    "h1s": [
+      "Work"
+    ],
+    "h2s": [
+      "A portfolio of AI culture, community infrastructure, keynote systems, and long-haul visual storytelling.",
+      "Featured work",
+      "Public artifacts",
+      "How the work shows up",
+      "Archive highlights",
+      "Need a speaker, strategist, trainer, or weirdly useful AI collaborator?",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 19,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Work | Kris Krüg",
+    "viewport": {
+      "height": 844,
+      "scrollHeight": 13201,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Work"
+      },
+      {
+        "alt": "",
+        "cls": "kk-kicker",
+        "tag": "p",
+        "text": "CURRENT WORK, LIVING SYSTEMS, AND USEFUL EXPERIMENTS"
+      },
+      {
+        "alt": "",
+        "cls": "kk-display",
+        "tag": "h2",
+        "text": "A portfolio of AI culture, community infrastructure, keynote systems, and long-haul visual storytelling."
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "I build things that help people meet the future without losing the plot: public AI communities, practical training, talks that become reusable portals, and stor"
+      },
+      {
+        "alt": "",
+        "cls": "kk-button",
+        "tag": "a",
+        "text": "Book a keynote"
+      },
+      {
+        "alt": "",
+        "cls": "kk-button secondary",
+        "tag": "a",
+        "text": "Work with me"
+      }
+    ]
+  },
+  {
+    "key": "speaking",
+    "requestedUrl": "https://kriskrug.co/speaking/",
+    "viewportName": "mobile",
+    "durationMs": 735,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Common formats": true,
+      "Horizons: Exploring AI Models": true,
+      "I help audiences meet AI with courage": true
+    },
+    "finalUrl": "https://kriskrug.co/speaking/",
+    "h1s": [
+      "AI Keynote Speaker Kris Krüg"
+    ],
+    "h2s": [
+      "I help audiences meet AI with courage, taste, and usable imagination.",
+      "Bring me in when the room needs courage, clarity, and a little voltage.",
+      "Signature keynote topics",
+      "Watch selected talks",
+      "Keynote portals",
+      "Broadcast and recurring rooms",
+      "Podcasts, interviews, hosting, and emcee work",
+      "Stage energy"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 16,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "AI Keynote Speaker Kris Krüg | Humanizing AI, Creativity & Community",
+    "viewport": {
+      "height": 844,
+      "scrollHeight": 20968,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "AI Keynote Speaker Kris Krüg"
+      },
+      {
+        "alt": "",
+        "cls": "kk-kicker",
+        "tag": "p",
+        "text": "AI KEYNOTES, WORKSHOPS, AND CULTURE-SHIFTING ROOMS"
+      },
+      {
+        "alt": "",
+        "cls": "kk-display",
+        "tag": "h2",
+        "text": "I help audiences meet AI with courage, taste, and usable imagination."
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "I am an AI keynote speaker, creative technologist, photographer, and community builder. My talks mix live demos, field stories, creative rebellion, practical wo"
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "The goal is not hype. The goal is a room full of people who leave with better instincts, stronger language, and a concrete sense of what to try next."
+      }
+    ]
+  },
+  {
+    "key": "services",
+    "requestedUrl": "https://kriskrug.co/generative-ai-services/",
+    "viewportName": "mobile",
+    "durationMs": 745,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Build AI capacity that serves people": true,
+      "How I Can Help": true,
+      "Indigenous-Tech Advisory": true
+    },
+    "finalUrl": "https://kriskrug.co/generative-ai-services/",
+    "h1s": [
+      "Generative AI Creative Services & Strategy"
+    ],
+    "h2s": [
+      "Build AI capacity that serves people, communities, and culture.",
+      "How I Can Help",
+      "Engagement Models",
+      "Proof and Source Trails",
+      "Where Photography Fits Now",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results",
+      "No results found"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 7,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Generative AI Creative Services & Strategy Kris Krüg | Generative AI Tools & Techniques",
+    "viewport": {
+      "height": 844,
+      "scrollHeight": 11100,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Generative AI Creative Services & Strategy"
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-kicker",
+        "tag": "p",
+        "text": "AI STRATEGY, TRAINING, COMMUNITY, AND KEYNOTE WORK"
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-display",
+        "tag": "h2",
+        "text": "Build AI capacity that serves people, communities, and culture."
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-lead",
+        "tag": "p",
+        "text": "I help organizations move from AI pressure to practical fluency: responsible strategy, community systems, custom training, Indigenous-tech advisory, and talks t"
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-lead",
+        "tag": "p",
+        "text": "This is not generic AI consulting. It is field-building work shaped by BC+AI, the Responsible AI Professional program, The Upgrade AI, and two decades of creati"
+      }
+    ]
+  },
+  {
+    "key": "publications",
+    "requestedUrl": "https://kriskrug.co/publications/",
+    "viewportName": "mobile",
+    "durationMs": 768,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Georgia Straight: Geek Speak": true,
+      "Popular Science: NASA Needs": true,
+      "The public record behind the rooms": true
+    },
+    "finalUrl": "https://kriskrug.co/publications/",
+    "h1s": [
+      "Publications"
+    ],
+    "h2s": [
+      "The public record behind the rooms, photos, essays, interviews, and weird internet artifacts.",
+      "Featured trail",
+      "Interviews and video archive",
+      "Published, featured, or cited by",
+      "Need the current media kit?",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results",
+      "No results found"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 1,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Publications, Interviews & Media Archive | Kris Krüg",
+    "viewport": {
+      "height": 844,
+      "scrollHeight": 6343,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Publications"
+      },
+      {
+        "alt": "",
+        "cls": "kk-publications-kicker",
+        "tag": "p",
+        "text": "PUBLICATIONS, INTERVIEWS, CITATIONS, AND SOURCE TRAIL"
+      },
+      {
+        "alt": "",
+        "cls": "kk-publications-display",
+        "tag": "h2",
+        "text": "The public record behind the rooms, photos, essays, interviews, and weird internet artifacts."
+      },
+      {
+        "alt": "",
+        "cls": "kk-publications-lead",
+        "tag": "p",
+        "text": "This page restores the useful part of the old Publications archive: the links, media appearances, and publication trail that show how the work has moved through"
+      },
+      {
+        "alt": "",
+        "cls": "kk-publications-lead",
+        "tag": "p",
+        "text": "It is not trying to be a perfect vanity bibliography. It is a proof map, a source trail, and a way to find the older interviews without burying them inside the "
+      }
+    ]
+  },
+  {
+    "key": "about",
+    "requestedUrl": "https://kriskrug.co/about/",
+    "viewportName": "mobile",
+    "durationMs": 762,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Amanda Tapping": true,
+      "Mette-Marit": true,
+      "Roy Henry Vickers": true,
+      "Trailer Park Boys": true
+    },
+    "finalUrl": "https://kriskrug.co/about/",
+    "h1s": [
+      "About Kris Krüg"
+    ],
+    "h2s": [
+      "Techartist, quasi-sage, cyberpunk anti-hero from the future.",
+      "What I am building now",
+      "Five rooms I’m in right now",
+      "Start with the live projects",
+      "Find the right thread",
+      "The throughline",
+      "Photo proof, or how I got here",
+      "The wild index"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 19,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "About Kris Krüg | AI Speaker, Creative Technologist & Community Builder",
+    "viewport": {
+      "height": 844,
+      "scrollHeight": 18876,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "About Kris Krüg"
+      },
+      {
+        "alt": "",
+        "cls": "kk-kicker",
+        "tag": "p",
+        "text": "ABOUT KRIS KRÜG"
+      },
+      {
+        "alt": "",
+        "cls": "kk-display",
+        "tag": "h2",
+        "text": "Techartist, quasi-sage, cyberpunk anti-hero from the future."
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "I’m Kris Krüg — AI keynote speaker, creative technologist, photographer, and community builder working the messy edge where technology, creativity, ethics, and "
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "The mission hasn’t changed in twenty years: humanize the tech, fight apathy, put creative tools in more hands, and build rooms with enough courage and imaginati"
+      }
+    ]
+  },
+  {
+    "key": "podcast-epk",
+    "requestedUrl": "https://kriskrug.co/podcast-guesting-page-epk/",
+    "viewportName": "mobile",
+    "durationMs": 698,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "AI Commentator": true,
+      "Event Host": true,
+      "Podcast Guest": true
+    },
+    "finalUrl": "https://kriskrug.co/podcast-guesting-page-epk/",
+    "h1s": [
+      "Podcast Guest, AI Commentator, Event Host"
+    ],
+    "h2s": [
+      "Bring me in when your audience needs AI to sound human, useful, and alive.",
+      "What I bring to the mic",
+      "Featured appearances",
+      "Conversation lanes",
+      "Producer notes",
+      "More appearances and archive links",
+      "Book Kris for a podcast, broadcast segment, panel, or hosted event",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention."
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 7,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Podcast Guest, AI Commentator, Event Host | Kris Krug",
+    "viewport": {
+      "height": 844,
+      "scrollHeight": 11485,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Podcast Guest, AI Commentator, Event Host"
+      },
+      {
+        "alt": "",
+        "cls": "kk-kicker",
+        "tag": "p",
+        "text": "PODCASTS, BROADCAST, PRODUCED INTERVIEWS, PANELS, HOSTING"
+      },
+      {
+        "alt": "",
+        "cls": "kk-display",
+        "tag": "h2",
+        "text": "Bring me in when your audience needs AI to sound human, useful, and alive."
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "I am an AI keynote speaker, creative technologist, photographer, community builder, podcast guest, broadcast commentator, host, moderator, and emcee. I help aud"
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "For producers, that means a guest who can move between practical demos, big-picture stakes, sharp cultural critique, and warm human stories without turning the "
+      }
+    ]
+  },
+  {
+    "key": "events",
+    "requestedUrl": "https://kriskrug.co/events/",
+    "viewportName": "mobile",
+    "durationMs": 721,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Events": true
+    },
+    "finalUrl": "https://kriskrug.co/events/",
+    "h1s": [
+      "Events",
+      "I don’t just attend the AI conversation — I host the room."
+    ],
+    "h2s": [
+      "The rooms I build and keep building.",
+      "Keynotes, festivals, and the rooms that travel.",
+      "The nights people still talk about.",
+      "Come to a room, or let’s build one.",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results",
+      "No results found",
+      "Filter options"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 1,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Events Kris Krüg | Generative AI Tools & Techniques",
+    "viewport": {
+      "height": 844,
+      "scrollHeight": 9935,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Events"
+      },
+      {
+        "alt": "",
+        "cls": "aurora-kicker",
+        "tag": "p",
+        "text": "EVENTS I BUILD, HOST & SPEAK AT"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "h1",
+        "text": "I don’t just attend the AI conversation — I host the room."
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "p",
+        "text": "From a monthly Vancouver meetup to film-club screenings, weekly office hours, and keynote stages from São Paulo to Whistler — these are the rooms where BC’s AI "
+      },
+      {
+        "alt": "",
+        "cls": "aurora-button aurora-button-primary aurora-ripple-container",
+        "tag": "a",
+        "text": "Follow on Luma (opens in new tab)"
+      }
+    ]
+  },
+  {
+    "key": "contact",
+    "requestedUrl": "https://kriskrug.co/contact/",
+    "viewportName": "mobile",
+    "durationMs": 733,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Contact": true
+    },
+    "finalUrl": "https://kriskrug.co/contact/",
+    "h1s": [
+      "Contact Kris Krüg"
+    ],
+    "h2s": [
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results",
+      "No results found",
+      "Filter options"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 1,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Contact Kris Krüg Kris Krüg | Generative AI Tools & Techniques",
+    "viewport": {
+      "height": 844,
+      "scrollHeight": 3339,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Contact Kris Krüg"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "p",
+        "text": "Pls fill out the form below or contact by email or phone. Thank you!"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": "email"
+      },
+      {
+        "alt": "",
+        "cls": "",
+        "tag": "a",
+        "text": "phone"
+      }
+    ]
+  },
+  {
+    "key": "work-alias",
+    "requestedUrl": "https://kriskrug.co/work/",
+    "viewportName": "mobile",
+    "durationMs": 812,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "A portfolio of AI culture": true
+    },
+    "finalUrl": "https://kriskrug.co/recent-projects-include/",
+    "h1s": [
+      "Work"
+    ],
+    "h2s": [
+      "A portfolio of AI culture, community infrastructure, keynote systems, and long-haul visual storytelling.",
+      "Featured work",
+      "Public artifacts",
+      "How the work shows up",
+      "Archive highlights",
+      "Need a speaker, strategist, trainer, or weirdly useful AI collaborator?",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 19,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Work | Kris Krüg",
+    "viewport": {
+      "height": 844,
+      "scrollHeight": 13201,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Work"
+      },
+      {
+        "alt": "",
+        "cls": "kk-kicker",
+        "tag": "p",
+        "text": "CURRENT WORK, LIVING SYSTEMS, AND USEFUL EXPERIMENTS"
+      },
+      {
+        "alt": "",
+        "cls": "kk-display",
+        "tag": "h2",
+        "text": "A portfolio of AI culture, community infrastructure, keynote systems, and long-haul visual storytelling."
+      },
+      {
+        "alt": "",
+        "cls": "kk-lead",
+        "tag": "p",
+        "text": "I build things that help people meet the future without losing the plot: public AI communities, practical training, talks that become reusable portals, and stor"
+      },
+      {
+        "alt": "",
+        "cls": "kk-button",
+        "tag": "a",
+        "text": "Book a keynote"
+      },
+      {
+        "alt": "",
+        "cls": "kk-button secondary",
+        "tag": "a",
+        "text": "Work with me"
+      }
+    ]
+  },
+  {
+    "key": "services-alias",
+    "requestedUrl": "https://kriskrug.co/services/",
+    "viewportName": "mobile",
+    "durationMs": 734,
+    "logs": [],
+    "badText": [],
+    "brokenImages": [],
+    "expected": {
+      "Build AI capacity that serves people": true
+    },
+    "finalUrl": "https://kriskrug.co/generative-ai-services/",
+    "h1s": [
+      "Generative AI Creative Services & Strategy"
+    ],
+    "h2s": [
+      "Build AI capacity that serves people, communities, and culture.",
+      "How I Can Help",
+      "Engagement Models",
+      "Proof and Source Trails",
+      "Where Photography Fits Now",
+      "Authored judgment, human agency, and the camera-trained habit of paying attention.",
+      "Search results",
+      "No results found"
+    ],
+    "hasHorizontalOverflow": false,
+    "imageCount": 7,
+    "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+    "missingAltVisible": [],
+    "overflowElements": [],
+    "title": "Generative AI Creative Services & Strategy Kris Krüg | Generative AI Tools & Techniques",
+    "viewport": {
+      "height": 844,
+      "scrollHeight": 11100,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "visibleTop": [
+      {
+        "alt": "",
+        "cls": "aurora-page-title wp-block-post-title",
+        "tag": "h1",
+        "text": "Generative AI Creative Services & Strategy"
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-kicker",
+        "tag": "p",
+        "text": "AI STRATEGY, TRAINING, COMMUNITY, AND KEYNOTE WORK"
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-display",
+        "tag": "h2",
+        "text": "Build AI capacity that serves people, communities, and culture."
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-lead",
+        "tag": "p",
+        "text": "I help organizations move from AI pressure to practical fluency: responsible strategy, community systems, custom training, Indigenous-tech advisory, and talks t"
+      },
+      {
+        "alt": "",
+        "cls": "kk-services-lead",
+        "tag": "p",
+        "text": "This is not generic AI consulting. It is field-building work shaped by BC+AI, the Responsible AI Professional program, The Upgrade AI, and two decades of creati"
+      }
+    ]
+  }
+]
