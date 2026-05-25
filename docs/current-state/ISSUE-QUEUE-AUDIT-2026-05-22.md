@@ -2,18 +2,18 @@
 
 **Purpose:** route the current GitHub issue backlog into actionable lanes after the backup-gate retirement, StoryHive draft reset, WordPress 7 readiness work, and the first queue-hygiene pass.
 **Track:** queue control for Track A on `main`; Track B/Aurora stays separate.
-**Snapshot:** 2026-05-22 18:55 PDT.
+**Snapshot:** 2026-05-22 18:55 PDT; queue counts normalized on 2026-05-25 02:19 UTC via `gh pr list` / `gh issue list`.
 
 ## Queue Truth
 
 - Open PRs: `0`.
-- Open issues: `61`.
-- Open issues with historical `auto-implement`: `45`.
+- Open issues: `66`.
+- Open issues with historical `auto-implement`: `44`.
 - Open `track-b` + `aurora-v2`: `13`.
 - Open `needs-human-review`: `3`.
 - Open `swarm-ready`: `13`.
 - Open `swarm-parked`: `11`.
-- Open `priority:high`: `26`.
+- Open `priority:high`: `25`.
 - `auto-implement` is historical only. It no longer starts the parked Agent PR Generator.
 - Do not close issues from title memory. Close only after target checks and a short evidence comment.
 - First hygiene pass closed `#16` and `#17`; re-scoped `#3`, `#12`, `#68`, and `#95` with evidence comments.
@@ -24,7 +24,7 @@ These are the queue-fog reducers. They should be checked before starting new fea
 
 | Issue | Current read | Next action |
 |---|---|---|
-| `#3` Projects page 404 | Public `/projects/` still returns `404`; `/work/` exists. | Re-scoped to redirect `/projects/` to the canonical Work page. Keep open. |
+| `#3` Projects page redirect | Public `/projects/` now returns `301` to `/recent-projects-include/` (verified 2026-05-25 02:19 UTC with `curl -sI`). | Keep open only if final canonical Work URL/metadata acceptance still needs issue evidence. |
 | `#12` Homepage polymath hero | Homepage has an empty H1 plus `Kris Krüg, Generative AI for Creative Professionals`; BC+AI was not visible in fetched homepage text. | Re-scoped to homepage H1 and role-proof hero polish. Keep open. |
 | `#16` About polymath journey | Live About page now has the current role spine: BC+AI, Indigenomics, The Upgrade AI, Work/Projects, and Kris Krug. | Closed as completed on 2026-05-22. |
 | `#17` Work/Projects architecture | Work page exists and carries project proof content; remaining gap belongs to `#68`. | Closed as superseded by `#68` on 2026-05-22. |
@@ -63,7 +63,7 @@ LOCAL_ONLY=1 make draft-queue-audit
 
 Current draft shape:
 
-- WordPress has `42` draft posts, `5` draft pages, and no scheduled queue.
+- WordPress has `71` draft posts, `5` draft pages, and no scheduled queue.
 - StoryHive drafts `11876`, `11877`, and `11878` are reviewable, not schedule-ready.
 - Keynote/media drafts `11879`-`11885` are thin and need expansion/media/block-native rebuild before scheduling.
 - Older admin drafts are rescue candidates, not release calendar items.
@@ -108,7 +108,7 @@ Recommended handling:
 
 ## Recommended Next Issue Actions
 
-1. Implement `#3` and `#68` together as a small Work routing/metadata polish packet: `/projects/` redirect, `/work/` canonical decision, OG URL, and rollback note.
+1. Verify `#3`, `#68`, and `#126` together as a small Work routing/metadata polish packet: `/projects/` redirect, `/work/` canonical decision, OG URL, and rollback note.
 2. Implement `#12` as homepage H1 plus role-proof hero polish.
 3. Run one StoryHive proof post through review, preview QA, and schedule decision before adding more drafts.
 4. Batch `#8`, `#9`, `#10`, `#36`, `#43`, and `#48` only after target checks identify exact current-theme surfaces.

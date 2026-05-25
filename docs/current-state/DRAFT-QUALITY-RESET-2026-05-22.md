@@ -6,11 +6,11 @@
 
 ## Live WordPress Queue Truth
 
-Authenticated REST check on 2026-05-22:
+Authenticated REST check normalized on 2026-05-25:
 
 | Surface | Future | Draft | Pending | Private |
 |---|---:|---:|---:|---:|
-| Posts | 0 | 42 | 0 | 0 |
+| Posts | 0 | 71 | 0 | 0 |
 | Pages | 0 | 5 | 0 | 0 |
 
 There is no scheduled release queue in WordPress right now. The site has a draft pile.
@@ -18,7 +18,7 @@ There is no scheduled release queue in WordPress right now. The site has a draft
 Current meaning of the WP drafts:
 
 - 10 draft posts and 2 draft pages were created during the May 21-22 create-only draft pass.
-- The older 32 draft posts and 3 draft pages remain an admin rescue/backlog pile, not a release calendar.
+- The larger draft pile now totals 71 draft posts and 5 draft pages; older admin drafts remain rescue/backlog material, not a release calendar.
 - No draft should be scheduled until it passes the quality gate below.
 
 ## What Failed

@@ -1,6 +1,6 @@
 # Roadmap — Next 3 Months
 
-> STATUS: Longer-range reference from 2026-05-15. Use [WORK-PLAN-2026-05-23.md](WORK-PLAN-2026-05-23.md) as the current execution roadmap. The strict backup/restore blocker language below was superseded on 2026-05-22 by dry-runs, exact slug/ID/status checks, rollback notes, and KK approval for risky live changes.
+> STATUS: Longer-range reference from 2026-05-15. Use the 2026-05-24 handoff set (`HANDOFF`, `AURORA-V3-QA-ROADMAP`, `TRACK-A-MORNING-TRUTH`, and latest `reports/morning-truth-*.md`) for current execution truth. The strict backup/restore blocker language below was superseded on 2026-05-22 by dry-runs, exact slug/ID/status checks, rollback notes, and KK approval for risky live changes.
 
 **As of:** 2026-05-15
 **Reads from:** [`FIX_QUEUE.md`](FIX_QUEUE.md), [`SEO_AUDIT.md`](SEO_AUDIT.md), [`CONTENT_AUDIT.md`](CONTENT_AUDIT.md), [`INCIDENT-2026-05-15-overwritten-post.md`](INCIDENT-2026-05-15-overwritten-post.md)

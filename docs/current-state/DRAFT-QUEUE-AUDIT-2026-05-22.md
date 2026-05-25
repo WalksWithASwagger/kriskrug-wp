@@ -3,17 +3,17 @@
 **Purpose:** durable inventory for the kriskrug.co draft queue after the StoryHive/keynote draft quality reset.
 **Track:** Track A content + SEO.
 **Status:** active publishing triage artifact.
-**2026-05-23 addendum:** `sovereign-ai-for-whom` now exists as WordPress draft `11905` with featured media `11899`. Current live queue count is 43 draft posts and 5 draft pages.
+**2026-05-25 addendum:** `sovereign-ai-for-whom` exists as WordPress draft `11905` with featured media `11899`. `make draft-queue-audit` now reports 0 future posts, 71 draft posts, and 5 draft pages.
 
 ## Verdict
 
 There is no scheduled release queue in WordPress right now. There is a draft pile.
 
-Authenticated read-only WordPress REST checks show:
+Authenticated read-only WordPress REST checks normalized on 2026-05-25 show:
 
 | Surface | Future | Draft | Pending | Private |
 |---|---:|---:|---:|---:|
-| Posts | 0 | 43 | 0 | 0 |
+| Posts | 0 | 71 | 0 | 0 |
 | Pages | 0 | 5 | 0 | 0 |
 
 The strongest near-term publishing path is:

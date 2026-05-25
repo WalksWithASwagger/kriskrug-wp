@@ -5,7 +5,7 @@
 
 ## Current live checks
 
-Checked with public `curl` fetches on 2026-05-20:
+Checked with public `curl` fetches on 2026-05-20 and normalized for Work metadata on 2026-05-25:
 
 - Homepage, About, Work, and Speaking return `200`.
 - `/work/` redirects/resolves to `/recent-projects-include/`.
@@ -13,7 +13,7 @@ Checked with public `curl` fetches on 2026-05-20:
 - `/robots.txt` returns `200` and references the sitemap, but does not yet carry the explicit AI-crawler stance from `fixes/robots-txt-update.txt`.
 - Homepage still has two `<h1>` elements.
 - Homepage, About, Work, and Speaking still contain empty image alts.
-- Work still emits `https://s0.wp.com/i/blank.jpg` as `og:image`.
+- Work now emits a non-blank `og:image` on cache-busted readback: `https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&#038;ssl=1`.
 - Homepage, About, Work, and Speaking each include JSON-LD scripts, so schema appears live via the deployed Code Snippets path.
 
 ## File-by-file disposition
@@ -31,7 +31,7 @@ Checked with public `curl` fetches on 2026-05-20:
 | `fixes/issue-67-services-page-expanded.md` | Needs review. | Compare against the merged services role-positioning work before publishing. |
 | `fixes/issue-68-work-page-complete.md` | Needs review. | Compare against live Work page and the Work OG/slug issue before publishing. |
 | `fixes/owned-sites-network-rollout.md` | Applied. | Keep as rollback/audit record. |
-| `fixes/issue-36-meta-descriptions.md` | Needs review. | Reconcile with Jetpack/OG behavior and Work blank OG before introducing another SEO source. |
+| `fixes/issue-36-meta-descriptions.md` | Needs review. | Reconcile with Jetpack/OG behavior and current non-blank Work OG before introducing another SEO source. |
 | `fixes/issue-43-twitter-cards.php` | Needs review. | Do not deploy alongside Jetpack/Rank Math without duplicate meta checks. |
 | `fixes/issue-37-xml-sitemap-setup.md` | Mostly historical. | Sitemaps already exist; revisit only if sitemap coverage breaks. |
 | `fixes/issue-5-color-contrast.css` | Needs current visual audit. | Re-test against live theme and Aurora separately. |
@@ -47,6 +47,6 @@ The smallest safe live batch is:
 2. Robots AI-crawler stance.
 3. Homepage H1 correction.
 4. Highest-visibility image alt fixes.
-5. Work OG/canonical/slug cleanup.
+5. Work canonical/slug/title cleanup, with OG re-verification before edits.
 
 Schema should not be part of that first batch unless wp-admin verification shows the deployed Code Snippet is missing or stale.

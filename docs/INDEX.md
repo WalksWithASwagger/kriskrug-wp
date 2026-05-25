@@ -8,7 +8,7 @@ Navigation for everything in this repo. Entries are grouped by what they're for,
 
 ## 🟢 Current State And Dated Evidence
 
-The canonical baseline snapshot and current handoffs live in [`docs/current-state/`](current-state/). The May 14 files are frozen evidence; the latest dated work plan is the active front door.
+The canonical baseline snapshot and current handoffs live in [`docs/current-state/`](current-state/). The May 14 files are frozen evidence; use the 2026-05-24 handoff set plus the 2026-05-25 truth report as the startup front door.
 
 | File | What it covers |
 |---|---|
@@ -24,7 +24,11 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`current-state/FIX_QUEUE.md`](current-state/FIX_QUEUE.md) | P0 → P3 backlog |
 | [`current-state/ROADMAP.md`](current-state/ROADMAP.md) | Six-phase, 3-month plan; use as longer-range reference after the latest work plan |
 | [`current-state/FULL-AUDIT-ROADMAP-2026-05-18.md`](current-state/FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit, roadmap, and human decision list |
-| [`current-state/WORK-PLAN-2026-05-21.md`](current-state/WORK-PLAN-2026-05-21.md) | Current next-session front door after diagnostic/polish closeout and docs tidy pass |
+| [`current-state/HANDOFF-2026-05-24.md`](current-state/HANDOFF-2026-05-24.md) | Current cross-track state (Aurora/theme/content truth, deployment mechanics, open work) |
+| [`current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md`](current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md) | Current Aurora v1.3.0 QA and rollout truth for Track B |
+| [`current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md`](current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md) | Current Track A startup truth and verification command surface, last normalized against `reports/morning-truth-20260525-021945Z.md` |
+| [`current-state/reports/`](current-state/reports/) | Timestamped `make morning-truth` outputs; newest committed file is the most recent immutable truth artifact |
+| [`current-state/WORK-PLAN-2026-05-23.md`](current-state/WORK-PLAN-2026-05-23.md) | Historical baseline plan; keep for context only |
 | [`current-state/DIAGNOSTIC-POLISH-2026-05-20.md`](current-state/DIAGNOSTIC-POLISH-2026-05-20.md) | Repo-truth, technical-debt, SOTA, live-fix, and workflow diagnostic |
 | [`current-state/FIXES-LIVE-RECONCILIATION-2026-05-20.md`](current-state/FIXES-LIVE-RECONCILIATION-2026-05-20.md) | Current disposition of `fixes/` artifacts against live evidence |
 | [`current-state/AURORA-MOTION-GOVERNANCE-2026-05-20.md`](current-state/AURORA-MOTION-GOVERNANCE-2026-05-20.md) | Motion budget and QA rules for Aurora |
@@ -107,4 +111,4 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 
 ---
 
-**Last updated:** 2026-05-21. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.
+**Last updated:** 2026-05-25 02:19 UTC. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.

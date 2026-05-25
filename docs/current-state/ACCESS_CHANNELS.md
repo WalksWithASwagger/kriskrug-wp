@@ -16,7 +16,7 @@ Every way Claude / this repo can currently observe or modify the live site, and 
 - **Auth:** WordPress application password loaded from the gitignored local `.env`; never paste or commit it.
 - **Capability:** Read private draft status, authenticated `status=any` post/page lookups, categories, revisions, and other endpoints supported by the current app-password user.
 - **Write capability:** Technically possible through the connector. Live writes are no longer blocked by strict backup/restore proof. Use dry-run review, slug/ID/status verification, category checks, rollback notes, and explicit KK approval for risky publish/update work.
-- **Used for:** Confirming 944 published posts, 32 draft posts, 34 published pages, 3 draft pages, exact-slug status, and recent-post revision availability.
+- **Used for:** Confirming content counts (latest queue normalization: 71 draft posts, 5 draft pages), exact-slug status, and recent-post revision availability.
 
 ### 3. WordPress.com MCP — `claude.ai WordPress.com` connector
 - **Status:** Authenticated as Kris on 2026-05-14.

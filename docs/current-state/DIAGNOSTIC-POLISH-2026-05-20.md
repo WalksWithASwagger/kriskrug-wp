@@ -8,14 +8,14 @@
 
 - `main` is synced with `origin/main` (`0 0` divergence).
 - Open PRs: `0`.
-- Open issues: `63`.
+- Open issues: `66`.
 - Open `track-b` + `aurora-v2` issues: `13`, with `#86` still the final real-staging QA gate.
 - `origin/aurora/v2` is `18` ahead and `69` behind `origin/main`.
-- Live site is still Catch Responsive. Aurora remains isolated Track B work.
+- Live site now runs the Aurora `kk-aurora` theme; the older Catch Responsive note was superseded by the 2026-05-24 Aurora merge/cutover.
 - Live `/llms.txt` returns `404`.
 - Live `/robots.txt` returns `200`, but still uses the current default sitemap/admin rules rather than an explicit AI-crawler stance.
 - Live homepage still has two `<h1>` elements and multiple empty image alts.
-- Live `/work/` resolves to `/recent-projects-include/` and still emits a blank WordPress.com OG image.
+- Live `/work/` resolves to `/recent-projects-include/`; cache-busted 2026-05-25 readback reports a non-blank Work `og:image`.
 - Public HTML on homepage, About, Work, and Speaking includes JSON-LD scripts, so schema appears to be deployed via the Code Snippets path. Verify in wp-admin before editing or redeploying schema.
 
 ## State of affairs and trajectory
@@ -33,7 +33,7 @@ The risk is not lack of direction. The risk is operational drift:
 
 - Parked the placeholder Agent PR Generator so `auto-implement` labels no longer trigger misleading comments, state commits, pushes, or simulated automation.
 - Updated agent-facing docs to say the old swarm is historical, while PR validation remains active and the generator workflow is now a manual read-only diagnostic stub.
-- Reconciled live-state notes for schema, `/llms.txt`, robots, homepage H1/alt text, and Work OG/slug drift.
+- Reconciled live-state notes for schema, `/llms.txt`, robots, homepage H1/alt text, and Work slug/metadata drift.
 - Hardened `kk-sidebar-promos` rendering so featured images prefer the attachment alt text and fall back to decorative empty alt rather than repeating the visible promo title.
 - Added a local smoke test for `kk-sidebar-promos` covering empty render behavior, image alt behavior, featured-promo expiry behavior, and Luma iCal parsing.
 
@@ -54,7 +54,7 @@ Do these only after target checks, rollback notes, and explicit deploy intent ar
 - Replace hard-coded sidebar image blocks with `kk-sidebar-promos` after a plugin deploy check and rollback path.
 - Fix the homepage duplicate/empty H1 and the highest-visibility empty image alts.
 - Add `/llms.txt` and choose the robots AI-crawler stance.
-- Fix Work page public identity: slug/canonical/OG image should say "Work", not only `recent-projects-include`.
+- Fix Work page public identity: slug/canonical/title should say "Work", not only `recent-projects-include`; re-check the currently non-blank OG image before changing metadata.
 - Add event-card states: upcoming, recently passed, recording available, sold out when relevant.
 - Add a small "currently gathering next" or "in the field now" module that reflects Kris's live community-building work.
 - Add proof metadata to Work cards: year, role, community, artifact, outcome.

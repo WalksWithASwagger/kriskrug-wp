@@ -73,13 +73,13 @@ Authenticated WordPress draft inventory:
 
 | Surface | Count | Publishing implication |
 |---|---:|---|
-| Draft posts | 32 | Old admin draft queue; not automatically connected to the current Notion batch |
-| Draft pages | 3 | Old placeholders; not near-term publishing work |
-| Draft posts in `Misc` | 32 | Category handling must be fixed before any batch publishing |
-| Draft posts with empty slugs | 32 | Slug assignment must be deliberate during any rescue/publish pass |
-| Draft posts with no images | 26 | Most admin drafts still need media decisions |
+| Draft posts | 71 | Current draft pile; not automatically connected to the current Notion batch |
+| Draft pages | 5 | Placeholders/page projects; not near-term publishing work without review |
+| Draft posts in `Misc` | Unknown in the 2026-05-25 snapshot | Re-run a private admin inventory before batch publishing |
+| Draft posts with empty slugs | Unknown in the 2026-05-25 snapshot | Slug assignment must be deliberate during any rescue/publish pass |
+| Draft posts with no images | Unknown in the 2026-05-25 snapshot | Most admin drafts still need media decisions |
 | Metric-level candidate | 1 | Worth editorial review, but not automatically next |
-| Needs prep / hold | 31 | Requires editorial triage before any WordPress write |
+| Needs prep / hold | Unknown in the 2026-05-25 snapshot | Requires editorial triage before any WordPress write |
 
 The full authenticated draft-title inventory should stay out of this public repo. Use a private/local admin inventory when assigning draft-rescue workers.
 

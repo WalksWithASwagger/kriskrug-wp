@@ -87,7 +87,7 @@ Labels: bug, priority:high, mobile
 - **seo** - Search engine optimization
 - **content** - Content or UX improvements
 - **documentation** - Docs need updates
-- **auto-implement** - Ready for AI agent automation
+- **auto-implement** - Historical automation-intent label; does not trigger the parked `agent-pr-generator` workflow
 - **needs-human-review** - Requires human attention
 - **priority:high** - Urgent issue
 - **priority:medium** - Important but not urgent
@@ -119,7 +119,7 @@ Your PR should include:
 1. **Human maintainer** (KK) reviews and approves
 2. **Merge** once approved
 
-> The older GitHub Actions agent swarm (`.github/workflows/`) included automated PHPCS / test / reviewer steps. Those workflows are dormant in current sessions; PRs are reviewed manually.
+> The older GitHub Actions agent swarm is parked (`agent-pr-generator.yml` is read-only and no longer label-triggered). `test-pr.yml` still runs as active PR validation; maintainers still do human review/approval.
 
 ## Coding Standards
 

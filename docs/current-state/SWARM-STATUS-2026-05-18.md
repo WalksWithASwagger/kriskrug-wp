@@ -12,7 +12,7 @@ The backlog is now less foggy:
 
 - GitHub issue hygiene started: completed/duplicate/dormant issues were closed or relabeled.
 - Follow-up queue sweep merged PR `#78` to correct the accidental static-preview merge into `main`, then merged PR `#79` with repo-local prep artifacts for issues `#36`, `#38`, `#43`, `#44`, and `#48`.
-- The next publishing batch exists locally as three dry-run packs, and authenticated WordPress now shows 32 older admin draft posts plus 3 draft pages.
+- The next publishing batch exists locally as three dry-run packs, and authenticated WordPress now shows 71 draft posts plus 5 draft pages.
 - The connector has focused post-incident tests and a small readback verification step.
 - Track A quick fixes are packaged with snippets, dry-run commands, verification, and rollback.
 - The keynote authority-page source pack now includes the Horizons produced-interview proof and IA-polish continuation verification.
@@ -33,7 +33,7 @@ The backlog is now less foggy:
 
 ## Next Batch Of Posts
 
-Authenticated WordPress currently has 32 draft posts and 3 draft pages. That admin draft queue is old, all-Misc, empty-slug, and mostly not ready. The full title inventory is intentionally local-only because this repo is public.
+Authenticated WordPress currently has 71 draft posts and 5 draft pages. Treat that admin draft queue as mostly not ready until a private inventory proves otherwise. The full title inventory is intentionally local-only because this repo is public.
 
 These Notion/local packs are ready as local review packs, not ready for one-click publish yet:
 

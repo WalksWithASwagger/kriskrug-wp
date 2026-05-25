@@ -9,9 +9,9 @@ Mode: read-first queue sweep with bounded subagent review
 - `main` is the Track A branch for content, SEO, media, taxonomies, snippets, schema, redirects, and connector work.
 - `aurora/v2` is the Track B branch for Aurora theme work.
 - The shared `main` checkout had unrelated dirty content-source and backup files during this sweep. They were not edited or reverted.
-- Open PRs at sweep time: `#77`, `#73`, and the now-merged `#74`.
-- Open issues: 64.
-- `auto-implement` issues: 62.
+- Open PRs normalized on 2026-05-25: `0` (the earlier `#77`, `#73`, and `#74` sweep items are no longer open).
+- Open issues: 66.
+- `auto-implement` issues: 44.
 - `needs-human-review` issues: `#75`, `#23`.
 
 ## PR Classification
