@@ -27,10 +27,10 @@ Verified on 2026-05-18:
 | Remote sync | `main...origin/main` is `0 0` after fetch |
 | `main` head at audit start | `6b2e036 docs: audit aurora redesign roadmap` |
 | Working tree before this doc | Clean |
-| Open PRs | 2 |
-| Open issues | 64 |
-| Open issues with `auto-implement` | 62 |
-| Open issues with `needs-human-review` | 2 |
+| Open PRs | 0 |
+| Open issues | 66 |
+| Open issues with `auto-implement` | 44 |
+| Open issues with `needs-human-review` | 3 |
 | Local/remote Aurora branch | `aurora/v2` at `159ac2a docs: aurora v2 next-session playbook` |
 
 Existing local worktrees:
@@ -111,16 +111,16 @@ Blocked:
 
 ### Issues
 
-Current open issue count: 64.
+Current open issue count: 66.
 
 The core queue problem is label drift:
 
 | Label | Open count | Audit read |
 |---|---:|---|
-| `auto-implement` | 62 | Unsafe as-is; many issues touch live WordPress, strategic choices, or stale January assumptions |
+| `auto-implement` | 44 | Unsafe as-is; many issues touch live WordPress, strategic choices, or stale January assumptions |
 | `enhancement` | 60 | Too broad to prioritize |
-| `priority:high` | 29 | Inflated by old issue batches |
-| `needs-human-review` | 2 | Underused; many issues should require human review before agents run |
+| `priority:high` | 25 | Still high enough to require issue hygiene before broad swarms |
+| `needs-human-review` | 3 | Underused; many issues should require human review before agents run |
 
 Important issue states:
 

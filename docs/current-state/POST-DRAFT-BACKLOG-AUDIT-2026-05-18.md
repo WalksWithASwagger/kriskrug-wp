@@ -135,10 +135,10 @@ Read-only draft triage found:
 
 | Signal | Count |
 |---|---:|
-| Draft posts | 32 |
-| Draft posts in `Misc` | 32 |
-| Draft posts with empty slugs | 32 |
-| Draft posts with no images | 26 |
+| Draft posts | 71 |
+| Draft posts in `Misc` | Unknown in the 2026-05-25 snapshot |
+| Draft posts with empty slugs | Unknown in the 2026-05-25 snapshot |
+| Draft posts with no images | Unknown in the 2026-05-25 snapshot |
 | Draft posts under 250 words | 8 |
 | Draft posts with explicit TODO/draft language | 4 |
 | Empty-title draft posts | 1 |
@@ -161,14 +161,14 @@ Recommended publishing order after gates:
 
 ## GitHub Backlog State
 
-Open issues after first hygiene pass and creation of #75: 64.
+Open issues after 2026-05-25 normalization: 66.
 
 Label drift:
 
 | Label | Open issue count | Note |
 |---|---:|---|
-| `auto-implement` | 62 | Overbroad; many of these touch live WordPress, product decisions, or Track B theme work. |
-| `needs-human-review` | 2 | Currently #23 and #75; more issues probably need this label before agents run. |
+| `auto-implement` | 44 | Overbroad; many of these touch live WordPress, product decisions, or Track B theme work. |
+| `needs-human-review` | 3 | Human-gated issues remain blocked unless explicitly unblocked. |
 
 PRs:
 

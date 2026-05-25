@@ -100,7 +100,7 @@ P0/P1/actionable-P2 findings are tracked as issues **#116–#127** (label `auror
 - **P2.4 — Regenerate Jetpack Boost Critical CSS** (was cleared by the theme change).
 - **P2.5 — Homepage perf**: cold load ~4.3s; heavy JS + GSAP CDN. Run Lighthouse, measure
   LCP/INP/CLS, consider self-hosting GSAP and trimming.
-- **P2.6 — Work page OG image blank** (`s0.wp.com/i/blank.jpg`) — set a real `og:image`.
+- **P2.6 — Work page OG image** — 2026-05-25 cache-busted readback now shows a non-blank BC+AI ecosystem `og:image`; keep this lane only for final canonical/metadata verification.
 - **P2.7 — Mobile/responsive QA not yet done** — couldn't reliably capture mobile in this
   pass; needs a dedicated device/breakpoint review (nav → hamburger, hero crop, grids).
 

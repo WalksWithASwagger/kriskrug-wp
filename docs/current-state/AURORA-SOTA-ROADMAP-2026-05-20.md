@@ -8,7 +8,7 @@
 ## Current Truth (before new implementation)
 
 - Open PRs: `0`
-- Open issues: `63`
+- Open issues: `66`
 - Open `track-b` + `aurora-v2` issues: `13` (`#24-#35`, `#86`)
 - Active Aurora hard gate: `#86` (staging performance/accessibility QA)
 - Working rule remains: no Track A content writes mixed into Track B theme lanes.

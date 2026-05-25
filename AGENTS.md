@@ -15,7 +15,7 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 5. [`docs/current-state/HANDOFF-2026-05-24.md`](docs/current-state/HANDOFF-2026-05-24.md) — 2026-05-24 Aurora/theme/content handoff
 6. [`docs/current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md`](docs/current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md) — reconciled Aurora v1.3.0 QA + rollout status
 7. [`docs/current-state/SESSION-HANDOFF-2026-05-24.md`](docs/current-state/SESSION-HANDOFF-2026-05-24.md) — Track A/Track B ownership and latest lane handoff
-8. [`docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md`](docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md) — latest startup truth snapshot
+8. [`docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md`](docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md) — latest normalized startup truth memo; verify against the newest committed `docs/current-state/reports/morning-truth-*.md`
 9. [`docs/current-state/WORK-PLAN-2026-05-23.md`](docs/current-state/WORK-PLAN-2026-05-23.md) — historical roadmap context (stale counts/branch assumptions)
 
 For the detailed diagnostic behind that plan, read [`docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`](docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md).
@@ -49,7 +49,7 @@ Legacy branch split context is in [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-
 - **`.github/workflows/test-pr.yml`** — still active PR validation. Do not describe all workflows as dormant.
 - **`docs/architecture.md`, `docs/automation-guide.md`** — reference docs for the dormant swarm.
 - **`docs/cloudways-setup.md`, `docs/local-development-setup.md`, `.claude/context/wordpress-setup.md`** — Cloudways dev-server setup that was never used as planned. Relevant if/when Track B needs staging, otherwise ignore.
-- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use the 2026-05-24 handoff set first (`HANDOFF`, `AURORA-V3-QA-ROADMAP`, `TRACK-A-MORNING-TRUTH`) and keep `WORK-PLAN-2026-05-23.md` as historical context.
+- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use the 2026-05-24 handoff set first (`HANDOFF`, `AURORA-V3-QA-ROADMAP`, `TRACK-A-MORNING-TRUTH`) plus the newest committed morning-truth report, and keep `WORK-PLAN-2026-05-23.md` as historical context.
 
 Anything banner-tagged `STATUS: Historical` at the top is reference-only.
 
@@ -77,4 +77,4 @@ Run `make morning-truth` at session start (or before execution) to emit a timest
 
 ---
 
-**Last verified:** 2026-05-24. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` as the source of truth and flag the drift for a fresh audit.
+**Last verified:** 2026-05-25 02:19 UTC via `make morning-truth`. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` plus the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth and flag the drift for a fresh audit.

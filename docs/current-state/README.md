@@ -3,15 +3,15 @@
 **Snapshot date:** 2026-05-14
 **Purpose:** Document the live site, the repo, the access channels, and the rollback paths *before* we start making modifications. If we break something, this is what we return to.
 
-This folder is the source of truth for "what was true on May 14, 2026" and for dated working addenda that came out of the May 2026 recovery/redesign push. Treat the baseline files as historical snapshots and the latest dated handoff/truth docs as the current front door.
+This folder is the source of truth for "what was true on May 14, 2026" and for dated working addenda that came out of the May 2026 recovery/redesign push. Treat the baseline files as historical snapshots and the latest dated handoff/truth docs plus the newest committed `reports/morning-truth-*.md` artifact as the current front door.
 
-## Current Front Door (2026-05-24)
+## Current Front Door (verified 2026-05-25 02:19 UTC)
 
 Read these first for current execution context:
 
 1. [HANDOFF-2026-05-24.md](HANDOFF-2026-05-24.md)
 2. [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md)
-3. [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md)
+3. [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md) plus `reports/morning-truth-20260525-021945Z.md`
 4. [TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)
 5. [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)
 
@@ -39,14 +39,14 @@ Then use historical plans for context:
 | [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md) | Track A/Track B lane handoff with ownership boundaries and public-surface updates. |
 | [AURORA-V3-QA-ROADMAP-2026-05-24.md](AURORA-V3-QA-ROADMAP-2026-05-24.md) | Reconciled Aurora v1.3.0 line, local QA evidence, and post-merge rollout priorities. |
 | [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md) | Read-only truth memo with live evidence, drift flags, and verification matrix for safe next-session startup. |
-| `reports/` | Timestamped outputs from `make morning-truth` (read-only startup truth reports). |
-| [WORK-PLAN-2026-05-23.md](WORK-PLAN-2026-05-23.md) | Historical Track A baseline after the Sovereign AI draft pipeline closeout. Counts and queue state have drifted; verify live before acting. |
+| `reports/` | Timestamped outputs from `make morning-truth` (read-only startup truth reports). Newest committed artifact: `morning-truth-20260525-021945Z.md`. |
+| [WORK-PLAN-2026-05-23.md](WORK-PLAN-2026-05-23.md) | Historical Track A baseline after the Sovereign AI draft pipeline closeout. Queue counts are normalized to the 2026-05-25 truth pass; verify live before acting. |
 | [WORK-PLAN-2026-05-21.md](WORK-PLAN-2026-05-21.md) | Historical next-session front door after the diagnostic/polish branch, docs tidy pass, and sidebar promo hardening. Superseded by `WORK-PLAN-2026-05-23.md`. |
 | [DRAFT-QUALITY-RESET-2026-05-22.md](DRAFT-QUALITY-RESET-2026-05-22.md) | Active Track A publishing correction: live draft counts, why the May 21-22 drafts are not schedule-ready, and the required editorial/link/image/block QA gate. |
-| [DRAFT-QUEUE-AUDIT-2026-05-22.md](DRAFT-QUEUE-AUDIT-2026-05-22.md) | Active draft queue routing with the 2026-05-23 Sovereign AI addendum: WP draft `11905`, 43 draft posts, and no duplicate-create rule. |
+| [DRAFT-QUEUE-AUDIT-2026-05-22.md](DRAFT-QUEUE-AUDIT-2026-05-22.md) | Historical draft queue routing snapshot plus the Sovereign AI addendum (`11905`); re-run `make draft-queue-audit` for live counts. |
 | [STORYHIVE-DRAFT-AUDIT-2026-05-22.md](STORYHIVE-DRAFT-AUDIT-2026-05-22.md) | Fine-toothed audit of the rebuilt StoryHive drafts, live WP readback, review-gate verification, and release roadmap. |
 | [WP-7-UPGRADE-2026-05-22.md](WP-7-UPGRADE-2026-05-22.md) | Track A WordPress 7.0 staging-first upgrade runbook, smoke command, Pagely gate, rollback plan, and "AI connectors stay empty" rule. |
-| [ISSUE-QUEUE-AUDIT-2026-05-22.md](ISSUE-QUEUE-AUDIT-2026-05-22.md) | Issue routing audit for the 63-issue queue before the hygiene pass; current open count is 61 after #16/#17 closeout. |
+| [ISSUE-QUEUE-AUDIT-2026-05-22.md](ISSUE-QUEUE-AUDIT-2026-05-22.md) | Historical issue-routing snapshot from the 63-issue queue hygiene pass; re-run `gh issue list` for live counts. |
 | [TOMORROW-ROADMAP-2026-05-20.md](TOMORROW-ROADMAP-2026-05-20.md) | Historical next-session roadmap after rewrite recovery, branch hygiene follow-through, and worktree reconciliation. Superseded by `WORK-PLAN-2026-05-21.md`. |
 | [WORK-PLAN-2026-05-20.md](WORK-PLAN-2026-05-20.md) | Historical execution plan after Wave 3 implementation completion and final Track B QA gate (`#86`). Superseded by `WORK-PLAN-2026-05-21.md`. |
 | [DIAGNOSTIC-POLISH-2026-05-20.md](DIAGNOSTIC-POLISH-2026-05-20.md) | Repository truth-refresh, technical-debt audit, SOTA direction, and polish/action checklist from the 2026-05-20 diagnostic pass. |
@@ -97,26 +97,26 @@ Then use historical plans for context:
 
 ## TL;DR
 
-- **Site is on Pagely** (managed WP host), publicly reporting **WordPress 6.9.4** with **`kk-aurora` active** as of 2026-05-24.
+- **Site is on Pagely** (managed WP host), publicly reporting **WordPress 6.9.4** with **`kk-aurora` active** as of 2026-05-25 02:19 UTC.
 - **Jetpack is on the Free plan**, which is why WordPress.com MCP write access is currently blocked.
 - **Baseline note:** the May 14 snapshot started before later page-level snapshots, source packs, and Aurora theme work were added. Read the dated addenda above for current operating state.
-- **Current addendum:** use the 2026-05-24 handoff set first ([`HANDOFF-2026-05-24.md`](HANDOFF-2026-05-24.md), [`AURORA-V3-QA-ROADMAP-2026-05-24.md`](AURORA-V3-QA-ROADMAP-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](TRACK-A-MORNING-TRUTH-2026-05-24.md)).
-- **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-05-22 19:46 PDT / 2026-05-23 02:46 UTC. Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
-- **Draft queue addendum:** use [`DRAFT-QUEUE-AUDIT-2026-05-22.md`](DRAFT-QUEUE-AUDIT-2026-05-22.md) before touching the publishing queue; `sovereign-ai-for-whom` is already WP draft `11905`.
-- **Issue queue addendum:** use [`ISSUE-QUEUE-AUDIT-2026-05-22.md`](ISSUE-QUEUE-AUDIT-2026-05-22.md) as context only; refresh live counts before action (`gh issue list --state open --limit 200`).
+- **Current addendum:** use the 2026-05-24 handoff set first ([`HANDOFF-2026-05-24.md`](HANDOFF-2026-05-24.md), [`AURORA-V3-QA-ROADMAP-2026-05-24.md`](AURORA-V3-QA-ROADMAP-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](TRACK-A-MORNING-TRUTH-2026-05-24.md)), then verify against `reports/morning-truth-20260525-021945Z.md` or a newer generated report.
+- **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-05-25 02:19 UTC (`make morning-truth` / `make wp7-smoke EXPECT_VERSION=6.9.4`). Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
+- **Draft queue addendum:** `make draft-queue-audit` reported `0` future posts, `71` draft posts, and `5` draft pages on 2026-05-25 02:19 UTC; `sovereign-ai-for-whom` is already WP draft `11905`.
+- **Issue queue addendum:** `gh pr list --state open --limit 100` returned `0` open PRs and `gh issue list --state open --limit 200` returned `66` open issues on 2026-05-25 02:19 UTC.
 - **Read-only fingerprinting works** through the public WP REST API; that's how this snapshot was built.
 - **Path to "safe to modify":** the strict backup/restore proof gate was retired on 2026-05-22. Use dry-runs, exact slug/ID/status checks, page/post snapshots or reversible diffs, and explicit rollback notes. Keep improving backup coverage as resilience, not as a blanket blocker.
 
-## Verification Matrix (2026-05-24)
+## Verification Matrix (2026-05-25 02:19 UTC)
 
 | Surface | Proof command / URL | Expected truth signal |
 |---|---|---|
 | Startup repo state | `make morning-truth` | Timestamped report under `docs/current-state/reports/` with git/issue/worktree snapshot. |
-| `/projects/` route health (`#3`) | `curl -sI https://kriskrug.co/projects/` | Status line currently shows `404` until redirect is fixed. |
-| Work OG image (`#68`, `#126`) | `curl -sL https://kriskrug.co/recent-projects-include/ \| rg -n "og:image"` | Current `og:image` resolves to `https://s0.wp.com/i/blank.jpg`. |
-| Homepage reveal resilience (`#116` follow-through) | `curl -sL https://kriskrug.co/ \| rg -n "Aurora reveal safety net|gsap.min.js|ScrollTrigger.min.js"` | Safety-net CSS marker present; GSAP/ScrollTrigger loaded from CDN. |
-| Queue truth | `gh pr list --state open --limit 50` and `gh issue list --state open --limit 200` | Live counts should be treated as canonical over historical docs. |
-| Draft queue truth | `make draft-queue-audit` | Current WP/local draft counts and quality states. |
+| `/projects/` route health (`#3`) | `curl -sI https://kriskrug.co/projects/` | Status line now returns `301` redirecting to the Work surface (`/recent-projects-include/`). |
+| Work OG image (`#68`, `#126`) | `curl -sL "https://kriskrug.co/recent-projects-include/?cachebust=<ts>" \| rg -n "og:image"` | Cache-busted readback shows a non-blank OG image (latest truth pass resolved to the BC+AI ecosystem image). |
+| Homepage reveal resilience (`#116` follow-through) | `curl -sL https://kriskrug.co/ \| rg -n "Aurora reveal safety net|gsap.min.js|ScrollTrigger.min.js"` | Safety-net marker is absent; GSAP/ScrollTrigger scripts are still CDN-loaded. |
+| Queue truth | `gh pr list --state open --limit 100` and `gh issue list --state open --limit 200` | Snapshot values: `0` open PRs, `66` open issues. |
+| Draft queue truth | `make draft-queue-audit` | Snapshot values: `0` future posts, `71` draft posts, `5` draft pages. |
 | WP version gate | `make wp7-smoke EXPECT_VERSION=6.9.4` | Public version check + key endpoint smoke pass. |
 | Declared-vs-live drift | `make current-state-drift-check` | Flags mismatches between `WORK-PLAN-2026-05-23.md` declarations and live counts/version. |
 | Aurora divergence risk (read-only) | `git rev-list --left-right --count origin/aurora/v2...origin/main` and `git -C <aurora-worktree> rev-list --left-right --count origin/aurora/v2...aurora/v2` | Confirms branch skew and reconciliation urgency before any theme push. |

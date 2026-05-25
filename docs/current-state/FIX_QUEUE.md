@@ -1,6 +1,6 @@
 # Fix Queue — Prioritized Backlog
 
-**As of:** 2026-05-14 baseline. Reconciled against live evidence on 2026-05-20 in [FIXES-LIVE-RECONCILIATION-2026-05-20.md](FIXES-LIVE-RECONCILIATION-2026-05-20.md).
+**As of:** 2026-05-14 baseline. Reconciled against live evidence on 2026-05-20 and Work metadata re-check on 2026-05-25 in [FIXES-LIVE-RECONCILIATION-2026-05-20.md](FIXES-LIVE-RECONCILIATION-2026-05-20.md).
 **Source:** [SEO_AUDIT.md](SEO_AUDIT.md) + [CONTENT_AUDIT.md](CONTENT_AUDIT.md).
 
 Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these first. Items list dependencies so we don't get tripped up.
@@ -15,7 +15,7 @@ Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these 
 - P0.3 has changed status: public HTML on homepage, About, Work, and Speaking now includes JSON-LD, so schema appears deployed through the Code Snippets path represented by `fixes/schema-snippets-deployed.php`. Verify in wp-admin before changing schema; do not blindly deploy `schema-snippets.php` over it.
 - P0.4 is still open: `/robots.txt` exists but does not yet include the explicit AI-crawler stance from `fixes/robots-txt-update.txt`.
 - P0.5/P0.6 are still open: homepage still has duplicate H1 behavior and the most visible pages still contain empty image alts.
-- Work page social metadata is now an explicit P0/P1 cleanup candidate: `/work/` resolves to `/recent-projects-include/` and the page still emits a blank WordPress.com OG image.
+- Work page social metadata remains a P0/P1 verification candidate: `/work/` resolves to `/recent-projects-include/`, and the page now emits a non-blank BC+AI ecosystem `og:image` on cache-busted readback.
 - Use [FIXES-LIVE-RECONCILIATION-2026-05-20.md](FIXES-LIVE-RECONCILIATION-2026-05-20.md) before deploying any January-era `fixes/` file.
 
 ---

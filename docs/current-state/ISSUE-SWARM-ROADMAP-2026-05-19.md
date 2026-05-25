@@ -1,8 +1,8 @@
 # Issue Swarm Roadmap - 2026-05-19
 
 **Prepared:** 2026-05-19
-**Last refreshed:** 2026-05-21 (post-PR `#113` and branch cleanup)
-**Queue snapshot (as of 2026-05-21):** 63 open issues, 0 open PRs
+**Last refreshed:** 2026-05-25 02:19 UTC (normalized against `gh issue list` / `gh pr list`)
+**Queue snapshot (as of 2026-05-25):** 66 open issues, 0 open PRs
 **Scope:** Convert the current backlog into bounded parallel lanes with clear stop rules.
 
 ## Assumptions
@@ -13,10 +13,10 @@
 
 ## Queue Baseline
 
-- Open issues: `63`
-- `auto-implement`: `47` (historical readiness label; does not start the parked Agent PR Generator)
+- Open issues: `66`
+- `auto-implement`: `44` (historical readiness label; does not start the parked Agent PR Generator)
 - `track-b` + `aurora-v2`: `13`
-- `priority:high`: `28`
+- `priority:high`: `25`
 - `needs-human-review`: `3` (`#23`, `#75`, `#95`)
 - `swarm-ready`: `13`
 - `swarm-parked`: `11`

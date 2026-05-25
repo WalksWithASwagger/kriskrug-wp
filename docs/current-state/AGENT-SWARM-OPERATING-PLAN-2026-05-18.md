@@ -2,7 +2,7 @@
 
 **Purpose:** Turn the current issue backlog, draft-post pipeline, Aurora redesign, and content/nav audits into work lanes that agents can safely execute in parallel.
 
-**Current repo baseline at planning time:** `main` was synced to `origin/main`; Track A lives on `main`; Track B lives on `aurora/v2`. After the first hygiene pass, GitHub shows 64 open issues, 62 of which still carry the overbroad `auto-implement` label.
+**Current repo baseline at planning time:** `main` was synced to `origin/main`; Track A lives on `main`; Track B lives on `aurora/v2`. Normalized on 2026-05-25, GitHub shows 66 open issues, 44 of which still carry the historical `auto-implement` label.
 
 ---
 
@@ -56,14 +56,14 @@ Four recent posts from the previous publishing push are already live:
 | `Your Taste Is Your Moat` | 11178 | live, enriched | `content/drafts/wp-draft-11178-post-11178/` |
 | `Make Culture, Not Content` | 10594 | live, enriched | `content/drafts/wp-draft-10594-post-10594/` |
 
-Authenticated WordPress REST, run read-only on 2026-05-18, now shows:
+Authenticated WordPress REST counts normalized on 2026-05-25 show:
 
 | Surface | Count | Notes |
 |---|---:|---|
 | Published posts | 944 | Public corpus |
-| Draft posts | 32 | Older admin draft queue; all empty-slug and `Misc` |
+| Draft posts | 71 | Current draft pile; requires private editorial triage before rescue |
 | Published pages | 34 | Public pages |
-| Draft pages | 3 | Old placeholders |
+| Draft pages | 5 | Old placeholders/page projects |
 
 The next local/Notion candidates are not already present in WordPress by exact slug:
 
