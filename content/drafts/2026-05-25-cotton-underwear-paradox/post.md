@@ -29,28 +29,25 @@ related_links:
   - https://www2.gov.bc.ca/gov/content/industry/electricity-alternative-energy/electricity/industrial-electricity-allocation-framework
   - https://www.canada.ca/en/innovation-science-economic-development/news/2026/05/government-of-canada-and-telus-advance-work-to-build-sovereign-ai-infrastructure.html
 featured: true
-featured_media_id: 12078
+featured_media_id: 11941
 excerpt: You can use the thing and still fight for better conditions around the thing. The cotton underwear problem is not hypocrisy. It is the work.
 seo:
   meta_title: The Cotton Underwear Problem | Kris Krüg
   meta_description: Kris Krüg on AI data centres, infrastructure, power, governance, and why using a system does not disqualify you from fighting to make it better.
 images:
-  - file: images/01-cotton-underwear-hero-protest.png
-    alt: A lone figure in a denim jacket holds a hand-painted sign at a street protest, facing a glowing AI data centre venting steam at dusk.
-    wp_media_id: 12078
-  - file: images/04-water-the-servers-last.png
-    alt: WATER THE SERVERS LAST, block-stack type with a watering can over a server rack.
-    wp_media_id: 11918
-  - file: images/02-loom-paradox.png
-    alt: A loom weaving raw cotton on one side into glowing fibre-optic cable on the other.
-    wp_media_id: 12079
-  - file: images/03-tinsmith-shadow.png
-    alt: An 1800s tinsmith's candlelit workbench; a tool casts a shadow shaped like a modern server rack.
-    wp_media_id: 12080
-image_source: Generated with Rafiki (kk style) and existing kriskrug.co media. Uploaded to WordPress media for draft review.
+  - file: images/01-no-ai-data-centres-vancouver.jpg
+    alt: A hand-lettered protest sign reading NO A.I. DATA CENTRES IN VANCOUVER held above a Vancouver crowd.
+    wp_media_id: 11941
+  - file: images/02-water-not-slop-ubi-not-ai.jpg
+    alt: A Vancouver AI data centre protest crowd with signs reading WATER, NOT SLOP and UBI BEFORE AI.
+    wp_media_id: 11959
+  - file: images/03-engineers-against-data-centres.jpg
+    alt: A protest sign reading Software Engineers and SREs Against AI Data Centres in the City.
+    wp_media_id: 11980
+image_source: Existing kriskrug.co WordPress media from the Vancouver AI data centre protest; local copies included for draft traceability. No generated images used.
 ---
 
-![A lone figure in a denim jacket holds a hand-painted sign at a street protest, facing a glowing AI data centre venting steam at dusk.](images/01-cotton-underwear-hero-protest.png)
+![A hand-lettered protest sign reading NO A.I. DATA CENTRES IN VANCOUVER held above a Vancouver crowd.](images/01-no-ai-data-centres-vancouver.jpg)
 
 Let me tell you a story somebody told me a long time ago.
 
@@ -83,6 +80,8 @@ They never were.
 The “you use it, so shut up” argument only works if you agree to feel ashamed.
 
 I do not agree to feel ashamed.
+
+<!--nextpage-->
 
 ## So I went to the protest
 
@@ -120,7 +119,7 @@ It has substations and cooling systems. It has land use and fibre routes. It has
 
 In BC, this is not abstract. [BC Hydro is already talking about AI data centres](https://www.bchydro.com/news/press_centre/news_releases/2026/ai-data-centres.html), the Province has an [Industrial Electricity Allocation Framework](https://www2.gov.bc.ca/gov/content/industry/electricity-alternative-energy/electricity/industrial-electricity-allocation-framework), and the federal government is advancing [large-scale sovereign AI infrastructure](https://www.canada.ca/en/innovation-science-economic-development/news/2026/05/government-of-canada-and-telus-advance-work-to-build-sovereign-ai-infrastructure.html) in British Columbia. The paperwork is not separate from the politics. It is where the politics live.
 
-![WATER THE SERVERS LAST, block-stack type with a watering can over a server rack.](images/04-water-the-servers-last.png)
+![A Vancouver AI data centre protest crowd with signs reading WATER, NOT SLOP and UBI BEFORE AI.](images/02-water-not-slop-ubi-not-ai.jpg)
 
 AI is infrastructure now.
 
@@ -138,6 +137,8 @@ And infrastructure is always a question of power.
 Those are not anti-technology questions.
 
 Those are adult questions.
+
+<!--nextpage-->
 
 ## The garment is not the crime
 
@@ -169,7 +170,7 @@ That is governance.
 
 This is the same question I was trying to sharpen in [Sovereign AI for Whom?](https://bc-ai.ca/news/sovereign-ai-for-whom/). The point is not to reject infrastructure. The point is to demand receipts before the slab gets poured.
 
-![A loom weaving raw cotton on one side into glowing fibre-optic cable on the other.](images/02-loom-paradox.png)
+<!--nextpage-->
 
 ## The tinsmith move
 
@@ -178,8 +179,6 @@ There is a piece of internet folklore I keep coming back to.
 When Stewart Butterfield left Yahoo after Flickr had been absorbed into the corporate mothership, he did not write a normal resignation letter. He wrote something stranger: a dry, sideways, almost absurd letter about tinsmithing. It was funny. It was opaque. It took people a moment to realize there was a blade inside the pastry.
 
 [The story still circulates](https://www.theguardian.com/media/2008/jun/19/digitalmedia.yahoo) because the move was so precise.
-
-![An 1800s tinsmith's candlelit workbench; a tool casts a shadow shaped like a modern server rack.](images/03-tinsmith-shadow.png)
 
 That is the energy I am interested in here.
 
@@ -209,6 +208,8 @@ You have to be credible in both places.
 
 This is the [Both Hands Full](https://kriskrug.co/2026/01/24/both-hands-full/) posture in infrastructure form: carry the critique and the possibility at the same time, and refuse the lazy binary.
 
+![A protest sign reading Software Engineers and SREs Against AI Data Centres in the City.](images/03-engineers-against-data-centres.jpg)
+
 You have to understand the engineering and still care about the watershed.
 
 You have to read the procurement language and still hear the chants.
@@ -224,6 +225,8 @@ Not purity.
 Not boosterism in a Patagonia vest.
 
 The job is responsible power.
+
+<!--nextpage-->
 
 ## What I am actually against
 
@@ -256,6 +259,8 @@ Not just to Silicon Valley.
 Not just to whatever executive had the cleanest slide deck that week.
 
 Here.
+
+<!--nextpage-->
 
 ## What I am for
 
@@ -292,6 +297,8 @@ It involves more meetings, more constraints, more accountability, more humility,
 Good.
 
 The future should have to fill out some paperwork.
+
+<!--nextpage-->
 
 ## The better loom
 
