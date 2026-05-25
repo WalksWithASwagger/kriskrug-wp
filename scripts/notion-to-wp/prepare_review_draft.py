@@ -145,6 +145,10 @@ def image_block(src: str, alt: str = "") -> str:
     )
 
 
+def nextpage_block() -> str:
+    return "<!-- wp:nextpage -->\n<!--nextpage-->\n<!-- /wp:nextpage -->"
+
+
 def markdown_to_blocks(markdown: str) -> str:
     blocks: list[str] = []
     paragraph: list[str] = []
@@ -176,6 +180,12 @@ def markdown_to_blocks(markdown: str) -> str:
             flush_paragraph()
             flush_lists()
             flush_quote()
+            continue
+        if line.strip() == "<!--nextpage-->":
+            flush_paragraph()
+            flush_lists()
+            flush_quote()
+            blocks.append(nextpage_block())
             continue
         image_match = re.match(r"!\[([^\]]*)\]\(([^)]+)\)", line.strip())
         if image_match:
