@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.3.1
+Version: 1.3.2
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -717,6 +717,7 @@ a {
 }
 
 .aurora-home-2026,
+.aurora-writing-archive,
 .aurora-page-2026,
 .aurora-single-2026 {
   background: transparent;
@@ -1282,6 +1283,227 @@ a {
   margin-top: 2rem;
 }
 
+.aurora-writing-archive {
+  padding-top: clamp(4rem, 8vw, 7rem);
+}
+
+.aurora-writing-archive-header {
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2rem) clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.aurora-writing-archive-title {
+  color: var(--aurora-ink);
+  font-size: clamp(3rem, 8vw, 6.8rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.98;
+  margin: 0;
+  max-width: 11ch;
+  text-wrap: balance;
+}
+
+.aurora-writing-archive-dek {
+  color: var(--aurora-ink-soft);
+  font-size: clamp(1.1rem, 1.7vw, 1.42rem);
+  line-height: 1.6;
+  margin: 1.2rem 0 0;
+  max-width: 58ch;
+}
+
+.aurora-writing-archive-query {
+  margin: 0 auto;
+  max-width: var(--aurora-max);
+  padding: 0 clamp(1rem, 4vw, 2rem) clamp(4rem, 8vw, 7rem);
+}
+
+.aurora-writing-archive-list.wp-block-post-template {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 0;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li {
+  margin: 0;
+  width: auto !important;
+}
+
+.aurora-writing-card {
+  background: rgba(247, 247, 242, 0.035);
+  border: 1px solid var(--aurora-line);
+  border-radius: var(--aurora-radius-card);
+  display: grid;
+  height: 100%;
+  overflow: hidden;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.aurora-writing-card:hover {
+  background: rgba(247, 247, 242, 0.055);
+  border-color: var(--aurora-line-strong);
+  transform: translateY(-2px);
+}
+
+.aurora-writing-card-media {
+  aspect-ratio: 3 / 2;
+  background: var(--aurora-panel-solid);
+  margin: 0;
+  overflow: hidden;
+}
+
+.aurora-writing-card-media a,
+.aurora-writing-card-media img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.aurora-writing-card-media img {
+  object-fit: cover;
+  transition: filter 500ms ease, transform 500ms ease;
+}
+
+.aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
+  align-items: center;
+  aspect-ratio: 3 / 2;
+  background:
+    linear-gradient(135deg, rgba(0, 229, 255, 0.16), rgba(229, 70, 46, 0.16)),
+    var(--aurora-panel-solid);
+  color: var(--aurora-ink-muted);
+  content: "KK";
+  display: flex;
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  font-weight: 900;
+  justify-content: center;
+}
+
+.aurora-writing-card:hover .aurora-writing-card-media img {
+  filter: saturate(1.08);
+  transform: scale(1.025);
+}
+
+.aurora-writing-card-body {
+  align-content: start;
+  display: grid;
+  gap: 0.8rem;
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+}
+
+.aurora-writing-card-category,
+.aurora-writing-card-meta {
+  color: var(--aurora-ink-muted);
+  font-size: 0.78rem;
+  font-weight: 760;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.aurora-writing-card-category a,
+.aurora-writing-card-meta a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.aurora-writing-card-category a:hover,
+.aurora-writing-card-meta a:hover {
+  color: var(--wp--preset--color--cyan);
+}
+
+.aurora-writing-card-title {
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  line-height: 1.08;
+  margin: 0;
+}
+
+.aurora-writing-card-title a {
+  color: var(--aurora-ink);
+  text-decoration: none;
+}
+
+.aurora-writing-card-title a:hover {
+  color: var(--wp--preset--color--cyan);
+}
+
+.aurora-writing-card-excerpt,
+.aurora-writing-card-excerpt p {
+  color: var(--aurora-ink-soft);
+  line-height: 1.62;
+  margin: 0;
+}
+
+.aurora-writing-card-excerpt .wp-block-post-excerpt__more-text {
+  display: none;
+}
+
+.aurora-writing-card-meta {
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.aurora-writing-card-meta time,
+.aurora-writing-card-meta span {
+  color: var(--aurora-ink-muted);
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:first-child {
+  grid-column: 1 / -1;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card {
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.78fr);
+  min-height: clamp(24rem, 42vw, 32rem);
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media {
+  aspect-ratio: auto;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
+  aspect-ratio: auto;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-body {
+  align-content: center;
+  padding: clamp(1.5rem, 4vw, 2.4rem);
+}
+
+.aurora-writing-pagination {
+  color: var(--aurora-ink-muted);
+  gap: 0.5rem;
+}
+
+.aurora-writing-pagination a,
+.aurora-writing-pagination .page-numbers,
+.aurora-writing-pagination .wp-block-query-pagination-previous,
+.aurora-writing-pagination .wp-block-query-pagination-next {
+  align-items: center;
+  border: 1px solid var(--aurora-line);
+  border-radius: var(--aurora-radius-control);
+  color: var(--aurora-ink-soft);
+  display: inline-flex;
+  font-weight: 760;
+  min-height: 42px;
+  padding: 0.55rem 0.75rem;
+  text-decoration: none;
+}
+
+.aurora-writing-pagination a:hover,
+.aurora-writing-pagination .page-numbers.current {
+  background: rgba(247, 247, 242, 0.06);
+  border-color: var(--aurora-line-strong);
+  color: var(--aurora-ink);
+}
+
+.aurora-writing-dispatch {
+  margin-top: 0;
+}
+
 .aurora-final-cta {
   background:
     radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.12), transparent 24rem),
@@ -1601,14 +1823,16 @@ a {
 .aurora-proof-module a:focus-visible,
 .aurora-topic-card:focus-within,
 .aurora-quote-card:focus-within,
-.aurora-article-row a:focus-visible {
+.aurora-article-row a:focus-visible,
+.aurora-writing-card a:focus-visible {
   outline: 2px solid var(--wp--preset--color--cyan);
   outline-offset: 4px;
 }
 
 .aurora-media-card a:active,
 .aurora-proof-module a:active,
-.aurora-article-row a:active {
+.aurora-article-row a:active,
+.aurora-writing-card a:active {
   transform: translateY(1px);
 }
 
@@ -2270,6 +2494,18 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .aurora-writing-archive-list.wp-block-post-template {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card {
+    grid-template-columns: 1fr;
+  }
+
+  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media {
+    aspect-ratio: 16 / 9;
+  }
+
   .aurora-proof-grid {
     grid-template-columns: 1fr;
   }
@@ -2383,6 +2619,27 @@ a {
     overflow-wrap: normal;
   }
 
+  .aurora-writing-archive {
+    padding-top: clamp(3rem, 10vw, 4.5rem);
+  }
+
+  .aurora-writing-archive-title {
+    font-size: clamp(2.55rem, 12vw, 4rem);
+    max-width: 12ch;
+  }
+
+  .aurora-writing-archive-list.wp-block-post-template {
+    grid-template-columns: 1fr;
+  }
+
+  .aurora-writing-card:hover {
+    transform: none;
+  }
+
+  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media {
+    aspect-ratio: 3 / 2;
+  }
+
   .aurora-signal-strip,
   .aurora-work-grid,
   .aurora-footer-nav,
@@ -2492,6 +2749,8 @@ a {
   }
 
   .aurora-media-card img,
+  .aurora-writing-card,
+  .aurora-writing-card-media img,
   .aurora-button,
   .aurora-theme .wp-block-button__link,
   .aurora-article-row,
@@ -2502,6 +2761,8 @@ a {
   }
 
   .aurora-media-card:hover img,
+  .aurora-writing-card:hover,
+  .aurora-writing-card:hover .aurora-writing-card-media img,
   .aurora-button:hover,
   .aurora-theme .wp-block-button__link:hover {
     transform: none;
