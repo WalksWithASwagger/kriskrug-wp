@@ -3,8 +3,13 @@ title: "Cotton Underwear and the AI Guy at the Data Center Protest"
 slug: cotton-underwear-paradox
 author: Kris Krüg
 date: 2026-05-25
+post_date: '2026-05-25'
 status: draft
+post_type: post
+author_wp_id: 1
 type: feature
+categories:
+  - AI Ethics & Philosophy
 tags:
   - data-centers
   - ai-infrastructure
@@ -18,6 +23,18 @@ related_links:
   - https://kriskrug.co/2026/05/23/data-center-protest-signs/
   - https://bc-ai.ca/news/sovereign-ai-for-whom/
   - https://bc-ai.ca/
+featured: true
+excerpt: Kris Krüg, the AI guy, showed up to a Vancouver AI data center protest. Here's the cotton-underwear paradox that explains why that isn't a contradiction.
+seo:
+  meta_title: Cotton Underwear and the AI Guy at the Data Center Protest
+  meta_description: Kris Krüg, the AI guy, showed up to a Vancouver AI data center protest. Here's the cotton-underwear paradox that explains why that isn't a contradiction, and why you can build the thing and fight how it's being built at the same time.
+images:
+  - file: images/01-cotton-underwear-hero-protest.png
+    alt: A lone figure in a denim jacket holds a hand-painted sign at a street protest, facing a glowing AI data center venting steam at dusk.
+  - file: images/02-loom-paradox.png
+    alt: A loom weaving raw cotton on one side into glowing fiber-optic cable on the other.
+  - file: images/03-tinsmith-shadow.png
+    alt: An 1800s tinsmith's candlelit workbench; a tool casts a shadow shaped like a modern server rack.
 image_source: Generated with Rafiki (kk style). Upload to WordPress media before publish.
 ---
 
