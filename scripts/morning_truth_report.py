@@ -27,8 +27,17 @@ class CommandResult:
     stderr: str
 
 
-def run_command(title: str, command: list[str], cwd: Path) -> CommandResult:
-    completed = subprocess.run(command, cwd=cwd, capture_output=True, text=True)
+def run_command(title: str, command: list[str], cwd: Path, timeout: int = 120) -> CommandResult:
+    try:
+        completed = subprocess.run(command, cwd=cwd, capture_output=True, text=True, timeout=timeout)
+    except subprocess.TimeoutExpired as exc:
+        return CommandResult(
+            title=title,
+            command=command,
+            returncode=124,
+            stdout=(exc.stdout or "").strip(),
+            stderr=f"command timed out after {timeout}s",
+        )
     return CommandResult(
         title=title,
         command=command,
@@ -166,6 +175,8 @@ def main() -> int:
         default="docs/current-state/WORK-PLAN-2026-05-23.md",
         help="Declared state doc used for drift checks.",
     )
+    parser.add_argument("--command-timeout", type=int, default=120, help="Timeout for shell subcommands in seconds.")
+    parser.add_argument("--request-timeout", type=int, default=20, help="Timeout for each public smoke HTTP request.")
     parser.add_argument("--out", help="Write report to this path.")
     args = parser.parse_args()
 
@@ -178,17 +189,18 @@ def main() -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     startup_results = [
-        run_command("Git Fetch", ["git", "fetch", "--prune"], repo_root),
-        run_command("Git Status", ["git", "status", "--short", "--branch"], repo_root),
-        run_command("Recent Log", ["git", "log", "--oneline", "-n", "20"], repo_root),
-        run_command("Open PRs", ["gh", "pr", "list", "--state", "open", "--limit", "50"], repo_root),
-        run_command("Open Issues", ["gh", "issue", "list", "--state", "open", "--limit", "200"], repo_root),
-        run_command("Worktrees", ["git", "worktree", "list", "--porcelain"], repo_root),
-        run_command("Main Divergence", ["git", "rev-list", "--left-right", "--count", "origin/main...main"], repo_root),
+        run_command("Git Fetch", ["git", "fetch", "--prune"], repo_root, timeout=args.command_timeout),
+        run_command("Git Status", ["git", "status", "--short", "--branch"], repo_root, timeout=args.command_timeout),
+        run_command("Recent Log", ["git", "log", "--oneline", "-n", "20"], repo_root, timeout=args.command_timeout),
+        run_command("Open PRs", ["gh", "pr", "list", "--state", "open", "--limit", "50"], repo_root, timeout=args.command_timeout),
+        run_command("Open Issues", ["gh", "issue", "list", "--state", "open", "--limit", "200"], repo_root, timeout=args.command_timeout),
+        run_command("Worktrees", ["git", "worktree", "list", "--porcelain"], repo_root, timeout=args.command_timeout),
+        run_command("Main Divergence", ["git", "rev-list", "--left-right", "--count", "origin/main...main"], repo_root, timeout=args.command_timeout),
         run_command(
             "Aurora vs Main Divergence",
             ["git", "rev-list", "--left-right", "--count", "origin/aurora/v2...origin/main"],
             repo_root,
+            timeout=args.command_timeout,
         ),
     ]
 
@@ -219,7 +231,17 @@ def main() -> int:
     )
     smoke_result, smoke_json = run_json_command(
         "WP7 Public Smoke (JSON)",
-        [sys.executable, "scripts/wp7-public-smoke.py", "--base-url", args.base_url, "--expect-version", args.expect_version, "--json"],
+        [
+            sys.executable,
+            "scripts/wp7-public-smoke.py",
+            "--base-url",
+            args.base_url,
+            "--expect-version",
+            args.expect_version,
+            "--timeout",
+            str(args.request_timeout),
+            "--json",
+        ],
         repo_root,
     )
     drift_result, drift_json = run_json_command(

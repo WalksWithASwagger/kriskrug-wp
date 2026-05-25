@@ -13,8 +13,11 @@ NC='\033[0m'
 
 # Defaults
 STANDARD="WordPress"
+if [ -f "phpcs.xml.dist" ]; then
+    STANDARD="phpcs.xml.dist"
+fi
 FIX=false
-FILES="."
+FILES=""
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -41,34 +44,48 @@ done
 
 echo "=== WordPress Code Validation ==="
 echo "Standard: $STANDARD"
-echo "Files: $FILES"
+echo "Files: ${FILES:-ruleset default}"
 echo
 
-# Check if phpcs is installed
-if ! command -v phpcs &> /dev/null; then
+PHPCS_BIN="phpcs"
+PHPCBF_BIN="phpcbf"
+if [ -x "vendor/bin/phpcs" ]; then
+    PHPCS_BIN="vendor/bin/phpcs"
+fi
+if [ -x "vendor/bin/phpcbf" ]; then
+    PHPCBF_BIN="vendor/bin/phpcbf"
+fi
+
+if ! command -v "$PHPCS_BIN" &> /dev/null; then
     echo -e "${RED}✗ phpcs not found${NC}"
     echo
-    echo "Install PHPCS and WordPress Coding Standards:"
-    echo "  composer global require wp-coding-standards/wpcs"
-    echo "  phpcs --config-set installed_paths ~/.composer/vendor/wp-coding-standards/wpcs"
+    echo "Install repo-owned PHPCS and WordPress Coding Standards:"
+    echo "  composer install"
+    echo
+    echo "If Composer is not installed, install it first:"
+    echo "  https://getcomposer.org/download/"
     echo
     exit 1
 fi
 
 # Check if WordPress standards are installed
-if ! phpcs -i | grep -q "WordPress"; then
+if ! "$PHPCS_BIN" -i | grep -q "WordPress"; then
     echo -e "${YELLOW}⚠ WordPress Coding Standards not found${NC}"
     echo
-    echo "Install WordPress Coding Standards:"
-    echo "  composer global require wp-coding-standards/wpcs"
-    echo "  phpcs --config-set installed_paths ~/.composer/vendor/wp-coding-standards/wpcs"
+    echo "Install repo-owned standards:"
+    echo "  composer install"
     echo
     exit 1
 fi
 
 # Run phpcs
 echo "Running phpcs..."
-if phpcs --standard="$STANDARD" --report=summary "$FILES"; then
+PHPCS_ARGS=(--standard="$STANDARD" --report=summary)
+if [ -n "$FILES" ]; then
+    PHPCS_ARGS+=("$FILES")
+fi
+
+if "$PHPCS_BIN" "${PHPCS_ARGS[@]}"; then
     echo
     echo -e "${GREEN}✓ No coding standard violations found${NC}"
     exit 0
@@ -79,14 +96,18 @@ else
     echo
 
     if [ "$FIX" = true ]; then
-        if command -v phpcbf &> /dev/null; then
+        if command -v "$PHPCBF_BIN" &> /dev/null; then
             echo "Attempting to auto-fix violations..."
-            if phpcbf --standard="$STANDARD" "$FILES"; then
+            PHPCBF_ARGS=(--standard="$STANDARD")
+            if [ -n "$FILES" ]; then
+                PHPCBF_ARGS+=("$FILES")
+            fi
+            if "$PHPCBF_BIN" "${PHPCBF_ARGS[@]}"; then
                 echo
                 echo -e "${GREEN}✓ Auto-fix completed${NC}"
                 echo
                 echo "Re-running phpcs to check remaining violations..."
-                if phpcs --standard="$STANDARD" --report=summary "$FILES"; then
+                if "$PHPCS_BIN" "${PHPCS_ARGS[@]}"; then
                     echo
                     echo -e "${GREEN}✓ All violations fixed${NC}"
                     exit 0
@@ -103,7 +124,7 @@ else
             fi
         else
             echo -e "${YELLOW}⚠ phpcbf not found, cannot auto-fix${NC}"
-            echo "Install with: composer global require squizlabs/php_codesniffer"
+            echo "Install with: composer install"
             exit $PHPCS_EXIT
         fi
     else

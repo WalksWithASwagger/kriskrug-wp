@@ -34,7 +34,7 @@ echo "=== Test Runner ==="
 echo
 
 # Detect and run PHPUnit
-if [ -f "phpunit.xml" ] || [ -f "phpunit.xml.dist" ] || [ -f "composer.json" ]; then
+if [ -f "phpunit.xml" ] || [ -f "phpunit.xml.dist" ]; then
     TESTS_DETECTED=true
     echo "Detected: PHPUnit"
 

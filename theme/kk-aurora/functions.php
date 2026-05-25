@@ -349,13 +349,13 @@ function redirect_legacy_projects_path(): void {
         return;
     }
 
-    $request_uri = isset($_SERVER['REQUEST_URI']) ? wp_unslash((string) $_SERVER['REQUEST_URI']) : '';
+    $request_uri = isset($_SERVER['REQUEST_URI']) ? sanitize_text_field(wp_unslash((string) $_SERVER['REQUEST_URI'])) : '';
     $request_path = trim((string) wp_parse_url($request_uri, PHP_URL_PATH), '/');
     if ($request_path !== 'projects') {
         return;
     }
 
-    $method = isset($_SERVER['REQUEST_METHOD']) ? strtoupper((string) $_SERVER['REQUEST_METHOD']) : 'GET';
+    $method = isset($_SERVER['REQUEST_METHOD']) ? strtoupper(sanitize_key(wp_unslash((string) $_SERVER['REQUEST_METHOD']))) : 'GET';
     if (!in_array($method, ['GET', 'HEAD'], true)) {
         return;
     }

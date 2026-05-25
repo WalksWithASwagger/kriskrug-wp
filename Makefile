@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test validate health issues pr dashboard stats agent-status backup-check draft-queue-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth docs-truth-check clean
+.PHONY: help test plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check draft-queue-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth docs-truth-check clean
 
 # Default target
 .DEFAULT_GOAL := help
@@ -19,6 +19,19 @@ help: ## Show this help message
 test: ## Run test suite
 	@echo "Running tests..."
 	@bash skills/github-workflow-automation/scripts/run_tests.sh
+	@$(MAKE) plugin-smoke
+
+plugin-smoke: ## Run lightweight plugin smoke tests
+	@if command -v php >/dev/null 2>&1; then \
+		php plugins/kk-sidebar-promos/tests/smoke.php; \
+	else \
+		echo "Skipping plugin smoke: php not found"; \
+	fi
+
+verify: ## Run the standard local verification suite
+	@$(MAKE) test
+	@$(MAKE) docs-truth-check
+	@$(MAKE) validate
 
 validate: ## Run WordPress coding standards check
 	@echo "Validating WordPress coding standards..."
@@ -127,7 +140,7 @@ draft-queue-audit: ## Run read-only draft queue audit (LOCAL_ONLY=1 FORMAT=json)
 	fi
 
 wp7-smoke: ## Run read-only public WP 7 rollout smoke checks (BASE_URL=https://kriskrug.co EXPECT_VERSION=6.9.4)
-	@python3 scripts/wp7-public-smoke.py --base-url "$${BASE_URL:-https://kriskrug.co}" $${EXPECT_VERSION:+--expect-version "$$EXPECT_VERSION"}
+	@python3 scripts/wp7-public-smoke.py --base-url "$${BASE_URL:-https://kriskrug.co}" --timeout "$${REQUEST_TIMEOUT:-20}" $${EXPECT_VERSION:+--expect-version "$$EXPECT_VERSION"}
 
 wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (ENV_FILE=scripts/notion-to-wp/.env)
 	@python3 scripts/wp7-admin-readiness.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"
@@ -136,7 +149,7 @@ current-state-drift-check: ## Compare declared current-state snapshot values vs 
 	@python3 scripts/check_current_state_drift.py --work-plan "$${WORK_PLAN:-docs/current-state/WORK-PLAN-2026-05-23.md}" --base-url "$${BASE_URL:-https://kriskrug.co}"
 
 morning-truth: ## Run startup truth checks and write a timestamped markdown report
-	@python3 scripts/morning_truth_report.py --work-plan "$${WORK_PLAN:-docs/current-state/WORK-PLAN-2026-05-23.md}" --base-url "$${BASE_URL:-https://kriskrug.co}" --expect-version "$${EXPECT_VERSION:-6.9.4}"
+	@python3 scripts/morning_truth_report.py --work-plan "$${WORK_PLAN:-docs/current-state/WORK-PLAN-2026-05-23.md}" --base-url "$${BASE_URL:-https://kriskrug.co}" --expect-version "$${EXPECT_VERSION:-6.9.4}" --request-timeout "$${REQUEST_TIMEOUT:-20}" --command-timeout "$${COMMAND_TIMEOUT:-120}"
 
 docs-truth-check: ## Scan non-evidence docs for known stale current-state claims
 	@python3 scripts/docs_truth_check.py --exclude docs/current-state/reports --exclude docs/current-state/raw

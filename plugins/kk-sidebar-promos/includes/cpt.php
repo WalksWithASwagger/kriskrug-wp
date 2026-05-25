@@ -128,7 +128,8 @@ function kk_sp_render_meta_box( $post ) {
 }
 
 function kk_sp_save_meta( $post_id, $post ) {
-	if ( ! isset( $_POST['kk_sp_nonce'] ) || ! wp_verify_nonce( wp_unslash( $_POST['kk_sp_nonce'] ), 'kk_sp_save_meta' ) ) {
+	$nonce = isset( $_POST['kk_sp_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['kk_sp_nonce'] ) ) : '';
+	if ( ! $nonce || ! wp_verify_nonce( $nonce, 'kk_sp_save_meta' ) ) {
 		return;
 	}
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {

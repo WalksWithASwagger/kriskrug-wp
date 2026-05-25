@@ -135,7 +135,7 @@ Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](do
 1. Browse [open issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
 2. Read [`CONTRIBUTING.md`](CONTRIBUTING.md)
 3. Use issue templates when filing new issues
-4. Follow WordPress coding standards for PHP/JS in `fixes/` and `inc/`
+4. Run `composer install` once, then `make verify` before submitting code changes
 
 ### Historical / parked: GitHub Actions agent swarm
 `.github/agents/` defines an older issue-to-PR pipeline (orchestrator → analyzer → test-writer → implementer → QA → reviewer → PR creator). It produced PRs #71 and #72 in May 2026 and is not used by current sessions. `agent-pr-generator.yml` is now a manual, read-only diagnostic stub and no longer runs from the `auto-implement` label. `test-pr.yml` remains active PR validation. See [`docs/architecture.md`](docs/architecture.md) and [`docs/automation-guide.md`](docs/automation-guide.md) for reference if/when the swarm is rebuilt intentionally.
