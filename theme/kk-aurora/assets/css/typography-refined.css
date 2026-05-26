@@ -130,6 +130,16 @@ article > p:first-of-type::first-letter,
   color: var(--wp--preset--color--cyan);
 }
 
+.aurora-page-content > p:first-of-type::first-letter {
+  color: inherit;
+  float: none;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding-right: 0;
+}
+
 /* ============================================
    LINKS
    Subtle, then satisfying

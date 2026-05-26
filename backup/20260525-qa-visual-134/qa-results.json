@@ -1,0 +1,881 @@
+{
+  "generatedAt": "2026-05-25T22:40:04.218Z",
+  "results": [
+    {
+      "viewport": {
+        "label": "desktop",
+        "width": 1280,
+        "height": 720
+      },
+      "label": "home",
+      "path": "/",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "finalUrl": "https://kriskrug.co/?aurora_qa=1779748760800",
+      "title": "Kris Krüg | Generative AI Tools & Techniques - Empowering Events & Organizations for the AI Age",
+      "mainClass": "wp-block-group aurora-home-2026 aurora-keynote-first is-layout-flow wp-block-group-is-layout-flow",
+      "h1Count": 1,
+      "h1Texts": [
+        "Authored judgment in the age of generative everything."
+      ],
+      "documentWidth": 1280,
+      "viewportWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "aurora-home-2026",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "desktop",
+        "width": 1280,
+        "height": 720
+      },
+      "label": "blog",
+      "path": "/blog/",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "finalUrl": "https://kriskrug.co/blog/?aurora_qa=1779748760800",
+      "title": "Blog — Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "mainClass": "wp-block-group aurora-writing-archive is-layout-flow wp-block-group-is-layout-flow",
+      "h1Count": 1,
+      "h1Texts": [
+        "Field notes for the age of generative everything."
+      ],
+      "documentWidth": 1280,
+      "viewportWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "aurora-writing-archive",
+          "present": true
+        },
+        {
+          "marker": "Field notes for the age of generative everything.",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "desktop",
+        "width": 1280,
+        "height": 720
+      },
+      "label": "work",
+      "path": "/recent-projects-include/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/recent-projects-include/?aurora_qa=1779748760800",
+      "title": "Work | Kris Krüg",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Work"
+      ],
+      "documentWidth": 1280,
+      "viewportWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-overhaul",
+          "present": true
+        },
+        {
+          "marker": "kk-workway",
+          "present": true
+        },
+        {
+          "marker": "BC + AI Ecosystem",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "desktop",
+        "width": 1280,
+        "height": 720
+      },
+      "label": "speaking",
+      "path": "/speaking/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/speaking/?aurora_qa=1779748760800",
+      "title": "AI Keynote Speaker Kris Krüg | Humanizing AI, Creativity & Community",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "AI Keynote Speaker Kris Krüg"
+      ],
+      "documentWidth": 1280,
+      "viewportWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-overhaul",
+          "present": true
+        },
+        {
+          "marker": "AI Keynote Speaker Kris Krüg",
+          "present": true
+        },
+        {
+          "marker": "kk-hero-photo",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "desktop",
+        "width": 1280,
+        "height": 720
+      },
+      "label": "services",
+      "path": "/generative-ai-services/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/generative-ai-services/?aurora_qa=1779748760800",
+      "title": "Generative AI Creative Services & Strategy Kris Krüg | Generative AI Tools & Techniques",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Generative AI Creative Services & Strategy"
+      ],
+      "documentWidth": 1280,
+      "viewportWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-services",
+          "present": true
+        },
+        {
+          "marker": "Generative AI Creative Services &amp; Strategy",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "desktop",
+        "width": 1280,
+        "height": 720
+      },
+      "label": "publications",
+      "path": "/publications/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/publications/?aurora_qa=1779748760800",
+      "title": "Publications, Interviews & Media Archive | Kris Krüg",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Publications"
+      ],
+      "documentWidth": 1280,
+      "viewportWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-publications",
+          "present": true
+        },
+        {
+          "marker": "Legacy",
+          "present": true
+        },
+        {
+          "marker": "Publications",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "desktop",
+        "width": 1280,
+        "height": 720
+      },
+      "label": "about",
+      "path": "/about/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/about/?aurora_qa=1779748760800",
+      "title": "About Kris Krüg | AI Speaker, Creative Technologist & Community Builder",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "About Kris Krüg"
+      ],
+      "documentWidth": 1280,
+      "viewportWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "Mette-Marit",
+          "present": true
+        },
+        {
+          "marker": "Trailer Park Boys",
+          "present": true
+        },
+        {
+          "marker": "Amanda Tapping",
+          "present": true
+        },
+        {
+          "marker": "Roy Henry Vickers",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "desktop",
+        "width": 1280,
+        "height": 720
+      },
+      "label": "podcast-epk",
+      "path": "/podcast-guesting-page-epk/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/podcast-guesting-page-epk/?aurora_qa=1779748760800",
+      "title": "Podcast Guest, AI Commentator, Event Host | Kris Krug",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Podcast Guest, AI Commentator, Event Host"
+      ],
+      "documentWidth": 1280,
+      "viewportWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-overhaul",
+          "present": true
+        },
+        {
+          "marker": "Podcast Guest, AI Commentator, Event Host",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "desktop",
+        "width": 1280,
+        "height": 720
+      },
+      "label": "events",
+      "path": "/events/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/events/?aurora_qa=1779748760800",
+      "title": "Events Kris Krüg | Generative AI Tools & Techniques",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Events"
+      ],
+      "documentWidth": 1280,
+      "viewportWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "aurora-events-title",
+          "present": true
+        },
+        {
+          "marker": "I don’t just attend the AI conversation",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": "h2",
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "desktop",
+        "width": 1280,
+        "height": 720
+      },
+      "label": "contact",
+      "path": "/contact/",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'https://s5102.pcdn.co/wp-includes/js/dist/script-modules/interactivity/index.min.js?ver=66c613f68580994bb00a' from origin 'https://kriskrug.co' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Access to script at 'https://s5102.pcdn.co/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-forms/dist/modules/form/view.js?ver=15.8' from origin 'https://kriskrug.co' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "finalUrl": "https://kriskrug.co/contact/?aurora_qa=1779748760800",
+      "title": "Contact Kris Krüg Kris Krüg | Generative AI Tools & Techniques",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Contact Kris Krüg"
+      ],
+      "documentWidth": 1280,
+      "viewportWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "Contact Kris Krüg",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": {
+        "float": "none",
+        "fontSize": "17.9968px",
+        "fontWeight": "400",
+        "lineHeight": "32.3942px"
+      }
+    },
+    {
+      "viewport": {
+        "label": "desktop",
+        "width": 1280,
+        "height": 720
+      },
+      "label": "work-alias",
+      "path": "/work/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/recent-projects-include/?aurora_qa=1779748760800",
+      "title": "Work | Kris Krüg",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Work"
+      ],
+      "documentWidth": 1280,
+      "viewportWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-overhaul",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "desktop",
+        "width": 1280,
+        "height": 720
+      },
+      "label": "services-alias",
+      "path": "/services/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/generative-ai-services/?aurora_qa=1779748760800",
+      "title": "Generative AI Creative Services & Strategy Kris Krüg | Generative AI Tools & Techniques",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Generative AI Creative Services & Strategy"
+      ],
+      "documentWidth": 1280,
+      "viewportWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-services",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "label": "home",
+      "path": "/",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "finalUrl": "https://kriskrug.co/?aurora_qa=1779748760800",
+      "title": "Kris Krüg | Generative AI Tools & Techniques - Empowering Events & Organizations for the AI Age",
+      "mainClass": "wp-block-group aurora-home-2026 aurora-keynote-first is-layout-flow wp-block-group-is-layout-flow",
+      "h1Count": 1,
+      "h1Texts": [
+        "Authored judgment in the age of generative everything."
+      ],
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "aurora-home-2026",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "label": "blog",
+      "path": "/blog/",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "finalUrl": "https://kriskrug.co/blog/?aurora_qa=1779748760800",
+      "title": "Blog — Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "mainClass": "wp-block-group aurora-writing-archive is-layout-flow wp-block-group-is-layout-flow",
+      "h1Count": 1,
+      "h1Texts": [
+        "Field notes for the age of generative everything."
+      ],
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "aurora-writing-archive",
+          "present": true
+        },
+        {
+          "marker": "Field notes for the age of generative everything.",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "label": "work",
+      "path": "/recent-projects-include/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/recent-projects-include/?aurora_qa=1779748760800",
+      "title": "Work | Kris Krüg",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Work"
+      ],
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-overhaul",
+          "present": true
+        },
+        {
+          "marker": "kk-workway",
+          "present": true
+        },
+        {
+          "marker": "BC + AI Ecosystem",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "label": "speaking",
+      "path": "/speaking/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/speaking/?aurora_qa=1779748760800",
+      "title": "AI Keynote Speaker Kris Krüg | Humanizing AI, Creativity & Community",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "AI Keynote Speaker Kris Krüg"
+      ],
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-overhaul",
+          "present": true
+        },
+        {
+          "marker": "AI Keynote Speaker Kris Krüg",
+          "present": true
+        },
+        {
+          "marker": "kk-hero-photo",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "label": "services",
+      "path": "/generative-ai-services/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/generative-ai-services/?aurora_qa=1779748760800",
+      "title": "Generative AI Creative Services & Strategy Kris Krüg | Generative AI Tools & Techniques",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Generative AI Creative Services & Strategy"
+      ],
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-services",
+          "present": true
+        },
+        {
+          "marker": "Generative AI Creative Services &amp; Strategy",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "label": "publications",
+      "path": "/publications/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/publications/?aurora_qa=1779748760800",
+      "title": "Publications, Interviews & Media Archive | Kris Krüg",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Publications"
+      ],
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-publications",
+          "present": true
+        },
+        {
+          "marker": "Legacy",
+          "present": true
+        },
+        {
+          "marker": "Publications",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "label": "about",
+      "path": "/about/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/about/?aurora_qa=1779748760800",
+      "title": "About Kris Krüg | AI Speaker, Creative Technologist & Community Builder",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "About Kris Krüg"
+      ],
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "Mette-Marit",
+          "present": true
+        },
+        {
+          "marker": "Trailer Park Boys",
+          "present": true
+        },
+        {
+          "marker": "Amanda Tapping",
+          "present": true
+        },
+        {
+          "marker": "Roy Henry Vickers",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "label": "podcast-epk",
+      "path": "/podcast-guesting-page-epk/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/podcast-guesting-page-epk/?aurora_qa=1779748760800",
+      "title": "Podcast Guest, AI Commentator, Event Host | Kris Krug",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Podcast Guest, AI Commentator, Event Host"
+      ],
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-overhaul",
+          "present": true
+        },
+        {
+          "marker": "Podcast Guest, AI Commentator, Event Host",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "label": "events",
+      "path": "/events/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/events/?aurora_qa=1779748760800",
+      "title": "Events Kris Krüg | Generative AI Tools & Techniques",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Events"
+      ],
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "aurora-events-title",
+          "present": true
+        },
+        {
+          "marker": "I don’t just attend the AI conversation",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": "h2",
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "label": "contact",
+      "path": "/contact/",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'https://s5102.pcdn.co/wp-includes/js/dist/script-modules/interactivity/index.min.js?ver=66c613f68580994bb00a' from origin 'https://kriskrug.co' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Access to script at 'https://s5102.pcdn.co/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-forms/dist/modules/form/view.js?ver=15.8' from origin 'https://kriskrug.co' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "finalUrl": "https://kriskrug.co/contact/?aurora_qa=1779748760800",
+      "title": "Contact Kris Krüg Kris Krüg | Generative AI Tools & Techniques",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Contact Kris Krüg"
+      ],
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "Contact Kris Krüg",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": {
+        "float": "none",
+        "fontSize": "16.1456px",
+        "fontWeight": "400",
+        "lineHeight": "29.0621px"
+      }
+    },
+    {
+      "viewport": {
+        "label": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "label": "work-alias",
+      "path": "/work/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/recent-projects-include/?aurora_qa=1779748760800",
+      "title": "Work | Kris Krüg",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Work"
+      ],
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-overhaul",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    },
+    {
+      "viewport": {
+        "label": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "label": "services-alias",
+      "path": "/services/",
+      "status": 200,
+      "consoleErrors": [],
+      "finalUrl": "https://kriskrug.co/generative-ai-services/?aurora_qa=1779748760800",
+      "title": "Generative AI Creative Services & Strategy Kris Krüg | Generative AI Tools & Techniques",
+      "mainClass": "wp-block-group aurora-page-2026 has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained",
+      "h1Count": 1,
+      "h1Texts": [
+        "Generative AI Creative Services & Strategy"
+      ],
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "hasHorizontalOverflow": false,
+      "brokenVisibleImages": [],
+      "missingVisibleAltImages": [],
+      "markers": [
+        {
+          "marker": "kk-services",
+          "present": true
+        }
+      ],
+      "eventsHeroTag": null,
+      "contactFirstLetter": null
+    }
+  ]
+}

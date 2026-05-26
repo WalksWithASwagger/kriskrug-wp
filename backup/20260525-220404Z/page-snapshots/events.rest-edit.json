@@ -1,0 +1,296 @@
+{
+  "id": 2250,
+  "date": "2016-01-26T11:11:40",
+  "date_gmt": "2016-01-26T19:11:40",
+  "guid": {
+    "rendered": "http://kriskrug.co/?page_id=2250",
+    "raw": "http://kriskrug.co/?page_id=2250"
+  },
+  "modified": "2026-05-24T09:08:30",
+  "modified_gmt": "2026-05-24T17:08:30",
+  "password": "",
+  "slug": "events",
+  "status": "publish",
+  "type": "page",
+  "link": "https://kriskrug.co/events/",
+  "title": {
+    "raw": "Events",
+    "rendered": "Events"
+  },
+  "content": {
+    "raw": "<!-- wp:html -->\n<div class=\"aurora-events-page\">\n  <section class=\"aurora-speaking-hero\" aria-labelledby=\"aurora-events-title\">\n    <div class=\"aurora-speaking-hero-copy\">\n      <p class=\"aurora-kicker\">Events I build, host &amp; speak at</p>\n      <h1 id=\"aurora-events-title\">I don't just attend the AI conversation — I host the room.</h1>\n      <p>From a monthly Vancouver meetup to film-club screenings, weekly office hours, and keynote stages from São Paulo to Whistler — these are the rooms where BC's AI community actually shows up, argues, makes things, and leaves braver. Most run on Luma; come find the next one.</p>\n      <div class=\"aurora-action-row\">\n        <a class=\"aurora-button aurora-button-primary\" href=\"https://lu.ma/vancouver-ai\">Follow on Luma</a>\n        <a class=\"aurora-button aurora-button-secondary\" href=\"/speaking/\">Book Kris to speak</a>\n      </div>\n    </div>\n  </section>\n\n  <section class=\"aurora-proof-section\" aria-labelledby=\"aurora-events-host\">\n    <div class=\"aurora-section-heading\">\n      <p class=\"aurora-kicker\">Series I produce &amp; host</p>\n      <h2 id=\"aurora-events-host\">The rooms I build and keep building.</h2>\n      <p>Not one-off panels — recurring rituals with their own crowds, collaborators, and momentum.</p>\n    </div>\n    <div class=\"aurora-proof-grid\">\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Monthly · Vancouver</p>\n          <h3>Vancouver AI Community Meetup</h3>\n          <p>The flagship night I host and curate — builders, artists, founders, and the curious in one room every month. Demos, talks, arguments, and the occasional Squatchie Award. The heartbeat of the local scene.</p>\n          <div class=\"aurora-proof-tags\"><span>Host &amp; curator</span><span>Monthly</span><span>Community</span></div>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-primary\" href=\"https://lu.ma/vancouver-ai\">See upcoming meetups</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Weekly · Online</p>\n          <h3>BC + AI Office Hours</h3>\n          <p>Every Friday, an open working session for the BC + AI ecosystem — questions, show-and-tell, and practical help moving real AI work forward. The connective tissue between the big monthly rooms.</p>\n          <div class=\"aurora-proof-tags\"><span>Host</span><span>Weekly</span><span>Members</span></div>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-primary\" href=\"https://lu.ma/bcai\">Join BC + AI on Luma</a>\n            <a class=\"aurora-button aurora-button-secondary\" href=\"https://bc-ai.ca/\">About BC + AI</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Monthly · Multimodal Media Lab</p>\n          <h3>AI Film Club</h3>\n          <p>Co-led with <strong>Kevin Friel</strong> and <strong>Luke Minaker</strong> — monthly screenings and hands-on accelerators for filmmakers staying human while the tools get good at everything. Building toward the 2nd Annual BC + AI Film Festival in October 2026.</p>\n          <div class=\"aurora-proof-tags\"><span>Co-host</span><span>Screenings</span><span>Accelerators</span></div>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-primary\" href=\"https://lu.ma/film\">See film events</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Ongoing · BC + AI</p>\n          <h3>The special-interest groups</h3>\n          <p>The deeper-end rooms inside the ecosystem: Mind, AI &amp; Consciousness (MAC) deepdives, the AI + Education SIG, and the AI Ethical Futures Lab — plus regional chapters spinning up beyond Vancouver.</p>\n          <div class=\"aurora-proof-tags\"><span>MAC deepdives</span><span>AI + Education</span><span>Ethical Futures</span></div>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-secondary\" href=\"https://bc-ai.ca/\">Explore BC + AI</a>\n          </div>\n        </div>\n      </article>\n    </div>\n  </section>\n\n  <section class=\"aurora-proof-section\" aria-labelledby=\"aurora-events-stages\">\n    <div class=\"aurora-section-heading\">\n      <p class=\"aurora-kicker\">Stages I speak on</p>\n      <h2 id=\"aurora-events-stages\">Keynotes, festivals, and the rooms that travel.</h2>\n      <p>A few recent ones — several with the full talk on tape.</p>\n    </div>\n    <div class=\"aurora-proof-grid\">\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">São Paulo · Keynote</p>\n          <h3>World AI Film Festival Brasil</h3>\n          <p>Opening keynote — \"How to keep our souls intact when the machines get really good at making everything.\" The Both Hands Full framework for filmmakers, students, and creative technologists.</p>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-secondary\" href=\"/speaking/\">See speaking topics</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Vancouver · Keynote</p>\n          <h3>LaSalle College</h3>\n          <p>\"Both Hands Full: what creatives actually need to know about AI.\" A graduation-season keynote on staying human, useful, and employable as the tools accelerate.</p>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-primary\" href=\"https://www.youtube.com/watch?v=-c7mgY2aSgM\">Watch the keynote</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Whistler · Speaker series</p>\n          <h3>Whistler Institute Global Speaker Series</h3>\n          <p>\"Inside Vancouver's AI Boom\" — the local scene as a case study in building AI culture that's practical, ethical, and alive instead of hype-driven.</p>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-primary\" href=\"https://www.youtube.com/watch?v=-XEsqsEbpoo\">Watch the talk</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Conference · Keynote</p>\n          <h3>ChannelNext</h3>\n          <p>\"The future of humanity: chaos &amp; creativity\" — a keynote that ends in a live, on-stage AI synthesis of the whole conference. The kind of risk that only works live.</p>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-primary\" href=\"https://www.youtube.com/watch?v=1OcC-0X6Nb8\">Watch the keynote</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Web Summit Vancouver</p>\n          <h3>Calm Before the Storm</h3>\n          <p>The community night I host on the eve of the big conferences — Web Summit, SIGGRAPH — so the locals own the room before the circus arrives.</p>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-secondary\" href=\"https://lu.ma/websummit-vancouver\">See the next one</a>\n          </div>\n        </div>\n      </article>\n    </div>\n  </section>\n\n  <section class=\"aurora-proof-section\" aria-labelledby=\"aurora-events-signature\">\n    <div class=\"aurora-section-heading\">\n      <p class=\"aurora-kicker\">Signature moments</p>\n      <h2 id=\"aurora-events-signature\">The nights people still talk about.</h2>\n    </div>\n    <div class=\"aurora-proof-grid\">\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <h3>The Thinking Game premiere</h3>\n          <p>A documentary night at the Space Centre theatre with the AI Salon — big screen, bigger conversation.</p>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <h3>The Squatchie Awards</h3>\n          <p>The community's tongue-in-cheek year-end recognition — Vancouver AI's answer to an awards show.</p>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <h3>Holiday Social / BC + AI Festivus</h3>\n          <p>The end-of-year gathering where the whole ecosystem (and a birthday or two) collides.</p>\n        </div>\n      </article>\n    </div>\n  </section>\n\n  <section class=\"aurora-final-cta\" aria-labelledby=\"aurora-events-cta\">\n    <p class=\"aurora-kicker\">Bring me to your stage — or your city</p>\n    <h2 id=\"aurora-events-cta\">Come to a room, or let's build one.</h2>\n    <p>Follow along on Luma for what's next, or bring a keynote, workshop, or community build to your event.</p>\n    <div class=\"aurora-action-row\">\n      <a class=\"aurora-button aurora-button-primary\" href=\"https://lu.ma/vancouver-ai\">Follow on Luma</a>\n      <a class=\"aurora-button aurora-button-secondary\" href=\"/speaking/\">Book Kris to speak</a>\n    </div>\n  </section>\n</div>\n<!-- /wp:html -->\n",
+    "rendered": "\n<div class=\"aurora-events-page\">\n  <section class=\"aurora-speaking-hero\" aria-labelledby=\"aurora-events-title\">\n    <div class=\"aurora-speaking-hero-copy\">\n      <p class=\"aurora-kicker\">Events I build, host &amp; speak at</p>\n      <h1 id=\"aurora-events-title\">I don&#8217;t just attend the AI conversation — I host the room.</h1>\n      <p>From a monthly Vancouver meetup to film-club screenings, weekly office hours, and keynote stages from São Paulo to Whistler — these are the rooms where BC&#8217;s AI community actually shows up, argues, makes things, and leaves braver. Most run on Luma; come find the next one.</p>\n      <div class=\"aurora-action-row\">\n        <a class=\"aurora-button aurora-button-primary\" href=\"https://lu.ma/vancouver-ai\">Follow on Luma</a>\n        <a class=\"aurora-button aurora-button-secondary\" href=\"/speaking/\">Book Kris to speak</a>\n      </div>\n    </div>\n  </section>\n\n  <section class=\"aurora-proof-section\" aria-labelledby=\"aurora-events-host\">\n    <div class=\"aurora-section-heading\">\n      <p class=\"aurora-kicker\">Series I produce &amp; host</p>\n      <h2 id=\"aurora-events-host\">The rooms I build and keep building.</h2>\n      <p>Not one-off panels — recurring rituals with their own crowds, collaborators, and momentum.</p>\n    </div>\n    <div class=\"aurora-proof-grid\">\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Monthly · Vancouver</p>\n          <h3>Vancouver AI Community Meetup</h3>\n          <p>The flagship night I host and curate — builders, artists, founders, and the curious in one room every month. Demos, talks, arguments, and the occasional Squatchie Award. The heartbeat of the local scene.</p>\n          <div class=\"aurora-proof-tags\"><span>Host &amp; curator</span><span>Monthly</span><span>Community</span></div>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-primary\" href=\"https://lu.ma/vancouver-ai\">See upcoming meetups</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Weekly · Online</p>\n          <h3>BC + AI Office Hours</h3>\n          <p>Every Friday, an open working session for the BC + AI ecosystem — questions, show-and-tell, and practical help moving real AI work forward. The connective tissue between the big monthly rooms.</p>\n          <div class=\"aurora-proof-tags\"><span>Host</span><span>Weekly</span><span>Members</span></div>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-primary\" href=\"https://lu.ma/bcai\">Join BC + AI on Luma</a>\n            <a class=\"aurora-button aurora-button-secondary\" href=\"https://bc-ai.ca/\">About BC + AI</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Monthly · Multimodal Media Lab</p>\n          <h3>AI Film Club</h3>\n          <p>Co-led with <strong>Kevin Friel</strong> and <strong>Luke Minaker</strong> — monthly screenings and hands-on accelerators for filmmakers staying human while the tools get good at everything. Building toward the 2nd Annual BC + AI Film Festival in October 2026.</p>\n          <div class=\"aurora-proof-tags\"><span>Co-host</span><span>Screenings</span><span>Accelerators</span></div>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-primary\" href=\"https://lu.ma/film\">See film events</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Ongoing · BC + AI</p>\n          <h3>The special-interest groups</h3>\n          <p>The deeper-end rooms inside the ecosystem: Mind, AI &amp; Consciousness (MAC) deepdives, the AI + Education SIG, and the AI Ethical Futures Lab — plus regional chapters spinning up beyond Vancouver.</p>\n          <div class=\"aurora-proof-tags\"><span>MAC deepdives</span><span>AI + Education</span><span>Ethical Futures</span></div>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-secondary\" href=\"https://bc-ai.ca/\">Explore BC + AI</a>\n          </div>\n        </div>\n      </article>\n    </div>\n  </section>\n\n  <section class=\"aurora-proof-section\" aria-labelledby=\"aurora-events-stages\">\n    <div class=\"aurora-section-heading\">\n      <p class=\"aurora-kicker\">Stages I speak on</p>\n      <h2 id=\"aurora-events-stages\">Keynotes, festivals, and the rooms that travel.</h2>\n      <p>A few recent ones — several with the full talk on tape.</p>\n    </div>\n    <div class=\"aurora-proof-grid\">\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">São Paulo · Keynote</p>\n          <h3>World AI Film Festival Brasil</h3>\n          <p>Opening keynote — &#8220;How to keep our souls intact when the machines get really good at making everything.&#8221; The Both Hands Full framework for filmmakers, students, and creative technologists.</p>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-secondary\" href=\"/speaking/\">See speaking topics</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Vancouver · Keynote</p>\n          <h3>LaSalle College</h3>\n          <p>&#8220;Both Hands Full: what creatives actually need to know about AI.&#8221; A graduation-season keynote on staying human, useful, and employable as the tools accelerate.</p>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-primary\" href=\"https://www.youtube.com/watch?v=-c7mgY2aSgM\">Watch the keynote</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Whistler · Speaker series</p>\n          <h3>Whistler Institute Global Speaker Series</h3>\n          <p>&#8220;Inside Vancouver&#8217;s AI Boom&#8221; — the local scene as a case study in building AI culture that&#8217;s practical, ethical, and alive instead of hype-driven.</p>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-primary\" href=\"https://www.youtube.com/watch?v=-XEsqsEbpoo\">Watch the talk</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Conference · Keynote</p>\n          <h3>ChannelNext</h3>\n          <p>&#8220;The future of humanity: chaos &amp; creativity&#8221; — a keynote that ends in a live, on-stage AI synthesis of the whole conference. The kind of risk that only works live.</p>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-primary\" href=\"https://www.youtube.com/watch?v=1OcC-0X6Nb8\">Watch the keynote</a>\n          </div>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <p class=\"aurora-card-label\">Web Summit Vancouver</p>\n          <h3>Calm Before the Storm</h3>\n          <p>The community night I host on the eve of the big conferences — Web Summit, SIGGRAPH — so the locals own the room before the circus arrives.</p>\n          <div class=\"aurora-proof-actions\">\n            <a class=\"aurora-button aurora-button-secondary\" href=\"https://lu.ma/websummit-vancouver\">See the next one</a>\n          </div>\n        </div>\n      </article>\n    </div>\n  </section>\n\n  <section class=\"aurora-proof-section\" aria-labelledby=\"aurora-events-signature\">\n    <div class=\"aurora-section-heading\">\n      <p class=\"aurora-kicker\">Signature moments</p>\n      <h2 id=\"aurora-events-signature\">The nights people still talk about.</h2>\n    </div>\n    <div class=\"aurora-proof-grid\">\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <h3>The Thinking Game premiere</h3>\n          <p>A documentary night at the Space Centre theatre with the AI Salon — big screen, bigger conversation.</p>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <h3>The Squatchie Awards</h3>\n          <p>The community&#8217;s tongue-in-cheek year-end recognition — Vancouver AI&#8217;s answer to an awards show.</p>\n        </div>\n      </article>\n      <article class=\"aurora-proof-module aurora-proof-module-text\">\n        <div class=\"aurora-proof-body\">\n          <h3>Holiday Social / BC + AI Festivus</h3>\n          <p>The end-of-year gathering where the whole ecosystem (and a birthday or two) collides.</p>\n        </div>\n      </article>\n    </div>\n  </section>\n\n  <section class=\"aurora-final-cta\" aria-labelledby=\"aurora-events-cta\">\n    <p class=\"aurora-kicker\">Bring me to your stage — or your city</p>\n    <h2 id=\"aurora-events-cta\">Come to a room, or let&#8217;s build one.</h2>\n    <p>Follow along on Luma for what&#8217;s next, or bring a keynote, workshop, or community build to your event.</p>\n    <div class=\"aurora-action-row\">\n      <a class=\"aurora-button aurora-button-primary\" href=\"https://lu.ma/vancouver-ai\">Follow on Luma</a>\n      <a class=\"aurora-button aurora-button-secondary\" href=\"/speaking/\">Book Kris to speak</a>\n    </div>\n  </section>\n</div>\n\n",
+    "protected": false,
+    "block_version": 1
+  },
+  "excerpt": {
+    "raw": "",
+    "rendered": "<p>Events I build, host &amp; speak at I don&#8217;t just attend the AI conversation — I host the room. From a monthly Vancouver meetup to film-club screenings, weekly office hours, and keynote stages from São Paulo to Whistler — these are the rooms where BC&#8217;s AI community actually shows up, argues, makes things, and leaves [&hellip;]</p>\n",
+    "protected": false
+  },
+  "author": 1,
+  "featured_media": 2726,
+  "parent": 0,
+  "menu_order": 0,
+  "comment_status": "closed",
+  "ping_status": "closed",
+  "template": "",
+  "meta": {
+    "advanced_seo_description": "",
+    "jetpack_seo_html_title": "",
+    "jetpack_seo_noindex": false,
+    "footnotes": ""
+  },
+  "permalink_template": "https://kriskrug.co/%pagename%/",
+  "generated_slug": "events",
+  "class_list": [
+    "post-2250",
+    "page",
+    "type-page",
+    "status-publish",
+    "has-post-thumbnail",
+    "hentry"
+  ],
+  "jetpack_sharing_enabled": true,
+  "jetpack_shortlink": "https://wp.me/PaMVFO-Ai",
+  "jetpack-related-posts": [
+    {
+      "id": 1887,
+      "url": "https://kriskrug.co/speaking/",
+      "url_meta": {
+        "origin": 2250,
+        "position": 0
+      },
+      "title": "AI Keynote Speaker Kris Krüg",
+      "author": "Kris Krüg",
+      "date": "February 1, 2011",
+      "format": false,
+      "excerpt": "AI keynotes, workshops, and culture-shifting rooms I help audiences meet AI with courage, taste, and usable imagination. I am an AI keynote speaker, creative technologist, photographer, and community builder. My talks mix live demos, field stories, creative rebellion, practical workflows, and the hard questions about power, taste, trust, memory, and…",
+      "rel": "",
+      "context": "Similar post",
+      "block_context": {
+        "text": "Similar post",
+        "link": ""
+      },
+      "img": {
+        "alt_text": "",
+        "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5156893053_e4e246abb4_k.jpg?fit=1200%2C800&ssl=1&resize=350%2C200",
+        "width": 350,
+        "height": 200,
+        "srcset": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5156893053_e4e246abb4_k.jpg?fit=1200%2C800&ssl=1&resize=350%2C200 1x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5156893053_e4e246abb4_k.jpg?fit=1200%2C800&ssl=1&resize=525%2C300 1.5x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5156893053_e4e246abb4_k.jpg?fit=1200%2C800&ssl=1&resize=700%2C400 2x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5156893053_e4e246abb4_k.jpg?fit=1200%2C800&ssl=1&resize=1050%2C600 3x"
+      },
+      "classes": []
+    },
+    {
+      "id": 11914,
+      "url": "https://kriskrug.co/responsible-ai-professional/",
+      "url_meta": {
+        "origin": 2250,
+        "position": 1
+      },
+      "title": "Responsible AI Professional Certification",
+      "author": "Krüg",
+      "date": "May 23, 2026",
+      "format": false,
+      "excerpt": "Responsible AI Professional Everyone’s shipping AI fast. Almost nobody’s doing it responsibly. This fixes that. RAP is a four-week certification that closes the gap between how fast we deploy AI and how slowly we get responsible about it. Built by BC + AI with The Upgrade — cohort-based, framework-driven, and…",
+      "rel": "",
+      "context": "Similar post",
+      "block_context": {
+        "text": "Similar post",
+        "link": ""
+      },
+      "img": {
+        "alt_text": "",
+        "src": "",
+        "width": 0,
+        "height": 0
+      },
+      "classes": []
+    },
+    {
+      "id": 3609,
+      "url": "https://kriskrug.co/podcast-guesting-page-epk/",
+      "url_meta": {
+        "origin": 2250,
+        "position": 2
+      },
+      "title": "Podcast Guest, AI Commentator, Event Host",
+      "author": "Krüg",
+      "date": "November 3, 2023",
+      "format": false,
+      "excerpt": "Podcasts, broadcast, produced interviews, panels, hosting Bring me in when your audience needs AI to sound human, useful, and alive. I am an AI keynote speaker, creative technologist, photographer, community builder, podcast guest, broadcast commentator, host, moderator, and emcee. I help audiences understand generative AI without sanding off the weird,…",
+      "rel": "",
+      "context": "Similar post",
+      "block_context": {
+        "text": "Similar post",
+        "link": ""
+      },
+      "img": {
+        "alt_text": "",
+        "src": "",
+        "width": 0,
+        "height": 0
+      },
+      "classes": []
+    },
+    {
+      "id": 2828,
+      "url": "https://kriskrug.co/motleykrug-podcast/",
+      "url_meta": {
+        "origin": 2250,
+        "position": 3
+      },
+      "title": "Kris Krüg&#8217;s MØTLEYKRÜG Podcast",
+      "author": "Krüg",
+      "date": "August 17, 2023",
+      "format": false,
+      "excerpt": "Welcome to MØTLEYKRÜG the cyberpunk symphony that challenges the status quo and unites rebels of art, technology, and alternative living.",
+      "rel": "",
+      "context": "Similar post",
+      "block_context": {
+        "text": "Similar post",
+        "link": ""
+      },
+      "img": {
+        "alt_text": "Digital Self & the Era of AI: Avatars, ChatBots, & Audio Cloning",
+        "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/09/PodThumbs-3-of-8.jpeg?resize=350%2C200&ssl=1",
+        "width": 350,
+        "height": 200,
+        "srcset": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/09/PodThumbs-3-of-8.jpeg?resize=350%2C200&ssl=1 1x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/09/PodThumbs-3-of-8.jpeg?resize=525%2C300&ssl=1 1.5x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/09/PodThumbs-3-of-8.jpeg?resize=700%2C400&ssl=1 2x"
+      },
+      "classes": []
+    },
+    {
+      "id": 1208,
+      "url": "https://kriskrug.co/about/",
+      "url_meta": {
+        "origin": 2250,
+        "position": 4
+      },
+      "title": "About Kris Krüg",
+      "author": "Kris Krüg",
+      "date": "April 10, 2007",
+      "format": false,
+      "excerpt": "My name is Kris Krug – a boundary-pushing Creative Explorer, an intuitive Tech Whisperer, and a tenacious Culture Hacker. In the fabric of the digital era, where technology often overshadows humanity, I've taken it upon myself to chart a different course. I’m on a relentless mission to humanize technology, to…",
+      "rel": "",
+      "context": "In \"Misc\"",
+      "block_context": {
+        "text": "Misc",
+        "link": "https://kriskrug.co/tag/misc/"
+      },
+      "img": {
+        "alt_text": "",
+        "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/11/Copy-of-landback-scaled.jpg?fit=1200%2C450&ssl=1&resize=350%2C200",
+        "width": 350,
+        "height": 200,
+        "srcset": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/11/Copy-of-landback-scaled.jpg?fit=1200%2C450&ssl=1&resize=350%2C200 1x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/11/Copy-of-landback-scaled.jpg?fit=1200%2C450&ssl=1&resize=525%2C300 1.5x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/11/Copy-of-landback-scaled.jpg?fit=1200%2C450&ssl=1&resize=700%2C400 2x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/11/Copy-of-landback-scaled.jpg?fit=1200%2C450&ssl=1&resize=1050%2C600 3x"
+      },
+      "classes": []
+    },
+    {
+      "id": 7764,
+      "url": "https://kriskrug.co/cinematic-podcasts-hollywood-grade-storytelling-meets-generative-ai/",
+      "url_meta": {
+        "origin": 2250,
+        "position": 5
+      },
+      "title": "Cinematic Podcasts: Hollywood-Grade Storytelling Meets Generative AI",
+      "author": "Krüg",
+      "date": "December 17, 2024",
+      "format": false,
+      "excerpt": "Your Story, Reimagined for the AI Age Your business, brand, or community has a story to tell, and telling it right matters more than ever. In a digital world saturated with content, standing out requires cinematic quality, seamless execution, and a touch of generative AI magic. We’ve distilled the complexity…",
+      "rel": "",
+      "context": "Similar post",
+      "block_context": {
+        "text": "Similar post",
+        "link": ""
+      },
+      "img": {
+        "alt_text": "",
+        "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/12/image-17.png?resize=350%2C200&ssl=1",
+        "width": 350,
+        "height": 200,
+        "srcset": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/12/image-17.png?resize=350%2C200&ssl=1 1x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/12/image-17.png?resize=525%2C300&ssl=1 1.5x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/12/image-17.png?resize=700%2C400&ssl=1 2x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/12/image-17.png?resize=1050%2C600&ssl=1 3x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/12/image-17.png?resize=1400%2C800&ssl=1 4x"
+      },
+      "classes": []
+    }
+  ],
+  "jetpack_likes_enabled": true,
+  "_links": {
+    "self": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/2250",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/types/page"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/users/1"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/comments?post=2250"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 0,
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/2250/revisions"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/media/2726"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/media?parent=2250"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/2250"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/2250"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/2250"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

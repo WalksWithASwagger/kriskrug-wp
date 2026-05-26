@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.3.1
+Version: 1.3.4
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -717,6 +717,7 @@ a {
 }
 
 .aurora-home-2026,
+.aurora-writing-archive,
 .aurora-page-2026,
 .aurora-single-2026 {
   background: transparent;
@@ -1039,10 +1040,14 @@ a {
 .aurora-speaking-band,
 .aurora-writing-band,
 .aurora-final-cta,
-.aurora-page-2026,
 .aurora-single-2026 {
   margin: 0 auto;
   padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 2rem);
+}
+
+.aurora-page-2026 {
+  margin: 0 auto;
+  padding: clamp(2.8rem, 6vw, 4.8rem) clamp(1rem, 4vw, 2rem) clamp(3.6rem, 7vw, 5.6rem);
 }
 
 .aurora-feature-band-dark {
@@ -1280,6 +1285,291 @@ a {
 
 .aurora-writing-actions {
   margin-top: 2rem;
+}
+
+.aurora-writing-archive {
+  margin-block-start: 0;
+  padding-top: clamp(1.5rem, 3.2vw, 3rem);
+}
+
+.aurora-writing-archive-header {
+  display: grid;
+  gap: 0.9rem 1rem;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: var(--aurora-max);
+  padding: 0 clamp(1rem, 3vw, 2rem) clamp(1.15rem, 2.7vw, 2rem);
+}
+
+.aurora-writing-archive-header .aurora-kicker {
+  grid-column: 1 / -1;
+}
+
+.aurora-writing-archive-title {
+  color: var(--aurora-ink);
+  font-size: clamp(2.55rem, 4.8vw, 4.35rem);
+  font-weight: 900;
+  grid-column: 1 / span 7;
+  letter-spacing: 0;
+  line-height: 0.96;
+  margin: 0;
+  max-width: 13ch;
+  text-wrap: balance;
+}
+
+.aurora-writing-archive-dek {
+  align-self: end;
+  color: var(--aurora-ink-soft);
+  font-size: clamp(1rem, 1.25vw, 1.14rem);
+  grid-column: 8 / -1;
+  line-height: 1.5;
+  margin: 0 0 0.25rem;
+  max-width: 42ch;
+}
+
+.aurora-writing-archive-query {
+  margin: 0 auto;
+  max-width: var(--aurora-max);
+  padding: 0 clamp(1rem, 3vw, 2rem) clamp(3rem, 6vw, 5rem);
+}
+
+.aurora-writing-archive-list.wp-block-post-template {
+  align-items: stretch;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  padding: 0;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li {
+  grid-column: span 3;
+  margin: 0;
+  min-width: 0;
+  width: auto !important;
+}
+
+.aurora-writing-card {
+  background:
+    linear-gradient(145deg, rgba(247, 247, 242, 0.055), rgba(247, 247, 242, 0.025)),
+    #050708;
+  border: 1px solid var(--aurora-line);
+  border-radius: var(--aurora-radius-card);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.aurora-writing-card:hover {
+  background:
+    linear-gradient(145deg, rgba(247, 247, 242, 0.075), rgba(247, 247, 242, 0.035)),
+    #050708;
+  border-color: var(--aurora-line-strong);
+  transform: translateY(-2px);
+}
+
+.aurora-writing-card-media {
+  aspect-ratio: 16 / 10 !important;
+  background: var(--aurora-panel-solid);
+  border-bottom: 1px solid rgba(247, 247, 242, 0.08);
+  margin: 0;
+  overflow: hidden;
+}
+
+.aurora-writing-card-media a,
+.aurora-writing-card-media img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.aurora-writing-card-media img {
+  object-fit: cover;
+  transition: filter 500ms ease, transform 500ms ease;
+}
+
+.aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
+  align-items: center;
+  aspect-ratio: 16 / 10;
+  background:
+    linear-gradient(135deg, rgba(0, 229, 255, 0.16), rgba(229, 70, 46, 0.16)),
+    var(--aurora-panel-solid);
+  border-bottom: 1px solid rgba(247, 247, 242, 0.08);
+  color: var(--aurora-ink-muted);
+  content: "KK";
+  display: flex;
+  font-size: clamp(1.25rem, 3vw, 2.5rem);
+  font-weight: 900;
+  justify-content: center;
+}
+
+.aurora-writing-card:hover .aurora-writing-card-media img {
+  filter: saturate(1.08);
+  transform: scale(1.025);
+}
+
+.aurora-writing-card-body {
+  align-content: start;
+  display: grid;
+  gap: 0.52rem;
+  min-width: 0;
+  padding: clamp(0.8rem, 1.4vw, 1rem);
+}
+
+.aurora-writing-card-category,
+.aurora-writing-card-meta {
+  color: var(--aurora-ink-muted);
+  font-size: 0.68rem;
+  font-weight: 780;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.aurora-writing-card-category a,
+.aurora-writing-card-meta a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.aurora-writing-card-category a:hover,
+.aurora-writing-card-meta a:hover {
+  color: var(--wp--preset--color--cyan);
+}
+
+.aurora-writing-card-title {
+  font-size: clamp(1.05rem, 1.35vw, 1.36rem);
+  line-height: 1.08;
+  margin: 0;
+}
+
+.aurora-writing-card-title a {
+  color: var(--aurora-ink);
+  text-decoration: none;
+}
+
+.aurora-writing-card-title a:hover {
+  color: var(--wp--preset--color--cyan);
+}
+
+.aurora-writing-card-excerpt,
+.aurora-writing-card-excerpt p {
+  color: var(--aurora-ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.48;
+  margin: 0;
+}
+
+.aurora-writing-card-excerpt .wp-block-post-excerpt__excerpt {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.aurora-writing-card-excerpt .wp-block-post-excerpt__more-text {
+  display: none;
+}
+
+.aurora-writing-card-meta {
+  gap: 0.38rem;
+  margin-top: auto;
+}
+
+.aurora-writing-card-meta time,
+.aurora-writing-card-meta span {
+  color: var(--aurora-ink-muted);
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:first-child {
+  grid-column: span 6;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media,
+.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
+  aspect-ratio: 16 / 9 !important;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-title {
+  font-size: clamp(1.55rem, 2.6vw, 2.35rem);
+  line-height: 1;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-body {
+  gap: 0.62rem;
+  padding: clamp(1rem, 2.2vw, 1.45rem);
+}
+
+.aurora-writing-pagination {
+  color: var(--aurora-ink-muted);
+  gap: 0.38rem;
+}
+
+.aurora-writing-pagination a,
+.aurora-writing-pagination .page-numbers,
+.aurora-writing-pagination .wp-block-query-pagination-previous,
+.aurora-writing-pagination .wp-block-query-pagination-next {
+  align-items: center;
+  border: 1px solid var(--aurora-line);
+  border-radius: var(--aurora-radius-control);
+  color: var(--aurora-ink-soft);
+  display: inline-flex;
+  font-size: 0.86rem;
+  font-weight: 760;
+  min-height: 36px;
+  padding: 0.45rem 0.62rem;
+  text-decoration: none;
+}
+
+.aurora-writing-pagination a:hover,
+.aurora-writing-pagination .page-numbers.current {
+  background: rgba(247, 247, 242, 0.06);
+  border-color: var(--aurora-line-strong);
+  color: var(--aurora-ink);
+}
+
+.aurora-writing-dispatch {
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(229, 70, 46, 0.14), rgba(0, 229, 255, 0.08)),
+    #07090b;
+  border: 1px solid var(--aurora-line);
+  border-radius: var(--aurora-radius-card);
+  display: grid;
+  gap: 0.65rem 1rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin: 0 auto clamp(3rem, 6vw, 5rem);
+  max-width: var(--aurora-max);
+  padding: clamp(1rem, 2.2vw, 1.35rem) clamp(1rem, 3vw, 1.6rem);
+  text-align: left;
+  width: min(calc(100% - clamp(2rem, 6vw, 4rem)), var(--aurora-max));
+}
+
+.aurora-writing-dispatch .aurora-kicker {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.aurora-writing-dispatch h2 {
+  color: var(--aurora-ink);
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  line-height: 1.04;
+  margin: 0;
+}
+
+.aurora-writing-dispatch p:not(.aurora-kicker) {
+  color: var(--aurora-ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.48;
+  margin: 0;
+  max-width: 58ch;
+}
+
+.aurora-writing-dispatch .aurora-action-row {
+  justify-content: end;
+  margin: 0;
 }
 
 .aurora-final-cta {
@@ -1601,14 +1891,16 @@ a {
 .aurora-proof-module a:focus-visible,
 .aurora-topic-card:focus-within,
 .aurora-quote-card:focus-within,
-.aurora-article-row a:focus-visible {
+.aurora-article-row a:focus-visible,
+.aurora-writing-card a:focus-visible {
   outline: 2px solid var(--wp--preset--color--cyan);
   outline-offset: 4px;
 }
 
 .aurora-media-card a:active,
 .aurora-proof-module a:active,
-.aurora-article-row a:active {
+.aurora-article-row a:active,
+.aurora-writing-card a:active {
   transform: translateY(1px);
 }
 
@@ -1744,12 +2036,25 @@ a {
   text-transform: uppercase;
 }
 
-.aurora-page-header,
 .aurora-article-header {
   padding-bottom: clamp(2rem, 5vw, 4rem);
 }
 
-.aurora-page-title,
+.aurora-page-header {
+  padding-bottom: clamp(1rem, 3vw, 2rem);
+}
+
+.aurora-page-title {
+  color: var(--aurora-ink);
+  font-size: clamp(2.25rem, 4.6vw, 4.35rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.02;
+  margin: 0;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
 .aurora-single-title {
   color: var(--aurora-ink);
   font-size: clamp(2.8rem, 8vw, 6.2rem);
@@ -2270,6 +2575,19 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .aurora-writing-archive-list.wp-block-post-template {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aurora-writing-archive-list.wp-block-post-template > li,
+  .aurora-writing-archive-list.wp-block-post-template > li:first-child {
+    grid-column: auto;
+  }
+
+  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media {
+    aspect-ratio: 16 / 10;
+  }
+
   .aurora-proof-grid {
     grid-template-columns: 1fr;
   }
@@ -2383,6 +2701,72 @@ a {
     overflow-wrap: normal;
   }
 
+  .aurora-writing-archive {
+    padding-top: clamp(1.6rem, 7vw, 2.4rem);
+  }
+
+  .aurora-page-2026 {
+    padding-top: clamp(1.7rem, 7vw, 2.6rem);
+    padding-bottom: clamp(2.6rem, 9vw, 4rem);
+  }
+
+  .aurora-page-header {
+    padding-bottom: 0.85rem;
+  }
+
+  .aurora-page-title {
+    font-size: clamp(2rem, 8.5vw, 3.15rem);
+    line-height: 1.05;
+    max-width: 14ch;
+  }
+
+  .aurora-writing-archive-header {
+    gap: 0.75rem;
+    grid-template-columns: 1fr;
+    padding-bottom: 1rem;
+  }
+
+  .aurora-writing-archive-header .aurora-kicker,
+  .aurora-writing-archive-title,
+  .aurora-writing-archive-dek {
+    grid-column: 1;
+  }
+
+  .aurora-writing-archive-title {
+    font-size: clamp(2.35rem, 10.5vw, 3.45rem);
+    max-width: 13ch;
+  }
+
+  .aurora-writing-archive-list.wp-block-post-template {
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  .aurora-writing-archive-list.wp-block-post-template > li,
+  .aurora-writing-archive-list.wp-block-post-template > li:first-child {
+    grid-column: auto;
+  }
+
+  .aurora-writing-card:hover {
+    transform: none;
+  }
+
+  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-title {
+    font-size: clamp(1.45rem, 7vw, 2.15rem);
+  }
+
+  .aurora-writing-dispatch {
+    grid-template-columns: 1fr;
+  }
+
+  .aurora-writing-dispatch .aurora-action-row {
+    justify-content: start;
+  }
+
   .aurora-signal-strip,
   .aurora-work-grid,
   .aurora-footer-nav,
@@ -2492,6 +2876,8 @@ a {
   }
 
   .aurora-media-card img,
+  .aurora-writing-card,
+  .aurora-writing-card-media img,
   .aurora-button,
   .aurora-theme .wp-block-button__link,
   .aurora-article-row,
@@ -2502,6 +2888,8 @@ a {
   }
 
   .aurora-media-card:hover img,
+  .aurora-writing-card:hover,
+  .aurora-writing-card:hover .aurora-writing-card-media img,
   .aurora-button:hover,
   .aurora-theme .wp-block-button__link:hover {
     transform: none;

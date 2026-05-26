@@ -63,6 +63,18 @@
       }
     },
     {
+      "id": 1895,
+      "slug": "publications",
+      "title": "Publications",
+      "comment_status": "closed",
+      "ping_status": "closed",
+      "content_file": "publications.html",
+      "meta": {
+        "jetpack_seo_html_title": "Publications, Interviews & Media Archive | Kris Krüg",
+        "advanced_seo_description": "A restored archive of Kris Krüg publications, interviews, press mentions, video appearances, citations, and legacy media links."
+      }
+    },
+    {
       "id": 3609,
       "slug": "podcast-guesting-page-epk",
       "title": "Podcast Guest, AI Commentator, Event Host",
