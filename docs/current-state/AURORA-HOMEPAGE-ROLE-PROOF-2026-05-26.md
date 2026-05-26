@@ -40,9 +40,29 @@ The only missing image alt detected was a hidden Facebook tracking pixel, not a 
 - Built `/Users/kk/Desktop/kk-aurora-homepage-role-proof-1.3.5.zip`.
 - `unzip -t /Users/kk/Desktop/kk-aurora-homepage-role-proof-1.3.5.zip` passed.
 
+## Aurora 1.3.6 Follow-Up
+
+After `1.3.5` was uploaded and purged, live browser QA confirmed the content markers were present but the desktop hero type was still so large that the role-proof row started below a 1440 by 1000 first viewport.
+
+Aurora `1.3.6` tightens only the homepage hero rhythm:
+
+- Reduces the desktop hero H1 scale while keeping it canonical and visually strong.
+- Expands the H1 measure so it wraps less aggressively.
+- Reduces hero deck/proof/action spacing.
+- Keeps the role-proof row visible in a normal mobile first viewport and preserves 320px no-overflow behavior.
+
+Injected-CSS browser probe before committing showed:
+
+- Desktop 1440 by 1000: H1, deck, role-proof row, and CTAs visible by `838px`; no horizontal overflow.
+- Mobile 390 by 844: H1, deck, and role-proof row visible by `824px`; no horizontal overflow.
+- Small 320 by 700: no horizontal overflow; content remains stacked and readable.
+- Built `/Users/kk/Desktop/kk-aurora-homepage-first-screen-proof-1.3.6.zip`.
+- `unzip -t /Users/kk/Desktop/kk-aurora-homepage-first-screen-proof-1.3.6.zip` passed.
+- `make wp7-smoke EXPECT_VERSION=6.9.4` passed against the live site after the `1.3.5` upload and before the `1.3.6` upload.
+
 ## Remaining Live Gate
 
-Issue #12 should close only after Aurora `1.3.5` is uploaded, caches are purged, and the public homepage is checked for:
+Issue #12 should close only after Aurora `1.3.6` is uploaded, caches are purged, and the public homepage is checked for:
 
 - One visible H1.
 - Hero proof links to BC+AI, Indigenomics.ai, and The Upgrade AI.
