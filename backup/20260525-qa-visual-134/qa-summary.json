@@ -1,0 +1,422 @@
+[
+  {
+    "viewport": "desktop",
+    "label": "home",
+    "path": "/",
+    "finalUrl": "https://kriskrug.co/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Authored judgment in the age of generative everything."
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 1,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "desktop",
+    "label": "blog",
+    "path": "/blog/",
+    "finalUrl": "https://kriskrug.co/blog/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Field notes for the age of generative everything."
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 1,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "desktop",
+    "label": "work",
+    "path": "/recent-projects-include/",
+    "finalUrl": "https://kriskrug.co/recent-projects-include/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Work"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "desktop",
+    "label": "speaking",
+    "path": "/speaking/",
+    "finalUrl": "https://kriskrug.co/speaking/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "AI Keynote Speaker Kris Krüg"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "desktop",
+    "label": "services",
+    "path": "/generative-ai-services/",
+    "finalUrl": "https://kriskrug.co/generative-ai-services/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Generative AI Creative Services & Strategy"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "desktop",
+    "label": "publications",
+    "path": "/publications/",
+    "finalUrl": "https://kriskrug.co/publications/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Publications"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "desktop",
+    "label": "about",
+    "path": "/about/",
+    "finalUrl": "https://kriskrug.co/about/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "About Kris Krüg"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "desktop",
+    "label": "podcast-epk",
+    "path": "/podcast-guesting-page-epk/",
+    "finalUrl": "https://kriskrug.co/podcast-guesting-page-epk/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Podcast Guest, AI Commentator, Event Host"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "desktop",
+    "label": "events",
+    "path": "/events/",
+    "finalUrl": "https://kriskrug.co/events/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Events"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": "h2",
+    "missingMarkers": []
+  },
+  {
+    "viewport": "desktop",
+    "label": "contact",
+    "path": "/contact/",
+    "finalUrl": "https://kriskrug.co/contact/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Contact Kris Krüg"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 4,
+    "eventsHeroTag": null,
+    "contactFirstLetter": {
+      "float": "none",
+      "fontSize": "17.9968px",
+      "fontWeight": "400",
+      "lineHeight": "32.3942px"
+    },
+    "missingMarkers": []
+  },
+  {
+    "viewport": "desktop",
+    "label": "work-alias",
+    "path": "/work/",
+    "finalUrl": "https://kriskrug.co/recent-projects-include/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Work"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "desktop",
+    "label": "services-alias",
+    "path": "/services/",
+    "finalUrl": "https://kriskrug.co/generative-ai-services/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Generative AI Creative Services & Strategy"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "mobile",
+    "label": "home",
+    "path": "/",
+    "finalUrl": "https://kriskrug.co/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Authored judgment in the age of generative everything."
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 1,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "mobile",
+    "label": "blog",
+    "path": "/blog/",
+    "finalUrl": "https://kriskrug.co/blog/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Field notes for the age of generative everything."
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 1,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "mobile",
+    "label": "work",
+    "path": "/recent-projects-include/",
+    "finalUrl": "https://kriskrug.co/recent-projects-include/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Work"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "mobile",
+    "label": "speaking",
+    "path": "/speaking/",
+    "finalUrl": "https://kriskrug.co/speaking/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "AI Keynote Speaker Kris Krüg"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "mobile",
+    "label": "services",
+    "path": "/generative-ai-services/",
+    "finalUrl": "https://kriskrug.co/generative-ai-services/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Generative AI Creative Services & Strategy"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "mobile",
+    "label": "publications",
+    "path": "/publications/",
+    "finalUrl": "https://kriskrug.co/publications/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Publications"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "mobile",
+    "label": "about",
+    "path": "/about/",
+    "finalUrl": "https://kriskrug.co/about/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "About Kris Krüg"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "mobile",
+    "label": "podcast-epk",
+    "path": "/podcast-guesting-page-epk/",
+    "finalUrl": "https://kriskrug.co/podcast-guesting-page-epk/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Podcast Guest, AI Commentator, Event Host"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "mobile",
+    "label": "events",
+    "path": "/events/",
+    "finalUrl": "https://kriskrug.co/events/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Events"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": "h2",
+    "missingMarkers": []
+  },
+  {
+    "viewport": "mobile",
+    "label": "contact",
+    "path": "/contact/",
+    "finalUrl": "https://kriskrug.co/contact/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Contact Kris Krüg"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 4,
+    "eventsHeroTag": null,
+    "contactFirstLetter": {
+      "float": "none",
+      "fontSize": "16.1456px",
+      "fontWeight": "400",
+      "lineHeight": "29.0621px"
+    },
+    "missingMarkers": []
+  },
+  {
+    "viewport": "mobile",
+    "label": "work-alias",
+    "path": "/work/",
+    "finalUrl": "https://kriskrug.co/recent-projects-include/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Work"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  },
+  {
+    "viewport": "mobile",
+    "label": "services-alias",
+    "path": "/services/",
+    "finalUrl": "https://kriskrug.co/generative-ai-services/?aurora_qa=1779748760800",
+    "status": 200,
+    "h1Count": 1,
+    "h1Texts": [
+      "Generative AI Creative Services & Strategy"
+    ],
+    "overflow": false,
+    "brokenImages": 0,
+    "missingAlt": 0,
+    "consoleErrors": 0,
+    "eventsHeroTag": null,
+    "missingMarkers": []
+  }
+]

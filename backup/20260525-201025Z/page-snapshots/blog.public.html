@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8" />
+	<style id="jetpack-boost-critical-css">@media all{*,::after,::before{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,::after,::before{scroll-behavior:auto!important}}body{margin:0;min-height:100vh;overflow-x:hidden}.skip-link{position:absolute;top:-100%;left:var(--wp--preset--spacing--40);z-index:9999;padding:var(--wp--preset--spacing--30) var(--wp--preset--spacing--50);background:var(--wp--preset--color--cyan);color:var(--wp--preset--color--deep);font-weight:600;border-radius:var(--wp--custom--border--radius-sm)}:root{--aurora-ink:#f7f7f2;--aurora-ink-soft:#c8cac8;--aurora-ink-muted:#8f9697;--aurora-black:#030405;--aurora-line:rgba(247,247,242,0.14);--aurora-radius-control:8px;--aurora-max:1200px}.aurora-theme{background:radial-gradient(circle at 20% 10%,rgba(0,229,255,.08),transparent 24rem),radial-gradient(circle at 88% 28%,rgba(240,179,90,.06),transparent 22rem),var(--aurora-black)}.aurora-theme :where(h1,h2,h3,h4,h5,h6,p,a,span,li,figcaption){letter-spacing:0}.aurora-button{align-items:center;border-radius:var(--aurora-radius-control);display:inline-flex;font-weight:700;justify-content:center;line-height:1;min-height:44px;padding:.8rem 1.05rem;text-decoration:none}.aurora-button-primary{background:var(--wp--preset--color--cyan);border:1px solid var(--wp--preset--color--cyan);color:#041013;box-shadow:0 0 28px rgba(0,229,255,.2)}.aurora-button-secondary{background:rgba(247,247,242,.06);border:1px solid var(--aurora-line);color:var(--aurora-ink)}.aurora-kicker{color:var(--wp--preset--color--cyan);font-size:clamp(.78rem,.74rem + .18vw,.92rem);font-weight:800;margin:0 0 1rem;max-width:none;text-transform:uppercase}.aurora-header-2026{background:rgba(3,4,5,.76);border-bottom:1px solid var(--aurora-line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);left:0;position:sticky;right:0;top:0;z-index:1000}.aurora-header-shell{align-items:center;display:grid;gap:1rem;grid-template-columns:minmax(180px,auto) minmax(0,1fr) auto;margin:0 auto;max-width:var(--aurora-max);padding:.8rem clamp(1rem,3vw,2rem)}.aurora-brand{align-items:center;color:var(--aurora-ink);display:inline-flex;gap:.75rem;min-width:0;text-decoration:none}.aurora-brand-mark{align-items:center;background:linear-gradient(135deg,rgba(0,229,255,.98),rgba(240,179,90,.92));border-radius:50%;color:#020607;display:inline-flex;font-size:.74rem;font-weight:900;height:2.25rem;justify-content:center;width:2.25rem}.aurora-brand-text{display:grid;gap:.12rem}.aurora-brand-name{font-size:1rem;font-weight:800}.aurora-brand-role{color:var(--aurora-ink-muted);font-size:.72rem}.aurora-header-actions,.aurora-primary-nav{align-items:center;display:flex;gap:clamp(.6rem,1.8vw,1.2rem);min-width:0}.aurora-primary-nav{justify-content:center}.aurora-primary-nav a,.aurora-utility-link{color:var(--aurora-ink-soft);font-size:.88rem;font-weight:650;text-decoration:none;white-space:nowrap}.aurora-header-actions{flex-wrap:nowrap;justify-content:end}.aurora-utility-link{align-items:center;display:inline-flex;min-height:38px}.aurora-header-cta{flex-shrink:0;min-height:38px;padding:.65rem .85rem;white-space:nowrap}.aurora-home-2026{background:0 0}.aurora-hero-2026{isolation:isolate;min-height:clamp(640px,86vh,880px);overflow:hidden;position:relative}.aurora-hero-media,.aurora-hero-media img,.aurora-hero-media picture,.aurora-hero-scrim{inset:0;position:absolute}.aurora-hero-media{margin:0;z-index:-3}.aurora-hero-media picture{display:block;height:100%}.aurora-hero-media img{height:100%;object-fit:cover;object-position:54% 38%;width:100%}.aurora-hero-scrim{background:linear-gradient(90deg,rgba(3,4,5,.94) 0,rgba(3,4,5,.76) 38%,rgba(3,4,5,.22) 100%),linear-gradient(180deg,rgba(3,4,5,.2),rgba(3,4,5,.78));z-index:-2}.aurora-hero-copy{display:grid;margin:0 auto;max-width:var(--aurora-max);min-height:clamp(640px,86vh,880px);padding:clamp(5rem,10vw,8rem) clamp(1rem,3vw,2rem) clamp(3rem,6vw,5rem);place-content:center start}.aurora-hero-copy h1{color:var(--aurora-ink);font-size:clamp(3.2rem,9vw,8.2rem);font-weight:900;letter-spacing:0;line-height:.96;margin:0;max-width:10ch;text-wrap:balance}.aurora-hero-dek{color:var(--aurora-ink-soft);font-size:clamp(1.05rem,1.6vw,1.42rem);line-height:1.55;margin:1.4rem 0 0;max-width:55ch}.aurora-action-row,.aurora-proof-row{display:flex;flex-wrap:wrap;gap:.65rem}.aurora-proof-row{margin-top:1.6rem}.aurora-proof-row a{background:rgba(247,247,242,.07);border:1px solid var(--aurora-line);border-radius:999px;color:var(--aurora-ink);font-size:.84rem;font-weight:800;padding:.52rem .72rem;text-decoration:none}.aurora-path-row{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:.8rem}.aurora-path-row a{background:rgba(247,247,242,.04);border:1px solid var(--aurora-line);border-radius:999px;color:var(--aurora-ink-soft);font-size:.79rem;font-weight:760;padding:.45rem .68rem;text-decoration:none}.aurora-action-row{margin-top:1.8rem}.aurora-button-reel{background:rgba(247,247,242,.02)}.aurora-hero-caption{align-items:center;bottom:clamp(1rem,3vw,2rem);color:var(--aurora-ink-muted);display:flex;font-size:.76rem;gap:.75rem;left:clamp(1rem,3vw,2rem);max-width:var(--aurora-max);position:absolute;right:clamp(1rem,3vw,2rem)}.aurora-hero-caption span{border-left:2px solid var(--wp--preset--color--cyan);padding-left:.65rem}@media (max-width:1180px){.aurora-header-shell{column-gap:1rem;grid-template-areas:"brand actions""nav nav";grid-template-columns:minmax(0,1fr) auto;row-gap:.65rem}.aurora-brand{grid-area:brand}.aurora-primary-nav{grid-area:nav;flex-wrap:wrap;gap:.5rem .95rem;justify-content:start}.aurora-header-actions{grid-area:actions;justify-content:end}}@media (max-width:700px){.aurora-header-shell{gap:.55rem .75rem;grid-template-columns:minmax(0,1fr) auto;padding:.6rem 1rem .7rem}.aurora-brand-mark{flex:0 0 auto;font-size:.68rem;height:2rem;width:2rem}.aurora-brand-role{display:none}.aurora-primary-nav{display:flex;gap:.4rem;grid-column:1/-1;justify-content:start;overflow-x:auto;padding:.05rem 0 .15rem;scrollbar-width:none;width:100%}.aurora-primary-nav::-webkit-scrollbar{display:none}.aurora-primary-nav a{background:rgba(247,247,242,.05);border:1px solid var(--aurora-line);border-radius:999px;flex:0 0 auto;font-size:.76rem;line-height:1;padding:.46rem .58rem}.aurora-header-actions{gap:.6rem;grid-column:2;grid-row:1;justify-content:end;width:auto}.aurora-utility-link{display:inline-flex;font-size:.76rem;min-height:36px;white-space:nowrap}.aurora-header-cta{flex:0 0 auto;min-height:40px;padding:.62rem .78rem;white-space:nowrap}.aurora-hero-copy{justify-content:stretch;min-height:clamp(600px,82vh,780px);padding-top:4rem}.aurora-hero-media img{object-position:62% 30%}.aurora-hero-copy h1{font-size:clamp(2.65rem,12vw,3.9rem);hyphens:manual;max-width:12ch;overflow-wrap:normal}.aurora-path-row{gap:.45rem}.aurora-path-row a{font-size:.72rem;padding:.4rem .56rem}.aurora-hero-caption{font-size:.68rem;gap:.45rem;left:1rem;right:1rem}}@media (max-width:360px){.aurora-utility-link{display:none}}@media (prefers-reduced-motion:reduce){.aurora-header-2026{backdrop-filter:none;-webkit-backdrop-filter:none}}}@media all{@font-face{font-family:"Inter Variable";font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}html{font-size:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%}body{font-family:"Inter Variable",Inter,system-ui,-apple-system,sans-serif;font-feature-settings:"kern"1,"liga"1,"calt"1,"ss01"1,"cv05"1;font-optical-sizing:auto;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}h1{font-family:"Inter Variable",Inter,system-ui,sans-serif;font-weight:700;letter-spacing:0;text-wrap:balance;overflow-wrap:break-word;hyphens:auto}h1{font-weight:800;letter-spacing:0;line-height:1.1}p{line-height:1.7;text-wrap:pretty;max-width:70ch}@media (prefers-color-scheme:dark){body{font-weight:350}}button{min-height:var(--wp--custom--button--min-height);border-radius:var(--wp--custom--button--radius)}@media (hover:none) and (pointer:coarse){button{min-height:var(--wp--custom--button--mobile-min-height)}}@media (prefers-reduced-motion:reduce){button{transform:none!important}}}@media all{@view-transition{navigation:auto}:root{accent-color:var(--wp--preset--color--cyan)}*{scrollbar-width:thin;scrollbar-color:var(--wp--preset--color--elevated) var(--wp--preset--color--deep)}@media (prefers-reduced-data:reduce){body{font-family:system-ui,sans-serif}}@media (prefers-contrast:more){:root{--wp--preset--color--text-primary:#FFFFFF;--wp--preset--color--text-secondary:#E0E0E0;--wp--preset--color--text-muted:#BBBBBB}a{text-decoration:underline}}}@media all{.pum-container,.pum-content,.pum-content+.pum-close,.pum-overlay,.pum-title{background:0 0;border:none;bottom:auto;clear:none;float:none;font-family:inherit;font-size:medium;font-style:normal;font-weight:400;height:auto;left:auto;letter-spacing:normal;line-height:normal;max-height:none;max-width:none;min-height:0;min-width:0;overflow:visible;position:static;right:auto;text-align:left;text-decoration:none;text-indent:0;text-transform:none;top:auto;visibility:visible;white-space:normal;width:auto;z-index:auto}.pum-content,.pum-title{position:relative;z-index:1}.pum-overlay{bottom:0;display:none;height:100%;left:0;overflow:auto;overflow:initial;position:fixed;right:0;top:0;width:100%;z-index:1999999999}.pum-overlay,.pum-overlay *,.pum-overlay :after,.pum-overlay :before,.pum-overlay:after,.pum-overlay:before{box-sizing:border-box}.pum-container{margin-bottom:3em;position:absolute;top:100px;z-index:1999999999}.pum-container.pum-responsive{height:auto;left:50%;margin-left:-47.5%;overflow:visible;width:95%}@media only screen and (min-width:1024px){.pum-container.pum-responsive.pum-responsive-medium{margin-left:-30%;width:60%}.pum-container.pum-responsive.pum-position-fixed{position:fixed}}@media only screen and (max-width:1024px){.pum-container.pum-responsive.pum-position-fixed{position:absolute}}.pum-container .pum-title{margin-bottom:.5em}.pum-container .pum-content>:first-child{margin-top:0}.pum-container .pum-content>:last-child{margin-bottom:0}.pum-container .pum-content+.pum-close{background-color:#0000;line-height:1;min-width:1em;position:absolute;text-align:center;text-decoration:none;z-index:2}.pum-overlay.pum-overlay-disabled{visibility:hidden}.pum-overlay.pum-overlay-disabled::-webkit-scrollbar{display:block}.pum-overlay.pum-overlay-disabled .pum-container{visibility:visible}.pum-theme-3875,.pum-theme-default-theme{background-color:#fff}.pum-theme-3875 .pum-container,.pum-theme-default-theme .pum-container{padding:18px;border-radius:0;border:1px none #000;box-shadow:1px 1px 3px 0 rgba(2,2,2,.23);background-color:#f9f9f9}.pum-theme-3875 .pum-title,.pum-theme-default-theme .pum-title{color:#000;text-align:left;text-shadow:0 0 0 rgba(2,2,2,.23);font-family:inherit;font-weight:400;font-size:32px;font-style:normal;line-height:36px}.pum-theme-3875 .pum-content,.pum-theme-default-theme .pum-content{color:#8c8c8c;font-family:inherit;font-weight:400;font-style:inherit}.pum-theme-3875 .pum-content+.pum-close,.pum-theme-default-theme .pum-content+.pum-close{position:absolute;height:auto;width:auto;left:auto;right:0;bottom:auto;top:0;padding:8px;color:#fff;font-family:inherit;font-weight:400;font-size:12px;font-style:inherit;line-height:36px;border:1px none #fff;border-radius:0;box-shadow:1px 1px 3px 0 rgba(2,2,2,.23);text-shadow:0 0 0 rgba(0,0,0,.23);background-color:#00b7cd}#pum-3884{z-index:1999999999}}</style><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name='robots' content='max-image-preview:large' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    <!-- Jetpack Site Verification Tags -->
+<meta name="google-site-verification" content="b8AYlJgL8znsPoqYbg7SkgQIGXjWVZds_UJHZN_yiAs" />
+<meta name="p:domain_verify" content="c09752015a5f4947aa6075b567b0dab3" />
+<title>Blog — Kris Krug | AI Keynote Speaker &#038; Creative Technologist</title>
+<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link rel='dns-prefetch' href='//secure.gravatar.com' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//v0.wordpress.com' />
+<link rel='dns-prefetch' href='//widgets.wp.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//0.gravatar.com' />
+<link rel='dns-prefetch' href='//1.gravatar.com' />
+<link rel='dns-prefetch' href='//2.gravatar.com' />
+<link rel='dns-prefetch' href='//jetpack.wordpress.com' />
+<link rel='dns-prefetch' href='//public-api.wordpress.com' />
+<link rel='preconnect' href='//i0.wp.com' />
+<link rel='preconnect' href='//c0.wp.com' />
+<link rel="alternate" type="application/rss+xml" title="Kris Krüg | Generative AI Tools &amp; Techniques &raquo; Feed" href="https://kriskrug.co/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Kris Krüg | Generative AI Tools &amp; Techniques &raquo; Comments Feed" href="https://kriskrug.co/comments/feed/" />
+    <meta name="theme-color" content="#0D0D12">
+    <meta name="color-scheme" content="dark">
+    
+<script data-jetpack-boost="ignore" type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://kriskrug.co/#person","name":"Kris Krüg","alternateName":"Kris Krug","description":"Vancouver-based generative AI strategist, photographer, and community builder. Founder of the BC + AI Ecosystem Industry Association.","url":"https://kriskrug.co","jobTitle":"Generative AI Strategist, Photographer, Community Builder","worksFor":[{"@type":"Organization","name":"BC + AI Ecosystem Industry Association","url":"https://bc-ai.ca/"},{"@type":"Organization","name":"Indigenomics.ai","url":"https://indigenomics.ai/"},{"@type":"Organization","name":"The Upgrade AI","url":"https://www.theupgrade.ai/"}],"sameAs":["https://twitter.com/kriskrug","https://x.com/kriskrug","https://www.instagram.com/kriskrug/"],"knowsAbout":["Generative AI","AI Strategy","AI for Creative Professionals","AI for Journalism","AI Ethics","Photography","Community Building","Vancouver AI Ecosystem","Indigenous Technology","Generative AI Tools"]}</script>
+
+<script data-jetpack-boost="ignore" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://kriskrug.co/#website","url":"https://kriskrug.co","name":"Kris Krüg | Generative AI Tools & Techniques","inLanguage":"en-US","publisher":{"@id":"https://kriskrug.co/#person"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://kriskrug.co/?s={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
+<noscript><link rel='stylesheet' id='all-css-3dcec476619ca3da72b09462cf035ce6' href='https://s5102.pcdn.co/wp-content/boost-cache/static/2a48c70290.min.css' type='text/css' media='all' /></noscript><link data-media="all" onload="this.media=this.dataset.media; delete this.dataset.media; this.removeAttribute( &apos;onload&apos; );" rel='stylesheet' id='all-css-3dcec476619ca3da72b09462cf035ce6' href='https://s5102.pcdn.co/wp-content/boost-cache/static/2a48c70290.min.css' type='text/css' media="not all" />
+<style id='wp-img-auto-sizes-contain-inline-css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id='wp-block-template-part-theme-inline-css'>
+:root :where(.wp-block-template-part.has-background){margin-bottom:0;margin-top:0;padding:1.25em 2.375em}
+/*# sourceURL=https://kriskrug.co/wp-includes/blocks/template-part/theme.min.css */
+</style>
+<style id='wp-block-heading-inline-css'>
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://kriskrug.co/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id='wp-block-paragraph-inline-css'>
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://kriskrug.co/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id='wp-block-post-terms-inline-css'>
+.wp-block-post-terms{box-sizing:border-box}.wp-block-post-terms .wp-block-post-terms__separator{white-space:pre-wrap}
+/*# sourceURL=https://kriskrug.co/wp-includes/blocks/post-terms/style.min.css */
+</style>
+<style id='wp-block-post-title-inline-css'>
+.wp-block-post-title{box-sizing:border-box;word-break:break-word}.wp-block-post-title :where(a){display:inline-block;font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;text-decoration:inherit}
+/*# sourceURL=https://kriskrug.co/wp-includes/blocks/post-title/style.min.css */
+</style>
+<style id='wp-block-post-excerpt-inline-css'>
+:where(.wp-block-post-excerpt){box-sizing:border-box;margin-bottom:var(--wp--style--block-gap);margin-top:var(--wp--style--block-gap)}.wp-block-post-excerpt__excerpt{margin-bottom:0;margin-top:0}.wp-block-post-excerpt__more-text{margin-bottom:0;margin-top:var(--wp--style--block-gap)}.wp-block-post-excerpt__more-link{display:inline-block}
+/*# sourceURL=https://kriskrug.co/wp-includes/blocks/post-excerpt/style.min.css */
+</style>
+<style id='wp-block-post-date-inline-css'>
+.wp-block-post-date{box-sizing:border-box}
+/*# sourceURL=https://kriskrug.co/wp-includes/blocks/post-date/style.min.css */
+</style>
+<style id='wp-block-group-inline-css'>
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=https://kriskrug.co/wp-includes/blocks/group/style.min.css */
+</style>
+<style id='wp-block-group-theme-inline-css'>
+:where(.wp-block-group.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://kriskrug.co/wp-includes/blocks/group/theme.min.css */
+</style>
+<style id='wp-block-post-template-inline-css'>
+.wp-block-post-template{box-sizing:border-box;list-style:none;margin-bottom:0;margin-top:0;max-width:100%;padding:0}.wp-block-post-template.is-flex-container{display:flex;flex-direction:row;flex-wrap:wrap;gap:1.25em}.wp-block-post-template.is-flex-container>li{margin:0;width:100%}@media (min-width:600px){.wp-block-post-template.is-flex-container.is-flex-container.columns-2>li{width:calc(50% - .625em)}.wp-block-post-template.is-flex-container.is-flex-container.columns-3>li{width:calc(33.33333% - .83333em)}.wp-block-post-template.is-flex-container.is-flex-container.columns-4>li{width:calc(25% - .9375em)}.wp-block-post-template.is-flex-container.is-flex-container.columns-5>li{width:calc(20% - 1em)}.wp-block-post-template.is-flex-container.is-flex-container.columns-6>li{width:calc(16.66667% - 1.04167em)}}@media (max-width:600px){.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid{grid-template-columns:1fr}}.wp-block-post-template-is-layout-constrained>li>.alignright,.wp-block-post-template-is-layout-flow>li>.alignright{float:right;margin-inline-end:0;margin-inline-start:2em}.wp-block-post-template-is-layout-constrained>li>.alignleft,.wp-block-post-template-is-layout-flow>li>.alignleft{float:left;margin-inline-end:2em;margin-inline-start:0}.wp-block-post-template-is-layout-constrained>li>.aligncenter,.wp-block-post-template-is-layout-flow>li>.aligncenter{margin-inline-end:auto;margin-inline-start:auto}
+/*# sourceURL=https://kriskrug.co/wp-includes/blocks/post-template/style.min.css */
+</style>
+<style id='wp-block-button-inline-css'>
+.wp-block-button__link{align-content:center;box-sizing:border-box;cursor:pointer;display:inline-block;height:100%;text-align:center;word-break:break-word}.wp-block-button__link.aligncenter{text-align:center}.wp-block-button__link.alignright{text-align:right}:where(.wp-block-button__link){border-radius:9999px;box-shadow:none;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}.wp-block-button[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons>.wp-block-button.has-custom-width{max-width:none}.wp-block-buttons>.wp-block-button.has-custom-width .wp-block-button__link{width:100%}.wp-block-buttons>.wp-block-button.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons>.wp-block-button.wp-block-button__width-25{width:calc(25% - var(--wp--style--block-gap, .5em)*.75)}.wp-block-buttons>.wp-block-button.wp-block-button__width-50{width:calc(50% - var(--wp--style--block-gap, .5em)*.5)}.wp-block-buttons>.wp-block-button.wp-block-button__width-75{width:calc(75% - var(--wp--style--block-gap, .5em)*.25)}.wp-block-buttons>.wp-block-button.wp-block-button__width-100{flex-basis:100%;width:100%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-25{width:25%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-50{width:50%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-75{width:75%}.wp-block-button.is-style-squared,.wp-block-button__link.wp-block-button.is-style-squared{border-radius:0}.wp-block-button.no-border-radius,.wp-block-button__link.no-border-radius{border-radius:0!important}:root :where(.wp-block-button .wp-block-button__link.is-style-outline),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link){border:2px solid;padding:.667em 1.333em}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color)){color:currentColor}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-background)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)){background-color:initial;background-image:none}
+/*# sourceURL=https://kriskrug.co/wp-includes/blocks/button/style.min.css */
+</style>
+<style id='wp-block-buttons-inline-css'>
+.wp-block-buttons{box-sizing:border-box}.wp-block-buttons.is-vertical{flex-direction:column}.wp-block-buttons.is-vertical>.wp-block-button:last-child{margin-bottom:0}.wp-block-buttons>.wp-block-button{display:inline-block;margin:0}.wp-block-buttons.is-content-justification-left{justify-content:flex-start}.wp-block-buttons.is-content-justification-left.is-vertical{align-items:flex-start}.wp-block-buttons.is-content-justification-center{justify-content:center}.wp-block-buttons.is-content-justification-center.is-vertical{align-items:center}.wp-block-buttons.is-content-justification-right{justify-content:flex-end}.wp-block-buttons.is-content-justification-right.is-vertical{align-items:flex-end}.wp-block-buttons.is-content-justification-space-between{justify-content:space-between}.wp-block-buttons.aligncenter{text-align:center}.wp-block-buttons:not(.is-content-justification-space-between,.is-content-justification-right,.is-content-justification-left,.is-content-justification-center) .wp-block-button.aligncenter{margin-left:auto;margin-right:auto;width:100%}.wp-block-buttons[style*=text-decoration] .wp-block-button,.wp-block-buttons[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons .wp-block-button__link{width:100%}.wp-block-button.aligncenter{text-align:center}
+/*# sourceURL=https://kriskrug.co/wp-includes/blocks/buttons/style.min.css */
+</style>
+<style id='wp-block-library-inline-css'>
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--void: #000000;--wp--preset--color--deep: #0D0D12;--wp--preset--color--surface: #12121A;--wp--preset--color--elevated: #1A1A25;--wp--preset--color--muted: #252532;--wp--preset--color--text-primary: #F0F0F5;--wp--preset--color--text-secondary: #B8B8C8;--wp--preset--color--text-muted: #7C7C98;--wp--preset--color--paper: #F7F5F1;--wp--preset--color--signal: #E5462E;--wp--preset--color--wildcard: #C8FF3D;--wp--preset--color--cyan: #00E5FF;--wp--preset--color--teal: #00BFA5;--wp--preset--color--purple: #8B5CF6;--wp--preset--color--pink: #EC4899;--wp--preset--color--blue: #3B82F6;--wp--preset--color--success: #00BFA5;--wp--preset--color--warning: #F59E0B;--wp--preset--color--error: #EF4444;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--gradient--aurora-primary: linear-gradient(135deg, #E5462E 0%, #C8FF3D 100%);--wp--preset--gradient--aurora-secondary: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);--wp--preset--gradient--aurora-subtle: linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);--wp--preset--gradient--aurora-cyan-teal: linear-gradient(135deg, #00E5FF 0%, #00BFA5 100%);--wp--preset--gradient--aurora-radial: radial-gradient(ellipse at center, #1A1A25 0%, #0D0D12 100%);--wp--preset--gradient--depth-fade: linear-gradient(180deg, #0D0D12 0%, #12121A 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.625), 20px);--wp--preset--font-size--large: clamp(22.041px, 1.378rem + ((1vw - 3.2px) * 1.454), 36px);--wp--preset--font-size--x-large: clamp(25.014px, 1.563rem + ((1vw - 3.2px) * 1.769), 42px);--wp--preset--font-size--xs: clamp(0.75rem, 0.75rem + ((1vw - 0.2rem) * 0.208), 0.875rem);--wp--preset--font-size--sm: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.208), 1rem);--wp--preset--font-size--base: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.208), 1.125rem);--wp--preset--font-size--lg: clamp(1.125rem, 1.125rem + ((1vw - 0.2rem) * 0.208), 1.25rem);--wp--preset--font-size--xl: clamp(1.25rem, 1.25rem + ((1vw - 0.2rem) * 0.417), 1.5rem);--wp--preset--font-size--2-xl: clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 0.833), 2rem);--wp--preset--font-size--3-xl: clamp(1.875rem, 1.875rem + ((1vw - 0.2rem) * 1.042), 2.5rem);--wp--preset--font-size--4-xl: clamp(2.25rem, 2.25rem + ((1vw - 0.2rem) * 1.25), 3rem);--wp--preset--font-size--5-xl: clamp(3rem, 3rem + ((1vw - 0.2rem) * 2.5), 4.5rem);--wp--preset--font-size--hero: clamp(3.5rem, 3.5rem + ((1vw - 0.2rem) * 5.833), 7rem);--wp--preset--font-family--display: 'Instrument Sans', 'Inter', system-ui, -apple-system, sans-serif;--wp--preset--font-family--body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;--wp--preset--font-family--mono: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--spacing--10: 0.25rem;--wp--preset--spacing--90: 2.5rem;--wp--preset--spacing--100: 3rem;--wp--preset--spacing--120: 4rem;--wp--preset--spacing--160: 5rem;--wp--preset--spacing--200: 6rem;--wp--preset--spacing--240: 8rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);--wp--preset--shadow--sm: 0 1px 2px rgba(0, 0, 0, 0.5);--wp--preset--shadow--md: 0 4px 6px rgba(0, 0, 0, 0.4);--wp--preset--shadow--lg: 0 10px 15px rgba(0, 0, 0, 0.3);--wp--preset--shadow--xl: 0 20px 25px rgba(0, 0, 0, 0.25);--wp--preset--shadow--glow-cyan: 0 0 20px rgba(0, 229, 255, 0.3), 0 0 40px rgba(0, 229, 255, 0.15);--wp--preset--shadow--glow-teal: 0 0 20px rgba(0, 191, 165, 0.3), 0 0 40px rgba(0, 191, 165, 0.15);--wp--preset--shadow--glow-purple: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.15);--wp--preset--shadow--glow-pink: 0 0 20px rgba(236, 72, 153, 0.3), 0 0 40px rgba(236, 72, 153, 0.15);--wp--custom--animation--duration-fast: 150ms;--wp--custom--animation--duration-normal: 300ms;--wp--custom--animation--duration-slow: 500ms;--wp--custom--animation--duration-slower: 700ms;--wp--custom--animation--ease-out: cubic-bezier(0, 0, 0.2, 1);--wp--custom--animation--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);--wp--custom--animation--ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);--wp--custom--motion--reveal-duration: 280ms;--wp--custom--motion--depth-duration: 420ms;--wp--custom--motion--continuity-duration: 520ms;--wp--custom--motion--proof-duration: 600ms;--wp--custom--motion--micro-duration: 150ms;--wp--custom--motion--reading-duration: 220ms;--wp--custom--motion--reveal-distance: 16px;--wp--custom--motion--depth-distance: 6px;--wp--custom--motion--reduce-duration: 1ms;--wp--custom--border--radius-sm: 0.25rem;--wp--custom--border--radius-md: 0.5rem;--wp--custom--border--radius-lg: 0.75rem;--wp--custom--border--radius-xl: 1rem;--wp--custom--border--radius-2-xl: 1.5rem;--wp--custom--border--radius-full: 9999px;--wp--custom--button--padding-inline: var(--wp--preset--spacing--60);--wp--custom--button--padding-block: var(--wp--preset--spacing--30);--wp--custom--button--radius: var(--wp--custom--border--radius-md);--wp--custom--button--radius-pill: var(--wp--custom--border--radius-full);--wp--custom--button--min-height: 44px;--wp--custom--button--mobile-min-height: 48px;--wp--custom--button--icon-size: 1.125rem;--wp--custom--focus--ring-color: var(--wp--preset--color--cyan);--wp--custom--focus--ring-offset-color: var(--wp--preset--color--deep);--wp--custom--focus--ring-width: 2px;--wp--custom--focus--ring-offset: 3px;--wp--custom--focus--ring-glow: 0 0 0 4px rgba(0, 229, 255, 0.24);--wp--custom--glass--surface-soft: rgba(18, 18, 26, 0.68);--wp--custom--glass--surface-strong: rgba(18, 18, 26, 0.84);--wp--custom--glass--border: rgba(240, 240, 245, 0.12);--wp--custom--glass--highlight: rgba(240, 240, 245, 0.18);--wp--custom--glass--blur: 18px;--wp--custom--line-height--none: 1;--wp--custom--line-height--tight: 1.15;--wp--custom--line-height--snug: 1.3;--wp--custom--line-height--normal: 1.5;--wp--custom--line-height--relaxed: 1.65;--wp--custom--line-height--loose: 1.8;--wp--custom--letter-spacing--tighter: 0;--wp--custom--letter-spacing--tight: 0;--wp--custom--letter-spacing--normal: 0;--wp--custom--letter-spacing--wide: 0.015em;--wp--custom--letter-spacing--wider: 0.03em;--wp--custom--z-index--dropdown: 1000;--wp--custom--z-index--sticky: 1020;--wp--custom--z-index--fixed: 1030;--wp--custom--z-index--modal: 1040;--wp--custom--z-index--popover: 1050;--wp--custom--z-index--tooltip: 1060;}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1280px; }:where(body) { margin: 0; }.wp-site-blocks { padding-top: var(--wp--style--root--padding-top); padding-bottom: var(--wp--style--root--padding-bottom); }.has-global-padding { padding-right: var(--wp--style--root--padding-right); padding-left: var(--wp--style--root--padding-left); }.has-global-padding > .alignfull { margin-right: calc(var(--wp--style--root--padding-right) * -1); margin-left: calc(var(--wp--style--root--padding-left) * -1); }.has-global-padding :where(:not(.alignfull.is-layout-flow) > .has-global-padding:not(.wp-block-block, .alignfull)) { padding-right: 0; padding-left: 0; }.has-global-padding :where(:not(.alignfull.is-layout-flow) > .has-global-padding:not(.wp-block-block, .alignfull)) > .alignfull { margin-left: 0; margin-right: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{background-color: var(--wp--preset--color--deep);color: var(--wp--preset--color--text-primary);font-family: var(--wp--preset--font-family--body);font-size: var(--wp--preset--font-size--base);line-height: var(--wp--custom--line-height--relaxed);--wp--style--root--padding-top: 0px;--wp--style--root--padding-right: var(--wp--preset--spacing--40);--wp--style--root--padding-bottom: 0px;--wp--style--root--padding-left: var(--wp--preset--spacing--40);}a:where(:not(.wp-element-button)){color: var(--wp--preset--color--cyan);text-decoration: none;}:root :where(a:where(:not(.wp-element-button)):hover){color: var(--wp--preset--color--teal);text-decoration: underline;}:root :where(a:where(:not(.wp-element-button)):focus){color: var(--wp--preset--color--cyan);outline-color: var(--wp--custom--focus--ring-color);outline-offset: var(--wp--custom--focus--ring-offset);outline-style: solid;outline-width: var(--wp--custom--focus--ring-width);}h1, h2, h3, h4, h5, h6{color: var(--wp--preset--color--text-primary);font-family: var(--wp--preset--font-family--display);font-weight: 700;line-height: var(--wp--custom--line-height--tight);}h1{font-size: var(--wp--preset--font-size--5xl);letter-spacing: var(--wp--custom--letter-spacing--tighter);margin-bottom: var(--wp--preset--spacing--60);}h2{font-size: var(--wp--preset--font-size--4xl);letter-spacing: var(--wp--custom--letter-spacing--tight);margin-top: var(--wp--preset--spacing--100);margin-bottom: var(--wp--preset--spacing--50);}h3{font-size: var(--wp--preset--font-size--3xl);margin-top: var(--wp--preset--spacing--80);margin-bottom: var(--wp--preset--spacing--40);}h4{font-size: var(--wp--preset--font-size--2xl);}h5{font-size: var(--wp--preset--font-size--xl);}h6{font-size: var(--wp--preset--font-size--lg);}:root :where(.wp-element-button, .wp-block-button__link){background-color: var(--wp--preset--color--cyan);border-radius: var(--wp--custom--button--radius);border-width: 0;color: var(--wp--preset--color--deep);font-family: var(--wp--preset--font-family--body);font-size: var(--wp--preset--font-size--base);font-style: inherit;font-weight: 600;letter-spacing: var(--wp--custom--letter-spacing--normal);line-height: inherit;padding-top: var(--wp--custom--button--padding-block);padding-right: var(--wp--custom--button--padding-inline);padding-bottom: var(--wp--custom--button--padding-block);padding-left: var(--wp--custom--button--padding-inline);text-decoration: none;text-transform: inherit;}:root :where(.wp-element-button:hover, .wp-block-button__link:hover){background-color: var(--wp--preset--color--teal);color: var(--wp--preset--color--deep);}:root :where(.wp-element-button:focus, .wp-block-button__link:focus){outline-color: var(--wp--custom--focus--ring-color);outline-offset: var(--wp--custom--focus--ring-offset);outline-style: solid;outline-width: var(--wp--custom--focus--ring-width);}:root :where(.wp-element-caption, .wp-block-audio figcaption, .wp-block-embed figcaption, .wp-block-gallery figcaption, .wp-block-image figcaption, .wp-block-table figcaption, .wp-block-video figcaption){color: var(--wp--preset--color--text-muted);font-size: var(--wp--preset--font-size--sm);}cite{font-style: normal;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-void-color{color: var(--wp--preset--color--void) !important;}.has-deep-color{color: var(--wp--preset--color--deep) !important;}.has-surface-color{color: var(--wp--preset--color--surface) !important;}.has-elevated-color{color: var(--wp--preset--color--elevated) !important;}.has-muted-color{color: var(--wp--preset--color--muted) !important;}.has-text-primary-color{color: var(--wp--preset--color--text-primary) !important;}.has-text-secondary-color{color: var(--wp--preset--color--text-secondary) !important;}.has-text-muted-color{color: var(--wp--preset--color--text-muted) !important;}.has-paper-color{color: var(--wp--preset--color--paper) !important;}.has-signal-color{color: var(--wp--preset--color--signal) !important;}.has-wildcard-color{color: var(--wp--preset--color--wildcard) !important;}.has-cyan-color{color: var(--wp--preset--color--cyan) !important;}.has-teal-color{color: var(--wp--preset--color--teal) !important;}.has-purple-color{color: var(--wp--preset--color--purple) !important;}.has-pink-color{color: var(--wp--preset--color--pink) !important;}.has-blue-color{color: var(--wp--preset--color--blue) !important;}.has-success-color{color: var(--wp--preset--color--success) !important;}.has-warning-color{color: var(--wp--preset--color--warning) !important;}.has-error-color{color: var(--wp--preset--color--error) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-void-background-color{background-color: var(--wp--preset--color--void) !important;}.has-deep-background-color{background-color: var(--wp--preset--color--deep) !important;}.has-surface-background-color{background-color: var(--wp--preset--color--surface) !important;}.has-elevated-background-color{background-color: var(--wp--preset--color--elevated) !important;}.has-muted-background-color{background-color: var(--wp--preset--color--muted) !important;}.has-text-primary-background-color{background-color: var(--wp--preset--color--text-primary) !important;}.has-text-secondary-background-color{background-color: var(--wp--preset--color--text-secondary) !important;}.has-text-muted-background-color{background-color: var(--wp--preset--color--text-muted) !important;}.has-paper-background-color{background-color: var(--wp--preset--color--paper) !important;}.has-signal-background-color{background-color: var(--wp--preset--color--signal) !important;}.has-wildcard-background-color{background-color: var(--wp--preset--color--wildcard) !important;}.has-cyan-background-color{background-color: var(--wp--preset--color--cyan) !important;}.has-teal-background-color{background-color: var(--wp--preset--color--teal) !important;}.has-purple-background-color{background-color: var(--wp--preset--color--purple) !important;}.has-pink-background-color{background-color: var(--wp--preset--color--pink) !important;}.has-blue-background-color{background-color: var(--wp--preset--color--blue) !important;}.has-success-background-color{background-color: var(--wp--preset--color--success) !important;}.has-warning-background-color{background-color: var(--wp--preset--color--warning) !important;}.has-error-background-color{background-color: var(--wp--preset--color--error) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-void-border-color{border-color: var(--wp--preset--color--void) !important;}.has-deep-border-color{border-color: var(--wp--preset--color--deep) !important;}.has-surface-border-color{border-color: var(--wp--preset--color--surface) !important;}.has-elevated-border-color{border-color: var(--wp--preset--color--elevated) !important;}.has-muted-border-color{border-color: var(--wp--preset--color--muted) !important;}.has-text-primary-border-color{border-color: var(--wp--preset--color--text-primary) !important;}.has-text-secondary-border-color{border-color: var(--wp--preset--color--text-secondary) !important;}.has-text-muted-border-color{border-color: var(--wp--preset--color--text-muted) !important;}.has-paper-border-color{border-color: var(--wp--preset--color--paper) !important;}.has-signal-border-color{border-color: var(--wp--preset--color--signal) !important;}.has-wildcard-border-color{border-color: var(--wp--preset--color--wildcard) !important;}.has-cyan-border-color{border-color: var(--wp--preset--color--cyan) !important;}.has-teal-border-color{border-color: var(--wp--preset--color--teal) !important;}.has-purple-border-color{border-color: var(--wp--preset--color--purple) !important;}.has-pink-border-color{border-color: var(--wp--preset--color--pink) !important;}.has-blue-border-color{border-color: var(--wp--preset--color--blue) !important;}.has-success-border-color{border-color: var(--wp--preset--color--success) !important;}.has-warning-border-color{border-color: var(--wp--preset--color--warning) !important;}.has-error-border-color{border-color: var(--wp--preset--color--error) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-aurora-primary-gradient-background{background: var(--wp--preset--gradient--aurora-primary) !important;}.has-aurora-secondary-gradient-background{background: var(--wp--preset--gradient--aurora-secondary) !important;}.has-aurora-subtle-gradient-background{background: var(--wp--preset--gradient--aurora-subtle) !important;}.has-aurora-cyan-teal-gradient-background{background: var(--wp--preset--gradient--aurora-cyan-teal) !important;}.has-aurora-radial-gradient-background{background: var(--wp--preset--gradient--aurora-radial) !important;}.has-depth-fade-gradient-background{background: var(--wp--preset--gradient--depth-fade) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-xs-font-size{font-size: var(--wp--preset--font-size--xs) !important;}.has-sm-font-size{font-size: var(--wp--preset--font-size--sm) !important;}.has-base-font-size{font-size: var(--wp--preset--font-size--base) !important;}.has-lg-font-size{font-size: var(--wp--preset--font-size--lg) !important;}.has-xl-font-size{font-size: var(--wp--preset--font-size--xl) !important;}.has-2-xl-font-size{font-size: var(--wp--preset--font-size--2-xl) !important;}.has-3-xl-font-size{font-size: var(--wp--preset--font-size--3-xl) !important;}.has-4-xl-font-size{font-size: var(--wp--preset--font-size--4-xl) !important;}.has-5-xl-font-size{font-size: var(--wp--preset--font-size--5-xl) !important;}.has-hero-font-size{font-size: var(--wp--preset--font-size--hero) !important;}.has-display-font-family{font-family: var(--wp--preset--font-family--display) !important;}.has-body-font-family{font-family: var(--wp--preset--font-family--body) !important;}.has-mono-font-family{font-family: var(--wp--preset--font-family--mono) !important;}
+:root :where(.wp-block-post-title){font-family: var(--wp--preset--font-family--display);font-size: var(--wp--preset--font-size--4xl);font-weight: 700;line-height: var(--wp--custom--line-height--tight);}
+:root :where(.wp-block-post-title a:where(:not(.wp-element-button))){color: var(--wp--preset--color--text-primary);}
+:root :where(.wp-block-post-title a:where(:not(.wp-element-button)):hover){color: var(--wp--preset--color--cyan);}
+:root :where(.wp-block-post-date){color: var(--wp--preset--color--text-muted);font-size: var(--wp--preset--font-size--sm);}
+:root :where(.wp-block-post-excerpt){color: var(--wp--preset--color--text-secondary);font-size: var(--wp--preset--font-size--base);line-height: var(--wp--custom--line-height--relaxed);}
+:root :where(.wp-block-post-terms){font-size: var(--wp--preset--font-size--xs);font-weight: 500;letter-spacing: var(--wp--custom--letter-spacing--wider);text-transform: uppercase;}
+:root :where(.wp-block-post-terms a:where(:not(.wp-element-button))){color: var(--wp--preset--color--purple);}
+:root :where(.wp-block-post-terms a:where(:not(.wp-element-button)):hover){color: var(--wp--preset--color--pink);}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<style id='core-block-supports-inline-css'>
+.wp-container-core-buttons-is-layout-a89b3969{justify-content:center;}.wp-container-core-group-is-layout-8d293084 > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:980px;margin-left:auto !important;margin-right:auto !important;}.wp-container-core-group-is-layout-8d293084 > .alignwide{max-width:980px;}.wp-container-core-group-is-layout-8d293084 .alignfull{max-width:none;}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+<style id='wp-block-template-skip-link-inline-css'>
+
+		.skip-link.screen-reader-text {
+			border: 0;
+			clip-path: inset(50%);
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+			position: absolute !important;
+			width: 1px;
+			word-wrap: normal !important;
+		}
+
+		.skip-link.screen-reader-text:focus {
+			background-color: #eee;
+			clip-path: none;
+			color: #444;
+			display: block;
+			font-size: 1em;
+			height: auto;
+			left: 5px;
+			line-height: normal;
+			padding: 15px 23px 14px;
+			text-decoration: none;
+			top: 5px;
+			width: auto;
+			z-index: 100000;
+		}
+/*# sourceURL=wp-block-template-skip-link-inline-css */
+</style>
+<style id='jetpack_likes-inline-css'>
+#jp-post-flair{padding-top:.5em}#content div.sharedaddy,#main div.sharedaddy,div.sharedaddy{clear:both}div.sharedaddy h3.sd-title{display:inline-block;font-size:9pt;font-weight:700;line-height:1.2;margin:0 0 1em}div.sharedaddy h3.sd-title:before{border-top:1px solid #dcdcde;content:"";display:block;margin-bottom:1em;min-width:30px;width:100%}div.jetpack-likes-widget-wrapper{min-height:50px;position:relative;width:100%}div.jetpack-likes-widget-wrapper .sd-link-color{font-size:12px}div.jetpack-comment-likes-widget-wrapper{min-height:31px;position:relative;width:100%}div.jetpack-comment-likes-widget-wrapper iframe{margin-bottom:0}#likes-other-gravatars{background-color:#fff;border:1px solid #dcdcde;border-radius:4px;box-shadow:none;display:none;height:auto;max-height:240px;min-width:220px;overflow:auto;padding:9px 12px 10px;position:absolute;z-index:1000}#likes-other-gravatars *{line-height:normal}#likes-other-gravatars .likes-text{color:#101517;font-size:12px;font-weight:500;padding-bottom:8px}#likes-other-gravatars li,#likes-other-gravatars ul{list-style-type:none;margin:0;padding:0;text-indent:0}#likes-other-gravatars li:before{content:""}#likes-other-gravatars ul.wpl-avatars{display:block;max-height:190px;overflow:auto}#likes-other-gravatars ul.wpl-avatars li{float:none;height:28px;margin:0 0 4px;width:196px}#likes-other-gravatars ul.wpl-avatars li a{align-items:center;border-bottom:none!important;display:flex;gap:8px;margin:0 2px 0 0;text-decoration:none}#likes-other-gravatars ul.wpl-avatars li a span{color:#2c3338;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#likes-other-gravatars ul.wpl-avatars li a img{background:none;border:none;border-radius:50%;box-sizing:border-box;margin:0!important;padding:1px!important;position:static}div.sd-box{border-top:1px solid #00000021}.jetpack-likes-widget-loaded iframe,.jetpack-likes-widget-loading .likes-widget-placeholder,.jetpack-likes-widget-unloaded .likes-widget-placeholder{display:block}.jetpack-likes-widget-loaded .likes-widget-placeholder,.jetpack-likes-widget-loading iframe,.jetpack-likes-widget-unloaded iframe{display:none}.comment-likes-widget,.entry-content .post-likes-widget,.post-likes-widget{border-width:0;margin:0}.comment-likes-widget-placeholder,.post-likes-widget-placeholder{border-width:0;margin:0;position:relative}.comment-likes-widget-placeholder{display:flex;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;height:18px;position:absolute}.comment-likes-widget-placeholder:before{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath fill='%232ea2cc' d='m12 2 2.582 6.953L22 9.257l-5.822 4.602L18.18 21 12 16.89 5.82 21l2.002-7.14L2 9.256l7.418-.304'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:16px 16px;color:#2ea2cc;content:"";display:inline-block;height:16px;padding-right:5px;position:relative;top:3px;width:16px}.post-likes-widget-placeholder .button{display:none}.comment-likes-widget-placeholder .loading,.post-likes-widget-placeholder .loading{color:#999;font-size:12px}.comment-likes-widget-placeholder .loading{align-self:center;color:#4e4e4e;margin-top:4px;padding-left:5px}div.sharedaddy.sd-like-enabled .sd-like h3{display:none}div.sharedaddy.sd-like-enabled .sd-like .post-likes-widget{float:none;position:absolute;top:0;width:100%}.comment-likes-widget{width:100%}.cs-rating,.pd-rating{display:block!important}.sd-gplus .sd-title{display:none}@media print{.jetpack-likes-widget-wrapper{display:none}}
+/*# sourceURL=https://kriskrug.co/wp-content/plugins/jetpack/_inc/build/likes/style.min.css */
+</style>
+<noscript><link rel='stylesheet' id='popup-maker-site-css' href='//s5102.pcdn.co/wp-content/uploads/pum/pum-site-styles.css?generated=1778956624&#038;ver=1.22.0' media='all' />
+</noscript><link data-media="all" onload="this.media=this.dataset.media; delete this.dataset.media; this.removeAttribute( &apos;onload&apos; );" rel='stylesheet' id='popup-maker-site-css' href='//s5102.pcdn.co/wp-content/uploads/pum/pum-site-styles.css?generated=1778956624&#038;ver=1.22.0' media="not all" />
+
+<script data-jetpack-boost="ignore" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kriskrug.co"}]}</script>
+<script data-jetpack-boost="ignore" src="https://s5102.pcdn.co/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+
+
+<!-- Google tag (gtag.js) snippet added by Site Kit -->
+<!-- Google Analytics snippet added by Site Kit -->
+
+
+<link rel="https://api.w.org/" href="https://kriskrug.co/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://kriskrug.co/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.9.4" />
+<meta name="generator" content="Site Kit by Google 1.179.0" /><meta name="p:domain_verify" content="f8bbe5b7c69e3578569bd54295826f17"/>	<style>img#wpstats{display:none}</style>
+		<meta name="description" content="Explore Kris Krug&#039;s professional journey in the dynamic world of AI, technology, and digital media. Delve into his unique experiences, influential roles, and thought leadership that shape the future of digital innovation and community engagement." />
+<!-- Meta Pixel Code -->
+
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1720755522050230&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code --><meta name="google-site-verification" content="nT4GJiTjalxw1bqaK2VtOksFqHi6V_M28eA4q0l0FPo" />
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Kris Krüg | Generative AI Tools &amp; Techniques" />
+<meta property="og:description" content="A field note on the AI mindset: thinking with machines without surrendering taste, agency, or the human weirdness that makes the work worth doing." />
+<meta property="og:url" content="https://kriskrug.co/blog/" />
+<meta property="og:site_name" content="Kris Krüg | Generative AI Tools &amp; Techniques" />
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta property="og:image:alt" content="" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:site" content="@feelmoreplants" />
+
+<!-- End Jetpack Open Graph Tags -->
+</head>
+
+<body class="blog wp-embed-responsive wp-theme-kk-aurora jps-theme-kk-aurora aurora-theme">
+
+<div class="wp-site-blocks"><header class="wp-block-template-part">
+<header class="aurora-header aurora-header-2026" role="banner">
+  <a class="skip-link" href="#aurora-main">Skip to content</a>
+  <div class="aurora-header-shell">
+    <a class="aurora-brand" href="/">
+      <span class="aurora-brand-mark" aria-hidden="true">KK</span>
+      <span class="aurora-brand-text">
+        <span class="aurora-brand-name">Kris Krug</span>
+        <span class="aurora-brand-role">AI, culture, community</span>
+      </span>
+    </a>
+
+    <nav class="aurora-primary-nav" aria-label="Primary navigation">
+      <a href="/about/">About</a>
+      <a href="/work/">Work</a>
+      <a href="/speaking/">Speaking</a>
+      <a href="/services/">Services</a>
+      <a href="/blog/">Writing</a>
+      <a href="/motleykrug-podcast/">Podcast</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+
+    <div class="aurora-header-actions">
+      <a class="aurora-utility-link" href="https://kriskrug.beehiiv.com/">Dispatch</a>
+      <a class="aurora-button aurora-button-primary aurora-header-cta" href="/speaking/">Book a keynote</a>
+    </div>
+  </div>
+</header>
+
+</header>
+
+
+<main id="aurora-main" class="wp-block-group aurora-home-2026 aurora-keynote-first is-layout-flow wp-block-group-is-layout-flow">
+
+  
+  <section class="aurora-hero-2026" aria-labelledby="aurora-home-title">
+    <figure class="aurora-hero-media" aria-label="Kris Krug speaking on stage at CreativeMornings Vancouver">
+      <picture>
+        <source media="(max-width: 700px)" srcset="https://i0.wp.com/www.punkrockai.com/public/photos/michelle-diamond/195.webp?w=900&amp;ssl=1">
+        <source media="(max-width: 1180px)" srcset="https://i0.wp.com/www.punkrockai.com/public/photos/michelle-diamond/195.webp?w=1400&amp;ssl=1">
+        <img src="https://i0.wp.com/www.punkrockai.com/public/photos/michelle-diamond/195.webp?w=2200&amp;ssl=1" alt="Kris Krug speaking on stage at CreativeMornings Vancouver" fetchpriority="high" decoding="async">
+      </picture>
+    </figure>
+    <div class="aurora-hero-scrim" aria-hidden="true"></div>
+    <div class="aurora-hero-copy" data-reveal>
+      <p class="aurora-kicker">AI keynote speaker. Creative technologist. Community builder.</p>
+      <h1 id="aurora-home-title">Authored judgment in the age of generative everything.</h1>
+      <p class="aurora-hero-dek">The machines now spill out adequate everything. The scarce thing &#8211; and the thing the world will pay for &#8211; is taste that can be explained, defended, and taught. I help organizations and creative pros build it.</p>
+      <div class="aurora-proof-row" aria-label="Current proof">
+        <a href="https://bc-ai.ca/">Executive Director, BC + AI</a>
+        <a href="https://www.theupgrade.ai/">Founder, TheUpgrade.ai</a>
+        <a href="/speaking/">20+ years on stage</a>
+        <a href="/work/">Culture, code, community</a>
+      </div>
+      <div class="aurora-action-row">
+        <a class="aurora-button aurora-button-primary" href="/speaking/">Book a keynote</a>
+        <a class="aurora-button aurora-button-secondary" href="/work/">See current work</a>
+      </div>
+    </div>
+    <div class="aurora-hero-caption" aria-label="Hero media source">
+      <span>Photo: CreativeMornings Vancouver</span>
+      <span>Source: Punk Rock AI media archive</span>
+    </div>
+  </section>
+
+  <section class="aurora-featured-strip" aria-labelledby="aurora-featured-title">
+    <div class="aurora-section-heading aurora-section-heading-compact">
+      <p class="aurora-kicker">Featured in</p>
+      <h2 id="aurora-featured-title">Proof without the logo soup.</h2>
+    </div>
+    <div class="aurora-logo-row aurora-logo-row-wide" aria-label="Media and publication logos">
+      <span>BBC</span>
+      <span>WIRED</span>
+      <span>Forbes</span>
+      <span>Reuters</span>
+      <span>Time</span>
+      <span>The Guardian</span>
+      <span>Fast Company</span>
+      <span>NPR</span>
+    </div>
+  </section>
+
+  <section class="aurora-feature-band aurora-feature-band-dark" data-reveal>
+    <div class="aurora-section-heading">
+      <p class="aurora-kicker">What I&#8217;m building now</p>
+      <h2>Living projects, not dusty credentials.</h2>
+      <p>These are the current rooms, portals, workshops, and communities where the AI conversation becomes something people can use.</p>
+    </div>
+
+    <div class="aurora-work-grid aurora-current-work-grid" data-reveal-stagger>
+      <article class="aurora-media-card aurora-media-card-large">
+        <a href="https://bc-ai.ca/" aria-label="Explore BC + AI Ecosystem">
+          <img src="https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&amp;ssl=1" alt="BC + AI community ecosystem graphic" loading="lazy" decoding="async">
+          <span class="aurora-card-label">Ecosystem</span>
+          <div>
+            <h3>BC + AI Ecosystem</h3>
+            <p>Community infrastructure for a responsible, inclusive, place-rooted AI future in British Columbia.</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="aurora-media-card">
+        <a href="https://www.theupgrade.ai/" aria-label="Explore TheUpgrade.ai">
+          <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/01/01k7dj5tx212rc55a76ds68rq4-Kris-Krug.png?w=1200&amp;ssl=1" alt="Kris Krug portrait used for AI training and workshop context" loading="lazy" decoding="async">
+          <span class="aurora-card-label">Training</span>
+          <div>
+            <h3>TheUpgrade.ai</h3>
+            <p>Practical workshops and executive briefings that build human capacity alongside machine capacity.</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="aurora-media-card">
+        <a href="https://www.punkrockai.com/" aria-label="Explore Punk Rock AI">
+          <img src="https://i0.wp.com/www.punkrockai.com/public/photos/michelle-diamond/195.webp?w=1200&amp;ssl=1" alt="Kris Krug speaking at CreativeMornings Vancouver" loading="lazy" decoding="async">
+          <span class="aurora-card-label">Keynote portal</span>
+          <div>
+            <h3>Punk Rock AI</h3>
+            <p>Make culture, not content. A creative rebellion with tools, prompts, and stage receipts.</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="aurora-media-card">
+        <a href="https://www.bothhandsfull.com/" aria-label="Explore Both Hands Full">
+          <img src="https://www.bothhandsfull.com/opengraph-image?46af5f0ff830fe03" alt="Both Hands Full keynote portal graphic" loading="lazy" decoding="async">
+          <span class="aurora-card-label">Talk world</span>
+          <div>
+            <h3>Both Hands Full</h3>
+            <p>Critique in one hand. Agency in the other. A portal for filmmakers in the age of synthetic everything.</p>
+          </div>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <section class="aurora-offer-band" aria-labelledby="aurora-hired-title" data-reveal>
+    <div class="aurora-section-heading">
+      <p class="aurora-kicker">What I get hired for</p>
+      <h2 id="aurora-hired-title">Rooms that need clarity, courage, and a useful next step.</h2>
+    </div>
+    <div class="aurora-hired-grid">
+      <article>
+        <span class="aurora-card-label">Keynotes</span>
+        <h3>Keynotes that move rooms</h3>
+        <p>Plain-English talks on AI, taste, ethics, creativity, and human agency. No hype. No doom sermon. A better frame for the room.</p>
+        <a class="aurora-inline-link" href="/speaking/">Book a keynote</a>
+      </article>
+      <article>
+        <span class="aurora-card-label">Workshops</span>
+        <h3>Workshops that change teams</h3>
+        <p>Practical AI learning for creative teams, leadership offsites, associations, and organizations that need shared language fast.</p>
+        <a class="aurora-inline-link" href="/services/">Work with me</a>
+      </article>
+      <article>
+        <span class="aurora-card-label">Networks</span>
+        <h3>Ecosystem work that builds durable networks</h3>
+        <p>Community strategy, salons, partner rooms, and public-interest infrastructure for people trying to build with the future, not just talk about it.</p>
+        <a class="aurora-inline-link" href="/work/">See current work</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="aurora-stage-strip" aria-labelledby="aurora-stages-title">
+    <div class="aurora-section-heading aurora-section-heading-compact">
+      <p class="aurora-kicker">Recent and recurring stages</p>
+      <h2 id="aurora-stages-title">The rooms already know the work.</h2>
+    </div>
+    <div class="aurora-logo-row aurora-logo-row-wide" aria-label="Stage and event logos">
+      <span>TEDx</span>
+      <span>SXSW</span>
+      <span>Web Summit</span>
+      <span>PopTech</span>
+      <span>CreativeMornings</span>
+      <span>World AI Film Festival</span>
+      <span>UN</span>
+      <span>Microsoft</span>
+      <span>Adobe</span>
+      <span>Grammys</span>
+    </div>
+  </section>
+
+  <section class="aurora-testimonial-band" aria-labelledby="aurora-testimonials-title" data-reveal>
+    <div class="aurora-section-heading">
+      <p class="aurora-kicker">What people say</p>
+      <h2 id="aurora-testimonials-title">Fresh proof belongs here before launch.</h2>
+      <p>The Stewart Butterfield quote can stay as an anchor. This slot is designed for two or three current organizer quotes from 2024-2026 work.</p>
+    </div>
+    <div class="aurora-quote-grid aurora-quote-grid-three">
+      <blockquote class="aurora-quote-card">
+        <p>&#8220;Kris brought a rare mix of clarity, cultural fluency, and practical next steps. The room left with language they could actually use.&#8221;</p>
+        <cite>Event organizer quote &#8211; replace with verified 2024-2026 attribution</cite>
+      </blockquote>
+      <blockquote class="aurora-quote-card">
+        <p>&#8220;He made the AI conversation feel less abstract, less performative, and much more human.&#8221;</p>
+        <cite>Workshop host quote &#8211; replace with verified attribution</cite>
+      </blockquote>
+      <blockquote class="aurora-quote-card">
+        <p>&#8220;The value was not just inspiration. People left with a working frame for what to do next.&#8221;</p>
+        <cite>Leadership audience quote &#8211; replace with verified attribution</cite>
+      </blockquote>
+    </div>
+  </section>
+  
+
+  
+  <div class="wp-block-group aurora-writing-band has-global-padding is-layout-constrained wp-container-core-group-is-layout-8d293084 wp-block-group-is-layout-constrained">
+    
+    <h2 class="wp-block-heading aurora-writing-title">Field notes</h2>
+    
+
+    
+    <p class="aurora-writing-dek">Essays from the edge of AI, creativity, community, tools, taste, and what happens after the demo.</p>
+    
+
+    
+    <div class="wp-block-query aurora-writing-query is-layout-flow wp-block-query-is-layout-flow">
+      <ul class="aurora-article-list wp-block-post-template is-layout-flow wp-block-post-template-is-layout-flow"><li class="wp-block-post post-6348 post type-post status-publish format-standard has-post-thumbnail hentry category-ai-creatives tag-ai-for-creatives tag-ai-mindset tag-creative-ai tag-human-ai-collaboration">
+        
+        <div class="wp-block-group aurora-article-row has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+          <div class="taxonomy-category aurora-article-category wp-block-post-terms"><a href="https://kriskrug.co/category/ai-creatives/" rel="tag">AI for Creatives</a></div>
+          <h3 class="aurora-article-title wp-block-post-title"><a href="https://kriskrug.co/2026/05/24/ai-mindset-creative-paradigm/" target="_self" >The AI Mindset: Adapting to the New Creative Paradigm</a></h3>
+          <div class="aurora-article-excerpt wp-block-post-excerpt"><p class="wp-block-post-excerpt__excerpt">A field note on the AI mindset: thinking with machines without surrendering taste, agency, or the human weirdness that makes the work worth doing. </p></div>
+          <div class="aurora-article-date wp-block-post-date"><time datetime="2026-05-24T15:00:00-08:00">May 24, 2026</time></div>
+        </div>
+        
+      </li><li class="wp-block-post post-11936 post type-post status-publish format-standard has-post-thumbnail hentry category-ai-ethics-philosophy tag-ai-protest tag-both-hands-full tag-clean-energy-ai tag-data-centres tag-indigenous-data-sovereignty tag-open-source-ai tag-vancouver">
+        
+        <div class="wp-block-group aurora-article-row has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+          <div class="taxonomy-category aurora-article-category wp-block-post-terms"><a href="https://kriskrug.co/category/ai-ethics-philosophy/" rel="tag">AI Ethics &amp; Philosophy</a></div>
+          <h3 class="aurora-article-title wp-block-post-title"><a href="https://kriskrug.co/2026/05/23/you-cant-drink-data/" target="_self" >You Can&#8217;t Drink Data</a></h3>
+          <div class="aurora-article-excerpt wp-block-post-excerpt"><p class="wp-block-post-excerpt__excerpt">Kris Krug marches in Vancouver&#8217;s first anti-AI, anti-data-centre protest, and argues that &#8216;shut it all down&#8217; and &#8216;more compute, trust us&#8217; are the same&hellip; </p></div>
+          <div class="aurora-article-date wp-block-post-date"><time datetime="2026-05-23T15:00:00-08:00">May 23, 2026</time></div>
+        </div>
+        
+      </li><li class="wp-block-post post-10594 post type-post status-publish format-standard has-post-thumbnail hentry category-ai-creatives tag-ai-creatives tag-creative-strategy tag-field-manual tag-human-plus-plus tag-manifesto tag-taste tag-theupgrade-ai">
+        
+        <div class="wp-block-group aurora-article-row has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+          <div class="taxonomy-category aurora-article-category wp-block-post-terms"><a href="https://kriskrug.co/category/ai-creatives/" rel="tag">AI for Creatives</a></div>
+          <h3 class="aurora-article-title wp-block-post-title"><a href="https://kriskrug.co/2026/05/16/make-culture-not-content/" target="_self" >Make Culture, Not Content</a></h3>
+          <div class="aurora-article-excerpt wp-block-post-excerpt"><p class="wp-block-post-excerpt__excerpt">Generative engines now spill out adequate everything. Your value is shifting from production to selection, orchestration, and meaning-making — a field manual. </p></div>
+          <div class="aurora-article-date wp-block-post-date"><time datetime="2026-05-16T06:39:56-08:00">May 16, 2026</time></div>
+        </div>
+        
+      </li></ul>
+    </div>
+    
+
+    
+    <div class="wp-block-buttons aurora-writing-actions is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-a89b3969 wp-block-buttons-is-layout-flex">
+      
+      <div class="wp-block-button is-style-aurora-ghost"><a class="wp-block-button__link wp-element-button" href="/blog/">Read the field notes</a></div>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  <section class="aurora-dispatch-band" aria-labelledby="aurora-dispatch-title" data-reveal>
+    <p class="aurora-kicker">Get the dispatch</p>
+    <h2 id="aurora-dispatch-title">The dispatch from the edge.</h2>
+    <p>Weekly field notes on AI, creativity, and what&#8217;s still ours to make. Sharp, useful, and short enough to actually read. Free.</p>
+    <div class="aurora-action-row">
+      <a class="aurora-button aurora-button-primary" href="https://kriskrug.beehiiv.com/">Join the dispatch</a>
+      <a class="aurora-button aurora-button-secondary" href="/blog/">Read the field notes</a>
+    </div>
+  </section>
+  
+
+</main>
+
+
+<footer class="wp-block-template-part">
+<footer class="aurora-footer-2026" role="contentinfo">
+  <div class="aurora-footer-shell">
+    <section class="aurora-footer-brand" aria-label="Kris Krug">
+      <p class="aurora-kicker">Kris Krug</p>
+      <h2>Authored judgment, human agency, and the camera-trained habit of paying attention.</h2>
+      <p>AI keynotes, workshops, and ecosystem work from the traditional, ancestral, and unceded territories of the Musqueam, Squamish, and Tsleil-Waututh Nations.</p>
+      <div class="aurora-footer-actions">
+        <a class="aurora-button aurora-button-primary" href="/speaking/">Book a keynote</a>
+        <a class="aurora-button aurora-button-secondary" href="https://kriskrug.beehiiv.com/">Join the dispatch</a>
+      </div>
+      <div class="aurora-newsletter-utility" aria-label="Newsletter">
+        <p class="aurora-kicker">The dispatch from the edge</p>
+        <h3>Weekly field notes on AI, creativity, and what&#8217;s still ours to make.</h3>
+        <p>Sharp, useful, and short enough to actually read. Free.</p>
+        <a class="aurora-button aurora-button-secondary" href="https://kriskrug.beehiiv.com/">Join the dispatch</a>
+        <p class="aurora-form-message">Opens the Beehiiv signup.</p>
+      </div>
+    </section>
+
+    <nav class="aurora-footer-nav" aria-label="Footer navigation">
+      <div>
+        <h3>Site</h3>
+        <a href="/about/">About</a>
+        <a href="/work/">Work</a>
+        <a href="/speaking/">Speaking</a>
+        <a href="/services/">Services</a>
+        <a href="/blog/">Writing</a>
+        <a href="/motleykrug-podcast/">Podcast</a>
+      </div>
+      <div>
+        <h3>Projects</h3>
+        <a href="https://bc-ai.ca/">BC + AI</a>
+        <a href="https://www.theupgrade.ai/">The Upgrade AI</a>
+        <a href="https://indigenomics.ai/">Indigenomics.ai</a>
+        <a href="https://www.punkrockai.com/">Punk Rock AI</a>
+        <a href="https://www.bothhandsfull.com/">Both Hands Full</a>
+      </div>
+      <div>
+        <h3>Utility</h3>
+        <a href="/events/">Events</a>
+        <a href="/publications/">Press and publications</a>
+        <a href="/testimonials/">Testimonials</a>
+        <a href="/privacy-policy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="aurora-footer-bottom">
+    <p>Copyright 2026 Kris Krug. All rights reserved.</p>
+    <p><a href="/reconciliation-indigenous-land-acknowledgement/">Reconciliation</a> / <a href="/the-kk-worldview/">Worldview</a></p>
+  </div>
+</footer>
+
+</footer>
+</div>
+
+		<div class="jetpack-instant-search__widget-area" style="display: none">
+							<div id="jetpack-search-filters-1" class="widget jetpack-filters widget_search">			<div id="jetpack-search-filters-1-wrapper" class="jetpack-instant-search-wrapper">
+		</div></div>					</div>
+		<div 
+	id="pum-3884" 
+	role="dialog" 
+	aria-modal="false"
+	aria-labelledby="pum_popup_title_3884"
+	class="pum pum-overlay pum-theme-3875 pum-theme-default-theme popmake-overlay pum-overlay-disabled auto_open click_open" 
+	data-popmake="{&quot;id&quot;:3884,&quot;slug&quot;:&quot;beehiiv-popup&quot;,&quot;theme_id&quot;:3875,&quot;cookies&quot;:[{&quot;event&quot;:&quot;on_popup_close&quot;,&quot;settings&quot;:{&quot;name&quot;:&quot;pum-3884&quot;,&quot;key&quot;:&quot;&quot;,&quot;session&quot;:false,&quot;path&quot;:&quot;1&quot;,&quot;time&quot;:&quot;1 month&quot;}},{&quot;event&quot;:&quot;on_popup_close&quot;,&quot;settings&quot;:{&quot;name&quot;:&quot;pum-3884&quot;,&quot;key&quot;:&quot;&quot;,&quot;session&quot;:false,&quot;path&quot;:&quot;1&quot;,&quot;time&quot;:&quot;1 month&quot;}}],&quot;triggers&quot;:[{&quot;type&quot;:&quot;auto_open&quot;,&quot;settings&quot;:{&quot;cookie_name&quot;:[&quot;pum-3884&quot;],&quot;delay&quot;:&quot;30000&quot;}},{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:&quot;1&quot;,&quot;overlay_disabled&quot;:&quot;1&quot;,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;medium&quot;,&quot;responsive_min_width&quot;:&quot;0px&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;px&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;300px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:&quot;1&quot;,&quot;location&quot;:&quot;center&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;100&quot;,&quot;position_left&quot;:&quot;0&quot;,&quot;position_bottom&quot;:&quot;10&quot;,&quot;position_right&quot;:&quot;10&quot;,&quot;position_fixed&quot;:&quot;1&quot;,&quot;animation_type&quot;:&quot;slide&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;bottom&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:false,&quot;esc_press&quot;:false,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}">
+
+	<div id="popmake-3884" class="pum-container popmake theme-3875 pum-responsive pum-responsive-medium responsive size-medium pum-position-fixed">
+
+				
+							<div id="pum_popup_title_3884" class="pum-title popmake-title">
+				Signup for Kris Krüg&#039;s Newsletter			</div>
+		
+		
+				<div class="pum-content popmake-content" tabindex="0">
+			<p><iframe loading="lazy" style="border-radius: 4px; border: 2px solid #e5e7eb; margin: 0; background-color: transparent;" src="https://embeds.beehiiv.com/552dc13c-76df-4a0b-9663-b7e668042177" width="100%" height="320" frameborder="0" scrolling="no" data-test-id="beehiiv-embed"></iframe></p>
+		</div>
+
+				
+							<button type="button" class="pum-close popmake-close" aria-label="Close">
+			CLOSE			</button>
+		
+	</div>
+
+</div>
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type='text/javascript' src='https://s5102.pcdn.co/wp-includes/js/jquery/jquery-migrate.min.js?m=1773336748'></script><script src="https://www.googletagmanager.com/gtag/js?id=G-X7JE8B32L7" id="google_gtagjs-js" async></script><script id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["kriskrug.co"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "G-X7JE8B32L7");
+//# sourceURL=google_gtagjs-js-after
+</script><script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1720755522050230');
+fbq('track', 'PageView');
+</script><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","https://s5102.pcdn.co/wp-content/uploads/*","https://s5102.pcdn.co/wp-content/*","https://s5102.pcdn.co/wp-content/plugins/*","https://s5102.pcdn.co/wp-content/themes/kk-aurora/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script><script>window.addEventListener( 'load', function() {
+				document.querySelectorAll( 'link' ).forEach( function( e ) {'not all' === e.media && e.dataset.media && ( e.media = e.dataset.media, delete e.dataset.media );} );
+				var e = document.getElementById( 'jetpack-boost-critical-css' );
+				e && ( e.media = 'not all' );
+			} );</script><script id="wp-block-template-skip-link-js-after">
+	( function() {
+		var skipLinkTarget = document.querySelector( 'main' ),
+			sibling,
+			skipLinkTargetID,
+			skipLink;
+
+		// Early exit if a skip-link target can't be located.
+		if ( ! skipLinkTarget ) {
+			return;
+		}
+
+		/*
+		 * Get the site wrapper.
+		 * The skip-link will be injected in the beginning of it.
+		 */
+		sibling = document.querySelector( '.wp-site-blocks' );
+
+		// Early exit if the root element was not found.
+		if ( ! sibling ) {
+			return;
+		}
+
+		// Get the skip-link target's ID, and generate one if it doesn't exist.
+		skipLinkTargetID = skipLinkTarget.id;
+		if ( ! skipLinkTargetID ) {
+			skipLinkTargetID = 'wp--skip-link--target';
+			skipLinkTarget.id = skipLinkTargetID;
+		}
+
+		// Create the skip link.
+		skipLink = document.createElement( 'a' );
+		skipLink.classList.add( 'skip-link', 'screen-reader-text' );
+		skipLink.id = 'wp-skip-link';
+		skipLink.href = '#' + skipLinkTargetID;
+		skipLink.innerText = 'Skip to content';
+
+		// Inject the skip link.
+		sibling.parentElement.insertBefore( skipLink, sibling );
+	}() );
+	
+//# sourceURL=wp-block-template-skip-link-js-after
+</script><script type='text/javascript' src='https://s5102.pcdn.co/wp-includes/js/dist/hooks.min.js?m=1773336748'></script><script src="https://s5102.pcdn.co/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script><script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script><script src="https://s5102.pcdn.co/wp-content/plugins/zero-bs-crm/jetpack_vendor/automattic/jetpack-assets/build/i18n-loader.js?minify=true&amp;ver=5ba5dddc04be2306aaf0" id="wp-jp-i18n-loader-js"></script><script id="wp-jp-i18n-loader-js-after">
+wp.jpI18nLoader.state = {"baseUrl":"https://s5102.pcdn.co/wp-content/languages/","locale":"en_US","domainMap":{"jetpack-admin-ui":"plugins/jetpack","jetpack-assets":"plugins/zero-bs-crm","jetpack-boost-core":"plugins/jetpack","jetpack-boost-speed-score":"plugins/jetpack","jetpack-config":"plugins/jetpack","jetpack-connection":"plugins/jetpack","jetpack-explat":"plugins/jetpack","jetpack-image-cdn":"plugins/jetpack","jetpack-ip":"plugins/jetpack","jetpack-jitm":"plugins/jetpack","jetpack-licensing":"plugins/jetpack","jetpack-my-jetpack":"plugins/jetpack","jetpack-password-checker":"plugins/jetpack","jetpack-plugin-deactivation":"plugins/jetpack-boost","jetpack-plugins-installer":"plugins/jetpack","jetpack-protect-models":"plugins/jetpack","jetpack-protect-status":"plugins/jetpack","jetpack-schema":"plugins/jetpack-boost","jetpack-sync":"plugins/jetpack","jetpack-wp-js-data-sync":"plugins/jetpack-boost","jetpack-account-protection":"plugins/jetpack","jetpack-transport-helper":"plugins/jetpack-protect","jetpack-waf":"plugins/jetpack","jetpack-activity-log":"plugins/jetpack","jetpack-backup-pkg":"plugins/jetpack","jetpack-blaze":"plugins/jetpack","jetpack-block-delimiter":"plugins/jetpack","jetpack-classic-theme-helper":"plugins/jetpack","jetpack-compat":"plugins/jetpack","jetpack-external-connections":"plugins/jetpack","jetpack-external-media":"plugins/jetpack","jetpack-forms":"plugins/jetpack","jetpack-import":"plugins/jetpack","jetpack-jwt":"plugins/jetpack","jetpack-masterbar":"plugins/jetpack","jetpack-newsletter":"plugins/jetpack","jetpack-paypal-payments":"plugins/jetpack","jetpack-post-list":"plugins/jetpack","jetpack-post-media":"plugins/jetpack","jetpack-publicize-pkg":"plugins/jetpack","jetpack-search-pkg":"plugins/jetpack","jetpack-stats":"plugins/jetpack","jetpack-stats-admin":"plugins/jetpack","jetpack-subscribers-dashboard":"plugins/jetpack","jetpack-videopress-pkg":"plugins/jetpack","jetpack-wp-abilities":"plugins/jetpack","jetpack-wp-build-polyfills":"plugins/jetpack","woocommerce-analytics":"plugins/jetpack"},"domainPaths":{"jetpack-admin-ui":"jetpack_vendor/automattic/jetpack-admin-ui/","jetpack-assets":"jetpack_vendor/automattic/jetpack-assets/","jetpack-boost-core":"jetpack_vendor/automattic/jetpack-boost-core/","jetpack-boost-speed-score":"jetpack_vendor/automattic/jetpack-boost-speed-score/","jetpack-config":"jetpack_vendor/automattic/jetpack-config/","jetpack-connection":"jetpack_vendor/automattic/jetpack-connection/","jetpack-explat":"jetpack_vendor/automattic/jetpack-explat/","jetpack-image-cdn":"jetpack_vendor/automattic/jetpack-image-cdn/","jetpack-ip":"jetpack_vendor/automattic/jetpack-ip/","jetpack-jitm":"jetpack_vendor/automattic/jetpack-jitm/","jetpack-licensing":"jetpack_vendor/automattic/jetpack-licensing/","jetpack-my-jetpack":"jetpack_vendor/automattic/jetpack-my-jetpack/","jetpack-password-checker":"jetpack_vendor/automattic/jetpack-password-checker/","jetpack-plugin-deactivation":"jetpack_vendor/automattic/jetpack-plugin-deactivation/","jetpack-plugins-installer":"jetpack_vendor/automattic/jetpack-plugins-installer/","jetpack-protect-models":"jetpack_vendor/automattic/jetpack-protect-models/","jetpack-protect-status":"jetpack_vendor/automattic/jetpack-protect-status/","jetpack-schema":"jetpack_vendor/automattic/jetpack-schema/","jetpack-sync":"jetpack_vendor/automattic/jetpack-sync/","jetpack-wp-js-data-sync":"jetpack_vendor/automattic/jetpack-wp-js-data-sync/","jetpack-account-protection":"jetpack_vendor/automattic/jetpack-account-protection/","jetpack-transport-helper":"jetpack_vendor/automattic/jetpack-transport-helper/","jetpack-waf":"jetpack_vendor/automattic/jetpack-waf/","jetpack-activity-log":"jetpack_vendor/automattic/jetpack-activity-log/","jetpack-backup-pkg":"jetpack_vendor/automattic/jetpack-backup/","jetpack-blaze":"jetpack_vendor/automattic/jetpack-blaze/","jetpack-block-delimiter":"jetpack_vendor/automattic/block-delimiter/","jetpack-classic-theme-helper":"jetpack_vendor/automattic/jetpack-classic-theme-helper/","jetpack-compat":"jetpack_vendor/automattic/jetpack-compat/","jetpack-external-connections":"jetpack_vendor/automattic/jetpack-external-connections/","jetpack-external-media":"jetpack_vendor/automattic/jetpack-external-media/","jetpack-forms":"jetpack_vendor/automattic/jetpack-forms/","jetpack-import":"jetpack_vendor/automattic/jetpack-import/","jetpack-jwt":"jetpack_vendor/automattic/jetpack-jwt/","jetpack-masterbar":"jetpack_vendor/automattic/jetpack-masterbar/","jetpack-newsletter":"jetpack_vendor/automattic/jetpack-newsletter/","jetpack-paypal-payments":"jetpack_vendor/automattic/jetpack-paypal-payments/","jetpack-post-list":"jetpack_vendor/automattic/jetpack-post-list/","jetpack-post-media":"jetpack_vendor/automattic/jetpack-post-media/","jetpack-publicize-pkg":"jetpack_vendor/automattic/jetpack-publicize/","jetpack-search-pkg":"jetpack_vendor/automattic/jetpack-search/","jetpack-stats":"jetpack_vendor/automattic/jetpack-stats/","jetpack-stats-admin":"jetpack_vendor/automattic/jetpack-stats-admin/","jetpack-subscribers-dashboard":"jetpack_vendor/automattic/jetpack-subscribers-dashboard/","jetpack-videopress-pkg":"jetpack_vendor/automattic/jetpack-videopress/","jetpack-wp-abilities":"jetpack_vendor/automattic/jetpack-wp-abilities/","jetpack-wp-build-polyfills":"jetpack_vendor/automattic/jetpack-wp-build-polyfills/","woocommerce-analytics":"jetpack_vendor/automattic/woocommerce-analytics/"}};
+//# sourceURL=wp-jp-i18n-loader-js-after
+</script><script type='text/javascript' src='https://s5102.pcdn.co/wp-content/boost-cache/static/2b56b2a5d6.min.js'></script><script id="jetpack-instant-search-js-before">
+var JetpackInstantSearchOptions={"overlayOptions":{"colorTheme":"dark","enableInfScroll":true,"enableFilteringOpensOverlay":true,"enablePostDate":true,"enableProductPrice":true,"enableSort":true,"highlightColor":"#FFC","overlayTrigger":"submit","resultFormat":"minimal","showPoweredBy":true,"defaultSort":"relevance","excludedPostTypes":[],"fallbackImageUrl":"","enableFallbackImage":false},"homeUrl":"https://kriskrug.co","locale":"en-US","postsPerPage":19,"siteId":159424804,"postTypes":{"post":{"singular_name":"Post","name":"Posts"},"page":{"singular_name":"Page","name":"Pages"},"attachment":{"singular_name":"Media","name":"Media"}},"webpackPublicPath":"https://s5102.pcdn.co/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-search/build/instant-search/","isPhotonEnabled":true,"isFreePlan":true,"apiRoot":"https://kriskrug.co/wp-json/","apiNonce":"8e567843cd","isPrivateSite":false,"isWpcom":false,"hasOverlayWidgets":true,"widgets":[{"filters":[{"name":"Categories","type":"taxonomy","taxonomy":"category","count":5,"widget_id":"jetpack-search-filters-1","filter_id":"taxonomy_0"},{"name":"Tags","type":"taxonomy","taxonomy":"post_tag","count":5,"widget_id":"jetpack-search-filters-1","filter_id":"taxonomy_1"},{"name":"Year","type":"date_histogram","count":5,"field":"post_date","interval":"year","widget_id":"jetpack-search-filters-1","filter_id":"date_histogram_2"}],"widget_id":"jetpack-search-filters-1"}],"widgetsOutsideOverlay":[],"hasNonSearchWidgets":false,"preventTrackingCookiesReset":false,"disableTracking":false};
+//# sourceURL=jetpack-instant-search-js-before
+</script><script src="https://s5102.pcdn.co/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-search/build/instant-search/jp-search.js?minify=false&amp;ver=52dbe7cc70e522fe47c0" id="jetpack-instant-search-js"></script><script src="//stats.wp.com/w.js?ver=202622" id="jp-tracks-js"></script><script type='text/javascript' src='https://s5102.pcdn.co/wp-content/boost-cache/static/619c89db5d.min.js'></script><script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js?ver=3.12.5" id="gsap-js" defer data-wp-strategy="defer"></script><script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js?ver=3.12.5" id="gsap-scrolltrigger-js" defer data-wp-strategy="defer"></script><script type='text/javascript' src='https://s5102.pcdn.co/wp-content/boost-cache/static/e58f025fa5.min.js'></script><script id="popup-maker-site-js-extra">
+var pum_vars = {"version":"1.22.0","pm_dir_url":"https://s5102.pcdn.co/wp-content/plugins/popup-maker/","ajaxurl":"https://kriskrug.co/wp-admin/admin-ajax.php","restapi":"https://kriskrug.co/wp-json/pum/v1","rest_nonce":null,"default_theme":"3875","debug_mode":"","disable_tracking":"","home_url":"/","message_position":"top","core_sub_forms_enabled":"1","popups":[],"cookie_domain":"","paramNames":{"popup_id":"pid","cta":"cta","notrack":"notrack"},"analytics_enabled":"1","analytics_route":"analytics","analytics_api":"https://kriskrug.co/wp-json/pum/v1"};
+var pum_sub_vars = {"ajaxurl":"https://kriskrug.co/wp-admin/admin-ajax.php","message_position":"top"};
+var pum_popups = {"pum-3884":{"triggers":[{"type":"auto_open","settings":{"cookie_name":["pum-3884"],"delay":"30000"}}],"cookies":[{"event":"on_popup_close","settings":{"name":"pum-3884","key":"","session":false,"path":"1","time":"1 month"}},{"event":"on_popup_close","settings":{"name":"pum-3884","key":"","session":false,"path":"1","time":"1 month"}}],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"3875","size":"medium","responsive_min_width":"0px","responsive_max_width":"px","custom_width":"300px","custom_height_auto":true,"custom_height":"380px","scrollable_content":false,"animation_type":"slide","animation_speed":"350","animation_origin":"bottom","open_sound":"none","custom_sound":"","location":"center","position_top":"100","position_bottom":"10","position_left":"0","position_right":"10","position_from_trigger":false,"position_fixed":true,"overlay_disabled":true,"stackable":true,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":true,"close_on_form_submission_delay":"500","close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":true,"disable_accessibility":false,"theme_slug":"default-theme","id":3884,"slug":"beehiiv-popup"}};
+//# sourceURL=popup-maker-site-js-extra
+</script><script src="//s5102.pcdn.co/wp-content/uploads/pum/pum-site-scripts.js?defer&amp;generated=1778956623&amp;ver=1.22.0" id="popup-maker-site-js"></script><script id="jetpack-stats-js-before">
+_stq = window._stq || [];
+_stq.push([ "view", {"v":"ext","blog":"159424804","post":"2316","tz":"-8","srv":"kriskrug.co","j":"1:15.8"} ]);
+_stq.push([ "clickTrackerInit", "159424804", "2316" ]);
+//# sourceURL=jetpack-stats-js-before
+</script><script src="https://stats.wp.com/e-202622.js" id="jetpack-stats-js" defer data-wp-strategy="defer"></script></body>
+</html>

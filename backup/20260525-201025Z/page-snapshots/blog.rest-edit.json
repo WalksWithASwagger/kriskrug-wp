@@ -1,0 +1,155 @@
+{
+  "id": 2316,
+  "date": "2019-03-09T08:46:20",
+  "date_gmt": "2019-03-09T16:46:20",
+  "guid": {
+    "rendered": "http://kriskrug.co/?page_id=2316",
+    "raw": "http://kriskrug.co/?page_id=2316"
+  },
+  "modified": "2019-03-11T12:28:04",
+  "modified_gmt": "2019-03-11T20:28:04",
+  "password": "",
+  "slug": "blog",
+  "status": "publish",
+  "type": "page",
+  "link": "https://kriskrug.co/blog/",
+  "title": {
+    "raw": "Blog",
+    "rendered": "Blog"
+  },
+  "content": {
+    "raw": "",
+    "rendered": "",
+    "protected": false,
+    "block_version": 0
+  },
+  "excerpt": {
+    "raw": "",
+    "rendered": "",
+    "protected": false
+  },
+  "author": 18,
+  "featured_media": 0,
+  "parent": 0,
+  "menu_order": 0,
+  "comment_status": "closed",
+  "ping_status": "closed",
+  "template": "",
+  "meta": {
+    "advanced_seo_description": "",
+    "jetpack_seo_html_title": "",
+    "jetpack_seo_noindex": false,
+    "footnotes": ""
+  },
+  "permalink_template": "https://kriskrug.co/%pagename%/",
+  "generated_slug": "blog",
+  "class_list": [
+    "post-2316",
+    "page",
+    "type-page",
+    "status-publish",
+    "hentry"
+  ],
+  "jetpack_sharing_enabled": true,
+  "jetpack_shortlink": "https://wp.me/PaMVFO-Bm",
+  "jetpack-related-posts": [
+    {
+      "id": 1895,
+      "url": "https://kriskrug.co/publications/",
+      "url_meta": {
+        "origin": 2316,
+        "position": 0
+      },
+      "title": "Publications",
+      "author": "Kris Krüg",
+      "date": "February 1, 2011",
+      "format": false,
+      "excerpt": "(UNDER CONSTRUCTION) Popular Science: NASA NEEDS TO HARNESS THE GENIUS OF CROWDS   Interviews: Georgia Straight: Geeks Speak - http://www.straight.com/article-333509/vancouver/geek-speak-kris-krug-coauthor-killer-photos-your-iphone Digital Footprint: Kemp Edmonds - http://www.kempedmonds.com/2009/07/digital-footprint-interview-from.html http://www.cbc.ca/bc/news/yourstory/blog/2010/06/kris-krug-at-tedxoilspill.html http://www.youtube.com/watch?v=5uyz7dzUKbA http://www.bing.com/videos/watch/video/photojounalist-kris-krug-on-documenting-the-copenhagen-protests/17w22mq0w http://en.sevenload.com/videos/IVESi2m-Kris-Krug-Interview-World-Television-Festival http://www.youtube.com/watch?v=GbAbFAsgIpo http://www.youtube.com/watch?v=vzlroEFOUpc Video Video Interview: The Next Web Oct/2010 http://thenextweb.com/apple/2010/10/16/pro-photographer-kris-krug-talks-about-taking-killer-photos-with-the-iphone/ Video: Techvibes Interview for W2 Media +Culture House Feb/2010 http://www.vimeo.com/ 17794857…",
+      "rel": "",
+      "context": "Similar post",
+      "block_context": {
+        "text": "Similar post",
+        "link": ""
+      },
+      "img": {
+        "alt_text": "",
+        "src": "https://i0.wp.com/img.youtube.com/vi/5uyz7dzUKbA/0.jpg?resize=350%2C200",
+        "width": 350,
+        "height": 200
+      },
+      "classes": []
+    }
+  ],
+  "jetpack_likes_enabled": true,
+  "_links": {
+    "self": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/2316",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/types/page"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/users/18"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/comments?post=2316"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 0,
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/2316/revisions"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/media?parent=2316"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/2316"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/2316"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/pages/2316"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}
