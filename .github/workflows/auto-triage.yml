@@ -104,34 +104,27 @@ jobs:
               });
             }
 
-  check-ready-for-automation:
+  suggest-next-routing:
     runs-on: ubuntu-latest
     needs: auto-label
     steps:
-      - name: Check if ready for agent automation
+      - name: Suggest next routing
         uses: actions/github-script@v7
         with:
           script: |
             const issue = context.payload.issue;
 
-            // Check if issue has enough detail for automation
             const hasBody = issue.body && issue.body.length > 100;
             const hasLabels = issue.labels && issue.labels.length > 0;
-
-            // Check if it's a good candidate for automation
             const isBug = issue.labels?.some(l => l.name === 'bug');
             const isEnhancement = issue.labels?.some(l => l.name === 'enhancement');
-            const hasHighPriority = issue.labels?.some(l => l.name === 'priority:high');
-
-            // Simple issues that are well-defined
             const isSimpleAndClear = hasBody && hasLabels && (isBug || isEnhancement);
 
             if (isSimpleAndClear && !issue.labels?.some(l => l.name === 'auto-implement')) {
-              // Suggest automation
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue.number,
-                body: `💡 This issue appears to be well-defined and might be a good candidate for automated implementation.\n\nTo enable AI agent automation, add the \`auto-implement\` label when ready.\n\nThe agent swarm will:\n1. Analyze the issue and create a technical specification\n2. Write tests (TDD approach)\n3. Implement the solution\n4. Run all tests and validations\n5. Create a pull request if all checks pass\n\n*Note: Agent-generated PRs still require human review before merging.*`
+                body: `💡 This issue appears to be well-defined enough for focused routing.\n\nCurrent repo reality: the old Agent PR Generator is parked, and adding \`auto-implement\` does not start autonomous implementation.\n\nRecommended next step: choose Track A or Track B, link the relevant current-state doc, assign an owner, and list the verification command or rollback path needed before work starts.`
               });
             }

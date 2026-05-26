@@ -97,7 +97,7 @@ Labels: bug, priority:high, mobile
 
 ### Before Submitting
 
-- [ ] PHP/JS in `fixes/` and `inc/` follows WordPress Coding Standards (`phpcs --standard=WordPress` if you have it installed locally — no CI gate enforces this currently)
+- [ ] Run `composer install` once, then `make verify` before opening a PR with code changes
 - [ ] Changes are documented in PR description
 - [ ] Issue is linked (use `Fixes #123` or `Closes #456`)
 - [ ] Commit messages are clear and descriptive
@@ -127,17 +127,14 @@ Your PR should include:
 
 We follow [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/):
 
+Use the repo-owned PHPCS/WPCS setup rather than global standards:
+
 ```bash
-# Install PHPCS and WordPress standards
-composer global require wp-coding-standards/wpcs
-phpcs --config-set installed_paths ~/.composer/vendor/wp-coding-standards/wpcs
-
-# Check your code
-phpcs --standard=WordPress-Extra path/to/file.php
-
-# Auto-fix issues
-phpcbf --standard=WordPress-Extra path/to/file.php
+composer install
+make validate
 ```
+
+The default ruleset is intentionally focused on high-signal WordPress security checks for production PHP. Do not broaden it to full formatting cleanup without a dedicated refactor PR.
 
 ### Key Requirements
 
@@ -203,11 +200,12 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 # Then see scripts/notion-to-wp/README.md for env vars + dry-run usage
 
-# WordPress coding standards (optional, if you have PHPCS installed)
-phpcs --standard=WordPress-Extra fixes/ inc/
+# WordPress PHP validation
+composer install
+make verify
 ```
 
-> There is no `composer.json` or `vendor/` in this repo. There are no PHPUnit tests checked in. Anything in earlier docs that references `vendor/bin/phpunit` is a leftover from the original era-1 plan and should be ignored.
+> `vendor/` is local-only and ignored. The repo owns `composer.json`, `composer.lock`, and `phpcs.xml.dist` so local and CI validation use the same PHPCS/WPCS baseline.
 
 ### Branch Naming
 
@@ -239,7 +237,9 @@ This repo has focused automated tests for the Notion publisher safety guards, pl
 Automated tests:
 
 - `scripts/notion-to-wp/.venv/bin/python -m unittest discover -s scripts/notion-to-wp/tests -v`
-- `make test` (runs the same suite from repo root)
+- `make test` (runs the Notion publisher tests plus the sidebar promo smoke test)
+- `make validate` (runs the focused WordPress PHP security ruleset)
+- `make verify` (runs the standard local gate)
 
 Manual validation:
 

@@ -43,9 +43,8 @@ Relates to #
 
 ### Test Results
 
-- [ ] All unit tests pass (`vendor/bin/phpunit`)
-- [ ] WordPress Coding Standards pass (`phpcs --standard=WordPress-Extra`)
-- [ ] No PHPCS errors or warnings
+- [ ] Local verification passes (`make verify`)
+- [ ] WordPress PHP validation passes (`make validate`)
 - [ ] Tested on multiple browsers
 - [ ] Tested on mobile devices
 - [ ] Tested with keyboard navigation
