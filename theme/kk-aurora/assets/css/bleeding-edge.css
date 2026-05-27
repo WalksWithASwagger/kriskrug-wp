@@ -293,7 +293,7 @@
 
 @supports (font-variation-settings: normal) {
   .aurora-hero-headline {
-    font-family: 'Inter Variable', 'Inter', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     font-variation-settings: 'wght' 700;
     transition: font-variation-settings 0.3s ease;
   }
