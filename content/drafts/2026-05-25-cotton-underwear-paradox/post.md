@@ -28,26 +28,33 @@ related_links:
   - https://www.bchydro.com/news/press_centre/news_releases/2026/ai-data-centres.html
   - https://www2.gov.bc.ca/gov/content/industry/electricity-alternative-energy/electricity/industrial-electricity-allocation-framework
   - https://www.canada.ca/en/innovation-science-economic-development/news/2026/05/government-of-canada-and-telus-advance-work-to-build-sovereign-ai-infrastructure.html
+  - https://kriskrug.co/2026/05/23/you-cant-drink-data/
+  - https://kriskrug.co/2026/05/07/web-summit-vancouver-2026/
+  - https://bc-ai.ca/news/bc-ai-s-platform-for-canada-s-ai-task-force/
+  - https://kriskrug.co/2025/05/18/bc-ai-is-live-and-were-building-the-future-we-actually-want/
 featured: true
-featured_media_id: 11941
+featured_media_id: 12098
 excerpt: You can use the thing and still fight for better conditions around the thing. The cotton underwear problem is not hypocrisy. It is the work.
 seo:
   meta_title: The Cotton Underwear Problem | Kris Krüg
   meta_description: Kris Krüg on AI data centres, infrastructure, power, governance, and why using a system does not disqualify you from fighting to make it better.
 images:
-  - file: images/01-no-ai-data-centres-vancouver.jpg
-    alt: A hand-lettered protest sign reading NO A.I. DATA CENTRES IN VANCOUVER held above a Vancouver crowd.
-    wp_media_id: 11941
-  - file: images/02-water-not-slop-ubi-not-ai.jpg
-    alt: A Vancouver AI data centre protest crowd with signs reading WATER, NOT SLOP and UBI BEFORE AI.
-    wp_media_id: 11959
-  - file: images/03-engineers-against-data-centres.jpg
-    alt: A protest sign reading Software Engineers and SREs Against AI Data Centres in the City.
-    wp_media_id: 11980
-image_source: Existing kriskrug.co WordPress media from the Vancouver AI data centre protest; local copies included for draft traceability. No generated images used.
+  - file: images/01-vancouver-ai-data-centre-protest-editorial.jpg
+    alt: Stylized editorial crop of Kris Krug and a Vancouver AI data centre protest crowd with Water Not Slop and UBI Before AI signs.
+    wp_media_id: 12098
+  - file: images/02-clean-water-city-protest-editorial.jpg
+    alt: Stylized editorial crop of a Vancouver protest sign reading Clean Water Matters More Than Data Centres with city towers behind it.
+    wp_media_id: 12099
+  - file: images/03-engineers-against-data-centres-editorial.jpg
+    alt: Stylized editorial crop of a protest sign reading Software Engineers and SREs Against AI Data Centres in the City.
+    wp_media_id: 12100
+  - file: images/04-public-benefit-not-private-extraction-editorial.jpg
+    alt: Stylized editorial crop of protest signs reading Stop Giving Billionaires More Money and Say No to AI Data Centres.
+    wp_media_id: 12101
+image_source: Styled editorial crops derived from existing kriskrug.co WordPress media from the Vancouver AI data centre protest; local copies included for draft traceability. No generated images used.
 ---
 
-![A hand-lettered protest sign reading NO A.I. DATA CENTRES IN VANCOUVER held above a Vancouver crowd.](images/01-no-ai-data-centres-vancouver.jpg)
+![Stylized editorial crop of Kris Krug and a Vancouver AI data centre protest crowd with Water Not Slop and UBI Before AI signs.](images/01-vancouver-ai-data-centre-protest-editorial.jpg)
 
 Let me tell you a story somebody told me a long time ago.
 
@@ -85,7 +92,7 @@ I do not agree to feel ashamed.
 
 ## So I went to the protest
 
-This week I went to the Vancouver AI data centre protest.
+This week I went to the [Vancouver AI data centre protest](https://kriskrug.co/2026/05/23/you-cant-drink-data/).
 
 And a bunch of people did the thing.
 
@@ -119,7 +126,9 @@ It has substations and cooling systems. It has land use and fibre routes. It has
 
 In BC, this is not abstract. [BC Hydro is already talking about AI data centres](https://www.bchydro.com/news/press_centre/news_releases/2026/ai-data-centres.html), the Province has an [Industrial Electricity Allocation Framework](https://www2.gov.bc.ca/gov/content/industry/electricity-alternative-energy/electricity/industrial-electricity-allocation-framework), and the federal government is advancing [large-scale sovereign AI infrastructure](https://www.canada.ca/en/innovation-science-economic-development/news/2026/05/government-of-canada-and-telus-advance-work-to-build-sovereign-ai-infrastructure.html) in British Columbia. The paperwork is not separate from the politics. It is where the politics live.
 
-![A Vancouver AI data centre protest crowd with signs reading WATER, NOT SLOP and UBI BEFORE AI.](images/02-water-not-slop-ubi-not-ai.jpg)
+On BC + AI, we made the same case in [BC + AI’s Platform for Canada’s AI Task Force](https://bc-ai.ca/news/bc-ai-s-platform-for-canada-s-ai-task-force/): community compute, climate accounting, and Indigenous data governance have to be design constraints, not garnish.
+
+![Stylized editorial crop of a Vancouver protest sign reading Clean Water Matters More Than Data Centres with city towers behind it.](images/02-clean-water-city-protest-editorial.jpg)
 
 AI is infrastructure now.
 
@@ -208,7 +217,7 @@ You have to be credible in both places.
 
 This is the [Both Hands Full](https://kriskrug.co/2026/01/24/both-hands-full/) posture in infrastructure form: carry the critique and the possibility at the same time, and refuse the lazy binary.
 
-![A protest sign reading Software Engineers and SREs Against AI Data Centres in the City.](images/03-engineers-against-data-centres.jpg)
+![Stylized editorial crop of a protest sign reading Software Engineers and SREs Against AI Data Centres in the City.](images/03-engineers-against-data-centres-editorial.jpg)
 
 You have to understand the engineering and still care about the watershed.
 
@@ -240,7 +249,11 @@ The default is “move fast and externalize the cleanup.”
 
 The default treats British Columbia like an empty hard drive waiting for someone else’s roadmap.
 
+It is the same receipts-first posture I took in [Web Summit Vancouver 2026](https://kriskrug.co/2026/05/07/web-summit-vancouver-2026/): if public money, public power, or public trust are in the story, the math belongs in daylight.
+
 No thank you.
+
+![Stylized editorial crop of protest signs reading Stop Giving Billionaires More Money and Say No to AI Data Centres.](images/04-public-benefit-not-private-extraction-editorial.jpg)
 
 British Columbia is not a rack.
 
@@ -279,6 +292,8 @@ I want community-benefit agreements you can point to.
 I want local jobs that are real, not spreadsheet confetti.
 
 I want sovereign AI infrastructure that actually serves Canadian researchers, startups, public-interest projects, cultural workers, educators, health systems, climate work, and local companies, not just whoever can afford the premium lane.
+
+That is why the [BC + AI Ecosystem Industry Association](https://kriskrug.co/2025/05/18/bc-ai-is-live-and-were-building-the-future-we-actually-want/) exists: to make the local, public-interest version less theoretical.
 
 I want public benefit with a street address.
 
