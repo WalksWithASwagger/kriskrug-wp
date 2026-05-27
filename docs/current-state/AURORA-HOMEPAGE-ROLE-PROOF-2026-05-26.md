@@ -60,9 +60,20 @@ Injected-CSS browser probe before committing showed:
 - `unzip -t /Users/kk/Desktop/kk-aurora-homepage-first-screen-proof-1.3.6.zip` passed.
 - `make wp7-smoke EXPECT_VERSION=6.9.4` passed against the live site after the `1.3.5` upload and before the `1.3.6` upload.
 
+## Aurora 1.3.7 Follow-Up
+
+After `1.3.6` was uploaded and purged, live browser QA confirmed the homepage role-proof layout was fixed. The remaining browser console error came from two hardcoded, stale `fonts.gstatic.com` font file URLs in `assets/css/typography-refined.css`.
+
+Aurora `1.3.7` removes those hardcoded font-file URLs and relies on the Google Fonts stylesheet already preloaded in `functions.php`, with normal system fallbacks.
+
+- Google Fonts stylesheet font assets returned `200`.
+- Built `/Users/kk/Desktop/kk-aurora-font-404-cleanup-1.3.7.zip`.
+- `unzip -t /Users/kk/Desktop/kk-aurora-font-404-cleanup-1.3.7.zip` passed.
+- `make wp7-smoke EXPECT_VERSION=6.9.4` passed against the live site after the `1.3.6` upload and before the `1.3.7` upload.
+
 ## Remaining Live Gate
 
-Issue #12 should close only after Aurora `1.3.6` is uploaded, caches are purged, and the public homepage is checked for:
+Issue #12 should close only after Aurora `1.3.7` is uploaded, caches are purged, and the public homepage is checked for:
 
 - One visible H1.
 - Hero proof links to BC+AI, Indigenomics.ai, and The Upgrade AI.
