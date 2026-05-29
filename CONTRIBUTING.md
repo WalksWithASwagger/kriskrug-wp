@@ -179,14 +179,14 @@ phpcbf --standard=WordPress-Extra path/to/file.php
 Day-to-day work happens through Claude Code / Cursor agent sessions, not via the dormant GitHub Actions agent swarm. Two modes:
 
 - **Publisher mode (Track A):** Notion → kriskrug.co publishing, content enrichment, schema/SEO tweaks. Operates on `main`.
-- **Architect mode (Track B):** Aurora v2 theme migration. Operates on `aurora/v2`.
+- **Architect mode (Track B):** Aurora theme maintenance. Start from `main` on a lane-scoped `codex/...` branch; use `aurora/v3-reconcile` and `aurora/v2` only as historical/evidence branches unless a dated handoff explicitly revives one.
 
 See [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) for the decision rule.
 
 **Safety rules every agent must follow** (post 2026-05-15 incident):
 - Backup before destructive operations
 - Slug-based idempotency for the Notion → WP connector (never PATCH without verified target)
-- No theme file changes on `main` — that's Track B's branch only
+- Theme file changes happen in focused Track B PR branches from `main`; do not mix them with Track A content publishing changes.
 
 ## Development Workflow
 
@@ -245,7 +245,7 @@ Manual validation:
 
 - **Content publishing:** dry-run the connector first (`--dry-run`), eyeball the rendered post on staging or with the WP REST API, then publish for real.
 - **PHP snippets in `fixes/`:** paste into Code Snippets on prod, save as inactive, toggle on, watch Query Monitor / front-end behavior.
-- **Aurora theme (Track B):** stand up on Cloudways or Local by Flywheel, render every post type (Make Culture and Your Taste are the stress tests per [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md)).
+- **Aurora theme (Track B):** stand up on Cloudways or Local by Flywheel when a change needs rendered proof, then render every post type (Make Culture and Your Taste are the stress tests per [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md)).
 
 If broader automated coverage is added (for example PHPUnit, Playwright, or end-to-end staging checks), extend this section with exact run commands.
 

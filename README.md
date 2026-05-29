@@ -35,7 +35,7 @@ This repository is used for:
 1. **Site audits + state snapshots** of the live kriskrug.co WordPress install (see [`docs/current-state/`](docs/current-state/))
 2. **Content pipeline** — Notion → kriskrug.co publisher with safety guards (see [`scripts/notion-to-wp/`](scripts/notion-to-wp/))
 3. **Custom WordPress code** — schema markup, theme tweaks, helper plugins (see [`fixes/`](fixes/), [`inc/`](inc/), and [`plugins/`](plugins/))
-4. **Aurora v2 theme work** — separate `aurora/v2` branch, paced sprints (see [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/AURORA-MIGRATION-PLAN.md))
+4. **Aurora theme work** — canonical theme source now lives on `main`; this `aurora/v3-reconcile` line is preserved as deferred evidence for specific theme-polish files, not as a wholesale merge target
 5. **Issue tracking + project management** for fixes, content, and theme work
 
 ### Why a Separate Repo?
@@ -115,10 +115,15 @@ Notion → kriskrug.co publishing, post-publish enrichment, schema maintenance, 
 - Active backlog: [`docs/current-state/FIX_QUEUE.md`](docs/current-state/FIX_QUEUE.md), [`docs/current-state/SITE-AUDIT-2026-05-16.md`](docs/current-state/SITE-AUDIT-2026-05-16.md)
 - Deployed schema: [`fixes/schema-snippets-deployed.php`](fixes/schema-snippets-deployed.php)
 
-### Track B — Aurora v2 theme migration (on `aurora/v2`, paced sprints)
+### Track B — Aurora theme
 
-FSE theme rebuild on a separate branch. Touches `theme/`, FSE templates, theme.json. Never touches post content.
+FSE theme maintenance and polish. Touches `theme/`, FSE templates, theme.json. Never touches post content.
 
+- Current branch model (2026-05-29): start Track B work from `main` on a
+  lane-scoped `codex/...` branch. Use this `aurora/v3-reconcile` branch only
+  as deferred evidence for specific theme-polish files, and keep `aurora/v2`
+  references as historical context unless a dated handoff explicitly revives
+  one.
 - Migration plan: [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/AURORA-MIGRATION-PLAN.md)
 
 ### Which track am I in?
