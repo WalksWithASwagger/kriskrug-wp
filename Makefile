@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check draft-queue-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth docs-truth-check clean
+.PHONY: help test plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check draft-queue-audit jetpack-feedback-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth docs-truth-check clean
 
 # Default target
 .DEFAULT_GOAL := help
@@ -137,6 +137,13 @@ draft-queue-audit: ## Run read-only draft queue audit (LOCAL_ONLY=1 FORMAT=json)
 		python3 scripts/notion-to-wp/draft_queue_audit.py --local-only --format "$${FORMAT:-markdown}"; \
 	else \
 		scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py --format "$${FORMAT:-markdown}"; \
+	fi
+
+jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/routing audit (FORMAT=json)
+	@if [ "$${FORMAT:-human}" = "json" ]; then \
+		python3 scripts/jetpack_feedback_audit.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}" --json; \
+	else \
+		python3 scripts/jetpack_feedback_audit.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"; \
 	fi
 
 wp7-smoke: ## Run read-only public WP 7 rollout smoke checks (BASE_URL=https://kriskrug.co EXPECT_VERSION=6.9.4)
