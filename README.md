@@ -35,7 +35,7 @@ This repository is used for:
 1. **Site audits + state snapshots** of the live kriskrug.co WordPress install (see [`docs/current-state/`](docs/current-state/))
 2. **Content pipeline** — Notion → kriskrug.co publisher with safety guards (see [`scripts/notion-to-wp/`](scripts/notion-to-wp/))
 3. **Custom WordPress code** — schema markup, theme tweaks, helper plugins (see [`fixes/`](fixes/), [`inc/`](inc/), and [`plugins/`](plugins/))
-4. **Aurora theme work** — canonical theme source now tracked on `main` (merged via PR #129), with lane-scoped feature branches for larger slices
+4. **Aurora theme work** — canonical theme source now tracked on `main` (merged via PR #129), with lane-scoped feature branches for larger slices; `aurora/v2` and `aurora/v3-reconcile` are preserved evidence/reconcile branches, not wholesale merge targets
 5. **Issue tracking + project management** for fixes, content, and theme work
 
 ### Why a Separate Repo?
@@ -120,6 +120,10 @@ Notion → kriskrug.co publishing, post-publish enrichment, schema maintenance, 
 
 FSE theme rebuild and polish. Touches `theme/kk-aurora/`, FSE templates, theme.json. Avoid bundling theme edits with content publishing changes in the same commit.
 
+- Current branch model (2026-05-29): start Track B work from `main` on a
+  lane-scoped `codex/...` branch. Use `aurora/v3-reconcile` only as deferred
+  evidence for specific theme-polish files, and keep `aurora/v2` references as
+  historical context unless a dated handoff says otherwise.
 - Migration plan: [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/AURORA-MIGRATION-PLAN.md)
 
 ### Which track am I in?

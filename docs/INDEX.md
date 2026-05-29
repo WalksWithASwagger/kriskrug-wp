@@ -13,7 +13,7 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | File | What it covers |
 |---|---|
 | [`current-state/README.md`](current-state/README.md) | Index of the baseline snapshot |
-| [`current-state/TWO-TRACK-MODEL.md`](current-state/TWO-TRACK-MODEL.md) | Active operating model — Track A (content/SEO) vs Track B (Aurora theme) |
+| [`current-state/TWO-TRACK-MODEL.md`](current-state/TWO-TRACK-MODEL.md) | Active Track A / Track B decision rule, with the 2026-05-29 branch-model update marking `aurora/v2` as historical and `aurora/v3-reconcile` as evidence only |
 | [`current-state/REPO_STATE.md`](current-state/REPO_STATE.md) | What's actually checked in vs. just documented |
 | [`current-state/SITE_INVENTORY.md`](current-state/SITE_INVENTORY.md) | Live-site fingerprint: host, theme, plugins, content shape |
 | [`current-state/ACCESS_CHANNELS.md`](current-state/ACCESS_CHANNELS.md) | MCP / REST / Chrome / SSH — what works today |
