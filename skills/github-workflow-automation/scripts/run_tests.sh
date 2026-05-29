@@ -14,6 +14,14 @@ NC='\033[0m' # No Color
 
 VERBOSE=false
 TESTS_DETECTED=false
+TEMP_DIRS=""
+
+cleanup() {
+    for dir in $TEMP_DIRS; do
+        rm -rf "$dir"
+    done
+}
+trap cleanup EXIT
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -32,6 +40,46 @@ done
 
 echo "=== Test Runner ==="
 echo
+
+python_has_notion_deps() {
+    "$1" - <<'PY' >/dev/null 2>&1
+import dotenv
+import requests
+import yaml
+PY
+}
+
+select_notion_python() {
+    if [ -x "scripts/notion-to-wp/.venv/bin/python" ]; then
+        echo "scripts/notion-to-wp/.venv/bin/python"
+        return 0
+    fi
+
+    local candidate
+    local python_bin
+    for candidate in python3 python; do
+        if ! command -v "$candidate" >/dev/null 2>&1; then
+            continue
+        fi
+        python_bin="$(command -v "$candidate")"
+        if python_has_notion_deps "$python_bin"; then
+            echo "$python_bin"
+            return 0
+        fi
+    done
+
+    if ! command -v python3 >/dev/null 2>&1; then
+        echo "No python3 found for Notion publisher tests" >&2
+        return 1
+    fi
+
+    local temp_venv
+    temp_venv="$(mktemp -d /tmp/kriskrug-notion-tests.XXXXXX)"
+    TEMP_DIRS="$TEMP_DIRS $temp_venv"
+    python3 -m venv "$temp_venv"
+    PIP_DISABLE_PIP_VERSION_CHECK=1 "$temp_venv/bin/python" -m pip install -q -r scripts/notion-to-wp/requirements.txt
+    echo "$temp_venv/bin/python"
+}
 
 # Detect and run PHPUnit
 if [ -f "phpunit.xml" ] || [ -f "phpunit.xml.dist" ]; then
@@ -113,12 +161,7 @@ if [ -d "scripts/notion-to-wp/tests" ]; then
     TESTS_DETECTED=true
     echo "Detected: Notion publisher tests"
 
-    PYTHON_BIN="python3"
-    if [ -x "scripts/notion-to-wp/.venv/bin/python" ]; then
-        PYTHON_BIN="scripts/notion-to-wp/.venv/bin/python"
-    elif command -v python &> /dev/null; then
-        PYTHON_BIN="python"
-    fi
+    PYTHON_BIN="$(select_notion_python)"
 
     echo "Running unittest for scripts/notion-to-wp/tests..."
     if [ "$VERBOSE" = true ]; then

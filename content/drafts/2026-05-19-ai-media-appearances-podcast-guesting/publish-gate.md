@@ -7,6 +7,8 @@ Status: private WordPress draft created as a standalone support post; do not pub
 - WP draft ID: `11879`
 - Edit URL: <https://kriskrug.co/wp-admin/post.php?post=11879&action=edit>
 - Verified readback: status `draft`, slug `ai-media-appearances-podcast-guesting`
+- 2026-05-29 authenticated read-only readback: category `1677`, `5` tags, `featured_media=0`, `647` words, `19` links, `0` images, `0` Gutenberg block comments.
+- Rollback/delete note: while it remains unpublished, rollback is simply leaving draft `11879` untouched or moving it to trash from wp-admin after KK approval. Do not publish, backfill backlinks, or import a featured image until the review items below are complete.
 
 ## WP draft attempt - 2026-05-19
 
@@ -32,8 +34,8 @@ Status: the earlier backup blocker is retired. See `../../source-packs/keynotes-
 - [ ] Choose final featured image or embed-only treatment.
 - [ ] Check every public source link before live use.
 - [ ] Confirm no third-party endorsement is implied beyond the public appearances.
-- [ ] If creating a WP draft, check the target slug before any live WordPress write.
-- [ ] If publishing publicly, add backlinks from `/speaking/`, `/about/`, and `/podcast-guesting-page-epk/` after the post URL exists.
+- [ ] If publishing publicly, confirm the draft still has the intended slug/status/category before any live WordPress write.
+- [ ] If publishing publicly, add backlinks from `/speaking/`, `/about/`, and `/podcast-guesting-page-epk/` only after the post URL exists.
 
 ## Safety notes
 
