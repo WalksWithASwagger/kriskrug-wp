@@ -2,6 +2,13 @@
 
 **Decided 2026-05-16 with KK.** Captures how the kriskrug.co work splits so each stream can move at its own pace without blocking the other.
 
+**Branch model updated 2026-05-29:** the track split is still current, but the
+old `aurora/v2` branch instruction is historical. Canonical Aurora source is now
+on `main`; Track B theme changes should start from `main` on focused
+`codex/...` branches. `aurora/v2` remains preserved historical evidence, and
+`aurora/v3-reconcile` remains deferred reconcile evidence for specific
+theme-polish files. Do not merge either branch wholesale.
+
 ---
 
 ## The problem this solves
@@ -45,11 +52,11 @@ So we split them.
 
 ---
 
-## Track B — Aurora v2 redesign
+## Track B — Aurora theme
 
 | | |
 |---|---|
-| **Branch** | `aurora/v2` (new — rebased onto current `main`) |
+| **Branch** | Current model: `main` plus focused `codex/...` PR branches. Historical model: `aurora/v2`; preserved reconcile evidence: `aurora/v3-reconcile`. |
 | **Cadence** | Paced sprints, not weekly |
 | **Owner** | Architect-mode Claude sessions (separate context) |
 | **Touches** | `theme/kk-aurora/` (theme.json, templates, patterns, assets), FSE Site Editor on staging, theme settings on production at cutover |
@@ -58,7 +65,7 @@ So we split them.
 
 ### What Track B does
 
-- **Rebase first** — the old branch (`origin/claude/setup-wordpress-rebuild-KVLxh`, last touched 2026-01-18) deletes Track A's work. Track B's first step is creating `aurora/v2` from current `main` and cherry-picking `theme/` + `demo/` from the old branch.
+- **Start from current `main`** — the old branch (`origin/claude/setup-wordpress-rebuild-KVLxh`, last touched 2026-01-18) and the later `aurora/v2` line are historical. Pull specific evidence from `aurora/v3-reconcile` only when the dated handoff names the file or commit to salvage.
 - **Stand up staging** — install on Cloudways dev (`24.144.80.107`) or Local by Flywheel
 - **Iterate** via WP Site Editor on staging; push tweaks back to the branch
 - **Smoke-test** all post types (long-form, image-heavy, embed-heavy — Make Culture and Your Taste are the stress tests)
@@ -99,7 +106,7 @@ If you're doing both in the same session, you've probably scope-crept; finish on
 
 - **Sequencing big calls between tracks.** Example: if Track A's reader audit suggests a homepage hero rewrite, should that rewrite happen on the current theme (Track A) or wait for Aurora (Track B)? Default: ship on current theme if the fix is ≤ a few hours; defer to Aurora if it's a layout-level decision. KK has final call on close ones.
 - **Coordination cadence.** No standing weekly sync between tracks because there's currently one human (KK) reviewing both. Revisit if/when that changes.
-- **Branch hygiene** for Track B. Once `aurora/v2` exists, keeping it in sync with `main` (via rebase, not merge) is the architect-session's responsibility. Stale-branch risk is real — the 4-month gap on the current Aurora branch is exactly what this section is trying to prevent recurring.
+- **Branch hygiene** for Track B. Keep theme PRs short-lived and based on `main`; treat `aurora/v2` and `aurora/v3-reconcile` as evidence branches unless a dated handoff explicitly revives them. Stale-branch risk is real — the 4-month gap on the original Aurora branch is exactly what this section is trying to prevent recurring.
 
 ---
 
