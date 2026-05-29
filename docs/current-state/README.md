@@ -127,4 +127,4 @@ Then use historical plans for context:
 | Draft queue truth | `make draft-queue-audit` | Snapshot values: `0` future posts, `71` draft posts, `5` draft pages. |
 | WP version gate | `make wp7-smoke EXPECT_VERSION=6.9.4` | Public version check + key endpoint smoke pass. |
 | Declared-vs-live drift | `make current-state-drift-check` | Flags mismatches between `WORK-PLAN-2026-05-23.md` declarations and live counts/version. |
-| Aurora divergence risk (read-only) | `git rev-list --left-right --count origin/aurora/v2...origin/main` and `git -C <aurora-worktree> rev-list --left-right --count origin/aurora/v2...aurora/v2` | Confirms branch skew and reconciliation urgency before any theme push. |
+| Aurora branch-model risk (read-only) | `git branch -r \| rg 'aurora/v[23]'` plus `git rev-list --left-right --count origin/main...origin/aurora/v3-reconcile` when a specific salvage is proposed | Confirms that `main` is the canonical Track B base and that `aurora/v2` / `aurora/v3-reconcile` are evidence branches, not wholesale merge targets. |
