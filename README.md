@@ -96,7 +96,7 @@ skills/                          # Claude Code skills used in this repo
 
 - **Reading the site state:** `docs/current-state/README.md`
 - **Planning next work:** `docs/current-state/HANDOFF-2026-05-24.md` and `docs/current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md`
-- **Latest startup truth:** `docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md`, normalized against `docs/current-state/reports/morning-truth-20260525-021945Z.md`
+- **Latest startup truth:** `docs/current-state/SHUTDOWN-2026-05-30.md` plus `docs/current-state/reports/morning-truth-20260530-070507Z.md`
 - **Latest diagnostic truth:** `docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`
 - **Longer roadmap references:** `docs/current-state/ROADMAP.md` and `docs/current-state/FIX_QUEUE.md`
 - **Publishing a Notion post:** `scripts/notion-to-wp/README.md`
