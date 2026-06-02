@@ -21,6 +21,15 @@ Read these first for current execution context:
 10. [TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)
 11. [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)
 
+Side-worktree safety refresh (2026-06-02): canonical new work should start from
+`main` in a fresh lane-scoped branch. Do not edit
+`/Users/kk/Code/kriskrug-wp-aurora-keynote`
+(`codex/aurora-keynote-redesign`),
+`/Users/kk/Code/kriskrug-wp-aurora-reconcile` (`aurora/v3-reconcile`), or the
+locked `/Users/kk/Code/kriskrug-wp/.claude/worktrees/agent-aec50fddbd7207f80`
+(`aurora/v2`) directly. Treat those side worktrees as evidence or historical
+branches unless a maintainer explicitly resumes one.
+
 Then use historical plans for context:
 
 - [WORK-PLAN-2026-05-23.md](WORK-PLAN-2026-05-23.md)

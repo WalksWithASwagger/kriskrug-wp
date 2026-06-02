@@ -124,6 +124,13 @@ FSE theme rebuild and polish. Touches `theme/kk-aurora/`, FSE templates, theme.j
   lane-scoped `codex/...` branch. Use `aurora/v3-reconcile` only as deferred
   evidence for specific theme-polish files, and keep `aurora/v2` references as
   historical context unless a dated handoff says otherwise.
+- Side-worktree safety refresh (2026-06-02): do not edit
+  `/Users/kk/Code/kriskrug-wp-aurora-keynote`
+  (`codex/aurora-keynote-redesign`), `/Users/kk/Code/kriskrug-wp-aurora-reconcile`
+  (`aurora/v3-reconcile`), or the locked
+  `/Users/kk/Code/kriskrug-wp/.claude/worktrees/agent-aec50fddbd7207f80`
+  (`aurora/v2`) directly. Treat them as evidence or historical side branches
+  unless a maintainer explicitly resumes one.
 - Migration plan: [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/AURORA-MIGRATION-PLAN.md)
 
 ### Which track am I in?
