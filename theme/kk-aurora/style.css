@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.3.9
+Version: 1.3.10
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -598,7 +598,7 @@ a {
 }
 
 .aurora-kicker {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--cyan, #00e5ff);
   font-size: clamp(0.78rem, 0.74rem + 0.18vw, 0.92rem);
   font-weight: 800;
   margin: 0 0 1rem;
@@ -1381,7 +1381,7 @@ a {
     var(--aurora-panel-solid);
   border-bottom: 1px solid rgba(247, 247, 242, 0.08);
   color: var(--aurora-ink-muted);
-  content: "KK";
+  content: "";
   display: flex;
   font-size: clamp(1.25rem, 3vw, 2.5rem);
   font-weight: 900;
@@ -2860,6 +2860,927 @@ a {
   }
 }
 
+/* ============================================
+   ARTICLE + BLOG LUX COMPOSITION V2
+   ============================================ */
+
+.aurora-single-2026,
+.aurora-writing-archive {
+  --aurora-lux-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --aurora-lux-quick: 220ms var(--aurora-lux-ease);
+  --aurora-lux-slow: 560ms var(--aurora-lux-ease);
+  --aurora-composition-border: rgba(247, 247, 242, 0.115);
+  --aurora-composition-border-strong: rgba(247, 247, 242, 0.2);
+  --aurora-composition-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+}
+
+.aurora-single-2026 {
+  padding-top: clamp(1.7rem, 4vw, 2.55rem);
+}
+
+.aurora-single-2026 .aurora-article-header {
+  border-bottom: 1px solid rgba(247, 247, 242, 0.085);
+  margin-bottom: clamp(1.6rem, 4vw, 3rem);
+  padding-bottom: clamp(1.65rem, 4vw, 3rem);
+}
+
+.aurora-single-2026 .aurora-article-category {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.aurora-single-2026 .aurora-single-title {
+  font-size: clamp(3.5rem, 6vw, 4.9rem);
+  letter-spacing: 0;
+  line-height: 1.02;
+  max-width: 15.25ch;
+  overflow-wrap: anywhere;
+}
+
+.aurora-single-2026 .aurora-article-dek {
+  border-left: 2px solid rgba(0, 229, 255, 0.38);
+  color: rgba(247, 247, 242, 0.76);
+  font-style: normal;
+  line-height: 1.55;
+  max-width: 66ch;
+  padding-left: 1rem;
+}
+
+.aurora-single-2026 .aurora-article-meta {
+  border-left: 2px solid rgba(229, 70, 46, 0.46);
+  gap: 0.6rem 0.78rem;
+  margin-top: 1.15rem;
+  padding-left: 0.85rem;
+}
+
+.aurora-writing-card-category a,
+.aurora-article-category a,
+.aurora-post-tags a {
+  background: rgba(247, 247, 242, 0.045);
+  border: 1px solid rgba(247, 247, 242, 0.105);
+  border-radius: 999px;
+  color: var(--aurora-ink);
+  display: inline-flex;
+  line-height: 1;
+  padding: 0.31rem 0.5rem;
+  text-decoration: none;
+  transition:
+    background-color var(--aurora-lux-quick),
+    border-color var(--aurora-lux-quick),
+    color var(--aurora-lux-quick);
+}
+
+.aurora-writing-card-category a:hover,
+.aurora-writing-card-category a:focus-visible,
+.aurora-article-category a:hover,
+.aurora-article-category a:focus-visible,
+.aurora-post-tags a:hover,
+.aurora-post-tags a:focus-visible {
+  background: rgba(0, 229, 255, 0.075);
+  border-color: rgba(0, 229, 255, 0.34);
+  color: var(--wp--preset--color--cyan);
+}
+
+.aurora-writing-card-category a:focus,
+.aurora-article-category a:focus,
+.aurora-post-tags a:focus,
+.aurora-prose a:not(.wp-block-button__link):focus {
+  outline: 2px solid var(--wp--preset--color--cyan, #00e5ff) !important;
+  outline-offset: 3px !important;
+}
+
+.aurora-single-2026 a:focus,
+.aurora-writing-archive a:focus {
+  outline: 2px solid var(--wp--preset--color--cyan, #00e5ff) !important;
+  outline-offset: 3px !important;
+}
+
+.aurora-featured-media {
+  background:
+    linear-gradient(180deg, rgba(247, 247, 242, 0.04), rgba(247, 247, 242, 0.012)),
+    rgba(3, 4, 5, 0.72);
+  border: 1px solid var(--aurora-composition-border);
+  border-radius: var(--aurora-radius-card);
+  box-shadow: var(--aurora-composition-shadow);
+  overflow: hidden;
+  padding: 0.45rem;
+  position: relative;
+  transition:
+    border-color var(--aurora-lux-quick),
+    box-shadow var(--aurora-lux-quick);
+}
+
+.aurora-featured-media img {
+  border-radius: calc(var(--aurora-radius-card) - 3px);
+  box-shadow: none;
+}
+
+.aurora-featured-media :where(figcaption, .wp-element-caption) {
+  color: rgba(247, 247, 242, 0.58);
+  font-size: 0.86rem;
+  line-height: 1.45;
+  margin: 0.6rem auto 0;
+  max-width: 68ch;
+  padding-inline: 0.2rem;
+}
+
+.aurora-featured-media:hover,
+.aurora-featured-media:focus-within {
+  border-color: var(--aurora-composition-border-strong);
+  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.26);
+}
+
+.aurora-writing-archive .aurora-writing-archive-header {
+  border-bottom: 1px solid rgba(247, 247, 242, 0.09);
+  gap: 1rem 1.4rem;
+  margin-bottom: 1.05rem;
+  padding-bottom: 1.2rem;
+}
+
+.aurora-writing-archive .aurora-writing-archive-title {
+  font-size: clamp(3rem, 5vw, 4.25rem);
+  line-height: 1.03;
+  max-width: 13.75ch;
+  overflow-wrap: anywhere;
+}
+
+.aurora-writing-archive .aurora-writing-archive-dek {
+  color: rgba(247, 247, 242, 0.72);
+  line-height: 1.55;
+}
+
+.aurora-writing-archive .aurora-writing-archive-list.wp-block-post-template {
+  gap: 14px;
+}
+
+.aurora-writing-archive .aurora-writing-card {
+  background:
+    linear-gradient(150deg, rgba(247, 247, 242, 0.048), rgba(247, 247, 242, 0.018)),
+    #050708;
+  border-color: rgba(247, 247, 242, 0.095);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  isolation: isolate;
+  position: relative;
+  transition:
+    background-color var(--aurora-lux-quick),
+    border-color var(--aurora-lux-quick),
+    box-shadow var(--aurora-lux-quick),
+    transform var(--aurora-lux-quick);
+}
+
+.aurora-writing-archive .aurora-writing-card::after {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(0, 229, 255, 0.11), transparent 34%),
+    linear-gradient(118deg, rgba(247, 247, 242, 0.045), transparent 34%);
+  content: "";
+  inset: 0;
+  opacity: 0.14;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 220ms var(--aurora-lux-ease);
+  z-index: 2;
+}
+
+.aurora-writing-archive .aurora-writing-card:hover,
+.aurora-writing-archive .aurora-writing-card:focus-within {
+  border-color: rgba(247, 247, 242, 0.18);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+  transform: translateY(-1px);
+}
+
+.aurora-writing-archive .aurora-writing-card:hover::after,
+.aurora-writing-archive .aurora-writing-card:focus-within::after {
+  opacity: 0.26;
+}
+
+.aurora-writing-card:focus-within {
+  outline: 2px solid rgba(0, 229, 255, 0.7);
+  outline-offset: 3px;
+}
+
+.aurora-writing-archive .aurora-writing-card-body {
+  gap: 0.56rem;
+  padding: 0.95rem;
+  position: relative;
+  z-index: 3;
+}
+
+.aurora-writing-archive .aurora-writing-card-title {
+  font-size: 1.24rem;
+  line-height: 1.12;
+}
+
+.aurora-writing-archive .aurora-writing-card-excerpt,
+.aurora-writing-archive .aurora-writing-card-excerpt p {
+  color: rgba(247, 247, 242, 0.66);
+  font-size: 0.89rem;
+  line-height: 1.55;
+}
+
+.aurora-writing-archive .aurora-writing-card-meta {
+  border-top: 1px solid rgba(247, 247, 242, 0.07);
+  padding-top: 0.62rem;
+}
+
+.aurora-writing-archive .aurora-writing-card-category,
+.aurora-writing-archive .aurora-writing-card-meta {
+  font-size: 0.67rem;
+  letter-spacing: 0;
+}
+
+.aurora-writing-archive .aurora-writing-card-media {
+  position: relative;
+}
+
+.aurora-writing-archive .aurora-writing-card-media::after {
+  background:
+    linear-gradient(180deg, transparent 58%, rgba(0, 0, 0, 0.26)),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.1), transparent 38%, rgba(229, 70, 46, 0.08));
+  content: "";
+  inset: 0;
+  opacity: 0.4;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity var(--aurora-lux-quick);
+}
+
+.aurora-writing-archive .aurora-writing-card:hover .aurora-writing-card-media::after,
+.aurora-writing-archive .aurora-writing-card:focus-within .aurora-writing-card-media::after {
+  opacity: 0.5;
+}
+
+.aurora-writing-archive .aurora-writing-card:hover .aurora-writing-card-media img,
+.aurora-writing-archive .aurora-writing-card:focus-within .aurora-writing-card-media img {
+  filter: saturate(1.05) contrast(1.02);
+  transform: scale(1.018);
+}
+
+.aurora-writing-archive .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
+  aspect-ratio: 16 / 10;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(0, 229, 255, 0.18), transparent 18%),
+    radial-gradient(circle at 78% 78%, rgba(229, 70, 46, 0.14), transparent 22%),
+    linear-gradient(135deg, rgba(247, 247, 242, 0.12) 0 1px, transparent 1px 18px),
+    linear-gradient(145deg, rgba(14, 21, 22, 0.98), rgba(5, 7, 8, 0.98) 58%, rgba(20, 14, 11, 0.96));
+  background-size: auto, auto, 18px 18px, auto;
+  border-bottom-color: rgba(247, 247, 242, 0.075);
+  content: "";
+  display: block;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:nth-child(3n + 2) .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
+  background:
+    radial-gradient(circle at 72% 22%, rgba(200, 255, 61, 0.13), transparent 18%),
+    radial-gradient(circle at 20% 82%, rgba(0, 229, 255, 0.15), transparent 22%),
+    linear-gradient(0deg, rgba(247, 247, 242, 0.085) 0 1px, transparent 1px 17px),
+    linear-gradient(150deg, rgba(12, 19, 15, 0.98), rgba(5, 7, 8, 0.98) 62%, rgba(8, 17, 18, 0.96));
+  background-size: auto, auto, 17px 17px, auto;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:nth-child(3n + 3) .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
+  background:
+    radial-gradient(circle at 24% 74%, rgba(240, 179, 90, 0.17), transparent 20%),
+    radial-gradient(circle at 82% 26%, rgba(139, 92, 246, 0.12), transparent 22%),
+    linear-gradient(35deg, rgba(247, 247, 242, 0.1) 0 1px, transparent 1px 20px),
+    linear-gradient(140deg, rgba(19, 14, 12, 0.98), rgba(5, 7, 8, 0.98) 58%, rgba(12, 13, 21, 0.96));
+  background-size: auto, auto, 20px 20px, auto;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:nth-child(4n) .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
+  background:
+    radial-gradient(circle at 70% 72%, rgba(154, 163, 165, 0.17), transparent 20%),
+    radial-gradient(circle at 24% 20%, rgba(0, 191, 165, 0.14), transparent 22%),
+    linear-gradient(90deg, rgba(247, 247, 242, 0.08) 0 1px, transparent 1px 16px),
+    linear-gradient(145deg, rgba(13, 16, 17, 0.98), rgba(5, 7, 8, 0.98) 58%, rgba(10, 18, 16, 0.96));
+  background-size: auto, auto, 16px 16px, auto;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-title {
+  font-size: 2.05rem;
+  line-height: 1.05;
+}
+
+.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-body {
+  gap: 0.66rem;
+  padding: 1.2rem;
+}
+
+.aurora-article-map {
+  background:
+    linear-gradient(135deg, rgba(0, 229, 255, 0.045), rgba(247, 247, 242, 0.022)),
+    rgba(3, 4, 5, 0.76);
+  border-color: rgba(0, 229, 255, 0.18);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.22);
+  max-width: 760px;
+  padding: clamp(1rem, 2vw, 1.25rem);
+  position: relative;
+  transition:
+    border-color var(--aurora-lux-quick),
+    box-shadow var(--aurora-lux-quick);
+}
+
+.aurora-article-map[open] {
+  border-color: rgba(0, 229, 255, 0.24);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
+}
+
+.aurora-article-map summary {
+  align-items: center;
+  display: flex;
+  gap: 0.55rem;
+}
+
+.aurora-article-map summary::after {
+  background: rgba(247, 247, 242, 0.045);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 999px;
+  color: var(--wp--preset--color--cyan);
+  content: "guide";
+  font-size: 0.68rem;
+  font-weight: 780;
+  padding: 0.2rem 0.42rem;
+  text-transform: uppercase;
+}
+
+.aurora-article-map ol {
+  counter-reset: article-map;
+  gap: 0;
+  list-style: none;
+  padding-left: 0;
+}
+
+.aurora-article-map li {
+  border-top: 1px solid rgba(247, 247, 242, 0.075);
+  counter-increment: article-map;
+}
+
+.aurora-article-map a {
+  align-items: baseline;
+  border-radius: 6px;
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: 2ch minmax(0, 1fr);
+  padding: 0.7rem 0;
+  transition:
+    background-color var(--aurora-lux-quick),
+    box-shadow var(--aurora-lux-quick),
+    color var(--aurora-lux-quick),
+    transform var(--aurora-lux-quick);
+}
+
+.aurora-article-map a::before {
+  color: var(--wp--preset--color--cyan);
+  content: counter(article-map, decimal-leading-zero);
+  font-size: 0.72rem;
+  font-weight: 820;
+}
+
+.aurora-article-map a:hover,
+.aurora-article-map a:focus-visible {
+  background: rgba(0, 229, 255, 0.045);
+  box-shadow: inset 2px 0 0 rgba(0, 229, 255, 0.3);
+  transform: translateX(1px);
+}
+
+.aurora-article-map a.is-active,
+.aurora-article-map a[aria-current="true"] {
+  background: rgba(0, 229, 255, 0.07);
+  box-shadow: inset 2px 0 0 var(--wp--preset--color--cyan);
+  color: var(--aurora-ink);
+}
+
+.aurora-prose > p:first-child:not([class]),
+.aurora-prose .is-style-lead {
+  color: var(--aurora-ink);
+  font-size: 1.28rem;
+  line-height: 1.58;
+}
+
+.aurora-prose h2 {
+  border-top: 1px solid rgba(247, 247, 242, 0.09);
+  padding-top: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.aurora-prose h2::before {
+  background: linear-gradient(90deg, var(--aurora-signal), var(--wp--preset--color--cyan));
+  content: "";
+  display: block;
+  height: 3px;
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  width: 4.5rem;
+}
+
+.aurora-prose a:not(.wp-block-button__link) {
+  color: var(--aurora-ink);
+  text-decoration-color: rgba(0, 229, 255, 0.5);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.aurora-prose a:not(.wp-block-button__link):hover,
+.aurora-prose a:not(.wp-block-button__link):focus-visible {
+  color: var(--wp--preset--color--cyan);
+  text-decoration-color: currentColor;
+}
+
+.aurora-prose mark {
+  background: linear-gradient(180deg, transparent 45%, rgba(200, 255, 61, 0.34) 45%);
+  border-radius: 0.15em;
+  color: var(--aurora-ink);
+  padding: 0 0.12em;
+}
+
+.aurora-prose .wp-block-quote,
+.aurora-prose blockquote {
+  --aurora-callout-accent: var(--wp--preset--color--cyan);
+  --aurora-callout-rgb: 0, 229, 255;
+  background:
+    linear-gradient(135deg, rgba(var(--aurora-callout-rgb), 0.07), rgba(247, 247, 242, 0.02)),
+    rgba(6, 8, 10, 0.86);
+  border: 1px solid rgba(var(--aurora-callout-rgb), 0.2);
+  border-left: 3px solid var(--aurora-callout-accent);
+  border-radius: var(--aurora-radius-card);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.2);
+  color: var(--aurora-ink);
+  position: relative;
+  transition:
+    border-color var(--aurora-lux-quick),
+    box-shadow var(--aurora-lux-quick),
+    transform var(--aurora-lux-quick);
+}
+
+.aurora-prose .wp-block-quote p {
+  margin: 0;
+}
+
+.aurora-prose .wp-block-quote p + p {
+  margin-top: 0.8rem;
+}
+
+.aurora-prose .wp-block-quote cite {
+  color: var(--aurora-ink-muted);
+  display: block;
+  font-size: 0.9rem;
+  font-style: normal;
+  margin-top: 0.9rem;
+}
+
+.aurora-prose .wp-block-quote.is-style-callout,
+.aurora-prose .wp-block-quote[class*="is-style-callout-"] {
+  padding-left: clamp(1.55rem, 3vw, 2.05rem);
+}
+
+.aurora-prose .wp-block-quote.is-style-callout::before,
+.aurora-prose .wp-block-quote[class*="is-style-callout-"]::before {
+  background: var(--aurora-callout-accent);
+  border-radius: 999px;
+  content: "";
+  height: 1.1rem;
+  left: clamp(0.8rem, 2vw, 1rem);
+  position: absolute;
+  top: clamp(1.15rem, 2.5vw, 1.45rem);
+  width: 0.18rem;
+}
+
+.aurora-prose .is-style-callout-blue {
+  --aurora-callout-accent: #00e5ff;
+  --aurora-callout-rgb: 0, 229, 255;
+}
+
+.aurora-prose .is-style-callout-green {
+  --aurora-callout-accent: #00bfa5;
+  --aurora-callout-rgb: 0, 191, 165;
+}
+
+.aurora-prose .is-style-callout-yellow {
+  --aurora-callout-accent: #f0b35a;
+  --aurora-callout-rgb: 240, 179, 90;
+}
+
+.aurora-prose .is-style-callout-red {
+  --aurora-callout-accent: #e5462e;
+  --aurora-callout-rgb: 229, 70, 46;
+}
+
+.aurora-prose .is-style-callout-gray {
+  --aurora-callout-accent: #9aa3a5;
+  --aurora-callout-rgb: 154, 163, 165;
+}
+
+.aurora-prose .is-style-callout-purple {
+  --aurora-callout-accent: #8b5cf6;
+  --aurora-callout-rgb: 139, 92, 246;
+}
+
+.aurora-prose .wp-block-pullquote {
+  background:
+    linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.055), transparent),
+    rgba(247, 247, 242, 0.018);
+  border-bottom-color: rgba(0, 229, 255, 0.22);
+  border-top-color: rgba(229, 70, 46, 0.24);
+  box-shadow: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.aurora-prose .wp-block-pullquote::before {
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.24), rgba(229, 70, 46, 0.18), transparent);
+  content: "";
+  height: 1px;
+  left: 0;
+  opacity: 0.46;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.aurora-prose .wp-block-pullquote blockquote {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+.aurora-prose .wp-block-pullquote cite {
+  color: var(--aurora-ink-muted);
+  font-size: 0.9rem;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.aurora-prose .is-style-bookmark,
+.aurora-prose .is-style-aurora-source-trail,
+.aurora-prose .is-style-aurora-article-aside {
+  background:
+    linear-gradient(135deg, rgba(247, 247, 242, 0.038), rgba(247, 247, 242, 0.014)),
+    rgba(3, 4, 5, 0.78);
+  border: 1px solid rgba(247, 247, 242, 0.105);
+  border-left: 3px solid var(--wp--preset--color--cyan);
+  border-radius: var(--aurora-radius-card);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  color: var(--aurora-ink-soft);
+  padding: clamp(1rem, 3vw, 1.45rem);
+  position: relative;
+  transition:
+    border-color var(--aurora-lux-quick),
+    box-shadow var(--aurora-lux-quick),
+    transform var(--aurora-lux-quick);
+}
+
+.aurora-prose .is-style-bookmark a {
+  color: var(--aurora-ink);
+  font-weight: 780;
+}
+
+.aurora-prose .is-style-aurora-source-trail {
+  border-left-color: var(--aurora-warm);
+}
+
+.aurora-prose .is-style-aurora-article-aside {
+  border-left-color: var(--aurora-signal);
+}
+
+.aurora-prose .is-style-bookmark > :first-child,
+.aurora-prose .is-style-aurora-source-trail > :first-child,
+.aurora-prose .is-style-aurora-article-aside > :first-child {
+  margin-top: 0;
+}
+
+.aurora-prose .is-style-bookmark > :last-child,
+.aurora-prose .is-style-aurora-source-trail > :last-child,
+.aurora-prose .is-style-aurora-article-aside > :last-child {
+  margin-bottom: 0;
+}
+
+.aurora-prose details,
+.aurora-prose .wp-block-details {
+  background: rgba(247, 247, 242, 0.026);
+  border: 1px solid rgba(247, 247, 242, 0.11);
+  border-radius: var(--aurora-radius-card);
+  padding: 1rem 1.15rem;
+}
+
+.aurora-prose details summary,
+.aurora-prose .wp-block-details summary {
+  color: var(--aurora-ink);
+  cursor: pointer;
+  font-weight: 820;
+}
+
+.aurora-prose .wp-block-separator,
+.aurora-prose hr {
+  border: 0;
+  border-top: 1px solid rgba(247, 247, 242, 0.16);
+  margin: clamp(2.4rem, 5vw, 4rem) auto;
+  max-width: 12rem;
+}
+
+.aurora-prose .wp-block-table {
+  overflow-x: auto;
+}
+
+.aurora-prose .wp-block-table table,
+.aurora-prose table {
+  border-collapse: collapse;
+  min-width: min(620px, 100%);
+  width: 100%;
+}
+
+.aurora-prose .wp-block-table th,
+.aurora-prose .wp-block-table td,
+.aurora-prose table th,
+.aurora-prose table td {
+  border: 1px solid rgba(247, 247, 242, 0.12);
+  padding: 0.75rem 0.85rem;
+  text-align: left;
+}
+
+.aurora-prose .wp-block-table th,
+.aurora-prose table th {
+  background: rgba(0, 229, 255, 0.08);
+  color: var(--aurora-ink);
+}
+
+.aurora-prose pre,
+.aurora-prose .wp-block-code {
+  background: rgba(5, 7, 8, 0.94);
+  border: 1px solid rgba(0, 229, 255, 0.16);
+  border-radius: var(--aurora-radius-card);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  color: var(--aurora-ink);
+  overflow-x: auto;
+  padding: clamp(1rem, 2.4vw, 1.35rem);
+  position: relative;
+  transition:
+    border-color var(--aurora-lux-quick),
+    box-shadow var(--aurora-lux-quick),
+    transform var(--aurora-lux-quick);
+}
+
+.aurora-prose code:not(pre code) {
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  border-radius: 5px;
+  color: var(--aurora-ink);
+  font-size: 0.9em;
+  padding: 0.08rem 0.28rem;
+}
+
+.aurora-featured-media::after,
+.aurora-article-map::after,
+.aurora-author-panel::after,
+.aurora-prose .wp-block-quote::after,
+.aurora-prose .is-style-bookmark::after,
+.aurora-prose .is-style-aurora-source-trail::after,
+.aurora-prose .is-style-aurora-article-aside::after,
+.aurora-prose pre::after,
+.aurora-prose .wp-block-code::after {
+  background: linear-gradient(90deg, transparent, rgba(247, 247, 242, 0.14), transparent);
+  content: "";
+  height: 1px;
+  left: 12%;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 12%;
+  top: 0;
+  transform: scaleX(0.45);
+  transform-origin: center;
+  transition:
+    opacity 220ms var(--aurora-lux-ease),
+    transform 420ms var(--aurora-lux-ease);
+}
+
+.aurora-featured-media:hover::after,
+.aurora-featured-media:focus-within::after,
+.aurora-article-map:hover::after,
+.aurora-article-map:focus-within::after,
+.aurora-author-panel:hover::after,
+.aurora-author-panel:focus-within::after,
+.aurora-prose .wp-block-quote:hover::after,
+.aurora-prose .wp-block-quote:focus-within::after,
+.aurora-prose .is-style-bookmark:hover::after,
+.aurora-prose .is-style-bookmark:focus-within::after,
+.aurora-prose .is-style-aurora-source-trail:hover::after,
+.aurora-prose .is-style-aurora-source-trail:focus-within::after,
+.aurora-prose .is-style-aurora-article-aside:hover::after,
+.aurora-prose .is-style-aurora-article-aside:focus-within::after,
+.aurora-prose pre:hover::after,
+.aurora-prose pre:focus-within::after,
+.aurora-prose .wp-block-code:hover::after,
+.aurora-prose .wp-block-code:focus-within::after {
+  opacity: 0.58;
+  transform: scaleX(0.86);
+}
+
+.aurora-article-map:hover,
+.aurora-article-map:focus-within,
+.aurora-author-panel:hover,
+.aurora-author-panel:focus-within,
+.aurora-prose .wp-block-quote:hover,
+.aurora-prose .wp-block-quote:focus-within,
+.aurora-prose .is-style-bookmark:hover,
+.aurora-prose .is-style-bookmark:focus-within,
+.aurora-prose .is-style-aurora-source-trail:hover,
+.aurora-prose .is-style-aurora-source-trail:focus-within,
+.aurora-prose .is-style-aurora-article-aside:hover,
+.aurora-prose .is-style-aurora-article-aside:focus-within,
+.aurora-prose pre:hover,
+.aurora-prose pre:focus-within,
+.aurora-prose .wp-block-code:hover,
+.aurora-prose .wp-block-code:focus-within {
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.22);
+  transform: translateY(-1px);
+}
+
+.is-aurora-lux-reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--aurora-lux-slow),
+    transform var(--aurora-lux-slow),
+    clip-path var(--aurora-lux-slow);
+  transition-delay: var(--aurora-lux-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.is-aurora-lux-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+.aurora-writing-archive .aurora-writing-card.is-aurora-lux-reveal {
+  transition:
+    opacity var(--aurora-lux-slow),
+    transform var(--aurora-lux-slow),
+    background-color var(--aurora-lux-quick),
+    border-color var(--aurora-lux-quick),
+    box-shadow var(--aurora-lux-quick);
+  transition-delay:
+    var(--aurora-lux-delay, 0ms),
+    var(--aurora-lux-delay, 0ms),
+    0ms,
+    0ms,
+    0ms;
+}
+
+.aurora-article-header.is-aurora-lux-reveal,
+.aurora-writing-archive-header.is-aurora-lux-reveal {
+  clip-path: inset(0 0 8% 0);
+}
+
+.aurora-article-header.is-revealed,
+.aurora-writing-archive-header.is-revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+body .aurora-reading-progress {
+  background: rgba(247, 247, 242, 0.08);
+  box-shadow: none;
+  height: 2px;
+}
+
+body .aurora-reading-progress span {
+  background:
+    linear-gradient(90deg, rgba(0, 229, 255, 0.92), rgba(200, 255, 61, 0.86), rgba(229, 70, 46, 0.9)),
+    var(--wp--preset--gradient--aurora-primary);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.22);
+}
+
+.aurora-related h2 {
+  border-top: 1px solid rgba(247, 247, 242, 0.1);
+  color: var(--aurora-ink);
+  margin: 0;
+  padding-top: clamp(1.4rem, 3vw, 2rem);
+}
+
+.aurora-related-row {
+  gap: 1rem;
+  position: relative;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    padding-inline 180ms ease;
+}
+
+.aurora-related-row::before {
+  background: linear-gradient(180deg, var(--wp--preset--color--cyan), rgba(229, 70, 46, 0.75));
+  content: "";
+  height: calc(100% - 1.35rem);
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0.68rem;
+  transform: scaleY(0.5);
+  transform-origin: center;
+  transition: opacity var(--aurora-lux-quick), transform var(--aurora-lux-quick);
+  width: 2px;
+}
+
+.aurora-related-row:hover,
+.aurora-related-row:focus-within {
+  background: rgba(247, 247, 242, 0.026);
+  border-top-color: rgba(0, 229, 255, 0.32);
+  padding-inline: 0.38rem;
+}
+
+.aurora-related-row:hover::before,
+.aurora-related-row:focus-within::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+@media (min-width: 900px) {
+  .aurora-writing-archive .aurora-writing-archive-list.wp-block-post-template {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 980px) {
+  .aurora-single-2026 .aurora-single-title {
+    font-size: clamp(3.05rem, 5.8vw, 3.75rem);
+    max-width: 14.5ch;
+  }
+
+  .aurora-writing-archive .aurora-writing-archive-title {
+    font-size: clamp(2.85rem, 5.5vw, 3.35rem);
+  }
+}
+
+@media (max-width: 700px) {
+  .aurora-single-2026 {
+    padding-top: 1.35rem;
+  }
+
+  .aurora-single-2026 .aurora-single-title {
+    font-size: clamp(2.35rem, 8vw, 2.68rem);
+    line-height: 1.04;
+    max-width: 12.8ch;
+  }
+
+  .aurora-single-2026 .aurora-article-header {
+    margin-bottom: 1.35rem;
+    padding-bottom: 1.4rem;
+  }
+
+  .aurora-writing-archive .aurora-writing-archive-title {
+    font-size: clamp(2.32rem, 8vw, 2.7rem);
+    line-height: 1.05;
+    max-width: 12.5ch;
+  }
+
+  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-title {
+    font-size: 1.68rem;
+    line-height: 1.08;
+  }
+
+  .aurora-writing-archive .aurora-writing-card-body,
+  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-body {
+    padding: 0.9rem;
+  }
+
+  .aurora-writing-archive .aurora-writing-card:hover,
+  .aurora-writing-archive .aurora-writing-card:focus-within,
+  .aurora-article-map:hover,
+  .aurora-article-map:focus-within,
+  .aurora-author-panel:hover,
+  .aurora-author-panel:focus-within,
+  .aurora-prose .wp-block-quote:hover,
+  .aurora-prose .wp-block-quote:focus-within,
+  .aurora-prose .is-style-bookmark:hover,
+  .aurora-prose .is-style-bookmark:focus-within,
+  .aurora-prose .is-style-aurora-source-trail:hover,
+  .aurora-prose .is-style-aurora-source-trail:focus-within,
+  .aurora-prose .is-style-aurora-article-aside:hover,
+  .aurora-prose .is-style-aurora-article-aside:focus-within,
+  .aurora-prose pre:hover,
+  .aurora-prose pre:focus-within,
+  .aurora-prose .wp-block-code:hover,
+  .aurora-prose .wp-block-code:focus-within {
+    transform: none;
+  }
+
+  .is-aurora-lux-reveal {
+    transform: translateY(6px);
+  }
+}
+
+@media (max-width: 360px) {
+  .aurora-single-2026 .aurora-single-title {
+    font-size: 2.28rem;
+  }
+
+  .aurora-writing-archive .aurora-writing-archive-title {
+    font-size: 2.24rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .aurora-header-2026 {
     backdrop-filter: none;
@@ -2869,6 +3790,18 @@ a {
   .aurora-media-card img,
   .aurora-writing-card,
   .aurora-writing-card-media img,
+  .aurora-featured-media,
+  .aurora-article-map,
+  .aurora-author-panel,
+  .aurora-related-row,
+  .aurora-prose .wp-block-quote,
+  .aurora-prose .wp-block-pullquote,
+  .aurora-prose .is-style-bookmark,
+  .aurora-prose .is-style-aurora-source-trail,
+  .aurora-prose .is-style-aurora-article-aside,
+  .aurora-prose pre,
+  .aurora-prose .wp-block-code,
+  .is-aurora-lux-reveal,
   .aurora-button,
   .aurora-theme .wp-block-button__link,
   .aurora-article-row,
@@ -2878,11 +3811,44 @@ a {
     transition: none;
   }
 
+  .aurora-writing-card::after,
+  .aurora-writing-card-media::after,
+  .aurora-featured-media::after,
+  .aurora-article-map::after,
+  .aurora-author-panel::after,
+  .aurora-related-row::before,
+  .aurora-prose .wp-block-quote::after,
+  .aurora-prose .wp-block-pullquote::before,
+  .aurora-prose .is-style-bookmark::after,
+  .aurora-prose .is-style-aurora-source-trail::after,
+  .aurora-prose .is-style-aurora-article-aside::after,
+  .aurora-prose pre::after,
+  .aurora-prose .wp-block-code::after {
+    animation: none;
+    transition: none;
+  }
+
   .aurora-media-card:hover img,
   .aurora-writing-card:hover,
   .aurora-writing-card:hover .aurora-writing-card-media img,
+  .aurora-featured-media:hover,
+  .aurora-article-map:hover,
+  .aurora-related-row:hover,
+  .aurora-prose .wp-block-quote:hover,
+  .aurora-prose .wp-block-pullquote:hover,
+  .aurora-prose .is-style-bookmark:hover,
+  .aurora-prose .is-style-aurora-source-trail:hover,
+  .aurora-prose .is-style-aurora-article-aside:hover,
+  .aurora-prose pre:hover,
+  .aurora-prose .wp-block-code:hover,
   .aurora-button:hover,
   .aurora-theme .wp-block-button__link:hover {
+    transform: none;
+  }
+
+  .is-aurora-lux-reveal {
+    clip-path: none;
+    opacity: 1;
     transform: none;
   }
 

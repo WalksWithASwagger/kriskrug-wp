@@ -248,6 +248,133 @@
   }
 
   // ============================================
+  // ARTICLE + BLOG LUX MOTION
+  // ============================================
+
+  function initArticleBlogLuxMotion() {
+    const scope = document.querySelector('.aurora-single-2026, .aurora-writing-archive');
+    if (!scope) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isCompactViewport = window.matchMedia('(max-width: 700px)').matches;
+    const revealStep = isCompactViewport ? 22 : 32;
+    const revealDelayCap = isCompactViewport ? 120 : 220;
+    const revealSelectors = [
+      '.aurora-writing-archive-header',
+      '.aurora-writing-card',
+      '.aurora-article-header',
+      '.aurora-featured-media',
+      '.aurora-article-map',
+      '.aurora-prose > p',
+      '.aurora-prose > h2',
+      '.aurora-prose > h3',
+      '.aurora-prose > figure',
+      '.aurora-prose > blockquote',
+      '.aurora-prose > .wp-block-quote',
+      '.aurora-prose > .wp-block-pullquote',
+      '.aurora-prose > .wp-block-group',
+      '.aurora-prose > .wp-block-table',
+      '.aurora-prose > pre',
+      '.aurora-prose > .wp-block-code',
+      '.aurora-author-panel',
+      '.aurora-tag-panel',
+      '.aurora-related h2',
+      '.aurora-related-row',
+    ];
+
+    const revealTargets = Array.from(document.querySelectorAll(revealSelectors.join(',')))
+      .filter((target) => !target.hidden);
+
+    revealTargets.forEach((target, index) => {
+      target.classList.add('is-aurora-lux-reveal');
+      target.style.setProperty('--aurora-lux-index', String(index));
+      target.style.setProperty('--aurora-lux-delay', `${Math.min(index * revealStep, revealDelayCap)}ms`);
+    });
+
+    if (prefersReducedMotion) {
+      revealTargets.forEach((target) => target.classList.add('is-revealed'));
+    } else if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('is-revealed');
+          revealObserver.unobserve(entry.target);
+        });
+      }, {
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.08,
+      });
+
+      revealTargets.forEach((target) => revealObserver.observe(target));
+
+      requestAnimationFrame(() => {
+        revealTargets.forEach((target) => {
+          const rect = target.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            target.classList.add('is-revealed');
+            revealObserver.unobserve(target);
+          }
+        });
+      });
+    } else {
+      revealTargets.forEach((target) => target.classList.add('is-revealed'));
+    }
+
+    const article = document.querySelector('.aurora-article');
+    const map = article?.querySelector('[data-aurora-article-map]');
+    const mapLinks = Array.from(map?.querySelectorAll('a[href^="#"]') || []);
+    if (!article || !map || mapLinks.length === 0) return;
+
+    const headingsById = new Map(
+      Array.from(article.querySelectorAll('.aurora-prose h2[id], .aurora-prose h3[id]'))
+        .map((heading) => [heading.id, heading])
+    );
+
+    function setActiveMapLink(id) {
+      mapLinks.forEach((link) => {
+        const isActive = link.hash === `#${id}`;
+        link.classList.toggle('is-active', isActive);
+
+        if (isActive) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    const firstHeading = headingsById.values().next().value;
+    if (firstHeading) {
+      setActiveMapLink(firstHeading.id);
+    }
+
+    mapLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const id = link.hash.slice(1);
+        if (id) {
+          setActiveMapLink(id);
+        }
+      });
+    });
+
+    if (!('IntersectionObserver' in window)) return;
+
+    const mapObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveMapLink(entry.target.id);
+        }
+      });
+    }, {
+      rootMargin: '-24% 0px -62% 0px',
+      threshold: 0,
+    });
+
+    headingsById.forEach((heading) => mapObserver.observe(heading));
+  }
+
+  // ============================================
   // LAZY LOAD IMAGES WITH FADE
   // ============================================
 
@@ -313,6 +440,7 @@
     initCodeCopy();
     initReadingProgress();
     initArticleReadingHelpers();
+    initArticleBlogLuxMotion();
     initLazyImages();
     initForms();
     initColorScheme();

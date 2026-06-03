@@ -39,5 +39,11 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.3.10 =
+* Rebalanced single-post and writing-archive composition for a calmer premium editorial read.
+* Added Article Modules patterns and styles for Short Version, Field Note, Source Trail, Pull Quote, callouts, bookmarks, and lead paragraphs.
+* Replaced generic no-image blog fallbacks with varied CSS-generated editorial image plates.
+* Softened article module surfaces, hover depth, reveal timing, card sheen, and featured-media glow.
+
 = 1.0.0 =
 * Initial release
