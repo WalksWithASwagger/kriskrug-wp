@@ -5,11 +5,11 @@
 
 This folder is the source of truth for "what was true on May 14, 2026" and for dated working addenda that came out of the May 2026 recovery/redesign push. Treat the baseline files as historical snapshots and the latest dated handoff/truth docs plus the newest committed `reports/morning-truth-*.md` artifact as the current front door.
 
-## Current Front Door (verified 2026-06-03 16:44 UTC)
+## Current Front Door (verified 2026-06-03 17:09 UTC)
 
 Read these first for current execution context:
 
-1. [AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md](AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md) plus `reports/morning-truth-20260603-164415Z.md`
+1. [AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md](AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md) plus `reports/morning-truth-20260603-170932Z.md`
 2. [TRACK-A-RESTART-2026-05-31.md](TRACK-A-RESTART-2026-05-31.md)
 3. [SHUTDOWN-2026-05-30.md](SHUTDOWN-2026-05-30.md)
 4. [AURORA-CONTENT-RECOVERY-2026-05-25.md](AURORA-CONTENT-RECOVERY-2026-05-25.md)
@@ -55,14 +55,14 @@ Then use historical plans for context:
 | [AURORA-CONTENT-RECOVERY-2026-05-25.md](AURORA-CONTENT-RECOVERY-2026-05-25.md) | Recovery note for stale Aurora 1.3.0 production templates masking rich page content, plus the 1.3.3/1.3.4 deploy artifacts and verification markers. |
 | [AURORA-LIVE-QA-2026-05-25.md](AURORA-LIVE-QA-2026-05-25.md) | Live QA closeout for the 1.3.3 recovery deploy and 1.3.4 polish pass, including desktop/mobile screenshot artifact paths and residual CDN notes. |
 | [QUEUE-MERGE-CLEANUP-2026-05-26.md](QUEUE-MERGE-CLEANUP-2026-05-26.md) | GitHub PR, branch, worktree, and issue-comment closeout after merging the Aurora recovery, Cotton draft, modernization guardrails, and v3 IA rollout salvage lanes. |
-| [AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md](AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md) | Repo-side Aurora header wordmark closeout, 1.3.9 deploy package path, production upload blocker, live readback, and preserved dirty-work inventory. |
+| [AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md](AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md) | Aurora header wordmark closeout, 1.3.9 deploy package path, production readback, Jetpack Boost Critical CSS caveat, and preserved dirty-work inventory. |
 | [TRACK-A-RESTART-2026-05-31.md](TRACK-A-RESTART-2026-05-31.md) | Read-only restart pass after shutdown: verification, May 31 morning truth, Jetpack feedback counts, and human-gated queue disposition. |
 | [SHUTDOWN-2026-05-30.md](SHUTDOWN-2026-05-30.md) | End-of-day closeout for Cursor WordPress MCP helpers, verification results, open risks, and restart commands. |
 | [TRACK-A-SWARM-75-95-128-2026-05-29.md](TRACK-A-SWARM-75-95-128-2026-05-29.md) | Public-safe closeout for issues #75, #95, and #128, including dependency-aware Notion tests, draft `11879` readback, and PII-safe Jetpack feedback audit guidance. |
 | [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md) | Track A/Track B lane handoff with ownership boundaries and public-surface updates. |
 | [AURORA-V3-QA-ROADMAP-2026-05-24.md](AURORA-V3-QA-ROADMAP-2026-05-24.md) | Reconciled Aurora v1.3.0 line, local QA evidence, and post-merge rollout priorities. |
 | [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md) | Read-only truth memo with live evidence, drift flags, and verification matrix for safe next-session startup. |
-| `reports/` | Timestamped outputs from `make morning-truth` (read-only startup truth reports). Newest committed artifact as of 2026-06-03: `morning-truth-20260603-164415Z.md`. |
+| `reports/` | Timestamped outputs from `make morning-truth` (read-only startup truth reports). Newest committed artifact as of 2026-06-03: `morning-truth-20260603-170932Z.md`. |
 | [WORK-PLAN-2026-05-23.md](WORK-PLAN-2026-05-23.md) | Historical Track A baseline after the Sovereign AI draft pipeline closeout. Queue counts are normalized to the 2026-05-25 truth pass; verify live before acting. |
 | [WORK-PLAN-2026-05-21.md](WORK-PLAN-2026-05-21.md) | Historical next-session front door after the diagnostic/polish branch, docs tidy pass, and sidebar promo hardening. Superseded by `WORK-PLAN-2026-05-23.md`. |
 | [DRAFT-QUALITY-RESET-2026-05-22.md](DRAFT-QUALITY-RESET-2026-05-22.md) | Active Track A publishing correction: live draft counts, why the May 21-22 drafts are not schedule-ready, and the required editorial/link/image/block QA gate. |
@@ -120,13 +120,13 @@ Then use historical plans for context:
 
 ## TL;DR
 
-- **Site is on Pagely** (managed WP host), publicly reporting **WordPress 6.9.4** with **`kk-aurora` 1.3.4 active** as of 2026-05-25 22:40 UTC.
+- **Site is on Pagely** (managed WP host), publicly reporting **WordPress 6.9.4** with **`kk-aurora` 1.3.9 active** as of the 2026-06-03 logo deploy closeout.
 - **Jetpack is on the Free plan**, which is why WordPress.com MCP write access is currently blocked.
 - **Baseline note:** the May 14 snapshot started before later page-level snapshots, source packs, and Aurora theme work were added. Read the dated addenda above for current operating state.
-- **Current addendum:** start with the Aurora recovery/QA closeout docs, then use the 2026-05-24 handoff set ([`HANDOFF-2026-05-24.md`](HANDOFF-2026-05-24.md), [`AURORA-V3-QA-ROADMAP-2026-05-24.md`](AURORA-V3-QA-ROADMAP-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](TRACK-A-MORNING-TRUTH-2026-05-24.md)), then verify against `reports/morning-truth-20260525-220258Z.md` or a newer generated report.
-- **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-05-25 02:19 UTC (`make morning-truth` / `make wp7-smoke EXPECT_VERSION=6.9.4`). Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
-- **Draft queue addendum:** `make draft-queue-audit` reported `0` future posts, `71` draft posts, and `5` draft pages on 2026-05-25 02:19 UTC; `sovereign-ai-for-whom` is already WP draft `11905`.
-- **Issue queue addendum:** `gh pr list --state open --limit 100` returned `0` open PRs and `gh issue list --state open --limit 200` returned `66` open issues on 2026-05-25 02:19 UTC.
+- **Current addendum:** start with the Aurora header logo closeout and newest morning-truth report, then use the Aurora recovery/QA closeout docs and the 2026-05-24 handoff set ([`HANDOFF-2026-05-24.md`](HANDOFF-2026-05-24.md), [`AURORA-V3-QA-ROADMAP-2026-05-24.md`](AURORA-V3-QA-ROADMAP-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](TRACK-A-MORNING-TRUTH-2026-05-24.md)).
+- **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-06-03 17:09 UTC (`make morning-truth` / `make wp7-smoke EXPECT_VERSION=6.9.4`). Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
+- **Draft queue addendum:** `make morning-truth` reported `0` future posts, `73` draft posts, and `5` draft pages on 2026-06-03 17:09 UTC; `sovereign-ai-for-whom` is already WP draft `11905`.
+- **Issue queue addendum:** `gh pr list --state open --limit 200` returned `0` open PRs and `gh issue list --state open --limit 200` returned `65` open issues on 2026-06-03 17:09 UTC.
 - **Read-only fingerprinting works** through the public WP REST API; that's how this snapshot was built.
 - **Path to "safe to modify":** the strict backup/restore proof gate was retired on 2026-05-22. Use dry-runs, exact slug/ID/status checks, page/post snapshots or reversible diffs, and explicit rollback notes. Keep improving backup coverage as resilience, not as a blanket blocker.
 
