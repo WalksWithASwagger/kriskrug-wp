@@ -5,21 +5,22 @@
 
 This folder is the source of truth for "what was true on May 14, 2026" and for dated working addenda that came out of the May 2026 recovery/redesign push. Treat the baseline files as historical snapshots and the latest dated handoff/truth docs plus the newest committed `reports/morning-truth-*.md` artifact as the current front door.
 
-## Current Front Door (verified 2026-05-31 19:52 UTC)
+## Current Front Door (verified 2026-06-03 16:44 UTC)
 
 Read these first for current execution context:
 
-1. [TRACK-A-RESTART-2026-05-31.md](TRACK-A-RESTART-2026-05-31.md) plus `reports/morning-truth-20260531-195250Z.md`
-2. [SHUTDOWN-2026-05-30.md](SHUTDOWN-2026-05-30.md)
-3. [AURORA-CONTENT-RECOVERY-2026-05-25.md](AURORA-CONTENT-RECOVERY-2026-05-25.md)
-4. [AURORA-LIVE-QA-2026-05-25.md](AURORA-LIVE-QA-2026-05-25.md)
-5. [QUEUE-MERGE-CLEANUP-2026-05-26.md](QUEUE-MERGE-CLEANUP-2026-05-26.md)
-6. [TRACK-A-SWARM-75-95-128-2026-05-29.md](TRACK-A-SWARM-75-95-128-2026-05-29.md)
-7. [HANDOFF-2026-05-24.md](HANDOFF-2026-05-24.md)
-8. [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md)
-9. [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md)
-10. [TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)
-11. [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)
+1. [AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md](AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md) plus `reports/morning-truth-20260603-164415Z.md`
+2. [TRACK-A-RESTART-2026-05-31.md](TRACK-A-RESTART-2026-05-31.md)
+3. [SHUTDOWN-2026-05-30.md](SHUTDOWN-2026-05-30.md)
+4. [AURORA-CONTENT-RECOVERY-2026-05-25.md](AURORA-CONTENT-RECOVERY-2026-05-25.md)
+5. [AURORA-LIVE-QA-2026-05-25.md](AURORA-LIVE-QA-2026-05-25.md)
+6. [QUEUE-MERGE-CLEANUP-2026-05-26.md](QUEUE-MERGE-CLEANUP-2026-05-26.md)
+7. [TRACK-A-SWARM-75-95-128-2026-05-29.md](TRACK-A-SWARM-75-95-128-2026-05-29.md)
+8. [HANDOFF-2026-05-24.md](HANDOFF-2026-05-24.md)
+9. [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md)
+10. [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md)
+11. [TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)
+12. [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)
 
 Side-worktree safety refresh (2026-06-02): canonical new work should start from
 `main` in a fresh lane-scoped branch. Do not edit
@@ -54,13 +55,14 @@ Then use historical plans for context:
 | [AURORA-CONTENT-RECOVERY-2026-05-25.md](AURORA-CONTENT-RECOVERY-2026-05-25.md) | Recovery note for stale Aurora 1.3.0 production templates masking rich page content, plus the 1.3.3/1.3.4 deploy artifacts and verification markers. |
 | [AURORA-LIVE-QA-2026-05-25.md](AURORA-LIVE-QA-2026-05-25.md) | Live QA closeout for the 1.3.3 recovery deploy and 1.3.4 polish pass, including desktop/mobile screenshot artifact paths and residual CDN notes. |
 | [QUEUE-MERGE-CLEANUP-2026-05-26.md](QUEUE-MERGE-CLEANUP-2026-05-26.md) | GitHub PR, branch, worktree, and issue-comment closeout after merging the Aurora recovery, Cotton draft, modernization guardrails, and v3 IA rollout salvage lanes. |
+| [AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md](AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md) | Repo-side Aurora header wordmark closeout, 1.3.9 deploy package path, production upload blocker, live readback, and preserved dirty-work inventory. |
 | [TRACK-A-RESTART-2026-05-31.md](TRACK-A-RESTART-2026-05-31.md) | Read-only restart pass after shutdown: verification, May 31 morning truth, Jetpack feedback counts, and human-gated queue disposition. |
 | [SHUTDOWN-2026-05-30.md](SHUTDOWN-2026-05-30.md) | End-of-day closeout for Cursor WordPress MCP helpers, verification results, open risks, and restart commands. |
 | [TRACK-A-SWARM-75-95-128-2026-05-29.md](TRACK-A-SWARM-75-95-128-2026-05-29.md) | Public-safe closeout for issues #75, #95, and #128, including dependency-aware Notion tests, draft `11879` readback, and PII-safe Jetpack feedback audit guidance. |
 | [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md) | Track A/Track B lane handoff with ownership boundaries and public-surface updates. |
 | [AURORA-V3-QA-ROADMAP-2026-05-24.md](AURORA-V3-QA-ROADMAP-2026-05-24.md) | Reconciled Aurora v1.3.0 line, local QA evidence, and post-merge rollout priorities. |
 | [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md) | Read-only truth memo with live evidence, drift flags, and verification matrix for safe next-session startup. |
-| `reports/` | Timestamped outputs from `make morning-truth` (read-only startup truth reports). Newest committed artifact as of 2026-05-31: `morning-truth-20260531-195250Z.md`. |
+| `reports/` | Timestamped outputs from `make morning-truth` (read-only startup truth reports). Newest committed artifact as of 2026-06-03: `morning-truth-20260603-164415Z.md`. |
 | [WORK-PLAN-2026-05-23.md](WORK-PLAN-2026-05-23.md) | Historical Track A baseline after the Sovereign AI draft pipeline closeout. Queue counts are normalized to the 2026-05-25 truth pass; verify live before acting. |
 | [WORK-PLAN-2026-05-21.md](WORK-PLAN-2026-05-21.md) | Historical next-session front door after the diagnostic/polish branch, docs tidy pass, and sidebar promo hardening. Superseded by `WORK-PLAN-2026-05-23.md`. |
 | [DRAFT-QUALITY-RESET-2026-05-22.md](DRAFT-QUALITY-RESET-2026-05-22.md) | Active Track A publishing correction: live draft counts, why the May 21-22 drafts are not schedule-ready, and the required editorial/link/image/block QA gate. |
