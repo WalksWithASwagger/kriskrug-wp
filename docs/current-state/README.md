@@ -10,20 +10,21 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 Read these first for current execution context:
 
 1. [POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md](POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md) plus `reports/morning-truth-20260604-062927Z.md`
-2. [AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md](AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md)
-3. [WORK-PAGE-METADATA-68-2026-06-04.md](WORK-PAGE-METADATA-68-2026-06-04.md)
-4. [AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md](AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md)
-5. [TRACK-A-RESTART-2026-05-31.md](TRACK-A-RESTART-2026-05-31.md)
-6. [SHUTDOWN-2026-05-30.md](SHUTDOWN-2026-05-30.md)
-7. [AURORA-CONTENT-RECOVERY-2026-05-25.md](AURORA-CONTENT-RECOVERY-2026-05-25.md)
-8. [AURORA-LIVE-QA-2026-05-25.md](AURORA-LIVE-QA-2026-05-25.md)
-9. [QUEUE-MERGE-CLEANUP-2026-05-26.md](QUEUE-MERGE-CLEANUP-2026-05-26.md)
-10. [TRACK-A-SWARM-75-95-128-2026-05-29.md](TRACK-A-SWARM-75-95-128-2026-05-29.md)
-11. [HANDOFF-2026-05-24.md](HANDOFF-2026-05-24.md)
-12. [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md)
-13. [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md)
-14. [TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)
-15. [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)
+2. [LOCAL-WP-QA-2026-06-04.md](LOCAL-WP-QA-2026-06-04.md)
+3. [AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md](AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md)
+4. [WORK-PAGE-METADATA-68-2026-06-04.md](WORK-PAGE-METADATA-68-2026-06-04.md)
+5. [AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md](AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md)
+6. [TRACK-A-RESTART-2026-05-31.md](TRACK-A-RESTART-2026-05-31.md)
+7. [SHUTDOWN-2026-05-30.md](SHUTDOWN-2026-05-30.md)
+8. [AURORA-CONTENT-RECOVERY-2026-05-25.md](AURORA-CONTENT-RECOVERY-2026-05-25.md)
+9. [AURORA-LIVE-QA-2026-05-25.md](AURORA-LIVE-QA-2026-05-25.md)
+10. [QUEUE-MERGE-CLEANUP-2026-05-26.md](QUEUE-MERGE-CLEANUP-2026-05-26.md)
+11. [TRACK-A-SWARM-75-95-128-2026-05-29.md](TRACK-A-SWARM-75-95-128-2026-05-29.md)
+12. [HANDOFF-2026-05-24.md](HANDOFF-2026-05-24.md)
+13. [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md)
+14. [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md)
+15. [TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)
+16. [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)
 
 Side-worktree safety refresh (2026-06-02): canonical new work should start from
 `main` in a fresh lane-scoped branch. Do not edit
@@ -55,6 +56,7 @@ Then use historical plans for context:
 | [ROADMAP.md](ROADMAP.md) | Six-phase, 3-month plan that synthesizes FIX_QUEUE + postmortem follow-ups + content pipeline next steps. Use as longer-range reference after the latest work plan. |
 | [FULL-AUDIT-ROADMAP-2026-05-18.md](FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit of repo, GitHub queue, Track A, Track B, and human decisions. |
 | [POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md](POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md) | Current post-ship audit and workplan after Aurora 1.3.10, Work metadata #68, open queue, draft audit, and ready/agent/block buckets. |
+| [LOCAL-WP-QA-2026-06-04.md](LOCAL-WP-QA-2026-06-04.md) | Local WP QA path for Track B: `kriskrug-local.local:10003`, GraphQL startup, Local theme sync, and proof that `/blog/` plus a real article load with Aurora 1.3.11. |
 | [HANDOFF-2026-05-24.md](HANDOFF-2026-05-24.md) | Authoritative cross-track state as of 2026-05-24 (Aurora live, branch divergence warning, deploy mechanics). |
 | [AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md](AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md) | Aurora 1.3.10 article/blog composition closeout and next QA path. |
 | [WORK-PAGE-METADATA-68-2026-06-04.md](WORK-PAGE-METADATA-68-2026-06-04.md) | Work page metadata and OG image closeout for issue #68, with remaining #126 social-debugger follow-up. |
@@ -129,7 +131,7 @@ Then use historical plans for context:
 - **Site is on Pagely** (managed WP host), publicly reporting **WordPress 6.9.4** with **`kk-aurora` 1.3.10 active** as of the 2026-06-04 post-ship audit.
 - **Jetpack is on the Free plan**, which is why WordPress.com MCP write access is currently blocked.
 - **Baseline note:** the May 14 snapshot started before later page-level snapshots, source packs, and Aurora theme work were added. Read the dated addenda above for current operating state.
-- **Current addendum:** start with the post-ship audit/workplan and newest morning-truth report, then use the Aurora 1.3.10 workplan, Work metadata closeout, Aurora logo closeout, and the 2026-05-24 handoff set ([`HANDOFF-2026-05-24.md`](HANDOFF-2026-05-24.md), [`AURORA-V3-QA-ROADMAP-2026-05-24.md`](AURORA-V3-QA-ROADMAP-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](TRACK-A-MORNING-TRUTH-2026-05-24.md)).
+- **Current addendum:** start with the post-ship audit/workplan and newest morning-truth report, then use the Local WP QA note, Aurora 1.3.10 workplan, Work metadata closeout, Aurora logo closeout, and the 2026-05-24 handoff set ([`HANDOFF-2026-05-24.md`](HANDOFF-2026-05-24.md), [`AURORA-V3-QA-ROADMAP-2026-05-24.md`](AURORA-V3-QA-ROADMAP-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](TRACK-A-MORNING-TRUTH-2026-05-24.md)).
 - **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-06-04 06:29 UTC (`make morning-truth` / `make wp7-smoke EXPECT_VERSION=6.9.4`). Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
 - **Draft queue addendum:** `make morning-truth` reported `0` future posts, `71` draft posts, and `5` draft pages on 2026-06-04 06:29 UTC; `sovereign-ai-for-whom` is already WP draft `11905`.
 - **Issue queue addendum:** `gh pr list --state open --limit 200` returned `0` open PRs after PR #147 merged, and `gh issue list --state open --limit 200` returned `66` open issues on 2026-06-04 06:31 UTC.
