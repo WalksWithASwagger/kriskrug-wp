@@ -21,14 +21,18 @@
     return;
   }
 
-  // Wait for GSAP to be available
-  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-    console.warn('KK Aurora: GSAP or ScrollTrigger not loaded');
-    return;
-  }
+  function whenGsapReady(callback, attempt = 0) {
+    if (typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined') {
+      callback();
+      return;
+    }
 
-  // Register ScrollTrigger plugin
-  gsap.registerPlugin(ScrollTrigger);
+    if (attempt >= 20) {
+      return;
+    }
+
+    window.setTimeout(() => whenGsapReady(callback, attempt + 1), 50);
+  }
 
   // ============================================
   // CONFIGURATION
@@ -391,6 +395,8 @@
   // ============================================
 
   function init() {
+    gsap.registerPlugin(ScrollTrigger);
+
     // Scroll animations
     initFadeUp();
     initFadeIn();
@@ -414,11 +420,15 @@
     });
   }
 
+  function boot() {
+    whenGsapReady(init);
+  }
+
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', boot);
   } else {
-    init();
+    boot();
   }
 
 })();

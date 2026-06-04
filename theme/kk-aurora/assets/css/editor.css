@@ -163,6 +163,12 @@
   border-left-color: #e5462e;
 }
 
+.editor-styles-wrapper .is-style-bookmark a,
+.editor-styles-wrapper .is-style-aurora-source-trail a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 /* Separator in editor */
 .editor-styles-wrapper .wp-block-separator {
   border-color: var(--wp--preset--color--elevated);
