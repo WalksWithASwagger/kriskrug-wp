@@ -1,9 +1,9 @@
 # Image alt text
 
-(no images)
+## Featured media
 
-Replace any "(empty — needs human-written alt)" lines with descriptive sentences. Good alt text:
-- Describes what's in the image, not what you want it to mean
-- Includes context the reader can't get from surrounding prose
-- Is under 125 characters where possible
-- Uses natural language, not keyword stuffing
+- WP media `11838`, `12-ai-is-a-mirror.jpg`: AI Is a Mirror - slide from KK's WAIFF Brazil keynote on how AI reflects what we feed it.
+
+## In-body images
+
+(none)

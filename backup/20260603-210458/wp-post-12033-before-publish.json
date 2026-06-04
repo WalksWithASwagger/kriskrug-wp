@@ -1,0 +1,435 @@
+{
+  "captured_at": "2026-06-03T21:04:58.688616+00:00",
+  "post": {
+    "_links": {
+      "about": [
+        {
+          "href": "https://kriskrug.co/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://kriskrug.co/wp-json/wp/v2/users/1"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://kriskrug.co/wp-json/wp/v2/posts"
+        }
+      ],
+      "curies": [
+        {
+          "href": "https://api.w.org/{rel}",
+          "name": "wp",
+          "templated": true
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://kriskrug.co/wp-json/wp/v2/comments?post=12033"
+        }
+      ],
+      "self": [
+        {
+          "href": "https://kriskrug.co/wp-json/wp/v2/posts/12033",
+          "targetHints": {
+            "allow": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          }
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "https://kriskrug.co/wp-json/wp/v2/posts/12033/revisions"
+        }
+      ],
+      "wp:action-assign-author": [
+        {
+          "href": "https://kriskrug.co/wp-json/wp/v2/posts/12033"
+        }
+      ],
+      "wp:action-assign-categories": [
+        {
+          "href": "https://kriskrug.co/wp-json/wp/v2/posts/12033"
+        }
+      ],
+      "wp:action-assign-tags": [
+        {
+          "href": "https://kriskrug.co/wp-json/wp/v2/posts/12033"
+        }
+      ],
+      "wp:action-create-categories": [
+        {
+          "href": "https://kriskrug.co/wp-json/wp/v2/posts/12033"
+        }
+      ],
+      "wp:action-create-tags": [
+        {
+          "href": "https://kriskrug.co/wp-json/wp/v2/posts/12033"
+        }
+      ],
+      "wp:action-publish": [
+        {
+          "href": "https://kriskrug.co/wp-json/wp/v2/posts/12033"
+        }
+      ],
+      "wp:action-sticky": [
+        {
+          "href": "https://kriskrug.co/wp-json/wp/v2/posts/12033"
+        }
+      ],
+      "wp:action-unfiltered-html": [
+        {
+          "href": "https://kriskrug.co/wp-json/wp/v2/posts/12033"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://kriskrug.co/wp-json/wp/v2/media?parent=12033"
+        }
+      ],
+      "wp:term": [
+        {
+          "embeddable": true,
+          "href": "https://kriskrug.co/wp-json/wp/v2/categories?post=12033",
+          "taxonomy": "category"
+        },
+        {
+          "embeddable": true,
+          "href": "https://kriskrug.co/wp-json/wp/v2/tags?post=12033",
+          "taxonomy": "post_tag"
+        }
+      ]
+    },
+    "author": 1,
+    "categories": [
+      1665
+    ],
+    "class_list": [
+      "post-12033",
+      "post",
+      "type-post",
+      "status-draft",
+      "format-standard",
+      "hentry",
+      "category-ai-creatives"
+    ],
+    "comment_status": "open",
+    "content": {
+      "block_version": 1,
+      "protected": false,
+      "raw": "<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p><em>A Field Guide to Staying Human++ in the Synthetic Renaissance</em></p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:paragraph {\"className\":\"is-style-bookmark\"} -->\n<p class=\"is-style-bookmark\"><a href=\"https://www.linkedin.com/pulse/age-agent-orchestrator-shyamal-hitesh-anadkat-mapkc/\" rel=\"noopener noreferrer\" target=\"_blank\">https://www.linkedin.com/pulse/age-agent-orchestrator-shyamal-hitesh-anadkat-mapkc/</a></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:details -->\n<details class=\"wp-block-details\"><summary>Outline</summary><!-- wp:paragraph -->\n<p><strong>\u201cAgent Orchestrators, Creative Insurgents &amp; The New Stack: A Field Guide to Staying Human++ in the Synthetic Renaissance\u201d</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\"><strong>Opening Blast: Hack the Frame</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p><strong>&quot;AI won\u2019t steal your job, it\u2019ll steal your face if you don\u2019t know the rules of the game.&quot;</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Before you get seduced by the soft glow of automation utopia, remember: <em>every agent is a mirror</em>. And most people are staring into that mirror with their eyes closed.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>This isn\u2019t about replacing the \u201ctax guy\u201d or writing better emails.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>It\u2019s about the birth of a new digital caste system, one divided not by wealth, but by <strong>orchestration literacy</strong>. The question isn\u2019t: <em>Can you prompt GPT?</em> It\u2019s: <em>Can you pilot a swarm?</em></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\"><strong>Section I: Welcome to the Age of the Loop Lords</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">1. <strong>From Creators to Conductors</strong></h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>You\u2019re no longer just \u201cdoing work.\u201d</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>You\u2019re <em>designing the machine that does the work</em>.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Prompting isn\u2019t the art, <em>loopcraft</em> is.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>Orchestration = Creative Architecture + Agent Management + Feedback Hacking.</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>Creative pros must mutate into:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><li><strong>Systems DJs</strong> remixing code, content, and cognition.</li><li><strong>Digital Doulas</strong> birthing agent collectives aligned to human values.</li><li><strong>Loop Lords</strong> who sculpt feedback, not just output.</li></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">2. <strong>The Death of the Specialist, The Rise of the Synthesist</strong></h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>The future ain\u2019t hiring \u201cjust\u201d a graphic designer.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>It\u2019s looking for someone who can:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><li>Create the visual style guide,</li><li>Fine-tune the image model,</li><li>Test five agents for A/B on TikTok,</li><li>AND know when to delete it all because it lacks soul.</li></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p><strong>Specialists are nodes. Synthesists are networks.</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\"><strong>Section II: The Scarcity Principle and Creative Sovereignty</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">3. <strong>Attention is the New Compute</strong></h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Your most scarce resources aren\u2019t time or money.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>They\u2019re:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><li><strong>Cognitive bandwidth</strong></li><li><strong>Human judgment</strong></li><li><strong>Trustworthy context</strong></li></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>Know how to allocate <em>these</em>, and you\u2019re playing a game the algorithm can\u2019t even see.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">4. <strong>Resource Orchestration = Creative Sovereignty</strong></h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Every agent is a tool.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Every tool has:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><li>a compute cost,</li><li>a data risk,</li><li>and a sovereignty tax.</li></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>In this era, DIY isn\u2019t a punk aesthetic.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>It\u2019s an <strong>operational imperative</strong>.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Build your own:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><li>Models,</li><li>Data pipelines,</li><li>Narratives,</li><li>Communities.</li></ul>\n<!-- /wp:list -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>Or become another soul streamed through someone else\u2019s API.</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\"><strong>Section III: Human++ Tactics for Surviving the Loopocene</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">5. <strong>Get Weird or Get Replaced</strong></h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>AI is not creative.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>It is <em>statistically creative-looking</em>.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Your job:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><li>Be glitchy.</li><li>Be uncanny.</li><li>Make art that <em>AI can\u2019t explain</em>.</li></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>When AI paints inside the lines, you make new geometry.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>Dada, punk, vaporwave, Indigenous storytelling, this is your moat.</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">6. <strong>Cultivate Your Agent Aesthetic</strong></h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Build agent workflows that express your <em>creative fingerprint</em>.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Think:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><li>A personal GPT trained on your dream journals.</li><li>A collage-bot that remixes your failed projects.</li><li>An image agent that only generates based on the emotional tone of your voice.</li></ul>\n<!-- /wp:list -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>Agent orchestration isn\u2019t just technical.</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\"><strong>Section IV: Institutions are Sinking, Make New Ones</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">7. <strong>From Brands to Micro-Religions</strong></h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>The attention economy is collapsing into meaning deserts.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Creative pros must become:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><li><strong>Signal cult leaders</strong>, not just content creators.</li><li><strong>Community mesh routers</strong>, not just influencers.</li></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>Form tribes of:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><li>Artists orchestrating AI for anti-colonial projects.</li><li>Designers co-creating with queer-coded agents.</li><li>Coders making decentralized creativity tools.</li></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">8. <strong>Build the Toolchain You Want to Die In</strong></h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Ask:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><li>Who owns the compute?</li><li>Who governs the model?</li><li>Who gets erased by the defaults?</li></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>If the answer isn\u2019t \u201cme, my people, and my principles\u201d, rebuild.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>From Hugging Face to open weights, from zines to synthetic rituals, own the stack or get deleted from it.</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\"><strong>Conclusion: The Loop is Alive. The Resistance is Lo-fi.</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>This is not a trend piece. It\u2019s a <strong>survival protocol</strong>.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The algorithm is whispering: \u201cRelax, we\u2019ll handle it.\u201d</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>But your ancestors didn\u2019t survive empires so you could become a spreadsheet.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>Orchestrate agents. But more importantly: Orchestrate meaning.</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Because in the end, <em>the only thing the loop can\u2019t replicate is your loop-breaking humanity.</em></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">? <strong>Neural Implant:</strong></h2>\n<!-- /wp:heading -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>\u201cThe creative future belongs to those who can design loops, break them, and still remember how to dance without a timeline.\u201d</p></blockquote>\n<!-- /wp:quote --></details>\n<!-- /wp:details -->\n\n<!-- wp:details -->\n<details class=\"wp-block-details\"><summary>Draft Article</summary><!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">Agent Orchestrators, Creative Insurgents &amp; The New Stack: A Field Guide to Staying Human++ in the Synthetic Renaissance</h2>\n<!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">Opening Blast-Hack the Frame</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>\u201cAI won\u2019t steal your job, it\u2019ll steal your face if you don\u2019t know the rules of the game.\u201d</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>On a damp spring night in San?Francisco, Shyamal Hitesh?Anadkat is guiding a swarm. Two dozen chat windows bloom across his ultra?wide monitor, each a GPT?powered deputy grinding through some micro?task: drafting a tax?code edge?case, rewriting a marketing pitch for Brazilian Portuguese, cross?checking a lawyer\u2019s brief. Every three minutes Anadkat clicks into a loop, spots a wobble, tweaks a reward, and relaunches the run. Watching him work feels less like software engineering and more like a conductor cueing an unruly orchestra, except every violin can spin up ten more violins on demand.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Anadkat, an applied?AI engineer at <a href=\"https://openai.com/\">OpenAI</a>, published a LinkedIn essay in May titled \u201cThe Age of the Agent Orchestrator.\u201d It rocketed through tech circles because it named an emerging split in the creative class: between those who merely prompt, and those who <em>pilot swarms</em>. \u201cThe scarce thing,\u201d he wrote, \u201cis no longer who knows the tax code. The scarce thing becomes who can design the loop that gets the right answer and runs cheaply.\u201d</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>In this synthetic renaissance, the new elite isn\u2019t defined by pedigree, but by orchestration literacy, the ability to spin up fleets of models, allocate compute like capital, and inject human judgment at the precise moment the machine tilts toward the absurd. This piece is a survival manual for that pivot.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">I. Welcome to the Age of the Loop Lords</h2>\n<!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">From Creators to Conductors</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>For centuries, craft meant touching the medium: the brushstroke, the keystroke, the microphone in the booth. But the medium has grown teeth. Modern creatives now design <em>machines that do the work</em>, then sculpt the feedback those machines devour. Call it <strong>loopcraft</strong>: feedback hacking + agent management + creative architecture.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Spend an afternoon inside Fable Studios, the Emmy?winning animation house in Vancouver, and you\u2019ll see the shape of things to come. Character designer Kelly?Li flips between Photoshop and a bespoke \u201cScenesmith\u201d agent. She sketches a rough pose; the agent textures the clothing, suggests lighting, tags glitches, and asks Li whether the eyebrow arch feels &quot;snide enough.&quot; Li rejects half the suggestions, \u201ctoo Hallmark,\u201d she snaps, but keeps the other half, effectively collaborating with a 24?hour intern who never needs coffee.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>\u201cPrompting isn\u2019t the art,\u201d Anadkat tells me. \u201cLoopcraft is.\u201d</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>In this world, <strong>specialists are nodes, synthesists are networks</strong>. A single designer must now fine?tune an image model, configure an A/B test on TikTok emoji uptake, and know when to delete the whole folder for lacking soul. The narrow expert, billing by the hour to move a slider, faces extinction.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">The Death of the Specialist, the Rise of the Synthesist</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>LinkedIn hiring data already hints at the shift: job postings mentioning \u201cagent orchestration\u201d or \u201cAI workflow design\u201d jumped 470?percent in the past eight months. At IndieBio, a biotech incubator, founders once fought for lab technicians; now they hunt for \u201ccompute air?traffic controllers\u201d who can juggle reagent constraints with GPU spot pricing.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The synthesist mindset is half product manager, half jazz musician. It demands curiosity across domains, legal nuance, visual culture, database hygiene, and a willingness to let the bots hammer through the boring parts while the human steers the vibe.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">II. The Scarcity Principle &amp; Creative Sovereignty</h2>\n<!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Attention Is the New Compute</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Walk the server aisles at an Amazon Web Services datacenter and you\u2019ll feel the hum of abundance: teraflops stacked like cargo. Yet Anadkat insists compute alone isn\u2019t the bottleneck. Scarcer still are <strong>cognitive bandwidth, human judgment, and trustworthy context</strong>. As the METR curve, a research metric tracking task?length mastery, doubles every seven months, week?long projects shrink to a single afternoon run. Your GPU bill flattens; your review cycles explode.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Consider Alpenglow, a two?person ecommerce brand in Brooklyn selling hand?dyed alpaca scarves. Last winter the founders wired a GPT?4o swarm to generate design mocks, Instagram captions, and supply?chain projections. Weekly revenue rose 30?percent, but customer complaints spiked: the AI over?promised shipping dates because no human sanity?checked the freight timelines. The lesson: orchestration without judgment equals chaos at scale.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Resource Orchestration = Creative Sovereignty</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Every agent is a tool; every tool brings a hidden <strong>sovereignty tax</strong>: compute cost, data risk, brand fidelity. The world\u2019s scrappiest teams are learning to budget FLOPs like venture capital. Midnight render?storms, power?aware job schedulers, lightweight open?weight models hosted in rural co?ops, these aren\u2019t fringe hacks; they\u2019re survival protocols.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Out in the GitHub wilds, a collective called <strong>LoopLocals</strong> maintains \u201cByob?GPT,\u201d a toolkit for running Llama models on reclaimed gaming rigs. Founder Dru?Nguyen frames it bluntly: \u201cI refuse to funnel my creative archive through a black?box API that can rug?pull my rates.\u201d Nguyen orchestrates half a teraflop of compute purchased on eBay for the cost of a San?Francisco studio apartment\u2019s rent. Autonomy scales down as well as up.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">III. Human++ Tactics for Surviving the Loopocene</h2>\n<!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Get Weird or Get Replaced</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Large language models hallucinate because they average the internet. Your competitive edge, then, is the <strong>glitch</strong>, the jagged burst of novelty no statistical aggregation can predict. During a residency at Banff Centre, Cree?M\u00e9tis poet Aurora White fed her dream journals into a private GPT variant. The agent drafted stanzas that White then shredded, rearranged, and laced with Powwow slang. The resulting chapbook reads like William Gibson channeling Louise Erdrich, unplaceable by any plagiarism scanner.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>\u201cAI is not creative,\u201d White laughs. \u201cIt\u2019s statistically creative?looking. My job is to make shapes it can\u2019t parse.\u201d</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Cultivate Your Agent Aesthetic</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Treat every workflow as an artwork. Sound designer Jonah\u00a0Rae deploys a \u201cMood?Modulator\u201d agent that listens to his breathing via smartwatch; when Rae\u2019s pulse rises, the agent drifts the soundtrack toward minor keys. Fashion hacker Mx. Gallo built a collage?bot trained solely on their abandoned canvases; each morning it splatters a new texture map across a 3?D dress pattern. These rigs aren\u2019t side projects, they\u2019re personal myth?machines, brand stories you can\u2019t fork on Hugging\u00a0Face.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">IV. Institutions Are Sinking, Build New Ones</h2>\n<!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">From Brands to Micro?Religions</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>As corporate monoliths bolt AI onto legacy workflows, they risk drowning in <em>humans checking AI checking humans</em>, Anadkat warns. Meanwhile, insurgent collectives treat orchestration as culture?craft. In Buenos Aires, the <strong>QueerCode Coven</strong> hosts midnight hack?rituals where coders fine?tune open models on drag?ball transcripts, then generate poster art whose proceeds fund trans housing. The project isn\u2019t a brand; it\u2019s a belief system with a Git repo.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Build the Toolchain You Want to Die\u00a0In</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Ask of every dependency: <em>Who owns the compute? Who governs the model? Who gets erased by the defaults?</em> If the answers aren\u2019t \u201cme, my people, my principles,\u201d rebuild. The open?source movement once fought for readable code; the new fight is for forkable cognition.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Startups like <strong>Hydra Forge</strong> sell turnkey GPU clusters in shipping containers, powered by excess geothermal energy near Reykjav\u00edk. Their pitch: creative sovereignty with a negative carbon footprint. Clients range from a Tongan media co?op to a Montana zine collective. Owning the stack isn\u2019t luddite nostalgia, it\u2019s risk mitigation when proprietary clouds throttle rates or censor prompts.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">Conclusion-The Loop Is Alive, the Resistance Is Lo?Fi</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>This isn\u2019t another sky?is?falling tech trend piece. It\u2019s a blueprint for staying human++ while the ground liquefies. The algorithm whispers, <em>Relax, we\u2019ll handle it.</em> Your ancestors didn\u2019t survive empires so you could become a spreadsheet.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Orchestrate agents. But orchestrate meaning harder. Break loops, seed new ones, remember how to dance without a timeline. Because the sole artifact no machine can spin up on demand is the loop?breaking spark that makes a human worth listening to in the first place.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:separator -->\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n<!-- /wp:separator -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Neural Implant</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>\u201cThe creative future belongs to those who can design loops, break them, and still remember how to dance.\u201d</p>\n<!-- /wp:paragraph --></details>\n<!-- /wp:details -->",
+      "rendered": "\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"><p><em>A Field Guide to Staying Human++ in the Synthetic Renaissance</em></p></blockquote>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<p class=\"is-style-bookmark\"><a href=\"https://www.linkedin.com/pulse/age-agent-orchestrator-shyamal-hitesh-anadkat-mapkc/\" rel=\"noopener noreferrer\" target=\"_blank\">https://www.linkedin.com/pulse/age-agent-orchestrator-shyamal-hitesh-anadkat-mapkc/</a></p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<details class=\"wp-block-details is-layout-flow wp-block-details-is-layout-flow\"><summary>Outline</summary>\n<p><strong>\u201cAgent Orchestrators, Creative Insurgents &amp; The New Stack: A Field Guide to Staying Human++ in the Synthetic Renaissance\u201d</strong></p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h2 class=\"wp-block-heading\"><strong>Opening Blast: Hack the Frame</strong></h2>\n\n\n\n<p><strong>&quot;AI won\u2019t steal your job, it\u2019ll steal your face if you don\u2019t know the rules of the game.&quot;</strong></p>\n\n\n\n<p>Before you get seduced by the soft glow of automation utopia, remember: <em>every agent is a mirror</em>. And most people are staring into that mirror with their eyes closed.</p>\n\n\n\n<p>This isn\u2019t about replacing the \u201ctax guy\u201d or writing better emails.</p>\n\n\n\n<p>It\u2019s about the birth of a new digital caste system, one divided not by wealth, but by <strong>orchestration literacy</strong>. The question isn\u2019t: <em>Can you prompt GPT?</em> It\u2019s: <em>Can you pilot a swarm?</em></p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h2 class=\"wp-block-heading\"><strong>Section I: Welcome to the Age of the Loop Lords</strong></h2>\n\n\n\n<h3 class=\"wp-block-heading\">1. <strong>From Creators to Conductors</strong></h3>\n\n\n\n<p>You\u2019re no longer just \u201cdoing work.\u201d</p>\n\n\n\n<p>You\u2019re <em>designing the machine that does the work</em>.</p>\n\n\n\n<p>Prompting isn\u2019t the art, <em>loopcraft</em> is.</p>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"><p>Orchestration = Creative Architecture + Agent Management + Feedback Hacking.</p></blockquote>\n\n\n\n<p>Creative pros must mutate into:</p>\n\n\n\n<ul class=\"wp-block-list\"><li><strong>Systems DJs</strong> remixing code, content, and cognition.</li><li><strong>Digital Doulas</strong> birthing agent collectives aligned to human values.</li><li><strong>Loop Lords</strong> who sculpt feedback, not just output.</li></ul>\n\n\n\n<h3 class=\"wp-block-heading\">2. <strong>The Death of the Specialist, The Rise of the Synthesist</strong></h3>\n\n\n\n<p>The future ain\u2019t hiring \u201cjust\u201d a graphic designer.</p>\n\n\n\n<p>It\u2019s looking for someone who can:</p>\n\n\n\n<ul class=\"wp-block-list\"><li>Create the visual style guide,</li><li>Fine-tune the image model,</li><li>Test five agents for A/B on TikTok,</li><li>AND know when to delete it all because it lacks soul.</li></ul>\n\n\n\n<p><strong>Specialists are nodes. Synthesists are networks.</strong></p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h2 class=\"wp-block-heading\"><strong>Section II: The Scarcity Principle and Creative Sovereignty</strong></h2>\n\n\n\n<h3 class=\"wp-block-heading\">3. <strong>Attention is the New Compute</strong></h3>\n\n\n\n<p>Your most scarce resources aren\u2019t time or money.</p>\n\n\n\n<p>They\u2019re:</p>\n\n\n\n<ul class=\"wp-block-list\"><li><strong>Cognitive bandwidth</strong></li><li><strong>Human judgment</strong></li><li><strong>Trustworthy context</strong></li></ul>\n\n\n\n<p>Know how to allocate <em>these</em>, and you\u2019re playing a game the algorithm can\u2019t even see.</p>\n\n\n\n<h3 class=\"wp-block-heading\">4. <strong>Resource Orchestration = Creative Sovereignty</strong></h3>\n\n\n\n<p>Every agent is a tool.</p>\n\n\n\n<p>Every tool has:</p>\n\n\n\n<ul class=\"wp-block-list\"><li>a compute cost,</li><li>a data risk,</li><li>and a sovereignty tax.</li></ul>\n\n\n\n<p>In this era, DIY isn\u2019t a punk aesthetic.</p>\n\n\n\n<p>It\u2019s an <strong>operational imperative</strong>.</p>\n\n\n\n<p>Build your own:</p>\n\n\n\n<ul class=\"wp-block-list\"><li>Models,</li><li>Data pipelines,</li><li>Narratives,</li><li>Communities.</li></ul>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"><p>Or become another soul streamed through someone else\u2019s API.</p></blockquote>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h2 class=\"wp-block-heading\"><strong>Section III: Human++ Tactics for Surviving the Loopocene</strong></h2>\n\n\n\n<h3 class=\"wp-block-heading\">5. <strong>Get Weird or Get Replaced</strong></h3>\n\n\n\n<p>AI is not creative.</p>\n\n\n\n<p>It is <em>statistically creative-looking</em>.</p>\n\n\n\n<p>Your job:</p>\n\n\n\n<ul class=\"wp-block-list\"><li>Be glitchy.</li><li>Be uncanny.</li><li>Make art that <em>AI can\u2019t explain</em>.</li></ul>\n\n\n\n<p>When AI paints inside the lines, you make new geometry.</p>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"><p>Dada, punk, vaporwave, Indigenous storytelling, this is your moat.</p></blockquote>\n\n\n\n<h3 class=\"wp-block-heading\">6. <strong>Cultivate Your Agent Aesthetic</strong></h3>\n\n\n\n<p>Build agent workflows that express your <em>creative fingerprint</em>.</p>\n\n\n\n<p>Think:</p>\n\n\n\n<ul class=\"wp-block-list\"><li>A personal GPT trained on your dream journals.</li><li>A collage-bot that remixes your failed projects.</li><li>An image agent that only generates based on the emotional tone of your voice.</li></ul>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"><p>Agent orchestration isn\u2019t just technical.</p></blockquote>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h2 class=\"wp-block-heading\"><strong>Section IV: Institutions are Sinking, Make New Ones</strong></h2>\n\n\n\n<h3 class=\"wp-block-heading\">7. <strong>From Brands to Micro-Religions</strong></h3>\n\n\n\n<p>The attention economy is collapsing into meaning deserts.</p>\n\n\n\n<p>Creative pros must become:</p>\n\n\n\n<ul class=\"wp-block-list\"><li><strong>Signal cult leaders</strong>, not just content creators.</li><li><strong>Community mesh routers</strong>, not just influencers.</li></ul>\n\n\n\n<p>Form tribes of:</p>\n\n\n\n<ul class=\"wp-block-list\"><li>Artists orchestrating AI for anti-colonial projects.</li><li>Designers co-creating with queer-coded agents.</li><li>Coders making decentralized creativity tools.</li></ul>\n\n\n\n<h3 class=\"wp-block-heading\">8. <strong>Build the Toolchain You Want to Die In</strong></h3>\n\n\n\n<p>Ask:</p>\n\n\n\n<ul class=\"wp-block-list\"><li>Who owns the compute?</li><li>Who governs the model?</li><li>Who gets erased by the defaults?</li></ul>\n\n\n\n<p>If the answer isn\u2019t \u201cme, my people, and my principles\u201d, rebuild.</p>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"><p>From Hugging Face to open weights, from zines to synthetic rituals, own the stack or get deleted from it.</p></blockquote>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h2 class=\"wp-block-heading\"><strong>Conclusion: The Loop is Alive. The Resistance is Lo-fi.</strong></h2>\n\n\n\n<p>This is not a trend piece. It\u2019s a <strong>survival protocol</strong>.</p>\n\n\n\n<p>The algorithm is whispering: \u201cRelax, we\u2019ll handle it.\u201d</p>\n\n\n\n<p>But your ancestors didn\u2019t survive empires so you could become a spreadsheet.</p>\n\n\n\n<p><strong>Orchestrate agents. But more importantly: Orchestrate meaning.</strong></p>\n\n\n\n<p>Because in the end, <em>the only thing the loop can\u2019t replicate is your loop-breaking humanity.</em></p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h2 class=\"wp-block-heading\">? <strong>Neural Implant:</strong></h2>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"><p>\u201cThe creative future belongs to those who can design loops, break them, and still remember how to dance without a timeline.\u201d</p></blockquote>\n</details>\n\n\n\n<details class=\"wp-block-details is-layout-flow wp-block-details-is-layout-flow\"><summary>Draft Article</summary>\n<h2 class=\"wp-block-heading\">Agent Orchestrators, Creative Insurgents &amp; The New Stack: A Field Guide to Staying Human++ in the Synthetic Renaissance</h2>\n\n\n\n<h2 class=\"wp-block-heading\">Opening Blast-Hack the Frame</h2>\n\n\n\n<p>\u201cAI won\u2019t steal your job, it\u2019ll steal your face if you don\u2019t know the rules of the game.\u201d</p>\n\n\n\n<p>On a damp spring night in San?Francisco, Shyamal Hitesh?Anadkat is guiding a swarm. Two dozen chat windows bloom across his ultra?wide monitor, each a GPT?powered deputy grinding through some micro?task: drafting a tax?code edge?case, rewriting a marketing pitch for Brazilian Portuguese, cross?checking a lawyer\u2019s brief. Every three minutes Anadkat clicks into a loop, spots a wobble, tweaks a reward, and relaunches the run. Watching him work feels less like software engineering and more like a conductor cueing an unruly orchestra, except every violin can spin up ten more violins on demand.</p>\n\n\n\n<p>Anadkat, an applied?AI engineer at <a href=\"https://openai.com/\">OpenAI</a>, published a LinkedIn essay in May titled \u201cThe Age of the Agent Orchestrator.\u201d It rocketed through tech circles because it named an emerging split in the creative class: between those who merely prompt, and those who <em>pilot swarms</em>. \u201cThe scarce thing,\u201d he wrote, \u201cis no longer who knows the tax code. The scarce thing becomes who can design the loop that gets the right answer and runs cheaply.\u201d</p>\n\n\n\n<p>In this synthetic renaissance, the new elite isn\u2019t defined by pedigree, but by orchestration literacy, the ability to spin up fleets of models, allocate compute like capital, and inject human judgment at the precise moment the machine tilts toward the absurd. This piece is a survival manual for that pivot.</p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h2 class=\"wp-block-heading\">I. Welcome to the Age of the Loop Lords</h2>\n\n\n\n<h3 class=\"wp-block-heading\">From Creators to Conductors</h3>\n\n\n\n<p>For centuries, craft meant touching the medium: the brushstroke, the keystroke, the microphone in the booth. But the medium has grown teeth. Modern creatives now design <em>machines that do the work</em>, then sculpt the feedback those machines devour. Call it <strong>loopcraft</strong>: feedback hacking + agent management + creative architecture.</p>\n\n\n\n<p>Spend an afternoon inside Fable Studios, the Emmy?winning animation house in Vancouver, and you\u2019ll see the shape of things to come. Character designer Kelly?Li flips between Photoshop and a bespoke \u201cScenesmith\u201d agent. She sketches a rough pose; the agent textures the clothing, suggests lighting, tags glitches, and asks Li whether the eyebrow arch feels &quot;snide enough.&quot; Li rejects half the suggestions, \u201ctoo Hallmark,\u201d she snaps, but keeps the other half, effectively collaborating with a 24?hour intern who never needs coffee.</p>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"><p>\u201cPrompting isn\u2019t the art,\u201d Anadkat tells me. \u201cLoopcraft is.\u201d</p></blockquote>\n\n\n\n<p>In this world, <strong>specialists are nodes, synthesists are networks</strong>. A single designer must now fine?tune an image model, configure an A/B test on TikTok emoji uptake, and know when to delete the whole folder for lacking soul. The narrow expert, billing by the hour to move a slider, faces extinction.</p>\n\n\n\n<h3 class=\"wp-block-heading\">The Death of the Specialist, the Rise of the Synthesist</h3>\n\n\n\n<p>LinkedIn hiring data already hints at the shift: job postings mentioning \u201cagent orchestration\u201d or \u201cAI workflow design\u201d jumped 470?percent in the past eight months. At IndieBio, a biotech incubator, founders once fought for lab technicians; now they hunt for \u201ccompute air?traffic controllers\u201d who can juggle reagent constraints with GPU spot pricing.</p>\n\n\n\n<p>The synthesist mindset is half product manager, half jazz musician. It demands curiosity across domains, legal nuance, visual culture, database hygiene, and a willingness to let the bots hammer through the boring parts while the human steers the vibe.</p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h2 class=\"wp-block-heading\">II. The Scarcity Principle &amp; Creative Sovereignty</h2>\n\n\n\n<h3 class=\"wp-block-heading\">Attention Is the New Compute</h3>\n\n\n\n<p>Walk the server aisles at an Amazon Web Services datacenter and you\u2019ll feel the hum of abundance: teraflops stacked like cargo. Yet Anadkat insists compute alone isn\u2019t the bottleneck. Scarcer still are <strong>cognitive bandwidth, human judgment, and trustworthy context</strong>. As the METR curve, a research metric tracking task?length mastery, doubles every seven months, week?long projects shrink to a single afternoon run. Your GPU bill flattens; your review cycles explode.</p>\n\n\n\n<p>Consider Alpenglow, a two?person ecommerce brand in Brooklyn selling hand?dyed alpaca scarves. Last winter the founders wired a GPT?4o swarm to generate design mocks, Instagram captions, and supply?chain projections. Weekly revenue rose 30?percent, but customer complaints spiked: the AI over?promised shipping dates because no human sanity?checked the freight timelines. The lesson: orchestration without judgment equals chaos at scale.</p>\n\n\n\n<h3 class=\"wp-block-heading\">Resource Orchestration = Creative Sovereignty</h3>\n\n\n\n<p>Every agent is a tool; every tool brings a hidden <strong>sovereignty tax</strong>: compute cost, data risk, brand fidelity. The world\u2019s scrappiest teams are learning to budget FLOPs like venture capital. Midnight render?storms, power?aware job schedulers, lightweight open?weight models hosted in rural co?ops, these aren\u2019t fringe hacks; they\u2019re survival protocols.</p>\n\n\n\n<p>Out in the GitHub wilds, a collective called <strong>LoopLocals</strong> maintains \u201cByob?GPT,\u201d a toolkit for running Llama models on reclaimed gaming rigs. Founder Dru?Nguyen frames it bluntly: \u201cI refuse to funnel my creative archive through a black?box API that can rug?pull my rates.\u201d Nguyen orchestrates half a teraflop of compute purchased on eBay for the cost of a San?Francisco studio apartment\u2019s rent. Autonomy scales down as well as up.</p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h2 class=\"wp-block-heading\">III. Human++ Tactics for Surviving the Loopocene</h2>\n\n\n\n<h3 class=\"wp-block-heading\">Get Weird or Get Replaced</h3>\n\n\n\n<p>Large language models hallucinate because they average the internet. Your competitive edge, then, is the <strong>glitch</strong>, the jagged burst of novelty no statistical aggregation can predict. During a residency at Banff Centre, Cree?M\u00e9tis poet Aurora White fed her dream journals into a private GPT variant. The agent drafted stanzas that White then shredded, rearranged, and laced with Powwow slang. The resulting chapbook reads like William Gibson channeling Louise Erdrich, unplaceable by any plagiarism scanner.</p>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"><p>\u201cAI is not creative,\u201d White laughs. \u201cIt\u2019s statistically creative?looking. My job is to make shapes it can\u2019t parse.\u201d</p></blockquote>\n\n\n\n<h3 class=\"wp-block-heading\">Cultivate Your Agent Aesthetic</h3>\n\n\n\n<p>Treat every workflow as an artwork. Sound designer Jonah\u00a0Rae deploys a \u201cMood?Modulator\u201d agent that listens to his breathing via smartwatch; when Rae\u2019s pulse rises, the agent drifts the soundtrack toward minor keys. Fashion hacker Mx. Gallo built a collage?bot trained solely on their abandoned canvases; each morning it splatters a new texture map across a 3?D dress pattern. These rigs aren\u2019t side projects, they\u2019re personal myth?machines, brand stories you can\u2019t fork on Hugging\u00a0Face.</p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h2 class=\"wp-block-heading\">IV. Institutions Are Sinking, Build New Ones</h2>\n\n\n\n<h3 class=\"wp-block-heading\">From Brands to Micro?Religions</h3>\n\n\n\n<p>As corporate monoliths bolt AI onto legacy workflows, they risk drowning in <em>humans checking AI checking humans</em>, Anadkat warns. Meanwhile, insurgent collectives treat orchestration as culture?craft. In Buenos Aires, the <strong>QueerCode Coven</strong> hosts midnight hack?rituals where coders fine?tune open models on drag?ball transcripts, then generate poster art whose proceeds fund trans housing. The project isn\u2019t a brand; it\u2019s a belief system with a Git repo.</p>\n\n\n\n<h3 class=\"wp-block-heading\">Build the Toolchain You Want to Die\u00a0In</h3>\n\n\n\n<p>Ask of every dependency: <em>Who owns the compute? Who governs the model? Who gets erased by the defaults?</em> If the answers aren\u2019t \u201cme, my people, my principles,\u201d rebuild. The open?source movement once fought for readable code; the new fight is for forkable cognition.</p>\n\n\n\n<p>Startups like <strong>Hydra Forge</strong> sell turnkey GPU clusters in shipping containers, powered by excess geothermal energy near Reykjav\u00edk. Their pitch: creative sovereignty with a negative carbon footprint. Clients range from a Tongan media co?op to a Montana zine collective. Owning the stack isn\u2019t luddite nostalgia, it\u2019s risk mitigation when proprietary clouds throttle rates or censor prompts.</p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h2 class=\"wp-block-heading\">Conclusion-The Loop Is Alive, the Resistance Is Lo?Fi</h2>\n\n\n\n<p>This isn\u2019t another sky?is?falling tech trend piece. It\u2019s a blueprint for staying human++ while the ground liquefies. The algorithm whispers, <em>Relax, we\u2019ll handle it.</em> Your ancestors didn\u2019t survive empires so you could become a spreadsheet.</p>\n\n\n\n<p>Orchestrate agents. But orchestrate meaning harder. Break loops, seed new ones, remember how to dance without a timeline. Because the sole artifact no machine can spin up on demand is the loop?breaking spark that makes a human worth listening to in the first place.</p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<h3 class=\"wp-block-heading\">Neural Implant</h3>\n\n\n\n<p>\u201cThe creative future belongs to those who can design loops, break them, and still remember how to dance.\u201d</p>\n</details>\n"
+    },
+    "date": "2026-05-24T12:00:00",
+    "date_gmt": "2026-05-24T20:00:00",
+    "excerpt": {
+      "protected": false,
+      "raw": "A field guide to agent orchestration, creative insurgency, and staying stubbornly human while the AI stack gets weirder and more powerful.",
+      "rendered": "<p>A field guide to agent orchestration, creative insurgency, and staying stubbornly human while the AI stack gets weirder and more powerful.</p>\n"
+    },
+    "featured_media": 0,
+    "format": "standard",
+    "generated_slug": "agent-orchestrators-creative-insurgents-the-new-stack",
+    "guid": {
+      "raw": "https://kriskrug.co/?p=12033",
+      "rendered": "https://kriskrug.co/?p=12033"
+    },
+    "id": 12033,
+    "jetpack-related-posts": [
+      {
+        "author": "Kr\u00fcg",
+        "block_context": {
+          "link": "https://kriskrug.co/category/ai-creatives/",
+          "text": "AI for Creatives"
+        },
+        "classes": [],
+        "context": "In &quot;AI for Creatives&quot;",
+        "date": "May 16, 2026",
+        "excerpt": "Generative engines now spill out adequate everything. Your value is shifting from production to selection, orchestration, and meaning-making \u2014 a field manual.",
+        "format": false,
+        "id": 10594,
+        "img": {
+          "alt_text": "Cover image for Make Culture, Not Content, highlighting Kris Krug's culture-first AI message.",
+          "height": 200,
+          "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/02/06-mycelial-action-network.png?fit=1200%2C686&ssl=1&resize=350%2C200",
+          "srcset": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/02/06-mycelial-action-network.png?fit=1200%2C686&ssl=1&resize=350%2C200 1x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/02/06-mycelial-action-network.png?fit=1200%2C686&ssl=1&resize=525%2C300 1.5x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/02/06-mycelial-action-network.png?fit=1200%2C686&ssl=1&resize=700%2C400 2x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/02/06-mycelial-action-network.png?fit=1200%2C686&ssl=1&resize=1050%2C600 3x",
+          "width": 350
+        },
+        "rel": "",
+        "title": "Make Culture, Not Content",
+        "url": "https://kriskrug.co/2026/05/16/make-culture-not-content/",
+        "url_meta": {
+          "origin": 12033,
+          "position": 0
+        }
+      },
+      {
+        "author": "Kr\u00fcg",
+        "block_context": {
+          "link": "https://kriskrug.co/category/field-notes/",
+          "text": "Field Notes"
+        },
+        "classes": [],
+        "context": "In &quot;Field Notes&quot;",
+        "date": "August 9, 2024",
+        "excerpt": "AI's crashing the art party, turning Roombas into rock stars and algorithms into avant-garde muses - are you ready to ride this digital acid trip into the future of creativity?",
+        "format": false,
+        "id": 6552,
+        "img": {
+          "alt_text": "",
+          "height": 200,
+          "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/08/Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-sxsw2024-1280-x-500-px-1.png?fit=1200%2C469&ssl=1&resize=350%2C200",
+          "srcset": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/08/Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-sxsw2024-1280-x-500-px-1.png?fit=1200%2C469&ssl=1&resize=350%2C200 1x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/08/Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-sxsw2024-1280-x-500-px-1.png?fit=1200%2C469&ssl=1&resize=525%2C300 1.5x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/08/Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-sxsw2024-1280-x-500-px-1.png?fit=1200%2C469&ssl=1&resize=700%2C400 2x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/08/Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-sxsw2024-1280-x-500-px-1.png?fit=1200%2C469&ssl=1&resize=1050%2C600 3x",
+          "width": 350
+        },
+        "rel": "",
+        "title": "AI and Music: The Digital Renaissance You Didn&#8217;t See Coming",
+        "url": "https://kriskrug.co/2024/08/09/ai-and-music-the-digital-renaissance-you-didnt-see-coming/",
+        "url_meta": {
+          "origin": 12033,
+          "position": 1
+        }
+      },
+      {
+        "author": "Kr\u00fcg",
+        "block_context": {
+          "link": "https://kriskrug.co/category/generative-ai-tools/",
+          "text": "Generative AI Tools"
+        },
+        "classes": [],
+        "context": "In &quot;Generative AI Tools&quot;",
+        "date": "March 14, 2024",
+        "excerpt": "AI is dead. Long live AI+Human creativity. We stand at the dawn of a new avant-garde age where machine intelligence augments the ingenuity of human artists. Brace yourself for an unfamiliar Renaissance where the line between art and artist blurs, and new forms of expression emerge from the infinite possible\u2026",
+        "format": false,
+        "id": 4948,
+        "img": {
+          "alt_text": "",
+          "height": 200,
+          "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/03/kriskrug_httpss.mj_.run-DUUru2FJzQ_httpss.mj_.runl7J-KCLpUr4_http_874dbe62-e5fa-40e6-80e0-cf11a370e654.png?fit=1200%2C673&ssl=1&resize=350%2C200",
+          "srcset": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/03/kriskrug_httpss.mj_.run-DUUru2FJzQ_httpss.mj_.runl7J-KCLpUr4_http_874dbe62-e5fa-40e6-80e0-cf11a370e654.png?fit=1200%2C673&ssl=1&resize=350%2C200 1x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/03/kriskrug_httpss.mj_.run-DUUru2FJzQ_httpss.mj_.runl7J-KCLpUr4_http_874dbe62-e5fa-40e6-80e0-cf11a370e654.png?fit=1200%2C673&ssl=1&resize=525%2C300 1.5x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/03/kriskrug_httpss.mj_.run-DUUru2FJzQ_httpss.mj_.runl7J-KCLpUr4_http_874dbe62-e5fa-40e6-80e0-cf11a370e654.png?fit=1200%2C673&ssl=1&resize=700%2C400 2x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/03/kriskrug_httpss.mj_.run-DUUru2FJzQ_httpss.mj_.runl7J-KCLpUr4_http_874dbe62-e5fa-40e6-80e0-cf11a370e654.png?fit=1200%2C673&ssl=1&resize=1050%2C600 3x",
+          "width": 350
+        },
+        "rel": "",
+        "title": "The Inside-Out Evolution",
+        "url": "https://kriskrug.co/2024/03/14/the-avant-garde-future-of-art-creativity/",
+        "url_meta": {
+          "origin": 12033,
+          "position": 2
+        }
+      },
+      {
+        "author": "Kr\u00fcg",
+        "block_context": {
+          "link": "https://kriskrug.co/category/ai-creatives/",
+          "text": "AI for Creatives"
+        },
+        "classes": [],
+        "context": "In &quot;AI for Creatives&quot;",
+        "date": "May 4, 2024",
+        "excerpt": "Mind. Melded. Imagine an AI not just assisting your creative flow, but essentially becoming your creative partner - riffing with you in real-time to generate entirely new worlds of art, music and storytelling possibility. That's the reality remix Philippe Pasquier is conducting...",
+        "format": false,
+        "id": 5505,
+        "img": {
+          "alt_text": "",
+          "height": 200,
+          "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/05/Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-sxsw2024.png?fit=1200%2C675&ssl=1&resize=350%2C200",
+          "srcset": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/05/Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-sxsw2024.png?fit=1200%2C675&ssl=1&resize=350%2C200 1x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/05/Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-sxsw2024.png?fit=1200%2C675&ssl=1&resize=525%2C300 1.5x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/05/Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-sxsw2024.png?fit=1200%2C675&ssl=1&resize=700%2C400 2x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/05/Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-sxsw2024.png?fit=1200%2C675&ssl=1&resize=1050%2C600 3x",
+          "width": 350
+        },
+        "rel": "",
+        "title": "The Metacreative Code: Philippe Pasquier&#8217;s Remix of AI and Creative Arts",
+        "url": "https://kriskrug.co/2024/05/04/the-metacreative-code-philippe-pasquiers-remix-of-ai-and-creative-arts/",
+        "url_meta": {
+          "origin": 12033,
+          "position": 3
+        }
+      },
+      {
+        "author": "Kr\u00fcg",
+        "block_context": {
+          "link": "https://kriskrug.co/category/ai-creatives/",
+          "text": "AI for Creatives"
+        },
+        "classes": [],
+        "context": "In &quot;AI for Creatives&quot;",
+        "date": "April 5, 2024",
+        "excerpt": "Forget everything you think you know about creativity and filmmaking - AI is radically reshaping these artistic fields. A new renaissance is underway, and the visionary Souki Mansoor of OpenAI is leading the charge. In this mind-bending look at AI's generative possibilities, Mansoor shares game-changing insights that will leave you\u2026",
+        "format": false,
+        "id": 5236,
+        "img": {
+          "alt_text": "",
+          "height": 200,
+          "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/04/Copy-of-Copy-of-sxsw2024-2.png?fit=1200%2C675&ssl=1&resize=350%2C200",
+          "srcset": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/04/Copy-of-Copy-of-sxsw2024-2.png?fit=1200%2C675&ssl=1&resize=350%2C200 1x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/04/Copy-of-Copy-of-sxsw2024-2.png?fit=1200%2C675&ssl=1&resize=525%2C300 1.5x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/04/Copy-of-Copy-of-sxsw2024-2.png?fit=1200%2C675&ssl=1&resize=700%2C400 2x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/04/Copy-of-Copy-of-sxsw2024-2.png?fit=1200%2C675&ssl=1&resize=1050%2C600 3x",
+          "width": 350
+        },
+        "rel": "",
+        "title": "AI Skills for Tomorrow&#8217;s Storytellers with OpenAI Creator Community Specialist Souki Mansoor",
+        "url": "https://kriskrug.co/2024/04/05/ai-skills-for-tommorows-storytellers-with-openai-creative-director-souki-mansoor/",
+        "url_meta": {
+          "origin": 12033,
+          "position": 4
+        }
+      },
+      {
+        "author": "Kr\u00fcg",
+        "block_context": {
+          "link": "https://kriskrug.co/category/ai-creatives/",
+          "text": "AI for Creatives"
+        },
+        "classes": [],
+        "context": "In &quot;AI for Creatives&quot;",
+        "date": "October 28, 2024",
+        "excerpt": "Join me as I share firsthand experiences from the frontlines of this creative revolution. Discover how the synergy of human intuition and machine precision is not just amplifying our capabilities but also challenging our very identities. What happens when AI can generate a thousand ideas, but only you can tell\u2026",
+        "format": false,
+        "id": 7322,
+        "img": {
+          "alt_text": "",
+          "height": 200,
+          "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/10/image-60.png?resize=350%2C200&ssl=1",
+          "srcset": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/10/image-60.png?resize=350%2C200&ssl=1 1x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/10/image-60.png?resize=525%2C300&ssl=1 1.5x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/10/image-60.png?resize=700%2C400&ssl=1 2x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/10/image-60.png?resize=1050%2C600&ssl=1 3x, https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/10/image-60.png?resize=1400%2C800&ssl=1 4x",
+          "width": 350
+        },
+        "rel": "",
+        "title": "Kicking Ass in 2025: A Techartist&#8217;s Guide to Creative Survival",
+        "url": "https://kriskrug.co/2024/10/28/kicking-ass-in-2025-a-techartists-guide-to-creative-survival/",
+        "url_meta": {
+          "origin": 12033,
+          "position": 5
+        }
+      }
+    ],
+    "jetpack_featured_media_url": "",
+    "jetpack_likes_enabled": true,
+    "jetpack_publicize_connections": [
+      {
+        "connection_id": "25146149",
+        "display_name": "Future Proof Creatives ",
+        "enabled": true,
+        "external_handle": "",
+        "external_id": "144253852114846",
+        "id": "29203319",
+        "profile_link": "https://www.facebook.com/144253852114846",
+        "profile_picture": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/673725712_122255249300163098_815242539615281998_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=110&ccb=1-7&_nc_sid=f907e8&_nc_ohc=uyoHE_PCkZEQ7kNvwHtYSby&_nc_oc=Ado950l3LuofbR6UleZMDcNGRt8Sr1ohmd8I3x2MIIqxa9iZF0N85t0CVF3nwdRu6qs&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&edm=AGaHXAAEAAAA&_nc_gid=TDEFw0E3bhqAJywR0ofoGA&_nc_tpa=Q5bMBQFqGvvdt7Mvl-b0amHAtYxodblXJVNyaCdLUX6mHkup8tfiICUIgYFFdOMMpEHm1UWVbZEH&oh=00_Af-u1iGJAVCJf-9A_MXtdYUB82aCMcyPdskMvo-4yllaFQ&oe=6A260DD8",
+        "service_label": "Facebook",
+        "service_name": "facebook",
+        "shared": false,
+        "username": "Future Proof Creatives ",
+        "wpcom_user_id": 109
+      },
+      {
+        "connection_id": "24991430",
+        "display_name": "kris kr\u00fcg",
+        "enabled": true,
+        "external_handle": "",
+        "external_id": "kk.tumblr.com",
+        "id": "29413323",
+        "profile_link": "https://kk.tumblr.com/",
+        "profile_picture": "https://api.tumblr.com/v2/blog/kk.tumblr.com/avatar/512",
+        "service_label": "Tumblr",
+        "service_name": "tumblr",
+        "shared": false,
+        "username": "kris kr\u00fcg",
+        "wpcom_user_id": 109
+      },
+      {
+        "connection_id": "25333697",
+        "display_name": "kriskrug",
+        "enabled": true,
+        "external_handle": "kriskrug",
+        "external_id": "8251647364893301",
+        "id": "30496174",
+        "profile_link": "https://www.threads.net/@kriskrug",
+        "profile_picture": "https://scontent-dfw5-2.cdninstagram.com/v/t51.82787-19/608425287_17937202176112388_5850135093671913243_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=108&ccb=7-5&_nc_sid=30ff31&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=eHMEK1bBz_oQ7kNvwErD3x9&_nc_oc=AdplnIx8Oputwi0B0c24d0NjzQW_ruQ2xPrxi7ccbTOexK95ageoiDt2xkKW5r_EX58&_nc_zt=24&_nc_ht=scontent-dfw5-2.cdninstagram.com&edm=AP4hL3IEAAAA&_nc_gid=54Mmxej-OduhC5MTXIuKtA&_nc_tpa=Q5bMBQFK_X5ulH0AA2uOkokb5tJvtNlT49xhi9b87RIz496ku4ji6Q52SUjHoCVOX2pMLIcFBrjto1Sa6Q&oh=00_Af6nwWRpHUpR_JvmfCW-cHDIwxp7xITOXE-QzkWujp-BoQ&oe=6A191B49",
+        "service_label": "Threads",
+        "service_name": "threads",
+        "shared": false,
+        "username": "kriskrug",
+        "wpcom_user_id": 109
+      },
+      {
+        "connection_id": "25614785",
+        "display_name": "Vancouver AI",
+        "enabled": true,
+        "external_handle": "vancouver_ai",
+        "external_id": "17841463632238189",
+        "id": "31247583",
+        "profile_link": "https://instagram.com/vancouver_ai",
+        "profile_picture": "https://scontent-dfw5-2.xx.fbcdn.net/v/t51.82787-15/625237107_17940212772121075_3092494050660453576_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7d201b&_nc_ohc=1F9OWTeMiBgQ7kNvwGySft0&_nc_oc=Adrt3tcnef0swlZwh4bPJuFgj_nAYV8hFbRmv-nW5e7hrh18Uj0AO7N1HeZJOfHGejU&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&edm=AGaHXAAEAAAA&_nc_gid=S2goV7lXuL3AsIutXh3YyA&oh=00_Af6utoBbmiA-2L6TtlmEFkV8MtWAi1jsF-IeY6Lued42Hw&oe=6A0E652E",
+        "service_label": "Instagram",
+        "service_name": "instagram-business",
+        "shared": false,
+        "username": "vancouver_ai",
+        "wpcom_user_id": 109
+      },
+      {
+        "connection_id": "25894122",
+        "display_name": "Vancouver AI",
+        "enabled": true,
+        "external_handle": "",
+        "external_id": "99169266",
+        "id": "32079712",
+        "profile_link": "https://www.linkedin.com/company/van-ai",
+        "profile_picture": "https://media.licdn.com/dms/image/v2/D560BAQEPooLj15_KNA/company-logo_100_100/B56Z2xQsmDKwAU-/0/1776795438348/van_ai_logo?e=1781136000&v=beta&t=Hpz9i83wvX6dCJYwdYiVu5zNOLB48GpuNcqvNOFkYEk",
+        "service_label": "LinkedIn",
+        "service_name": "linkedin",
+        "shared": true,
+        "username": "Vancouver AI",
+        "wpcom_user_id": 0
+      }
+    ],
+    "jetpack_sharing_enabled": true,
+    "jetpack_shortlink": "https://wp.me/paMVFO-385",
+    "link": "https://kriskrug.co/?p=12033",
+    "meta": {
+      "_jetpack_dont_email_post_to_subs": false,
+      "_jetpack_memberships_contains_paid_content": false,
+      "_jetpack_memberships_contains_paywalled_content": false,
+      "_jetpack_newsletter_access": "",
+      "_jetpack_newsletter_tier_id": 0,
+      "advanced_seo_description": "A field guide to agent orchestration, creative insurgency, and staying stubbornly human while the AI stack gets weirder and more powerful.",
+      "footnotes": "",
+      "jetpack_post_was_ever_published": false,
+      "jetpack_publicize_feature_enabled": true,
+      "jetpack_publicize_message": "A field guide to agent orchestration, creative insurgency, and staying stubbornly human while the AI stack gets weirder and more powerful.",
+      "jetpack_seo_html_title": "Agent Orchestrators, Creative Insurgents & The New Stack",
+      "jetpack_seo_noindex": false,
+      "jetpack_social_options": {
+        "image_generator_settings": {
+          "default_image_id": 0,
+          "enabled": false,
+          "font": "",
+          "template": "highway"
+        },
+        "version": 2
+      },
+      "jetpack_social_post_already_shared": false
+    },
+    "modified": "2026-05-24T17:36:30",
+    "modified_gmt": "2026-05-25T01:36:30",
+    "password": "",
+    "permalink_template": "https://kriskrug.co/2026/05/24/%postname%/",
+    "ping_status": "open",
+    "slug": "agent-orchestrators-creative-insurgents-the-new-stack",
+    "status": "draft",
+    "sticky": false,
+    "tags": [],
+    "template": "",
+    "title": {
+      "raw": "Agent Orchestrators, Creative Insurgents & The New Stack",
+      "rendered": "Agent Orchestrators, Creative Insurgents &#038; The New Stack"
+    },
+    "type": "post"
+  },
+  "purpose": "Rollback snapshot before publishing Agent Orchestrators draft 12033",
+  "source_url": "https://kriskrug.co/wp-json/wp/v2/posts/12033?context=edit"
+}
