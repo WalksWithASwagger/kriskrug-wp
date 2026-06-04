@@ -331,9 +331,25 @@
         .map((heading) => [heading.id, heading])
     );
 
+    function getLinkHashId(link) {
+      const rawId = link.hash.slice(1);
+
+      try {
+        return decodeURIComponent(rawId);
+      } catch (error) {
+        return rawId;
+      }
+    }
+
+    const mapHeadings = mapLinks
+      .map((link) => headingsById.get(getLinkHashId(link)))
+      .filter(Boolean);
+
+    if (mapHeadings.length === 0) return;
+
     function setActiveMapLink(id) {
       mapLinks.forEach((link) => {
-        const isActive = link.hash === `#${id}`;
+        const isActive = getLinkHashId(link) === id;
         link.classList.toggle('is-active', isActive);
 
         if (isActive) {
@@ -344,34 +360,63 @@
       });
     }
 
-    const firstHeading = headingsById.values().next().value;
+    const firstHeading = mapHeadings[0];
     if (firstHeading) {
       setActiveMapLink(firstHeading.id);
     }
 
+    let pendingMapTargetId = '';
+    let pendingMapTargetUntil = 0;
+
     mapLinks.forEach((link) => {
       link.addEventListener('click', () => {
-        const id = link.hash.slice(1);
+        const id = getLinkHashId(link);
         if (id) {
+          pendingMapTargetId = id;
+          pendingMapTargetUntil = Date.now() + 3000;
           setActiveMapLink(id);
         }
       });
     });
 
-    if (!('IntersectionObserver' in window)) return;
+    const getActiveHeadingId = () => {
+      const anchor = Math.min(window.innerHeight * 0.35, 280);
 
-    const mapObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveMapLink(entry.target.id);
+      if (pendingMapTargetId && Date.now() < pendingMapTargetUntil) {
+        const pendingHeading = headingsById.get(pendingMapTargetId);
+
+        if (pendingHeading && pendingHeading.getBoundingClientRect().top > anchor) {
+          return pendingMapTargetId;
+        }
+
+        pendingMapTargetId = '';
+      }
+
+      let activeHeading = mapHeadings[0];
+
+      mapHeadings.forEach((heading) => {
+        if (heading.getBoundingClientRect().top <= anchor) {
+          activeHeading = heading;
         }
       });
-    }, {
-      rootMargin: '-24% 0px -62% 0px',
-      threshold: 0,
-    });
 
-    headingsById.forEach((heading) => mapObserver.observe(heading));
+      return activeHeading.id;
+    };
+
+    let activeMapFrame = null;
+    const updateActiveMapLink = () => {
+      activeMapFrame = null;
+      setActiveMapLink(getActiveHeadingId());
+    };
+    const scheduleActiveMapUpdate = () => {
+      if (activeMapFrame) return;
+      activeMapFrame = window.requestAnimationFrame(updateActiveMapLink);
+    };
+
+    window.addEventListener('scroll', scheduleActiveMapUpdate, { passive: true });
+    window.addEventListener('resize', scheduleActiveMapUpdate);
+    window.addEventListener('load', scheduleActiveMapUpdate, { once: true });
+    scheduleActiveMapUpdate();
   }
 
   // ============================================
