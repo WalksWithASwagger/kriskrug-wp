@@ -39,6 +39,10 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.3.11 =
+* Wrapped long Article Modules bookmark/source-trail links at narrow widths.
+* Softened the GSAP/ScrollTrigger boot guard so optimized script timing does not emit a false warning.
+
 = 1.3.10 =
 * Rebalanced single-post and writing-archive composition for a calmer premium editorial read.
 * Added Article Modules patterns and styles for Short Version, Field Note, Source Trail, Pull Quote, callouts, bookmarks, and lead paragraphs.
