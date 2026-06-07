@@ -1,0 +1,41 @@
+# robots.txt for kriskrug.co
+# Stance: AI/search discovery and citation.
+# Source: WalksWithASwagger/kriskrug-wp fixes/robots.txt
+# Last reviewed: 2026-06-07
+
+Sitemap: https://kriskrug.co/sitemap.xml
+Sitemap: https://kriskrug.co/news-sitemap.xml
+Sitemap: https://kriskrug.co/image-sitemap-index-1.xml
+Sitemap: https://kriskrug.co/video-sitemap-1.xml
+
+# Curated LLM index. This is a comment, not a robots.txt directive.
+# llms.txt: https://kriskrug.co/llms.txt
+
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /?s=
+Disallow: /search/
+
+# AI/search crawlers are intentionally allowed for public content.
+# Keep the baseline admin/search disallows in this group because specific
+# user-agent groups may not inherit the rules from User-agent: *.
+User-agent: OAI-SearchBot
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Amazonbot
+User-agent: cohere-ai
+User-agent: Bytespider
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /?s=
+Disallow: /search/
+Allow: /

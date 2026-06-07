@@ -1,175 +1,143 @@
-## robots.txt — recommended update for kriskrug.co
+# robots.txt deployment guide for kriskrug.co
 
-# Deploy: replace current /robots.txt with the contents of section A or section B below.
-# Pagely: file lives at server document root, OR can be filtered via WP's `robots_txt` filter
-#         if you'd rather keep it in code (a mu-plugin example is at the bottom of this file).
-#
-# Current content is shown for reference; both new options REPLACE it entirely.
-#
-# ======================================================================
-# CURRENT (as of 2026-05-14)
-# ======================================================================
-# Sitemap: https://kriskrug.co/sitemap.xml
-# Sitemap: https://kriskrug.co/news-sitemap.xml
-# User-agent: *
-# Disallow: /wp-admin/
-# Allow: /wp-admin/admin-ajax.php
-#
-# Problems:
-# - No image sitemap listed
-# - No explicit stance on AI crawlers (everything defaults to allowed)
-# - No llms.txt reference
+Status: ready for approved deploy
+Decision recorded: 2026-06-07
+Chosen stance: AI/search discovery and citation
+Deployable artifact: `fixes/robots.txt`
 
-# ======================================================================
-# OPTION A — "BE CITED" stance (RECOMMENDED for KK)
-# Allows every legitimate AI crawler so KK gets cited in ChatGPT, Claude,
-# Perplexity, Gemini AI Overviews, Bing Copilot, etc.
-# ======================================================================
+## Decision
 
-# Sitemaps
+KK chose the "AI/search" path on 2026-06-07: let reputable AI/search crawlers reach public content so kriskrug.co can be cited, retrieved, and represented in AI-assisted search surfaces.
+
+This is the right move for the current site because the roadmap is optimizing for discoverability, public proof, photography/speaking authority, and AI-era search presence. It does not attempt a "no training" stance. That tradeoff should be revisited if the priority shifts from public reach to content-control or licensing.
+
+## Current live output
+
+Captured on 2026-06-07 from `curl -fsSL https://kriskrug.co/robots.txt`:
+
+```txt
 Sitemap: https://kriskrug.co/sitemap.xml
 Sitemap: https://kriskrug.co/news-sitemap.xml
-Sitemap: https://kriskrug.co/image-sitemap-index-1.xml
-Sitemap: https://kriskrug.co/video-sitemap-1.xml
-
-# Optional: point AI crawlers to the curated index
-# llms.txt is not in the formal robots.txt spec, but a comment is fine
-# llms.txt: https://kriskrug.co/llms.txt
-
-# Default rules for all crawlers
 User-agent: *
 Disallow: /wp-admin/
 Allow: /wp-admin/admin-ajax.php
-Disallow: /?s=
-Disallow: /search/
+```
 
-# AI / LLM crawlers — explicitly allowed (this is the same as default but makes it intentional)
-User-agent: GPTBot
-Allow: /
+Live sitemap checks on 2026-06-07:
 
-User-agent: ChatGPT-User
-Allow: /
+```txt
+https://kriskrug.co/sitemap.xml                200 text/xml; charset=UTF-8
+https://kriskrug.co/news-sitemap.xml           200 text/xml; charset=UTF-8
+https://kriskrug.co/image-sitemap-index-1.xml  200 text/xml; charset=UTF-8
+https://kriskrug.co/video-sitemap-1.xml        200 text/xml; charset=UTF-8
+https://kriskrug.co/llms.txt                   404 text/html; charset=UTF-8
+```
 
-User-agent: OAI-SearchBot
-Allow: /
+The `llms.txt` URL is included in the prepared robots file as a comment only. It is not a robots directive, and it can land before or after the `llms.txt` deploy path is approved.
 
-User-agent: ClaudeBot
-Allow: /
+## What changes
 
-User-agent: anthropic-ai
-Allow: /
+`fixes/robots.txt` keeps the existing public crawl posture and adds:
 
-User-agent: Claude-Web
-Allow: /
+- image/video sitemap references
+- explicit AI/search crawler allow posture
+- search-result URL disallows for noisy internal search pages
+- a comment pointing readers toward the curated `llms.txt` URL
 
-User-agent: PerplexityBot
-Allow: /
+The AI/search crawler block repeats the `/wp-admin/`, `admin-ajax.php`, and search disallow rules. This avoids depending on crawlers inheriting the generic `User-agent: *` group when a more specific user-agent group exists.
 
-User-agent: Perplexity-User
-Allow: /
+## Deploy options
 
-User-agent: Google-Extended
-Allow: /
+Option 1: physical root file
 
-User-agent: Applebot-Extended
-Allow: /
+1. Confirm whether Pagely has a physical root file:
 
-User-agent: CCBot
-Allow: /
+   ```bash
+   ls -la /path/to/site/root/robots.txt
+   ```
 
-User-agent: Amazonbot
-Allow: /
+2. If present, replace that file with the exact contents of `fixes/robots.txt`.
+3. Keep a timestamped copy of the previous file for rollback.
 
-User-agent: cohere-ai
-Allow: /
+Option 2: WordPress virtual robots filter
 
-User-agent: Bytespider
-Allow: /
+If no physical root file exists, WordPress may be serving virtual robots output. Add the selected content through a narrow mu-plugin or snippet using the `robots_txt` filter:
 
-# ======================================================================
-# OPTION B — "NO TRAINING, YES RETRIEVAL" stance
-# Allows user-initiated retrieval bots (ChatGPT-User, Perplexity-User,
-# ClaudeBot when answering live queries) but blocks training crawlers
-# (Google-Extended, anthropic-ai when used for training, CCBot).
-#
-# Use this if KK wants to be quotable in live AI answers but does NOT
-# want his work scooped into foundation-model training datasets.
-# Caveat: the distinction between training and retrieval is fuzzy for
-# several of these bots — this is a directional stance, not airtight.
-# ======================================================================
+```php
+add_filter('robots_txt', function ($output, $public) {
+    if (!$public) {
+        return $output;
+    }
 
-# Sitemap: https://kriskrug.co/sitemap.xml
-# Sitemap: https://kriskrug.co/news-sitemap.xml
-# Sitemap: https://kriskrug.co/image-sitemap-index-1.xml
-# Sitemap: https://kriskrug.co/video-sitemap-1.xml
-#
-# User-agent: *
-# Disallow: /wp-admin/
-# Allow: /wp-admin/admin-ajax.php
-#
-# # Retrieval / user-initiated: ALLOWED
-# User-agent: ChatGPT-User
-# Allow: /
-#
-# User-agent: OAI-SearchBot
-# Allow: /
-#
-# User-agent: Perplexity-User
-# Allow: /
-#
-# User-agent: PerplexityBot
-# Allow: /
-#
-# User-agent: ClaudeBot
-# Allow: /
-#
-# # Training-purpose crawlers: DISALLOWED
-# User-agent: GPTBot
-# Disallow: /
-#
-# User-agent: Google-Extended
-# Disallow: /
-#
-# User-agent: Applebot-Extended
-# Disallow: /
-#
-# User-agent: anthropic-ai
-# Disallow: /
-#
-# User-agent: Claude-Web
-# Disallow: /
-#
-# User-agent: CCBot
-# Disallow: /
-#
-# User-agent: Amazonbot
-# Disallow: /
-#
-# User-agent: cohere-ai
-# Disallow: /
-#
-# User-agent: Bytespider
-# Disallow: /
+    return <<<'TXT'
+[paste the contents of fixes/robots.txt here]
+TXT;
+}, 10, 2);
+```
 
-# ======================================================================
-# DEPLOYMENT NOTES
-# ======================================================================
-#
-# 1. If a physical /robots.txt file exists at server root, it wins over
-#    WordPress's virtual robots.txt. Check on Pagely via SSH:
-#      ls -la /path/to/site/root/robots.txt
-#    If present, edit it directly. If absent, WP serves a virtual one.
-#
-# 2. To replace the virtual robots.txt without writing a file, drop a
-#    mu-plugin with this filter:
-#
-#    add_filter('robots_txt', function ($output, $public) {
-#        if (!$public) return $output;   // respects WP's "discourage search" toggle
-#        return <<<TXT
-#    [paste your chosen Option A or B content here, without the leading #]
-#    TXT;
-#    }, 10, 2);
-#
-# 3. Validate after deploy:
-#      curl https://kriskrug.co/robots.txt
-#    Use Google Search Console's robots.txt tester to confirm syntax.
+Use the physical root file if Pagely already serves one. Avoid deploying both paths at once unless the precedence has been verified.
+
+## Rollback
+
+Physical file rollback:
+
+1. Restore the timestamped previous root `robots.txt`.
+2. Run `curl -fsSL https://kriskrug.co/robots.txt`.
+3. Confirm the live output matches the previous captured file.
+
+WordPress filter rollback:
+
+1. Disable or remove the mu-plugin/snippet.
+2. Clear any relevant site cache.
+3. Run `curl -fsSL https://kriskrug.co/robots.txt`.
+4. Confirm WordPress has returned to the prior virtual output.
+
+Known prior output to restore if needed:
+
+```txt
+Sitemap: https://kriskrug.co/sitemap.xml
+Sitemap: https://kriskrug.co/news-sitemap.xml
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+```
+
+## Validation
+
+Before deploy:
+
+```bash
+curl -fsSL https://kriskrug.co/robots.txt
+curl -I https://kriskrug.co/sitemap.xml
+curl -I https://kriskrug.co/news-sitemap.xml
+curl -I https://kriskrug.co/image-sitemap-index-1.xml
+curl -I https://kriskrug.co/video-sitemap-1.xml
+```
+
+After approved deploy:
+
+```bash
+curl -fsSL https://kriskrug.co/robots.txt | diff -u fixes/robots.txt -
+curl -fsSL https://kriskrug.co/robots.txt
+```
+
+Then validate syntax in Google Search Console's robots.txt tester.
+
+## Sources used for crawler names
+
+- Existing repo draft: `fixes/robots-txt-update.txt`
+- OpenAI crawler docs (`https://developers.openai.com/api/docs/bots`): OAI-SearchBot, GPTBot, ChatGPT-User
+- Anthropic crawler docs (`https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler`): ClaudeBot, Claude-User, Claude-SearchBot
+- Perplexity help center (`https://www.perplexity.ai/help-center/en/articles/10354969-how-does-perplexity-follow-robots-txt`): PerplexityBot
+- Google Search crawler docs (`https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers`): Google-Extended
+- Apple Support (`https://support.apple.com/en-us/119829`): Applebot-Extended
+- Common Crawl (`https://commoncrawl.org/ccbot`): CCBot
+
+`Amazonbot`, `cohere-ai`, `Bytespider`, and `Perplexity-User` are retained from the existing repo draft. Re-check this crawler list during future SEO maintenance; crawler names and product semantics drift.
+
+## Not included
+
+- No live deploy is performed by this repo change.
+- No legal conclusion is made about training rights.
+- No network-level bot enforcement is added.
+- No `llms.txt` file is deployed by this change.
