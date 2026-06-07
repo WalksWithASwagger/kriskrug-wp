@@ -32,8 +32,8 @@ Ranked by **impact × effort**. P0 = highest impact / lowest friction. Do these 
 
 ### P0.2 — Add `llms.txt` at site root
 - **Why:** Zero-cost AI-discoverability win. Curated map for ChatGPT, Claude, Perplexity browsing.
-- **Path:** Take template from `fixes/llms-txt-template.md`, fill in verified URLs (BC + AI association URL, Indigenomics.ai, social handles), drop at server root via SSH/SFTP, OR use the mu-plugin rewrite approach from the template.
-- **Effort:** 30 min (template is ready).
+- **Path:** Deploy `fixes/llms.txt` to the server root via SSH/SFTP, OR use the mu-plugin rewrite approach from `fixes/llms-txt-template.md`.
+- **Effort:** 30 min (artifact is ready).
 - **Dependencies:** target path and rollback note.
 - **Verify:** `curl -i https://kriskrug.co/llms.txt` returns 200 + `Content-Type: text/plain`.
 

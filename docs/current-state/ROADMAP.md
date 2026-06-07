@@ -29,7 +29,7 @@ Low-effort high-impact items that mostly close out FIX_QUEUE P0.
 
 | Item | Effort | Source | Notes |
 |---|---|---|---|
-| Deploy `/llms.txt` | S | FIX_QUEUE P0.2 | Template in `fixes/llms-txt-template.md`. Verify URLs (BC + AI, Indigenomics, social handles) before publishing |
+| Deploy `/llms.txt` | S | FIX_QUEUE P0.2 | Artifact in `fixes/llms.txt`; deployment/rollback notes in `fixes/llms-txt-template.md`. Live deploy still needs approval |
 | Update `robots.txt` with explicit AI-crawler stance | S | FIX_QUEUE P0.4 | Two options in `fixes/robots-txt-update.txt`. "Be cited" is the recommended stance |
 | Fix homepage H1 (currently empty + "Why Choose Me?" duplicate) | M | FIX_QUEUE P0.5 | Theme template fix in a Catch Responsive child theme |
 | Add LinkedIn URL + headshot to Person schema | S | INCIDENT follow-up | KK confirms his actual LinkedIn URL; upload a real headshot to media library; edit the Code Snippets snippet |

@@ -121,7 +121,8 @@ Then use historical plans for context:
 
 | File | Fix item |
 |---|---|
-| `fixes/llms-txt-template.md` | Curated `llms.txt` content for site root (P0.2). |
+| `fixes/llms.txt` | Deployment-ready curated `llms.txt` content for site root (P0.2). |
+| `fixes/llms-txt-template.md` | Deployment and rollback guide for `llms.txt` (P0.2). |
 | `fixes/robots-txt-update.txt` | Two robots.txt options with explicit AI-crawler stances (P0.4). |
 | `fixes/schema-snippets.php` | Mu-plugin: `Person`, `WebSite`, `Article`, `BreadcrumbList`, `Service` JSON-LD (P0.3). Supersedes the older `issue-39-schema-markup.php`. |
 | `fixes/schema-snippets-deployed.php` | Production Code Snippets version. Public HTML appears to include this schema path as of 2026-05-20; verify in wp-admin before editing. |
