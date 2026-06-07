@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a timestamped Track-A morning truth report."""
+"""Generate a Track-A morning truth report."""
 
 from __future__ import annotations
 
@@ -178,18 +178,28 @@ def main() -> int:
     parser.add_argument("--command-timeout", type=int, default=120, help="Timeout for shell subcommands in seconds.")
     parser.add_argument("--request-timeout", type=int, default=20, help="Timeout for each public smoke HTTP request.")
     parser.add_argument("--out", help="Write report to this path.")
+    parser.add_argument("--stdout", action="store_true", help="Print the report instead of writing a file.")
+    parser.add_argument("--skip-fetch", action="store_true", help="Skip git fetch for strictly non-mutating runs.")
     args = parser.parse_args()
+    if args.stdout and args.out:
+        parser.error("--stdout cannot be combined with --out")
 
     repo_root = Path(__file__).resolve().parents[1]
     now = datetime.now(UTC)
     stamp = now.strftime("%Y%m%d-%H%M%SZ")
-    out_path = Path(args.out) if args.out else repo_root / "docs/current-state/reports" / f"morning-truth-{stamp}.md"
-    if not out_path.is_absolute():
-        out_path = (repo_root / out_path).resolve()
-    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path = None
+    if not args.stdout:
+        out_path = Path(args.out) if args.out else repo_root / "docs/current-state/reports" / f"morning-truth-{stamp}.md"
+        if not out_path.is_absolute():
+            out_path = (repo_root / out_path).resolve()
+        out_path.parent.mkdir(parents=True, exist_ok=True)
 
-    startup_results = [
-        run_command("Git Fetch", ["git", "fetch", "--prune"], repo_root, timeout=args.command_timeout),
+    startup_results = []
+    if not args.skip_fetch:
+        startup_results.append(
+            run_command("Git Fetch", ["git", "fetch", "--prune"], repo_root, timeout=args.command_timeout)
+        )
+    startup_results.extend([
         run_command("Git Status", ["git", "status", "--short", "--branch"], repo_root, timeout=args.command_timeout),
         run_command("Recent Log", ["git", "log", "--oneline", "-n", "20"], repo_root, timeout=args.command_timeout),
         run_command("Open PRs", ["gh", "pr", "list", "--state", "open", "--limit", "50"], repo_root, timeout=args.command_timeout),
@@ -202,7 +212,7 @@ def main() -> int:
             repo_root,
             timeout=args.command_timeout,
         ),
-    ]
+    ])
 
     issues_json_result, issues_json = run_json_command(
         "Issue JSON",
@@ -417,8 +427,12 @@ def main() -> int:
         lines.append(render_command_block(aurora_local_status))
         lines.append("")
 
-    out_path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
-    print(out_path)
+    report = "\n".join(lines).rstrip() + "\n"
+    if args.stdout:
+        print(report, end="")
+    else:
+        out_path.write_text(report, encoding="utf-8")
+        print(out_path)
     return 0
 
 

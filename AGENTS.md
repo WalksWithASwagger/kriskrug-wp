@@ -75,6 +75,8 @@ Read [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODE
 
 Run `make morning-truth` at session start (or before execution) to emit a timestamped read-only report under `docs/current-state/reports/` with git/issue/worktree state, WP smoke, draft queue counts, and current-state drift flags.
 
+If the task explicitly forbids file changes, run `make status-readonly` instead. It prints the same startup truth shape to stdout and does not write a report file.
+
 ---
 
 **Last verified:** 2026-05-25 02:19 UTC via `make morning-truth`. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` plus the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth and flag the drift for a fresh audit.
