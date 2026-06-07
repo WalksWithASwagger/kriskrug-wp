@@ -22,10 +22,10 @@ import html
 from dotenv import dotenv_values
 from kk_notion_to_wp import WordPress, slugify, WP_BASE_URL_DEFAULT, WP_DEFAULT_AUTHOR_ID
 
-STAGE = pathlib.Path(
-    "/Users/kk/Code/kriskrug-wp/content/drafts/2026-06-04-the-great-canadian-proximity-game"
-)
-ENV = pathlib.Path(__file__).resolve().parent / ".env"
+SCRIPT_DIR = pathlib.Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parents[2]
+STAGE = REPO_ROOT / "content" / "drafts" / "2026-06-04-the-great-canadian-proximity-game"
+ENV = SCRIPT_DIR / ".env"
 EXECUTE = "--execute" in sys.argv
 UPDATE = "--update" in sys.argv
 WRITE = EXECUTE or UPDATE
