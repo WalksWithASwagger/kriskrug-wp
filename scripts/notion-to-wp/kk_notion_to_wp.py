@@ -26,6 +26,11 @@ Usage:
         Will refuse to update if the existing post's title is wildly different
         from the new title (likely wrong-post collision).
 
+    python kk_notion_to_wp.py --diff <notion-url>
+        Fetch the existing post matched by slug, enforce the same title guard,
+        print a unified diff of selected WP fields vs. the proposed payload,
+        and exit before any WordPress write request.
+
     Override flags (any combination):
         --title "Custom Title"        Override the title derived from Notion
         --slug custom-slug            Override the slug derived from the title
@@ -53,6 +58,7 @@ from __future__ import annotations
 import argparse
 import base64
 import dataclasses
+import difflib
 import json
 import os
 import re
@@ -343,7 +349,6 @@ def title_similarity(a: str, b: str) -> float:
     the 'wrong post' check — we only need to detect WILDLY different titles
     (the 2026-05-15 incident had "Web Summit Vancouver 2026" overwritten by
     "Calling Us All In" — similarity ≈ 0.16, well below the 0.5 threshold)."""
-    import difflib
     a = (a or "").strip().lower()
     b = (b or "").strip().lower()
     if not a or not b:
@@ -354,6 +359,74 @@ def title_similarity(a: str, b: str) -> float:
 def update_title_guard(new_title: str, existing_title: str) -> tuple[bool, float]:
     sim = title_similarity(new_title, existing_title)
     return sim >= TITLE_SIMILARITY_UPDATE_THRESHOLD, sim
+
+
+def _wp_text_field(value) -> str:
+    if isinstance(value, dict):
+        raw = value.get("raw")
+        if raw:
+            return raw
+        rendered = value.get("rendered") or ""
+        return re.sub(r"<[^>]+>", "", rendered).strip()
+    return value or ""
+
+
+def update_diff(existing_post: dict, proposed_payload: dict) -> str:
+    existing = {
+        "title": _wp_text_field(existing_post.get("title")),
+        "slug": existing_post.get("slug") or "",
+        "status": existing_post.get("status") or "",
+        "date": existing_post.get("date") or "",
+        "excerpt": _wp_text_field(existing_post.get("excerpt")),
+        "content": _wp_text_field(existing_post.get("content")),
+        "meta": existing_post.get("meta") or {},
+    }
+    proposed = {
+        "title": proposed_payload.get("title") or "",
+        "slug": proposed_payload.get("slug") or "",
+        "status": proposed_payload.get("status") or "",
+        "date": proposed_payload.get("date") or "",
+        "excerpt": proposed_payload.get("excerpt") or "",
+        "content": proposed_payload.get("content") or "",
+        "meta": proposed_payload.get("meta") or {},
+    }
+    before = json.dumps(existing, indent=2, ensure_ascii=False, sort_keys=True).splitlines(keepends=True)
+    after = json.dumps(proposed, indent=2, ensure_ascii=False, sort_keys=True).splitlines(keepends=True)
+    return "".join(difflib.unified_diff(
+        before,
+        after,
+        fromfile="existing-wp-post",
+        tofile="proposed-notion-payload",
+    ))
+
+
+def emit_update_diff_review(wp: "WordPress", slug: str, title: str, payload: dict, log, emit=print) -> int:
+    existing_id = wp.find_post_by_slug(slug)
+    log(f"existing post with slug {slug!r}? {existing_id}")
+    if existing_id is None:
+        log("ABORTING: --diff needs an existing post with this slug; no WP write was attempted.")
+        return 6
+
+    existing = wp.get_post(existing_id)
+    existing_title = (existing.get("title") or {}).get("raw", "")
+    title_match, sim = update_title_guard(title, existing_title)
+    log(f"  existing post title: {existing_title!r}")
+    log(f"  new post title:      {title!r}")
+    log(f"  title similarity:    {sim:.2f}")
+    if not title_match:
+        log(f"ABORTING: existing title is too different from new title "
+            f"(similarity {sim:.2f} < {TITLE_SIMILARITY_UPDATE_THRESHOLD}).")
+        log("No diff was emitted and no WP write was attempted.")
+        return 3
+
+    diff_text = update_diff(existing, payload)
+    if diff_text:
+        emit(diff_text)
+    else:
+        emit("No update diff: selected existing WP fields match the proposed payload.")
+    log("Diff-only run complete; no WP create, update, taxonomy, or media write request was sent.")
+    log("Review the diff, then re-run with --update only after explicit operator approval.")
+    return 0
 
 
 def derive_social_message(excerpt: str, max_chars: int = 280) -> str:
@@ -605,7 +678,8 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
         title_override: str | None = None,
         slug_override: str | None = None,
         date_override: str | None = None,
-        category_override: str | None = None) -> int:
+        category_override: str | None = None,
+        diff_update: bool = False) -> int:
     cfg = load_config()
     nclient = Notion(cfg.notion_token)
     page_id = parse_page_id(notion_url)
@@ -761,7 +835,11 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
         },
     }
 
-    if dry_run or not cfg.has_wp_credentials:
+    if (dry_run and not diff_update) or not cfg.has_wp_credentials:
+        if diff_update and not cfg.has_wp_credentials:
+            log("ABORTING: --diff requires WP credentials to fetch the existing post by slug.")
+            log("No WP write was attempted.")
+            return 5
         if not cfg.has_wp_credentials:
             log("WP credentials not present — dry-run output only.")
         log("Dry-run payload (truncated):")
@@ -779,6 +857,9 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
 
     # 6. Live mode — upload images, then create/update post
     wp = WordPress(cfg.wp_base_url, cfg.wp_user, cfg.wp_app_password)
+
+    if diff_update:
+        return emit_update_diff_review(wp, slug, title, payload, log)
 
     for nurl, meta in list(image_map.items()):
         if nurl != meta.get("_notion_url"):  # skip alias entries
@@ -952,6 +1033,9 @@ def main():
     p.add_argument("--update", action="store_true",
                    help="Allow updating an existing post (matched by slug). Default is CREATE-only. "
                         "Required since the 2026-05-15 incident.")
+    p.add_argument("--diff", action="store_true",
+                   help="Print a no-write diff against the existing slug target and exit. "
+                        "Requires WP credentials but never creates, updates, uploads media, or creates terms.")
     p.add_argument("--title", default=None,
                    help="Override the post title (otherwise derived from Notion title property).")
     p.add_argument("--slug", default=None,
@@ -973,6 +1057,7 @@ def main():
         slug_override=args.slug,
         date_override=args.date,
         category_override=args.category,
+        diff_update=args.diff,
     ))
 
 

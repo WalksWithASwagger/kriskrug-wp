@@ -64,6 +64,9 @@ python kk_notion_to_wp.py --publish https://www.notion.so/<page-id>
 
 # Live update of an existing slug, guarded by title similarity
 python kk_notion_to_wp.py --update https://www.notion.so/<page-id>
+
+# No-write update review: fetches the existing slug target and prints a diff
+python kk_notion_to_wp.py --diff https://www.notion.so/<page-id>
 ```
 
 ## Local draft package publisher
@@ -114,7 +117,7 @@ Create-only draft runs are allowed when all of these are true:
 6. Media uploads are approved and have alt text, or the draft is image-free.
 7. The resulting WP post ID, edit URL, and run notes are recorded in `publish.log`.
 
-Public publish or `--update` runs require explicit KK sign-off, a fresh dry-run/review, authenticated slug/ID/status verification, and a rollback note. Bulk edits, destructive cleanup, plugin/theme/schema/robots changes, and media-heavy imports need a narrower deploy plan before they run.
+Public publish or `--update` runs require explicit KK sign-off, a fresh dry-run/review, authenticated slug/ID/status verification, and a rollback note. For updates, run `--diff` first and review the emitted diff before any `--update` command. `--diff` fetches the existing post by slug, applies the same title-similarity guard as `--update`, and exits before WordPress create/update/media/taxonomy write requests. Bulk edits, destructive cleanup, plugin/theme/schema/robots changes, and media-heavy imports need a narrower deploy plan before they run.
 
 Without WordPress credentials the command is always effectively dry-run only.
 
@@ -142,6 +145,7 @@ Default behavior is CREATE-only:
 - If no post with the slug exists, the connector creates a new WP post.
 - If a post with the slug already exists, the connector aborts instead of silently updating.
 - To update an existing post, pass `--update`. The update path also checks that the existing title is similar to the new title before it sends a REST update. The current threshold lives in `TITLE_SIMILARITY_UPDATE_THRESHOLD` and is covered by tests.
+- Before using `--update`, run `--diff` to print a no-write comparison between the existing WP slug target and the proposed Notion payload. Treat the diff as evidence for human review, not approval to update.
 
 This makes reruns safe by default. If you need a new version rather than an update, pass `--slug` with a new slug.
 
