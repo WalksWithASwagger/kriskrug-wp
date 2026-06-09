@@ -1,5 +1,7 @@
 # Post-Ship Audit + Workplan - 2026-06-04
 
+**STATUS (2026-06-09):** Partially superseded. Steps referencing **#149** (Local WP QA), **#150** (article module tuning), and **#126** (Work OG) are **closed** with evidence. Open follow-ups are tracked in roadmap issues **#186–#197** and open GitHub issues **#125**, **#127**, **#187**, **#188**, **#189**. Reconcile counts against the newest `reports/morning-truth-*.md` before executing.
+
 ## Shipped Today
 
 - PR #148 merged: `content: polish Work page proof metadata`.

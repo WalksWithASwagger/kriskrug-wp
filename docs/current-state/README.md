@@ -5,11 +5,11 @@
 
 This folder is the source of truth for "what was true on May 14, 2026" and for dated working addenda that came out of the May 2026 recovery/redesign push. Treat the baseline files as historical snapshots and the latest dated handoff/truth docs plus the newest committed `reports/morning-truth-*.md` artifact as the current front door.
 
-## Current Front Door (verified 2026-06-04 06:29 UTC)
+## Current Front Door (verified 2026-06-09)
 
 Read these first for current execution context:
 
-1. [POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md](POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md) plus `reports/morning-truth-20260604-062927Z.md`
+1. [POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md](POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md) plus `reports/morning-truth-20260609-043246Z.md`
 2. [LOCAL-WP-QA-2026-06-04.md](LOCAL-WP-QA-2026-06-04.md)
 3. [AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md](AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md)
 4. [WORK-PAGE-METADATA-68-2026-06-04.md](WORK-PAGE-METADATA-68-2026-06-04.md)
