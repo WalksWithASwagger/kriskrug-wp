@@ -8,36 +8,8 @@
   'use strict';
 
   // ============================================
-  // MOBILE MENU
+  // PRIMARY NAV KEYBOARD
   // ============================================
-
-  function initMobileMenu() {
-    const toggle = document.querySelector('.aurora-menu-toggle');
-    const menu = document.querySelector('.aurora-mobile-menu');
-    
-    if (!toggle || !menu) return;
-    
-    toggle.addEventListener('click', () => {
-      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-      
-      toggle.setAttribute('aria-expanded', !isOpen);
-      menu.classList.toggle('is-open');
-      document.body.classList.toggle('menu-open');
-      
-      // Trap focus within menu when open
-      if (!isOpen) {
-        menu.querySelector('a, button')?.focus();
-      }
-    });
-    
-    // Close on escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-        toggle.click();
-        toggle.focus();
-      }
-    });
-  }
 
   function initPrimaryNavKeyboard() {
     const nav = document.querySelector('.aurora-primary-nav');
@@ -478,7 +450,6 @@
   // ============================================
 
   function init() {
-    initMobileMenu();
     initPrimaryNavKeyboard();
     initSmoothScroll();
     initExternalLinks();
