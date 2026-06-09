@@ -61,7 +61,7 @@
       rootMargin: '0px 0px -10% 0px'
     });
     
-    document.querySelectorAll('[data-reveal]').forEach(el => {
+    document.querySelectorAll('[data-reveal], [data-reveal-stagger]').forEach(el => {
       observer.observe(el);
     });
     
@@ -90,6 +90,8 @@
           transform 1.1s cubic-bezier(0.25, 0.1, 0.25, 1);
       }
       
+      /* Catch-all so children beyond the 6 listed below (e.g. a DB-driven grid) still reveal */
+      [data-reveal-stagger].is-revealed > * { opacity: 1; transform: translateY(0); }
       [data-reveal-stagger].is-revealed > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
       [data-reveal-stagger].is-revealed > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
       [data-reveal-stagger].is-revealed > *:nth-child(3) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
@@ -103,7 +105,7 @@
     // hero/above-the-fold never waits on the async observer — no cold-load flash, and a
     // hard guarantee against a blank first paint even if the observer is slow to fire.
     requestAnimationFrame(() => {
-      document.querySelectorAll('[data-reveal]:not(.is-revealed)').forEach((el) => {
+      document.querySelectorAll('[data-reveal]:not(.is-revealed), [data-reveal-stagger]:not(.is-revealed)').forEach((el) => {
         const r = el.getBoundingClientRect();
         if (r.top < window.innerHeight && r.bottom > 0) {
           el.classList.add('is-revealed');
