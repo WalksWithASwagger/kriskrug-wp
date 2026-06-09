@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check draft-queue-audit jetpack-feedback-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check clean
+.PHONY: help test plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check draft-queue-audit jetpack-feedback-audit seo-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check clean
 
 # Default target
 .DEFAULT_GOAL := help
@@ -137,6 +137,15 @@ draft-queue-audit: ## Run read-only draft queue audit (LOCAL_ONLY=1 FORMAT=json)
 		python3 scripts/notion-to-wp/draft_queue_audit.py --local-only --format "$${FORMAT:-markdown}"; \
 	else \
 		scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py --format "$${FORMAT:-markdown}"; \
+	fi
+
+seo-audit: ## Run read-only Jetpack SEO metadata inventory (FORMAT=markdown|json|csv)
+	@if [ "$${FORMAT:-markdown}" = "csv" ]; then \
+		scripts/notion-to-wp/.venv/bin/python scripts/seo-audit/inventory.py --format csv --output "$${OUTPUT:-content/seo-audit-inventory.csv}"; \
+	elif [ "$${FORMAT:-markdown}" = "json" ]; then \
+		scripts/notion-to-wp/.venv/bin/python scripts/seo-audit/inventory.py --format json; \
+	else \
+		scripts/notion-to-wp/.venv/bin/python scripts/seo-audit/inventory.py --format markdown; \
 	fi
 
 jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/routing audit (FORMAT=json)
