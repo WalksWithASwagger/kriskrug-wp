@@ -10,7 +10,21 @@
    Performance meets beauty
    ============================================ */
 
-/* Inter and JetBrains Mono load through the Google Fonts stylesheet preloaded in functions.php. */
+/* Inter (body) + JetBrains Mono (labels/code) — self-hosted variable fonts (replaces Google Fonts) */
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/JetBrainsMono-Variable.woff2') format('woff2');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Clash Display — self-hosted display face for headlines (woff2 in assets/fonts/) */
 @font-face {

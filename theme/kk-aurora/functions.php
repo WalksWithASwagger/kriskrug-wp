@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.3.15');
+define('KK_AURORA_VERSION', '1.3.16');
 
 /**
  * Theme setup
@@ -291,10 +291,7 @@ add_filter('body_class', __NAMESPACE__ . '\\body_classes');
  */
 function preload_fonts(): void {
     ?>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    <link rel="preload" href="<?php echo esc_url(get_theme_file_uri('assets/fonts/Inter-Variable.woff2')); ?>" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="<?php echo esc_url(get_theme_file_uri('assets/fonts/ClashDisplay-700.woff2')); ?>" as="font" type="font/woff2" crossorigin>
     <?php
 }
