@@ -101,6 +101,7 @@ skills/                          # Claude Code skills used in this repo
 - **Longer roadmap references:** `docs/current-state/ROADMAP.md` and `docs/current-state/FIX_QUEUE.md`
 - **Publishing a Notion post:** `scripts/notion-to-wp/README.md`
 - **Reviewing staged drafts:** `content/drafts/README.md`
+- **Read-only startup status:** `make status-readonly` prints current repo/site signals without writing a report
 - **Filing an issue:** `issues-to-create/` for drafts; existing ones at [WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
 
 ## How work happens here

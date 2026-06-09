@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check draft-queue-audit jetpack-feedback-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth docs-truth-check clean
+.PHONY: help test plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check draft-queue-audit jetpack-feedback-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check clean
 
 # Default target
 .DEFAULT_GOAL := help
@@ -157,6 +157,9 @@ current-state-drift-check: ## Compare declared current-state snapshot values vs 
 
 morning-truth: ## Run startup truth checks and write a timestamped markdown report
 	@python3 scripts/morning_truth_report.py --work-plan "$${WORK_PLAN:-docs/current-state/WORK-PLAN-2026-05-23.md}" --base-url "$${BASE_URL:-https://kriskrug.co}" --expect-version "$${EXPECT_VERSION:-6.9.4}" --request-timeout "$${REQUEST_TIMEOUT:-20}" --command-timeout "$${COMMAND_TIMEOUT:-120}"
+
+status-readonly: ## Print startup truth checks without writing a report
+	@python3 scripts/morning_truth_report.py --stdout --skip-fetch --work-plan "$${WORK_PLAN:-docs/current-state/WORK-PLAN-2026-05-23.md}" --base-url "$${BASE_URL:-https://kriskrug.co}" --expect-version "$${EXPECT_VERSION:-6.9.4}" --request-timeout "$${REQUEST_TIMEOUT:-20}" --command-timeout "$${COMMAND_TIMEOUT:-120}"
 
 docs-truth-check: ## Scan non-evidence docs for known stale current-state claims
 	@python3 scripts/docs_truth_check.py --exclude docs/current-state/reports --exclude docs/current-state/raw
