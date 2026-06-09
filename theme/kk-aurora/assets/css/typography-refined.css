@@ -12,6 +12,29 @@
 
 /* Inter and JetBrains Mono load through the Google Fonts stylesheet preloaded in functions.php. */
 
+/* Clash Display — self-hosted display face for headlines (woff2 in assets/fonts/) */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('../fonts/ClashDisplay-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clash Display';
+  src: url('../fonts/ClashDisplay-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clash Display';
+  src: url('../fonts/ClashDisplay-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ============================================
    BASE TYPOGRAPHY
    The foundation
@@ -110,7 +133,7 @@ article > p:first-of-type::first-letter,
   padding-right: 0.1em;
   margin-top: 0.05em;
   font-weight: 700;
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
 }
 
 .aurora-page-content > p:first-of-type::first-letter {
@@ -132,9 +155,9 @@ article > p:first-of-type::first-letter,
 article a,
 .entry-content a,
 .wp-block-post-content a {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
   text-decoration: underline;
-  text-decoration-color: color-mix(in oklch, var(--wp--preset--color--cyan) 30%, transparent);
+  text-decoration-color: color-mix(in oklch, var(--wp--preset--color--signal) 30%, transparent);
   text-underline-offset: 0.15em;
   text-decoration-thickness: 1px;
   transition: 
@@ -145,7 +168,7 @@ article a,
 article a:hover,
 .entry-content a:hover,
 .wp-block-post-content a:hover {
-  text-decoration-color: var(--wp--preset--color--cyan);
+  text-decoration-color: var(--wp--preset--color--signal);
 }
 
 /* ============================================
@@ -187,7 +210,7 @@ ul:not([class]) > li::before {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--wp--preset--gradient--aurora-cyan-teal);
+  background: var(--wp--preset--color--signal);
 }
 
 /* ============================================
@@ -203,7 +226,7 @@ blockquote,
   line-height: 1.6;
   margin-block: 2em;
   padding: 1.5em 0 1.5em 1.5em;
-  border-left: 3px solid var(--wp--preset--color--cyan);
+  border-left: 3px solid var(--wp--preset--color--signal);
   
   /* Remove default quotes */
   quotes: none;
@@ -263,7 +286,7 @@ code, kbd, samp, var {
 /* Inline code */
 :not(pre) > code {
   background: var(--wp--preset--color--surface);
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
   padding: 0.15em 0.4em;
   border-radius: 4px;
   white-space: nowrap;
@@ -337,7 +360,7 @@ figcaption,
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
   margin-bottom: 0.5em;
 }
 
@@ -514,7 +537,7 @@ input[type="reset"] {
 }
 
 .wp-block-button.is-style-aurora-primary .wp-block-button__link {
-  background: var(--wp--preset--color--cyan);
+  background: var(--wp--preset--color--signal);
   color: var(--wp--preset--color--deep);
   border: 1px solid transparent;
 }
@@ -522,7 +545,7 @@ input[type="reset"] {
 .wp-block-button.is-style-aurora-secondary .wp-block-button__link {
   background: var(--wp--preset--color--surface);
   color: var(--wp--preset--color--text-primary);
-  border: 1px solid var(--wp--preset--color--cyan);
+  border: 1px solid var(--wp--preset--color--signal);
 }
 
 .wp-block-button.is-style-aurora-ghost .wp-block-button__link {
@@ -545,15 +568,15 @@ input[type="reset"] {
 
 @media (hover: hover) and (pointer: fine) {
   .wp-block-button.is-style-aurora-primary .wp-block-button__link:hover {
-    background: var(--wp--preset--color--teal);
+    background: var(--wp--preset--color--signal);
     transform: translateY(-1px);
-    box-shadow: var(--wp--preset--shadow--glow-teal);
+    box-shadow: 0 0 20px rgba(229, 70, 46, 0.3), 0 0 40px rgba(229, 70, 46, 0.15);
   }
 
   .wp-block-button.is-style-aurora-secondary .wp-block-button__link:hover,
   .wp-block-button.is-style-aurora-ghost .wp-block-button__link:hover {
-    border-color: var(--wp--preset--color--cyan);
-    color: var(--wp--preset--color--cyan);
+    border-color: var(--wp--preset--color--signal);
+    color: var(--wp--preset--color--signal);
   }
 }
 

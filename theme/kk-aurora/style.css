@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.3.12
+Version: 1.3.15
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -28,14 +28,12 @@ Copyright 2026 Kris Krug
   --aurora-glass-blur: blur(16px);
   --aurora-glass-border: 1px solid rgba(255, 255, 255, 0.08);
   
-  /* Gradient Animation */
+  /* Gradient Animation — brand red↔lime only (was cyan/teal/purple/pink rainbow) */
   --aurora-gradient-animated: linear-gradient(
     135deg,
-    #00E5FF,
-    #00BFA5,
-    #8B5CF6,
-    #EC4899,
-    #00E5FF
+    var(--wp--preset--color--signal),
+    var(--wp--preset--color--wildcard),
+    var(--wp--preset--color--signal)
   );
   --aurora-gradient-size: 300% 300%;
   
@@ -46,8 +44,8 @@ Copyright 2026 Kris Krug
   --aurora-glow-lg: 0 0 40px;
   --aurora-glow-xl: 0 0 60px;
   
-  /* Border Gradients */
-  --aurora-border-gradient: linear-gradient(135deg, rgba(0,229,255,0.5) 0%, rgba(139,92,246,0.5) 100%);
+  /* Border Gradients — single-hue signal (was cyan→purple) */
+  --aurora-border-gradient: linear-gradient(135deg, rgba(229,70,46,0.5) 0%, rgba(229,70,46,0.12) 100%);
   
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0, 0, 0.2, 1);
@@ -55,7 +53,7 @@ Copyright 2026 Kris Krug
   --transition-slow: 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
   
   /* Focus Ring */
-  --focus-ring: 0 0 0 2px var(--wp--preset--color--deep), 0 0 0 4px var(--wp--preset--color--cyan);
+  --focus-ring: 0 0 0 2px var(--wp--preset--color--deep), 0 0 0 4px var(--wp--preset--color--signal);
 }
 
 /* ============================================
@@ -98,12 +96,12 @@ body {
 
 /* Selection styling */
 ::selection {
-  background-color: var(--wp--preset--color--cyan);
+  background-color: var(--wp--preset--color--signal);
   color: var(--wp--preset--color--deep);
 }
 
 ::-moz-selection {
-  background-color: var(--wp--preset--color--cyan);
+  background-color: var(--wp--preset--color--signal);
   color: var(--wp--preset--color--deep);
 }
 
@@ -165,7 +163,7 @@ a {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--wp--preset--gradient--aurora-cyan-teal);
+  background: var(--wp--preset--color--signal);
   transition: width var(--transition-normal);
 }
 
@@ -180,7 +178,7 @@ a {
 /* Primary button with glow */
 .wp-block-button.is-style-aurora-primary .wp-block-button__link {
   position: relative;
-  background: var(--wp--preset--color--cyan);
+  background: var(--wp--preset--color--signal);
   color: var(--wp--preset--color--deep);
   border: none;
   font-weight: 600;
@@ -191,7 +189,7 @@ a {
 
 .wp-block-button.is-style-aurora-primary .wp-block-button__link:hover {
   transform: translateY(-2px);
-  box-shadow: var(--aurora-glow-md) rgba(0, 229, 255, 0.4);
+  box-shadow: var(--aurora-glow-md) rgba(229, 70, 46, 0.4);
 }
 
 /* Ghost button with gradient border */
@@ -214,7 +212,7 @@ a {
   background-image: 
     var(--wp--preset--gradient--aurora-subtle),
     var(--wp--preset--gradient--aurora-primary);
-  box-shadow: var(--aurora-glow-sm) rgba(0, 229, 255, 0.2);
+  box-shadow: var(--aurora-glow-sm) rgba(229, 70, 46, 0.2);
 }
 
 /* ============================================
@@ -234,10 +232,10 @@ a {
 
 .aurora-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(0, 229, 255, 0.3);
+  border-color: rgba(229, 70, 46, 0.3);
   box-shadow: 
     0 10px 40px rgba(0, 0, 0, 0.3),
-    var(--aurora-glow-md) rgba(0, 229, 255, 0.15);
+    var(--aurora-glow-md) rgba(229, 70, 46, 0.15);
 }
 
 /* Card with gradient border on hover */
@@ -332,8 +330,8 @@ a {
 }
 
 .aurora-badge:hover {
-  border-color: var(--wp--preset--color--cyan);
-  color: var(--wp--preset--color--cyan);
+  border-color: var(--wp--preset--color--signal);
+  color: var(--wp--preset--color--signal);
 }
 
 .aurora-badge-gradient {
@@ -422,7 +420,7 @@ a {
   left: var(--wp--preset--spacing--40);
   z-index: 9999;
   padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--50);
-  background: var(--wp--preset--color--cyan);
+  background: var(--wp--preset--color--signal);
   color: var(--wp--preset--color--deep);
   font-weight: 600;
   border-radius: var(--wp--custom--border--radius-sm);
@@ -494,13 +492,17 @@ a {
 
 .aurora-theme {
   background:
-    radial-gradient(circle at 20% 10%, rgba(0, 229, 255, 0.08), transparent 24rem),
+    radial-gradient(circle at 20% 10%, rgba(229, 70, 46, 0.08), transparent 24rem),
     radial-gradient(circle at 88% 28%, rgba(240, 179, 90, 0.06), transparent 22rem),
     var(--aurora-black);
 }
 
-.aurora-theme :where(h1, h2, h3, h4, h5, h6, p, a, span, li, figcaption) {
+.aurora-theme :where(p, a, span, li, figcaption) {
   letter-spacing: 0;
+}
+
+.aurora-theme :where(h1, h2, h3, h4, h5, h6) {
+  letter-spacing: -0.02em;
 }
 
 .aurora-button,
@@ -547,13 +549,13 @@ a {
 .aurora-button-secondary:hover,
 .wp-block-button.is-style-aurora-ghost .wp-block-button__link:hover {
   border-color: var(--aurora-line-strong);
-  background: rgba(0, 229, 255, 0.1);
+  background: rgba(229, 70, 46, 0.1);
 }
 
 .aurora-button:focus-visible,
 .aurora-theme :where(a, button, input, select, textarea, summary):focus-visible,
 .aurora-theme .wp-block-button__link:focus-visible {
-  outline: 2px solid var(--wp--preset--color--cyan);
+  outline: 2px solid var(--wp--preset--color--signal);
   outline-offset: 3px;
 }
 
@@ -598,9 +600,11 @@ a {
 }
 
 .aurora-kicker {
-  color: var(--wp--preset--color--cyan, #00e5ff);
-  font-size: clamp(0.78rem, 0.74rem + 0.18vw, 0.92rem);
-  font-weight: 800;
+  color: var(--wp--preset--color--signal, #e5462e);
+  font-family: var(--wp--preset--font-family--mono);
+  font-size: clamp(0.72rem, 0.68rem + 0.16vw, 0.82rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
   margin: 0 0 1rem;
   max-width: none;
   text-transform: uppercase;
@@ -667,7 +671,7 @@ a {
 
 .aurora-primary-nav a:hover,
 .aurora-utility-link:hover {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
 }
 
 .aurora-header-actions {
@@ -753,8 +757,8 @@ a {
 .aurora-hero-copy h1 {
   color: var(--aurora-ink);
   font-size: clamp(3rem, 6.4vw, 6rem);
-  font-weight: 900;
-  letter-spacing: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 0.98;
   margin: 0;
   max-width: 13.5ch;
@@ -811,7 +815,7 @@ a {
 
 .aurora-proof-row a:hover {
   border-color: var(--aurora-line-strong);
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
 }
 
 .aurora-path-row a:hover {
@@ -845,7 +849,7 @@ a {
 }
 
 .aurora-hero-caption span {
-  border-left: 2px solid var(--wp--preset--color--cyan);
+  border-left: 2px solid var(--wp--preset--color--signal);
   padding-left: 0.65rem;
 }
 
@@ -1035,7 +1039,7 @@ a {
 
 .aurora-feature-band-dark {
   background:
-    radial-gradient(circle at 80% 8%, rgba(0, 229, 255, 0.1), transparent 22rem),
+    radial-gradient(circle at 80% 8%, rgba(229, 70, 46, 0.1), transparent 22rem),
     #050708;
 }
 
@@ -1052,7 +1056,7 @@ a {
 .aurora-related h2 {
   color: var(--aurora-ink);
   font-size: clamp(2.1rem, 5vw, 4.8rem);
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
   line-height: 1;
   margin: 0;
@@ -1145,7 +1149,7 @@ a {
   background: rgba(3, 4, 5, 0.72);
   border: 1px solid var(--aurora-line);
   border-radius: 999px;
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
   font-size: 0.74rem;
   font-weight: 850;
   justify-self: start;
@@ -1158,7 +1162,7 @@ a {
 
 .aurora-text-card {
   background:
-    linear-gradient(135deg, rgba(0, 229, 255, 0.16), transparent 44%),
+    linear-gradient(135deg, rgba(229, 70, 46, 0.16), transparent 44%),
     linear-gradient(180deg, rgba(247, 247, 242, 0.08), rgba(247, 247, 242, 0.03));
 }
 
@@ -1249,7 +1253,7 @@ a {
 
 .aurora-article-title a:hover,
 .aurora-related-row a:hover {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
 }
 
 .aurora-article-excerpt,
@@ -1291,7 +1295,7 @@ a {
 .aurora-writing-archive-title {
   color: var(--aurora-ink);
   font-size: clamp(2.55rem, 4.8vw, 4.35rem);
-  font-weight: 900;
+  font-weight: 700;
   grid-column: 1 / span 7;
   letter-spacing: 0;
   line-height: 0.96;
@@ -1377,14 +1381,14 @@ a {
   align-items: center;
   aspect-ratio: 16 / 10;
   background:
-    linear-gradient(135deg, rgba(0, 229, 255, 0.16), rgba(229, 70, 46, 0.16)),
+    linear-gradient(135deg, rgba(229, 70, 46, 0.16), rgba(229, 70, 46, 0.16)),
     var(--aurora-panel-solid);
   border-bottom: 1px solid rgba(247, 247, 242, 0.08);
   color: var(--aurora-ink-muted);
   content: "";
   display: flex;
   font-size: clamp(1.25rem, 3vw, 2.5rem);
-  font-weight: 900;
+  font-weight: 700;
   justify-content: center;
 }
 
@@ -1419,7 +1423,7 @@ a {
 
 .aurora-writing-card-category a:hover,
 .aurora-writing-card-meta a:hover {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
 }
 
 .aurora-writing-card-title {
@@ -1434,7 +1438,7 @@ a {
 }
 
 .aurora-writing-card-title a:hover {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
 }
 
 .aurora-writing-card-excerpt,
@@ -1516,7 +1520,7 @@ a {
 .aurora-writing-dispatch {
   align-items: center;
   background:
-    linear-gradient(135deg, rgba(229, 70, 46, 0.14), rgba(0, 229, 255, 0.08)),
+    linear-gradient(135deg, rgba(229, 70, 46, 0.14), rgba(229, 70, 46, 0.08)),
     #07090b;
   border: 1px solid var(--aurora-line);
   border-radius: var(--aurora-radius-card);
@@ -1557,7 +1561,7 @@ a {
 
 .aurora-final-cta {
   background:
-    radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.12), transparent 24rem),
+    radial-gradient(circle at 50% 0%, rgba(229, 70, 46, 0.12), transparent 24rem),
     #07090b;
   border-top: 1px solid var(--aurora-line);
   text-align: center;
@@ -1588,7 +1592,7 @@ a {
 .aurora-speaking-hero h1 {
   color: var(--aurora-ink);
   font-size: clamp(2.4rem, 6.5vw, 5.8rem);
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
   line-height: 0.98;
   margin: 0;
@@ -1709,7 +1713,7 @@ a {
   content: "✓";
   display: grid;
   font-size: 0.78rem;
-  font-weight: 900;
+  font-weight: 700;
   height: 1.25rem;
   left: 0.8rem;
   place-items: center;
@@ -1876,7 +1880,7 @@ a {
 .aurora-quote-card:focus-within,
 .aurora-article-row a:focus-visible,
 .aurora-writing-card a:focus-visible {
-  outline: 2px solid var(--wp--preset--color--cyan);
+  outline: 2px solid var(--wp--preset--color--signal);
   outline-offset: 4px;
 }
 
@@ -1975,7 +1979,7 @@ a {
 
 .aurora-speaking-reel {
   align-items: stretch;
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.07), rgba(247, 247, 242, 0.02));
+  background: linear-gradient(135deg, rgba(229, 70, 46, 0.07), rgba(247, 247, 242, 0.02));
   border: 1px solid var(--aurora-line);
   border-radius: var(--aurora-radius-card);
   display: grid;
@@ -2107,7 +2111,7 @@ a {
 .aurora-page-title {
   color: var(--aurora-ink);
   font-size: clamp(2.25rem, 4.6vw, 4.35rem);
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
   line-height: 1.02;
   margin: 0;
@@ -2118,7 +2122,7 @@ a {
 .aurora-single-title {
   color: var(--aurora-ink);
   font-size: clamp(2.8rem, 8vw, 6.2rem);
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
   line-height: 0.98;
   margin: 0;
@@ -2172,7 +2176,7 @@ a {
 }
 
 .aurora-article-meta a:hover {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
 }
 
 .aurora-meta-divider {
@@ -2230,7 +2234,7 @@ a {
 }
 
 .aurora-article-map a:hover {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
 }
 
 .aurora-article-map .is-subsection {
@@ -2275,13 +2279,13 @@ a {
 }
 
 .aurora-prose li::marker {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
   font-weight: 800;
 }
 
 .aurora-prose :where(.wp-block-quote, blockquote) {
   background: rgba(247, 247, 242, 0.035);
-  border-left: 3px solid var(--wp--preset--color--cyan);
+  border-left: 3px solid var(--wp--preset--color--signal);
   border-radius: 0 var(--aurora-radius-card) var(--aurora-radius-card) 0;
   color: var(--aurora-ink);
   margin: clamp(2rem, 5vw, 3.6rem) 0;
@@ -2451,7 +2455,7 @@ a {
 }
 
 .aurora-footer-nav a:hover {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
 }
 
 .aurora-utility-grid {
@@ -2539,8 +2543,8 @@ a {
 .aurora-form button,
 .aurora-theme :where(.gform_wrapper, .wp-block-jetpack-contact-form) button {
   align-items: center;
-  background: var(--wp--preset--color--cyan);
-  border: 1px solid var(--wp--preset--color--cyan);
+  background: var(--wp--preset--color--signal);
+  border: 1px solid var(--wp--preset--color--signal);
   border-radius: var(--aurora-radius-control);
   color: #041013;
   cursor: pointer;
@@ -2554,7 +2558,7 @@ a {
 .aurora-search-form .wp-block-search__button:hover,
 .aurora-theme .wp-block-search__button:hover,
 .aurora-form button:hover {
-  box-shadow: 0 0 28px rgba(0, 229, 255, 0.22);
+  box-shadow: 0 0 28px rgba(229, 70, 46, 0.22);
 }
 
 .aurora-form-row {
@@ -2602,7 +2606,7 @@ a {
 }
 
 .aurora-footer-bottom a:hover {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
 }
 
 @media (max-width: 1180px) {
@@ -2978,7 +2982,7 @@ a {
 }
 
 .aurora-single-2026 .aurora-article-dek {
-  border-left: 2px solid rgba(0, 229, 255, 0.38);
+  border-left: 2px solid rgba(229, 70, 46, 0.38);
   color: rgba(247, 247, 242, 0.76);
   font-style: normal;
   line-height: 1.55;
@@ -3016,22 +3020,22 @@ a {
 .aurora-article-category a:focus-visible,
 .aurora-post-tags a:hover,
 .aurora-post-tags a:focus-visible {
-  background: rgba(0, 229, 255, 0.075);
-  border-color: rgba(0, 229, 255, 0.34);
-  color: var(--wp--preset--color--cyan);
+  background: rgba(229, 70, 46, 0.075);
+  border-color: rgba(229, 70, 46, 0.34);
+  color: var(--wp--preset--color--signal);
 }
 
 .aurora-writing-card-category a:focus,
 .aurora-article-category a:focus,
 .aurora-post-tags a:focus,
 .aurora-prose a:not(.wp-block-button__link):focus {
-  outline: 2px solid var(--wp--preset--color--cyan, #00e5ff) !important;
+  outline: 2px solid var(--wp--preset--color--signal, #e5462e) !important;
   outline-offset: 3px !important;
 }
 
 .aurora-single-2026 a:focus,
 .aurora-writing-archive a:focus {
-  outline: 2px solid var(--wp--preset--color--cyan, #00e5ff) !important;
+  outline: 2px solid var(--wp--preset--color--signal, #e5462e) !important;
   outline-offset: 3px !important;
 }
 
@@ -3110,7 +3114,7 @@ a {
 
 .aurora-writing-archive .aurora-writing-card::after {
   background:
-    radial-gradient(circle at 18% 0%, rgba(0, 229, 255, 0.11), transparent 34%),
+    radial-gradient(circle at 18% 0%, rgba(229, 70, 46, 0.11), transparent 34%),
     linear-gradient(118deg, rgba(247, 247, 242, 0.045), transparent 34%);
   content: "";
   inset: 0;
@@ -3134,7 +3138,7 @@ a {
 }
 
 .aurora-writing-card:focus-within {
-  outline: 2px solid rgba(0, 229, 255, 0.7);
+  outline: 2px solid rgba(229, 70, 46, 0.7);
   outline-offset: 3px;
 }
 
@@ -3175,7 +3179,7 @@ a {
 .aurora-writing-archive .aurora-writing-card-media::after {
   background:
     linear-gradient(180deg, transparent 58%, rgba(0, 0, 0, 0.26)),
-    linear-gradient(90deg, rgba(0, 229, 255, 0.1), transparent 38%, rgba(229, 70, 46, 0.08));
+    linear-gradient(90deg, rgba(229, 70, 46, 0.1), transparent 38%, rgba(229, 70, 46, 0.08));
   content: "";
   inset: 0;
   opacity: 0.4;
@@ -3198,7 +3202,7 @@ a {
 .aurora-writing-archive .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
   aspect-ratio: 16 / 10;
   background:
-    radial-gradient(circle at 18% 20%, rgba(0, 229, 255, 0.18), transparent 18%),
+    radial-gradient(circle at 18% 20%, rgba(229, 70, 46, 0.18), transparent 18%),
     radial-gradient(circle at 78% 78%, rgba(229, 70, 46, 0.14), transparent 22%),
     linear-gradient(135deg, rgba(247, 247, 242, 0.12) 0 1px, transparent 1px 18px),
     linear-gradient(145deg, rgba(14, 21, 22, 0.98), rgba(5, 7, 8, 0.98) 58%, rgba(20, 14, 11, 0.96));
@@ -3211,7 +3215,7 @@ a {
 .aurora-writing-archive-list.wp-block-post-template > li:nth-child(3n + 2) .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
   background:
     radial-gradient(circle at 72% 22%, rgba(200, 255, 61, 0.13), transparent 18%),
-    radial-gradient(circle at 20% 82%, rgba(0, 229, 255, 0.15), transparent 22%),
+    radial-gradient(circle at 20% 82%, rgba(229, 70, 46, 0.15), transparent 22%),
     linear-gradient(0deg, rgba(247, 247, 242, 0.085) 0 1px, transparent 1px 17px),
     linear-gradient(150deg, rgba(12, 19, 15, 0.98), rgba(5, 7, 8, 0.98) 62%, rgba(8, 17, 18, 0.96));
   background-size: auto, auto, 17px 17px, auto;
@@ -3220,7 +3224,7 @@ a {
 .aurora-writing-archive-list.wp-block-post-template > li:nth-child(3n + 3) .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
   background:
     radial-gradient(circle at 24% 74%, rgba(240, 179, 90, 0.17), transparent 20%),
-    radial-gradient(circle at 82% 26%, rgba(139, 92, 246, 0.12), transparent 22%),
+    radial-gradient(circle at 82% 26%, rgba(229, 70, 46, 0.12), transparent 22%),
     linear-gradient(35deg, rgba(247, 247, 242, 0.1) 0 1px, transparent 1px 20px),
     linear-gradient(140deg, rgba(19, 14, 12, 0.98), rgba(5, 7, 8, 0.98) 58%, rgba(12, 13, 21, 0.96));
   background-size: auto, auto, 20px 20px, auto;
@@ -3247,9 +3251,9 @@ a {
 
 .aurora-article-map {
   background:
-    linear-gradient(135deg, rgba(0, 229, 255, 0.045), rgba(247, 247, 242, 0.022)),
+    linear-gradient(135deg, rgba(229, 70, 46, 0.045), rgba(247, 247, 242, 0.022)),
     rgba(3, 4, 5, 0.76);
-  border-color: rgba(0, 229, 255, 0.18);
+  border-color: rgba(229, 70, 46, 0.18);
   box-shadow: 0 14px 38px rgba(0, 0, 0, 0.22);
   max-width: 760px;
   padding: clamp(1rem, 2vw, 1.25rem);
@@ -3260,7 +3264,7 @@ a {
 }
 
 .aurora-article-map[open] {
-  border-color: rgba(0, 229, 255, 0.24);
+  border-color: rgba(229, 70, 46, 0.24);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
 }
 
@@ -3272,9 +3276,9 @@ a {
 
 .aurora-article-map summary::after {
   background: rgba(247, 247, 242, 0.045);
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  border: 1px solid rgba(229, 70, 46, 0.2);
   border-radius: 999px;
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
   content: "guide";
   font-size: 0.68rem;
   font-weight: 780;
@@ -3309,7 +3313,7 @@ a {
 }
 
 .aurora-article-map a::before {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
   content: counter(article-map, decimal-leading-zero);
   font-size: 0.72rem;
   font-weight: 820;
@@ -3317,15 +3321,15 @@ a {
 
 .aurora-article-map a:hover,
 .aurora-article-map a:focus-visible {
-  background: rgba(0, 229, 255, 0.045);
-  box-shadow: inset 2px 0 0 rgba(0, 229, 255, 0.3);
+  background: rgba(229, 70, 46, 0.045);
+  box-shadow: inset 2px 0 0 rgba(229, 70, 46, 0.3);
   transform: translateX(1px);
 }
 
 .aurora-article-map a.is-active,
 .aurora-article-map a[aria-current="true"] {
-  background: rgba(0, 229, 255, 0.07);
-  box-shadow: inset 2px 0 0 var(--wp--preset--color--cyan);
+  background: rgba(229, 70, 46, 0.07);
+  box-shadow: inset 2px 0 0 var(--wp--preset--color--signal);
   color: var(--aurora-ink);
 }
 
@@ -3342,7 +3346,7 @@ a {
 }
 
 .aurora-prose h2::before {
-  background: linear-gradient(90deg, var(--aurora-signal), var(--wp--preset--color--cyan));
+  background: linear-gradient(90deg, var(--aurora-signal), var(--wp--preset--color--signal));
   content: "";
   display: block;
   height: 3px;
@@ -3352,14 +3356,14 @@ a {
 
 .aurora-prose a:not(.wp-block-button__link) {
   color: var(--aurora-ink);
-  text-decoration-color: rgba(0, 229, 255, 0.5);
+  text-decoration-color: rgba(229, 70, 46, 0.5);
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.18em;
 }
 
 .aurora-prose a:not(.wp-block-button__link):hover,
 .aurora-prose a:not(.wp-block-button__link):focus-visible {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
   text-decoration-color: currentColor;
 }
 
@@ -3372,8 +3376,8 @@ a {
 
 .aurora-prose .wp-block-quote,
 .aurora-prose blockquote {
-  --aurora-callout-accent: var(--wp--preset--color--cyan);
-  --aurora-callout-rgb: 0, 229, 255;
+  --aurora-callout-accent: var(--wp--preset--color--signal);
+  --aurora-callout-rgb: 229, 70, 46;
   background:
     linear-gradient(135deg, rgba(var(--aurora-callout-rgb), 0.07), rgba(247, 247, 242, 0.02)),
     rgba(6, 8, 10, 0.86);
@@ -3423,8 +3427,8 @@ a {
 }
 
 .aurora-prose .is-style-callout-blue {
-  --aurora-callout-accent: #00e5ff;
-  --aurora-callout-rgb: 0, 229, 255;
+  --aurora-callout-accent: #3b82f6;
+  --aurora-callout-rgb: 59, 130, 246;
 }
 
 .aurora-prose .is-style-callout-green {
@@ -3454,9 +3458,9 @@ a {
 
 .aurora-prose .wp-block-pullquote {
   background:
-    linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.055), transparent),
+    linear-gradient(90deg, transparent, rgba(229, 70, 46, 0.055), transparent),
     rgba(247, 247, 242, 0.018);
-  border-bottom-color: rgba(0, 229, 255, 0.22);
+  border-bottom-color: rgba(229, 70, 46, 0.22);
   border-top-color: rgba(229, 70, 46, 0.24);
   box-shadow: none;
   overflow: hidden;
@@ -3464,7 +3468,7 @@ a {
 }
 
 .aurora-prose .wp-block-pullquote::before {
-  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.24), rgba(229, 70, 46, 0.18), transparent);
+  background: linear-gradient(90deg, transparent, rgba(229, 70, 46, 0.24), rgba(229, 70, 46, 0.18), transparent);
   content: "";
   height: 1px;
   left: 0;
@@ -3497,7 +3501,7 @@ a {
     linear-gradient(135deg, rgba(247, 247, 242, 0.038), rgba(247, 247, 242, 0.014)),
     rgba(3, 4, 5, 0.78);
   border: 1px solid rgba(247, 247, 242, 0.105);
-  border-left: 3px solid var(--wp--preset--color--cyan);
+  border-left: 3px solid var(--wp--preset--color--signal);
   border-radius: var(--aurora-radius-card);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
   color: var(--aurora-ink-soft);
@@ -3586,14 +3590,14 @@ a {
 
 .aurora-prose .wp-block-table th,
 .aurora-prose table th {
-  background: rgba(0, 229, 255, 0.08);
+  background: rgba(229, 70, 46, 0.08);
   color: var(--aurora-ink);
 }
 
 .aurora-prose pre,
 .aurora-prose .wp-block-code {
   background: rgba(5, 7, 8, 0.94);
-  border: 1px solid rgba(0, 229, 255, 0.16);
+  border: 1px solid rgba(229, 70, 46, 0.16);
   border-radius: var(--aurora-radius-card);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
   color: var(--aurora-ink);
@@ -3607,8 +3611,8 @@ a {
 }
 
 .aurora-prose code:not(pre code) {
-  background: rgba(0, 229, 255, 0.12);
-  border: 1px solid rgba(0, 229, 255, 0.18);
+  background: rgba(229, 70, 46, 0.12);
+  border: 1px solid rgba(229, 70, 46, 0.18);
   border-radius: 5px;
   color: var(--aurora-ink);
   font-size: 0.9em;
@@ -3732,9 +3736,9 @@ body .aurora-reading-progress {
 
 body .aurora-reading-progress span {
   background:
-    linear-gradient(90deg, rgba(0, 229, 255, 0.92), rgba(200, 255, 61, 0.86), rgba(229, 70, 46, 0.9)),
+    linear-gradient(90deg, rgba(229, 70, 46, 0.92), rgba(200, 255, 61, 0.86), rgba(229, 70, 46, 0.9)),
     var(--wp--preset--gradient--aurora-primary);
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.22);
+  box-shadow: 0 0 10px rgba(229, 70, 46, 0.22);
 }
 
 .aurora-related h2 {
@@ -3754,7 +3758,7 @@ body .aurora-reading-progress span {
 }
 
 .aurora-related-row::before {
-  background: linear-gradient(180deg, var(--wp--preset--color--cyan), rgba(229, 70, 46, 0.75));
+  background: linear-gradient(180deg, var(--wp--preset--color--signal), rgba(229, 70, 46, 0.75));
   content: "";
   height: calc(100% - 1.35rem);
   left: 0;
@@ -3770,7 +3774,7 @@ body .aurora-reading-progress span {
 .aurora-related-row:hover,
 .aurora-related-row:focus-within {
   background: rgba(247, 247, 242, 0.026);
-  border-top-color: rgba(0, 229, 255, 0.32);
+  border-top-color: rgba(229, 70, 46, 0.32);
   padding-inline: 0.38rem;
 }
 

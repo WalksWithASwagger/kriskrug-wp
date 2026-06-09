@@ -22,13 +22,13 @@
 
 /* Button styles in editor */
 .editor-styles-wrapper .wp-block-button.is-style-aurora-primary .wp-block-button__link {
-  background: var(--wp--preset--color--cyan);
+  background: var(--wp--preset--color--signal);
   color: var(--wp--preset--color--deep);
 }
 
 .editor-styles-wrapper .wp-block-button.is-style-aurora-ghost .wp-block-button__link {
   background: transparent;
-  border: 2px solid var(--wp--preset--color--cyan);
+  border: 2px solid var(--wp--preset--color--signal);
   color: var(--wp--preset--color--text-primary);
 }
 
@@ -50,12 +50,12 @@
 
 /* Link colors in editor */
 .editor-styles-wrapper a {
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
 }
 
 /* Selection in editor */
 .editor-styles-wrapper ::selection {
-  background-color: var(--wp--preset--color--cyan);
+  background-color: var(--wp--preset--color--signal);
   color: var(--wp--preset--color--deep);
 }
 
@@ -63,7 +63,7 @@
 .editor-styles-wrapper code,
 .editor-styles-wrapper .wp-block-code {
   background: var(--wp--preset--color--surface);
-  color: var(--wp--preset--color--cyan);
+  color: var(--wp--preset--color--signal);
   font-family: var(--wp--preset--font-family--mono);
 }
 
@@ -73,7 +73,7 @@
 
 /* Quote styles in editor */
 .editor-styles-wrapper .wp-block-quote {
-  border-left-color: var(--wp--preset--color--cyan);
+  border-left-color: var(--wp--preset--color--signal);
 }
 
 .editor-styles-wrapper .is-style-lead {
@@ -91,8 +91,8 @@
 
 .editor-styles-wrapper .wp-block-quote.is-style-callout,
 .editor-styles-wrapper .wp-block-quote[class*="is-style-callout-"] {
-  --aurora-editor-callout-accent: var(--wp--preset--color--cyan);
-  --aurora-editor-callout-rgb: 0, 229, 255;
+  --aurora-editor-callout-accent: var(--wp--preset--color--signal);
+  --aurora-editor-callout-rgb: 229, 70, 46;
   background:
     linear-gradient(135deg, rgba(var(--aurora-editor-callout-rgb), 0.075), rgba(255, 255, 255, 0.025)),
     rgba(6, 8, 10, 0.86);
@@ -104,8 +104,8 @@
 }
 
 .editor-styles-wrapper .is-style-callout-blue {
-  --aurora-editor-callout-accent: #00e5ff;
-  --aurora-editor-callout-rgb: 0, 229, 255;
+  --aurora-editor-callout-accent: #3b82f6;
+  --aurora-editor-callout-rgb: 59, 130, 246;
 }
 
 .editor-styles-wrapper .is-style-callout-green {
@@ -135,9 +135,9 @@
 
 .editor-styles-wrapper .wp-block-pullquote.is-style-aurora-pullquote {
   background:
-    linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.055), transparent),
+    linear-gradient(90deg, transparent, rgba(229, 70, 46, 0.055), transparent),
     rgba(255, 255, 255, 0.018);
-  border-bottom: 1px solid rgba(0, 229, 255, 0.22);
+  border-bottom: 1px solid rgba(229, 70, 46, 0.22);
   border-top: 1px solid rgba(229, 70, 46, 0.24);
   color: var(--wp--preset--color--text-primary);
 }
@@ -149,7 +149,7 @@
     linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.018)),
     rgba(3, 4, 5, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-left: 3px solid var(--wp--preset--color--cyan);
+  border-left: 3px solid var(--wp--preset--color--signal);
   border-radius: 8px;
   color: var(--wp--preset--color--text-primary);
   padding: 1.25rem;
