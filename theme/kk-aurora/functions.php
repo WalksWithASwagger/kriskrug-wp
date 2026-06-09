@@ -192,6 +192,11 @@ function register_block_patterns(): void {
         'kk-aurora-article',
         ['label' => __('Article Modules', 'kk-aurora')]
     );
+
+    register_block_pattern_category(
+        'kk-aurora-media',
+        ['label' => __('Media & Galleries', 'kk-aurora')]
+    );
 }
 add_action('init', __NAMESPACE__ . '\\register_block_patterns');
 

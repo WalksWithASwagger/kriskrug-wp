@@ -1887,6 +1887,83 @@ a {
   transform: translateY(1px);
 }
 
+/* Photography showcase — kk-aurora/photo-gallery pattern */
+.aurora-photo-lede {
+  color: var(--aurora-ink-soft);
+  max-width: 60ch;
+}
+
+.aurora-photo-gallery {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.aurora-photo-tile {
+  background: var(--aurora-panel-solid);
+  border: 1px solid var(--aurora-line);
+  border-radius: var(--aurora-radius-card);
+  display: grid;
+  gap: 0.6rem;
+  overflow: clip;
+  padding: 0.75rem;
+  transition: transform 150ms ease, border-color 150ms ease;
+}
+
+.aurora-photo-tile:hover,
+.aurora-photo-tile:focus-within {
+  border-color: var(--aurora-line-strong);
+  transform: translateY(-2px);
+}
+
+.aurora-photo-cat {
+  background: rgba(247, 247, 242, 0.05);
+  border: 1px solid var(--aurora-line);
+  border-radius: 999px;
+  color: var(--aurora-ink-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  justify-self: start;
+  letter-spacing: 0.04em;
+  margin: 0;
+  padding: 0.3rem 0.6rem;
+  text-transform: uppercase;
+}
+
+.aurora-photo-image {
+  margin: 0;
+}
+
+.aurora-photo-image img {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--aurora-radius-control);
+  cursor: zoom-in;
+  display: block;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.aurora-photo-image figcaption {
+  color: var(--aurora-ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  margin: 0.5rem 0 0;
+  text-align: left;
+}
+
+.aurora-photo-image img:focus-visible,
+.aurora-photo-tile:focus-within {
+  outline: 2px solid var(--wp--preset--color--cyan);
+  outline-offset: 3px;
+}
+
+.aurora-photo-note {
+  color: var(--aurora-ink-muted);
+  margin-top: 1rem;
+}
+
 .aurora-empty-state,
 .aurora-component-empty {
   background: rgba(247, 247, 242, 0.035);

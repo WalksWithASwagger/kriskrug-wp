@@ -426,6 +426,11 @@
           "radius": true
         }
       },
+      "core/image": {
+        "lightbox": {
+          "allowEditing": true
+        }
+      },
       "core/code": {
         "typography": {
           "fontFamilies": true
