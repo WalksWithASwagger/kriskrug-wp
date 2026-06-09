@@ -22,11 +22,9 @@
 .aurora-gradient-animated {
   background: linear-gradient(
     135deg,
-    var(--wp--preset--color--cyan),
-    var(--wp--preset--color--teal),
-    var(--wp--preset--color--purple),
-    var(--wp--preset--color--pink),
-    var(--wp--preset--color--cyan)
+    var(--wp--preset--color--signal),
+    var(--wp--preset--color--wildcard),
+    var(--wp--preset--color--signal)
   );
   background-size: 300% 300%;
   animation: aurora-gradient-bg 15s ease infinite;
@@ -45,10 +43,10 @@
 /* Subtle pulse glow */
 @keyframes aurora-pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+    box-shadow: 0 0 20px rgba(229, 70, 46, 0.2);
   }
   50% {
-    box-shadow: 0 0 40px rgba(0, 229, 255, 0.4);
+    box-shadow: 0 0 40px rgba(229, 70, 46, 0.4);
   }
 }
 
@@ -162,7 +160,7 @@
   transform: translateY(-6px);
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 30px rgba(0, 229, 255, 0.15);
+    0 0 30px rgba(229, 70, 46, 0.15);
 }
 
 /* Link underline slide */
@@ -178,7 +176,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--wp--preset--gradient--aurora-cyan-teal);
+  background: var(--wp--preset--color--signal);
   transition: width 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
@@ -221,7 +219,7 @@
   width: 24px;
   height: 24px;
   border: 2px solid var(--wp--preset--color--elevated);
-  border-top-color: var(--wp--preset--color--cyan);
+  border-top-color: var(--wp--preset--color--signal);
   border-radius: 50%;
   animation: aurora-spin 0.8s linear infinite;
 }
@@ -246,7 +244,7 @@
 .aurora-dots span {
   width: 8px;
   height: 8px;
-  background: var(--wp--preset--color--cyan);
+  background: var(--wp--preset--color--signal);
   border-radius: 50%;
   animation: aurora-dots 1.4s ease-in-out infinite both;
 }

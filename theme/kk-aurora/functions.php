@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.3.12');
+define('KK_AURORA_VERSION', '1.3.15');
 
 /**
  * Theme setup
@@ -112,41 +112,6 @@ function enqueue_assets(): void {
         ]
     );
 
-    // GSAP for animations (loaded from CDN for performance)
-    wp_enqueue_script(
-        'gsap',
-        'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js',
-        [],
-        '3.12.5',
-        [
-            'strategy' => 'defer',
-            'in_footer' => true,
-        ]
-    );
-
-    // GSAP ScrollTrigger
-    wp_enqueue_script(
-        'gsap-scrolltrigger',
-        'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js',
-        ['gsap'],
-        '3.12.5',
-        [
-            'strategy' => 'defer',
-            'in_footer' => true,
-        ]
-    );
-
-    // Aurora animations (depends on GSAP)
-    wp_enqueue_script(
-        'kk-aurora-animations',
-        get_theme_file_uri('assets/js/aurora-animations.js'),
-        ['gsap', 'gsap-scrolltrigger'],
-        KK_AURORA_VERSION,
-        [
-            'strategy' => 'defer',
-            'in_footer' => true,
-        ]
-    );
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_assets');
 
@@ -272,21 +237,6 @@ function register_block_styles(): void {
 add_action('init', __NAMESPACE__ . '\\register_block_styles');
 
 /**
- * Modify script loading attributes
- */
-function script_loader_tag(string $tag, string $handle, string $src): string {
-    // Add crossorigin for CDN scripts
-    $cdn_scripts = ['gsap', 'gsap-scrolltrigger'];
-    
-    if (in_array($handle, $cdn_scripts, true)) {
-        $tag = str_replace(' src', ' crossorigin="anonymous" src', $tag);
-    }
-    
-    return $tag;
-}
-add_filter('script_loader_tag', __NAMESPACE__ . '\\script_loader_tag', 10, 3);
-
-/**
  * Keep Aurora's browser titles aligned with the keynote-first positioning.
  *
  * SEO plugins can still override titles, but the theme fallback should not
@@ -340,6 +290,7 @@ function preload_fonts(): void {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    <link rel="preload" href="<?php echo esc_url(get_theme_file_uri('assets/fonts/ClashDisplay-700.woff2')); ?>" as="font" type="font/woff2" crossorigin>
     <?php
 }
 add_action('wp_head', __NAMESPACE__ . '\\preload_fonts', 1);

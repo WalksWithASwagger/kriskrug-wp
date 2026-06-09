@@ -12,75 +12,6 @@
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   
   // ============================================
-  // CURSOR GLOW EFFECT
-  // Subtle light that follows the cursor
-  // ============================================
-  
-  function initCursorGlow() {
-    if (prefersReducedMotion) return;
-    
-    // Only on desktop with fine pointer
-    if (!window.matchMedia('(pointer: fine)').matches) return;
-    
-    const glow = document.createElement('div');
-    glow.className = 'aurora-cursor-glow';
-    glow.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(glow);
-    
-    // CSS for the glow
-    const style = document.createElement('style');
-    style.textContent = `
-      .aurora-cursor-glow {
-        position: fixed;
-        width: 400px;
-        height: 400px;
-        border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          rgba(0, 229, 255, 0.03) 0%,
-          transparent 70%
-        );
-        pointer-events: none;
-        z-index: 0;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        transition: opacity 0.5s ease;
-        will-change: transform;
-      }
-      
-      body:hover .aurora-cursor-glow {
-        opacity: 1;
-      }
-    `;
-    document.head.appendChild(style);
-    
-    let cursorX = 0;
-    let cursorY = 0;
-    let glowX = 0;
-    let glowY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-      cursorX = e.clientX;
-      cursorY = e.clientY;
-    }, { passive: true });
-    
-    // Smooth follow with lerp
-    function animateGlow() {
-      const ease = 0.08; // Lower = smoother, slower
-      
-      glowX += (cursorX - glowX) * ease;
-      glowY += (cursorY - glowY) * ease;
-      
-      glow.style.left = glowX + 'px';
-      glow.style.top = glowY + 'px';
-      
-      requestAnimationFrame(animateGlow);
-    }
-    
-    animateGlow();
-  }
-
-  // ============================================
   // CARD SPOTLIGHT EFFECT
   // Light follows cursor on cards
   // ============================================
@@ -139,10 +70,10 @@
     style.textContent = `
       [data-reveal] {
         opacity: 0;
-        transform: translateY(20px);
-        transition: 
-          opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
-          transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+        transform: translateY(24px);
+        transition:
+          opacity 1.2s cubic-bezier(0.25, 0.1, 0.25, 1),
+          transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
       }
       
       [data-reveal].is-revealed {
@@ -153,10 +84,10 @@
       /* Stagger children */
       [data-reveal-stagger] > * {
         opacity: 0;
-        transform: translateY(15px);
-        transition: 
-          opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
-          transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        transform: translateY(18px);
+        transition:
+          opacity 1.1s cubic-bezier(0.25, 0.1, 0.25, 1),
+          transform 1.1s cubic-bezier(0.25, 0.1, 0.25, 1);
       }
       
       [data-reveal-stagger].is-revealed > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
@@ -177,63 +108,6 @@
         if (r.top < window.innerHeight && r.bottom > 0) {
           el.classList.add('is-revealed');
         }
-      });
-    });
-  }
-
-  // ============================================
-  // BUTTON RIPPLE
-  // Material-inspired, but subtle
-  // ============================================
-  
-  function initButtonRipple() {
-    if (prefersReducedMotion) return;
-    
-    const style = document.createElement('style');
-    style.textContent = `
-      .aurora-ripple-container {
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .aurora-ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.15);
-        transform: scale(0);
-        animation: aurora-ripple-effect 0.6s ease-out;
-        pointer-events: none;
-      }
-      
-      @keyframes aurora-ripple-effect {
-        to {
-          transform: scale(4);
-          opacity: 0;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-    
-    document.querySelectorAll('.wp-block-button__link, .aurora-button').forEach(button => {
-      button.classList.add('aurora-ripple-container');
-      
-      button.addEventListener('click', function(e) {
-        const rect = button.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        const ripple = document.createElement('span');
-        ripple.className = 'aurora-ripple';
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        
-        button.appendChild(ripple);
-        
-        ripple.addEventListener('animationend', () => {
-          ripple.remove();
-        });
       });
     });
   }
@@ -478,13 +352,11 @@
   
   function init() {
     initScrollReveal();
-    initButtonRipple();
     initCounters();
     initHeaderTransform();
     initImageReveal();
     const motionProfile = document.body?.dataset?.auroraMotionProfile;
     if (motionProfile === 'enhanced') {
-      initCursorGlow();
       initCardSpotlight();
       initTextSplit();
     }

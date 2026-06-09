@@ -178,15 +178,15 @@
 
 :root {
   /* Lighter/darker variants using color-mix */
-  --aurora-cyan-light: color-mix(in oklch, var(--wp--preset--color--cyan) 70%, white);
-  --aurora-cyan-dark: color-mix(in oklch, var(--wp--preset--color--cyan) 70%, black);
-  --aurora-cyan-muted: color-mix(in oklch, var(--wp--preset--color--cyan) 40%, var(--wp--preset--color--deep));
+  --aurora-cyan-light: color-mix(in oklch, var(--wp--preset--color--signal) 70%, white);
+  --aurora-cyan-dark: color-mix(in oklch, var(--wp--preset--color--signal) 70%, black);
+  --aurora-cyan-muted: color-mix(in oklch, var(--wp--preset--color--signal) 40%, var(--wp--preset--color--deep));
   
   /* Subtle surface variations */
-  --aurora-surface-hover: color-mix(in oklch, var(--wp--preset--color--surface) 90%, var(--wp--preset--color--cyan));
+  --aurora-surface-hover: color-mix(in oklch, var(--wp--preset--color--surface) 90%, var(--wp--preset--color--signal));
   
   /* Text on accent backgrounds */
-  --aurora-text-on-cyan: color-mix(in oklch, var(--wp--preset--color--deep) 95%, var(--wp--preset--color--cyan));
+  --aurora-text-on-cyan: color-mix(in oklch, var(--wp--preset--color--deep) 95%, var(--wp--preset--color--signal));
 }
 
 /* ============================================
@@ -216,9 +216,9 @@
     background: linear-gradient(
       135deg,
       transparent 0%,
-      rgba(0, 229, 255, 0) 40%,
-      rgba(0, 229, 255, 0.3) 50%,
-      rgba(139, 92, 246, 0.3) 60%,
+      rgba(229, 70, 46, 0) 40%,
+      rgba(229, 70, 46, 0.3) 50%,
+      rgba(229, 70, 46, 0.15) 60%,
       transparent 100%
     );
     background-size: 200% 200%;
@@ -243,7 +243,7 @@
     height: 200%;
     background: radial-gradient(
       circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(0, 229, 255, 0.06) 0%,
+      rgba(229, 70, 46, 0.06) 0%,
       transparent 50%
     );
     opacity: 0;
@@ -256,7 +256,7 @@
     border-color: transparent;
     box-shadow: 
       0 20px 40px rgba(0, 0, 0, 0.3),
-      0 0 30px rgba(0, 229, 255, 0.1);
+      0 0 30px rgba(229, 70, 46, 0.1);
     
     &::before {
       opacity: 1;
@@ -405,7 +405,7 @@
 }
 
 .aurora-aside {
-  border-inline-start: 3px solid var(--wp--preset--color--cyan);
+  border-inline-start: 3px solid var(--wp--preset--color--signal);
   padding-inline-start: var(--wp--preset--spacing--40);
   margin-block: var(--wp--preset--spacing--60);
 }
@@ -416,14 +416,14 @@
    ============================================ */
 
 :root {
-  accent-color: var(--wp--preset--color--cyan);
+  accent-color: var(--wp--preset--color--signal);
 }
 
 input[type="checkbox"],
 input[type="radio"],
 input[type="range"],
 progress {
-  accent-color: var(--wp--preset--color--cyan);
+  accent-color: var(--wp--preset--color--signal);
 }
 
 /* ============================================
@@ -436,7 +436,7 @@ progress {
 }
 
 :focus-visible {
-  outline: 2px solid var(--wp--preset--color--cyan);
+  outline: 2px solid var(--wp--preset--color--signal);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -446,8 +446,8 @@ progress {
   outline-offset: 4px;
   box-shadow: 
     0 0 0 2px var(--wp--preset--color--deep),
-    0 0 0 4px var(--wp--preset--color--cyan),
-    var(--aurora-glow-sm) rgba(0, 229, 255, 0.3);
+    0 0 0 4px var(--wp--preset--color--signal),
+    var(--aurora-glow-sm) rgba(229, 70, 46, 0.3);
 }
 
 /* ============================================
@@ -488,13 +488,13 @@ progress {
    ============================================ */
 
 ::selection {
-  background: var(--wp--preset--color--cyan);
+  background: var(--wp--preset--color--signal);
   color: var(--wp--preset--color--deep);
   text-shadow: none;
 }
 
 ::-moz-selection {
-  background: var(--wp--preset--color--cyan);
+  background: var(--wp--preset--color--signal);
   color: var(--wp--preset--color--deep);
   text-shadow: none;
 }

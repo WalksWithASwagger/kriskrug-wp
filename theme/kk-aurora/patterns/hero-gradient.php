@@ -27,24 +27,24 @@
       <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--80)">
         <!-- wp:group {"className":"aurora-badge-gradient","style":{"border":{"radius":"9999px"},"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"surface"} -->
         <div class="wp-block-group aurora-badge-gradient has-surface-background-color has-background" style="border-radius:9999px;padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--40)">
-          <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontStyle":"normal","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.05em"}},"textColor":"cyan"} -->
-          <p class="has-cyan-color has-text-color" style="font-size:0.75rem;font-style:normal;font-weight:600;letter-spacing:0.05em;text-transform:uppercase">BC+AI</p>
+          <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontStyle":"normal","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.05em"}},"textColor":"signal"} -->
+          <p class="has-signal-color has-text-color" style="font-size:0.75rem;font-style:normal;font-weight:600;letter-spacing:0.05em;text-transform:uppercase">BC+AI</p>
           <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->
         
         <!-- wp:group {"className":"aurora-badge-gradient","style":{"border":{"radius":"9999px"},"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"surface"} -->
         <div class="wp-block-group aurora-badge-gradient has-surface-background-color has-background" style="border-radius:9999px;padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--40)">
-          <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontStyle":"normal","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.05em"}},"textColor":"teal"} -->
-          <p class="has-teal-color has-text-color" style="font-size:0.75rem;font-style:normal;font-weight:600;letter-spacing:0.05em;text-transform:uppercase">Indigenomics</p>
+          <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontStyle":"normal","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.05em"}},"textColor":"signal"} -->
+          <p class="has-signal-color has-text-color" style="font-size:0.75rem;font-style:normal;font-weight:600;letter-spacing:0.05em;text-transform:uppercase">Indigenomics</p>
           <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->
         
         <!-- wp:group {"className":"aurora-badge-gradient","style":{"border":{"radius":"9999px"},"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"surface"} -->
         <div class="wp-block-group aurora-badge-gradient has-surface-background-color has-background" style="border-radius:9999px;padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--40)">
-          <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontStyle":"normal","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.05em"}},"textColor":"purple"} -->
-          <p class="has-purple-color has-text-color" style="font-size:0.75rem;font-style:normal;font-weight:600;letter-spacing:0.05em;text-transform:uppercase">The Upgrade AI</p>
+          <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontStyle":"normal","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.05em"}},"textColor":"signal"} -->
+          <p class="has-signal-color has-text-color" style="font-size:0.75rem;font-style:normal;font-weight:600;letter-spacing:0.05em;text-transform:uppercase">The Upgrade AI</p>
           <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->
@@ -53,9 +53,9 @@
       
       <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|80"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
       <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--80)">
-        <!-- wp:button {"backgroundColor":"cyan","textColor":"deep","className":"is-style-aurora-primary","style":{"typography":{"fontSize":"1rem","fontStyle":"normal","fontWeight":"600"},"border":{"radius":"0.5rem"},"spacing":{"padding":{"top":"0.875rem","bottom":"0.875rem","left":"2rem","right":"2rem"}}}} -->
+        <!-- wp:button {"backgroundColor":"signal","textColor":"deep","className":"is-style-aurora-primary","style":{"typography":{"fontSize":"1rem","fontStyle":"normal","fontWeight":"600"},"border":{"radius":"0.5rem"},"spacing":{"padding":{"top":"0.875rem","bottom":"0.875rem","left":"2rem","right":"2rem"}}}} -->
         <div class="wp-block-button is-style-aurora-primary" style="font-size:1rem;font-style:normal;font-weight:600">
-          <a class="wp-block-button__link has-cyan-background-color has-deep-color has-text-color has-background wp-element-button" href="/work/" style="border-radius:0.5rem;padding-top:0.875rem;padding-right:2rem;padding-bottom:0.875rem;padding-left:2rem">Explore My Work</a>
+          <a class="wp-block-button__link has-signal-background-color has-deep-color has-text-color has-background wp-element-button" href="/work/" style="border-radius:0.5rem;padding-top:0.875rem;padding-right:2rem;padding-bottom:0.875rem;padding-left:2rem">Explore My Work</a>
         </div>
         <!-- /wp:button -->
         
