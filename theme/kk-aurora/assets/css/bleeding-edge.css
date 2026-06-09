@@ -172,24 +172,6 @@
 }
 
 /* ============================================
-   CSS COLOR-MIX
-   Dynamic color relationships
-   ============================================ */
-
-:root {
-  /* Lighter/darker variants using color-mix */
-  --aurora-cyan-light: color-mix(in oklch, var(--wp--preset--color--signal) 70%, white);
-  --aurora-cyan-dark: color-mix(in oklch, var(--wp--preset--color--signal) 70%, black);
-  --aurora-cyan-muted: color-mix(in oklch, var(--wp--preset--color--signal) 40%, var(--wp--preset--color--deep));
-  
-  /* Subtle surface variations */
-  --aurora-surface-hover: color-mix(in oklch, var(--wp--preset--color--surface) 90%, var(--wp--preset--color--signal));
-  
-  /* Text on accent backgrounds */
-  --aurora-text-on-cyan: color-mix(in oklch, var(--wp--preset--color--deep) 95%, var(--wp--preset--color--signal));
-}
-
-/* ============================================
    NATIVE CSS NESTING
    Cleaner, more maintainable styles
    ============================================ */

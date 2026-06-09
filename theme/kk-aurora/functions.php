@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.3.16');
+define('KK_AURORA_VERSION', '1.3.17');
 
 /**
  * Theme setup
@@ -68,7 +68,7 @@ function enqueue_assets(): void {
     wp_enqueue_style(
         'kk-aurora-typography',
         get_theme_file_uri('assets/css/typography-refined.css'),
-        ['kk-aurora-style'],
+        [],
         KK_AURORA_VERSION
     );
 
@@ -76,7 +76,7 @@ function enqueue_assets(): void {
     wp_enqueue_style(
         'kk-aurora-animations',
         get_theme_file_uri('assets/css/animations.css'),
-        ['kk-aurora-typography'],
+        [],
         KK_AURORA_VERSION
     );
 
@@ -84,7 +84,7 @@ function enqueue_assets(): void {
     wp_enqueue_style(
         'kk-aurora-bleeding-edge',
         get_theme_file_uri('assets/css/bleeding-edge.css'),
-        ['kk-aurora-animations'],
+        [],
         KK_AURORA_VERSION
     );
 
