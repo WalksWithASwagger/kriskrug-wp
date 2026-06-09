@@ -62,7 +62,8 @@ scripts/notion-to-wp/            # Notion → kriskrug.co publisher
 fixes/                           # Production-ready code snippets / migrations
   ├── schema-snippets.php        # JSON-LD (Person + WebSite + Article + Breadcrumb + Service)
   ├── schema-snippets-deployed.php  # The version actually running on prod
-  ├── llms-txt-template.md       # Curated llms.txt for AI search
+  ├── llms.txt                   # Deployment-ready curated llms.txt for AI search
+  ├── llms-txt-template.md       # Deployment and rollback guide for llms.txt
   ├── robots-txt-update.txt      # Two AI-crawler stance options
   └── issue-*.{css,php,md}       # Older queued fixes from earlier batches
 
