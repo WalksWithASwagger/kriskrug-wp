@@ -321,26 +321,6 @@
           "slug": "xl",
           "name": "Extra Large",
           "shadow": "0 20px 25px rgba(0, 0, 0, 0.25)"
-        },
-        {
-          "slug": "glow-cyan",
-          "name": "Glow Cyan",
-          "shadow": "0 0 20px rgba(0, 229, 255, 0.3), 0 0 40px rgba(0, 229, 255, 0.15)"
-        },
-        {
-          "slug": "glow-teal",
-          "name": "Glow Teal",
-          "shadow": "0 0 20px rgba(0, 191, 165, 0.3), 0 0 40px rgba(0, 191, 165, 0.15)"
-        },
-        {
-          "slug": "glow-purple",
-          "name": "Glow Purple",
-          "shadow": "0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.15)"
-        },
-        {
-          "slug": "glow-pink",
-          "name": "Glow Pink",
-          "shadow": "0 0 20px rgba(236, 72, 153, 0.3), 0 0 40px rgba(236, 72, 153, 0.15)"
         }
       ]
     },
