@@ -23,7 +23,7 @@ Sources:
 Current state:
 
 - WordPress smoke: `6.9.4`, `0` failures, `0` warnings.
-- WordPress draft counts from 2026-06-11 `make status-readonly`: `0` future posts, `74` draft posts, `5` draft pages.
+- WordPress draft counts from 2026-06-11 `make status-readonly`: `2` future posts, `72` draft posts, `5` draft pages after the cadence scheduling pass.
 - Local draft package audit: `51` local packages, `6` zero-word or missing-slug packages, `1` package with TODOs (`sovereign-ai-for-whom`).
 - Issue queue from 2026-06-11 20:40 UTC live GitHub readback: `63` open issues, `29` priority-high, `6` Track B, `7` Aurora v2, `6` swarm-ready, `15` swarm-parked, `21` needs-human-review.
 - Work page OG image is now nonblank in public HTML for `/recent-projects-include/` and `/work/`, but issue #126 still asks for social-share debugger validation.

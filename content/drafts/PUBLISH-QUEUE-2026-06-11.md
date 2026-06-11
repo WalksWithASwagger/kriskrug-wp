@@ -1,6 +1,6 @@
 # KrisKrug.co two-day publish queue - 2026-06-11
 
-Status: three private WordPress drafts are ready for KK preview review. Two originally selected packages were already published on readback, so they are polished locally but excluded from create-only draft scheduling.
+Status: two approved private WordPress drafts are scheduled, one more existing-media draft remains ready for KK preview review, and seven generated-image drafts remain image-blocked. Two originally selected packages were already published on readback, so they are polished locally but excluded from create-only draft scheduling.
 
 ## Cadence
 
@@ -32,8 +32,8 @@ The original five-item plan cannot safely become a five-draft WordPress queue as
 
 | Order | Draft | Package | WP status | Review gate |
 |---:|---|---|---|---|
-| 4 | The 75% Rule: Send AI After the Art-Adjacent Work | `2026-05-21-the-75-percent-rule-ai-art-adjacent-work` | Updated WP draft `11876`, edit URL `https://kriskrug.co/wp-admin/post.php?post=11876&action=edit`, featured media `11838`, readback words `1767`, links `8`, images `1`, WP scan clean | Confirm featured slide still fits the post and KK approves preview. |
-| 5 | Speak It Into Existence: Voice-First AI Workflows | `2026-05-21-speak-it-into-existence-ai-voice-first-workflows` | Updated WP draft `11878`, edit URL `https://kriskrug.co/wp-admin/post.php?post=11878&action=edit`, featured media `11841`, readback words `1582`, links `6`, images `1`, WP scan clean | Confirm voice-workflow links and God Skills cross-link are acceptable before scheduling. |
+| 4 | The 75% Rule: Send AI After the Art-Adjacent Work | `2026-05-21-the-75-percent-rule-ai-art-adjacent-work` | Scheduled WP post `11876` for `2026-06-11 16:00:00` Pacific, edit URL `https://kriskrug.co/wp-admin/post.php?post=11876&action=edit`, featured media `11838`, readback words `1767`, links `8`, images `1`, WP scan clean | Scheduled after explicit KK approval on 2026-06-11; verify live after publish. |
+| 5 | Speak It Into Existence: Voice-First AI Workflows | `2026-05-21-speak-it-into-existence-ai-voice-first-workflows` | Scheduled WP post `11878` for `2026-06-13 09:00:00` Pacific, edit URL `https://kriskrug.co/wp-admin/post.php?post=11878&action=edit`, featured media `11841`, readback words `1582`, links `6`, images `1`, WP scan clean | Scheduled after explicit KK approval on 2026-06-11; verify live after publish. |
 | 6 | I Won't Fake the People Who Showed Up | `2026-05-21-i-wont-fake-the-people-who-showed-up` | Updated WP draft `11877`, edit URL `https://kriskrug.co/wp-admin/post.php?post=11877&action=edit`, featured media `3252`, readback words `1431`, links `5`, images `1`, WP scan clean | Confirm documentary-ethics framing and featured portrait/photo choice. |
 | 7 | The Great Canadian Proximity Game | `2026-06-04-the-great-canadian-proximity-game` | Image-blocked WP draft `12190`, edit URL `https://kriskrug.co/wp-admin/post.php?post=12190&action=edit`, rejected media `12264` detached, featured media `0`, readback words `920`, links `15`, images `0` | Rejected generated image. Rafiki image required before KK approval; then personal-risk/sass balance needs review. |
 | 8 | AI Won't Fix Your Broken Permit Process | `2026-05-24-ai-wont-fix-your-broken-permit-process` | Image-blocked WP draft `12035`, edit URL `https://kriskrug.co/wp-admin/post.php?post=12035&action=edit`, rejected media `12265` detached, featured media `0`, readback words `2200`, links `5`, images `0` | Rejected generated image. Rafiki image required before KK approval; civic-governance claims need final preview review. |
@@ -54,7 +54,7 @@ The original five-item plan cannot safely become a five-draft WordPress queue as
 
 ## Preview QA status
 
-WordPress REST readback is clean for the ready drafts. Seven generated-image drafts are now image-blocked with featured media cleared and rejected media `12264`-`12270` preserved only as audit references. Browser preview QA is still a KK/login gate: Chrome reached the WordPress login screen for `wp-admin/post.php?post=11876&action=edit`, and direct `?p=11876&preview=true` returned the public 404 while logged out. Do desktop and mobile preview review from an authenticated WordPress session before scheduling.
+WordPress REST readback is clean for the ready drafts. On 2026-06-11, KK explicitly approved scheduling one ready post for today and one for two days from now, so `11876` and `11878` moved to `future`. Seven generated-image drafts are still image-blocked with featured media cleared and rejected media `12264`-`12270` preserved only as audit references. Browser preview QA remains a KK/login gate for unscheduled drafts and image-blocked drafts: Chrome reached the WordPress login screen for `wp-admin/post.php?post=11876&action=edit`, and direct `?p=11876&preview=true` returned the public 404 while logged out.
 
 ## Rejected generated media
 
