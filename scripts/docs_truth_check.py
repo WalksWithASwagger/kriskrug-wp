@@ -73,12 +73,12 @@ KNOWN_STALE_PATTERNS: list[tuple[re.Pattern[str], str]] = [
         "Draft queue count is stale; current normalized count is 71 draft posts.",
     ),
     (
-        re.compile(r"Open issues:\s*`?(?:61|63)`?", re.I),
-        "Open issue count is stale; current normalized count is 66 open issues.",
+        re.compile(r"Open issues:\s*`?(?:61|69)`?", re.I),
+        "Open issue count is stale; current normalized count is 63 open issues.",
     ),
     (
-        re.compile(r"Open issues\s*\|\s*(?:61|63|64)\s*\|", re.I),
-        "Open issue table count is stale; current normalized count is 66 open issues.",
+        re.compile(r"Open issues\s*\|\s*(?:61|64|69)\s*\|", re.I),
+        "Open issue table count is stale; current normalized count is 63 open issues.",
     ),
     (
         re.compile(r"Open PRs\s*\|\s*2\s*\|", re.I),
@@ -90,7 +90,7 @@ KNOWN_STALE_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     ),
     (
         re.compile(r"GitHub shows 64 open issues", re.I),
-        "Open issue count is stale; current normalized count is 66 open issues.",
+        "Open issue count is stale; current normalized count is 63 open issues.",
     ),
     (
         re.compile(r"Draft posts\s*\|\s*32\s*\|", re.I),
