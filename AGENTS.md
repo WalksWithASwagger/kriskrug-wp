@@ -8,15 +8,18 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 
 ## Read this in order (top of repo, top of context)
 
-1. [`docs/current-state/README.md`](docs/current-state/README.md) — index of the May-2026 baseline snapshot
-2. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
-3. [`docs/current-state/REPO_STATE.md`](docs/current-state/REPO_STATE.md) — what's actually built vs. just documented
-4. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
-5. [`docs/current-state/HANDOFF-2026-05-24.md`](docs/current-state/HANDOFF-2026-05-24.md) — 2026-05-24 Aurora/theme/content handoff
-6. [`docs/current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md`](docs/current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md) — reconciled Aurora v1.3.0 QA + rollout status
-7. [`docs/current-state/SESSION-HANDOFF-2026-05-24.md`](docs/current-state/SESSION-HANDOFF-2026-05-24.md) — Track A/Track B ownership and latest lane handoff
-8. [`docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md`](docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md) — latest normalized startup truth memo; verify against the newest committed `docs/current-state/reports/morning-truth-*.md`
-9. [`docs/current-state/WORK-PLAN-2026-05-23.md`](docs/current-state/WORK-PLAN-2026-05-23.md) — historical roadmap context (stale counts/branch assumptions)
+1. [`docs/current-state/README.md`](docs/current-state/README.md) — index; start with the newest `reports/morning-truth-*.md`
+2. [`docs/current-state/POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md`](docs/current-state/POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md) — June 2026 execution queue (verify closed steps against GitHub)
+3. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
+4. [`docs/current-state/REPO_STATE.md`](docs/current-state/REPO_STATE.md) — what's actually built vs. just documented
+5. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
+6. [`docs/current-state/HANDOFF-2026-05-24.md`](docs/current-state/HANDOFF-2026-05-24.md) — 2026-05-24 Aurora/theme/content handoff
+7. [`docs/current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md`](docs/current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md) — reconciled Aurora v1.3.0 QA + rollout status
+8. [`docs/current-state/SESSION-HANDOFF-2026-05-24.md`](docs/current-state/SESSION-HANDOFF-2026-05-24.md) — Track A/Track B ownership and latest lane handoff
+9. [`docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md`](docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md) — normalized startup truth memo (historical); prefer newest `reports/morning-truth-*.md`
+10. [`docs/current-state/WORK-PLAN-2026-05-23.md`](docs/current-state/WORK-PLAN-2026-05-23.md) — historical roadmap context (stale counts/branch assumptions)
+
+Roadmap-derived execution issues filed 2026-06-09: **#186–#197** (CI, prod drift, tracker hygiene).
 
 For the detailed diagnostic behind that plan, read [`docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`](docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md).
 
@@ -79,4 +82,4 @@ If the task explicitly forbids file changes, run `make status-readonly` instead.
 
 ---
 
-**Last verified:** 2026-05-25 02:19 UTC via `make morning-truth`. If you're reading this much later than that and the rest of the repo has drifted, treat `docs/current-state/` plus the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth and flag the drift for a fresh audit.
+**Last verified:** 2026-06-09 via `docs/current-state/reports/morning-truth-20260609-043246Z.md`. If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.
