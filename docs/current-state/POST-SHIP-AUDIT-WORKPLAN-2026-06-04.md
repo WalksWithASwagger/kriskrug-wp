@@ -1,6 +1,6 @@
 # Post-Ship Audit + Workplan - 2026-06-04
 
-**STATUS (2026-06-11):** Partially superseded. Steps referencing **#149** (Local WP QA), **#150** (article module tuning), and **#126** (Work OG) are **closed** with evidence. PR #205 is merged; open PRs are `0`; open issues are `70`, including the June 11 follow-ups #206-#209. GSAP/CDN production drift remains tracked by #189/#204, and Rafiki/content queue closeout is tracked by #206-#208. Reconcile counts with `make status-readonly` before executing.
+**STATUS (2026-06-11):** Partially superseded. Steps referencing **#149** (Local WP QA), **#150** (article module tuning), and **#126** (Work OG) are **closed** with evidence. PRs #205 and #210 are merged; open PRs are `0`; open issues are `69`, including the gated June 11 follow-ups #206-#208. GSAP/CDN production drift remains tracked by #189/#204, and Rafiki/content queue closeout is tracked by #206-#208. Reconcile counts with `make status-readonly` before executing.
 
 ## Shipped Today
 
@@ -25,7 +25,7 @@ Current state:
 - WordPress smoke: `6.9.4`, `0` failures, `0` warnings.
 - WordPress draft counts from 2026-06-11 `make status-readonly`: `0` future posts, `74` draft posts, `5` draft pages.
 - Local draft package audit: `51` local packages, `6` zero-word or missing-slug packages, `1` package with TODOs (`sovereign-ai-for-whom`).
-- Issue queue from 2026-06-11 `make status-readonly`: `70` open issues, `30` priority-high, `6` Track B, `7` Aurora v2, `16` swarm-ready, `15` swarm-parked, `16` needs-human-review.
+- Issue queue from 2026-06-11 `make status-readonly`: `69` open issues, `30` priority-high, `6` Track B, `7` Aurora v2, `16` swarm-ready, `15` swarm-parked, `16` needs-human-review.
 - Work page OG image is now nonblank in public HTML for `/recent-projects-include/` and `/work/`, but issue #126 still asks for social-share debugger validation.
 
 ## Ready For KK

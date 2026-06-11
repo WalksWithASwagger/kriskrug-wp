@@ -133,11 +133,11 @@ Then use historical plans for context:
 - **Jetpack is on the Free plan**, which is why WordPress.com MCP write access is currently blocked.
 - **Baseline note:** the May 14 snapshot started before later page-level snapshots, source packs, and Aurora theme work were added. Read the dated addenda above for current operating state.
 - **Current addendum:** start with the post-ship audit/workplan and newest morning-truth report, then use the Local WP QA note, Aurora 1.3.10 workplan, Work metadata closeout, Aurora logo closeout, and the 2026-05-24 handoff set ([`HANDOFF-2026-05-24.md`](HANDOFF-2026-05-24.md), [`AURORA-V3-QA-ROADMAP-2026-05-24.md`](AURORA-V3-QA-ROADMAP-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](TRACK-A-MORNING-TRUTH-2026-05-24.md)).
-- **June 11 addendum:** PR #205 is merged, open PRs are `0`, open issues are `70` including #206-#209, production still reports WordPress `6.9.4`, and the draft queue is `0` future posts, `74` draft posts, and `5` draft pages via `make status-readonly`.
-- **Follow-up addendum:** GSAP/CDN production drift remains tracked by #189/#204; Rafiki/content queue closeout is split across #206, #207, and #208; this docs refresh is #209.
+- **June 11 addendum:** PRs #205 and #210 are merged, open PRs are `0`, open issues are `69` including #206-#208, production still reports WordPress `6.9.4`, and the draft queue is `0` future posts, `74` draft posts, and `5` draft pages via `make status-readonly`.
+- **Follow-up addendum:** GSAP/CDN production drift remains tracked by #189/#204; Rafiki/content queue closeout is split across #206, #207, and #208; docs drift refresh #209 is closed.
 - **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-06-11 20:09 UTC (`make status-readonly` / `make wp7-smoke EXPECT_VERSION=6.9.4`). Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
 - **Draft queue addendum:** `make status-readonly` reported `0` future posts, `74` draft posts, and `5` draft pages on 2026-06-11 20:09 UTC; `sovereign-ai-for-whom` is already WP draft `11905`.
-- **Issue queue addendum:** `gh pr list --state open --limit 200` returned `0` open PRs after PR #205 merged, and `gh issue list --state open --limit 200` returned `70` open issues on 2026-06-11 20:09 UTC.
+- **Issue queue addendum:** `gh pr list --state open --limit 200` returned `0` open PRs after PR #210 merged, and `gh issue list --state open --limit 200` returned `69` open issues on 2026-06-11 20:16 UTC.
 - **Read-only fingerprinting works** through the public WP REST API; that's how this snapshot was built.
 - **Path to "safe to modify":** the strict backup/restore proof gate was retired on 2026-05-22. Use dry-runs, exact slug/ID/status checks, page/post snapshots or reversible diffs, and explicit rollback notes. Keep improving backup coverage as resilience, not as a blanket blocker.
 
@@ -149,7 +149,7 @@ Then use historical plans for context:
 | `/projects/` route health (`#3`) | `curl -sI https://kriskrug.co/projects/` | Status line now returns `301` redirecting to the Work surface (`/recent-projects-include/`). |
 | Work OG image (`#68`, `#126`) | `curl -sL "https://kriskrug.co/recent-projects-include/?cachebust=<ts>" \| rg -n "og:image"` | Cache-busted readback shows a non-blank OG image (latest truth pass resolved to the BC+AI ecosystem image). |
 | Homepage reveal resilience (`#116` follow-through) | `curl -sL https://kriskrug.co/ \| rg -n "Aurora reveal safety net|gsap.min.js|ScrollTrigger.min.js"` | Safety-net marker is absent; GSAP/ScrollTrigger scripts are still CDN-loaded. |
-| Queue truth | `gh pr list --state open --limit 100` and `gh issue list --state open --limit 200` | Snapshot values: `0` open PRs, `70` open issues including #206-#209. |
+| Queue truth | `gh pr list --state open --limit 100` and `gh issue list --state open --limit 200` | Snapshot values: `0` open PRs, `69` open issues including #206-#208. |
 | Draft queue truth | `make status-readonly` or `make draft-queue-audit` | Snapshot values: `0` future posts, `74` draft posts, `5` draft pages. |
 | WP version gate | `make wp7-smoke EXPECT_VERSION=6.9.4` | Public version check + key endpoint smoke pass. |
 | Declared-vs-live drift | `make current-state-drift-check` | Flags mismatches between `WORK-PLAN-2026-05-23.md` declarations and live counts/version. |
