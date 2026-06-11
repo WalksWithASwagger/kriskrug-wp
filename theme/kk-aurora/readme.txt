@@ -17,7 +17,7 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 * Full Site Editing (FSE) block theme
 * Dark mode by default
 * Animated gradient accents
-* GSAP/ScrollTrigger animations
+* CSS/JS scroll reveals (no GSAP dependency on main; GSAP removed in 1.3.15)
 * High contrast accessibility
 * Mobile-first responsive design
 * Custom block patterns
@@ -38,6 +38,19 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 * Pink: #EC4899 (highlights)
 
 == Changelog ==
+
+= 1.3.15 =
+* GSAP CDN removed; one-accent signal/wildcard color scheme refactor (PR #184).
+* Self-hosted Clash Display; micro-interactions use native IntersectionObserver reveals.
+
+= 1.3.14 =
+* Global footer social links (PR #164).
+* Aurora prose rhythm on generic pages (PR #166).
+
+= 1.3.13 =
+* Photography showcase gallery pattern (PR #162).
+* Mobile QA pass and dead mobile-menu JS removal (PR #163).
+* Shopify Buy Button pattern for Shop page (PR #159).
 
 = 1.3.12 =
 * Stabilized Article Map active-section tracking during mobile and scripted scroll.
