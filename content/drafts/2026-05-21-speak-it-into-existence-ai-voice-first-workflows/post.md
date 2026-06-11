@@ -1,5 +1,5 @@
 ---
-title: "Speak It Into Existence: Voice-First AI Workflows"
+title: 'Speak It Into Existence: Voice-First AI Workflows'
 slug: speak-it-into-existence-ai-voice-first-workflows
 post_date: '2026-05-21'
 status: draft
@@ -17,8 +17,8 @@ featured: true
 featured_media_id: 11841
 excerpt: Voice-first AI is not just faster typing. It carries cadence, urgency, slang, uncertainty, worldview, and the human mess your fingers often filter out before the machine ever gets a chance to help.
 seo:
-  meta_title: "Voice-First AI Workflows For Creatives | Kris Krug"
-  meta_description: "A practical guide to voice-first AI workflows for creatives: capture richer thinking, direct named agents, and keep human judgment in charge."
+  meta_title: Voice-First AI Workflows for Creatives | Kris Krüg
+  meta_description: 'A practical guide to voice-first AI workflows for creatives: capture richer thinking, direct named agents, and keep human judgment in charge.'
 source_pack:
   analysis: content/source-packs/storyhive-2026/blog-gap-series-2026-05-21.md
   kb_repo: WalksWithASwagger/kk-kb
@@ -49,7 +49,7 @@ And if the whole game is getting better outputs from machines that mirror our in
 
 We talk about prompts like they are little spells made of text.
 
-Better prompt. Better output. Ten hacks to unlock your blah blah blah. Somewhere, a LinkedIn carousel is already stretching and preparing to hurt us.
+Better prompt. Better output. Ten hacks to squeeze genius out of a blank box. Somewhere, a LinkedIn carousel is already stretching and preparing to hurt us. Somewhere, a LinkedIn carousel is already stretching and preparing to hurt us.
 
 But the interface matters.
 

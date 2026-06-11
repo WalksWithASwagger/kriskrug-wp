@@ -11,8 +11,8 @@
 
 - [ ] KK approves the title, slug, excerpt, category, and tags.
 - [ ] KK approves the respectful framing of "God Skills" and the Hindu mnemonic codenames.
-- [ ] Generated-image text is reviewed at full size for legibility, artifacts, and unintended claims.
-- [ ] Decide whether to use, crop, regenerate, or omit `99-optional-from-intent-to-ship-review-required.png`.
+- [ ] KK approves generated-image text at full size. Current note: `04-canonical-skill-routing-dashboard.png` has a small generated-text typo in the bottom note and should be cropped, regenerated, swapped, or explicitly accepted before publish.
+- [x] Hold `99-optional-from-intent-to-ship-review-required.png` out of the first review draft; revisit only after KK image-text approval.
 - [ ] Confirm no private automation details, local paths, unpublished workflow internals, or consent-sensitive examples remain in public body copy.
 - [ ] Confirm the `AI Keynote Slides Need Taste Before Prompts` link is still live and intentional.
 

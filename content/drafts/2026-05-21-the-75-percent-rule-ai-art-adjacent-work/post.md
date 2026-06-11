@@ -1,5 +1,5 @@
 ---
-title: "The 75% Rule: Send AI After The Art-Adjacent Work"
+title: 'The 75% Rule: Send AI After the Art-Adjacent Work'
 slug: the-75-percent-rule-ai-art-adjacent-work
 post_date: '2026-05-21'
 status: draft
@@ -17,8 +17,8 @@ featured: true
 featured_media_id: 11838
 excerpt: Most artists do not need AI to replace the art. They need it to attack the admin sludge, archive chaos, file naming, captioning, clip pulling, CRM wrangling, and proposal boilerplate that keeps them from the art.
 seo:
-  meta_title: "The 75% Rule: AI For Artists | Kris Krug"
-  meta_description: "A practical AI rule for artists and creative pros: send AI after the art-adjacent work first, protect the human craft, and keep documentary truth intact."
+  meta_title: 'The 75% Rule: AI for Artists | Kris Krüg'
+  meta_description: 'A practical AI rule for artists and creative pros: send AI after the art-adjacent work first, protect the human craft, and keep documentary truth intact.'
 source_pack:
   analysis: content/source-packs/storyhive-2026/blog-gap-series-2026-05-21.md
   kb_repo: WalksWithASwagger/kk-kb

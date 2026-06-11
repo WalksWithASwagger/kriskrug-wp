@@ -6,15 +6,19 @@ status: draft
 post_type: post
 author_wp_id: 1
 categories:
-- Misc
+- AI Ethics & Philosophy
 tags:
-- AI
 - AI Ethics
+- Responsible AI
+- Certification
+- BC + AI
+- AI Governance
 featured: true
-excerpt: Kris Krüg, Executive Director, BC + AI Ecosystem Association
+excerpt: "Why BC + AI built the Responsible AI Professional Certification: practical governance, real artifacts, and a community-grounded way to make better AI decisions before deployment."
 seo:
   meta_title: Why We Built the Responsible AI Professional Certification
-  meta_description: Kris Krüg, Executive Director, BC + AI Ecosystem Association
+  meta_description: Kris Krüg explains why BC + AI built RAP, a practical responsible-AI
+    certification for leaders, practitioners, and teams making real deployment decisions.
 notion_source:
   url: https://www.notion.so/344c6f799a33806087b0cb917682912a
   page_id: 344c6f79-9a33-8060-87b0-cb917682912a
@@ -24,38 +28,29 @@ images:
   alt: That gap, between deployment speed and ethical practice, is why we built our
     new Responsible AI Professional Certification program.
 - file: images/02-why-we-built-the-responsible-ai-professional-certification.png
-  alt: The Problem We're Trying to Solve — The systems we're deploying now (hiring
-    algorithms, healthcare decisions, content moderation, financial assessments) are
-    making choices that
+  alt: Graphic card introducing the governance gap RAP is designed to address.
 - file: images/03-why-we-built-the-responsible-ai-professional-certification.png
-  alt: Why BC + AI Built This — When we started the Vancouver AI Meetup in 2024, we
-    didn't know it would grow from 80 people in my studio to 250+ monthly attendees
-    at the S
+  alt: Graphic card about BC plus AI growing from a studio meetup into a larger community.
 - file: images/04-why-we-built-the-responsible-ai-professional-certification.png
-  alt: Why BC + AI Built This — The certification programs that existed were either
-    too theoretical (great for research papers, useless for Tuesday's deployment decision)
-    o
+  alt: Graphic card contrasting practical responsible-AI training with theory-heavy certification programs.
 - file: images/05-why-we-built-the-responsible-ai-professional-certification.png
-  alt: What You'll Actually Learn — RAP is four weeks, 90 minutes live each week,
-    with pre-work and practical exercises.
+  alt: Graphic card summarizing the four-week RAP learning format.
 - file: images/06-why-we-built-the-responsible-ai-professional-certification.png
-  alt: 'What You''ll Actually Learn — Week 2: Core Ethics: Bias, Privacy, Ownership.'
+  alt: 'Graphic card for RAP Week 2 on bias, privacy, and ownership.'
 - file: images/07-why-we-built-the-responsible-ai-professional-certification.png
-  alt: 'What You''ll Actually Learn — Week 3: Societal Impact: Deployment, Labor,
-    Environment.'
+  alt: 'Graphic card for RAP Week 3 on societal impact, labor, and environment.'
 - file: images/08-why-we-built-the-responsible-ai-professional-certification.png
-  alt: 'What You''ll Actually Learn — Week 4: The Human Element: Authenticity, Relationships,
-    Meaning.'
+  alt: 'Graphic card for RAP Week 4 on authenticity, relationships, and meaning.'
 - file: images/09-why-we-built-the-responsible-ai-professional-certification.png
-  alt: How to Join — RAP is our answer.
+  alt: Graphic card introducing how to join the Responsible AI Professional program.
 - file: images/10-why-we-built-the-responsible-ai-professional-certification.png
-  alt: How to Join
+  alt: Graphic card showing the first step for joining the RAP program.
 - file: images/11-why-we-built-the-responsible-ai-professional-certification.png
-  alt: How to Join
+  alt: Graphic card showing the second step for joining the RAP program.
 - file: images/12-why-we-built-the-responsible-ai-professional-certification.png
-  alt: How to Join
+  alt: Graphic card showing the third step for joining the RAP program.
 - file: images/13-why-we-built-the-responsible-ai-professional-certification.png
-  alt: How to Join
+  alt: Graphic card showing the final step for joining the RAP program.
 ---
 
 [*Kris Krüg*](https://kriskrug.co/)*, Executive Director, *[*BC + AI Ecosystem Association*](https://bc-ai.ca/)
@@ -142,15 +137,15 @@ That&#x27;s what we&#x27;re teaching.
 
 ## How to Join
 
-**Cohort 1 starts May 2026.** We&#x27;re limiting it to 30 participants because we want cohort dynamics, real discussion, instructor access.
+**Cohort 1 launched in May 2026.** We limited it to 30 participants because we wanted cohort dynamics, real discussion, and instructor access.
 
 **Pricing:**
 
-Standard: $1,500Early Bird (until April 15): $1,200BC + AI Member: $750Early Bird Member: $600
+Standard: $1,500. Early Bird: $1,200. BC + AI Member: $750. Early Bird Member: $600.
 
 The membership math is simple: BC + AI membership costs $340/year. The certification discount saves you $750. That&#x27;s $410 net in your pocket, plus you get Friday office hours, Discord access, meetup priority, and all future BC + AI certification discounts.
 
-**Register:** [lu.ma/ai-ethics](https://lu.ma/ai-ethics)
+**Current program information:** [Responsible AI Professional Certification](https://bc-ai.ca/certification/responsible-ai-professional/)
 
 **Join BC + AI first:** [bc-ai.ca](https://bc-ai.ca/)
 
@@ -160,4 +155,6 @@ Questions? Come to Friday Office Hours (12 to 1 PM PT, free, open to all) or ema
 
 **Related:**
 
-[RAP Program Details](https://www.notion.so/projects/03-theupgrade-ai-training/certification-programs/responsible-ai-professional/README.md)[Curriculum Overview](https://www.notion.so/projects/03-theupgrade-ai-training/certification-programs/responsible-ai-professional/curriculum/)[BC + AI Membership](https://bc-ai.ca/)
+- [Responsible AI Professional Certification](https://bc-ai.ca/certification/responsible-ai-professional/)
+- [BC + AI membership](https://bc-ai.ca/)
+- [The Upgrade AI](https://www.theupgrade.ai/)

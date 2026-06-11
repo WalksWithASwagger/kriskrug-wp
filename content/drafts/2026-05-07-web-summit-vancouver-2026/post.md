@@ -6,7 +6,7 @@ status: draft
 post_type: post
 author_wp_id: 1
 categories:
-- Misc
+- Vancouver AI Ecosystem
 tags:
 - Web Summit Vancouver
 featured: true
@@ -21,35 +21,25 @@ notion_source:
   fetched: '2026-05-15T17:22:03.908920+00:00'
 images:
 - file: images/01-web-summit-vancouver-2026.png
-  alt: The signal was already here — The signal was already here.
+  alt: Graphic card reading The signal was already here for Web Summit Vancouver.
 - file: images/02-web-summit-vancouver-2026.png
-  alt: I want this to win — I want the visitors to feel the weird voltage of this
-    place.
+  alt: Graphic card about wanting Web Summit visitors to feel Vancouver's weird voltage.
 - file: images/03-web-summit-vancouver-2026.png
-  alt: Metrics aren't meaning. But meaning needs metrics. — Last year, in my Web Summit
-    Vancouver survival guide, I wrote that "metrics aren't meaning" and that "visibility
-    doesn't equal legitimacy."
+  alt: Graphic card saying metrics are not meaning, but meaning needs metrics.
 - file: images/04-web-summit-vancouver-2026.png
-  alt: Where the public money went — BC Business reported that various levels of government
-    are contributing $14.8 million over the planned three-year commitment, while Destinat
+  alt: Graphic card about public funding and Web Summit Vancouver economic-impact claims.
 - file: images/05-web-summit-vancouver-2026.png
-  alt: What are we actually counting? — Now the current Web Summit Vancouver 2026
-    homepage is publicly showing 20,000+ attendees, 700+ investors, and 1,500+ startups.
+  alt: Graphic card asking what Web Summit Vancouver attendance numbers actually count.
 - file: images/06-web-summit-vancouver-2026.png
-  alt: This is not me saying the event is fake — This is not me saying the event is
-    fake.
+  alt: Graphic card clarifying that the post questions public metrics, not the event's reality.
 - file: images/07-web-summit-vancouver-2026.png
-  alt: Show us the badge math — None of this is exotic.
+  alt: Graphic card asking Web Summit Vancouver to show the badge math.
 - file: images/08-web-summit-vancouver-2026.png
-  alt: Use the platform without becoming platformed — The official conference floor
-    can be useful.
+  alt: Graphic card about using the Web Summit platform without becoming platformed.
 - file: images/09-web-summit-vancouver-2026.png
-  alt: 'Accountability is the next chapter — A city that wants to be taken seriously
-    as a global AI and technology hub should be able to hold two truths at once: yes,
-    we can welcome a m'
+  alt: Graphic card saying accountability is the next chapter for Vancouver's AI ecosystem.
 - file: images/10-web-summit-vancouver-2026.png
-  alt: My position going into Web Summit week — And do not ask the public to accept
-    giant numbers without the backup.
+  alt: Graphic card welcoming Web Summit while asking for evidence behind big public numbers.
 ---
 
 **Vancouver&#x27;s AI community is showing up this week. So should the public metrics.**
@@ -268,8 +258,13 @@ They will make it impossible to ignore.
 
 But it is a meaningful signal: if the official public claim is 20,000+ attendees, and the visible app directory is closer to 5,600 profiles days before the event, then public agencies and Web Summit should be able to reconcile the funnel - tickets sold, app activations, completed profiles, badge pickup, venue scans, and visitor-origin data.*
 
-[https://www.youtube.com/watch?v=hRuud-zbmoM](https://www.youtube.com/watch?v=hRuud-zbmoM)
+[Public dashboard walkthrough video](https://www.youtube.com/watch?v=hRuud-zbmoM)
 
 ## Sources &amp; further reading
 
-[Web Summit Vancouver 2025 Survival Guide](https://kriskrug.co/2025/04/13/web-summit-vancouver-2025-survival-guide/) — [kriskrug.co](http://kriskrug.co/)[Rise of the Vancouver Technopunks: Hosting the Web Summit on Our Terms](https://kriskrug.co/2024/06/19/blog-rise-of-the-vancouver-technopunks-hosting-the-web-summit-on-our-terms/) — [kriskrug.co](http://kriskrug.co/)[Web Summit Vancouver 2025 And How You Can Shape It](https://kriskrug.co/2024/08/22/web-summit-vancouver-2025-and-how-you-can-shape-it/) — [kriskrug.co](http://kriskrug.co/)[The Outsider&#x27;s Insider Guide to Web Summit Vancouver](https://kriskrug.co/2024/09/05/the-outsiders-insider-guide-to-web-summit-vancouver/) — [kriskrug.co](http://kriskrug.co/)[Web Summit Vancouver](https://vancouver.websummit.com/) — official site[BC + AI](https://bc-ai.ca/) — community home
+- [Web Summit Vancouver 2025 Survival Guide](https://kriskrug.co/2025/04/13/web-summit-vancouver-2025-survival-guide/)
+- [Rise of the Vancouver Technopunks: Hosting the Web Summit on Our Terms](https://kriskrug.co/2024/06/19/blog-rise-of-the-vancouver-technopunks-hosting-the-web-summit-on-our-terms/)
+- [Web Summit Vancouver 2025 And How You Can Shape It](https://kriskrug.co/2024/08/22/web-summit-vancouver-2025-and-how-you-can-shape-it/)
+- [The Outsider&#x27;s Insider Guide to Web Summit Vancouver](https://kriskrug.co/2024/09/05/the-outsiders-insider-guide-to-web-summit-vancouver/)
+- [Web Summit Vancouver official site](https://vancouver.websummit.com/)
+- [BC + AI community home](https://bc-ai.ca/)

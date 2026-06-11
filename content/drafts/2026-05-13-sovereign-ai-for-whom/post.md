@@ -233,4 +233,4 @@ For all of us. With inclusion, with consent, powering the future we actually wan
 
 Both hands full. We showed up. We weren&#x27;t asked. Now we&#x27;re asking.
 
-*Kris Krüg is Executive Director of *[*BC + AI*](https://bc-ai.ca/)* Ecosystem Association. He attended *[*Web Summit*](https://vancouver.websummit.com/)* Vancouver 2026 on May 11–14, 2026. This piece reflects his personal perspective informed by two years of building *[*BC + AI*](https://bc-ai.ca/)* alongside an incredible community of practitioners, researchers, artists, and Indigenous leaders.*
+*Kris Krüg is Executive Director of *[*BC + AI*](https://bc-ai.ca/)* Ecosystem Association. He attended *[*Web Summit*](https://vancouver.websummit.com/)* Vancouver 2026 on May 11-14, 2026. This piece reflects his personal perspective informed by two years of building *[*BC + AI*](https://bc-ai.ca/)* alongside an incredible community of practitioners, researchers, artists, and Indigenous leaders.*

@@ -1,4 +1,4 @@
-# SEO snapshot — Sovereign AI for Whom?
+# SEO snapshot: Sovereign AI for Whom?
 
 | Field | Value |
 |---|---|
@@ -16,7 +16,7 @@
 
 ## Next-step checks after publish
 
-- View source on the live URL → confirm `<meta name="description">` matches above
-- https://search.google.com/test/rich-results → confirm Article + Person schema if mu-plugin live
-- https://cards-dev.twitter.com/validator → preview card
+- View source on the live URL - confirm `<meta name="description">` matches above
+- https://search.google.com/test/rich-results - confirm Article + Person schema if mu-plugin live
+- https://cards-dev.twitter.com/validator - preview card
 - Submit URL in Google Search Console for instant indexing

@@ -1,5 +1,5 @@
 ---
-title: "I Won't Fake The People Who Showed Up"
+title: I Won't Fake the People Who Showed Up
 slug: i-wont-fake-the-people-who-showed-up
 post_date: '2026-05-21'
 status: draft
@@ -15,10 +15,10 @@ tags:
 - Synthetic Media
 featured: true
 featured_media_id: 3252
-excerpt: "AI can help around documentary work: archive search, caption drafts, transcript maps, proof packs, and media operations. But it does not get to replace the human beings who actually trusted us by showing up."
+excerpt: 'AI can help around documentary work: archive search, caption drafts, transcript maps, proof packs, and media operations. But it does not get to replace the human beings who actually trusted us by showing up.'
 seo:
-  meta_title: "AI Documentary Ethics: I Won't Fake The People Who Showed Up"
-  meta_description: "A documentary ethics essay for the synthetic age: AI can help around the frame, but it should not replace real people, real presence, or real witness."
+  meta_title: 'AI Documentary Ethics: I Won''t Fake the People Who Showed Up'
+  meta_description: 'A documentary ethics essay for the synthetic age: AI can help around the frame, but it should not replace real people, real presence, or real witness.'
 source_pack:
   analysis: content/source-packs/storyhive-2026/blog-gap-series-2026-05-21.md
   kb_repo: WalksWithASwagger/kk-kb

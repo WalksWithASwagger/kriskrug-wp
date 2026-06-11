@@ -1,9 +1,5 @@
-# Image alt text
+# Alt text: Canada Doesn't Need a Bigger AI Machine. It Needs a Better One.
 
-(no images)
+No approved image is attached in this pass.
 
-Replace any "(empty — needs human-written alt)" lines with descriptive sentences. Good alt text:
-- Describes what's in the image, not what you want it to mean
-- Includes context the reader can't get from surrounding prose
-- Is under 125 characters where possible
-- Uses natural language, not keyword stuffing
+Rafiki image required before KK approval. Write natural alt text only after the approved image is selected.

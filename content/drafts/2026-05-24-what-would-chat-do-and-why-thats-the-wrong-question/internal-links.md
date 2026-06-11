@@ -1,12 +1,12 @@
-# Link audit
+# Link review: What Would Chat Do? And Why That's the Wrong Question
 
-## Internal links (0)
+## Internal / ecosystem links
 
+- None yet.
 
-
-## External links (2)
+## External links
 
 - https://claude.ai/
 - https://vancouver.ai/
 
-After publish, click-check every internal link in the live post. External links should open in a new tab with rel="noopener noreferrer" (the connector sets these automatically).
+No private Notion or local filesystem links should appear in the public body.

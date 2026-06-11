@@ -1,12 +1,12 @@
-# Link audit
+# Link review: AI Won't Fix Your Broken Permit Process
 
-## Internal links (0)
-
-
-
-## External links (2)
+## Internal / ecosystem links
 
 - https://bc-ai.ca/
 - https://www.theupgrade.ai/
 
-After publish, click-check every internal link in the live post. External links should open in a new tab with rel="noopener noreferrer" (the connector sets these automatically).
+## External links
+
+- None yet.
+
+No private Notion or local filesystem links should appear in the public body.

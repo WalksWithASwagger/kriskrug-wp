@@ -12,37 +12,31 @@ tags:
 - BC + AI
 - Web Summit Vancouver
 featured: true
-excerpt: The author attended Web Summit Vancouver Day 3, published a critical piece
-  on the federal sovereign‑AI data‑centre plan, and used the event to promote human‑centric
-  AI, community engagement, and accountability, highlighting the need for public allocation,
-  Indigenous governance, and ethical oversight while networking with activists, entrepreneurs,
-  and politicians to turn critique into collaborative action.
+excerpt: I walked into Web Summit with my neck out, published a critique of the federal
+  sovereign-AI deal, and spent the day watching the critique turn into connection,
+  allies, and harder questions worth asking in public.
 seo:
-  meta_title: Calling Us All In — Web Summit Vancouver 2026 Day 3 | Kris Krüg
-  meta_description: The author attended Web Summit Vancouver Day 3, published a critical
-    piece on the federal sovereign‑AI data‑centre plan, and used the event to promote
-    huma…
+  meta_title: "Calling Us All In: Web Summit Vancouver 2026 Day 3 | Kris Krüg"
+  meta_description: Kris Krüg on Web Summit Vancouver Day 3, the sovereign-AI data-centre
+    critique, renegade booths, labour politics, and turning public receipts into allies.
 notion_source:
   url: https://www.notion.so/697c980d3faa45b8966be2fb937271e1
   page_id: 697c980d-3faa-45b8-966b-e2fb937271e1
   fetched: '2026-05-15T14:39:09.327425+00:00'
 images:
 - file: images/01-calling-us-all-in.jpeg
-  alt: 'Renegade booths: me and Sam Matthews — I commandeered an empty booth two days
-    running.'
+  alt: Kris Krug and Sam Matthews smiling together on the Web Summit Vancouver trade
+    show floor.
 - file: images/02-calling-us-all-in.jpeg
-  alt: Three stages, one fight, and one recruit — I got ten minutes with Chris Smalls
-    before his 2pm keynote.
+  alt: Kris Krug speaking with Chris Smalls before a Web Summit Vancouver keynote.
 - file: images/03-calling-us-all-in.jpeg
-  alt: Three stages, one fight, and one recruit — And here's the part that mattered
-    most.
+  alt: Emily Loewen in conversation after a Web Summit Vancouver press conference.
 - file: images/04-calling-us-all-in.jpeg
-  alt: The fine line is the line — Pull it together.
+  alt: Web Summit Vancouver hallway scene with attendees moving between sessions.
 - file: images/05-calling-us-all-in.jpeg
-  alt: The fine line is the line — My job is the connective tissue.
+  alt: Kris Krug at Web Summit Vancouver connecting people around BC plus AI work.
 - file: images/06-calling-us-all-in.jpeg
-  alt: The fine line is the line — And the receipts, on the data centres, on the attendance
-    numbers, on all of it, if the story's real, they won't weaken it.
+  alt: Web Summit Vancouver scene used as a closing visual for receipts and accountability.
 ---
 
 ## [Web Summit Vancouver](https://kriskrug.co/2026/05/07/web-summit-vancouver-2026/) 2026, Day Three
@@ -61,8 +55,6 @@ Before I walked in, I published **&quot;**[**Sovereign AI for Whom?**](https://b
 
 What set me off wasn&#x27;t the centres. It was the process. A two-week online Q&amp;A with the federal purpose buried in it. A downtown site with no public file at all. Land acknowledgments on a stage instead of named Nations on a contract. That&#x27;s not consultation. That&#x27;s permitting.
 
-[https://bc-ai.ca/news/sovereign-ai-for-whom/](https://bc-ai.ca/news/sovereign-ai-for-whom/)
-
 So I wrote it: five plain asks before the MOU gets signed. Independent environmental assessments. A public allocation policy that reserves compute for academic, civic, and Indigenous use. Community benefits agreements with real signatures. Indigenous governance on host-Nation terms. A creator-rights budget line. 
 
 And then I felt it, economically exposed, my name and face on a critique of the exact people I&#x27;m trying to build with. But the frame held. Minister [Evan Solomon](https://en.wikipedia.org/wiki/Evan_Solomon) wants to sort everyone into cheerleaders (pompoms) or stop-builders (pitchforks). I&#x27;m neither. I&#x27;m not calling anyone out. I&#x27;m **calling us all in**. Team Receipt: [both hands full](https://kriskrug.co/2026/01/24/both-hands-full/). One full of curiosity and the other full of critique. One building, one holding the ethics.
@@ -71,15 +63,9 @@ And then I felt it, economically exposed, my name and face on a critique of the 
 
 Here&#x27;s the both/and: while [Web Summit](https://vancouver.websummit.com/) ran the trade-show floor, [BC + AI](https://bc-ai.ca/) ran the soul of it. [Three events this week](https://luma.com/vancouver-ai). Except I&#x27;d argued the week before, in [**Web Summit Vancouver 2026**](https://kriskrug.co/2026/05/07/web-summit-vancouver-2026/) on my site, that these aren&#x27;t &quot;side events&quot; at all. They&#x27;re civic infrastructure, how a city metabolizes a global event instead of renting itself out to one.
 
-[https://kriskrug.co/2026/05/07/web-summit-vancouver-2026/](https://kriskrug.co/2026/05/07/web-summit-vancouver-2026/)
-
 Calm Before the Storm: a couple hundred people at [Friends Quarters](https://www.friendsquarters.com/), with [Darby](https://ca.linkedin.com/in/darbyyule) turning it into some of the best social content we&#x27;ve made. 
 
-[https://luma.com/web-summit](https://luma.com/web-summit)
-
 The Mind, AI &amp; Consciousness night at [Parker Street Studios](https://1000parker.com/), with [Suzanne Gildert](https://www.suzannegildert.com/) showing her art and talking quantum consciousness, Fiann and [Loki Jorgensen](https://bc-ai.ca/news/community-spotlight-loki-jorgensen/) on the mic, me on the front door making sure everybody got in and felt welcome. AI Film Club still to come.
-
-[https://luma.com/MACsocial04](https://luma.com/MACsocial04)
 
 That same piece asked the question nobody at a conference wants asked: ***who&#x27;s actually counting? ***
 
