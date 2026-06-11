@@ -3,9 +3,9 @@ title: "Ask the Right Skill First: A Practical Guide to Agentic Workflows"
 slug: "god-skills-agentic-loop-workflows"
 status: draft
 post_date: "2026-06-07"
-author: "Kris Krug"
+author: "Kris Krüg"
 author_wp_id: 1
-excerpt: "A practical operating model for routing AI work through canonical skills, explicit gates, and evidence loops instead of treating every task like a one-off prompt."
+excerpt: "A practical operating model for routing AI work through canonical skills, explicit gates, and evidence loops instead of treating every task like a one-off prompt with a fancy hat."
 categories:
   - "AI for Creatives"
 tags:
@@ -26,11 +26,9 @@ images:
     alt: "Dashboard-style routing map with intake, plan, build, verify, safety, knowledge, and ship lanes for agentic work."
   - file: "images/05-skill-dispatch-matrix.png"
     alt: "Dense command-center matrix listing user intent, starting skill, codename, output, approval gate, and specialist reference."
-  - file: "images/99-optional-from-intent-to-ship-review-required.png"
-    alt: "Optional mythic process poster showing a winding path from intent to shipping through abstract skill stations."
 seo:
   meta_title: "Ask the Right Skill First: Agentic Workflow Guide"
-  meta_description: "A practical guide to routing AI work through canonical skills, explicit gates, and evidence loops instead of one-off prompts."
+  meta_description: "A practical guide to routing AI work through canonical skills, explicit gates, and evidence loops instead of one-off prompts with a fancy hat."
 ---
 
 # Ask the Right Skill First: A Practical Guide to Agentic Workflows
@@ -46,6 +44,8 @@ That is where the trouble starts.
 When the output looks finished before the thinking is finished, you need a better operating model than vibes and prompt retries. You need a way to slow the work down in the right places, speed it up in the right places, and keep the human intent traceable as the work changes form.
 
 This is the model I have been building toward: a set of canonical skills, explicit gates, and evidence loops. I call the visual system the God Skills operating model, but the work itself is very practical. It is a routing system for AI builders who want agents to help without turning the whole project into an enthusiastic mess.
+
+It grew out of the same shop-floor work behind [BC + AI](https://bc-ai.ca/), [Both Hands Full](https://www.bothhandsfull.com/), [AI Keynote Slides Need Taste Before Prompts](https://kriskrug.co/2026/06/04/ai-keynote-slides-visual-workflow/), and the older [Punk Rock AI](https://kriskrug.co/2025/01/14/punk-rock-ai-a-manifesto-for-the-renegade-creators-of-tomorrow/) instinct: use the tools, keep your receipts, and do not let the machine flatten your taste.
 
 ## A Note On The Name
 

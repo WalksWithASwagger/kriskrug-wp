@@ -1,21 +1,16 @@
-# Link Audit
+# Link review: I Won't Fake the People Who Showed Up
 
-## Internal Links In Draft
+## Internal / ecosystem links
 
-- https://kriskrug.co/2026/01/24/both-hands-full/ - anchor: `Both Hands Full`
-- https://kriskrug.co/2026/05/04/punk-rock-ai/ - anchor: `Punk Rock AI`
-- https://kriskrug.co/2024/12/02/autolume-post-photographic-cybernetic-portraiture/ - anchor: `AlphaPrism: Post-Photographic Cybernetic Portraiture`
-- https://kriskrug.co/recent-projects-include/ - anchor: `Photography and media work`
-- https://kriskrug.co/contact/ - anchor: `Book Kris for documentary, keynote, or community work`
+- https://kriskrug.co/2024/12/02/autolume-post-photographic-cybernetic-portraiture/
+- https://kriskrug.co/2026/01/24/both-hands-full/
+- https://kriskrug.co/2026/05/04/punk-rock-ai/
+- https://kriskrug.co/contact/
+- https://kriskrug.co/recent-projects-include/
+- https://kriskrug.co/wp-content/uploads/2023/09/asa-mathat-2-scaled.jpg
 
-## Recommended Backlinks After Publish
+## External links
 
-- Add from the future live `The 75% Rule` post under the documentary boundary section.
-- Add from `/work/` or documentary/media service surfaces if the post becomes a proof piece.
-- Add from relevant AI photography posts when doing a future internal-link pass.
+- None yet.
 
-## Link Safety Notes
-
-- No draft-local or wp-admin links remain in the public body.
-- Do not link private KB/GitHub source paths from the public post.
-- If linking the StoryHive YouTube source, add an editorial note that this is an idea expansion, not a recap.
+No private Notion or local filesystem links should appear in the public body.

@@ -6,7 +6,7 @@
 
 **Status:** Local draft package only. Not published.
 
-**Meta description:** A practical guide to routing AI work through canonical skills, explicit gates, and evidence loops instead of one-off prompts.
+**Meta description:** A practical guide to routing AI work through canonical skills, explicit gates, and evidence loops instead of one-off prompts with a fancy hat.
 
 **Focus keyword:** agentic workflows
 
@@ -25,4 +25,4 @@
 - The God Skills Operating Model: How I Route AI Work Without Making A Mess
 - Start Canonical: Skills, Gates, And The Agentic Loop
 
-**Publication caution:** The phrase "God Skills" should be paired with the respect note in the introduction. If that framing feels too loud for public use, publish under "canonical skills" language and keep the codenames as secondary context.
+**Publication caution:** The phrase "God Skills" should be paired with the respect note in the introduction. If that framing feels too loud for public use, publish under "canonical skills" language and keep the codenames as secondary context. The optional poster image is held out of the first review draft.

@@ -1,22 +1,16 @@
-# SEO snapshot — AI Won’t Fix Your Broken Permit Process
+# SEO snapshot: AI Won't Fix Your Broken Permit Process
 
 | Field | Value |
 |---|---|
-| Visible title (H1) | AI Won’t Fix Your Broken Permit Process |
-| SEO title (`<title>`) | AI Won’t Fix Your Broken Permit Process | Kris Krüg |
-| Slug | `ai-wont-fix-your-broken-permit-process` (permalink `/2026/05/24/ai-wont-fix-your-broken-permit-process/`) |
-| Meta description | AI will not repair broken civic systems by itself. This piece argues that permit reform needs better process, public accountability, and human judgment before automation can help. |
-| Category | Misc |
-| Tags | (none) |
-| Excerpt | AI will not repair broken civic systems by itself. This piece argues that permit reform needs better process, public accountability, and human judgment before automation can help. |
-| Featured | no |
-| Schema | Article (auto via kk-schema mu-plugin if deployed) |
-| OG image | featured image |
-| Twitter Card | summary_large_image (Jetpack default) |
+| Slug | `ai-wont-fix-your-broken-permit-process` |
+| Category | AI Ethics & Philosophy |
+| Tags | AI Governance, Civic Tech, Government AI, Public Sector, Responsible AI |
+| Featured | YES |
+| Meta title | AI Won't Fix Your Broken Permit Process | Kris Krüg |
+| Meta description | AI will not repair broken civic systems by itself. Permit reform needs better process, public accountability, and human judgment before automation can help. |
+| Excerpt | AI will not repair broken civic systems by itself. Permit reform needs better process, public accountability, and human judgment before automation can help. |
 
-## Next-step checks after publish
+## Review notes
 
-- View source on the live URL → confirm `<meta name="description">` matches above
-- https://search.google.com/test/rich-results → confirm Article + Person schema if mu-plugin live
-- https://cards-dev.twitter.com/validator → preview card
-- Submit URL in Google Search Console for instant indexing
+- Keep as WordPress draft until KK approves the exact preview.
+- Confirm desktop and mobile preview before scheduling.

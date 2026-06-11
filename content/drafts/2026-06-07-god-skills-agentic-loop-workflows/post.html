@@ -1,0 +1,576 @@
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Ask the Right Skill First: A Practical Guide to Agentic Workflows</h2>
+<!-- /wp:heading -->
+
+<!-- wp:image -->
+<figure class="wp-block-image"><img src="images/01-god-skills-operating-model.png" alt="Hope Code infographic showing ten canonical AI workflow skills as connected cards in a mycelial operating model."/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>At some point, "ask the AI" stopped being enough.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Not because the models got worse. The opposite. They got good enough that a sloppy request could produce something that looked finished. A plan. A draft. A pull request. A launch checklist. A social post. A thing with shape.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>That is where the trouble starts.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>When the output looks finished before the thinking is finished, you need a better operating model than vibes and prompt retries. You need a way to slow the work down in the right places, speed it up in the right places, and keep the human intent traceable as the work changes form.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>This is the model I have been building toward: a set of canonical skills, explicit gates, and evidence loops. I call the visual system the God Skills operating model, but the work itself is very practical. It is a routing system for AI builders who want agents to help without turning the whole project into an enthusiastic mess.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>It grew out of the same shop-floor work behind <a href="https://bc-ai.ca/">BC + AI</a>, <a href="https://www.bothhandsfull.com/">Both Hands Full</a>, <a href="https://kriskrug.co/2026/06/04/ai-keynote-slides-visual-workflow/">AI Keynote Slides Need Taste Before Prompts</a>, and the older <a href="https://kriskrug.co/2025/01/14/punk-rock-ai-a-manifesto-for-the-renegade-creators-of-tomorrow/">Punk Rock AI</a> instinct: use the tools, keep your receipts, and do not let the machine flatten your taste.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">A Note On The Name</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The Hindu names in these graphics are mnemonic codenames only. They are not religious claims, deity impersonations, parody, or a suggestion that software work is sacred in some grandiose way.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>In public and in practice, the mechanical skill names do the real work: <code>repo-onboard</code>, <code>strategy-plan</code>, <code>build-implement</code>, <code>verify-evaluate</code>, and so on. The codenames are memory hooks I use to make the system easier to recall. The names should stay humble, respectful, and secondary to the operating discipline.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>If that framing ever starts to feel like spectacle instead of stewardship, the public version should use the neutral phrase "canonical skills" and leave the mythology at the door.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">From Prompting To Operating</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>A prompt is a request.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>A skill is a small contract.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>It says:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>what kind of work belongs here</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>what source material must be inspected first</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>what output should exist when the work is done</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>what actions are forbidden without approval</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>which skill should receive the handoff next</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>That sounds simple, and that is the point. A useful agentic workflow does not need a giant orchestration platform before it becomes useful. It needs names, boundaries, and proof.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The Karpathy-style discipline matters here because it keeps the system from drifting into theatre:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>Think before coding.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Keep the solution simple.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Change only what the task requires.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Define done before doing the work.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Those defaults are not glamorous. They are what stop an agent from turning a bug fix into a redesign, a draft into a publish action, or a repo audit into a pile of unrelated cleanup.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What I Mean By A Skill</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>A skill is not a personality. It is not a mascot. It is not "the coding agent" wearing a different hat.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>A skill is an operating mode with a trigger, a boundary, an output, and a handoff.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>For example, <code>repo-onboard</code> does not exist to write code. It exists to understand the repo before anybody changes it. <code>verify-evaluate</code> does not exist to make the builder feel good. It exists to produce evidence. <code>safety-review</code> does not exist to say no to everything. It exists to separate reversible local work from public, destructive, private, or expensive actions.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>That is the shift: stop asking one general assistant to improvise the whole job. Ask the right skill to do the next bounded part of the job.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The rule is:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><!-- wp:paragraph -->
+<p>Start canonical. Load specialist references only when needed.</p>
+<!-- /wp:paragraph --></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:paragraph -->
+<p>That keeps the loop small. A general canonical skill handles the first pass. If the work turns out to need a deeper playbook, then the agent loads a specialist reference. Not before. Not as ceremony. Only when it actually reduces risk or improves the result.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The Ten Canonical Skills</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Here is the current roster in plain mechanical terms.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>| Skill | Codename | Use it when | Output | |---|---|---|---| | <code>skill-registry</code> | Saraswati | You need to understand or maintain the skill system itself. | Registry updates, routing rules, eval notes. | | <code>repo-onboard</code> | Ganesha | You are landing in an unfamiliar repo or messy workspace. | Health map, source-of-truth paths, blockers. | | <code>strategy-plan</code> | Krishna | The goal, tradeoffs, or success criteria are still unclear. | Decision plan, scope, assumptions, acceptance criteria. | | <code>build-implement</code> | Vishwakarma | The goal is clear and the work is ready to build. | Scoped code, content, prompt, or workflow changes. | | <code>verify-evaluate</code> | Agni | You need proof that the work behaves as intended. | Test results, smoke checks, evidence report. | | <code>knowledge-signal</code> | Saraswati | Notes, docs, recaps, or source material need synthesis. | Digest, brief, source summary, reusable context. | | <code>safety-review</code> | Durga | The work could publish, send, deploy, delete, expose, bill, or affect access. | Risk classification, approval gate, safest next step. | | <code>simplify-refactor</code> | Shiva | The system is carrying avoidable complexity. | Simplification plan or narrow cleanup. | | <code>growth-content</code> | Lakshmi | The output is public-facing, partner-facing, social, or value-oriented. | Draft copy, positioning options, approval notes. | | <code>coordinate-ship</code> | Narada | The work needs PRs, issues, handoffs, queue mapping, or closeout. | Delivery map, PR notes, release or handoff summary. |</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The roster is deliberately small. The point is not to create a skill for every mood. The point is to keep the first decision obvious enough that a human or agent can choose without disappearing into taxonomy.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How The Skills Hand Off Work</h2>
+<!-- /wp:heading -->
+
+<!-- wp:image -->
+<figure class="wp-block-image"><img src="images/02-god-skills-handoff-workflow.png" alt="Flow diagram showing how canonical skills hand off work for a new repo, bug fix, new feature, security review, and growth content."/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>The loop is not always linear, but the common paths are predictable.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>For a new repo:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><code>repo-onboard -&gt; strategy-plan -&gt; build-implement -&gt; verify-evaluate -&gt; coordinate-ship</code></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>For a bug fix:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><code>repo-onboard -&gt; verify-evaluate -&gt; build-implement -&gt; verify-evaluate -&gt; coordinate-ship</code></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>For a new feature:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><code>strategy-plan -&gt; build-implement -&gt; verify-evaluate -&gt; knowledge-signal -&gt; coordinate-ship</code></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>For a risky or public action:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><code>safety-review -&gt; verify-evaluate -&gt; build-implement only after approval</code></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>For public-facing content:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><code>growth-content -&gt; knowledge-signal when source synthesis is needed -&gt; safety-review before public use</code></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>That last one matters. A lot of AI workflow failures are not technical failures. They are boundary failures. The agent had enough capability to do the thing, but the system did not force the right question before the thing happened.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>"Can we publish this?"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>"Do we have consent?"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>"Is this claim verified?"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>"Are we about to overwrite something live?"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>"Does this belong in public, or only in a local draft?"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The handoff map is how those questions stop being afterthoughts.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How To Choose The Right Skill</h2>
+<!-- /wp:heading -->
+
+<!-- wp:image -->
+<figure class="wp-block-image"><img src="images/03-god-skills-invocation-cheat-sheet.png" alt="Quick reference chart mapping common AI builder requests to the canonical skill that should handle the work."/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>The cheat sheet version is simple:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>| If the request sounds like... | Start with... | |---|---| | "What skills do we have?" | <code>skill-registry</code> | | "Audit this repo." | <code>repo-onboard</code> | | "What should we build?" | <code>strategy-plan</code> | | "Implement the fix." | <code>build-implement</code> | | "Test this." | <code>verify-evaluate</code> | | "Organize these notes." | <code>knowledge-signal</code> | | "Can we safely do this?" | <code>safety-review</code> | | "Simplify this mess." | <code>simplify-refactor</code> | | "Draft a post or partner note." | <code>growth-content</code> | | "Ship it." | <code>coordinate-ship</code> |</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The important part is not that these exact names are perfect. They are not. The important part is that each name narrows the next move.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>That narrowing is what makes the agent useful.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Without routing, the agent tries to be helpful in every direction at once. With routing, it has a job.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Where The Engineering Discipline Shows Up</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The skill system only works if the defaults are boring in the best way.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Think Before Coding</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Before writing, the agent should state assumptions and success criteria. That turns "fix the bug" into something measurable:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><!-- wp:paragraph -->
+<p>Identify the failing behavior, trace the root cause, patch only that path, and prove the regression is gone.</p>
+<!-- /wp:paragraph --></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:paragraph -->
+<p>It also turns "write a post" into something bounded:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><!-- wp:paragraph -->
+<p>Create a local draft package with a post, SEO notes, alt text, internal links, and a publish gate. Do not publish.</p>
+<!-- /wp:paragraph --></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:paragraph -->
+<p>The assumption step is not bureaucracy. It is how you catch scope creep while it is still cheap.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Simplicity First</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>A skill should make the work smaller, not more ceremonial.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>If a direct file edit solves the problem, do not invent a workflow engine. If a short checklist prevents the mistake, do not build a dashboard. If one source file is the truth, do not synthesize ten weaker signals.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The agentic loop should feel like a rail, not a maze.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Surgical Changes</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Good agents are dangerous when they are over-eager. They notice nearby problems. They want to tidy the whole room. They see a typo in one file, a stale comment in another, and suddenly the diff is no longer about the task.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The answer is not to make the agent less capable. The answer is to make the skill boundary explicit.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><code>build-implement</code> changes the scoped thing. <code>simplify-refactor</code> handles cleanup when cleanup is the task. <code>coordinate-ship</code> closes the loop without smuggling in unrelated work.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Goal-Driven Execution</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Done does not mean "the model produced an answer."</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Done means the acceptance criteria are met. The local files exist. The tests pass. The smoke check returns the expected signal. The draft has a publish gate. The risky action has explicit approval or did not happen.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>That is the evidence loop.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What This Looks Like In Real Work</h2>
+<!-- /wp:heading -->
+
+<!-- wp:image -->
+<figure class="wp-block-image"><img src="images/04-canonical-skill-routing-dashboard.png" alt="Dashboard-style routing map with intake, plan, build, verify, safety, knowledge, and ship lanes for agentic work."/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>Here are a few sanitized examples.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Starting In A Repo</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The wrong move is to ask the agent to "look around and improve things."</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>That sounds productive, but it has no finish line.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The routed version starts with <code>repo-onboard</code>. The agent reads the repo instructions, checks the current state, finds the source-of-truth docs, identifies dirty work, and maps the likely entry points. Only then does <code>strategy-plan</code> decide what should happen next.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The output is not code. The output is orientation.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Fixing A Bug</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The wrong move is to jump straight to implementation because the symptom seems obvious.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The routed version starts by reproducing or locating evidence. <code>verify-evaluate</code> finds the failing assertion, broken route, bad screenshot, stale baseline, or smoke-check mismatch. Then <code>build-implement</code> patches the smallest path. Then <code>verify-evaluate</code> comes back to prove the behavior changed.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The loop is evidence before and after.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Drafting Public Content</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The wrong move is to let a model turn private notes into public copy in one pass.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The routed version starts with <code>knowledge-signal</code> if the source material needs synthesis, then <code>growth-content</code> for a draft, then <code>safety-review</code> before public use. That keeps the article grounded, prevents private details from leaking, and catches claims that need verification.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>I wrote about a nearby creative version of this in <a href="https://kriskrug.co/2026/06/04/ai-keynote-slides-visual-workflow/">AI Keynote Slides Need Taste Before Prompts</a>: generation is not production, and selection is authorship. The same idea applies to agentic workflows. The draft is not the publish action. The patch is not the deploy. The plan is not the proof.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Shipping Work</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The wrong move is to treat "ship it" as a single action.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The routed version sends it to <code>coordinate-ship</code>: check the queue, preserve unrelated work, stage the right files, write the closeout, link the evidence, and stop before any push, merge, deploy, or publish action that has not been explicitly approved.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Shipping is not just movement. Shipping is accountable movement.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The Gates That Keep The System Honest</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The gates are where the system earns trust.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Some actions need exact approval:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>publish</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>send</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>deploy</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>delete</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>overwrite live content</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>change secrets</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>change billing</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>change access control</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>use private or testimonial material publicly</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>make claims about live state without fresh verification</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>The point is not fear. The point is consent and reversibility.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>A good agentic workflow should make low-risk work easy and high-risk work unmistakable. Local drafts, dry runs, smoke checks, and source summaries should move quickly. Public actions should pause, name the exact target, and wait for approval.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>That distinction is how you get speed without pretending risk disappeared.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The Dispatch Matrix</h2>
+<!-- /wp:heading -->
+
+<!-- wp:image -->
+<figure class="wp-block-image"><img src="images/05-skill-dispatch-matrix.png" alt="Dense command-center matrix listing user intent, starting skill, codename, output, approval gate, and specialist reference."/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>The dense version is for builders who want to adapt the model.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>You do not need my exact names. You do not need my visual language. You do not need the codenames. You need the shape:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>a small canonical roster</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>clear triggers</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>explicit outputs</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>approval gates</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>specialist references loaded only when needed</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>evidence before closeout</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>That is enough to start.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Pick five skills if ten feels like too much:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>onboard</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>plan</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>build</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>verify</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>ship</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Then add safety before anything public or risky. Add knowledge when the system starts learning things worth preserving. Add growth/content when the output leaves the workshop and enters the world.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The names are less important than the behavior.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Ask the right skill first. Keep the loop small. Prove what changed. Leave the system easier to trust than you found it.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>That is the whole game.</p>
+<!-- /wp:paragraph -->

@@ -4,11 +4,11 @@
 
 - [AI Keynote Slides Need Taste Before Prompts](https://kriskrug.co/2026/06/04/ai-keynote-slides-visual-workflow/) - Connects this operating-model post to KK's broader artifact-chain and human taste workflow.
 
-## Candidate Related Posts Or Drafts
+## Candidate Related Drafts
 
-- `content/drafts/2026-05-21-speak-it-into-existence-ai-voice-first-workflows/post.md` - Related to human-in-the-loop AI operating systems; only link if/when public.
-- `content/drafts/2026-05-21-the-75-percent-rule-ai-art-adjacent-work/post.md` - Related to AI-adjacent creative labor; only link if/when public.
-- `content/drafts/2026-05-24-how-a-late-night-brain-dump-became-a-multimedia-thought-leadership-machine/post.md` - Related to turning rough ideas into multi-artifact systems; only link if/when public.
+- Speak It Into Existence: AI Voice-First Workflows - related to human-in-the-loop AI operating systems; only link if/when public.
+- The 75 Percent Rule: AI Art Adjacent Work - related to AI-adjacent creative labor; only link if/when public.
+- How A Late-Night Brain Dump Became A Multimedia Thought Leadership Machine - related to turning rough ideas into multi-artifact systems; only link if/when public.
 
 ## External Or Owned-Site Links To Consider
 

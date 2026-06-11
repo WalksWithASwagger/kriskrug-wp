@@ -1,5 +1,5 @@
 ---
-title: "AI Media Appearances, Podcast Guesting, and Broadcast Commentary"
+title: AI Media Appearances, Podcast Guesting, and Broadcast Commentary
 slug: ai-media-appearances-podcast-guesting
 post_date: '2026-05-19'
 status: draft
@@ -14,10 +14,10 @@ tags:
 - Speaking
 - AI Interviews
 featured: false
-excerpt: Kris Krug's public proof stack for AI podcast guesting, CBC commentary, produced video interviews, live hosting, panels, and event emcee work.
+excerpt: A public proof stack for AI podcast guesting, broadcast commentary, produced interviews, panels, hosting, and media work that keeps the weird parts honest.
 seo:
-  meta_title: AI Media Appearances and Podcast Guesting | Kris Krug
-  meta_description: Kris Krug's CBC AI Sandbox, podcast interviews, Horizons videos, Vancouver AI hosting, and event-media appearances in one media proof stack.
+  meta_title: AI Media Appearances and Podcast Guesting | Kris Krüg
+  meta_description: Kris Krüg on AI podcast guesting, CBC commentary, produced interviews, Vancouver AI hosting, panels, and media appearances.
 source_pack:
   inventory: content/source-packs/keynotes-2026/media-appearances/public-source-inventory-2026-05-19.md
   epk_package: content/source-packs/keynotes-2026/media-appearances/podcast-epk-refresh-package.md

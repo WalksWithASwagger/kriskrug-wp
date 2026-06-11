@@ -1,11 +1,11 @@
-# Link audit
+# Link review: Canada Doesn't Need a Bigger AI Machine. It Needs a Better One.
 
-## Internal links (0)
+## Internal / ecosystem links
 
+- None yet.
 
-
-## External links (1)
+## External links
 
 - https://claude.ai/
 
-After publish, click-check every internal link in the live post. External links should open in a new tab with rel="noopener noreferrer" (the connector sets these automatically).
+No private Notion or local filesystem links should appear in the public body.

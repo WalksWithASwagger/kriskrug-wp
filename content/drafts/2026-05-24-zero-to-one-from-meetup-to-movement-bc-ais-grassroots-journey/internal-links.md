@@ -1,13 +1,12 @@
-# Link audit
+# Link review: Zero to One: From Meetup to Movement
 
-## Internal links (0)
+## Internal / ecosystem links
 
+- https://www.theupgrade.ai/
 
-
-## External links (3)
+## External links
 
 - https://indigenomics.ai/
 - https://vancouver.websummit.com/
-- https://www.theupgrade.ai/
 
-After publish, click-check every internal link in the live post. External links should open in a new tab with rel="noopener noreferrer" (the connector sets these automatically).
+No private Notion or local filesystem links should appear in the public body.
