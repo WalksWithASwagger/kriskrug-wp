@@ -1,15 +1,15 @@
-# SEO snapshot — Comox Valley AI Is Becoming Its Own Thing
+# SEO snapshot: Comox Valley AI Is Becoming Its Own Thing
 
 | Field | Value |
 |---|---|
 | Visible title (H1) | Comox Valley AI Is Becoming Its Own Thing |
 | SEO title (`<title>`) | Comox Valley AI Is Becoming Its Own Thing | Kris Krüg |
 | Slug | `comox-valley-ai-is-becoming-its-own-thing` (permalink `/2026/05/06/comox-valley-ai-is-becoming-its-own-thing/`) |
-| Meta description | Draft status: Feature length article for BC + AI News & Content. Updated with the missing local AI stack segment from Quanah Parker's talk. |
-| Category | Misc |
+| Meta description | After two gatherings in Courtenay, Comox Valley AI is becoming its own regional node, with farmers, teachers, civic leaders, artists, builders, and island makers asking better AI questions than most boardrooms. |
+| Category | Vancouver AI Ecosystem |
 | Tags | BC, Comox, BC + AI, Recap, AI Ethics, Community Spotlight |
-| Excerpt | Draft status: Feature length article for BC + AI News & Content. Updated with the missing local AI stack segment from Quanah Parker's talk. |
-| Featured | YES |
+| Excerpt | After two gatherings in Courtenay, Comox Valley AI is becoming its own regional node: part community room, part local AI lab, and part reminder that the island already had the questions. |
+| Featured | NO - image gate required before KK approval |
 | Schema | Article (auto via kk-schema mu-plugin if deployed) |
 | OG image | featured image |
 | Twitter Card | summary_large_image (Jetpack default) |

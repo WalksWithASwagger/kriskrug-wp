@@ -6,7 +6,7 @@ status: draft
 post_type: post
 author_wp_id: 1
 categories:
-- Misc
+- Vancouver AI Ecosystem
 tags:
 - BC
 - Comox
@@ -14,27 +14,18 @@ tags:
 - Recap
 - AI Ethics
 - Community Spotlight
-featured: true
-excerpt: 'Draft status: Feature length article for BC + AI News & Content. Updated
-  with the missing local AI stack segment from Quanah Parker''s talk.'
+featured: false
+excerpt: 'After two gatherings in Courtenay, Comox Valley AI is becoming its own regional node: part community room, part local AI lab, and part reminder that the island already had the questions.'
 seo:
   meta_title: Comox Valley AI Is Becoming Its Own Thing | Kris Krüg
-  meta_description: 'Draft status: Feature length article for BC + AI News & Content.
-    Updated with the missing local AI stack segment from Quanah Parker''s talk.'
+  meta_description: 'After two gatherings in Courtenay, Comox Valley AI is becoming its own regional node, with farmers, teachers, civic leaders, artists, builders, and island makers asking better AI questions than most boardrooms.'
 notion_source:
-  url: https://www.notion.so/d2c709d563934053934bf63de4dbd47a
   page_id: d2c709d5-6393-4053-934b-f63de4dbd47a
   fetched: '2026-05-18T17:09:47.221449+00:00'
 images: []
 ---
 
-**Draft status:** Feature length article for BC + AI News &amp; Content. Updated with the missing local AI stack segment from Quanah Parker&#x27;s talk.
-
-## Dek
-
 After two gatherings in Courtenay, Comox Valley AI is no longer a satellite of Vancouver. It is becoming its own regional node, with farmers, teachers, mayors, software people, parents, artists, sponsors and island makers asking better questions about artificial intelligence than most boardrooms.
-
-## Article
 
 The first thing you learn when you bring an AI meetup to the Comox Valley is that the valley was already having the conversation.
 
@@ -56,7 +47,7 @@ The room was about half returning people and half first timers. That matters. A 
 
 In technology, that is not a vanity metric. It is a sign that the invitation is different.
 
-BC + AI has always tried to hold a space beyond the usual booster versus doomer binary. The booster says, get on board or get left behind. The doomer says, the systems are extractive, biased, power hungry, legally messy and socially dangerous. Both are seeing something real. Neither position gives a parent, teacher, farmer, artist, mayor, founder or student a practical way to move through Thursday afternoon.
+[BC + AI](https://bc-ai.ca/) has always tried to hold a space beyond the usual booster versus doomer binary. The booster says, get on board or get left behind. The doomer says, the systems are extractive, biased, power hungry, legally messy and socially dangerous. Both are seeing something real. Neither position gives a parent, teacher, farmer, artist, mayor, founder or student a practical way to move through Thursday afternoon.
 
 So we walk forward holding both.
 
@@ -174,7 +165,7 @@ What I loved most about the night was that it did not feel like a tech event try
 
 It felt like community using a tech event as an excuse to have the conversation it needed.
 
-There were announcements about the new BC + AI life sciences chapter, with physicians, geneticists and researchers looking at drug discovery, medical imaging and digital health records. There were reminders about the animation accelerator and the Responsible AI Professional Certification. There was a mention of RIPEN, a platform connecting organizations with student developers across Canada, with a founder from Campbell River. There was a Linux zero day warning from someone who knew exactly why it mattered.
+There were announcements about the new BC + AI life sciences chapter, with physicians, geneticists and researchers looking at drug discovery, medical imaging and digital health records. There were reminders about the animation accelerator and the [Responsible AI Professional Certification](https://bc-ai.ca/certification/responsible-ai-professional/). There was a mention of RIPEN, a platform connecting organizations with student developers across Canada, with a founder from Campbell River. There was a Linux zero day warning from someone who knew exactly why it mattered.
 
 Then Lourdes closed with a story about principle centered leadership.
 
@@ -202,7 +193,7 @@ Keep the conversation mixed. Technical depth matters, but so do parents, artists
 
 Name the tension. People do not need another room where AI is either salvation or apocalypse. They need a room where both the possibilities and costs can be held without anyone being treated like a fool.
 
-Make the local specific. Comox Valley AI should not become Vancouver AI on the island. It should sound like Courtenay, Comox, Cumberland, Hornby, Denman, Cortes and Campbell River. It should have cheese on the table and data sovereignty in the Q and A.
+Make the local specific. Comox Valley AI should not become [Vancouver AI](https://kriskrug.co/2024/01/28/inside-the-innaugural-vancouver-ai-community-meetup/) on the island. It should sound like Courtenay, Comox, Cumberland, Hornby, Denman, Cortes and Campbell River. It should have cheese on the table and data sovereignty in the Q and A.
 
 Treat education as public infrastructure. The student AI question is not just a school issue. It is a parent issue, a workforce issue, a mental health issue, a privacy issue and a civic readiness issue.
 
@@ -233,7 +224,3 @@ The public conversation about AI safety often stays at the model layer. But comm
 The cloud is not neutral. Procurement needs to catch up with AI workflows.
 
 Comox Valley AI should have cheese on the table and data sovereignty in the Q and A.
-
-## Editorial notes
-
-Add GitHub links for Steve Jones&#x27; SlowSpeak and student safe AI projects.Confirm exact attendee count after Luma export.Confirm whether to publish under Kris Krüg or BC + AI Editorial.Consider adding photos from Meetup #1 before publication.Cross link the Meetup #0 recap, the Meetup #1 transcript page and the local AI stack field guide.Decide whether to keep the local AI technical section in the main article or split it into a companion post.

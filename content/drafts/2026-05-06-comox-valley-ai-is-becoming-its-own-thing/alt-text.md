@@ -1,9 +1,5 @@
 # Image alt text
 
-(no images)
+No image is attached to this draft.
 
-Replace any "(empty — needs human-written alt)" lines with descriptive sentences. Good alt text:
-- Describes what's in the image, not what you want it to mean
-- Includes context the reader can't get from surrounding prose
-- Is under 125 characters where possible
-- Uses natural language, not keyword stuffing
+Before KK approval, add a real event photo or Rafiki-approved image that feels like Comox Valley AI: local room, island community, workshop notes, cheese table, civic learning, and human texture. Avoid generic AI art, robots, glowing brains, fake dashboards, unreadable generated text, and stock tech-meetup scenes.
