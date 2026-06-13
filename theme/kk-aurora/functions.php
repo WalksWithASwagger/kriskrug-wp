@@ -337,6 +337,41 @@ function manual_excerpt_dek_only(string $block_content, array $block): string {
 }
 add_filter('render_block', __NAMESPACE__ . '\\manual_excerpt_dek_only', 10, 2);
 
+function enhance_search_block_accessibility(string $block_content, array $block): string {
+    if (($block['blockName'] ?? '') !== 'core/search') {
+        return $block_content;
+    }
+
+    $attrs = isset($block['attrs']) && is_array($block['attrs']) ? $block['attrs'] : [];
+    $label = isset($attrs['label']) ? trim(wp_strip_all_tags((string) $attrs['label'])) : '';
+    if ($label === '') {
+        $label = __('Search kriskrug.co', 'kk-aurora');
+    }
+
+    $processor = new \WP_HTML_Tag_Processor($block_content);
+
+    if ($processor->next_tag('form')) {
+        $processor->set_attribute('role', 'search');
+        $processor->set_attribute('aria-label', $label);
+    }
+
+    if ($processor->next_tag('input')) {
+        $input_type = strtolower((string) $processor->get_attribute('type'));
+        $input_name = (string) $processor->get_attribute('name');
+
+        if ($input_type === 'search' || $input_name === 's') {
+            $processor->set_attribute('aria-label', $label);
+        }
+    }
+
+    if ($processor->next_tag('button')) {
+        $processor->set_attribute('aria-label', __('Submit search', 'kk-aurora'));
+    }
+
+    return $processor->get_updated_html();
+}
+add_filter('render_block', __NAMESPACE__ . '\\enhance_search_block_accessibility', 10, 2);
+
 /**
  * Keep the public Writing label on the canonical posts archive URL.
  */
