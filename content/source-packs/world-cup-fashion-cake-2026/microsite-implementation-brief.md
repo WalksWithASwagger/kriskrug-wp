@@ -2,7 +2,7 @@
 
 ## Goal
 
-Build a standalone Next.js microsite that functions as a futuristic photo essay for the Becker x KK Vancouver World Cup 2026 AI fashion project. The site should be suitable for a separate repo such as `/Users/athena/code/world-cup-fashion-cake`, then later deployable to Vercel or another static-friendly host.
+Build a standalone Next.js microsite that functions as a futuristic photo essay for the Becker x KK Vancouver World Cup 2026 AI fashion project. The site should live outside `kriskrug-wp`, then later be deployable to Vercel or another static-friendly host.
 
 This source pack is the handoff. Do not implement the microsite inside `kriskrug-wp`.
 
@@ -104,4 +104,3 @@ Avoid:
 - The project can be deployed independently of WordPress.
 - The source content can be updated without hunting through component markup.
 - No live WordPress content is changed by the microsite build.
-

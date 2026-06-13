@@ -4,15 +4,15 @@ This manifest records current reference and process assets for the Becker x KK W
 
 ## Current Local Assets
 
-| ID | Status | Local path | Notes |
+| ID | Status | Source handle | Notes |
 |---|---|---|---|
-| `chat-process-capture` | process | `/Users/athena/.codex/attachments/2538f1db-8aa8-428d-a4a6-c59f87441801/pasted-text.txt` | Cut-and-pasted chat/process notes, includes workflow and 20 prompts. Curate before quoting. |
-| `motion-test-beck` | process | `/Users/athena/Library/Messages/Attachments/ae/14/2312A4CA-4B50-47FF-971F-76040457F005/motion-test-beck.mov` | 5.04 second HEVC QuickTime, 832 x 464, 24 fps. Treat as rough process evidence. |
-| `mood-board-01` | reference-only | `/Users/athena/Library/Messages/Attachments/61/01/760FB048-ED19-4386-BFEF-42CED9F7AB1A/PNG image.png` | 1108 x 546 PNG mood-board composite. |
-| `generated-hero-candidate-01` | process | `/Users/athena/Library/Messages/Attachments/31/01/E01AD333-075A-48AA-9AC5-1CD2DD97628F/IMG_7100.png` | 2944 x 1648 PNG fashion image candidate. Do not assume final public use. |
-| `mood-board-02` | reference-only | `/Users/athena/Library/Messages/Attachments/98/08/E6B2155E-93A4-40AE-BBC7-7D5A67B56346/PNG image.png` | 1116 x 554 PNG mood-board composite. |
-| `midjourney-board-ui` | process | `/Users/athena/Library/Messages/Attachments/67/07/276E0885-6087-4BB9-BF11-CBF8F9477002/PNG image.png` | 1719 x 918 PNG screenshot of Midjourney mood board. |
-| `tania-reference-set` | reference-only | `/Users/athena/Desktop/tania-becker-fashion-images/` | 20 public editorial/fashion images downloaded from Tania Becker site plus `source_urls.txt`. |
+| `chat-process-capture` | process | KK private source bundle | Cut-and-pasted chat/process notes, includes workflow and 20 prompts. Curate before quoting. |
+| `motion-test-beck` | process | KK private source bundle | 5.04 second HEVC QuickTime, 832 x 464, 24 fps. Treat as rough process evidence. |
+| `mood-board-01` | reference-only | KK private source bundle | 1108 x 546 PNG mood-board composite. |
+| `generated-hero-candidate-01` | process | KK private source bundle | 2944 x 1648 PNG fashion image candidate. Do not assume final public use. |
+| `mood-board-02` | reference-only | KK private source bundle | 1116 x 554 PNG mood-board composite. |
+| `midjourney-board-ui` | process | KK private source bundle | 1719 x 918 PNG screenshot of Midjourney mood board. |
+| `tania-reference-set` | reference-only | KK private source bundle | 20 public editorial/fashion images downloaded from Tania Becker site plus source URL list. |
 
 ## Final Select Intake
 
@@ -58,4 +58,3 @@ Before any public release:
 - Do not republish Tania Becker site images as final art without explicit approval.
 - Do not display official FIFA, team, sponsor, or venue logos as design elements.
 - Credit Tania Becker and Kris/KRUG as collaborators where appropriate.
-

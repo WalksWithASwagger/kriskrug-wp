@@ -26,15 +26,8 @@ The microsite should feel like Lost Angels meets Vancouver: LA gloss, Vancouver 
 
 ## Source Inputs
 
-Local source files and references:
-
-- Chat/process capture: `/Users/athena/.codex/attachments/2538f1db-8aa8-428d-a4a6-c59f87441801/pasted-text.txt`
-- Motion test: `/Users/athena/Library/Messages/Attachments/ae/14/2312A4CA-4B50-47FF-971F-76040457F005/motion-test-beck.mov`
-- Mood-board screenshot: `/Users/athena/Library/Messages/Attachments/61/01/760FB048-ED19-4386-BFEF-42CED9F7AB1A/PNG image.png`
-- Generated fashion hero candidate: `/Users/athena/Library/Messages/Attachments/31/01/E01AD333-075A-48AA-9AC5-1CD2DD97628F/IMG_7100.png`
-- Mood-board screenshot: `/Users/athena/Library/Messages/Attachments/98/08/E6B2155E-93A4-40AE-BBC7-7D5A67B56346/PNG image.png`
-- Midjourney mood-board UI screenshot: `/Users/athena/Library/Messages/Attachments/67/07/276E0885-6087-4BB9-BF11-CBF8F9477002/PNG image.png`
-- Downloaded public Tania Becker fashion/editorial reference set: `/Users/athena/Desktop/tania-becker-fashion-images/`
+Source files and references are tracked by source handle in `asset-manifest.md`.
+Ask KK for the private source bundle before quoting chat material, using process media, or republishing any reference images.
 
 ## Public Context Anchors
 
@@ -54,7 +47,7 @@ Useful public sources:
 - `microsite-implementation-brief.md` - standalone Next.js build spec.
 - `blog-post-brief.md` - companion kriskrug.co post brief.
 - `prompt-pack.md` - the first 20 text-to-image prompts plus calibration guidance.
-- `asset-manifest.md` - reference assets, local paths, and final-select intake slots.
+- `asset-manifest.md` - reference asset handles and final-select intake slots.
 - `agent-task-list.md` - agent-ready implementation checklist.
 
 Related draft package:
@@ -72,4 +65,3 @@ Related issue draft:
 - Preserve Tania Becker and Kris/KRUG as named collaborators.
 - Keep private chat details curated. Quote only short, publishable excerpts and paraphrase the rest.
 - Do not publish or run the WordPress connector from this handoff PR.
-
