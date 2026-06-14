@@ -1,0 +1,146 @@
+{
+ "items": [
+  {
+   "id": 11826,
+   "slug": "web-summit-vancouver-2026",
+   "meta": {
+    "jetpack_seo_html_title": "Web Summit Vancouver 2026: The Signal Was Already Here",
+    "advanced_seo_description": "Web Summit returns to a Vancouver already alive with AI energy — built by artists, researchers, founders, and community long before the lanyards."
+   }
+  },
+  {
+   "id": 11700,
+   "slug": "punk-rock-ai",
+   "meta": {
+    "jetpack_seo_html_title": "Punk Rock AI: A Both-Hands-Full Talk at CreativeMornings",
+    "advanced_seo_description": "Most AI talk forces a binary — embrace or resist. Punk Rock AI holds the critique in one hand and the capability in the other. The CreativeMornings recap."
+   }
+  },
+  {
+   "id": 11358,
+   "slug": "spa-at-the-end-of-time",
+   "meta": {
+    "jetpack_seo_html_title": "Spa at the End of Time: Hot-Tub AI Mysticism",
+    "advanced_seo_description": "Kate Armstrong turned a planetarium dome into a séance — a Flux LoRA trained on her hot-tub paintings. Not AI wallpaper, but an oracle of the post-body future."
+   }
+  },
+  {
+   "id": 11252,
+   "slug": "name-the-bias",
+   "meta": {
+    "jetpack_seo_html_title": "Name the Bias: It's Not 'AI Bias' | Kris Krüg",
+    "advanced_seo_description": "Stop calling it 'AI bias.' It's misogyny when generators strip women's authority; racism when facial recognition fails Black women 40x more. Name it."
+   }
+  },
+  {
+   "id": 11171,
+   "slug": "both-hands-full",
+   "meta": {
+    "jetpack_seo_html_title": "Both Hands Full: What Creatives Need to Know About AI",
+    "advanced_seo_description": "For creatives holding two truths at once — anger at non-consensual training, and curiosity about the tools. Not 'embrace' or 'resist,' but both hands full."
+   }
+  },
+  {
+   "id": 11620,
+   "slug": "applied-ethical-ai-responsible-ai-professional-certification-rap",
+   "meta": {
+    "jetpack_seo_html_title": "Applied Ethical AI: The RAP Certification | Kris Krüg",
+    "advanced_seo_description": "A 4-week applied-ethics AI certification built with Martin Lopatka and Sarah Downey. The gap it fills, what's inside, and honest notes from the first cohort."
+   }
+  },
+  {
+   "id": 9937,
+   "slug": "ai-training-for-media-pr-and-creative-professionals",
+   "meta": {
+    "jetpack_seo_html_title": "AI Training for Media, PR & Creative Pros | Kris Krüg",
+    "advanced_seo_description": "Hands-on, no-bullshit AI cohorts for media, PR, and creative pros who want to ship real work — not become prompt engineers. Fall 2025 tracks open now."
+   }
+  },
+  {
+   "id": 9044,
+   "slug": "vancouvers-ai-how-grassroots-innovation-is-reshaping-british-columbias-tech-future",
+   "meta": {
+    "jetpack_seo_html_title": "DIY AI in Vancouver: A Grassroots BC AI Association",
+    "advanced_seo_description": "How Vancouver's grassroots AI community — 2,400 people, 13 meetups — built a province-wide association that puts people before profit, not industry lobbyists."
+   }
+  },
+  {
+   "id": 11014,
+   "slug": "vancouver-tech-journal-isnt-journalism",
+   "meta": {
+    "jetpack_seo_html_title": "Vancouver Tech Journal Isn't Journalism | Kris Krüg",
+    "advanced_seo_description": "Vancouver Tech Journal grades BC's innovation economy — but it fires reporters who won't promote sponsors and only interviews people who pay them."
+   }
+  },
+  {
+   "id": 11936,
+   "slug": "you-cant-drink-data",
+   "meta": {
+    "advanced_seo_description": "I marched in Vancouver's first anti-data-centre protest. 'Shut it all down' and 'more compute, trust us' are the same dead end. A West Coast third way."
+   }
+  },
+  {
+   "id": 11765,
+   "slug": "calling-us-all-in",
+   "meta": {
+    "advanced_seo_description": "Day three of Web Summit Vancouver: I published 'Sovereign AI for Whom?' with my name on it, ran renegade booths, and found out it was the right call."
+   }
+  },
+  {
+   "id": 9549,
+   "slug": "ai-ate-the-future",
+   "meta": {
+    "advanced_seo_description": "A raw AI keynote on the day the future became Monday: Microsoft ships bot-written code, knowledge work shifts, and creative pros learn to hack the upheaval."
+   }
+  },
+  {
+   "id": 9374,
+   "slug": "bc-ai-is-live-and-were-building-the-future-we-actually-want",
+   "meta": {
+    "advanced_seo_description": "We launched Canada's first grassroots AI industry association — not to print money, but to ask who decides what 'intelligent' means on unceded territory."
+   }
+  },
+  {
+   "id": 9197,
+   "slug": "vancouver-ai-meetup-16-where-tech-creativity-and-community-collide",
+   "meta": {
+    "jetpack_seo_html_title": "Vancouver AI Meetup #16: Tech, Creativity & Community"
+   }
+  },
+  {
+   "id": 8856,
+   "slug": "how-indigenomics-ai-is-flipping-the-script-on-economic-power-in-canada",
+   "meta": {
+    "jetpack_seo_html_title": "How Indigenomics AI Flips Canada's Economic Script"
+   }
+  },
+  {
+   "id": 8802,
+   "slug": "how-to-build-an-ai-second-brain-that-actually-works-for-you",
+   "meta": {
+    "jetpack_seo_html_title": "Build an AI Second Brain That Actually Works"
+   }
+  },
+  {
+   "id": 8663,
+   "slug": "is-a-hotdog-a-sandwich-vancouver-aidata-storytelling-hackathon-w-andrew-reid",
+   "meta": {
+    "jetpack_seo_html_title": "Vancouver AI Data Storytelling Hackathon w/ Andrew Reid"
+   }
+  },
+  {
+   "id": 12184,
+   "slug": "canada-ai-for-all-strategy-skeptical-guide",
+   "meta": {
+    "advanced_seo_description": "A skeptical guide to Canada's June 2026 AI for All strategy: the money, the job claims, the safety gaps, the data-centre buildout, and the B.C. angle."
+   }
+  },
+  {
+   "id": 12149,
+   "slug": "long-road-to-futureproof",
+   "meta": {
+    "advanced_seo_description": "Futureproof began as Kris Krüg's creative-tech festival dream — then Vancouver AI, BC + AI, and three years of community made it finally possible."
+   }
+  }
+ ]
+}

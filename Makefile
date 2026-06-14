@@ -153,7 +153,8 @@ seo-backfill: ## Additive-only SEO meta backfill (default DRY-RUN). Live: EXECUT
 		$${EXECUTE:+--execute} \
 		--kind "$${KIND:-post}" --order "$${ORDER:-recent}" --fields "$${FIELDS:-seo_title,meta_desc,social}" \
 		$${LIMIT:+--limit $${LIMIT}} $${SINCE:+--since $${SINCE}} $${IDS:+--ids $${IDS}} \
-		$${PROBE_ID:+--probe-id $${PROBE_ID}} $${BACKUP_DIR:+--backup-dir $${BACKUP_DIR}}
+		$${PROBE_ID:+--probe-id $${PROBE_ID}} $${BACKUP_DIR:+--backup-dir $${BACKUP_DIR}} \
+		$${FROM_FILE:+--from-file $${FROM_FILE}}
 
 jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/routing audit (FORMAT=json)
 	@if [ "$${FORMAT:-human}" = "json" ]; then \
