@@ -17,7 +17,7 @@ All candidates are 16:9, generated against each draft's `image-brief.md`, honori
 
 | Draft | WP ID | Issue | Recommendation |
 |---|---|---|---|
-| How We Did It: SFU SIAT Microcredential | 12038 | Rafiki repeatedly misspells "MICROCREDENTIAL" (both v1/v2 say "MICROCREDENIAL"); v2 also inserted a face. | Brief's preferred source was a **real project artifact / screenshot** anyway — supply one, or accept v1 with a title fix/overlay. Candidates staged at `images/rafiki-v1.png`, `rafiki-v2.png`. |
+| ~~How We Did It: SFU SIAT Microcredential~~ | 12038 | 🔒 **WITHDRAWN — CONFIDENTIAL, do not publish/share** (KK 2026-06-14). | Moot — post is not being published. Stays unpublished `draft`, out of cadence. |
 | Zero to One: From Meetup to Movement | 12034 | Brief: "the stronger path is real BC + AI meetup photography. Rafiki generation is backup only." Refusal: no fake people/crowd. | **Supply a real meetup/event photo.** I did not generate fake community imagery. |
 | AI Media Appearances / Podcast Guesting | 11879 | Brief: real media still / press image / headshot preferred; Rafiki backup only. Refusal: no fake broadcasters. | **Supply a real press still or headshot,** or approve a proof-stack collage built from real sources. I did not fabricate media imagery. |
 
@@ -31,4 +31,4 @@ Uploaded the picks (with alt text) and set featured media on the 4 ready drafts 
 | Canada Doesn't Need a Bigger AI Machine | 12030 | v2 | **12313** |
 | What Would Chat Do? | 12032 | v2 | **12314** |
 
-Swap any time: pick the other version in this folder and I'll re-upload. The 3 photo-needed drafts (SFU 12038, Zero to One 12034, Media Appearances 11879) still await a real asset from KK.
+Swap any time: pick the other version in this folder and I'll re-upload. Zero to One (12034) and Media Appearances (11879) were since resolved with real photos and scheduled (06-30 / 07-02). SFU SIAT (12038) is **withdrawn — confidential, do not publish/share**.

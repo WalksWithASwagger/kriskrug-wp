@@ -13,7 +13,9 @@ Tier 2 — KK said proceed; scheduled `future` @ 09:00 local (pulled to 06-22 st
 - ✅ 12030 Canada Doesn't Need a Bigger AI Machine → **2026-06-26 09:00**
 - ✅ 12032 What Would Chat Do? → **2026-06-28 09:00**
 
-Note: these carried content-review flags (sass/personal-risk balance, civic/governance claims). They're `future` and still editable — pull any before its date if review changes anything. Remaining: 3 photo-needed drafts (12038, 12034, 11879) await real assets.
+Note: these carried content-review flags (sass/personal-risk balance, civic/governance claims). They're `future` and still editable — pull any before its date if review changes anything.
+
+🔒 **SFU SIAT (12038) is WITHDRAWN — CONFIDENTIAL, do not publish/share** (KK 2026-06-14). It stays an unpublished `draft` and is out of the cadence permanently. 12034 and 11879 were since resolved (real photos) and are scheduled 06-30 / 07-02.
 
 
 Gate for KK: approve this date table (and which drafts are in it) before any live scheduling run. Cadence per `PUBLISH-QUEUE-2026-06-11.md`: 9:00 AM Pacific, every two days, first slot ≥12h after approval. Already-scheduled `11876` (2026-06-11) and `11878` (2026-06-13) are excluded — they're handled. `you-cant-drink-data` stays held (coordinated 3-post drop).
@@ -37,7 +39,7 @@ Append to the cadence in this order once each has an approved featured image. Da
 | 6 | 2026-06-26 | AI Won't Fix Your Broken Permit Process | 12035 | Rafiki v1 staged — pick |
 | 7 | 2026-06-28 | Canada Doesn't Need a Bigger AI Machine | 12030 | Rafiki v1/v2 staged — pick |
 | 8 | 2026-06-30 | What Would Chat Do? | 12032 | Rafiki v1/v2 staged — pick |
-| 9 | TBD | How We Did It: SFU SIAT Microcredential | 12038 | needs real artifact or title fix |
+| ~~9~~ | 🔒 **WITHDRAWN** | How We Did It: SFU SIAT Microcredential | 12038 | **CONFIDENTIAL — do not publish/share** (KK 2026-06-14). Stays `draft`, out of cadence. |
 | 10 | TBD | Zero to One: From Meetup to Movement | 12034 | needs real meetup photo |
 | 11 | TBD | AI Media Appearances | 11879 | needs real press still/headshot |
 

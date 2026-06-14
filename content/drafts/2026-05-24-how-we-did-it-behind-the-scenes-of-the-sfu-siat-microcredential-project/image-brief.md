@@ -1,5 +1,7 @@
 # Rafiki image brief: How We Did It: Behind the Scenes of the SFU SIAT Microcredential Project
 
+> 🔒 **WITHDRAWN — CONFIDENTIAL (KK 2026-06-14).** This post is **not to be published or shared**. WP `12038` stays an unpublished `draft` and is removed from the publish cadence permanently. No image work is needed; the notes below are retained only as a record. Do not generate, install, or schedule anything for this draft.
+
 Status: image-blocked. The generated image tied to WP media `12268` is rejected and must not be reused.
 
 ## Visual job

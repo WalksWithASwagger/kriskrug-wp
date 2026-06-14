@@ -3,7 +3,7 @@
 KK confirmed featured images and scheduling:
 - **Zero to One (12034)** → featured media **6835** (engaged community crowd) → scheduled **2026-06-30 09:00**
 - **AI Media Appearances (11879)** → featured media **11205** (keynote stage) → scheduled **2026-07-02 09:00**
-- **SFU SIAT (12038)** → kept its Rafiki diagram (no real artifact available).
+- **SFU SIAT (12038)** → 🔒 **WITHDRAWN — CONFIDENTIAL, do not publish/share** (KK 2026-06-14). Stays unpublished `draft`, removed from cadence. No image needed.
 
 All 9 scheduled posts now carry featured images. The starred shortlists below are kept for reference only.
 
