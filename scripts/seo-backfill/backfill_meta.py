@@ -26,6 +26,7 @@ from backfill_lib import (  # noqa: E402
     build_meta_payload,
     meta_value,
     plan_meta_for_item,
+    reconcile_with_fresh_meta,
     title_text,
 )
 from kk_notion_to_wp import WordPress, load_config, title_similarity  # noqa: E402
@@ -138,11 +139,12 @@ def apply_one(wp: WordPress, item: dict, kind: str, fields, *, live: bool) -> di
     if sim < TITLE_DRIFT_THRESHOLD:
         out["status"] = "failed"; out["reason"] = f"title drift sim={sim:.2f} (<{TITLE_DRIFT_THRESHOLD})"; return out
 
-    # Re-check emptiness against the FRESH meta (close TOCTOU); drop now-filled keys.
+    # Re-gate emptiness against the FRESH meta (closes TOCTOU), but keep the
+    # values derived from the ORIGINAL item — the readback omits excerpt/content,
+    # so re-deriving from it would silently drop meta_desc/social. The post body
+    # is stable between enumeration and write; only the meta emptiness can change.
     fresh_meta = fresh.get("meta") or {}
-    replan = plan_meta_for_item(fresh, kind, fields)
-    planned = {k: v for k, v in replan.planned.items()
-               if not (isinstance(fresh_meta.get(k), str) and fresh_meta[k].strip())}
+    planned = reconcile_with_fresh_meta(plan.planned, fresh_meta)
     if not planned:
         out["reason"] = "fields filled since enumeration"; return out
 

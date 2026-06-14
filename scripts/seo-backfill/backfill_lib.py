@@ -169,6 +169,19 @@ def plan_meta_for_item(item: dict, kind: str, fields=("seo_title", "meta_desc", 
     return plan
 
 
+def reconcile_with_fresh_meta(planned: dict, fresh_meta: dict) -> dict:
+    """TOCTOU re-gate before a live write: keep only the planned keys whose value
+    in `fresh_meta` is still empty. Values come from `planned` (derived from the
+    full item) and are NEVER re-derived from fresh_meta — a pre-write identity
+    readback may omit excerpt/content, so re-deriving there would silently drop
+    meta_desc/social. The post body is stable between enumeration and write;
+    only meta emptiness can change."""
+    return {
+        k: v for k, v in planned.items()
+        if not (isinstance(fresh_meta.get(k), str) and fresh_meta[k].strip())
+    }
+
+
 def build_meta_payload(planned: dict) -> dict:
     """Hard enforcement of additive-only / meta-only. Raises if any planned key
     is outside the 3-key allowlist. The returned payload has exactly one

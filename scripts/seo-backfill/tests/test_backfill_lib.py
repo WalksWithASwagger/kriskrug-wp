@@ -13,6 +13,7 @@ from backfill_lib import (  # noqa: E402
     derive_meta_description,
     derive_seo_title,
     plan_meta_for_item,
+    reconcile_with_fresh_meta,
     title_text,
 )
 
@@ -139,6 +140,27 @@ def test_allowlist_is_exactly_the_three_keys():
         "advanced_seo_description",
         "jetpack_publicize_message",
     }
+
+
+def test_reconcile_preserves_derived_values_not_in_fresh_meta():
+    # Regression: the pre-write readback omits excerpt/content, so we must keep
+    # the values derived from the original item — never drop desc/social just
+    # because they aren't re-derivable from the readback.
+    planned = {
+        "jetpack_seo_html_title": "T | Kris Krüg",
+        "advanced_seo_description": "A real description.",
+        "jetpack_publicize_message": "A real social message.",
+    }
+    fresh_meta = {}  # nothing filled since enumeration
+    result = reconcile_with_fresh_meta(planned, fresh_meta)
+    assert result == planned  # all three survive
+
+
+def test_reconcile_drops_keys_filled_since_enumeration():
+    planned = {"advanced_seo_description": "x", "jetpack_publicize_message": "y"}
+    fresh_meta = {"advanced_seo_description": "someone set this already"}
+    result = reconcile_with_fresh_meta(planned, fresh_meta)
+    assert result == {"jetpack_publicize_message": "y"}
 
 
 def test_fields_filter_limits_scope():
