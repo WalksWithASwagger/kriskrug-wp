@@ -1,6 +1,14 @@
-# Pending photo picks — 2026-06-14 (resume here)
+# Photo picks — RESOLVED 2026-06-14
 
-KK starred these in the photo picker but left before confirming "done", so featured media is NOT yet set. Resume: relaunch the picker (`/tmp/photo_picker_server.py`) or just apply these directly.
+KK confirmed featured images and scheduling:
+- **Zero to One (12034)** → featured media **6835** (engaged community crowd) → scheduled **2026-06-30 09:00**
+- **AI Media Appearances (11879)** → featured media **11205** (keynote stage) → scheduled **2026-07-02 09:00**
+- **SFU SIAT (12038)** → kept its Rafiki diagram (no real artifact available).
+
+All 9 scheduled posts now carry featured images. The starred shortlists below are kept for reference only.
+
+---
+(original shortlist note)
 
 ## Starred (saved server-side in /tmp/photo_selections.json)
 
