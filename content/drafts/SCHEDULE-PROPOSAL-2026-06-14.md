@@ -1,5 +1,15 @@
 # Proposed 2-day publish schedule — 2026-06-14 (#208)
 
+## STATUS 2026-06-14 — KK approved Tier 1; scheduled (live)
+Set to `future` at 09:00 local / 17:00 UTC (matches the 11878 convention; site tz is fixed UTC-8):
+- ✅ 11905 Sovereign AI for Whom? → **2026-06-16 09:00**
+- ✅ 12257 Why We Built the Responsible AI Professional Certification → **2026-06-18 09:00**
+- ✅ 12263 Ask the Right Skill First (god-skills) → **2026-06-20 09:00**
+- ⏭️ 11877 I Won't Fake the People Who Showed Up → **already `publish` (live)** — guard skipped it; not a future item. Verify it reads right live.
+
+Tier 2 (image drafts 12190/12035/12030/12032 now have featured images) can be scheduled next on KK's go — proposed 06-24→06-30 below.
+
+
 Gate for KK: approve this date table (and which drafts are in it) before any live scheduling run. Cadence per `PUBLISH-QUEUE-2026-06-11.md`: 9:00 AM Pacific, every two days, first slot ≥12h after approval. Already-scheduled `11876` (2026-06-11) and `11878` (2026-06-13) are excluded — they're handled. `you-cant-drink-data` stays held (coordinated 3-post drop).
 
 ## Tier 1 — ready now (no image blocker; pending KK source/preview approval)

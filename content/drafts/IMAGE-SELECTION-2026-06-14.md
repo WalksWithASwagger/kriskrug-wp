@@ -21,5 +21,14 @@ All candidates are 16:9, generated against each draft's `image-brief.md`, honori
 | Zero to One: From Meetup to Movement | 12034 | Brief: "the stronger path is real BC + AI meetup photography. Rafiki generation is backup only." Refusal: no fake people/crowd. | **Supply a real meetup/event photo.** I did not generate fake community imagery. |
 | AI Media Appearances / Podcast Guesting | 11879 | Brief: real media still / press image / headshot preferred; Rafiki backup only. Refusal: no fake broadcasters. | **Supply a real press still or headshot,** or approve a proof-stack collage built from real sources. I did not fabricate media imagery. |
 
-## After you pick
-For each selected image I will: upload via `kk_notion_to_wp.py` media flow (with alt text), set it as the draft's featured media, and record the new media ID here — then the draft moves to preview QA (#207). All of that stops again at your approval before any schedule/publish.
+## RESOLVED 2026-06-14 — KK chose "use all my picks"
+Uploaded the picks (with alt text) and set featured media on the 4 ready drafts (status unchanged — still draft):
+
+| Draft | WP ID | Pick | New media ID |
+|---|---|---|---|
+| The Great Canadian Proximity Game | 12190 | v2 | **12311** |
+| AI Won't Fix Your Broken Permit Process | 12035 | v1 | **12312** |
+| Canada Doesn't Need a Bigger AI Machine | 12030 | v2 | **12313** |
+| What Would Chat Do? | 12032 | v2 | **12314** |
+
+Swap any time: pick the other version in this folder and I'll re-upload. The 3 photo-needed drafts (SFU 12038, Zero to One 12034, Media Appearances 11879) still await a real asset from KK.
