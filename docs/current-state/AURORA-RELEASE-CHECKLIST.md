@@ -37,5 +37,6 @@ Use this checklist for every manual `kk-aurora` production deploy on Pagely (wp-
 
 ## Notes
 
-- Versions **1.3.16–1.3.18** are on branch `aurora/synthetic-feel-refactor` (PR #185) pending merge to `main`.
-- Production was at **1.3.12** as of 2026-06-09 morning-truth; repo `main` is **1.3.15**.
+- Versions **1.3.16–1.3.18** (PR #185 synthetic.ai refactor) are merged to `main`; repo `main` is now **1.3.18**.
+- Production was at **1.3.12** as of 2026-06-09 morning-truth.
+- 2026-06-14: deploy package staged at `backup/aurora-deploy-20260614/` (1.3.18 zip + git-rebuilt 1.3.12 rollback + checksums + `DEPLOY-HANDOFF.md`). Awaiting KK wp-admin upload (#204/#189).
