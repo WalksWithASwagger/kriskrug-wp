@@ -6,15 +6,21 @@
 https://kriskrug.co/llms.txt
 ```
 
-As of 2026-06-07, the live URL returns `404 text/html`, so the expected first deploy changes that response to `200` with plain-text or Markdown content.
+## Deployed state (verified 2026-06-14)
 
-## Deploy
+**Live: `https://kriskrug.co/llms.txt` returns `200 text/plain` and its body matches `fixes/llms.txt`.** (PR #180 / #187 closed.)
 
-Recommended path: upload `fixes/llms.txt` to the Pagely document root as `llms.txt` through SSH or SFTP. A static root file is preferred because it avoids WordPress routing and plugin dependencies.
+Live response headers indicate it is **served dynamically by WordPress, not as a static document-root file**: the response carries `vary: accept,content-type` and `cache-control: no-store, private` — the signature of a PHP `template_redirect`/`init` handler echoing the text, the same delivery family as the robots.txt `robots_txt` filter (`fixes/robots-txt-ai-policy.php`). There is **no static `llms.txt` at the Pagely document root** to SFTP.
 
-Alternative path: if a static root file is not available, deploy a tiny mu-plugin or Code Snippets entry that registers `/llms.txt` and returns the exact contents of `fixes/llms.txt` as `text/plain; charset=utf-8`.
+To confirm/edit the live source: wp-admin → **Code Snippets** (or mu-plugins). The snippet intercepts `/llms.txt` and returns the body as `text/plain`. To change content, edit the snippet's embedded text (keep `fixes/llms.txt` as the canonical source and re-paste), then re-verify. The earlier static-SFTP path below is the fallback if the snippet is ever removed.
 
-Do not deploy this file without KK approval and a current rollback path.
+## Deploy (fallback / re-deploy)
+
+Preferred (matches current live mechanism): a mu-plugin or Code Snippets entry that registers `/llms.txt` and returns the exact contents of `fixes/llms.txt` as `text/plain; charset=utf-8`.
+
+Alternative: upload `fixes/llms.txt` to the Pagely document root as a static `llms.txt` via SSH/SFTP. A static root file takes precedence over the WP handler, so disable the snippet first to avoid ambiguity.
+
+Do not change this file's live source without KK approval and a current rollback path.
 
 ## Rollback
 
@@ -24,20 +30,12 @@ If an older live `llms.txt` exists by the time this deploy runs, copy it to a ti
 
 ## Verify
 
-Before deploy:
-
-```bash
-curl -i https://kriskrug.co/llms.txt
-# expected before first deploy: HTTP 404 text/html
-```
-
-After deploy:
+Confirm live state and source parity (current expectation: HTTP 200, body == `fixes/llms.txt`):
 
 ```bash
 curl -fsSL https://kriskrug.co/llms.txt -o /tmp/kriskrug-llms-live.txt
-diff -u fixes/llms.txt /tmp/kriskrug-llms-live.txt
-curl -i https://kriskrug.co/llms.txt | sed -n '1,12p'
-# expected: HTTP 200 and Content-Type text/plain, text/markdown, or compatible text content
+diff -u fixes/llms.txt /tmp/kriskrug-llms-live.txt   # expect: no diff
+curl -i https://kriskrug.co/llms.txt | sed -n '1,12p' # expect: HTTP 200, Content-Type text/plain
 ```
 
 ## Maintenance
