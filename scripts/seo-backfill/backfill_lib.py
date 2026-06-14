@@ -169,6 +169,16 @@ def plan_meta_for_item(item: dict, kind: str, fields=("seo_title", "meta_desc", 
     return plan
 
 
+def meta_values_match(sent: str, stored) -> bool:
+    """Post-write verification comparison, tolerant of WordPress normalizing the
+    stored meta string (HTML-entity encoding of & < > quotes, whitespace). A
+    strict `==` produces false failures on posts whose text has those chars
+    (the value IS written, just re-encoded). Compare after unescaping + strip."""
+    if not isinstance(stored, str):
+        return False
+    return html.unescape(stored).strip() == html.unescape(sent).strip()
+
+
 def reconcile_with_fresh_meta(planned: dict, fresh_meta: dict) -> dict:
     """TOCTOU re-gate before a live write: keep only the planned keys whose value
     in `fresh_meta` is still empty. Values come from `planned` (derived from the
@@ -192,3 +202,27 @@ def build_meta_payload(planned: dict) -> dict:
     if bad:
         raise ValueError(f"refusing to write non-allowlisted meta keys: {sorted(bad)}")
     return {"meta": dict(planned)}
+
+
+def parse_approved_entry(entry: dict) -> tuple[int, str, dict]:
+    """Validate one KK-approved OVERWRITE entry (from a reviewed craft file).
+    Shape: {"id": int, "slug": str, "meta": {<allowlisted key>: <non-empty str>}}.
+    The slug is REQUIRED and used as a wrong-post guard at write time. Returns
+    (id, slug, meta). Raises ValueError on any bad shape — overwrites must be
+    exact and intentional, so this is strict."""
+    pid = entry.get("id")
+    if not isinstance(pid, int):
+        raise ValueError(f"entry missing integer id: {entry!r}")
+    slug = entry.get("slug")
+    if not isinstance(slug, str) or not slug.strip():
+        raise ValueError(f"entry {pid} missing slug (required wrong-post guard)")
+    meta = entry.get("meta")
+    if not isinstance(meta, dict) or not meta:
+        raise ValueError(f"entry {pid} has no meta")
+    bad = set(meta) - ALLOWED_META_KEYS
+    if bad:
+        raise ValueError(f"entry {pid} has non-allowlisted keys: {sorted(bad)}")
+    for k, v in meta.items():
+        if not isinstance(v, str) or not v.strip():
+            raise ValueError(f"entry {pid} key {k} is empty/non-string")
+    return pid, slug.strip(), dict(meta)

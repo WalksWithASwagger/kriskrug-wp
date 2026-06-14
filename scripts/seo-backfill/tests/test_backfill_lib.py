@@ -12,6 +12,7 @@ from backfill_lib import (  # noqa: E402
     build_meta_payload,
     derive_meta_description,
     derive_seo_title,
+    parse_approved_entry,
     plan_meta_for_item,
     reconcile_with_fresh_meta,
     title_text,
@@ -161,6 +162,29 @@ def test_reconcile_drops_keys_filled_since_enumeration():
     fresh_meta = {"advanced_seo_description": "someone set this already"}
     result = reconcile_with_fresh_meta(planned, fresh_meta)
     assert result == {"jetpack_publicize_message": "y"}
+
+
+def test_parse_approved_entry_valid():
+    pid, slug, meta = parse_approved_entry({
+        "id": 42, "slug": "hello", "meta": {"advanced_seo_description": "A crafted description."}
+    })
+    assert pid == 42 and slug == "hello"
+    assert meta == {"advanced_seo_description": "A crafted description."}
+
+
+def test_parse_approved_entry_requires_slug_guard():
+    with pytest.raises(ValueError, match="slug"):
+        parse_approved_entry({"id": 42, "meta": {"advanced_seo_description": "x"}})
+
+
+def test_parse_approved_entry_rejects_non_allowlisted():
+    with pytest.raises(ValueError, match="non-allowlisted"):
+        parse_approved_entry({"id": 42, "slug": "h", "meta": {"content": "HACK"}})
+
+
+def test_parse_approved_entry_rejects_empty_value():
+    with pytest.raises(ValueError, match="empty"):
+        parse_approved_entry({"id": 42, "slug": "h", "meta": {"advanced_seo_description": "  "}})
 
 
 def test_fields_filter_limits_scope():

@@ -25,6 +25,8 @@ from backfill_lib import (  # noqa: E402
     FIELD_TO_KEY,
     build_meta_payload,
     meta_value,
+    meta_values_match,
+    parse_approved_entry,
     plan_meta_for_item,
     reconcile_with_fresh_meta,
     title_text,
@@ -154,7 +156,7 @@ def apply_one(wp: WordPress, item: dict, kind: str, fields, *, live: bool) -> di
     # --- post-write verification ---
     verify = readback(wp, pid)
     vmeta = verify.get("meta") or {}
-    mismatched = [k for k, v in planned.items() if vmeta.get(k) != v]
+    mismatched = [k for k, v in planned.items() if not meta_values_match(v, vmeta.get(k))]
     slug_changed = verify.get("slug") != fresh.get("slug")
     title_changed = title_text(verify) != fresh_title
     if mismatched or slug_changed or title_changed:
@@ -165,6 +167,58 @@ def apply_one(wp: WordPress, item: dict, kind: str, fields, *, live: bool) -> di
     out["written"] = sorted(planned)
     out["preview"] = planned
     return out
+
+
+def apply_from_file_one(wp: WordPress, entry: dict, *, live: bool) -> dict:
+    """Write KK-approved OVERWRITE values for one post. Unlike the additive path
+    this MAY overwrite non-empty fields — but only the 3 allowlisted meta keys,
+    only the exact approved values, and only after a slug-identity guard. Records
+    prior values for rollback."""
+    pid, slug, meta = parse_approved_entry(entry)  # raises on bad shape
+    out = {"id": pid, "slug": slug, "status": "skipped", "written": [], "flags": [], "reason": "", "old": {}}
+
+    fresh = readback(wp, pid)
+    if int(fresh.get("id", -1)) != pid:
+        out["status"] = "failed"; out["reason"] = "id mismatch on readback"; return out
+    if fresh.get("slug") != slug:
+        out["status"] = "failed"; out["reason"] = f"slug guard: file={slug!r} live={fresh.get('slug')!r}"; return out
+
+    fresh_meta = fresh.get("meta") or {}
+    out["old"] = {k: fresh_meta.get(k, "") for k in meta}  # capture prior values for rollback
+
+    if not live:
+        out["status"] = "planned"; out["written"] = sorted(meta); out["preview"] = meta; return out
+
+    payload = build_meta_payload(meta)  # allowlist assert
+    wp.s.post(f"{wp.base}/wp-json/wp/v2/posts/{pid}", json=payload, timeout=60).raise_for_status()
+
+    verify = readback(wp, pid)
+    vmeta = verify.get("meta") or {}
+    mismatched = [k for k, v in meta.items() if not meta_values_match(v, vmeta.get(k))]
+    if mismatched or verify.get("slug") != slug or title_text(verify) != title_text(fresh):
+        out["status"] = "failed"; out["reason"] = f"readback mismatch keys={mismatched}"; return out
+    out["status"] = "written"; out["written"] = sorted(meta); out["preview"] = meta
+    return out
+
+
+def run_from_file(wp: WordPress, path: Path, *, live: bool) -> list[dict]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    entries = data["items"] if isinstance(data, dict) and "items" in data else data
+    if isinstance(entries, dict):  # {"123": {...}} form
+        entries = [{"id": int(k), **v} for k, v in entries.items()]
+    outcomes = []
+    for entry in entries:
+        try:
+            out = apply_from_file_one(wp, entry, live=live)
+        except ValueError as e:
+            out = {"id": entry.get("id"), "slug": entry.get("slug", ""), "status": "failed",
+                   "written": [], "flags": [], "reason": f"validation: {e}", "old": {}}
+        outcomes.append(out)
+        if out["status"] in ("written", "planned"):
+            log(f"  {out['status']:8} {out['id']} {out['slug'][:45]} -> {','.join(out['written'])}")
+        elif out["status"] == "failed":
+            log(f"  FAILED   {out.get('id')} {out.get('slug','')[:45]} -- {out['reason']}")
+    return outcomes
 
 
 def write_report(path: Path, *, mode, kind, fields, filters, probe_result, backup_note, outcomes) -> None:
@@ -205,6 +259,13 @@ def write_report(path: Path, *, mode, kind, fields, filters, probe_result, backu
             prev = o.get("preview", {})
             desc = prev.get("advanced_seo_description", "")
             lines.append(f"- **{o['id']}** {o['slug']} — flags: {', '.join(o['flags'])}" + (f" — desc: “{desc[:120]}”" if desc else ""))
+    rollback = [o for o in outcomes if o.get("old") and o["status"] == "written"]
+    if rollback:
+        lines += ["", "## Prior values (rollback record — overwrite mode)", ""]
+        for o in rollback:
+            lines.append(f"- **{o['id']}** {o['slug']}:")
+            for k, oldv in o["old"].items():
+                lines.append(f"    - `{k}`: was “{(oldv or '∅empty')[:100]}”")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -220,6 +281,7 @@ def main() -> int:
                    help="which fields to backfill (subset of seo_title,meta_desc,social)")
     p.add_argument("--probe-id", type=int, help="post to probe writability on (auto-picked if omitted)")
     p.add_argument("--backup-dir", help="backup/YYYY-MM-DD set; checked for live runs")
+    p.add_argument("--from-file", help="apply KK-approved OVERWRITE values from a JSON file (overwrite mode)")
     p.add_argument("--report-dir", default="docs/current-state/reports")
     args = p.parse_args()
 
@@ -232,6 +294,23 @@ def main() -> int:
     if not cfg.has_wp_credentials:
         log("WP_USER and WP_APP_PASSWORD required in scripts/notion-to-wp/.env"); return 1
     wp = WordPress(cfg.wp_base_url, cfg.wp_user, cfg.wp_app_password)
+
+    # --- OVERWRITE mode: apply KK-approved values from a reviewed file ---
+    if args.from_file:
+        path = Path(args.from_file)
+        log(f"{mode} (from-file overwrite): {path}")
+        outcomes = run_from_file(wp, path, live=args.execute)
+        ts = _utcnow().strftime("%Y%m%d-%H%M%SZ")
+        report = REPO_ROOT / args.report_dir / f"seo-overwrite-{ts}.md"
+        write_report(report, mode=f"{mode} (overwrite from {path.name})", kind="post",
+                     fields=("approved",), filters=f"from-file={path.name}",
+                     probe_result="n/a", backup_note="overwrite — prior values recorded per-item for rollback",
+                     outcomes=outcomes)
+        n = {s: sum(1 for o in outcomes if o["status"] == s) for s in ("written", "planned", "skipped", "failed")}
+        log("")
+        log(f"SUMMARY [{mode} overwrite]: written={n['written']} planned={n['planned']} failed={n['failed']}")
+        log(f"report: {report.relative_to(REPO_ROOT)}")
+        return 1 if n["failed"] else 0
 
     # Build candidate list.
     if args.ids:
