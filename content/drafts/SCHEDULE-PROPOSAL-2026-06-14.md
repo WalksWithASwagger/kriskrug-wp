@@ -7,7 +7,13 @@ Set to `future` at 09:00 local / 17:00 UTC (matches the 11878 convention; site t
 - ✅ 12263 Ask the Right Skill First (god-skills) → **2026-06-20 09:00**
 - ⏭️ 11877 I Won't Fake the People Who Showed Up → **already `publish` (live)** — guard skipped it; not a future item. Verify it reads right live.
 
-Tier 2 (image drafts 12190/12035/12030/12032 now have featured images) can be scheduled next on KK's go — proposed 06-24→06-30 below.
+Tier 2 — KK said proceed; scheduled `future` @ 09:00 local (pulled to 06-22 start since 11877 was already live, keeping the 2-day cadence unbroken):
+- ✅ 12190 The Great Canadian Proximity Game → **2026-06-22 09:00**
+- ✅ 12035 AI Won't Fix Your Broken Permit Process → **2026-06-24 09:00**
+- ✅ 12030 Canada Doesn't Need a Bigger AI Machine → **2026-06-26 09:00**
+- ✅ 12032 What Would Chat Do? → **2026-06-28 09:00**
+
+Note: these carried content-review flags (sass/personal-risk balance, civic/governance claims). They're `future` and still editable — pull any before its date if review changes anything. Remaining: 3 photo-needed drafts (12038, 12034, 11879) await real assets.
 
 
 Gate for KK: approve this date table (and which drafts are in it) before any live scheduling run. Cadence per `PUBLISH-QUEUE-2026-06-11.md`: 9:00 AM Pacific, every two days, first slot ≥12h after approval. Already-scheduled `11876` (2026-06-11) and `11878` (2026-06-13) are excluded — they're handled. `you-cant-drink-data` stays held (coordinated 3-post drop).
