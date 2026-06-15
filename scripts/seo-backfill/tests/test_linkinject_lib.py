@@ -485,8 +485,10 @@ def test_build_content_payload_raises_on_extra_key():
 # PILLAR_BY_CATEGORY completeness
 # ---------------------------------------------------------------------------
 
-def test_pillar_by_category_has_8_pillars():
-    assert len(PILLAR_BY_CATEGORY) == 8
+def test_pillar_by_category_covers_8_distinct_pillars():
+    # 8 dedicated pillars plus folded categories that reuse a pillar URL.
+    pillar_urls = {url for url, _ in PILLAR_BY_CATEGORY.values()}
+    assert len(pillar_urls) == 8, f"expected 8 distinct pillar URLs, got {sorted(pillar_urls)}"
 
 
 def test_pillar_by_category_all_have_vocabulary():

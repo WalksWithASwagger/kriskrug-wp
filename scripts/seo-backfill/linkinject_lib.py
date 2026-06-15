@@ -93,6 +93,23 @@ PILLAR_BY_CATEGORY: dict[int, tuple[str, list[str]]] = {
             "reconciliation in tech",
         ],
     ),
+    # Folded categories (no dedicated pillar) -> nearest topical pillar.
+    1754: (  # Responsible AI & Policy -> AI Ethics
+        "https://kriskrug.co/ai-ethics/",
+        ["responsible AI", "AI ethics", "AI policy"],
+    ),
+    1755: (  # Creative Technology & Making -> AI for Creatives
+        "https://kriskrug.co/ai-for-creatives/",
+        ["creative technology", "AI for Creatives", "making with AI"],
+    ),
+    1753: (  # Keynotes & Speaking -> AI Events & Recaps
+        "https://kriskrug.co/ai-events/",
+        ["AI keynotes and talks", "AI events", "keynote recaps"],
+    ),
+    1681: (  # Field Notes (KK's AI essays/observations) -> AI for Creatives
+        "https://kriskrug.co/ai-for-creatives/",
+        ["AI for Creatives", "creative AI", "AI field notes"],
+    ),
 }
 
 FOOTER_SENTINEL = "kk-collection-footer"
