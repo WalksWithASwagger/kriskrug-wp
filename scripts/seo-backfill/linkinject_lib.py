@@ -110,6 +110,15 @@ PILLAR_BY_CATEGORY: dict[int, tuple[str, list[str]]] = {
         "https://kriskrug.co/ai-for-creatives/",
         ["AI for Creatives", "creative AI", "AI field notes"],
     ),
+    # Legacy categories (no curated pillar) -> their category archive as the hub.
+    1757: (  # Web & Early Blog
+        "https://kriskrug.co/category/web-early-blog/",
+        ["Web and Early Blog archive", "early blog", "the archive"],
+    ),
+    1756: (  # Photography & Visual Storytelling
+        "https://kriskrug.co/category/photography-visual-storytelling/",
+        ["Photography and Visual Storytelling", "photography archive", "visual storytelling"],
+    ),
 }
 
 FOOTER_SENTINEL = "kk-collection-footer"

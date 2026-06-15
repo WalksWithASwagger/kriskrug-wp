@@ -485,10 +485,17 @@ def test_build_content_payload_raises_on_extra_key():
 # PILLAR_BY_CATEGORY completeness
 # ---------------------------------------------------------------------------
 
-def test_pillar_by_category_covers_8_distinct_pillars():
-    # 8 dedicated pillars plus folded categories that reuse a pillar URL.
-    pillar_urls = {url for url, _ in PILLAR_BY_CATEGORY.values()}
-    assert len(pillar_urls) == 8, f"expected 8 distinct pillar URLs, got {sorted(pillar_urls)}"
+def test_pillar_by_category_covers_8_dedicated_pillars():
+    # The 8 dedicated pillar pages must all be reachable (folds + legacy
+    # archives may add more entries/URLs, but these 8 must be present).
+    expected = {
+        "https://kriskrug.co/vancouver-ai/", "https://kriskrug.co/ai-for-creatives/",
+        "https://kriskrug.co/ai-events/", "https://kriskrug.co/ai-ethics/",
+        "https://kriskrug.co/ai-conversations/", "https://kriskrug.co/ai-for-journalists/",
+        "https://kriskrug.co/ai-tools/", "https://kriskrug.co/indigenous-ai/",
+    }
+    urls = {url for url, _ in PILLAR_BY_CATEGORY.values()}
+    assert expected <= urls, f"missing pillars: {expected - urls}"
 
 
 def test_pillar_by_category_all_have_vocabulary():
