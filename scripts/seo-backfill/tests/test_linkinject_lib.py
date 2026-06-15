@@ -657,3 +657,15 @@ def test_plan_links_previously_failed_post_now_yields_footer_only():
     assert footer_block is not None
     # The resulting plan must pass minimal-diff.
     assert_minimal_diff(content, new_content, [], footer_block)
+
+
+def test_count_internal_links_excludes_media_and_system():
+    from linkinject_lib import _count_internal_links
+    content = (
+        '<a href="https://kriskrug.co/vancouver-ai/">hub</a> '          # counts
+        '<a href="https://kriskrug.co/2025/05/18/bc-ai-is-live/">x</a> '  # counts
+        '<a href="https://kriskrug.co/wp-content/uploads/2026/05/img.png"><img></a> '  # excluded
+        '<a href="https://kriskrug.co/wp-content/uploads/2026/05/2.jpg"><img></a> '    # excluded
+        '<a href="https://example.com/">ext</a>'                          # excluded
+    )
+    assert _count_internal_links(content) == 2

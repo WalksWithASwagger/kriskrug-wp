@@ -377,7 +377,14 @@ def rank_siblings(
 # ---------------------------------------------------------------------------
 
 # How many existing internal kriskrug.co links count toward the cap.
-_INTERNAL_RE = re.compile(r'href="https://kriskrug\.co/', re.IGNORECASE)
+# Exclude media/system paths: Gutenberg image blocks with linkDestination=media
+# produce <a href="https://kriskrug.co/wp-content/uploads/...img"> wrappers that
+# are NOT navigational internal links and must not inflate the cap (they caused
+# image-heavy posts to be falsely skipped as cap-met).
+_INTERNAL_RE = re.compile(
+    r'href="https://kriskrug\.co/(?!wp-content/|wp-includes/|wp-admin/|feed/|wp-json/)',
+    re.IGNORECASE,
+)
 
 
 def _validate_contextual(original: str, new_content: str, applied: list[dict]) -> None:
