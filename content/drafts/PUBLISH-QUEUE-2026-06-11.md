@@ -56,6 +56,12 @@ The original five-item plan cannot safely become a five-draft WordPress queue as
 
 WordPress REST readback is clean for the ready drafts. On 2026-06-11, KK explicitly approved scheduling one ready post for today and one for two days from now, so `11876` and `11878` moved to `future`. Seven generated-image drafts are still image-blocked with featured media cleared and rejected media `12264`-`12270` preserved only as audit references. Browser preview QA remains a KK/login gate for unscheduled drafts and image-blocked drafts: Chrome reached the WordPress login screen for `wp-admin/post.php?post=11876&action=edit`, and direct `?p=11876&preview=true` returned the public 404 while logged out.
 
+## Image-brief status (#206)
+
+2026-06-15: All seven image-blocked drafts now carry a full six-field Rafiki brief (`image-brief.md`): visual job, style lane, preferred source type, refusal lines, **aspect ratio**, and **finishing notes**. The aspect-ratio and finishing-notes fields were added per post (not boilerplate) — generation aspect tuned to each visual job with a 1200×630 / 1.91:1 featured-card safe zone, plus a per-post handoff checklist (Rafiki-viewer review, do-not-reuse the rejected media ID, keep WP `draft`, named style lane).
+
+This completes #206 acceptance bullet 1 (briefs). It does **not** close #206: bullet 2 (replacement *source approved* before the WP media lane) stays gated on KK plus actual Rafiki generation/selection, which is not done here. `how-we-did-it` (SFU SIAT, WP `12038`) is **WITHDRAWN — CONFIDENTIAL (KK 2026-06-14)** and needs no image work; its brief is retained only as a record.
+
 ## Rejected generated media
 
 Do not reuse these media IDs without explicit KK approval:
