@@ -39,6 +39,15 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.3.18 =
+* Fixed stagger-reveal sections rendering invisible (found in visual QA).
+
+= 1.3.17 =
+* QA cleanup: un-chained stylesheets and pruned dead CSS/presets.
+
+= 1.3.16 =
+* Synthetic.ai restraint pass (PR #185): dialed back ambient red glow, added soft SVG film-grain overlay, increased section rhythm, self-hosted Inter + JetBrains Mono (Google Fonts removed).
+
 = 1.3.15 =
 * GSAP CDN removed; one-accent signal/wildcard color scheme refactor (PR #184).
 * Self-hosted Clash Display; micro-interactions use native IntersectionObserver reveals.

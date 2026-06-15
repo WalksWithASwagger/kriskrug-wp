@@ -1,6 +1,8 @@
 # Publish gate: How We Did It: Behind the Scenes of the SFU SIAT Microcredential Project
 
-Status: draft-only review package.
+> 🔒 **DO NOT PUBLISH — CONFIDENTIAL (KK 2026-06-14).** This post must not be published or shared. The gate is permanently closed: keep WP `12038` as an unpublished `draft`. Ignore the criteria below — they no longer apply.
+
+Status: WITHDRAWN — confidential, do not publish/share.
 
 ## Required before scheduling
 
