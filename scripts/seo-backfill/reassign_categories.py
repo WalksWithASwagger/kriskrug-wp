@@ -37,6 +37,8 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument("--execute",action="store_true")
     p.add_argument("--namemap",default="/tmp/category_namemap.json")
+    p.add_argument("--legacy",action="store_true",
+                   help="also assign no-keyword posts via era fallback (photo-signal -> Photography, else Web & Early Blog)")
     args=p.parse_args()
     e=load_env()
     auth=base64.b64encode(f"{e['WP_USER']}:{e['WP_APP_PASSWORD']}".encode()).decode()
@@ -61,19 +63,24 @@ def main():
         posts+=b; page+=1
     print(f"{len(posts)} Misc posts", flush=True)
 
+    PHOTO_SIGNALS=["photo","flickr","portrait","camera","shoot","gallery","exhibit"," lens","instagram","film festival","documentary"]
+
     def classify(post):
         tx=(strip(post['title'].get('rendered') if isinstance(post['title'],dict) else '')+" "+
             strip(post['excerpt'].get('rendered') if isinstance(post['excerpt'],dict) else '')).lower()
         for name,kws in RULES:
             if any(k in tx for k in kws): return name,"high"
-        return None,"low"
+        # legacy era fallback (only used when --legacy): photo-signal -> Photography, else early blog
+        if any(k in tx for k in PHOTO_SIGNALS):
+            return "Photography & Visual Storytelling","legacy"
+        return "Web & Early Blog","legacy"
 
     mode="live" if args.execute else "dry-run"
     out={"written":0,"skipped_lowconf":0,"failed":0}
     rollback=[]
     for post in posts:
         name,conf=classify(post)
-        if conf=="low" or not name:
+        if conf=="legacy" and not args.legacy:
             out["skipped_lowconf"]+=1; continue
         target=NAMEMAP.get(name)
         if not target:
