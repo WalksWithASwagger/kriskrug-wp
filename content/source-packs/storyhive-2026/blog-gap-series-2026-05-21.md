@@ -16,10 +16,10 @@
 
 ## Sources Read
 
-- KB recap: `/Users/kk/Code/notion-local/kk-ai-ecosystem/content/media/interviews/2026-05-20-storyhive-on-location-victoria-recap.md`
-- KB transcript: `/Users/kk/Code/notion-local/kk-ai-ecosystem/content/media/interviews/2026-05-20-storyhive-on-location-victoria-transcript.md`
-- Prep answer bank: `/Users/kk/Code/notion-local/kk-ai-ecosystem/content/media/interviews/storyhive-on-location-prep-2026-05-20.md`
-- StoryHive project hub: `/Users/kk/Code/notion-local/kk-ai-ecosystem/content/projects/10-creative-practice/storyhive-documentary/`
+- KB recap: `content/media/interviews/2026-05-20-storyhive-on-location-victoria-recap.md` (via `/Users/kk/Code/notion-local/kk-ai-ecosystem/` symlink → `kk-kb`)
+- KB transcript: `content/media/interviews/2026-05-20-storyhive-on-location-victoria-transcript.md`
+- Prep answer bank: `content/media/interviews/storyhive-on-location-prep-2026-05-20.md`
+- StoryHive project hub: `content/projects/10-creative-practice/storyhive-documentary/`
 - kriskrug.co live blog listing and live WP REST post inventory, checked 2026-05-21
 - Local draft/source packs in `content/drafts/` and `content/source-packs/keynotes-2026/`
 

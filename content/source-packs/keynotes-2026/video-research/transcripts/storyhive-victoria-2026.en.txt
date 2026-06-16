@@ -1,0 +1,4639 @@
+Language: en
+
+Welcome to another episode of StoryHive
+
+on location Victoria. We're coming to
+
+you live from House of Owl, Victoria's
+
+Co-working Club for creators located on
+
+the unseated and ancestral territories
+
+of the Lquangan speaking peoples. Deep
+
+bow, deep respect, deep love to the
+
+original caretakers of these lands. My
+
+name is Jordan Dak, producer, poet,
+
+songwriter, and host of this deep dive
+
+into the creative process, creative or
+
+die. I'm sitting here with an absolute
+
+legend who lives at the intersection of
+
+the creative process and tech and the
+
+future and whatever's happening next.
+
+Chris Krug is there.
+
+&gt;&gt; Hey, what's up Jordan?
+
+&gt;&gt; Chilling, man. How you doing?
+
+&gt;&gt; Doing great. It's always great to be
+
+here in the Hoot Nest and in Victoria.
+
+So much like thriving creative activity
+
+happening here, man. So pleasure.
+
+&gt;&gt; It is absolutely my pleasure to have you
+
+here. I'm looking forward to this talk.
+
+So you know, usually what we do in this
+
+conversation is that we skip right over
+
+the resume. We won't spend too much time
+
+on,
+
+you know, your formative years
+
+necessarily, but what we will do is
+
+we'll go through some quick facts, facts
+
+that may or may not be true. All right?
+
+And your job is just to let the audience
+
+know whether they are true. Okay.
+
+&gt;&gt; Okay.
+
+&gt;&gt; Let me see.
+
+&gt;&gt; Sounds fun.
+
+&gt;&gt; Yeah, it's a good time. Okay. So,
+
+wow.
+
+&gt;&gt; Bring the heat, Jordan.
+
+&gt;&gt; Bring the heat. Okay.
+
+Okay. So, first fact,
+
+Chris Krug was originally born in
+
+Alaska. False.
+
+You guys can keep score at home. Okay.
+
+Now, next fact. Chris Krug
+
+started a meetup group, a community of
+
+AI enthusiasts in Vancouver and has
+
+grown to beyond 300 members recently.
+
+&gt;&gt; More or less true.
+
+&gt;&gt; Tell me more.
+
+&gt;&gt; Not everyone's an enthusiast. We got
+
+plenty of skeptics, critical voices, all
+
+sorts of people who are engaged in the
+
+moment who aren't exactly enthusiasts.
+
+&gt;&gt; Fantastic. Okay, cool. Okay, let's see.
+
+Chris Krug is not your real name. Your
+
+real name is Peter.
+
+&gt;&gt; False.
+
+&gt;&gt; False. Okay. Okay. Now, final question.
+
+The truth is that I don't have any
+
+questions. I'm just making this up as we
+
+go along here.
+
+&gt;&gt; I don't know. You sent me about 30
+
+questions earlier that we're
+
+&gt;&gt; Oh, right. Oh, those ones are good.
+
+Yeah. Okay.
+
+&gt;&gt; Well, I'd love to just dive right into
+
+it, Chris. So for those of you for those
+
+of people out there who don't know who
+
+you are, how would how would you like
+
+really explain what you do and who you
+
+are to people when you first meet them?
+
+If they're like, "Hey, Chris, who are
+
+you? What are you all about? What do you
+
+say?"
+
+&gt;&gt; I'm a tech artist. I've spent the last
+
+30 years at the intersection of the
+
+internet and emerging media and art
+
+forms. And now I run um a nonprofit
+
+called the BCAI ecosystem. So I'm the
+
+executive director of a nonprofit and a
+
+practicing tech artist.
+
+&gt;&gt; Okay. That was very succinct. Thank you.
+
+Cool, man. So, what can you tell me a
+
+little bit about the adventure or the
+
+journey that took you from um well, I
+
+mean, you started would you say you
+
+started in tech or started in creativity
+
+or somewhere in between the two? My dad,
+
+you said we weren't going to go down
+
+childhood lane, but my my dad brought
+
+home a Apple 2e when I was like 12 years
+
+old and connected it via Prodigy to the
+
+internet
+
+&gt;&gt; and the world opened up to me and so I
+
+became a online guy in my early teenage
+
+years. This is like late 80s, early 90s.
+
+And so that was kind of my big first
+
+exposure to networks and the internet
+
+and connecting to other people in the
+
+digital space.
+
+&gt;&gt; And uh so I put myself through college
+
+building websites and stuff and then um
+
+I was sitting pretty uh with some
+
+friends who had built a company called
+
+Flickr right at the beginning of the
+
+kind of social media revolution. So I
+
+got to kind of
+
+&gt;&gt; sit front row seat for that um
+
+empowering revolution for many people,
+
+you know, and stuff. And then uh well
+
+that launched me into my own creative
+
+practice around photography and I got to
+
+travel the world helping other creative
+
+practitioners figure out like how to
+
+take advantage of the moment how to make
+
+the most of this kind of like web 2.0
+
+moment where it went from just you know
+
+building the website to publishing
+
+content interacting with your fans
+
+finding your voice and like
+
+disintermediating from galleries and
+
+owners and you know like agents and
+
+stuff like that. the people who had
+
+traditionally held the power structures
+
+of the creative industries. Um, we saw a
+
+big shift there, you know, and and um
+
+and that led me here, you know, I was
+
+hanging out on Galliano Island pandemic
+
+farming when uh AI reached its tendril
+
+out to my cabin there and um really just
+
+kind of like lit my brain up. Uh I
+
+started sleeping less and experimenting
+
+with a lot of these tools and
+
+&gt;&gt; I got really lucky. I I mean it doesn't
+
+start with a happy story, but I got
+
+hacked really bad in 2017
+
+&gt;&gt; and that had me pull back from the
+
+internet. I had lived a pretty open
+
+online life for, you know, most most my
+
+career and and uh due to some Bitcoin
+
+shenanigans, you know, someone wanted my
+
+wallet and came after me and they wanted
+
+my Twitter handle and and anyway, I got
+
+hacked and brought to my my very knees
+
+digitally speaking. Lost a main domain
+
+name that I had had for a couple
+
+decades. Did they get some of your coins
+
+too that they
+
+&gt;&gt; they got some PayPal money, but that was
+
+all insured and stuff like that, but uh
+
+no, in the end it was mostly the things
+
+I lost were a couple primary email
+
+addresses that locked me out of
+
+everything and my main domain or
+
+whatever. But
+
+&gt;&gt; um so I had kind of like pulled back
+
+from the internet when um when I learned
+
+about AI. Uh and uh so I was a little
+
+like reticent to put myself out there
+
+into some of these Discord servers where
+
+you were generating midjourney images
+
+and stuff like that because they just
+
+looked like hacker chaos to me, right?
+
+And so I stood up my own Discord server
+
+that day, installed the MidJourney bot
+
+onto it, and invited a few of my friends
+
+from kind of the olden days of the
+
+internet to that server.
+
+&gt;&gt; And that was the seed that became this
+
+kind of thriving community that we have
+
+today where all sorts of artists and
+
+professional creatives are coming
+
+together to figure out, you know, what
+
+exactly is going on in this moment. Um a
+
+lot of us are following our passions and
+
+curiosities down creative rabbit holes
+
+and then you know returning that in the
+
+form of you know
+
+&gt;&gt; gallery works presentations demos to
+
+other people teaching teaching other
+
+people what we've learned you know and
+
+stuff and so it's become this kind of
+
+virtual virtuous you know online
+
+learning circle of other people trying
+
+to figure this [&nbsp;__&nbsp;] out you know
+
+&gt;&gt; super cool
+
+&gt;&gt; now do you think that I mean have you
+
+been one in your past as a photographer
+
+um or even before that staying back in
+
+the uh the early days
+
+was the difference between art and tech
+
+distinct in your mind or was it fairly
+
+fluid?
+
+&gt;&gt; I tell you what, when I first got into
+
+technology, I didn't even know that you
+
+could live the life of a professional
+
+creative. In my family, there was
+
+doctors and lawyers and engineers and
+
+software developers. But, um, you know,
+
+I grew up in a pretty conservative
+
+religious situation where people that,
+
+you know, made films or were in bands or
+
+made art, they were considered worldly
+
+&gt;&gt; and not like in a positive way, you
+
+know, not like, oh, they're well
+
+traveled, you know, or something like
+
+that, but it's like, you know, now
+
+that's a,
+
+&gt;&gt; you know, not not a desirable
+
+um, you know, I don't even want to say
+
+like line of work because to be an
+
+artist isn't really line of work. it's
+
+kind of, you know, a life a lifestyle,
+
+you know, but so those I didn't know a
+
+lot of people like that. Um, and so
+
+there was definitely a big um chasm
+
+between my tech work and my creative
+
+work there for a long time.
+
+&gt;&gt; Yeah. Yeah. Yeah. But um you know
+
+through building websites at first for
+
+other people people in marketing
+
+departments and stuff like that
+
+&gt;&gt; I eventually stumbled into photography
+
+and that was the creative key that
+
+unlocked the the doorway to me being
+
+able to step into like thinking of
+
+myself as an artist and living that um
+
+artistic creative life.
+
+&gt;&gt; Yeah. I mean, if you think about all the
+
+different arts, it's it's would be
+
+hardressed to find an art that doesn't
+
+involve tech to some degree, right? You
+
+know, I mean, even if you're developing
+
+your photos in a dark room, there's
+
+still technology involved. Uh, and we're
+
+going to dive a little deeper into the
+
+whole, you know, the AI verse art and
+
+even if that is a conflict and what that
+
+conflict looks like. So, we'll just
+
+leave that alone right now. But um I'd
+
+love to hear a little bit more about
+
+when you started to notice that AI was
+
+this thing that could change the world,
+
+could change the way that we look at
+
+things.
+
+&gt;&gt; Well, my first like epiphany about it
+
+was the very very first time I was
+
+exposed to it. Someone showed me mid
+
+journey and we just got to having like a
+
+creative imaginary jam session.
+
+Imagination jam session.
+
+&gt;&gt; You bring us into that moment like Yeah.
+
+&gt;&gt; If we were right there. My friend James
+
+Lester, who runs the Sons of Vancouver
+
+distillery in Vancouver, came over to
+
+help me build two stills in my
+
+greenhouse on Gano Island. And while he
+
+was over there, he showed me this thing
+
+that he had seen called Midjourney. And
+
+Midjourney is an image generation tool
+
+on that was run on Discord at the time.
+
+There wasn't a website.
+
+&gt;&gt; And um yeah, you can, you know, more or
+
+less, you know, speak your ideas into
+
+existence. So you can say you know black
+
+and white photography circuit turn of
+
+the century wide angle high contrast
+
+film grain yoseity backdrop you know you
+
+and and then you know you can start to
+
+you know I call it like an imagination
+
+jam session because really like the
+
+types the craziest [&nbsp;__&nbsp;] that you can
+
+think of you can start to you know get
+
+out into the world and it's just a fun
+
+way of uh creatively brainstorming and
+
+stuff and I was I was captivated by it
+
+but I pretty quickly saw like even in
+
+that first session that like this this
+
+is going to change the way all
+
+professional photography stuff is done.
+
+Like, and what I mean, I don't mean the
+
+act of pushing a button or something
+
+like that, but like, you know, for big
+
+budget shoots, we're doing lots of
+
+client meetings, coming up with creative
+
+briefs, coming up with a budget and a
+
+schedule and hiring, you know, models or
+
+actors and working with production
+
+people, you know, and then once we do
+
+those shoots, you know, we're refining
+
+those assets and turning them into other
+
+things and documenting our work and
+
+writing reports and sending invoices and
+
+all these things related to the
+
+production of professional creative
+
+works or whatever. And so, um, the thing
+
+that got me at first was, oh, I'm never
+
+going to do a photo shoot again where I
+
+have other production people before I
+
+generate it in midjourney first and get
+
+it all approved by the client.
+
+&gt;&gt; It's like,
+
+&gt;&gt; no, my creative time is valuable and
+
+like my vision and so I can like
+
+&gt;&gt; bring these ideas into the world with
+
+very little cost, show them to the CL. I
+
+can even spec, you know, f8 Fujif film,
+
+medium format, you know, 8K resolution,
+
+maximum bokeh, you know, whatever. You
+
+can spec the tech on it, too. Key light
+
+and, you know, backlight and hairlight
+
+fill. You can spec all these things and
+
+so you can
+
+&gt;&gt; show your ideas to the person that is
+
+both paying the bill and approving the
+
+final works before a model shows up or a
+
+light gets turned on or anything like
+
+that.
+
+&gt;&gt; Yeah, that's right. So, um, that was the
+
+first kind of like epiphany I had. It's
+
+like, oh, this is going to change
+
+everything around how creative work is
+
+produced.
+
+&gt;&gt; In that moment when you had that
+
+epiphany, I imagine there was probably
+
+excitement, maybe some goosebumps, maybe
+
+like, you know, just flashing visuals of
+
+what the future might look like,
+
+whatever it was, your experience. Was
+
+there any fear in your system?
+
+The main fear I remember feeling was
+
+around joining Discord and getting
+
+hacked again,
+
+&gt;&gt; right?
+
+&gt;&gt; I'm comfortable in changing
+
+technological environments and like
+
+those create opportunities for little
+
+fish or you know not the big fish,
+
+right? Like when a
+
+&gt;&gt; incumbent is disintermediated by an
+
+upstart come it's because of technology
+
+and stuff like that, right? And so
+
+that's very much how I was able to um
+
+ride the first couple waves, the the web
+
+one revolution and the web two
+
+revolution. So
+
+&gt;&gt; um I was uncertain and I still am very
+
+uncertain about where things are going,
+
+&gt;&gt; but I'm not
+
+&gt;&gt; um super fearful about about that in the
+
+way that you mean or whatever. Like I
+
+have a pretty like um maybe pessimistic
+
+perspective about some bigger picture
+
+future things. I think some of the
+
+biggest concerns about AI is kind of the
+
+consolidation of power into the hands of
+
+a few
+
+&gt;&gt; governments or corporations or you know
+
+rich tech halves and have nots type
+
+thing you know and stuff. So I do think
+
+there's a lot of
+
+&gt;&gt; things to be wary of and to like like
+
+&gt;&gt; call call out hold to account and stuff
+
+like that. Um but those things are
+
+things that I think are amplified in the
+
+world around me that I already saw. So I
+
+already maybe had a
+
+&gt;&gt; Yeah, that's a good point.
+
+&gt;&gt; perspective against like governments,
+
+corporations, authority figures, power
+
+as it currently exists, you know, banks,
+
+telos, governments, whatever. So it's
+
+like
+
+&gt;&gt; not that AI brought this all in. It was
+
+it was already there. And
+
+&gt;&gt; but but I but I think that this is the
+
+nuance. You got to be careful there. I'm
+
+not trying to be dismissive of it
+
+either. I mean,
+
+&gt;&gt; I do think that it represents a
+
+significant thing that we need to keep
+
+our eye on the ball on because uh um you
+
+know,
+
+&gt;&gt; those models plus these tools can
+
+enslave more humans than ever before,
+
+you know.
+
+&gt;&gt; Yeah. Yeah. Very effectively and
+
+efficiently. Yeah. Yeah.
+
+&gt;&gt; So, I mean um but those things are
+
+things that I
+
+have my eye on and fight against for my
+
+whole life, you know, or whatever.
+
+&gt;&gt; Yeah. You came in with those values.
+
+&gt;&gt; Yeah. So, it's not like I'm mad at AI
+
+for those things or whatever. those
+
+those roads pretty quickly lead me back
+
+to systematic change. I want to see.
+
+&gt;&gt; Now, I'm not going to be able to really
+
+recall this with uh much detail, but uh
+
+I remember one philosopher talking about
+
+AI and they were talking about how
+
+excited we can get about the newness of
+
+something that many of us do find it
+
+convenient to let go of some of our
+
+values um because we're just so excited
+
+about new. And it's I mean you have to
+
+wonder how strong were those values in
+
+the first place, but there is something
+
+sexy and
+
+um about newness. Maybe it's the
+
+dopamine factor that just wants to wipe
+
+things clean and we just get so excited
+
+about it that we are willing to make
+
+some compromise. Do you do you agree
+
+with that?
+
+&gt;&gt; I think it's a really black and white
+
+way of looking at things, dude. I think
+
+you can be curious about the moment and
+
+you can be engaged in the moment and
+
+that doesn't necessarily mean that you
+
+are sacrificing your values. I think
+
+that that means some discomfort
+
+potentially and the ability to hold that
+
+contradiction, you know, but um I think
+
+you can both be excited about the
+
+opportunities for personal
+
+transformation, for creative
+
+empowerment, for even some of the more
+
+high flutin things, you know, the curing
+
+of cancer or you know the uh some of the
+
+things that the the the boosters tout
+
+you know I think you can be interested
+
+and curious and engaged with those
+
+things and you can also be um critical
+
+and skeptical and calling out the things
+
+that are [&nbsp;__&nbsp;] you know, and and and
+
+and naming the harms and naming the
+
+biases and um you know, like um more
+
+than a decade ago, I uh found myself
+
+doing a lot of climate activism work
+
+with my camera. I got invited um through
+
+a lot of relationships here on the
+
+island and other things to be involved
+
+with like the the UN climate change
+
+summits and um you know some of the work
+
+of Zapora Burman and some oil sands work
+
+and stuff. And so I invested many years
+
+in that. And a lot of times I would get
+
+critiqued pretty hardcore online. You
+
+know, they're like, "Yo, bro, you're
+
+using an iPhone on a MacBook Pro on a
+
+jet plane flying to a cl a climate
+
+change conference. Can't you see the
+
+[&nbsp;__&nbsp;] obvious paradox and like you
+
+know um you know like contradiction
+
+here? You're a hypocrite essentially."
+
+Right.
+
+&gt;&gt; Right.
+
+&gt;&gt; And um and I I took it pretty hard, you
+
+know? I I didn't I didn't I didn't I I
+
+didn't I was in my young 20s, you I
+
+didn't have the full like wisdom to kind
+
+of like understand and comprehend that
+
+and like someone one of my mentors took
+
+me aside and um they told me about like
+
+the abolitionists wearing cotton
+
+underwear paradox and he said
+
+&gt;&gt; do you think that you know if you wanted
+
+to fight against slavery that meant that
+
+you couldn't wear cotton underwear or
+
+you know like buy clothes from the store
+
+or something like that because that was
+
+the system that produced all of those
+
+goods of the economy that you lived in
+
+or whatever. And it's like no that's
+
+like a it's like a logical fallacy. You
+
+can be a part of a system and still hold
+
+it to a higher account, still critique
+
+it, still try to change it and make it
+
+better and reform it. You don't have to
+
+go live in the woods, disconnect
+
+yourself from all technology in order to
+
+to critique this type of thing or
+
+whatever. And so I would encourage you
+
+be both be excited and not give up your
+
+val.
+
+&gt;&gt; That's the hard part, you know.
+
+&gt;&gt; Yeah. Yeah. Yeah. Absolutely. And I want
+
+to get into that in a minute here about
+
+the idea of you call it two full hands
+
+or both what is it?
+
+&gt;&gt; I've been given a talk lately called
+
+both hands full.
+
+&gt;&gt; Both hands full. Thank you. Um, but just
+
+before we get there, I'd love just to
+
+dive into the real life Chris Krug world
+
+of like day-to-day AI use just so I can
+
+get a sense because I'm sure your first
+
+introduction to MidJourney that was
+
+mind-blowing and but you've things have
+
+come a long way and uh I'd love to know
+
+what tools you use like specific tools
+
+and how you use them.
+
+&gt;&gt; Yeah, man. Um, you're right. things are
+
+changing quick and we're like in like
+
+maybe like the third or fourth epoch
+
+already of my AI usage. So I've and and
+
+and and many of the worldleading thought
+
+leaders are kind of talking about the
+
+same kind of stuff. It's like I've
+
+retoled my creative pipeline many times
+
+in the last couple few years. And so
+
+when we were here last for the um the
+
+elevation series talks, you know, with a
+
+bunch of musicians, I was really into
+
+building knowledge bases and assistance.
+
+That was like you know 15 months ago
+
+something like that. So I was like you
+
+know trying to build like local
+
+knowledge bases of all the things that I
+
+had said or done or thought or wrote you
+
+know and using that as reference to plug
+
+into the AIS and then building you know
+
+assistance for all the type I had a
+
+little marketing assistant and I had a a
+
+sales navigator you know and I had a a
+
+board of directors that I could ask
+
+tough decisions to that would approach
+
+it from different perspectives. So that
+
+was kind of my approach. um you know 15
+
+months ago or so. Now it really is all
+
+about the kind of like agentic coding
+
+and and and agentic workflows in
+
+general. And it's not just about code.
+
+Sometimes non-technical people tune out
+
+when they hear the word code but like
+
+code is how things come alive in the
+
+digital space. You know from
+
+&gt;&gt; visual projections behind a DJ to a
+
+website to a music portfolio to you know
+
+any of these things. These are all um
+
+you know like digital digital
+
+expressions that are come come to life
+
+in this way. And so um I've been
+
+building all sorts of just like agentic
+
+workflows now based on those knowledge
+
+bases. So
+
+&gt;&gt; and by agentic you're meaning that the
+
+AI is actually doing tasks taking
+
+actions on your behalf.
+
+&gt;&gt; Yeah. Like it to really break it down
+
+all the way you could think about it as
+
+like workers with names if you want to.
+
+I got one researcher called Jordan, you
+
+know, and then I've got like a document
+
+called Chris, and then I've got a coder
+
+called Jennifer or whatever. And so I
+
+come in and I'm like,
+
+&gt;&gt; yo, that course that I'm about to start
+
+delivering over the next six weeks on
+
+Friday, I want to turn that into an
+
+e-learning course as well with all the
+
+same modules, all the same exercises.
+
+So, how about start by building me an
+
+interface and mapping my modules to a
+
+website and then like you know
+
+researcher bot goes out and takes a look
+
+at my course and then like you know UI
+
+bot goes through and starts to you know
+
+pull together some technical code and
+
+then the marketing manager comes and
+
+layers on the the text and stuff on top
+
+of that and stuff. So, um, uh, that that
+
+that's what I'm talking about about
+
+agents is like, uh,
+
+&gt;&gt; breaking those tasks down. You know, you
+
+speak them into existence or type them
+
+into exist. When I say speak them into
+
+existence, a lot of people are using
+
+tools like Whisper Flow now and stuff.
+
+&gt;&gt; Um, you know, I I think a lot of like I
+
+think a lot of when creatives and the
+
+the creatives that you talk to me about
+
+sometimes like like I'm sure we'll get
+
+into this, but you're like, "Yo, dude,
+
+all the artists I talk to are totally
+
+anti- AI." And I'm like, "BS, Jordan.
+
+There's no way, you know, or whatever."
+
+But let's just assume that's the case.
+
+Tools like Whisper Flow are pretty cool
+
+because um instead of typing all your
+
+stuff to your computer, you can talk all
+
+your stuff to your computer. And that's
+
+more profound than it sounds on the
+
+surface. It's not just about it being
+
+faster or not having to type at the
+
+laptop.
+
+&gt;&gt; These are a filter.
+
+&gt;&gt; They're a huge filter between our head
+
+and our heart
+
+&gt;&gt; and our ability to control the AIS. And
+
+&gt;&gt; so simply by speaking my instructions
+
+through a tool like Whisperflow into my
+
+computer all the time, I get I swear
+
+like
+
+&gt;&gt; thousand% better outputs from the thing,
+
+they're even colloquial back in my
+
+language without it uh
+
+&gt;&gt; without me asking it to speak or think
+
+like me because it's doing that, you
+
+know, mirroring thing that that,
+
+&gt;&gt; you know, where it's like if I'm talking
+
+to it in
+
+&gt;&gt; informal creative shortorthhand,
+
+&gt;&gt; it realizes that I am a designer who
+
+knows what it's talking about. talk to
+
+me in that same way or whatever, you
+
+know, and stuff. And so I encourage
+
+people to break free from their fingers
+
+as their main way of interacting with AI
+
+as much as possible. That is one major
+
+unlock in terms of
+
+getting better results, let's say, but
+
+but but by better I mean them being more
+
+authentically
+
+in your voice style worldview things you
+
+care about overriding some of those
+
+biases, some of the misogyny and
+
+homophobia, racism and transphobia
+
+that's built into these systems. You can
+
+do that by bringing your own knowledge
+
+basis to bear and then you know speaking
+
+your existence is
+
+&gt;&gt; okay. So, I'm imagining your daily
+
+workflow here involving these different
+
+agents and
+
+&gt;&gt; I can tell you my daily workflow this
+
+morning.
+
+&gt;&gt; Yeah, tell me. Tell me
+
+&gt;&gt; I literally like Okay, so first thing I
+
+went to do is I went to chat GBT and I'm
+
+like, yo, I'm about to wake up all my
+
+agents for the day.
+
+&gt;&gt; So, and I want them to like dive into
+
+their GitHub knowledge bases and look at
+
+all the work we've been doing for the
+
+last week and identify gaps that they
+
+can, you know.
+
+&gt;&gt; Okay, just a second. Okay. So, you're
+
+talking to chat GBT, but are your agents
+
+cloud-based?
+
+&gt;&gt; Yeah, I'm just trying to upgrade my
+
+shitty prompt that I'm about to speak.
+
+&gt;&gt; Yeah.
+
+&gt;&gt; To
+
+&gt;&gt; I'm trying to upgrade it to a really
+
+good prompt before I go paste it into
+
+like 20 super powerful agents.
+
+&gt;&gt; I've realized my agents are so powerful
+
+that it behooves me to take one extra
+
+step
+
+&gt;&gt; and like do the prompt upgrader type
+
+thing. So, first I speak my thing into
+
+existence. I say like what I was just
+
+going to say.
+
+&gt;&gt; I'm about to go wake up my agents
+
+yesterday. They did a bunch of crazy
+
+work for me. They built out all these
+
+features and functions. They kind of
+
+went crazy. I don't even understand
+
+everything that's in there. So, let's go
+
+through. Let's look for the gaps. Let's
+
+look for areas to documentation and
+
+let's build out today's work plan, road
+
+map, features, bug reports, etc., etc.
+
+So, I paste that into GPT into this
+
+little prompt upgrader I've built.
+
+Gotcha.
+
+&gt;&gt; Then I get back this sounds a lot more
+
+like computer language, sophisticated,
+
+detailed software engineer, architect
+
+level prompt. It's like,
+
+&gt;&gt; you know, you are an agentic coding
+
+assistant whose responsibility is to
+
+maintain a codebase, you know. So, I get
+
+this back and then I go to these 20
+
+agents that I talked to the day before,
+
+you know, or whatever. And and and it's
+
+actually not 20 agents, it's 20, it's a
+
+bunch of agents in 20 projects. So, I've
+
+got my personal website, my nonprofit
+
+website, my
+
+&gt;&gt; courses that I'm teaching, um, you know,
+
+all all the different things that I'm
+
+working on or care about. I've got a
+
+GitHub repo set up for all each one of
+
+those, everything I'm working on.
+
+&gt;&gt; And so, and inside those GitHub repos,
+
+there's a variety of agents, research,
+
+creative, coding, whatever.
+
+&gt;&gt; So, I want to go in, I want to wake them
+
+all up, and I want to be like, yo,
+
+&gt;&gt; figure out where you are and what your
+
+job is. Take a look around and figure
+
+out how you can help me the most today.
+
+Oh, so you're asking them to figure out
+
+what their job is.
+
+&gt;&gt; Yeah, this is the whole like context
+
+engineering part of the whole thing. I
+
+was like, you know, like 15 months ago
+
+or 18 months ago, I'm building these
+
+knowledge bases and stuff. Now I've got
+
+these knowledge bases. I've got, for
+
+instance, if you're a musician, all the
+
+lyrics from every song on every album
+
+you've ever made, alongside every
+
+interview you've ever done and every
+
+podcast you've ever done and every set
+
+list from all your shows and all the
+
+graphics you've ever published and
+
+&gt;&gt; yeah,
+
+&gt;&gt; export of your
+
+&gt;&gt; Instagram, you know, comments and posts
+
+or whatever, so that it like knows all
+
+these things about you. It's walking
+
+around with all of your world in its
+
+brain, you know. From there, you can be
+
+like,
+
+&gt;&gt; "Yo, I'm that guy who posted about my
+
+show on Instagram the last three days.
+
+take those three days worth of posts and
+
+turn them into a fivecoded standalone
+
+website about my tour or write an
+
+article from those things about the
+
+things or whatever. And so
+
+&gt;&gt; I'm able to speak my
+
+&gt;&gt; commands or my desires into existence
+
+for these agents that are sitting on top
+
+of these knowledge bases that I've
+
+lovingly and
+
+&gt;&gt; stakingly gardened over the last couple
+
+years. You know,
+
+&gt;&gt; with that much data that you've built,
+
+do you find yourself having to take a
+
+lot of time to get the bots to focus and
+
+to like really carve out what you want
+
+them to focus on and what not because
+
+you've given them so much knowledge.
+
+&gt;&gt; So, you're you're getting into like more
+
+like intermediate advanced stuff and I'm
+
+so stoked about that. So, I've got this
+
+main knowledge base that's my
+
+everything. Yeah. And when an energetic
+
+emergence appears within that knowledge
+
+base, I break it out into its own thing.
+
+&gt;&gt; Okay.
+
+&gt;&gt; So before my nonprofit was a nonprofit,
+
+it was some ideas in my knowledge base
+
+about where I thought the future was
+
+going, how I thought community was a big
+
+part of what, you know, we needed to
+
+build this community lifeboat so that we
+
+could help creatives moving forward. All
+
+these ideas were in my knowledge base.
+
+And then at some point, like, you know,
+
+you realize, oh,
+
+&gt;&gt; now's the time to form that nonprofit.
+
+So I go back into my knowledge base. I
+
+start to coax it around the idea of the
+
+formation of the nonprofit and then I'm
+
+like, "Okay, now let's pull this out of
+
+this knowledge base and set up as its
+
+own thing
+
+&gt;&gt; at which point it gets a new GitHub
+
+repo."
+
+&gt;&gt; Gotcha.
+
+&gt;&gt; So like if
+
+&gt;&gt; enough
+
+synchronicity or patterns happen around
+
+a particular thing when when there's
+
+when there's reason to. So to answer
+
+your question, uh if all my work was to
+
+happen in one knowledge base with 20
+
+different projects there and 50
+
+different websites, you would be dealing
+
+with inefficient token usage, agents
+
+getting confused and hallucinating and
+
+[&nbsp;__&nbsp;] like that. But I can um break it
+
+out when it's time.
+
+&gt;&gt; Yeah. Gotcha. Mhm.
+
+&gt;&gt; And when your nonprofit started to
+
+float to the surf, become something, was
+
+that something that you identified or
+
+was that an agent or the work that you
+
+were doing with the agents that sort of
+
+highlighted it or brought it?
+
+&gt;&gt; Yeah. No, it was a human thing. Um, so
+
+our Vancouver AI events have been going
+
+on for like 15 months and they had grown
+
+from like 80 people in my studio to over
+
+200 people at the Space Center and and
+
+they're awesome. um they are a genre
+
+busting silos smashing good time an
+
+exploration of what it means to be human
+
+in the age of AI they're they're cool
+
+and so people started coming to me and
+
+they're like this is great but I want to
+
+run one in Squamish or in Siri or on
+
+Vancouver Island we've got a comox
+
+&gt;&gt; okay so there you go
+
+&gt;&gt; so um once I was running Vancouver AI
+
+out of my company and then once other
+
+people started kind of coming to me and
+
+those things actually started to get
+
+legs I I just sort of like wrecked
+
+recognized that the
+
+framework for what I wanted to build was
+
+kind of emerging before me or whatever
+
+and stuff. So, no, it was more like um
+
+it was when it was when the Syrian
+
+Squamish meetups started that I was
+
+like, "Okay, we need to get this out of
+
+my company, make it its own thing. The
+
+it's got traction. There's momentum."
+
+&gt;&gt; Cool. Okay. Well, I think it's a great
+
+time to talk about those AI meetups then
+
+if you could. I'd love to hear more
+
+about them
+
+&gt;&gt; because they started. It sounds like
+
+it's all been organic growth, but it's
+
+like an idea whose time has come. So, it
+
+kind of builds quickly as well because
+
+you've come a long way in a short amount
+
+of time.
+
+&gt;&gt; You know what? Let's go both hands full
+
+and AI meetups at the same time.
+
+&gt;&gt; Every single AI conversation that I've
+
+been a part of tries to put you into one
+
+of two camps. You know, you got the
+
+boosters on one hand who are like, "Yo,
+
+get on board. AI is changing everything.
+
+if you don't like, you know, love AI,
+
+you're going to get left behind. And
+
+like,
+
+&gt;&gt; you know, uh, and a lot of those people
+
+are have a vested interest in that
+
+paradigm. They're venture capitalists.
+
+They're
+
+&gt;&gt; government people that are trying to
+
+spur innovation. They're they're the
+
+tech people who who are trying to have
+
+the next hot thing, you know, but
+
+they're all often very vested vested
+
+people in that situation.
+
+And on the other hand, you have like the
+
+complete like doomers, the resistors,
+
+you know, like think about the power and
+
+water, you know, how much data centers
+
+use and like yo, AI's been trained on
+
+all the stolen work of mankind and and
+
+uh
+
+&gt;&gt; and um
+
+&gt;&gt; oh, it's full of bias like misogyny,
+
+racism, homophobia, transphobia, [&nbsp;__&nbsp;]
+
+classism, you know, it's like
+
+&gt;&gt; full of these things, you know, and
+
+stuff. And so, well, like like both of
+
+those things are kind of true.
+
+&gt;&gt; Yeah. And
+
+I was either could go to protest events
+
+and burn Teslas down
+
+&gt;&gt; or I could go to like, yo, get on the AI
+
+hype train if you
+
+&gt;&gt; and I was like, well, those are both
+
+like lazy like the the the the the hype
+
+perspective. It doesn't tell you
+
+anything about like the harms or the
+
+effects on society. There's no critical
+
+dialogue taking place at most of these
+
+like startup pitch competitions or web
+
+summit or any of these kind of things.
+
+They're they're they're like
+
+&gt;&gt; super just like
+
+&gt;&gt; self-reinforcing circles of hype or
+
+whatever, right? and the absoluteist
+
+purest resistant perspective. Well, it
+
+doesn't really tell you much about it
+
+doesn't give you a road map what to do
+
+in this moment like as your career
+
+changes or
+
+&gt;&gt; you know I've had like legit people
+
+parents come to me and be like me and my
+
+kid been saving up a college fund for 16
+
+years and it's year 17 and uh they're
+
+ready to spend their money and they're
+
+like hey mom what should I study in
+
+college and I have to I'm freaking bad
+
+I've never I've had every answer to
+
+every question they've ever asked me and
+
+I don't have the answer to this and I
+
+don't know and I don't know
+
+&gt;&gt; question out there right now. Yeah. So,
+
+it's like you can feel great about your
+
+purity, but that doesn't really tell you
+
+how to engage in the moment. And also,
+
+like, please critical purists, don't get
+
+up and walk away.
+
+&gt;&gt; What happens when you, you know, it's
+
+like if you get up and walk away, you
+
+abdicate the throne to the tech pros and
+
+venture capitalists, right?
+
+&gt;&gt; Yeah, we need you in the room.
+
+&gt;&gt; We need you in the room. We need these
+
+critical voices there. And and that
+
+means not just um being in the room, but
+
+it means immersing yourself in the
+
+vocabulary and the nuances and the
+
+sophistication enough that you can hold
+
+an intelligent conversation about this
+
+stuff because
+
+&gt;&gt; there is a lot of hype on both sides,
+
+you know, and stuff, you know, like
+
+&gt;&gt; for instance, a lot of the resistance to
+
+the ways that AI is currently being
+
+being done aren't the only way that it
+
+can be done. It's just the Silicon
+
+Valley way,
+
+&gt;&gt; right?
+
+&gt;&gt; You know.
+
+&gt;&gt; Yeah, that's right. So there's not only
+
+hypers scaling NASDAQ stock market
+
+driven venture capital, you know, it's
+
+not those aren't the only ways to do
+
+these things, you know, like turns out
+
+in our edge devices, in our phones, they
+
+all got GPUs and CPUs in them. There's a
+
+lot of unutilized
+
+uh processing power that can be
+
+harnessed to do inference and
+
+intelligent work, you know, on on phones
+
+and stuff. There's a lot of open source
+
+work. There's a lot of like here we've
+
+got, you know, green hydro power as like
+
+our main source of energy. Got, you
+
+know, a lot of First Nations that are
+
+leading in areas like this and stuff. a
+
+real opportunity to build like clean,
+
+green, indigenous owned tokens that
+
+support reconciliation, things that we
+
+can be proud of and that power um you
+
+know a creative future that's very much
+
+like the West Coast here. So anyway, I
+
+couldn't find any events I wanted to go
+
+to. They were all hypers or doomers,
+
+right? Burn a Tesla or like drink the
+
+Kool-Aid type thing, you know, one or
+
+the other.
+
+&gt;&gt; And um
+
+&gt;&gt; so yeah, I just started getting people
+
+together in my studio to explore.
+
+Another thing is like it's not just
+
+talks about business and optimizing your
+
+efficiencies and synergizing your
+
+optimization. You know, it's also like
+
+there's dancers that put sensors on
+
+themselves and have AI generate
+
+swarm-based visuals on the backgrounds
+
+and stuff. You know, there's all sorts
+
+of
+
+&gt;&gt; performances, researchers, people that
+
+aren't traditionally like platformed at
+
+the kind of more business events or
+
+whatever and stuff. And so I wanted to
+
+provide that, you know, genre genre
+
+smashing perspective on it where we can
+
+hear a talk about some ideas,
+
+watch a performance.
+
+&gt;&gt; Yeah.
+
+&gt;&gt; Explore some research and kind of move
+
+between these modalities of like
+
+academia performance and then
+
+intellectual business stuff like
+
+&gt;&gt; So you kind of you kind of just said it,
+
+but if if I was at one of these meetups,
+
+what would I see? What would dancers
+
+dancing
+
+research being communicated on on a
+
+stage I assume? Is this the end?
+
+&gt;&gt; Very very officially our program is four
+
+hours. We have an hour of networking.
+
+Then we got a 2-hour program. Then we
+
+got an hour of networking again.
+
+&gt;&gt; Cool.
+
+&gt;&gt; During the networking, I like to throw
+
+in some surprises. That's where you
+
+might experience, you know, people with
+
+robots that are using AI to map the
+
+interior of the space using a LAR they
+
+busted out of a Xbox 360 or something
+
+like that. Yeah. Yeah. Yeah.
+
+&gt;&gt; That's where you're going to see,
+
+&gt;&gt; you know, we got one student in our our
+
+community who built a uh American Sign
+
+Language to voice translator via Zoom or
+
+whatever, right? So, it uses AI to take
+
+my voice and translate it into sign, but
+
+then also, you know, 3D map your body as
+
+you're signing and translate it back
+
+into subtitles or whatever.
+
+&gt;&gt; So, yeah, during the first hour of
+
+networking, that's when we got like demo
+
+pit, surprise performances, stuff like
+
+that. Then we got our our two-hour
+
+program. Um, we do a an indigenous
+
+welcome at the beginning. We've got this
+
+board member, Caroline Hilton, who's um,
+
+uh, runs the Indigenomics Institute.
+
+I've gotten to do a lot of work with her
+
+in the last few years. And, you know,
+
+before she joined our board, she invited
+
+me into ceremony and talked to me a lot
+
+about centering um, that practice of
+
+ritual and ceremony before we enter into
+
+the work. It's just such a great way to
+
+um you know beyond the um respect and
+
+acknowledgement of the land we're on the
+
+welcome and stuff. It's a great way to
+
+get everybody on the same page and in
+
+the same headsp space build that
+
+container of trust
+
+&gt;&gt; where you can have
+
+&gt;&gt; maybe not difficult conversations
+
+conversations about difficult topics in
+
+a way that no one walks away from
+
+feeling good.
+
+&gt;&gt; So anyway, we
+
+&gt;&gt; start with a um indigenous welcome but
+
+it's often a song and some words or a
+
+blessing, you know, and stuff. Um my
+
+buddy Anthony Joseph from Squamish
+
+Nation's been doing a bunch of those and
+
+um it's been pretty cool uh since we've
+
+done like 30 30 of these events over the
+
+last 30 months and he's probably done 12
+
+of them or something and so he's worked
+
+his way through his back catalog of
+
+songs. He keep trying to give us new
+
+songs every time he uh comes and does a
+
+welcome. So I feel like I've heard like
+
+like way more Squamish songs than I've
+
+ever had an opportunity to hear anywhere
+
+else. Like
+
+&gt;&gt; it's pretty pretty cool. And then we got
+
+uh Gabriel George Senior from Slay with
+
+Tooth Nation and Nessa Gonzalez from
+
+Squamish Nation. All these people um
+
+participate regularly. And so yeah,
+
+that's uh um how we get things kicked
+
+off. Then we got our our community's
+
+freaking blown up, man. So we have this
+
+like community announcement section
+
+which is just a chance for all the like
+
+spokes to report back to like the
+
+mothership on what the heck is going on
+
+in these sub communities that have
+
+sprung up. We've got like
+
+&gt;&gt; an AI and education group, an AI and
+
+life sciences group. this group of
+
+philosophers called mind AI and
+
+consciousness that does these
+
+&gt;&gt; super intellectual academic there's pro
+
+of the 20 people that meet in that group
+
+on the monthly probably 12 of them at
+
+this point are like PhDs in AI or ML you
+
+know they're they're first order
+
+robotics researchers or or things and
+
+&gt;&gt; um so that that's pretty fun these days
+
+like letting all the cool [&nbsp;__&nbsp;] from all
+
+the different tendrils of the octopus
+
+bubble up into the
+
+&gt;&gt; Is there is there an artist faction is
+
+there a group of creators subgroup
+
+&gt;&gt; yeah absolutely we have a creativity and
+
+design subgroup. Um, but I also I mean
+
+our AI film club is one of the coolest
+
+things we got going on. So, you know,
+
+Vancouver is a hotbed of animation,
+
+special effects, video games, film,
+
+Hollywood North type stuff.
+
+&gt;&gt; Well, talk about an industry where AI
+
+like non-consensually came in and kicked
+
+over the table and started eating out of
+
+the refrigerator. Film like
+
+&gt;&gt; like talk about fear. These are people
+
+with $150,000 a year jobs, you know, uh
+
+yeah, that that work their way through
+
+the sweat shop part of the film industry
+
+to hold these positions of effects
+
+director or, you know, like like
+
+&gt;&gt; um so, you know, this is where I get I
+
+ain't trying to have a fight with you,
+
+but you know, you can't tell me all
+
+artists are against AI because there's
+
+plenty of artists that I'm in first
+
+order relationship with that build the
+
+world's video games, special effects,
+
+animations, films, whatever that are uh
+
+like first of all they're technical
+
+already. They already had GPUs in their
+
+shop. They were using them for
+
+rendering, lighting, shading, all these
+
+types of things. So there there there's
+
+definitely, you know, there's one part
+
+of the curve that's burying their head
+
+in their sand. There's one part of the
+
+curve that is like maybe not asking
+
+questions and just going head over heels
+
+in the technology direction. And then
+
+there's everybody else in the middle
+
+that's trying to to figure it out to
+
+figure out what it means for our careers
+
+and for our kids and for our futures.
+
+&gt;&gt; Well, you know, to that point, I there's
+
+actually Let's pause for a quick second.
+
+Eric, how are we sounding? Yeah, it's
+
+good. Okay, just make sure before we
+
+keep going. Um,
+
+so here's here's a contrast for you. So,
+
+I'll speak to somebody here at House of
+
+Owl, let's say, and uh a musician,
+
+songwriter, someone who uh spends a lot
+
+of time in the studio and they're
+
+worried that hey, AI is going to come
+
+come along and take away their job in
+
+the studio. It's going to start mixing
+
+music better than anyone anyone else
+
+can, even though it is a subjective art.
+
+Um, but then that very same night I'd go
+
+home, I'd listen to a podcast and I'm
+
+listening to some of the most successful
+
+engineers, audio engineers and producers
+
+in the game and their conversation about
+
+AI is
+
+it they don't they are on the complete
+
+other side of the spectrum. They don't
+
+even mention the ethics. They don't even
+
+mention um any downside to AI. It's all
+
+just they just skipped that conversation
+
+and they've already integrated into
+
+their workflow. They're mixing and
+
+producing three times as many songs as
+
+they were last year at this time.
+
+They're making three times as much
+
+money, but it hasn't threatened their
+
+livelihood yet. It's only multiplied it
+
+where the other artists that I was
+
+speaking to, they were already seeing it
+
+as this might take away my job. And this
+
+is a question that I have too. You know,
+
+there's a lot of artists who I've seen
+
+speak about the ethics of AI, but as we
+
+move through the conversation, it seems
+
+that they're more talking about that
+
+they're not like they might lose a job,
+
+which is different. It's which is also a
+
+concern and very justified concern, but
+
+it's different than threatening art as
+
+we know it. You know,
+
+&gt;&gt; I think it's a really useful
+
+distinction. And I was thinking as I was
+
+tracking your question, I'm like for the
+
+purposes of this dialogue and and in
+
+some of the conversations I have,
+
+there's like creative professionals
+
+&gt;&gt; and then there's artists.
+
+&gt;&gt; Yeah, that's right.
+
+&gt;&gt; A lot of artists are creative
+
+professionals and
+
+&gt;&gt; some creative professionals are artists,
+
+&gt;&gt; but um I think it's probably useful to
+
+break those things apart because the
+
+creative professions are changing for
+
+sure. Y
+
+&gt;&gt; and um and yet I think art is probably
+
+more important than ever.
+
+um
+
+the people that you mentioned at the
+
+podcast, I don't know them, so I
+
+shouldn't stick up for them. But you
+
+shouldn't assume that they're not
+
+concerned about the ethics at all and
+
+they just passed through that gate and
+
+just started adopting it. Like maybe
+
+Yeah, maybe they spent 18 months trying
+
+to figure out where they stood on all
+
+these things, you know, and stuff. And
+
+like maybe like me, the documents
+
+they're attaching to every talk they
+
+have with AI about anything is their
+
+worldview and values, their
+
+perspectives, and their AI policy.
+
+&gt;&gt; Yeah, great point.
+
+&gt;&gt; Every conversation they're having with
+
+AI is inside the garden that they've
+
+&gt;&gt; built of
+
+values, ethics, vocabulary. Here's a
+
+bunch of words I say because I'm
+
+anti-colonial, anti-racist. Here's a
+
+bunch of words I never say. the these
+
+are attached to every single
+
+conversation though.
+
+&gt;&gt; That's right.
+
+&gt;&gt; So, um
+
+&gt;&gt; so maybe that you know those guys uh
+
+have passed through that gate already
+
+more so than that they don't care about
+
+it or whatever you know.
+
+&gt;&gt; Yeah.
+
+&gt;&gt; Um
+
+&gt;&gt; so in terms of your friend or your
+
+colleague uh losing some of their
+
+professional creative work
+
+&gt;&gt; um because of AI especially like the
+
+audio production stuff I think that's
+
+that's real. Mhm.
+
+&gt;&gt; And I guess the other thing I would say
+
+is uh the other people you mentioned on
+
+the podcast, they're just trying to make
+
+the most of the next couple of years
+
+when they're talking about I make three
+
+times as many podcasts and I'm three
+
+times as productive.
+
+&gt;&gt; They're not necessarily talking about
+
+what happens after that.
+
+&gt;&gt; Yeah. They're not talking about six
+
+years from now.
+
+&gt;&gt; That's right. So obviously people that
+
+explore this stuff early, build it into
+
+their pipelines and workflows will have
+
+an advantage over their colleagues or
+
+their peers who don't who haven't
+
+integrated any of those things.
+
+&gt;&gt; Um, but now this studio House of Owl
+
+member puts on a different hat as an
+
+artist and they're like, "Yeah, but what
+
+if that plays out to its logical
+
+conclusion? That's great that you're 10%
+
+ahead of the curve and you're three
+
+times as productive making three times
+
+as much money as you used to be.
+
+What about after that?
+
+&gt;&gt; So, they're pro they're probably,
+
+&gt;&gt; and this is the confusing state of the
+
+moment and the contradiction we have to
+
+hold. Yeah.
+
+&gt;&gt; Quickly walking back and forth between
+
+flopping on their artist hat and worried
+
+about like what are we all going to do
+
+for meaning and purpose and fulfillment
+
+in the future and what is the role of
+
+truth and beauty and art at all.
+
+&gt;&gt; Yeah. Yeah.
+
+&gt;&gt; And this whole like
+
+&gt;&gt; Yeah. But I charge people $55 an hour to
+
+do that same type of um you know, studio
+
+audio sound, you know, updates or
+
+whatever. And so I'm sympathetic to this
+
+perspective. I'm definitely more
+
+sympathetic to it than I am to the
+
+booster perspective.
+
+&gt;&gt; So I think that um both ultimately, you
+
+know, kind of fall short.
+
+&gt;&gt; Yeah. Yeah. Yeah. Yeah. Yeah. So I mean
+
+I wasn't going to jump to this question.
+
+And this feels like in a way the
+
+question at the heart of a lot of these
+
+conversations, but let's just say it is
+
+what does it mean to be human in the age
+
+of AI?
+
+&gt;&gt; Yeah, for me it means like knowing which
+
+things I want to hang on to no matter
+
+how good the AI gets at building
+
+synthetic content. It means uh asking
+
+ourselves like what you know looking
+
+beyond the like yeah I'm three times
+
+more productive in this moment and
+
+looking beyond the effect to the effects
+
+that it has on our institutions
+
+&gt;&gt; like schools.
+
+&gt;&gt; Yeah. like families, like churches, like
+
+governments, like countries even, you
+
+know, and stuff like
+
+&gt;&gt; um
+
+you know, making sure that the benefits
+
+the the part that people are excited
+
+about is very likely that the part that
+
+they're excited about won't be evenly
+
+distributed. Mhm.
+
+&gt;&gt; So, keeping the humanity centered in the
+
+AI means like, yo, if this is going to
+
+be used to have an intelligence
+
+explosion, which is going to result in a
+
+golden age of economic development, how
+
+do we build systems that ensure that
+
+that gets equitably if not evenly, you
+
+know, distributed?
+
+&gt;&gt; Yeah.
+
+&gt;&gt; So, it doesn't just end up in a few
+
+hands. Mhm.
+
+&gt;&gt; It's like that when they build a data
+
+center in downtown Vancouver
+
+&gt;&gt; that all that tokens doesn't just get
+
+used for dual use defense technology
+
+that some of it gets allocated to
+
+artists and cultural as a line item as a
+
+commitment. 20% of the tokens that come
+
+out of this factory will be used to
+
+support culture and the arts in the
+
+communities where this stuff takes
+
+place, you know.
+
+&gt;&gt; Um those are the types of things I think
+
+it means when it's like
+
+&gt;&gt; we got to live in the future, you know.
+
+And
+
+&gt;&gt; so using the
+
+things that people are excited about,
+
+the tokens that are created, the the
+
+wealth, the power, the intelligence, the
+
+creativity that's created to benefit
+
+individuals, communities, citizens,
+
+&gt;&gt; our country, those types of things.
+
+&gt;&gt; Yeah. And that's great because I think
+
+the other thing that I noticed from a
+
+lot of creatives is that they hold a
+
+very
+
+strong opinion because they don't know
+
+what other options there are, what other
+
+opinions there are to hold. And they
+
+might also be uncertain of what they can
+
+do with their art or in their lives to
+
+actually you know
+
+create a future where the human is still
+
+um you know centered in the
+
+conversation. And so is that is there
+
+something that you could suggest that
+
+that artists can do from their place and
+
+from their art that um other than you
+
+know staying engaged in the conversation
+
+but actually
+
+um if we are to nudge this into a
+
+direction that feels ethical is there
+
+something that artists can do from their
+
+position not as a politician you know
+
+not as a uh uh not as a CEO or how can
+
+they influence the future? Okay, I'm
+
+really excited to answer this question
+
+because I think I actually have
+
+something that will like uh be
+
+meaningful to people or whatever, you
+
+know, and stuff. And so, um,
+
+nobody asked for this moment.
+
+&gt;&gt; I didn't I had 140,000 photos on the
+
+internet under creative common license.
+
+AI just came in and slurped them all up,
+
+trained itself on my data, and then
+
+started, you know, selling that as a
+
+subscription off to to other people and
+
+stuff, right? And so it's like no one no
+
+one asked, but but but here it is,
+
+right? And so my my pretending that it
+
+didn't happen doesn't make it go away.
+
+And so
+
+&gt;&gt; I'm trying I seek agency in this moment.
+
+I don't want to feel like the world is
+
+happening to me and there's nothing that
+
+I can do about it, you know, stuff. And
+
+and that's how I think a lot of people
+
+feel is they didn't ask for this. They
+
+don't like it. They don't agree with it.
+
+It rubs against their values and they
+
+don't like where we're going. And and
+
+and I'm I'm I'm very sympathetic to that
+
+kind of stuff, you know. So, one of the
+
+things I've been able to do to reclaim
+
+my own personal agency is using the
+
+mirror of AI to point back at my own
+
+creative work and my archives as a way
+
+to understand my unique ven diagram of
+
+creative weirdness. And so, I mean,
+
+literally like beating hundreds of
+
+thousands of photos to AI tools and and
+
+and training models that have never seen
+
+a human face before on the portraits
+
+that I've ever made. such that all of
+
+this particular AI's understanding of
+
+what a human face looks like is built
+
+purely on my stylistic choices through
+
+my crossprocess street portraiture from
+
+the you know late 2000s or whatever you
+
+say.
+
+&gt;&gt; Yeah. Yeah. Um, so I think that the the
+
+most useful
+
+value of AI that I found at all has been
+
+as a mirror to better understand my own
+
+practice, output, tendencies, and even
+
+like I'm 49 years old. I've produced
+
+stuff for 30 years online on the
+
+internet. Synthesizing the patterns from
+
+those things is not that easy of a task,
+
+man. I've given
+
+&gt;&gt; sure
+
+&gt;&gt; hundreds of three-hour lectures and
+
+interviews across you know like you know
+
+decades or whatever right well AI is a
+
+great way to do that
+
+&gt;&gt; take a look at these 30 talks that I've
+
+given over 30 years you know and start
+
+to analyze trends patterns how I talk
+
+which examples I give what my unique
+
+special sauces compare this to people
+
+out there in the world tell me areas
+
+that you know you think would be
+
+adjacent to this I should lean into
+
+stuff like that so really using
+
+&gt;&gt; using using the tools to analyze as your
+
+own work whether it be poetry or
+
+paintings or photography graphic design
+
+I mean I you know writing you go on and
+
+on right like anyone who has
+
+&gt;&gt; published and I don't mean published in
+
+a magazine or on the in like I mean like
+
+out there in the world finished creative
+
+works those are things through which we
+
+can analyze and learn about ourselves
+
+and the stuff
+
+&gt;&gt; and and that is a great starting point
+
+because the
+
+&gt;&gt; the artifacts the digital artifacts that
+
+come out of that self-discovery process
+
+using AI as a mirror to analyze your own
+
+work and creative output and stuff like
+
+that and career. Those artifacts are the
+
+things that I was talking about that
+
+ground all your other conversations with
+
+AI into the future. So, you're like,
+
+"Yo, here's art that I made. Here's why
+
+I make art at all. Here's who I am. Now,
+
+let's have a conversation about
+
+something."
+
+&gt;&gt; Yeah. Yeah.
+
+&gt;&gt; You know, or politics in Canada or
+
+whatever. It's coming through all those
+
+perspectives. So, I feel like that's a
+
+great way to
+
+uh mitigate some of the fears while
+
+engaging with the moment and not have it
+
+just be like a makework project where
+
+the documents or the artifacts that come
+
+out of that exploration process are
+
+super useful and it will ground all
+
+future conversations with AI and improve
+
+the results significantly for a person.
+
+&gt;&gt; That's super interesting. It kind of
+
+feels, you know, like one of the of
+
+course central questions in philosophy,
+
+spirituality and psychology is who am I?
+
+You know, and and to
+
+leverage the power of AI in that
+
+conversation is super interesting.
+
+Is there any problem or concern that AI
+
+might bring its own uh biases already
+
+into the conversation? is that uh while
+
+you're trying to discover who you are
+
+through its potentially biased lenses.
+
+&gt;&gt; Yeah, I would definitely have a critical
+
+mind towards that type of thing.
+
+&gt;&gt; But the example that you just gave
+
+assembling, let's just say 10 blog posts
+
+or 10 interviews or 10
+
+&gt;&gt; even like let's say you're a yoga
+
+teacher and you record your yoga teacher
+
+sessions or whatever and you've got 10
+
+90minute transcripts of you leading
+
+classes.
+
+&gt;&gt; Put those 10 transcripts in and ask that
+
+same question. Who am I? M yeah yeah
+
+yeah yeah yeah yeah
+
+&gt;&gt; just see what comes out you don't have
+
+to agree with it
+
+&gt;&gt; you don't even have to like
+
+&gt;&gt; you get to wait how much value you put
+
+on its opinion
+
+&gt;&gt; but I tell you it will be insightful
+
+whatever isful and you don't object to
+
+it you can say you missed this whole
+
+thing you know or you didn't consider
+
+this other facet of my career but but
+
+that's the exploration process right the
+
+yoga teacher feeds 10 transcripts of
+
+90-minute courses in asks who am I gets
+
+back this thing that they said misses
+
+this whole facet of themselves Now you
+
+get to go and be like, "Yeah, well, go
+
+grab your Buddhist journals that you did
+
+while you were in silent meditation.
+
+Let's augment this conversation with not
+
+just your yoga classes, but your silent
+
+meditation."
+
+&gt;&gt; I love that. And also, you know, I loved
+
+staying keeping a critical mind. And
+
+when the AI speaks back, says, "This is
+
+who you are," or "This is who I hear you
+
+to be."
+
+You might even find that there's an
+
+absence there that you notice like
+
+that's not actually me. You're missing
+
+this piece. You know, I remember the um
+
+you know, my meditation practice goes
+
+back like 30 years now or but I still
+
+remember the first time I sat on a
+
+pillow in grade 11. I had no idea what I
+
+was doing, but I grabbed a book off my
+
+parents shelf who they they were many
+
+years meditating.
+
+And the first instruction was to you
+
+know clear your mind do all the things
+
+but then just playfully and the key word
+
+was playfully and with curiosity ask who
+
+am I and it wasn't like who am I and
+
+search with fervor and get attached to
+
+the answer. The key was playful and be
+
+curious which is also be critical. You
+
+know
+
+what emerges don't believe everything
+
+you think and don't believe everything
+
+that comes out of AI too. You know so I
+
+think that's a just such a brilliant
+
+asterisk to include in all these
+
+conversations.
+
+&gt;&gt; I love calling out the playfulness part
+
+that very much defines my relationship
+
+with AI. When I told you about those
+
+midjourney imagination jam sessions that
+
+sounds like play if nothing else, right?
+
+Or whatever. And so a lot of um the play
+
+part happens on the generation part of
+
+generative AI. Me
+
+&gt;&gt; pulling down different ideas even like
+
+reference material. Let's talk reference
+
+for a second.
+
+&gt;&gt; Painters.
+
+&gt;&gt; Yeah.
+
+&gt;&gt; Walk around your house.
+
+&gt;&gt; Photograph your favorite 10 paintings.
+
+&gt;&gt; Attach those to a chat GPT conversation.
+
+&gt;&gt; And then put in your journal from that
+
+morning be like make an image in my
+
+style on this thing that I care about
+
+with 10 paintings that you made attached
+
+to it. and and and and and be prepared
+
+to be, you know, flabbergasted.
+
+&gt;&gt; Yeah. Yeah. Yeah.
+
+&gt;&gt; Um but so the playful part for me is the
+
+generation side.
+
+&gt;&gt; The work part, the the critical part,
+
+the the creative professional part is
+
+like what you leave on the cutting room
+
+floor.
+
+&gt;&gt; Yeah,
+
+&gt;&gt; that's true.
+
+&gt;&gt; So I don't really think that like your
+
+creativity is defined by what you
+
+publish. It's really truly defined by
+
+all the [&nbsp;__&nbsp;] you leave behind you. all
+
+the
+
+&gt;&gt; even this you know interview that we
+
+have right here will probably go on for
+
+two hours probably half an hour if it
+
+will air on tell us and you know it's
+
+it's really the the good editor he's
+
+good because of the stuff that he cut
+
+out because of the space that he left
+
+around an emotional beat or something
+
+like that you know so
+
+&gt;&gt; um I like to do both I like to flex my
+
+&gt;&gt; generative brainstorming expansive mind
+
+you know on one hand and I like to sift
+
+and sort through that and ask like what
+
+does it mean does Does this matter? Why
+
+would I choose this? And stuff like
+
+that. Then and then iterate upon the
+
+choices. So I'm choosing one out of a
+
+hundred things and then iterating upon
+
+the one that has been chosen.
+
+&gt;&gt; Cool. So what does play look like right
+
+now for you in the world of AI?
+
+&gt;&gt; Um
+
+the ability to create like infinite
+
+possibilities uh without a lot of like
+
+cost or um like friction or whatever
+
+stuff, right? Like even the way I was
+
+talking to you about the way I'm uh
+
+interacting with my agents,
+
+&gt;&gt; I'm like
+
+&gt;&gt; look at all the stuff that we've done
+
+this week. It's been significant and
+
+it's been pointed in the direction of
+
+this particular goal. Let's get in
+
+there. Let's do some research and let's
+
+get in on the old stuff and let's figure
+
+out all the coolest [&nbsp;__&nbsp;] that we could
+
+build in May of 2026, you know,
+
+AIcentric or whatever and stuff. So,
+
+&gt;&gt; I thought it because I it sounded very
+
+productive, but I I heard joy and fun in
+
+your voice when you were talking about
+
+it.
+
+&gt;&gt; Oh, yeah. I'm I'm it it's it's
+
+&gt;&gt; it's both.
+
+&gt;&gt; I'm extremely powerful right now in the
+
+way that I can think about this stuff on
+
+like a meta level. Like even the like
+
+going to the prompt upgrader
+
+&gt;&gt; to get a really good prompt before I go
+
+spend 20 agents time churning off down
+
+those paths or whatever stuff, you know?
+
+Yeah.
+
+&gt;&gt; And there's like an ethical AI kind of
+
+like angle to that too, which is like,
+
+yo, if you're going to be
+
+sitting there with both hands full,
+
+critical of its impact on the
+
+environment, but also
+
+&gt;&gt; curious and and wanting to engage in its
+
+transformational capability,
+
+uh why don't you make whatever effort
+
+you can to be as efficient as you can be
+
+or whatever, you know, stuff. And um and
+
+so like simply by upgrading the prompts
+
+before I run my agents, that's a good
+
+way to do it. But but I and this is
+
+where you get to see my my real ability
+
+to hold like like the contradiction or
+
+whatever which is like um
+
+&gt;&gt; you know
+
+a lot of those to actually let's just
+
+we'll scratch that one. Sorry. Okay.
+
+Sure.
+
+&gt;&gt; Lost lost the plot there for a second.
+
+&gt;&gt; No problem. So I think it's a great
+
+moment to just dive into what you're
+
+working on now. What's exciting you
+
+right now? Uh you know before this
+
+conversation you sent me links to a few
+
+cool things that you're working on. Can
+
+you speak to what uh Chris Krue's all
+
+about right now in this moment?
+
+&gt;&gt; Yeah.
+
+&gt;&gt; Um I'm launching a responsible AI
+
+certification program for professionals
+
+that work in the AI space on Friday.
+
+&gt;&gt; Okay.
+
+&gt;&gt; With Sarah Downey from Victoria here and
+
+Martin Leatka from um Vancouver who's
+
+like a PhD machine learning guy used to
+
+work for Mozilla. And so the idea is
+
+there's a whole bunch of people whose
+
+job has become governance, ethics, and
+
+you know, responsible use of AI inside
+
+of corporations. And in many cases, they
+
+don't have the framework for dealing
+
+with this kind of stuff.
+
+&gt;&gt; So I've been trying to roll out a kind
+
+of like a professional project manager
+
+uh type certification where you want to
+
+add the letters to your LinkedIn at the
+
+end of your name to say like, yo, yeah,
+
+I'm a project manager, but I'm a
+
+professional project manager. I've
+
+studied, you know, all the frameworks
+
+and uh, you know, work in this space or
+
+whatever. So, so on Friday, I'm really
+
+happy. We're going to launch in the uh,
+
+responsible AI professional
+
+certification program. Sold out. We've
+
+got like 30 participants out of 30. And,
+
+uh, I'm trying to launch a digital
+
+version of it at the same time or
+
+whatever.
+
+&gt;&gt; And who are these people that have
+
+signed up? Are they all they all work
+
+for corporations, organizations? And
+
+&gt;&gt; some of them are executive directors of
+
+nonprofits who's like, "My board says we
+
+got to figure out AI this year, you
+
+know, and I want to do it in a way that
+
+doesn't make all my employees quit."
+
+&gt;&gt; Yeah, that's right.
+
+&gt;&gt; That's actually a pretty common
+
+conversation.
+
+&gt;&gt; That's a pretty, you know, real use
+
+case. Real use board said figure out AI,
+
+staff's like fo, you know, like and so
+
+I'm trying to figure out how I can
+
+implement this in a way that feels good
+
+to me
+
+&gt;&gt; and to them and also, you know, delivers
+
+on my fiduciary responsibility,
+
+&gt;&gt; right? Yeah.
+
+&gt;&gt; Um, yeah, I see a lot of people that are
+
+um AI ethics and governance people
+
+inside their or HR people
+
+&gt;&gt; much like the web in web 2.0. Who owns
+
+AI has yet to be figured out yet because
+
+it touches everything. It touches HR
+
+around hiring. It touches technology
+
+around coding. It touches marketing in a
+
+variety of ways. because you know
+
+executive STR it touches many uh
+
+departments or traditional like
+
+functional roles inside corporations and
+
+organizations. So we haven't quite
+
+figured out who who owns it yet as it
+
+touches so many things. But um and then
+
+there's a whole emerging class of like
+
+&gt;&gt; you know innovation change agent type
+
+people. These are AI consultants that
+
+are
+
+ahead of the curve, you know, visav 80%
+
+of their peers or whatever and are
+
+helping to
+
+&gt;&gt; they're essentially like the tip of the
+
+spear. They're out there learning about
+
+this stuff, experimenting with it, and
+
+then bringing it back and, you know,
+
+selling their expertise to other
+
+organizations as consultants.
+
+&gt;&gt; We've got a lot of people there who are,
+
+you know, trying to differentiate
+
+themselves from other people in space.
+
+And
+
+&gt;&gt; yeah, it's brilliant. Okay, cool.
+
+&gt;&gt; You also sent me another link. Uh, what
+
+was it? punk AI or uh
+
+&gt;&gt; yeah so okay I've been having so much
+
+fun lately turning things into other
+
+things using vibe coding
+
+&gt;&gt; so in this conversation we've touched on
+
+some interesting things
+
+&gt;&gt; um and we have a transcript of it you
+
+know from the audio well that transcript
+
+is what you know LLMs eat for lunch or
+
+whatever so we could take from this
+
+transcript here we could say here's two
+
+guys having a conversation about uh you
+
+know AI creativity and the arts Let's
+
+build some diagrams, examples,
+
+exercises, thought experiments around
+
+the stuff that they're talking about
+
+there.
+
+&gt;&gt; Right?
+
+&gt;&gt; So, I've launched two websites in the
+
+last couple weeks. One called Both Hands
+
+Full, one called Punk Rock AI. And these
+
+are the transcripts of my keynotes
+
+turned into online learning modules for
+
+other creatives and artists and stuff
+
+where they can get in there and they're
+
+like, "Oh, Chris says I should have an
+
+AI policy, a worldview, and perspectives
+
+document, and a voice and style guide.
+
+&gt;&gt; How do I do those?" says, "Well, I got a
+
+little tool you can like put your blog
+
+into, put your band camp site into, have
+
+it analyze that stuff and spit out a
+
+well, here's based on your lyrics what
+
+you feel about the world or think in
+
+your heart about, you know, your values
+
+or your worldview, your perspective and
+
+stuff."
+
+&gt;&gt; Yeah. Yeah. Yeah. Brilliant.
+
+&gt;&gt; Yeah. I've been trying to Yeah.
+
+repurpose,
+
+you know, talks, transcripts, and things
+
+like that into other creative assets
+
+along the way,
+
+&gt;&gt; launching the courses. Um the the
+
+nonprofit's really kind of thriving. You
+
+know, we launched that Komox chapter.
+
+We've had a couple events up there. Um
+
+we've got like 70 people in that
+
+community that have come together and
+
+are supporting the events and
+
+&gt;&gt; Yeah. Yeah.
+
+&gt;&gt; couple little rural sponsors like uh you
+
+know the the local cheese artisan cheese
+
+factories come to the table with the
+
+&gt;&gt; I love it.
+
+&gt;&gt; Yeah. Refreshment table sponsorship and
+
+&gt;&gt; Yeah. And on that note, I mean, in the
+
+the lineage of tech and AI advances,
+
+where does West Coast Canada like or
+
+where's BC, what role does it play that
+
+you see in the lineage of all of this?
+
+&gt;&gt; Yeah.
+
+&gt;&gt; Well, I think that um we stand on the
+
+shoulders of giants in some ways and
+
+also we've like missed some boats in
+
+other ways, but we're kind of sitting
+
+pretty I feel like for the future and so
+
+I'll unpack that a little bit. So we've
+
+got um we've got one of the best
+
+supercomputers in Canada for doing AI in
+
+the SFU network. In fact, it's so good
+
+that they are making a case to the
+
+federal government right now that of all
+
+the allocation of AI dollars that are
+
+coming to the West Coast that they
+
+should take 100% of them.
+
+&gt;&gt; Wow.
+
+&gt;&gt; Because they're because
+
+&gt;&gt; they do have the most advanced
+
+supercomputer in Canada.
+
+&gt;&gt; Unfortunately, in some ways, those
+
+things matter in this race that we're
+
+in. even though that's maybe not the
+
+healthiest way to look at it as a race
+
+or whatever. And so like we as Canada,
+
+if we're trying to define a sovereign AI
+
+identity that's different than America
+
+and different than China,
+
+&gt;&gt; maybe we should invest 100% of our
+
+budget in this one major supercomputer
+
+center of AI, you know.
+
+&gt;&gt; Um
+
+&gt;&gt; what was your question?
+
+&gt;&gt; I lost it.
+
+&gt;&gt; You see?
+
+&gt;&gt; Oh yeah. [&nbsp;__&nbsp;]
+
+Um, so standing on the shoulders of
+
+giants is where we were. Um, so we've
+
+got like bonafide chops here. We've got
+
+like um Dr. Phipe Pasque's meta creation
+
+lab at SFU at the school of interactive
+
+art and technology. This has been a a
+
+lab for music AI and creative AI that's
+
+been around for 20 years. This guy is a
+
+very wellsighted uh researcher and
+
+professor. He built the tool called
+
+AutoLoom that I used to train my own AI
+
+model on my own photography. When I said
+
+that I taught a computer brain what
+
+faces looked like, that was using the
+
+SFU tool, AutoLoom.
+
+&gt;&gt; So, we've got research labs.
+
+&gt;&gt; We've got like this infrastructure
+
+&gt;&gt; uh around like the supercomputers and
+
+stuff and and so uh and these tenure
+
+professors, academic legacy, we've got a
+
+lot of a lot of those types of things in
+
+place.
+
+Unfortunately, we sort of missed the
+
+boat with the federal allocations of
+
+billions that was received by the Vector
+
+Institute in Toronto, MA in Montreal,
+
+which has 700 AI and machine learning
+
+researchers funded by the federal
+
+government there in Montreal, or Amy,
+
+the Alberta Machine Intelligence
+
+Institute in Edmonton. These are three
+
+centers of Canadian AI excellence that
+
+have been funded by the government to
+
+the tune of $1 billion.
+
+&gt;&gt; Now, this happened several years ago.
+
+So, they've actually done economic
+
+impact studies on these things. And you
+
+know, those things have returned four or
+
+5x the economic impact to those three
+
+metropolitan areas, Edmonton, Toronto,
+
+and Montreal. Yeah. So the investment of
+
+a billion into MIA in Montreal by the
+
+federal government has resulted in four
+
+or five billion dollars in economic
+
+development. This is like conferences,
+
+labs starting up, startups, all sorts of
+
+things.
+
+&gt;&gt; So
+
+&gt;&gt; there hasn't really been a voice of the
+
+BC AI ecosystem until we started. And so
+
+we haven't had a chance to clearly
+
+articulate our West Coast advantage out
+
+here around clean energy, around
+
+indigenous own energy production, you
+
+know, around creativity and ethics and
+
+the arts and stuff like that. Like we're
+
+not Toronto and we're not Montreal. We
+
+do have a different perspective. And so
+
+a lot of the work that we're doing as a
+
+nonprofit and association is
+
+&gt;&gt; building the coalition, politically
+
+organizing, and then putting those
+
+messages out there into the federal
+
+government.
+
+&gt;&gt; Yeah, that's right.
+
+&gt;&gt; Yeah. I got invited to Minister Evan
+
+Solomon who's the Canadian AI minister.
+
+Um he had an AI and culture summit in BA
+
+uh just over a month ago and this had
+
+all the big wigs there. the people that
+
+represent the film directors, the people
+
+that represent the um screenwriters, uh
+
+music lyricists, even things like uh
+
+museums and opera and all all the
+
+cultural producers of Canada were there
+
+trying to figure out
+
+&gt;&gt; like
+
+the government wants to just like
+
+obviously like fund technological
+
+infrastructure, but by doing so they do
+
+so at the cost of the cultural producers
+
+of Canada if they don't have a line item
+
+for them as well. And so people are
+
+trying to figure out what their place in
+
+the future is stuff. And so
+
+&gt;&gt; um that's what we're trying to do with
+
+the BCAI ecosystem. We're trying to
+
+&gt;&gt; rally the troops, come together, put our
+
+needs in the middle, form a situation
+
+that's bigger than any one company or
+
+nonprofit or institution, and
+
+&gt;&gt; essentially rally the federal government
+
+for some of those 30 billion dollars of
+
+earmarked Mark Carney AI money.
+
+&gt;&gt; Wow. And when you are, you know, when it
+
+comes to the point where you actually
+
+get to communicate your message, your
+
+vision to the to the government, are
+
+they I mean, I I deal with this
+
+conversation all the time and we're
+
+constantly having to talk about how art
+
+how there's a return on investment when
+
+it comes to art. Um, and we rarely get
+
+to just speak about the value of art as
+
+art. you know, it always has to be a
+
+tourist dollars or how can we leverage
+
+this to some sort of payoff down the
+
+road? It is that the conversation with
+
+AI in general? Is there a um arts,
+
+culture, and human evolution or the
+
+philosophical evolution of the human
+
+species or is it all about the return on
+
+investment? A lot of our conversation
+
+with people like Minister Mark Miller or
+
+Minister Evan Solomon or Minister Gregor
+
+Robertson centers around trust
+
+&gt;&gt; and it has to do with like building
+
+social license and trust around this
+
+kind of stuff. Like we can have these
+
+technological breakthroughs and AI and
+
+video factories you know or whatever.
+
+But unless the artists and cultural
+
+producers are along there helping figure
+
+out how to make sense of it and what
+
+this means for society and our lives and
+
+the rest, well, it's going to be hollow
+
+and it's going to be an extractive
+
+Silicon Valley driven not us process or
+
+whatever, right? And so, um, I think
+
+that a lot of people do understand the
+
+role that culture plays and kind of
+
+making sense of this. And um I think
+
+that you know if we speed off into the
+
+future without bringing arts and culture
+
+along the way, we're going to end up as
+
+a vassal state of California.
+
+&gt;&gt; Yeah,
+
+100% agree. Okay, couple more questions
+
+for you. Our time's fl just flown by,
+
+but um
+
+is there anything currently that you
+
+would refuse to use AI for? Any task?
+
+any is there anything that you wouldn't
+
+use AI for right now in your life?
+
+&gt;&gt; Yeah. Um well, my claim to fame is as a
+
+documentary photographer and filmmaker,
+
+&gt;&gt; right?
+
+&gt;&gt; This is an area where Okay, let me like
+
+now I have to dissect your question a
+
+little bit. Go
+
+&gt;&gt; for it.
+
+&gt;&gt; You're talking about the creative
+
+outputs. You're like, you know, no, I
+
+would never replace a portrait of a
+
+community member with an AI generated
+
+portrait of a community member. I would
+
+never generate documentation of a meetup
+
+as
+
+you know instead of bringing a
+
+photographer there to actually be there
+
+uh you know but but there's plenty of
+
+things that are short of all the
+
+creative works that involve engaging
+
+those photographers to do documentation
+
+of my monthly meetups that's super
+
+useful and valuable like just
+
+maintaining a CRM with all these
+
+people's photos tagged and titled and
+
+archived and you know like indexable
+
+&gt;&gt; 100% I mean you take any artist and
+
+about 75% of their time is doing, you
+
+know, art adjacent work or art work that
+
+is used to promote or propel their art.
+
+Focus on the art adjacent work and don't
+
+focus on the artwork, you know, or
+
+whatever. I I guess the other thing is
+
+like transparency on this is like super
+
+important. And I've had a couple like
+
+hard lessons. Um, you know, one time a
+
+few years ago on my mom's birthday, uh,
+
+when voice cloning had just come out, I
+
+had generated some poem about my mom's
+
+life and then I had my voice clone read
+
+it and I had it sent it to her as an MP3
+
+and I didn't hear from her for a few
+
+days and one day we were chatting again
+
+and I was like, "Yo, mom, what'd you
+
+think of that like deep fake birthday
+
+greeting or whatever?" And she was like,
+
+"What do you mean?"
+
+&gt;&gt; Oh, no.
+
+&gt;&gt; I was like, "You know the fake voice
+
+thing about the poem thing or whatever?"
+
+And she was like, and she cried. I mean,
+
+mom cried. She's like, "I already get
+
+phone calls during dinner from deep fake
+
+people trying to sell me stuff. I don't
+
+know who's who and what's what, you
+
+know, or whatever." And like,
+
+&gt;&gt; uh, now I don't know the sound of my own
+
+son's voice. Like, what kind of world do
+
+I live in, you know?
+
+&gt;&gt; So,
+
+&gt;&gt; transparency and disclosure as a
+
+especially like one of these most
+
+intimate relationship. I I'll tell you
+
+one more like story. I never told this
+
+in public, but
+
+&gt;&gt; sort of recently
+
+We can edit this out, right? Um, sort of
+
+recently I I had a new relationship
+
+forming with a a girl who's in a bunch
+
+of bands and and um she was in the
+
+studio um recording during a few of the
+
+weeks that we were dating and she was
+
+and we're talking every day about the
+
+whole process and sharing music back and
+
+forth things we like and I was playing
+
+trumpet riffs on my on my trumpet and
+
+sharing with on on phone and stuff and
+
+you know we had this dialogue going
+
+about like this album that she was
+
+making or whatever.
+
+Well, a few weeks ago again, there was a
+
+new innovation that came out that gave
+
+you the ability to clone your voice but
+
+inside music in Suno.
+
+&gt;&gt; So, I took my trumpet riffs, I took my
+
+real life voice, I took like essentially
+
+like our chat logs or my own journals
+
+and stuff and I like wrote some like,
+
+you know, AI wrote some
+
+legit lyrics that could have sound that
+
+sounded like I wrote them that were
+
+about my life, right? and then sang them
+
+through my deep fake voice and like you
+
+know with my trumpet there and stuff and
+
+like I was presenting it to her as like
+
+a
+
+&gt;&gt; continued dialogue exploration of the
+
+things that we had been exploring
+
+together like hey all here's all that
+
+[&nbsp;__&nbsp;] kind of like and like my my take on
+
+it and here's some exploration and you
+
+know I'm really hungry right now to like
+
+have new
+
+places to experiment with like my
+
+methodologies and my processes and stuff
+
+&gt;&gt; so um at first she was like yeah not
+
+that into it.
+
+&gt;&gt; And then she's one day she's like, you
+
+know, yeah, this scares me a little bit.
+
+I'm like, yeah, yeah, it scares me, too.
+
+That's what the songs are about. Listen,
+
+actually, that's actually that's what
+
+the songs are about. But um
+
+&gt;&gt; she hate it.
+
+&gt;&gt; Yeah, she hated it. Yeah. Uh it it um
+
+facilitated a quick demise of our
+
+connection in that uh um she you know I
+
+was I wasn't when she said she was
+
+fearful of it.
+
+&gt;&gt; She didn't mean the same thing I meant
+
+when I'm like I'm fearful of it in this
+
+one hand and I'm also curious and
+
+intrigued and trying to mess with it and
+
+all these things. But so just um
+
+&gt;&gt; thanks for sharing that.
+
+&gt;&gt; Yeah. You know like like uh
+
+&gt;&gt; be be careful you know be careful. This
+
+stuff's real, you know, and it it does
+
+have the power to
+
+do damage to some of the relationships
+
+we care about the most, right? We're
+
+talking about like trust, how we
+
+represent ourselves,
+
+&gt;&gt; like the ability to remix our own
+
+thoughts and words and ideas and stuff
+
+like that. So, it's just like you
+
+definitely want to like
+
+&gt;&gt; be slow, measure twice, cut once,
+
+&gt;&gt; be full transparency like that.
+
+&gt;&gt; I love that. It's never been a better
+
+moment to do the whole like build in
+
+public thing, which is maybe like one of
+
+the things that's been attractive to me
+
+about you since the beginning is like
+
+before I'd ever been to the house of Al
+
+or maybe even before you even started,
+
+you started talking about wanting to do
+
+this and that you were going to do it
+
+and coming together to do it
+
+&gt;&gt; and simply by
+
+&gt;&gt; sharing that and being transparent in
+
+public, you can course correct along the
+
+way. you can figure out where you're
+
+bumping into other things and you can be
+
+like, "Hey,
+
+&gt;&gt; you know,
+
+&gt;&gt; yeah, you can make all the mistakes."
+
+&gt;&gt; Totally.
+
+&gt;&gt; So, yeah, I think that yeah, keeping
+
+like
+
+&gt;&gt; communication, transparency,
+
+authenticity high, being careful about
+
+the relationships you trust the most,
+
+you care about the most, you know, and
+
+and just like using it as a way more
+
+than anything to like build up trust and
+
+creativity and kind of some of those
+
+more um, you know, soft skills.
+
+&gt;&gt; Yeah, that's beautifully said, too. And
+
+I also I mean I'm just thinking out
+
+loud. Now this is very off script, but
+
+I'm I'm wondering you know a lot of the
+
+art
+
+I think sometimes the rub comes from the
+
+fact that these artists who engage in
+
+this these creative flows it it does
+
+feel or it can feel spiritual and it can
+
+feel um a connection to spirit or
+
+something greater than yourself is
+
+flowing through. And um somewhere along
+
+the lines, we took
+
+that experience and brought it into a
+
+world capitalism and efficiency and
+
+productivity and let's pump out more and
+
+let's um and so I mean if it had stayed
+
+as only a spiritual practice, if music
+
+and dance and pink remained as a
+
+spiritual practice, I don't know if it
+
+could have ever been if we would even
+
+consider the idea of it being threatened
+
+as a thing. You know, you can't
+
+Oh, AI can uh canoire.
+
+&gt;&gt; Yeah. Okay. Exactly. Like
+
+&gt;&gt; like it's not AI is never gonna I'm
+
+never going to choose to have it
+
+meditate for me. Meditation is my spirit
+
+spiritual practice. I'm here for the
+
+process of it, not for the end result.
+
+And uh and so I wonder if we kind of you
+
+know because we entered into that
+
+conversation of productivity and
+
+efficiency and pushing out art.
+
+It's sort of we sort of tripped on the
+
+way in and now we're dealing with AI
+
+which is very productive and efficient
+
+and and something kind of started to rub
+
+wrong in the way. you know, if um
+
+&gt;&gt; I think that we have probably hyper
+
+optimized into these areas that make us
+
+super successful as like humans that
+
+that are based on the context of the
+
+world we live in, which is kind of the
+
+factory innovation model of like you put
+
+some stuff in, it moves through the
+
+process and something comes out the
+
+other side. Like what if we're not meant
+
+to be like human encyclopedias and
+
+spreadsheets and like what if we
+
+&gt;&gt; gave up the 14 or 16 years that we train
+
+our kids to become encyclopedias and
+
+spreadsheets and instead we taught them
+
+to be intuitits empaths, relation people
+
+and communicators, you know, or
+
+something like that. Bridge builders,
+
+you know, like collaborators, you know,
+
+&gt;&gt; what if instead of efficiency, we value
+
+collaborative uh, you know, relational
+
+resonance or something like this. So, I
+
+think that
+
+&gt;&gt; but but
+
+&gt;&gt; that's to be careful to not discount the
+
+pain between here and there. Mhm.
+
+&gt;&gt; So, it's likely that we've hyperindexed
+
+on all this stuff that might not
+
+actually be that important in the grand
+
+scheme of what it means to be human.
+
+&gt;&gt; Yeah.
+
+&gt;&gt; But it makes us very successful now.
+
+&gt;&gt; Absolutely.
+
+&gt;&gt; But between here and when the pendulum
+
+kind of falls into the middle,
+
+&gt;&gt; [&nbsp;__&nbsp;] man. Like think everything's up
+
+for grabs. You know, there's people with
+
+mortgages and kids in school with not
+
+just jobs that are going away, but
+
+careers, identities and whole like uh
+
+&gt;&gt; you know, accumulated work experience
+
+that has been now like absorbed into
+
+into machines without their consent, you
+
+know, and stuff. So, it's going to be a
+
+very disorienting time.
+
+&gt;&gt; Yeah. And I think that, you know,
+
+holding like compassion for each other
+
+&gt;&gt; as we we're all on different stages of
+
+this journey around like relationship to
+
+AI and the future and tech and all this
+
+stuff and and we're getting
+
+&gt;&gt; info from a lot of different sources and
+
+it's pretty hard to see over the
+
+horizon. And so it's like
+
+&gt;&gt; what better time to practice like
+
+humility around our own ideas and stuff
+
+like that, empathy for what other people
+
+might be going through with this
+
+experience and just trying to have
+
+compassion and like
+
+&gt;&gt; coming together, man. And it really
+
+seems to be like where it's at. Like
+
+it's probably why the house owl is like
+
+sitting pretty as well. It's like in a
+
+land of synthetic everything where all
+
+this [&nbsp;__&nbsp;] can be generated by, you know,
+
+hive minds out there in Silicon Valley
+
+land. Well, what matters the most is
+
+like probably having physical spaces to
+
+safely come together in trusted
+
+environments and make sense of the world
+
+around us, man. Like
+
+&gt;&gt; I think this is a great place to wrap
+
+up. So I've got one final question for
+
+you. Um I'll put it into two different
+
+ways and you can choose which one you
+
+want to answer. So either what's
+
+important to you right now or what is
+
+sacred to you right now?
+
+&gt;&gt; I think it's that human connection and
+
+relationship that I just told you about.
+
+The thing that I think will buttress us
+
+or be that life raft against
+
+&gt;&gt; not just uncertainty but profoundly
+
+increasing pace of like change.
+
+&gt;&gt; This change that we just felt that we're
+
+walking through right now. It's going to
+
+like accelerate. That's going to be the
+
+defining moment of the time is that
+
+&gt;&gt; the AIs we're using right now, they were
+
+built by humans, but the next AIS are
+
+going to be built by AIs. And then you
+
+start to really get on a curve, right?
+
+And so like, well, what do you what do
+
+you do when that's where you're living?
+
+It's like the best thing I can figure
+
+out is to walk into the future holding
+
+hands with the people around me, you
+
+know, trying to see like, yo, we're
+
+stronger together than I am by myself.
+
+And so,
+
+&gt;&gt; that's where I'm placing my bets.
+
+&gt;&gt; Love it. I'll place them right there,
+
+too. All right.
+
+&gt;&gt; Thank you, bro.
+
+&gt;&gt; Thank you. Now if uh if people want to
+
+you know engage in this conversation
+
+further with you uh where can they go
+
+websites or Yeah.
+
+&gt;&gt; Yeah. The best place to go would be to
+
+bc-ai.ca.
+
+That's our nonprofit ecosystem. That'll
+
+lead you down in my whole world. But uh
+
+spell my name with two K's. K R I S K R
+
+U G. You drop that in Google and see
+
+what the goddess has in store for you.
+
+Man,
+
+&gt;&gt; sounds good. Thank you so much for
+
+taking the time.
+
+&gt;&gt; All right, my friends. We'll see you
+
+again. Thanks for connecting. Be well,
+
+be wild, and uh be yourself every once
+
+in a while. Good night.
+
+&gt;&gt; House of Owl.
+
+&gt;&gt; House of
+
+How's it looking there? Is it uh
+
+press the red button?
+
+&gt;&gt; Have you been Have you ever done one of
+
+these where you

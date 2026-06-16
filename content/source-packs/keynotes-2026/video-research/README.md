@@ -13,6 +13,7 @@ This folder is source material for page copy, future post drafts, clips, and tra
 | `channel-next` | `The Future of Humanity: AI Keynote on Chaos & Creativity` | `https://www.youtube.com/watch?v=1OcC-0X6Nb8` | 33:26 | `transcripts/channel-next.en.txt` |
 | `whistler-institute` | `Inside Vancouver's AI Boom (and why it matters)` | `https://www.youtube.com/watch?v=-XEsqsEbpoo` | 1:33:31 | `transcripts/whistler-institute.en.txt` |
 | `vancouver-ai-march-2026-appearance` | `We Trained AI on Stolen Work... And I'm More Creative Than Ever` | `https://www.youtube.com/watch?v=T5ANAthZewE` | 32:43 | `transcripts/vancouver-ai-march-2026-appearance.en.txt` |
+| `storyhive-victoria-2026` | `STORYHIVE On Location: Victoria — Kris Krug` | `https://www.youtube.com/watch?v=sxDwQRTZfCA` | 1:19:50 | `transcripts/storyhive-victoria-2026.en.txt` (KB Whisper + 2026-06-16 YouTube caption diff) |
 | `horizons-compass-ai-models` | `Exploring AI Models: The Future of Machine Learning` | `https://horizons.compassdatacenters.com/series/exploring-ai-models-the-future-of-machine-learning/` | produced clips | `metadata/horizons-*.json` |
 
 ## Files
