@@ -4,7 +4,7 @@
 **Track:** Track A content strategy
 **Status:** editorial proposal, not publish-ready draft copy
 **Primary source:** STORYHIVE On Location Victoria interview with Jordan Dack at Haus of Owl
-**Goal:** turn the interview's new thinking into evergreen kriskrug.co posts without writing a recap of the interview.
+**Goal:** ~~turn the interview's new thinking into evergreen kriskrug.co posts without writing a recap of the interview.~~ **Updated 2026-06-16:** KK wants **one** cited companion post — see `content/drafts/2026-06-16-storyhive-haus-of-owl-jordan-dack/`. The three idea-post splits below are **superseded**.
 
 ## Assumptions And Stop Rules
 

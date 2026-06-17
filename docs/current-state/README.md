@@ -9,6 +9,8 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 
 Read these first for current execution context:
 
+**Newest (start here):** [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md) — prod on Aurora **1.3.18**, content cadence live through 07-02, #207/#208/#220 closed, duplicate Pinterest tag fixed. Carries current verification commands and the Pagely ARES-edge cache gotcha.
+
 1. [POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md](POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md), `reports/morning-truth-20260609-043246Z.md`, and the latest read-only startup truth from `make status-readonly`
 2. [LOCAL-WP-QA-2026-06-04.md](LOCAL-WP-QA-2026-06-04.md)
 3. [AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md](AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md)
@@ -57,6 +59,7 @@ Then use historical plans for context:
 | [FULL-AUDIT-ROADMAP-2026-05-18.md](FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit of repo, GitHub queue, Track A, Track B, and human decisions. |
 | [POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md](POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md) | Current post-ship audit and workplan after Aurora 1.3.10, Work metadata #68, open queue, draft audit, and ready/agent/block buckets. |
 | [LOCAL-WP-QA-2026-06-04.md](LOCAL-WP-QA-2026-06-04.md) | Local WP QA path for Track B: `kriskrug-local.local:10003`, GraphQL startup, Local theme sync, and proof that `/blog/` plus a real article load with Aurora 1.3.11. |
+| [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md) | **Newest front door.** 2026-06-16/17 closeout: prod on Aurora 1.3.18 (verified, no deploy needed), content cadence live through 07-02, #207/#208/#220 closed, #221 advanced, duplicate Pinterest tag fixed, open threads, verification commands, Pagely ARES-edge cache gotcha. |
 | [HANDOFF-2026-05-24.md](HANDOFF-2026-05-24.md) | Authoritative cross-track state as of 2026-05-24 (Aurora live, branch divergence warning, deploy mechanics). |
 | [AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md](AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md) | Aurora 1.3.10 article/blog composition closeout and next QA path. |
 | [WORK-PAGE-METADATA-68-2026-06-04.md](WORK-PAGE-METADATA-68-2026-06-04.md) | Work page metadata and OG image closeout for issue #68, with remaining #126 social-debugger follow-up. |
@@ -135,6 +138,7 @@ Then use historical plans for context:
 - **Current addendum:** start with the post-ship audit/workplan and newest morning-truth report, then use the Local WP QA note, Aurora 1.3.10 workplan, Work metadata closeout, Aurora logo closeout, and the 2026-05-24 handoff set ([`HANDOFF-2026-05-24.md`](HANDOFF-2026-05-24.md), [`AURORA-V3-QA-ROADMAP-2026-05-24.md`](AURORA-V3-QA-ROADMAP-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](TRACK-A-MORNING-TRUTH-2026-05-24.md)).
 - **June 11 addendum:** PRs #205, #210, and #212 are merged, open PRs are `0`, open issues are `63` including #206-#208, production still reports WordPress `6.9.4`, and the draft queue is `2` future posts, `72` draft posts, and `5` draft pages via `make status-readonly`.
 - **Follow-up addendum:** GSAP/CDN production drift remains tracked by #189/#204; Rafiki/content queue closeout is split across #206, #207, and #208; docs drift refresh #209 is closed.
+- **2026-06-17 addendum (current truth — supersedes the live-state lines above):** Production now runs **`kk-aurora` 1.3.18** (origin + CDN, GSAP gone, reveals healthy); the 1.3.10/1.3.12 references above are historical. EPICs **#220** (Aurora drift) and issues **#207**/**#208** (content cadence) are **CLOSED**; #204/#189 already closed. Content cadence is LIVE — 9 posts scheduled every 2 days through **07-02** (`11905` live 06-16). #221 (SEO root files) advanced: robots.txt + llms.txt verified live; EPIC stays open for metadata inventory + #176 alt-text. Duplicate Pinterest `p:domain_verify` tag fixed (Jetpack field cleared, Google verification preserved). See [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md).
 - **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-06-11 20:09 UTC (`make status-readonly` / `make wp7-smoke EXPECT_VERSION=6.9.4`). Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
 - **Draft queue addendum:** `make status-readonly` reported `2` future posts, `72` draft posts, and `5` draft pages on 2026-06-11 20:50 UTC after scheduling WP posts `11876` and `11878`; `sovereign-ai-for-whom` is already WP draft `11905`.
 - **Issue queue addendum:** `gh pr list --state open --limit 200` returned `0` open PRs after PR #212 merged, and `gh issue list --state open --limit 200` returned `63` open issues on 2026-06-11 20:40 UTC.
