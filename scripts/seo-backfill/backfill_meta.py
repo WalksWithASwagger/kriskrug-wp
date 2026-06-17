@@ -47,8 +47,12 @@ def _utcnow() -> dt.datetime:
     return dt.datetime.now(dt.timezone.utc)
 
 
+def endpoint_for_kind(kind: str) -> str:
+    return "posts" if kind == "post" else "pages"
+
+
 def fetch_candidates(wp: WordPress, kind: str, since: str | None) -> list[dict]:
-    endpoint = "posts" if kind == "post" else "pages"
+    endpoint = endpoint_for_kind(kind)
     page, items = 1, []
     while True:
         params = {
@@ -74,9 +78,10 @@ def fetch_candidates(wp: WordPress, kind: str, since: str | None) -> list[dict]:
     return items
 
 
-def readback(wp: WordPress, post_id: int) -> dict:
+def readback(wp: WordPress, post_id: int, kind: str = "post") -> dict:
+    endpoint = endpoint_for_kind(kind)
     r = wp.s.get(
-        f"{wp.base}/wp-json/wp/v2/posts/{post_id}",
+        f"{wp.base}/wp-json/wp/v2/{endpoint}/{post_id}",
         params={"context": "edit", "_fields": READBACK_FIELDS},
         timeout=30,
     )
@@ -133,7 +138,7 @@ def apply_one(wp: WordPress, item: dict, kind: str, fields, *, live: bool) -> di
         return out
 
     # --- live path: re-verify identity on a fresh GET before writing ---
-    fresh = readback(wp, pid)
+    fresh = readback(wp, pid, kind)
     if int(fresh.get("id", -1)) != pid:
         out["status"] = "failed"; out["reason"] = "id mismatch on readback"; return out
     list_title = title_text(item)
@@ -152,10 +157,11 @@ def apply_one(wp: WordPress, item: dict, kind: str, fields, *, live: bool) -> di
         out["reason"] = "fields filled since enumeration"; return out
 
     payload = build_meta_payload(planned)  # raises if any key not allowlisted
-    wp.s.post(f"{wp.base}/wp-json/wp/v2/posts/{pid}", json=payload, timeout=60).raise_for_status()
+    endpoint = endpoint_for_kind(kind)
+    wp.s.post(f"{wp.base}/wp-json/wp/v2/{endpoint}/{pid}", json=payload, timeout=60).raise_for_status()
 
     # --- post-write verification ---
-    verify = readback(wp, pid)
+    verify = readback(wp, pid, kind)
     vmeta = verify.get("meta") or {}
     mismatched = [k for k, v in planned.items() if not meta_values_match(v, vmeta.get(k))]
     slug_changed = verify.get("slug") != fresh.get("slug")
@@ -170,7 +176,7 @@ def apply_one(wp: WordPress, item: dict, kind: str, fields, *, live: bool) -> di
     return out
 
 
-def apply_from_file_one(wp: WordPress, entry: dict, *, live: bool) -> dict:
+def apply_from_file_one(wp: WordPress, entry: dict, kind: str, *, live: bool) -> dict:
     """Write KK-approved OVERWRITE values for one post. Unlike the additive path
     this MAY overwrite non-empty fields — but only the 3 allowlisted meta keys,
     only the exact approved values, and only after a slug-identity guard. Records
@@ -178,7 +184,7 @@ def apply_from_file_one(wp: WordPress, entry: dict, *, live: bool) -> dict:
     pid, slug, meta = parse_approved_entry(entry)  # raises on bad shape
     out = {"id": pid, "slug": slug, "status": "skipped", "written": [], "flags": [], "reason": "", "old": {}}
 
-    fresh = readback(wp, pid)
+    fresh = readback(wp, pid, kind)
     if int(fresh.get("id", -1)) != pid:
         out["status"] = "failed"; out["reason"] = "id mismatch on readback"; return out
     if fresh.get("slug") != slug:
@@ -191,9 +197,10 @@ def apply_from_file_one(wp: WordPress, entry: dict, *, live: bool) -> dict:
         out["status"] = "planned"; out["written"] = sorted(meta); out["preview"] = meta; return out
 
     payload = build_meta_payload(meta)  # allowlist assert
-    wp.s.post(f"{wp.base}/wp-json/wp/v2/posts/{pid}", json=payload, timeout=60).raise_for_status()
+    endpoint = endpoint_for_kind(kind)
+    wp.s.post(f"{wp.base}/wp-json/wp/v2/{endpoint}/{pid}", json=payload, timeout=60).raise_for_status()
 
-    verify = readback(wp, pid)
+    verify = readback(wp, pid, kind)
     vmeta = verify.get("meta") or {}
     mismatched = [k for k, v in meta.items() if not meta_values_match(v, vmeta.get(k))]
     if mismatched or verify.get("slug") != slug or title_text(verify) != title_text(fresh):
@@ -202,7 +209,7 @@ def apply_from_file_one(wp: WordPress, entry: dict, *, live: bool) -> dict:
     return out
 
 
-def run_from_file(wp: WordPress, path: Path, *, live: bool) -> list[dict]:
+def run_from_file(wp: WordPress, path: Path, kind: str, *, live: bool) -> list[dict]:
     data = json.loads(path.read_text(encoding="utf-8"))
     entries = data["items"] if isinstance(data, dict) and "items" in data else data
     if isinstance(entries, dict):  # {"123": {...}} form
@@ -210,7 +217,7 @@ def run_from_file(wp: WordPress, path: Path, *, live: bool) -> list[dict]:
     outcomes = []
     for entry in entries:
         try:
-            out = apply_from_file_one(wp, entry, live=live)
+            out = apply_from_file_one(wp, entry, kind, live=live)
         except ValueError as e:
             out = {"id": entry.get("id"), "slug": entry.get("slug", ""), "status": "failed",
                    "written": [], "flags": [], "reason": f"validation: {e}", "old": {}}
@@ -300,10 +307,10 @@ def main() -> int:
     if args.from_file:
         path = Path(args.from_file)
         log(f"{mode} (from-file overwrite): {path}")
-        outcomes = run_from_file(wp, path, live=args.execute)
+        outcomes = run_from_file(wp, path, args.kind, live=args.execute)
         ts = _utcnow().strftime("%Y%m%d-%H%M%SZ")
         report = REPO_ROOT / args.report_dir / f"seo-overwrite-{ts}.md"
-        write_report(report, mode=f"{mode} (overwrite from {path.name})", kind="post",
+        write_report(report, mode=f"{mode} (overwrite from {path.name})", kind=args.kind,
                      fields=("approved",), filters=f"from-file={path.name}",
                      probe_result="n/a", backup_note="overwrite — prior values recorded per-item for rollback",
                      outcomes=outcomes)
@@ -317,8 +324,9 @@ def main() -> int:
     if args.ids:
         want = [int(x) for x in args.ids.split(",") if x.strip()]
         candidates = []
+        endpoint = endpoint_for_kind(args.kind)
         for pid in want:
-            r = wp.s.get(f"{wp.base}/wp-json/wp/v2/posts/{pid}",
+            r = wp.s.get(f"{wp.base}/wp-json/wp/v2/{endpoint}/{pid}",
                          params={"context": "edit", "_fields": LIST_FIELDS}, timeout=30)
             if r.status_code == 200:
                 candidates.append(r.json())

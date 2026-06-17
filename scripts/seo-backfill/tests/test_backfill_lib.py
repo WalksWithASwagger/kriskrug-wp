@@ -12,6 +12,7 @@ from backfill_lib import (  # noqa: E402
     build_meta_payload,
     derive_meta_description,
     derive_seo_title,
+    derive_social_message,
     parse_approved_entry,
     plan_meta_for_item,
     reconcile_with_fresh_meta,
@@ -73,6 +74,13 @@ def test_meta_desc_prefers_excerpt():
     desc, source = derive_meta_description(item(excerpt="The excerpt.", content="<p>Body paragraph here.</p>"))
     assert desc == "The excerpt."
     assert source == "excerpt"
+
+
+def test_derived_text_purges_em_dashes():
+    desc, _ = derive_meta_description(item(excerpt="A strong excerpt — with a dash."))
+    assert desc == "A strong excerpt, with a dash."
+    assert derive_social_message("Share this — now.") == "Share this, now."
+    assert derive_seo_title("Short — Title") == "Short, Title | Kris Krüg"
 
 
 def test_meta_desc_falls_back_to_first_real_paragraph():
