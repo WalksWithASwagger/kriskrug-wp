@@ -2,7 +2,7 @@
 """
 kk_notion_to_wp.py — Notion page → kriskrug.co draft post.
 
-Single-file CLI. Fetches a Notion page via the Notion API, converts blocks to
+CLI wrapper. Fetches a Notion page via the Notion API, converts blocks to
 Gutenberg HTML (see block_rules.py), downloads images, optionally uploads them
 to the WordPress Media Library, then POSTs a draft post to /wp-json/wp/v2/posts.
 
@@ -56,621 +56,77 @@ Safety:
 from __future__ import annotations
 
 import argparse
-import base64
-import dataclasses
-import difflib
 import json
-import os
-import re
 import sys
-import time
-import urllib.parse
 from datetime import datetime, timezone
 from pathlib import Path
 
-import requests
 import yaml
-from dotenv import dotenv_values
 
 # Local modules
 sys.path.insert(0, str(Path(__file__).parent))
 import block_rules  # noqa: E402
 import text_polish  # noqa: E402
-
-# ---------------------------------------------------------------------------
-# Config + paths
-# ---------------------------------------------------------------------------
-
-REPO_ROOT = Path(__file__).resolve().parents[2]
-DRAFTS_DIR = REPO_ROOT / "content" / "drafts"
-NOTION_API = "https://api.notion.com/v1"
-NOTION_VERSION = "2022-06-28"
-WP_BASE_URL_DEFAULT = "https://kriskrug.co"
-WP_DEFAULT_AUTHOR_ID = 1   # kk
-KKAI_ENV_PATH = Path("/Users/kk/Code/notion-local/kk-ai-ecosystem/.env")
-SCRIPT_DIR = Path(__file__).resolve().parent
-LOCAL_ENV_PATH = SCRIPT_DIR / ".env"
-TITLE_SIMILARITY_UPDATE_THRESHOLD = 0.5
-
-# ---------------------------------------------------------------------------
-# Tiny config loader (no print of secrets)
-# ---------------------------------------------------------------------------
-
-@dataclasses.dataclass
-class Config:
-    notion_token: str
-    wp_base_url: str
-    wp_user: str | None
-    wp_app_password: str | None
-    wp_author_id: int
-
-    @property
-    def has_wp_credentials(self) -> bool:
-        return bool(self.wp_user and self.wp_app_password)
-
-
-def load_config() -> Config:
-    local = dotenv_values(LOCAL_ENV_PATH) if LOCAL_ENV_PATH.exists() else {}
-    fallback = dotenv_values(KKAI_ENV_PATH) if KKAI_ENV_PATH.exists() else {}
-
-    def get(key: str, default: str | None = None) -> str | None:
-        return local.get(key) or fallback.get(key) or os.environ.get(key) or default
-
-    notion_token = get("NOTION_TOKEN")
-    if not notion_token:
-        sys.exit(f"NOTION_TOKEN not found. Add to {LOCAL_ENV_PATH} or {KKAI_ENV_PATH}.")
-    return Config(
-        notion_token=notion_token,
-        wp_base_url=get("WP_BASE_URL", WP_BASE_URL_DEFAULT) or WP_BASE_URL_DEFAULT,
-        wp_user=get("WP_USER"),
-        wp_app_password=(get("WP_APP_PASSWORD") or "").replace(" ", "") or None,
-        wp_author_id=int(get("WP_DEFAULT_AUTHOR_ID", str(WP_DEFAULT_AUTHOR_ID)) or WP_DEFAULT_AUTHOR_ID),
-    )
-
-
-# ---------------------------------------------------------------------------
-# Notion API client (minimal, just what we need)
-# ---------------------------------------------------------------------------
-
-class Notion:
-    def __init__(self, token: str):
-        self.s = requests.Session()
-        self.s.headers.update({
-            "Authorization": f"Bearer {token}",
-            "Notion-Version": NOTION_VERSION,
-            "Accept": "application/json",
-        })
-
-    def get(self, path: str) -> dict:
-        for attempt in range(4):
-            r = self.s.get(f"{NOTION_API}{path}", timeout=30)
-            if r.status_code == 200:
-                return r.json()
-            if r.status_code in (429, 502, 503, 504):
-                time.sleep(2 ** attempt)
-                continue
-            r.raise_for_status()
-        r.raise_for_status()
-
-    def page(self, page_id: str) -> dict:
-        return self.get(f"/pages/{page_id}")
-
-    def block_children(self, block_id: str, depth: int = 0, max_depth: int = 3) -> list[dict]:
-        """Fetch direct children of a block, then recursively attach nested
-        children to any block whose has_children is True. Nested blocks
-        appear under the key `_children` on the parent."""
-        all_blocks: list[dict] = []
-        cursor = None
-        while True:
-            qs = f"?start_cursor={cursor}&page_size=100" if cursor else "?page_size=100"
-            data = self.get(f"/blocks/{block_id}/children{qs}")
-            all_blocks.extend(data.get("results", []))
-            if not data.get("has_more"):
-                break
-            cursor = data.get("next_cursor")
-        if depth < max_depth:
-            for b in all_blocks:
-                if b.get("has_children"):
-                    b["_children"] = self.block_children(b["id"], depth=depth + 1, max_depth=max_depth)
-        return all_blocks
-
-
-def parse_page_id(url_or_id: str) -> str:
-    """Accept https://notion.so/Title-<32hex> or bare UUID or 32hex; return UUID with dashes."""
-    s = url_or_id.strip()
-    # last 32 hex chars wins
-    m = re.search(r"([0-9a-fA-F]{32})", s.replace("-", ""))
-    if not m:
-        # maybe already UUID
-        m2 = re.search(r"([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})", s)
-        if not m2:
-            sys.exit(f"Could not parse Notion page ID from: {url_or_id}")
-        return m2.group(1)
-    h = m.group(1)
-    return f"{h[0:8]}-{h[8:12]}-{h[12:16]}-{h[16:20]}-{h[20:32]}"
-
-
-# ---------------------------------------------------------------------------
-# Notion property reading. Tolerant — different DBs have different shapes.
-# ---------------------------------------------------------------------------
-
-def read_prop_title(page: dict) -> str:
-    props = page.get("properties", {})
-    for v in props.values():
-        if v.get("type") == "title":
-            return "".join(rt.get("plain_text", "") for rt in v.get("title", []))
-    return ""
-
-
-def read_prop(page: dict, name: str, default=None):
-    p = page.get("properties", {}).get(name)
-    if not p:
-        return default
-    t = p.get("type")
-    if t == "rich_text":
-        return "".join(rt.get("plain_text", "") for rt in p.get("rich_text", []))
-    if t == "select":
-        sel = p.get("select")
-        return sel.get("name") if sel else default
-    if t == "multi_select":
-        return [s.get("name") for s in p.get("multi_select", [])]
-    if t == "date":
-        d = p.get("date") or {}
-        return d.get("start")
-    if t == "checkbox":
-        return p.get("checkbox", False)
-    if t == "status":
-        st = p.get("status") or {}
-        return st.get("name")
-    if t == "people":
-        return [u.get("id") for u in p.get("people", [])]
-    if t == "url":
-        return p.get("url")
-    if t == "number":
-        return p.get("number")
-    return default
-
-
-def slugify(s: str) -> str:
-    s = s.lower().strip()
-    s = re.sub(r"[^\w\s-]", "", s)
-    s = re.sub(r"\s+", "-", s)
-    s = re.sub(r"-+", "-", s)
-    return s.strip("-")
-
-
-# ---------------------------------------------------------------------------
-# Image pipeline
-# ---------------------------------------------------------------------------
-
-def collect_image_blocks(blocks: list[dict]) -> list[dict]:
-    """Recursively collect every image block, including ones nested inside
-    callouts, toggles, columns, etc. Order matches reading order."""
-    out: list[dict] = []
-    for b in blocks:
-        if b.get("type") == "image":
-            out.append(b)
-        children = b.get("_children")
-        if children:
-            out.extend(collect_image_blocks(children))
-    return out
-
-
-def flatten_blocks(blocks: list[dict]) -> list[dict]:
-    """Depth-first flatten for context lookups (auto_alt). Preserves order."""
-    out: list[dict] = []
-    for b in blocks:
-        out.append(b)
-        children = b.get("_children")
-        if children:
-            out.extend(flatten_blocks(children))
-    return out
-
-
-def _plain_text(block: dict) -> str:
-    """Extract plain text from any block type that has rich_text."""
-    t = block.get("type")
-    if not t:
-        return ""
-    content = block.get(t, {})
-    rts = content.get("rich_text") if isinstance(content, dict) else None
-    return "".join(rt.get("plain_text", "") for rt in (rts or []))
-
-
-def _block_plain_text_deep(block: dict) -> str:
-    """Plain text of a block AND its nested children (for callouts with multi-paragraph bodies)."""
-    txt = _plain_text(block)
-    for child in (block.get("_children") or []):
-        c = _plain_text(child)
-        if c:
-            txt = (txt + " " + c).strip()
-    return txt
-
-
-def derive_excerpt(blocks: list[dict], max_chars: int = 300) -> str:
-    """
-    Find KK's own voice for the excerpt. Strategy:
-    1. The first callout block with substantive text (KK's writing pattern is
-       to put a green 'short version' callout near the top of long posts).
-    2. The first body paragraph as fallback.
-    Returns the first 1-3 sentences, trimmed to max_chars.
-    NEVER returns the third-person Notion AI summary — that's not KK voice.
-    """
-    flat = []
-    def walk(bs):
-        for b in bs:
-            flat.append(b)
-            walk(b.get("_children") or [])
-    walk(blocks)
-
-    candidate = ""
-    for b in flat:
-        if b.get("type") == "callout":
-            t = _block_plain_text_deep(b)
-            # Skip empty/decorative callouts (e.g., the top blue callout with only a heading link)
-            if len(t.strip()) >= 40:
-                candidate = t
-                break
-    if not candidate:
-        for b in flat:
-            if b.get("type") == "paragraph":
-                t = _plain_text(b)
-                if len(t.strip()) >= 40:
-                    candidate = t
-                    break
-
-    if not candidate:
-        return ""
-
-    # Strip a leading "The short version:" or similar header if present.
-    candidate = re.sub(r"^\s*(the\s+)?(short\s+version|tldr|tl;dr|summary)[:\s—-]+", "",
-                       candidate, count=1, flags=re.IGNORECASE).strip()
-    # First 1-3 sentences up to max_chars.
-    sentences = re.split(r"(?<=[.!?])\s+", candidate)
-    out = ""
-    for s in sentences:
-        if len(out) + len(s) + 1 > max_chars:
-            break
-        out = (out + " " + s).strip()
-    return out or candidate[:max_chars].rstrip()
-
-
-def derive_seo_title(title: str, max_chars: int = 60) -> str:
-    """Append ' | Kris Krüg' if it fits; otherwise return the title alone."""
-    suffix = " | Kris Krüg"
-    if len(title) + len(suffix) <= max_chars:
-        return title + suffix
-    return title[:max_chars]
-
-
-def title_similarity(a: str, b: str) -> float:
-    """Rough similarity between two post titles in [0.0, 1.0]. Uses Python's
-    difflib SequenceMatcher (Ratcliff-Obershelp). Cheap and good enough for
-    the 'wrong post' check — we only need to detect WILDLY different titles
-    (the 2026-05-15 incident had "Web Summit Vancouver 2026" overwritten by
-    "Calling Us All In" — similarity ≈ 0.16, well below the 0.5 threshold)."""
-    a = (a or "").strip().lower()
-    b = (b or "").strip().lower()
-    if not a or not b:
-        return 0.0
-    return difflib.SequenceMatcher(None, a, b).ratio()
-
-
-def update_title_guard(new_title: str, existing_title: str) -> tuple[bool, float]:
-    sim = title_similarity(new_title, existing_title)
-    return sim >= TITLE_SIMILARITY_UPDATE_THRESHOLD, sim
-
-
-def _wp_text_field(value) -> str:
-    if isinstance(value, dict):
-        raw = value.get("raw")
-        if raw:
-            return raw
-        rendered = value.get("rendered") or ""
-        return re.sub(r"<[^>]+>", "", rendered).strip()
-    return value or ""
-
-
-def update_diff(existing_post: dict, proposed_payload: dict) -> str:
-    existing = {
-        "title": _wp_text_field(existing_post.get("title")),
-        "slug": existing_post.get("slug") or "",
-        "status": existing_post.get("status") or "",
-        "date": existing_post.get("date") or "",
-        "excerpt": _wp_text_field(existing_post.get("excerpt")),
-        "content": _wp_text_field(existing_post.get("content")),
-        "meta": existing_post.get("meta") or {},
-    }
-    proposed = {
-        "title": proposed_payload.get("title") or "",
-        "slug": proposed_payload.get("slug") or "",
-        "status": proposed_payload.get("status") or "",
-        "date": proposed_payload.get("date") or "",
-        "excerpt": proposed_payload.get("excerpt") or "",
-        "content": proposed_payload.get("content") or "",
-        "meta": proposed_payload.get("meta") or {},
-    }
-    before = json.dumps(existing, indent=2, ensure_ascii=False, sort_keys=True).splitlines(keepends=True)
-    after = json.dumps(proposed, indent=2, ensure_ascii=False, sort_keys=True).splitlines(keepends=True)
-    return "".join(difflib.unified_diff(
-        before,
-        after,
-        fromfile="existing-wp-post",
-        tofile="proposed-notion-payload",
-    ))
-
-
-def emit_update_diff_review(wp: "WordPress", slug: str, title: str, payload: dict, log, emit=print) -> int:
-    existing_id = wp.find_post_by_slug(slug)
-    log(f"existing post with slug {slug!r}? {existing_id}")
-    if existing_id is None:
-        log("ABORTING: --diff needs an existing post with this slug; no WP write was attempted.")
-        return 6
-
-    existing = wp.get_post(existing_id)
-    existing_title = (existing.get("title") or {}).get("raw", "")
-    title_match, sim = update_title_guard(title, existing_title)
-    log(f"  existing post title: {existing_title!r}")
-    log(f"  new post title:      {title!r}")
-    log(f"  title similarity:    {sim:.2f}")
-    if not title_match:
-        log(f"ABORTING: existing title is too different from new title "
-            f"(similarity {sim:.2f} < {TITLE_SIMILARITY_UPDATE_THRESHOLD}).")
-        log("No diff was emitted and no WP write was attempted.")
-        return 3
-
-    diff_text = update_diff(existing, payload)
-    if diff_text:
-        emit(diff_text)
-    else:
-        emit("No update diff: selected existing WP fields match the proposed payload.")
-    log("Diff-only run complete; no WP create, update, taxonomy, or media write request was sent.")
-    log("Review the diff, then re-run with --update only after explicit operator approval.")
-    return 0
-
-
-def derive_social_message(excerpt: str, max_chars: int = 280) -> str:
-    """Auto-share text for Jetpack Publicize. Jetpack appends the post URL
-    automatically, so we never include it. KK voice (first-person), short."""
-    if len(excerpt) <= max_chars:
-        return excerpt
-    cut = excerpt[:max_chars]
-    # Trim to last sentence boundary if there is one within the cut window.
-    boundary = max(cut.rfind(". "), cut.rfind("! "), cut.rfind("? "))
-    if boundary > max_chars - 80:
-        return cut[: boundary + 1].rstrip()
-    return cut.rstrip() + "…"
-
-
-def auto_alt(blocks: list[dict], image_block: dict, fallback_topic: str) -> str:
-    """Generate alt text from surrounding context. KK's writing pattern: the
-    paragraph immediately BEFORE the image is usually the photo's context (a
-    setup like "Two renegades at a borrowed booth, plotting." then the image).
-    So we prefer the preceding paragraph, fall back to the following one, and
-    prepend the nearest section heading."""
-    try:
-        idx = blocks.index(image_block)
-    except ValueError:
-        return fallback_topic
-
-    nearest_heading = ""
-    for i in range(idx - 1, -1, -1):
-        if blocks[i].get("type", "").startswith("heading_"):
-            nearest_heading = _plain_text(blocks[i]).strip()
-            break
-
-    def first_sentence(txt: str) -> str:
-        return re.split(r"(?<=[.!?])\s+", txt.strip())[0][:140].strip() if txt.strip() else ""
-
-    context = ""
-    # Look backward up to 3 blocks for a paragraph
-    for i in range(idx - 1, max(-1, idx - 4), -1):
-        if blocks[i].get("type") == "paragraph":
-            t = _plain_text(blocks[i])
-            if t.strip():
-                context = first_sentence(t)
-                break
-    # Fallback: look forward
-    if not context:
-        for i in range(idx + 1, min(len(blocks), idx + 4)):
-            if blocks[i].get("type") == "paragraph":
-                t = _plain_text(blocks[i])
-                if t.strip():
-                    context = first_sentence(t)
-                    break
-
-    parts = [p for p in [nearest_heading, context] if p]
-    if not parts:
-        return fallback_topic
-    return " — ".join(parts)[:200]
-
-
-def image_filename(block: dict, idx: int, slug_hint: str) -> str:
-    src_obj = block["image"].get("file") or block["image"].get("external") or {}
-    url = src_obj.get("url", "")
-    path = urllib.parse.urlparse(url).path
-    ext = Path(path).suffix.lower() or ".jpg"
-    if ext not in (".jpg", ".jpeg", ".png", ".gif", ".webp"):
-        ext = ".jpg"
-    return f"{idx:02d}-{slug_hint}{ext}"
-
-
-def download_image(url: str, dest: Path) -> int:
-    r = requests.get(url, stream=True, timeout=60)
-    r.raise_for_status()
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    total = 0
-    with open(dest, "wb") as f:
-        for chunk in r.iter_content(64 * 1024):
-            f.write(chunk)
-            total += len(chunk)
-    return total
-
-
-# ---------------------------------------------------------------------------
-# WP REST client
-# ---------------------------------------------------------------------------
-
-class WordPress:
-    def __init__(self, base_url: str, user: str, app_password: str):
-        self.base = base_url.rstrip("/")
-        self.s = requests.Session()
-        token = base64.b64encode(f"{user}:{app_password}".encode()).decode()
-        self.s.headers.update({"Authorization": f"Basic {token}"})
-
-    def upload_media(self, path: Path, alt: str, mime: str = "image/jpeg") -> dict:
-        with open(path, "rb") as f:
-            data = f.read()
-        r = self.s.post(
-            f"{self.base}/wp-json/wp/v2/media",
-            headers={
-                "Content-Disposition": f'attachment; filename="{path.name}"',
-                "Content-Type": mime,
-            },
-            data=data,
-            timeout=120,
-        )
-        r.raise_for_status()
-        media = r.json()
-        # Set alt text (separate request — WP doesn't accept alt in the initial upload).
-        if alt:
-            self.s.post(
-                f"{self.base}/wp-json/wp/v2/media/{media['id']}",
-                json={"alt_text": alt},
-                timeout=30,
-            ).raise_for_status()
-        return media
-
-    def ensure_term(self, taxonomy: str, name: str) -> int:
-        """Return term ID, creating it if absent."""
-        r = self.s.get(
-            f"{self.base}/wp-json/wp/v2/{taxonomy}",
-            params={"search": name, "per_page": 50},
-            timeout=30,
-        )
-        r.raise_for_status()
-        for t in r.json():
-            if t.get("name", "").lower() == name.lower() or t.get("slug", "") == slugify(name):
-                return t["id"]
-        # Create
-        r2 = self.s.post(
-            f"{self.base}/wp-json/wp/v2/{taxonomy}",
-            json={"name": name, "slug": slugify(name)},
-            timeout=30,
-        )
-        r2.raise_for_status()
-        return r2.json()["id"]
-
-    def find_post_by_slug(self, slug: str) -> int | None:
-        """Idempotency by slug. WP's `slug=` filter is honored by REST (unlike
-        arbitrary `meta_key`/`meta_value` filters which require register_post_meta
-        with show_in_rest=true and are silently ignored otherwise).
-        Returns the ID only if exactly one post matches, to avoid accidentally
-        updating the wrong post."""
-        r = self.s.get(
-            f"{self.base}/wp-json/wp/v2/posts",
-            params={"slug": slug, "status": "any", "per_page": 5, "context": "edit"},
-            timeout=30,
-        )
-        if r.status_code != 200:
-            return None
-        hits = r.json()
-        if isinstance(hits, list) and len(hits) == 1:
-            return hits[0]["id"]
-        return None
-
-    def get_post(self, post_id: int) -> dict:
-        r = self.s.get(
-            f"{self.base}/wp-json/wp/v2/posts/{post_id}?context=edit",
-            timeout=30,
-        )
-        r.raise_for_status()
-        return r.json()
-
-    def create_post(self, payload: dict) -> dict:
-        r = self.s.post(f"{self.base}/wp-json/wp/v2/posts", json=payload, timeout=60)
-        r.raise_for_status()
-        return r.json()
-
-    def update_post(self, post_id: int, payload: dict) -> dict:
-        r = self.s.post(f"{self.base}/wp-json/wp/v2/posts/{post_id}", json=payload, timeout=60)
-        r.raise_for_status()
-        return r.json()
+from category_routing import (  # noqa: E402
+    CATEGORY_REVIEW_REQUIRED,
+    FEATURE_CATEGORY_TAG_HINTS,
+    TYPE_TO_CATEGORY,
+    category_requires_review,
+    resolve_category,
+)
+from connector_config import (  # noqa: E402
+    DRAFTS_DIR,
+    KKAI_ENV_PATH,
+    LOCAL_ENV_PATH,
+    REPO_ROOT,
+    SCRIPT_DIR,
+    WP_BASE_URL_DEFAULT,
+    WP_DEFAULT_AUTHOR_ID,
+    Config,
+    load_config,
+)
+from connector_payload import build_wp_payload  # noqa: E402
+from content_derivation import (  # noqa: E402
+    _block_plain_text_deep,
+    _plain_text,
+    derive_excerpt,
+    derive_seo_title,
+    derive_social_message,
+)
+from draft_writers import (  # noqa: E402
+    html_to_md_preview as _html_to_md_preview,
+    write_alt_text as _write_alt_text,
+    write_internal_links as _write_internal_links,
+    write_seo_meta as _write_seo_meta,
+)
+from media_pipeline import (  # noqa: E402
+    auto_alt,
+    collect_image_blocks,
+    download_image,
+    flatten_blocks,
+    image_filename,
+)
+from notion_client import (  # noqa: E402
+    Notion,
+    parse_page_id,
+    read_prop,
+    read_prop_title,
+    slugify,
+)
+from update_safety import (  # noqa: E402
+    TITLE_SIMILARITY_UPDATE_THRESHOLD,
+    _wp_text_field,
+    emit_update_diff_review,
+    title_similarity,
+    update_diff,
+    update_title_guard,
+)
+from wp_client import WordPress  # noqa: E402
 
 
 # ---------------------------------------------------------------------------
 # Main flow
 # ---------------------------------------------------------------------------
-
-# Notion Type → WP category
-TYPE_TO_CATEGORY = {
-    "Report":     "Vancouver AI Ecosystem",
-    "Manifesto":  "AI Ethics & Philosophy",
-    "Interview":  "Conversations & Interviews",
-    "Tutorial":   "AI for Creatives",
-    "Field Note": "Field Notes",
-}
-
-CATEGORY_REVIEW_REQUIRED = "NEEDS CATEGORY REVIEW"
-
-FEATURE_CATEGORY_TAG_HINTS = (
-    ("Vancouver AI Ecosystem", (
-        "bc + ai",
-        "comox",
-        "community spotlight",
-        "industry",
-        "recap",
-        "vancouver ai",
-        "web summit",
-    )),
-    ("AI Ethics & Philosophy", (
-        "ai ethics",
-        "certification",
-        "responsible ai",
-        "sovereign ai",
-        "values",
-    )),
-    ("AI for Creatives", (
-        "artist",
-        "creative",
-        "creatives",
-        "tools",
-        "workflow",
-    )),
-    ("Conversations & Interviews", (
-        "appearance",
-        "interview",
-        "media",
-        "podcast",
-    )),
-)
-
-
-def resolve_category(
-    type_notion: str,
-    tags_notion: list[str],
-    category_override: str | None = None,
-) -> tuple[str, str]:
-    override = (category_override or "").strip()
-    if override:
-        return override, "override"
-
-    notion_type = (type_notion or "").strip()
-    if notion_type in TYPE_TO_CATEGORY:
-        return TYPE_TO_CATEGORY[notion_type], f"type:{notion_type}"
-
-    if notion_type.lower() == "feature":
-        tags_text = " ".join(str(tag).lower() for tag in (tags_notion or []))
-        for category, hints in FEATURE_CATEGORY_TAG_HINTS:
-            if any(hint in tags_text for hint in hints):
-                return category, "feature-tags"
-        return CATEGORY_REVIEW_REQUIRED, "feature-needs-category"
-
-    return "Misc", "fallback"
-
-
-def category_requires_review(category_name: str) -> bool:
-    return category_name == CATEGORY_REVIEW_REQUIRED
 
 
 def run(notion_url: str, dry_run: bool, force_publish: bool,
@@ -813,27 +269,19 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
     log(f"wrote post.md, post.html, seo-meta.md, alt-text.md, internal-links.md")
 
     # 5. REST payload (always built; only sent if not dry-run)
-    payload = {
-        "title": title,
-        "slug": slug,
-        # status: publish only if --publish was passed. Default is draft.
-        # The earlier "Notion Status must == Ready" check was redundant safety;
-        # the explicit --publish CLI flag is enough of a gate.
-        "status": "publish" if force_publish else "draft",
-        "date": pub_datetime,
-        "author": cfg.wp_author_id,
-        "excerpt": excerpt,
-        "content": body_html,  # rewritten after image upload (live mode)
-        "meta": {
-            "kk_notion_source_id": page_id,
-            "kk_featured": "1" if featured else "0",
-            # Jetpack SEO + Publicize (per-post overrides for SEO title, meta description,
-            # auto-share text). All three are in KK voice via derive_excerpt.
-            "jetpack_seo_html_title":    seo_title,
-            "advanced_seo_description":  meta_desc,
-            "jetpack_publicize_message": derive_social_message(excerpt, max_chars=240),
-        },
-    }
+    payload = build_wp_payload(
+        title=title,
+        slug=slug,
+        force_publish=force_publish,
+        pub_datetime=pub_datetime,
+        author_id=cfg.wp_author_id,
+        excerpt=excerpt,
+        body_html=body_html,
+        page_id=page_id,
+        featured=featured,
+        seo_title=seo_title,
+        meta_desc=meta_desc,
+    )
 
     if (dry_run and not diff_update) or not cfg.has_wp_credentials:
         if diff_update and not cfg.has_wp_credentials:
@@ -933,90 +381,6 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
     except Exception as e:
         log(f"WARNING: post-write verification GET failed: {e}")
     return 0
-
-
-# ---------------------------------------------------------------------------
-# Companion file writers
-# ---------------------------------------------------------------------------
-
-def _html_to_md_preview(html: str) -> str:
-    """Crude HTML → MD-ish preview for human review inside post.md. The HTML version is the canonical body."""
-    s = re.sub(r"<!--.*?-->", "", html, flags=re.S)
-    s = re.sub(r"</?p>", "\n\n", s)
-    s = re.sub(r"<h2[^>]*>(.*?)</h2>", r"## \1\n", s, flags=re.S)
-    s = re.sub(r"<h3[^>]*>(.*?)</h3>", r"### \1\n", s, flags=re.S)
-    s = re.sub(r"<strong>(.*?)</strong>", r"**\1**", s, flags=re.S)
-    s = re.sub(r"<em>(.*?)</em>", r"*\1*", s, flags=re.S)
-    s = re.sub(r'<a href="([^"]+)"[^>]*>(.*?)</a>', r"[\2](\1)", s, flags=re.S)
-    s = re.sub(r"<[^>]+>", "", s)
-    s = re.sub(r"\n{3,}", "\n\n", s)
-    return s.strip()
-
-
-def _write_seo_meta(draft_dir: Path, fm: dict, seo_title: str, meta_desc: str):
-    body = f"""# SEO snapshot — {fm['title']}
-
-| Field | Value |
-|---|---|
-| Visible title (H1) | {fm['title']} |
-| SEO title (`<title>`) | {seo_title} |
-| Slug | `{fm['slug']}` (permalink `/{fm['post_date'][:4]}/{fm['post_date'][5:7]}/{fm['post_date'][8:10]}/{fm['slug']}/`) |
-| Meta description | {meta_desc} |
-| Category | {fm['categories'][0]} |
-| Tags | {", ".join(fm['tags']) or "(none)"} |
-| Excerpt | {fm['excerpt'][:200]} |
-| Featured | {"YES" if fm.get('featured') else "no"} |
-| Schema | Article (auto via kk-schema mu-plugin if deployed) |
-| OG image | featured image |
-| Twitter Card | summary_large_image (Jetpack default) |
-
-## Next-step checks after publish
-
-- View source on the live URL → confirm `<meta name="description">` matches above
-- https://search.google.com/test/rich-results → confirm Article + Person schema if mu-plugin live
-- https://cards-dev.twitter.com/validator → preview card
-- Submit URL in Google Search Console for instant indexing
-"""
-    (draft_dir / "seo-meta.md").write_text(body, encoding="utf-8")
-
-
-def _write_alt_text(draft_dir: Path, image_map: dict, locals_: list[Path]):
-    rows = []
-    seen = set()
-    for nurl, meta in image_map.items():
-        lp = meta.get("_local_path")
-        if not lp or lp in seen:
-            continue
-        seen.add(lp)
-        rows.append(f"- **{Path(lp).name}** — alt: \"{meta['alt'] or '(empty — needs human-written alt)'}\"")
-    body = "# Image alt text\n\n" + ("\n".join(rows) if rows else "(no images)") + """
-
-Replace any "(empty — needs human-written alt)" lines with descriptive sentences. Good alt text:
-- Describes what's in the image, not what you want it to mean
-- Includes context the reader can't get from surrounding prose
-- Is under 125 characters where possible
-- Uses natural language, not keyword stuffing
-"""
-    (draft_dir / "alt-text.md").write_text(body, encoding="utf-8")
-
-
-def _write_internal_links(draft_dir: Path, html: str):
-    urls = re.findall(r'href="([^"]+)"', html)
-    internal = sorted({u for u in urls if "kriskrug.co" in u or u.startswith("/")})
-    external = sorted({u for u in urls if u not in internal and u.startswith("http")})
-    body = f"""# Link audit
-
-## Internal links ({len(internal)})
-
-""" + "\n".join(f"- {u}" for u in internal) + f"""
-
-## External links ({len(external)})
-
-""" + "\n".join(f"- {u}" for u in external) + """
-
-After publish, click-check every internal link in the live post. External links should open in a new tab with rel="noopener noreferrer" (the connector sets these automatically).
-"""
-    (draft_dir / "internal-links.md").write_text(body, encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------

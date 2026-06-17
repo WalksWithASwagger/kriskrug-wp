@@ -1,6 +1,6 @@
 # Notion → kriskrug.co publisher
 
-A small, single-file CLI that pulls a Notion page from KK's "News & Content Database" and posts it to kriskrug.co as a WordPress draft. Purpose-built for this site only — not portable, no plugins to install, no admin UI to maintain.
+A small connector CLI that pulls a Notion page from KK's "News & Content Database" and posts it to kriskrug.co as a WordPress draft. Purpose-built for this site only — not portable, no plugins to install, no admin UI to maintain.
 
 ## What it does
 
@@ -186,7 +186,7 @@ Every run writes a `publish.log` next to the draft. Includes the exact REST requ
 
 ## Block conversion
 
-See `block_rules.py` for the Notion → Gutenberg mapping. Each rule is a small function — tweak as the writing style evolves.
+See `block_rules.py` for the Notion → Gutenberg mapping. Connector plumbing now lives in focused modules next to `kk_notion_to_wp.py` for config, Notion access, payload building, media handling, WordPress REST, update safety, category routing, and draft companion files.
 
 ## Polish pass (em-dash purge + auto-link)
 
