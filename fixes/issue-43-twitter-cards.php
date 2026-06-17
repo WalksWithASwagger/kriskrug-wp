@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'KK_ISSUE_43_TWITTER_HANDLE', '@kriskrug' );
+define( 'KK_ISSUE_43_TWITTER_HANDLE', '@feelmoreplants' );
 define( 'KK_ISSUE_43_CARD_WIDTH', 1200 );
 define( 'KK_ISSUE_43_CARD_HEIGHT', 630 );
 define( 'KK_ISSUE_43_FALLBACK_IMAGE_ID', 7548 );
