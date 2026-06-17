@@ -45,6 +45,13 @@ def strip_html(value: str) -> str:
     return _WS_RE.sub(" ", html.unescape(_TAG_RE.sub(" ", value or ""))).strip()
 
 
+def purge_em_dashes(text: str) -> str:
+    if not text:
+        return text
+    text = re.sub(r"\s*—\s*", ", ", text)
+    return re.sub(r"(?<!\d)\s*–\s*(?!\d)", "-", text)
+
+
 def title_text(item: dict) -> str:
     """Prefer the raw title (context=edit), fall back to unescaped rendered."""
     t = item.get("title") or {}
@@ -66,6 +73,7 @@ def _rendered(item: dict, key: str) -> str:
 def derive_seo_title(title: str, max_chars: int = 60) -> str:
     """Append ' | Kris Krüg' if it fits; otherwise the title alone (truncated).
     Same rule as the Notion publisher's derive_seo_title."""
+    title = purge_em_dashes(title)
     suffix = " | Kris Krüg"
     if len(title) + len(suffix) <= max_chars:
         return title + suffix
@@ -88,18 +96,18 @@ def derive_meta_description(item: dict, max_chars: int = 200) -> tuple[str, str]
     of the content. Returns ('', 'none') when nothing usable exists."""
     excerpt = strip_html(_rendered(item, "excerpt"))
     if excerpt:
-        return _trim_to_sentence(excerpt, max_chars), "excerpt"
+        return purge_em_dashes(_trim_to_sentence(excerpt, max_chars)), "excerpt"
     content_html = _rendered(item, "content")
     for chunk in re.split(r"</p>|<br\s*/?>|\n", content_html):
         text = strip_html(chunk)
         if len(text) >= 40:  # skip headings, captions, single links
-            return _trim_to_sentence(text, max_chars), "first_paragraph"
+            return purge_em_dashes(_trim_to_sentence(text, max_chars)), "first_paragraph"
     return "", "none"
 
 
 def derive_social_message(text: str, max_chars: int = 280) -> str:
     """Same trimming as the publisher's derive_social_message."""
-    return _trim_to_sentence(text or "", max_chars)
+    return purge_em_dashes(_trim_to_sentence(text or "", max_chars))
 
 
 _CAPTION_RE = re.compile(r"^(photo|image|figure|fig\.|caption|credit)\b", re.I)
