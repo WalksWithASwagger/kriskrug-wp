@@ -173,6 +173,26 @@ if [ -d "scripts/notion-to-wp/tests" ]; then
     echo
 fi
 
+# Detect and run root-level script tests
+if [ -d "scripts/tests" ]; then
+    TESTS_DETECTED=true
+    echo "Detected: repo script tests"
+
+    if command -v python3 >/dev/null 2>&1; then
+        echo "Running unittest for scripts/tests..."
+        if [ "$VERBOSE" = true ]; then
+            python3 -m unittest discover -s scripts/tests -v
+        else
+            python3 -m unittest discover -s scripts/tests
+        fi
+        echo -e "${GREEN}✓ repo script tests passed${NC}"
+        echo
+    else
+        echo -e "${YELLOW}⚠ scripts/tests found but python3 is not installed${NC}"
+        echo
+    fi
+fi
+
 # Detect and run Node.js tests
 if [ -f "package.json" ]; then
     TESTS_DETECTED=true

@@ -48,7 +48,7 @@ done
 
 ## Close Criteria Remaining
 
-- Live `twitter:site` and `twitter:creator` read `@kriskrug`.
+- Live `twitter:site` and `twitter:creator` read `@feelmoreplants`, matching the current footer/social metadata source of truth.
 - `/blog/` has a `summary_large_image` card or is explicitly split to a blog-index SEO follow-up.
 - Representative page, post, and blog-index card images resolve to 1200x630.
 - X Card Validator preview is manually checked after cache purge because X validation requires the live crawler.

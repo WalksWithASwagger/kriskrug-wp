@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.3.18');
+define('KK_AURORA_VERSION', '1.3.19');
 
 /**
  * Theme setup
@@ -549,3 +549,33 @@ function writing_archive_open_graph_fallback(array $tags): array {
     return $tags;
 }
 add_filter('jetpack_open_graph_tags', __NAMESPACE__ . '\\writing_archive_open_graph_fallback');
+
+/**
+ * Expose high-signal category feeds to feed readers on the Writing archive.
+ */
+function writing_archive_category_feed_discovery(): void {
+    if (!is_home() || is_front_page()) {
+        return;
+    }
+
+    $categories = get_categories([
+        'hide_empty' => true,
+        'number'     => 8,
+        'orderby'    => 'count',
+        'order'      => 'DESC',
+    ]);
+
+    foreach ($categories as $category) {
+        $feed_url = get_category_feed_link((int) $category->term_id);
+        if (!$feed_url) {
+            continue;
+        }
+
+        printf(
+            "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"%s\" href=\"%s\" />\n",
+            esc_attr(sprintf('%s category feed - Kris Krug', wp_strip_all_tags($category->name))),
+            esc_url($feed_url)
+        );
+    }
+}
+add_action('wp_head', __NAMESPACE__ . '\\writing_archive_category_feed_discovery', 12);
