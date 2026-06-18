@@ -13,12 +13,14 @@ Current acceptance coverage:
 
 - 50+ terms: met with 69 draft terms.
 - Alphabetical: met by letter sections and terms sorted within each section.
-- Searchable: content is structured for an accessible in-page filter; implementation is still a publisher task.
+- Searchable: met in `post.html` with a visible labelled filter, keyboard-usable input, `aria-live` result count, no-results state, and no-JS fallback with all terms visible.
 - Internal links: draft includes a related-reading module and post-publication link map.
 - Mobile: draft avoids tables and long multi-column layouts.
 - SEO: title, meta description, slug, excerpt, and schema notes are drafted below.
 
 ## Draft Page Copy
+
+`post.html` is now the canonical Gutenberg-ready body for WordPress preview. It preserves the 69 draft terms from `post.md` and adds the accessible in-page glossary filter required by issue #44.
 
 # AI Glossary
 

@@ -29,7 +29,7 @@
 
 **Publication caution:** The draft includes terms touching Indigenous governance, rights, protocol, data governance, and legal concepts. Publish only after KK review and source or SME review for the sensitive-term queue in `README.md`.
 
-**Search gate:** Issue #44 should not close until in-page search/filter is built or explicitly waived. Minimum behavior: visible label, keyboard usable input, term and definition filtering, no-JS fallback with all terms visible, clear no-results state, and result count announced with `aria-live="polite"`.
+**Search gate:** Built locally in `post.html`. The draft includes a visible `Search glossary terms` label, keyboard-usable input, term and definition filtering, no-JS fallback with all terms visible, clear no-results state, and result count announced with `aria-live="polite"`. Still requires WordPress preview QA before publication.
 
 **Internal links after publication**
 - Link from posts and pages that use dense AI terminology.

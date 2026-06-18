@@ -14,7 +14,7 @@ Draft source: `content/drafts/ai-glossary-2026-05/README.md`
 
 ## Gate Summary
 
-The glossary draft is review-ready but not publish-ready. It currently has 69 terms, alphabetical sections, SEO metadata, mobile/accessibility notes, a related-reading module, and a recommended accessible search/filter brief.
+The glossary draft is review-ready but not publish-ready. It currently has 69 terms, alphabetical sections, SEO metadata, mobile/accessibility notes, a related-reading module, and a Gutenberg-ready `post.html` body with an accessible in-page search/filter.
 
 Do not publish until the sensitive-term review is complete or the sensitive terms are removed from the first public version.
 
@@ -25,7 +25,7 @@ Do not publish until the sensitive-term review is complete or the sensitive term
 | `/glossary` page | Draft created | Private WordPress draft exists at slug `/glossary/`. Public publish waits for review. |
 | 50+ terms | Ready | Draft has 69 terms before editorial cuts. |
 | Alphabetical | Ready | Letter sections and terms are sorted in-page. |
-| Searchable | Needs build | Recommended MVP is an accessible in-page filter, not just browser find. |
+| Searchable | Ready for preview | `post.html` includes a visible search label, keyboard-usable input, term/definition filtering, result count, no-results state, and no-JS fallback. |
 | Internal links | Drafted | Related-reading module and post-publication link map are in the README. |
 | Mobile | Drafted | No tables; notes call out wrapping and mobile QA. |
 | SEO | Drafted | Title, meta description, excerpt, keyphrases, and schema caution are in the README. |
@@ -39,7 +39,7 @@ Do not publish until the sensitive-term review is complete or the sensitive term
 
 ## Search Gate
 
-Build or explicitly waive in-page search before closing issue #44.
+Built locally in `post.html`; verify in WordPress preview before closing issue #44.
 
 Minimum acceptable filter behavior:
 
@@ -80,4 +80,4 @@ Smoke searches:
 
 ## Closure Recommendation
 
-Issue #44 should stay open after this draft pass. Close it only after the WordPress page exists at `/glossary/`, the search behavior is implemented or explicitly waived, internal links are added, mobile/accessibility checks pass, and sensitive terms have KK/SME approval or are removed from the first public version.
+Issue #44 should stay open after this draft pass. Close it only after the WordPress page exists at `/glossary/`, the search behavior passes preview QA, internal links are added, mobile/accessibility checks pass, and sensitive terms have KK/SME approval or are removed from the first public version.

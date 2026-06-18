@@ -1,0 +1,456 @@
+<!-- wp:html -->
+<style>
+.kk-glossary { --kk-ink:#f7f2e8; --kk-muted:#c9bda8; --kk-line:rgba(247,242,232,.22); --kk-panel:rgba(255,255,255,.055); --kk-panel-strong:rgba(255,255,255,.09); --kk-accent:#b7f36d; color:var(--kk-ink); }
+.kk-glossary a { color:var(--kk-accent); font-weight:700; }
+.kk-glossary-intro { max-width:62rem; padding:1rem 0 1.35rem; border-bottom:1px solid var(--kk-line); }
+.kk-glossary-intro p { color:var(--kk-muted); font-size:1.08rem; line-height:1.72; }
+.kk-glossary-tools { margin:1.4rem 0; display:grid; gap:.8rem; max-width:42rem; }
+.kk-glossary-tools label { font-weight:800; }
+.kk-glossary-tools input { width:100%; min-height:48px; border:2px solid var(--kk-line); border-radius:6px; padding:.75rem .9rem; background:#fff; color:#171717; font:inherit; }
+.kk-glossary-count { color:var(--kk-muted); font-size:.96rem; }
+.kk-glossary-no-results { border:1px solid var(--kk-line); border-radius:6px; padding:1rem; background:var(--kk-panel); color:var(--kk-muted); }
+.kk-glossary-letter-nav { display:flex; flex-wrap:wrap; gap:.45rem; margin:1.3rem 0 1.7rem; }
+.kk-glossary-letter-nav a { display:inline-flex; align-items:center; justify-content:center; min-width:2.2rem; min-height:2.2rem; border:1px solid var(--kk-line); border-radius:4px; text-decoration:none; background:var(--kk-panel); }
+.kk-glossary-related { margin:1.5rem 0; padding:1rem 0 1.3rem; border-bottom:1px solid var(--kk-line); }
+.kk-glossary-related ul { columns:2 18rem; padding-left:1.1rem; }
+.kk-glossary-related li { break-inside:avoid; margin:.35rem 0; }
+.kk-glossary-section { padding:1.45rem 0; border-top:1px solid var(--kk-line); }
+.kk-glossary-section h2 { margin:0 0 .9rem; }
+.kk-glossary-term-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:.9rem; }
+.kk-glossary-term { border:1px solid var(--kk-line); border-radius:6px; padding:1rem; background:var(--kk-panel); overflow-wrap:anywhere; }
+.kk-glossary-term h3 { margin:0 0 .45rem; font-size:1.08rem; }
+.kk-glossary-term p { margin:0; color:var(--kk-muted); line-height:1.62; }
+.kk-glossary-term mark { background:transparent; color:inherit; }
+@media (max-width:680px) { .kk-glossary-term-grid { grid-template-columns:1fr; } .kk-glossary-related ul { columns:1; } }
+</style>
+
+<div class="kk-glossary" data-kk-glossary>
+  <section class="kk-glossary-intro" aria-labelledby="glossary-title">
+    <h1 id="glossary-title">AI Glossary</h1>
+    <p>AI conversations get hard to enter when every sentence assumes you already know the vocabulary. This glossary is a plain-language bridge for readers of KrisKrug.co, especially people arriving through posts about creative AI, local AI, data centres, Indigenous governance, public-interest technology, and community accountability.</p>
+    <p>The goal is not to flatten complex ideas. The goal is to give newcomers enough context to keep reading, ask better questions, and notice when a term is being used too loosely.</p>
+    <div class="kk-glossary-tools" role="search">
+      <label for="kk-glossary-search">Search glossary terms</label>
+      <input id="kk-glossary-search" type="search" autocomplete="off" data-glossary-search aria-describedby="kk-glossary-count" placeholder="Try data, rights, RAG, water, prompt">
+      <p id="kk-glossary-count" class="kk-glossary-count" aria-live="polite" data-glossary-count>69 terms visible.</p>
+    </div>
+    <p class="kk-glossary-no-results" data-glossary-no-results hidden>No matching glossary terms. Clear the search to browse the full list.</p>
+    <nav class="kk-glossary-letter-nav" aria-label="Browse glossary by letter"><a href="#glossary-A">A</a> <a href="#glossary-B">B</a> <a href="#glossary-C">C</a> <a href="#glossary-D">D</a> <a href="#glossary-E">E</a> <a href="#glossary-F">F</a> <a href="#glossary-G">G</a> <a href="#glossary-H">H</a> <a href="#glossary-I">I</a> <a href="#glossary-L">L</a> <a href="#glossary-M">M</a> <a href="#glossary-O">O</a> <a href="#glossary-P">P</a> <a href="#glossary-R">R</a> <a href="#glossary-S">S</a> <a href="#glossary-T">T</a> <a href="#glossary-U">U</a> <a href="#glossary-V">V</a> <a href="#glossary-W">W</a></nav>
+  </section>
+
+  <section class="kk-glossary-related" aria-labelledby="glossary-related-title">
+    <h2 id="glossary-related-title">Related Reading</h2>
+    <ul>
+      <li><a href="/generative-ai-services/">AI Services, Training &amp; Strategy</a></li>
+      <li><a href="/about/">About Kris Krug</a></li>
+      <li><a href="/2026/05/07/web-summit-vancouver-2026/">Web Summit Vancouver 2026</a></li>
+      <li><a href="/2026/05/14/calling-us-all-in/">Calling Us All In</a></li>
+      <li><a href="/reconciliation-indigenous-land-acknowledgement/">Reconciliation &amp; Indigenous Land Acknowledgement</a> - include only after the sensitive-term review is complete.</li>
+    </ul>
+  </section>
+
+<section class="kk-glossary-section" id="glossary-A" data-glossary-section>
+  <h2>A</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-agent" data-glossary-term data-glossary-search-text="agent an ai system that can take multiple steps toward a goal, often using tools, files, web search, or other software along the way.">
+      <h3>Agent</h3>
+      <p>An AI system that can take multiple steps toward a goal, often using tools, files, web search, or other software along the way.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-ai-alignment" data-glossary-term data-glossary-search-text="ai alignment the work of making ai systems behave in ways that match human goals, safety needs, and social values. alignment is not only a technical problem; it also depends on whose goals and values are being centered.">
+      <h3>AI alignment</h3>
+      <p>The work of making AI systems behave in ways that match human goals, safety needs, and social values. Alignment is not only a technical problem; it also depends on whose goals and values are being centered.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-ai-ethics" data-glossary-term data-glossary-search-text="ai ethics the practice of asking whether ai systems are fair, accountable, understandable, safe, consent-based, and worth building in the first place.">
+      <h3>AI ethics</h3>
+      <p>The practice of asking whether AI systems are fair, accountable, understandable, safe, consent-based, and worth building in the first place.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-algorithm" data-glossary-term data-glossary-search-text="algorithm a set of instructions for solving a problem or making a decision. in ai, algorithms help systems find patterns, rank options, generate content, or make predictions.">
+      <h3>Algorithm</h3>
+      <p>A set of instructions for solving a problem or making a decision. In AI, algorithms help systems find patterns, rank options, generate content, or make predictions.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-artificial-intelligence-ai" data-glossary-term data-glossary-search-text="artificial intelligence (ai) software that performs tasks people often associate with intelligence, such as recognizing patterns, generating language or images, planning, translating, summarizing, or making recommendations.">
+      <h3>Artificial intelligence (AI)</h3>
+      <p>Software that performs tasks people often associate with intelligence, such as recognizing patterns, generating language or images, planning, translating, summarizing, or making recommendations.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-automation" data-glossary-term data-glossary-search-text="automation using software or machines to do work that people otherwise do manually. automation can save time, but it can also hide decisions, remove context, or shift power away from workers and communities.">
+      <h3>Automation</h3>
+      <p>Using software or machines to do work that people otherwise do manually. Automation can save time, but it can also hide decisions, remove context, or shift power away from workers and communities.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-B" data-glossary-section>
+  <h2>B</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-benchmark" data-glossary-term data-glossary-search-text="benchmark a test used to compare ai systems. benchmarks can be useful, but they rarely capture the full social, cultural, or local impact of a tool.">
+      <h3>Benchmark</h3>
+      <p>A test used to compare AI systems. Benchmarks can be useful, but they rarely capture the full social, cultural, or local impact of a tool.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-bias" data-glossary-term data-glossary-search-text="bias a pattern that causes a system to treat people, groups, languages, places, or ideas unevenly. bias can come from training data, design choices, deployment context, or the assumptions of the people building the system.">
+      <h3>Bias</h3>
+      <p>A pattern that causes a system to treat people, groups, languages, places, or ideas unevenly. Bias can come from training data, design choices, deployment context, or the assumptions of the people building the system.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-C" data-glossary-section>
+  <h2>C</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-chatbot" data-glossary-term data-glossary-search-text="chatbot a conversational interface for software. modern chatbots often use large language models to answer questions, draft text, summarize files, or help with tasks.">
+      <h3>Chatbot</h3>
+      <p>A conversational interface for software. Modern chatbots often use large language models to answer questions, draft text, summarize files, or help with tasks.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-chatgpt" data-glossary-term data-glossary-search-text="chatgpt openai&#x27;s conversational ai product. it is a product built around ai models, not the same thing as the underlying model itself.">
+      <h3>ChatGPT</h3>
+      <p>OpenAI's conversational AI product. It is a product built around AI models, not the same thing as the underlying model itself.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-claude" data-glossary-term data-glossary-search-text="claude anthropic&#x27;s conversational ai product. like chatgpt, it is a product experience wrapped around underlying models and safety systems.">
+      <h3>Claude</h3>
+      <p>Anthropic's conversational AI product. Like ChatGPT, it is a product experience wrapped around underlying models and safety systems.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-community-benefits-agreement" data-glossary-term data-glossary-search-text="community benefits agreement a negotiated agreement that spells out how a project will benefit local communities, often including jobs, infrastructure, training, environmental safeguards, or accountability measures.">
+      <h3>Community benefits agreement</h3>
+      <p>A negotiated agreement that spells out how a project will benefit local communities, often including jobs, infrastructure, training, environmental safeguards, or accountability measures.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-compute" data-glossary-term data-glossary-search-text="compute the processing power needed to train or run ai systems. compute often depends on specialized chips, energy, cooling, networking, and data centre infrastructure.">
+      <h3>Compute</h3>
+      <p>The processing power needed to train or run AI systems. Compute often depends on specialized chips, energy, cooling, networking, and data centre infrastructure.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-consent" data-glossary-term data-glossary-search-text="consent clear permission from people or communities before their data, stories, likeness, cultural knowledge, or creative work is used. consent should be informed, specific, and revocable where possible.">
+      <h3>Consent</h3>
+      <p>Clear permission from people or communities before their data, stories, likeness, cultural knowledge, or creative work is used. Consent should be informed, specific, and revocable where possible.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-consultation" data-glossary-term data-glossary-search-text="consultation a process for asking affected people or communities for input. consultation is not the same as consent, shared governance, or decision-making power.">
+      <h3>Consultation</h3>
+      <p>A process for asking affected people or communities for input. Consultation is not the same as consent, shared governance, or decision-making power.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-corpus" data-glossary-term data-glossary-search-text="corpus a collection of text, images, audio, video, code, or other material used for search, research, analysis, or ai training.">
+      <h3>Corpus</h3>
+      <p>A collection of text, images, audio, video, code, or other material used for search, research, analysis, or AI training.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-D" data-glossary-section>
+  <h2>D</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-data-centre" data-glossary-term data-glossary-search-text="data centre a building or campus that houses servers, networking, storage, cooling, and power systems. ai data centres can have major effects on electricity demand, water use, land, labour, and local infrastructure.">
+      <h3>Data centre</h3>
+      <p>A building or campus that houses servers, networking, storage, cooling, and power systems. AI data centres can have major effects on electricity demand, water use, land, labour, and local infrastructure.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-data-governance" data-glossary-term data-glossary-search-text="data governance the rules, responsibilities, and decision-making processes for collecting, storing, using, sharing, and deleting data.">
+      <h3>Data governance</h3>
+      <p>The rules, responsibilities, and decision-making processes for collecting, storing, using, sharing, and deleting data.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-data-sovereignty" data-glossary-term data-glossary-search-text="data sovereignty the idea that data should be governed by the laws, rights, values, and decision-making authority of the people, communities, or nations it comes from.">
+      <h3>Data sovereignty</h3>
+      <p>The idea that data should be governed by the laws, rights, values, and decision-making authority of the people, communities, or nations it comes from.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-digital-colonialism" data-glossary-term data-glossary-search-text="digital colonialism a pattern where technology systems extract data, labour, knowledge, attention, or value from communities without meaningful consent, benefit, or governance power.">
+      <h3>Digital colonialism</h3>
+      <p>A pattern where technology systems extract data, labour, knowledge, attention, or value from communities without meaningful consent, benefit, or governance power.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-E" data-glossary-section>
+  <h2>E</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-embedding" data-glossary-term data-glossary-search-text="embedding a mathematical representation of text, images, audio, or other data that helps ai systems compare meaning and similarity.">
+      <h3>Embedding</h3>
+      <p>A mathematical representation of text, images, audio, or other data that helps AI systems compare meaning and similarity.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-explainability" data-glossary-term data-glossary-search-text="explainability the ability to understand why an ai system produced a result or recommendation. some ai systems are hard to explain, which can make accountability harder.">
+      <h3>Explainability</h3>
+      <p>The ability to understand why an AI system produced a result or recommendation. Some AI systems are hard to explain, which can make accountability harder.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-extractive-technology" data-glossary-term data-glossary-search-text="extractive technology technology that takes more value from people, communities, workers, creators, or environments than it returns.">
+      <h3>Extractive technology</h3>
+      <p>Technology that takes more value from people, communities, workers, creators, or environments than it returns.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-F" data-glossary-section>
+  <h2>F</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-fine-tuning" data-glossary-term data-glossary-search-text="fine-tuning additional training that adapts a model for a specific style, task, domain, or dataset.">
+      <h3>Fine-tuning</h3>
+      <p>Additional training that adapts a model for a specific style, task, domain, or dataset.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-foundation-model" data-glossary-term data-glossary-search-text="foundation model a large model trained on broad data that can be adapted to many tasks, such as writing, coding, image generation, search, or analysis.">
+      <h3>Foundation model</h3>
+      <p>A large model trained on broad data that can be adapted to many tasks, such as writing, coding, image generation, search, or analysis.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-free-prior-and-informed-consent-fpic" data-glossary-term data-glossary-search-text="free, prior and informed consent (fpic) a standard in indigenous rights that means consent should be given freely, before a project proceeds, and with enough information for communities to make a real decision.">
+      <h3>Free, prior and informed consent (FPIC)</h3>
+      <p>A standard in Indigenous rights that means consent should be given freely, before a project proceeds, and with enough information for communities to make a real decision.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-frontier-model" data-glossary-term data-glossary-search-text="frontier model a model at or near the leading edge of ai capability. the term is often used for powerful systems from major ai labs.">
+      <h3>Frontier model</h3>
+      <p>A model at or near the leading edge of AI capability. The term is often used for powerful systems from major AI labs.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-G" data-glossary-section>
+  <h2>G</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-generative-ai" data-glossary-term data-glossary-search-text="generative ai ai that creates new text, images, audio, video, code, or other outputs from prompts, examples, or source material.">
+      <h3>Generative AI</h3>
+      <p>AI that creates new text, images, audio, video, code, or other outputs from prompts, examples, or source material.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-gpu" data-glossary-term data-glossary-search-text="gpu a graphics processing unit. gpus are chips that are especially useful for the parallel calculations behind modern ai.">
+      <h3>GPU</h3>
+      <p>A graphics processing unit. GPUs are chips that are especially useful for the parallel calculations behind modern AI.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-guardrails" data-glossary-term data-glossary-search-text="guardrails rules, filters, prompts, policies, or product design choices meant to reduce harmful outputs or unsafe behaviour.">
+      <h3>Guardrails</h3>
+      <p>Rules, filters, prompts, policies, or product design choices meant to reduce harmful outputs or unsafe behaviour.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-H" data-glossary-section>
+  <h2>H</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-hallucination" data-glossary-term data-glossary-search-text="hallucination a confident ai output that is false, unsupported, or invented. hallucinations are one reason important ai outputs need review.">
+      <h3>Hallucination</h3>
+      <p>A confident AI output that is false, unsupported, or invented. Hallucinations are one reason important AI outputs need review.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-host-nation" data-glossary-term data-glossary-search-text="host nation an indigenous nation on whose territory an event, project, facility, or decision is taking place. confirm wording and protocol with the nation and local context.">
+      <h3>Host Nation</h3>
+      <p>An Indigenous Nation on whose territory an event, project, facility, or decision is taking place. Confirm wording and protocol with the Nation and local context.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-human-in-the-loop" data-glossary-term data-glossary-search-text="human-in-the-loop a workflow where a person reviews, approves, edits, or can override ai output before it affects people or systems.">
+      <h3>Human-in-the-loop</h3>
+      <p>A workflow where a person reviews, approves, edits, or can override AI output before it affects people or systems.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-I" data-glossary-section>
+  <h2>I</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-indigenomics" data-glossary-term data-glossary-search-text="indigenomics an indigenous economic lens and movement associated with building indigenous economic power, governance, and participation at scale. confirm final wording with current indigenomics.ai language before publication.">
+      <h3>Indigenomics</h3>
+      <p>An Indigenous economic lens and movement associated with building Indigenous economic power, governance, and participation at scale. Confirm final wording with current Indigenomics.ai language before publication.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-indigenous-ai" data-glossary-term data-glossary-search-text="indigenous ai ai work shaped by indigenous rights, governance, knowledge systems, community priorities, and self-determination rather than imposed from outside.">
+      <h3>Indigenous AI</h3>
+      <p>AI work shaped by Indigenous rights, governance, knowledge systems, community priorities, and self-determination rather than imposed from outside.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-indigenous-data-sovereignty" data-glossary-term data-glossary-search-text="indigenous data sovereignty the right of indigenous peoples and nations to govern data about their peoples, lands, resources, knowledge, and communities.">
+      <h3>Indigenous data sovereignty</h3>
+      <p>The right of Indigenous Peoples and Nations to govern data about their peoples, lands, resources, knowledge, and communities.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-indigenous-governance" data-glossary-term data-glossary-search-text="indigenous governance decision-making authority grounded in indigenous laws, institutions, rights, protocols, and relationships. do not reduce this to stakeholder feedback.">
+      <h3>Indigenous governance</h3>
+      <p>Decision-making authority grounded in Indigenous laws, institutions, rights, protocols, and relationships. Do not reduce this to stakeholder feedback.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-indigenous-rights-holder" data-glossary-term data-glossary-search-text="indigenous rights holder an indigenous nation or people with rights that must be respected. a rights holder is not the same as a stakeholder.">
+      <h3>Indigenous rights holder</h3>
+      <p>An Indigenous Nation or people with rights that must be respected. A rights holder is not the same as a stakeholder.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-inference" data-glossary-term data-glossary-search-text="inference running a trained model to produce an output, such as an answer, image, classification, or recommendation.">
+      <h3>Inference</h3>
+      <p>Running a trained model to produce an output, such as an answer, image, classification, or recommendation.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-L" data-glossary-section>
+  <h2>L</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-large-language-model-llm" data-glossary-term data-glossary-search-text="large language model (llm) an ai model trained to work with language. llms can draft, summarize, translate, classify, reason over text, and power chatbot products.">
+      <h3>Large language model (LLM)</h3>
+      <p>An AI model trained to work with language. LLMs can draft, summarize, translate, classify, reason over text, and power chatbot products.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-local-ai" data-glossary-term data-glossary-search-text="local ai ai that runs on a user&#x27;s own device, server, or private infrastructure instead of relying entirely on a cloud service.">
+      <h3>Local AI</h3>
+      <p>AI that runs on a user's own device, server, or private infrastructure instead of relying entirely on a cloud service.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-M" data-glossary-section>
+  <h2>M</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-machine-learning" data-glossary-term data-glossary-search-text="machine learning a branch of ai where systems learn patterns from data instead of being programmed with every rule by hand.">
+      <h3>Machine learning</h3>
+      <p>A branch of AI where systems learn patterns from data instead of being programmed with every rule by hand.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-model" data-glossary-term data-glossary-search-text="model the trained system that turns inputs into outputs. in ai writing tools, the model is the engine, while the app is the product wrapped around it.">
+      <h3>Model</h3>
+      <p>The trained system that turns inputs into outputs. In AI writing tools, the model is the engine, while the app is the product wrapped around it.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-model-weights" data-glossary-term data-glossary-search-text="model weights the learned parameters inside a model. weights are part of what allow a trained model to produce useful outputs.">
+      <h3>Model weights</h3>
+      <p>The learned parameters inside a model. Weights are part of what allow a trained model to produce useful outputs.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-multimodal-ai" data-glossary-term data-glossary-search-text="multimodal ai ai that can work across more than one kind of input or output, such as text, images, audio, video, and code.">
+      <h3>Multimodal AI</h3>
+      <p>AI that can work across more than one kind of input or output, such as text, images, audio, video, and code.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-O" data-glossary-section>
+  <h2>O</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-ocap" data-glossary-term data-glossary-search-text="ocap a first nations data governance framework standing for ownership, control, access, and possession. confirm final wording and attribution before publication.">
+      <h3>OCAP</h3>
+      <p>A First Nations data governance framework standing for ownership, control, access, and possession. Confirm final wording and attribution before publication.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-open-model" data-glossary-term data-glossary-search-text="open model a model released with enough access for others to inspect, use, adapt, or run it, depending on the license and release terms.">
+      <h3>Open model</h3>
+      <p>A model released with enough access for others to inspect, use, adapt, or run it, depending on the license and release terms.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-open-weights" data-glossary-term data-glossary-search-text="open weights model weights that are available for others to download or run. open weights do not automatically mean open data, open training methods, or unrestricted rights.">
+      <h3>Open weights</h3>
+      <p>Model weights that are available for others to download or run. Open weights do not automatically mean open data, open training methods, or unrestricted rights.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-P" data-glossary-section>
+  <h2>P</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-prompt" data-glossary-term data-glossary-search-text="prompt the instruction, question, context, file, or example given to an ai system.">
+      <h3>Prompt</h3>
+      <p>The instruction, question, context, file, or example given to an AI system.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-prompt-engineering" data-glossary-term data-glossary-search-text="prompt engineering the practice of designing prompts and workflows so ai systems produce more useful, reliable, or constrained outputs.">
+      <h3>Prompt engineering</h3>
+      <p>The practice of designing prompts and workflows so AI systems produce more useful, reliable, or constrained outputs.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-public-interest-compute" data-glossary-term data-glossary-search-text="public-interest compute compute capacity reserved or governed for civic, academic, public, indigenous, nonprofit, or community benefit rather than only private profit.">
+      <h3>Public-interest compute</h3>
+      <p>Compute capacity reserved or governed for civic, academic, public, Indigenous, nonprofit, or community benefit rather than only private profit.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-R" data-glossary-section>
+  <h2>R</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-reconciliation" data-glossary-term data-glossary-search-text="reconciliation the ongoing work of repairing relationships and systems shaped by colonialism. in technology work, this should include material commitments, governance, accountability, and respect for indigenous rights.">
+      <h3>Reconciliation</h3>
+      <p>The ongoing work of repairing relationships and systems shaped by colonialism. In technology work, this should include material commitments, governance, accountability, and respect for Indigenous rights.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-red-teaming" data-glossary-term data-glossary-search-text="red teaming testing a system by trying to make it fail, break rules, expose vulnerabilities, or produce harmful outputs.">
+      <h3>Red teaming</h3>
+      <p>Testing a system by trying to make it fail, break rules, expose vulnerabilities, or produce harmful outputs.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-retrieval-augmented-generation-rag" data-glossary-term data-glossary-search-text="retrieval-augmented generation (rag) a method where an ai system retrieves relevant documents or data before generating an answer, making it easier to cite sources and use current context.">
+      <h3>Retrieval-augmented generation (RAG)</h3>
+      <p>A method where an AI system retrieves relevant documents or data before generating an answer, making it easier to cite sources and use current context.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-rights-holder" data-glossary-term data-glossary-search-text="rights holder a person, people, or nation with legal, inherent, or recognized rights affected by a decision. rights holders require a different level of respect and authority than general stakeholders.">
+      <h3>Rights holder</h3>
+      <p>A person, people, or Nation with legal, inherent, or recognized rights affected by a decision. Rights holders require a different level of respect and authority than general stakeholders.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-S" data-glossary-section>
+  <h2>S</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-self-determination" data-glossary-term data-glossary-search-text="self-determination the right of a people or community to make decisions about its own future, governance, resources, culture, and development.">
+      <h3>Self-determination</h3>
+      <p>The right of a people or community to make decisions about its own future, governance, resources, culture, and development.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-sovereign-ai" data-glossary-term data-glossary-search-text="sovereign ai ai infrastructure, capability, or governance controlled by a country, nation, region, or community. the term should always raise the question: sovereign for whom?">
+      <h3>Sovereign AI</h3>
+      <p>AI infrastructure, capability, or governance controlled by a country, Nation, region, or community. The term should always raise the question: sovereign for whom?</p>
+    </article>
+    <article class="kk-glossary-term" id="term-stakeholder" data-glossary-term data-glossary-search-text="stakeholder a person or group with an interest in a decision. stakeholders matter, but the term should not be used to flatten rights holders, host nations, workers, creators, or affected communities into one generic category.">
+      <h3>Stakeholder</h3>
+      <p>A person or group with an interest in a decision. Stakeholders matter, but the term should not be used to flatten rights holders, host Nations, workers, creators, or affected communities into one generic category.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-synthetic-media" data-glossary-term data-glossary-search-text="synthetic media images, audio, video, or text created or heavily modified by ai.">
+      <h3>Synthetic media</h3>
+      <p>Images, audio, video, or text created or heavily modified by AI.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-T" data-glossary-section>
+  <h2>T</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-token" data-glossary-term data-glossary-search-text="token a chunk of text that an ai model processes. tokens can be words, parts of words, punctuation, or other units.">
+      <h3>Token</h3>
+      <p>A chunk of text that an AI model processes. Tokens can be words, parts of words, punctuation, or other units.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-traditional-knowledge" data-glossary-term data-glossary-search-text="traditional knowledge knowledge held by indigenous peoples and communities through lived practice, relationship, stewardship, language, and culture. it should not be treated as free training data.">
+      <h3>Traditional knowledge</h3>
+      <p>Knowledge held by Indigenous Peoples and communities through lived practice, relationship, stewardship, language, and culture. It should not be treated as free training data.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-training-data" data-glossary-term data-glossary-search-text="training data the material used to teach an ai model patterns. training data can include text, images, audio, video, code, or structured records.">
+      <h3>Training data</h3>
+      <p>The material used to teach an AI model patterns. Training data can include text, images, audio, video, code, or structured records.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-transformer" data-glossary-term data-glossary-search-text="transformer a model architecture that helped make modern language models possible by allowing systems to track relationships across large amounts of text.">
+      <h3>Transformer</h3>
+      <p>A model architecture that helped make modern language models possible by allowing systems to track relationships across large amounts of text.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-two-eyed-seeing" data-glossary-term data-glossary-search-text="two-eyed seeing a concept associated with mi&#x27;kmaw elder albert marshall about learning to see from both indigenous and western knowledge systems. confirm wording and attribution before publication.">
+      <h3>Two-Eyed Seeing</h3>
+      <p>A concept associated with Mi'kmaw Elder Albert Marshall about learning to see from both Indigenous and Western knowledge systems. Confirm wording and attribution before publication.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-U" data-glossary-section>
+  <h2>U</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-unceded-territory" data-glossary-term data-glossary-search-text="unceded territory land that was not surrendered through treaty. use local wording carefully and confirm with the relevant nation or trusted local sources.">
+      <h3>Unceded territory</h3>
+      <p>Land that was not surrendered through treaty. Use local wording carefully and confirm with the relevant Nation or trusted local sources.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-V" data-glossary-section>
+  <h2>V</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-vector-database" data-glossary-term data-glossary-search-text="vector database a database designed to store and search embeddings, often used for semantic search and rag systems.">
+      <h3>Vector database</h3>
+      <p>A database designed to store and search embeddings, often used for semantic search and RAG systems.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-vision-model" data-glossary-term data-glossary-search-text="vision model an ai model that can interpret images or video.">
+      <h3>Vision model</h3>
+      <p>An AI model that can interpret images or video.</p>
+    </article>
+  </div>
+</section>
+<section class="kk-glossary-section" id="glossary-W" data-glossary-section>
+  <h2>W</h2>
+  <div class="kk-glossary-term-grid">
+    <article class="kk-glossary-term" id="term-water-and-energy-footprint" data-glossary-term data-glossary-search-text="water and energy footprint the water, electricity, cooling, land, and infrastructure demands created by technology systems, including ai data centres.">
+      <h3>Water and energy footprint</h3>
+      <p>The water, electricity, cooling, land, and infrastructure demands created by technology systems, including AI data centres.</p>
+    </article>
+    <article class="kk-glossary-term" id="term-workflow-automation" data-glossary-term data-glossary-search-text="workflow automation software that connects steps in a process so repeated work can happen with less manual effort. good automation should still keep accountability clear.">
+      <h3>Workflow automation</h3>
+      <p>Software that connects steps in a process so repeated work can happen with less manual effort. Good automation should still keep accountability clear.</p>
+    </article>
+  </div>
+</section>
+</div>
+
+<script>
+(function () {
+  var root = document.querySelector('[data-kk-glossary]');
+  if (!root) return;
+  var input = root.querySelector('[data-glossary-search]');
+  var count = root.querySelector('[data-glossary-count]');
+  var noResults = root.querySelector('[data-glossary-no-results]');
+  var terms = Array.prototype.slice.call(root.querySelectorAll('[data-glossary-term]'));
+  var sections = Array.prototype.slice.call(root.querySelectorAll('[data-glossary-section]'));
+  function normalize(value) {
+    return String(value || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
+  }
+  function update() {
+    var query = normalize(input.value).trim();
+    var visible = 0;
+    terms.forEach(function (term) {
+      var haystack = normalize(term.getAttribute('data-glossary-search-text'));
+      var match = !query || haystack.indexOf(query) !== -1;
+      term.hidden = !match;
+      if (match) visible += 1;
+    });
+    sections.forEach(function (section) {
+      section.hidden = !section.querySelector('[data-glossary-term]:not([hidden])');
+    });
+    count.textContent = visible + (visible === 1 ? ' term visible.' : ' terms visible.');
+    noResults.hidden = visible !== 0;
+  }
+  input.addEventListener('input', update);
+  update();
+}());
+</script>
+<!-- /wp:html -->
