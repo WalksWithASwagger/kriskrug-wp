@@ -20,6 +20,11 @@ class SwarmReadyStaticChecks(unittest.TestCase):
         home_template = (ROOT / "theme/kk-aurora/templates/home.html").read_text()
 
         self.assertIn("function writing_archive_category_feed_discovery", functions)
+        self.assertIn("function writing_archive_seo_meta_tags", functions)
+        self.assertIn("jetpack_seo_meta_tags", functions)
+        self.assertIn("function twitter_card_tag_fallbacks", functions)
+        self.assertIn("twitter_card_tag_fallbacks', 120", functions)
+        self.assertIn("advanced_seo_description", functions)
         self.assertIn("get_category_feed_link", functions)
         self.assertIn("rel=\\\"alternate\\\" type=\\\"application/rss+xml\\\"", functions)
 
