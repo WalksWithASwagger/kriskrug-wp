@@ -25,12 +25,13 @@ Status: local draft package only. No WordPress draft was created. No live site w
 - Existing issue #18 source-pack payload used as context: `content/source-packs/keynotes-2026/wp-payloads/vancouver-ai-community.html`.
 - Existing issue #18 verification note used as context: `content/source-packs/keynotes-2026/verification/ISSUE-18-VANCOUVER-AI-COMMUNITY-VERIFICATION-2026-05-21.md`.
 - March 2026 public talk context used from `content/drafts/2026-05-19-both-hands-full-vancouver-ai-march-2026/post.md`.
+- Canonical `post.html` has been reconciled to the stronger source-pack payload that includes the public BC+AI proof markers from the 2026-05-21 verification pass.
 
 ## Acceptance Coverage
 
 - Dedicated page path: packaged for `/community/vancouver-ai/`, blocked on parent page confirmation.
-- Meetup schedule and frequency: linked to Luma, cadence gated.
-- Attendee numbers and growth: gated pending current verification.
+- Meetup schedule and frequency: linked to Luma as the source of truth.
+- Attendee numbers and growth: staged with previously verified public BC+AI markers; recheck immediately before WordPress draft creation or publish.
 - How to join or participate: included.
 - Events calendar: linked.
 - Resources and recordings: included with public YouTube talk.

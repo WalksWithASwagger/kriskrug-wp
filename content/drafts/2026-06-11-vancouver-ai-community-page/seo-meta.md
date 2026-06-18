@@ -13,7 +13,7 @@
 
 ## Claim Gates
 
-- Do not publish member counts, attendance numbers, growth numbers, or event cadence until checked against current public sources or KK approval.
+- Recheck member counts, attendance numbers, growth numbers, and event cadence against current public sources immediately before draft creation or publish. The local draft currently carries the 2026-05-21 public BC+AI markers from the issue #18 verification pass.
 - Do not add testimonials until the quote, name, title, and permission are explicit.
 - Do not add academic partnership names until the relationship is confirmed by a current public source or KK approval.
 - Keep the page as a WordPress draft until preview, mobile review, accessibility review, and link checks pass.

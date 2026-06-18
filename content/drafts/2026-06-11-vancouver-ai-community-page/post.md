@@ -30,6 +30,18 @@ Kris helps convene that room through BC+AI, public talks, practical learning ses
 [Join BC+AI](https://bc-ai.ca/membership/)
 [Book Kris for a talk](/speaking/)
 
+## Community Proof
+
+Public BC+AI markers checked in the earlier issue #18 verification pass:
+
+- 250+ BC+AI members
+- 3,000+ event attendees
+- 94+ events hosted
+- 4 BC regions represented
+- Established in 2023
+
+These stats should be rechecked immediately before WordPress draft creation or publication.
+
 ## Why This Page Exists
 
 AI is changing work, art, education, media, government, climate decisions, and community life faster than most institutions can explain it.
@@ -44,7 +56,7 @@ The best Vancouver AI rooms are mixed on purpose. Builders sit beside skeptics. 
 
 Vancouver AI gatherings give people a place to see demos, hear field reports, ask direct questions, and meet others working through the same messy transition.
 
-Use the public event calendar for the current schedule and next gathering.
+Use the public event calendar for the current schedule, frequency, venue details, and next gathering.
 
 ### Talks And Recordings
 
@@ -97,6 +109,7 @@ If your team, conference, school, board, or community needs a high-signal AI tal
 - [Vancouver AI events on Luma](https://luma.com/vancouver-ai)
 - [BC+AI](https://bc-ai.ca/)
 - [BC+AI membership](https://bc-ai.ca/membership/)
+- [Vancouver AI community page](https://vancouver.bc-ai.net/)
 - [Both Hands Full](https://www.bothhandsfull.com/)
 - [Kris's AI keynote speaking](/speaking/)
 - [Kris's work](/recent-projects-include/)
