@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check draft-queue-audit jetpack-feedback-audit seo-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check clean
+.PHONY: help test plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check clean
 
 # Default target
 .DEFAULT_GOAL := help
@@ -155,6 +155,12 @@ seo-backfill: ## Additive-only SEO meta backfill (default DRY-RUN). Live: EXECUT
 		$${LIMIT:+--limit $${LIMIT}} $${SINCE:+--since $${SINCE}} $${IDS:+--ids $${IDS}} \
 		$${PROBE_ID:+--probe-id $${PROBE_ID}} $${BACKUP_DIR:+--backup-dir $${BACKUP_DIR}} \
 		$${FROM_FILE:+--from-file $${FROM_FILE}}
+
+public-image-audit: ## Audit public-rendered images (dry-run). Args: IDS URLS DEFAULT_URLS=1 CHECK_URLS=1 FORMAT OUTPUT
+	@python3 scripts/public_image_audit.py \
+		--kind "$${KIND:-post,page}" --limit "$${LIMIT:-50}" --since "$${SINCE:-2025-01-01}" \
+		$${IDS:+--ids "$${IDS}"} $${URLS:+--urls "$${URLS}"} $${DEFAULT_URLS:+--default-urls} \
+		$${CHECK_URLS:+--check-urls} --timeout "$${TIMEOUT:-20}" --format "$${FORMAT:-markdown}" $${OUTPUT:+--output "$${OUTPUT}"}
 
 jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/routing audit (FORMAT=json)
 	@if [ "$${FORMAT:-human}" = "json" ]; then \
