@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.3.19');
+define('KK_AURORA_VERSION', '1.3.21');
 
 /**
  * Theme setup
@@ -519,6 +519,32 @@ function work_page_open_graph_fallback(array $tags): array {
 }
 add_filter('jetpack_open_graph_tags', __NAMESPACE__ . '\\work_page_open_graph_fallback');
 
+function writing_archive_meta_description(): string {
+    $fallback = 'Read Kris Krug field notes on responsible AI, creative technology, community building, Indigenous tech, media, culture, practical workflows, and events.';
+    $posts_page_id = (int) get_option('page_for_posts');
+    if ($posts_page_id <= 0) {
+        return $fallback;
+    }
+
+    $description = get_post_meta($posts_page_id, 'advanced_seo_description', true);
+    if (!is_string($description) || trim($description) === '') {
+        return $fallback;
+    }
+
+    return wp_strip_all_tags($description);
+}
+
+function writing_archive_seo_meta_tags(array $tags): array {
+    if (!is_home() || is_front_page()) {
+        return $tags;
+    }
+
+    $tags['description'] = writing_archive_meta_description();
+
+    return $tags;
+}
+add_filter('jetpack_seo_meta_tags', __NAMESPACE__ . '\\writing_archive_seo_meta_tags', 99);
+
 /**
  * Set archive-specific social metadata for the Writing landing page.
  *
@@ -531,7 +557,7 @@ function writing_archive_open_graph_fallback(array $tags): array {
     }
 
     $image = 'https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/02/06-mycelial-action-network.png?fit=1200%2C686&ssl=1';
-    $description = 'Essays on AI, culture, community, creative practice, consent, taste, and what stays human when the tools get loud.';
+    $description = writing_archive_meta_description();
 
     $tags['og:title'] = 'Writing — Kris Krug';
     $tags['og:description'] = $description;
@@ -548,7 +574,62 @@ function writing_archive_open_graph_fallback(array $tags): array {
 
     return $tags;
 }
-add_filter('jetpack_open_graph_tags', __NAMESPACE__ . '\\writing_archive_open_graph_fallback');
+add_filter('jetpack_open_graph_tags', __NAMESPACE__ . '\\writing_archive_open_graph_fallback', 99);
+
+/**
+ * Mirror available Open Graph metadata into missing Twitter Card fields.
+ *
+ * @param array<string, string> $tags Existing Open Graph/Twitter tags.
+ * @return array<string, string>
+ */
+function twitter_card_tag_fallbacks(array $tags): array {
+    if (empty($tags['twitter:site'])) {
+        $tags['twitter:site'] = '@feelmoreplants';
+    }
+
+    if (empty($tags['twitter:title'])) {
+        $title = '';
+        if (!empty($tags['og:title']) && is_string($tags['og:title'])) {
+            $title = $tags['og:title'];
+        } else {
+            $title = wp_get_document_title();
+        }
+
+        if ($title !== '') {
+            $tags['twitter:title'] = wp_strip_all_tags($title);
+        }
+    }
+
+    if (empty($tags['twitter:description'])) {
+        $description = '';
+        if (!empty($tags['og:description']) && is_string($tags['og:description'])) {
+            $description = $tags['og:description'];
+        } elseif (!empty($tags['description']) && is_string($tags['description'])) {
+            $description = $tags['description'];
+        } elseif (is_singular()) {
+            $description = get_the_excerpt();
+        }
+
+        if ($description !== '') {
+            $tags['twitter:description'] = wp_strip_all_tags($description);
+        }
+    }
+
+    if (empty($tags['twitter:image']) && !empty($tags['og:image']) && is_string($tags['og:image'])) {
+        $tags['twitter:image'] = $tags['og:image'];
+    }
+
+    if (empty($tags['twitter:image:alt']) && !empty($tags['og:image:alt']) && is_string($tags['og:image:alt'])) {
+        $tags['twitter:image:alt'] = $tags['og:image:alt'];
+    }
+
+    if (empty($tags['twitter:card'])) {
+        $tags['twitter:card'] = empty($tags['twitter:image']) ? 'summary' : 'summary_large_image';
+    }
+
+    return $tags;
+}
+add_filter('jetpack_open_graph_tags', __NAMESPACE__ . '\\twitter_card_tag_fallbacks', 120);
 
 /**
  * Expose high-signal category feeds to feed readers on the Writing archive.

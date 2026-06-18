@@ -39,6 +39,16 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.3.21 =
+* Added late Twitter Card fallbacks so missing title, description, image, and site fields mirror available Open Graph metadata.
+
+= 1.3.20 =
+* Forced Writing archive Jetpack metadata overrides to late priority so archive Open Graph descriptions cannot inherit a post excerpt.
+
+= 1.3.19 =
+* Added Writing archive category feed discovery links and search accessibility regression coverage (PR #231).
+* Aligned Writing archive Jetpack standard, Open Graph, and Twitter descriptions to the posts-page SEO description.
+
 = 1.3.18 =
 * Fixed stagger-reveal sections rendering invisible (found in visual QA).
 
