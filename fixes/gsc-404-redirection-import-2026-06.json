@@ -1,0 +1,468 @@
+{
+  "plugin": {
+    "version": "5.7.5",
+    "date": "Sat, 14 Jun 2026 00:00:00 +0000"
+  },
+  "groups": [
+    {
+      "id": 1,
+      "name": "Redirections",
+      "redirects": 18,
+      "module_id": 1,
+      "moduleName": "WordPress",
+      "enabled": true
+    }
+  ],
+  "redirects": [
+    {
+      "url": "/category/(art|bioblitz|community|friends|web-20|artificial-intelligence|web-design|gastown|communication)(/.*)?",
+      "match_url": "/category/(art|bioblitz|community|friends|web-20|artificial-intelligence|web-design|gastown|communication)(/.*)?",
+      "match_data": {
+        "source": {
+          "flag_query": "pass",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": true
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/blog/"
+      },
+      "match_type": "url",
+      "title": "GSC404 deleted category archives",
+      "hits": 0,
+      "regex": true,
+      "group_id": 1,
+      "position": 0,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "^/2007/08/07/bryght-world-tour-2007/.+",
+      "match_url": "^/2007/08/07/bryght-world-tour-2007/.+",
+      "match_data": {
+        "source": {
+          "flag_query": "pass",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": true
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/2007/08/07/bryght-world-tour-2007/"
+      },
+      "match_type": "url",
+      "title": "GSC404 Bryght world tour subpaths",
+      "hits": 0,
+      "regex": true,
+      "group_id": 1,
+      "position": 1,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/2006/07/07/gnomedex-6/about/the-team",
+      "match_url": "/2006/07/07/gnomedex-6/about/the-team",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/2006/07/07/gnomedex-6/"
+      },
+      "match_type": "url",
+      "title": "GSC404 Gnomedex subpath",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 2,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/2006/03/25/sxsw-wrap-up/about/the-team/colin",
+      "match_url": "/2006/03/25/sxsw-wrap-up/about/the-team/colin",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/2006/03/25/sxsw-wrap-up/"
+      },
+      "match_type": "url",
+      "title": "GSC404 SXSW subpath",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 3,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/2006/03/30/tech-village-switch-on-event-with-communicopia/system/files",
+      "match_url": "/2006/03/30/tech-village-switch-on-event-with-communicopia/system/files",
+      "match_data": {
+        "source": {
+          "flag_query": "pass",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/2006/03/30/tech-village-switch-on-event-with-communicopia/"
+      },
+      "match_type": "url",
+      "title": "GSC404 Tech Village file path",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 4,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/node/216",
+      "match_url": "/node/216",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/blog/"
+      },
+      "match_type": "url",
+      "title": "GSC404 Drupal node",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 5,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/?p=87",
+      "match_url": "/",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/blog/"
+      },
+      "match_type": "url",
+      "title": "GSC404 dead post id 87",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 6,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/?p=107",
+      "match_url": "/",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/blog/"
+      },
+      "match_type": "url",
+      "title": "GSC404 dead post id 107",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 7,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/?p=142",
+      "match_url": "/",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/blog/"
+      },
+      "match_type": "url",
+      "title": "GSC404 dead post id 142",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 8,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/?p=247",
+      "match_url": "/",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/blog/"
+      },
+      "match_type": "url",
+      "title": "GSC404 dead post id 247",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 9,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/?p=280",
+      "match_url": "/",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/blog/"
+      },
+      "match_type": "url",
+      "title": "GSC404 dead post id 280",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 10,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/?page_id=504",
+      "match_url": "/",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/blog/"
+      },
+      "match_type": "url",
+      "title": "GSC404 dead page id 504",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 11,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/?page_id=843",
+      "match_url": "/",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/blog/"
+      },
+      "match_type": "url",
+      "title": "GSC404 dead page id 843",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 12,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/quote-request/",
+      "match_url": "/quote-request",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/contact/"
+      },
+      "match_type": "url",
+      "title": "GSC404 quote request page",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 13,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/2023/09/28/future-in-review-podcast/",
+      "match_url": "/2023/09/28/future-in-review-podcast",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "https://kriskrug.co/2023/07/28/future-in-review-conference-and-fire-podcast-an-insiders-view/"
+      },
+      "match_type": "url",
+      "title": "GSC404 future in review podcast slug",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 14,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/shrine",
+      "match_url": "/shrine",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "https://kriskrug.co/2023/08/25/burning-man-art-projects-uncle-charlies-red-hot-cock-tyson-ayers-shrine-of-sympathetic-resonance/"
+      },
+      "match_type": "url",
+      "title": "GSC404 shrine short path",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 15,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/spark/wordpress/",
+      "match_url": "/spark/wordpress",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/blog/"
+      },
+      "match_type": "url",
+      "title": "GSC404 legacy spark wordpress root",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 16,
+      "last_access": "-",
+      "enabled": true
+    },
+    {
+      "url": "/category/field-notes/page/3/",
+      "match_url": "/category/field-notes/page/3",
+      "match_data": {
+        "source": {
+          "flag_query": "exact",
+          "flag_case": true,
+          "flag_trailing": true,
+          "flag_regex": false
+        }
+      },
+      "action_code": 301,
+      "action_type": "url",
+      "action_data": {
+        "url": "/category/field-notes/page/2/"
+      },
+      "match_type": "url",
+      "title": "GSC404 field notes pagination overflow",
+      "hits": 0,
+      "regex": false,
+      "group_id": 1,
+      "position": 17,
+      "last_access": "-",
+      "enabled": true
+    }
+  ]
+}

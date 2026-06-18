@@ -1,0 +1,1226 @@
+[
+  {
+    "url": "https://kriskrug.co/2006/08/28/barcampearth-a-local-report/?share=twitter&nb=1",
+    "last_crawled": "2026-06-09",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/08/28/barcampearth-a-local-report/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/04/10/openmute/?share=twitter&nb=1",
+    "last_crawled": "2026-06-09",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/04/10/openmute/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/02/21/new-flickr-email-notifications/?share=twitter&nb=1",
+    "last_crawled": "2026-06-09",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/02/21/new-flickr-email-notifications/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/08/07/bryght-world-tour-2007/events/barcamp-vancouver-2007",
+    "last_crawled": "2026-06-08",
+    "bucket": "drupal_bryght_subpath",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/2007/08/07/bryght-world-tour-2007/"
+  },
+  {
+    "url": "https://kriskrug.co/spark/wordpress/index.php?p=112",
+    "last_crawled": "2026-06-08",
+    "bucket": "other",
+    "live_status": "301",
+    "recommended_action": "review",
+    "redirect_target": ""
+  },
+  {
+    "url": "https://kriskrug.co/category/art/?amp=1",
+    "last_crawled": "2026-06-08",
+    "bucket": "amp_deleted_category",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/category/bioblitz/?amp=1",
+    "last_crawled": "2026-06-08",
+    "bucket": "amp_deleted_category",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/category/community/?amp=1",
+    "last_crawled": "2026-06-08",
+    "bucket": "amp_deleted_category",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/08/07/bryght-world-tour-2007/events/barcamp-beijing-2007",
+    "last_crawled": "2026-06-08",
+    "bucket": "drupal_bryght_subpath",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/2007/08/07/bryght-world-tour-2007/"
+  },
+  {
+    "url": "https://kriskrug.co/quote-request/",
+    "last_crawled": "2026-06-08",
+    "bucket": "dead_page",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/contact/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/08/07/bryght-world-tour-2007/about-bryght/djun-kim",
+    "last_crawled": "2026-06-07",
+    "bucket": "drupal_bryght_subpath",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/2007/08/07/bryght-world-tour-2007/"
+  },
+  {
+    "url": "https://kriskrug.co/2024/10/15/indigenous-innovation-in-technology-and-the-future-of-indigenous-economies/?share=twitter&nb=1",
+    "last_crawled": "2026-06-06",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2024/10/15/indigenous-innovation-in-technology-and-the-future-of-indigenous-economies/"
+  },
+  {
+    "url": "https://kriskrug.co/?p=87",
+    "last_crawled": "2026-06-03",
+    "bucket": "dead_post_id",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/12/23/ocd-tech-dreams/?share=twitter&nb=1",
+    "last_crawled": "2026-06-02",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/12/23/ocd-tech-dreams/"
+  },
+  {
+    "url": "https://kriskrug.co/2024/03/04/building-healthy-digital-communities-in-the-ai-era/?share=twitter&nb=1",
+    "last_crawled": "2026-06-02",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2024/03/04/building-healthy-digital-communities-in-the-ai-era/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/07/28/future-in-review-conference-and-fire-podcast-an-insiders-view/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/07/28/future-in-review-conference-and-fire-podcast-an-insiders-view/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/03/30/tech-village-switch-on-event-with-communicopia/system/files?file=techvilliage.pdf",
+    "last_crawled": "2026-06-01",
+    "bucket": "drupal_techvillage_subpath",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/2006/03/30/tech-village-switch-on-event-with-communicopia/"
+  },
+  {
+    "url": "https://kriskrug.co/2004/07/28/look-at-me-everyone-im-pretending-im-hardcore/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2004/07/28/look-at-me-everyone-im-pretending-im-hardcore/"
+  },
+  {
+    "url": "https://kriskrug.co/2024/04/08/the-cyborg-future-when-sci-fi-gets-real-and-complicated/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2024/04/08/the-cyborg-future-when-sci-fi-gets-real-and-complicated/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/08/03/maxwells-demon/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/08/03/maxwells-demon/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/03/19/living-vancouver-filmed-at-discollection-today/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/03/19/living-vancouver-filmed-at-discollection-today/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/06/20/vancouver-alternative-center-for-web-20-business/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/06/20/vancouver-alternative-center-for-web-20-business/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/03/23/guide-to-the-gsoc-web-app-for-student-applicants-google-summer-of-code-announce/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/03/23/guide-to-the-gsoc-web-app-for-student-applicants-google-summer-of-code-announce/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/06/20/dave-call-my-friend-donald-at-rethreads/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/06/20/dave-call-my-friend-donald-at-rethreads/"
+  },
+  {
+    "url": "https://kriskrug.co/2024/04/19/not-all-white-guys-unpacking-the-wealth-tax-debate-in-canada/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2024/04/19/not-all-white-guys-unpacking-the-wealth-tax-debate-in-canada/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/01/03/web-directions-north-sxsw-in-vancouver/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/01/03/web-directions-north-sxsw-in-vancouver/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/10/25/twitter-vs-pownce-which-microblogging-platform-is-right-for-you/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/10/25/twitter-vs-pownce-which-microblogging-platform-is-right-for-you/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/11/07/the-definitive-guide-to-cell-phone-no-nos/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/11/07/the-definitive-guide-to-cell-phone-no-nos/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/09/29/raised-voices/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/09/29/raised-voices/"
+  },
+  {
+    "url": "https://kriskrug.co/2024/04/05/ai-skills-for-tommorows-storytellers-with-openai-creative-director-souki-mansoor/?share=twitter&nb=1",
+    "last_crawled": "2026-06-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2024/04/05/ai-skills-for-tommorows-storytellers-with-openai-creative-director-souki-mansoor/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/01/06/tips-for-photographing-children/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/01/06/tips-for-photographing-children/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/10/12/social-signal-is-hiring/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/10/12/social-signal-is-hiring/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/11/15/desmogblog-photoshoot/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/11/15/desmogblog-photoshoot/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/10/05/the-future-of-immersive-storytelling-perspectives-from-the-frontier-summit/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/10/05/the-future-of-immersive-storytelling-perspectives-from-the-frontier-summit/"
+  },
+  {
+    "url": "https://kriskrug.co/2024/09/05/ai-upgrade-for-creatives-professor-peter-and-the-the-pirate-king/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2024/09/05/ai-upgrade-for-creatives-professor-peter-and-the-the-pirate-king/"
+  },
+  {
+    "url": "https://kriskrug.co/2004/05/28/purveyor-of-cool/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2004/05/28/purveyor-of-cool/"
+  },
+  {
+    "url": "https://kriskrug.co/2024/11/22/great-creative-reckoning-a-techartists-manifesto-on-generative-artificial-intelligence/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2024/11/22/great-creative-reckoning-a-techartists-manifesto-on-generative-artificial-intelligence/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/04/09/jpg-magazine-submission-americana-by-kris-krug/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/04/09/jpg-magazine-submission-americana-by-kris-krug/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/10/05/quickie-web-20-conference-post/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/10/05/quickie-web-20-conference-post/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/08/22/through-my-lens-new-projects-and-updates-from-kris-krug/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/08/22/through-my-lens-new-projects-and-updates-from-kris-krug/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/06/21/podcasting-on-your-bryght-site/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/06/21/podcasting-on-your-bryght-site/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/04/05/a-directory-of-the-best-in-web-20-applications/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/04/05/a-directory-of-the-best-in-web-20-applications/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/01/25/rapspacetv-online-hiphop-community/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/01/25/rapspacetv-online-hiphop-community/"
+  },
+  {
+    "url": "https://kriskrug.co/2026/05/16/make-culture-not-content/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2026/05/16/make-culture-not-content/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/02/19/light-blue-line-exploring-the-effects-of-global-warming/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/02/19/light-blue-line-exploring-the-effects-of-global-warming/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/07/07/gnomedex-6/about/the-team",
+    "last_crawled": "2026-05-31",
+    "bucket": "drupal_gnomedex_subpath",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/2006/07/07/gnomedex-6/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/04/20/back-like-lazarus/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/04/20/back-like-lazarus/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/10/04/bittorrent-for-dummies/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/10/04/bittorrent-for-dummies/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/07/11/stencilrevolution-nokin-gallery/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/07/11/stencilrevolution-nokin-gallery/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/03/27/introducing-flickr-filters/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/03/27/introducing-flickr-filters/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/04/04/872/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/04/04/872/"
+  },
+  {
+    "url": "https://kriskrug.co/2025/04/13/web-summit-vancouver-2025-survival-guide/?share=twitter",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2025/04/13/web-summit-vancouver-2025-survival-guide/"
+  },
+  {
+    "url": "https://kriskrug.co/2012/07/06/this-is-east-van-community-art-yvr/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2012/07/06/this-is-east-van-community-art-yvr/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/09/12/sneak-preview-of-drupalbryght-flickr-module/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/09/12/sneak-preview-of-drupalbryght-flickr-module/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/12/07/beercasting-from-the-props-pub-blogs-n-dogs-in-banff-alberta/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/12/07/beercasting-from-the-props-pub-blogs-n-dogs-in-banff-alberta/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/10/08/how-ai-tools-like-midjourney-dall\u00b7e-chatgpt-are-reshaping-the-creative-landscape/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/10/08/how-ai-tools-like-midjourney-dall\u00b7e-chatgpt-are-reshaping-the-creative-landscape/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/10/27/bryght-and-early/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/10/27/bryght-and-early/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/12/03/currently-13-f-but-real-feel-is-24-f/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/12/03/currently-13-f-but-real-feel-is-24-f/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/02/15/how-to-choose-the-right-iso-for-your-digital-photography/?share=twitter&nb=1",
+    "last_crawled": "2026-05-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/02/15/how-to-choose-the-right-iso-for-your-digital-photography/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/11/18/reinventing-for-the-ai-age-with-youtube-veteran-chris-pirillo/?share=twitter&nb=1",
+    "last_crawled": "2026-05-30",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/11/18/reinventing-for-the-ai-age-with-youtube-veteran-chris-pirillo/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/04/25/workspace-future-home-of-yoga-for-geeks/?share=twitter&nb=1",
+    "last_crawled": "2026-05-30",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/04/25/workspace-future-home-of-yoga-for-geeks/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/06/26/naked-on-the-great-wall-canadian-stunt-cute-or-arrogant/?share=twitter",
+    "last_crawled": "2026-05-29",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/06/26/naked-on-the-great-wall-canadian-stunt-cute-or-arrogant/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/03/25/sxsw-wrap-up/about/the-team/colin",
+    "last_crawled": "2026-05-28",
+    "bucket": "drupal_sxsw_subpath",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/2006/03/25/sxsw-wrap-up/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/09/28/future-in-review-podcast/",
+    "last_crawled": "2026-05-28",
+    "bucket": "dead_page",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "https://kriskrug.co/2023/07/28/future-in-review-conference-and-fire-podcast-an-insiders-view/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/09/29/playlist-module-released/?share=twitter&nb=1",
+    "last_crawled": "2026-05-26",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/09/29/playlist-module-released/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/07/04/sonic-heart-magazine-new-englands-electronic-music-magazine/?share=twitter&nb=1",
+    "last_crawled": "2026-05-21",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/07/04/sonic-heart-magazine-new-englands-electronic-music-magazine/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/01/08/linkedin-answers-getting-hot/?share=twitter",
+    "last_crawled": "2026-05-18",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/01/08/linkedin-answers-getting-hot/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/11/10/new-black-tories-ep-coming-soon/?share=twitter&nb=1",
+    "last_crawled": "2026-05-18",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/11/10/new-black-tories-ep-coming-soon/"
+  },
+  {
+    "url": "https://kriskrug.co/2026/05/07/web-summit-vancouver-2026/?share=twitter&nb=1",
+    "last_crawled": "2026-05-18",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2026/05/07/web-summit-vancouver-2026/"
+  },
+  {
+    "url": "https://kriskrug.co/category/field-notes/page/3/",
+    "last_crawled": "2026-05-17",
+    "bucket": "pagination_overflow",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/category/field-notes/page/2/"
+  },
+  {
+    "url": "https://kriskrug.co/spark/wordpress/",
+    "last_crawled": "2026-05-16",
+    "bucket": "legacy_wp_root",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/10/20/get-your-moose-on-this-is-your-mothers-conference-bmann-consulting/?share=twitter&nb=1",
+    "last_crawled": "2026-05-14",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/10/20/get-your-moose-on-this-is-your-mothers-conference-bmann-consulting/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/01/12/photography-in-cold-weather-conditions/?share=twitter&nb=1",
+    "last_crawled": "2026-05-14",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/01/12/photography-in-cold-weather-conditions/"
+  },
+  {
+    "url": "https://kriskrug.co/category/friends/?amp=1",
+    "last_crawled": "2026-05-13",
+    "bucket": "amp_deleted_category",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/node/216",
+    "last_crawled": "2026-05-05",
+    "bucket": "drupal_node",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/12/04/welcome-to-blogsndogs/?share=twitter&nb=1",
+    "last_crawled": "2026-05-05",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/12/04/welcome-to-blogsndogs/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/01/04/static-photography-represents-northern-voice-2006-in-vancouver/?share=twitter&nb=1",
+    "last_crawled": "2026-05-01",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/01/04/static-photography-represents-northern-voice-2006-in-vancouver/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/02/08/ridiculosity/?share=twitter&nb=1",
+    "last_crawled": "2026-04-26",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/02/08/ridiculosity/"
+  },
+  {
+    "url": "https://kriskrug.co/2026/02/03/name-the-bias/?share=twitter&nb=1",
+    "last_crawled": "2026-04-24",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2026/02/03/name-the-bias/"
+  },
+  {
+    "url": "https://kriskrug.co/2011/01/04/south-by-southwest-party-in-vancouver-at-the-waldorf-hotel-january-13th/?share=twitter&nb=1",
+    "last_crawled": "2026-04-24",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2011/01/04/south-by-southwest-party-in-vancouver-at-the-waldorf-hotel-january-13th/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/02/08/butchrpaprcom/?share=twitter&nb=1",
+    "last_crawled": "2026-04-23",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/02/08/butchrpaprcom/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/09/22/688/?share=twitter&nb=1",
+    "last_crawled": "2026-04-23",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/09/22/688/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/05/15/e3-wrap-up/?share=twitter",
+    "last_crawled": "2026-04-22",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/05/15/e3-wrap-up/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/10/30/rethinking-ownership-and-copyright-in-the-age-of-generative-ai/?share=twitter&nb=1",
+    "last_crawled": "2026-04-22",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/10/30/rethinking-ownership-and-copyright-in-the-age-of-generative-ai/"
+  },
+  {
+    "url": "https://kriskrug.co/2025/05/11/vancouver-ai-meetup-16-where-tech-creativity-and-community-collide/?share=twitter",
+    "last_crawled": "2026-04-22",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2025/05/11/vancouver-ai-meetup-16-where-tech-creativity-and-community-collide/"
+  },
+  {
+    "url": "https://kriskrug.co/2024/05/15/exploring-the-power-of-custom-gpts-my-ai-creations/?share=twitter&nb=1",
+    "last_crawled": "2026-04-12",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2024/05/15/exploring-the-power-of-custom-gpts-my-ai-creations/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/09/29/blue-flavor-is-open-for-business/?share=twitter&nb=1",
+    "last_crawled": "2026-04-09",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/09/29/blue-flavor-is-open-for-business/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/07/27/top-10-must-have-gadgets-for-2005/?share=twitter&nb=1",
+    "last_crawled": "2026-04-08",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/07/27/top-10-must-have-gadgets-for-2005/"
+  },
+  {
+    "url": "https://kriskrug.co/?p=280",
+    "last_crawled": "2026-04-05",
+    "bucket": "dead_post_id",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/category/communication/",
+    "last_crawled": "2026-04-02",
+    "bucket": "deleted_category",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/category/web-20/?amp=1",
+    "last_crawled": "2026-03-30",
+    "bucket": "amp_deleted_category",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/2024/10/28/kicking-ass-in-2025-a-techartists-guide-to-creative-survival/?share=twitter&nb=1",
+    "last_crawled": "2026-03-26",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2024/10/28/kicking-ass-in-2025-a-techartists-guide-to-creative-survival/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/08/07/bryght-world-tour-2007/events/gnomedex-20071",
+    "last_crawled": "2026-03-13",
+    "bucket": "drupal_bryght_subpath",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/2007/08/07/bryght-world-tour-2007/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/09/09/the-promise-and-peril-of-ai-my-key-takeaways-from-the-impact-relations-institute-panel/?share=twitter&nb=1",
+    "last_crawled": "2026-03-13",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/09/09/the-promise-and-peril-of-ai-my-key-takeaways-from-the-impact-relations-institute-panel/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/09/29/raised-voices/?share=twitter",
+    "last_crawled": "2026-03-12",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/09/29/raised-voices/"
+  },
+  {
+    "url": "https://kriskrug.co/category/artificial-intelligence/?amp=1",
+    "last_crawled": "2026-03-12",
+    "bucket": "amp_deleted_category",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/09/23/the-magic-of-asa-mathat-portraiture-and-photography-at-dent-the-future/?share=twitter",
+    "last_crawled": "2026-03-12",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/09/23/the-magic-of-asa-mathat-portraiture-and-photography-at-dent-the-future/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/07/22/the-future-of-publishing-conference/?share=twitter&nb=1",
+    "last_crawled": "2026-03-11",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/07/22/the-future-of-publishing-conference/"
+  },
+  {
+    "url": "https://kriskrug.co/category/art/",
+    "last_crawled": "2026-03-11",
+    "bucket": "deleted_category",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/07/12/paralyzed-man-moves-computer-cursor-with-thoughts/?share=twitter&nb=1",
+    "last_crawled": "2026-03-07",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/07/12/paralyzed-man-moves-computer-cursor-with-thoughts/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/08/18/canon-5d/?share=twitter&nb=1",
+    "last_crawled": "2026-03-07",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/08/18/canon-5d/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/09/28/bittorrents-grab-at-respectability/?share=twitter&nb=1",
+    "last_crawled": "2026-03-07",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/09/28/bittorrents-grab-at-respectability/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/06/25/drupal-goes-to-11-projects-on-googles-summer-of-code-project/?share=twitter&nb=1",
+    "last_crawled": "2026-03-07",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/06/25/drupal-goes-to-11-projects-on-googles-summer-of-code-project/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/06/06/progressive-u/?share=twitter&nb=1",
+    "last_crawled": "2026-03-07",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/06/06/progressive-u/"
+  },
+  {
+    "url": "https://kriskrug.co/2004/07/09/nightmare-job-marcom-for-chevrontexaco/?share=twitter&nb=1",
+    "last_crawled": "2026-03-06",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2004/07/09/nightmare-job-marcom-for-chevrontexaco/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/01/06/tips-for-photographing-children/?share=twitter",
+    "last_crawled": "2026-03-06",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/01/06/tips-for-photographing-children/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/10/27/marilyn-wilson-interview-q-a/?share=twitter",
+    "last_crawled": "2026-03-06",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/10/27/marilyn-wilson-interview-q-a/"
+  },
+  {
+    "url": "https://kriskrug.co/?page_id=504",
+    "last_crawled": "2026-03-06",
+    "bucket": "dead_page_id",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/12/27/2024-vancouver-ai-community-meetups/?share=twitter",
+    "last_crawled": "2026-03-04",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/12/27/2024-vancouver-ai-community-meetups/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/07/04/bloglines/?share=twitter&nb=1",
+    "last_crawled": "2026-03-02",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/07/04/bloglines/"
+  },
+  {
+    "url": "https://kriskrug.co/?page_id=843",
+    "last_crawled": "2026-03-02",
+    "bucket": "dead_page_id",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/?p=247",
+    "last_crawled": "2026-03-01",
+    "bucket": "dead_post_id",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/2025/03/02/vancouver-ai-the-community-building-bcs-ai-future-february-meetup-recap/?share=twitter",
+    "last_crawled": "2026-02-28",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2025/03/02/vancouver-ai-the-community-building-bcs-ai-future-february-meetup-recap/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/08/07/bryght-world-tour-2007/events/barcamp-shanghai-2007",
+    "last_crawled": "2026-02-27",
+    "bucket": "drupal_bryght_subpath",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/2007/08/07/bryght-world-tour-2007/"
+  },
+  {
+    "url": "https://kriskrug.co/]",
+    "last_crawled": "2026-02-27",
+    "bucket": "junk",
+    "live_status": "error",
+    "recommended_action": "skip",
+    "redirect_target": ""
+  },
+  {
+    "url": "https://kriskrug.co/2006/12/07/vancouver-fashion-finds-in-unexpected-places/?share=twitter&nb=1",
+    "last_crawled": "2026-02-25",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/12/07/vancouver-fashion-finds-in-unexpected-places/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/02/16/email-is-the-place-where-information-goes-to-die/?share=twitter&nb=1",
+    "last_crawled": "2026-02-24",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/02/16/email-is-the-place-where-information-goes-to-die/"
+  },
+  {
+    "url": "https://kriskrug.co/?p=107",
+    "last_crawled": "2026-02-11",
+    "bucket": "dead_post_id",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/category/community/",
+    "last_crawled": "2026-02-11",
+    "bucket": "deleted_category",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/10/31/deconstruct-your-business-model-on-a-lean-canvas-google-news-initiative-launch-lab-week-two-report/?share=twitter&nb=1",
+    "last_crawled": "2026-02-09",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/10/31/deconstruct-your-business-model-on-a-lean-canvas-google-news-initiative-launch-lab-week-two-report/"
+  },
+  {
+    "url": "https://kriskrug.co/*",
+    "last_crawled": "2026-02-07",
+    "bucket": "junk",
+    "live_status": "404",
+    "recommended_action": "skip",
+    "redirect_target": ""
+  },
+  {
+    "url": "https://kriskrug.co/wp-*.php",
+    "last_crawled": "2026-02-06",
+    "bucket": "junk",
+    "live_status": "404",
+    "recommended_action": "skip",
+    "redirect_target": ""
+  },
+  {
+    "url": "https://kriskrug.co/2025/12/11/vancouver-tech-journal-isnt-journalism/?share=twitter&nb=1",
+    "last_crawled": "2026-02-04",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2025/12/11/vancouver-tech-journal-isnt-journalism/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/12/13/colette-fisheye-by-lomo/?share=twitter",
+    "last_crawled": "2026-02-02",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/12/13/colette-fisheye-by-lomo/"
+  },
+  {
+    "url": "https://kriskrug.co/?p=87&amp=1",
+    "last_crawled": "2026-01-31",
+    "bucket": "amp_query",
+    "live_status": "404",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/02/15/assessing-contrast-the-squint-technique/?share=twitter",
+    "last_crawled": "2026-01-31",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/02/15/assessing-contrast-the-squint-technique/"
+  },
+  {
+    "url": "https://kriskrug.co/?p=142&amp=1",
+    "last_crawled": "2026-01-30",
+    "bucket": "amp_query",
+    "live_status": "404",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/"
+  },
+  {
+    "url": "https://kriskrug.co/2025/05/11/vancouver-ai-meetup-16-where-tech-creativity-and-community-collide/?share=twitter&nb=1",
+    "last_crawled": "2026-01-30",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2025/05/11/vancouver-ai-meetup-16-where-tech-creativity-and-community-collide/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/08/07/bryght-world-tour-2007/about/the-team/adrian",
+    "last_crawled": "2026-01-29",
+    "bucket": "drupal_bryght_subpath",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/2007/08/07/bryght-world-tour-2007/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/06/21/another-bryght-guy-djun-kim/?share=twitter&nb=1",
+    "last_crawled": "2026-01-28",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/06/21/another-bryght-guy-djun-kim/"
+  },
+  {
+    "url": "https://kriskrug.co/category/web-design/?amp=1",
+    "last_crawled": "2026-01-26",
+    "bucket": "amp_deleted_category",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/10/19/shaping-the-creative-continuum-my-take-on-the-vanas-ai-panel/?share=twitter",
+    "last_crawled": "2026-01-25",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/10/19/shaping-the-creative-continuum-my-take-on-the-vanas-ai-panel/"
+  },
+  {
+    "url": "https://kriskrug.co/2013/08/22/preparation-under-way-for-south-by-southwest-2014-in-austin-texas/?share=twitter&nb=1",
+    "last_crawled": "2026-01-25",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2013/08/22/preparation-under-way-for-south-by-southwest-2014-in-austin-texas/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/06/22/bill-gates-to-make-microsoft-podcasting-announcment-at-gnomedex/?share=twitter&nb=1",
+    "last_crawled": "2026-01-19",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/06/22/bill-gates-to-make-microsoft-podcasting-announcment-at-gnomedex/"
+  },
+  {
+    "url": "https://kriskrug.co/2007/04/03/the-it-lists-parasuco-\u201cit\u201d-denim/?share=twitter",
+    "last_crawled": "2026-01-17",
+    "bucket": "share_query",
+    "live_status": "301",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2007/04/03/the-it-lists-parasuco-\u201cit\u201d-denim/"
+  },
+  {
+    "url": "https://kriskrug.co/2025/07/08/ai-training-for-media-pr-and-creative-professionals/?share=twitter&nb=1",
+    "last_crawled": "2026-01-11",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2025/07/08/ai-training-for-media-pr-and-creative-professionals/"
+  },
+  {
+    "url": "https://kriskrug.co/?p=247&amp=1",
+    "last_crawled": "2026-01-08",
+    "bucket": "amp_query",
+    "live_status": "404",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/"
+  },
+  {
+    "url": "https://kriskrug.co/2010/01/20/tons-of-rad-music-coming-to-vancouver-as-part-of-the-2010-olympics/?share=twitter&nb=1",
+    "last_crawled": "2026-01-07",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2010/01/20/tons-of-rad-music-coming-to-vancouver-as-part-of-the-2010-olympics/"
+  },
+  {
+    "url": "https://kriskrug.co/2024/08/09/ai-and-music-the-digital-renaissance-you-didnt-see-coming/?share=twitter&nb=1",
+    "last_crawled": "2026-01-06",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2024/08/09/ai-and-music-the-digital-renaissance-you-didnt-see-coming/"
+  },
+  {
+    "url": "https://kriskrug.co/category/gastown/?amp=1",
+    "last_crawled": "2026-01-06",
+    "bucket": "amp_deleted_category",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "/blog/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/04/06/greenpeace-uk-is-looking-for-an-open-source-cms-possibly-a-vendor/?share=twitter&nb=1",
+    "last_crawled": "2025-12-28",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/04/06/greenpeace-uk-is-looking-for-an-open-source-cms-possibly-a-vendor/"
+  },
+  {
+    "url": "https://kriskrug.co/2011/11/19/workin-with-the-united-nations-on-a-digital-crowdsourcing-campaign-to-stop-the-spread-of-hiv/?share=twitter&nb=1",
+    "last_crawled": "2025-12-23",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2011/11/19/workin-with-the-united-nations-on-a-digital-crowdsourcing-campaign-to-stop-the-spread-of-hiv/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/06/23/an-isp-and-government-controlled-monopoly-in-the-united-arab-emirates-has-decided-to-ban-access-to-flickr-for-its-citizens/?share=twitter&nb=1",
+    "last_crawled": "2025-12-23",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/06/23/an-isp-and-government-controlled-monopoly-in-the-united-arab-emirates-has-decided-to-ban-access-to-flickr-for-its-citizens/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/07/11/amazing-flickr-testimonial/?share=twitter&nb=1",
+    "last_crawled": "2025-12-23",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/07/11/amazing-flickr-testimonial/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/01/09/im-a-sexual-7/?share=twitter&nb=1",
+    "last_crawled": "2025-12-22",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/01/09/im-a-sexual-7/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/10/08/how-ai-tools-like-midjourney-dall\u00b7e-chatgpt-are-reshaping-the-creative-landscape/?share=twitter",
+    "last_crawled": "2025-12-22",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/10/08/how-ai-tools-like-midjourney-dall\u00b7e-chatgpt-are-reshaping-the-creative-landscape/"
+  },
+  {
+    "url": "https://kriskrug.co/shrine",
+    "last_crawled": "2025-12-15",
+    "bucket": "dead_page",
+    "live_status": "404",
+    "recommended_action": "redirection",
+    "redirect_target": "https://kriskrug.co/2023/08/25/burning-man-art-projects-uncle-charlies-red-hot-cock-tyson-ayers-shrine-of-sympathetic-resonance/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/04/06/the-cost-of-bootstrapping-your-app-the-figures-behind-dropsend-part-one/?share=twitter",
+    "last_crawled": "2025-12-14",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/04/06/the-cost-of-bootstrapping-your-app-the-figures-behind-dropsend-part-one/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/04/20/comvu-talks-community/?share=twitter&nb=1",
+    "last_crawled": "2025-12-13",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/04/20/comvu-talks-community/"
+  },
+  {
+    "url": "https://kriskrug.co/2005/08/22/rebel/?share=twitter&nb=1",
+    "last_crawled": "2025-12-11",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2005/08/22/rebel/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/04/18/ten-video-sharing-services-compared/?share=twitter&nb=1",
+    "last_crawled": "2025-12-11",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/04/18/ten-video-sharing-services-compared/"
+  },
+  {
+    "url": "https://kriskrug.co/2023/11/01/future-in-review-2023-photographing-the-festival-of-futurism/?share=twitter&nb=1",
+    "last_crawled": "2025-12-11",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2023/11/01/future-in-review-2023-photographing-the-festival-of-futurism/"
+  },
+  {
+    "url": "https://kriskrug.co/2006/03/30/tech-village-switch-on-event-with-communicopia/?share=twitter&nb=1",
+    "last_crawled": "2025-12-11",
+    "bucket": "share_query",
+    "live_status": "302",
+    "recommended_action": "query_param_snippet",
+    "redirect_target": "https://kriskrug.co/2006/03/30/tech-village-switch-on-event-with-communicopia/"
+  }
+]
