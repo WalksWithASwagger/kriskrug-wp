@@ -491,7 +491,7 @@ a {
   --aurora-ink-soft: #c8cac8;
   --aurora-ink-muted: #8f9697;
   --aurora-paper: #f7f5f1;
-  --aurora-signal: #e5462e;
+  --aurora-signal: #f15b43;
   --aurora-signal-dark: #a52918;
   --aurora-wildcard: #c8ff3d;
   --aurora-black: #030405;
@@ -557,8 +557,8 @@ a {
 
 .aurora-button-primary:hover,
 .wp-block-button.is-style-aurora-primary .wp-block-button__link:hover {
-  background: #f15b43;
-  border-color: #f15b43;
+  background: #f2644d;
+  border-color: #f2644d;
   box-shadow: 0 0 38px rgba(229, 70, 46, 0.34);
 }
 
@@ -616,7 +616,7 @@ a {
 }
 
 .aurora-kicker {
-  color: var(--wp--preset--color--signal, #e5462e);
+  color: var(--wp--preset--color--signal, #f15b43);
   font-family: var(--wp--preset--font-family--mono);
   font-size: clamp(0.72rem, 0.68rem + 0.16vw, 0.82rem);
   font-weight: 500;
@@ -3104,13 +3104,13 @@ a {
 .aurora-article-category a:focus,
 .aurora-post-tags a:focus,
 .aurora-prose a:not(.wp-block-button__link):focus {
-  outline: 2px solid var(--wp--preset--color--signal, #e5462e) !important;
+  outline: 2px solid var(--wp--preset--color--signal, #f15b43) !important;
   outline-offset: 3px !important;
 }
 
 .aurora-single-2026 a:focus,
 .aurora-writing-archive a:focus {
-  outline: 2px solid var(--wp--preset--color--signal, #e5462e) !important;
+  outline: 2px solid var(--wp--preset--color--signal, #f15b43) !important;
   outline-offset: 3px !important;
 }
 
@@ -3517,7 +3517,7 @@ a {
 }
 
 .aurora-prose .is-style-callout-red {
-  --aurora-callout-accent: #e5462e;
+  --aurora-callout-accent: #f15b43;
   --aurora-callout-rgb: 229, 70, 46;
 }
 

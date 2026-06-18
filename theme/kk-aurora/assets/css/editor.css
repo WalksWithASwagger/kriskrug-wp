@@ -119,7 +119,7 @@
 }
 
 .editor-styles-wrapper .is-style-callout-red {
-  --aurora-editor-callout-accent: #e5462e;
+  --aurora-editor-callout-accent: #f15b43;
   --aurora-editor-callout-rgb: 229, 70, 46;
 }
 
@@ -160,7 +160,7 @@
 }
 
 .editor-styles-wrapper .is-style-aurora-article-aside {
-  border-left-color: #e5462e;
+  border-left-color: #f15b43;
 }
 
 .editor-styles-wrapper .is-style-bookmark a,
