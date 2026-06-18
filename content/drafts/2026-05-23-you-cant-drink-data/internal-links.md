@@ -29,4 +29,11 @@ predicted permalinks (`/YYYY/MM/DD/slug/`); they resolve only after all three go
 
 - Click-check every link in the live post (logged out).
 - Add backlinks from the two companion posts pointing here (mutual cross-link).
-- Consider a backlink from `/about/` or a Vancouver AI hub.
+- Add one contextual backlink from the homepage or `/about/` only if it fits the
+  surrounding copy. Preferred anchor: `you can't drink data`.
+- Add a stronger backlink from the Vancouver AI/community hub when that page is
+  next edited. Preferred anchors: `Vancouver AI protest`, `data centre
+  protest`, or `you can't drink data`.
+- Do not target `lord of the rings drinking game` from this post; treat that as
+  a legacy/low-strategy query unless KK explicitly decides it has a business
+  reason.
