@@ -15,7 +15,7 @@ tags:
   - both-hands-full
 status: draft
 seo:
-  description: "Kris Krüg marches in Vancouver's first anti-AI, anti-data-centre protest, and argues that 'shut it all down' and 'more compute, trust us' are the same dead end. A West Coast vision for building AI differently."
+  description: "At Vancouver's anti-AI data-centre protest, Kris Krug follows the chant 'you can't drink data' toward cleaner, more accountable AI infrastructure."
   keywords: "Vancouver AI protest, data centre protest, you can't drink data, anti-AI march, clean energy AI, Indigenous data sovereignty, BC AI, Kris Krüg, federal data centre investment"
 ---
 

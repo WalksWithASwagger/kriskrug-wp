@@ -10,7 +10,7 @@
 
 ## Meta description (advanced_seo_description)
 
-Kris Krug marches in Vancouver's first anti-AI, anti-data-centre protest, and argues that "shut it all down" and "more compute, trust us" are the same dead end. A West Coast vision for building AI differently.
+At Vancouver's anti-AI data-centre protest, Kris Krug follows the chant "you can't drink data" toward cleaner, more accountable AI infrastructure.
 
 ## Focus keywords
 
