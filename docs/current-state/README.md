@@ -9,7 +9,7 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 
 Read these first for current execution context:
 
-**Newest (start here):** [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md) — prod on Aurora **1.3.18**, content cadence live through 07-02, #207/#208/#220 closed, duplicate Pinterest tag fixed. Carries current verification commands and the Pagely ARES-edge cache gotcha.
+**Newest (start here):** [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md) — prod on Aurora **1.3.18**, content cadence live through 07-02, Storyhive companion **12327 LIVE** (2026-06-17), #207/#208/#220 closed.
 
 1. [POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md](POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md), `reports/morning-truth-20260609-043246Z.md`, and the latest read-only startup truth from `make status-readonly`
 2. [LOCAL-WP-QA-2026-06-04.md](LOCAL-WP-QA-2026-06-04.md)

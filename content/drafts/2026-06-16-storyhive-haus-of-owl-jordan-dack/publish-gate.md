@@ -21,23 +21,15 @@ Replaced generic Both Hands Full slides and Asa Mathat stock with:
 
 See [`image-manifest.md`](image-manifest.md) for sources.
 
-**QA (2026-06-17):** prepare_review_draft PASS — 1817 words, 42 links, 6 inline images. WP readback: no legacy slides, YouTube `wp:embed` present, featured_media=`12337`.
+**QA (2026-06-17):** prepare_review_draft PASS — 1817 words, 42 links, 6 inline images. WP readback: no legacy slides, YouTube `wp:embed` present, featured_media=`12337`. **Live verified 2026-06-17 PT.**
 
 ## Supersedes
 
 Do not publish these as separate posts:
 
 - `2026-05-21-the-75-percent-rule-ai-art-adjacent-work/` (WP `11876`)
-- `2026-05-21-i-wont-fake-the-people-who-showed-up/` (WP `11877` — **currently live**)
+- `2026-05-21-i-wont-fake-the-people-who-showed-up/` (WP `11877` — still live; overlap note below)
 - `2026-05-21-speak-it-into-existence-ai-voice-first-workflows/` (WP `11878`)
-
-## Required before scheduling
-
-- KK approves title and new featured image (STORYHIVE title card).
-- KK approves sensitive-beat handling in any STORYHIVE clips.
-- Desktop and mobile preview pass.
-- Confirm YouTube embed + inline project images render on kriskrug.co.
-- Decide overlap with live post `11877` (redirect/retire when this publishes).
 
 ## Post-publish note
 
