@@ -39,6 +39,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.3.22 =
+* Darkened Aurora primary CTA colors to meet WCAG AA contrast with off-white button text.
+
 = 1.3.21 =
 * Added late Twitter Card fallbacks so missing title, description, image, and site fields mirror available Open Graph metadata.
 
