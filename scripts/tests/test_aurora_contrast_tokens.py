@@ -54,6 +54,14 @@ class AuroraContrastTokenTests(unittest.TestCase):
         self.assertIsNotNone(match)
         self.assertEqual(match.group(1).upper(), self.colors["signal"].upper())
 
+    def test_primary_cta_control_colors_meet_wcag_aa(self):
+        css = (THEME_DIR / "style.css").read_text(encoding="utf-8")
+        control_colors = re.findall(r"--aurora-signal-control(?:-hover)?:\s*(#[0-9a-fA-F]{6});", css)
+
+        self.assertEqual(len(control_colors), 2)
+        for color in control_colors:
+            self.assertGreaterEqual(contrast_ratio("#FFFAF6", color), 4.5)
+
 
 if __name__ == "__main__":
     unittest.main()
