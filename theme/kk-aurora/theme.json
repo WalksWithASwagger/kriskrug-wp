@@ -54,7 +54,7 @@
         {
           "slug": "text-muted",
           "name": "Text Muted",
-          "color": "#7C7C98"
+          "color": "#8E8EA8"
         },
         {
           "slug": "paper",
@@ -64,7 +64,7 @@
         {
           "slug": "signal",
           "name": "Aurora Signal",
-          "color": "#E5462E"
+          "color": "#F15B43"
         },
         {
           "slug": "wildcard",
@@ -116,7 +116,7 @@
         {
           "slug": "aurora-primary",
           "name": "Aurora Primary",
-          "gradient": "linear-gradient(135deg, #E5462E 0%, #C8FF3D 100%)"
+          "gradient": "linear-gradient(135deg, #F15B43 0%, #C8FF3D 100%)"
         },
         {
           "slug": "aurora-secondary",
