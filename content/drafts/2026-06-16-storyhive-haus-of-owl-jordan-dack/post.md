@@ -140,9 +140,7 @@ If you want the practitioner lane: [The Upgrade AI](https://www.theupgrade.ai/) 
 
 ![Responsible AI Professional certification — BC plus AI](images/05-rap-certification-cover.png)
 
-## Ethics We Did Not Rehearse (Handle With Care)
-
-Jordan pushed into intimacy and consent territory we did not fully script — voice cloning, disclosure, what happens when synthetic voice enters family or dating contexts. Some of that is **clip gold** for editors; some of it is **private until I say otherwise**. If you are cutting STORYHIVE footage, talk to me before you ship the vulnerable beats.
+## Ethics on Air
 
 The through-line on air: measure twice, disclose everything, protect trust. Same lesson I use in climate and systems work: you can participate in a system and still hold it to account. You do not have to live in the woods to critique the woods.
 

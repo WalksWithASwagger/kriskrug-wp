@@ -28,9 +28,9 @@ See [`image-manifest.md`](image-manifest.md) for sources.
 Do not publish these as separate posts:
 
 - `2026-05-21-the-75-percent-rule-ai-art-adjacent-work/` (WP `11876`)
-- `2026-05-21-i-wont-fake-the-people-who-showed-up/` (WP `11877` — still live; overlap note below)
+- `2026-05-21-i-wont-fake-the-people-who-showed-up/` (WP `11877` — **unpublished 2026-06-18**, reverted to draft)
 - `2026-05-21-speak-it-into-existence-ai-voice-first-workflows/` (WP `11878`)
 
 ## Post-publish note
 
-Live overlap remains: [I Won't Fake the People Who Showed Up](https://kriskrug.co/2026/06/13/i-wont-fake-the-people-who-showed-up/) (`11877`). Consider redirect, merge note, or leaving both if the angles differ enough.
+Jun 13 slice post `11877` unpublished per KK (2026-06-18). Clip-editor paragraph removed from live `12327`; ethics through-line kept under **Ethics on Air**.
