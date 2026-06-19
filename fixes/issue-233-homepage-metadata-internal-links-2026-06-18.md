@@ -39,6 +39,27 @@ not the visible WordPress page title.
 | `david zabowski nerdwallet mobile engineering` | No repo-local KrisKrug.co target found in the existing handoff. | Do not create or link anything until the target is confirmed as an existing page, quote, testimonial, media mention, or irrelevant people-search artifact. |
 | `lord of the rings drinking game` | Park as legacy/low-strategy traffic. | Ignore unless KK confirms an entertainment/archive business reason to refresh, redirect, or noindex it. |
 
+## Live SEO Deploy Gate
+
+Before any WordPress metadata edit, complete all of these gates:
+
+- Capture a current public HTML snapshot of the homepage.
+- Confirm Jetpack is still the single owner for homepage SEO title and meta
+  description output.
+- Record a rollback note with the exact previous homepage metadata values.
+- Get KK approval for the live metadata edit.
+- Omit `title` from any REST payload unless KK explicitly approves a visible
+  WordPress page-title change.
+
+After deployment, read back the public homepage and confirm:
+
+- Rendered SEO title matches `Kris Krüg | AI Keynote Speaker & Creative Technologist`.
+- Rendered meta description matches the approved copy above.
+- Canonical and robots meta are present and indexable.
+- No duplicate SEO generator has been introduced.
+- No unrelated page content, post content, contact forms, accessibility scope,
+  or Aurora theme files were changed.
+
 ## Suggested Anchors
 
 - `you can't drink data`
@@ -57,3 +78,4 @@ exact-match anchor across unrelated pages.
 - [ ] No live WordPress writes are made from this repo-only handoff.
 - [ ] Any future deployment uses Jetpack SEO fields only and includes public
       HTML readback for title, description, canonical, and robots meta.
+- [ ] The live deploy gate above is completed before any metadata write.
