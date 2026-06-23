@@ -9,7 +9,7 @@
 
 ## Decide in this order (highest-leverage first)
 
-1. **You-Can't-Drink-Data 3-post publish window (#233 dependency)** — ~95% done, one scheduling decision unblocks a coordinated drop + SEO internal-links win. *Biggest payoff per minute of your attention.*
+1. **Publish the 2 companion drafts (#233 internal-links dependency)** — the main article "You Can't Drink Data" (11936) is ALREADY LIVE; only the two companion posts remain draft. One scheduling decision unblocks the backlinks. *Biggest payoff per minute of your attention.*
 2. **#95 media-appearances draft** — needs a Rafiki image + your editorial sign-off; draft 11879 already exists live. Small, closable.
 3. **Contact forms #128 / #174** — the form is **confirmed working**; what's left is a Gmail filter + an optional external delivery test + your private-triage policy. Mostly an access/policy call, not engineering.
 4. **#23 blog categories** — likely **already mostly done** by closed #223. Needs your verify-or-rescope call, not a fresh build.
@@ -18,16 +18,19 @@
 
 ---
 
-## 1. You-Can't-Drink-Data — coordinated 3-post publish window
-*(draft at `content/drafts/2026-05-23-you-cant-drink-data/`; dependency for the internal-links half of #233)*
+## 1. Companion drafts — coordinated publish (#233 internal-links dependency)
+*(article draft at `content/drafts/2026-05-23-you-cant-drink-data/`)*
 
-- **Blocker:** Three companion posts must flip from `draft` → `publish` **together** (WP 11882 "Both Hands Full / Vancouver AI March", 11929 "Data-Center Protest Signs", and this one, draft 11936). Their cross-links are hand-placed and only resolve once all three are live. No agent will publish without your explicit window approval (live-write gate).
+**STATUS CORRECTION (verified live 2026-06-23):** the main article **"You Can't Drink Data" (11936) is already PUBLISHED** since 2026-05-23 — https://kriskrug.co/2026/05/23/you-cant-drink-data/ . The earlier "~95% draft, flip all three together" framing was wrong. Only the **two companion posts remain `draft`:**
+- **11882** "We Trained AI On Stolen Work. I Am More Creative Than Ever" (draft, 2026-05-19)
+- **11929** "Both Hands Full at the Data Center: Protest Signs for…" (draft, 2026-05-23)
+
+- **Blocker:** The two companion drafts must be reviewed and published before their contextual backlinks to/from 11936 resolve. No agent publishes without your explicit window approval (live-write gate).
 - **KK input needed:**
-  1. **A publish date/time** for the coordinated drop (the post is dated 2026-05-23; confirm you want it published now at that date, back-dated, or re-dated to today).
-  2. **One preview pass** — say "looks good" after viewing `?p=11936&preview=true` (and 11882, 11929).
-  3. **Confirm SEO title + meta** as staged: title "You Can't Drink Data | Notes From My First AI Protest"; meta "At Vancouver's anti-AI data-centre protest, Kris Krug follows the chant 'you can't drink data' toward cleaner, more accountable AI infrastructure." (#233 says omit title changes unless you confirm — this is your confirm.)
-- **Recommendation:** **DEPLOY** — pick a window this week and drop all three. Editorial is done, 26 march photos uploaded (media 11937–11962) + 3 in-body (11963–11965), all 13 publish checks green, cross-links placed. This is the cheapest high-value win in the queue and it directly closes the internal-links acceptance criterion on #233.
-- **Prepared work waiting:** Agent runs `publish_you_cant_drink_data.py` to flip all three to `publish`, then purges Pagely page cache and does a logged-out render + click-check of every internal/external link (link list in `internal-links.md`). After live: add mutual backlinks from 11882/11929, and one contextual `you can't drink data` backlink from `/about/` or the Vancouver AI hub. Then report `you cant drink data` striking-distance movement into the next SEO digest to close #233.
+  1. **A publish date/time** for the two companions (decide: publish now at their current dates, or re-date to today).
+  2. **One preview pass** — view `?p=11882&preview=true` and `?p=11929&preview=true` and say "looks good."
+- **Recommendation:** **DEPLOY the two companions** when you have a window, then add the mutual backlinks. The main article is already doing its job live; this just completes the striking-distance link cluster on #233.
+- **Prepared work waiting:** Agent flips 11882 + 11929 to `publish`, purges Pagely (no-op save per URL), does a logged-out render + click-check of every internal/external link (`internal-links.md`), then adds mutual backlinks between 11882/11929/11936 and one contextual `you can't drink data` backlink from `/about/` or the Vancouver AI hub. Then report `you cant drink data` striking-distance movement into the next SEO digest to close #233.
 
 ---
 
