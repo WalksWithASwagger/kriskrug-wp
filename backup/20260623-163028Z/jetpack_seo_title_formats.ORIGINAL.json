@@ -1,0 +1,72 @@
+{
+  "front_page": [
+    {
+      "type": "token",
+      "value": "site_name"
+    },
+    {
+      "type": "string",
+      "value": " - "
+    },
+    {
+      "type": "token",
+      "value": "tagline"
+    }
+  ],
+  "posts": [
+    {
+      "type": "token",
+      "value": "post_title"
+    },
+    {
+      "type": "string",
+      "value": " - "
+    },
+    {
+      "type": "token",
+      "value": "site_name"
+    }
+  ],
+  "pages": [
+    {
+      "type": "token",
+      "value": "page_title"
+    },
+    {
+      "type": "string",
+      "value": " "
+    },
+    {
+      "type": "token",
+      "value": "site_name"
+    }
+  ],
+  "groups": [
+    {
+      "type": "token",
+      "value": "group_title"
+    },
+    {
+      "type": "string",
+      "value": " - "
+    },
+    {
+      "type": "token",
+      "value": "site_name"
+    }
+  ],
+  "archives": [
+    {
+      "type": "token",
+      "value": "archive_title"
+    },
+    {
+      "type": "string",
+      "value": " - "
+    },
+    {
+      "type": "token",
+      "value": "site_name"
+    }
+  ]
+}

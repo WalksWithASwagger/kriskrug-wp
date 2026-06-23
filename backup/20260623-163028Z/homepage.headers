@@ -1,0 +1,12 @@
+HTTP/2 200 
+date: Tue, 23 Jun 2026 16:30:28 GMT
+content-type: text/html; charset=UTF-8
+vary: Accept-Encoding
+server: Pagely-ARES/1.22.2
+x-gateway-request-id: 86141fe633e0586e52327983465e3c4e
+x-jetpack-boost-cache: hit
+vary: Accept-Encoding
+x-gateway-cache-key: 1782182897.182|standard|https|kriskrug.co|||/
+x-gateway-cache-status: HIT
+x-gateway-skip-cache: 0
+
