@@ -14,10 +14,14 @@ Two new kriskrug.co project posts authored and staged as WordPress **drafts**, p
 - Both: category `AI for Creatives`, showpiece blocks (pullquotes + separators + galleries), KK voice, zero em dashes, every hyperlink curl-checked 200, all images rewritten to kriskrug.co uploads.
 - Ethọ́s: 7 album-art images (no faces), 13 links. Vancouver Made: 11 kit/award images, 17 links.
 
-### Theme (staged, not deployed)
-- `theme/kk-aurora/parts/work-proof-grid.html`: two new cards in the `/work/` proof grid (Ethọ́s Block Party, Vancouver Made / MADE ON), grid 4 → 6.
-- `theme/kk-aurora/parts/footer.html`: two new "Projects" links.
-- `theme/kk-aurora/style.css`: version 1.3.22 → **1.3.23**.
+### Theme — deployed (1.3.23)
+- `theme/kk-aurora/parts/footer.html`: two new "Projects" links (Ethọ́s Block Party, Vancouver Made). Live.
+- `theme/kk-aurora/style.css`: version 1.3.22 → **1.3.23**. Deploy also carried the already-merged `7bf6e7e` primary-CTA-contrast fix (prod was on 1.3.21).
+- Deployed via wp-admin zip re-upload (KK did the file pick; rest driven in Chrome). Live version confirmed 1.3.23.
+
+### Work page cards — live in PAGE CONTENT, not the theme
+- The `/work/` grid is **DB page content** (page **2672**, `/recent-projects-include/`, the `.kk-overhaul` design system), NOT the theme part. The theme `parts/work-proof-grid.html` is **orphaned** (no template/pattern includes it) — the initial edit there was reverted.
+- Added a **Vancouver Made / MADE ON** `.kk-card` to the "Creative AI Human Lab" grid in page 2672, and a "Read the making-of" link on both it and the pre-existing Ethọ́s card (pointing to the new posts). Snapshot: `backup/page-snapshots/work-2672-20260623.html`. Verified live logged-out.
 
 ### Tooling
 - `scripts/notion-to-wp/update_local_wp_draft.py`: new in-place draft updater (companion to the create-only `create_local_wp_draft.py`); reuses its build pipeline, guards on draft status + slug, dry-run default.
