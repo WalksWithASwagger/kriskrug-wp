@@ -4,7 +4,7 @@ This file is the entry point for any AI agent (Claude Code, Cursor, Codex, etc.)
 
 ## What this repo is
 
-The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running the Aurora theme (`kk-aurora`) as of 2026-05-24. The repo is **adjacent to** the live site, not a mirror of it. `main` now contains the canonical tracked theme line (merged via PR #129), plus content/ops tooling and docs. Custom repo-side WP code includes `inc/digital-composting.php` (merged, not yet deployed to prod) and `plugins/kk-sidebar-promos/` (packaged helper plugin, deploy only with an explicit rollback path and KK approval).
+The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running the Aurora theme (`kk-aurora`) at 1.3.24 (live as of 2026-06-17). The repo is **adjacent to** the live site, not a mirror of it. `main` now contains the canonical tracked theme line (merged via PR #129), plus content/ops tooling and docs. Custom repo-side WP code includes `inc/digital-composting.php` (merged, not yet deployed to prod) and `plugins/kk-sidebar-promos/` (packaged helper plugin, deploy only with an explicit rollback path and KK approval).
 
 ## Read this in order (top of repo, top of context)
 
@@ -13,10 +13,10 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 3. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
 4. [`docs/current-state/REPO_STATE.md`](docs/current-state/REPO_STATE.md) — what's actually built vs. just documented
 5. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
-6. [`docs/current-state/HANDOFF-2026-05-24.md`](docs/current-state/HANDOFF-2026-05-24.md) — 2026-05-24 Aurora/theme/content handoff
-7. [`docs/current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md`](docs/current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md) — reconciled Aurora v1.3.0 QA + rollout status
-8. [`docs/current-state/SESSION-HANDOFF-2026-05-24.md`](docs/current-state/SESSION-HANDOFF-2026-05-24.md) — Track A/Track B ownership and latest lane handoff
-9. [`docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md`](docs/current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md) — normalized startup truth memo (historical); prefer newest `reports/morning-truth-*.md`
+6. [`docs/current-state/HANDOFF-2026-06-17.md`](docs/current-state/HANDOFF-2026-06-17.md) — current Aurora/theme/content handoff (Aurora 1.3.24 live, issues #233/#247/#248/#250 closed)
+7. [`docs/current-state/archive/AURORA-V3-QA-ROADMAP-2026-05-24.md`](docs/current-state/archive/AURORA-V3-QA-ROADMAP-2026-05-24.md) — historical Aurora v1.3.0 QA roadmap (archived; superseded by 1.3.24 live)
+8. [`docs/current-state/CURRENT-STATE-2026-06-23.md`](docs/current-state/CURRENT-STATE-2026-06-23.md) — canonical current state snapshot as of 2026-06-23
+9. [`docs/current-state/reports/morning-truth-20260624-175842Z.md`](docs/current-state/reports/morning-truth-20260624-175842Z.md) — latest startup truth memo; always prefer newest `reports/morning-truth-*.md`
 10. [`docs/current-state/WORK-PLAN-2026-05-23.md`](docs/current-state/WORK-PLAN-2026-05-23.md) — historical roadmap context (stale counts/branch assumptions)
 
 Roadmap-derived execution issues filed 2026-06-09: **#186–#197** (CI, prod drift, tracker hygiene).
@@ -52,7 +52,7 @@ Legacy branch split context is in [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-
 - **`.github/workflows/test-pr.yml`** — still active PR validation. Do not describe all workflows as dormant.
 - **`docs/architecture.md`, `docs/automation-guide.md`** — reference docs for the dormant swarm.
 - **`docs/cloudways-setup.md`, `docs/local-development-setup.md`, `.claude/context/wordpress-setup.md`** — Cloudways dev-server setup that was never used as planned. Relevant if/when Track B needs staging, otherwise ignore.
-- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use the 2026-05-24 handoff set first (`HANDOFF`, `AURORA-V3-QA-ROADMAP`, `TRACK-A-MORNING-TRUTH`) plus the newest committed morning-truth report, and keep `WORK-PLAN-2026-05-23.md` as historical context.
+- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use `HANDOFF-2026-06-17.md` and `CURRENT-STATE-2026-06-23.md` for current truth, plus the newest committed morning-truth report. `WORK-PLAN-2026-05-23.md` remains as historical context (Makefile default).
 
 Anything banner-tagged `STATUS: Historical` at the top is reference-only.
 
@@ -82,4 +82,4 @@ If the task explicitly forbids file changes, run `make status-readonly` instead.
 
 ---
 
-**Last verified:** 2026-06-09 via `docs/current-state/reports/morning-truth-20260609-043246Z.md`. If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.
+**Last verified:** 2026-06-24 via `docs/current-state/reports/morning-truth-20260624-175842Z.md`. If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.
