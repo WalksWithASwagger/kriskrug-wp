@@ -1,0 +1,46 @@
+{
+  "issues": [
+    {
+      "title": "[PLATFORM] Add dry-run guard + pre-write backup to wp_post_ia_rollout.py",
+      "body": "## Problem\n\n`scripts/wp_post_ia_rollout.py` (~671 LOC) performs live WordPress writes (post meta, featured images, media reorder) but has **no `--dry-run` default and no pre-write backup**. A mistaken run mutates production immediately, against the post-INCIDENT-2026-05-15 safety posture used everywhere else in the publisher.\n\n## Impact\n\n- **CRITICAL safety** - the one live-write script that doesn't follow the snapshot-first / dry-run-first convention.\n- Risk of an unrecoverable bulk metadata/media mutation on kriskrug.co.\n\n## Acceptance Criteria\n\n- [ ] `--dry-run` is the DEFAULT; writes only happen with explicit `--execute`\n- [ ] Dry-run prints every intended write (post id, field, old -> new) and makes zero REST writes\n- [ ] Before any live mutate, snapshot the target objects to `backup/<ts>/`\n- [ ] Hardcoded environment paths/IDs surfaced as args or config\n- [ ] A smoke test (or unit test) confirms dry-run makes no network writes\n\n## Notes\n\nMirror the guard pattern already in `scripts/notion-to-wp/kk_notion_to_wp.py` / `update_safety.py`.",
+      "labels": ["platform", "tech-debt", "priority:high"],
+      "assignees": [],
+      "milestone": ""
+    },
+    {
+      "title": "[SEO] Route one-off publish scripts through normalize_seo_meta (completes #248)",
+      "body": "## Problem\n\n#248 added `normalize_seo_meta()` in `scripts/notion-to-wp/connector_payload.py` to stop Jetpack SEO REST 500s on combining diacritics. But the three one-off publish scripts set `jetpack_seo_html_title` / `advanced_seo_description` **directly**, bypassing the fix: `publish_dc_protest_draft.py`, `publish_you_cant_drink_data.py`, `publish_proximity_game.py`. A combining-diacritic title (e.g. \"Ethọ́s\") in any of these still 500s.\n\n## Impact\n\n- **Platform reliability** - the diacritic fix is incomplete; future one-off publishes hit the same wall.\n\n## Acceptance Criteria\n\n- [ ] All three one-off scripts route SEO title + description through `normalize_seo_meta` (import the helper, or refactor to `build_wp_payload`)\n- [ ] Visible title/body diacritics untouched; only the SEO-meta fields normalized\n- [ ] A test exercises a combining-diacritic title through the shared path and asserts no combining marks remain\n\n## Notes\n\nRefs #248. Reuse `connector_payload.normalize_seo_meta`; do not duplicate the logic.",
+      "labels": ["seo", "tech-debt", "priority:high"],
+      "assignees": [],
+      "milestone": ""
+    },
+    {
+      "title": "[REFACTOR] Shared scripts/common.py for env loading + WP REST client",
+      "body": "## Problem\n\nThe ~11 root-level scripts in `scripts/` each re-implement environment loading (`.env` cascade) and a WordPress REST client (auth headers, session, endpoints). `scripts/notion-to-wp/wp_client.py` is not shared with them. This is the largest duplication surface in the repo.\n\n## Impact\n\n- **Maintainability** - auth/endpoint/env changes must be made in many places; drift risk.\n\n## Acceptance Criteria\n\n- [ ] `scripts/common.py` exposes a cascade env loader and a shared WP client\n- [ ] Root scripts import from it instead of re-implementing\n- [ ] Existing read-only audits still pass (`make seo-audit`, `make current-state-drift-check`, etc.)\n- [ ] No behavior change to existing commands\n\n## Notes\n\nReuse/alias `scripts/notion-to-wp/wp_client.py` where possible.",
+      "labels": ["tech-debt", "platform"],
+      "assignees": [],
+      "milestone": ""
+    },
+    {
+      "title": "[REFACTOR] Consolidate one-off publish_*.py image/block/link logic + de-hardcode IDs",
+      "body": "## Problem\n\n`publish_dc_protest_draft.py`, `publish_you_cant_drink_data.py`, `publish_proximity_game.py` each reimplement image upload, Gutenberg block assembly, and markdown/link rendering, and carry hardcoded IDs (e.g. `CATEGORY_ID=1678`, `FEATURED_ID`). Bug fixes (em-dash handling, alt text) must be replicated three times.\n\n## Impact\n\n- **Maintainability** - triplicated logic; hardcoded prod IDs are unsafe if reused against staging.\n\n## Acceptance Criteria\n\n- [ ] Shared utilities extracted to `scripts/notion-to-wp/publish_common.py` (image manifest, block builder, link renderer)\n- [ ] The three scripts import the shared utilities\n- [ ] Hardcoded category/featured IDs moved to args/config with existence validation\n- [ ] Publisher test suite stays green\n\n## Notes\n\nDepends loosely on the normalize_seo_meta routing (sibling issue). Consider whether these can eventually be parameterized `kk_notion_to_wp.py` runs.",
+      "labels": ["tech-debt", "refactor"],
+      "assignees": [],
+      "milestone": ""
+    },
+    {
+      "title": "[TESTS] Add CI unit tests for critical root scripts",
+      "body": "## Problem\n\nThe publisher (`scripts/notion-to-wp/`) has solid unit tests in CI, but the root-level scripts — notably `wp_post_ia_rollout.py` (live writes) and `public_image_audit.py` — have zero unit coverage. CI (`.github/workflows/test-pr.yml`) runs publisher tests + PHPCS + docs-truth + Trivy but never exercises these.\n\n## Impact\n\n- **Reliability** - the riskiest root script is the least tested.\n\n## Acceptance Criteria\n\n- [ ] Unit tests for `wp_post_ia_rollout.py` (esp. dry-run makes no writes) and `public_image_audit.py` core logic\n- [ ] Tests wired into `test-pr.yml`\n- [ ] CI green\n\n## Notes\n\nPairs with the dry-run-guard issue; the dry-run test belongs here.",
+      "labels": ["tests", "ci", "tech-debt"],
+      "assignees": [],
+      "milestone": ""
+    },
+    {
+      "title": "[OPS] CSS dead-code audit + clarify canonical schema snippet",
+      "body": "## Problem\n\nTwo small hygiene items from the engineering scan:\n1. `theme/kk-aurora/style.css` is ~4,053 LOC / ~95KB with unclear dead selectors (gradient/glow utilities of unknown usage).\n2. `fixes/schema-snippets.php` vs `fixes/schema-snippets-deployed.php` — which is canonical is ambiguous; the deployed one has a TODO about a missing headshot URL.\n\n## Impact\n\n- **Tech debt / clarity** - low severity, but easy wins for maintainability and payload size.\n\n## Acceptance Criteria\n\n- [ ] Run a CSS coverage audit; remove or document intentionally-unused selectors\n- [ ] Add a header comment marking `schema-snippets-deployed.php` canonical and `schema-snippets.php` reference/archive\n- [ ] Resolve or ticket the headshot-URL TODO in the deployed schema snippet\n\n## Notes\n\nTrack B for the CSS portion; do not change visible rendering without a theme deploy.",
+      "labels": ["tech-debt", "track-b"],
+      "assignees": [],
+      "milestone": ""
+    }
+  ]
+}
