@@ -1,0 +1,373 @@
+<!-- wp:html -->
+<style>
+.kk-overhaul {
+  --kk-ink:#f0f0f5; --kk-ink-2:#ffffff; --kk-muted:#a6a6b3;
+  --kk-line:rgba(255,255,255,.14); --kk-paper:rgba(255,255,255,.05); --kk-card:rgba(255,255,255,.04);
+  --kk-accent:#00e5ff; --kk-accent-soft:rgba(0,229,255,.14);
+  --kk-hot:#ff6a6a; --kk-hot-soft:rgba(255,106,106,.16);
+  --kk-r:14px; --kk-r-sm:10px;
+  --kk-sh:0 1px 2px rgba(0,0,0,.45), 0 12px 28px -14px rgba(0,0,0,.7);
+  --kk-sh-lift:0 8px 18px -6px rgba(0,0,0,.6), 0 26px 52px -18px rgba(0,0,0,.85), 0 0 0 1px rgba(0,229,255,.28);
+  color:var(--kk-ink);
+}
+/* neutralize the Aurora theme's auto drop-cap inside our content */
+.kk-overhaul p::first-letter { initial-letter:normal !important; font-size:inherit !important; font-weight:inherit !important; float:none !important; margin:0 !important; padding:0 !important; line-height:inherit !important; color:inherit !important; background:none !important; }
+.kk-overhaul a { color:var(--kk-accent); font-weight:700; text-decoration:none; }
+.kk-overhaul a:hover, .kk-overhaul a:focus-visible { text-decoration:underline; text-underline-offset:3px; }
+
+.kk-hero { padding:.4rem 0 2.2rem; border-bottom:1px solid var(--kk-line); }
+.kk-kicker { margin:0 0 .65rem; text-transform:uppercase; letter-spacing:.14em; font-size:.74rem; color:var(--kk-hot); font-weight:800; }
+.kk-display { margin:.1rem 0 1rem; font-size:2.4rem; line-height:1.08; letter-spacing:-.02em; font-weight:800; max-width:38rem; color:var(--kk-ink-2); }
+.kk-lead { font-size:1.14rem; line-height:1.62; max-width:40rem; margin:.6rem 0; color:var(--kk-ink); }
+
+.kk-actions { display:flex; flex-wrap:wrap; gap:.6rem; margin:1.4rem 0 0; }
+.kk-button { display:inline-block; padding:.7rem 1.1rem; border:2px solid var(--kk-accent); border-radius:8px; text-decoration:none !important; background:var(--kk-accent); color:#04121a !important; font-weight:700; transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease, color .15s ease; }
+.kk-button:hover, .kk-button:focus-visible { transform:translateY(-2px); box-shadow:var(--kk-sh-lift); }
+.kk-button.secondary { background:transparent; color:var(--kk-ink) !important; border-color:var(--kk-line); }
+.kk-button.secondary:hover, .kk-button.secondary:focus-visible { border-color:var(--kk-accent); color:var(--kk-accent) !important; }
+
+.kk-proof { display:grid; grid-template-columns:repeat(auto-fit,minmax(165px,1fr)); gap:.7rem; margin-top:1.6rem; }
+.kk-proof div { border:1px solid var(--kk-line); border-top:3px solid var(--kk-accent); border-radius:var(--kk-r-sm); padding:.95rem 1rem; background:var(--kk-card); }
+.kk-proof strong { display:block; font-size:1.02rem; line-height:1.2; letter-spacing:-.01em; color:var(--kk-ink-2); }
+.kk-proof span { display:block; color:var(--kk-muted); font-size:.9rem; margin-top:.25rem; line-height:1.45; }
+
+.kk-section { padding:2.5rem 0; border-bottom:1px solid var(--kk-line); }
+.kk-section > h2, .kk-two h2 { position:relative; padding-top:1.1rem; margin:0 0 1rem; font-size:1.62rem; line-height:1.14; letter-spacing:-.015em; font-weight:800; color:var(--kk-ink-2); }
+.kk-section > h2::before, .kk-two h2::before { content:""; position:absolute; top:0; left:0; width:2.4rem; height:4px; border-radius:3px; background:var(--kk-hot); }
+.kk-section-intro { max-width:42rem; margin:0 0 1.4rem; color:var(--kk-muted); font-size:1.02rem; line-height:1.6; }
+
+.kk-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.1rem; }
+.kk-grid:has(> :nth-child(4):last-child) { grid-template-columns:repeat(2,minmax(0,1fr)); }
+
+.kk-two { display:grid; grid-template-columns:minmax(0,1fr) minmax(220px,.75fr); gap:1.5rem; align-items:start; }
+.kk-two img { width:100%; border-radius:var(--kk-r); box-shadow:var(--kk-sh); }
+.kk-two h2 { margin-top:0; }
+
+.kk-tag { display:inline-block; background:var(--kk-hot-soft); color:var(--kk-hot); margin:0 0 .7rem; padding:.3rem .65rem; border-radius:999px; font-size:.66rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
+
+.kk-card { border:1px solid var(--kk-line); border-radius:var(--kk-r); background:var(--kk-card); overflow:hidden; box-shadow:var(--kk-sh); transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.kk-card:hover, .kk-card:focus-within { transform:translateY(-3px); box-shadow:var(--kk-sh-lift); border-color:rgba(0,229,255,.4); }
+.kk-card img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; background:rgba(255,255,255,.06); }
+.kk-card-body { padding:1.1rem; }
+.kk-card h3 { margin:0 0 .4rem; font-size:1.1rem; line-height:1.25; color:var(--kk-ink-2); }
+.kk-card h3 a { color:var(--kk-ink-2); }
+.kk-card p { margin:.4rem 0 0; color:var(--kk-muted); font-size:.96rem; line-height:1.5; }
+.kk-proof-meta { display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.85rem; }
+.kk-proof-meta span { border:1px solid var(--kk-line); background:var(--kk-paper); border-radius:999px; padding:.26rem .55rem; color:var(--kk-ink); font-size:.76rem; line-height:1.25; font-weight:700; }
+
+.kk-photo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1.1rem; }
+
+.kk-role-card { background:var(--kk-card); border:1px solid var(--kk-line); border-top:4px solid var(--kk-accent); border-radius:var(--kk-r); padding:1.5rem 1.4rem; box-shadow:var(--kk-sh); }
+.kk-role-card h3 { margin:.15rem 0 .6rem; font-size:1.3rem; line-height:1.2; letter-spacing:-.01em; color:var(--kk-ink-2); }
+.kk-role-card h3 a { color:var(--kk-ink-2); }
+.kk-role-card p { color:var(--kk-muted); line-height:1.55; }
+.kk-role-card .kk-actions { margin-top:1.1rem; }
+.kk-role-facts { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1rem; }
+.kk-role-facts span { border:1px solid var(--kk-line); background:var(--kk-paper); border-radius:999px; padding:.3rem .65rem; font-size:.82rem; font-weight:700; color:var(--kk-ink); }
+
+.kk-pathways { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:.9rem; }
+.kk-pathways a { display:block; border:1px solid var(--kk-line); border-radius:var(--kk-r); padding:1.15rem 1.2rem; background:var(--kk-card); box-shadow:var(--kk-sh); text-decoration:none !important; transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.kk-pathways a:hover, .kk-pathways a:focus-visible { transform:translateY(-3px); box-shadow:var(--kk-sh-lift); border-color:var(--kk-accent); }
+.kk-pathways strong { display:block; font-size:1.08rem; color:var(--kk-ink-2); }
+.kk-pathways strong::after { content:"\2192"; color:var(--kk-accent); margin-left:.4rem; display:inline-block; transition:transform .18s ease; }
+.kk-pathways a:hover strong::after { transform:translateX(5px); }
+.kk-pathways span { display:block; color:var(--kk-muted); font-weight:400; margin-top:.35rem; font-size:.95rem; line-height:1.5; }
+
+.kk-callout { background:var(--kk-card); border:1px solid var(--kk-line); border-radius:var(--kk-r); padding:1.3rem 1.25rem; box-shadow:var(--kk-sh); }
+.kk-callout h3 { margin:0 0 .45rem; font-size:1.12rem; color:var(--kk-ink-2); }
+.kk-callout p { margin:0; color:var(--kk-muted); line-height:1.55; }
+
+.kk-throughline { counter-reset: vals; }
+.kk-throughline .kk-callout { counter-increment: vals; background:var(--kk-paper); }
+.kk-throughline .kk-callout h3 { font-size:1.18rem; }
+.kk-throughline .kk-callout h3::before { content:counter(vals,decimal-leading-zero); display:block; font-size:1.7rem; font-weight:800; color:var(--kk-accent); letter-spacing:-.02em; margin-bottom:.35rem; font-variant-numeric:tabular-nums; }
+
+.kk-details { border:1px solid var(--kk-line); border-radius:var(--kk-r); padding:1.15rem 1.25rem; background:var(--kk-card); box-shadow:var(--kk-sh); align-self:start; transition:border-color .18s ease; }
+.kk-details[open] { border-color:var(--kk-accent); }
+.kk-details summary { cursor:pointer; font-weight:800; font-size:1.02rem; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:1rem; color:var(--kk-ink-2); }
+.kk-details summary::-webkit-details-marker { display:none; }
+.kk-details summary::after { content:"\002B"; color:var(--kk-accent); font-size:1.3rem; line-height:1; }
+.kk-details[open] summary::after { content:"\2013"; }
+.kk-chip-cloud { display:flex; flex-wrap:wrap; gap:.4rem; margin:.9rem 0 0; }
+.kk-chip-cloud span, .kk-chip-cloud a { display:inline-block; border:1px solid var(--kk-line); background:var(--kk-paper); border-radius:999px; padding:.3rem .6rem; color:var(--kk-ink); text-decoration:none; font-size:.86rem; font-weight:600; transition:border-color .15s ease, color .15s ease, background .15s ease; }
+.kk-chip-cloud span:hover, .kk-chip-cloud a:hover { border-color:var(--kk-accent); color:var(--kk-accent); background:var(--kk-accent-soft); }
+.kk-proof-note { margin-top:1.2rem; color:var(--kk-muted); max-width:42rem; font-size:.96rem; line-height:1.55; }
+
+.kk-cta-final { border-bottom:0; }
+.kk-cta-final .kk-callout { background:var(--kk-accent-soft); border:1px solid var(--kk-accent); padding:2.1rem 1.9rem; color:var(--kk-ink); box-shadow:0 0 40px -10px rgba(0,229,255,.35); }
+.kk-cta-final .kk-callout h2 { position:relative; margin:0 0 .7rem; padding-top:1.1rem; font-size:1.7rem; line-height:1.12; letter-spacing:-.015em; font-weight:800; color:var(--kk-ink-2); }
+.kk-cta-final .kk-callout h2::before { content:""; position:absolute; top:0; left:0; width:2.4rem; height:4px; border-radius:3px; background:var(--kk-hot); }
+.kk-cta-final .kk-callout p { color:var(--kk-ink); max-width:42rem; line-height:1.6; }
+.kk-cta-final .kk-actions { margin-top:1.3rem; }
+.kk-cta-final .kk-button { background:var(--kk-accent); color:#04121a !important; border-color:var(--kk-accent); }
+.kk-cta-final .kk-button.secondary { background:transparent; color:var(--kk-ink) !important; border-color:var(--kk-line); }
+.kk-cta-final .kk-button.secondary:hover { border-color:var(--kk-accent); color:var(--kk-accent) !important; }
+
+@media (max-width:760px){
+  .kk-display{ font-size:1.85rem; }
+  .kk-two{ grid-template-columns:1fr; }
+  .kk-section{ padding:2rem 0; }
+  .kk-grid:has(> :nth-child(4):last-child){ grid-template-columns:1fr; }
+}
+</style>
+
+<div class="kk-overhaul">
+  <section class="kk-hero">
+    <p class="kk-kicker">Current work, living systems, and useful experiments</p>
+    <h2 class="kk-display">A portfolio of AI culture, community infrastructure, keynote systems, and long-haul visual storytelling.</h2>
+    <p class="kk-lead">I build things that help people meet the future without losing the plot: public AI communities, practical training, talks that become reusable portals, and story systems that make technology feel human again.</p>
+    <div class="kk-actions">
+      <a class="kk-button" href="/speaking/">Book a keynote</a>
+      <a class="kk-button secondary" href="/services/">Work with me</a>
+    </div>
+    <div class="kk-proof">
+      <div><strong>AI + culture</strong><span>Keynotes, workshops, and field notes.</span></div>
+      <div><strong>Community</strong><span>BC+AI, meetups, associations, and convening.</span></div>
+      <div><strong>Media</strong><span>Photography, documentary, podcast, and broadcast.</span></div>
+    </div>
+    <div class="kk-mini-nav">
+      <a href="#featured-work">Featured work<span>Start with the live initiatives.</span></a>
+      <a href="#public-artifacts">Creative AI Human Lab<span>Films, albums, portals, and reusable resources.</span></a>
+      <a href="#archive-highlights">Archive highlights<span>The photo-heavy backstory.</span></a>
+      <a href="/contact/">Start something<span>Bring me into the room.</span></a>
+    </div>
+  </section>
+
+  <section class="kk-section" id="featured-work">
+    <h2>Featured work</h2>
+    <p class="kk-section-intro">The center of gravity right now: a province-wide AI ecosystem, a brand-new responsible-AI certification, and hands-on training that helps teams build real confidence without flattening the weird human parts.</p>
+    <div class="kk-feature-grid">
+      <article class="kk-card">
+        <img src="https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&amp;ssl=1" alt="BC AI ecosystem network graphic" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Ecosystem</span>
+          <h3><a href="https://bc-ai.ca/">BC + AI Ecosystem</a></h3>
+          <p>A province-wide community and industry association for responsible, inclusive, place-rooted AI in British Columbia.</p>
+          <div class="kk-proof-meta" aria-label="BC + AI proof metadata">
+            <span>Role: Executive Director</span>
+            <span>Year: 2026</span>
+            <span>Community: Vancouver AI and BC + AI</span>
+            <span>Outcome: regional AI convening</span>
+          </div>
+        </div>
+      </article>
+      <div class="kk-stack">
+        <article class="kk-card">
+          <img src="https://kriskrug.co/wp-content/uploads/2026/05/rap-why-we-built-cover.png" alt="Responsible AI Professional certification cover" loading="lazy" />
+          <div class="kk-card-body">
+            <span class="kk-tag">Certification</span>
+            <h3>Responsible AI Professional</h3>
+            <p>Just launched. A four-week certification that closes the gap between how fast we deploy AI and how slowly we get responsible about it — built with <strong>Martin Lopatka</strong> and <strong>Sarah Downey</strong>. Every grad ships their own ethics assistant.</p>
+            <div class="kk-proof-meta" aria-label="Responsible AI Professional proof metadata">
+              <span>Role: Co-builder</span>
+              <span>Year: 2026</span>
+              <span>Artifact: certification cohort</span>
+              <span>Outcome: ethics assistant</span>
+            </div>
+            <p><a href="https://lu.ma/ai-ethics">Enroll in the cohort</a></p>
+          </div>
+        </article>
+        <article class="kk-card">
+          <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-25-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krug speaking on stage at LaSalle College Vancouver" loading="lazy" />
+          <div class="kk-card-body">
+            <span class="kk-tag">Speaking</span>
+            <h3>AI Keynotes</h3>
+            <p>Talks and workshops on AI mindset, creative rebellion, human agency, archives, culture, and leadership after the point of no return.</p>
+            <div class="kk-proof-meta" aria-label="AI keynotes proof metadata">
+              <span>Role: Keynote speaker</span>
+              <span>Year: 2026</span>
+              <span>Community: creative workers</span>
+              <span>Artifact: speaking page</span>
+            </div>
+            <p><a href="/speaking/">See speaking topics</a></p>
+          </div>
+        </article>
+        <article class="kk-card">
+          <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/04/image-19.png?w=1200&amp;ssl=1" alt="Indigenomics AI visual from Kris Krug's public writing" loading="lazy" />
+          <div class="kk-card-body">
+            <span class="kk-tag">Indigenous tech</span>
+            <h3><a href="https://indigenomics.ai/">Indigenomics.ai</a></h3>
+            <p>CTO work supporting Indigenous economic sovereignty, data governance, and tools grounded in the Indigenomics framework.</p>
+            <div class="kk-proof-meta" aria-label="Indigenomics.ai proof metadata">
+              <span>Role: CTO</span>
+              <span>Year: 2026</span>
+              <span>Community: Indigenous economy</span>
+              <span>Outcome: sovereignty tooling</span>
+            </div>
+          </div>
+        </article>
+        <article class="kk-card">
+          <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/07/ai-courses-workshops-trainings.png?w=1200&amp;ssl=1" alt="The Upgrade AI courses workshops and trainings graphic" loading="lazy" />
+          <div class="kk-card-body">
+            <span class="kk-tag">Training</span>
+            <h3>The Upgrade AI</h3>
+            <p>Training, workshops, and applied AI sessions for creative professionals, organizations, community builders, and leadership teams.</p>
+            <div class="kk-proof-meta" aria-label="The Upgrade AI proof metadata">
+              <span>Role: Co-founder</span>
+              <span>Year: 2026</span>
+              <span>Community: creative teams</span>
+              <span>Outcome: applied AI training</span>
+            </div>
+            <p><a href="/services/">Explore services</a></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="kk-section" id="public-artifacts">
+    <h2>Creative AI Human Lab</h2>
+    <p class="kk-section-intro">This is the reciprocal network for the creative AI experiments: films, albums, keynote portals, and process notes that keep the human parts visible. The throughline is consent, taste, community, and enough weirdness to keep the work alive.</p>
+    <div class="kk-grid">
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=1200&amp;ssl=1" alt="Portrait of Kris Krug" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Network hub</span>
+          <h3><a href="https://kriskrug.co/recent-projects-include/">KrisKrug.co Work</a></h3>
+          <p>The home base for the archive, field notes, services, speaking proof, and connective tissue across the creative AI network.</p>
+          <div class="kk-proof-meta" aria-label="KrisKrug.co work proof metadata">
+            <span>Role: Hub</span>
+            <span>Year: 2026</span>
+            <span>Artifact: work page</span>
+            <span>Outcome: network map</span>
+          </div>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://skywhaleairways.com/social/i-am-nomad-og.jpg" alt="I AM NOMAD Skywhale Airways key art" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">AI film + microsite</span>
+          <h3><a href="https://skywhaleairways.com/">Skywhale Airways</a></h3>
+          <p><em>I AM NOMAD</em> is a 53-second AI Film Club short and hand-built site: a psychedelic airport for time travelers, made with Suzy Easton.</p>
+          <div class="kk-proof-meta" aria-label="Skywhale Airways proof metadata">
+            <span>Role: Co-creator</span>
+            <span>Year: 2026</span>
+            <span>Artifact: film + WebGL portal</span>
+            <span>Outcome: festival materials</span>
+          </div>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-cmvan-keynote-header.png?w=1280&amp;ssl=1" alt="Punk Rock AI CreativeMornings keynote artwork" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Creative rebellion</span>
+          <h3><a href="https://www.punkrockai.com/">Punk Rock AI</a></h3>
+          <p>A CreativeMornings Vancouver keynote rebuilt as a maker-first portal about agency, taste, and refusing to become a content machine.</p>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://www.bothhandsfull.com/album/too-weird-to-die/opengraph-image" alt="Too Weird to Die album cover artwork" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Concept album</span>
+          <h3><a href="https://www.bothhandsfull.com/album/too-weird-to-die">Too Weird to Die</a></h3>
+          <p>A Suno-first Both Hands Full album about consent, defiance, survival, and refusing to sand the contradiction flat.</p>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://ethosblockparty.com/the-day-og.jpg" alt="Ethos Lab Block Party album artwork" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Community album</span>
+          <h3><a href="https://ethosblockparty.com/the-day">Ethos Lab Block Party</a></h3>
+          <p>Eleven songs made from real conversations in one afternoon, with consent, first-name care, and the person as the hero.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="kk-section">
+    <h2>How the work shows up</h2>
+    <p class="kk-section-intro">Same operating system, different surfaces: stages, training rooms, associations, media systems, and fieldwork.</p>
+    <div class="kk-grid">
+      <article class="kk-card kk-workway">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-10-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krug speaking at LaSalle College Vancouver" loading="lazy" />
+        <div class="kk-card-body"><h3>AI education and adoption</h3><p>Workshops, keynotes, demos, and custom sessions that help people build confidence without flattening the ethical and creative questions.</p></div>
+      </article>
+      <article class="kk-card kk-workway">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/09/AI_Meetup_August2024_MichelleDiamond-195-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krug hosting a Vancouver AI Community Meetup" loading="lazy" />
+        <div class="kk-card-body"><h3>Vancouver AI and community infrastructure</h3><p>Convening, association-building, sponsorship, event design, and systems that help networks become durable instead of merely loud.</p><div class="kk-proof-meta" aria-label="Vancouver AI proof metadata"><span>Role: Convenor</span><span>Year: 2024-2026</span><span>Community: Vancouver AI</span><span>Outcome: durable network</span></div></div>
+      </article>
+      <article class="kk-card kk-workway">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/20067931301_e7a16b6f2c_k-1.jpg?w=1200&amp;ssl=1" alt="Kris Krug backstage with Malcolm Gladwell" loading="lazy" />
+        <div class="kk-card-body"><h3>Photography and media</h3><p>Decades of documentary, conference, portrait, festival, and movement storytelling across technology, culture, and social change.</p><div class="kk-proof-meta" aria-label="Photography proof metadata"><span>Role: Photographer</span><span>Year: 2005-2026</span><span>Artifact: visual archive</span><span>Outcome: cultural documentation</span></div></div>
+      </article>
+      <article class="kk-card kk-workway">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/4190423843_069037fecb_o.jpg?w=1200&amp;ssl=1" alt="Kris Krug with Daryl Hannah at COP15 in Copenhagen" loading="lazy" />
+        <div class="kk-card-body"><h3>Social impact and culture</h3><p>Work spanning Indigenous-led community projects, youth media, climate gatherings, UN convenings, documentary fieldwork, and civic technology.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="kk-section" id="archive-highlights">
+    <h2>Archive highlights</h2>
+    <p class="kk-section-intro">The back catalog matters. It shows the pattern: cameras, communities, weird rooms, culture, civic technology, and enough miles on the road to know when an idea is real.</p>
+    <div class="kk-archive">
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5637672371_fca291d598_o-1.jpg?w=800&amp;ssl=1" alt="Kris Krug presenting at the UN Global Youth Summit on HIV in Bamako" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">UN + youth media</span>
+          <h3>UN Global Youth Summit on HIV, Bamako</h3>
+          <p>Keynote and youth activist media mentoring work with UNAIDS in Mali, bringing online organizing and movement storytelling into a global room.</p>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/4190423843_069037fecb_o.jpg?w=1200&amp;ssl=1" alt="Kris Krug with Daryl Hannah at COP15 in Copenhagen" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Climate + media</span>
+          <h3>COP15 and climate storytelling</h3>
+          <p>Hosted conversations and produced media around open culture, climate action, and digital community at major international gatherings.</p>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/6283381617_43f79f3848_o.jpg?w=1200&amp;ssl=1" alt="Kris Krug with Mikhail Gorbachev backstage at WE Day" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Backstage culture</span>
+          <h3>WE Day, conferences, and impossible rooms</h3>
+          <p>Photography and video work in rooms where politics, celebrity, activism, and youth culture all collided.</p>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/05/9818127715_416df9a481_o.jpg?w=612&amp;ssl=1" alt="Kris Krug with Jack Dorsey at University of Waterloo" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Tech culture</span>
+          <h3>Founders, networks, and the social web</h3>
+          <p>Years documenting and convening the early social internet, startup communities, conferences, and the people who shaped the platforms.</p>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/20190210_170149-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krug with Post Malone at the Grammy Awards" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Music + culture</span>
+          <h3>Festivals, artists, and pop-cultural fieldwork</h3>
+          <p>From Grammys corridors to festival fields, the work has always followed the living edge of culture.</p>
+        </div>
+      </article>
+      <article class="kk-card">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/PopTech-2013-Camden-Maine-USA-PopTech_10460205104_o.jpg?w=640&amp;ssl=1" alt="Kris Krug with skateboarder Rodney Mullen at PopTech" loading="lazy" />
+        <div class="kk-card-body">
+          <span class="kk-tag">Ideas festivals</span>
+          <h3>PopTech, SXSW, TEDx, and idea circuits</h3>
+          <p>Speaking, hosting, photographing, and learning inside the strange, generative spaces where culture and technology cross-pollinate.</p>
+        </div>
+      </article>
+    </div>
+    <div class="kk-link-row">
+      <a href="/about/">More backstory</a>
+      <a href="/speaking/">Speaking archive</a>
+      <a href="/blog/">Writing</a>
+      <a href="/contact/">Start a project</a>
+    </div>
+  </section>
+
+  <section class="kk-section">
+    <div class="kk-callout">
+      <h2>Need a speaker, strategist, trainer, or weirdly useful AI collaborator?</h2>
+      <p>Start with the lane that fits: keynotes for rooms that need energy and clarity, services for teams that need applied help, or contact if the project is odd and alive and probably worth a conversation.</p>
+      <div class="kk-actions">
+        <a class="kk-button" href="/speaking/">Speaking</a>
+        <a class="kk-button secondary" href="/services/">Services</a>
+        <a class="kk-button secondary" href="/contact/">Contact</a>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- /wp:html -->
