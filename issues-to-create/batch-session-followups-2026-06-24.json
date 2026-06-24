@@ -1,0 +1,32 @@
+{
+  "issues": [
+    {
+      "title": "[AURORA P3] Remove orphaned parts/work-proof-grid.html theme part",
+      "body": "## Problem\n\n`/work/` renders from page 2672 DB content (`/recent-projects-include/`, the `.kk-overhaul` markup), NOT from the theme. The Aurora theme part `theme/kk-aurora/parts/work-proof-grid.html` (4.6KB) is orphaned: editing it does nothing on the live page. PR #246 redirected the Work-card links to date-based post permalinks but left the dead part in place, still referenced from `theme/kk-aurora/theme.json`.\n\n## Impact\n\n- **Tech debt** - the orphaned part is a trap: a future agent or KK could edit it expecting `/work/` to change, and waste time (this has already happened once).\n- Keeps a stale duplicate of the Work grid in the theme source.\n\n## Acceptance Criteria\n\n- [ ] Remove (or empty) `theme/kk-aurora/parts/work-proof-grid.html`\n- [ ] Drop the `work-proof-grid` reference from `theme/kk-aurora/theme.json`\n- [ ] Logged-out `/work/` renders unchanged (page 2672 content intact)\n- [ ] Bump Aurora patch version per the deploy convention\n\n## Notes\n\nSource: repo memory `work-page-is-page-2672-content`. Track B (theme-only) change; do not touch content.",
+      "labels": ["track-b", "aurora-v2", "tech-debt"],
+      "assignees": [],
+      "milestone": ""
+    },
+    {
+      "title": "[SEO] Auto-normalize combining diacritics in publisher SEO-meta writes",
+      "body": "## Problem\n\nJetpack SEO post-meta REST writes return HTTP 500 on combining-diacritic values (e.g. the title \"Ethọ́s\" where `ọ` + combining acute is used). On the 2026-06-23 Ethọ́s Block Party publish this was hand-worked-around by putting plain ASCII (\"Ethos\") into the SEO meta while keeping the diacritic in the visible title and body. Any future post with a combining-diacritic title will hit the same wall.\n\n## Impact\n\n- **Platform reliability** - silent publish failures or manual workarounds on every diacritic title.\n- Risk of a dropped/empty SEO title or description if the 500 is not noticed.\n\n## Acceptance Criteria\n\n- [ ] Publisher (`scripts/notion-to-wp/`) normalizes `jetpack_seo_html_title` and `advanced_seo_description` to a REST-safe form (precompose via NFC, or ASCII-fold) before writing\n- [ ] Visible post title and body keep their original diacritics untouched\n- [ ] Dry-run output shows the normalized SEO-meta value\n- [ ] A regression test covers a combining-diacritic title (asserts no 500 + expected normalized meta)\n\n## Notes\n\nSource: repo memory `jetpack-seo-meta-combining-diacritic-500` and the PR #246 handoff report.",
+      "labels": ["seo", "tech-debt", "platform"],
+      "assignees": [],
+      "milestone": ""
+    },
+    {
+      "title": "[SEO] Measure 'you can't drink data' striking-distance after #233 deploy",
+      "body": "## Problem\n\nThe #233 homepage-metadata half shipped on 2026-06-23 (homepage `<title>` is now `Kris Krüg | AI Keynote Speaker & Creative Technologist`, via Jetpack `advanced_seo_title_formats.front_page`), and the protest arc (11936 ⇄ 11882 ⇄ 11929) is cross-linked. The striking-distance query `you can't drink data` needs a before/after read to confirm the SEO win and choose the next anchor.\n\n## Impact\n\n- **SEO measurement** - closes the loop on #233; tells us whether the title + internal-link changes moved the query.\n\n## Acceptance Criteria\n\n- [ ] Next SEO digest records the `you can't drink data` query position pre- vs post-deploy (and homepage impressions/CTR)\n- [ ] Decide whether to add the single contextual homepage/About backlink the YCDD spec reserved (preferred anchor: `you can't drink data`)\n- [ ] Note any next striking-distance target surfaced\n\n## Notes\n\nRefs #233. Source: `fixes/issue-233-homepage-metadata-internal-links-2026-06-18.md` and `content/drafts/2026-05-23-you-cant-drink-data/internal-links.md`.",
+      "labels": ["seo", "content"],
+      "assignees": [],
+      "milestone": ""
+    },
+    {
+      "title": "[QA] Logged-out verify of Ethọ́s Block Party (12357) + Vancouver Made (12363)",
+      "body": "## Problem\n\nPosts 12357 (The Ethos Lab Block Party Album) and 12363 (Vancouver World Cup 2026 Hackathon & Design Jam) published 2026-06-23 via PR #246, which also added Work-grid cards and footer links. Confirm they render correctly for the public (logged-out), and that the diacritic workaround did not break rendered meta.\n\n## Impact\n\n- **Content QA** - catches stale Pagely cache, broken featured images, dead Work-card/footer links, or dropped SEO meta before they sit live unnoticed.\n\n## Acceptance Criteria\n\n- [ ] Logged-out fetch of both posts returns 200 with correct `<title>`, meta description, and featured image\n- [ ] `/work/` shows the two new cards linking to the correct date-based permalinks\n- [ ] Footer links to the two posts resolve\n- [ ] No combining-diacritic breakage in rendered meta for the Ethọ́s post\n- [ ] Click-check every internal link in both posts (logged out)\n\n## Notes\n\nVerify against current live state first (per `verify-live-first`); purge Pagely with a no-op save if a URL serves stale.",
+      "labels": ["content", "tests"],
+      "assignees": [],
+      "milestone": ""
+    }
+  ]
+}
