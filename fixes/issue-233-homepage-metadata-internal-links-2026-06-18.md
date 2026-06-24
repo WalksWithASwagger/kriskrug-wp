@@ -70,6 +70,29 @@ After deployment, read back the public homepage and confirm:
 Use one strong contextual link from a relevant surface instead of repeating an
 exact-match anchor across unrelated pages.
 
+## Live Deploy Record — Companion Posts (2026-06-24)
+
+Coordinated publish of the two protest-arc companions, completing the internal-link
+cluster. Homepage metadata was already live (2026-06-23). Snapshots + rollback note:
+`backup/20260624-181106Z-issue233-companions/`.
+
+| Post | Action | Result |
+|---|---|---|
+| 11882 "We Trained AI On Stolen Work" | slug `both-hands-full-vancouver-ai-march-2026` → `we-trained-ai-on-stolen-work`; `draft` → `publish` | https://kriskrug.co/2026/05/19/we-trained-ai-on-stolen-work/ |
+| 11929 "Both Hands Full at the Data Center" | fixed stale in-body link to 11882's old slug; `draft` → `publish` | https://kriskrug.co/2026/05/23/data-center-protest-signs/ |
+| 11936 "You Can't Drink Data" (live) | added one contextual backlink to 11882 (anchor "stolen work") | https://kriskrug.co/2026/05/23/you-cant-drink-data/ |
+
+Cross-link arc verified logged-out (all 200, all links resolve, zero 404):
+11882 ↔ 11929, 11882 ↔ 11936, 11929 → 11936, 11936 → 11882. Old 11882 slug 301-redirects
+to the new slug. Both companions are original writing; 11929 reuses the 14 AI-sign
+images already in 11936 (KK-approved editorial reuse, not duplicate text).
+
+Duplicate-content check: no published post shares either title; 11929 text is 99.7%
+unique vs 11936.
+
+**#233 remaining:** issue #249 (measure `you can't drink data` striking-distance after
+deploy) stays open as the post-deploy SEO readback. No other blockers.
+
 ## Review Checklist
 
 - [ ] Homepage metadata values above still match `page-meta.json`.
