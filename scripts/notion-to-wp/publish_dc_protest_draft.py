@@ -8,6 +8,7 @@ the 14 images and creates the DRAFT post. NEVER publishes.
 """
 import re, sys, json, shutil, pathlib, datetime
 from kk_notion_to_wp import WordPress, load_config, slugify
+from connector_payload import normalize_seo_meta
 from text_polish import purge_em_dashes
 
 SRC = pathlib.Path("/Users/kk/Code/notion-local/kk-ai-ecosystem/content/articles/kris-krug-thought-leadership/25-data-center-protest-signs")
@@ -128,7 +129,7 @@ payload = {
     "author": cfg.wp_author_id, "content": content, "excerpt": META_DESC,
     "categories": [CATEGORY_ID], "tags": tag_ids,
     "featured_media": uploaded[FEATURED_FILE]["id"],
-    "meta": {"advanced_seo_description": META_DESC, "jetpack_seo_html_title": SEO_TITLE},
+    "meta": {"advanced_seo_description": normalize_seo_meta(META_DESC), "jetpack_seo_html_title": normalize_seo_meta(SEO_TITLE)},
 }
 post = wp.create_post(payload)
 pid = post["id"]
@@ -146,8 +147,8 @@ checks = {
     "14_images": vc.count("<!-- wp:image ") == 14,
     "no_local_paths": "images/" not in vc or "wp-content/uploads" in vc,
     "bhf_link": BHF_URL in vc,
-    "seo_desc_meta": v.get("meta", {}).get("advanced_seo_description") == META_DESC,
-    "seo_title_meta": v.get("meta", {}).get("jetpack_seo_html_title") == SEO_TITLE,
+    "seo_desc_meta": v.get("meta", {}).get("advanced_seo_description") == normalize_seo_meta(META_DESC),
+    "seo_title_meta": v.get("meta", {}).get("jetpack_seo_html_title") == normalize_seo_meta(SEO_TITLE),
 }
 preview = f"{wp.base}/?p={pid}&preview=true"
 edit = f"{wp.base}/wp-admin/post.php?post={pid}&action=edit"

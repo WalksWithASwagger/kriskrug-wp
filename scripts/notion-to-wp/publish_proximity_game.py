@@ -21,6 +21,7 @@ import yaml
 import html
 from dotenv import dotenv_values
 from kk_notion_to_wp import WordPress, slugify, WP_BASE_URL_DEFAULT, WP_DEFAULT_AUTHOR_ID
+from connector_payload import normalize_seo_meta
 
 SCRIPT_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parents[2]
@@ -143,8 +144,8 @@ else:
         "author": author_id, "content": content, "excerpt": EXCERPT,
         "categories": cat_ids, "tags": tag_ids,
         "meta": {
-            "jetpack_seo_html_title": SEO.get("meta_title", ""),
-            "advanced_seo_description": SEO.get("meta_description", ""),
+            "jetpack_seo_html_title": normalize_seo_meta(SEO.get("meta_title", "")),
+            "advanced_seo_description": normalize_seo_meta(SEO.get("meta_description", "")),
         },
     }
     post = wp.create_post(payload)

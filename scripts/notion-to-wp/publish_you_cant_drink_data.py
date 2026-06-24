@@ -20,6 +20,7 @@ refreshes the body of the existing draft. NEVER publishes.
 """
 import re, sys, json, pathlib
 from kk_notion_to_wp import WordPress, load_config, slugify
+from connector_payload import normalize_seo_meta
 
 STAGE = pathlib.Path("/Users/kk/Code/kriskrug-wp/content/drafts/2026-05-23-you-cant-drink-data")
 EXECUTE = "--execute" in sys.argv
@@ -265,7 +266,7 @@ else:
         "title": TITLE, "slug": SLUG, "status": "draft", "date": DATE,
         "author": cfg.wp_author_id, "content": content, "excerpt": META_DESC,
         "categories": [CATEGORY_ID], "tags": tag_ids, "featured_media": FEATURED_ID,
-        "meta": {"advanced_seo_description": META_DESC, "jetpack_seo_html_title": SEO_TITLE},
+        "meta": {"advanced_seo_description": normalize_seo_meta(META_DESC), "jetpack_seo_html_title": normalize_seo_meta(SEO_TITLE)},
     }
     post = wp.create_post(payload)
     pid = post["id"]
@@ -286,8 +287,8 @@ checks = {
     "new_links": "sovereign-ai-for-whom" in vc and "punk-rock-ai" in vc and "your-taste-is-your-moat" in vc,
     "bhf_link_live": "/2026/01/24/both-hands-full/" in vc,
     "no_dead_companion_links": "/2026/05/23/data-center-protest-signs/" not in vc and "/2026/05/19/both-hands-full-vancouver" not in vc,
-    "seo_desc_meta": v.get("meta", {}).get("advanced_seo_description") == META_DESC,
-    "seo_title_meta": v.get("meta", {}).get("jetpack_seo_html_title") == SEO_TITLE,
+    "seo_desc_meta": v.get("meta", {}).get("advanced_seo_description") == normalize_seo_meta(META_DESC),
+    "seo_title_meta": v.get("meta", {}).get("jetpack_seo_html_title") == normalize_seo_meta(SEO_TITLE),
 }
 preview = f"{wp.base}/?p={pid}&preview=true"
 edit = f"{wp.base}/wp-admin/post.php?post={pid}&action=edit"
