@@ -8,6 +8,7 @@ import base64
 import dataclasses
 import datetime as dt
 import html
+import json
 import os
 import re
 import sys
@@ -526,6 +527,36 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def snapshot_targets(
+    wp: WordPressClient,
+    media_updates: list[dict[str, Any]],
+    excerpt_updates: list[dict[str, Any]],
+) -> Path:
+    """Capture live current values of every write target before mutating, for rollback."""
+    snap: dict[str, Any] = {"media": [], "posts": []}
+    for item in media_updates:
+        cur = wp.get(
+            f"/wp-json/wp/v2/media/{item['media_id']}",
+            {"context": "edit", "_fields": "id,alt_text"},
+        ).json()
+        snap["media"].append(
+            {"media_id": item["media_id"], "alt_text": str(cur.get("alt_text", ""))}
+        )
+    for item in excerpt_updates:
+        cur = wp.get(
+            f"/wp-json/wp/v2/posts/{item['post_id']}",
+            {"context": "edit", "_fields": "id,excerpt"},
+        ).json()
+        excerpt_obj = cur.get("excerpt", {})
+        raw = excerpt_obj.get("raw", "") if isinstance(excerpt_obj, dict) else str(excerpt_obj)
+        snap["posts"].append({"post_id": item["post_id"], "excerpt": raw})
+    ts = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d-%H%M%SZ")
+    path = REPO_ROOT / "backup" / f"{ts}-wp-post-ia-rollout" / "pre-write-snapshot.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(snap, indent=2, ensure_ascii=False))
+    return path
+
+
 def main() -> None:
     args = parse_args()
     config = load_config()
@@ -540,57 +571,81 @@ def main() -> None:
     excerpt_updates: list[dict[str, Any]] = []
     manual_featured = [a for a in audits_before if a.missing_featured]
 
-    if args.execute:
-        media_cache: dict[int, dict[str, Any]] = {}
-        updated_media_ids: set[int] = set()
+    # Build the write plan from reads only; this runs in BOTH dry-run and execute
+    # so dry-run can preview exactly what --execute would change.
+    media_cache: dict[int, dict[str, Any]] = {}
+    updated_media_ids: set[int] = set()
 
-        pilot = find_by_slug(audits_before, args.pilot_slug)
-        if pilot and pilot.featured_media == args.pilot_media_id:
-            current = fetch_media(wp, pilot.featured_media, media_cache)
-            current_alt = str(current.get("alt_text", "")).strip()
-            if current_alt != args.pilot_media_alt:
-                wp.post(
-                    f"/wp-json/wp/v2/media/{pilot.featured_media}",
-                    {"alt_text": args.pilot_media_alt},
-                )
-                updated_media_ids.add(pilot.featured_media)
-                media_updates.append(
-                    {
-                        "post_id": pilot.post_id,
-                        "slug": pilot.slug,
-                        "media_id": pilot.featured_media,
-                        "reason": "pilot override",
-                        "new_alt": args.pilot_media_alt,
-                    }
-                )
+    pilot = find_by_slug(audits_before, args.pilot_slug)
+    if pilot and pilot.featured_media == args.pilot_media_id:
+        current = fetch_media(wp, pilot.featured_media, media_cache)
+        current_alt = str(current.get("alt_text", "")).strip()
+        if current_alt != args.pilot_media_alt:
+            media_updates.append(
+                {
+                    "post_id": pilot.post_id,
+                    "slug": pilot.slug,
+                    "media_id": pilot.featured_media,
+                    "reason": "pilot override",
+                    "old_alt": current_alt,
+                    "new_alt": args.pilot_media_alt,
+                }
+            )
+            updated_media_ids.add(pilot.featured_media)
 
-        for audit in audits_before:
-            if audit.missing_featured_alt and audit.featured_media not in updated_media_ids:
-                alt = default_alt_text(audit.title)
-                wp.post(f"/wp-json/wp/v2/media/{audit.featured_media}", {"alt_text": alt})
-                updated_media_ids.add(audit.featured_media)
-                media_updates.append(
+    for audit in audits_before:
+        if audit.missing_featured_alt and audit.featured_media not in updated_media_ids:
+            alt = default_alt_text(audit.title)
+            media_updates.append(
+                {
+                    "post_id": audit.post_id,
+                    "slug": audit.slug,
+                    "media_id": audit.featured_media,
+                    "reason": "cohort missing alt",
+                    "old_alt": "",
+                    "new_alt": alt,
+                }
+            )
+            updated_media_ids.add(audit.featured_media)
+
+        if audit.missing_excerpt:
+            content_raw = post_content(wp, audit.post_id)
+            excerpt = derive_excerpt(content_raw)
+            if excerpt:
+                excerpt_updates.append(
                     {
                         "post_id": audit.post_id,
                         "slug": audit.slug,
-                        "media_id": audit.featured_media,
-                        "reason": "cohort missing alt",
-                        "new_alt": alt,
+                        "excerpt": excerpt,
                     }
                 )
 
-            if audit.missing_excerpt:
-                content_raw = post_content(wp, audit.post_id)
-                excerpt = derive_excerpt(content_raw)
-                if excerpt:
-                    wp.post(f"/wp-json/wp/v2/posts/{audit.post_id}", {"excerpt": excerpt})
-                    excerpt_updates.append(
-                        {
-                            "post_id": audit.post_id,
-                            "slug": audit.slug,
-                            "excerpt": excerpt,
-                        }
-                    )
+    if args.execute:
+        snapshot_path = snapshot_targets(wp, media_updates, excerpt_updates)
+        print(f"pre-write snapshot={snapshot_path}")
+        for item in media_updates:
+            wp.post(
+                f"/wp-json/wp/v2/media/{item['media_id']}", {"alt_text": item["new_alt"]}
+            )
+        for item in excerpt_updates:
+            wp.post(
+                f"/wp-json/wp/v2/posts/{item['post_id']}", {"excerpt": item["excerpt"]}
+            )
+    else:
+        print(
+            f"[dry-run] planned writes: media={len(media_updates)} "
+            f"excerpt={len(excerpt_updates)} (no changes made; pass --execute to apply)"
+        )
+        for item in media_updates:
+            print(
+                f"  [plan] media {item['media_id']} ({item['slug']}) "
+                f"alt: {item.get('old_alt', '')!r} -> {item['new_alt']!r}"
+            )
+        for item in excerpt_updates:
+            print(
+                f"  [plan] post {item['post_id']} ({item['slug']}) "
+                f"excerpt -> {item['excerpt'][:60]!r}"
+            )
 
     posts_after = fetch_posts(wp, args.since)
     audits_after = audit_posts(wp, posts_after, text_only_slugs)
