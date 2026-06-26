@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><style>
+:root{--kkm-signal:#F15B43;--kkm-wildcard:#C8FF3D;--kkm-cyan:#00E5FF;
+  --kkm-void:#000000;--kkm-deep:#0D0D12;--kkm-surface:#12121A;--kkm-elevated:#1A1A25;
+  --kkm-text:#F0F0F5;--kkm-text-muted:#8E8EA8;--kkm-line:#252532}
+
+.kkm{--kkm-mono:"JetBrains Mono",ui-monospace,monospace;
+     display:flex;justify-content:center;padding:clamp(20px,4vw,44px) 16px}
+.kkm-frame{width:min(960px,100%);border-radius:18px;padding:clamp(24px,4vw,40px) clamp(18px,3vw,32px);
+     background:linear-gradient(180deg,var(--kkm-elevated),var(--kkm-deep));border:1px solid var(--kkm-line);
+     box-shadow:0 40px 120px -50px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.04)}
+.kkm-kicker{font-family:var(--kkm-mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;
+     color:var(--kkm-signal);display:flex;gap:10px;align-items:center;margin:0 0 22px}
+.kkm-kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--kkm-signal);
+     box-shadow:0 0 12px var(--kkm-signal);animation:kkm-pulse 2s infinite}
+@keyframes kkm-pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.kkm-board{display:flex;flex-direction:column;gap:10px;user-select:none}
+.kkm-row{display:flex;flex-wrap:wrap;gap:6px}
+.kkm-cell{position:relative;display:inline-flex;align-items:center;justify-content:center;
+     contain:layout;width:clamp(26px,5.4vw,56px);height:clamp(40px,8vw,82px);font-family:var(--kkm-mono);
+     font-weight:700;font-size:clamp(20px,4.4vw,46px);line-height:1;border-radius:4px;
+     background:var(--kkm-deep);color:var(--kkm-signal);
+     text-shadow:0 0 10px var(--kkm-signal),0 0 22px var(--kkm-signal);
+     background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.4px);background-size:6px 6px;
+     box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 2px 4px rgba(0,0,0,.5)}
+.kkm-cell.kkm-space{background:transparent;box-shadow:none;text-shadow:none;width:clamp(10px,2.4vw,24px)}
+/* alt skins (kept available; default is led) */
+.kkm[data-skin="splitflap"] .kkm-cell{background:var(--kkm-surface);text-shadow:none;color:var(--kkm-signal)}
+.kkm[data-skin="splitflap"] .kkm-cell::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#000;opacity:.7}
+.kkm[data-skin="letterpress"] .kkm-frame{background:var(--kkm-text);border-color:#ddd6c4}
+.kkm[data-skin="letterpress"] .kkm-cell{background:transparent;box-shadow:none;text-shadow:none;color:#16140f;
+     font-weight:800;font-size:clamp(26px,6vw,72px);width:auto;height:auto;padding:0 .02em;background-image:none}
+.kkm[data-skin="teletype"] .kkm-frame{background:var(--kkm-void);border-color:#0c2a26}
+.kkm[data-skin="teletype"] .kkm-cell{background:transparent;box-shadow:none;color:var(--kkm-cyan);
+     text-shadow:0 0 8px var(--kkm-cyan);font-weight:600;font-size:clamp(18px,4.2vw,42px);width:auto;height:auto;background-image:none}
+.kkm[data-skin="teletype"] .kkm-kicker,.kkm[data-skin="teletype"] .kkm-kicker::before{color:var(--kkm-cyan);background:var(--kkm-cyan)}
+@media(prefers-reduced-motion:reduce){.kkm-cell{transition:none}}
+
+*{box-sizing:border-box}
+html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:var(--kkm-deep);
+  font-family:"Clash Display",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:radial-gradient(900px 500px at 50% -20%,rgba(241,91,67,.10),transparent 60%),var(--kkm-deep)}
+.card{width:1200px;height:630px;display:flex;flex-direction:column;justify-content:center;
+  padding:54px 64px;gap:6px}
+.card .wm{font-family:"JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.32em;
+  font-size:15px;color:var(--kkm-signal);display:flex;align-items:center;gap:12px}
+.card .wm::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--kkm-signal);
+  box-shadow:0 0 14px var(--kkm-signal)}
+.card .kkm{padding:18px 0 0;justify-content:flex-start}
+.card .kkm-frame{background:none;border:none;box-shadow:none;padding:0;width:100%}
+.card .kkm-kicker{display:none}
+.card .foot{margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:15px;color:var(--kkm-text-muted);
+  display:flex;justify-content:space-between;align-items:flex-end}
+.card .foot b{color:var(--kkm-text)}
+</style></head><body><div class="card"><div class="wm">The Marquee</div><section class="kkm" data-skin="led">
+  <div class="kkm-frame">
+    <p class="kkm-kicker"></p>
+    <div class="kkm-board" role="img" aria-label="THE MODEL IS THE MESSAGE">
+      <div class="kkm-row"><div class="kkm-cell" data-final="T" aria-hidden="true">T</div><div class="kkm-cell" data-final="H" aria-hidden="true">H</div><div class="kkm-cell" data-final="E" aria-hidden="true">E</div><div class="kkm-cell kkm-space" aria-hidden="true"></div><div class="kkm-cell" data-final="M" aria-hidden="true">M</div><div class="kkm-cell" data-final="O" aria-hidden="true">O</div><div class="kkm-cell" data-final="D" aria-hidden="true">D</div><div class="kkm-cell" data-final="E" aria-hidden="true">E</div><div class="kkm-cell" data-final="L" aria-hidden="true">L</div></div>
+      <div class="kkm-row"><div class="kkm-cell" data-final="I" aria-hidden="true">I</div><div class="kkm-cell" data-final="S" aria-hidden="true">S</div><div class="kkm-cell kkm-space" aria-hidden="true"></div><div class="kkm-cell" data-final="T" aria-hidden="true">T</div><div class="kkm-cell" data-final="H" aria-hidden="true">H</div><div class="kkm-cell" data-final="E" aria-hidden="true">E</div></div>
+      <div class="kkm-row"><div class="kkm-cell" data-final="M" aria-hidden="true">M</div><div class="kkm-cell" data-final="E" aria-hidden="true">E</div><div class="kkm-cell" data-final="S" aria-hidden="true">S</div><div class="kkm-cell" data-final="S" aria-hidden="true">S</div><div class="kkm-cell" data-final="A" aria-hidden="true">A</div><div class="kkm-cell" data-final="G" aria-hidden="true">G</div><div class="kkm-cell" data-final="E" aria-hidden="true">E</div></div>
+    </div>
+  </div>
+</section><div class="foot"><span>kriskrug.co<span style="opacity:.5"> · the marquee</span></span><span>after Marshall McLuhan</span></div></div></body></html>

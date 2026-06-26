@@ -14,6 +14,7 @@ import shutil
 from marquee_lib import load, DIST_DIR, ROOT
 from render import (BOARD_RULES, TOKENS_DIST, TOKENS_WP, board_section,
                     inline_js, theme_js)
+from og import og_available, render_og
 
 SITE = "https://kriskrug.co"
 BASE = "/marquee"
@@ -54,8 +55,23 @@ h1.idx{font-size:clamp(26px,5vw,46px);margin:6px 0 4px;letter-spacing:-.02em}
 """
 
 
-def page_head(title, desc, url, og_title):
+def page_head(title, desc, url, og_title, og_image=None, og_alt=None):
     e = html.escape
+    img = ""
+    if og_image:
+        a = e(og_alt or og_title)
+        u = e(og_image)
+        # Mirror the theme's OG/Twitter image convention (1200x630, @feelmoreplants, secure_url).
+        img = (
+            f'<meta property="og:image" content="{u}">'
+            f'<meta property="og:image:secure_url" content="{u}">'
+            f'<meta property="og:image:width" content="1200">'
+            f'<meta property="og:image:height" content="630">'
+            f'<meta property="og:image:alt" content="{a}">'
+            f'<meta name="twitter:site" content="@feelmoreplants">'
+            f'<meta name="twitter:image" content="{u}">'
+            f'<meta name="twitter:image:alt" content="{a}">'
+        )
     return f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title>
@@ -63,7 +79,7 @@ def page_head(title, desc, url, og_title):
 <link rel="canonical" href="{e(url)}">
 <meta property="og:type" content="article"><meta property="og:title" content="{e(og_title)}">
 <meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{e(url)}">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image">{img}
 <style>{TOKENS_DIST}{PAGE_CSS}{BOARD_RULES}</style></head><body><div class="wrap">"""
 
 
@@ -76,14 +92,21 @@ def board_page(b, prev_b, next_b):
     desc = seo.get("description") or b.get("dek", "")
     src = b.get("source", {})
     src_line = " · ".join(x for x in [src.get("title"), src.get("author")] if x)
+    og_image = f"{url}og.png"
+    og_alt = f'Marquee board: {" ".join(b["board"])}'
+    # Article schema aligned to the site's Person entity (fixes/schema-snippets-deployed.php).
     jsonld = {
-        "@context": "https://schema.org", "@type": "CreativeWork",
-        "headline": " ".join(b["board"]), "abstract": desc, "url": url,
-        "datePublished": b.get("date"), "creator": {"@type": "Person", "name": "Kris Krüg"},
+        "@context": "https://schema.org", "@type": "Article",
+        "headline": title, "description": desc, "abstract": b.get("dek", ""), "url": url,
+        "datePublished": b.get("date"),
+        "author": {"@id": f"{SITE}/#person"}, "publisher": {"@id": f"{SITE}/#person"},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": url},
+        "image": {"@type": "ImageObject", "url": og_image, "width": 1200, "height": 630, "caption": og_alt},
         "keywords": ", ".join(b.get("tags", [])),
+        "articleSection": "Marquee",
         "isBasedOn": src.get("author") or src.get("title"),
     }
-    out = page_head(title, desc, url, title)
+    out = page_head(title, desc, url, title, og_image=og_image, og_alt=og_alt)
     out += f'<div class="top"><span>marquee · {e(b.get("week",""))}</span><a href="{BASE}/">← all boards</a></div>\n'
     out += board_section(b["board"], b.get("kicker", "marquee"), b.get("skin", "led")) + "\n"
     out += f'<p class="dek">{b.get("dek","")}</p>\n'
@@ -110,9 +133,11 @@ def board_page(b, prev_b, next_b):
 def index_page(boards):
     e = html.escape
     url = f"{SITE}{BASE}/"
+    live = next((b for b in boards if b.get("status") == "live"), boards[0] if boards else None)
+    og = f'{url}{(live.get("seo", {}).get("slug") or live["id"])}/og.png' if live else None
     out = page_head("The Marquee — archive of remixed boards | Kris Krüg",
                     "A growing wall of marquee boards: the sharpest line from what Kris Krüg is making and saying, remixed into lights. One graphic, one micro-post, one indexed page at a time.",
-                    url, "The Marquee — Kris Krüg")
+                    url, "The Marquee — Kris Krüg", og_image=og, og_alt="The Marquee — Kris Krüg")
     out += '<div class="top"><span>kriskrug.co</span><a href="/">← home</a></div>\n'
     out += '<h1 class="idx">The Marquee</h1>\n'
     out += '<p class="lede">A descendant of the Krug × Coupland marquee boards. Each week the sharpest line from what I\'m making gets remixed into lights — then archived here as its own little indexed page.</p>\n'
@@ -158,24 +183,60 @@ def write_theme_partial(data):
     print(f"  theme  → assets/js/marquee.js")
 
 
+def slug_of(b):
+    return b.get("seo", {}).get("slug") or b["id"]
+
+
+def sitemap_xml(boards):
+    """A urlset for the /marquee/ index + each board page, with the board's og image."""
+    NS = ('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+          'xmlns:image="http://www.sitemaps.org/schemas/sitemap-image/1.1"')
+    rows = [f'  <url><loc>{SITE}{BASE}/</loc></url>']
+    for b in boards:
+        slug = slug_of(b)
+        loc = f"{SITE}{BASE}/{slug}/"
+        lastmod = f"<lastmod>{b['date']}</lastmod>" if b.get("date") else ""
+        rows.append(
+            f'  <url><loc>{loc}</loc>{lastmod}'
+            f'<image:image><image:loc>{loc}og.png</image:loc></image:image></url>'
+        )
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            f'<urlset {NS}>\n' + "\n".join(rows) + "\n</urlset>\n")
+
+
 def main():
     data = load()
     boards = data.get("boards", [])
     write_theme_partial(data)
-    if DIST_DIR.exists():
-        shutil.rmtree(DIST_DIR)
-    DIST_DIR.mkdir(parents=True)
-    order = boards  # live first as authored
-    for i, b in enumerate(order):
-        prev_b = (order[i - 1].get("seo", {}).get("slug") or order[i - 1]["id"]) if i > 0 else None
-        next_b = (order[i + 1].get("seo", {}).get("slug") or order[i + 1]["id"]) if i < len(order) - 1 else None
+    DIST_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Prune-and-overwrite (NOT rmtree): removes only dirs for boards that no longer exist, so
+    # committed og.png files survive scan-only CI rebuilds (which can't re-render them).
+    valid = {slug_of(b) for b in boards}
+    for child in DIST_DIR.iterdir():
+        if child.is_dir() and child.name not in valid:
+            shutil.rmtree(child)
+
+    og_on = og_available()
+    if not og_on:
+        print("  og     → skipped (no browser; existing og.png preserved)")
+    for i, b in enumerate(boards):
+        prev_b = slug_of(boards[i - 1]) if i > 0 else None
+        next_b = slug_of(boards[i + 1]) if i < len(boards) - 1 else None
         slug, page = board_page(b, prev_b, next_b)
         d = DIST_DIR / slug
         d.mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(page, encoding="utf-8")
-        print(f"  board → {BASE}/{slug}/")
-    (DIST_DIR / "index.html").write_text(index_page(order), encoding="utf-8")
-    print(f"  index → {BASE}/  ({len(order)} board{'s' if len(order)!=1 else ''})")
+        if og_on:
+            ok = render_og(b, d)
+            print(f"  board → {BASE}/{slug}/  (og.png {'✓' if ok else '—'})")
+        else:
+            print(f"  board → {BASE}/{slug}/")
+
+    (DIST_DIR / "index.html").write_text(index_page(boards), encoding="utf-8")
+    (DIST_DIR / "marquee-sitemap.xml").write_text(sitemap_xml(boards), encoding="utf-8")
+    print(f"  index → {BASE}/  ({len(boards)} board{'s' if len(boards)!=1 else ''})")
+    print(f"  sitemap → {BASE}/marquee-sitemap.xml")
     print(f"\nBuilt archive into {DIST_DIR.relative_to(DIST_DIR.parents[2])}")
 
 
