@@ -112,6 +112,21 @@ function enqueue_assets(): void {
         ]
     );
 
+    // Marquee board flip animation — deferred, front page only (the board lives in the hero).
+    // Cells are pre-rendered in the partial, so this is pure progressive enhancement.
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'kk-aurora-marquee',
+            get_theme_file_uri('assets/js/marquee.js'),
+            [],
+            KK_AURORA_VERSION,
+            [
+                'strategy' => 'defer',
+                'in_footer' => true,
+            ]
+        );
+    }
+
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_assets');
 

@@ -65,30 +65,61 @@ The pipeline is **scan → curate → promote → build**: `scan.py` only *propo
 (`proposals.json`); a human moves the good ones into `marquee.json` `candidates`;
 `promote.py` applies the pick and archives the old board; `build.py` renders the wall.
 
+## Closed loop (Tier 1)
+
+`build.py` compiles the live board from `marquee.json` into **deployable theme assets**, so
+promoting a board actually changes the home hero:
+
+- `theme/kk-aurora/parts/marquee-current.html` — the live board, **pre-rendered** (visible
+  without JS, no layout shift), styled with Aurora tokens (`--wp--preset--color--signal`, …).
+- `theme/kk-aurora/assets/js/marquee.js` — the flip animation, enqueued **deferred, front-page
+  only** (progressive enhancement; respects `prefers-reduced-motion`).
+- `patterns/marquee-hero.php` — a thin wrapper that includes the generated partial.
+
+So `promote.py → build.py` updates the hero with no hand-editing, and the board ships with the
+theme on the next cutover. The marquee is **on-brand** (Aurora Signal red, not invented hex) and
+**perf-safe** (no inline animation above the LCP hero).
+
+> **Lanes.** This feature is cross-cutting: the data/scripts are Track A, the generated theme
+> assets are Track B. Keep *content* edits (marquee.json, scan/promote) and *theme* edits in
+> separate PRs where practical; the generated partial + JS are build artifacts of a promote.
+
 ## Files
 
 | File | Role |
 |---|---|
 | `marquee.json` | Data model — `meta`, live + archived `boards[]`, curated `candidates[]`. Source of truth. |
 | `proposals.json` | Raw output of the last scan (scores + provenance). Generated; curate from here. |
-| `preview.html` | **Open in a browser.** v1 board, 4 skins live-switchable, 3 McLuhan candidates. |
+| `preview.html` | **Open in a browser.** Board + 4 skins live-switchable, 3 McLuhan candidates. |
 | `dist/` | Built `/marquee/` archive — one SEO page per board + index wall. Generated. |
 | `../../scripts/marquee/` | `scan.py` · `promote.py` · `build.py` · `render.py` · `marquee_lib.py` |
-| `../../theme/kk-aurora/patterns/marquee-hero.php` | Drop-in WordPress hero pattern (self-contained, LED). |
+| `../../theme/kk-aurora/parts/marquee-current.html` | Generated live board (deployed with theme). |
+| `../../theme/kk-aurora/assets/js/marquee.js` | Generated deferred flip animation. |
+| `../../theme/kk-aurora/patterns/marquee-hero.php` | Thin hero wrapper that includes the partial. |
 
 ## Skins
 `led` (dot-matrix ticker · **default**) · `splitflap` (Solari departure board) ·
 `letterpress` (Clash Display type-remix) · `teletype` (AI terminal). One board, four looks;
 switch via `meta.default_skin` / a board's `skin`.
 
-## Status — v1 prototype
+## Status
+
+**v1 (merged):**
 - [x] Data model + McLuhan seed board ("The Model Is the Message")
 - [x] Standalone visual preview with 4 skins + 3 candidates
-- [x] WordPress drop-in pattern (LED)
 - [x] Pick-flow chosen (**GitHub draft PR**) + weekly Action wired
 - [x] SCAN step — reads `content/drafts/` → ranked proposals (proven on 55 real drafts)
 - [x] `/marquee/` archive builder — SEO pages (OG, Twitter, JSON-LD) + index wall
 - [x] Promote step — applies the pick, archives the previous board
+
+**Tier 1 (this round):**
+- [x] **Closed the loop** — hero renders FROM `marquee.json` via generated theme partial
+- [x] **On-brand** — LED skin uses Aurora tokens (Signal `#F15B43`), not invented hex
+- [x] **Perf-safe** — pre-rendered cells (no-JS / no-CLS) + deferred external animation
+- [x] Tests — `scripts/tests/test_marquee_render.py` locks the above
+
+**Next (Tier 2 / 3):**
+- [ ] OG share image per board + `/marquee/` sitemap discoverability
 - [ ] Extend SCAN to published posts + Beehiiv dispatch (MCP)
 - [ ] `marquee` WP post type / route so `/marquee/` is served by WordPress (currently static `dist/`)
-- [ ] Promote into the live home hero (swap the pattern into `front-page.html`)
+- [ ] Decide full hero takeover vs. lead-band (currently leads above the photo hero)
