@@ -1,0 +1,36 @@
+name: backlog-reconcile
+
+# Report-only weekly drift detector. Surfaces open issues that look already-done
+# (referenced by merged PRs), merged-but-unpruned branches, and stale wishlist
+# issues. NEVER closes issues or deletes branches — it flags for the next
+# session to action. See scripts/reconcile_backlog.py.
+
+on:
+  schedule:
+    - cron: "0 14 * * 1"   # Mondays 14:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so branch ancestry checks work
+      - name: Run backlog reconcile (report-only)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/reconcile_backlog.py --stale-days 90 --write --timestamp "$(date -u +%Y%m%d-%H%M%SZ)" | tee "$GITHUB_STEP_SUMMARY"
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: backlog-reconcile-report
+          path: docs/current-state/reports/backlog-reconcile-*.md
+          if-no-files-found: warn
+          retention-days: 90
