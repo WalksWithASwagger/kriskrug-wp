@@ -38,6 +38,15 @@ KK's chosen impact bet. Outcome: more already-done than expected; verification +
 
 **Key lesson repeated:** verify-live-first beat stale issue/memory framing three times (the protest arc already published, the About roster already live + correct, Indigenomics already past). The triage agent and DECISION-QUEUE over-stated remaining work; live checks corrected it before any wasted build.
 
+## "Proceed" actions (end of session)
+
+- **PR #258 merged** to main (`abe06bb`) — `scripts/common.py` + 16 tests now on main; feature branch deleted. CI green.
+- **Stash dropped** — the superseded 2026-06-03 Aurora stash (its callout/lead styles already live in 1.3.24).
+- **#18 Vancouver AI hub — closed against live, no duplicate built.** Verify-first found a live community front door already shipped: `/vancouver-ai/` (page 12315, "Vancouver AI Ecosystem") + `/ai-events/` (page 12317, "AI Events & Recaps"). Building the planned `/community/vancouver-ai/` page would have duplicated 12315 and split SEO. Draft's extra sections (participate block, resource list) filed as optional enhancements to 12315.
+- Open issues 50 → **44** this session (closed #5, #44, #13, #14, #15, #18).
+
+**Net:** the Credibility & Positioning lane is essentially fully realized — most of it was already live; real new work was the Glossary page + About CTAs. The recurring lesson: this site is well ahead of its issue backlog; verify-live-first before building.
+
 ## Open loose ends (for KK)
 
 - **PR #258** — merge or hold (it's done, low-risk plumbing; off the headline lane).
