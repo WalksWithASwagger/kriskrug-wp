@@ -13,7 +13,7 @@
  */
 ?>
 <!-- wp:html -->
-<section class="kkm" aria-label="Marquee board: The Model Is the Message" data-skin="splitflap">
+<section class="kkm" aria-label="Marquee board: The Model Is the Message" data-skin="led">
   <div class="kkm-frame">
     <p class="kkm-kicker">now showing · marquee n&ordm;1 · after marshall mcluhan</p>
     <div class="kkm-board"
@@ -46,6 +46,13 @@
          box-shadow:inset 0 1px 0 rgba(255,255,255,.05),inset 0 -1px 0 rgba(0,0,0,.6),0 2px 4px rgba(0,0,0,.5)}
     .kkm-cell::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#000;opacity:.7}
     .kkm-cell.kkm-space{background:transparent;box-shadow:none;width:clamp(10px,2.4vw,24px)}
+    /* LED dot-matrix skin (default) */
+    .kkm[data-skin="led"] .kkm-cell{background:#0a0a0f;color:#ff3b3b;border-radius:4px;
+         text-shadow:0 0 10px #ff3b3b,0 0 22px #ff1010;
+         background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.4px);background-size:6px 6px}
+    .kkm[data-skin="led"] .kkm-cell::after{display:none}
+    .kkm[data-skin="led"] .kkm-kicker{color:#ff5a5a}
+    .kkm[data-skin="led"] .kkm-kicker::before{background:#ff3b3b;box-shadow:0 0 12px #ff3b3b}
     .kkm-dek{font-size:clamp(15px,2vw,18px);line-height:1.5;color:#d9d9e3;margin:22px 0 0;max-width:62ch}
     .kkm-dek b{color:#fff}
     .kkm-foot{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;margin:18px 0 0;

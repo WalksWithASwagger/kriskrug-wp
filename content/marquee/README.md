@@ -45,38 +45,50 @@ Cadence: **weekly, or whenever there's interesting shit to say.** Not a fixed cr
 
 ---
 
-## Pick-flow (the one open decision)
+## Pick-flow — **GitHub draft PR** (chosen)
 
-How the 2–3 options reach Kris each round. Candidates, pick whichever feels right — all are buildable:
+Every Monday (`.github/workflows/marquee-weekly.yml`) the loop scans drafts, rebuilds the
+archive, and opens a **draft PR** listing the week's candidates. Kris picks one in the PR,
+runs `promote.py`, and merges. Nothing goes live until promoted.
 
-| Option | How it feels | Cost |
-|---|---|---|
-| **GitHub draft PR** | Loop opens a PR with rendered candidates + source notes; approve & merge. Fits this repo. | low |
-| **WordPress drafts** | Candidates land as draft `marquee` posts; pick/publish from WP admin. No git in the weekly loop. | med |
-| **Email / Beehiiv digest** | A short digest of the options hits the inbox; reply/click to choose. Lowest friction. | med |
+## Run it locally
 
-Default until told otherwise: **GitHub draft PR** (matches how everything else here ships).
+```bash
+cd scripts/marquee
+python3 scan.py --limit 8 --write          # mine drafts → proposals.json (proposes, never overwrites)
+python3 promote.py --list                  # see live board + curated candidates
+python3 promote.py --candidate cand-mcluhan-tools-shape-us --week 2026-W28
+python3 build.py                           # render /marquee/ archive (SEO pages + index wall)
+```
 
----
+The pipeline is **scan → curate → promote → build**: `scan.py` only *proposes*
+(`proposals.json`); a human moves the good ones into `marquee.json` `candidates`;
+`promote.py` applies the pick and archives the old board; `build.py` renders the wall.
 
 ## Files
 
 | File | Role |
 |---|---|
-| `marquee.json` | Data model — `meta`, live `boards[]`, pending `candidates[]`. Single source of truth. |
+| `marquee.json` | Data model — `meta`, live + archived `boards[]`, curated `candidates[]`. Source of truth. |
+| `proposals.json` | Raw output of the last scan (scores + provenance). Generated; curate from here. |
 | `preview.html` | **Open in a browser.** v1 board, 4 skins live-switchable, 3 McLuhan candidates. |
-| `archive/` | Past boards (one record each) → become `/marquee/<slug>/` pages. |
-| `../../theme/kk-aurora/patterns/marquee-hero.php` | Drop-in WordPress block pattern (self-contained). |
+| `dist/` | Built `/marquee/` archive — one SEO page per board + index wall. Generated. |
+| `../../scripts/marquee/` | `scan.py` · `promote.py` · `build.py` · `render.py` · `marquee_lib.py` |
+| `../../theme/kk-aurora/patterns/marquee-hero.php` | Drop-in WordPress hero pattern (self-contained, LED). |
 
 ## Skins
-`splitflap` (Solari departure board · default) · `led` (dot-matrix ticker) ·
-`letterpress` (Clash Display type-remix) · `teletype` (AI terminal). One board, four looks; switch in `marquee.json`.
+`led` (dot-matrix ticker · **default**) · `splitflap` (Solari departure board) ·
+`letterpress` (Clash Display type-remix) · `teletype` (AI terminal). One board, four looks;
+switch via `meta.default_skin` / a board's `skin`.
 
 ## Status — v1 prototype
 - [x] Data model + McLuhan seed board ("The Model Is the Message")
 - [x] Standalone visual preview with 4 skins + 3 candidates
-- [x] WordPress drop-in pattern (split-flap)
-- [ ] Pick-flow chosen + wired
-- [ ] SCAN step (reads drafts/posts/Beehiiv → candidates)
-- [ ] `marquee` post type + `/marquee/` archive route + SEO/OG
-- [ ] Promote into the live hero on the home page
+- [x] WordPress drop-in pattern (LED)
+- [x] Pick-flow chosen (**GitHub draft PR**) + weekly Action wired
+- [x] SCAN step — reads `content/drafts/` → ranked proposals (proven on 55 real drafts)
+- [x] `/marquee/` archive builder — SEO pages (OG, Twitter, JSON-LD) + index wall
+- [x] Promote step — applies the pick, archives the previous board
+- [ ] Extend SCAN to published posts + Beehiiv dispatch (MCP)
+- [ ] `marquee` WP post type / route so `/marquee/` is served by WordPress (currently static `dist/`)
+- [ ] Promote into the live home hero (swap the pattern into `front-page.html`)

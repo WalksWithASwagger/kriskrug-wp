@@ -1,0 +1,76 @@
+name: Marquee Weekly Scan
+
+# The Marquee loop — SCAN step. Every Monday (and on demand) it reads Kris's drafts,
+# proposes 2–8 board candidates, rebuilds the /marquee/ archive, and opens a DRAFT PR
+# with the proposals. Kris picks one in the PR; promote.py applies the pick.
+# Pick-flow: GitHub draft PR.
+
+on:
+  schedule:
+    - cron: "0 15 * * 1"   # Mondays 15:00 UTC
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max candidates to propose"
+        required: false
+        default: "8"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install pyyaml
+
+      - name: Scan drafts → proposals
+        run: |
+          cd scripts/marquee
+          python3 scan.py --limit "${{ github.event.inputs.limit || '8' }}" --write
+
+      - name: Rebuild /marquee/ archive
+        run: |
+          cd scripts/marquee
+          python3 build.py
+
+      - name: Summarize proposals for PR body
+        id: summary
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, pathlib
+          p = json.loads(pathlib.Path("content/marquee/proposals.json").read_text())
+          lines = ["body<<EOF",
+                   "## 🪧 This week's marquee candidates",
+                   "",
+                   f"Scanned your drafts and pulled **{p['count']}** board-worthy lines. "
+                   "Pick one (or tweak it), then run `promote.py --candidate <id>`:",
+                   ""]
+          for c in p["candidates"]:
+              lines.append(f"- **{' / '.join(c['board'])}**  ·  _{c['source']['title']}_  ·  `{c['id']}`")
+          lines += ["",
+                    "Nothing is live until you promote. The previous board stays in the archive.",
+                    "EOF"]
+          print("\n".join(lines))
+          PY
+
+      - name: Open draft PR with proposals
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: marquee/weekly-proposals
+          base: main
+          draft: true
+          commit-message: "marquee: weekly scan — proposed board candidates"
+          title: "🪧 Marquee — weekly board candidates"
+          body: ${{ steps.summary.outputs.body }}
+          add-paths: |
+            content/marquee/proposals.json
+            content/marquee/dist/**

@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Model Is the Message — McLuhan for the Age of Generative Everything</title>
+<meta name="description" content="Marshall McLuhan said the medium is the message. In the age of AI, the model is the medium: weights, training data, and defaults are the message now. A Kris Krug marquee board.">
+<link rel="canonical" href="https://kriskrug.co/marquee/the-model-is-the-message/">
+<meta property="og:type" content="article"><meta property="og:title" content="The Model Is the Message — McLuhan for the Age of Generative Everything">
+<meta property="og:description" content="Marshall McLuhan said the medium is the message. In the age of AI, the model is the medium: weights, training data, and defaults are the message now. A Kris Krug marquee board."><meta property="og:url" content="https://kriskrug.co/marquee/the-model-is-the-message/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#0a0a0f;color:#f6f5f2;
+  font-family:"Clash Display",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:radial-gradient(1200px 600px at 50% -10%,rgba(255,59,59,.06),transparent 60%),#0a0a0f}
+.wrap{max-width:1000px;margin:0 auto;padding:28px 18px 72px}
+a{color:#00e0c6;text-decoration:none}
+.top{display:flex;justify-content:space-between;align-items:center;font-family:"JetBrains Mono",monospace;
+  font-size:12px;color:#8a8aa0;text-transform:uppercase;letter-spacing:.16em;margin-bottom:8px}
+.dek{font-size:clamp(16px,2.2vw,20px);line-height:1.55;color:#d9d9e3;max-width:64ch;margin:26px auto 0}
+.dek b{color:#fff}
+.src{font-family:"JetBrains Mono",monospace;font-size:12px;color:#8a8aa0;margin-top:18px;line-height:1.7;
+  border-left:2px solid #1d1d2b;padding-left:14px;max-width:64ch}
+.src .k{color:#00e0c6}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-family:"JetBrains Mono",monospace;font-size:10px;color:#8a8aa0;border:1px solid #1d1d2b;
+  border-radius:999px;padding:3px 9px}
+.nav{display:flex;justify-content:space-between;margin-top:40px;font-family:"JetBrains Mono",monospace;font-size:12px}
+h1.idx{font-size:clamp(26px,5vw,46px);margin:6px 0 4px;letter-spacing:-.02em}
+.lede{color:#8a8aa0;max-width:60ch;margin:0 0 28px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.card{background:#101019;border:1px solid #1d1d2b;border-radius:14px;padding:18px;display:block;transition:.15s}
+.card:hover{border-color:#ff3b3b}
+.card .ph{font-family:"JetBrains Mono",monospace;font-weight:700;color:#ff5a5a;font-size:15px;line-height:1.3}
+.card .wk{font-family:"JetBrains Mono",monospace;font-size:10px;color:#8a8aa0;margin-top:10px;
+  text-transform:uppercase;letter-spacing:.1em}
+.live{color:#ffb000}
+
+.kkm{--kkm-amber:#ffb000;--kkm-line:#1d1d2b;--kkm-mono:"JetBrains Mono",ui-monospace,monospace;
+     display:flex;justify-content:center;padding:clamp(20px,4vw,44px) 16px}
+.kkm-frame{width:min(960px,100%);border-radius:18px;padding:clamp(24px,4vw,40px) clamp(18px,3vw,32px);
+     background:linear-gradient(180deg,#0e0e16,#08080d);border:1px solid var(--kkm-line);
+     box-shadow:0 40px 120px -50px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.04)}
+.kkm-kicker{font-family:var(--kkm-mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;
+     color:var(--kkm-amber);display:flex;gap:10px;align-items:center;margin:0 0 22px}
+.kkm-kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--kkm-amber);
+     box-shadow:0 0 12px var(--kkm-amber);animation:kkm-pulse 2s infinite}
+@keyframes kkm-pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.kkm-board{display:flex;flex-direction:column;gap:10px;user-select:none}
+.kkm-row{display:flex;flex-wrap:wrap;gap:6px}
+.kkm-cell{position:relative;display:inline-flex;align-items:center;justify-content:center;
+     width:clamp(26px,5.4vw,56px);height:clamp(40px,8vw,82px);font-family:var(--kkm-mono);font-weight:700;
+     font-size:clamp(20px,4.4vw,46px);line-height:1;background:#15151f;color:var(--kkm-amber);border-radius:6px;
+     box-shadow:inset 0 1px 0 rgba(255,255,255,.05),inset 0 -1px 0 rgba(0,0,0,.6),0 2px 4px rgba(0,0,0,.5)}
+.kkm-cell::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#000;opacity:.7}
+.kkm-cell.kkm-space{background:transparent;box-shadow:none;width:clamp(10px,2.4vw,24px)}
+/* LED */
+.kkm[data-skin="led"] .kkm-cell{background:#0a0a0f;color:#ff3b3b;border-radius:4px;
+     text-shadow:0 0 10px #ff3b3b,0 0 22px #ff1010;
+     background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.4px);background-size:6px 6px}
+.kkm[data-skin="led"] .kkm-cell::after{display:none}
+.kkm[data-skin="led"] .kkm-kicker{color:#ff5a5a}
+.kkm[data-skin="led"] .kkm-kicker::before{background:#ff3b3b;box-shadow:0 0 12px #ff3b3b}
+/* Letterpress */
+.kkm[data-skin="letterpress"] .kkm-frame{background:linear-gradient(180deg,#f6f3ec,#ece7da);border-color:#ddd6c4}
+.kkm[data-skin="letterpress"] .kkm-cell{background:transparent;box-shadow:none;color:#16140f;
+     font-family:var(--kkm-mono);font-weight:800;font-size:clamp(26px,6vw,72px);width:auto;height:auto;
+     padding:0 .02em;letter-spacing:-.02em}
+.kkm[data-skin="letterpress"] .kkm-cell::after{display:none}
+.kkm[data-skin="letterpress"] .kkm-kicker{color:#8a6a00}
+.kkm[data-skin="letterpress"] .kkm-kicker::before{background:#8a6a00;box-shadow:none}
+/* Teletype */
+.kkm[data-skin="teletype"] .kkm-frame{background:#04060a;border-color:#0c2a26}
+.kkm[data-skin="teletype"] .kkm-cell{background:transparent;box-shadow:none;color:#00e0c6;
+     font-family:var(--kkm-mono);font-weight:600;font-size:clamp(18px,4.2vw,42px);width:auto;height:auto;
+     text-shadow:0 0 8px rgba(0,224,198,.5)}
+.kkm[data-skin="teletype"] .kkm-cell::after{display:none}
+.kkm[data-skin="teletype"] .kkm-kicker{color:#00e0c6}
+</style></head><body><div class="wrap"><div class="top"><span>marquee · 2026-W26</span><a href="/marquee/">← all boards</a></div>
+<section class="kkm" data-skin="led" aria-label="THE MODEL IS THE MESSAGE">
+  <div class="kkm-frame">
+    <p class="kkm-kicker">now showing · marquee nº1</p>
+    <div class="kkm-board" data-board="[&quot;THE MODEL&quot;, &quot;IS THE&quot;, &quot;MESSAGE&quot;]" aria-label="THE MODEL IS THE MESSAGE"></div>
+  </div>
+</section>
+<p class="dek">McLuhan said the medium is the message — the channel reshapes us more than the content it carries. In the age of generative everything, the model is the medium. The weights, the training data, the defaults: that's the message now.</p>
+<p class="src"><span class="k">after</span> Marshall McLuhan<br><span class="k">source</span> Understanding Media: The Extensions of Man · Marshall McLuhan, 1964<br><span class="k">remix</span> Kris&#x27;s running thesis that AI models are environments, not tools — see field notes on &#x27;authored judgment in the age of generative everything.&#x27;</p>
+<div class="tags"><span class="tag">#mcluhan</span><span class="tag">#media-theory</span><span class="tag">#ai</span><span class="tag">#the-medium-is-the-message</span><span class="tag">#generative-ai</span><span class="tag">#punk-rock-ai</span></div>
+<div class="nav"><span></span><span></span></div>
+<script type="application/ld+json">{&quot;@context&quot;: &quot;https://schema.org&quot;, &quot;@type&quot;: &quot;CreativeWork&quot;, &quot;headline&quot;: &quot;THE MODEL IS THE MESSAGE&quot;, &quot;abstract&quot;: &quot;Marshall McLuhan said the medium is the message. In the age of AI, the model is the medium: weights, training data, and defaults are the message now. A Kris Krug marquee board.&quot;, &quot;url&quot;: &quot;https://kriskrug.co/marquee/the-model-is-the-message/&quot;, &quot;datePublished&quot;: &quot;2026-06-26&quot;, &quot;creator&quot;: {&quot;@type&quot;: &quot;Person&quot;, &quot;name&quot;: &quot;Kris Kr\u00fcg&quot;}, &quot;keywords&quot;: &quot;mcluhan, media-theory, ai, the-medium-is-the-message, generative-ai, punk-rock-ai&quot;, &quot;isBasedOn&quot;: &quot;Marshall McLuhan, 1964&quot;}</script><script>
+document.querySelectorAll('.kkm-board').forEach(function(board){
+  var lines = JSON.parse(board.getAttribute('data-board'));
+  var GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ#@%&".split("");
+  var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  lines.forEach(function(line){
+    var row = document.createElement('div'); row.className='kkm-row';
+    line.split('').forEach(function(ch){
+      var c=document.createElement('div');
+      c.className='kkm-cell'+(ch===' '?' kkm-space':'');
+      c.setAttribute('data-final', ch); c.textContent = ch===' '?'':ch;
+      row.appendChild(c);
+    });
+    board.appendChild(row);
+  });
+  if(reduce) return;
+  board.querySelectorAll('.kkm-cell:not(.kkm-space)').forEach(function(cell,idx){
+    var ticks = 6 + (idx % 7) + Math.floor(idx/3);
+    var iv = setInterval(function(){
+      if(ticks<=0){ cell.textContent = cell.getAttribute('data-final'); clearInterval(iv); return; }
+      cell.textContent = GLYPHS[(idx*3+ticks)%GLYPHS.length]; ticks--;
+    }, 45);
+  });
+});
+</script></div></body></html>

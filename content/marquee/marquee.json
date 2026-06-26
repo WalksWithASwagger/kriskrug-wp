@@ -4,7 +4,7 @@
     "name": "The Marquee",
     "lineage": "Descendant of the Kris Krug x Douglas Coupland marquee boards — ideas remixed into topography. Now the idea-feed is Kris's own output.",
     "current": "2026-w26-mcluhan-the-model-is-the-message",
-    "default_skin": "splitflap",
+    "default_skin": "led",
     "cadence": "weekly-or-when-there-is-interesting-shit-to-say"
   },
   "boards": [
@@ -14,7 +14,7 @@
       "week": "2026-W26",
       "date": "2026-06-26",
       "after": "Marshall McLuhan",
-      "skin": "splitflap",
+      "skin": "led",
       "board": ["THE MODEL", "IS THE", "MESSAGE"],
       "kicker": "now showing · marquee nº1",
       "dek": "McLuhan said the medium is the message — the channel reshapes us more than the content it carries. In the age of generative everything, the model is the medium. The weights, the training data, the defaults: that's the message now.",
