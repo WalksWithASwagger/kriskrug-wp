@@ -1,0 +1,164 @@
+{
+  "generated_from": "content/drafts",
+  "count": 8,
+  "candidates": [
+    {
+      "id": "cand-ai-glossary-the-learned-parameters-i",
+      "board": [
+        "THE LEARNED",
+        "PARAMETERS",
+        "INSIDE A MODEL"
+      ],
+      "line": "The learned parameters inside a model",
+      "kind": "lead",
+      "score": 7.92,
+      "dek": "Plain-language definitions for the AI, local technology, data governance, Indigenous governance, and creative AI terms that show up across KrisKrug.co.",
+      "source": {
+        "title": "AI Glossary",
+        "slug": "glossary"
+      },
+      "tags": []
+    },
+    {
+      "id": "cand-ai-glossary-land-that-was-not-surren",
+      "board": [
+        "LAND THAT WAS",
+        "NOT SURRENDERED",
+        "THROUGH TREATY"
+      ],
+      "line": "Land that was not surrendered through treaty",
+      "kind": "lead",
+      "score": 7.64,
+      "dek": "Plain-language definitions for the AI, local technology, data governance, Indigenous governance, and creative AI terms that show up across KrisKrug.co.",
+      "source": {
+        "title": "AI Glossary",
+        "slug": "glossary"
+      },
+      "tags": []
+    },
+    {
+      "id": "cand-rewiring-education-hacking-the-system-for-an-ai-powered-futu-why-memorization-is-so-l",
+      "board": [
+        "WHY MEMORIZATION",
+        "IS SO LAST",
+        "CENTURY"
+      ],
+      "line": "Why Memorization Is So Last Century",
+      "kind": "lead",
+      "score": 7.37,
+      "dek": "A draft on rewiring education for an AI-powered future, with a focus on agency, experimentation, and rebuilding learning around real creative practice.",
+      "source": {
+        "title": "Rewiring Education: Hacking the System for an AI-Powered Future",
+        "slug": "rewiring-education-hacking-the-system-for-an-ai-powered-future"
+      },
+      "tags": []
+    },
+    {
+      "id": "cand-you-cant-drink-data-were-a-nonprofit",
+      "board": [
+        "WE'RE A",
+        "NONPROFIT"
+      ],
+      "line": "We're a nonprofit",
+      "kind": "lead",
+      "score": 7.31,
+      "dek": "Remixed from “You Can't Drink Data.”",
+      "source": {
+        "title": "You Can't Drink Data",
+        "slug": "2026-05-23-you-cant-drink-data"
+      },
+      "tags": [
+        "ai-protest",
+        "data-centres",
+        "vancouver",
+        "clean-energy-ai",
+        "indigenous-data-sovereignty"
+      ]
+    },
+    {
+      "id": "cand-ai-keynote-slides-need-taste-before-prompts-real-photos-are-part-of-",
+      "board": [
+        "REAL PHOTOS ARE",
+        "PART OF THE",
+        "CHAIN TOO"
+      ],
+      "line": "Real photos are part of the chain too",
+      "kind": "quote",
+      "score": 7.02,
+      "dek": "My creative operating system for turning raw talk notes into prompts, graphics, slides, websites, posts, guides, and other artifacts without letting AI flatten the work into generic slop.",
+      "source": {
+        "title": "AI Keynote Slides Need Taste Before Prompts",
+        "slug": "ai-keynote-slides-visual-workflow"
+      },
+      "tags": [
+        "ai-keynote-slides",
+        "keynote-visual-workflow",
+        "ai-image-prompts",
+        "canva",
+        "rafiki"
+      ]
+    },
+    {
+      "id": "cand-nobel-chemistry-foldit-foldit-wasnt-your-typica",
+      "board": [
+        "FOLDIT WASN’T",
+        "YOUR TYPICAL",
+        "DIGITAL ESCAPISM"
+      ],
+      "line": "Foldit wasn’t your typical digital escapism",
+      "kind": "lead",
+      "score": 6.98,
+      "dek": "A short draft connecting Foldit, protein folding, citizen science, and the strange joy of watching games spill into Nobel-worthy discovery.",
+      "source": {
+        "title": "Nobel Chemistry Foldit",
+        "slug": "nobel-chemistry-foldit"
+      },
+      "tags": []
+    },
+    {
+      "id": "cand-ai-wont-fix-your-broken-permit-process-llms-are-trained-on-what",
+      "board": [
+        "LLMS ARE TRAINED",
+        "ON WHAT EXISTS"
+      ],
+      "line": "LLMs are trained on what exists",
+      "kind": "lead",
+      "score": 6.83,
+      "dek": "AI will not repair broken civic systems by itself. Permit reform needs better process, public accountability, and human judgment before automation can help.",
+      "source": {
+        "title": "AI Won't Fix Your Broken Permit Process",
+        "slug": "ai-wont-fix-your-broken-permit-process"
+      },
+      "tags": [
+        "ai-governance",
+        "civic-tech",
+        "government-ai",
+        "public-sector",
+        "responsible-ai"
+      ]
+    },
+    {
+      "id": "cand-canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one-canada-distinctive-not-d",
+      "board": [
+        "CANADA",
+        "DISTINCTIVE, NOT",
+        "DERIVATIVE"
+      ],
+      "line": "Canada distinctive, not derivative",
+      "kind": "lead",
+      "score": 6.78,
+      "dek": "Canada does need AI infrastructure. But without consent, climate discipline, Indigenous governance, and community benefit, bigger just means faster extraction.",
+      "source": {
+        "title": "Canada Doesn't Need a Bigger AI Machine. It Needs a Better One.",
+        "slug": "canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one"
+      },
+      "tags": [
+        "ai-policy",
+        "sovereign-ai",
+        "ai-governance",
+        "bc-ai",
+        "responsible-ai"
+      ]
+    }
+  ]
+}
