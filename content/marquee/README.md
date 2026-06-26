@@ -112,14 +112,30 @@ switch via `meta.default_skin` / a board's `skin`.
 - [x] `/marquee/` archive builder — SEO pages (OG, Twitter, JSON-LD) + index wall
 - [x] Promote step — applies the pick, archives the previous board
 
-**Tier 1 (this round):**
+**Tier 1 (merged):**
 - [x] **Closed the loop** — hero renders FROM `marquee.json` via generated theme partial
 - [x] **On-brand** — LED skin uses Aurora tokens (Signal `#F15B43`), not invented hex
 - [x] **Perf-safe** — pre-rendered cells (no-JS / no-CLS) + deferred external animation
-- [x] Tests — `scripts/tests/test_marquee_render.py` locks the above
+- [x] Tests — `scripts/tests/test_marquee_render.py`
 
-**Next (Tier 2 / 3):**
-- [ ] OG share image per board + `/marquee/` sitemap discoverability
+**Tier 2 (this round) — SEO completeness:**
+- [x] **OG share image per board** — branded 1200×630 card (`dist/<slug>/og.png`), rendered
+  locally via Chromium (`render_og.cjs` + `og.py`); skips gracefully in scan-only CI.
+- [x] **Complete share meta** — `og:image` (+secure_url/width/height/alt) + `twitter:image`,
+  matching the theme convention (`@feelmoreplants`, `summary_large_image`).
+- [x] **Article schema** — `CreativeWork` → `Article`, `author`/`publisher` → `https://kriskrug.co/#person`.
+- [x] **Sitemap** — `dist/marquee-sitemap.xml`; the robots line is staged in
+  `fixes/robots-txt-ai-policy.php` (commented to activate with Tier 3 serving).
+- [x] Build hardened — prune-and-overwrite (no `rmtree`) so committed OG PNGs survive CI rebuilds.
+- [x] Tests — `scripts/tests/test_marquee_seo.py`.
+
+**Next (Tier 3):**
+- [ ] `marquee` WP post type / route so `/marquee/` (+ `/marquee-sitemap.xml`) is served by WordPress
 - [ ] Extend SCAN to published posts + Beehiiv dispatch (MCP)
-- [ ] `marquee` WP post type / route so `/marquee/` is served by WordPress (currently static `dist/`)
 - [ ] Decide full hero takeover vs. lead-band (currently leads above the photo hero)
+
+### OG images
+A board's share card is generated **locally on build** (needs node + Chromium, present where
+promote runs). In scan-only CI there's no browser, so `og.py:og_available()` is false and the
+build preserves the already-committed `og.png`. Regenerate after a promote with
+`python3 scripts/marquee/build.py`.
