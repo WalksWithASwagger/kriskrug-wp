@@ -11,39 +11,46 @@ from __future__ import annotations
 import html
 import shutil
 
-from marquee_lib import load, DIST_DIR
-from render import BOARD_CSS, BOARD_JS, board_html
+from marquee_lib import load, DIST_DIR, ROOT
+from render import (BOARD_RULES, TOKENS_DIST, TOKENS_WP, board_section,
+                    inline_js, theme_js)
 
 SITE = "https://kriskrug.co"
 BASE = "/marquee"
 
+# Theme targets — build.py compiles the live board into deployable theme assets so the home
+# hero renders FROM marquee.json (closes the promote → hero loop).
+THEME = ROOT / "theme" / "kk-aurora"
+PARTIAL = THEME / "parts" / "marquee-current.html"
+THEME_JS = THEME / "assets" / "js" / "marquee.js"
+
 PAGE_CSS = """
 *{box-sizing:border-box}
-html,body{margin:0;background:#0a0a0f;color:#f6f5f2;
+html,body{margin:0;background:var(--kkm-deep);color:var(--kkm-text);
   font-family:"Clash Display",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:radial-gradient(1200px 600px at 50% -10%,rgba(255,59,59,.06),transparent 60%),#0a0a0f}
+  background:radial-gradient(1200px 600px at 50% -10%,rgba(241,91,67,.06),transparent 60%),var(--kkm-deep)}
 .wrap{max-width:1000px;margin:0 auto;padding:28px 18px 72px}
-a{color:#00e0c6;text-decoration:none}
+a{color:var(--kkm-cyan);text-decoration:none}
 .top{display:flex;justify-content:space-between;align-items:center;font-family:"JetBrains Mono",monospace;
-  font-size:12px;color:#8a8aa0;text-transform:uppercase;letter-spacing:.16em;margin-bottom:8px}
-.dek{font-size:clamp(16px,2.2vw,20px);line-height:1.55;color:#d9d9e3;max-width:64ch;margin:26px auto 0}
+  font-size:12px;color:var(--kkm-text-muted);text-transform:uppercase;letter-spacing:.16em;margin-bottom:8px}
+.dek{font-size:clamp(16px,2.2vw,20px);line-height:1.55;color:var(--kkm-text);max-width:64ch;margin:26px auto 0}
 .dek b{color:#fff}
-.src{font-family:"JetBrains Mono",monospace;font-size:12px;color:#8a8aa0;margin-top:18px;line-height:1.7;
-  border-left:2px solid #1d1d2b;padding-left:14px;max-width:64ch}
-.src .k{color:#00e0c6}
+.src{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--kkm-text-muted);margin-top:18px;line-height:1.7;
+  border-left:2px solid var(--kkm-line);padding-left:14px;max-width:64ch}
+.src .k{color:var(--kkm-cyan)}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-.tag{font-family:"JetBrains Mono",monospace;font-size:10px;color:#8a8aa0;border:1px solid #1d1d2b;
+.tag{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--kkm-text-muted);border:1px solid var(--kkm-line);
   border-radius:999px;padding:3px 9px}
 .nav{display:flex;justify-content:space-between;margin-top:40px;font-family:"JetBrains Mono",monospace;font-size:12px}
 h1.idx{font-size:clamp(26px,5vw,46px);margin:6px 0 4px;letter-spacing:-.02em}
-.lede{color:#8a8aa0;max-width:60ch;margin:0 0 28px;line-height:1.6}
+.lede{color:var(--kkm-text-muted);max-width:60ch;margin:0 0 28px;line-height:1.6}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-.card{background:#101019;border:1px solid #1d1d2b;border-radius:14px;padding:18px;display:block;transition:.15s}
-.card:hover{border-color:#ff3b3b}
-.card .ph{font-family:"JetBrains Mono",monospace;font-weight:700;color:#ff5a5a;font-size:15px;line-height:1.3}
-.card .wk{font-family:"JetBrains Mono",monospace;font-size:10px;color:#8a8aa0;margin-top:10px;
+.card{background:var(--kkm-surface);border:1px solid var(--kkm-line);border-radius:14px;padding:18px;display:block;transition:.15s}
+.card:hover{border-color:var(--kkm-signal)}
+.card .ph{font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--kkm-signal);font-size:15px;line-height:1.3}
+.card .wk{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--kkm-text-muted);margin-top:10px;
   text-transform:uppercase;letter-spacing:.1em}
-.live{color:#ffb000}
+.live{color:var(--kkm-wildcard)}
 """
 
 
@@ -57,7 +64,7 @@ def page_head(title, desc, url, og_title):
 <meta property="og:type" content="article"><meta property="og:title" content="{e(og_title)}">
 <meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{e(url)}">
 <meta name="twitter:card" content="summary_large_image">
-<style>{PAGE_CSS}{BOARD_CSS}</style></head><body><div class="wrap">"""
+<style>{TOKENS_DIST}{PAGE_CSS}{BOARD_RULES}</style></head><body><div class="wrap">"""
 
 
 def board_page(b, prev_b, next_b):
@@ -78,7 +85,7 @@ def board_page(b, prev_b, next_b):
     }
     out = page_head(title, desc, url, title)
     out += f'<div class="top"><span>marquee · {e(b.get("week",""))}</span><a href="{BASE}/">← all boards</a></div>\n'
-    out += board_html(b["board"], b.get("kicker", "marquee"), b.get("skin", "led")) + "\n"
+    out += board_section(b["board"], b.get("kicker", "marquee"), b.get("skin", "led")) + "\n"
     out += f'<p class="dek">{b.get("dek","")}</p>\n'
     if src_line or src.get("remixed_from"):
         out += '<p class="src">'
@@ -96,7 +103,7 @@ def board_page(b, prev_b, next_b):
     out += (f'<a href="{BASE}/{next_b}/">next board →</a>' if next_b else "<span></span>")
     out += "</div>\n"
     out += f'<script type="application/ld+json">{html.escape(__import__("json").dumps(jsonld))}</script>'
-    out += f"<script>{BOARD_JS}</script></div></body></html>"
+    out += f"<script>{inline_js()}</script></div></body></html>"
     return slug, out
 
 
@@ -119,9 +126,42 @@ def index_page(boards):
     return out
 
 
+def live_board(data):
+    for b in data.get("boards", []):
+        if b.get("status") == "live":
+            return b
+    return data.get("boards", [None])[0]
+
+
+def write_theme_partial(data):
+    """Compile the live board into a deployable theme partial + the deferred animation asset.
+
+    parts/marquee-current.html holds the pre-rendered board (token colors via theme presets,
+    no script). assets/js/marquee.js is the single-source flip animation, enqueued deferred.
+    This is what closes the promote → home-hero loop.
+    """
+    b = live_board(data)
+    if not b:
+        return
+    section = board_section(b["board"], b.get("kicker", "marquee"), b.get("skin", "led"))
+    partial = (
+        "<!-- GENERATED by scripts/marquee/build.py from content/marquee/marquee.json -->\n"
+        "<!-- Live marquee board. Regenerated by promote.py → build.py; do not edit by hand. -->\n"
+        f"<style>{TOKENS_WP}{BOARD_RULES}</style>\n"
+        f"{section}\n"
+    )
+    PARTIAL.parent.mkdir(parents=True, exist_ok=True)
+    PARTIAL.write_text(partial, encoding="utf-8")
+    THEME_JS.parent.mkdir(parents=True, exist_ok=True)
+    THEME_JS.write_text(theme_js(), encoding="utf-8")
+    print(f"  theme  → parts/marquee-current.html  ({' / '.join(b['board'])})")
+    print(f"  theme  → assets/js/marquee.js")
+
+
 def main():
     data = load()
     boards = data.get("boards", [])
+    write_theme_partial(data)
     if DIST_DIR.exists():
         shutil.rmtree(DIST_DIR)
     DIST_DIR.mkdir(parents=True)
