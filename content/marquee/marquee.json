@@ -1,0 +1,58 @@
+{
+  "$schema": "./marquee.schema.json",
+  "meta": {
+    "name": "The Marquee",
+    "lineage": "Descendant of the Kris Krug x Douglas Coupland marquee boards — ideas remixed into topography. Now the idea-feed is Kris's own output.",
+    "current": "2026-w26-mcluhan-the-model-is-the-message",
+    "default_skin": "splitflap",
+    "cadence": "weekly-or-when-there-is-interesting-shit-to-say"
+  },
+  "boards": [
+    {
+      "id": "2026-w26-mcluhan-the-model-is-the-message",
+      "status": "live",
+      "week": "2026-W26",
+      "date": "2026-06-26",
+      "after": "Marshall McLuhan",
+      "skin": "splitflap",
+      "board": ["THE MODEL", "IS THE", "MESSAGE"],
+      "kicker": "now showing · marquee nº1",
+      "dek": "McLuhan said the medium is the message — the channel reshapes us more than the content it carries. In the age of generative everything, the model is the medium. The weights, the training data, the defaults: that's the message now.",
+      "source": {
+        "title": "Understanding Media: The Extensions of Man",
+        "author": "Marshall McLuhan, 1964",
+        "remixed_from": "Kris's running thesis that AI models are environments, not tools — see field notes on 'authored judgment in the age of generative everything.'"
+      },
+      "tags": ["mcluhan", "media-theory", "ai", "the-medium-is-the-message", "generative-ai", "punk-rock-ai"],
+      "seo": {
+        "title": "The Model Is the Message — McLuhan for the Age of Generative Everything",
+        "description": "Marshall McLuhan said the medium is the message. In the age of AI, the model is the medium: weights, training data, and defaults are the message now. A Kris Krug marquee board.",
+        "slug": "the-model-is-the-message",
+        "og_image": "auto"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "id": "cand-mcluhan-medium-message",
+      "after": "Marshall McLuhan",
+      "board": ["THE MEDIUM", "IS THE", "MESSAGE"],
+      "dek": "The original. The channel shapes us more than the content. Start at the source, then remix.",
+      "tags": ["mcluhan", "the-medium-is-the-message"]
+    },
+    {
+      "id": "cand-mcluhan-tools-shape-us",
+      "after": "Marshall McLuhan",
+      "board": ["WE SHAPE OUR TOOLS", "AND THEREAFTER", "OUR TOOLS SHAPE US"],
+      "dek": "The feedback loop in one line. Build the model; the model builds you back.",
+      "tags": ["mcluhan", "tools", "feedback-loop"]
+    },
+    {
+      "id": "cand-mcluhan-mass-age",
+      "after": "Marshall McLuhan",
+      "board": ["THE MEDIUM", "IS THE", "MASS-AGE"],
+      "dek": "McLuhan's own pun from The Medium Is the Massage. Mistype, mass, message, massage — all intended.",
+      "tags": ["mcluhan", "the-medium-is-the-massage", "wordplay"]
+    }
+  ]
+}

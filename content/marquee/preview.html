@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-skin="splitflap">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Marquee — v1 prototype (McLuhan)</title>
+<style>
+  :root{
+    --bg:#0a0a0f; --panel:#101019; --ink:#f6f5f2; --muted:#8a8aa0;
+    --amber:#ffb000; --amber-dim:#7a5400; --signal:#00e0c6; --line:#1d1d2b;
+    --cell-bg:#15151f; --cell-edge:#000; --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --display:"Clash Display",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display)}
+  body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:32px 20px 64px;gap:24px;
+       background:
+         radial-gradient(1200px 600px at 50% -10%, rgba(255,176,0,.06), transparent 60%),
+         radial-gradient(900px 500px at 80% 120%, rgba(0,224,198,.05), transparent 60%),
+         var(--bg);}
+
+  /* ---- controls ---- */
+  .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;max-width:980px}
+  .bar .grp{display:flex;gap:6px;align-items:center;background:var(--panel);border:1px solid var(--line);
+            border-radius:999px;padding:6px 8px}
+  .bar small{color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-family:var(--mono);padding:0 4px}
+  button{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink);background:transparent;
+         border:1px solid transparent;border-radius:999px;padding:6px 12px;cursor:pointer;transition:.15s}
+  button:hover{border-color:var(--line);color:#fff}
+  button[aria-pressed="true"]{background:var(--amber);color:#1a1300;border-color:var(--amber);font-weight:600}
+
+  /* ---- the board frame ---- */
+  .stage{width:min(980px,100%);}
+  .frame{position:relative;border-radius:18px;padding:38px 30px 26px;overflow:hidden;
+          background:linear-gradient(180deg,#0e0e16,#08080d);
+          border:1px solid var(--line);
+          box-shadow:0 40px 120px -40px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.04);}
+  .kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:var(--amber);
+          display:flex;gap:10px;align-items:center;margin:0 0 22px}
+  .kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--amber);
+                  box-shadow:0 0 12px var(--amber);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+  .board{display:flex;flex-direction:column;gap:10px;user-select:none}
+  .row{display:flex;flex-wrap:wrap;gap:6px}
+  .cell{position:relative;display:inline-flex;align-items:center;justify-content:center;
+        width:clamp(28px,6vw,62px);height:clamp(42px,9vw,90px);
+        font-family:var(--mono);font-weight:700;font-size:clamp(22px,5vw,52px);line-height:1;
+        background:var(--cell-bg);color:var(--amber);border-radius:6px;
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.05), inset 0 -1px 0 rgba(0,0,0,.6), 0 2px 4px rgba(0,0,0,.5);}
+  .cell.space{background:transparent;box-shadow:none;width:clamp(12px,3vw,28px)}
+  /* split-flap seam */
+  [data-skin="splitflap"] .cell::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;
+        background:var(--cell-edge);opacity:.7}
+  .cell.flip{animation:flip .06s linear}
+  @keyframes flip{0%{transform:translateY(-2px) scaleY(.92);filter:brightness(1.4)}100%{transform:none;filter:none}}
+
+  /* ---- caption / meta ---- */
+  .meta{width:min(980px,100%);display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+  @media(max-width:720px){.meta{grid-template-columns:1fr}}
+  .dek{font-size:18px;line-height:1.5;color:#d9d9e3;margin:0}
+  .dek b{color:#fff}
+  .side{font-family:var(--mono);font-size:12px;line-height:1.7;color:var(--muted);
+        border-left:2px solid var(--line);padding-left:14px}
+  .side .k{color:var(--signal)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .tag{font-family:var(--mono);font-size:10px;color:var(--muted);border:1px solid var(--line);
+       border-radius:999px;padding:3px 8px}
+
+  /* ---- archive strip ---- */
+  .archive{width:min(980px,100%);margin-top:6px}
+  .archive h3{font-family:var(--mono);text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--muted);margin:0 0 10px}
+  .strip{display:flex;gap:10px;overflow:auto;padding-bottom:6px}
+  .chip{flex:0 0 auto;min-width:150px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .chip .ph{font-family:var(--mono);font-size:13px;color:var(--amber);font-weight:700}
+  .chip .wk{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:6px}
+
+  .note{max-width:760px;text-align:center;color:var(--muted);font-size:13px;line-height:1.6}
+  .note code{font-family:var(--mono);color:var(--signal)}
+
+  /* ================= SKINS ================= */
+  /* LED dot-matrix */
+  [data-skin="led"] .frame{background:radial-gradient(circle at 50% 0,#0c0c14,#050507)}
+  [data-skin="led"] .cell{background:#0a0a0f;color:#ff3b3b;border-radius:4px;
+      text-shadow:0 0 10px #ff3b3b,0 0 22px #ff1010;
+      background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.4px);background-size:6px 6px}
+  [data-skin="led"] .cell::after{display:none}
+  [data-skin="led"] .kicker,[data-skin="led"] .side .k{color:#ff5a5a}
+  [data-skin="led"] .kicker::before{background:#ff3b3b;box-shadow:0 0 12px #ff3b3b}
+
+  /* Letterpress type-remix */
+  [data-skin="letterpress"] .frame{background:linear-gradient(180deg,#f6f3ec,#ece7da);border-color:#ddd6c4}
+  [data-skin="letterpress"] .board{gap:0}
+  [data-skin="letterpress"] .row{gap:0}
+  [data-skin="letterpress"] .cell{background:transparent;box-shadow:none;color:#16140f;
+      font-family:var(--display);font-weight:800;font-size:clamp(30px,8vw,86px);width:auto;height:auto;
+      padding:0 .02em;letter-spacing:-.02em;line-height:.92}
+  [data-skin="letterpress"] .cell.space{width:clamp(10px,2vw,22px)}
+  [data-skin="letterpress"] .cell::after{display:none}
+  [data-skin="letterpress"] .row:nth-child(2){margin-left:1.2em}
+  [data-skin="letterpress"] .kicker{color:#8a6a00}
+  [data-skin="letterpress"] .kicker::before{background:#8a6a00;box-shadow:none}
+
+  /* Teletype / terminal */
+  [data-skin="teletype"] .frame{background:#04060a;border-color:#0c2a26}
+  [data-skin="teletype"] .board{gap:2px}
+  [data-skin="teletype"] .cell{background:transparent;box-shadow:none;color:var(--signal);
+      font-family:var(--mono);font-weight:600;font-size:clamp(20px,4.6vw,46px);width:auto;height:auto;
+      text-shadow:0 0 8px rgba(0,224,198,.5)}
+  [data-skin="teletype"] .cell.space{width:.5em}
+  [data-skin="teletype"] .cell::after{display:none}
+  [data-skin="teletype"] .row::before{content:"> ";color:#2f6f66;font-family:var(--mono);
+      font-size:clamp(20px,4.6vw,46px);align-self:center}
+  [data-skin="teletype"] .kicker{color:var(--signal)}
+  [data-skin="teletype"] .kicker::before{background:var(--signal);box-shadow:0 0 12px var(--signal)}
+</style>
+</head>
+<body>
+
+  <div class="bar">
+    <div class="grp"><small>skin</small>
+      <button data-skin-btn="splitflap" aria-pressed="true">Split-flap</button>
+      <button data-skin-btn="led" aria-pressed="false">LED</button>
+      <button data-skin-btn="letterpress" aria-pressed="false">Letterpress</button>
+      <button data-skin-btn="teletype" aria-pressed="false">Teletype</button>
+    </div>
+    <div class="grp"><small>phrase</small>
+      <button data-board="0" aria-pressed="true">The Model</button>
+      <button data-board="1" aria-pressed="false">The Medium</button>
+      <button data-board="2" aria-pressed="false">Our Tools</button>
+      <button data-board="3" aria-pressed="false">Mass-age</button>
+    </div>
+    <div class="grp"><button id="reflip">↻ re-flip</button></div>
+  </div>
+
+  <div class="stage">
+    <div class="frame">
+      <p class="kicker" id="kicker">now showing · marquee nº1 · after marshall mcluhan</p>
+      <div class="board" id="board" aria-label="Marquee board"></div>
+    </div>
+  </div>
+
+  <div class="meta">
+    <p class="dek" id="dek"></p>
+    <div class="side">
+      <div><span class="k">after</span> &nbsp;<span id="after"></span></div>
+      <div><span class="k">source</span> &nbsp;<span id="source"></span></div>
+      <div class="tags" id="tags"></div>
+    </div>
+  </div>
+
+  <div class="archive">
+    <h3>archive · /marquee/</h3>
+    <div class="strip">
+      <div class="chip"><div class="ph">THE MODEL IS THE MESSAGE</div><div class="wk">2026 · W26 · live</div></div>
+      <div class="chip" style="opacity:.55"><div class="ph">— next board —</div><div class="wk">scanned from your field notes</div></div>
+      <div class="chip" style="opacity:.4"><div class="ph">— W28 —</div><div class="wk">auto-archived w/ SEO meta</div></div>
+      <div class="chip" style="opacity:.3"><div class="ph">— W29 —</div><div class="wk">indexed micro-post</div></div>
+    </div>
+  </div>
+
+  <p class="note">v1 prototype · 4 skins live-switchable · 3 McLuhan candidates · data is driven by
+  <code>marquee.json</code> · each board becomes a graphic + micro-post + SEO page in the
+  <code>/marquee/</code> archive. Pick a skin + phrase up top.</p>
+
+<script>
+const BOARDS = [
+  { board:["THE MODEL","IS THE","MESSAGE"], after:"Marshall McLuhan",
+    kicker:"now showing · marquee nº1 · after marshall mcluhan",
+    dek:"McLuhan said the medium is the message — the channel reshapes us more than the content it carries. In the age of generative everything, <b>the model is the medium</b>. The weights, the defaults, the training data: that's the message now.",
+    source:"Understanding Media (1964), remixed onto Kris's thesis that models are environments, not tools.",
+    tags:["mcluhan","media-theory","ai","generative-ai","punk-rock-ai"] },
+  { board:["THE MEDIUM","IS THE","MESSAGE"], after:"Marshall McLuhan",
+    kicker:"candidate · the original · after marshall mcluhan",
+    dek:"The original line. The channel shapes us more than the content. Start at the source — then remix.",
+    source:"Understanding Media: The Extensions of Man, Marshall McLuhan, 1964.",
+    tags:["mcluhan","the-medium-is-the-message"] },
+  { board:["WE SHAPE OUR TOOLS","AND THEREAFTER","OUR TOOLS SHAPE US"], after:"McLuhan (via John Culkin)",
+    kicker:"candidate · the feedback loop · after marshall mcluhan",
+    dek:"The feedback loop in one line. Build the model; the model builds you back. The most AI-native thing McLuhan never quite said.",
+    source:"Often attributed to McLuhan; phrased by John Culkin, 1967.",
+    tags:["mcluhan","tools","feedback-loop"] },
+  { board:["THE MEDIUM","IS THE","MASS-AGE"], after:"Marshall McLuhan",
+    kicker:"candidate · the pun · after marshall mcluhan",
+    dek:"McLuhan's own deliberate pun from <b>The Medium Is the Massage</b>. Message, massage, mass-age, mess-age — the typo was the point.",
+    source:"The Medium Is the Massage, McLuhan & Fiore, 1967.",
+    tags:["mcluhan","the-medium-is-the-massage","wordplay"] },
+];
+const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ▓▒░#@%&".split("");
+let current = 0;
+
+function render(i){
+  const b = BOARDS[i]; current = i;
+  document.getElementById("kicker").textContent = b.kicker;
+  document.getElementById("dek").innerHTML = b.dek;
+  document.getElementById("after").textContent = b.after;
+  document.getElementById("source").textContent = b.source;
+  document.getElementById("tags").innerHTML = b.tags.map(t=>`<span class="tag">#${t}</span>`).join("");
+  const board = document.getElementById("board");
+  board.innerHTML = "";
+  b.board.forEach(line=>{
+    const row = document.createElement("div"); row.className="row";
+    line.split("").forEach(ch=>{
+      const cell = document.createElement("div");
+      cell.className = "cell" + (ch===" " ? " space":"");
+      cell.dataset.final = ch;
+      cell.textContent = ch===" " ? "" : ch;
+      row.appendChild(cell);
+    });
+    board.appendChild(row);
+  });
+  flip();
+}
+
+function flip(){
+  document.querySelectorAll(".cell:not(.space)").forEach((cell,idx)=>{
+    const final = cell.dataset.final;
+    let ticks = 6 + (idx % 7) + Math.floor(idx/3);
+    const iv = setInterval(()=>{
+      if(ticks<=0){ cell.textContent = final; clearInterval(iv); return; }
+      cell.textContent = GLYPHS[(Math.floor(performance.now()/13)+idx*3+ticks)%GLYPHS.length];
+      cell.classList.add("flip");
+      setTimeout(()=>cell.classList.remove("flip"),60);
+      ticks--;
+    }, 45);
+  });
+}
+
+document.querySelectorAll("[data-skin-btn]").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.documentElement.dataset.skin = btn.dataset.skinBtn;
+    document.querySelectorAll("[data-skin-btn]").forEach(b=>b.setAttribute("aria-pressed", b===btn));
+    flip();
+  });
+});
+document.querySelectorAll("[data-board]").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll("[data-board]").forEach(b=>b.setAttribute("aria-pressed", b===btn));
+    render(+btn.dataset.board);
+  });
+});
+document.getElementById("reflip").addEventListener("click", flip);
+render(0);
+</script>
+</body>
+</html>
