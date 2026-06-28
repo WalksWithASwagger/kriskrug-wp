@@ -33,6 +33,12 @@
 .kkm[data-skin="teletype"] .kkm-cell{background:transparent;box-shadow:none;color:var(--kkm-cyan);
      text-shadow:0 0 8px var(--kkm-cyan);font-weight:600;font-size:clamp(18px,4.2vw,42px);width:auto;height:auto;background-image:none}
 .kkm[data-skin="teletype"] .kkm-kicker,.kkm[data-skin="teletype"] .kkm-kicker::before{color:var(--kkm-cyan);background:var(--kkm-cyan)}
+/* board body (dek + source) — used on WP single pages + dist archive */
+.kkm-dek{font-size:clamp(15px,2vw,19px);line-height:1.55;color:var(--kkm-text);max-width:62ch;margin:26px auto 0}
+.kkm-dek b{color:#fff}
+.kkm-src{font-family:var(--kkm-mono);font-size:12px;line-height:1.7;color:var(--kkm-text-muted);
+     border-left:2px solid var(--kkm-line);padding-left:14px;max-width:62ch;margin:18px auto 0}
+.kkm-src .k{color:var(--kkm-cyan)}
 @media(prefers-reduced-motion:reduce){.kkm-cell{transition:none}}
 
 *{box-sizing:border-box}

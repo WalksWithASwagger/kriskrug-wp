@@ -51,10 +51,8 @@ function kk_robots_ai_policy( $output, $public ) {
 	$sitemaps = array(
 		home_url( '/image-sitemap-index-1.xml' ),
 		home_url( '/video-sitemap-1.xml' ),
-		// The Marquee archive sitemap. Activates only once /marquee/ is served by
-		// WordPress (marquee Tier 3); until then it points at a not-yet-live URL, so
-		// deploy this line together with the marquee post-type/route, not before.
-		home_url( '/marquee-sitemap.xml' ),
+		// Note: the marquee archive needs no custom sitemap — the marquee_board CPT is
+		// public, so Jetpack auto-includes its URLs in /sitemap.xml (kk-marquee-board plugin).
 	);
 	foreach ( $sitemaps as $url ) {
 		$line = 'Sitemap: ' . esc_url_raw( $url );

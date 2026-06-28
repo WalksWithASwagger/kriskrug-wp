@@ -1,0 +1,50 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"aurora-marquee-archive","style":{"spacing":{"padding":{"top":"var:preset|spacing|120","bottom":"var:preset|spacing|120"}}},"layout":{"type":"constrained","contentSize":"1000px"}} -->
+<main id="aurora-main" class="wp-block-group aurora-marquee-archive" style="padding-top:var(--wp--preset--spacing--120);padding-bottom:var(--wp--preset--spacing--120)">
+
+  <!-- wp:group {"className":"aurora-section-heading","layout":{"type":"constrained"}} -->
+  <div class="wp-block-group aurora-section-heading">
+    <!-- wp:paragraph {"className":"aurora-kicker"} -->
+    <p class="aurora-kicker">The Marquee</p>
+    <!-- /wp:paragraph -->
+    <!-- wp:heading {"level":1} -->
+    <h1 class="wp-block-heading">The sharpest line, in lights.</h1>
+    <!-- /wp:heading -->
+    <!-- wp:paragraph -->
+    <p>A descendant of the Krug × Coupland marquee boards. Each week the sharpest line from what I'm making gets remixed onto a board — then archived here, each as its own little indexed page.</p>
+    <!-- /wp:paragraph -->
+  </div>
+  <!-- /wp:group -->
+
+  <!-- wp:query {"queryId":1,"query":{"perPage":24,"pages":0,"offset":0,"postType":"marquee_board","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"className":"aurora-work-grid"} -->
+  <div class="wp-block-query aurora-work-grid">
+    <!-- wp:post-template {"className":"aurora-marquee-cards","layout":{"type":"grid","columnCount":3}} -->
+      <!-- wp:group {"tagName":"article","className":"aurora-media-card","layout":{"type":"constrained"}} -->
+      <article class="wp-block-group aurora-media-card">
+        <!-- wp:post-featured-image {"isLink":true,"className":"aurora-marquee-card-media"} /-->
+        <!-- wp:post-title {"level":2,"isLink":true,"className":"aurora-article-title"} /-->
+        <!-- wp:post-excerpt {"excerptLength":18,"className":"aurora-article-excerpt"} /-->
+        <!-- wp:post-date {"className":"aurora-article-date"} /-->
+      </article>
+      <!-- /wp:group -->
+    <!-- /wp:post-template -->
+
+    <!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
+      <!-- wp:query-pagination-previous /-->
+      <!-- wp:query-pagination-numbers /-->
+      <!-- wp:query-pagination-next /-->
+    <!-- /wp:query-pagination -->
+
+    <!-- wp:query-no-results -->
+      <!-- wp:paragraph -->
+      <p>No boards yet. The first one is on its way.</p>
+      <!-- /wp:paragraph -->
+    <!-- /wp:query-no-results -->
+  </div>
+  <!-- /wp:query -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
