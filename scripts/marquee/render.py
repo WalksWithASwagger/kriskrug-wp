@@ -67,6 +67,12 @@ BOARD_RULES = """
 .kkm[data-skin="teletype"] .kkm-cell{background:transparent;box-shadow:none;color:var(--kkm-cyan);
      text-shadow:0 0 8px var(--kkm-cyan);font-weight:600;font-size:clamp(18px,4.2vw,42px);width:auto;height:auto;background-image:none}
 .kkm[data-skin="teletype"] .kkm-kicker,.kkm[data-skin="teletype"] .kkm-kicker::before{color:var(--kkm-cyan);background:var(--kkm-cyan)}
+/* board body (dek + source) — used on WP single pages + dist archive */
+.kkm-dek{font-size:clamp(15px,2vw,19px);line-height:1.55;color:var(--kkm-text);max-width:62ch;margin:26px auto 0}
+.kkm-dek b{color:#fff}
+.kkm-src{font-family:var(--kkm-mono);font-size:12px;line-height:1.7;color:var(--kkm-text-muted);
+     border-left:2px solid var(--kkm-line);padding-left:14px;max-width:62ch;margin:18px auto 0}
+.kkm-src .k{color:var(--kkm-cyan)}
 @media(prefers-reduced-motion:reduce){.kkm-cell{transition:none}}
 """
 
@@ -120,6 +126,29 @@ def board_section(lines, kicker, skin="led", label=None):
         f'  </div>\n'
         f'</section>'
     )
+
+
+def post_content(board):
+    """The WP post_content for a board single page: the LED board + dek + source line.
+
+    No <style>/<script> — the kk-marquee-board plugin enqueues marquee.css/js on these pages.
+    """
+    e = html.escape
+    out = [board_section(board["board"], board.get("kicker", ""), board.get("skin", "led"))]
+    if board.get("dek"):
+        out.append(f'<p class="kkm-dek">{e(board["dek"])}</p>')
+    src = board.get("source", {})
+    bits = []
+    if board.get("after"):
+        bits.append(f'<span class="k">after</span> {e(board["after"])}')
+    src_line = " · ".join(x for x in [src.get("title"), src.get("author")] if x)
+    if src_line:
+        bits.append(f'<span class="k">source</span> {e(src_line)}')
+    if src.get("remixed_from"):
+        bits.append(f'<span class="k">remix</span> {e(src["remixed_from"])}')
+    if bits:
+        out.append('<p class="kkm-src">' + "<br>".join(bits) + "</p>")
+    return "\n".join(out)
 
 
 def inline_js():

@@ -129,8 +129,18 @@ switch via `meta.default_skin` / a board's `skin`.
 - [x] Build hardened — prune-and-overwrite (no `rmtree`) so committed OG PNGs survive CI rebuilds.
 - [x] Tests — `scripts/tests/test_marquee_seo.py`.
 
-**Next (Tier 3):**
-- [ ] `marquee` WP post type / route so `/marquee/` (+ `/marquee-sitemap.xml`) is served by WordPress
+**Tier 3 (this round) — WordPress-native serving (code shipped; go-live gated):**
+- [x] **Plugin `plugins/kk-marquee-board/`** — `marquee_board` CPT (public, REST, `/marquee/`
+  archive), meta, Article schema linked to the Person `@id`, board CSS/JS, smoke test, runbook.
+- [x] **Theme templates** — `archive-marquee_board.html` (wall) + `single-marquee_board.html`.
+- [x] **REST sync** — `scripts/marquee/sync.py` + `wp_sync.py` (dry-run default, create-by-default,
+  slug-idempotent, title-guarded `--update`, OG → featured image, post-write verify).
+- [x] No custom sitemap needed — Jetpack auto-includes the public CPT in `/sitemap.xml` (robots line removed).
+- [x] Tests — `scripts/tests/test_marquee_sync.py` + plugin `tests/smoke.php`.
+- [ ] **Gated go-live** (KK): activate plugin → flush rewrites → add WP app-password to `.env` →
+  `sync.py --execute`. See `plugins/kk-marquee-board/DEPLOYMENT.md`.
+
+**Later:**
 - [ ] Extend SCAN to published posts + Beehiiv dispatch (MCP)
 - [ ] Decide full hero takeover vs. lead-band (currently leads above the photo hero)
 
