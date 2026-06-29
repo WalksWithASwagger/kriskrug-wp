@@ -37,6 +37,22 @@
       "tags": []
     },
     {
+      "id": "cand-context-creators-the-summit-ai-breakout",
+      "board": [
+        "THE SUMMIT AI",
+        "BREAKOUT"
+      ],
+      "line": "The Summit AI Breakout",
+      "kind": "quote",
+      "score": 7.48,
+      "dek": "Remixed from “Context Creators.”",
+      "source": {
+        "title": "Context Creators",
+        "slug": "context-creators"
+      },
+      "tags": []
+    },
+    {
       "id": "cand-rewiring-education-hacking-the-system-for-an-ai-powered-futu-why-memorization-is-so-l",
       "board": [
         "WHY MEMORIZATION",
@@ -45,7 +61,7 @@
       ],
       "line": "Why Memorization Is So Last Century",
       "kind": "lead",
-      "score": 7.37,
+      "score": 7.3,
       "dek": "A draft on rewiring education for an AI-powered future, with a focus on agency, experimentation, and rebuilding learning around real creative practice.",
       "source": {
         "title": "Rewiring Education: Hacking the System for an AI-Powered Future",
@@ -61,7 +77,7 @@
       ],
       "line": "We're a nonprofit",
       "kind": "lead",
-      "score": 7.31,
+      "score": 7.28,
       "dek": "Remixed from “You Can't Drink Data.”",
       "source": {
         "title": "You Can't Drink Data",
@@ -84,7 +100,7 @@
       ],
       "line": "Real photos are part of the chain too",
       "kind": "quote",
-      "score": 7.02,
+      "score": 6.93,
       "dek": "My creative operating system for turning raw talk notes into prompts, graphics, slides, websites, posts, guides, and other artifacts without letting AI flatten the work into generic slop.",
       "source": {
         "title": "AI Keynote Slides Need Taste Before Prompts",
@@ -107,7 +123,7 @@
       ],
       "line": "Foldit wasn’t your typical digital escapism",
       "kind": "lead",
-      "score": 6.98,
+      "score": 6.91,
       "dek": "A short draft connecting Foldit, protein folding, citizen science, and the strange joy of watching games spill into Nobel-worthy discovery.",
       "source": {
         "title": "Nobel Chemistry Foldit",
@@ -123,7 +139,7 @@
       ],
       "line": "LLMs are trained on what exists",
       "kind": "lead",
-      "score": 6.83,
+      "score": 6.79,
       "dek": "AI will not repair broken civic systems by itself. Permit reform needs better process, public accountability, and human judgment before automation can help.",
       "source": {
         "title": "AI Won't Fix Your Broken Permit Process",
@@ -134,29 +150,6 @@
         "civic-tech",
         "government-ai",
         "public-sector",
-        "responsible-ai"
-      ]
-    },
-    {
-      "id": "cand-canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one-canada-distinctive-not-d",
-      "board": [
-        "CANADA",
-        "DISTINCTIVE, NOT",
-        "DERIVATIVE"
-      ],
-      "line": "Canada distinctive, not derivative",
-      "kind": "lead",
-      "score": 6.78,
-      "dek": "Canada does need AI infrastructure. But without consent, climate discipline, Indigenous governance, and community benefit, bigger just means faster extraction.",
-      "source": {
-        "title": "Canada Doesn't Need a Bigger AI Machine. It Needs a Better One.",
-        "slug": "canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one"
-      },
-      "tags": [
-        "ai-policy",
-        "sovereign-ai",
-        "ai-governance",
-        "bc-ai",
         "responsible-ai"
       ]
     }
