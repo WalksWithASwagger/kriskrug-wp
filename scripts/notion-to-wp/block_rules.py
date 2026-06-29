@@ -21,6 +21,8 @@ from __future__ import annotations
 from html import escape
 from typing import Callable
 
+import wp_blocks
+
 
 # ---------------------------------------------------------------------------
 # Inline rich-text rendering.
@@ -89,11 +91,7 @@ def render_heading(block: dict, level: int, _ctx: dict | None = None) -> str:
     # Page H1 is the title; first body heading should be H2.
     # Notion h1 → WP h2, h2 → h2, h3 → h3.
     wp_level = 2 if level == 1 else (2 if level == 2 else 3)
-    return (
-        f'<!-- wp:heading {{"level":{wp_level}}} -->\n'
-        f'<h{wp_level} class="wp-block-heading">{txt}</h{wp_level}>\n'
-        f'<!-- /wp:heading -->'
-    )
+    return wp_blocks.heading(txt, wp_level)
 
 
 def render_heading_1(block, ctx=None): return render_heading(block, 1, ctx)
@@ -172,7 +170,7 @@ def _callout_icon_html(icon: dict | None) -> str:
 
 
 def render_divider(_block: dict, _ctx: dict | None = None) -> str:
-    return '<!-- wp:separator -->\n<hr class="wp-block-separator has-alpha-channel-opacity"/>\n<!-- /wp:separator -->'
+    return wp_blocks.separator()
 
 
 def render_code(block: dict, _ctx: dict | None = None) -> str:
@@ -210,14 +208,9 @@ def render_image(block: dict, ctx: dict | None = None) -> str:
         wp_id = "TBD"
         alt = escape(caption_text or "", quote=True)
 
-    cap_html = f'<figcaption class="wp-element-caption">{caption_text}</figcaption>' if caption_text else ""
-    id_json = f'"id":{wp_id},' if isinstance(wp_id, int) else ""
-    return (
-        f'<!-- wp:image {{{id_json}"sizeSlug":"large","linkDestination":"none"}} -->\n'
-        f'<figure class="wp-block-image size-large">'
-        f'<img src="{escape(wp_url, quote=True)}" alt="{alt}" class="wp-image-{wp_id}"/>'
-        f'{cap_html}</figure>\n'
-        '<!-- /wp:image -->'
+    return wp_blocks.image(
+        wp_id, escape(wp_url, quote=True), alt,
+        caption=caption_text or None, width=None, align=None, lightbox=True,
     )
 
 

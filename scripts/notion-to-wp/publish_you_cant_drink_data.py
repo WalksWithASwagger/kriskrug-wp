@@ -21,6 +21,7 @@ refreshes the body of the existing draft. NEVER publishes.
 import re, sys, json, pathlib
 from kk_notion_to_wp import WordPress, load_config, slugify
 from connector_payload import normalize_seo_meta
+from wp_blocks import inline, image, gallery, heading, separator, pullquote
 
 STAGE = pathlib.Path("/Users/kk/Code/kriskrug-wp/content/drafts/2026-05-23-you-cant-drink-data")
 EXECUTE = "--execute" in sys.argv
@@ -76,45 +77,7 @@ INBODY_PHOTO = {
 PHOTOS_KEEP_PREFIX = {"05","07","10","13","14","15","16","17","18","21","23","24","25","26"}
 
 
-def inline(s: str) -> str:
-    def link(m):
-        text, url = m.group(1), m.group(2)
-        extra = '' if url.startswith(("https://kriskrug.co", "/")) else ' target="_blank" rel="noopener noreferrer"'
-        return f'<a href="{url}"{extra}>{text}</a>'
-    s = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", link, s)
-    s = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", s)
-    s = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", s)
-    return s
-
-
-def image_block(media_id, url, alt, caption=None, width=None, align="center") -> str:
-    """Captioned, click-to-enlarge in-body image. align: center|left|right (left/right float, text wraps)."""
-    attrs = f'"id":{media_id},"sizeSlug":"large","linkDestination":"media","align":"{align}"'
-    figcls = f"wp-block-image align{align} size-large"
-    style = ""
-    if width:
-        attrs += f',"width":"{width}px"'
-        figcls += " is-resized"
-        style = f' style="width:{width}px"'
-    img = f'<a href="{url}"><img src="{url}" alt="{alt}" class="wp-image-{media_id}"{style}/></a>'
-    cap = f'<figcaption class="wp-block-image__caption">{caption}</figcaption>' if caption else ''
-    return (f'<!-- wp:image {{{attrs}}} -->\n<figure class="{figcls}">{img}{cap}</figure>\n<!-- /wp:image -->')
-
-
-def gallery_block(items, columns=3) -> str:
-    """items: (id, url, alt, caption). Click-to-enlarge, per-image captions."""
-    inner = []
-    for it in items:
-        mid, url, alt = it[0], it[1], it[2]
-        cap = it[3] if len(it) > 3 and it[3] else None
-        caphtml = f'<figcaption class="wp-block-image__caption">{cap}</figcaption>' if cap else ''
-        inner.append(
-            f'<!-- wp:image {{"id":{mid},"sizeSlug":"large","linkDestination":"media"}} -->\n'
-            f'<figure class="wp-block-image size-large"><a href="{url}"><img src="{url}" alt="{alt}" '
-            f'class="wp-image-{mid}"/></a>{caphtml}</figure>\n<!-- /wp:image -->')
-    return (f'<!-- wp:gallery {{"columns":{columns},"linkTo":"media","sizeSlug":"large","imageCrop":false}} -->\n'
-            f'<figure class="wp-block-gallery has-nested-images columns-{columns}">\n'
-            + "\n".join(inner) + '\n</figure>\n<!-- /wp:gallery -->')
+# in-body image / gallery / heading / separator / pullquote markup now lives in wp_blocks.py
 
 
 # ---------------------------------------------------------------------------
@@ -199,19 +162,18 @@ for b in blocks_src:
         seen_title = True
         continue
     if b == "---":
-        out.append('<!-- wp:separator -->\n<hr class="wp-block-separator has-alpha-channel-opacity"/>\n<!-- /wp:separator -->')
+        out.append(separator())
     elif b.startswith("## "):
-        out.append(f"<!-- wp:heading -->\n<h2>{inline(b[3:].strip())}</h2>\n<!-- /wp:heading -->")
+        out.append(heading(inline(b[3:].strip())))
     elif b.startswith(">>> "):
-        q = inline(b[4:].strip())
-        out.append(f'<!-- wp:pullquote -->\n<figure class="wp-block-pullquote"><blockquote><p>{q}</p></blockquote></figure>\n<!-- /wp:pullquote -->')
+        out.append(pullquote(inline(b[4:].strip())))
     elif b == "[[GALLERY-BEST]]":
-        out.append(gallery_block([(i, u, a, c) for i, u, a, c, _ in best_photos], columns=3))
+        out.append(gallery([(i, u, a, c) for i, u, a, c, _ in best_photos], columns=3))
     elif b == "[[GALLERY-AI]]":
-        out.append(gallery_block([(mid, AI_SIGNS[mid][0], AI_SIGNS[mid][1], AI_CAP[mid]) for mid in AI_GALLERY], columns=3))
+        out.append(gallery([(mid, AI_SIGNS[mid][0], AI_SIGNS[mid][1], AI_CAP[mid]) for mid in AI_GALLERY], columns=3))
     elif b == "[[GALLERY-PHOTOS]]":
         if photos_rest:
-            out.append(gallery_block([(i, u, a, c) for i, u, a, c, _ in photos_rest], columns=3))
+            out.append(gallery([(i, u, a, c) for i, u, a, c, _ in photos_rest], columns=3))
     else:
         m = re.match(r"^!\[(.*?)\]\(media:(\d+)\)$", b)
         mp = re.match(r"^!\[(.*?)\]\(photo:(\d+)\)$", b)
@@ -219,13 +181,13 @@ for b in blocks_src:
             mid = int(m.group(2))
             url, alt = AI_SIGNS[mid]
             cap, align, width = INBODY_AI.get(mid, (None, "center", 320))
-            out.append(image_block(mid, url, alt, caption=cap, width=width, align=align))
+            out.append(image(mid, url, alt, caption=cap, width=width, align=align))
         elif mp:
             key = mp.group(2)
             if key in inbody_photos:
                 mid, url, alt, cap = inbody_photos[key]
                 align, width = INBODY_PHOTO.get(key, ("center", 660))
-                out.append(image_block(mid, url, alt, caption=cap, width=width, align=align))
+                out.append(image(mid, url, alt, caption=cap, width=width, align=align))
         else:
             para = "<br>".join(inline(line.strip()) for line in b.split("\n"))
             out.append(f"<!-- wp:paragraph -->\n<p>{para}</p>\n<!-- /wp:paragraph -->")
@@ -281,7 +243,7 @@ checks = {
     "two_galleries": vc.count("wp:gallery") == 4,  # consolidated signs + AI (open+close each)
     "best_gallery_21": sum(1 for _, u, _, _, _ in best_photos if u in vc) == len(best_photos),
     "selfie_at_bottom": any(u in vc for i, u, _, _, fn in inbody_list if fn.startswith("7717")),
-    "captions_present": vc.count("wp-block-image__caption") >= 30,
+    "captions_present": vc.count("wp-element-caption") >= 30,
     "constrained_widths": "is-resized" in vc,
     "no_em_dash": "—" not in vc,
     "new_links": "sovereign-ai-for-whom" in vc and "punk-rock-ai" in vc and "your-taste-is-your-moat" in vc,
