@@ -36,8 +36,8 @@ function kk_schema_constants() {
         ),
         'works_for' => array(
             array('name' => 'BC + AI Ecosystem Industry Association', 'url' => 'https://bc-ai.ca/'),
-            array('name' => 'Indigenomics.ai',                        'url' => 'https://indigenomics.ai/'),
-            array('name' => 'The Upgrade AI',                         'url' => 'https://www.theupgrade.ai/'),
+            array('name' => 'Vancouver AI',                           'url' => 'https://vancouver.ai/'),
+            array('name' => 'Futureproof Festival',                   'url' => 'https://futureproof.website/'),
         ),
         'knows_about' => array(
             'Generative AI', 'AI Strategy', 'AI for Creative Professionals',
