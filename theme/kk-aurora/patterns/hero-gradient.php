@@ -20,7 +20,7 @@
       <!-- /wp:heading -->
       
       <!-- wp:paragraph {"align":"center","className":"aurora-hero-description","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"textColor":"text-secondary","fontSize":"lg"} -->
-      <p class="has-text-align-center aurora-hero-description has-text-secondary-color has-text-color has-lg-font-size" style="margin-top:var(--wp--preset--spacing--60)">Executive Director BC+AI · Co-founder The Upgrade AI · Techartist &amp; Culture Hacker</p>
+      <p class="has-text-align-center aurora-hero-description has-text-secondary-color has-text-color has-lg-font-size" style="margin-top:var(--wp--preset--spacing--60)">Executive Director BC+AI · Lead Curator, Futureproof Festival · Techartist &amp; Culture Hacker</p>
       <!-- /wp:paragraph -->
       
       <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center"}} -->
@@ -36,7 +36,7 @@
         <!-- wp:group {"className":"aurora-badge-gradient","style":{"border":{"radius":"9999px"},"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"surface"} -->
         <div class="wp-block-group aurora-badge-gradient has-surface-background-color has-background" style="border-radius:9999px;padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--40)">
           <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontStyle":"normal","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.05em"}},"textColor":"signal"} -->
-          <p class="has-signal-color has-text-color" style="font-size:0.75rem;font-style:normal;font-weight:600;letter-spacing:0.05em;text-transform:uppercase">Indigenomics</p>
+          <p class="has-signal-color has-text-color" style="font-size:0.75rem;font-style:normal;font-weight:600;letter-spacing:0.05em;text-transform:uppercase">Vancouver AI</p>
           <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->
@@ -44,7 +44,7 @@
         <!-- wp:group {"className":"aurora-badge-gradient","style":{"border":{"radius":"9999px"},"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"surface"} -->
         <div class="wp-block-group aurora-badge-gradient has-surface-background-color has-background" style="border-radius:9999px;padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--40)">
           <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontStyle":"normal","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.05em"}},"textColor":"signal"} -->
-          <p class="has-signal-color has-text-color" style="font-size:0.75rem;font-style:normal;font-weight:600;letter-spacing:0.05em;text-transform:uppercase">The Upgrade AI</p>
+          <p class="has-signal-color has-text-color" style="font-size:0.75rem;font-style:normal;font-weight:600;letter-spacing:0.05em;text-transform:uppercase">Futureproof Festival</p>
           <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->
