@@ -211,6 +211,16 @@ Markup is locked by `tests/test_wp_blocks.py`.
 
 Rebuilding a live post's body from its source markdown is only safe when that source is still in sync with what's live. If the live post has drifted (manual edits, a newer source), a rebuild **drops** those blocks. To upgrade image markup on a drifted live post, transform the fetched live content **in place** (e.g. swap `"linkDestination":"none"` → `"lightbox":{"enabled":true}` and `wp-block-image__caption` → `wp-element-caption`), and diff the block structure before/after to confirm only the intended markup changed.
 
+`backfill_lightbox.py` does exactly this across the whole published catalog: it enables the native lightbox on every core image (none/media link destinations), unwraps click-to-open `<a><img></a>` anchors, drops gallery `linkTo:media`, and normalizes the caption class — leaving `linkDestination:custom` (deliberate outbound-link) images alone. Each write is guarded so the block structure must be identical before/after, and originals are appended to a rollback manifest first.
+
+```bash
+python backfill_lightbox.py                       # dry-run: what would change
+python backfill_lightbox.py --execute             # apply; writes backfill-rollback.jsonl
+python backfill_lightbox.py --rollback FILE.jsonl # restore originals from a manifest
+```
+
+Heads-up: REST content updates bump each post's modified date (sitemap `lastmod`). The 2026-06-28 run swept all 161 image-posts (~1,346 images); its manifest is `backfill-rollback-2026-06-28.jsonl` (gitignored).
+
 ## Polish pass (em-dash purge + auto-link)
 
 After block rendering, every post goes through `text_polish.py`:

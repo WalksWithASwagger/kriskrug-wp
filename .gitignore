@@ -54,3 +54,6 @@ __pycache__/
 # raw photo originals (working only, do not commit)
 content/drafts/2026-05-23-you-cant-drink-data/photos-raw/
 content/drafts/2026-05-23-you-cant-drink-data/contact-sheets/
+
+# lightbox backfill rollback manifests (large, operational; keep on disk, not in git)
+scripts/notion-to-wp/backfill-rollback*.jsonl
