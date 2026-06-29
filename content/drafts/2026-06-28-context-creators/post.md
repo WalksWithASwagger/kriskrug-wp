@@ -29,7 +29,7 @@ That moment is what the last four months had been building toward.
 
 Late 2025, [**Jos Duncan-Asé**](https://lovenowmedia.com/jos-duncan-ase/) reached out. She had been running PMFE, a creator-newsroom collaboration program, for three years through [**Love Now Media**](https://lovenowmedia.com), embedded as a consultant inside the [**Lenfest Institute's**](https://lenfestinstitute.org) Philadelphia portfolio. She was widening the program and wanted to add an AI coaching component. Was I interested?
 
-What pulled me in was not "add AI to journalism." That pitch is everywhere and most of it is noise. What pulled me in was that the program was already doing something real. Four Philadelphia newsrooms, [**Green Philly**](https://greenphl.com), [**Technical.ly**](https://technical.ly), [**Inti Media**](https://www.intimedia.org), and [**Resolve Philly**](https://resolvephilly.org), paired with eight local creators across nine months. Editorial infrastructure meets real community reach. Jos had built it with the kind of meticulous, equity-driven care that usually gets ground down inside institutional timelines.
+What pulled me in was not "add AI to journalism." That pitch is everywhere and most of it is noise. What pulled me in was that the program was already doing something real. Four Philadelphia newsrooms, [**Green Philly**](https://greenphl.com), [**Technical.ly**](https://technical.ly), [**Inti Media**](https://www.intimedia.org), and [**Resolve Philly**](https://resolvephilly.org), paired with eight local creators across four months. Editorial infrastructure meets real community reach. Jos had built it with the kind of meticulous, equity-driven care that usually gets ground down inside institutional timelines.
 
 Her framing was the part I needed to hear: journalism survives AI because journalists generate *meaning*, not just content. She had that analysis before I walked in. My job was to help build AI systems around an insight that was already true.
 
@@ -45,9 +45,9 @@ Let me be blunt about credit. This was Jos's program. She built the relationship
 
 These are not a generic cohort. Eight specific humans doing eight specific kinds of work, and the specificity is the entire point.
 
-[**Terrill Haigler**](https://www.instagram.com/_yafavtrashman/) (@YaFavTrashman) covers sustainability and food waste for **Green Philly**. One video he made about the Bobachi Food Pantry did not just tell a story about a food pantry. It doubled the pantry's attendance. In coaching we built a content system around his editorial voice. The question we kept circling: how do you scale without losing the thing that makes you irreplaceable?
+[**Terrill Haigler**](https://www.instagram.com/_yafavtrashman/) (@YaFavTrashman) covers sustainability and food waste for **Green Philly**. In coaching we built a content system around his editorial voice. The question we kept circling: how do you scale without losing the thing that makes you irreplaceable?
 
-[**Brou Quinn**](https://www.instagram.com/215phillyfood/) (@215PhillyFood) covers Philly food culture, also with Green Philly. We built "Brew Bot," a custom AI assistant loaded with his writing style, his proposal frameworks, his voice samples. The first real test: generating a [Food Bank of Delaware](https://www.fbd.org/) grant proposal directly from a coaching session transcript. It worked.
+[**Brou Quinn**](https://www.instagram.com/215phillyfood/) (@215PhillyFood) covers Philly food culture, also with Green Philly. One video he made about the Bobachi Food Pantry did not just tell a story about a food pantry. It doubled the pantry's attendance. We built "Brew Bot," a custom AI assistant loaded with his writing style, his proposal frameworks, his voice samples. The first real test: generating a [Food Bank of Delaware](https://www.fbd.org/) grant proposal directly from a coaching session transcript. It worked.
 
 [**Stephanie Humphrey**](https://stephaniehumphrey.com/) ([@TechLifeSteph](https://www.instagram.com/techlifesteph/)) covers tech and AI for **Technical.ly** and has been booking national TV, GMA, GMA3, Fox29. Her challenge was practical and urgent: how do you pull platform analytics into AI in a way that produces actual decisions, not surface-level vibes?
 
@@ -95,7 +95,7 @@ The work ran in three modes.
 
 ![Teaching the machine who you are. An old wooden loom weaves seven ribbons of rainbow light into dark cloth, the words woven into the weft.](poster:4)
 
-The evidence came back from four directions at once. Green Philly and Inti Media: 4M+ combined video views, 22,000+ new followers for Green Philly in 90 days, 2M reach for Inti Media. Resolve Philly: 20+ bilingual pieces published. Technical.ly: 3 national TV bookings. Total Lenfest investment: $160,000. That is less than the fully-loaded salary of a single senior reporter at a major metro daily, and it built four active, trust-based community media operations.
+The evidence came back from four directions at once. Green Philly and Inti Media: 4M+ combined video views, 22,000+ new followers for Green Philly in 90 days, 565,000-follower reach for Inti Media. Resolve Philly: 20+ bilingual pieces published. Technical.ly: 3 national TV bookings. Total Lenfest investment: $160,000. That is less than the fully-loaded salary of a single senior reporter at a major metro daily, and it built four active, trust-based community media operations.
 
 [**Shawn Mooring**](https://www.lenfestinstitute.org/about/our-team/shawn-mooring/), Head of Philadelphia Programs at Lenfest, named the real question in his opening: *"This event has always been about non-activation, about revenue generation, and how do we create opportunities for this work to continue absent philanthropic dollars."* The $160K is a test. The model is the thing that gets replicated.
 
