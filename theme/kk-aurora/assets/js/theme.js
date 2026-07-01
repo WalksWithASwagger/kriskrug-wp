@@ -171,6 +171,53 @@
   }
 
   // ============================================
+  // OPAL READING PANE SHEEN
+  // ============================================
+
+  function initOpalReadingPane() {
+    const pane = document.querySelector('.aurora-reader-pane');
+    if (!pane) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (prefersReducedMotion || !hasFinePointer) return;
+
+    let frame = null;
+    let pendingEvent = null;
+
+    function updateSheen(event) {
+      const rect = pane.getBoundingClientRect();
+      const x = (event.clientX - rect.left - rect.width / 2) * 0.035;
+      const y = (event.clientY - rect.top - rect.height / 2) * 0.025;
+
+      pane.style.setProperty('--aurora-sheen-x', `${x.toFixed(1)}px`);
+      pane.style.setProperty('--aurora-sheen-y', `${y.toFixed(1)}px`);
+      pane.style.setProperty('--aurora-sheen-opacity', '0.24');
+    }
+
+    pane.addEventListener('pointermove', (event) => {
+      pendingEvent = event;
+      if (frame) return;
+
+      frame = window.requestAnimationFrame(() => {
+        frame = null;
+        if (pendingEvent) {
+          updateSheen(pendingEvent);
+          pendingEvent = null;
+        }
+      });
+    });
+
+    pane.addEventListener('pointerleave', () => {
+      pendingEvent = null;
+      pane.style.setProperty('--aurora-sheen-x', '0px');
+      pane.style.setProperty('--aurora-sheen-y', '0px');
+      pane.style.setProperty('--aurora-sheen-opacity', '0.13');
+    });
+  }
+
+  // ============================================
   // ARTICLE READING HELPERS
   // ============================================
 
@@ -455,6 +502,7 @@
     initExternalLinks();
     initCodeCopy();
     initReadingProgress();
+    initOpalReadingPane();
     initArticleReadingHelpers();
     initArticleBlogLuxMotion();
     initLazyImages();
