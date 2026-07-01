@@ -1,8 +1,8 @@
 # Performance Recovery Closeout - 2026-07-01
 
 **Lane:** Track B theme performance with Track A media evidence
-**Live writes:** none
-**Theme package:** `/Users/kk/Desktop/kk-aurora-performance-1.3.25-20260701.zip`
+**Live writes:** theme package replacements through wp-admin; homepage template REST update
+**Theme packages:** `/Users/kk/Desktop/kk-aurora-performance-1.3.25-20260701.zip`, `/Users/kk/Desktop/kk-aurora-readability-1.3.26-20260701.zip`, `/Users/kk/Desktop/kk-aurora-readability-1.3.27-20260701.zip`
 **Baseline report:** `docs/current-state/reports/performance-audit-20260701-153109Z.md`
 
 ## What Changed
@@ -102,3 +102,34 @@ Remaining blockers:
 - Jetpack Boost Critical CSS needs a completed post-theme generation timestamp before issue #125 can close.
 - Cold-cache TTFB remains the biggest search-viability risk, especially `/`, `/about/`, and `/work/`.
 - `/projects/` and `/work/` still redirect to `/recent-projects-include/`; decide whether those should become direct canonical routes or whether internal/sitemap references should normalize to the final URL.
+
+## Live readability reset deployment - 2026-07-01
+
+- Built and verified `/Users/kk/Desktop/kk-aurora-readability-1.3.26-20260701.zip` from branch `codex/aurora-readability-reset`.
+- WordPress theme replace confirmed installed `KK Aurora` version `1.3.25` and uploaded version `1.3.26`; replacement completed successfully.
+- Live CSS verification after `1.3.26`: `https://kriskrug.co/wp-content/themes/kk-aurora/style.css?cb=<timestamp>` reported `Version: 1.3.26` and contained `--aurora-readable-measure`.
+- PressCACHE purge after `1.3.26` returned `Cache Purge: Success`.
+- Initial live readability audit found real misses at the tablet/mobile boundary: standard page H1s at `768px`, one-off kicker text below the body floor, mobile brand tap height below `44px`, and featured archive card media overflow at `768px`.
+- Built corrective package `/Users/kk/Desktop/kk-aurora-readability-1.3.27-20260701.zip` with the targeted fixes and verified the zip contents.
+- WordPress theme replace confirmed installed `KK Aurora` version `1.3.26` and uploaded version `1.3.27`; replacement completed successfully.
+- Live CSS verification after `1.3.27`: `https://kriskrug.co/wp-content/themes/kk-aurora/style.css?cb=<timestamp>` reported `Version: 1.3.27`, contained `--aurora-readable-measure`, and included the `!important` page-title override.
+- PressCACHE purge after `1.3.27` returned `Cache Purge: Success`.
+- Jetpack Boost Critical CSS did complete the earlier generation pass once, reporting `6 files generated 7 minutes ago`, then a final regeneration was started after `1.3.27`; after repeated polling and refresh it remained at `Generating Critical CSS. Please do not leave this page until completed.`
+- Final readability audit: `docs/current-state/reports/readability-audit-20260701-post-live.md` and `docs/current-state/reports/readability-audit-20260701-post-live.json`.
+- Final readability result: `0` failures across Home, Blog, article, Work, About, Vancouver AI category, and Contact at `1440x1100`, `768x900`, `390x844`, and `360x740`.
+- Screenshot evidence:
+  - `docs/current-state/reports/screenshots/aurora-readability-work-mobile-20260701.png`
+  - `docs/current-state/reports/screenshots/aurora-readability-about-mobile-20260701.png`
+  - `docs/current-state/reports/screenshots/aurora-readability-blog-desktop-20260701.png`
+  - `docs/current-state/reports/screenshots/aurora-readability-article-desktop-20260701.png`
+- Post-readability performance audit: `docs/current-state/reports/performance-audit-20260701-post-readability-live.md`.
+- Supporting performance diagnostics: `docs/current-state/reports/performance-audit-20260701T183901Z-cold-ttfb-cleanup-before.md` and `docs/current-state/reports/performance-deep-diagnostic-findings-20260701.md`.
+- `make status-readonly` passed WP smoke with `0` failures and `0` warnings; it still reports open issues `#125` and `#86`.
+- Current route truth after the final evidence refresh: `/work/` returns `200` directly, while `/projects/` makes one redirect hop to `/work/`.
+- Authenticated diagnostic snapshots appeared during evidence staging; they were not committed because they contain admin/user/snippet data and were preserved outside the repo at `/tmp/kriskrug-wp-sensitive-snapshots/20260701T184126Z-cold-ttfb-cleanup` and `/tmp/kriskrug-wp-sensitive-snapshots/20260701T184425Z-work-canonical-change`.
+
+Final blockers:
+
+- Issue #125 remains open because the final Jetpack Boost Critical CSS regeneration had not completed after the `1.3.27` deploy.
+- Lighthouse/PageSpeed LCP, INP, CLS, and TBT were not captured in this pass; the local performance script records route timing, cache headers, image payload, blocking-script candidates, URL hygiene, and live theme version.
+- Cold-cache TTFB remains high on `/`, `/about/`, and `/work/` in the final audit, while warm cache remains acceptable.
