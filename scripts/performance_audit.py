@@ -1,442 +1,371 @@
 #!/usr/bin/env python3
-"""Run a repeatable public performance audit for kriskrug.co.
+"""Read-only public performance audit for kriskrug.co.
 
-The script is read-only. It measures cold-ish and warm route timings with curl,
-then inspects homepage plus one current post for image payload and blocking
-script candidates.
+Measures route timing, cache headers, image payloads, blocking script candidates,
+and URL hygiene without needing browser automation or third-party dependencies.
 """
 
 from __future__ import annotations
 
 import argparse
-import dataclasses
+import html.parser
 import json
+import re
 import statistics
-import subprocess
 import time
-from datetime import UTC, datetime
-from html.parser import HTMLParser
+import urllib.error
+import urllib.parse
+import urllib.request
+from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
-from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
-
-import requests
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_BASE_URL = "https://kriskrug.co"
 DEFAULT_ROUTES = ("/", "/about/", "/blog/", "/projects/", "/work/")
-IMAGE_EXTENSIONS = (".avif", ".gif", ".jpeg", ".jpg", ".png", ".webp")
+DEFAULT_LONGFORM = (
+    "/2026/06/30/zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey/"
+)
+CACHE_HEADERS = {
+    "cf-cache-status",
+    "x-cache",
+    "x-gateway-cache-status",
+    "x-jetpack-boost-cache",
+    "x-pagely-cache",
+}
+USER_AGENT = "kriskrug-performance-audit/1.0"
 
 
-@dataclasses.dataclass(frozen=True)
-class RouteProbe:
-    route: str
-    mode: str
-    http_code: int | None
-    redirects: int | None
-    size_download: int | None
-    ttfb_seconds: float | None
-    total_seconds: float | None
+@dataclass
+class Probe:
+    url: str
     final_url: str
-    cache_status: str
+    status: int | str
+    redirects: int
+    ttfb: float
+    total: float
+    bytes_count: int
+    headers: dict[str, str]
+    body: bytes
+    error: str | None = None
 
 
-@dataclasses.dataclass(frozen=True)
-class AssetProbe:
-    page_url: str
-    src: str
-    status: int | None
-    bytes: int | None
-    has_width: bool
-    has_height: bool
-    loading: str
-    fetchpriority: str
-    has_srcset: bool
-
-
-class PageParser(HTMLParser):
+class PageParser(html.parser.HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.images: list[dict[str, str]] = []
         self.scripts: list[dict[str, str]] = []
         self.links: list[dict[str, str]] = []
+        self.in_head = False
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        data = {key.lower(): (value or "") for key, value in attrs}
-        if tag.lower() == "img" and data.get("src"):
+        tag = tag.lower()
+        data = {key.lower(): value or "" for key, value in attrs}
+        if tag == "head":
+            self.in_head = True
+        elif tag == "body":
+            self.in_head = False
+        elif tag == "img" and data.get("src"):
             self.images.append(data)
-        elif tag.lower() == "script" and data.get("src"):
+        elif tag == "script" and data.get("src"):
+            data["_in_head"] = "yes" if self.in_head else "no"
             self.scripts.append(data)
-        elif tag.lower() == "a" and data.get("href"):
+        elif tag == "a" and data.get("href"):
             self.links.append(data)
 
-
-def cache_bust(url: str) -> str:
-    split = urlsplit(url)
-    query = dict(parse_qsl(split.query, keep_blank_values=True))
-    query["_perf_audit"] = str(int(time.time() * 1000))
-    return urlunsplit((split.scheme, split.netloc, split.path, urlencode(query), split.fragment))
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() == "head":
+            self.in_head = False
 
 
-def last_response_headers(raw: str) -> dict[str, str]:
-    blocks = [block for block in raw.replace("\r\n", "\n").split("\n\n") if block.startswith("HTTP/")]
-    if not blocks:
-        return {}
+class RedirectCounter(urllib.request.HTTPRedirectHandler):
+    redirects = 0
 
-    headers: dict[str, str] = {}
-    for line in blocks[-1].splitlines()[1:]:
-        if ":" not in line:
-            continue
-        key, value = line.split(":", 1)
-        headers[key.strip().lower()] = value.strip()
-    return headers
+    def redirect_request(self, req, fp, code, msg, headers, newurl):  # type: ignore[no-untyped-def]
+        type(self).redirects += 1
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
-def cache_hint(headers: dict[str, str]) -> str:
-    values = []
-    for key in ("x-jetpack-boost-cache", "x-gateway-cache-status", "cf-cache-status", "x-cache"):
-        if headers.get(key):
-            values.append(f"{key}={headers[key]}")
-    return ", ".join(values) if values else "(not exposed)"
-
-
-def parse_int(value: str) -> int | None:
+def fetch(url: str, *, timeout: int, method: str = "GET", cache_bust: bool = False) -> Probe:
+    if cache_bust:
+        sep = "&" if "?" in url else "?"
+        url = f"{url}{sep}auditcb={time.time_ns()}"
+    RedirectCounter.redirects = 0
+    headers = {"User-Agent": USER_AGENT}
+    if cache_bust:
+        headers["Cache-Control"] = "no-cache"
+        headers["Pragma"] = "no-cache"
+    req = urllib.request.Request(url, headers=headers, method=method)
+    opener = urllib.request.build_opener(RedirectCounter)
+    started = time.perf_counter()
     try:
-        return int(value)
-    except ValueError:
-        return None
+        with opener.open(req, timeout=timeout) as resp:
+            first_byte = time.perf_counter()
+            body = b"" if method == "HEAD" else resp.read()
+            finished = time.perf_counter()
+            return Probe(
+                url=url,
+                final_url=resp.geturl(),
+                status=resp.status,
+                redirects=RedirectCounter.redirects,
+                ttfb=first_byte - started,
+                total=finished - started,
+                bytes_count=len(body),
+                headers=dict(resp.headers.items()),
+                body=body,
+            )
+    except Exception as err:
+        finished = time.perf_counter()
+        return Probe(
+            url=url,
+            final_url=url,
+            status="ERR",
+            redirects=RedirectCounter.redirects,
+            ttfb=finished - started,
+            total=finished - started,
+            bytes_count=0,
+            headers={},
+            body=b"",
+            error=str(err),
+        )
 
 
-def parse_float(value: str) -> float | None:
-    try:
-        return float(value)
-    except ValueError:
-        return None
+def median(values: list[float]) -> float:
+    return statistics.median(values) if values else 0.0
 
 
-def route_url(base_url: str, route: str) -> str:
-    if route.startswith("http://") or route.startswith("https://"):
-        return route
-    return urljoin(base_url.rstrip("/") + "/", route.lstrip("/"))
-
-
-def probe_route(base_url: str, route: str, mode: str, timeout: int) -> RouteProbe:
-    url = route_url(base_url, route)
-    if mode == "cold":
-        url = cache_bust(url)
-
-    command = [
-        "curl",
-        "-L",
-        "-sS",
-        "-o",
-        "/dev/null",
-        "-D",
-        "-",
-        "--max-time",
-        str(timeout),
-        "-w",
-        "\n__METRICS__\t%{http_code}\t%{num_redirects}\t%{size_download}\t%{time_starttransfer}\t%{time_total}\t%{url_effective}\n",
-        "-H",
-        "User-Agent: kriskrug-performance-audit/1.0",
-    ]
-    if mode == "cold":
-        command.extend(["-H", "Cache-Control: no-cache", "-H", "Pragma: no-cache"])
-    command.append(url)
-
-    try:
-        completed = subprocess.run(command, capture_output=True, text=True, timeout=timeout + 5)
-    except subprocess.TimeoutExpired:
-        return RouteProbe(route, mode, None, None, None, None, None, url, "timeout")
-
-    stdout = completed.stdout
-    if "__METRICS__" not in stdout:
-        return RouteProbe(route, mode, None, None, None, None, None, url, "curl-failed")
-
-    header_text, metrics = stdout.rsplit("__METRICS__", 1)
-    fields = metrics.strip().split("\t")
-    if len(fields) != 6:
-        return RouteProbe(route, mode, None, None, None, None, None, url, "parse-failed")
-
-    headers = last_response_headers(header_text)
-    return RouteProbe(
-        route=route,
-        mode=mode,
-        http_code=parse_int(fields[0]),
-        redirects=parse_int(fields[1]),
-        size_download=parse_int(fields[2]),
-        ttfb_seconds=parse_float(fields[3]),
-        total_seconds=parse_float(fields[4]),
-        final_url=fields[5],
-        cache_status=cache_hint(headers),
+def cache_status(headers: dict[str, str]) -> str:
+    return ", ".join(
+        f"{key}={value}"
+        for key, value in headers.items()
+        if key.lower() in CACHE_HEADERS
     )
 
 
-def percentile(values: list[float], pct: float) -> float:
-    if not values:
-        return 0.0
-    ordered = sorted(values)
-    index = min(len(ordered) - 1, max(0, round((len(ordered) - 1) * pct)))
-    return ordered[index]
-
-
-def metric_summary(probes: list[RouteProbe], field: str) -> dict[str, float | int | None]:
-    values = [getattr(probe, field) for probe in probes]
-    clean = [value for value in values if isinstance(value, float)]
-    if not clean:
-        return {"count": 0, "p50": None, "p95": None, "avg": None}
-    return {
-        "count": len(clean),
-        "p50": round(statistics.median(clean), 3),
-        "p95": round(percentile(clean, 0.95), 3),
-        "avg": round(sum(clean) / len(clean), 3),
-    }
-
-
-def fetch_html(session: requests.Session, url: str, timeout: int) -> str:
-    response = session.get(url, timeout=timeout)
-    response.raise_for_status()
-    return response.text
-
-
-def latest_post_url(session: requests.Session, base_url: str, timeout: int) -> str:
-    try:
-        response = session.get(
-            f"{base_url.rstrip('/')}/wp-json/wp/v2/posts",
-            params={"per_page": 1, "orderby": "date", "order": "desc", "_fields": "link"},
-            timeout=timeout,
-        )
-        response.raise_for_status()
-        posts = response.json()
-    except requests.RequestException:
-        return f"{base_url.rstrip('/')}/blog/"
-    if not posts:
-        return f"{base_url.rstrip('/')}/blog/"
-    return str(posts[0].get("link") or f"{base_url.rstrip('/')}/blog/")
-
-
-def is_image_url(url: str) -> bool:
-    path = urlsplit(url).path.lower()
-    return path.endswith(IMAGE_EXTENSIONS)
-
-
-def asset_size(session: requests.Session, url: str, timeout: int) -> tuple[int | None, int | None]:
-    try:
-        response = session.head(url, allow_redirects=True, timeout=timeout)
-        if response.status_code in (405, 429) or response.status_code >= 500:
-            response = session.get(url, stream=True, timeout=timeout)
-        length = response.headers.get("content-length", "")
-        return response.status_code, int(length) if length.isdigit() else None
-    except requests.RequestException:
-        return None, None
-
-
-def inspect_page(session: requests.Session, base_url: str, page_url: str, timeout: int) -> dict[str, Any]:
+def parse_page(body: bytes) -> PageParser:
     parser = PageParser()
-    parser.feed(fetch_html(session, page_url, timeout))
+    parser.feed(body.decode("utf-8", errors="replace"))
+    return parser
 
-    blocking_scripts = [
-        urljoin(base_url.rstrip("/") + "/", script["src"])
-        for script in parser.scripts
-        if not script.get("async") and not script.get("defer")
-    ]
 
-    internal_noncanonical_links = []
-    for link in parser.links:
-        href = link.get("href", "").strip()
-        if not href.startswith("/"):
-            continue
-        path = urlsplit(href).path
-        if path and "." not in path.rsplit("/", 1)[-1] and not path.endswith("/"):
-            internal_noncanonical_links.append(href)
+def absolute(base_url: str, value: str) -> str:
+    return urllib.parse.urljoin(base_url.rstrip("/") + "/", value)
 
-    image_probes = []
-    seen_images: set[str] = set()
-    for image in parser.images:
-        src = urljoin(base_url.rstrip("/") + "/", image["src"])
-        if src in seen_images or not is_image_url(src):
-            continue
-        seen_images.add(src)
-        status, length = asset_size(session, src, timeout)
-        image_probes.append(
-            AssetProbe(
-                page_url=page_url,
-                src=src,
-                status=status,
-                bytes=length,
-                has_width=bool(image.get("width")),
-                has_height=bool(image.get("height")),
-                loading=image.get("loading", ""),
-                fetchpriority=image.get("fetchpriority", ""),
-                has_srcset=bool(image.get("srcset")),
-            )
+
+def image_size(src: str, timeout: int) -> tuple[int, int | str]:
+    probe = fetch(src, timeout=timeout, method="HEAD")
+    if probe.status != "ERR":
+        length = probe.headers.get("Content-Length") or probe.headers.get("content-length")
+        if length and length.isdigit():
+            return int(length), probe.status
+    probe = fetch(src, timeout=timeout)
+    return probe.bytes_count, probe.status
+
+
+def route_matrix(base_url: str, routes: list[str], samples: int, timeout: int) -> tuple[list[dict[str, Any]], dict[str, bytes]]:
+    rows: list[dict[str, Any]] = []
+    bodies: dict[str, bytes] = {}
+    for route in routes:
+        url = absolute(base_url, route)
+        cold = [fetch(url, timeout=timeout, cache_bust=True) for _ in range(samples)]
+        warm = [fetch(url, timeout=timeout) for _ in range(samples)]
+        last = warm[-1]
+        bodies[route] = last.body
+        rows.append(
+            {
+                "route": route,
+                "status": last.status,
+                "redirects": last.redirects,
+                "cold_ttfb": median([probe.ttfb for probe in cold]),
+                "cold_total": median([probe.total for probe in cold]),
+                "warm_ttfb": median([probe.ttfb for probe in warm]),
+                "warm_total": median([probe.total for probe in warm]),
+                "bytes": last.bytes_count,
+                "cache": cache_status(last.headers),
+                "final_url": last.final_url,
+                "errors": [probe.error for probe in cold + warm if probe.error],
+            }
         )
+    return rows, bodies
 
+
+def asset_rows(base_url: str, pages: list[str], timeout: int) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    seen: set[tuple[str, str]] = set()
+    for page in pages:
+        page_url = absolute(base_url, page)
+        page_probe = fetch(page_url, timeout=timeout)
+        parser = parse_page(page_probe.body)
+        for image in parser.images:
+            src = absolute(page_url, image.get("src", ""))
+            key = (page_url, src)
+            if key in seen:
+                continue
+            seen.add(key)
+            bytes_count, status = image_size(src, timeout)
+            rows.append(
+                {
+                    "page": page_probe.final_url,
+                    "src": src,
+                    "bytes": bytes_count,
+                    "status": status,
+                    "dimensions": "yes" if image.get("width") and image.get("height") else "no",
+                    "loading": image.get("loading", ""),
+                    "fetchpriority": image.get("fetchpriority", ""),
+                    "srcset": "yes" if image.get("srcset") else "no",
+                }
+            )
+    return sorted(rows, key=lambda row: int(row["bytes"]), reverse=True)
+
+
+def script_candidates(base_url: str, pages: list[str], timeout: int) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for page in pages:
+        page_url = absolute(base_url, page)
+        probe = fetch(page_url, timeout=timeout)
+        parser = parse_page(probe.body)
+        candidates = []
+        for script in parser.scripts:
+            has_async = "async" in script
+            has_defer = "defer" in script
+            is_module = script.get("type") == "module"
+            if script.get("_in_head") == "yes" and not (has_async or has_defer or is_module):
+                candidates.append(absolute(page_url, script.get("src", "")))
+        rows.append({"page": probe.final_url, "count": len(candidates), "sources": candidates})
+    return rows
+
+
+def html_checks(base_url: str, homepage_body: bytes, timeout: int) -> dict[str, Any]:
+    homepage = homepage_body.decode("utf-8", errors="replace")
+    style_probe = fetch(
+        absolute(base_url, f"/wp-content/themes/kk-aurora/style.css?cb={time.time_ns()}"),
+        timeout=timeout,
+    )
+    version_match = re.search(rb"^Version:\s*(.+)$", style_probe.body, re.M)
+    critical_mentions = len(re.findall(r"critical-css|critical css|jetpack-boost", homepage, re.I))
     return {
-        "url": page_url,
-        "blocking_scripts": blocking_scripts,
-        "internal_noncanonical_links": internal_noncanonical_links,
-        "images": image_probes,
+        "style_version": version_match.group(1).decode().strip() if version_match else "",
+        "resized_vancouver_png_present": "june-meetup-30-full-lineup-hero-1024x1024.png?w=720" in homepage,
+        "direct_heavy_vancouver_src_absent": 'src="https://bc-ai.ca/wp-content/uploads/2026/06/june-meetup-30-full-lineup-hero-1024x1024.png"' not in homepage,
+        "hero_dimensions_present": 'width="1800" height="1200"' in homepage,
+        "vancouver_dimensions_present": 'width="1024" height="1024"' in homepage,
+        "critical_css_mentions": critical_mentions,
     }
 
 
-def serialize_probe(probe: Any) -> dict[str, Any]:
-    if dataclasses.is_dataclass(probe):
-        return dataclasses.asdict(probe)
-    raise TypeError(f"unsupported JSON value: {probe!r}")
-
-
-def fmt_seconds(value: float | int | None) -> str:
-    if value is None:
-        return "n/a"
-    return f"{value:.3f}"
+def internal_url_hygiene(base_url: str, pages: list[str], timeout: int) -> dict[str, Any]:
+    base_host = urllib.parse.urlparse(base_url).netloc
+    missing_trailing: set[str] = set()
+    for page in pages:
+        page_url = absolute(base_url, page)
+        probe = fetch(page_url, timeout=timeout)
+        parser = parse_page(probe.body)
+        for link in parser.links:
+            href = link.get("href", "")
+            resolved = absolute(page_url, href)
+            parsed = urllib.parse.urlparse(resolved)
+            if parsed.netloc != base_host or parsed.query or parsed.fragment:
+                continue
+            if parsed.path in ("", "/") or parsed.path.endswith("/"):
+                continue
+            if "." in parsed.path.rsplit("/", 1)[-1]:
+                continue
+            missing_trailing.add(resolved)
+    return {"missing_trailing_slash": sorted(missing_trailing)}
 
 
 def render_markdown(data: dict[str, Any]) -> str:
     lines = [
         "# Performance Audit Report",
         "",
-        f"- Generated: `{data['generated_at']}`",
+        f"- Generated: `{data['generated']}`",
         f"- Base URL: `{data['base_url']}`",
         f"- Route samples: `{data['samples']}` cold and `{data['samples']}` warm probes per route",
-        f"- Asset pages: `{', '.join(data['asset_pages'])}`",
+        f"- Asset pages: {', '.join(data['asset_pages'])}",
         "",
         "## Matrix A - Route Baseline",
         "",
-        "| Route | HTTP | Redirects | Cold TTFB p50 | Cold total p50 | Warm TTFB p50 | Warm total p50 | Cache status | Final URL |",
-        "|---|---:|---:|---:|---:|---:|---:|---|---|",
+        "| Route | HTTP | Redirects | Cold TTFB p50 | Cold total p50 | Warm TTFB p50 | Warm total p50 | Bytes | Cache status | Final URL |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---|---|",
     ]
-
     for row in data["routes"]:
-        cold_ttfb = metric_summary(row["cold"], "ttfb_seconds")
-        cold_total = metric_summary(row["cold"], "total_seconds")
-        warm_ttfb = metric_summary(row["warm"], "ttfb_seconds")
-        warm_total = metric_summary(row["warm"], "total_seconds")
-        representative = row["warm"][-1] if row["warm"] else row["cold"][-1]
         lines.append(
-            "| {route} | {http_code} | {redirects} | {cold_ttfb} | {cold_total} | {warm_ttfb} | {warm_total} | {cache} | {final_url} |".format(
-                route=row["route"],
-                http_code=representative.http_code or "",
-                redirects=representative.redirects or 0,
-                cold_ttfb=fmt_seconds(cold_ttfb["p50"]),
-                cold_total=fmt_seconds(cold_total["p50"]),
-                warm_ttfb=fmt_seconds(warm_ttfb["p50"]),
-                warm_total=fmt_seconds(warm_total["p50"]),
-                cache=representative.cache_status,
-                final_url=representative.final_url,
-            )
+            "| `{route}` | {status} | {redirects} | {cold_ttfb:.3f} | {cold_total:.3f} | "
+            "{warm_ttfb:.3f} | {warm_total:.3f} | {bytes} | {cache} | {final_url} |".format(**row)
         )
-
-    lines.extend(
-        [
-            "",
-            "## Matrix B - Top Image Requests",
-            "",
-            "| Page | Bytes | Status | Width/height | Loading | Fetch priority | Srcset | Source |",
-            "|---|---:|---:|---|---|---|---|---|",
-        ]
-    )
-
-    images = sorted(
-        [image for page in data["page_inspections"] for image in page["images"]],
-        key=lambda image: image.bytes or 0,
-        reverse=True,
-    )
-    for image in images[:20]:
-        dimensions = "yes" if image.has_width and image.has_height else "no"
+    lines += [
+        "",
+        "## Matrix B - Top Image Requests",
+        "",
+        "| Page | Bytes | HTTP | Width/height | Loading | Fetch priority | Srcset | Source |",
+        "|---|---:|---:|---|---|---|---|---|",
+    ]
+    for row in data["images"][:20]:
         lines.append(
-            "| {page} | {bytes} | {status} | {dimensions} | {loading} | {priority} | {srcset} | {src} |".format(
-                page=image.page_url,
-                bytes=image.bytes or "",
-                status=image.status or "",
-                dimensions=dimensions,
-                loading=image.loading or "",
-                priority=image.fetchpriority or "",
-                srcset="yes" if image.has_srcset else "no",
-                src=image.src[:180],
-            )
+            f"| {row['page']} | {row['bytes']} | {row['status']} | {row['dimensions']} | "
+            f"{row['loading']} | {row['fetchpriority']} | {row['srcset']} | {row['src']} |"
         )
-
-    lines.extend(
-        [
-            "",
-            "## Matrix C - Blocking Script Candidates",
-            "",
-            "| Page | Count | Sources |",
-            "|---|---:|---|",
-        ]
-    )
-    for page in data["page_inspections"]:
-        lines.append(
-            f"| {page['url']} | {len(page['blocking_scripts'])} | {', '.join(page['blocking_scripts'][:4])} |"
-        )
-
-    lines.extend(
-        [
-            "",
-            "## Matrix D - URL Hygiene",
-            "",
-            "| Check | Result |",
-            "|---|---|",
-        ]
-    )
-    redirect_findings = []
-    for row in data["routes"]:
-        representative = row["warm"][-1] if row["warm"] else row["cold"][-1]
-        if representative.redirects and representative.redirects > 1:
-            redirect_findings.append(f"{row['route']} has {representative.redirects} redirects")
+    lines += [
+        "",
+        "## Matrix C - Blocking Script Candidates",
+        "",
+        "| Page | Count | Sources |",
+        "|---|---:|---|",
+    ]
+    for row in data["scripts"]:
+        lines.append(f"| {row['page']} | {row['count']} | {', '.join(row['sources'])} |")
+    lines += [
+        "",
+        "## Matrix D - URL Hygiene",
+        "",
+        "| Check | Result |",
+        "|---|---|",
+    ]
+    redirect_depth = "All sampled routes are 0-1 redirect hop."
+    if any(int(row["redirects"]) > 1 for row in data["routes"]):
+        redirect_depth = "One or more sampled routes exceed 1 redirect hop."
+    missing = data["url_hygiene"]["missing_trailing_slash"]
+    lines.append(f"| Route redirect depth | {redirect_depth} |")
     lines.append(
-        f"| Route redirect depth | {'; '.join(redirect_findings) if redirect_findings else 'All sampled routes are 0-1 redirect hop.'} |"
+        "| Homepage/post internal links missing trailing slash | "
+        + ("None found in inspected pages." if not missing else ", ".join(missing[:20]))
+        + " |"
     )
-
-    link_findings = []
-    for page in data["page_inspections"]:
-        link_findings.extend(page["internal_noncanonical_links"])
-    unique_links = sorted(set(link_findings))
-    lines.append(
-        f"| Homepage/post internal links missing trailing slash | {', '.join(unique_links[:20]) if unique_links else 'None found in inspected pages.'} |"
-    )
-
-    lines.extend(
-        [
-            "",
-            "## Immediate Recommendations",
-            "",
-            "- Use this report as the baseline for issue #125 before changing Jetpack Boost, theme scripts, or image payloads.",
-            "- Prioritize any image over 500 KB that lacks local ownership, explicit dimensions, or responsive metadata.",
-            "- Keep Track A image/content updates separate from Track B theme/script updates.",
-            "- Re-run this command after every optimization pass and compare the Matrix A route table plus Matrix B top images.",
-        ]
-    )
+    lines += [
+        "",
+        "## HTML / Theme Checks",
+        "",
+    ]
+    for key, value in data["checks"].items():
+        lines.append(f"- `{key}`: `{value}`")
+    lines += [
+        "",
+        "## Immediate Diagnostic Notes",
+        "",
+        "- Use cold TTFB and cache headers to separate origin/render cost from warm-cache behavior.",
+        "- Treat `X-Jetpack-Boost-Cache=miss` on warm canonical probes as a cache-behavior finding to explain before deeper script changes.",
+        "- Chrome DevTools/Lighthouse metrics are not included unless a DevTools MCP or local Lighthouse runner is available.",
+    ]
     return "\n".join(lines) + "\n"
 
 
 def build_report(args: argparse.Namespace) -> dict[str, Any]:
-    base_url = args.base_url.rstrip("/")
-    session = requests.Session()
-    session.headers.update({"User-Agent": "kriskrug-performance-audit/1.0"})
     routes = [route.strip() for route in args.routes.split(",") if route.strip()]
-
-    route_rows = []
-    for route in routes:
-        cold = [probe_route(base_url, route, "cold", args.timeout) for _ in range(args.samples)]
-        probe_route(base_url, route, "warm", args.timeout)
-        warm = [probe_route(base_url, route, "warm", args.timeout) for _ in range(args.samples)]
-        route_rows.append({"route": route, "cold": cold, "warm": warm})
-
-    asset_pages = [base_url + "/"]
-    longform = args.longform_url or latest_post_url(session, base_url, args.timeout)
-    asset_pages.append(route_url(base_url, longform))
-    page_inspections = [inspect_page(session, base_url, page_url, args.timeout) for page_url in asset_pages]
-
+    longform = args.longform_url or DEFAULT_LONGFORM
+    asset_pages = ["/", longform]
+    route_rows, bodies = route_matrix(args.base_url, routes, args.samples, args.timeout)
+    homepage_body = bodies.get("/", b"")
     return {
-        "generated_at": datetime.now(UTC).isoformat(),
-        "base_url": base_url,
+        "generated": datetime.now(timezone.utc).isoformat(),
+        "base_url": args.base_url,
         "samples": args.samples,
+        "asset_pages": [absolute(args.base_url, page) for page in asset_pages],
         "routes": route_rows,
-        "asset_pages": asset_pages,
-        "page_inspections": page_inspections,
+        "images": asset_rows(args.base_url, asset_pages, args.timeout),
+        "scripts": script_candidates(args.base_url, asset_pages, args.timeout),
+        "url_hygiene": internal_url_hygiene(args.base_url, asset_pages, args.timeout),
+        "checks": html_checks(args.base_url, homepage_body, args.timeout),
     }
 
 
@@ -454,21 +383,15 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    data = build_report(args)
-    if args.format == "json":
-        output = json.dumps(data, default=serialize_probe, indent=2)
-    else:
-        output = render_markdown(data)
-
+    report = build_report(args)
+    rendered = json.dumps(report, indent=2) + "\n" if args.format == "json" else render_markdown(report)
     if args.output:
         path = Path(args.output)
-        if not path.is_absolute():
-            path = REPO_ROOT / path
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(output, encoding="utf-8")
-        print(f"report={path}")
+        path.write_text(rendered, encoding="utf-8")
+        print(f"report={path.resolve()}")
     else:
-        print(output)
+        print(rendered, end="")
     return 0
 
 
