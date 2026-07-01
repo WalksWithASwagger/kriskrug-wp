@@ -1,0 +1,949 @@
+{
+  "generated": "2026-07-01T20:30:08.697Z",
+  "results": [
+    {
+      "name": "Vancouver AI",
+      "slug": "vancouver-ai",
+      "url": "https://kriskrug.co/vancouver-ai/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-vancouver-ai-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 1440,
+        "finalUrl": "https://kriskrug.co/vancouver-ai/",
+        "h1Px": 63.36,
+        "h1Text": "Vancouver AI Ecosystem",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18.88,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "Vancouver AI Ecosystem — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Vancouver AI",
+      "slug": "vancouver-ai",
+      "url": "https://kriskrug.co/vancouver-ai/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-vancouver-ai-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 768,
+        "finalUrl": "https://kriskrug.co/vancouver-ai/",
+        "h1Px": 48,
+        "h1Text": "Vancouver AI Ecosystem",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18.0288,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "Vancouver AI Ecosystem — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Vancouver AI",
+      "slug": "vancouver-ai",
+      "url": "https://kriskrug.co/vancouver-ai/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-vancouver-ai-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 390,
+        "finalUrl": "https://kriskrug.co/vancouver-ai/",
+        "h1Px": 35.1,
+        "h1Text": "Vancouver AI Ecosystem",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 17,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "Vancouver AI Ecosystem — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Vancouver AI",
+      "slug": "vancouver-ai",
+      "url": "https://kriskrug.co/vancouver-ai/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-vancouver-ai-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 360,
+        "finalUrl": "https://kriskrug.co/vancouver-ai/",
+        "h1Px": 34,
+        "h1Text": "Vancouver AI Ecosystem",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 17,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "Vancouver AI Ecosystem — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI for Creatives",
+      "slug": "ai-for-creatives",
+      "url": "https://kriskrug.co/ai-for-creatives/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-for-creatives-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 1440,
+        "finalUrl": "https://kriskrug.co/ai-for-creatives/",
+        "h1Px": 63.36,
+        "h1Text": "AI for Creatives",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 21.12,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "AI for Creatives — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI for Creatives",
+      "slug": "ai-for-creatives",
+      "url": "https://kriskrug.co/ai-for-creatives/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-for-creatives-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 768,
+        "finalUrl": "https://kriskrug.co/ai-for-creatives/",
+        "h1Px": 48,
+        "h1Text": "AI for Creatives",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 19.456,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "AI for Creatives — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI for Creatives",
+      "slug": "ai-for-creatives",
+      "url": "https://kriskrug.co/ai-for-creatives/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-for-creatives-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 390,
+        "finalUrl": "https://kriskrug.co/ai-for-creatives/",
+        "h1Px": 35.1,
+        "h1Text": "AI for Creatives",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "AI for Creatives — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI for Creatives",
+      "slug": "ai-for-creatives",
+      "url": "https://kriskrug.co/ai-for-creatives/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-for-creatives-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 360,
+        "finalUrl": "https://kriskrug.co/ai-for-creatives/",
+        "h1Px": 34,
+        "h1Text": "AI for Creatives",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "AI for Creatives — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Events",
+      "slug": "ai-events",
+      "url": "https://kriskrug.co/ai-events/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-events-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 1440,
+        "finalUrl": "https://kriskrug.co/ai-events/",
+        "h1Px": 63.36,
+        "h1Text": "AI Events & Recaps",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 21.12,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "AI Events & Recaps — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Events",
+      "slug": "ai-events",
+      "url": "https://kriskrug.co/ai-events/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-events-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 768,
+        "finalUrl": "https://kriskrug.co/ai-events/",
+        "h1Px": 48,
+        "h1Text": "AI Events & Recaps",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 19.456,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "AI Events & Recaps — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Events",
+      "slug": "ai-events",
+      "url": "https://kriskrug.co/ai-events/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-events-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 390,
+        "finalUrl": "https://kriskrug.co/ai-events/",
+        "h1Px": 35.1,
+        "h1Text": "AI Events & Recaps",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "AI Events & Recaps — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Events",
+      "slug": "ai-events",
+      "url": "https://kriskrug.co/ai-events/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-events-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 360,
+        "finalUrl": "https://kriskrug.co/ai-events/",
+        "h1Px": 34,
+        "h1Text": "AI Events & Recaps",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "AI Events & Recaps — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Ethics",
+      "slug": "ai-ethics",
+      "url": "https://kriskrug.co/ai-ethics/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-ethics-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 1440,
+        "finalUrl": "https://kriskrug.co/ai-ethics/",
+        "h1Px": 63.36,
+        "h1Text": "AI Ethics & Philosophy",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18.88,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "AI Ethics & Philosophy — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Ethics",
+      "slug": "ai-ethics",
+      "url": "https://kriskrug.co/ai-ethics/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-ethics-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 768,
+        "finalUrl": "https://kriskrug.co/ai-ethics/",
+        "h1Px": 48,
+        "h1Text": "AI Ethics & Philosophy",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18.0288,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "AI Ethics & Philosophy — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Ethics",
+      "slug": "ai-ethics",
+      "url": "https://kriskrug.co/ai-ethics/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-ethics-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 390,
+        "finalUrl": "https://kriskrug.co/ai-ethics/",
+        "h1Px": 35.1,
+        "h1Text": "AI Ethics & Philosophy",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 17,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "AI Ethics & Philosophy — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Ethics",
+      "slug": "ai-ethics",
+      "url": "https://kriskrug.co/ai-ethics/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-ethics-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 360,
+        "finalUrl": "https://kriskrug.co/ai-ethics/",
+        "h1Px": 34,
+        "h1Text": "AI Ethics & Philosophy",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 17,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "AI Ethics & Philosophy — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Tools",
+      "slug": "ai-tools",
+      "url": "https://kriskrug.co/ai-tools/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-tools-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 1440,
+        "finalUrl": "https://kriskrug.co/ai-tools/",
+        "h1Px": 63.36,
+        "h1Text": "Generative AI Tools",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 21.12,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "Generative AI Tools — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Tools",
+      "slug": "ai-tools",
+      "url": "https://kriskrug.co/ai-tools/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-tools-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 768,
+        "finalUrl": "https://kriskrug.co/ai-tools/",
+        "h1Px": 48,
+        "h1Text": "Generative AI Tools",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 19.456,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "Generative AI Tools — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Tools",
+      "slug": "ai-tools",
+      "url": "https://kriskrug.co/ai-tools/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-tools-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 390,
+        "finalUrl": "https://kriskrug.co/ai-tools/",
+        "h1Px": 35.1,
+        "h1Text": "Generative AI Tools",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "Generative AI Tools — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Tools",
+      "slug": "ai-tools",
+      "url": "https://kriskrug.co/ai-tools/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-tools-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 360,
+        "finalUrl": "https://kriskrug.co/ai-tools/",
+        "h1Px": 34,
+        "h1Text": "Generative AI Tools",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "Generative AI Tools — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI for Journalists",
+      "slug": "ai-for-journalists",
+      "url": "https://kriskrug.co/ai-for-journalists/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-for-journalists-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 1440,
+        "finalUrl": "https://kriskrug.co/ai-for-journalists/",
+        "h1Px": 63.36,
+        "h1Text": "AI for Journalism & Media",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 21.12,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "AI for Journalism & Media — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI for Journalists",
+      "slug": "ai-for-journalists",
+      "url": "https://kriskrug.co/ai-for-journalists/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-for-journalists-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 768,
+        "finalUrl": "https://kriskrug.co/ai-for-journalists/",
+        "h1Px": 48,
+        "h1Text": "AI for Journalism & Media",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 19.456,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "AI for Journalism & Media — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI for Journalists",
+      "slug": "ai-for-journalists",
+      "url": "https://kriskrug.co/ai-for-journalists/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-for-journalists-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 390,
+        "finalUrl": "https://kriskrug.co/ai-for-journalists/",
+        "h1Px": 35.1,
+        "h1Text": "AI for Journalism & Media",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "AI for Journalism & Media — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI for Journalists",
+      "slug": "ai-for-journalists",
+      "url": "https://kriskrug.co/ai-for-journalists/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-for-journalists-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 360,
+        "finalUrl": "https://kriskrug.co/ai-for-journalists/",
+        "h1Px": 34,
+        "h1Text": "AI for Journalism & Media",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "AI for Journalism & Media — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Conversations",
+      "slug": "ai-conversations",
+      "url": "https://kriskrug.co/ai-conversations/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-conversations-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 1440,
+        "finalUrl": "https://kriskrug.co/ai-conversations/",
+        "h1Px": 63.36,
+        "h1Text": "Conversations & Interviews",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 21.12,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "Conversations & Interviews — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Conversations",
+      "slug": "ai-conversations",
+      "url": "https://kriskrug.co/ai-conversations/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-conversations-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 768,
+        "finalUrl": "https://kriskrug.co/ai-conversations/",
+        "h1Px": 48,
+        "h1Text": "Conversations & Interviews",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 19.456,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "Conversations & Interviews — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Conversations",
+      "slug": "ai-conversations",
+      "url": "https://kriskrug.co/ai-conversations/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-conversations-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 390,
+        "finalUrl": "https://kriskrug.co/ai-conversations/",
+        "h1Px": 35.1,
+        "h1Text": "Conversations & Interviews",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "Conversations & Interviews — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "AI Conversations",
+      "slug": "ai-conversations",
+      "url": "https://kriskrug.co/ai-conversations/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-ai-conversations-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 360,
+        "finalUrl": "https://kriskrug.co/ai-conversations/",
+        "h1Px": 34,
+        "h1Text": "Conversations & Interviews",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "Conversations & Interviews — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Indigenous AI",
+      "slug": "indigenous-ai",
+      "url": "https://kriskrug.co/indigenous-ai/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-indigenous-ai-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 1440,
+        "finalUrl": "https://kriskrug.co/indigenous-ai/",
+        "h1Px": 63.36,
+        "h1Text": "Indigenous & Reconciliation in Tech",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18.88,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "Indigenous & Reconciliation in Tech — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Indigenous AI",
+      "slug": "indigenous-ai",
+      "url": "https://kriskrug.co/indigenous-ai/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-indigenous-ai-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 768,
+        "finalUrl": "https://kriskrug.co/indigenous-ai/",
+        "h1Px": 48,
+        "h1Text": "Indigenous & Reconciliation in Tech",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18.0288,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "Indigenous & Reconciliation in Tech — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ]
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Indigenous AI",
+      "slug": "indigenous-ai",
+      "url": "https://kriskrug.co/indigenous-ai/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-indigenous-ai-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 390,
+        "finalUrl": "https://kriskrug.co/indigenous-ai/",
+        "h1Px": 35.1,
+        "h1Text": "Indigenous & Reconciliation in Tech",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 17,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "Indigenous & Reconciliation in Tech — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Indigenous AI",
+      "slug": "indigenous-ai",
+      "url": "https://kriskrug.co/indigenous-ai/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/topic-hubs-20260701/topic-hub-indigenous-ai-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "clientWidth": 360,
+        "finalUrl": "https://kriskrug.co/indigenous-ai/",
+        "h1Px": 34,
+        "h1Text": "Indigenous & Reconciliation in Tech",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 17,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "Indigenous & Reconciliation in Tech — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": []
+      },
+      "failures": [],
+      "result": "PASS"
+    }
+  ]
+}

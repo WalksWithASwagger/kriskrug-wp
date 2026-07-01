@@ -19,14 +19,20 @@ PACK_DIR = REPO_ROOT / "content/source-packs/content-architecture-2026"
 PAYLOAD_DIR = PACK_DIR / "wp-payloads"
 PAGE_MAP_PATH = PAYLOAD_DIR / "page-map.json"
 SNAPSHOT_FIELDS = "id,slug,status,title,content,excerpt,meta,modified,link"
+RETIRED_CLASS_PREFIXES = ("kk-", "kkp-", "kkx-", "kk-services-", "kk-publications-")
 
 
-def load_page_map() -> dict[str, dict[str, Any]]:
-    return json.loads(PAGE_MAP_PATH.read_text(encoding="utf-8"))
+def repo_path(value: str) -> Path:
+    path = Path(value)
+    return path if path.is_absolute() else REPO_ROOT / path
 
 
-def read_payload(page: dict[str, Any]) -> str:
-    return (PAYLOAD_DIR / page["payload"]).read_text(encoding="utf-8").strip() + "\n"
+def load_page_map(path: Path) -> dict[str, dict[str, Any]]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def read_payload(page: dict[str, Any], payload_dir: Path) -> str:
+    return (payload_dir / page["payload"]).read_text(encoding="utf-8").strip() + "\n"
 
 
 def safe_name(value: str) -> str:
@@ -66,6 +72,30 @@ def verify_target(actual: dict[str, Any], expected: dict[str, Any]) -> None:
 
 def verify_markers(raw: str, markers: list[str]) -> list[str]:
     return [marker for marker in markers if marker not in raw]
+
+
+def retired_class_tokens(raw: str) -> list[str]:
+    bad: list[str] = []
+    for class_attr in re.findall(r'class=["\']([^"\']+)["\']', raw):
+        bad.extend(
+            token
+            for token in class_attr.split()
+            if token.startswith(RETIRED_CLASS_PREFIXES)
+        )
+    return bad
+
+
+def verify_safe_raw(raw: str, markers: list[str]) -> list[str]:
+    failures = []
+    missing = verify_markers(raw, markers)
+    if missing:
+        failures.append(f"missing markers: {missing}")
+    legacy = retired_class_tokens(raw)
+    if legacy:
+        failures.append(f"retired classes: {legacy}")
+    if re.search(r"<h1\b", raw, flags=re.IGNORECASE):
+        failures.append("body h1 detected")
+    return failures
 
 
 def snapshot_page(
@@ -131,13 +161,20 @@ def restore_page(wp: WPClient, page_key: str, page: dict[str, Any], snapshot_dir
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--map",
+        default=str(PAGE_MAP_PATH.relative_to(REPO_ROOT)),
+        help="Page map JSON path, relative to repo root or absolute.",
+    )
     parser.add_argument("--execute", action="store_true", help="Apply payloads to live WordPress.")
     parser.add_argument("--page", action="append", default=[], help="Page key from page-map.json; repeatable.")
     parser.add_argument("--snapshot-dir", default="", help="Override snapshot output directory.")
     parser.add_argument("--restore", action="store_true", help="Restore selected page(s) from --snapshot-dir before snapshots.")
     args = parser.parse_args()
 
-    page_map = load_page_map()
+    map_path = repo_path(args.map)
+    payload_dir = map_path.parent
+    page_map = load_page_map(map_path)
     items = selected_page_items(page_map, args.page)
     wp = WPClient.from_env()
 
@@ -161,15 +198,15 @@ def main() -> None:
     report: dict[str, Any] = {"snapshot_dir": str(snapshot_dir.relative_to(REPO_ROOT)), "pages": []}
 
     for page_key, page in items:
-        payload = read_payload(page)
+        payload = read_payload(page, payload_dir)
         current = wp.get(
             f"pages/{page['id']}",
             params={"context": "edit", "_fields": SNAPSHOT_FIELDS},
         )
         verify_target(current, page)
-        payload_missing = verify_markers(payload, page["markers"])
-        if payload_missing:
-            raise SystemExit(f"{page_key} payload missing markers: {payload_missing}")
+        payload_failures = verify_safe_raw(payload, page["markers"])
+        if payload_failures:
+            raise SystemExit(f"{page_key} payload unsafe: {'; '.join(payload_failures)}")
 
         print(f"target ok: {page_key} id={page['id']} slug={page['slug']} payload={page['payload']}")
         if not args.execute:
@@ -186,12 +223,17 @@ def main() -> None:
         )
         verify_target(readback, page)
         raw = readback.get("content", {}).get("raw", "")
-        missing = verify_markers(raw, page["markers"])
-        if missing:
+        raw_failures = verify_safe_raw(raw, page["markers"])
+        if raw_failures:
             restore_page(wp, page_key, page, snapshot_dir)
-            raise SystemExit(f"{page_key} readback missing markers after write; restored: {missing}")
+            raise SystemExit(f"{page_key} readback unsafe after write; restored: {'; '.join(raw_failures)}")
 
         after = snapshot_page(wp, page_key, page, snapshot_dir, "after")
+        after_html = (REPO_ROOT / after["html"]).read_text(encoding="utf-8")
+        public_missing = verify_markers(after_html, page["markers"])
+        if public_missing:
+            restore_page(wp, page_key, page, snapshot_dir)
+            raise SystemExit(f"{page_key} public HTML missing markers after write; restored: {public_missing}")
         records.append(after)
         report["pages"].append(
             {

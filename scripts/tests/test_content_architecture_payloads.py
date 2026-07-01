@@ -12,21 +12,32 @@ PAYLOADS = PACK / "wp-payloads"
 class ContentArchitecturePayloadTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.page_map = json.loads((PAYLOADS / "page-map.json").read_text(encoding="utf-8"))
+        cls.maps = [
+            path
+            for path in sorted(PAYLOADS.rglob("page-map.json"))
+            if path.is_file()
+        ]
+        cls.mapped_pages = []
+        for path in cls.maps:
+            page_map = json.loads(path.read_text(encoding="utf-8"))
+            for name, page in page_map.items():
+                cls.mapped_pages.append((path.parent, name, page))
 
     def test_all_mapped_payloads_exist(self):
-        for page in self.page_map.values():
-            self.assertTrue((PAYLOADS / page["payload"]).exists(), page["payload"])
+        self.assertTrue(self.maps, "no content architecture page maps found")
+        for payload_dir, _name, page in self.mapped_pages:
+            self.assertTrue((payload_dir / page["payload"]).exists(), page["payload"])
+            self.assertNotIn("title", page)
 
     def test_payloads_have_required_readback_markers(self):
-        for name, page in self.page_map.items():
-            html = (PAYLOADS / page["payload"]).read_text(encoding="utf-8")
+        for payload_dir, name, page in self.mapped_pages:
+            html = (payload_dir / page["payload"]).read_text(encoding="utf-8")
             for marker in page["markers"]:
                 self.assertIn(marker, html, f"{name} missing marker {marker!r}")
 
     def test_payloads_do_not_reintroduce_retired_page_css_systems(self):
         retired_prefixes = ("kk-", "kkp-", "kkx-", "kk-services-", "kk-publications-")
-        for path in PAYLOADS.glob("*.html"):
+        for path in PAYLOADS.rglob("*.html"):
             html = path.read_text(encoding="utf-8")
             for class_attr in re.findall(r'class="([^"]+)"', html):
                 tokens = class_attr.split()
@@ -46,7 +57,7 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
             "wp_app_password",
             "wp_user",
         )
-        for path in PAYLOADS.glob("*.html"):
+        for path in PAYLOADS.rglob("*.html"):
             html = path.read_text(encoding="utf-8")
             lowered = html.lower()
             for fragment in forbidden_fragments:
