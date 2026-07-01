@@ -10,6 +10,7 @@ import re, sys, json, shutil, pathlib, datetime
 from kk_notion_to_wp import WordPress, load_config, slugify
 from connector_payload import normalize_seo_meta
 from text_polish import purge_em_dashes
+from wp_blocks import inline, image, heading, separator
 
 SRC = pathlib.Path("/Users/kk/Code/notion-local/kk-ai-ecosystem/content/articles/kris-krug-thought-leadership/25-data-center-protest-signs")
 STAGE = pathlib.Path("/Users/kk/Code/kriskrug-wp/content/drafts/2026-05-23-data-center-protest-signs")
@@ -38,12 +39,6 @@ body = raw[fm_end + 4:]
 body = body.replace(LINK39_OLD, LINK39_NEW)
 assert LINK39_NEW in body, "line-39 link fix did not apply"
 body = purge_em_dashes(body)
-
-def inline(s: str) -> str:
-    s = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", lambda m: f'<a href="{m.group(2)}">{m.group(1)}</a>', s)
-    s = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", s)
-    s = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", s)
-    return s
 
 IMG_RE = re.compile(r"^!\[(.+?)\]\(images/(.+?)\)$")
 blocks_src = [b.strip() for b in re.split(r"\n\s*\n", body) if b.strip()]
@@ -90,15 +85,11 @@ for b in blocks_src:
     if m:
         fn, alt = m.group(2), m.group(1)
         u = uploaded[fn]
-        out.append(
-            f'<!-- wp:image {{"id":{u["id"]},"sizeSlug":"large","linkDestination":"none"}} -->\n'
-            f'<figure class="wp-block-image size-large"><img src="{u["url"]}" alt="{alt}" class="wp-image-{u["id"]}"/>'
-            f'<figcaption class="wp-block-image__caption">{alt}</figcaption></figure>\n'
-            f'<!-- /wp:image -->')
+        out.append(image(u["id"], u["url"], alt, caption=alt, width=None, align=None, lightbox=True))
     elif b.startswith("## "):
-        out.append(f"<!-- wp:heading -->\n<h2>{inline(b[3:].strip())}</h2>\n<!-- /wp:heading -->")
+        out.append(heading(inline(b[3:].strip())))
     elif b == "---":
-        out.append('<!-- wp:separator -->\n<hr class="wp-block-separator has-alpha-channel-opacity"/>\n<!-- /wp:separator -->')
+        out.append(separator())
     else:
         out.append(f"<!-- wp:paragraph -->\n<p>{inline(b)}</p>\n<!-- /wp:paragraph -->")
 content = "\n\n".join(out)
