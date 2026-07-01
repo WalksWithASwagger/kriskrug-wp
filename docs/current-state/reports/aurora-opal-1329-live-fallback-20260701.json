@@ -1,0 +1,63 @@
+{
+  "generated": "2026-07-01T23:51:15.300Z",
+  "mode": "live production article after Aurora 1.3.29 reader-pane fallback deploy",
+  "cssReadback": "7:Version: 1.3.29\n501:  --aurora-opal-void: #090c11;\n509:  --aurora-black: var(--aurora-opal-void);\n522:  --aurora-readable-measure: 720px;\n535:  background-color: var(--aurora-opal-void);\n539:    linear-gradient(180deg, #10131a 0%, var(--aurora-opal-void) 44%, var(--aurora-opal-plum) 100%),\n540:    var(--aurora-opal-void);\n2272:  max-width: var(--aurora-readable-measure);\n2299:  max-width: var(--aurora-readable-measure);\n3194:.aurora-single-2026 > .aurora-article {\n3215:.aurora-single-2026 > .aurora-article::before,\n3216:.aurora-single-2026 > .aurora-article::after {\n3226:.aurora-single-2026 > .aurora-article > * {\n3232:.aurora-single-2026 > .aurora-article::before {\n3242:.aurora-single-2026 > .aurora-article::after {\n4105:  .aurora-single-2026 > .aurora-article {\n4180:  .aurora-single-2026 > .aurora-article {\n4185:  .aurora-single-2026 > .aurora-article::after {",
+  "articleUrl": "https://kriskrug.co/2026/06/30/zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey/",
+  "results": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1100,
+      "httpStatus": 200,
+      "articleClass": "wp-block-group aurora-article has-global-padding is-layout-constrained wp-container-core-group-is-layout-ed92f1a2 wp-block-group-is-layout-constrained",
+      "hasReaderPane": false,
+      "background": "rgba(24, 24, 32, 0.88)",
+      "borderTopColor": "rgba(232, 224, 209, 0.16)",
+      "borderRadius": "8px",
+      "boxShadow": "rgba(0, 0, 0, 0.26) 0px 24px 72px 0px",
+      "paddingTop": "36px",
+      "maxWidth": "920px",
+      "sheenOpacity": "0.13",
+      "afterOpacity": "0.13",
+      "h1Px": 69.6,
+      "proseMinPx": 18.88,
+      "overflowX": 0,
+      "afterPointerMove": {
+        "sheenOpacity": "0.24",
+        "afterOpacity": "0.226854"
+      },
+      "screenshot": "docs/current-state/reports/screenshots/aurora-opal-1329-live-20260701/aurora-opal-1329-article-desktop.png"
+    },
+    {
+      "name": "mobile390",
+      "width": 390,
+      "height": 844,
+      "httpStatus": 200,
+      "articleClass": "wp-block-group aurora-article has-global-padding is-layout-constrained wp-container-core-group-is-layout-ed92f1a2 wp-block-group-is-layout-constrained",
+      "hasReaderPane": false,
+      "background": "rgba(24, 24, 32, 0.88)",
+      "borderTopColor": "rgba(232, 224, 209, 0.16)",
+      "borderRadius": "8px",
+      "boxShadow": "rgba(0, 0, 0, 0.26) 0px 24px 72px 0px",
+      "paddingTop": "16px",
+      "maxWidth": "374px",
+      "sheenOpacity": "0.13",
+      "afterOpacity": "0.13",
+      "h1Px": 37.6,
+      "proseMinPx": 17,
+      "overflowX": 0,
+      "afterPointerMove": {
+        "sheenOpacity": "0.24",
+        "afterOpacity": "0.231931"
+      },
+      "screenshot": "docs/current-state/reports/screenshots/aurora-opal-1329-live-20260701/aurora-opal-1329-article-mobile390.png"
+    }
+  ],
+  "reducedMotion": {
+    "httpStatus": 200,
+    "reducedMotion": true,
+    "sheenOpacity": "0",
+    "afterOpacity": "0"
+  },
+  "failures": []
+}
