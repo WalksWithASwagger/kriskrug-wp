@@ -55,5 +55,8 @@ __pycache__/
 content/drafts/2026-05-23-you-cant-drink-data/photos-raw/
 content/drafts/2026-05-23-you-cant-drink-data/contact-sheets/
 
+# downloaded image working copies (re-fetched by the publish script; live in WP media after publish)
+content/drafts/2026-06-28-keep-the-machine-strange/img/
+
 # lightbox backfill rollback manifests (large, operational; keep on disk, not in git)
 scripts/notion-to-wp/backfill-rollback*.jsonl
