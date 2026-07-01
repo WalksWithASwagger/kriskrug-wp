@@ -1,5 +1,12 @@
 # SEO Audit — kriskrug.co
 
+> **STATUS: Historical / Superseded 2026-07-01.**
+> This audit preserves May 2026 findings, including Jetpack-era sitemap notes.
+> Current sitemap and Search Console instructions live in
+> [`../../fixes/issue-37-xml-sitemap-setup.md`](../../fixes/issue-37-xml-sitemap-setup.md):
+> submit only `https://kriskrug.co/sitemap.xml`; do not advertise or submit
+> the former Jetpack news/image/video sitemap endpoints.
+
 **Audit date:** 2026-05-14
 **Scope:** Technical SEO + on-page + AI / generative search readiness.
 **Method:** Public REST API + HTML inspection of 16 representative pages. No admin or SSH access used.

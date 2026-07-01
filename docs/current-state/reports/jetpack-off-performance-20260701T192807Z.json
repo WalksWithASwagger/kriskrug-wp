@@ -1,0 +1,1325 @@
+{
+  "after_cold": {
+    "/": [
+      {
+        "boost": "miss",
+        "bytes": 19102,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/?codex_jetpack_off_after=20260701T192807Z_after_cold_1_1782934087515",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/",
+        "sample": 1,
+        "status": 200,
+        "total_s": 0.707,
+        "ttfb_s": 0.707
+      },
+      {
+        "boost": "miss",
+        "bytes": 19102,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/?codex_jetpack_off_after=20260701T192807Z_after_cold_2_1782934088233",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/",
+        "sample": 2,
+        "status": 200,
+        "total_s": 0.645,
+        "ttfb_s": 0.522
+      },
+      {
+        "boost": "miss",
+        "bytes": 19102,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/?codex_jetpack_off_after=20260701T192807Z_after_cold_3_1782934088886",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/",
+        "sample": 3,
+        "status": 200,
+        "total_s": 0.638,
+        "ttfb_s": 0.635
+      }
+    ],
+    "/about/": [
+      {
+        "boost": "miss",
+        "bytes": 19532,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/about/?codex_jetpack_off_after=20260701T192807Z_after_cold_1_1782934089534",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/about/",
+        "sample": 1,
+        "status": 200,
+        "total_s": 0.787,
+        "ttfb_s": 0.787
+      },
+      {
+        "boost": "miss",
+        "bytes": 19532,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/about/?codex_jetpack_off_after=20260701T192807Z_after_cold_2_1782934090330",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/about/",
+        "sample": 2,
+        "status": 200,
+        "total_s": 0.542,
+        "ttfb_s": 0.533
+      },
+      {
+        "boost": "miss",
+        "bytes": 19532,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/about/?codex_jetpack_off_after=20260701T192807Z_after_cold_3_1782934090880",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/about/",
+        "sample": 3,
+        "status": 200,
+        "total_s": 0.523,
+        "ttfb_s": 0.514
+      }
+    ],
+    "/blog/": [
+      {
+        "boost": "miss",
+        "bytes": 21815,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/blog/?codex_jetpack_off_after=20260701T192807Z_after_cold_1_1782934091411",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/blog/",
+        "sample": 1,
+        "status": 200,
+        "total_s": 1.109,
+        "ttfb_s": 1.016
+      },
+      {
+        "boost": "miss",
+        "bytes": 21815,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/blog/?codex_jetpack_off_after=20260701T192807Z_after_cold_2_1782934092530",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/blog/",
+        "sample": 2,
+        "status": 200,
+        "total_s": 0.855,
+        "ttfb_s": 0.855
+      },
+      {
+        "boost": "miss",
+        "bytes": 21816,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/blog/?codex_jetpack_off_after=20260701T192807Z_after_cold_3_1782934093397",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/blog/",
+        "sample": 3,
+        "status": 200,
+        "total_s": 0.61,
+        "ttfb_s": 0.61
+      }
+    ],
+    "/contact/": [
+      {
+        "boost": "miss",
+        "bytes": 11353,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/contact/?codex_jetpack_off_after=20260701T192807Z_after_cold_1_1782934095596",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/contact/",
+        "sample": 1,
+        "status": 200,
+        "total_s": 0.509,
+        "ttfb_s": 0.508
+      },
+      {
+        "boost": "miss",
+        "bytes": 11353,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/contact/?codex_jetpack_off_after=20260701T192807Z_after_cold_2_1782934096114",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/contact/",
+        "sample": 2,
+        "status": 200,
+        "total_s": 0.496,
+        "ttfb_s": 0.495
+      },
+      {
+        "boost": "miss",
+        "bytes": 11353,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/contact/?codex_jetpack_off_after=20260701T192807Z_after_cold_3_1782934096621",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/contact/",
+        "sample": 3,
+        "status": 200,
+        "total_s": 0.439,
+        "ttfb_s": 0.438
+      }
+    ],
+    "/work/": [
+      {
+        "boost": "miss",
+        "bytes": 16950,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/work/?codex_jetpack_off_after=20260701T192807Z_after_cold_1_1782934094017",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/work/",
+        "sample": 1,
+        "status": 200,
+        "total_s": 0.507,
+        "ttfb_s": 0.507
+      },
+      {
+        "boost": "miss",
+        "bytes": 16950,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/work/?codex_jetpack_off_after=20260701T192807Z_after_cold_2_1782934094533",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/work/",
+        "sample": 2,
+        "status": 200,
+        "total_s": 0.519,
+        "ttfb_s": 0.519
+      },
+      {
+        "boost": "miss",
+        "bytes": 16950,
+        "cache_control": null,
+        "cold": true,
+        "effective": "https://kriskrug.co/work/?codex_jetpack_off_after=20260701T192807Z_after_cold_3_1782934095061",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/work/",
+        "sample": 3,
+        "status": 200,
+        "total_s": 0.525,
+        "ttfb_s": 0.525
+      }
+    ]
+  },
+  "after_cold_summary": {
+    "/": {
+      "boost": [
+        "miss",
+        "miss",
+        "miss"
+      ],
+      "bytes": [
+        19102,
+        19102,
+        19102
+      ],
+      "gateway": [
+        "MISS",
+        "MISS",
+        "MISS"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.645,
+      "ttfb_p50_s": 0.635
+    },
+    "/about/": {
+      "boost": [
+        "miss",
+        "miss",
+        "miss"
+      ],
+      "bytes": [
+        19532,
+        19532,
+        19532
+      ],
+      "gateway": [
+        "MISS",
+        "MISS",
+        "MISS"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.542,
+      "ttfb_p50_s": 0.533
+    },
+    "/blog/": {
+      "boost": [
+        "miss",
+        "miss",
+        "miss"
+      ],
+      "bytes": [
+        21815,
+        21815,
+        21816
+      ],
+      "gateway": [
+        "MISS",
+        "MISS",
+        "MISS"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.855,
+      "ttfb_p50_s": 0.855
+    },
+    "/contact/": {
+      "boost": [
+        "miss",
+        "miss",
+        "miss"
+      ],
+      "bytes": [
+        11353,
+        11353,
+        11353
+      ],
+      "gateway": [
+        "MISS",
+        "MISS",
+        "MISS"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.496,
+      "ttfb_p50_s": 0.495
+    },
+    "/work/": {
+      "boost": [
+        "miss",
+        "miss",
+        "miss"
+      ],
+      "bytes": [
+        16950,
+        16950,
+        16950
+      ],
+      "gateway": [
+        "MISS",
+        "MISS",
+        "MISS"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.519,
+      "ttfb_p50_s": 0.519
+    }
+  },
+  "after_warm": {
+    "/": [
+      {
+        "boost": "hit",
+        "bytes": 19102,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/",
+        "sample": 1,
+        "status": 200,
+        "total_s": 0.501,
+        "ttfb_s": 0.501
+      },
+      {
+        "boost": "hit",
+        "bytes": 19102,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/",
+        "gateway": "HIT",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/",
+        "sample": 2,
+        "status": 200,
+        "total_s": 0.517,
+        "ttfb_s": 0.363
+      },
+      {
+        "boost": "hit",
+        "bytes": 19102,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/",
+        "gateway": "HIT",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/",
+        "sample": 3,
+        "status": 200,
+        "total_s": 0.515,
+        "ttfb_s": 0.292
+      }
+    ],
+    "/about/": [
+      {
+        "boost": "hit",
+        "bytes": 24547,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/about/",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/about/",
+        "sample": 1,
+        "status": 200,
+        "total_s": 0.518,
+        "ttfb_s": 0.516
+      },
+      {
+        "boost": "hit",
+        "bytes": 24547,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/about/",
+        "gateway": "HIT",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/about/",
+        "sample": 2,
+        "status": 200,
+        "total_s": 0.505,
+        "ttfb_s": 0.504
+      },
+      {
+        "boost": "hit",
+        "bytes": 24547,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/about/",
+        "gateway": "HIT",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/about/",
+        "sample": 3,
+        "status": 200,
+        "total_s": 1.287,
+        "ttfb_s": 0.286
+      }
+    ],
+    "/blog/": [
+      {
+        "boost": "hit",
+        "bytes": 21759,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/blog/",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/blog/",
+        "sample": 1,
+        "status": 200,
+        "total_s": 0.974,
+        "ttfb_s": 0.891
+      },
+      {
+        "boost": "hit",
+        "bytes": 21759,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/blog/",
+        "gateway": "HIT",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/blog/",
+        "sample": 2,
+        "status": 200,
+        "total_s": 0.517,
+        "ttfb_s": 0.42
+      },
+      {
+        "boost": "hit",
+        "bytes": 21759,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/blog/",
+        "gateway": "HIT",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/blog/",
+        "sample": 3,
+        "status": 200,
+        "total_s": 0.5,
+        "ttfb_s": 0.406
+      }
+    ],
+    "/contact/": [
+      {
+        "boost": "hit",
+        "bytes": 11353,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/contact/",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/contact/",
+        "sample": 1,
+        "status": 200,
+        "total_s": 0.506,
+        "ttfb_s": 0.506
+      },
+      {
+        "boost": "hit",
+        "bytes": 11353,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/contact/",
+        "gateway": "HIT",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/contact/",
+        "sample": 2,
+        "status": 200,
+        "total_s": 0.527,
+        "ttfb_s": 0.426
+      },
+      {
+        "boost": "hit",
+        "bytes": 11353,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/contact/",
+        "gateway": "HIT",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/contact/",
+        "sample": 3,
+        "status": 200,
+        "total_s": 0.496,
+        "ttfb_s": 0.403
+      }
+    ],
+    "/work/": [
+      {
+        "boost": "hit",
+        "bytes": 21874,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/work/",
+        "gateway": "MISS",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/work/",
+        "sample": 1,
+        "status": 200,
+        "total_s": 0.42,
+        "ttfb_s": 0.412
+      },
+      {
+        "boost": "hit",
+        "bytes": 21874,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/work/",
+        "gateway": "HIT",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/work/",
+        "sample": 2,
+        "status": 200,
+        "total_s": 0.525,
+        "ttfb_s": 0.525
+      },
+      {
+        "boost": "hit",
+        "bytes": 21874,
+        "cache_control": null,
+        "cold": false,
+        "effective": "https://kriskrug.co/work/",
+        "gateway": "HIT",
+        "rc": 0,
+        "redirects": 0,
+        "route": "/work/",
+        "sample": 3,
+        "status": 200,
+        "total_s": 0.516,
+        "ttfb_s": 0.418
+      }
+    ]
+  },
+  "after_warm_summary": {
+    "/": {
+      "boost": [
+        "hit",
+        "hit",
+        "hit"
+      ],
+      "bytes": [
+        19102,
+        19102,
+        19102
+      ],
+      "gateway": [
+        "MISS",
+        "HIT",
+        "HIT"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.515,
+      "ttfb_p50_s": 0.363
+    },
+    "/about/": {
+      "boost": [
+        "hit",
+        "hit",
+        "hit"
+      ],
+      "bytes": [
+        24547,
+        24547,
+        24547
+      ],
+      "gateway": [
+        "MISS",
+        "HIT",
+        "HIT"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.518,
+      "ttfb_p50_s": 0.504
+    },
+    "/blog/": {
+      "boost": [
+        "hit",
+        "hit",
+        "hit"
+      ],
+      "bytes": [
+        21759,
+        21759,
+        21759
+      ],
+      "gateway": [
+        "MISS",
+        "HIT",
+        "HIT"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.517,
+      "ttfb_p50_s": 0.42
+    },
+    "/contact/": {
+      "boost": [
+        "hit",
+        "hit",
+        "hit"
+      ],
+      "bytes": [
+        11353,
+        11353,
+        11353
+      ],
+      "gateway": [
+        "MISS",
+        "HIT",
+        "HIT"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.506,
+      "ttfb_p50_s": 0.426
+    },
+    "/work/": {
+      "boost": [
+        "hit",
+        "hit",
+        "hit"
+      ],
+      "bytes": [
+        21874,
+        21874,
+        21874
+      ],
+      "gateway": [
+        "MISS",
+        "HIT",
+        "HIT"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.516,
+      "ttfb_p50_s": 0.418
+    }
+  },
+  "backup_dir": "/Users/kk/Code/kriskrug-wp/backup/20260701T192429Z-jetpack-off",
+  "before_cold_summary": {
+    "/": {
+      "boost": [
+        "miss",
+        "miss",
+        "miss"
+      ],
+      "bytes": [
+        21046,
+        21046,
+        21046
+      ],
+      "gateway": [
+        "MISS",
+        "MISS",
+        "MISS"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 3.714,
+      "ttfb_p50_s": 3.712
+    },
+    "/about/": {
+      "boost": [
+        "miss",
+        "miss",
+        "miss"
+      ],
+      "bytes": [
+        21577,
+        21577,
+        21577
+      ],
+      "gateway": [
+        "MISS",
+        "MISS",
+        "MISS"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 3.659,
+      "ttfb_p50_s": 3.659
+    },
+    "/blog/": {
+      "boost": [
+        "miss",
+        "miss",
+        "miss"
+      ],
+      "bytes": [
+        23805,
+        23805,
+        23805
+      ],
+      "gateway": [
+        "MISS",
+        "MISS",
+        "MISS"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.588,
+      "ttfb_p50_s": 0.588
+    },
+    "/contact/": {
+      "boost": [
+        "miss",
+        "miss",
+        "miss"
+      ],
+      "bytes": [
+        21572,
+        21572,
+        21565
+      ],
+      "gateway": [
+        "MISS",
+        "MISS",
+        "MISS"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 3.778,
+      "ttfb_p50_s": 3.778
+    },
+    "/work/": {
+      "boost": [
+        "miss",
+        "miss",
+        "miss"
+      ],
+      "bytes": [
+        18900,
+        18900,
+        18900
+      ],
+      "gateway": [
+        "MISS",
+        "MISS",
+        "MISS"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 3.838,
+      "ttfb_p50_s": 3.838
+    }
+  },
+  "before_warm_summary": {
+    "/": {
+      "boost": [
+        "hit",
+        "hit",
+        "hit"
+      ],
+      "bytes": [
+        21046,
+        21046,
+        21046
+      ],
+      "gateway": [
+        "MISS",
+        "HIT",
+        "HIT"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.514,
+      "ttfb_p50_s": 0.496
+    },
+    "/about/": {
+      "boost": [
+        "hit",
+        "hit",
+        "hit"
+      ],
+      "bytes": [
+        24547,
+        24547,
+        24547
+      ],
+      "gateway": [
+        "HIT",
+        "HIT",
+        "HIT"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.508,
+      "ttfb_p50_s": 0.42
+    },
+    "/blog/": {
+      "boost": [
+        "hit",
+        "hit",
+        "hit"
+      ],
+      "bytes": [
+        23757,
+        23757,
+        23757
+      ],
+      "gateway": [
+        "HIT",
+        "HIT",
+        "HIT"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.512,
+      "ttfb_p50_s": 0.295
+    },
+    "/contact/": {
+      "boost": [
+        "hit",
+        "hit",
+        "hit"
+      ],
+      "bytes": [
+        21517,
+        21517,
+        21517
+      ],
+      "gateway": [
+        "MISS",
+        "HIT",
+        "HIT"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.507,
+      "ttfb_p50_s": 0.35
+    },
+    "/work/": {
+      "boost": [
+        "hit",
+        "hit",
+        "hit"
+      ],
+      "bytes": [
+        21874,
+        21874,
+        21874
+      ],
+      "gateway": [
+        "HIT",
+        "HIT",
+        "HIT"
+      ],
+      "redirects": [
+        0,
+        0,
+        0
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "total_p50_s": 0.507,
+      "ttfb_p50_s": 0.286
+    }
+  },
+  "contact_page": {
+    "has_jetpack_marker": false,
+    "has_mailto": true,
+    "ok": true,
+    "slug": "contact",
+    "title": "Contact Kris Kr\u00fcg"
+  },
+  "plugin_keep": [
+    {
+      "name": "Akismet Anti-spam: Spam Protection",
+      "plugin": "akismet/akismet",
+      "status": "active"
+    },
+    {
+      "name": "Code Snippets",
+      "plugin": "code-snippets/code-snippets",
+      "status": "active"
+    },
+    {
+      "name": "Jetpack",
+      "plugin": "jetpack/jetpack",
+      "status": "inactive"
+    },
+    {
+      "name": "Jetpack Boost",
+      "plugin": "jetpack-boost/jetpack-boost",
+      "status": "active"
+    },
+    {
+      "name": "Jetpack CRM",
+      "plugin": "zero-bs-crm/ZeroBSCRM",
+      "status": "active"
+    },
+    {
+      "name": "Jetpack Protect",
+      "plugin": "jetpack-protect/jetpack-protect",
+      "status": "active"
+    },
+    {
+      "name": "Redirection",
+      "plugin": "redirection/redirection",
+      "status": "active"
+    },
+    {
+      "name": "Site Kit by Google",
+      "plugin": "google-site-kit/google-site-kit",
+      "status": "active"
+    },
+    {
+      "name": "WPCode Lite",
+      "plugin": "insert-headers-and-footers/ihaf",
+      "status": "active"
+    }
+  ],
+  "presscache_purge": "Cache Purge: Success",
+  "public_sniff": {
+    "/": {
+      "bytes_sampled": 83684,
+      "has_i0_wp": true,
+      "has_jetpack_form": false,
+      "has_jetpack_plugin_asset": false,
+      "has_mailto": false,
+      "has_sharedaddy": false,
+      "has_stats_pixel": false,
+      "status": 200
+    },
+    "/contact/": {
+      "bytes_sampled": 52324,
+      "has_i0_wp": true,
+      "has_jetpack_form": false,
+      "has_jetpack_plugin_asset": false,
+      "has_mailto": true,
+      "has_sharedaddy": false,
+      "has_stats_pixel": false,
+      "status": 200
+    }
+  },
+  "qa": {
+    "/": {
+      "boost": "hit",
+      "bytes": 19102,
+      "cache_control": null,
+      "cold": false,
+      "effective": "https://kriskrug.co/",
+      "gateway": "HIT",
+      "rc": 0,
+      "redirects": 0,
+      "route": "/",
+      "sample": 1,
+      "status": 200,
+      "total_s": 0.508,
+      "ttfb_s": 0.419
+    },
+    "/?amp=1": {
+      "boost": "hit",
+      "bytes": 19102,
+      "cache_control": null,
+      "cold": false,
+      "effective": "https://kriskrug.co/",
+      "gateway": "HIT",
+      "rc": 0,
+      "redirects": 1,
+      "route": "/?amp=1",
+      "sample": 10,
+      "status": 200,
+      "total_s": 0.762,
+      "ttfb_s": 0.761
+    },
+    "/?nb=1": {
+      "boost": "hit",
+      "bytes": 19102,
+      "cache_control": null,
+      "cold": false,
+      "effective": "https://kriskrug.co/",
+      "gateway": "HIT",
+      "rc": 0,
+      "redirects": 1,
+      "route": "/?nb=1",
+      "sample": 9,
+      "status": 200,
+      "total_s": 0.712,
+      "ttfb_s": 0.712
+    },
+    "/?share=twitter": {
+      "boost": "hit",
+      "bytes": 19102,
+      "cache_control": null,
+      "cold": false,
+      "effective": "https://kriskrug.co/",
+      "gateway": "HIT",
+      "rc": 0,
+      "redirects": 1,
+      "route": "/?share=twitter",
+      "sample": 8,
+      "status": 200,
+      "total_s": 0.692,
+      "ttfb_s": 0.686
+    },
+    "/about/": {
+      "boost": "hit",
+      "bytes": 24547,
+      "cache_control": null,
+      "cold": false,
+      "effective": "https://kriskrug.co/about/",
+      "gateway": "HIT",
+      "rc": 0,
+      "redirects": 0,
+      "route": "/about/",
+      "sample": 2,
+      "status": 200,
+      "total_s": 0.526,
+      "ttfb_s": 0.419
+    },
+    "/blog/": {
+      "boost": "hit",
+      "bytes": 21759,
+      "cache_control": null,
+      "cold": false,
+      "effective": "https://kriskrug.co/blog/",
+      "gateway": "HIT",
+      "rc": 0,
+      "redirects": 0,
+      "route": "/blog/",
+      "sample": 3,
+      "status": 200,
+      "total_s": 0.532,
+      "ttfb_s": 0.415
+    },
+    "/contact/": {
+      "boost": "hit",
+      "bytes": 11353,
+      "cache_control": null,
+      "cold": false,
+      "effective": "https://kriskrug.co/contact/",
+      "gateway": "HIT",
+      "rc": 0,
+      "redirects": 0,
+      "route": "/contact/",
+      "sample": 5,
+      "status": 200,
+      "total_s": 0.462,
+      "ttfb_s": 0.418
+    },
+    "/llms.txt": {
+      "boost": null,
+      "bytes": 1846,
+      "cache_control": "no-cache, must-revalidate, max-age=0, no-store, private",
+      "cold": false,
+      "effective": "https://kriskrug.co/llms.txt",
+      "gateway": "MISS",
+      "rc": 0,
+      "redirects": 0,
+      "route": "/llms.txt",
+      "sample": 7,
+      "status": 200,
+      "total_s": 0.507,
+      "ttfb_s": 0.507
+    },
+    "/projects/": {
+      "boost": "hit",
+      "bytes": 21874,
+      "cache_control": null,
+      "cold": false,
+      "effective": "https://kriskrug.co/work/",
+      "gateway": "HIT",
+      "rc": 0,
+      "redirects": 1,
+      "route": "/projects/",
+      "sample": 11,
+      "status": 200,
+      "total_s": 0.598,
+      "ttfb_s": 0.592
+    },
+    "/recent-projects-include/": {
+      "boost": "hit",
+      "bytes": 21874,
+      "cache_control": null,
+      "cold": false,
+      "effective": "https://kriskrug.co/work/",
+      "gateway": "HIT",
+      "rc": 0,
+      "redirects": 1,
+      "route": "/recent-projects-include/",
+      "sample": 12,
+      "status": 200,
+      "total_s": 0.705,
+      "ttfb_s": 0.704
+    },
+    "/robots.txt": {
+      "boost": null,
+      "bytes": 509,
+      "cache_control": null,
+      "cold": false,
+      "effective": "https://kriskrug.co/robots.txt",
+      "gateway": "BYPASS",
+      "rc": 0,
+      "redirects": 0,
+      "route": "/robots.txt",
+      "sample": 6,
+      "status": 200,
+      "total_s": 0.472,
+      "ttfb_s": 0.471
+    },
+    "/work/": {
+      "boost": "hit",
+      "bytes": 21874,
+      "cache_control": null,
+      "cold": false,
+      "effective": "https://kriskrug.co/work/",
+      "gateway": "HIT",
+      "rc": 0,
+      "redirects": 0,
+      "route": "/work/",
+      "sample": 4,
+      "status": 200,
+      "total_s": 0.492,
+      "ttfb_s": 0.395
+    }
+  },
+  "timestamp_utc": "20260701T192807Z"
+}

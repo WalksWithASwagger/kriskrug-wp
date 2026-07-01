@@ -1,12 +1,9 @@
 # robots.txt for kriskrug.co
 # Stance: AI/search discovery and citation.
 # Source: WalksWithASwagger/kriskrug-wp fixes/robots.txt
-# Last reviewed: 2026-06-07
+# Last reviewed: 2026-07-01
 
 Sitemap: https://kriskrug.co/sitemap.xml
-Sitemap: https://kriskrug.co/news-sitemap.xml
-Sitemap: https://kriskrug.co/image-sitemap-index-1.xml
-Sitemap: https://kriskrug.co/video-sitemap-1.xml
 
 # Curated LLM index. This is a comment, not a robots.txt directive.
 # llms.txt: https://kriskrug.co/llms.txt

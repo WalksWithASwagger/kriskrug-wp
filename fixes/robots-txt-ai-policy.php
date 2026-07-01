@@ -6,8 +6,8 @@
  * to index public content, with the standard admin/search disallows applied.
  *
  * This snippet supersedes fixes/issue-37-robots-add-sitemaps.php. It handles
- * everything in one filter: sitemap additions, User-agent: * search disallows,
- * and the named AI-crawler group. Do not run both snippets at once.
+ * everything in one filter: canonical sitemap stance, User-agent: * search
+ * disallows, and the named AI-crawler group. Do not run both snippets at once.
  *
  * IMPORTANT — this only works if robots.txt is VIRTUAL (served by WordPress).
  * If a physical /robots.txt exists at the Pagely document root, that file wins
@@ -17,10 +17,10 @@
  *
  * Deploy:   paste into the Code Snippets plugin (run everywhere) OR drop in
  *           wp-content/mu-plugins/kk-robots-ai-policy.php.
- * Verify:   curl https://kriskrug.co/robots.txt | grep -i "ClaudeBot\|image-sitemap"
+ * Verify:   curl https://kriskrug.co/robots.txt | grep -i "ClaudeBot\|Sitemap:"
  * Rollback: deactivate the snippet / delete the mu-plugin file. No data changes.
- * Updated:  2026-06-08 — see WalksWithASwagger/kriskrug-wp fixes/robots.txt for
- *           the canonical artifact and crawler list.
+ * Updated:  2026-07-01 — Jetpack core is inactive, so robots.txt must not
+ *           advertise Jetpack-only news/image/video sitemap endpoints.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -46,20 +46,8 @@ function kk_robots_ai_policy( $output, $public ) {
 	$additions = array();
 
 	// ── Sitemaps ────────────────────────────────────────────────────────────
-	// Core/Jetpack already emit sitemap.xml and news-sitemap.xml; we add the
-	// image and video sitemaps that crawlers would otherwise miss.
-	$sitemaps = array(
-		home_url( '/image-sitemap-index-1.xml' ),
-		home_url( '/video-sitemap-1.xml' ),
-		// Note: the marquee archive needs no custom sitemap — the marquee_board CPT is
-		// public, so Jetpack auto-includes its URLs in /sitemap.xml (kk-marquee-board plugin).
-	);
-	foreach ( $sitemaps as $url ) {
-		$line = 'Sitemap: ' . esc_url_raw( $url );
-		if ( false === strpos( $output, $url ) ) {
-			$additions[] = $line;
-		}
-	}
+	// WordPress core emits the canonical /sitemap.xml. Do not add Jetpack-only
+	// news/image/video sitemap URLs here; they 404 when Jetpack core is inactive.
 
 	// ── User-agent: * search disallows ──────────────────────────────────────
 	// WordPress core emits "Disallow: /wp-admin/" already; add the missing

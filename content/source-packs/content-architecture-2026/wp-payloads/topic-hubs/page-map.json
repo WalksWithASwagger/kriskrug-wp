@@ -1,0 +1,58 @@
+{
+  "vancouver_ai": {
+    "id": 12315,
+    "slug": "vancouver-ai",
+    "url": "https://kriskrug.co/vancouver-ai/",
+    "payload": "vancouver-ai.html",
+    "markers": ["content-architecture-2026:topic-vancouver-ai"]
+  },
+  "ai_for_creatives": {
+    "id": 12316,
+    "slug": "ai-for-creatives",
+    "url": "https://kriskrug.co/ai-for-creatives/",
+    "payload": "ai-for-creatives.html",
+    "markers": ["content-architecture-2026:topic-ai-for-creatives"]
+  },
+  "ai_events": {
+    "id": 12317,
+    "slug": "ai-events",
+    "url": "https://kriskrug.co/ai-events/",
+    "payload": "ai-events.html",
+    "markers": ["content-architecture-2026:topic-ai-events"]
+  },
+  "ai_ethics": {
+    "id": 12318,
+    "slug": "ai-ethics",
+    "url": "https://kriskrug.co/ai-ethics/",
+    "payload": "ai-ethics.html",
+    "markers": ["content-architecture-2026:topic-ai-ethics"]
+  },
+  "ai_tools": {
+    "id": 12321,
+    "slug": "ai-tools",
+    "url": "https://kriskrug.co/ai-tools/",
+    "payload": "ai-tools.html",
+    "markers": ["content-architecture-2026:topic-ai-tools"]
+  },
+  "ai_for_journalists": {
+    "id": 12320,
+    "slug": "ai-for-journalists",
+    "url": "https://kriskrug.co/ai-for-journalists/",
+    "payload": "ai-for-journalists.html",
+    "markers": ["content-architecture-2026:topic-ai-for-journalists"]
+  },
+  "ai_conversations": {
+    "id": 12319,
+    "slug": "ai-conversations",
+    "url": "https://kriskrug.co/ai-conversations/",
+    "payload": "ai-conversations.html",
+    "markers": ["content-architecture-2026:topic-ai-conversations"]
+  },
+  "indigenous_ai": {
+    "id": 12322,
+    "slug": "indigenous-ai",
+    "url": "https://kriskrug.co/indigenous-ai/",
+    "payload": "indigenous-ai.html",
+    "markers": ["content-architecture-2026:topic-indigenous-ai"]
+  }
+}

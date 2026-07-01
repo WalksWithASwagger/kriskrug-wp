@@ -1,5 +1,10 @@
 # Traffic diagnostic — kriskrug.co, 2026-05-15
 
+> **STATUS: Historical / Superseded for sitemap facts as of 2026-07-01.**
+> This diagnostic preserves the May 2026 traffic analysis. Its Jetpack sitemap
+> references are no longer current. Current Search Console submission target:
+> `https://kriskrug.co/sitemap.xml` only.
+
 **Question KK asked:** *"My site gets shitty traffic vis-à-vis how long it's been online. I can barely Google my own headlines up."*
 
 **Answer in one line:** the site looks technically clean today, so the lever is **content/architecture/theme**, not bug-fixing. Specifically: **theme weight (Catch Responsive) + zero topical authority signal (99% uncategorized) + thin internal link graph + no recent publish cadence**. The KK Aurora theme migration + the categorization sweep + a weekly publish cadence are the three things that move the needle.

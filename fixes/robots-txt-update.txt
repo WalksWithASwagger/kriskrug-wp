@@ -1,127 +1,114 @@
 # robots.txt deployment guide for kriskrug.co
 
-Status: ready for approved deploy
-Decision recorded: 2026-06-07
+Status: deployed live via Code Snippets entry 7 on 2026-07-01
 Chosen stance: AI/search discovery and citation
 Deployable artifact: `fixes/robots.txt`
+
+## Current live state
+
+Jetpack core is inactive. Do not advertise Jetpack-only sitemap endpoints.
+
+Live `robots.txt` should contain exactly one sitemap line:
+
+```txt
+Sitemap: https://kriskrug.co/sitemap.xml
+```
+
+Current sitemap checks:
+
+```txt
+https://kriskrug.co/sitemap.xml                200 valid XML, resolves to /wp-sitemap.xml
+https://kriskrug.co/wp-sitemap.xml             200 valid XML
+https://kriskrug.co/news-sitemap.xml           404, do not advertise or submit
+https://kriskrug.co/image-sitemap-index-1.xml  404, do not advertise or submit
+https://kriskrug.co/video-sitemap-1.xml        404, do not advertise or submit
+```
+
+Full sitemap marker verification on 2026-07-01 checked 1,628 public HTML URLs:
+
+```txt
+Missing GA4: 0
+Missing gtag: 0
+Missing Search Console verification: 0
+```
 
 ## Decision
 
 KK chose the "AI/search" path on 2026-06-07: let reputable AI/search crawlers reach public content so kriskrug.co can be cited, retrieved, and represented in AI-assisted search surfaces.
 
-This is the right move for the current site because the roadmap is optimizing for discoverability, public proof, photography/speaking authority, and AI-era search presence. It does not attempt a "no training" stance. That tradeoff should be revisited if the priority shifts from public reach to content-control or licensing.
+The sitemap stance changed on 2026-07-01 when Jetpack core was removed for performance. WordPress core now owns the sitemap surface through `/sitemap.xml` -> `/wp-sitemap.xml`.
 
-## Current live output
+## Deployment source
 
-Captured on 2026-06-07 from `curl -fsSL https://kriskrug.co/robots.txt`:
+The live source is Code Snippets entry 7, `KK SEO root files: llms.txt + robots policy 2026-06-12`.
 
-```txt
-Sitemap: https://kriskrug.co/sitemap.xml
-Sitemap: https://kriskrug.co/news-sitemap.xml
-User-agent: *
-Disallow: /wp-admin/
-Allow: /wp-admin/admin-ajax.php
-```
-
-Live sitemap checks on 2026-06-07:
+The repo source of truth is:
 
 ```txt
-https://kriskrug.co/sitemap.xml                200 text/xml; charset=UTF-8
-https://kriskrug.co/news-sitemap.xml           200 text/xml; charset=UTF-8
-https://kriskrug.co/image-sitemap-index-1.xml  200 text/xml; charset=UTF-8
-https://kriskrug.co/video-sitemap-1.xml        200 text/xml; charset=UTF-8
-https://kriskrug.co/llms.txt                   404 text/html; charset=UTF-8
+fixes/robots.txt
+fixes/robots-txt-ai-policy.php
 ```
 
-The `llms.txt` URL is included in the prepared robots file as a comment only. It is not a robots directive, and it can land before or after the `llms.txt` deploy path is approved.
+Do not deploy `fixes/issue-37-robots-add-sitemaps.php`; it is historical and intentionally no-op after the Jetpack-off cleanup.
 
-## What changes
+## Search Console resubmission
 
-`fixes/robots.txt` keeps the existing public crawl posture and adds:
-
-- image/video sitemap references
-- explicit AI/search crawler allow posture
-- search-result URL disallows for noisy internal search pages
-- a comment pointing readers toward the curated `llms.txt` URL
-
-The AI/search crawler block repeats the `/wp-admin/`, `admin-ajax.php`, and search disallow rules. This avoids depending on crawlers inheriting the generic `User-agent: *` group when a more specific user-agent group exists.
-
-## Deploy options
-
-Option 1: physical root file
-
-1. Confirm whether Pagely has a physical root file:
-
-   ```bash
-   ls -la /path/to/site/root/robots.txt
-   ```
-
-2. If present, replace that file with the exact contents of `fixes/robots.txt`.
-3. Keep a timestamped copy of the previous file for rollback.
-
-Option 2: WordPress virtual robots filter
-
-If no physical root file exists, WordPress may be serving virtual robots output. Add the selected content through a narrow mu-plugin or snippet using the `robots_txt` filter:
-
-```php
-add_filter('robots_txt', function ($output, $public) {
-    if (!$public) {
-        return $output;
-    }
-
-    return <<<'TXT'
-[paste the contents of fixes/robots.txt here]
-TXT;
-}, 10, 2);
-```
-
-Use the physical root file if Pagely already serves one. Avoid deploying both paths at once unless the precedence has been verified.
-
-## Rollback
-
-Physical file rollback:
-
-1. Restore the timestamped previous root `robots.txt`.
-2. Run `curl -fsSL https://kriskrug.co/robots.txt`.
-3. Confirm the live output matches the previous captured file.
-
-WordPress filter rollback:
-
-1. Disable or remove the mu-plugin/snippet.
-2. Clear any relevant site cache.
-3. Run `curl -fsSL https://kriskrug.co/robots.txt`.
-4. Confirm WordPress has returned to the prior virtual output.
-
-Known prior output to restore if needed:
+Submit only:
 
 ```txt
-Sitemap: https://kriskrug.co/sitemap.xml
-Sitemap: https://kriskrug.co/news-sitemap.xml
-User-agent: *
-Disallow: /wp-admin/
-Allow: /wp-admin/admin-ajax.php
+https://kriskrug.co/sitemap.xml
 ```
+
+Do not submit:
+
+```txt
+https://kriskrug.co/news-sitemap.xml
+https://kriskrug.co/image-sitemap-index-1.xml
+https://kriskrug.co/video-sitemap-1.xml
+```
+
+If those old sitemap URLs appear in Search Console, remove them if the UI allows it, otherwise ignore them and let Google age them out.
+
+Recommended URL Inspection requests after sitemap resubmission:
+
+```txt
+https://kriskrug.co/
+https://kriskrug.co/about/
+https://kriskrug.co/blog/
+https://kriskrug.co/work/
+https://kriskrug.co/contact/
+```
+
+Then request indexing for the highest-value recent posts or updated topic hubs. Expect Search Console lag of 24-72 hours.
 
 ## Validation
 
-Before deploy:
+Before or after any robots change:
 
 ```bash
 curl -fsSL https://kriskrug.co/robots.txt
 curl -I https://kriskrug.co/sitemap.xml
+curl -I https://kriskrug.co/wp-sitemap.xml
 curl -I https://kriskrug.co/news-sitemap.xml
 curl -I https://kriskrug.co/image-sitemap-index-1.xml
 curl -I https://kriskrug.co/video-sitemap-1.xml
 ```
 
-After approved deploy:
+Expected result:
 
-```bash
-curl -fsSL https://kriskrug.co/robots.txt | diff -u fixes/robots.txt -
-curl -fsSL https://kriskrug.co/robots.txt
+```txt
+/robots.txt lists only https://kriskrug.co/sitemap.xml
+/sitemap.xml and /wp-sitemap.xml return 200
+/news-sitemap.xml, /image-sitemap-index-1.xml, and /video-sitemap-1.xml return 404 and are not advertised
 ```
 
-Then validate syntax in Google Search Console's robots.txt tester.
+Validate syntax in Google Search Console's robots.txt tester after deployment.
+
+## Rollback
+
+Deactivate Code Snippets entry 7 only if the full SEO root-files behavior must be rolled back. That also disables the current `/llms.txt` and AI-crawler policy, so prefer editing the snippet rather than deactivating it.
+
+No Search Console or Analytics settings are changed by this repo artifact.
 
 ## Sources used for crawler names
 
@@ -134,10 +121,3 @@ Then validate syntax in Google Search Console's robots.txt tester.
 - Common Crawl (`https://commoncrawl.org/ccbot`): CCBot
 
 `Amazonbot`, `cohere-ai`, `Bytespider`, and `Perplexity-User` are retained from the existing repo draft. Re-check this crawler list during future SEO maintenance; crawler names and product semantics drift.
-
-## Not included
-
-- No live deploy is performed by this repo change.
-- No legal conclusion is made about training rights.
-- No network-level bot enforcement is added.
-- No `llms.txt` file is deployed by this change.

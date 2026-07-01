@@ -1,0 +1,181 @@
+{
+  "snapshot_dir": "backup/20260701T202734Z-content-architecture/page-snapshots",
+  "pages": [
+    {
+      "page": "vancouver_ai",
+      "id": 12315,
+      "slug": "vancouver-ai",
+      "url": "https://kriskrug.co/vancouver-ai/",
+      "payload": "vancouver-ai.html",
+      "before": {
+        "page": "vancouver_ai",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12315-vancouver-ai-before.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12315-vancouver-ai-before.html",
+        "json_sha256": "2d35d8627488bae3eaeb2a8351e993347aeee8235d7c1797a25118076ea72f85",
+        "html_sha256": "22d3265f74273b42d78e2c81baa6c04362fd8ab5a072b2a3baa68373cd819b52"
+      },
+      "after": {
+        "page": "vancouver_ai",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12315-vancouver-ai-after.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12315-vancouver-ai-after.html",
+        "json_sha256": "cac6c3f1fea0deefefa86da3fbd27cc81c645b2bf83a83f6c530478c1999acbb",
+        "html_sha256": "8767e0cb5c25493f62e5cd1813c35e4010afa167c14d1ee9aa17c17543e7b8c1"
+      },
+      "modified": "2026-07-01T12:27:36"
+    },
+    {
+      "page": "ai_for_creatives",
+      "id": 12316,
+      "slug": "ai-for-creatives",
+      "url": "https://kriskrug.co/ai-for-creatives/",
+      "payload": "ai-for-creatives.html",
+      "before": {
+        "page": "ai_for_creatives",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12316-ai-for-creatives-before.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12316-ai-for-creatives-before.html",
+        "json_sha256": "884f01497fa14b309b129fd39f288cf53200d46916fc53a102f3876a456d05ad",
+        "html_sha256": "69e88f73c3a782d3fe715f87727b044a0a834dcdf271dc167a7053cb7dc08ab5"
+      },
+      "after": {
+        "page": "ai_for_creatives",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12316-ai-for-creatives-after.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12316-ai-for-creatives-after.html",
+        "json_sha256": "e02d136c0d9555de2767eacfb95646714cccd7b25036268a85b7b384e9f66e83",
+        "html_sha256": "4b0ceb10d2e6d5d527ee478de0963821d900ca3539216fc63acf92dbbd06ff15"
+      },
+      "modified": "2026-07-01T12:27:40"
+    },
+    {
+      "page": "ai_events",
+      "id": 12317,
+      "slug": "ai-events",
+      "url": "https://kriskrug.co/ai-events/",
+      "payload": "ai-events.html",
+      "before": {
+        "page": "ai_events",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12317-ai-events-before.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12317-ai-events-before.html",
+        "json_sha256": "18f964a42821910a595ed5007c8259c767cab2a3a55a01277986dba6358eda27",
+        "html_sha256": "039dab37db8ef56c40e4d500a5bbecc40d2f46d7298c7ecf42036fc7405ef1b0"
+      },
+      "after": {
+        "page": "ai_events",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12317-ai-events-after.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12317-ai-events-after.html",
+        "json_sha256": "253689818dc7835aba5225238e6c5de0d1411f71021974ce038f3740ca99e3d1",
+        "html_sha256": "7f31b5eaae1f8d161344731fa80bfd4bd539a6215ebecfa2ad5da60ee7a467cd"
+      },
+      "modified": "2026-07-01T12:27:45"
+    },
+    {
+      "page": "ai_ethics",
+      "id": 12318,
+      "slug": "ai-ethics",
+      "url": "https://kriskrug.co/ai-ethics/",
+      "payload": "ai-ethics.html",
+      "before": {
+        "page": "ai_ethics",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12318-ai-ethics-before.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12318-ai-ethics-before.html",
+        "json_sha256": "ac91a32aee9100d2396b2c400c0c561c3442e3efb3dbefb2414e2e973f39ed42",
+        "html_sha256": "099376cf5624a152ba921ab7e357610162b97a85baf14c4400abb33c9ae84ea7"
+      },
+      "after": {
+        "page": "ai_ethics",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12318-ai-ethics-after.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12318-ai-ethics-after.html",
+        "json_sha256": "f8eb9f3e1f8ea85fdbed94db9e8379b22389a6e259d04384270138043833c484",
+        "html_sha256": "b1b32aecfe9467e8831c57381a3eb2ccbcdfae31fa82b1bc0dbb16bbf371b5a8"
+      },
+      "modified": "2026-07-01T12:27:51"
+    },
+    {
+      "page": "ai_tools",
+      "id": 12321,
+      "slug": "ai-tools",
+      "url": "https://kriskrug.co/ai-tools/",
+      "payload": "ai-tools.html",
+      "before": {
+        "page": "ai_tools",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12321-ai-tools-before.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12321-ai-tools-before.html",
+        "json_sha256": "a7bff402ccb118f2783207aa051126c043ea633e4fc41f372ce0132a2cd379f4",
+        "html_sha256": "1cfef53eb94fcd0a0f6e37cd02aae6f2282f6e5f4a37a01399893a9a88545dcb"
+      },
+      "after": {
+        "page": "ai_tools",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12321-ai-tools-after.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12321-ai-tools-after.html",
+        "json_sha256": "8fc70c51eb09af395721a1ba19463e297ab247768e65a8b08c21a02453ec1cf5",
+        "html_sha256": "a35e8adc659782792374bd08864edd51be5180d8a11d60dd32b5ffcfe30eddd8"
+      },
+      "modified": "2026-07-01T12:27:55"
+    },
+    {
+      "page": "ai_for_journalists",
+      "id": 12320,
+      "slug": "ai-for-journalists",
+      "url": "https://kriskrug.co/ai-for-journalists/",
+      "payload": "ai-for-journalists.html",
+      "before": {
+        "page": "ai_for_journalists",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12320-ai-for-journalists-before.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12320-ai-for-journalists-before.html",
+        "json_sha256": "b7d803d24fdf2fe788ee7e79cf37263cac0bf0659a1f9ea7ae58e71791c0b0b8",
+        "html_sha256": "3066cb5a78926a21ca6de4b15fd4bcbb60b4c7cb6152c65d7d6e7623b0a4ae1d"
+      },
+      "after": {
+        "page": "ai_for_journalists",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12320-ai-for-journalists-after.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12320-ai-for-journalists-after.html",
+        "json_sha256": "a483a377712236d9e6fea26a22149875457dd6478b15dc39de7732232d275a76",
+        "html_sha256": "494b85a253342d1fc6d10125c5b3e44efbf612acf0e6e883306c6e393895d5c5"
+      },
+      "modified": "2026-07-01T12:28:01"
+    },
+    {
+      "page": "ai_conversations",
+      "id": 12319,
+      "slug": "ai-conversations",
+      "url": "https://kriskrug.co/ai-conversations/",
+      "payload": "ai-conversations.html",
+      "before": {
+        "page": "ai_conversations",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12319-ai-conversations-before.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12319-ai-conversations-before.html",
+        "json_sha256": "8b2b366d70d0515c56ddf023cff32fcab76f3780704a8d77664e5b7a93f4e038",
+        "html_sha256": "12eaf99cfb3e4c6b9051f332255660d4e9ba888a83dd94d45e3f9c523ecd313f"
+      },
+      "after": {
+        "page": "ai_conversations",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12319-ai-conversations-after.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12319-ai-conversations-after.html",
+        "json_sha256": "97bf2d510227c9c0e2f38084931e2d819063f4e2047c7ba34f4231b39ab7c541",
+        "html_sha256": "f93c1e6963f272e58538ac7254fa53b53314947ec63171b395d5329412218a43"
+      },
+      "modified": "2026-07-01T12:28:05"
+    },
+    {
+      "page": "indigenous_ai",
+      "id": 12322,
+      "slug": "indigenous-ai",
+      "url": "https://kriskrug.co/indigenous-ai/",
+      "payload": "indigenous-ai.html",
+      "before": {
+        "page": "indigenous_ai",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12322-indigenous-ai-before.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12322-indigenous-ai-before.html",
+        "json_sha256": "1b3b8587ddbc79123b35a4732edc7daac734b0159628fda1fa58063cdd1b9393",
+        "html_sha256": "6e1f9242be2f95145cbba2fc33bb313e0b8eba11b6e192f997642fc53f14e9cb"
+      },
+      "after": {
+        "page": "indigenous_ai",
+        "json": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12322-indigenous-ai-after.json",
+        "html": "backup/20260701T202734Z-content-architecture/page-snapshots/page-12322-indigenous-ai-after.html",
+        "json_sha256": "b9a9aec89cd1233352d95edd0239b63da229f98d47558af0eb8e9d303c25d26e",
+        "html_sha256": "e62e2f06a573863de35ecc6c3088ca9749645db30519bf78fd20a1b0ab56af5e"
+      },
+      "modified": "2026-07-01T12:28:09"
+    }
+  ]
+}
