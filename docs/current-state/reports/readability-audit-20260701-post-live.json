@@ -1,0 +1,2295 @@
+{
+  "generated": "2026-07-01T18:48:15.280Z",
+  "pages": [
+    {
+      "key": "home",
+      "label": "Home",
+      "url": "https://kriskrug.co/",
+      "standardPage": false
+    },
+    {
+      "key": "blog",
+      "label": "Blog",
+      "url": "https://kriskrug.co/blog/",
+      "standardPage": false
+    },
+    {
+      "key": "article",
+      "label": "Article",
+      "url": "https://kriskrug.co/2026/06/30/zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey/",
+      "standardPage": false,
+      "article": true
+    },
+    {
+      "key": "work",
+      "label": "Work",
+      "url": "https://kriskrug.co/work/",
+      "standardPage": true
+    },
+    {
+      "key": "about",
+      "label": "About",
+      "url": "https://kriskrug.co/about/",
+      "standardPage": true
+    },
+    {
+      "key": "vancouver-ai",
+      "label": "Vancouver AI category",
+      "url": "https://kriskrug.co/category/vancouver-ai-ecosystem/",
+      "standardPage": false
+    },
+    {
+      "key": "contact",
+      "label": "Contact",
+      "url": "https://kriskrug.co/contact/",
+      "standardPage": true
+    }
+  ],
+  "viewports": [
+    {
+      "key": "desktop",
+      "width": 1440,
+      "height": 1100
+    },
+    {
+      "key": "tablet",
+      "width": 768,
+      "height": 900
+    },
+    {
+      "key": "mobile390",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "key": "mobile360",
+      "width": 360,
+      "height": 740
+    }
+  ],
+  "screenshots": [
+    {
+      "page": "Blog",
+      "viewport": "desktop",
+      "path": "/Users/kk/Code/kriskrug-wp/docs/current-state/reports/screenshots/aurora-readability-blog-desktop-20260701.png"
+    },
+    {
+      "page": "Article",
+      "viewport": "desktop",
+      "path": "/Users/kk/Code/kriskrug-wp/docs/current-state/reports/screenshots/aurora-readability-article-desktop-20260701.png"
+    },
+    {
+      "page": "Work",
+      "viewport": "mobile390",
+      "path": "/Users/kk/Code/kriskrug-wp/docs/current-state/reports/screenshots/aurora-readability-work-mobile-20260701.png"
+    },
+    {
+      "page": "About",
+      "viewport": "mobile390",
+      "path": "/Users/kk/Code/kriskrug-wp/docs/current-state/reports/screenshots/aurora-readability-about-mobile-20260701.png"
+    }
+  ],
+  "summary": [
+    {
+      "page": "Home",
+      "viewport": "1440x1100",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/?readability_audit=20260701-desktop-1782931546837",
+      "overflowX": 0,
+      "h1Size": 92.16,
+      "bodyMin": 19.44,
+      "proseMin": null,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "Blog",
+      "viewport": "1440x1100",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/blog/?readability_audit=20260701-desktop-1782931554025",
+      "overflowX": 0,
+      "h1Size": 68,
+      "bodyMin": 16,
+      "proseMin": null,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "Article",
+      "viewport": "1440x1100",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/2026/06/30/zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey/?readability_audit=20260701-desktop-1782931557416",
+      "overflowX": 0,
+      "h1Size": 78.4,
+      "bodyMin": 18,
+      "proseMin": null,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "Work",
+      "viewport": "1440x1100",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/work/?readability_audit=20260701-desktop-1782931564771",
+      "overflowX": 0,
+      "h1Size": 63.36,
+      "bodyMin": 21.12,
+      "proseMin": 21.12,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "About",
+      "viewport": "1440x1100",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/about/?readability_audit=20260701-desktop-1782931571113",
+      "overflowX": 0,
+      "h1Size": 63.36,
+      "bodyMin": 21.12,
+      "proseMin": 21.12,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "Vancouver AI category",
+      "viewport": "1440x1100",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/category/vancouver-ai-ecosystem/?readability_audit=20260701-desktop-1782931577270",
+      "overflowX": 0,
+      "h1Size": 72,
+      "bodyMin": 18,
+      "proseMin": null,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "Contact",
+      "viewport": "1440x1100",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/contact/?readability_audit=20260701-desktop-1782931579715",
+      "overflowX": 0,
+      "h1Size": 63.36,
+      "bodyMin": 18.88,
+      "proseMin": 18.88,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "Home",
+      "viewport": "768x900",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/?readability_audit=20260701-tablet-1782931585131",
+      "overflowX": 0,
+      "h1Size": 49.152,
+      "bodyMin": 16,
+      "proseMin": null,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "Blog",
+      "viewport": "768x900",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/blog/?readability_audit=20260701-tablet-1782931592511",
+      "overflowX": 0,
+      "h1Size": 45.6,
+      "bodyMin": 16,
+      "proseMin": null,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "Article",
+      "viewport": "768x900",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/2026/06/30/zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey/?readability_audit=20260701-tablet-1782931595672",
+      "overflowX": 0,
+      "h1Size": 48.8,
+      "bodyMin": 16.9318,
+      "proseMin": null,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "Work",
+      "viewport": "768x900",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/work/?readability_audit=20260701-tablet-1782931602175",
+      "overflowX": 0,
+      "h1Size": 48,
+      "bodyMin": 19.456,
+      "proseMin": 19.456,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "About",
+      "viewport": "768x900",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/about/?readability_audit=20260701-tablet-1782931608271",
+      "overflowX": 0,
+      "h1Size": 48,
+      "bodyMin": 19.456,
+      "proseMin": 19.456,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "Vancouver AI category",
+      "viewport": "768x900",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/category/vancouver-ai-ecosystem/?readability_audit=20260701-tablet-1782931613788",
+      "overflowX": 0,
+      "h1Size": 59.2,
+      "bodyMin": 16.9318,
+      "proseMin": null,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "Contact",
+      "viewport": "768x900",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/contact/?readability_audit=20260701-tablet-1782931616599",
+      "overflowX": 0,
+      "h1Size": 48,
+      "bodyMin": 18.0288,
+      "proseMin": 18.0288,
+      "touchFailures": 9,
+      "failures": []
+    },
+    {
+      "page": "Home",
+      "viewport": "390x844",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/?readability_audit=20260701-mobile390-1782931622490",
+      "overflowX": 0,
+      "h1Size": 40.95,
+      "bodyMin": 16,
+      "proseMin": null,
+      "touchFailures": 0,
+      "failures": []
+    },
+    {
+      "page": "Blog",
+      "viewport": "390x844",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/blog/?readability_audit=20260701-mobile390-1782931629596",
+      "overflowX": 0,
+      "h1Size": 37.12,
+      "bodyMin": 16,
+      "proseMin": null,
+      "touchFailures": 0,
+      "failures": []
+    },
+    {
+      "page": "Article",
+      "viewport": "390x844",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/2026/06/30/zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey/?readability_audit=20260701-mobile390-1782931632496",
+      "overflowX": 0,
+      "h1Size": 37.6,
+      "bodyMin": 16.1456,
+      "proseMin": null,
+      "touchFailures": 0,
+      "failures": []
+    },
+    {
+      "page": "Work",
+      "viewport": "390x844",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/work/?readability_audit=20260701-mobile390-1782931638885",
+      "overflowX": 0,
+      "h1Size": 35.1,
+      "bodyMin": 18,
+      "proseMin": 18,
+      "touchFailures": 0,
+      "failures": []
+    },
+    {
+      "page": "About",
+      "viewport": "390x844",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/about/?readability_audit=20260701-mobile390-1782931645019",
+      "overflowX": 0,
+      "h1Size": 35.1,
+      "bodyMin": 18,
+      "proseMin": 18,
+      "touchFailures": 0,
+      "failures": []
+    },
+    {
+      "page": "Vancouver AI category",
+      "viewport": "390x844",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/category/vancouver-ai-ecosystem/?readability_audit=20260701-mobile390-1782931651171",
+      "overflowX": 0,
+      "h1Size": 49.75,
+      "bodyMin": 16.1456,
+      "proseMin": null,
+      "touchFailures": 0,
+      "failures": []
+    },
+    {
+      "page": "Contact",
+      "viewport": "390x844",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/contact/?readability_audit=20260701-mobile390-1782931653970",
+      "overflowX": 0,
+      "h1Size": 35.1,
+      "bodyMin": 20.48,
+      "proseMin": 20.48,
+      "touchFailures": 0,
+      "failures": []
+    },
+    {
+      "page": "Home",
+      "viewport": "360x740",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/?readability_audit=20260701-mobile360-1782931659046",
+      "overflowX": 0,
+      "h1Size": 37.8,
+      "bodyMin": null,
+      "proseMin": null,
+      "touchFailures": 0,
+      "failures": []
+    },
+    {
+      "page": "Blog",
+      "viewport": "360x740",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/blog/?readability_audit=20260701-mobile360-1782931665963",
+      "overflowX": 0,
+      "h1Size": 35.84,
+      "bodyMin": 16,
+      "proseMin": null,
+      "touchFailures": 0,
+      "failures": []
+    },
+    {
+      "page": "Article",
+      "viewport": "360x740",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/2026/06/30/zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey/?readability_audit=20260701-mobile360-1782931669006",
+      "overflowX": 0,
+      "h1Size": 36.48,
+      "bodyMin": 16.0832,
+      "proseMin": null,
+      "touchFailures": 0,
+      "failures": []
+    },
+    {
+      "page": "Work",
+      "viewport": "360x740",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/work/?readability_audit=20260701-mobile360-1782931675062",
+      "overflowX": 0,
+      "h1Size": 34,
+      "bodyMin": 18,
+      "proseMin": 18,
+      "touchFailures": 0,
+      "failures": []
+    },
+    {
+      "page": "About",
+      "viewport": "360x740",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/about/?readability_audit=20260701-mobile360-1782931680656",
+      "overflowX": 0,
+      "h1Size": 34,
+      "bodyMin": 18,
+      "proseMin": 18,
+      "touchFailures": 0,
+      "failures": []
+    },
+    {
+      "page": "Vancouver AI category",
+      "viewport": "360x740",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/category/vancouver-ai-ecosystem/?readability_audit=20260701-mobile360-1782931687108",
+      "overflowX": 0,
+      "h1Size": 49,
+      "bodyMin": 16.0832,
+      "proseMin": null,
+      "touchFailures": 0,
+      "failures": []
+    },
+    {
+      "page": "Contact",
+      "viewport": "360x740",
+      "status": 200,
+      "finalUrl": "https://kriskrug.co/contact/?readability_audit=20260701-mobile360-1782931689523",
+      "overflowX": 0,
+      "h1Size": 34,
+      "bodyMin": 20.48,
+      "proseMin": 20.48,
+      "touchFailures": 0,
+      "failures": []
+    }
+  ],
+  "results": [
+    {
+      "pageKey": "home",
+      "pageLabel": "Home",
+      "viewport": {
+        "key": "desktop",
+        "width": 1440,
+        "height": 1100
+      },
+      "title": "Kris Krüg | AI Keynote Speaker & Creative Technologist",
+      "finalUrl": "https://kriskrug.co/?readability_audit=20260701-desktop-1782931546837",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Authored judgment in the age of generative everything.",
+          "fontSize": 92.16,
+          "lineHeight": 90.3168,
+          "selector": "h1#aurora-home-title",
+          "width": 912,
+          "height": 271
+        }
+      ],
+      "bodyText": {
+        "count": 1,
+        "minFontSize": 19.44,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 163,
+          "height": 41
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "blog",
+      "pageLabel": "Blog",
+      "viewport": {
+        "key": "desktop",
+        "width": 1440,
+        "height": 1100
+      },
+      "title": "Blog — Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "finalUrl": "https://kriskrug.co/blog/?readability_audit=20260701-desktop-1782931554025",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Field notes for the age of generative everything.",
+          "fontSize": 68,
+          "lineHeight": 70.04,
+          "selector": "h1.wp-block-heading.aurora-writing-archive-title",
+          "width": 630,
+          "height": 210
+        }
+      ],
+      "bodyText": {
+        "count": 6,
+        "minFontSize": 16,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 163,
+          "height": 41
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "article",
+      "pageLabel": "Article",
+      "viewport": {
+        "key": "desktop",
+        "width": 1440,
+        "height": 1100
+      },
+      "title": "Zero to One: From Meetup to Movement | Kris Krüg",
+      "finalUrl": "https://kriskrug.co/2026/06/30/zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey/?readability_audit=20260701-desktop-1782931557416",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Zero to One: From Meetup to Movement",
+          "fontSize": 78.4,
+          "lineHeight": 79.968,
+          "selector": "h1.aurora-single-title.wp-block-post-title",
+          "width": 760,
+          "height": 240
+        }
+      ],
+      "bodyText": {
+        "count": 2,
+        "minFontSize": 18,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 163,
+          "height": 41
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "work",
+      "pageLabel": "Work",
+      "viewport": {
+        "key": "desktop",
+        "width": 1440,
+        "height": 1100
+      },
+      "title": "Work | Kris Krüg",
+      "finalUrl": "https://kriskrug.co/work/?readability_audit=20260701-desktop-1782931564771",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Work",
+          "fontSize": 63.36,
+          "lineHeight": 72.864,
+          "selector": "h1.aurora-page-title.wp-block-post-title",
+          "width": 860,
+          "height": 73
+        }
+      ],
+      "bodyText": {
+        "count": 1,
+        "minFontSize": 21.12,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 1,
+        "minFontSize": 21.12,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 163,
+          "height": 41
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "about",
+      "pageLabel": "About",
+      "viewport": {
+        "key": "desktop",
+        "width": 1440,
+        "height": 1100
+      },
+      "title": "About Kris Krüg | AI Speaker, Creative Technologist & Community Builder",
+      "finalUrl": "https://kriskrug.co/about/?readability_audit=20260701-desktop-1782931571113",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "About Kris Krüg",
+          "fontSize": 63.36,
+          "lineHeight": 72.864,
+          "selector": "h1.aurora-page-title.wp-block-post-title",
+          "width": 860,
+          "height": 73
+        }
+      ],
+      "bodyText": {
+        "count": 2,
+        "minFontSize": 21.12,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 2,
+        "minFontSize": 21.12,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 163,
+          "height": 41
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "vancouver-ai",
+      "pageLabel": "Vancouver AI category",
+      "viewport": {
+        "key": "desktop",
+        "width": 1440,
+        "height": 1100
+      },
+      "title": "Vancouver AI Ecosystem - Kris Krüg | Generative AI Tools & Techniques",
+      "finalUrl": "https://kriskrug.co/category/vancouver-ai-ecosystem/?readability_audit=20260701-desktop-1782931577270",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Category: Vancouver AI Ecosystem",
+          "fontSize": 72,
+          "lineHeight": 82.8,
+          "selector": "h1.has-text-align-center.wp-block-query-title",
+          "width": 800,
+          "height": 166
+        }
+      ],
+      "bodyText": {
+        "count": 7,
+        "minFontSize": 18,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 163,
+          "height": 41
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "contact",
+      "pageLabel": "Contact",
+      "viewport": {
+        "key": "desktop",
+        "width": 1440,
+        "height": 1100
+      },
+      "title": "Contact Kris Krüg Kris Krüg | Generative AI Tools & Techniques",
+      "finalUrl": "https://kriskrug.co/contact/?readability_audit=20260701-desktop-1782931579715",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Contact Kris Krüg",
+          "fontSize": 63.36,
+          "lineHeight": 72.864,
+          "selector": "h1.aurora-page-title.wp-block-post-title",
+          "width": 860,
+          "height": 73
+        }
+      ],
+      "bodyText": {
+        "count": 3,
+        "minFontSize": 18.88,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 3,
+        "minFontSize": 18.88,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 163,
+          "height": 41
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "home",
+      "pageLabel": "Home",
+      "viewport": {
+        "key": "tablet",
+        "width": 768,
+        "height": 900
+      },
+      "title": "Kris Krüg | AI Keynote Speaker & Creative Technologist",
+      "finalUrl": "https://kriskrug.co/?readability_audit=20260701-tablet-1782931585131",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Authored judgment in the age of generative everything.",
+          "fontSize": 49.152,
+          "lineHeight": 48.169,
+          "selector": "h1#aurora-home-title",
+          "width": 486,
+          "height": 145
+        }
+      ],
+      "bodyText": {
+        "count": 1,
+        "minFontSize": 16,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 155,
+          "height": 40
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "blog",
+      "pageLabel": "Blog",
+      "viewport": {
+        "key": "tablet",
+        "width": 768,
+        "height": 900
+      },
+      "title": "Blog — Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "finalUrl": "https://kriskrug.co/blog/?readability_audit=20260701-tablet-1782931592511",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Field notes for the age of generative everything.",
+          "fontSize": 45.6,
+          "lineHeight": 46.968,
+          "selector": "h1.wp-block-heading.aurora-writing-archive-title",
+          "width": 420,
+          "height": 141
+        }
+      ],
+      "bodyText": {
+        "count": 7,
+        "minFontSize": 16,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 155,
+          "height": 40
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "article",
+      "pageLabel": "Article",
+      "viewport": {
+        "key": "tablet",
+        "width": 768,
+        "height": 900
+      },
+      "title": "Zero to One: From Meetup to Movement | Kris Krüg",
+      "finalUrl": "https://kriskrug.co/2026/06/30/zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey/?readability_audit=20260701-tablet-1782931595672",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Zero to One: From Meetup to Movement",
+          "fontSize": 48.8,
+          "lineHeight": 49.776,
+          "selector": "h1.aurora-single-title.wp-block-post-title",
+          "width": 519,
+          "height": 149
+        }
+      ],
+      "bodyText": {
+        "count": 2,
+        "minFontSize": 16.9318,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 155,
+          "height": 40
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "work",
+      "pageLabel": "Work",
+      "viewport": {
+        "key": "tablet",
+        "width": 768,
+        "height": 900
+      },
+      "title": "Work | Kris Krüg",
+      "finalUrl": "https://kriskrug.co/work/?readability_audit=20260701-tablet-1782931602175",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Work",
+          "fontSize": 48,
+          "lineHeight": 55.2,
+          "selector": "h1.aurora-page-title.wp-block-post-title",
+          "width": 736,
+          "height": 55
+        }
+      ],
+      "bodyText": {
+        "count": 1,
+        "minFontSize": 19.456,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 1,
+        "minFontSize": 19.456,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 155,
+          "height": 40
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "about",
+      "pageLabel": "About",
+      "viewport": {
+        "key": "tablet",
+        "width": 768,
+        "height": 900
+      },
+      "title": "About Kris Krüg | AI Speaker, Creative Technologist & Community Builder",
+      "finalUrl": "https://kriskrug.co/about/?readability_audit=20260701-tablet-1782931608271",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "About Kris Krüg",
+          "fontSize": 48,
+          "lineHeight": 55.2,
+          "selector": "h1.aurora-page-title.wp-block-post-title",
+          "width": 736,
+          "height": 55
+        }
+      ],
+      "bodyText": {
+        "count": 2,
+        "minFontSize": 19.456,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 2,
+        "minFontSize": 19.456,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 155,
+          "height": 40
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "vancouver-ai",
+      "pageLabel": "Vancouver AI category",
+      "viewport": {
+        "key": "tablet",
+        "width": 768,
+        "height": 900
+      },
+      "title": "Vancouver AI Ecosystem - Kris Krüg | Generative AI Tools & Techniques",
+      "finalUrl": "https://kriskrug.co/category/vancouver-ai-ecosystem/?readability_audit=20260701-tablet-1782931613788",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Category: Vancouver AI Ecosystem",
+          "fontSize": 59.2,
+          "lineHeight": 68.08,
+          "selector": "h1.has-text-align-center.wp-block-query-title",
+          "width": 736,
+          "height": 136
+        }
+      ],
+      "bodyText": {
+        "count": 6,
+        "minFontSize": 16.9318,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 155,
+          "height": 40
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "contact",
+      "pageLabel": "Contact",
+      "viewport": {
+        "key": "tablet",
+        "width": 768,
+        "height": 900
+      },
+      "title": "Contact Kris Krüg Kris Krüg | Generative AI Tools & Techniques",
+      "finalUrl": "https://kriskrug.co/contact/?readability_audit=20260701-tablet-1782931616599",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Contact Kris Krüg",
+          "fontSize": 48,
+          "lineHeight": 55.2,
+          "selector": "h1.aurora-page-title.wp-block-post-title",
+          "width": 736,
+          "height": 55
+        }
+      ],
+      "bodyText": {
+        "count": 2,
+        "minFontSize": 18.0288,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 2,
+        "minFontSize": 18.0288,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [
+        {
+          "selector": "a",
+          "text": "About",
+          "width": 42,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Work",
+          "width": 36,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Speaking",
+          "width": 64,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Services",
+          "width": 60,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Writing",
+          "width": 50,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Podcast",
+          "width": 56,
+          "height": 23
+        },
+        {
+          "selector": "a",
+          "text": "Contact",
+          "width": 54,
+          "height": 23
+        },
+        {
+          "selector": "a.aurora-utility-link",
+          "text": "Dispatch (opens in new tab)",
+          "width": 61,
+          "height": 38
+        },
+        {
+          "selector": "a.aurora-button.aurora-button-primary.aurora-header-cta",
+          "text": "Book a keynote",
+          "width": 155,
+          "height": 40
+        }
+      ],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "home",
+      "pageLabel": "Home",
+      "viewport": {
+        "key": "mobile390",
+        "width": 390,
+        "height": 844
+      },
+      "title": "Kris Krüg | AI Keynote Speaker & Creative Technologist",
+      "finalUrl": "https://kriskrug.co/?readability_audit=20260701-mobile390-1782931622490",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Authored judgment in the age of generative everything.",
+          "fontSize": 40.95,
+          "lineHeight": 40.95,
+          "selector": "h1#aurora-home-title",
+          "width": 358,
+          "height": 164
+        }
+      ],
+      "bodyText": {
+        "count": 1,
+        "minFontSize": 16,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "blog",
+      "pageLabel": "Blog",
+      "viewport": {
+        "key": "mobile390",
+        "width": 390,
+        "height": 844
+      },
+      "title": "Blog — Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "finalUrl": "https://kriskrug.co/blog/?readability_audit=20260701-mobile390-1782931629596",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Field notes for the age of generative everything.",
+          "fontSize": 37.12,
+          "lineHeight": 38.976,
+          "selector": "h1.wp-block-heading.aurora-writing-archive-title",
+          "width": 313,
+          "height": 117
+        }
+      ],
+      "bodyText": {
+        "count": 2,
+        "minFontSize": 16,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "article",
+      "pageLabel": "Article",
+      "viewport": {
+        "key": "mobile390",
+        "width": 390,
+        "height": 844
+      },
+      "title": "Zero to One: From Meetup to Movement | Kris Krüg",
+      "finalUrl": "https://kriskrug.co/2026/06/30/zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey/?readability_audit=20260701-mobile390-1782931632496",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Zero to One: From Meetup to Movement",
+          "fontSize": 37.6,
+          "lineHeight": 39.104,
+          "selector": "h1.aurora-single-title.wp-block-post-title",
+          "width": 353,
+          "height": 117
+        }
+      ],
+      "bodyText": {
+        "count": 2,
+        "minFontSize": 16.1456,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "work",
+      "pageLabel": "Work",
+      "viewport": {
+        "key": "mobile390",
+        "width": 390,
+        "height": 844
+      },
+      "title": "Work | Kris Krüg",
+      "finalUrl": "https://kriskrug.co/work/?readability_audit=20260701-mobile390-1782931638885",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Work",
+          "fontSize": 35.1,
+          "lineHeight": 40.365,
+          "selector": "h1.aurora-page-title.wp-block-post-title",
+          "width": 358,
+          "height": 40
+        }
+      ],
+      "bodyText": {
+        "count": 1,
+        "minFontSize": 18,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 1,
+        "minFontSize": 18,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "about",
+      "pageLabel": "About",
+      "viewport": {
+        "key": "mobile390",
+        "width": 390,
+        "height": 844
+      },
+      "title": "About Kris Krüg | AI Speaker, Creative Technologist & Community Builder",
+      "finalUrl": "https://kriskrug.co/about/?readability_audit=20260701-mobile390-1782931645019",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "About Kris Krüg",
+          "fontSize": 35.1,
+          "lineHeight": 40.365,
+          "selector": "h1.aurora-page-title.wp-block-post-title",
+          "width": 358,
+          "height": 40
+        }
+      ],
+      "bodyText": {
+        "count": 2,
+        "minFontSize": 18,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 2,
+        "minFontSize": 18,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "vancouver-ai",
+      "pageLabel": "Vancouver AI category",
+      "viewport": {
+        "key": "mobile390",
+        "width": 390,
+        "height": 844
+      },
+      "title": "Vancouver AI Ecosystem - Kris Krüg | Generative AI Tools & Techniques",
+      "finalUrl": "https://kriskrug.co/category/vancouver-ai-ecosystem/?readability_audit=20260701-mobile390-1782931651171",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Category: Vancouver AI Ecosystem",
+          "fontSize": 49.75,
+          "lineHeight": 57.2125,
+          "selector": "h1.has-text-align-center.wp-block-query-title",
+          "width": 358,
+          "height": 172
+        }
+      ],
+      "bodyText": {
+        "count": 3,
+        "minFontSize": 16.1456,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "contact",
+      "pageLabel": "Contact",
+      "viewport": {
+        "key": "mobile390",
+        "width": 390,
+        "height": 844
+      },
+      "title": "Contact Kris Krüg Kris Krüg | Generative AI Tools & Techniques",
+      "finalUrl": "https://kriskrug.co/contact/?readability_audit=20260701-mobile390-1782931653970",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Contact Kris Krüg",
+          "fontSize": 35.1,
+          "lineHeight": 40.365,
+          "selector": "h1.aurora-page-title.wp-block-post-title",
+          "width": 358,
+          "height": 40
+        }
+      ],
+      "bodyText": {
+        "count": 1,
+        "minFontSize": 20.48,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 1,
+        "minFontSize": 20.48,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "home",
+      "pageLabel": "Home",
+      "viewport": {
+        "key": "mobile360",
+        "width": 360,
+        "height": 740
+      },
+      "title": "Kris Krüg | AI Keynote Speaker & Creative Technologist",
+      "finalUrl": "https://kriskrug.co/?readability_audit=20260701-mobile360-1782931659046",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Authored judgment in the age of generative everything.",
+          "fontSize": 37.8,
+          "lineHeight": 37.8,
+          "selector": "h1#aurora-home-title",
+          "width": 328,
+          "height": 151
+        }
+      ],
+      "bodyText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "blog",
+      "pageLabel": "Blog",
+      "viewport": {
+        "key": "mobile360",
+        "width": 360,
+        "height": 740
+      },
+      "title": "Blog — Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "finalUrl": "https://kriskrug.co/blog/?readability_audit=20260701-mobile360-1782931665963",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Field notes for the age of generative everything.",
+          "fontSize": 35.84,
+          "lineHeight": 37.632,
+          "selector": "h1.wp-block-heading.aurora-writing-archive-title",
+          "width": 302,
+          "height": 113
+        }
+      ],
+      "bodyText": {
+        "count": 2,
+        "minFontSize": 16,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "article",
+      "pageLabel": "Article",
+      "viewport": {
+        "key": "mobile360",
+        "width": 360,
+        "height": 740
+      },
+      "title": "Zero to One: From Meetup to Movement | Kris Krüg",
+      "finalUrl": "https://kriskrug.co/2026/06/30/zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey/?readability_audit=20260701-mobile360-1782931669006",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Zero to One: From Meetup to Movement",
+          "fontSize": 36.48,
+          "lineHeight": 37.9392,
+          "selector": "h1.aurora-single-title.wp-block-post-title",
+          "width": 328,
+          "height": 114
+        }
+      ],
+      "bodyText": {
+        "count": 2,
+        "minFontSize": 16.0832,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "work",
+      "pageLabel": "Work",
+      "viewport": {
+        "key": "mobile360",
+        "width": 360,
+        "height": 740
+      },
+      "title": "Work | Kris Krüg",
+      "finalUrl": "https://kriskrug.co/work/?readability_audit=20260701-mobile360-1782931675062",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Work",
+          "fontSize": 34,
+          "lineHeight": 39.1,
+          "selector": "h1.aurora-page-title.wp-block-post-title",
+          "width": 328,
+          "height": 39
+        }
+      ],
+      "bodyText": {
+        "count": 1,
+        "minFontSize": 18,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 1,
+        "minFontSize": 18,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "about",
+      "pageLabel": "About",
+      "viewport": {
+        "key": "mobile360",
+        "width": 360,
+        "height": 740
+      },
+      "title": "About Kris Krüg | AI Speaker, Creative Technologist & Community Builder",
+      "finalUrl": "https://kriskrug.co/about/?readability_audit=20260701-mobile360-1782931680656",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "About Kris Krüg",
+          "fontSize": 34,
+          "lineHeight": 39.1,
+          "selector": "h1.aurora-page-title.wp-block-post-title",
+          "width": 328,
+          "height": 39
+        }
+      ],
+      "bodyText": {
+        "count": 1,
+        "minFontSize": 18,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 1,
+        "minFontSize": 18,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "vancouver-ai",
+      "pageLabel": "Vancouver AI category",
+      "viewport": {
+        "key": "mobile360",
+        "width": 360,
+        "height": 740
+      },
+      "title": "Vancouver AI Ecosystem - Kris Krüg | Generative AI Tools & Techniques",
+      "finalUrl": "https://kriskrug.co/category/vancouver-ai-ecosystem/?readability_audit=20260701-mobile360-1782931687108",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Category: Vancouver AI Ecosystem",
+          "fontSize": 49,
+          "lineHeight": 56.35,
+          "selector": "h1.has-text-align-center.wp-block-query-title",
+          "width": 328,
+          "height": 225
+        }
+      ],
+      "bodyText": {
+        "count": 3,
+        "minFontSize": 16.0832,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 0,
+        "minFontSize": null,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    },
+    {
+      "pageKey": "contact",
+      "pageLabel": "Contact",
+      "viewport": {
+        "key": "mobile360",
+        "width": 360,
+        "height": 740
+      },
+      "title": "Contact Kris Krüg Kris Krüg | Generative AI Tools & Techniques",
+      "finalUrl": "https://kriskrug.co/contact/?readability_audit=20260701-mobile360-1782931689523",
+      "overflowX": 0,
+      "horizontalOffenders": [],
+      "h1s": [
+        {
+          "text": "Contact Kris Krüg",
+          "fontSize": 34,
+          "lineHeight": 39.1,
+          "selector": "h1.aurora-page-title.wp-block-post-title",
+          "width": 328,
+          "height": 39
+        }
+      ],
+      "bodyText": {
+        "count": 1,
+        "minFontSize": 20.48,
+        "smallSamples": []
+      },
+      "proseText": {
+        "count": 1,
+        "minFontSize": 20.48,
+        "smallSamples": []
+      },
+      "touchTargetFailures": [],
+      "cssVars": {
+        "readableMeasure": "720px"
+      },
+      "status": 200,
+      "failures": []
+    }
+  ],
+  "failureCount": 0
+}

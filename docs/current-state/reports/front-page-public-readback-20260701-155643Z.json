@@ -1,0 +1,24 @@
+{
+  "homepage_cache_busted": {
+    "url": "https://kriskrug.co/?perfdeploy=20260701-155643Z",
+    "status": 200,
+    "bytes": 89764,
+    "cache_status": null,
+    "server_timing": null,
+    "resized_vancouver_png_present": true,
+    "direct_heavy_vancouver_src_absent": true,
+    "vancouver_dimensions_present": true,
+    "hero_dimensions_present": true
+  },
+  "homepage_canonical": {
+    "url": "https://kriskrug.co/",
+    "status": 200,
+    "bytes": 89764,
+    "cache_status": null,
+    "server_timing": null,
+    "resized_vancouver_png_present": true,
+    "direct_heavy_vancouver_src_absent": true,
+    "vancouver_dimensions_present": true,
+    "hero_dimensions_present": true
+  }
+}
