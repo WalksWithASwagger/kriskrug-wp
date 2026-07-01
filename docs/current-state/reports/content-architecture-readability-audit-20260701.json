@@ -1,0 +1,1503 @@
+{
+  "generated": "2026-07-01T19:36:26.161Z",
+  "results": [
+    {
+      "name": "Services",
+      "slug": "services",
+      "url": "https://kriskrug.co/generative-ai-services/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-services-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/generative-ai-services/",
+        "h1Px": 63.36,
+        "h1Text": "Generative AI Creative Services & Strategy",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 21.12,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "Generative AI Creative Services & Strategy — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.5546875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 35.6796875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 63.8046875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.2109375
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.78125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.5546875
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.921875
+          },
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 160.125
+          }
+        ],
+        "viewportWidth": 1440
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Contact",
+      "slug": "contact",
+      "url": "https://kriskrug.co/contact/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-contact-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/contact/",
+        "h1Px": 63.36,
+        "h1Text": "Contact Kris Krüg",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 21.12,
+        "minTextPx": 18.88,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "Contact Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.578125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 36.3671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 64.03125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.953125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8515625
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.8203125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.2578125
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.6953125
+          },
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ],
+        "viewportWidth": 1440
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Work",
+      "slug": "work",
+      "url": "https://kriskrug.co/work/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-work-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/work/",
+        "h1Px": 63.36,
+        "h1Text": "Work",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 21.12,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "Work — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.578125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 36.3671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 64.03125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.953125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8515625
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.8203125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.2578125
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.6953125
+          },
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ],
+        "viewportWidth": 1440
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "About",
+      "slug": "about",
+      "url": "https://kriskrug.co/about/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-about-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/about/",
+        "h1Px": 63.36,
+        "h1Text": "About Kris Krüg",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 21.12,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "About Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.578125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 36.3671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 64.03125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.953125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8515625
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.8203125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.2578125
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.6953125
+          },
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ],
+        "viewportWidth": 1440
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Speaking",
+      "slug": "speaking",
+      "url": "https://kriskrug.co/speaking/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-speaking-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/speaking/",
+        "h1Px": 63.36,
+        "h1Text": "AI Keynote Speaker Kris Krüg",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 21.12,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "AI Keynote Speaker Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.578125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 36.3671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 64.03125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.953125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8515625
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.8203125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.2578125
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.6953125
+          },
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ],
+        "viewportWidth": 1440
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Responsible AI Professional",
+      "slug": "responsible-ai-professional",
+      "url": "https://kriskrug.co/responsible-ai-professional/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-responsible-ai-professional-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/responsible-ai-professional/",
+        "h1Px": 63.36,
+        "h1Text": "Responsible AI Professional Certification",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 21.12,
+        "minTextPx": 18.88,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "Responsible AI Professional Certification — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.578125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 36.3671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 64.03125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.953125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8515625
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.8203125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.2578125
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.6953125
+          },
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ],
+        "viewportWidth": 1440
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Podcast EPK",
+      "slug": "podcast-epk",
+      "url": "https://kriskrug.co/podcast-guesting-page-epk/",
+      "viewport": "1440x1100",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-podcast-epk-1440.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/podcast-guesting-page-epk/",
+        "h1Px": 63.36,
+        "h1Text": "Podcast Guest, AI Commentator, Event Host",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 21.12,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 1440,
+        "title": "Podcast Guest, AI Commentator, Event Host — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.578125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 36.3671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 64.03125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.953125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8515625
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.8203125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.2578125
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.6953125
+          },
+          {
+            "height": 40.796875,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 163.25
+          }
+        ],
+        "viewportWidth": 1440
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Services",
+      "slug": "services",
+      "url": "https://kriskrug.co/generative-ai-services/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-services-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/generative-ai-services/",
+        "h1Px": 48,
+        "h1Text": "Generative AI Creative Services & Strategy",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 19.456,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "Generative AI Creative Services & Strategy — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.578125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 36.3671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 64.03125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.953125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8515625
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.8203125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.2578125
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.6953125
+          },
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ],
+        "viewportWidth": 768
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Contact",
+      "slug": "contact",
+      "url": "https://kriskrug.co/contact/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-contact-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/contact/",
+        "h1Px": 48,
+        "h1Text": "Contact Kris Krüg",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 19.456,
+        "minTextPx": 18.0288,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "Contact Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.578125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 36.3671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 64.03125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.953125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8515625
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.8203125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.2578125
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.6953125
+          },
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ],
+        "viewportWidth": 768
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Work",
+      "slug": "work",
+      "url": "https://kriskrug.co/work/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-work-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/work/",
+        "h1Px": 48,
+        "h1Text": "Work",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 19.456,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "Work — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.578125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 36.3671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 64.03125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.953125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8515625
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.8203125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.2578125
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.6953125
+          },
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ],
+        "viewportWidth": 768
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "About",
+      "slug": "about",
+      "url": "https://kriskrug.co/about/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-about-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/about/",
+        "h1Px": 48,
+        "h1Text": "About Kris Krüg",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 19.456,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "About Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.578125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 36.3671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 64.03125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.953125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8515625
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.8203125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.2578125
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.6953125
+          },
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ],
+        "viewportWidth": 768
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Speaking",
+      "slug": "speaking",
+      "url": "https://kriskrug.co/speaking/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-speaking-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/speaking/",
+        "h1Px": 48,
+        "h1Text": "AI Keynote Speaker Kris Krüg",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 19.456,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "AI Keynote Speaker Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.578125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 36.3671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 64.03125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.953125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8515625
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.8203125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.2578125
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.6953125
+          },
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ],
+        "viewportWidth": 768
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Responsible AI Professional",
+      "slug": "responsible-ai-professional",
+      "url": "https://kriskrug.co/responsible-ai-professional/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-responsible-ai-professional-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/responsible-ai-professional/",
+        "h1Px": 48,
+        "h1Text": "Responsible AI Professional Certification",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 19.456,
+        "minTextPx": 18.0288,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "Responsible AI Professional Certification — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.578125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 36.3671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 64.03125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.953125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8515625
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.8203125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.2578125
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.6953125
+          },
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ],
+        "viewportWidth": 768
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Podcast EPK",
+      "slug": "podcast-epk",
+      "url": "https://kriskrug.co/podcast-guesting-page-epk/",
+      "viewport": "768x900",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-podcast-epk-768.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/podcast-guesting-page-epk/",
+        "h1Px": 48,
+        "h1Text": "Podcast Guest, AI Commentator, Event Host",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 19.456,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 768,
+        "title": "Podcast Guest, AI Commentator, Event Host — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "About",
+            "width": 41.578125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Work",
+            "width": 36.3671875
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Speaking",
+            "width": 64.03125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Services",
+            "width": 59.953125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Writing",
+            "width": 49.8515625
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Podcast",
+            "width": 55.8203125
+          },
+          {
+            "height": 23.2265625,
+            "tag": "a",
+            "text": "Contact",
+            "width": 54.2578125
+          },
+          {
+            "height": 38,
+            "tag": "a",
+            "text": "Dispatch (opens in new tab)",
+            "width": 60.6953125
+          },
+          {
+            "height": 39.7265625,
+            "tag": "a",
+            "text": "Book a keynote",
+            "width": 155.28125
+          }
+        ],
+        "viewportWidth": 768
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Services",
+      "slug": "services",
+      "url": "https://kriskrug.co/generative-ai-services/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-services-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/generative-ai-services/",
+        "h1Px": 35.1,
+        "h1Text": "Generative AI Creative Services & Strategy",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "Generative AI Creative Services & Strategy — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 390
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Contact",
+      "slug": "contact",
+      "url": "https://kriskrug.co/contact/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-contact-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/contact/",
+        "h1Px": 35.1,
+        "h1Text": "Contact Kris Krüg",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 17,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "Contact Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 390
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Work",
+      "slug": "work",
+      "url": "https://kriskrug.co/work/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-work-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/work/",
+        "h1Px": 35.1,
+        "h1Text": "Work",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "Work — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 390
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "About",
+      "slug": "about",
+      "url": "https://kriskrug.co/about/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-about-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/about/",
+        "h1Px": 35.1,
+        "h1Text": "About Kris Krüg",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "About Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 390
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Speaking",
+      "slug": "speaking",
+      "url": "https://kriskrug.co/speaking/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-speaking-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/speaking/",
+        "h1Px": 35.1,
+        "h1Text": "AI Keynote Speaker Kris Krüg",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "AI Keynote Speaker Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 390
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Responsible AI Professional",
+      "slug": "responsible-ai-professional",
+      "url": "https://kriskrug.co/responsible-ai-professional/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-responsible-ai-professional-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/responsible-ai-professional/",
+        "h1Px": 35.1,
+        "h1Text": "Responsible AI Professional Certification",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 17,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "Responsible AI Professional Certification — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 390
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Podcast EPK",
+      "slug": "podcast-epk",
+      "url": "https://kriskrug.co/podcast-guesting-page-epk/",
+      "viewport": "390x844",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-podcast-epk-390.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/podcast-guesting-page-epk/",
+        "h1Px": 35.1,
+        "h1Text": "Podcast Guest, AI Commentator, Event Host",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 390,
+        "title": "Podcast Guest, AI Commentator, Event Host — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 390
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Services",
+      "slug": "services",
+      "url": "https://kriskrug.co/generative-ai-services/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-services-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/generative-ai-services/",
+        "h1Px": 34,
+        "h1Text": "Generative AI Creative Services & Strategy",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "Generative AI Creative Services & Strategy — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 360
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Contact",
+      "slug": "contact",
+      "url": "https://kriskrug.co/contact/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-contact-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/contact/",
+        "h1Px": 34,
+        "h1Text": "Contact Kris Krüg",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 17,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "Contact Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 360
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Work",
+      "slug": "work",
+      "url": "https://kriskrug.co/work/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-work-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/work/",
+        "h1Px": 34,
+        "h1Text": "Work",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "Work — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 360
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "About",
+      "slug": "about",
+      "url": "https://kriskrug.co/about/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-about-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/about/",
+        "h1Px": 34,
+        "h1Text": "About Kris Krüg",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "About Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 360
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Speaking",
+      "slug": "speaking",
+      "url": "https://kriskrug.co/speaking/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-speaking-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/speaking/",
+        "h1Px": 34,
+        "h1Text": "AI Keynote Speaker Kris Krüg",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "AI Keynote Speaker Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 360
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Responsible AI Professional",
+      "slug": "responsible-ai-professional",
+      "url": "https://kriskrug.co/responsible-ai-professional/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-responsible-ai-professional-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/responsible-ai-professional/",
+        "h1Px": 34,
+        "h1Text": "Responsible AI Professional Certification",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 17,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "Responsible AI Professional Certification — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 360
+      },
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "Podcast EPK",
+      "slug": "podcast-epk",
+      "url": "https://kriskrug.co/podcast-guesting-page-epk/",
+      "viewport": "360x740",
+      "screenshot": "docs/current-state/reports/screenshots/content-architecture-20260701/content-architecture-podcast-epk-360.png",
+      "metrics": {
+        "bodyH1Count": 0,
+        "finalUrl": "https://kriskrug.co/podcast-guesting-page-epk/",
+        "h1Px": 34,
+        "h1Text": "Podcast Guest, AI Commentator, Event Host",
+        "markers": {
+          "hasContentArchitectureComment": true,
+          "retiredClassCount": 0
+        },
+        "minProsePx": 18,
+        "minTextPx": 16,
+        "overflowX": 0,
+        "scrollWidth": 360,
+        "title": "Podcast Guest, AI Commentator, Event Host — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "touchFailures": [],
+        "viewportWidth": 360
+      },
+      "failures": [],
+      "result": "PASS"
+    }
+  ]
+}

@@ -24,6 +24,7 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`current-state/FIX_QUEUE.md`](current-state/FIX_QUEUE.md) | P0 → P3 backlog |
 | [`current-state/ROADMAP.md`](current-state/ROADMAP.md) | Six-phase, 3-month plan; use as longer-range reference after the latest work plan |
 | [`current-state/WORK-PLAN-2026-07-01.md`](current-state/WORK-PLAN-2026-07-01.md) | **Active weekly plan** (rest of week). Live PR/issue readback + execution lanes; supersedes `WORK-PLAN-2026-05-23.md` |
+| [`current-state/CONTENT-ARCHITECTURE-RESET-2026-07-01.md`](current-state/CONTENT-ARCHITECTURE-RESET-2026-07-01.md) | Trust + Offers content architecture wave: seven live page migrations, snapshots, verification, and next-wave boundaries |
 | [`current-state/AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md`](current-state/AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md) | Aurora 1.3.27 readability reset live closeout, test evidence, blockers, and next Track B roadmap |
 | [`current-state/FULL-AUDIT-ROADMAP-2026-05-18.md`](current-state/FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit, roadmap, and human decision list |
 | [`current-state/HANDOFF-2026-05-24.md`](current-state/HANDOFF-2026-05-24.md) | Current cross-track state (Aurora/theme/content truth, deployment mechanics, open work) |
@@ -62,6 +63,7 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | File | What it covers |
 |---|---|
 | [`../scripts/notion-to-wp/README.md`](../scripts/notion-to-wp/README.md) | Notion → WP publisher: setup, dry-run, safety guards |
+| [`../content/source-packs/content-architecture-2026/README.md`](../content/source-packs/content-architecture-2026/README.md) | Trust + Offers content architecture source pack and body-only WordPress payloads |
 | [`kris-krug-roles-module.md`](kris-krug-roles-module.md) | KK's role-switching framework (voice / tone reference) |
 | [`archive-content-mine.md`](archive-content-mine.md) | 20-year blog-archive content mine (2003–2026): bio/credential threads + "from the archives" content backlog, with source links |
 | [`../.claude/context/project-context.md`](../.claude/context/project-context.md) | Mission, values, audience, voice |
@@ -114,4 +116,4 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 
 ---
 
-**Last updated:** 2026-07-01. Added the archive content mine, the 2026-07-01 work plan, and the Aurora readability reset closeout. Note: this index does not exhaustively list every dated file under `docs/current-state/` - the June/July 2026 snapshots and closeouts are newer than some entries here, so treat `docs/current-state/` itself as the source of truth for the latest dated evidence. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.
+**Last updated:** 2026-07-01. Added the archive content mine, the 2026-07-01 work plan, the Aurora readability reset closeout, and the Trust + Offers content architecture closeout. Note: this index does not exhaustively list every dated file under `docs/current-state/` - the June/July 2026 snapshots and closeouts are newer than some entries here, so treat `docs/current-state/` itself as the source of truth for the latest dated evidence. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.

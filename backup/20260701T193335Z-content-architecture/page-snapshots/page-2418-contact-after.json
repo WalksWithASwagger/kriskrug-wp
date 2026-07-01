@@ -1,0 +1,25 @@
+{
+  "id": 2418,
+  "modified": "2026-07-01T11:33:42",
+  "slug": "contact",
+  "status": "publish",
+  "link": "https://kriskrug.co/contact/",
+  "title": {
+    "raw": "Contact Kris Krüg",
+    "rendered": "Contact Kris Krüg"
+  },
+  "content": {
+    "raw": "<!-- wp:html -->\n<!-- content-architecture-2026:contact -->\n<section class=\"aurora-proof-section\">\n  <p class=\"aurora-section-kicker\">Contact</p>\n  <h2 class=\"aurora-display-heading\">Tell me what kind of room you are building.</h2>\n  <p class=\"aurora-page-lead\">The fastest path is email. Send the shape of the thing: keynote, workshop, media appearance, strategy session, community partnership, or strange creative AI project.</p>\n  <p>I read for context first. Include who it is for, when it needs to happen, where it happens, and what would make the work genuinely useful.</p>\n</section>\n\n<section class=\"aurora-proof-section\">\n  <p class=\"aurora-section-kicker\">The fastest path</p>\n  <div class=\"aurora-proof-grid\">\n    <article class=\"aurora-card\">\n      <h3>Book a talk or workshop</h3>\n      <p>Share the audience, date, venue or platform, budget range if you have one, and the change you want in the room.</p>\n    </article>\n    <article class=\"aurora-card\">\n      <h3>Plan strategy or training</h3>\n      <p>Tell me what your team is trying to do with AI, what is stuck, and what kind of support would make the next step safer.</p>\n    </article>\n    <article class=\"aurora-card\">\n      <h3>Media and podcasts</h3>\n      <p>Send the topic, format, timing, audience, and any prep links. The EPK has a cleaner producer-facing version.</p>\n    </article>\n    <article class=\"aurora-card\">\n      <h3>Community collaborations</h3>\n      <p>For BC + AI, Vancouver AI, AI Film Club, or ecosystem work, include the people involved and the public value you want to create.</p>\n    </article>\n  </div>\n</section>\n\n<section class=\"aurora-proof-section\">\n  <div class=\"aurora-card\">\n    <h2>Email Kris</h2>\n    <p><a href=\"mailto:feelmoreplants@gmail.com\">feelmoreplants@gmail.com</a></p>\n    <p><a class=\"aurora-button\" href=\"mailto:feelmoreplants@gmail.com?subject=Inquiry%20from%20kriskrug.co\">Send the note</a></p>\n  </div>\n</section>\n<!-- /wp:html -->\n",
+    "rendered": "\n<!-- content-architecture-2026:contact -->\n<section class=\"aurora-proof-section\">\n  <p class=\"aurora-section-kicker\">Contact</p>\n  <h2 class=\"aurora-display-heading\">Tell me what kind of room you are building.</h2>\n  <p class=\"aurora-page-lead\">The fastest path is email. Send the shape of the thing: keynote, workshop, media appearance, strategy session, community partnership, or strange creative AI project.</p>\n  <p>I read for context first. Include who it is for, when it needs to happen, where it happens, and what would make the work genuinely useful.</p>\n</section>\n\n<section class=\"aurora-proof-section\">\n  <p class=\"aurora-section-kicker\">The fastest path</p>\n  <div class=\"aurora-proof-grid\">\n    <article class=\"aurora-card\">\n      <h3>Book a talk or workshop</h3>\n      <p>Share the audience, date, venue or platform, budget range if you have one, and the change you want in the room.</p>\n    </article>\n    <article class=\"aurora-card\">\n      <h3>Plan strategy or training</h3>\n      <p>Tell me what your team is trying to do with AI, what is stuck, and what kind of support would make the next step safer.</p>\n    </article>\n    <article class=\"aurora-card\">\n      <h3>Media and podcasts</h3>\n      <p>Send the topic, format, timing, audience, and any prep links. The EPK has a cleaner producer-facing version.</p>\n    </article>\n    <article class=\"aurora-card\">\n      <h3>Community collaborations</h3>\n      <p>For BC + AI, Vancouver AI, AI Film Club, or ecosystem work, include the people involved and the public value you want to create.</p>\n    </article>\n  </div>\n</section>\n\n<section class=\"aurora-proof-section\">\n  <div class=\"aurora-card\">\n    <h2>Email Kris</h2>\n    <p><a href=\"mailto:feelmoreplants@gmail.com\">feelmoreplants@gmail.com</a></p>\n    <p><a class=\"aurora-button\" href=\"mailto:feelmoreplants@gmail.com?subject=Inquiry%20from%20kriskrug.co\">Send the note</a></p>\n  </div>\n</section>\n\n",
+    "protected": false,
+    "block_version": 1
+  },
+  "excerpt": {
+    "raw": "",
+    "rendered": "<p>Contact Tell me what kind of room you are building. The fastest path is email. Send the shape of the thing: keynote, workshop, media appearance, strategy session, community partnership, or strange creative AI project. I read for context first. Include who it is for, when it needs to happen, where it happens, and what would [&hellip;]</p>\n",
+    "protected": false
+  },
+  "meta": {
+    "footnotes": ""
+  }
+}

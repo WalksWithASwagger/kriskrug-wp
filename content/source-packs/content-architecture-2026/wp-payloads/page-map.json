@@ -1,0 +1,51 @@
+{
+  "services": {
+    "id": 2666,
+    "slug": "generative-ai-services",
+    "url": "https://kriskrug.co/generative-ai-services/",
+    "payload": "services.html",
+    "markers": ["AI strategy for people who still care about culture", "Community systems", "Book an AI strategy session"]
+  },
+  "contact": {
+    "id": 2418,
+    "slug": "contact",
+    "url": "https://kriskrug.co/contact/",
+    "payload": "contact.html",
+    "markers": ["Tell me what kind of room you are building", "feelmoreplants@gmail.com", "The fastest path"]
+  },
+  "work": {
+    "id": 2672,
+    "slug": "work",
+    "url": "https://kriskrug.co/work/",
+    "payload": "work.html",
+    "markers": ["Systems, rooms, stories, and strange machines", "BC + AI Ecosystem", "Creative AI Human Lab"]
+  },
+  "about": {
+    "id": 1208,
+    "slug": "about",
+    "url": "https://kriskrug.co/about/",
+    "payload": "about.html",
+    "markers": ["I build culture around emerging technology", "The rooms I am in now", "A two-decade public trail"]
+  },
+  "speaking": {
+    "id": 1887,
+    "slug": "speaking",
+    "url": "https://kriskrug.co/speaking/",
+    "payload": "speaking.html",
+    "markers": ["AI keynotes that make the room braver", "Signature topics", "Book Kris for a keynote"]
+  },
+  "responsible_ai_professional": {
+    "id": 11914,
+    "slug": "responsible-ai-professional",
+    "url": "https://kriskrug.co/responsible-ai-professional/",
+    "payload": "responsible-ai-professional.html",
+    "markers": ["Responsible AI Professional", "Practical ethics for people shipping real systems", "Join the next cohort"]
+  },
+  "podcast_epk": {
+    "id": 3609,
+    "slug": "podcast-guesting-page-epk",
+    "url": "https://kriskrug.co/podcast-guesting-page-epk/",
+    "payload": "podcast-guesting-page-epk.html",
+    "markers": ["AI commentator, podcast guest, and event host", "What I bring to the mic", "Book Kris for media"]
+  }
+}

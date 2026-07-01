@@ -9,11 +9,13 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 
 Read these first for current execution context:
 
-**Newest Track B addendum:** [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md) — production is on Aurora **1.3.27**, readability audit passed with `0` failures, PR #272 is the source-parity closeout, and #125 remains open for Jetpack Boost Critical CSS / performance evidence.
+**Newest Track A addendum:** [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md) — first Trust + Offers content-architecture wave is live on seven high-value pages, snapshot-gated, with `0` readability failures.
+
+**Newest Track B addendum:** [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md) — production is on Aurora **1.3.27**, readability audit passed with `0` failures, PR #272 is merged, and #125 remains open for Jetpack Boost Critical CSS / performance evidence.
 
 **Latest general handoff:** [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md) — prod on Aurora **1.3.18** at that time, content cadence live through 07-02, Storyhive companion **12327 LIVE** (2026-06-17), #207/#208/#220 closed. Treat it as superseded for Aurora version truth by the 2026-07-01 readability closeout.
 
-1. [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md), [PERFORMANCE-RECOVERY-2026-07-01.md](PERFORMANCE-RECOVERY-2026-07-01.md), and the latest read-only startup truth from `make status-readonly`
+1. [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md), [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md), [PERFORMANCE-RECOVERY-2026-07-01.md](PERFORMANCE-RECOVERY-2026-07-01.md), and the latest read-only startup truth from `make status-readonly`
 2. [POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md](POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md), `reports/morning-truth-20260609-043246Z.md`, and the latest read-only startup truth from `make status-readonly`
 3. [LOCAL-WP-QA-2026-06-04.md](LOCAL-WP-QA-2026-06-04.md)
 4. [AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md](AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md)
@@ -59,6 +61,7 @@ Then use historical plans for context:
 | [CONTENT_AUDIT.md](CONTENT_AUDIT.md) | Per-page review of all 34 pages, posts inventory (101 recent), taxonomy, multilingual, IA proposal. |
 | [FIX_QUEUE.md](FIX_QUEUE.md) | Prioritized P0→P3 backlog from both audits. |
 | [ROADMAP.md](ROADMAP.md) | Six-phase, 3-month plan that synthesizes FIX_QUEUE + postmortem follow-ups + content pipeline next steps. Use as longer-range reference after the latest work plan. |
+| [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md) | Trust + Offers content architecture wave: source pack, snapshot-gated live writes, verification, and next content wave. |
 | [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md) | Aurora 1.3.27 readability reset live closeout, evidence, blockers, and next Track B roadmap. |
 | [FULL-AUDIT-ROADMAP-2026-05-18.md](FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit of repo, GitHub queue, Track A, Track B, and human decisions. |
 | [POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md](POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md) | Current post-ship audit and workplan after Aurora 1.3.10, Work metadata #68, open queue, draft audit, and ready/agent/block buckets. |
@@ -144,6 +147,7 @@ Then use historical plans for context:
 - **Follow-up addendum:** GSAP/CDN production drift remains tracked by #189/#204; Rafiki/content queue closeout is split across #206, #207, and #208; docs drift refresh #209 is closed.
 - **2026-06-17 addendum (current truth — supersedes the live-state lines above):** Production now runs **`kk-aurora` 1.3.18** (origin + CDN, GSAP gone, reveals healthy); the 1.3.10/1.3.12 references above are historical. EPICs **#220** (Aurora drift) and issues **#207**/**#208** (content cadence) are **CLOSED**; #204/#189 already closed. Content cadence is LIVE — 9 posts scheduled every 2 days through **07-02** (`11905` live 06-16). #221 (SEO root files) advanced: robots.txt + llms.txt verified live; EPIC stays open for metadata inventory + #176 alt-text. Duplicate Pinterest `p:domain_verify` tag fixed (Jetpack field cleared, Google verification preserved). See [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md).
 - **2026-07-01 Aurora readability addendum:** Production now runs **`kk-aurora` 1.3.27**. The live readability audit passed with `0` failures across Home, Blog, article, Work, About, Vancouver AI category, and Contact at desktop/tablet/mobile widths. #125 remains open for Jetpack Boost Critical CSS completion and Lighthouse/PageSpeed metrics. See [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md).
+- **2026-07-01 content architecture addendum:** The Trust + Offers wave is live on Services, Contact, Work, About, Speaking, Responsible AI Professional, and Podcast EPK. Body-only REST updates were snapshot-gated, legacy page-specific classes were removed from updated raw content, and the live viewport audit passed with `0` failures. See [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md).
 - **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-06-11 20:09 UTC (`make status-readonly` / `make wp7-smoke EXPECT_VERSION=6.9.4`). Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
 - **Draft queue addendum:** `make status-readonly` reported `2` future posts, `72` draft posts, and `5` draft pages on 2026-06-11 20:50 UTC after scheduling WP posts `11876` and `11878`; `sovereign-ai-for-whom` is already WP draft `11905`.
 - **Issue queue addendum:** `gh pr list --state open --limit 200` returned `0` open PRs after PR #212 merged, and `gh issue list --state open --limit 200` returned `63` open issues on 2026-06-11 20:40 UTC.

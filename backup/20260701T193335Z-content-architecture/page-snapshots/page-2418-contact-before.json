@@ -1,0 +1,25 @@
+{
+  "id": 2418,
+  "modified": "2026-07-01T11:26:21",
+  "slug": "contact",
+  "status": "publish",
+  "link": "https://kriskrug.co/contact/",
+  "title": {
+    "raw": "Contact Kris Krüg",
+    "rendered": "Contact Kris Krüg"
+  },
+  "content": {
+    "raw": "<!-- wp:group {\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-group\"><!-- wp:heading {\"level\":1} -->\n<h1 class=\"wp-block-heading\">Contact Kris</h1>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Want to book a talk, workshop, collaboration, interview, or creative AI project? Email is the fastest way to reach me.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"mailto:feelmoreplants@gmail.com?subject=Inquiry%20from%20kriskrug.co\">Email Kris</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n\n<!-- wp:paragraph -->\n<p>Email: <a href=\"mailto:feelmoreplants@gmail.com\">feelmoreplants@gmail.com</a></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Please include a bit about what you are working on, your timeline, and the best way to reach you.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group -->",
+    "rendered": "\n<div class=\"wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained\">\n<h1 class=\"wp-block-heading\">Contact Kris</h1>\n\n\n\n<p>Want to book a talk, workshop, collaboration, interview, or creative AI project? Email is the fastest way to reach me.</p>\n\n\n\n<div class=\"wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex\">\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"mailto:feelmoreplants@gmail.com?subject=Inquiry%20from%20kriskrug.co\">Email Kris</a></div>\n</div>\n\n\n\n<p>Email: <a href=\"mailto:feelmoreplants@gmail.com\">feelmoreplants@gmail.com</a></p>\n\n\n\n<p>Please include a bit about what you are working on, your timeline, and the best way to reach you.</p>\n</div>\n",
+    "protected": false,
+    "block_version": 1
+  },
+  "excerpt": {
+    "raw": "",
+    "rendered": "<p>Contact Kris Want to book a talk, workshop, collaboration, interview, or creative AI project? Email is the fastest way to reach me. Email: feelmoreplants@gmail.com Please include a bit about what you are working on, your timeline, and the best way to reach you.</p>\n",
+    "protected": false
+  },
+  "meta": {
+    "footnotes": ""
+  }
+}

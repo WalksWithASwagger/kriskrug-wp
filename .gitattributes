@@ -1,0 +1,2 @@
+# Saved live HTML evidence can contain site-emitted whitespace; keep it byte-for-byte.
+backup/*-content-architecture/page-snapshots/*.html -diff

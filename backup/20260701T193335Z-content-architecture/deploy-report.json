@@ -1,0 +1,159 @@
+{
+  "snapshot_dir": "backup/20260701T193335Z-content-architecture/page-snapshots",
+  "pages": [
+    {
+      "page": "services",
+      "id": 2666,
+      "slug": "generative-ai-services",
+      "url": "https://kriskrug.co/generative-ai-services/",
+      "payload": "services.html",
+      "before": {
+        "page": "services",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-2666-generative-ai-services-before.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-2666-generative-ai-services-before.html",
+        "json_sha256": "2cd9ea31d921ab921056394196b090318e8cab4e4822d66000072d32b5c610f0",
+        "html_sha256": "0574cc3273cc8c6267193a047d73df8ef89f5709b43f14d80e9123434559106c"
+      },
+      "after": {
+        "page": "services",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-2666-generative-ai-services-after.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-2666-generative-ai-services-after.html",
+        "json_sha256": "ed99c6eef89024884721661a337c1c37a2bc5656a95865a3ee84e33c767356ea",
+        "html_sha256": "bc7ad2d1091a23b1c8539eb84d2a012eac6b523a329f2852fd2f20bf78ec7701"
+      },
+      "modified": "2026-07-01T11:33:38"
+    },
+    {
+      "page": "contact",
+      "id": 2418,
+      "slug": "contact",
+      "url": "https://kriskrug.co/contact/",
+      "payload": "contact.html",
+      "before": {
+        "page": "contact",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-2418-contact-before.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-2418-contact-before.html",
+        "json_sha256": "e8e3064e0e3f2025bc87281baf92d8ee62feb51b6e6af3b57060162bf02b76ea",
+        "html_sha256": "ac9d55ff797214c172cfef6be8b246969086617a6109c40e03211e4508206141"
+      },
+      "after": {
+        "page": "contact",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-2418-contact-after.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-2418-contact-after.html",
+        "json_sha256": "e6ce46b14d81af5082bdf4ec5ff62c251dc30356898d72d4d27e1f1a209213d8",
+        "html_sha256": "54ac7ea617bb02edc3e3dd47e77b0f88aa55aa6fd1f31f2384f37d0d1dc51bdf"
+      },
+      "modified": "2026-07-01T11:33:42"
+    },
+    {
+      "page": "work",
+      "id": 2672,
+      "slug": "work",
+      "url": "https://kriskrug.co/work/",
+      "payload": "work.html",
+      "before": {
+        "page": "work",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-2672-work-before.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-2672-work-before.html",
+        "json_sha256": "f683933716c0162a8452458b383994821b9a7c93052450b641aedba3980d9dc9",
+        "html_sha256": "f03a99209071607de9ffcbc08d48388c1d76c0a35889c4ae539a34b3f6f445df"
+      },
+      "after": {
+        "page": "work",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-2672-work-after.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-2672-work-after.html",
+        "json_sha256": "62a1a3f1af5f50a1fe9dc47b64172893b190fe06b4782ccd55bb315d6e16fea6",
+        "html_sha256": "348736e17a314edcfd2accb8e9a384fa48a7b7b9667a0c581318ebde6d21dead"
+      },
+      "modified": "2026-07-01T11:33:46"
+    },
+    {
+      "page": "about",
+      "id": 1208,
+      "slug": "about",
+      "url": "https://kriskrug.co/about/",
+      "payload": "about.html",
+      "before": {
+        "page": "about",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-1208-about-before.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-1208-about-before.html",
+        "json_sha256": "e092ae5bdb55ef533e1e1533197da064a11c9f9a68134004e203a9110e5c5852",
+        "html_sha256": "3d2cee0b814b056adf651f0dcea41c9bb7013d8652d67a9be981dab0bf31267e"
+      },
+      "after": {
+        "page": "about",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-1208-about-after.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-1208-about-after.html",
+        "json_sha256": "8a38677627f02b03054c77d78ef43cbda6e8248606dbf1f52a479cf27edc5475",
+        "html_sha256": "0ceac16a5e0ff3861c2b23a3e4526eb235ff68cb512b98b5c64fa4813da2a4a5"
+      },
+      "modified": "2026-07-01T11:33:51"
+    },
+    {
+      "page": "speaking",
+      "id": 1887,
+      "slug": "speaking",
+      "url": "https://kriskrug.co/speaking/",
+      "payload": "speaking.html",
+      "before": {
+        "page": "speaking",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-1887-speaking-before.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-1887-speaking-before.html",
+        "json_sha256": "9bf393b828d8c8c8b69c30eb244082011e3678bedc2f0f80fca8750da0da7458",
+        "html_sha256": "fac41a25c149bf1af577072080bcced192f7ba2940b710bf06cb16bf56faf480"
+      },
+      "after": {
+        "page": "speaking",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-1887-speaking-after.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-1887-speaking-after.html",
+        "json_sha256": "2d4b2b4c54010d86c8622c29c1660d57a6ea1a10e5ca1ab60358782d9551d6d1",
+        "html_sha256": "23fe37b23fb65334e170cb5374c87b3ea528150487f54e0a0de32a49cb96e2f3"
+      },
+      "modified": "2026-07-01T11:33:56"
+    },
+    {
+      "page": "responsible_ai_professional",
+      "id": 11914,
+      "slug": "responsible-ai-professional",
+      "url": "https://kriskrug.co/responsible-ai-professional/",
+      "payload": "responsible-ai-professional.html",
+      "before": {
+        "page": "responsible_ai_professional",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-11914-responsible-ai-professional-before.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-11914-responsible-ai-professional-before.html",
+        "json_sha256": "0e6da3635796436cb4d6d51a019c920664a229c3a85ed1caa433d24ccee14dca",
+        "html_sha256": "5fef52a3f4a293c0186cee681e0159b2f00cedfbcc1b80a3b7c3910bf898947c"
+      },
+      "after": {
+        "page": "responsible_ai_professional",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-11914-responsible-ai-professional-after.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-11914-responsible-ai-professional-after.html",
+        "json_sha256": "37f5053eae8adfbd946ac323f4fa80f74642302be0c56dffe68590946ae22281",
+        "html_sha256": "1119774c39a9765ffa34eef5e8ed2d1e36dbac895a014b7d64f70f417c930c1c"
+      },
+      "modified": "2026-07-01T11:34:01"
+    },
+    {
+      "page": "podcast_epk",
+      "id": 3609,
+      "slug": "podcast-guesting-page-epk",
+      "url": "https://kriskrug.co/podcast-guesting-page-epk/",
+      "payload": "podcast-guesting-page-epk.html",
+      "before": {
+        "page": "podcast_epk",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-3609-podcast-guesting-page-epk-before.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-3609-podcast-guesting-page-epk-before.html",
+        "json_sha256": "0950aa95b4e61ed995b466e72d2d529f075e57e70a689a652e2f2659fc011273",
+        "html_sha256": "69978377ba4c1ca6dc1e1b88cc21730a81ae98d43a2aac597497f6390f229fa2"
+      },
+      "after": {
+        "page": "podcast_epk",
+        "json": "backup/20260701T193335Z-content-architecture/page-snapshots/page-3609-podcast-guesting-page-epk-after.json",
+        "html": "backup/20260701T193335Z-content-architecture/page-snapshots/page-3609-podcast-guesting-page-epk-after.html",
+        "json_sha256": "f5af85cc0289f5e37abb52baa4ba710b20bcea138cd94d5a41625e1c196350c1",
+        "html_sha256": "df5eebd7af297839a9d5d53e69322256c6186376900f08eac0cbeb1ab5c45f18"
+      },
+      "modified": "2026-07-01T11:34:05"
+    }
+  ]
+}
