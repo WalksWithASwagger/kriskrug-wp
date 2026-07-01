@@ -160,6 +160,16 @@ article > p:first-of-type::first-letter,
   padding-right: 0;
 }
 
+.aurora-prose > p:first-of-type::first-letter {
+  color: inherit;
+  float: none;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding-right: 0;
+}
+
 /* ============================================
    LINKS
    Subtle, then satisfying
