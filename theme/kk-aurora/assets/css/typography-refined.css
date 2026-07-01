@@ -501,15 +501,23 @@ abbr {
 }
 
 .aurora-page-title {
-  font-size: var(--wp--preset--font-size--5xl);
-  line-height: var(--wp--custom--line-height--tight);
-  letter-spacing: var(--wp--custom--letter-spacing--tight);
-  max-width: 18ch;
+  font-size: var(--aurora-page-title-size, clamp(3rem, 4.4vw, 4rem));
+  line-height: 1.02;
+  letter-spacing: 0;
+  max-width: 16ch;
 }
 
 .aurora-panel-title {
-  font-size: var(--wp--preset--font-size--2xl);
+  font-size: var(--wp--preset--font-size--2-xl, clamp(1.5rem, 2vw, 2rem));
   line-height: var(--wp--custom--line-height--snug);
+}
+
+@media (max-width: 700px) {
+  .aurora-page-title {
+    font-size: var(--aurora-page-title-size-mobile, clamp(2.125rem, 9vw, 2.625rem));
+    line-height: 1.05;
+    max-width: 14ch;
+  }
 }
 
 .aurora-article-body {
