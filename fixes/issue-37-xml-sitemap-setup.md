@@ -1,109 +1,66 @@
-# Issue #37: XML Sitemap — Status & Search Console Runbook
+# Issue #37: XML Sitemap and Search Console Runbook
 
-> **TL;DR — kriskrug.co already has a working XML sitemap.** It is generated
-> automatically by Jetpack at **`https://kriskrug.co/sitemap.xml`** and is
-> healthy and current. There is nothing to "create." The only open work is
-> (1) submitting/confirming it in Google Search Console and (2) a small
-> robots.txt tidy-up. **Do not install Yoast/Rank Math just for a sitemap** —
-> see the correction note at the bottom.
+> **TL;DR:** kriskrug.co has one working sitemap submission target:
+> `https://kriskrug.co/sitemap.xml`. Jetpack core is inactive, so do not submit
+> or advertise the former Jetpack news/image/video sitemap URLs.
 
-## Current state (verified live 2026-06-07)
+## Current state verified 2026-07-01
 
 | Endpoint | Status |
 |---|---|
-| `https://kriskrug.co/sitemap.xml` (Jetpack index) | ✅ HTTP 200, valid sitemap index |
-| `sitemap-1.xml` (pages + posts) | ✅ **986 URLs**, `lastmod` 2026-06-05 — auto-updates on publish |
-| `image-sitemap-index-1.xml` | ✅ HTTP 200, `lastmod` 2026-06-04 |
-| `news-sitemap.xml` | ✅ HTTP 200 (Google News format) |
-| `video-sitemap-1.xml` | ⚠️ `lastmod` 2025-03-02 — stale, newer videos missing |
-| `wp-sitemap.xml` (WP core) | 404 — Jetpack disables core's sitemap, so **no duplicate** |
-| `sitemap_index.xml` (Yoast/Rank Math) | 404 — confirms **no conflicting SEO plugin** |
-| robots.txt declares sitemap | ✅ lists `/sitemap.xml` + `/news-sitemap.xml` |
-| Google Search Console verification | ✅ verification meta tag live on homepage |
+| `https://kriskrug.co/sitemap.xml` | HTTP 200, valid XML, resolves to WordPress core `/wp-sitemap.xml` |
+| `https://kriskrug.co/wp-sitemap.xml` | HTTP 200, valid WordPress sitemap index |
+| `https://kriskrug.co/news-sitemap.xml` | HTTP 404, not advertised in robots.txt |
+| `https://kriskrug.co/image-sitemap-index-1.xml` | HTTP 404, not advertised in robots.txt |
+| `https://kriskrug.co/video-sitemap-1.xml` | HTTP 404, not advertised in robots.txt |
+| `https://kriskrug.co/sitemap_index.xml` | HTTP 404, confirms no Yoast/Rank Math sitemap |
+| `https://kriskrug.co/robots.txt` | HTTP 200, advertises only `https://kriskrug.co/sitemap.xml` |
+| Site Kit GA4 | Connected, `G-X7JE8B32L7`, injected sitewide |
+| Search Console | Connected through Site Kit to `sc-domain:kriskrug.co` |
 
-Verify any of the above yourself:
+Full sitemap marker verification on 2026-07-01 checked 1,628 public HTML URLs:
 
-```bash
-curl -s https://kriskrug.co/sitemap.xml | head -20          # index resolves
-curl -s https://kriskrug.co/sitemap-1.xml | grep -c "<loc>" # URL count
-curl -s https://kriskrug.co/robots.txt                      # what crawlers see
+```txt
+Missing GA4: 0
+Missing gtag: 0
+Missing Search Console verification: 0
 ```
 
-## Action 1 — Submit / confirm the sitemap in Google Search Console
+## Search Console action
 
-The GSC property already exists (verification tag is live), so this is a
-~2-minute dashboard task. There is no API submission wired into this repo;
-do it by hand:
+1. Open Google Search Console and select `sc-domain:kriskrug.co`.
+2. Go to **Sitemaps**.
+3. Submit only `sitemap.xml`.
+4. Remove old submitted entries for `news-sitemap.xml`, `image-sitemap-index-1.xml`, and `video-sitemap-1.xml` if the UI allows removal.
+5. If the UI does not allow removal, leave those old rows alone; they are no longer advertised and should age out.
+6. Use URL Inspection to request indexing for `/`, `/about/`, `/blog/`, `/work/`, `/contact/`, and the highest-value updated pages.
+7. Expect 24-72 hours before Search Console coverage reflects the cleanup.
 
-1. Open **[search.google.com/search-console](https://search.google.com/search-console)** and select the **kriskrug.co** property.
-2. Left sidebar → **Sitemaps**.
-3. Under "Add a new sitemap," enter **`sitemap.xml`** → **Submit**.
-4. (Optional) Add **`news-sitemap.xml`** as a second entry.
-5. You do **not** need to submit the image/video sitemaps separately — GSC discovers them from the index.
-6. Status should move to "Success" within a day; "Discovered URLs" will track toward ~986.
-
-> Bing is **not** set up (no `msvalidate.01` tag found). If KK wants Bing/Copilot
-> coverage too: create the property at [bing.com/webmasters](https://www.bing.com/webmasters)
-> (you can import directly from GSC), then submit `sitemap.xml` there as well.
-
-## Action 2 — Add the image + video sitemaps to robots.txt
-
-robots.txt currently advertises only the main and news sitemaps. The image and
-video sitemaps exist but aren't declared, so some crawlers won't find them from
-the index. This is a small discoverability gap, not a blocker.
-
-**First, find out whether robots.txt is physical or virtual:**
+## Validation commands
 
 ```bash
-# On Pagely SSH, at the site document root:
-ls -la <site-root>/robots.txt
+curl -fsSL https://kriskrug.co/robots.txt
+curl -I https://kriskrug.co/sitemap.xml
+curl -I https://kriskrug.co/wp-sitemap.xml
+curl -I https://kriskrug.co/news-sitemap.xml
+curl -I https://kriskrug.co/image-sitemap-index-1.xml
+curl -I https://kriskrug.co/video-sitemap-1.xml
 ```
 
-- **Physical file exists** → edit it directly, add these two lines under the existing `Sitemap:` lines:
-  ```
-  Sitemap: https://kriskrug.co/image-sitemap-index-1.xml
-  Sitemap: https://kriskrug.co/video-sitemap-1.xml
-  ```
-- **No physical file (WordPress serves a virtual robots.txt)** → deploy the
-  ready-made snippet **[`issue-37-robots-add-sitemaps.php`](issue-37-robots-add-sitemaps.php)**
-  via the Code Snippets plugin or as an mu-plugin. It appends just those two
-  lines, is idempotent, and is fully reversible (deactivate to undo).
+Expected:
 
-Verify after either path:
-
-```bash
-curl -s https://kriskrug.co/robots.txt   # should now list all four sitemaps
+```txt
+/robots.txt lists only Sitemap: https://kriskrug.co/sitemap.xml
+/sitemap.xml and /wp-sitemap.xml return 200
+old Jetpack sitemap endpoints return 404 and are not advertised
 ```
 
-> The bigger **AI-crawler stance** for robots.txt (whether to explicitly
-> allow/deny GPTBot, ClaudeBot, Google-Extended, CCBot, etc.) is a separate
-> strategic decision with two ready-to-paste options in
-> [`robots-txt-update.txt`](robots-txt-update.txt). Action 2 here is deliberately
-> scoped to *just* the sitemap lines so it can ship without making that call.
+## Do not install another SEO plugin
 
-## Action 3 (low priority) — Refresh the stale video sitemap
+Do not install Yoast, Rank Math, or another SEO plugin just to recreate the old Jetpack sitemap endpoints. The current sitemap is working, Site Kit covers Analytics/Search Console wiring, and extra SEO plugins would add duplicate metadata and performance risk.
 
-`video-sitemap-1.xml` hasn't updated since 2025-03. Jetpack only lists videos it
-detects in content; newer videos may be embedded in a form Jetpack's video
-sitemap doesn't pick up. Low impact (videos still get indexed via the page they
-live on). Revisit only if video SEO becomes a priority — not worth chasing now.
+## Historical correction
 
----
+Earlier versions of this runbook described a Jetpack-generated sitemap index and recommended adding image/video sitemap lines to robots.txt. That was correct only while Jetpack core owned the sitemap surface.
 
-## Correction note (why this file changed)
-
-The original version of this doc recommended **installing the Yoast SEO plugin**
-to "create" a sitemap and pointed at a `…cloudwaysapps.com` staging URL. Both
-were wrong for this site:
-
-- kriskrug.co **already has** a Jetpack-generated sitemap — installing Yoast (or
-  Rank Math) would produce a **second, conflicting** sitemap at a different URL
-  and duplicate the meta-tag layer Jetpack already owns. Don't do it unless/until
-  you're deliberately migrating *off* Jetpack for SEO (a much bigger project —
-  see [`SEO_AUDIT.md`](../docs/current-state/SEO_AUDIT.md) §2.2 and the
-  "Removing Jetpack" caution in [`FIX_QUEUE.md`](../docs/current-state/FIX_QUEUE.md)).
-- The Cloudways URL is a dev box that was never used as production. Production is
-  Pagely (`kriskrug.co`). See [`SITE_INVENTORY.md`](../docs/current-state/SITE_INVENTORY.md).
-
-**Status:** sitemap exists and is healthy ✅ · GSC submission = manual dashboard step ·
-robots.txt sitemap lines = snippet staged in this folder.
+After the 2026-07-01 Jetpack-off performance cleanup, WordPress core owns the sitemap and the old Jetpack news/image/video sitemap endpoints return 404. The correct cleanup is to stop advertising those endpoints, not to recreate them.
