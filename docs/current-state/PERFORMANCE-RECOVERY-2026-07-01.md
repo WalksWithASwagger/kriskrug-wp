@@ -85,6 +85,7 @@ Issue #86 should not close until:
 - Jetpack Boost Critical CSS regeneration was started after the theme upload, but the UI remained at `Generating Critical CSS. Please do not leave this page until completed.` after repeated polling and refresh.
 - Post-theme public audit: `docs/current-state/reports/performance-audit-20260701-post-theme-live.md`.
 - Follow-up refresh audit: `docs/current-state/reports/performance-audit-20260701-refresh.md`.
+- Deep diagnostic audit with URL hygiene/script matrices: `docs/current-state/reports/performance-audit-20260701-deep-diagnostic.md`.
 
 Post-theme audit highlights:
 
