@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.3.25');
+define('KK_AURORA_VERSION', '1.3.26');
 
 /**
  * Theme setup
