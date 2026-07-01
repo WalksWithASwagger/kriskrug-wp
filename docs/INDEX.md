@@ -23,6 +23,7 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`current-state/CONTENT_AUDIT.md`](current-state/CONTENT_AUDIT.md) | Per-page review + post inventory + IA proposal |
 | [`current-state/FIX_QUEUE.md`](current-state/FIX_QUEUE.md) | P0 → P3 backlog |
 | [`current-state/ROADMAP.md`](current-state/ROADMAP.md) | Six-phase, 3-month plan; use as longer-range reference after the latest work plan |
+| [`current-state/WORK-PLAN-2026-07-01.md`](current-state/WORK-PLAN-2026-07-01.md) | **Active weekly plan** (rest of week). Live PR/issue readback + execution lanes; supersedes `WORK-PLAN-2026-05-23.md` |
 | [`current-state/FULL-AUDIT-ROADMAP-2026-05-18.md`](current-state/FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit, roadmap, and human decision list |
 | [`current-state/HANDOFF-2026-05-24.md`](current-state/HANDOFF-2026-05-24.md) | Current cross-track state (Aurora/theme/content truth, deployment mechanics, open work) |
 | [`current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md`](current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md) | Current Aurora v1.3.0 QA and rollout truth for Track B |
@@ -61,6 +62,7 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 |---|---|
 | [`../scripts/notion-to-wp/README.md`](../scripts/notion-to-wp/README.md) | Notion → WP publisher: setup, dry-run, safety guards |
 | [`kris-krug-roles-module.md`](kris-krug-roles-module.md) | KK's role-switching framework (voice / tone reference) |
+| [`archive-content-mine.md`](archive-content-mine.md) | 20-year blog-archive content mine (2003–2026): bio/credential threads + "from the archives" content backlog, with source links |
 | [`../.claude/context/project-context.md`](../.claude/context/project-context.md) | Mission, values, audience, voice |
 | [`../.claude/agents-vibe.md`](../.claude/agents-vibe.md) | Agent philosophy & community values |
 | [`../.claude/naming-conventions.md`](../.claude/naming-conventions.md) | Code naming standards |
@@ -111,4 +113,4 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 
 ---
 
-**Last updated:** 2026-05-25 02:19 UTC. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.
+**Last updated:** 2026-07-01. Added the archive content mine and the 2026-07-01 work plan. Note: this index does not exhaustively list every dated file under `docs/current-state/` — the June 2026 snapshots (e.g. `CURRENT-STATE-2026-06-23.md`) are newer than some entries here, so treat `docs/current-state/` itself as the source of truth for the latest dated evidence. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.
