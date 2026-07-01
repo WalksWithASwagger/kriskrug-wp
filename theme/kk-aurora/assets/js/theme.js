@@ -175,7 +175,7 @@
   // ============================================
 
   function initOpalReadingPane() {
-    const pane = document.querySelector('.aurora-reader-pane');
+    const pane = document.querySelector('.aurora-reader-pane, .aurora-single-2026 > .aurora-article');
     if (!pane) return;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

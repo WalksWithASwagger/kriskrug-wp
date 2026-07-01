@@ -133,3 +133,37 @@ Final blockers:
 - Issue #125 remains open because the final Jetpack Boost Critical CSS regeneration had not completed after the `1.3.27` deploy.
 - Lighthouse/PageSpeed LCP, INP, CLS, and TBT were not captured in this pass; the local performance script records route timing, cache headers, image payload, blocking-script candidates, URL hygiene, and live theme version.
 - Cold-cache TTFB remains high on `/`, `/about/`, and `/work/` in the final audit, while warm cache remains acceptable.
+
+## Aurora Opal 1.3.28 live deployment - 2026-07-01
+
+- Reviewed PR #280 before merge: GitHub reported `mergeStateStatus: CLEAN`, required checks were green, and the diff was limited to `theme/kk-aurora/` plus public audit evidence/screenshots.
+- Marked PR #280 ready and merged it to `main` with merge commit `0456d84a32bb092bd7af058bb9fd4cf1e0e7e4ac`.
+- Synced local `main` to the merged commit and built `/Users/kk/Desktop/kk-aurora-opal-1.3.28-20260701.zip` from `theme/` so the archive root is `kk-aurora/`.
+- Verified rollback package `/Users/kk/Desktop/kk-aurora-readability-1.3.27-20260701.zip` with `unzip -t` and confirmed it reports `Version: 1.3.27`.
+- Verified the `1.3.28` package with `unzip -t`; package readback showed `Version: 1.3.28`, `--aurora-opal-void`, and `--aurora-readable-measure`.
+- WordPress theme upload/replace confirmed installed `KK Aurora` version `1.3.27` and uploaded `KK Aurora` version `1.3.28`; the `Replace installed with uploaded` flow completed with `Theme updated successfully.`
+- Live cache-busted CSS readback after deploy reported `Version: 1.3.28` and contained both `--aurora-opal-void` and `--aurora-readable-measure`.
+- PressCACHE purge after `1.3.28` returned `Cache Purge: Success`.
+- `make status-readonly` passed WP public smoke with `0` failures and `3` warnings.
+
+Post-deploy visual/readability evidence:
+
+- Live audit report: `docs/current-state/reports/aurora-opal-live-audit-20260701.md`.
+- Machine-readable audit: `docs/current-state/reports/aurora-opal-live-audit-20260701.json`.
+- Screenshot set: `docs/current-state/reports/screenshots/aurora-opal-live-20260701/`.
+- Result: threshold failure count `0` across Article, Blog, About, Vancouver AI, Services, and Contact at `1440x1100`, `768x900`, `390x844`, and `360x740`.
+- The first Contact mobile screenshot hit a transient `503`; it was replaced with a screenshot gated on HTTP `200`.
+
+Jetpack Boost / issue #125 status:
+
+- Jetpack Boost no longer exposed the previous Critical CSS generation UI during this pass.
+- The authenticated Boost page routed to `#/getting-started`; probes for `#/dashboard`, `#/settings`, `#/performance`, `#/modules`, and `#/critical-css` all stayed on the getting-started/onboarding view.
+- No `Critical CSS` control was available, and the `Start for free` onboarding action was not clicked because this deploy only approved Critical CSS regeneration, not Jetpack product onboarding or settings changes.
+- Issue #125 remains open.
+
+Follow-up discovered during live evidence:
+
+- The deployed `single.html` includes `aurora-reader-pane`, but public article HTML renders `.aurora-article` without `.aurora-reader-pane`.
+- Interpretation: production appears to have a customized/stale Site Editor single-post template shape for the article wrapper, similar to the earlier homepage source-parity finding.
+- Effect: the core opal tokens, typography, contrast, and page/card surfaces are live, but the single-post pane/sheen interaction does not bind on production.
+- Recommended Track B follow-up: either reset/port the live single-post template to the merged theme template after snapshot/rollback approval, or add a theme fallback that targets `.aurora-single-2026 .aurora-article` for the reader-pane surface and JS interaction.
