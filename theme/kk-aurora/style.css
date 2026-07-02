@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.3.29
+Version: 1.3.30
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -492,6 +492,7 @@ a {
   --aurora-ink: #e8e0d1;
   --aurora-ink-soft: #cfc7bb;
   --aurora-ink-muted: #9c968e;
+  --aurora-readable-accent: #f15b43;
   --aurora-paper: #f7f5f1;
   --aurora-signal: #f15b43;
   --aurora-signal-dark: #a52918;
@@ -552,6 +553,7 @@ a {
 .aurora-theme .wp-block-button__link {
   align-items: center;
   border-radius: var(--aurora-radius-control);
+  color: var(--aurora-ink);
   display: inline-flex;
   font-weight: 700;
   justify-content: center;
@@ -559,7 +561,15 @@ a {
   min-height: 44px;
   padding: 0.8rem 1.05rem;
   text-decoration: none;
+  -webkit-text-fill-color: currentColor;
   transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.aurora-theme .wp-block-button:not([class*="is-style-"]) .wp-block-button__link {
+  background: rgba(9, 12, 17, 0.72);
+  border-color: var(--aurora-line-strong);
+  color: var(--aurora-ink);
+  -webkit-text-fill-color: currentColor;
 }
 
 .aurora-button:hover,
@@ -1563,15 +1573,17 @@ a {
 .aurora-writing-pagination .wp-block-query-pagination-previous,
 .aurora-writing-pagination .wp-block-query-pagination-next {
   align-items: center;
+  background: rgba(9, 12, 17, 0.52);
   border: 1px solid var(--aurora-line);
   border-radius: var(--aurora-radius-control);
-  color: var(--aurora-ink-soft);
+  color: var(--aurora-ink);
   display: inline-flex;
   font-size: 0.86rem;
   font-weight: 760;
   min-height: 36px;
   padding: 0.45rem 0.62rem;
   text-decoration: none;
+  -webkit-text-fill-color: currentColor;
 }
 
 .aurora-writing-pagination a:hover,
@@ -1618,15 +1630,17 @@ a {
 
 .aurora-feed-link-grid a {
   align-items: center;
+  background: rgba(9, 12, 17, 0.52);
   border: 1px solid var(--aurora-line);
   border-radius: var(--aurora-radius-control);
-  color: var(--aurora-ink-soft);
+  color: var(--aurora-ink);
   display: inline-flex;
   font-size: 0.78rem;
   font-weight: 760;
   min-height: 36px;
   padding: 0.42rem 0.6rem;
   text-decoration: none;
+  -webkit-text-fill-color: currentColor;
 }
 
 .aurora-feed-link-grid a:hover,
@@ -2301,7 +2315,7 @@ a {
 
 .aurora-section-kicker,
 .aurora-page-content :where(.kk-kicker, .kkp-label) {
-  color: var(--wp--preset--color--signal);
+  color: var(--aurora-readable-accent);
   font-size: clamp(1.0625rem, 0.95rem + 0.6vw, 1.125rem) !important;
   font-weight: 820;
   letter-spacing: 0.055em !important;
@@ -2317,6 +2331,22 @@ a {
   line-height: 1.08 !important;
   max-width: 18ch;
   text-wrap: balance;
+}
+
+.aurora-theme :where(.aurora-page-title, .aurora-writing-archive-title, .aurora-display-heading, .aurora-feed-links-copy h2, .aurora-hero-copy h1) {
+  color: var(--aurora-ink);
+  -webkit-text-fill-color: currentColor;
+}
+
+.aurora-theme :where(.aurora-hero-dek, .aurora-page-lead, .aurora-page-content, .aurora-prose, .aurora-feed-links-copy p:not(.aurora-kicker), .aurora-writing-archive-dek) {
+  color: var(--aurora-ink-soft);
+  -webkit-text-fill-color: currentColor;
+}
+
+.aurora-theme :where(.aurora-kicker, .aurora-section-kicker),
+.aurora-page-content :where(.kk-kicker, .kkp-label) {
+  color: var(--aurora-readable-accent);
+  -webkit-text-fill-color: currentColor;
 }
 
 .aurora-card-grid,
