@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.3.30
+Version: 1.3.31
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -2347,6 +2347,37 @@ a {
 .aurora-page-content :where(.kk-kicker, .kkp-label) {
   color: var(--aurora-readable-accent);
   -webkit-text-fill-color: currentColor;
+}
+
+body.aurora-theme :where(.aurora-page-header, .aurora-page-content > section, .aurora-writing-archive-header, .aurora-feed-links-copy, .aurora-hero-copy, .aurora-writing-band) {
+  background-color: rgba(9, 12, 17, 0.9);
+}
+
+body.aurora-theme :where(#aurora-home-title, .aurora-page-title, .aurora-writing-archive-title, .aurora-display-heading, .aurora-feed-links-copy h2) {
+  background-color: rgba(9, 12, 17, 0.78);
+  box-decoration-break: clone;
+  color: var(--aurora-ink) !important;
+  -webkit-box-decoration-break: clone;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-writing-archive-dek, .aurora-feed-links-copy p:not(.aurora-kicker), .aurora-page-content p, .aurora-prose p) {
+  background-color: rgba(9, 12, 17, 0.72);
+  box-decoration-break: clone;
+  color: var(--aurora-ink-soft) !important;
+  -webkit-box-decoration-break: clone;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker) {
+  color: var(--aurora-readable-accent) !important;
+}
+
+body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-button__link {
+  background: rgba(9, 12, 17, 0.86) !important;
+  border-color: var(--aurora-line-strong) !important;
+  color: var(--aurora-ink) !important;
+  -webkit-text-fill-color: currentColor !important;
 }
 
 .aurora-card-grid,
