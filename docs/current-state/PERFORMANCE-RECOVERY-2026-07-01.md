@@ -167,3 +167,27 @@ Follow-up discovered during live evidence:
 - Interpretation: production appears to have a customized/stale Site Editor single-post template shape for the article wrapper, similar to the earlier homepage source-parity finding.
 - Effect: the core opal tokens, typography, contrast, and page/card surfaces are live, but the single-post pane/sheen interaction does not bind on production.
 - Recommended Track B follow-up: either reset/port the live single-post template to the merged theme template after snapshot/rollback approval, or add a theme fallback that targets `.aurora-single-2026 .aurora-article` for the reader-pane surface and JS interaction.
+
+## Aurora Opal 1.3.29 reader-pane fallback deployment - 2026-07-01
+
+- Reviewed PR #291 after the fallback commit: GitHub reported `mergeStateStatus: CLEAN`, required checks were green, and the diff was limited to deployment evidence plus `theme/kk-aurora/` fallback/version changes.
+- Marked PR #291 ready and merged it to `main` with merge commit `933dd1c6c0aefc5f1f773d677653eae4191431e4`.
+- Synced local `main` to the merged commit and verified `/Users/kk/Desktop/kk-aurora-opal-1.3.29-20260701.zip` matched the merged theme files for `style.css`, `functions.php`, and `assets/js/theme.js`.
+- Verified rollback package `/Users/kk/Desktop/kk-aurora-opal-1.3.28-20260701.zip` with `unzip -t` and confirmed it reports `Version: 1.3.28`; the earlier `1.3.27` readability package remains available as a deeper rollback.
+- WordPress theme upload/replace confirmed installed `KK Aurora` version `1.3.28` and uploaded `KK Aurora` version `1.3.29`; the `Replace installed with uploaded` flow completed with `Theme updated successfully.`
+- Live cache-busted CSS readback after deploy reported `Version: 1.3.29`, contained `--aurora-opal-void` and `--aurora-readable-measure`, and included the `.aurora-single-2026 > .aurora-article` fallback selectors.
+- PressCACHE purge after `1.3.29` returned `Cache Purge: Success`.
+- `make status-readonly` passed WP public smoke with `0` failures and `3` warnings.
+
+Post-deploy fallback evidence:
+
+- Live fallback audit report: `docs/current-state/reports/aurora-opal-1329-live-fallback-20260701.md`.
+- Machine-readable audit: `docs/current-state/reports/aurora-opal-1329-live-fallback-20260701.json`.
+- Screenshot set: `docs/current-state/reports/screenshots/aurora-opal-1329-live-20260701/`.
+- Result: failure count `0` for desktop and mobile article checks.
+- Verified production still renders `.aurora-single-2026 > .aurora-article` without `.aurora-reader-pane`, and the fallback now applies the opal pane surface directly to that live wrapper.
+- Verified sheen binding changes from `0.13` to `0.24` after pointer movement, and reduced-motion emulation sets sheen opacity and pseudo-element opacity to `0`.
+
+Remaining blocker:
+
+- Issue #125 remains open. Jetpack Boost Critical CSS was not regenerated in this fallback deploy because the previous `1.3.28` pass showed the Boost UI stuck on `#/getting-started` with no Critical CSS control, and no Jetpack onboarding/settings action was approved.
