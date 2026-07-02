@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.3.32
+Version: 1.3.33
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -4384,5 +4384,40 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   background: rgba(9, 12, 17, 0.9) !important;
   border-color: var(--aurora-line-strong) !important;
   color: var(--aurora-ink) !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+/* Aurora 1.3.33 pa11y opaque contrast hardening */
+body.aurora-theme #aurora-main :where(.aurora-page-header, .aurora-writing-archive-header, .aurora-feed-links-copy, .aurora-proof-section) {
+  background-color: #090c11 !important;
+}
+
+body.aurora-theme #aurora-main :where(#aurora-home-title, .aurora-page-title, .aurora-writing-archive-title, .aurora-display-heading, .aurora-feed-links-copy h2, .aurora-hero-copy h1) {
+  background-color: #090c11 !important;
+  box-decoration-break: clone;
+  color: #f8f1e6 !important;
+  -webkit-box-decoration-break: clone;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+body.aurora-theme #aurora-main :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-writing-archive-dek, .aurora-feed-links-copy p:not(.aurora-kicker), .aurora-page-content p, .aurora-prose p, .aurora-hero-copy p) {
+  background-color: #090c11 !important;
+  box-decoration-break: clone;
+  color: #f8f1e6 !important;
+  -webkit-box-decoration-break: clone;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+body.aurora-theme #aurora-main :where(.aurora-writing-pagination a, .aurora-writing-pagination .page-numbers, .aurora-writing-pagination .wp-block-query-pagination-previous, .aurora-writing-pagination .wp-block-query-pagination-next, .aurora-feed-link-grid a) {
+  background-color: #090c11 !important;
+  border-color: #f8f1e6 !important;
+  color: #f8f1e6 !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+body.aurora-theme #aurora-main .wp-block-button:not(.is-style-aurora-primary) .wp-block-button__link {
+  background: #090c11 !important;
+  border-color: #f8f1e6 !important;
+  color: #f8f1e6 !important;
   -webkit-text-fill-color: currentColor !important;
 }
