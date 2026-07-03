@@ -9,6 +9,8 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 
 Read these first for current execution context:
 
+**Newest startup truth artifact:** [reports/morning-truth-20260703-175742Z.md](reports/morning-truth-20260703-175742Z.md) — read-only Track A verification captured `0` open PRs, `27` open issues, WordPress `6.9.4`, draft queue `0` future posts / `64` draft posts / `4` draft pages, and current drift against the older work-plan declarations.
+
 **Newest Track A addendum:** [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md) — Trust + Offers and Topic Hubs waves are live on fifteen high-value pages, snapshot-gated, with `0` readability failures in both audits.
 
 **Newest Track B addendum:** [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md#2026-07-02-aurora-cache--a11y-deploy-checklist-addendum) — production is on Aurora **1.3.33**, canonical Home/About/Blog/Work/Contact pass `pa11y --standard WCAG2AA`, Jetpack Boost is serving fresh bundle `a55f5152ba`, and the deploy checklist now documents the PressCACHE/Boost stale-bundle caveat. Keep [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md) as the previous Track B readability closeout.
@@ -80,7 +82,7 @@ Then use historical plans for context:
 | [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md) | Track A/Track B lane handoff with ownership boundaries and public-surface updates. |
 | [AURORA-V3-QA-ROADMAP-2026-05-24.md](AURORA-V3-QA-ROADMAP-2026-05-24.md) | Reconciled Aurora v1.3.0 line, local QA evidence, and post-merge rollout priorities. |
 | [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md) | Read-only truth memo with live evidence, drift flags, and verification matrix for safe next-session startup. |
-| `reports/` | Timestamped outputs from `make morning-truth` (read-only startup truth reports). Newest committed artifact as of 2026-06-09: `morning-truth-20260609-043246Z.md`; refresh live counts with `make status-readonly` before acting. |
+| `reports/` | Timestamped outputs from `make morning-truth` (read-only startup truth reports). Newest packaged artifact: `morning-truth-20260703-175742Z.md`; refresh live counts with `make status-readonly` before acting. |
 | [WORK-PLAN-2026-05-23.md](WORK-PLAN-2026-05-23.md) | Historical Track A baseline after the Sovereign AI draft pipeline closeout. Live-count declarations were refreshed from the 2026-06-11 `make status-readonly` truth pass; branch assumptions remain historical. |
 | [WORK-PLAN-2026-05-21.md](WORK-PLAN-2026-05-21.md) | Historical next-session front door after the diagnostic/polish branch, docs tidy pass, and sidebar promo hardening. Superseded by `WORK-PLAN-2026-05-23.md`. |
 | [DRAFT-QUALITY-RESET-2026-05-22.md](DRAFT-QUALITY-RESET-2026-05-22.md) | Active Track A publishing correction: live draft counts, why the May 21-22 drafts are not schedule-ready, and the required editorial/link/image/block QA gate. |

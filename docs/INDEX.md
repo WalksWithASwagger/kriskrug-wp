@@ -30,7 +30,8 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`current-state/HANDOFF-2026-05-24.md`](current-state/HANDOFF-2026-05-24.md) | Current cross-track state (Aurora/theme/content truth, deployment mechanics, open work) |
 | [`current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md`](current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md) | Current Aurora v1.3.0 QA and rollout truth for Track B |
 | [`current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md`](current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md) | Current Track A startup truth and verification command surface, last normalized against `reports/morning-truth-20260525-021945Z.md` |
-| [`current-state/reports/`](current-state/reports/) | Timestamped `make morning-truth` outputs; newest committed file is the most recent immutable truth artifact |
+| [`current-state/reports/morning-truth-20260703-175742Z.md`](current-state/reports/morning-truth-20260703-175742Z.md) | Newest packaged `make morning-truth` artifact: `0` open PRs, `27` open issues, WP `6.9.4`, and draft queue/drift readback |
+| [`current-state/reports/`](current-state/reports/) | Timestamped `make morning-truth` outputs; newest packaged file is the most recent immutable truth artifact |
 | [`current-state/WORK-PLAN-2026-05-23.md`](current-state/WORK-PLAN-2026-05-23.md) | Historical baseline plan; keep for context only |
 | [`current-state/DIAGNOSTIC-POLISH-2026-05-20.md`](current-state/DIAGNOSTIC-POLISH-2026-05-20.md) | Repo-truth, technical-debt, SOTA, live-fix, and workflow diagnostic |
 | [`current-state/FIXES-LIVE-RECONCILIATION-2026-05-20.md`](current-state/FIXES-LIVE-RECONCILIATION-2026-05-20.md) | Current disposition of `fixes/` artifacts against live evidence |
@@ -116,4 +117,4 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 
 ---
 
-**Last updated:** 2026-07-01. Added the archive content mine, the 2026-07-01 work plan, the Aurora readability reset closeout, and the Trust + Offers / Topic Hubs content architecture closeout. Note: this index does not exhaustively list every dated file under `docs/current-state/` - the June/July 2026 snapshots and closeouts are newer than some entries here, so treat `docs/current-state/` itself as the source of truth for the latest dated evidence. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.
+**Last updated:** 2026-07-03. Added the latest morning-truth artifact. Note: this index does not exhaustively list every dated file under `docs/current-state/` - the June/July 2026 snapshots and closeouts are newer than some entries here, so treat `docs/current-state/` itself as the source of truth for the latest dated evidence. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.
