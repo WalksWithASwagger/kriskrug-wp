@@ -12,9 +12,12 @@ Use this checklist for every manual `kk-aurora` production deploy on Pagely (wp-
 
 ## Package
 
-- [ ] Zip `theme/kk-aurora/` (exclude `.DS_Store`, editor cruft)
-- [ ] Record zip checksum: `shasum -a 256 kk-aurora.zip`
-- [ ] Retain previous zip as rollback artifact (name with version)
+- [ ] Build and verify the upload package:
+  ```bash
+  make aurora-package LABEL=<short-release-label> ROLLBACK_REF=<previous-good-ref> COPY_PATH=1 OPEN_ADMIN=1
+  ```
+- [ ] Confirm the helper reports the expected deploy `Version:`, rollback `Version:`, and SHA256 checksums.
+- [ ] Retain the rollback zip printed by the helper.
 
 ## Deploy (wp-admin)
 
