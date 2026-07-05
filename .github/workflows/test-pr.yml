@@ -21,6 +21,7 @@ jobs:
       has_js: ${{ steps.changed-files.outputs.has_js }}
       has_docs: ${{ steps.changed-files.outputs.has_docs }}
       has_notion: ${{ steps.changed-files.outputs.has_notion }}
+      has_root_scripts: ${{ steps.changed-files.outputs.has_root_scripts }}
       has_sidebar_promos: ${{ steps.changed-files.outputs.has_sidebar_promos }}
     steps:
       - uses: actions/checkout@v4
@@ -45,14 +46,20 @@ jobs:
               ['AGENTS.md', 'README.md', 'CONTRIBUTING.md', 'Makefile', 'scripts/docs_truth_check.py'].includes(name)
             );
             const hasNotion = names.some((name) => name.startsWith('scripts/notion-to-wp/'));
+            const hasRootScripts = names.some((name) =>
+              name === 'scripts/wp_post_ia_rollout.py' ||
+              name === 'scripts/public_image_audit.py' ||
+              name.startsWith('scripts/tests/')
+            );
             const hasSidebarPromos = names.some((name) => name.startsWith('plugins/kk-sidebar-promos/'));
 
             core.info(`Changed files: ${names.length}`);
-            core.info(`has_php=${hasPhp} has_js=${hasJs} has_docs=${hasDocs} has_notion=${hasNotion} has_sidebar_promos=${hasSidebarPromos}`);
+            core.info(`has_php=${hasPhp} has_js=${hasJs} has_docs=${hasDocs} has_notion=${hasNotion} has_root_scripts=${hasRootScripts} has_sidebar_promos=${hasSidebarPromos}`);
             core.setOutput('has_php', hasPhp ? 'true' : 'false');
             core.setOutput('has_js', hasJs ? 'true' : 'false');
             core.setOutput('has_docs', hasDocs ? 'true' : 'false');
             core.setOutput('has_notion', hasNotion ? 'true' : 'false');
+            core.setOutput('has_root_scripts', hasRootScripts ? 'true' : 'false');
             core.setOutput('has_sidebar_promos', hasSidebarPromos ? 'true' : 'false');
 
       - name: Check PR title format
@@ -132,6 +139,25 @@ jobs:
       - name: Run Notion publisher unit tests
         run: python -m unittest discover -s scripts/notion-to-wp/tests -v
 
+  # Root script unit tests
+  root-script-tests:
+    needs: validate
+    runs-on: ubuntu-latest
+    if: needs.validate.outputs.has_root_scripts == 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install root script test dependencies
+        run: pip install requests
+
+      - name: Run root script unit tests
+        run: python -m unittest discover -s scripts/tests -v
+
   # JavaScript/Node validation
   javascript-validation:
     needs: validate
@@ -205,7 +231,7 @@ jobs:
 
   # Summarize all checks
   summary:
-    needs: [validate, php-validation, notion-tests, javascript-validation, docs-truth-check, security-scan]
+    needs: [validate, php-validation, notion-tests, root-script-tests, javascript-validation, docs-truth-check, security-scan]
     if: always()
     runs-on: ubuntu-latest
     steps:
