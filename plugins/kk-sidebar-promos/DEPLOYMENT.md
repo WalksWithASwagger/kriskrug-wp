@@ -4,10 +4,9 @@ This plugin lives in the issue-tracking repo because the live WordPress install 
 
 ## Path A — Upload via WP admin (fastest)
 
-1. Zip the plugin folder:
+1. Build and verify the upload zip:
    ```bash
-   cd plugins
-   zip -r kk-sidebar-promos.zip kk-sidebar-promos
+   make sidebar-promos-package COPY_PATH=1 OPEN_ADMIN=1
    ```
 2. **Plugins → Add New → Upload Plugin** on kriskrug.co. Upload the zip and activate.
 3. **Sidebar Promos → Settings** in the admin sidebar. Paste your Luma iCal URL (see below).

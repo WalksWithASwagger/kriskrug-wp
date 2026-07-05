@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check clean
+.PHONY: help test plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check clean
 
 # Default target
 .DEFAULT_GOAL := help
@@ -131,6 +131,28 @@ backup-check: ## Verify a backup set (use BACKUP_DIR=backup/YYYY-MM-DD; STRICT=1
 	else \
 		bash scripts/verify-backup-set.sh --allow-incomplete "$(BACKUP_DIR)"; \
 	fi
+
+wp-package: ## Package a WP theme/plugin upload zip. Args: SOURCE KIND LABEL ROLLBACK_REF OUTPUT_DIR OPEN_ADMIN=1 COPY_PATH=1 REPORT=path
+	@python3 scripts/package_wp_artifact.py \
+		--source "$${SOURCE:-theme/kk-aurora}" \
+		--kind "$${KIND:-theme}" \
+		--label "$${LABEL:-release}" \
+		--output-dir "$${OUTPUT_DIR:-$$HOME/Desktop}" \
+		$${ROLLBACK_REF:+--rollback-ref "$${ROLLBACK_REF}"} \
+		$${ROLLBACK_LABEL:+--rollback-label "$${ROLLBACK_LABEL}"} \
+		$${OPEN_ADMIN:+--open-admin} \
+		$${COPY_PATH:+--copy-path} \
+		$${ALLOW_DIRTY:+--allow-dirty} \
+		$${REPORT:+--report "$${REPORT}"}
+
+aurora-package: ## Package KK Aurora for wp-admin upload. Args: LABEL ROLLBACK_REF OPEN_ADMIN=1 COPY_PATH=1
+	@$(MAKE) wp-package SOURCE=theme/kk-aurora KIND=theme LABEL="$${LABEL:-aurora-release}" ROLLBACK_REF="$${ROLLBACK_REF:-}" ROLLBACK_LABEL="$${ROLLBACK_LABEL:-rollback}" OPEN_ADMIN="$${OPEN_ADMIN:-}" COPY_PATH="$${COPY_PATH:-}" REPORT="$${REPORT:-}"
+
+sidebar-promos-package: ## Package KK Sidebar Promos plugin for wp-admin upload
+	@$(MAKE) wp-package SOURCE=plugins/kk-sidebar-promos KIND=plugin LABEL="$${LABEL:-sidebar-promos}" ROLLBACK_REF="$${ROLLBACK_REF:-}" OPEN_ADMIN="$${OPEN_ADMIN:-}" COPY_PATH="$${COPY_PATH:-}" REPORT="$${REPORT:-}"
+
+marquee-package: ## Package KK Marquee Board plugin for wp-admin upload
+	@$(MAKE) wp-package SOURCE=plugins/kk-marquee-board KIND=plugin LABEL="$${LABEL:-marquee-board}" ROLLBACK_REF="$${ROLLBACK_REF:-}" OPEN_ADMIN="$${OPEN_ADMIN:-}" COPY_PATH="$${COPY_PATH:-}" REPORT="$${REPORT:-}"
 
 draft-queue-audit: ## Run read-only draft queue audit (LOCAL_ONLY=1 FORMAT=json)
 	@if [ "$${LOCAL_ONLY:-0}" = "1" ]; then \

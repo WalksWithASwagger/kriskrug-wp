@@ -25,7 +25,7 @@ approval + a WP application password). Nothing here runs automatically.
 ## Path A — Upload via WP admin (fastest)
 
 ```bash
-cd plugins && zip -r kk-marquee-board.zip kk-marquee-board
+make marquee-package COPY_PATH=1 OPEN_ADMIN=1
 ```
 **Plugins → Add New → Upload Plugin** on kriskrug.co. Upload the zip and activate.
 
