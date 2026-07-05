@@ -62,6 +62,14 @@ class AuroraContrastTokenTests(unittest.TestCase):
         for color in control_colors:
             self.assertGreaterEqual(contrast_ratio("#FFFAF6", color), 4.5)
 
+    def test_homepage_feature_band_contrast_floor_is_present(self):
+        css = (THEME_DIR / "style.css").read_text(encoding="utf-8")
+        front_page = (THEME_DIR / "templates/front-page.html").read_text(encoding="utf-8")
+
+        self.assertIn("aurora-feature-band-contrast", front_page)
+        self.assertIn(".aurora-feature-band-contrast > .aurora-section-heading", css)
+        self.assertGreaterEqual(contrast_ratio("#f8f1e6", "#090c11"), 4.5)
+
 
 if __name__ == "__main__":
     unittest.main()
