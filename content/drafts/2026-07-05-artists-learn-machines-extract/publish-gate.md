@@ -1,37 +1,35 @@
 # Publish Gate
 
 Status:
-Local package staged. WordPress draft creation blocked pending credentialed REST dry-run and execute.
+Local package staged. WordPress draft created and verified through the logged-in WordPress editor session.
 
 Hard boundary:
 Create a private WordPress draft only. Do not publish, schedule, syndicate, email, or post to LinkedIn without Kris approving the exact final text.
 
 WordPress draft:
-- Post ID: TBD
-- Edit URL: TBD
-- Status: not created
+- Post ID: 12473
+- Edit URL: https://kriskrug.co/wp-admin/post.php?post=12473&action=edit
+- Status: draft
 - Slug: artists-learn-machines-extract
-- Featured media: images/artists-learn-machines-extract-card.png
+- Featured media: uploaded from images/artists-learn-machines-extract-card.png
+- Featured media URL: https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/07/artists-learn-machines-extract-card.png?fit=1024%2C538&ssl=1
 
 Prewrite evidence:
 - Snapshot: backup/20260705T201901Z-artists-learn-machines-extract/
 - Public slug check: no published post currently returned for `artists-learn-machines-extract`
 - Public blog smoke: https://kriskrug.co/blog/ returned HTTP 200 before the write attempt
 - Credential gate: `scripts/notion-to-wp/.env` is missing locally, and WordPress credentials were not available in the current shell environment
-- Dry-run result: `ERROR: WP credentials not found in /Users/kk/Code/kriskrug-wp/scripts/notion-to-wp/.env or environment`
+- REST script dry-run result: `ERROR: WP credentials not found in /Users/kk/Code/kriskrug-wp/scripts/notion-to-wp/.env or environment`
+- Browser editor creation result: draft saved in WordPress as post `12473`
 
 Completed local checks:
 - Dark Crystal voicecheck: clean, 0 flags
 - Draft package quality check: clean, 0 issues
-- Guarded review gate: `prepare_review_draft.py --no-write --fail-on-warning` returns `WARN: no markdown image and no featured_media_id`
 - WordPress unit tests: 42 passed with `scripts/notion-to-wp/.venv/bin/python -m unittest discover scripts/notion-to-wp/tests`
+- Browser editor readback at 2026-07-05T20:41:04Z: post ID `12473`, post type `post`, draft status, title, slug, AI Ethics & Philosophy category, 7 tags, excerpt, featured-image preview, opening body, final line, and receipts were visible in the editor
+- Body safety readback: no `/Users/`, `content/drafts/`, or `images/artists-learn-machines-extract-card.png` path leaked into the editor body
+- Public post-write checks: published slug lookup still returned `[]`; https://kriskrug.co/blog/ returned HTTP 200
 
 Required before publish:
-- Dark Crystal voicecheck clean on `post.md`
-- Upload the intended local featured image or assign a real WordPress `featured_media_id`, then rerun the guarded review gate
-- WordPress draft readback confirms `status=draft`
-- Readback confirms expected slug and title
-- Readback confirms featured media is attached
-- Readback body contains no local filesystem paths
-- https://kriskrug.co/blog/ returns HTTP 200 after draft creation
+- Add WordPress media alt text for the uploaded featured image; the editor currently reports no alternative text on the media item
 - Kris approves exact copy, title, image, and caption
