@@ -4,7 +4,7 @@ This file is the entry point for any AI agent (Claude Code, Cursor, Codex, etc.)
 
 ## What this repo is
 
-The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running the Aurora theme (`kk-aurora`) at 1.3.24 (live as of 2026-06-17). The repo is **adjacent to** the live site, not a mirror of it. `main` now contains the canonical tracked theme line (merged via PR #129), plus content/ops tooling and docs. Custom repo-side WP code includes `inc/digital-composting.php` (merged, not yet deployed to prod) and `plugins/kk-sidebar-promos/` (packaged helper plugin, deploy only with an explicit rollback path and KK approval).
+The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running the Aurora theme (`kk-aurora`) at 1.3.36 (live as of 2026-07-05 after PR #299). The repo is **adjacent to** the live site, not a mirror of it. `main` contains the canonical tracked theme line, plus content/ops tooling and docs. Custom repo-side WP code includes `inc/digital-composting.php` (merged, not yet deployed to prod) and `plugins/kk-sidebar-promos/` (packaged helper plugin, deploy only with an explicit rollback path and KK approval).
 
 ## Read this in order (top of repo, top of context)
 
@@ -13,8 +13,8 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 3. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
 4. [`docs/current-state/REPO_STATE.md`](docs/current-state/REPO_STATE.md) — what's actually built vs. just documented
 5. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
-6. [`docs/current-state/HANDOFF-2026-06-17.md`](docs/current-state/HANDOFF-2026-06-17.md) — current Aurora/theme/content handoff (Aurora 1.3.24 live, issues #233/#247/#248/#250 closed)
-7. [`docs/current-state/archive/AURORA-V3-QA-ROADMAP-2026-05-24.md`](docs/current-state/archive/AURORA-V3-QA-ROADMAP-2026-05-24.md) — historical Aurora v1.3.0 QA roadmap (archived; superseded by 1.3.24 live)
+6. [`docs/current-state/HANDOFF-2026-06-17.md`](docs/current-state/HANDOFF-2026-06-17.md) — current Aurora/theme/content handoff with the 2026-07-05 Aurora 1.3.36 cache/a11y addendum; #289 and #293 are closed after five-route `pa11y` plus browser smoke
+7. [`docs/current-state/archive/AURORA-V3-QA-ROADMAP-2026-05-24.md`](docs/current-state/archive/AURORA-V3-QA-ROADMAP-2026-05-24.md) — historical Aurora v1.3.0 QA roadmap (archived; superseded by the live 1.3.36 line)
 8. [`docs/current-state/CURRENT-STATE-2026-06-23.md`](docs/current-state/CURRENT-STATE-2026-06-23.md) — canonical current state snapshot as of 2026-06-23
 9. [`docs/current-state/reports/morning-truth-20260624-175842Z.md`](docs/current-state/reports/morning-truth-20260624-175842Z.md) — latest startup truth memo; always prefer newest `reports/morning-truth-*.md`
 10. [`docs/current-state/WORK-PLAN-2026-05-23.md`](docs/current-state/WORK-PLAN-2026-05-23.md) — historical roadmap context (stale counts/branch assumptions)
@@ -69,6 +69,7 @@ See [`scripts/notion-to-wp/README.md`](scripts/notion-to-wp/README.md). Short ve
 - Commit messages: `<area>: <short imperative>` — e.g. `content: ...`, `docs: ...`, `feat: ...`, `fix: ...`.
 - One concern per commit. Don't bundle content edits with doc edits with theme edits.
 - Don't push to `main` without KK's go-ahead if the change touches prod-rendering code (schema, redirects, custom snippets).
+- PRs start as drafts unless the lane is tiny and fully verified. GitHub repo `allow_auto_merge` is `false`; green checks mean ready for human review, not permission to merge. Merge only after KK approval.
 
 ## When in doubt
 
@@ -82,4 +83,4 @@ If the task explicitly forbids file changes, run `make status-readonly` instead.
 
 ---
 
-**Last verified:** 2026-06-24 via `docs/current-state/reports/morning-truth-20260624-175842Z.md`. If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.
+**Last verified:** 2026-07-05 after PR #299 / Aurora 1.3.36 live closeout and #289 WCAG smoke closure. If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.
