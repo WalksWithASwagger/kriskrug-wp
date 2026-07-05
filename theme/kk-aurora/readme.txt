@@ -39,6 +39,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.3.36 =
+* Extended the homepage creative-lab contrast floor to customized FSE templates that still render the live section without the newer contrast class, using plain selectors for cache and audit compatibility.
+
 = 1.3.34 =
 * Added an opaque contrast floor for the homepage creative-lab feature band after the 1.3.33 pa11y closeout.
 
