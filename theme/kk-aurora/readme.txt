@@ -39,6 +39,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.3.34 =
+* Added an opaque contrast floor for the homepage creative-lab feature band after the 1.3.33 pa11y closeout.
+
 = 1.3.22 =
 * Darkened Aurora primary CTA colors to meet WCAG AA contrast with off-white button text.
 
