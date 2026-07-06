@@ -32,4 +32,5 @@ Completed local checks:
 
 Required before publish:
 - Add WordPress media alt text for the uploaded featured image; the editor currently reports no alternative text on the media item
+- Apply or explicitly waive the rich-content pass in `supporting-materials.md`: Morgane Oger link, primary YouTube embed, related watching link, and optional approved LinkedIn screenshot
 - Kris approves exact copy, title, image, and caption
