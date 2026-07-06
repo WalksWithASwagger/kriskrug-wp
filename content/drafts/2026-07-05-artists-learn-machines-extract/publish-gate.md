@@ -1,7 +1,7 @@
 # Publish Gate
 
 Status:
-Local package staged. WordPress draft created and verified through the logged-in WordPress editor session.
+Local package staged. WordPress draft created, enriched, saved, and verified through the logged-in WordPress editor session.
 
 Hard boundary:
 Create a private WordPress draft only. Do not publish, schedule, syndicate, email, or post to LinkedIn without Kris approving the exact final text.
@@ -21,6 +21,7 @@ Prewrite evidence:
 - Credential gate: `scripts/notion-to-wp/.env` is missing locally, and WordPress credentials were not available in the current shell environment
 - REST script dry-run result: `ERROR: WP credentials not found in /Users/kk/Code/kriskrug-wp/scripts/notion-to-wp/.env or environment`
 - Browser editor creation result: draft saved in WordPress as post `12473`
+- Rich-content rollback snapshot: `/tmp/wp-12473-body-before-rich-content-20260706-102126.html`
 
 Completed local checks:
 - Dark Crystal voicecheck: clean, 0 flags
@@ -29,8 +30,10 @@ Completed local checks:
 - Browser editor readback at 2026-07-05T20:41:04Z: post ID `12473`, post type `post`, draft status, title, slug, AI Ethics & Philosophy category, 7 tags, excerpt, featured-image preview, opening body, final line, and receipts were visible in the editor
 - Body safety readback: no `/Users/`, `content/drafts/`, or `images/artists-learn-machines-extract-card.png` path leaked into the editor body
 - Public post-write checks: published slug lookup still returned `[]`; https://kriskrug.co/blog/ returned HTTP 200
+- Rich-content local body check at 2026-07-06T10:23:06-07:00: `post.md` and `post.html` include the Morgane Oger inline link, inline image block, YouTube embed, internal links, expanded receipt links, and no local path leakage
+- WordPress draft rich-content readback at 2026-07-06T10:23:06-07:00: copied saved blocks from the editor to `/tmp/wp-12473-body-after-rich-content-20260706-102306.html`; checks passed for Morgane link, image block, YouTube embed, internal links, expanded receipts, and no local path leakage
+- WordPress editor status after rich-content pass: `Draft saved.`; no publish/schedule/syndication action taken
 
 Required before publish:
 - Add WordPress media alt text for the uploaded featured image; the editor currently reports no alternative text on the media item
-- Apply or explicitly waive the rich-content pass in `supporting-materials.md`: Morgane Oger link, primary YouTube embed, related watching link, and optional approved LinkedIn screenshot
 - Kris approves exact copy, title, image, and caption

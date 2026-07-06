@@ -37,13 +37,17 @@ sources:
   eu_ai_act: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32024R1689
 ---
 
-Morgane Oger asked the good version of the copyright and AI question.
+[Morgane Oger](https://morganeoger.ca/) asked the good version of the copyright and AI question.
 
 Not the lazy flame-war version. Not "AI is theft" as a bumper sticker. Not "don't regulate math" as a permission slip.
 
 The good version:
 
 If artists have always learned from other artists, what makes machines trained on artists' work categorically different? Is the issue the training itself, or the derivative slop people pass off as their own?
+
+![Black and red quote card titled Artists Learn. Machines Extract., pairing Kris Krüg's copyright post with Morgane Oger's question about AI training and derivative slop.](https://kriskrug.co/wp-content/uploads/2026/07/artists-learn-machines-extract-card.png)
+
+*The question that started the essay: when artists learn from artists, what makes machine training different?*
 
 My answer is: yes. Both. But not in the same way.
 
@@ -73,7 +77,7 @@ That is not just, "did this one output copy that one work?"
 
 It is, "who got to turn a whole culture into private infrastructure without asking?"
 
-Canadian copyright protects original expression through human skill and judgment. That phrase matters. Skill and judgment are not decorative words. They are the sweat in the work. The choices. The scars. The thousands of small refusals that make a thing yours.
+Canadian copyright protects original expression through [human skill and judgment](https://kriskrug.co/2026/05/15/your-taste-is-your-moat/). That phrase matters. Skill and judgment are not decorative words. They are the sweat in the work. The choices. The scars. The thousands of small refusals that make a thing yours.
 
 And right now our Copyright Act does not give creators a clean answer on text and data mining for AI training. The federal consultation said the quiet part out loud: creators want consent, credit, compensation, and transparency. Tech companies want certainty. The country has not landed the deal.
 
@@ -91,7 +95,14 @@ The false choice is: burn the machines or let the machines eat everything.
 
 No.
 
-I am not anti-AI. I build with this stuff. I make weird little rituals with it. I have seen it help artists sketch, prototype, translate, caption, remix, remember, test, and ship. Used well, AI can be a studio assistant, a mirror, a compost bin, a sparring partner, a strange instrument.
+I am not anti-AI. I [build with this stuff](https://kriskrug.co/ai-upgrade-for-creative-professionals/). I make weird little rituals with it. I have seen it help artists sketch, prototype, translate, caption, remix, remember, test, and ship. Used well, AI can be a studio assistant, a mirror, a compost bin, a sparring partner, a strange instrument.
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio">
+<div class="wp-block-embed__wrapper">
+https://www.youtube.com/watch?v=beudtZtvXkM
+</div>
+<figcaption>Related: how creatives can use AI without surrendering taste, agency, or craft.</figcaption>
+</figure>
 
 But consent is not anti-innovation.
 
@@ -105,7 +116,7 @@ Those are the receipts that let innovation face the people it feeds on.
 
 So here is the middle path, in plain human:
 
-Commercial AI training should not get a free private road through everybody's creative work.
+Commercial AI training should not get a free private road through everybody's [creative work](https://kriskrug.co/2026/05/16/make-culture-not-content/).
 
 If a company trains on living creators' work, there should be disclosure good enough to inspect, licensing paths that are not a joke, collective bargaining power so every illustrator is not fighting a trillion-dollar platform alone, and liability aimed at the people who built and sold the system, not just the unlucky user holding the prompt.
 
@@ -149,10 +160,14 @@ I am anti pretending the mine is a classroom.
 
 ## Receipts
 
-This started as a public LinkedIn exchange with Morgane Oger under my post on Canada's copyright and AI policy gap. The legal spine here comes from the Supreme Court of Canada's "skill and judgment" language in CCH, its substantial-copying analysis in Cinar, Canada's current Copyright Act, the federal generative AI copyright consultation, and the EU's 2019 text-and-data-mining framework with newer AI Act transparency obligations.
+This started as a public LinkedIn exchange with [Morgane Oger](https://morganeoger.ca/) under my post on Canada's copyright and AI policy gap. The legal spine here comes from the Supreme Court of Canada's "skill and judgment" language in CCH, its substantial-copying analysis in Cinar, Canada's current Copyright Act, the federal generative AI copyright consultation, and the EU's 2019 text-and-data-mining framework with newer AI Act transparency obligations.
 
 - [Original LinkedIn post](https://www.linkedin.com/feed/update/urn:li:activity:7479565149926780928/)
 - [Morgane Oger's comment](https://www.linkedin.com/feed/update/urn:li:activity:7479565149926780928?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7479565149926780928%2C7479593390389489664%29&dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287479593390389489664%2Curn%3Ali%3Aactivity%3A7479565149926780928%29)
+- [Morgane Oger's official site](https://morganeoger.ca/)
+- [Rethinking Ownership and Copyright in the Age of Generative AI](https://kriskrug.co/2023/10/30/rethinking-ownership-and-copyright-in-the-age-of-generative-ai/)
+- [How Creatives Can Thrive in the Age of AI](https://www.youtube.com/watch?v=beudtZtvXkM)
+- [AI, Art & Ethics: Frank Germano](https://www.youtube.com/watch?v=wJUKAmwRHS4)
 - [Copyright and Artificial Intelligence, HillNotes](https://hillnotes.ca/2025/10/27/copyright-and-artificial-intelligence/)
 - [Canada's generative AI copyright consultation report](https://ised-isde.canada.ca/site/strategic-policy-sector/en/marketplace-framework-policy/consultation-copyright-age-generative-artificial-intelligence-what-we-heard-report)
 - [CCH Canadian Ltd. v. Law Society of Upper Canada](https://decisions.scc-csc.ca/scc-csc/scc-csc/en/2125/1/document.do)
