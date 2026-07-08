@@ -19,22 +19,33 @@ duplicate media. Dry-run by default; --execute creates the draft; --update
 refreshes the body of the existing draft. NEVER publishes.
 """
 import re, sys, json, pathlib
-from kk_notion_to_wp import WordPress, load_config, slugify
+from kk_notion_to_wp import WordPress, load_config
 from connector_payload import normalize_seo_meta
 from wp_blocks import inline, image, gallery, heading, separator, pullquote
+from publish_common import (
+    load_photos_from_dir,
+    parse_int_arg,
+    parse_publish_argv,
+    render_paragraph_from_markdown,
+    resolve_category_ids,
+    resolve_featured_media,
+    split_body_blocks,
+)
 
 STAGE = pathlib.Path("/Users/kk/Code/kriskrug-wp/content/drafts/2026-05-23-you-cant-drink-data")
-EXECUTE = "--execute" in sys.argv
-UPDATE = "--update" in sys.argv
-WRITE = EXECUTE or UPDATE
+FLAGS = parse_publish_argv()
+EXECUTE = FLAGS.execute
+UPDATE = FLAGS.update
+WRITE = FLAGS.write
 
 TITLE = "You Can't Drink Data"
 SLUG = "you-cant-drink-data"
 DATE = "2026-05-23T15:00:00"
-CATEGORY_ID = 1678  # AI Ethics & Philosophy
+# Defaults match the live draft; override with --category-id / --featured-media-id.
+CATEGORY_ID = parse_int_arg(sys.argv[1:], "--category-id", 1678)
+FEATURED_ID = parse_int_arg(sys.argv[1:], "--featured-media-id", 11976)
 TAGS = ["ai-protest","data-centres","vancouver","clean-energy-ai",
         "indigenous-data-sovereignty","open-source-ai","both-hands-full"]
-FEATURED_ID = 11976  # hero/og: the FUCK AI! sign (KK's pick). Selfie moved to bottom.
 SEO_TITLE = "You Can't Drink Data | Notes From My First AI Protest"
 META_DESC = ("Kris Krug marches in Vancouver's first anti-AI, anti-data-centre protest, "
              "and argues that 'shut it all down' and 'more compute, trust us' are the same "
@@ -89,61 +100,17 @@ assert "—" not in body, "em-dash leaked into post.md body"
 cfg = load_config()
 wp = WordPress(cfg.wp_base_url, cfg.wp_user, cfg.wp_app_password)
 
-PHOTO_EXT = {".jpg", ".jpeg", ".png", ".webp"}
 photo_log = []
-
-def load_captions(d: pathlib.Path) -> dict:
-    caps = {}
-    f = d / "captions.txt"
-    if f.exists():
-        for line in f.read_text().splitlines():
-            if "|" in line:
-                fn, alt = line.split("|", 1)
-                caps[fn.strip()] = alt.strip()
-    return caps
-
-def find_media(stem: str):
-    """Find already-uploaded media whose file basename starts with stem. Reuse to avoid dupes."""
-    try:
-        r = wp.s.get(f"{wp.base}/wp-json/wp/v2/media",
-                     params={"search": stem, "per_page": 10, "context": "edit"}, timeout=30).json()
-    except Exception:
-        return None
-    if isinstance(r, list):
-        for m in r:
-            base = m.get("source_url", "").rsplit("/", 1)[-1]
-            if base == f"{stem}.jpg" or base.startswith(stem):
-                return m["id"], m["source_url"]
-    return None
-
-def load_photos(subdir: str, alt_from_slug=False) -> list:
-    """Return [(id, url, alt, caption, filename)] for STAGE/subdir.
-    caption = captions.txt text. alt = slug-derived (if alt_from_slug) else caption."""
-    d = STAGE / subdir
-    files = sorted(p for p in d.glob("*.jpg") if not p.name.startswith("_"))
-    caps = load_captions(d)
-    items = []
-    for p in files:
-        caption = caps.get(p.name, "")
-        alt = (re.sub(r"^\d+-", "", p.stem).replace("-", " ") + " protest sign") if alt_from_slug else (caption or p.stem)
-        if WRITE:
-            found = find_media(p.stem)
-            if found:
-                mid, url = found
-                photo_log.append(f"{subdir}/{p.name} -> REUSE id={mid}")
-            else:
-                media = wp.upload_media(p, alt=alt, mime="image/jpeg")
-                mid, url = media["id"], media["source_url"]
-                photo_log.append(f"{subdir}/{p.name} -> NEW id={mid} {url}")
-            items.append((mid, url, alt, caption, p.name))
-        else:
-            items.append((0, f"DRYRUN/{p.name}", alt, caption, p.name))
-    return items
-
-best_photos = load_photos("photos/best", alt_from_slug=True)     # close crops, KK captions
-gallery_all = load_photos("photos/gallery")                       # the 26 uploaded signs
-inbody_list = load_photos("photos/inbody")                        # narrative-beat photos
-photos_rest = [it for it in gallery_all if it[4][:2] in PHOTOS_KEEP_PREFIX]  # the 14 not in BEST
+best_photos = load_photos_from_dir(
+    wp, STAGE, "photos/best", write=WRITE, alt_from_slug=True, photo_log=photo_log
+)
+gallery_all = load_photos_from_dir(
+    wp, STAGE, "photos/gallery", write=WRITE, photo_log=photo_log
+)
+inbody_list = load_photos_from_dir(
+    wp, STAGE, "photos/inbody", write=WRITE, photo_log=photo_log
+)
+photos_rest = [it for it in gallery_all if it[4][:2] in PHOTOS_KEEP_PREFIX]
 
 inbody_photos = {}
 for mid, url, alt, cap, fn in inbody_list:
@@ -155,7 +122,7 @@ for l in photo_log: print("   " + l)
 # ---- build blocks ----
 out = []
 seen_title = False
-blocks_src = [b.rstrip() for b in re.split(r"\n\s*\n", body) if b.strip()]
+blocks_src = split_body_blocks(body)
 for b in blocks_src:
     b = b.strip()
     if b.startswith("# ") and not seen_title:
@@ -189,8 +156,7 @@ for b in blocks_src:
                 align, width = INBODY_PHOTO.get(key, ("center", 660))
                 out.append(image(mid, url, alt, caption=cap, width=width, align=align))
         else:
-            para = "<br>".join(inline(line.strip()) for line in b.split("\n"))
-            out.append(f"<!-- wp:paragraph -->\n<p>{para}</p>\n<!-- /wp:paragraph -->")
+            out.append(render_paragraph_from_markdown(b))
 
 content = "\n\n".join(out)
 (STAGE / "post.html").write_text(content)
@@ -217,18 +183,25 @@ if UPDATE:
     if not existing:
         sys.exit(f"[ABORT] --update but no post with slug {SLUG} found. Run --execute first.")
     pid = existing["id"]
-    payload = {"content": content, "featured_media": FEATURED_ID}
+    featured_id = resolve_featured_media(wp, media_id=FEATURED_ID, write=True)
+    payload = {"content": content, "featured_media": featured_id}
     post = wp.update_post(pid, payload)
     print(f"[post] UPDATED draft id={pid} status={post['status']}")
 else:
     if existing:
         sys.exit(f"[ABORT] a post with slug {SLUG} already exists (id={existing['id']}). Use --update.")
+    category_ids = resolve_category_ids(wp, ids=[CATEGORY_ID])
+    featured_id = resolve_featured_media(wp, media_id=FEATURED_ID, write=True)
     tag_ids = [wp.ensure_term("tags", t) for t in TAGS]
     payload = {
         "title": TITLE, "slug": SLUG, "status": "draft", "date": DATE,
         "author": cfg.wp_author_id, "content": content, "excerpt": META_DESC,
-        "categories": [CATEGORY_ID], "tags": tag_ids, "featured_media": FEATURED_ID,
-        "meta": {"advanced_seo_description": normalize_seo_meta(META_DESC), "jetpack_seo_html_title": normalize_seo_meta(SEO_TITLE)},
+        "categories": category_ids, "tags": tag_ids, "featured_media": featured_id,
+        # Keep normalize_seo_meta on these assignment lines for test_publish_scripts_seo_normalized.
+        "meta": {
+            "jetpack_seo_html_title": normalize_seo_meta(SEO_TITLE),
+            "advanced_seo_description": normalize_seo_meta(META_DESC),
+        },
     }
     post = wp.create_post(payload)
     pid = post["id"]
