@@ -18,6 +18,12 @@ from typing import Any
 
 import yaml
 
+SCRIPTS_DIR = Path(__file__).resolve().parents[1]
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+from common import WPClient  # noqa: E402
+
 
 STATUSES = ("future", "draft", "pending", "private")
 
@@ -129,26 +135,8 @@ def collect_local_drafts(repo_root: Path) -> list[LocalDraft]:
     return [local_draft_metrics(path) for path in sorted(drafts_root.iterdir()) if path.is_dir()]
 
 
-def collect_wp_items(wp: Any, kind: str, status: str) -> list[dict[str, Any]]:
-    items: list[dict[str, Any]] = []
-    page = 1
-    while True:
-        response = wp.s.get(
-            f"{wp.base}/wp-json/wp/v2/{kind}",
-            params={"status": status, "per_page": 100, "page": page, "context": "edit"},
-            timeout=30,
-        )
-        if response.status_code == 400:
-            break
-        response.raise_for_status()
-        batch = response.json()
-        if not batch:
-            break
-        items.extend(batch)
-        if page >= int(response.headers.get("X-WP-TotalPages", "1") or "1"):
-            break
-        page += 1
-    return items
+def collect_wp_items(wp: WPClient, kind: str, status: str) -> list[dict[str, Any]]:
+    return wp.get_all(kind, params={"status": status, "context": "edit"}, per_page=100)
 
 
 def wp_draft_metrics(kind: str, post: dict[str, Any]) -> WPDraft:
@@ -174,19 +162,15 @@ def wp_draft_metrics(kind: str, post: dict[str, Any]) -> WPDraft:
     )
 
 
-def collect_slug_matches(wp: Any, slugs: list[str]) -> dict[str, list[WPMatch]]:
+def collect_slug_matches(wp: WPClient, slugs: list[str]) -> dict[str, list[WPMatch]]:
     matches: dict[str, list[WPMatch]] = {slug: [] for slug in slugs}
     for slug in slugs:
         for kind in ("posts", "pages"):
-            response = wp.s.get(
-                f"{wp.base}/wp-json/wp/v2/{kind}",
+            items = wp.get(
+                kind,
                 params={"slug": slug, "status": "any", "per_page": 100, "context": "edit"},
-                timeout=30,
             )
-            if response.status_code == 400:
-                continue
-            response.raise_for_status()
-            for item in response.json():
+            for item in items or []:
                 title = item.get("title") or {}
                 matches[slug].append(
                     WPMatch(
@@ -201,10 +185,7 @@ def collect_slug_matches(wp: Any, slugs: list[str]) -> dict[str, list[WPMatch]]:
 
 
 def collect_wp_audit(slugs: list[str] | None = None) -> tuple[list[dict[str, Any]], list[WPDraft], dict[str, list[WPMatch]]]:
-    from kk_notion_to_wp import WordPress, load_config
-
-    cfg = load_config()
-    wp = WordPress(cfg.wp_base_url, cfg.wp_user, cfg.wp_app_password)
+    wp = WPClient.from_env(timeout=30)
     summary: list[dict[str, Any]] = []
     drafts: list[WPDraft] = []
     for kind in ("posts", "pages"):

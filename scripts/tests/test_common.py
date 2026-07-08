@@ -8,7 +8,7 @@ from urllib.error import HTTPError
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import common  # noqa: E402
-from common import WPClient, load_env, parse_simple_env, wp_credentials  # noqa: E402
+from common import WPClient, load_env, parse_simple_env, wp_credentials, wp_queue_counts  # noqa: E402
 
 
 def _fake_response(body: str):
@@ -76,8 +76,8 @@ class LoadEnvTests(_EnvFileMixin, unittest.TestCase):
 
 class WpCredentialsTests(unittest.TestCase):
     def test_returns_tuple_and_strips_base_slash(self):
-        env = {"WP_USER": "u", "WP_APP_PASSWORD": "p", "WP_BASE_URL": "https://example.com/"}
-        self.assertEqual(wp_credentials(env), ("https://example.com", "u", "p"))
+        env = {"WP_USER": "u", "WP_APP_PASSWORD": "p a s s", "WP_BASE_URL": "https://example.com/"}
+        self.assertEqual(wp_credentials(env), ("https://example.com", "u", "pass"))
 
     def test_defaults_base_url(self):
         base, _, _ = wp_credentials({"WP_USER": "u", "WP_APP_PASSWORD": "p"})
@@ -210,6 +210,29 @@ class WPClientPaginationTests(unittest.TestCase):
         client = WPClient("https://example.com", "u", "p")
         with mock.patch.object(client, "request", return_value=[]):
             self.assertEqual(client.get_all("posts"), [])
+
+
+class WPQueueCountsTests(unittest.TestCase):
+    def test_counts_expected_read_only_queue_surfaces(self):
+        client = mock.MagicMock()
+        client.get_all.side_effect = [
+            [{"id": 1}],
+            [{"id": 2}, {"id": 3}],
+            [],
+        ]
+
+        self.assertEqual(
+            wp_queue_counts(client),
+            {"future_posts": 1, "draft_posts": 2, "draft_pages": 0},
+        )
+        self.assertEqual(
+            client.get_all.call_args_list,
+            [
+                mock.call("posts", params={"status": "future", "context": "edit", "_fields": "id"}, per_page=100),
+                mock.call("posts", params={"status": "draft", "context": "edit", "_fields": "id"}, per_page=100),
+                mock.call("pages", params={"status": "draft", "context": "edit", "_fields": "id"}, per_page=100),
+            ],
+        )
 
 
 if __name__ == "__main__":
