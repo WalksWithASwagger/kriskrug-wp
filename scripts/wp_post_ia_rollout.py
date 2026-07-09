@@ -27,10 +27,19 @@ except Exception:  # pragma: no cover - local fallback
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT_ENV_PATH = REPO_ROOT / "scripts" / "notion-to-wp" / ".env"
-ALT_SCRIPT_ENV_PATH = Path("/Users/kk/Code/kriskrug-wp/scripts/notion-to-wp/.env")
-FALLBACK_ENV_PATH = Path("/Users/kk/Code/notion-local/kk-ai-ecosystem/.env")
 DEFAULT_BASE_URL = "https://kriskrug.co"
 DEFAULT_SINCE = "2025-01-01"
+
+
+def _fallback_env_paths() -> list[Path]:
+    """Optional extra .env locations (env override, then ~/Code/... if present)."""
+    paths: list[Path] = []
+    for key in ("KKAI_ENV_PATH", "NOTION_ENV_PATH"):
+        raw = os.environ.get(key)
+        if raw:
+            paths.append(Path(raw).expanduser())
+    paths.append(Path.home() / "Code" / "notion-local" / "kk-ai-ecosystem" / ".env")
+    return paths
 
 
 def parse_simple_env(path: Path) -> dict[str, str]:
@@ -120,18 +129,14 @@ class WordPressClient:
 
 
 def load_config() -> Config:
-    local = load_env(SCRIPT_ENV_PATH)
-    alt_local = load_env(ALT_SCRIPT_ENV_PATH)
-    fallback = load_env(FALLBACK_ENV_PATH)
+    sources = [load_env(SCRIPT_ENV_PATH)]
+    sources.extend(load_env(path) for path in _fallback_env_paths())
 
     def value(key: str, default: str | None = None) -> str | None:
-        return (
-            local.get(key)
-            or alt_local.get(key)
-            or fallback.get(key)
-            or os.environ.get(key)
-            or default
-        )
+        for source in sources:
+            if source.get(key):
+                return source.get(key)
+        return os.environ.get(key) or default
 
     base_url = value("WP_BASE_URL", DEFAULT_BASE_URL) or DEFAULT_BASE_URL
     wp_user = value("WP_USER")

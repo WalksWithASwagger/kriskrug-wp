@@ -35,7 +35,7 @@ REPO_ROOT = SCRIPT_DIR.parent.parent
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
 from common import WPClient, load_env, wp_credentials  # noqa: E402
 
-ENV_PATH = "/Users/kk/Code/kriskrug-wp/scripts/notion-to-wp/.env"
+ENV_PATH = SCRIPT_DIR / ".env"
 STAGE = REPO_ROOT / "content/drafts/2026-06-28-keep-the-machine-strange"
 EXECUTE = "--execute" in sys.argv
 UPDATE = "--update" in sys.argv

@@ -20,7 +20,9 @@ from kk_notion_to_wp import WordPress, load_config, slugify
 from connector_payload import normalize_seo_meta
 from wp_blocks import inline, inline_image, hero_image, heading, separator, pullquote
 
-STAGE = pathlib.Path("/Users/kk/code/kriskrug-wp/content/drafts/2026-06-28-context-creators")
+SCRIPT_DIR = pathlib.Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parents[1]
+STAGE = REPO_ROOT / "content" / "drafts" / "2026-06-28-context-creators"
 IMAGES = STAGE / "images"
 EXECUTE = "--execute" in sys.argv
 UPDATE = "--update" in sys.argv
