@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-import base64
 import argparse
 import json
 import re
@@ -12,9 +11,8 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
-from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
-from urllib.request import Request, urlopen
+
+from common import WPClient, wp_queue_counts
 
 
 @dataclass
@@ -80,43 +78,9 @@ def fetch_wp_queue_counts(repo_root: Path) -> tuple[dict[str, int] | None, str |
     if not env_path.exists():
         return None, f"missing env file: {env_path}"
 
-    values: dict[str, str] = {}
-    for raw_line in env_path.read_text(encoding="utf-8").splitlines():
-        line = raw_line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        key, value = line.split("=", 1)
-        values[key.strip()] = value.strip().strip('"').strip("'")
-
-    base_url = values.get("WP_BASE_URL", "https://kriskrug.co").rstrip("/")
-    user = values.get("WP_USER", "")
-    app_password = (values.get("WP_APP_PASSWORD", "") or "").replace(" ", "")
-    if not user or not app_password:
-        return None, "WordPress credentials missing in scripts/notion-to-wp/.env"
-
-    token = base64.b64encode(f"{user}:{app_password}".encode()).decode()
-    headers = {"Authorization": f"Basic {token}", "Accept": "application/json"}
-
-    def count(kind: str, status: str) -> int:
-        query = urlencode({"status": status, "per_page": 1, "context": "edit"})
-        url = f"{base_url}/wp-json/wp/v2/{kind}?{query}"
-        request = Request(url, headers=headers)
-        try:
-            with urlopen(request, timeout=30) as response:
-                return int(response.headers.get("X-WP-Total", "0") or "0")
-        except HTTPError as exc:
-            if exc.code == 400:
-                return 0
-            raise
-        except URLError:
-            raise
-
     try:
-        return {
-            "future_posts": count("posts", "future"),
-            "draft_posts": count("posts", "draft"),
-            "draft_pages": count("pages", "draft"),
-        }, None
+        client = WPClient.from_env(env_path, timeout=30)
+        return wp_queue_counts(client), None
     except Exception as exc:
         return None, f"failed to fetch live draft queue counts: {exc}"
 

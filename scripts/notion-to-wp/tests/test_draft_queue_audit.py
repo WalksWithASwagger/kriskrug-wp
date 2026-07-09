@@ -2,6 +2,8 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
+from urllib.error import HTTPError
 
 
 SCRIPT_DIR = Path(__file__).resolve().parents[1]
@@ -117,6 +119,61 @@ class DraftQueueAuditTests(unittest.TestCase):
         self.assertEqual(frontmatter["title"], "Loose Draft")
         self.assertEqual(frontmatter["slug"], "loose-draft")
         self.assertEqual(body, "Body copy.\n")
+
+    def test_collect_wp_items_uses_shared_client_without_400_fallback(self):
+        wp = mock.MagicMock()
+        wp.get_all.side_effect = HTTPError("http://x", 400, "bad", hdrs=None, fp=None)
+
+        with self.assertRaises(HTTPError):
+            draft_queue_audit.collect_wp_items(wp, "posts", "draft")
+
+        wp.get_all.assert_called_once_with(
+            "posts",
+            params={"status": "draft", "context": "edit"},
+            per_page=100,
+        )
+
+    def test_collect_wp_audit_uses_wpclient_from_env(self):
+        wp = mock.MagicMock()
+        wp.get_all.side_effect = [
+            [],
+            [
+                {
+                    "id": 123,
+                    "status": "draft",
+                    "slug": "example-draft",
+                    "title": {"raw": "Example Draft"},
+                    "date": "2026-05-22T12:00:00",
+                    "modified": "2026-05-22T12:00:00",
+                    "content": {"raw": "<!-- wp:paragraph --><p>Words here.</p>"},
+                    "featured_media": 456,
+                    "categories": [1665],
+                    "tags": [],
+                }
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+        ]
+        wp.get.return_value = [
+            {
+                "id": 123,
+                "status": "draft",
+                "title": {"raw": "Example Draft"},
+                "link": "https://kriskrug.co/?p=123",
+            }
+        ]
+
+        with mock.patch.object(draft_queue_audit.WPClient, "from_env", return_value=wp) as from_env:
+            summary, drafts, matches = draft_queue_audit.collect_wp_audit(["example-draft"])
+
+        from_env.assert_called_once_with(timeout=30)
+        self.assertEqual(summary[1], {"kind": "posts", "status": "draft", "count": 1})
+        self.assertEqual(drafts[0].wp_id, 123)
+        self.assertEqual(matches["example-draft"][0].wp_id, 123)
 
 
 if __name__ == "__main__":

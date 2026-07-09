@@ -78,10 +78,10 @@ def load_env(path: Path | str | None = None, *, overlay_os: bool = True) -> dict
 
 
 def wp_credentials(env: dict[str, str] | None = None) -> tuple[str, str, str]:
-    """Return (base_url, user, app_password). Raises if credentials are missing."""
+    """Return (base_url, user, normalized app_password). Raises if missing."""
     env = env if env is not None else load_env()
     user = env.get("WP_USER", "")
-    app_password = env.get("WP_APP_PASSWORD", "")
+    app_password = (env.get("WP_APP_PASSWORD", "") or "").replace(" ", "")
     base_url = env.get("WP_BASE_URL", DEFAULT_BASE_URL)
     if not user or not app_password:
         raise RuntimeError(
@@ -244,3 +244,23 @@ class WPClient:
             if len(batch) < per_page:
                 break
         return items
+
+
+def wp_queue_counts(client: WPClient | None = None) -> dict[str, int]:
+    """Return read-only counts for the queue surfaces used in startup truth."""
+    wp = client or WPClient.from_env()
+
+    def count(kind: str, status: str) -> int:
+        return len(
+            wp.get_all(
+                kind,
+                params={"status": status, "context": "edit", "_fields": "id"},
+                per_page=100,
+            )
+        )
+
+    return {
+        "future_posts": count("posts", "future"),
+        "draft_posts": count("posts", "draft"),
+        "draft_pages": count("pages", "draft"),
+    }
