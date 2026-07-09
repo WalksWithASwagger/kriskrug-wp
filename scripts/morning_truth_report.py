@@ -172,7 +172,7 @@ def main() -> int:
     parser.add_argument("--expect-version", default="6.9.4")
     parser.add_argument(
         "--work-plan",
-        default="docs/current-state/WORK-PLAN-2026-05-23.md",
+        default="docs/current-state/CURRENT-STATE-2026-07-09.md",
         help="Declared state doc used for drift checks.",
     )
     parser.add_argument("--command-timeout", type=int, default=120, help="Timeout for shell subcommands in seconds.")

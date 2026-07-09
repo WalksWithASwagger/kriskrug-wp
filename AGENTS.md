@@ -16,8 +16,10 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 6. [`docs/current-state/HANDOFF-2026-06-17.md`](docs/current-state/HANDOFF-2026-06-17.md) — current Aurora/theme/content handoff with the 2026-07-05 Aurora 1.3.36 cache/a11y addendum; #289 and #293 are closed after five-route `pa11y` plus browser smoke
 7. [`docs/current-state/archive/AURORA-V3-QA-ROADMAP-2026-05-24.md`](docs/current-state/archive/AURORA-V3-QA-ROADMAP-2026-05-24.md) — historical Aurora v1.3.0 QA roadmap (archived; superseded by the live 1.3.36 line)
 8. [`docs/current-state/CURRENT-STATE-2026-06-23.md`](docs/current-state/CURRENT-STATE-2026-06-23.md) — canonical current state snapshot as of 2026-06-23
-9. [`docs/current-state/reports/morning-truth-20260624-175842Z.md`](docs/current-state/reports/morning-truth-20260624-175842Z.md) — latest startup truth memo; always prefer newest `reports/morning-truth-*.md`
-10. [`docs/current-state/WORK-PLAN-2026-05-23.md`](docs/current-state/WORK-PLAN-2026-05-23.md) — historical roadmap context (stale counts/branch assumptions)
+9. [`docs/current-state/reports/morning-truth-20260703-175742Z.md`](docs/current-state/reports/morning-truth-20260703-175742Z.md) — latest committed startup truth memo; always prefer newest `reports/morning-truth-*.md` and a fresh `make status-readonly`
+10. [`docs/current-state/CURRENT-STATE-2026-07-09.md`](docs/current-state/CURRENT-STATE-2026-07-09.md) — declared counts for drift checks (Makefile default)
+11. [`docs/current-state/AUDIT-WORKPLAN-2026-07-09.md`](docs/current-state/AUDIT-WORKPLAN-2026-07-09.md) — active post-audit execution sequence (PR merge stack, truth hygiene, content/QA packets; draft PR #313 until merged)
+12. [`docs/current-state/WORK-PLAN-2026-05-23.md`](docs/current-state/WORK-PLAN-2026-05-23.md) — historical roadmap context (stale counts/branch assumptions)
 
 Roadmap-derived execution issues filed 2026-06-09: **#186–#197** (CI, prod drift, tracker hygiene).
 
@@ -52,7 +54,7 @@ Legacy branch split context is in [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-
 - **`.github/workflows/test-pr.yml`** — still active PR validation. Do not describe all workflows as dormant.
 - **`docs/architecture.md`, `docs/automation-guide.md`** — reference docs for the dormant swarm.
 - **`docs/cloudways-setup.md`, `docs/local-development-setup.md`, `.claude/context/wordpress-setup.md`** — Cloudways dev-server setup that was never used as planned. Relevant if/when Track B needs staging, otherwise ignore.
-- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use `HANDOFF-2026-06-17.md` and `CURRENT-STATE-2026-06-23.md` for current truth, plus the newest committed morning-truth report. `WORK-PLAN-2026-05-23.md` remains as historical context (Makefile default).
+- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use `HANDOFF-2026-06-17.md`, `CURRENT-STATE-2026-07-09.md`, and `AUDIT-WORKPLAN-2026-07-09.md` for current truth, plus the newest committed morning-truth report. `WORK-PLAN-2026-05-23.md` and `CURRENT-STATE-2026-06-23.md` remain historical.
 
 Anything banner-tagged `STATUS: Historical` at the top is reference-only.
 
@@ -83,4 +85,4 @@ If the task explicitly forbids file changes, run `make status-readonly` instead.
 
 ---
 
-**Last verified:** 2026-07-05 after PR #299 / Aurora 1.3.36 live closeout and #289 WCAG smoke closure. If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.
+**Last verified:** 2026-07-09 docs/code hygiene pass after the 2026-07-08 audit. Declared snapshot is `CURRENT-STATE-2026-07-09.md`. If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.
