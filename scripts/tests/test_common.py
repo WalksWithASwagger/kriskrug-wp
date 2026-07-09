@@ -62,6 +62,17 @@ class LoadEnvTests(_EnvFileMixin, unittest.TestCase):
             values = load_env(path, overlay_os=False)
         self.assertEqual(values["WP_USER"], "fileuser")
 
+    def test_auth_mode_os_overlay_wins(self):
+        path = self.write_env("WP_USER=fileuser\nWP_APP_PASSWORD=filepass\nWP_AUTH_MODE=basic\n")
+        with mock.patch.dict("os.environ", {"WP_AUTH_MODE": "login"}, clear=False):
+            values = load_env(path)
+        self.assertEqual(values["WP_AUTH_MODE"], "login")
+
+    def test_from_env_uses_auth_mode(self):
+        path = self.write_env("WP_USER=fileuser\nWP_APP_PASSWORD=filepass\nWP_AUTH_MODE=login\n")
+        client = WPClient.from_env(path)
+        self.assertEqual(client.auth_mode, "login")
+
 
 class WpCredentialsTests(unittest.TestCase):
     def test_returns_tuple_and_strips_base_slash(self):
@@ -105,6 +116,41 @@ class WPClientRequestTests(unittest.TestCase):
         self.assertTrue(captured["auth"].startswith("Basic "))
         self.assertEqual(captured["method"], "GET")
         self.assertIsNone(captured["data"])
+
+    def test_login_auth_uses_rest_nonce_and_cookie_opener(self):
+        client = WPClient("https://example.com", "u", "p", auth_mode="login")
+        opener = mock.MagicMock()
+        opener.open.return_value = _fake_response('{"ok": true}')
+        client._cookie_opener = opener
+        client._rest_nonce = "nonce123"
+
+        out = client.get("posts")
+
+        self.assertEqual(out, {"ok": True})
+        req = opener.open.call_args.args[0]
+        self.assertEqual(req.get_header("X-wp-nonce"), "nonce123")
+        self.assertIsNone(req.get_header("Authorization"))
+
+    def test_login_auth_parses_wp_api_settings_nonce(self):
+        client = WPClient("https://example.com", "u", "p", auth_mode="login")
+        login = _fake_response("")
+        profile = _fake_response(
+            'wp-login.php?action=logout<script id="wp-api-request-js-extra">'
+            'var wpApiSettings = {"root":"https://example.com/wp-json/","nonce":"abc123","versionString":"wp/v2/"};'
+            "</script>"
+        )
+        opener = mock.MagicMock()
+        opener.open.side_effect = [login, profile]
+
+        with mock.patch("urllib.request.build_opener", return_value=opener):
+            nonce = client._ensure_cookie_auth()
+
+        self.assertEqual(nonce, "abc123")
+        self.assertIs(client._cookie_opener, opener)
+
+    def test_invalid_auth_mode_raises(self):
+        with self.assertRaises(ValueError):
+            WPClient("https://example.com", "u", "p", auth_mode="cookie")
 
     def test_post_sends_json_body(self):
         captured = {}
