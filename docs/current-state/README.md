@@ -5,11 +5,13 @@
 
 This folder is the source of truth for "what was true on May 14, 2026" and for dated working addenda that came out of the May 2026 recovery/redesign push. Treat the baseline files as historical snapshots and the latest dated handoff/truth docs plus the newest committed `reports/morning-truth-*.md` artifact as the current front door.
 
-## Current Front Door (verified 2026-07-05 via live public probes)
+## Current Front Door (verified 2026-07-09 via Cursor Cloud audit)
 
 Read these first for current execution context:
 
-**Newest startup truth artifact:** [reports/morning-truth-20260703-175742Z.md](reports/morning-truth-20260703-175742Z.md) — read-only Track A verification captured `0` open PRs, `27` open issues, WordPress `6.9.4`, draft queue `0` future posts / `64` draft posts / `4` draft pages, and current drift against the older work-plan declarations.
+**Newest execution plan:** [AUDIT-WORKPLAN-2026-07-09.md](AUDIT-WORKPLAN-2026-07-09.md) — merge PR stack (#308→#312), restore authenticated draft-queue truth (#303/#309), then one Track A content packet and one Track B QA packet. Supersedes the June post-ship plan for *sequencing*.
+
+**Newest startup truth artifact:** [reports/morning-truth-20260703-175742Z.md](reports/morning-truth-20260703-175742Z.md) — committed read-only Track A verification. Live 2026-07-08 `make status-readonly` also saw `5` open PRs and `29` open issues; unauthenticated draft counts of `0/0/0` are a known auth false-zero until #309 lands. Always prefer the newest committed `reports/morning-truth-*.md` plus a fresh `make status-readonly`.
 
 **Newest Track A addendum:** [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md) — Trust + Offers and Topic Hubs waves are live on fifteen high-value pages, snapshot-gated, with `0` readability failures in both audits.
 
