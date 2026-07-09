@@ -11,7 +11,7 @@
 | Live theme | `kk-aurora` **1.3.36** | Matches AGENTS.md / HANDOFF addendum |
 | WordPress | **6.9.4** | Public smoke 0 failures, 3 OG/Twitter warnings |
 | Open issues | **29** | Declared 48 in CURRENT-STATE / work plan → drift |
-| Open PRs | **5** | Declared 0 → drift |
+| Open PRs | **8** | Declared 0 → drift; stack grew during docs/code pass |
 | Draft queue (unauthenticated) | `0/0/0` | **False zero** — missing `.env`; #303/#309 |
 | Local draft packages | ~65 | 5 strong / 25 media-tax / 30 thin / 5 empty-admin |
 | `/accessibility/` | **404** | Statement drafted, not published |
@@ -28,8 +28,8 @@ Restore **trustworthy queue truth**, clear the **reviewable PR stack**, then run
 
 | Lane | Goal | Primary issues / PRs |
 |---|---|---|
-| A0 — Merge stack | Land already-done agent work | #308→#309→#310→#311→#312 |
-| A1 — Truth hygiene | Fix false zeros + stale declared counts | #303, #306; docs refresh |
+| A0 — Merge stack | Land already-done agent work | #308→#309→#310→#311→#312→#315→#313→#314 |
+| A1 — Truth hygiene | Fix false zeros + stale declared counts | #303, #306; docs refresh (#313/#314) |
 | A2 — Content publish prep | One body-only packet after KK review | #278/#284/#305; #290/#307; #48/#288/#304 |
 | A3 — Cadence | Refill scheduled queue after truth restored | EPIC #219 context; draft audit |
 | B1 — Theme/QA | Perf, mobile, undesigned pages | #125, #127, #86, #122, #256 |
@@ -62,9 +62,12 @@ Merge in this order; do not close issues until the PR that satisfies them is mer
 | 2 | [#309](https://github.com/WalksWithASwagger/kriskrug-wp/pull/309) WP auth client consolidation | #306, #303 | Restores truthful draft-queue / morning-truth reads |
 | 3 | [#310](https://github.com/WalksWithASwagger/kriskrug-wp/pull/310) Cursor Cloud AGENTS notes | setup | Durable cloud env caveats |
 | 4 | [#311](https://github.com/WalksWithASwagger/kriskrug-wp/pull/311) a11y + hub-link + About plans | #304/#305/#307 (+ feeds #288/#48/#278/#284/#290) | Planning packets ready for human gates |
-| 5 | [#312](https://github.com/WalksWithASwagger/kriskrug-wp/pull/312) `publish_common` refactor | #254 | Code quality; no live write |
+| 5 | [#312](https://github.com/WalksWithASwagger/kriskrug-wp/pull/312) `publish_common` refactor | #254 | Shared helpers for one-off publishers |
+| 6 | [#315](https://github.com/WalksWithASwagger/kriskrug-wp/pull/315) leftover publish migrations | #254 | Stacked on #312; context_creators + keep_the_machine_strange |
+| 7 | [#313](https://github.com/WalksWithASwagger/kriskrug-wp/pull/313) audit workplan | docs | Sequencing plan (this file) |
+| 8 | [#314](https://github.com/WalksWithASwagger/kriskrug-wp/pull/314) state snapshot + path hygiene | docs/code | Declared counts + drop `/Users/kk` defaults |
 
-**Stop rules:** no force-push to `main`; no auto-merge (`allow_auto_merge=false`); green checks ≠ permission to merge.
+**Stop rules:** no force-push to `main`; no auto-merge (`allow_auto_merge=false`); green checks ≠ permission to merge. Merge #315 only after #312. #313 and #314 can land after #312/#315 or in parallel with each other once the code stack is reviewed.
 
 **Done when:** open PR count is back near 0 for this stack; #302/#254 closable; #303/#306 closable or explicitly parked with remaining write-client follow-up noted.
 
