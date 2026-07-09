@@ -32,7 +32,9 @@ from publish_common import (
     split_body_blocks,
 )
 
-STAGE = pathlib.Path("/Users/kk/Code/kriskrug-wp/content/drafts/2026-05-23-you-cant-drink-data")
+SCRIPT_DIR = pathlib.Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parents[1]
+STAGE = REPO_ROOT / "content" / "drafts" / "2026-05-23-you-cant-drink-data"
 FLAGS = parse_publish_argv()
 EXECUTE = FLAGS.execute
 UPDATE = FLAGS.update

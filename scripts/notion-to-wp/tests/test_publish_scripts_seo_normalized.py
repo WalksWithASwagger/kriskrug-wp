@@ -16,6 +16,8 @@ ONE_OFF_PUBLISH_SCRIPTS = [
     "publish_dc_protest_draft.py",
     "publish_you_cant_drink_data.py",
     "publish_proximity_game.py",
+    "publish_context_creators.py",
+    "publish_keep_the_machine_strange.py",
 ]
 
 SEO_META_FIELDS = ("jetpack_seo_html_title", "advanced_seo_description")
