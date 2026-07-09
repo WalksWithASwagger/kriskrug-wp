@@ -81,6 +81,17 @@ Run `make morning-truth` at session start (or before execution) to emit a timest
 
 If the task explicitly forbids file changes, run `make status-readonly` instead. It prints the same startup truth shape to stdout and does not write a report file.
 
+## Cursor Cloud specific instructions
+
+This repo is CLI tooling + a WordPress theme/plugins line — there is **no local web app or server to boot**. "Running" it means executing the Python CLIs (`scripts/notion-to-wp/`, `scripts/*.py`) and the PHP lint/smoke checks. Standard commands (`make test`, `make validate`, `make verify`, connector usage) are already documented in `CONTRIBUTING.md`, `Makefile`, and `scripts/notion-to-wp/README.md`; use those.
+
+Non-obvious caveats for future agents (the update script already installs deps):
+
+- The Python venv lives at `scripts/notion-to-wp/.venv` and **many `Makefile` targets call `scripts/notion-to-wp/.venv/bin/python` directly** (e.g. `seo-audit`, `seo-backfill`, `draft-queue-audit`). If that venv is missing those targets break, so it must exist — the update script (re)creates it.
+- PHP is **8.3** here (CI pins 8.2). This does not affect linting: `phpcs.xml.dist` sets `testVersion 8.1-` as a static target, so `make validate` / `make plugin-smoke` run fine on 8.3.
+- Without `scripts/notion-to-wp/.env` (WP application password) and a Notion token, all connector/audit/report commands are effectively read-only/dry-run: the live publisher and `create_local_wp_draft.py` **hard-exit requiring creds even in dry-run**, so exercise the credential-free paths instead — `LOCAL_ONLY=1 make draft-queue-audit` and `make status-readonly` (the latter just logs a `missing env file` soft error and still completes).
+- `make morning-truth`, `make status-readonly`, and the audit targets make live HTTP calls to `https://kriskrug.co` when reachable; they degrade gracefully but expect outbound network for the WP smoke portions.
+
 ---
 
 **Last verified:** 2026-07-05 after PR #299 / Aurora 1.3.36 live closeout and #289 WCAG smoke closure. If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.
