@@ -8,7 +8,7 @@ from urllib.error import HTTPError
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import common  # noqa: E402
-from common import WPClient, load_env, parse_simple_env, wp_credentials  # noqa: E402
+from common import WPClient, load_env, parse_simple_env, wp_credentials, wp_queue_counts  # noqa: E402
 
 
 def _fake_response(body: str):
@@ -62,11 +62,22 @@ class LoadEnvTests(_EnvFileMixin, unittest.TestCase):
             values = load_env(path, overlay_os=False)
         self.assertEqual(values["WP_USER"], "fileuser")
 
+    def test_auth_mode_os_overlay_wins(self):
+        path = self.write_env("WP_USER=fileuser\nWP_APP_PASSWORD=filepass\nWP_AUTH_MODE=basic\n")
+        with mock.patch.dict("os.environ", {"WP_AUTH_MODE": "login"}, clear=False):
+            values = load_env(path)
+        self.assertEqual(values["WP_AUTH_MODE"], "login")
+
+    def test_from_env_uses_auth_mode(self):
+        path = self.write_env("WP_USER=fileuser\nWP_APP_PASSWORD=filepass\nWP_AUTH_MODE=login\n")
+        client = WPClient.from_env(path)
+        self.assertEqual(client.auth_mode, "login")
+
 
 class WpCredentialsTests(unittest.TestCase):
     def test_returns_tuple_and_strips_base_slash(self):
-        env = {"WP_USER": "u", "WP_APP_PASSWORD": "p", "WP_BASE_URL": "https://example.com/"}
-        self.assertEqual(wp_credentials(env), ("https://example.com", "u", "p"))
+        env = {"WP_USER": "u", "WP_APP_PASSWORD": "p a s s", "WP_BASE_URL": "https://example.com/"}
+        self.assertEqual(wp_credentials(env), ("https://example.com", "u", "pass"))
 
     def test_defaults_base_url(self):
         base, _, _ = wp_credentials({"WP_USER": "u", "WP_APP_PASSWORD": "p"})
@@ -105,6 +116,41 @@ class WPClientRequestTests(unittest.TestCase):
         self.assertTrue(captured["auth"].startswith("Basic "))
         self.assertEqual(captured["method"], "GET")
         self.assertIsNone(captured["data"])
+
+    def test_login_auth_uses_rest_nonce_and_cookie_opener(self):
+        client = WPClient("https://example.com", "u", "p", auth_mode="login")
+        opener = mock.MagicMock()
+        opener.open.return_value = _fake_response('{"ok": true}')
+        client._cookie_opener = opener
+        client._rest_nonce = "nonce123"
+
+        out = client.get("posts")
+
+        self.assertEqual(out, {"ok": True})
+        req = opener.open.call_args.args[0]
+        self.assertEqual(req.get_header("X-wp-nonce"), "nonce123")
+        self.assertIsNone(req.get_header("Authorization"))
+
+    def test_login_auth_parses_wp_api_settings_nonce(self):
+        client = WPClient("https://example.com", "u", "p", auth_mode="login")
+        login = _fake_response("")
+        profile = _fake_response(
+            'wp-login.php?action=logout<script id="wp-api-request-js-extra">'
+            'var wpApiSettings = {"root":"https://example.com/wp-json/","nonce":"abc123","versionString":"wp/v2/"};'
+            "</script>"
+        )
+        opener = mock.MagicMock()
+        opener.open.side_effect = [login, profile]
+
+        with mock.patch("urllib.request.build_opener", return_value=opener):
+            nonce = client._ensure_cookie_auth()
+
+        self.assertEqual(nonce, "abc123")
+        self.assertIs(client._cookie_opener, opener)
+
+    def test_invalid_auth_mode_raises(self):
+        with self.assertRaises(ValueError):
+            WPClient("https://example.com", "u", "p", auth_mode="cookie")
 
     def test_post_sends_json_body(self):
         captured = {}
@@ -164,6 +210,29 @@ class WPClientPaginationTests(unittest.TestCase):
         client = WPClient("https://example.com", "u", "p")
         with mock.patch.object(client, "request", return_value=[]):
             self.assertEqual(client.get_all("posts"), [])
+
+
+class WPQueueCountsTests(unittest.TestCase):
+    def test_counts_expected_read_only_queue_surfaces(self):
+        client = mock.MagicMock()
+        client.get_all.side_effect = [
+            [{"id": 1}],
+            [{"id": 2}, {"id": 3}],
+            [],
+        ]
+
+        self.assertEqual(
+            wp_queue_counts(client),
+            {"future_posts": 1, "draft_posts": 2, "draft_pages": 0},
+        )
+        self.assertEqual(
+            client.get_all.call_args_list,
+            [
+                mock.call("posts", params={"status": "future", "context": "edit", "_fields": "id"}, per_page=100),
+                mock.call("posts", params={"status": "draft", "context": "edit", "_fields": "id"}, per_page=100),
+                mock.call("pages", params={"status": "draft", "context": "edit", "_fields": "id"}, per_page=100),
+            ],
+        )
 
 
 if __name__ == "__main__":
