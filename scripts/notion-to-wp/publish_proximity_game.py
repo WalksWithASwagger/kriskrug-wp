@@ -18,78 +18,23 @@ draft found by slug.
 """
 import re, sys, json, pathlib
 import yaml
-import html
 from dotenv import dotenv_values
-from kk_notion_to_wp import WordPress, slugify, WP_BASE_URL_DEFAULT, WP_DEFAULT_AUTHOR_ID
+from kk_notion_to_wp import WordPress, WP_BASE_URL_DEFAULT, WP_DEFAULT_AUTHOR_ID
 from connector_payload import normalize_seo_meta
+from publish_common import (
+    ensure_term_id,
+    parse_publish_argv,
+    render_text_post,
+)
 
 SCRIPT_DIR = pathlib.Path(__file__).resolve().parent
-REPO_ROOT = SCRIPT_DIR.parents[2]
+REPO_ROOT = SCRIPT_DIR.parents[1]
 STAGE = REPO_ROOT / "content" / "drafts" / "2026-06-04-the-great-canadian-proximity-game"
 ENV = SCRIPT_DIR / ".env"
-EXECUTE = "--execute" in sys.argv
-UPDATE = "--update" in sys.argv
-WRITE = EXECUTE or UPDATE
-
-
-def inline(s: str) -> str:
-    def link(m):
-        text, url = m.group(1), m.group(2)
-        extra = "" if url.startswith(("https://kriskrug.co", "/")) \
-            else ' target="_blank" rel="noopener noreferrer"'
-        return f'<a href="{url}"{extra}>{text}</a>'
-    s = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", link, s)
-    s = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", s)
-    s = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", s)
-    return s
-
-
-def term_id(wp, taxonomy: str, name: str) -> int:
-    """Resolve a category/tag to an ID, creating it only if truly absent.
-
-    Robust to two things kk_notion_to_wp.ensure_term trips on: WP returns names
-    HTML-encoded (``AI Ethics &amp; Philosophy``), and re-creating an existing
-    term 400s with ``term_exists`` (the existing id is in the error payload)."""
-    slug = slugify(name)
-    r = wp.s.get(f"{wp.base}/wp-json/wp/v2/{taxonomy}",
-                 params={"search": name, "per_page": 100}, timeout=30)
-    r.raise_for_status()
-    for t in r.json():
-        if html.unescape(t.get("name", "")).lower() == name.lower() or t.get("slug", "") == slug:
-            return t["id"]
-    r2 = wp.s.post(f"{wp.base}/wp-json/wp/v2/{taxonomy}",
-                   json={"name": name, "slug": slug}, timeout=30)
-    if r2.status_code == 400:
-        data = (r2.json() or {}).get("data") or {}
-        if data.get("term_id"):
-            return int(data["term_id"])
-    r2.raise_for_status()
-    return r2.json()["id"]
-
-
-def render(body: str) -> str:
-    out = []
-    seen_title = False
-    for b in [x.strip() for x in re.split(r"\n\s*\n", body) if x.strip()]:
-        if b.startswith("# ") and not seen_title:
-            seen_title = True
-            continue
-        if b == "---":
-            out.append('<!-- wp:separator -->\n'
-                       '<hr class="wp-block-separator has-alpha-channel-opacity"/>\n'
-                       '<!-- /wp:separator -->')
-        elif b.startswith("## "):
-            out.append(f'<!-- wp:heading -->\n'
-                       f'<h2 class="wp-block-heading">{inline(b[3:].strip())}</h2>\n'
-                       f'<!-- /wp:heading -->')
-        elif b.startswith("### "):
-            out.append(f'<!-- wp:heading {{"level":3}} -->\n'
-                       f'<h3 class="wp-block-heading">{inline(b[4:].strip())}</h3>\n'
-                       f'<!-- /wp:heading -->')
-        else:
-            para = "<br>".join(inline(line.strip()) for line in b.split("\n"))
-            out.append(f"<!-- wp:paragraph -->\n<p>{para}</p>\n<!-- /wp:paragraph -->")
-    return "\n\n".join(out)
+FLAGS = parse_publish_argv()
+EXECUTE = FLAGS.execute
+UPDATE = FLAGS.update
+WRITE = FLAGS.write
 
 
 # ---- load draft ----
@@ -99,7 +44,7 @@ fm = yaml.safe_load(fmatch.group(1))
 body = fmatch.group(2).strip()
 assert "—" not in body, "em-dash leaked into post.md body"
 
-content = render(body)
+content = render_text_post(body)
 (STAGE / "post.html").write_text(content)
 assert "—" not in content, "em-dash leaked into content"
 n_links = content.count("<a href=")
@@ -137,12 +82,13 @@ if UPDATE:
 else:
     if existing:
         sys.exit(f"[ABORT] a post with slug {SLUG} already exists (id={existing}). Use --update.")
-    cat_ids = [term_id(wp, "categories", c) for c in CATEGORIES]
-    tag_ids = [term_id(wp, "tags", t) for t in TAGS]
+    cat_ids = [ensure_term_id(wp, "categories", c) for c in CATEGORIES]
+    tag_ids = [ensure_term_id(wp, "tags", t) for t in TAGS]
     payload = {
         "title": TITLE, "slug": SLUG, "status": "draft",
         "author": author_id, "content": content, "excerpt": EXCERPT,
         "categories": cat_ids, "tags": tag_ids,
+        # Keep normalize_seo_meta on these assignment lines for test_publish_scripts_seo_normalized.
         "meta": {
             "jetpack_seo_html_title": normalize_seo_meta(SEO.get("meta_title", "")),
             "advanced_seo_description": normalize_seo_meta(SEO.get("meta_description", "")),

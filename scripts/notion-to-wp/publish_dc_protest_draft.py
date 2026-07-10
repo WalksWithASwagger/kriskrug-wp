@@ -6,20 +6,32 @@ create_post), slugify, load_config, and text_polish.purge_em_dashes.
 Dry-run by default (writes staged post.html + prints plan). --execute uploads
 the 14 images and creates the DRAFT post. NEVER publishes.
 """
-import re, sys, json, shutil, pathlib, datetime
-from kk_notion_to_wp import WordPress, load_config, slugify
+import re, sys, json, shutil, pathlib
+from kk_notion_to_wp import WordPress, load_config
 from connector_payload import normalize_seo_meta
 from text_polish import purge_em_dashes
 from wp_blocks import inline, image, heading, separator
+from publish_common import (
+    MARKDOWN_IMG_IMAGES_RE,
+    parse_int_arg,
+    parse_markdown_image_order,
+    parse_publish_argv,
+    resolve_category_ids,
+    resolve_featured_media,
+    split_body_blocks,
+    upload_image_manifest,
+)
 
 SRC = pathlib.Path("/Users/kk/Code/notion-local/kk-ai-ecosystem/content/articles/kris-krug-thought-leadership/25-data-center-protest-signs")
 STAGE = pathlib.Path("/Users/kk/Code/kriskrug-wp/content/drafts/2026-05-23-data-center-protest-signs")
-EXECUTE = "--execute" in sys.argv
+FLAGS = parse_publish_argv()
+EXECUTE = FLAGS.execute
+# Default category: AI Ethics & Philosophy. Override with --category-id N.
+CATEGORY_ID = parse_int_arg(sys.argv[1:], "--category-id", 1678)
 
 TITLE = "Both Hands Full at the Data Center: Protest Signs for People Who Refuse to Pick a Side"
 SLUG = "data-center-protest-signs"
 DATE = "2026-05-23T12:00:00"
-CATEGORY_ID = 1678  # AI Ethics & Philosophy
 TAGS = ["data-centers","ai-infrastructure","sovereign-ai","protest","vancouver","both-hands-full","generative-art","bc-ai"]
 # KK's call (2026-05-23): Jetpack ties og:image to the featured image, so to get
 # the "thirsty data center" share card, it IS the featured image. both-hands-full
@@ -40,15 +52,8 @@ body = body.replace(LINK39_OLD, LINK39_NEW)
 assert LINK39_NEW in body, "line-39 link fix did not apply"
 body = purge_em_dashes(body)
 
-IMG_RE = re.compile(r"^!\[(.+?)\]\(images/(.+?)\)$")
-blocks_src = [b.strip() for b in re.split(r"\n\s*\n", body) if b.strip()]
-
-# ordered list of (filename, alt) for images, in body order
-image_order = []
-for b in blocks_src:
-    m = IMG_RE.match(b)
-    if m:
-        image_order.append((m.group(2), m.group(1)))
+blocks_src = split_body_blocks(body)
+image_order = parse_markdown_image_order(body)
 assert len(image_order) == 14, f"expected 14 images, found {len(image_order)}"
 
 cfg = load_config()
@@ -63,15 +68,9 @@ for fn, _ in image_order:
     shutil.copy2(SRC / "images" / fn, STAGE / "images" / fn)
 
 # ---- upload images (execute) or stub (dry-run) ----
-uploaded = {}  # filename -> {id, url}
-log = []
-for fn, alt in image_order:
-    if EXECUTE:
-        media = wp.upload_media(SRC / "images" / fn, alt=alt, mime="image/png")
-        uploaded[fn] = {"id": media["id"], "url": media["source_url"]}
-        log.append(f"{fn} -> id={media['id']} {media['source_url']}")
-    else:
-        uploaded[fn] = {"id": 0, "url": f"DRYRUN/{fn}"}
+uploaded, log = upload_image_manifest(
+    wp, image_order, SRC / "images", write=EXECUTE, mime="image/png"
+)
 print("[media] " + ("uploaded" if EXECUTE else "DRY-RUN") + f" {len(uploaded)} images")
 for line in log: print("   " + line)
 
@@ -81,7 +80,7 @@ seen_title = False
 for b in blocks_src:
     if b.startswith("# ") and not seen_title:
         seen_title = True; continue  # drop duplicate H1 (post title field)
-    m = IMG_RE.match(b)
+    m = MARKDOWN_IMG_IMAGES_RE.match(b)
     if m:
         fn, alt = m.group(2), m.group(1)
         u = uploaded[fn]
@@ -112,15 +111,23 @@ if isinstance(hits, list) and hits:
     sys.exit(f"[ABORT] a post with slug {SLUG} already exists (id={hits[0]['id']}). Not creating a duplicate.")
 
 # ---- terms ----
+category_ids = resolve_category_ids(wp, ids=[CATEGORY_ID])
 tag_ids = [wp.ensure_term("tags", t) for t in TAGS]
-print(f"[terms] category={CATEGORY_ID} tags={tag_ids}")
+featured_id = resolve_featured_media(
+    wp, filename=FEATURED_FILE, uploaded=uploaded, write=True
+)
+print(f"[terms] category={category_ids} tags={tag_ids}")
 
 payload = {
     "title": TITLE, "slug": SLUG, "status": "draft", "date": DATE,
     "author": cfg.wp_author_id, "content": content, "excerpt": META_DESC,
-    "categories": [CATEGORY_ID], "tags": tag_ids,
-    "featured_media": uploaded[FEATURED_FILE]["id"],
-    "meta": {"advanced_seo_description": normalize_seo_meta(META_DESC), "jetpack_seo_html_title": normalize_seo_meta(SEO_TITLE)},
+    "categories": category_ids, "tags": tag_ids,
+    "featured_media": featured_id,
+    # Keep normalize_seo_meta on these assignment lines for test_publish_scripts_seo_normalized.
+    "meta": {
+        "jetpack_seo_html_title": normalize_seo_meta(SEO_TITLE),
+        "advanced_seo_description": normalize_seo_meta(META_DESC),
+    },
 }
 post = wp.create_post(payload)
 pid = post["id"]
@@ -132,9 +139,9 @@ vc = v["content"]["raw"]
 checks = {
     "status_draft": v["status"] == "draft",
     "slug": v["slug"] == SLUG,
-    "category": CATEGORY_ID in v.get("categories", []),
+    "category": category_ids[0] in v.get("categories", []),
     "tags": len(v.get("tags", [])) == len(TAGS),
-    "featured_set": v.get("featured_media") == uploaded[FEATURED_FILE]["id"],
+    "featured_set": v.get("featured_media") == featured_id,
     "14_images": vc.count("<!-- wp:image ") == 14,
     "no_local_paths": "images/" not in vc or "wp-content/uploads" in vc,
     "bhf_link": BHF_URL in vc,
