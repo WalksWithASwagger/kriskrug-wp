@@ -25,9 +25,23 @@ source_pack:
   film: 'The AI Doc: Or How I Became an Apocaloptimist (2026), dir. Daniel Roher & Charlie Tyrell, Focus Features'
 images:
 - file: images/01-cheer-is-a-cap-table-marionette.png
+  wp_media_id: 12480
+  role: featured + inline (after the cap-table punchline)
   alt: A cheerful handmade clay puppet of a businessman throwing his arms up in celebration, worked by glowing green stock-ticker strings printed with dollar signs, in front of a tiny cardboard movie theater.
 - file: images/02-handmade-stopmotion-frame-by-frame.png
+  wp_media_id: 12481
+  role: inline (after the stop-motion craft paragraph)
   alt: A paint-stained human hand adjusting a small clay puppet on a handmade cardboard miniature film set under warm work-lights, with a vintage film camera on a rail nearby.
+- file: https://kriskrug.co/wp-content/uploads/2026/07/the-ai-doc-official-poster.jpg
+  wp_media_id: 12482
+  role: inline (after the logline paragraph); official one-sheet, credit Focus Features, not stored in repo
+  source: https://images.contentstack.io/v3/assets/blt223a4a92692ca457/bltbbcfe9dbcd2e8dab/69af0530030f160008147b84/THE_AI_DOC_Digi_1-Sheet_1080x1600_W3_FIN02.jpg
+  alt: 'Official poster for The AI Doc: Or How I Became an Apocaloptimist: hand-collaged paper letters and doodled robots on a yellow grid background, with the tagline ''The future is not automatic.'''
+- file: https://kriskrug.co/wp-content/uploads/2026/07/the-ai-doc-what-is-ai-still.png
+  wp_media_id: 12483
+  role: inline (after "The animation." beat); official first-look still, credit Focus Features, not stored in repo
+  source: https://images.contentstack.io/v3/assets/blt223a4a92692ca457/blt70cd0f7340e72e12/6938c38885cc6d7269520c22/AI_first_look_marquee_image.png
+  alt: 'A still from The AI Doc: a sketchbook lying open on a wooden desk, the words ''what is AI?'' hand-painted in watercolor across both pages, with a coffee cup and the edge of a hand in frame.'
 ---
 
 I watched [*The AI Doc: Or How I Became an Apocaloptimist*](https://www.focusfeatures.com/the-ai-doc-or-how-i-became-an-apocaloptimist) twice this week. Once for the movie, once with a notebook. And the thing I can't stop chewing on isn't the doom.
@@ -54,7 +68,7 @@ Start with Reid Hoffman.
 
 In the film he's calm and reasonable and optimistic about our AI future. He's also, [per Forbes](https://www.forbes.com/profile/reid-hoffman/), worth about three billion dollars, and a big slice of that is levered straight to AI going the way he says it will.
 
-He co-founded Inflection AI. Microsoft paid something like 650 million dollars to license its tech and hire away most of its people. Through Greylock he's an investor in dozens of AI companies, Anthropic included. He wrote a book last year called *Superagency: What Could Possibly Go Right with Our AI Future.*
+He co-founded Inflection AI. Microsoft [paid something like 650 million dollars](https://fortune.com/2024/03/19/microsoft-surprise-deal-inflection-ai-mustafa-suleyman-reid-hoffman-questions/) to license its tech and hire away most of its people. Through Greylock he's an investor in dozens of AI companies, Anthropic included. He wrote a book last year called [*Superagency: What Could Possibly Go Right with Our AI Future.*](https://www.superagency.ai/)
 
 Here's my favorite receipt. In 2023 he [stepped off OpenAI's board](https://en.wikipedia.org/wiki/Reid_Hoffman) specifically to avoid the conflicts of interest between that seat and his AI investments.
 
@@ -66,7 +80,7 @@ I'm not saying the man is lying. I'm saying he's a shareholder reading you his o
 
 Then there's Peter Diamandis, the abundance guy.
 
-He runs a [500-million-dollar AI fund and a 600-million-dollar exponential-tech fund](https://www.diamandis.com/). That second one holds a piece of Figure, the humanoid robot company everyone's hyping. You don't have to dig for any of this. [His own newsletter brags about it](https://www.diamandis.com/blog/abundance-43-figure-vs-tesla). He sells a whole worldview to a paid mastermind of executives.
+He runs a [500-million-dollar AI fund and a 600-million-dollar exponential-tech fund](https://www.diamandis.com/). That second one holds a piece of Figure, the humanoid robot company everyone's hyping. You don't have to dig for any of this. [His own newsletter brags about it](https://www.diamandis.com/blog/abundance-43-figure-vs-tesla). He sells a whole worldview to [a paid mastermind of executives](https://www.abundance360.com/membership).
 
 Fine. That's a point of view with a business model bolted to it, which describes half the internet, me included some days.
 
@@ -92,11 +106,14 @@ The film isn't dumb and it isn't a puff piece. It works you honestly. And the fr
 
 The whole documentary is built around director Daniel Roher becoming a father. The official logline is literally "a father-to-be tries to figure out what is happening with all this AI insanity." The spine of the thing is him asking, over and over, am I making a mistake having a kid right now.
 
+![Official poster for The AI Doc: Or How I Became an Apocaloptimist: hand-collaged paper letters and doodled robots on a yellow grid background, with the tagline 'The future is not automatic.'](https://kriskrug.co/wp-content/uploads/2026/07/the-ai-doc-official-poster.jpg)
+*The one-sheet. "The most urgent movie of our time," says the marketing. (Focus Features)*
+
 There's a moment where Tristan Harris says he knows people who work on AI risk who don't expect their kids to make it to high school. Sam Altman, a new dad himself, says he isn't scared for a kid to grow up with AI, then admits it unsettles him that his kid will never be smarter than it.
 
 That stuff lands. I have a nervous system. It's supposed to land.
 
-But watch what the frame does. It takes an enormous public question about power and labor and money and who decides, and it shrinks it down to will my baby be okay. Larry Lessig [said it better than I can](https://lessig.substack.com/p/review-the-ai-doc-or-how-i-became): the executives' reassurances have nothing to do with the most important problems the film itself raised. Mass unemployment doesn't care how you feel about your newborn.
+But watch what the frame does. It takes an enormous public question about power and labor and money and [who decides](https://kriskrug.co/2026/06/16/sovereign-ai-for-whom/), and it shrinks it down to will my baby be okay. Larry Lessig [said it better than I can](https://lessig.substack.com/p/review-the-ai-doc-or-how-i-became): the executives' reassurances have nothing to do with the most important problems the film itself raised. Mass unemployment doesn't care how you feel about your newborn.
 
 A baby is the most disarming frame on earth. It's also the most comfortable frame you could hand to people selling comfort. You don't argue with a dad holding a car seat. You nod.
 
@@ -104,7 +121,7 @@ And notice who doesn't get to be the emotional center. The people doing the shar
 
 There's one more flavor of this worth naming. The film has an accelerationist wing, including Guillaume Verdon, the ex-Google physicist behind the ["Beff Jezos" persona](https://www.forbes.com/sites/emilybaker-white/2023/12/01/who-is-basedbeffjezos-the-leader-of-effective-accelerationism-eacc/) who more or less founded the e/acc movement. That crowd likes to argue that slowing AI down is the real sin, because you'd be robbing some astronomical number of future humans of ever existing.
 
-It sounds moral. It's really just growth math. It counts people the way a spreadsheet counts total addressable market. More is always better, and it never once asks whether those future humans get to be free, or just get to be customers. Population as inventory. I'm about as pro-human as it gets, and I still think a billion managed users isn't obviously a better world than a few million free people.
+It sounds moral. It's really just growth math. It counts people the way a spreadsheet counts total addressable market. More is always better, and it never once asks whether those future humans get to be free, or just get to be customers. Population as inventory. [I'm about as pro-human as it gets](https://kriskrug.co/2026/05/04/punk-rock-ai/), and I still think a billion managed users isn't obviously a better world than a few million free people.
 
 ## The Softest Sell Is the One I Loved
 
@@ -112,9 +129,12 @@ And then there's the part I genuinely loved, which is also, I think, the sneakie
 
 The animation.
 
-![A paint-stained human hand adjusting a small clay puppet on a handmade cardboard miniature film set under warm work-lights, with a vintage film camera on a rail nearby.](images/02-handmade-stopmotion-frame-by-frame.png)
+![A still from The AI Doc: a sketchbook lying open on a wooden desk, the words 'what is AI?' hand-painted in watercolor across both pages, with a coffee cup and the edge of a hand in frame.](https://kriskrug.co/wp-content/uploads/2026/07/the-ai-doc-what-is-ai-still.png)
+*From the film: the question, hand-painted. (Focus Features)*
 
 The film is full of handmade stop-motion. Real clay, real little sets, moved one frame at a time. Co-director Charlie Tyrell has said he wanted the look to be [antithetical to the digital space of AI](https://variety.com/2026/film/news/sundance-ai-doc-1236641352/). Handmade on purpose. They rebuilt Roher's actual backyard studio shack in Toronto to shoot it and cranked out something like fifteen minutes of animation at four to seven seconds a day.
+
+![A paint-stained human hand adjusting a small clay puppet on a handmade cardboard miniature film set under warm work-lights, with a vintage film camera on a rail nearby.](images/02-handmade-stopmotion-frame-by-frame.png)
 
 It's beautiful. Fingerprints in the clay. Warmth you can't fake, or at least warmth they chose not to fake.
 
@@ -134,12 +154,14 @@ Right hand: don't swallow the comfort just because it came served warm. When a f
 
 Apocaloptimism is a lovely word. It's also a mood you can afford when you're long the stock.
 
-Watch the movie. Keep both hands full. And don't buy reassurance from the people holding the shares.
+Watch the movie. [Keep both hands full.](https://kriskrug.co/2026/01/24/both-hands-full/) And don't buy reassurance from the people holding the shares.
 
 ## Related
 
 - [Both Hands Full](https://kriskrug.co/2026/01/24/both-hands-full/)
 - [Punk Rock AI](https://kriskrug.co/2026/05/04/punk-rock-ai/)
+- [Sovereign AI for Whom?](https://kriskrug.co/2026/06/16/sovereign-ai-for-whom/)
+- [Canada's AI for All Strategy: A Skeptical Guide](https://kriskrug.co/2026/06/04/canada-ai-for-all-strategy-skeptical-guide/)
 - [BC + AI Ecosystem](https://bc-ai.ca/)
 - [Book Kris for a talk or a panel](https://kriskrug.co/contact/)
 
