@@ -33,13 +33,21 @@ import urllib.request
 SCRIPT_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent.parent
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
+sys.path.insert(0, str(SCRIPT_DIR))
 from common import WPClient, load_env, wp_credentials  # noqa: E402
+from publish_common import (  # noqa: E402
+    parse_publish_argv,
+    render_paragraph_from_markdown,
+    split_body_blocks,
+)
+from wp_blocks import inline  # noqa: E402
 
-ENV_PATH = "/Users/kk/Code/kriskrug-wp/scripts/notion-to-wp/.env"
+ENV_PATH = SCRIPT_DIR / ".env"
 STAGE = REPO_ROOT / "content/drafts/2026-06-28-keep-the-machine-strange"
-EXECUTE = "--execute" in sys.argv
-UPDATE = "--update" in sys.argv
-WRITE = EXECUTE or UPDATE
+FLAGS = parse_publish_argv()
+EXECUTE = FLAGS.execute
+UPDATE = FLAGS.update
+WRITE = FLAGS.write
 
 TITLE = "Keep the Machine Strange: Technological Resistance in the Age of AI"
 SLUG = "keep-the-machine-strange"
@@ -91,17 +99,6 @@ def slugify(s: str) -> str:
     s = re.sub(r"[^\w\s-]", "", s)
     s = re.sub(r"\s+", "-", s)
     return re.sub(r"-+", "-", s).strip("-")
-
-
-def inline(s: str) -> str:
-    def link(m):
-        text, url = m.group(1), m.group(2)
-        extra = "" if url.startswith(("https://kriskrug.co", "/", "#")) else ' target="_blank" rel="noopener noreferrer"'
-        return f'<a href="{url}"{extra}>{text}</a>'
-    s = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", link, s)
-    s = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", s)
-    s = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", s)
-    return s
 
 
 def http_get(url: str, timeout: int = 120) -> bytes:
@@ -251,7 +248,7 @@ else:
 
 # ---- build blocks -----------------------------------------------------------
 out = []
-for blk in [b.strip() for b in re.split(r"\n\s*\n", body) if b.strip()]:
+for blk in split_body_blocks(body):
     if blk == "---":
         out.append(b_separator())
     elif blk.startswith("### "):
@@ -279,8 +276,7 @@ for blk in [b.strip() for b in re.split(r"\n\s*\n", body) if b.strip()]:
         elif blk_lines and all(ln.startswith("- ") for ln in blk_lines):
             out.append(b_list([inline(ln[2:].strip()) for ln in blk_lines]))
         else:
-            para = "<br>".join(inline(line.strip()) for line in blk.split("\n"))
-            out.append(f"<!-- wp:paragraph -->\n<p>{para}</p>\n<!-- /wp:paragraph -->")
+            out.append(render_paragraph_from_markdown(blk))
 
 content = "\n\n".join(out)
 (STAGE / "post.html").write_text(content, encoding="utf-8")

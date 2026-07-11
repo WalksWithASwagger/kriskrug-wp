@@ -101,6 +101,8 @@ class PublishCommonTests(unittest.TestCase):
             "publish_dc_protest_draft.py",
             "publish_you_cant_drink_data.py",
             "publish_proximity_game.py",
+            "publish_context_creators.py",
+            "publish_keep_the_machine_strange.py",
         ):
             src = (SCRIPT_DIR / name).read_text(encoding="utf-8")
             self.assertIn("publish_common", src, f"{name} should import publish_common")

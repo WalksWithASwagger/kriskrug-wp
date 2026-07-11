@@ -16,15 +16,24 @@ Marker syntax in post.md:
   everything else   -> wp:paragraph
 """
 import re, sys, json, pathlib
-from kk_notion_to_wp import WordPress, load_config, slugify
+from kk_notion_to_wp import WordPress, load_config
 from connector_payload import normalize_seo_meta
 from wp_blocks import inline, inline_image, hero_image, heading, separator, pullquote
+from publish_common import (
+    find_media_by_stem,
+    parse_publish_argv,
+    render_paragraph_from_markdown,
+    split_body_blocks,
+)
 
-STAGE = pathlib.Path("/Users/kk/code/kriskrug-wp/content/drafts/2026-06-28-context-creators")
+SCRIPT_DIR = pathlib.Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parents[1]
+STAGE = REPO_ROOT / "content" / "drafts" / "2026-06-28-context-creators"
 IMAGES = STAGE / "images"
-EXECUTE = "--execute" in sys.argv
-UPDATE = "--update" in sys.argv
-WRITE = EXECUTE or UPDATE
+FLAGS = parse_publish_argv()
+EXECUTE = FLAGS.execute
+UPDATE = FLAGS.update
+WRITE = FLAGS.write
 
 TITLE = "Context Creators"
 SLUG = "context-creators"
@@ -80,31 +89,13 @@ assert "—" not in body, "em-dash leaked into post.md body"
 cfg = load_config()
 wp = WordPress(cfg.wp_base_url, cfg.wp_user, cfg.wp_app_password)
 
-
-def find_media(stem: str):
-    """Reuse already-uploaded media whose basename matches stem (avoid dupes)."""
-    if not WRITE:
-        return None
-    try:
-        r = wp.s.get(f"{wp.base}/wp-json/wp/v2/media",
-                     params={"search": stem, "per_page": 10, "context": "edit"}, timeout=30).json()
-    except Exception:
-        return None
-    if isinstance(r, list):
-        for m in r:
-            base = m.get("source_url", "").rsplit("/", 1)[-1]
-            if base == f"{stem}.png" or base.startswith(stem):
-                return m["id"], m["source_url"]
-    return None
-
-
 media_log = []
 poster_media = {}  # N -> (id, url, alt)
 for n, (fn, alt) in POSTERS.items():
     p = IMAGES / fn
     assert p.exists(), f"missing staged poster: {p}"
     if WRITE:
-        found = find_media(p.stem)
+        found = find_media_by_stem(wp, p.stem, extensions=(".png", ".jpg", ".jpeg", ".webp"))
         if found:
             mid, url = found
             media_log.append(f"{fn} -> REUSE id={mid}")
@@ -121,7 +112,7 @@ for key, (fn, alt, caption) in SCREENSHOTS.items():
     p = IMAGES / fn
     assert p.exists(), f"missing staged screenshot: {p}"
     if WRITE:
-        found = find_media(p.stem)
+        found = find_media_by_stem(wp, p.stem, extensions=(".png", ".jpg", ".jpeg", ".webp"))
         if found:
             mid, url = found
             media_log.append(f"{fn} -> REUSE id={mid}")
@@ -142,7 +133,7 @@ FEATURED_ID = poster_media[1][0]
 # ---- build blocks ----
 out = []
 seen_title = False
-for b in [x.strip() for x in re.split(r"\n\s*\n", body) if x.strip()]:
+for b in split_body_blocks(body):
     if b.startswith("# ") and not seen_title:
         seen_title = True
         continue
@@ -163,8 +154,7 @@ for b in [x.strip() for x in re.split(r"\n\s*\n", body) if x.strip()]:
             mid, url, alt, caption = shot_media[ms.group(2)]
             out.append(inline_image(mid, url, alt, caption=caption))
         else:
-            para = "<br>".join(inline(line.strip()) for line in b.split("\n"))
-            out.append(f"<!-- wp:paragraph -->\n<p>{para}</p>\n<!-- /wp:paragraph -->")
+            out.append(render_paragraph_from_markdown(b))
 
 content = "\n\n".join(out)
 (STAGE / "post.html").write_text(content)

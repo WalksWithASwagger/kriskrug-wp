@@ -28,9 +28,23 @@ except Exception:  # pragma: no cover - local fallback
     dotenv_values = None
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
+def _optional_env_paths() -> tuple[Path, ...]:
+    """Extra .env search paths. Prefer KKAI_ENV_PATH / NOTION_ENV_PATH over a hardcoded home dir."""
+    paths: list[Path] = []
+    for key in ("KKAI_ENV_PATH", "NOTION_ENV_PATH"):
+        raw = os.environ.get(key)
+        if raw:
+            paths.append(Path(raw).expanduser())
+    # Optional local-machine fallback; ignored when absent (cloud / other checkouts).
+    paths.append(Path.home() / "Code" / "notion-local" / "kk-ai-ecosystem" / ".env")
+    return tuple(paths)
+
+
 DEFAULT_ENV_PATHS = (
     REPO_ROOT / "scripts" / "notion-to-wp" / ".env",
-    Path("/Users/kk/Code/notion-local/kk-ai-ecosystem/.env"),
+    *_optional_env_paths(),
 )
 DEFAULT_BASE_URL = "https://kriskrug.co"
 _OVERRIDE_KEYS = ("WP_USER", "WP_APP_PASSWORD", "WP_BASE_URL", "WP_AUTH_MODE")

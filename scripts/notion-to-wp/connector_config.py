@@ -14,9 +14,20 @@ NOTION_API = "https://api.notion.com/v1"
 NOTION_VERSION = "2022-06-28"
 WP_BASE_URL_DEFAULT = "https://kriskrug.co"
 WP_DEFAULT_AUTHOR_ID = 1
-KKAI_ENV_PATH = Path("/Users/kk/Code/notion-local/kk-ai-ecosystem/.env")
 SCRIPT_DIR = Path(__file__).resolve().parent
 LOCAL_ENV_PATH = SCRIPT_DIR / ".env"
+
+
+def _kkai_env_path() -> Path:
+    """Optional sibling-repo .env. Override with KKAI_ENV_PATH / NOTION_ENV_PATH."""
+    for key in ("KKAI_ENV_PATH", "NOTION_ENV_PATH"):
+        raw = os.environ.get(key)
+        if raw:
+            return Path(raw).expanduser()
+    return Path.home() / "Code" / "notion-local" / "kk-ai-ecosystem" / ".env"
+
+
+KKAI_ENV_PATH = _kkai_env_path()
 
 
 @dataclasses.dataclass

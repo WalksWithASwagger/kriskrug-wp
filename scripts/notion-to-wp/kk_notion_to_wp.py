@@ -40,7 +40,7 @@ Usage:
 
 Auth:
     - Notion: NOTION_TOKEN from scripts/notion-to-wp/.env OR
-      /Users/kk/Code/notion-local/kk-ai-ecosystem/.env (fallback).
+      scripts/notion-to-wp/.env, or KKAI_ENV_PATH / ~/Code/notion-local/.../.env (fallback).
     - WP: WP_USER + WP_APP_PASSWORD from scripts/notion-to-wp/.env. Generate the
       app password at https://kriskrug.co/wp-admin/profile.php (see README).
 

@@ -6,6 +6,7 @@ create_post), slugify, load_config, and text_polish.purge_em_dashes.
 Dry-run by default (writes staged post.html + prints plan). --execute uploads
 the 14 images and creates the DRAFT post. NEVER publishes.
 """
+import os
 import re, sys, json, shutil, pathlib
 from kk_notion_to_wp import WordPress, load_config
 from connector_payload import normalize_seo_meta
@@ -22,8 +23,17 @@ from publish_common import (
     upload_image_manifest,
 )
 
-SRC = pathlib.Path("/Users/kk/Code/notion-local/kk-ai-ecosystem/content/articles/kris-krug-thought-leadership/25-data-center-protest-signs")
-STAGE = pathlib.Path("/Users/kk/Code/kriskrug-wp/content/drafts/2026-05-23-data-center-protest-signs")
+SCRIPT_DIR = pathlib.Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parents[1]
+# Optional external article source (KK machine / KKAI_CONTENT_ROOT).
+_CONTENT_ROOT = pathlib.Path(
+    os.environ.get(
+        "KKAI_CONTENT_ROOT",
+        str(pathlib.Path.home() / "Code" / "notion-local" / "kk-ai-ecosystem"),
+    )
+).expanduser()
+SRC = _CONTENT_ROOT / "content" / "articles" / "kris-krug-thought-leadership" / "25-data-center-protest-signs"
+STAGE = REPO_ROOT / "content" / "drafts" / "2026-05-23-data-center-protest-signs"
 FLAGS = parse_publish_argv()
 EXECUTE = FLAGS.execute
 # Default category: AI Ethics & Philosophy. Override with --category-id N.
