@@ -60,3 +60,11 @@ content/drafts/2026-06-28-keep-the-machine-strange/img/
 
 # lightbox backfill rollback manifests (large, operational; keep on disk, not in git)
 scripts/notion-to-wp/backfill-rollback*.jsonl
+
+# Operational capture artifacts under current-state reports — keep .md summaries,
+# ignore heavy captures (screenshots, page snapshots) so the folder stops re-bloating.
+# See REPO-HYGIENE-AUDIT-2026-07-12.md. Existing tracked copies stay until an approved cleanup.
+docs/current-state/reports/screenshots/
+docs/current-state/reports/**/*.png
+docs/current-state/reports/**/*.html
+docs/current-state/reports/**/*.csv
