@@ -39,6 +39,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.3.37 =
+* Add direct Open Graph and Twitter Card metadata with a safe handoff from the temporary production snippet.
+
 = 1.3.36 =
 * Extended the homepage creative-lab contrast floor to customized FSE templates that still render the live section without the newer contrast class, using plain selectors for cache and audit compatibility.
 
