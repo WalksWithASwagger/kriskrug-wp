@@ -577,7 +577,7 @@ function render_social_meta_tags(): void {
         $attribute = str_starts_with($name, 'twitter:') ? 'name' : 'property';
         printf(
             '<meta %s="%s" content="%s" />' . "\n",
-            $attribute,
+            esc_attr($attribute),
             esc_attr($name),
             esc_attr((string) $value)
         );
