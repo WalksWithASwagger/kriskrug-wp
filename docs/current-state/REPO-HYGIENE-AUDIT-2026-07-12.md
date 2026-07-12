@@ -12,6 +12,22 @@ Rules (rollback path + KK approval before destructive ops).
   re-accumulating heavy capture artifacts.
 - Added this report and indexed it in `docs/current-state/README.md`.
 
+**Phase A follow-up (executed 2026-07-12, same branch):** pruned only the
+capture artifacts that **no tracked file references** — verified by grepping
+every basename/path across the full tracked corpus (not just markdown):
+- 13 orphaned `docs/current-state/reports/` artifacts (~5.3M) — mostly
+  `link-inject-rollback-*.json` operational dumps from 2026-06-15 plus a few
+  predeploy `*.json/.html/.css` snapshots; nothing links to them.
+- 16 orphaned `backup/<timestamp>/` page-snapshot dirs (~1.6M) — May-23 and
+  late-June snapshots no doc or script cites.
+
+All 104 referenced `reports/` artifacts and 27 referenced `backup/` dirs were
+**kept** — the folders are tightly cross-linked (report `.md` files cite their
+own sibling evidence), so removing them would leave dead links in the
+historical docs. Those, plus `content/drafts/` images and the `.git` history
+rewrite, remain deferred (see §4) for a future KK-approved, rollback-gated
+task. Everything pruned is recoverable from git history until that rewrite.
+
 Everything else below is a **recommendation** for a future KK-approved,
 rollback-gated task — flagged, not executed.
 
