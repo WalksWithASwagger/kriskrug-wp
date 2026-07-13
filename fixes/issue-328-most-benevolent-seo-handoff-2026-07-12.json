@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "issue": 328,
+  "status": "human-review-required",
+  "live_wordpress_write_performed": false,
+  "evidence": {
+    "query": "most benevolent",
+    "impressions": 20,
+    "average_position": 8.4,
+    "ctr_percent": 0.0,
+    "source": "GitHub issue #328; digest-safe aggregate copied from its source digest"
+  },
+  "target": {
+    "id": 3814,
+    "slug": "the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things",
+    "url": "https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/",
+    "modified": "2026-06-28T20:37:13",
+    "title": "Most Benevolent Outcomes Prayer for AI & All Living Things"
+  },
+  "current_public_metadata": {
+    "observed_on": "2026-07-12",
+    "document_title": "Most Benevolent Outcomes Prayer for AI & All Living Things \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+    "document_title_chars": 115,
+    "standard_meta_description_present": false,
+    "open_graph_description_present": true,
+    "seo_backfill_title_state": "skipped-too-long",
+    "seo_backfill_report": "docs/current-state/reports/seo-backfill-20260614-220932Z.md"
+  },
+  "link_patches": [
+    {
+      "priority": 1,
+      "source_id": 2950,
+      "source_slug": "community-weaving-how-digital-interactions-shape-our-physical-world",
+      "source_url": "https://kriskrug.co/2023/09/01/community-weaving-how-digital-interactions-shape-our-physical-world/",
+      "source_modified": "2026-06-28T20:38:58",
+      "needle": "Most Benevolent Outcomes",
+      "replacement": "<a href=\"https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/\">Most Benevolent Outcomes</a>",
+      "expected_needle_count": 1,
+      "expected_target_href_count_before": 0,
+      "copy_change": false
+    },
+    {
+      "priority": 2,
+      "source_id": 2665,
+      "source_slug": "embracing-the-future-my-journey-with-generative-ai-and-building-a-learning-community-on-discord",
+      "source_url": "https://kriskrug.co/2023/07/09/embracing-the-future-my-journey-with-generative-ai-and-building-a-learning-community-on-discord/",
+      "source_modified": "2026-06-28T20:39:43",
+      "needle": "cultivating the most benevolent outcomes",
+      "replacement": "<a href=\"https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/\">cultivating the most benevolent outcomes</a>",
+      "expected_needle_count": 1,
+      "expected_target_href_count_before": 0,
+      "copy_change": false
+    }
+  ],
+  "future_write_boundary_if_separately_approved": {
+    "allowed_rest_top_level_keys": [
+      "content"
+    ],
+    "forbidden_rest_top_level_keys": [
+      "title",
+      "slug",
+      "status",
+      "date",
+      "categories",
+      "tags",
+      "meta"
+    ],
+    "requires": [
+      "fresh authenticated ID, slug, status, and modified-date check",
+      "content.raw snapshot before each write",
+      "human review of each exact link wrapper",
+      "public readback and a retained rollback snapshot"
+    ]
+  },
+  "next_digest": {
+    "query": "most benevolent",
+    "landing_page": "https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/",
+    "compare": [
+      "impressions",
+      "clicks",
+      "ctr_percent",
+      "average_position"
+    ],
+    "success_signal": {
+      "average_position_below": 7.0,
+      "clicks_at_least": 1
+    },
+    "note": "Compare only after the handoff is applied, publicly verified, and given time to be recrawled."
+  }
+}
