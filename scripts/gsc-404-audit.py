@@ -15,7 +15,6 @@ from typing import Any
 from urllib.parse import parse_qs, urlparse
 
 
-DEFAULT_CSV = Path.home() / "Downloads/https___kriskrug.co_-Coverage-Drilldown-2026-06-14/Table.csv"
 GOOGLEBOT_UA = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 
 SHRINE_TARGET = (
@@ -207,7 +206,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--csv",
         type=Path,
-        default=DEFAULT_CSV,
+        required=True,
         help="Path to GSC Table.csv export",
     )
     parser.add_argument(

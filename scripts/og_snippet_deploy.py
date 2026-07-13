@@ -14,7 +14,7 @@ from common import WPClient
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-ENV_PATH = Path("/Users/kk/Code/kriskrug-wp/scripts/notion-to-wp/.env")
+ENV_PATH = REPO_ROOT / "scripts" / "notion-to-wp" / ".env"
 MIRROR_PATH = REPO_ROOT / "fixes" / "og-restore-snippet.php"
 SNIPPET_NAME = "Open Graph + Twitter Card meta (social link previews)"
 
