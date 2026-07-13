@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "issue": 249,
+  "status": "human-review-required",
+  "scope": {
+    "reserved_contextual_links": 1,
+    "selected_surface": "about",
+    "live_wordpress_write_performed": false,
+    "publish_or_deploy_performed": false
+  },
+  "evidence": {
+    "observed_on": "2026-07-12",
+    "sources": [
+      "public WordPress REST responses",
+      "public rendered HTML",
+      "GitHub issue #249",
+      "repository source packs and publishing instructions"
+    ],
+    "private_analytics_export_included": false
+  },
+  "baseline": {
+    "source": "GitHub issue #249 comment created 2026-07-12T22:00:35Z",
+    "window": {
+      "start": "2026-06-12",
+      "end": "2026-07-09",
+      "days": 28
+    },
+    "landing_page": {
+      "url": "https://kriskrug.co/2026/05/23/you-cant-drink-data/",
+      "impressions": 294,
+      "clicks": 6,
+      "ctr_percent": 2.04,
+      "average_position": 7.96
+    },
+    "normalized_query_cluster": {
+      "query": "you cant drink data",
+      "impressions_present": true,
+      "clicks": 0,
+      "average_position_range": {
+        "min": 8.4,
+        "max": 8.7
+      }
+    }
+  },
+  "target": {
+    "type": "post",
+    "id": 11936,
+    "slug": "you-cant-drink-data",
+    "url": "https://kriskrug.co/2026/05/23/you-cant-drink-data/",
+    "status": "publish",
+    "modified": "2026-06-28T18:40:25",
+    "title_rendered": "You Can&#8217;t Drink Data",
+    "canonical": "https://kriskrug.co/2026/05/23/you-cant-drink-data/",
+    "expected_public_http_status": 200
+  },
+  "source_selection": {
+    "selected": {
+      "type": "page",
+      "id": 1208,
+      "slug": "about",
+      "url": "https://kriskrug.co/about/",
+      "status": "publish",
+      "modified": "2026-07-01T11:33:51",
+      "canonical": "https://kriskrug.co/about/",
+      "expected_public_http_status": 200,
+      "content_marker": "content-architecture-2026:about",
+      "repo_payload": "content/source-packs/content-architecture-2026/wp-payloads/about.html",
+      "repo_payload_sha256": "1b3957ab6cbe9bb9b2401dc4fe9bd5006726de1ec70d1d86ac7711a0ccd8fb26",
+      "expected_anchor_count_before": 0,
+      "expected_target_href_count_before": 0,
+      "reason": "The opening About copy already connects technology, activism, AI, and human capacity, and the body has a tracked repo payload and marker."
+    },
+    "homepage_not_selected": {
+      "type": "page",
+      "id": 3930,
+      "slug": "empowering-events-organizations-for-the-ai-age",
+      "url": "https://kriskrug.co/",
+      "status": "publish",
+      "modified": "2026-06-29T16:49:49",
+      "canonical": "https://kriskrug.co/",
+      "expected_anchor_count_before": 0,
+      "expected_target_href_count_before": 0,
+      "reason": "The front page has a legacy internal slug and less direct surrounding copy than the tracked About introduction."
+    }
+  },
+  "link_proposal": {
+    "proposal_type": "single-sentence-paragraph-extension",
+    "phrase_present_before": false,
+    "anchor_text": "you can't drink data",
+    "href": "https://kriskrug.co/2026/05/23/you-cant-drink-data/",
+    "current_paragraph_html": "<p>I have spent two decades documenting technology, art, activism, conferences, communities, and the back rooms where culture actually changes. These days, most of that work points at one question: how do we use AI to increase human capacity instead of flattening human judgment?</p>",
+    "added_sentence_html": "That question includes the physical costs of AI infrastructure, which I confronted on the streets of Vancouver and wrote about in <a href=\"https://kriskrug.co/2026/05/23/you-cant-drink-data/\">you can't drink data</a>.",
+    "added_sentence_text": "That question includes the physical costs of AI infrastructure, which I confronted on the streets of Vancouver and wrote about in you can't drink data.",
+    "replacement_paragraph_html": "<p>I have spent two decades documenting technology, art, activism, conferences, communities, and the back rooms where culture actually changes. These days, most of that work points at one question: how do we use AI to increase human capacity instead of flattening human judgment? That question includes the physical costs of AI infrastructure, which I confronted on the streets of Vancouver and wrote about in <a href=\"https://kriskrug.co/2026/05/23/you-cant-drink-data/\">you can't drink data</a>.</p>",
+    "expected_current_paragraph_count": 1,
+    "expected_anchor_count_after": 1,
+    "expected_target_href_count_after": 1,
+    "copy_change": true,
+    "sentences_added": 1
+  },
+  "future_publisher_gate": {
+    "stale_guard": {
+      "read_endpoint": "/wp-json/wp/v2/pages/1208?context=edit&_fields=id,slug,status,modified,content",
+      "expected_identity": {
+        "id": 1208,
+        "slug": "about",
+        "status": "publish",
+        "modified": "2026-07-01T11:33:51"
+      },
+      "expected_current_paragraph_count": 1,
+      "expected_target_href_count": 0,
+      "stop_if_any_guard_differs": true
+    },
+    "snapshot": {
+      "directory_pattern": "backup/<UTC>-issue-249-ycdd-about-backlink",
+      "required_before_write": true,
+      "required_files": [
+        "before-page-1208-edit.json",
+        "before-page-1208-public.html",
+        "sha256sums.txt"
+      ],
+      "required_edit_snapshot_fields": [
+        "id",
+        "slug",
+        "status",
+        "modified",
+        "content.raw"
+      ]
+    },
+    "write": {
+      "endpoint": "/wp-json/wp/v2/pages/1208",
+      "allowed_rest_top_level_keys": [
+        "content"
+      ],
+      "forbidden_rest_top_level_keys": [
+        "title",
+        "slug",
+        "status",
+        "date",
+        "date_gmt",
+        "author",
+        "excerpt",
+        "featured_media",
+        "comment_status",
+        "ping_status",
+        "format",
+        "meta",
+        "template",
+        "parent",
+        "menu_order"
+      ],
+      "body_rule": "Start from the freshly fetched content.raw and replace exactly one current_paragraph_html with replacement_paragraph_html.",
+      "requires_human_review_of_exact_diff": true
+    },
+    "rollback": {
+      "payload_source": "before-page-1208-edit.json content.raw",
+      "allowed_rest_top_level_keys": [
+        "content"
+      ],
+      "precondition": "Current page modified value must equal the recorded post-write modified value; stop if a later edit exists.",
+      "readback_required": true
+    },
+    "public_readback": {
+      "source_url": "https://kriskrug.co/about/",
+      "target_url": "https://kriskrug.co/2026/05/23/you-cant-drink-data/",
+      "checks": [
+        "source returns HTTP 200 and keeps its self-referencing canonical",
+        "source renders the target href exactly once with anchor text you can't drink data",
+        "target returns HTTP 200 and keeps its self-referencing canonical",
+        "source ID, slug, status, title, and all non-content fields remain unchanged",
+        "authenticated content.raw readback matches the reviewed after-body"
+      ]
+    }
+  },
+  "next_digest": {
+    "measurement_gate": {
+      "minimum_full_days_after_verified_live_edit": 7,
+      "requires_recorded_live_edit_timestamp": true,
+      "requires_public_link_readback": true
+    },
+    "query_cluster": "you cant drink data",
+    "landing_page": "https://kriskrug.co/2026/05/23/you-cant-drink-data/",
+    "required_metrics": [
+      "impressions",
+      "clicks",
+      "ctr_percent",
+      "average_position"
+    ],
+    "comparison": {
+      "landing_page_baseline": "baseline.landing_page",
+      "query_cluster_baseline": "baseline.normalized_query_cluster",
+      "preserve_28_day_window_length": true
+    },
+    "positive_signal": {
+      "query_cluster_clicks_at_least": 1,
+      "query_cluster_average_position_below": 8.4
+    },
+    "inconclusive_rule": "If the measurement gate is not met or impressions are zero, record the result as not yet measurable rather than an SEO loss.",
+    "attribution_rule": "Do not attribute movement to this handoff before the live edit is approved, applied, publicly verified, and recrawled."
+  },
+  "github_handoff": {
+    "pull_request_reference": "Refs #249",
+    "issue_remains_open": true,
+    "remaining_gate": "Human approval, snapshot, body-only WordPress application, public readback, and next-digest remeasurement."
+  }
+}
