@@ -39,6 +39,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.3.38 =
+* Restore one standard search description from the existing Jetpack SEO fields and align social descriptions to the same source.
+
 = 1.3.37 =
 * Add direct Open Graph and Twitter Card metadata with a safe handoff from the temporary production snippet.
 
