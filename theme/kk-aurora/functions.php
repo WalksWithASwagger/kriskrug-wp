@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.3.36');
+define('KK_AURORA_VERSION', '1.3.37');
 
 /**
  * Theme setup
@@ -510,7 +510,83 @@ function exclude_current_post_from_related_query(array $query, \WP_Block $block)
 add_filter('query_loop_block_query_vars', __NAMESPACE__ . '\\exclude_current_post_from_related_query', 10, 2);
 
 /**
- * Set a real social fallback image on Work when Jetpack emits a blank og:image.
+ * Build the site's canonical Open Graph and Twitter Card values.
+ *
+ * @return array<string, string>
+ */
+function social_meta_tags(): array {
+    $tags = [
+        'og:site_name'   => get_bloginfo('name'),
+        'og:title'       => wp_get_document_title(),
+        'og:type'        => 'website',
+        'og:url'         => home_url('/'),
+        'og:description' => get_bloginfo('description'),
+        'twitter:site'   => '@feelmoreplants',
+    ];
+
+    if (is_singular()) {
+        $post = get_queried_object();
+        if ($post instanceof \WP_Post) {
+            $description = get_the_excerpt($post);
+            if ($description === '') {
+                $description = wp_trim_words(wp_strip_all_tags($post->post_content), 40);
+            }
+
+            $tags['og:title'] = get_the_title($post);
+            $tags['og:type'] = is_singular('post') ? 'article' : 'website';
+            $tags['og:url'] = get_permalink($post);
+            $tags['og:description'] = $description;
+
+            $image = get_the_post_thumbnail_url($post, 'large');
+            if (!$image && preg_match('/<img[^>]+src=["\']([^"\']+)/i', $post->post_content, $match)) {
+                $image = $match[1];
+            }
+            if ($image) {
+                $tags['og:image'] = $image;
+                $tags['og:image:secure_url'] = $image;
+            }
+        }
+    }
+
+    if (empty($tags['og:image']) && has_site_icon()) {
+        $tags['og:image'] = get_site_icon_url(512);
+        $tags['og:image:secure_url'] = $tags['og:image'];
+    }
+
+    return $tags;
+}
+
+/**
+ * Print social metadata when the temporary production snippet is not active.
+ */
+function render_social_meta_tags(): void {
+    if (defined('KK_OG_SNIPPET_ACTIVE') || is_feed()) {
+        return;
+    }
+
+    $tags = social_meta_tags();
+    $tags = work_page_open_graph_fallback($tags);
+    $tags = writing_archive_open_graph_fallback($tags);
+    $tags = twitter_card_tag_fallbacks($tags);
+    $tags['og:description'] = mb_substr(wp_strip_all_tags((string) ($tags['og:description'] ?? '')), 0, 300);
+
+    foreach ($tags as $name => $value) {
+        if (!is_scalar($value) || $value === '') {
+            continue;
+        }
+        $attribute = str_starts_with($name, 'twitter:') ? 'name' : 'property';
+        printf(
+            '<meta %s="%s" content="%s" />' . "\n",
+            esc_attr($attribute),
+            esc_attr($name),
+            esc_attr((string) $value)
+        );
+    }
+}
+add_action('wp_head', __NAMESPACE__ . '\\render_social_meta_tags', 5);
+
+/**
+ * Set a real social fallback image on Work when the default image is unsuitable.
  *
  * @param array<string, string> $tags Existing Open Graph tags.
  * @return array<string, string>
@@ -532,7 +608,6 @@ function work_page_open_graph_fallback(array $tags): array {
 
     return $tags;
 }
-add_filter('jetpack_open_graph_tags', __NAMESPACE__ . '\\work_page_open_graph_fallback');
 
 function writing_archive_meta_description(): string {
     $fallback = 'Read Kris Krug field notes on responsible AI, creative technology, community building, Indigenous tech, media, culture, practical workflows, and events.';
@@ -589,7 +664,6 @@ function writing_archive_open_graph_fallback(array $tags): array {
 
     return $tags;
 }
-add_filter('jetpack_open_graph_tags', __NAMESPACE__ . '\\writing_archive_open_graph_fallback', 99);
 
 /**
  * Mirror available Open Graph metadata into missing Twitter Card fields.
@@ -644,7 +718,6 @@ function twitter_card_tag_fallbacks(array $tags): array {
 
     return $tags;
 }
-add_filter('jetpack_open_graph_tags', __NAMESPACE__ . '\\twitter_card_tag_fallbacks', 120);
 
 /**
  * Expose high-signal category feeds to feed readers on the Writing archive.
