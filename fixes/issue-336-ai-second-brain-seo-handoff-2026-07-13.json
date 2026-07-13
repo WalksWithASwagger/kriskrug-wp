@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "issue": 336,
+  "status": "human-review-required",
+  "live_wordpress_write_performed": false,
+  "evidence": {
+    "window_start": "2026-06-12",
+    "window_end": "2026-07-09",
+    "page": {
+      "impressions": 1053,
+      "clicks": 10,
+      "ctr_percent": 0.95,
+      "average_position": 11.27
+    },
+    "query": {
+      "text": "ai second brain",
+      "impressions": 46,
+      "clicks": 2,
+      "average_position": 17.52
+    },
+    "source": "GitHub issue #279 comment; digest-safe aggregate only"
+  },
+  "target": {
+    "id": 8802,
+    "slug": "how-to-build-an-ai-second-brain-that-actually-works-for-you",
+    "status": "publish",
+    "modified": "2026-06-28T20:27:34",
+    "url": "https://kriskrug.co/2025/04/01/how-to-build-an-ai-second-brain-that-actually-works-for-you/",
+    "post_title": "How to Build an AI Second Brain That Actually Works for You"
+  },
+  "current_public_metadata": {
+    "observed_on": "2026-07-13",
+    "http_status": 200,
+    "canonical": "https://kriskrug.co/2025/04/01/how-to-build-an-ai-second-brain-that-actually-works-for-you/",
+    "document_title_chars": 116,
+    "standard_meta_description_present": false,
+    "open_graph_description_chars": 262,
+    "twitter_description_chars": 262,
+    "robots": "max-image-preview:large",
+    "h1_count": 1,
+    "authenticated_rest_meta_keys": [
+      "footnotes"
+    ],
+    "jetpack_seo_meta_fields_exposed": false
+  },
+  "proposed_metadata": {
+    "field_values": {
+      "jetpack_seo_html_title": "Build an AI Second Brain That Actually Works for You",
+      "advanced_seo_description": "Build an AI second brain that works with your thought patterns, captures creative chaos, and turns scattered notes and voice memos into finished work."
+    },
+    "field_lengths": {
+      "jetpack_seo_html_title": 52,
+      "advanced_seo_description": 150
+    },
+    "post_title_change": false,
+    "requires": [
+      "Aurora 1.3.38 standard-description owner verified on production",
+      "fresh WordPress editor readback of both SEO fields",
+      "human approval of the exact title and description",
+      "public readback of standard, Open Graph, and Twitter descriptions"
+    ]
+  },
+  "link_patches": [
+    {
+      "priority": 1,
+      "source_id": 9774,
+      "source_slug": "what-journalists-need-to-know-about-ai-right-now",
+      "source_url": "https://kriskrug.co/2025/06/24/what-journalists-need-to-know-about-ai-right-now/",
+      "source_modified": "2026-06-14T20:05:53",
+      "needle": "AI as a second brain",
+      "replacement": "<a href=\"https://kriskrug.co/2025/04/01/how-to-build-an-ai-second-brain-that-actually-works-for-you/\">AI as a second brain</a>",
+      "expected_needle_count": 1,
+      "expected_target_href_count_before": 0,
+      "copy_change": false
+    },
+    {
+      "priority": 2,
+      "source_id": 12327,
+      "source_slug": "storyhive-haus-of-owl-jordan-dack",
+      "source_url": "https://kriskrug.co/2026/06/17/storyhive-haus-of-owl-jordan-dack/",
+      "source_modified": "2026-06-17T19:47:06",
+      "needle": "knowledge bases and named assistants",
+      "replacement": "<a href=\"https://kriskrug.co/2025/04/01/how-to-build-an-ai-second-brain-that-actually-works-for-you/\">knowledge bases and named assistants</a>",
+      "expected_needle_count": 1,
+      "expected_target_href_count_before": 0,
+      "copy_change": false
+    }
+  ],
+  "future_write_boundary_if_separately_approved": {
+    "target_allowed_rest_top_level_keys": [
+      "meta"
+    ],
+    "target_allowed_meta_keys": [
+      "jetpack_seo_html_title",
+      "advanced_seo_description"
+    ],
+    "source_allowed_rest_top_level_keys": [
+      "content"
+    ],
+    "forbidden_rest_top_level_keys": [
+      "title",
+      "slug",
+      "status",
+      "date",
+      "categories",
+      "tags",
+      "excerpt"
+    ],
+    "requires": [
+      "fresh authenticated ID, slug, status, and modified-date checks",
+      "target metadata and source content.raw snapshots before writes",
+      "no REST metadata write while the two Jetpack fields are unregistered",
+      "human review of the exact metadata and link wrappers",
+      "one write and public readback at a time",
+      "retained rollback snapshots"
+    ]
+  },
+  "next_digest": {
+    "earliest_full_days_after_live_change": 14,
+    "query": "ai second brain",
+    "landing_page": "https://kriskrug.co/2025/04/01/how-to-build-an-ai-second-brain-that-actually-works-for-you/",
+    "compare": [
+      "page_impressions",
+      "page_clicks",
+      "page_ctr_percent",
+      "page_average_position",
+      "query_impressions",
+      "query_clicks",
+      "query_average_position"
+    ],
+    "success_signal": {
+      "page_average_position_below": 10.0,
+      "page_ctr_percent_above": 1.2,
+      "query_average_position_below": 15.0
+    },
+    "note": "Compare only after approved production changes are public, verified, and given 14 full days to be recrawled."
+  }
+}
