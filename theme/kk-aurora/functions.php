@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.3.37');
+define('KK_AURORA_VERSION', '1.3.38');
 
 /**
  * Theme setup
@@ -510,32 +510,64 @@ function exclude_current_post_from_related_query(array $query, \WP_Block $block)
 add_filter('query_loop_block_query_vars', __NAMESPACE__ . '\\exclude_current_post_from_related_query', 10, 2);
 
 /**
- * Build the site's canonical Open Graph and Twitter Card values.
+ * Resolve the standard search description from the site's existing SEO fields.
+ */
+function public_meta_description(): string {
+    $description = '';
+
+    if (is_front_page()) {
+        $description = get_option('advanced_seo_front_page_description', '');
+    } elseif (is_home()) {
+        $description = writing_archive_meta_description();
+    } elseif (is_singular()) {
+        $post = get_queried_object();
+        if ($post instanceof \WP_Post) {
+            $description = get_post_meta($post->ID, 'advanced_seo_description', true);
+            if (!is_string($description) || trim($description) === '') {
+                $description = get_the_excerpt($post);
+            }
+            if ($description === '') {
+                $description = wp_trim_words(wp_strip_all_tags($post->post_content), 40);
+            }
+        }
+    } elseif (is_category() || is_tag() || is_tax()) {
+        $description = term_description();
+    }
+
+    if (!is_string($description) || trim($description) === '') {
+        return '';
+    }
+
+    return mb_substr(wp_strip_all_tags($description), 0, 300);
+}
+
+/**
+ * Build the site's canonical search, Open Graph, and Twitter Card values.
  *
  * @return array<string, string>
  */
 function social_meta_tags(): array {
+    $description = public_meta_description();
+
     $tags = [
         'og:site_name'   => get_bloginfo('name'),
         'og:title'       => wp_get_document_title(),
         'og:type'        => 'website',
         'og:url'         => home_url('/'),
-        'og:description' => get_bloginfo('description'),
+        'og:description' => $description !== '' ? $description : get_bloginfo('description'),
         'twitter:site'   => '@feelmoreplants',
     ];
+
+    if ($description !== '') {
+        $tags['description'] = $description;
+    }
 
     if (is_singular()) {
         $post = get_queried_object();
         if ($post instanceof \WP_Post) {
-            $description = get_the_excerpt($post);
-            if ($description === '') {
-                $description = wp_trim_words(wp_strip_all_tags($post->post_content), 40);
-            }
-
             $tags['og:title'] = get_the_title($post);
             $tags['og:type'] = is_singular('post') ? 'article' : 'website';
             $tags['og:url'] = get_permalink($post);
-            $tags['og:description'] = $description;
 
             $image = get_the_post_thumbnail_url($post, 'large');
             if (!$image && preg_match('/<img[^>]+src=["\']([^"\']+)/i', $post->post_content, $match)) {
@@ -574,7 +606,7 @@ function render_social_meta_tags(): void {
         if (!is_scalar($value) || $value === '') {
             continue;
         }
-        $attribute = str_starts_with($name, 'twitter:') ? 'name' : 'property';
+        $attribute = $name === 'description' || str_starts_with($name, 'twitter:') ? 'name' : 'property';
         printf(
             '<meta %s="%s" content="%s" />' . "\n",
             esc_attr($attribute),
@@ -624,16 +656,16 @@ function writing_archive_meta_description(): string {
     return wp_strip_all_tags($description);
 }
 
-function writing_archive_seo_meta_tags(array $tags): array {
-    if (!is_home() || is_front_page()) {
+function suppress_jetpack_meta_description(array $tags): array {
+    if (defined('KK_OG_SNIPPET_ACTIVE')) {
         return $tags;
     }
 
-    $tags['description'] = writing_archive_meta_description();
+    unset($tags['description']);
 
     return $tags;
 }
-add_filter('jetpack_seo_meta_tags', __NAMESPACE__ . '\\writing_archive_seo_meta_tags', 99);
+add_filter('jetpack_seo_meta_tags', __NAMESPACE__ . '\\suppress_jetpack_meta_description', PHP_INT_MAX);
 
 /**
  * Set archive-specific social metadata for the Writing landing page.
