@@ -1,0 +1,729 @@
+{
+  "schema_version": 1,
+  "issue": 284,
+  "track": "A - Content + SEO",
+  "status": "repo-only-human-review-handoff",
+  "observed": {
+    "local_date": "2026-07-12",
+    "observed_at_utc": "2026-07-13T05:22:19Z",
+    "public_read_only": true,
+    "wordpress_write_performed": false,
+    "methods": [
+      "public WordPress REST post lookup by exact slug",
+      "public WordPress REST page lookup by exact slug",
+      "public HTTP GET for every source and target URL",
+      "normalized anchor count from content.rendered"
+    ]
+  },
+  "claims": {
+    "links_live_from_this_packet": false,
+    "ranking_lift_claimed": false,
+    "search_console_change_performed": false
+  },
+  "targets": {
+    "ai_ethics": {
+      "id": 12318,
+      "title": "AI Ethics & Philosophy",
+      "slug": "ai-ethics",
+      "url": "https://kriskrug.co/ai-ethics/",
+      "status": "publish",
+      "modified": "2026-07-01T12:27:51",
+      "modified_gmt": "2026-07-01T20:27:51",
+      "public_http_status": 200
+    },
+    "ai_tools": {
+      "id": 12321,
+      "title": "Generative AI Tools",
+      "slug": "ai-tools",
+      "url": "https://kriskrug.co/ai-tools/",
+      "status": "publish",
+      "modified": "2026-07-01T12:27:55",
+      "modified_gmt": "2026-07-01T20:27:55",
+      "public_http_status": 200
+    },
+    "indigenous_ai": {
+      "id": 12322,
+      "title": "Indigenous & Reconciliation in Tech",
+      "slug": "indigenous-ai",
+      "url": "https://kriskrug.co/indigenous-ai/",
+      "status": "publish",
+      "modified": "2026-07-01T12:28:09",
+      "modified_gmt": "2026-07-01T20:28:09",
+      "public_http_status": 200
+    }
+  },
+  "sources": [
+    {
+      "id": 5723,
+      "title": "Unpacking AI Ethics at American Marketing Association#VisionConf2024",
+      "slug": "unpacking-ai-ethics-at-american-marketing-associationvisionconf2024",
+      "url": "https://kriskrug.co/2024/05/27/unpacking-ai-ethics-at-american-marketing-associationvisionconf2024/",
+      "status": "publish",
+      "modified": "2026-06-28T20:34:21",
+      "modified_gmt": "2026-06-29T04:34:21",
+      "public_http_status": 200,
+      "target_href_counts": {
+        "ai_ethics": 3,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "internal_link_count": 5,
+      "total_anchor_count": 16,
+      "repo_mirror": null
+    },
+    {
+      "id": 5489,
+      "title": "Cognitive AI, Creativity, and Ethics w/ Professor Steve DiPaola",
+      "slug": "cognitive-ai-creativity-and-ethics-w-professor-steve-dipaola",
+      "url": "https://kriskrug.co/2024/05/04/cognitive-ai-creativity-and-ethics-w-professor-steve-dipaola/",
+      "status": "publish",
+      "modified": "2026-06-28T20:34:50",
+      "modified_gmt": "2026-06-29T04:34:50",
+      "public_http_status": 200,
+      "target_href_counts": {
+        "ai_ethics": 1,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "internal_link_count": 4,
+      "total_anchor_count": 15,
+      "repo_mirror": null
+    },
+    {
+      "id": 4635,
+      "title": "Bridging Innovation and Ethics: Future Proof Creatives and the Path Forward in AI",
+      "slug": "bridging-innovation-and-ethics-future-proof-creatives-and-the-path-forward-in-ai",
+      "url": "https://kriskrug.co/2024/02/13/bridging-innovation-and-ethics-future-proof-creatives-and-the-path-forward-in-ai/",
+      "status": "publish",
+      "modified": "2026-07-01T16:24:10",
+      "modified_gmt": "2026-07-02T00:24:10",
+      "public_http_status": 200,
+      "target_href_counts": {
+        "ai_ethics": 2,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "internal_link_count": 6,
+      "total_anchor_count": 6,
+      "repo_mirror": null
+    },
+    {
+      "id": 12030,
+      "title": "Canada Doesn't Need a Bigger AI Machine. It Needs a Better One.",
+      "slug": "canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one",
+      "url": "https://kriskrug.co/2026/06/26/canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one/",
+      "status": "publish",
+      "modified": "2026-06-28T14:14:24",
+      "modified_gmt": "2026-06-28T22:14:24",
+      "public_http_status": 200,
+      "target_href_counts": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "internal_link_count": 0,
+      "total_anchor_count": 5,
+      "repo_mirror": "content/drafts/2026-05-24-canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one/post.html"
+    },
+    {
+      "id": 12257,
+      "title": "Why We Built the Responsible AI Professional Certification",
+      "slug": "why-we-built-the-responsible-ai-professional-certification",
+      "url": "https://kriskrug.co/2026/06/18/why-we-built-the-responsible-ai-professional-certification/",
+      "status": "publish",
+      "modified": "2026-06-28T20:25:58",
+      "modified_gmt": "2026-06-29T04:25:58",
+      "public_http_status": 200,
+      "target_href_counts": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "internal_link_count": 1,
+      "total_anchor_count": 11,
+      "repo_mirror": "content/drafts/2026-05-16-why-we-built-the-responsible-ai-professional-certification/post.html"
+    },
+    {
+      "id": 4773,
+      "title": "Creative Toolbox: Best of the Best AI Tools",
+      "slug": "creative-toolbox",
+      "url": "https://kriskrug.co/2024/03/01/creative-toolbox/",
+      "status": "publish",
+      "modified": "2026-06-14T20:08:44",
+      "modified_gmt": "2026-06-15T04:08:44",
+      "public_http_status": 200,
+      "target_href_counts": {
+        "ai_ethics": 0,
+        "ai_tools": 1,
+        "indigenous_ai": 0
+      },
+      "internal_link_count": 3,
+      "total_anchor_count": 18,
+      "repo_mirror": null
+    },
+    {
+      "id": 3275,
+      "title": "How AI tools like Midjourney, DALL-E & ChatGPT are reshaping the creative landscape",
+      "slug": "how-ai-tools-like-midjourney-dall%c2%b7e-chatgpt-are-reshaping-the-creative-landscape",
+      "url": "https://kriskrug.co/2023/10/08/how-ai-tools-like-midjourney-dall%c2%b7e-chatgpt-are-reshaping-the-creative-landscape/",
+      "status": "publish",
+      "modified": "2026-06-14T20:34:30",
+      "modified_gmt": "2026-06-15T04:34:30",
+      "public_http_status": 200,
+      "target_href_counts": {
+        "ai_ethics": 0,
+        "ai_tools": 1,
+        "indigenous_ai": 0
+      },
+      "internal_link_count": 2,
+      "total_anchor_count": 24,
+      "repo_mirror": null
+    },
+    {
+      "id": 2781,
+      "title": "Audio Deep Fakes, AI ChatBots and New Web Development Tools",
+      "slug": "audio-deep-fakes-ai-chatbots-and-new-web-development-tools",
+      "url": "https://kriskrug.co/2023/07/30/audio-deep-fakes-ai-chatbots-and-new-web-development-tools/",
+      "status": "publish",
+      "modified": "2026-06-28T20:39:27",
+      "modified_gmt": "2026-06-29T04:39:27",
+      "public_http_status": 200,
+      "target_href_counts": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "internal_link_count": 2,
+      "total_anchor_count": 10,
+      "repo_mirror": null
+    },
+    {
+      "id": 12035,
+      "title": "AI Won't Fix Your Broken Permit Process",
+      "slug": "ai-wont-fix-your-broken-permit-process",
+      "url": "https://kriskrug.co/2026/06/24/ai-wont-fix-your-broken-permit-process/",
+      "status": "publish",
+      "modified": "2026-07-01T16:24:28",
+      "modified_gmt": "2026-07-02T00:24:28",
+      "public_http_status": 200,
+      "target_href_counts": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "internal_link_count": 2,
+      "total_anchor_count": 6,
+      "repo_mirror": "content/drafts/2026-05-24-ai-wont-fix-your-broken-permit-process/post.html"
+    },
+    {
+      "id": 7450,
+      "title": "Redefining the Future of Indigenous Economic Sovereignty through AI",
+      "slug": "indigenomics-now-2024-redefining-the-future-of-indigenous-economic-and-digital-sovereignty-through-ai",
+      "url": "https://kriskrug.co/2024/11/14/indigenomics-now-2024-redefining-the-future-of-indigenous-economic-and-digital-sovereignty-through-ai/",
+      "status": "publish",
+      "modified": "2026-06-28T20:31:08",
+      "modified_gmt": "2026-06-29T04:31:08",
+      "public_http_status": 200,
+      "target_href_counts": {
+        "ai_ethics": 1,
+        "ai_tools": 0,
+        "indigenous_ai": 1
+      },
+      "internal_link_count": 8,
+      "total_anchor_count": 12,
+      "repo_mirror": null
+    },
+    {
+      "id": 11905,
+      "title": "Sovereign AI for Whom?",
+      "slug": "sovereign-ai-for-whom",
+      "url": "https://kriskrug.co/2026/06/16/sovereign-ai-for-whom/",
+      "status": "publish",
+      "modified": "2026-07-01T16:24:30",
+      "modified_gmt": "2026-07-02T00:24:30",
+      "public_http_status": 200,
+      "target_href_counts": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "internal_link_count": 2,
+      "total_anchor_count": 81,
+      "repo_mirror": "content/drafts/2026-05-13-sovereign-ai-for-whom/post.html"
+    }
+  ],
+  "review_ready_source_writes": [
+    {
+      "priority": 1,
+      "source_id": 12035,
+      "source_slug": "ai-wont-fix-your-broken-permit-process",
+      "source_modified_guard": "2026-07-01T16:24:28",
+      "publisher_review_required": true,
+      "patches": [
+        {
+          "patch_id": "12035-ai-tools",
+          "target_key": "ai_tools",
+          "operation": "wrap_exact_text",
+          "needle": "AI tools",
+          "replacement": "<a href=\"https://kriskrug.co/ai-tools/\">AI tools</a>",
+          "context_before": "We train people in AI tools every day.",
+          "context_after": "We train people in <a href=\"https://kriskrug.co/ai-tools/\">AI tools</a> every day.",
+          "expected_needle_count_before": 1,
+          "inside_existing_anchor_count_before": 0,
+          "expected_target_href_count_before": 0,
+          "expected_target_href_count_after": 1,
+          "copy_change": false
+        }
+      ]
+    },
+    {
+      "priority": 2,
+      "source_id": 12257,
+      "source_slug": "why-we-built-the-responsible-ai-professional-certification",
+      "source_modified_guard": "2026-06-28T20:25:58",
+      "publisher_review_required": true,
+      "patches": [
+        {
+          "patch_id": "12257-ai-ethics",
+          "target_key": "ai_ethics",
+          "operation": "wrap_exact_text",
+          "needle": "ethical practice",
+          "replacement": "<a href=\"https://kriskrug.co/ai-ethics/\">ethical practice</a>",
+          "context_before": "That gap, between deployment speed and ethical practice, is why we built our new Responsible AI Professional Certification program.",
+          "context_after": "That gap, between deployment speed and <a href=\"https://kriskrug.co/ai-ethics/\">ethical practice</a>, is why we built our new Responsible AI Professional Certification program.",
+          "expected_needle_count_before": 1,
+          "inside_existing_anchor_count_before": 0,
+          "expected_target_href_count_before": 0,
+          "expected_target_href_count_after": 1,
+          "copy_change": false
+        }
+      ]
+    },
+    {
+      "priority": 3,
+      "source_id": 2781,
+      "source_slug": "audio-deep-fakes-ai-chatbots-and-new-web-development-tools",
+      "source_modified_guard": "2026-06-28T20:39:27",
+      "publisher_review_required": true,
+      "patches": [
+        {
+          "patch_id": "2781-ai-tools",
+          "target_key": "ai_tools",
+          "operation": "wrap_exact_text",
+          "needle": "the entire field of AI technology",
+          "replacement": "<a href=\"https://kriskrug.co/ai-tools/\">the entire field of AI technology</a>",
+          "context_before": "This innovation isn't just changing the game-it's reshaping the entire field of AI technology and pushing the boundaries of what's possible.",
+          "context_after": "This innovation isn't just changing the game-it's reshaping <a href=\"https://kriskrug.co/ai-tools/\">the entire field of AI technology</a> and pushing the boundaries of what's possible.",
+          "expected_needle_count_before": 1,
+          "inside_existing_anchor_count_before": 0,
+          "expected_target_href_count_before": 0,
+          "expected_target_href_count_after": 1,
+          "copy_change": false
+        }
+      ]
+    },
+    {
+      "priority": 4,
+      "source_id": 12030,
+      "source_slug": "canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one",
+      "source_modified_guard": "2026-06-28T14:14:24",
+      "publisher_review_required": true,
+      "patches": [
+        {
+          "patch_id": "12030-ai-ethics",
+          "target_key": "ai_ethics",
+          "operation": "wrap_exact_text",
+          "needle": "AI ethics",
+          "replacement": "<a href=\"https://kriskrug.co/ai-ethics/\">AI ethics</a>",
+          "context_before": "U.S. dominates frontier models (GPT, Claude) but faces recurring AI ethics crises",
+          "context_after": "U.S. dominates frontier models (GPT, Claude) but faces recurring <a href=\"https://kriskrug.co/ai-ethics/\">AI ethics</a> crises",
+          "expected_needle_count_before": 1,
+          "inside_existing_anchor_count_before": 0,
+          "expected_target_href_count_before": 0,
+          "expected_target_href_count_after": 1,
+          "copy_change": false
+        },
+        {
+          "patch_id": "12030-ai-tools",
+          "target_key": "ai_tools",
+          "operation": "wrap_exact_text",
+          "needle": "community-built tools",
+          "replacement": "<a href=\"https://kriskrug.co/ai-tools/\">community-built tools</a>",
+          "context_before": "publish plain-language model cards for community-built tools",
+          "context_after": "publish plain-language model cards for <a href=\"https://kriskrug.co/ai-tools/\">community-built tools</a>",
+          "expected_needle_count_before": 1,
+          "inside_existing_anchor_count_before": 0,
+          "expected_target_href_count_before": 0,
+          "expected_target_href_count_after": 1,
+          "copy_change": false
+        }
+      ]
+    }
+  ],
+  "indigenous_ai_review_queue": [
+    {
+      "priority_after_human_approval": 1,
+      "source_id": 7450,
+      "source_slug": "indigenomics-now-2024-redefining-the-future-of-indigenous-economic-and-digital-sovereignty-through-ai",
+      "status": "human-review-required-existing-link-no-op",
+      "human_review_required": true,
+      "expected_target_href_count_before": 1,
+      "proposed_target_href_count_after": 1,
+      "existing_anchor": "<a href=\"https://kriskrug.co/indigenous-ai/\">Indigenous and Reconciliation in Tech</a>",
+      "patch": null,
+      "editorial_context": "The current link is a collection-footer label, not a new in-body contextual endorsement.",
+      "human_decision_required": "Confirm that the existing collection-footer link should remain as-is, or request a separately reviewed in-body placement."
+    },
+    {
+      "priority_after_human_approval": 2,
+      "source_id": 12030,
+      "source_slug": "canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one",
+      "status": "human-review-required-proposed-not-live",
+      "human_review_required": true,
+      "expected_target_href_count_before": 0,
+      "proposed_target_href_count_after": 1,
+      "patch": {
+        "patch_id": "12030-indigenous-ai",
+        "target_key": "indigenous_ai",
+        "operation": "wrap_exact_text",
+        "needle": "Indigenous data sovereignty and stewardship",
+        "replacement": "<a href=\"https://kriskrug.co/indigenous-ai/\">Indigenous data sovereignty and stewardship</a>",
+        "expected_needle_count_before": 1,
+        "inside_existing_anchor_count_before": 0,
+        "copy_change": false
+      },
+      "editorial_context": "The phrase summarizes a BC AI JEDI Report claim. A link to Kris's hub could be useful context, but it must not imply that the hub is the authority for the report or for Indigenous data governance.",
+      "human_decision_required": "Approve this exact wrapper, choose a different authoritative destination, revise the placement, or skip it."
+    },
+    {
+      "priority_after_human_approval": 3,
+      "source_id": 12035,
+      "source_slug": "ai-wont-fix-your-broken-permit-process",
+      "status": "human-review-required-proposed-not-live",
+      "human_review_required": true,
+      "expected_target_href_count_before": 0,
+      "proposed_target_href_count_after": 1,
+      "patch": {
+        "patch_id": "12035-indigenous-ai",
+        "target_key": "indigenous_ai",
+        "operation": "wrap_exact_text",
+        "needle": "Indigenous leadership",
+        "replacement": "<a href=\"https://kriskrug.co/indigenous-ai/\">Indigenous leadership</a>",
+        "expected_needle_count_before": 1,
+        "inside_existing_anchor_count_before": 0,
+        "copy_change": false
+      },
+      "editorial_context": "The sentence makes a strong first-person claim and sits beside references to Coast Salish ceremony, UNDRIP, and a named board member. Linking it to a general hub could read as self-validation or implied endorsement.",
+      "human_decision_required": "Confirm the claim, the named-person context, and the hub destination before approving this exact wrapper; otherwise revise or skip."
+    },
+    {
+      "priority_after_human_approval": 4,
+      "source_id": 12257,
+      "source_slug": "why-we-built-the-responsible-ai-professional-certification",
+      "status": "human-review-required-proposed-not-live",
+      "human_review_required": true,
+      "expected_target_href_count_before": 0,
+      "proposed_target_href_count_after": 1,
+      "patch": {
+        "patch_id": "12257-indigenous-ai",
+        "target_key": "indigenous_ai",
+        "operation": "wrap_exact_text",
+        "needle": "Indigenous ceremony",
+        "replacement": "<a href=\"https://kriskrug.co/indigenous-ai/\">Indigenous ceremony</a>",
+        "expected_needle_count_before": 1,
+        "inside_existing_anchor_count_before": 0,
+        "copy_change": false
+      },
+      "editorial_context": "The phrase is followed by a land and territory statement. Turning ceremony into navigational anchor text may feel instrumental unless the page owner and relevant community context support it.",
+      "human_decision_required": "Approve the exact wrapper only if linking ceremony to this hub is respectful and contextually appropriate; otherwise revise or skip."
+    },
+    {
+      "priority_after_human_approval": 5,
+      "source_id": 11905,
+      "source_slug": "sovereign-ai-for-whom",
+      "status": "human-review-required-proposed-not-live",
+      "human_review_required": true,
+      "expected_target_href_count_before": 0,
+      "proposed_target_href_count_after": 1,
+      "patch": {
+        "patch_id": "11905-indigenous-ai",
+        "target_key": "indigenous_ai",
+        "operation": "wrap_exact_text",
+        "needle": "host Nation governance",
+        "replacement": "<a href=\"https://kriskrug.co/indigenous-ai/\">host Nation governance</a>",
+        "expected_needle_count_before": 1,
+        "inside_existing_anchor_count_before": 0,
+        "copy_change": false
+      },
+      "editorial_context": "The phrase appears in a policy argument about consent, fair pay, and host Nation authority. A link to Kris's hub must not substitute for Nation-specific sources or imply authority over host Nation governance.",
+      "human_decision_required": "Approve the hub as appropriate supplemental context, choose a Nation-led source, revise the anchor, or skip it."
+    }
+  ],
+  "before_after_url_manifest": [
+    {
+      "map_order": 1,
+      "source_id": 5723,
+      "source_url": "https://kriskrug.co/2024/05/27/unpacking-ai-ethics-at-american-marketing-associationvisionconf2024/",
+      "target_key": "ai_ethics",
+      "target_url": "https://kriskrug.co/ai-ethics/",
+      "before_target_href_count": 3,
+      "proposed_after_target_href_count": 3,
+      "disposition": "already-linked-no-op",
+      "after_state": "unchanged-current-public-state"
+    },
+    {
+      "map_order": 2,
+      "source_id": 5489,
+      "source_url": "https://kriskrug.co/2024/05/04/cognitive-ai-creativity-and-ethics-w-professor-steve-dipaola/",
+      "target_key": "ai_ethics",
+      "target_url": "https://kriskrug.co/ai-ethics/",
+      "before_target_href_count": 1,
+      "proposed_after_target_href_count": 1,
+      "disposition": "already-linked-no-op",
+      "after_state": "unchanged-current-public-state"
+    },
+    {
+      "map_order": 3,
+      "source_id": 4635,
+      "source_url": "https://kriskrug.co/2024/02/13/bridging-innovation-and-ethics-future-proof-creatives-and-the-path-forward-in-ai/",
+      "target_key": "ai_ethics",
+      "target_url": "https://kriskrug.co/ai-ethics/",
+      "before_target_href_count": 2,
+      "proposed_after_target_href_count": 2,
+      "disposition": "already-linked-no-op",
+      "after_state": "unchanged-current-public-state"
+    },
+    {
+      "map_order": 4,
+      "source_id": 12030,
+      "source_url": "https://kriskrug.co/2026/06/26/canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one/",
+      "target_key": "ai_ethics",
+      "target_url": "https://kriskrug.co/ai-ethics/",
+      "before_target_href_count": 0,
+      "proposed_after_target_href_count": 1,
+      "disposition": "review-ready-not-approved",
+      "patch_id": "12030-ai-ethics",
+      "after_state": "proposed-not-live"
+    },
+    {
+      "map_order": 5,
+      "source_id": 12257,
+      "source_url": "https://kriskrug.co/2026/06/18/why-we-built-the-responsible-ai-professional-certification/",
+      "target_key": "ai_ethics",
+      "target_url": "https://kriskrug.co/ai-ethics/",
+      "before_target_href_count": 0,
+      "proposed_after_target_href_count": 1,
+      "disposition": "review-ready-not-approved",
+      "patch_id": "12257-ai-ethics",
+      "after_state": "proposed-not-live"
+    },
+    {
+      "map_order": 6,
+      "source_id": 4773,
+      "source_url": "https://kriskrug.co/2024/03/01/creative-toolbox/",
+      "target_key": "ai_tools",
+      "target_url": "https://kriskrug.co/ai-tools/",
+      "before_target_href_count": 1,
+      "proposed_after_target_href_count": 1,
+      "disposition": "already-linked-no-op",
+      "after_state": "unchanged-current-public-state"
+    },
+    {
+      "map_order": 7,
+      "source_id": 3275,
+      "source_url": "https://kriskrug.co/2023/10/08/how-ai-tools-like-midjourney-dall%c2%b7e-chatgpt-are-reshaping-the-creative-landscape/",
+      "target_key": "ai_tools",
+      "target_url": "https://kriskrug.co/ai-tools/",
+      "before_target_href_count": 1,
+      "proposed_after_target_href_count": 1,
+      "disposition": "already-linked-no-op",
+      "after_state": "unchanged-current-public-state"
+    },
+    {
+      "map_order": 8,
+      "source_id": 2781,
+      "source_url": "https://kriskrug.co/2023/07/30/audio-deep-fakes-ai-chatbots-and-new-web-development-tools/",
+      "target_key": "ai_tools",
+      "target_url": "https://kriskrug.co/ai-tools/",
+      "before_target_href_count": 0,
+      "proposed_after_target_href_count": 1,
+      "disposition": "review-ready-not-approved",
+      "patch_id": "2781-ai-tools",
+      "after_state": "proposed-not-live"
+    },
+    {
+      "map_order": 9,
+      "source_id": 12030,
+      "source_url": "https://kriskrug.co/2026/06/26/canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one/",
+      "target_key": "ai_tools",
+      "target_url": "https://kriskrug.co/ai-tools/",
+      "before_target_href_count": 0,
+      "proposed_after_target_href_count": 1,
+      "disposition": "review-ready-not-approved",
+      "patch_id": "12030-ai-tools",
+      "after_state": "proposed-not-live"
+    },
+    {
+      "map_order": 10,
+      "source_id": 12035,
+      "source_url": "https://kriskrug.co/2026/06/24/ai-wont-fix-your-broken-permit-process/",
+      "target_key": "ai_tools",
+      "target_url": "https://kriskrug.co/ai-tools/",
+      "before_target_href_count": 0,
+      "proposed_after_target_href_count": 1,
+      "disposition": "review-ready-not-approved",
+      "patch_id": "12035-ai-tools",
+      "after_state": "proposed-not-live"
+    },
+    {
+      "map_order": 11,
+      "source_id": 7450,
+      "source_url": "https://kriskrug.co/2024/11/14/indigenomics-now-2024-redefining-the-future-of-indigenous-economic-and-digital-sovereignty-through-ai/",
+      "target_key": "indigenous_ai",
+      "target_url": "https://kriskrug.co/indigenous-ai/",
+      "before_target_href_count": 1,
+      "proposed_after_target_href_count": 1,
+      "disposition": "human-review-required-existing-link-no-op",
+      "after_state": "unchanged-current-public-state"
+    },
+    {
+      "map_order": 12,
+      "source_id": 12030,
+      "source_url": "https://kriskrug.co/2026/06/26/canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one/",
+      "target_key": "indigenous_ai",
+      "target_url": "https://kriskrug.co/indigenous-ai/",
+      "before_target_href_count": 0,
+      "proposed_after_target_href_count": 1,
+      "disposition": "human-review-required-proposed-not-live",
+      "patch_id": "12030-indigenous-ai",
+      "after_state": "proposed-not-live"
+    },
+    {
+      "map_order": 13,
+      "source_id": 12035,
+      "source_url": "https://kriskrug.co/2026/06/24/ai-wont-fix-your-broken-permit-process/",
+      "target_key": "indigenous_ai",
+      "target_url": "https://kriskrug.co/indigenous-ai/",
+      "before_target_href_count": 0,
+      "proposed_after_target_href_count": 1,
+      "disposition": "human-review-required-proposed-not-live",
+      "patch_id": "12035-indigenous-ai",
+      "after_state": "proposed-not-live"
+    },
+    {
+      "map_order": 14,
+      "source_id": 12257,
+      "source_url": "https://kriskrug.co/2026/06/18/why-we-built-the-responsible-ai-professional-certification/",
+      "target_key": "indigenous_ai",
+      "target_url": "https://kriskrug.co/indigenous-ai/",
+      "before_target_href_count": 0,
+      "proposed_after_target_href_count": 1,
+      "disposition": "human-review-required-proposed-not-live",
+      "patch_id": "12257-indigenous-ai",
+      "after_state": "proposed-not-live"
+    },
+    {
+      "map_order": 15,
+      "source_id": 11905,
+      "source_url": "https://kriskrug.co/2026/06/16/sovereign-ai-for-whom/",
+      "target_key": "indigenous_ai",
+      "target_url": "https://kriskrug.co/indigenous-ai/",
+      "before_target_href_count": 0,
+      "proposed_after_target_href_count": 1,
+      "disposition": "human-review-required-proposed-not-live",
+      "patch_id": "11905-indigenous-ai",
+      "after_state": "proposed-not-live"
+    }
+  ],
+  "future_write_boundary_if_separately_approved": {
+    "live_write_approved_by_this_packet": false,
+    "allowed_rest_top_level_keys": [
+      "content"
+    ],
+    "forbidden_rest_top_level_keys": [
+      "title",
+      "slug",
+      "status",
+      "date",
+      "date_gmt",
+      "categories",
+      "tags",
+      "meta",
+      "excerpt",
+      "author",
+      "featured_media",
+      "comment_status",
+      "ping_status",
+      "template",
+      "format",
+      "sticky",
+      "password"
+    ],
+    "deterministic_source_write_order": [
+      12035,
+      12257,
+      2781,
+      12030
+    ],
+    "priority_rule": "single exact semantic wrapper first; then broader wrapper; multi-patch and longest source last",
+    "one_source_write_at_a_time": true,
+    "indigenous_ai_requires_separate_per_patch_approval": true,
+    "snapshot_path_template": "backup/<UTC>-issue-284-topic-hub-links/source-<id>/",
+    "required_snapshot_files_per_source": [
+      "before-edit.json",
+      "before-content.raw.html",
+      "before-public.html",
+      "before-sha256sums.txt",
+      "rollback-content-only.json"
+    ],
+    "stale_guards": [
+      "source ID equals the manifest ID",
+      "source slug equals the manifest slug",
+      "source status is publish",
+      "source modified value equals source_modified_guard",
+      "target ID, slug, status, URL, and public HTTP 200 match the manifest",
+      "each exact needle occurs once in authenticated content.raw",
+      "each exact needle is outside an existing anchor",
+      "target href count equals expected_target_href_count_before",
+      "reviewed payload has content as its only top-level REST key"
+    ],
+    "verification_gates": [
+      "source_identity",
+      "target_identity",
+      "per_source_snapshot",
+      "modified_date_stale_guard",
+      "exact_needle_and_href_counts",
+      "body_only_payload",
+      "one_write_at_a_time",
+      "authenticated_readback",
+      "public_source_and_target_smoke",
+      "rollback_ready"
+    ],
+    "readback_after_each_write": [
+      "fetch authenticated edit context and confirm ID, slug, status, title, date, taxonomy, and meta remain unchanged",
+      "confirm each approved anchor wrapper occurs exactly once in content.raw",
+      "fetch cache-busted public source HTML and confirm HTTP 200 plus expected target href count",
+      "fetch every target URL and confirm HTTP 200",
+      "stop before the next source if any check fails"
+    ],
+    "rollback": [
+      "send only content from before-content.raw.html back to the same guarded source ID",
+      "read back authenticated content and public HTML",
+      "confirm the source and target URLs return HTTP 200",
+      "confirm target href counts returned to the before values",
+      "stop the entire batch after any rollback"
+    ],
+    "final_smoke_checks": [
+      "all edited source URLs return HTTP 200",
+      "all three target hub URLs return HTTP 200",
+      "source canonicals and slugs are unchanged",
+      "homepage and blog return HTTP 200",
+      "before/after manifest is updated with observed values, not projected values"
+    ]
+  },
+  "human_decision_required": {
+    "ordinary_batch": "Approve, revise, or reject the four ordered source writes containing five copy-preserving AI Ethics and AI Tools wrappers.",
+    "indigenous_ai": "For each of the five Indigenous AI rows, explicitly choose keep existing, approve exact wrapper, choose a different destination or anchor, or skip.",
+    "live_write": "A separate explicit approval is required before any WordPress content update."
+  }
+}
