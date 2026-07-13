@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "issue": 335,
+  "status": "human-review-required",
+  "live_wordpress_write_performed": false,
+  "evidence": {
+    "current_window": {
+      "start": "2026-07-04",
+      "end": "2026-07-10"
+    },
+    "prior_window": {
+      "start": "2026-06-27",
+      "end": "2026-07-03"
+    },
+    "page": {
+      "current": {
+        "impressions": 47,
+        "clicks": 0,
+        "ctr_percent": 0.0,
+        "average_position": 10.43
+      },
+      "prior": {
+        "impressions": 35,
+        "clicks": 0,
+        "ctr_percent": 0.0,
+        "average_position": 11.54
+      }
+    },
+    "query": {
+      "text": "lord of the rings drinking game",
+      "current": {
+        "impressions": 27,
+        "clicks": 0,
+        "ctr_percent": 0.0,
+        "average_position": 9.96
+      },
+      "prior": {
+        "impressions": 12,
+        "clicks": 0,
+        "ctr_percent": 0.0,
+        "average_position": 12.67
+      }
+    },
+    "source": "2026-07-13 Growth Mirror digest; digest-safe aggregate only"
+  },
+  "target": {
+    "id": 35,
+    "slug": "the-lord-of-the-rings-drinking-game",
+    "status": "publish",
+    "modified": "2026-06-14T22:30:33",
+    "url": "https://kriskrug.co/2004/05/27/the-lord-of-the-rings-drinking-game/",
+    "post_title": "The Lord of the Rings Drinking Game"
+  },
+  "current_public_metadata": {
+    "observed_on": "2026-07-13",
+    "http_status": 200,
+    "canonical": "https://kriskrug.co/2004/05/27/the-lord-of-the-rings-drinking-game/",
+    "document_title_chars": 92,
+    "standard_meta_description_present": false,
+    "open_graph_description_chars": 294,
+    "twitter_description_chars": 308,
+    "robots": "max-image-preview:large",
+    "h1_count": 1,
+    "rest_meta_keys": [
+      "footnotes"
+    ],
+    "jetpack_seo_meta_fields_exposed": false
+  },
+  "proposed_metadata": {
+    "field_values": {
+      "jetpack_seo_html_title": "The Lord of the Rings Drinking Game: 4 Original Rules",
+      "advanced_seo_description": "Four original Lord of the Rings drinking game rules for Frodo, Sam, Legolas, and cliff falls, plus a trilogy marathon option. Play responsibly."
+    },
+    "field_lengths": {
+      "jetpack_seo_html_title": 53,
+      "advanced_seo_description": 143
+    },
+    "post_title_change": false,
+    "excerpt_change": false,
+    "requires": [
+      "Aurora 1.3.38 standard-description owner verified on production",
+      "fresh WordPress editor readback of both SEO fields",
+      "human approval of the exact title and description",
+      "public readback of standard, Open Graph, and Twitter descriptions"
+    ]
+  },
+  "related_link_review": {
+    "decision": "replace irrelevant collection-footer recommendations with one coherent 2004 archive pair",
+    "selected_related_post": {
+      "id": 58,
+      "slug": "mcsweeneys-lists",
+      "status": "publish",
+      "modified": "2026-06-14T22:29:25",
+      "url": "https://kriskrug.co/2004/07/16/mcsweeneys-lists/",
+      "title": "McSweeney's Lists",
+      "relevance": "The post is a 2004 humor-list entry with an Elvish or Yiddish section and belongs to the same Web and Early Blog collection."
+    },
+    "rejected_candidate": {
+      "id": 5236,
+      "url": "https://kriskrug.co/2024/04/05/ai-skills-for-tommorows-storytellers-with-openai-creative-director-souki-mansoor/",
+      "observed_phrase": "Lord of the Rings trilogy",
+      "reason": "The phrase discusses filmmaking technology; linking it to a drinking game would misrepresent the destination."
+    }
+  },
+  "link_patches": [
+    {
+      "priority": 1,
+      "direction": "inbound_to_target",
+      "source_id": 58,
+      "source_slug": "mcsweeneys-lists",
+      "source_url": "https://kriskrug.co/2004/07/16/mcsweeneys-lists/",
+      "source_modified": "2026-06-14T22:29:25",
+      "current_related_href": "https://kriskrug.co/2023/12/28/building-ai-companions-w-john-anthony-hartman-of-ihaverobots/",
+      "current_related_anchor": "Building AI Companions w/ John Anthony Hartman of IHAVEROBOTS",
+      "expected_current_related_href_count": 1,
+      "proposed_related_href": "https://kriskrug.co/2004/05/27/the-lord-of-the-rings-drinking-game/",
+      "proposed_related_anchor": "The Lord of the Rings Drinking Game",
+      "expected_proposed_href_count_before": 0,
+      "exact_raw_patch_ready": false,
+      "human_review_required": true
+    },
+    {
+      "priority": 2,
+      "direction": "outbound_from_target",
+      "source_id": 35,
+      "source_slug": "the-lord-of-the-rings-drinking-game",
+      "source_url": "https://kriskrug.co/2004/05/27/the-lord-of-the-rings-drinking-game/",
+      "source_modified": "2026-06-14T22:30:33",
+      "current_related_href": "https://kriskrug.co/2023/12/28/building-ai-companions-w-john-anthony-hartman-of-ihaverobots/",
+      "current_related_anchor": "Building AI Companions w/ John Anthony Hartman of IHAVEROBOTS",
+      "expected_current_related_href_count": 1,
+      "proposed_related_href": "https://kriskrug.co/2004/07/16/mcsweeneys-lists/",
+      "proposed_related_anchor": "McSweeney's Lists",
+      "expected_proposed_href_count_before": 0,
+      "exact_raw_patch_ready": false,
+      "human_review_required": true
+    }
+  ],
+  "future_write_boundary_if_separately_approved": {
+    "metadata_allowed_fields": [
+      "jetpack_seo_html_title",
+      "advanced_seo_description"
+    ],
+    "content_allowed_top_level_keys": [
+      "content"
+    ],
+    "forbidden_rest_top_level_keys": [
+      "title",
+      "slug",
+      "status",
+      "date",
+      "categories",
+      "tags",
+      "excerpt",
+      "meta"
+    ],
+    "requires": [
+      "fresh ID, slug, publish status, and modified-date checks for posts 35 and 58",
+      "authenticated content.raw snapshots before deriving either exact footer patch",
+      "no REST metadata write while the two Jetpack fields are unregistered",
+      "human review of the exact metadata and related-link pair",
+      "one write and public readback at a time",
+      "retained rollback snapshots"
+    ]
+  },
+  "next_digest": {
+    "earliest_full_days_after_live_change": 14,
+    "secondary_review_days_after_live_change": 28,
+    "query": "lord of the rings drinking game",
+    "landing_page": "https://kriskrug.co/2004/05/27/the-lord-of-the-rings-drinking-game/",
+    "compare": [
+      "page_impressions",
+      "page_clicks",
+      "page_ctr_percent",
+      "page_average_position",
+      "query_impressions",
+      "query_clicks",
+      "query_ctr_percent",
+      "query_average_position"
+    ],
+    "success_signal": {
+      "page_clicks_at_least": 1,
+      "page_average_position_below": 10.0,
+      "query_clicks_at_least": 1,
+      "query_average_position_below": 9.5
+    },
+    "note": "Compare only after approved production changes are public, verified, and given 14 full days to be recrawled."
+  }
+}
