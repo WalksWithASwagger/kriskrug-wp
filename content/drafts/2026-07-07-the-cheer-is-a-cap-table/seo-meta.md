@@ -7,7 +7,7 @@
 | WP post ID | 12479 |
 | Category | AI Ethics & Philosophy |
 | Tags | Both Hands Full, AI Ethics, AI Hype, Effective Accelerationism, Documentary, Apocaloptimism |
-| Featured | YES (image 01, the marionette) — images still pending manual upload |
+| Featured | YES (media 12480, the marionette); four body images are live |
 | Meta title | The AI Doc: Watch Who's Smiling |
 | Meta description | A follow-the-money take on the documentary The AI Doc: Or How I Became an Apocaloptimist. Gorgeous, honest, and quietly sold to you by the people most invested in AI going their way. |
 | Excerpt | The AI Doc is beautifully made and worth your two hours. It's also a comfort machine, and the cheeriest voices in it are the people holding the biggest positions in the thing they're cheering for. Follow the money and the mood follows it. |
