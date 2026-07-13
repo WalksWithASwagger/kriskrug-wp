@@ -17,7 +17,7 @@ It does NOT inject schema. The `kk-schema` mu-plugin handles that sitewide. The 
 
 ### 1. Notion token
 
-Already set up. Lives at `/Users/kk/Code/notion-local/kk-ai-ecosystem/.env` as `NOTION_TOKEN=secret_…`. The script reads it automatically.
+Set `NOTION_TOKEN` in `scripts/notion-to-wp/.env`, or point `NOTION_ENV_PATH` / `KKAI_ENV_PATH` at a sibling env file that already contains it. The optional local fallback is `~/Code/notion-local/kk-ai-ecosystem/.env` when that path exists.
 
 ### 2. WordPress Application Password
 
