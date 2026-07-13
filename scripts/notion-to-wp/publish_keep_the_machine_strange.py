@@ -27,7 +27,6 @@ import json
 import pathlib
 import re
 import sys
-import unicodedata
 import urllib.request
 
 SCRIPT_DIR = pathlib.Path(__file__).resolve().parent
@@ -36,6 +35,7 @@ sys.path.insert(0, str(REPO_ROOT / "scripts"))
 sys.path.insert(0, str(SCRIPT_DIR))
 from common import WPClient, load_env, wp_credentials  # noqa: E402
 from publish_common import (  # noqa: E402
+    build_seo_meta,
     parse_publish_argv,
     render_paragraph_from_markdown,
     split_body_blocks,
@@ -62,6 +62,7 @@ META_DESC = ("Neil Postman gave us a discipline for refusing technological inevi
 EXCERPT = ("Neil Postman did not predict AI. He left us something more useful: a discipline for "
            "refusing to treat any technology as the weather. Here is what technological "
            "resistance looks like in 2026.")
+SEO_META = build_seo_meta(SEO_TITLE, META_DESC)
 
 # Licensing-clean images, downloaded from source then uploaded once. Attribution
 # lives in the figcaption so CC BY terms are satisfied on the page itself.
@@ -86,12 +87,6 @@ IMAGES = {
     },
 }
 HERO_FILE = STAGE / "img" / "hero.png"  # optional Rafiki hero; falls back to mcluhan
-
-
-def normalize_seo_meta(text: str) -> str:
-    """NFC then drop combining marks (Jetpack SEO REST 500s on combining diacritics)."""
-    nfc = unicodedata.normalize("NFC", text)
-    return "".join(ch for ch in nfc if not unicodedata.combining(ch))
 
 
 def slugify(s: str) -> str:
@@ -316,8 +311,7 @@ else:
         "title": TITLE, "slug": SLUG, "status": "draft", "date": DATE,
         "author": author_id, "content": content, "excerpt": EXCERPT,
         "categories": CATEGORY_IDS, "tags": tag_ids, "featured_media": FEATURED_ID,
-        "meta": {"advanced_seo_description": normalize_seo_meta(META_DESC),
-                 "jetpack_seo_html_title": normalize_seo_meta(SEO_TITLE)},
+        "meta": SEO_META,
     }
     post = c.post("posts", payload)
     pid = post["id"]
@@ -335,8 +329,8 @@ checks = {
     "pullquotes_5plus": vc.count("<!-- wp:pullquote") >= 5,
     "images_2": vc.count("<!-- wp:image") == 2,
     "no_em_dash": "—" not in vc,
-    "seo_title_meta": v.get("meta", {}).get("jetpack_seo_html_title") == normalize_seo_meta(SEO_TITLE),
-    "seo_desc_meta": v.get("meta", {}).get("advanced_seo_description") == normalize_seo_meta(META_DESC),
+    "seo_title_meta": v.get("meta", {}).get("jetpack_seo_html_title") == SEO_META["jetpack_seo_html_title"],
+    "seo_desc_meta": v.get("meta", {}).get("advanced_seo_description") == SEO_META["advanced_seo_description"],
     "links_canada": "canada-doesnt-need-a-bigger-ai-machine" in vc,
     "links_sovereign": "sovereign-ai-for-whom" in vc,
     "links_chat": "what-would-chat-do" in vc,

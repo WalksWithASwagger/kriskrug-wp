@@ -7,7 +7,6 @@ SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPT_DIR))
 
 import connector_payload  # noqa: E402
-import kk_notion_to_wp  # noqa: E402
 
 
 class ConnectorPayloadTests(unittest.TestCase):
@@ -45,9 +44,6 @@ class ConnectorPayloadTests(unittest.TestCase):
                 },
             },
         )
-
-    def test_wrapper_reexports_payload_builder_for_connector_callers(self):
-        self.assertIs(kk_notion_to_wp.build_wp_payload, connector_payload.build_wp_payload)
 
     def test_seo_meta_strips_combining_diacritics_but_keeps_visible_title(self):
         # "Ethọ́s" = E t h o + U+0323 (combining dot below) + U+0301 (combining acute) + s

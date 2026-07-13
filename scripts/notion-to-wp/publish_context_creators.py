@@ -17,9 +17,9 @@ Marker syntax in post.md:
 """
 import re, sys, json, pathlib
 from kk_notion_to_wp import WordPress, load_config
-from connector_payload import normalize_seo_meta
 from wp_blocks import inline, inline_image, hero_image, heading, separator, pullquote
 from publish_common import (
+    build_seo_meta,
     find_media_by_stem,
     parse_publish_argv,
     render_paragraph_from_markdown,
@@ -45,6 +45,7 @@ SEO_TITLE = "Context Creators | Four Months Inside Philadelphia's Journalism + A
 META_DESC = ("Four months coaching eight Philadelphia journalists on building AI into their "
              "work for the Lenfest Institute's creator program, and what it proved about "
              "trust, specificity, and the future of local media.")
+SEO_META = build_seo_meta(SEO_TITLE, META_DESC)
 
 # Real screenshots from KK's "AI-Assisted Workflows" deck -> (filename, alt, caption).
 # Placed as centered, captioned, medium-width receipts in "What I Actually Did".
@@ -195,8 +196,7 @@ else:
         "title": TITLE, "slug": SLUG, "status": "draft", "date": DATE,
         "author": cfg.wp_author_id, "content": content, "excerpt": META_DESC,
         "categories": [cat_id], "tags": tag_ids, "featured_media": FEATURED_ID,
-        "meta": {"advanced_seo_description": normalize_seo_meta(META_DESC),
-                 "jetpack_seo_html_title": normalize_seo_meta(SEO_TITLE)},
+        "meta": SEO_META,
     }
     post = wp.create_post(payload)
     pid = post["id"]
@@ -222,8 +222,8 @@ checks = {
     "quote_elena": "You cannot be what you cannot see." in vc,
     "number_160k": "$160,000" in vc and "$160K" in vc,
     "number_che": "565,000 followers" in vc,
-    "seo_desc_meta": v.get("meta", {}).get("advanced_seo_description") == normalize_seo_meta(META_DESC),
-    "seo_title_meta": v.get("meta", {}).get("jetpack_seo_html_title") == normalize_seo_meta(SEO_TITLE),
+    "seo_desc_meta": v.get("meta", {}).get("advanced_seo_description") == SEO_META["advanced_seo_description"],
+    "seo_title_meta": v.get("meta", {}).get("jetpack_seo_html_title") == SEO_META["jetpack_seo_html_title"],
 }
 preview = f"{wp.base}/?p={pid}&preview=true"
 edit = f"{wp.base}/wp-admin/post.php?post={pid}&action=edit"
