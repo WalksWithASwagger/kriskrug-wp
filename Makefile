@@ -1,7 +1,15 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check clean
+.PHONY: help test python-test javascript-syntax plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check clean
+
+PYTHON ?= python3
+JAVASCRIPT_FILES := \
+	plugins/kk-marquee-board/assets/marquee.js \
+	scripts/marquee/render_og.cjs \
+	theme/kk-aurora/assets/js/marquee.js \
+	theme/kk-aurora/assets/js/micro-interactions.js \
+	theme/kk-aurora/assets/js/theme.js
 
 # Default target
 .DEFAULT_GOAL := help
@@ -18,15 +26,32 @@ help: ## Show this help message
 
 test: ## Run test suite
 	@echo "Running tests..."
-	@bash skills/github-workflow-automation/scripts/run_tests.sh
+	@$(MAKE) python-test
+	@$(MAKE) javascript-syntax
 	@$(MAKE) plugin-smoke
 
+python-test: ## Run all declared Python test suites
+	@$(PYTHON) -c 'import dotenv, pytest, requests, yaml' || { \
+		echo "ERROR: Python test dependencies are missing for $(PYTHON). Install requirements-test.txt."; \
+		exit 1; \
+	}
+	@echo "Publisher unit tests"
+	@$(PYTHON) -m unittest discover -s scripts/notion-to-wp/tests -v
+	@echo "Operational unit tests"
+	@$(PYTHON) -m unittest discover -s scripts/tests -v
+	@echo "SEO inventory unit tests"
+	@$(PYTHON) -m unittest discover -s scripts/seo-audit/tests -v
+	@echo "SEO backfill and link-safety tests"
+	@$(PYTHON) -m pytest scripts/seo-backfill/tests -q
+
+javascript-syntax: ## Check committed JavaScript syntax
+	@command -v node >/dev/null 2>&1 || { echo "ERROR: node is required for JavaScript syntax checks."; exit 1; }
+	@for file in $(JAVASCRIPT_FILES); do node --check "$$file"; done
+
 plugin-smoke: ## Run lightweight plugin smoke tests
-	@if command -v php >/dev/null 2>&1; then \
-		php plugins/kk-sidebar-promos/tests/smoke.php; \
-	else \
-		echo "Skipping plugin smoke: php not found"; \
-	fi
+	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for plugin smoke tests."; exit 1; }
+	@php plugins/kk-sidebar-promos/tests/smoke.php
+	@php plugins/kk-marquee-board/tests/smoke.php
 
 verify: ## Run the standard local verification suite
 	@$(MAKE) test

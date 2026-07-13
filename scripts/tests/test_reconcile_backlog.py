@@ -60,15 +60,12 @@ class StaleWishlistTests(unittest.TestCase):
 
 class RepoSlugTests(unittest.TestCase):
     def test_parses_ssh_and_https(self):
-        # exercise the regex directly via a fake remote-style string
         for url, want in [
             ("git@github.com:Owner/repo.git", "Owner/repo"),
             ("https://github.com/Owner/repo.git", "Owner/repo"),
             ("https://github.com/Owner/repo", "Owner/repo"),
         ]:
-            import re
-            m = re.search(r"[:/]([^/:]+/[^/]+?)(?:\.git)?$", url)
-            self.assertEqual(m.group(1), want)
+            self.assertEqual(rb.parse_repo_slug(url), want)
 
 
 if __name__ == "__main__":

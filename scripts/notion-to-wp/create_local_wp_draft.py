@@ -36,6 +36,7 @@ from kk_notion_to_wp import (  # noqa: E402
     WordPress,
     slugify,
 )
+from publish_common import build_seo_meta  # noqa: E402
 
 
 @dataclass(frozen=True)
@@ -288,10 +289,10 @@ def build_payload(pkg: DraftPackage, cfg: WPConfig, content: str, uploaded: dict
         payload["featured_media"] = int(first_media["id"])
     seo = pkg.frontmatter.get("seo") or {}
     if seo:
-        payload["meta"] = {
-            "jetpack_seo_html_title": str(seo.get("meta_title", "")).strip(),
-            "advanced_seo_description": str(seo.get("meta_description", "")).strip(),
-        }
+        payload["meta"] = build_seo_meta(
+            str(seo.get("meta_title", "")).strip(),
+            str(seo.get("meta_description", "")).strip(),
+        )
     payload["_local_categories"] = categories
     payload["_local_tags"] = tags
     return payload

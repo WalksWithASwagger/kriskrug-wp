@@ -39,14 +39,19 @@ CLOSING_REF = re.compile(r"\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\s+#(\d+)"
 MENTION_REF = re.compile(r"#(\d+)")
 
 
-def repo_slug() -> str:
-    """owner/name from the git origin remote (no API call, no rate limit)."""
-    url = subprocess.run(["git", "remote", "get-url", "origin"], cwd=ROOT,
-                         capture_output=True, text=True, timeout=15).stdout.strip()
+def parse_repo_slug(url: str) -> str:
+    """Return owner/name from an SSH or HTTPS GitHub remote URL."""
     m = re.search(r"[:/]([^/:]+/[^/]+?)(?:\.git)?$", url)
     if not m:
         raise RuntimeError(f"cannot parse repo from remote: {url!r}")
     return m.group(1)
+
+
+def repo_slug() -> str:
+    """owner/name from the git origin remote (no API call, no rate limit)."""
+    url = subprocess.run(["git", "remote", "get-url", "origin"], cwd=ROOT,
+                         capture_output=True, text=True, timeout=15).stdout.strip()
+    return parse_repo_slug(url)
 
 
 def gh_api(path: str):

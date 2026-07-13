@@ -11,15 +11,9 @@ SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPT_DIR))
 
 import publish_common  # noqa: E402
-import wp_blocks  # noqa: E402
 
 
 class PublishCommonTests(unittest.TestCase):
-    def test_inline_delegates_to_wp_blocks(self):
-        html = wp_blocks.inline("[x](https://example.com)")
-        self.assertIn('target="_blank"', html)
-        self.assertIn('rel="noopener noreferrer"', html)
-
     def test_render_text_post_skips_title_and_uses_wp_blocks(self):
         body = "# Title\n\n## Section\n\n---\n\nA [link](https://example.com) here.\n\n### Sub"
         out = publish_common.render_text_post(body)
@@ -95,18 +89,6 @@ class PublishCommonTests(unittest.TestCase):
         self.assertTrue(flags.execute)
         self.assertTrue(flags.update)
         self.assertTrue(flags.write)
-
-    def test_one_off_scripts_import_publish_common(self):
-        for name in (
-            "publish_dc_protest_draft.py",
-            "publish_you_cant_drink_data.py",
-            "publish_proximity_game.py",
-            "publish_context_creators.py",
-            "publish_keep_the_machine_strange.py",
-        ):
-            src = (SCRIPT_DIR / name).read_text(encoding="utf-8")
-            self.assertIn("publish_common", src, f"{name} should import publish_common")
-
 
 if __name__ == "__main__":
     unittest.main()

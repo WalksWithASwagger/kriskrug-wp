@@ -9,11 +9,11 @@ the 14 images and creates the DRAFT post. NEVER publishes.
 import os
 import re, sys, json, shutil, pathlib
 from kk_notion_to_wp import WordPress, load_config
-from connector_payload import normalize_seo_meta
 from text_polish import purge_em_dashes
 from wp_blocks import inline, image, heading, separator
 from publish_common import (
     MARKDOWN_IMG_IMAGES_RE,
+    build_seo_meta,
     parse_int_arg,
     parse_markdown_image_order,
     parse_publish_argv,
@@ -53,6 +53,7 @@ LINK39_OLD = "[critique and curiosity in the same two hands](https://kriskrug.co
 LINK39_NEW = "[critique and curiosity in the same two hands](" + BHF_URL + ")"
 SEO_TITLE = "Both Hands Full at the Data Center: Protest Signs for the Middle"
 META_DESC = purge_em_dashes("I made AI protest signs for a Vancouver data-center fight — signs that refuse to pick a side. On water, compute, sovereignty, and holding both hands full.")
+SEO_META = build_seo_meta(SEO_TITLE, META_DESC)
 
 raw = (SRC / "draft.md").read_text()
 fm_end = raw.index("\n---", raw.index("---") + 3)
@@ -133,11 +134,7 @@ payload = {
     "author": cfg.wp_author_id, "content": content, "excerpt": META_DESC,
     "categories": category_ids, "tags": tag_ids,
     "featured_media": featured_id,
-    # Keep normalize_seo_meta on these assignment lines for test_publish_scripts_seo_normalized.
-    "meta": {
-        "jetpack_seo_html_title": normalize_seo_meta(SEO_TITLE),
-        "advanced_seo_description": normalize_seo_meta(META_DESC),
-    },
+    "meta": SEO_META,
 }
 post = wp.create_post(payload)
 pid = post["id"]
@@ -155,8 +152,8 @@ checks = {
     "14_images": vc.count("<!-- wp:image ") == 14,
     "no_local_paths": "images/" not in vc or "wp-content/uploads" in vc,
     "bhf_link": BHF_URL in vc,
-    "seo_desc_meta": v.get("meta", {}).get("advanced_seo_description") == normalize_seo_meta(META_DESC),
-    "seo_title_meta": v.get("meta", {}).get("jetpack_seo_html_title") == normalize_seo_meta(SEO_TITLE),
+    "seo_desc_meta": v.get("meta", {}).get("advanced_seo_description") == SEO_META["advanced_seo_description"],
+    "seo_title_meta": v.get("meta", {}).get("jetpack_seo_html_title") == SEO_META["jetpack_seo_html_title"],
 }
 preview = f"{wp.base}/?p={pid}&preview=true"
 edit = f"{wp.base}/wp-admin/post.php?post={pid}&action=edit"

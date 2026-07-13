@@ -9,6 +9,7 @@ import re
 import sys
 import unittest
 from pathlib import Path
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts/marquee"))
@@ -77,8 +78,14 @@ class OgCardTests(unittest.TestCase):
         self.assertIn("after Marshall McLuhan", card)  # attribution
         self.assertNotIn("<script", card)             # static — no animation in the share card
 
-    def test_og_available_returns_bool(self):
-        self.assertIsInstance(og.og_available(), bool)  # never raises, regardless of env
+    @mock.patch.object(og.shutil, "which", return_value=None)
+    def test_og_unavailable_without_node(self, _which):
+        self.assertFalse(og.og_available())
+
+    @mock.patch.object(og.glob, "glob", return_value=["/opt/pw-browsers/chromium-1/chrome-linux/chrome"])
+    @mock.patch.object(og.shutil, "which", return_value="/usr/bin/node")
+    def test_og_available_with_node_and_chromium(self, _which, _glob):
+        self.assertTrue(og.og_available())
 
 
 if __name__ == "__main__":

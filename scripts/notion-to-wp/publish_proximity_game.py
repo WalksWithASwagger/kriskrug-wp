@@ -20,8 +20,8 @@ import re, sys, json, pathlib
 import yaml
 from dotenv import dotenv_values
 from kk_notion_to_wp import WordPress, WP_BASE_URL_DEFAULT, WP_DEFAULT_AUTHOR_ID
-from connector_payload import normalize_seo_meta
 from publish_common import (
+    build_seo_meta,
     ensure_term_id,
     parse_publish_argv,
     render_text_post,
@@ -70,6 +70,7 @@ EXCERPT = fm.get("excerpt", "")
 CATEGORIES = fm.get("categories", []) or []
 TAGS = fm.get("tags", []) or []
 SEO = fm.get("seo", {}) or {}
+SEO_META = build_seo_meta(SEO.get("meta_title", ""), SEO.get("meta_description", ""))
 
 existing = wp.find_post_by_slug(SLUG)
 
@@ -88,11 +89,7 @@ else:
         "title": TITLE, "slug": SLUG, "status": "draft",
         "author": author_id, "content": content, "excerpt": EXCERPT,
         "categories": cat_ids, "tags": tag_ids,
-        # Keep normalize_seo_meta on these assignment lines for test_publish_scripts_seo_normalized.
-        "meta": {
-            "jetpack_seo_html_title": normalize_seo_meta(SEO.get("meta_title", "")),
-            "advanced_seo_description": normalize_seo_meta(SEO.get("meta_description", "")),
-        },
+        "meta": SEO_META,
     }
     post = wp.create_post(payload)
     pid = post["id"]

@@ -20,9 +20,9 @@ refreshes the body of the existing draft. NEVER publishes.
 """
 import re, sys, json, pathlib
 from kk_notion_to_wp import WordPress, load_config
-from connector_payload import normalize_seo_meta
 from wp_blocks import inline, image, gallery, heading, separator, pullquote
 from publish_common import (
+    build_seo_meta,
     load_photos_from_dir,
     parse_int_arg,
     parse_publish_argv,
@@ -52,6 +52,7 @@ SEO_TITLE = "You Can't Drink Data | Notes From My First AI Protest"
 META_DESC = ("Kris Krug marches in Vancouver's first anti-AI, anti-data-centre protest, "
              "and argues that 'shut it all down' and 'more compute, trust us' are the same "
              "dead end. A West Coast vision for building AI differently.")
+SEO_META = build_seo_meta(SEO_TITLE, META_DESC)
 
 # Already-uploaded AI protest signs (from the DC-signs draft): id -> (url, alt)
 AI_SIGNS = {
@@ -199,11 +200,7 @@ else:
         "title": TITLE, "slug": SLUG, "status": "draft", "date": DATE,
         "author": cfg.wp_author_id, "content": content, "excerpt": META_DESC,
         "categories": category_ids, "tags": tag_ids, "featured_media": featured_id,
-        # Keep normalize_seo_meta on these assignment lines for test_publish_scripts_seo_normalized.
-        "meta": {
-            "jetpack_seo_html_title": normalize_seo_meta(SEO_TITLE),
-            "advanced_seo_description": normalize_seo_meta(META_DESC),
-        },
+        "meta": SEO_META,
     }
     post = wp.create_post(payload)
     pid = post["id"]
@@ -224,8 +221,8 @@ checks = {
     "new_links": "sovereign-ai-for-whom" in vc and "punk-rock-ai" in vc and "your-taste-is-your-moat" in vc,
     "bhf_link_live": "/2026/01/24/both-hands-full/" in vc,
     "no_dead_companion_links": "/2026/05/23/data-center-protest-signs/" not in vc and "/2026/05/19/both-hands-full-vancouver" not in vc,
-    "seo_desc_meta": v.get("meta", {}).get("advanced_seo_description") == normalize_seo_meta(META_DESC),
-    "seo_title_meta": v.get("meta", {}).get("jetpack_seo_html_title") == normalize_seo_meta(SEO_TITLE),
+    "seo_desc_meta": v.get("meta", {}).get("advanced_seo_description") == SEO_META["advanced_seo_description"],
+    "seo_title_meta": v.get("meta", {}).get("jetpack_seo_html_title") == SEO_META["jetpack_seo_html_title"],
 }
 preview = f"{wp.base}/?p={pid}&preview=true"
 edit = f"{wp.base}/wp-admin/post.php?post={pid}&action=edit"
