@@ -9,6 +9,7 @@
 	<file>inc</file>
 	<file>plugins/kk-sidebar-promos</file>
 	<file>theme/kk-aurora/functions.php</file>
+	<file>theme/kk-aurora/inc</file>
 	<file>theme/kk-aurora/patterns</file>
 
 	<exclude-pattern>*/vendor/*</exclude-pattern>

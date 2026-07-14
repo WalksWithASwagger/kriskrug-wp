@@ -12,6 +12,7 @@ FUNCTIONS = ROOT / "theme/kk-aurora/functions.php"
 
 def render_archive_identity(*, page: int, page_url: str, is_home: bool = True) -> dict:
     functions_path = json.dumps(str(FUNCTIONS))
+    theme_path = json.dumps(str(FUNCTIONS.parent))
     page_url_literal = json.dumps(page_url)
     is_home_literal = "true" if is_home else "false"
     php = textwrap.dedent(
@@ -28,6 +29,7 @@ def render_archive_identity(*, page: int, page_url: str, is_home: bool = True) -
             $GLOBALS['kk_test_hooks'][] = compact('hook', 'callback', 'priority', 'accepted_args');
         }}
         function add_filter($hook, $callback, $priority = 10, $accepted_args = 1) {{}}
+        function get_template_directory() {{ return {theme_path}; }}
         function is_home() {{ return $GLOBALS['kk_test_is_home']; }}
         function is_front_page() {{ return false; }}
         function get_query_var($name, $default = '') {{

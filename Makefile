@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test javascript-syntax plugin-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check clean
+.PHONY: help test python-test javascript-syntax plugin-smoke theme-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check clean
 
 PYTHON ?= python3
 JAVASCRIPT_FILES := \
@@ -29,6 +29,7 @@ test: ## Run test suite
 	@$(MAKE) python-test
 	@$(MAKE) javascript-syntax
 	@$(MAKE) plugin-smoke
+	@$(MAKE) theme-smoke
 
 python-test: ## Run all declared Python test suites
 	@$(PYTHON) -c 'import dotenv, pytest, requests, yaml' || { \
@@ -52,6 +53,10 @@ plugin-smoke: ## Run lightweight plugin smoke tests
 	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for plugin smoke tests."; exit 1; }
 	@php plugins/kk-sidebar-promos/tests/smoke.php
 	@php plugins/kk-marquee-board/tests/smoke.php
+
+theme-smoke: ## Run lightweight theme behavior smoke tests
+	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for theme smoke tests."; exit 1; }
+	@php theme/kk-aurora/tests/seo-title-smoke.php
 
 verify: ## Run the standard local verification suite
 	@$(MAKE) test

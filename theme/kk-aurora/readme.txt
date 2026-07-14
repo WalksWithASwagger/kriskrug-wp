@@ -39,6 +39,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.3.40 =
+* Render approved `jetpack_seo_html_title` values as exact singular document titles while preserving existing fallbacks (#357).
+
 = 1.3.39 =
 * Preserve the keynote-first homepage Open Graph title when the front-page object title is empty (#346).
 * Give every Blog archive page a clean self-canonical and matching Open Graph URL (#347).
