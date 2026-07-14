@@ -50,6 +50,17 @@ class SwarmReadyStaticChecks(unittest.TestCase):
         self.assertIn("KK_OG_SNIPPET_ACTIVE", functions)
         self.assertIn("PHP_INT_MAX", functions)
 
+    def test_aurora_honors_approved_singular_search_titles(self):
+        functions = (ROOT / "theme/kk-aurora/functions.php").read_text()
+        title_module = (ROOT / "theme/kk-aurora/inc/seo-title.php").read_text()
+
+        self.assertIn("require_once get_template_directory() . '/inc/seo-title.php';", functions)
+        self.assertIn("function filter_pre_get_document_title", title_module)
+        self.assertIn("'jetpack_seo_html_title'", title_module)
+        self.assertIn("wp_strip_all_tags", title_module)
+        self.assertIn("'pre_get_document_title'", title_module)
+        self.assertIn("PHP_INT_MAX", title_module)
+
     def test_twitter_card_snippet_uses_current_site_handle(self):
         snippet = (ROOT / "fixes/issue-43-twitter-cards.php").read_text()
         note = (ROOT / "fixes/issue-43-twitter-cards.md").read_text()

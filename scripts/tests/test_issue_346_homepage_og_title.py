@@ -18,6 +18,7 @@ class Issue346HomepageOpenGraphTitleTests(unittest.TestCase):
     @staticmethod
     def _run_php_harness(*, snippet_guard=False):
         functions_path = json.dumps(str(THEME_FUNCTIONS))
+        theme_path = json.dumps(str(THEME_FUNCTIONS.parent))
         guard = "define('KK_OG_SNIPPET_ACTIVE', true);" if snippet_guard else ""
         harness = f"""<?php
 define('ABSPATH', __DIR__);
@@ -33,6 +34,7 @@ $queried_post = new WP_Post();
 
 function add_action(...$args) {{}}
 function add_filter(...$args) {{}}
+function get_template_directory() {{ return {theme_path}; }}
 function is_front_page() {{ return true; }}
 function is_home() {{ return false; }}
 function is_page($page = '') {{ return false; }}

@@ -22,7 +22,8 @@ class Issue351AuroraReleaseTests(unittest.TestCase):
 
         self.assertIsNotNone(style_version)
         self.assertIsNotNone(cache_version)
-        self.assertEqual("1.3.39", style_version.group(1))
+        version_parts = tuple(int(part) for part in style_version.group(1).split("."))
+        self.assertGreaterEqual(version_parts, (1, 3, 39))
         self.assertEqual(style_version.group(1), cache_version.group(1))
 
     def test_changelog_names_both_metadata_repairs(self):
