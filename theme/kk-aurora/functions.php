@@ -542,6 +542,38 @@ function public_meta_description(): string {
 }
 
 /**
+ * Resolve the clean URL for the current page of the Writing archive.
+ */
+function writing_archive_canonical_url(): string {
+    if (!is_home() || is_front_page()) {
+        return '';
+    }
+
+    $paged = max(1, (int) get_query_var('paged'));
+    $page_url = get_pagenum_link($paged, false);
+    $path = wp_parse_url($page_url, PHP_URL_PATH);
+
+    if (!is_string($path) || $path === '') {
+        return '';
+    }
+
+    return home_url($path);
+}
+
+/**
+ * Give the posts archive the canonical that WordPress core omits.
+ */
+function render_writing_archive_canonical(): void {
+    $canonical = writing_archive_canonical_url();
+    if ($canonical === '') {
+        return;
+    }
+
+    printf('<link rel="canonical" href="%s" />' . "\n", esc_url($canonical));
+}
+add_action('wp_head', __NAMESPACE__ . '\\render_writing_archive_canonical', 4);
+
+/**
  * Build the site's canonical search, Open Graph, and Twitter Card values.
  *
  * @return array<string, string>
@@ -683,8 +715,12 @@ function writing_archive_open_graph_fallback(array $tags): array {
 
     $image = 'https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/02/06-mycelial-action-network.png?fit=1200%2C686&ssl=1';
     $description = writing_archive_meta_description();
+    $canonical = writing_archive_canonical_url();
 
     $tags['og:title'] = 'Writing — Kris Krug';
+    if ($canonical !== '') {
+        $tags['og:url'] = $canonical;
+    }
     $tags['og:description'] = $description;
     $tags['og:image'] = $image;
     $tags['og:image:secure_url'] = $image;
