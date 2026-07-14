@@ -565,7 +565,10 @@ function social_meta_tags(): array {
     if (is_singular()) {
         $post = get_queried_object();
         if ($post instanceof \WP_Post) {
-            $tags['og:title'] = get_the_title($post);
+            $singular_title = get_the_title($post);
+            if (trim(wp_strip_all_tags($singular_title)) !== '') {
+                $tags['og:title'] = $singular_title;
+            }
             $tags['og:type'] = is_singular('post') ? 'article' : 'website';
             $tags['og:url'] = get_permalink($post);
 
