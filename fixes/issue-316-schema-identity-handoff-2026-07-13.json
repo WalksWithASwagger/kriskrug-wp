@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "issue": 316,
+  "status": "human-review-required",
+  "live_wordpress_write_performed": false,
+  "live_before": {
+    "observed_on": "2026-07-13",
+    "homepage_document_title": "Kris Krug | AI Keynote Speaker & Creative Technologist",
+    "homepage_open_graph_site_name": "Kris Krüg | Generative AI Tools & Techniques",
+    "website_schema_name": "Kris Krüg | Generative AI Tools & Techniques",
+    "person_job_title": "Generative AI Strategist, Photographer, Community Builder",
+    "person_description": "Vancouver-based generative AI strategist, photographer, and community builder. Founder of the BC + AI Ecosystem Industry Association.",
+    "person_image_present": false,
+    "person_id": "https://kriskrug.co/#person",
+    "website_id": "https://kriskrug.co/#website",
+    "sample_urls": [
+      {
+        "url": "https://kriskrug.co/",
+        "http_status": 200,
+        "person_nodes": 1,
+        "website_nodes": 1
+      },
+      {
+        "url": "https://kriskrug.co/about/",
+        "http_status": 200,
+        "person_nodes": 1,
+        "website_nodes": 0
+      },
+      {
+        "url": "https://kriskrug.co/2026/01/24/both-hands-full/",
+        "http_status": 200,
+        "person_nodes": 1,
+        "website_nodes": 0
+      }
+    ],
+    "source": "anonymous public HTML and JSON-LD readback"
+  },
+  "guidance": {
+    "google_site_names": "https://developers.google.com/search/docs/appearance/site-names",
+    "decision": "Use one concise, commonly recognized WebSite name on the homepage and provide ordered legitimate alternatives. Keep occupational positioning on the Person node."
+  },
+  "proposed_identity": {
+    "website_name": "Kris Krug",
+    "website_alternate_names": [
+      "Kris Krüg",
+      "kriskrug.co"
+    ],
+    "person_name": "Kris Krüg",
+    "person_alternate_name": "Kris Krug",
+    "person_image": "https://kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg",
+    "person_job": "AI Keynote Speaker and Creative Technologist",
+    "person_description": "Vancouver-based AI keynote speaker, creative technologist, photographer, and community builder. Executive Director of BC + AI, founder of Vancouver AI, and lead curator of Futureproof Festival."
+  },
+  "person_image_evidence": {
+    "url": "https://kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg",
+    "observed_on_page": "https://kriskrug.co/about/",
+    "public_alt_text": "Portrait of Kris Krug",
+    "http_status": 200,
+    "content_type": "image/jpeg",
+    "content_length_bytes": 1226854,
+    "visual_review": "clear square-crop-compatible portrait of Kris Krug"
+  },
+  "repo_sources": {
+    "production_code_snippets_mirror": "fixes/schema-snippets-deployed.php",
+    "future_mu_plugin_source": "fixes/schema-snippets.php",
+    "same_identity_constants_required": true
+  },
+  "future_code_snippets_update_if_separately_approved": {
+    "expected_snippet_id": 5,
+    "expected_current_scope": "active global PHP snippet",
+    "proposed_snippet_name": "KK Schema",
+    "allowed_changes": [
+      "snippet name",
+      "snippet code matching fixes/schema-snippets-deployed.php"
+    ],
+    "requires": [
+      "fresh wp-admin ID and scope verification",
+      "full current snippet rollback snapshot",
+      "byte-reviewed comparison with the merged production mirror",
+      "explicit human approval of the exact identity and portrait",
+      "anonymous and cache-busted public readback before closing"
+    ],
+    "post_deploy_invariants": [
+      "one active Person owner",
+      "one homepage WebSite owner",
+      "zero WebSite nodes on internal pages",
+      "Article author and publisher still reference https://kriskrug.co/#person",
+      "no title, content, taxonomy, theme, analytics, or Search Console change"
+    ]
+  },
+  "post_deploy_evaluation": {
+    "sample_urls": [
+      "https://kriskrug.co/",
+      "https://kriskrug.co/about/",
+      "https://kriskrug.co/speaking/",
+      "https://kriskrug.co/blog/",
+      "https://kriskrug.co/2026/01/24/both-hands-full/"
+    ],
+    "checks": [
+      "authenticated_snippet_readback",
+      "anonymous_public_html",
+      "anonymous_cache_busted_html",
+      "schema_markup_validator",
+      "person_image_http_and_content_type",
+      "homepage_url_inspection_after_priority_quota_queue"
+    ],
+    "expected": [
+      "WebSite name is Kris Krug",
+      "WebSite alternateName is ordered as Kris Krüg then kriskrug.co",
+      "Person jobTitle and description match the keynote-first public positioning",
+      "Person image equals the verified About portrait",
+      "all sampled JSON-LD parses without errors"
+    ],
+    "rollback": [
+      "restore the full captured snippet",
+      "restore the prior snippet name if it changed",
+      "purge only the affected cache surface",
+      "repeat anonymous and cache-busted readback"
+    ],
+    "recrawl_policy": "Do not spend priority indexing quota before the active RAP, FutureProof, and Indigenous AI queue. Natural recrawl is acceptable; request the homepage only if quota remains later."
+  },
+  "out_of_scope": [
+    "Open Graph site-name mismatch",
+    "WordPress site-title setting",
+    "theme or plugin deployment",
+    "post or page content",
+    "Search Console submissions or removals",
+    "analytics, DNS, permissions, or credentials"
+  ]
+}
