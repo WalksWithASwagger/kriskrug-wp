@@ -31,14 +31,18 @@
 // ----------------------------------------------------------------------
 function kk_schema_constants() {
     return array(
-        'site_name'        => 'Kris Krüg | Generative AI Tools & Techniques',
+        'site_name'        => 'Kris Krug',
+        'site_alternate_names' => array(
+            'Kris Krüg',
+            'kriskrug.co',
+        ),
         'site_url'         => 'https://kriskrug.co',
         'person_name'      => 'Kris Krüg',
         'person_alt'       => 'Kris Krug',
-        // Confirm the file exists at this path AND is your current headshot.
-        'person_image'     => 'VERIFY-ME-headshot-url',
-        'person_job'       => 'Generative AI Strategist, Photographer, Community Builder',
-        'person_descr'     => 'Vancouver-based generative AI strategist, photographer, and community builder. Founder of the BC + AI Ecosystem Industry Association.',
+        // Public portrait already rendered on /about/.
+        'person_image'     => 'https://kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg',
+        'person_job'       => 'AI Keynote Speaker and Creative Technologist',
+        'person_descr'     => 'Vancouver-based AI keynote speaker, creative technologist, photographer, and community builder. Executive Director of BC + AI, founder of Vancouver AI, and lead curator of Futureproof Festival.',
         // Logo image for publisher schema. Confirm exists.
         'logo_url'         => 'VERIFY-ME-logo-url',
         // Profiles — every URL here is a public CLAIM that this profile is yours.
@@ -128,6 +132,7 @@ function kk_schema_website() {
         '@id'           => $c['site_url'] . '/#website',
         'url'           => $c['site_url'],
         'name'          => $c['site_name'],
+        'alternateName' => $c['site_alternate_names'],
         'inLanguage'    => 'en-US',
         'publisher'     => array('@id' => $c['site_url'] . '/#person'),
         'potentialAction' => array(
