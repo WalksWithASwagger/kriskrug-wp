@@ -39,6 +39,10 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.3.39 =
+* Preserve the keynote-first homepage Open Graph title when the front-page object title is empty (#346).
+* Give every Blog archive page a clean self-canonical and matching Open Graph URL (#347).
+
 = 1.3.38 =
 * Restore one standard search description from the existing Jetpack SEO fields and align social descriptions to the same source.
 
