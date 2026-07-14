@@ -1,0 +1,338 @@
+{
+  "issue": 353,
+  "status": "repo-only-migration-packet",
+  "generated_at": "2026-07-13T20:27:00-07:00",
+  "timezone": "America/Vancouver",
+  "method": "authenticated context=edit inventory plus source-digest-gated exact heading patches",
+  "observed": {
+    "published_posts_scanned": 967,
+    "published_pages_scanned": 45,
+    "published_posts_and_pages_scanned": 1012,
+    "source_objects_with_body_h1": 15,
+    "migration_targets": 14,
+    "target_body_h1_total": 44,
+    "authenticated_read_performed": true,
+    "wordpress_write_performed": false,
+    "search_console_write_performed": false
+  },
+  "claims": {
+    "migration_live_from_this_packet": false,
+    "ranking_lift_claimed": false,
+    "credentials_committed": false
+  },
+  "homepage_exclusion": {
+    "id": 3930,
+    "endpoint": "pages",
+    "type": "page",
+    "slug": "empowering-events-organizations-for-the-ai-age",
+    "status": "publish",
+    "modified_gmt": "2026-06-30T00:49:49",
+    "url": "https://kriskrug.co/",
+    "raw_sha256": "c94b1d028e7d8ecc6f74473f447ccf44e81b636137d3fe858d4f3dde934eac48",
+    "raw_length": 4549,
+    "body_h1_count": 1,
+    "format": "gutenberg",
+    "heading_texts": [
+      "Kris Krüg, Generative AI for Creative Professionals"
+    ],
+    "reason": "intentional-homepage-hero-h1"
+  },
+  "targets": [
+    {
+      "id": 11358,
+      "endpoint": "posts",
+      "type": "post",
+      "slug": "spa-at-the-end-of-time",
+      "status": "publish",
+      "modified_gmt": "2026-06-29T04:26:43",
+      "url": "https://kriskrug.co/2026/02/20/spa-at-the-end-of-time/",
+      "raw_sha256": "9b10466fd29f4bbb22990591be213715388451a8f28f9eff856c5d4afa100ccb",
+      "raw_length": 14818,
+      "expected_after_sha256": "9b193011643464cfa5aaae370af38b3718737545bff93847a4edce43d5616154",
+      "expected_after_length": 14818,
+      "body_h1_count": 9,
+      "expected_after_body_h1_count": 0,
+      "format": "gutenberg",
+      "heading_texts": [
+        "What you’re walking into",
+        "The images: comfort tech turns into cosmic interface",
+        "The voice: a medium, not a narrator",
+        "The AI part: a haunted paintbrush",
+        "The dome does something to your body",
+        "The room: artists, weirdos, and people who actually make things",
+        "Why it landed: it’s a spa, it’s a warning, it’s a love letter",
+        "Receipts",
+        "Challenger idea"
+      ]
+    },
+    {
+      "id": 7927,
+      "endpoint": "posts",
+      "type": "post",
+      "slug": "ais-next-chapter-notes-from-bcs-ai-ecosystem",
+      "status": "publish",
+      "modified_gmt": "2026-06-15T04:06:58",
+      "url": "https://kriskrug.co/2024/12/31/ais-next-chapter-notes-from-bcs-ai-ecosystem/",
+      "raw_sha256": "979c550f2d4c2aba75abeadb4a4a6f45bdd304dd37e598017bc3f07bdb5b4fd7",
+      "raw_length": 23916,
+      "expected_after_sha256": "69c68a5e549a453856c675d0bc3bed19f213cc14f3d5a39a7aea2c36aea62b3c",
+      "expected_after_length": 23916,
+      "body_h1_count": 5,
+      "expected_after_body_h1_count": 0,
+      "format": "gutenberg",
+      "heading_texts": [
+        "The Inside Out Revolution",
+        "ChatGPT's Reality Check",
+        "The Growing Pains",
+        "The 2025 Vision",
+        "AI Education & Adoption in British Columbia AI Ecosystem"
+      ]
+    },
+    {
+      "id": 6453,
+      "endpoint": "posts",
+      "type": "post",
+      "slug": "small-file-rebellion-hacking-the-digital-carbon-footprint-at-our-networks-2024",
+      "status": "publish",
+      "modified_gmt": "2026-06-29T04:33:11",
+      "url": "https://kriskrug.co/2024/07/28/small-file-rebellion-hacking-the-digital-carbon-footprint-at-our-networks-2024/",
+      "raw_sha256": "305ffb31101b7f27d7f994ed92e24fe2778009021293a805e9dff3c955b528c5",
+      "raw_length": 11998,
+      "expected_after_sha256": "beb09f77edb4572960a4045fd58c2c9a3559ee7b0e57b2217027c4a2f48562c3",
+      "expected_after_length": 11998,
+      "body_h1_count": 1,
+      "expected_after_body_h1_count": 0,
+      "format": "gutenberg",
+      "heading_texts": [
+        "#SmallFileRebellion #OurNetworks2024 #DigitalDiet #EcoFriendlyPixels"
+      ]
+    },
+    {
+      "id": 6435,
+      "endpoint": "posts",
+      "type": "post",
+      "slug": "digital-rebellion-w-lori-emersons-at-our-networks-2024",
+      "status": "publish",
+      "modified_gmt": "2026-06-29T04:33:21",
+      "url": "https://kriskrug.co/2024/07/27/digital-rebellion-w-lori-emersons-at-our-networks-2024/",
+      "raw_sha256": "a8c8a906c137cd2ad76aa6dcbfc1600f1650b51fad2d356904bab3b3e7678e19",
+      "raw_length": 14678,
+      "expected_after_sha256": "8a2e68dd71a686457cdfdea62a15c1a7750b4859ccf7d23bb2fe2cef88e0ba68",
+      "expected_after_length": 14678,
+      "body_h1_count": 1,
+      "expected_after_body_h1_count": 0,
+      "format": "gutenberg",
+      "heading_texts": [
+        "#DigitalRebellion #OurNetworks2024 #UnpluggedAndUnchained"
+      ]
+    },
+    {
+      "id": 6344,
+      "endpoint": "posts",
+      "type": "post",
+      "slug": "fuck-the-status-quo-ais-messy-love-child-with-creativity",
+      "status": "publish",
+      "modified_gmt": "2026-06-29T04:33:25",
+      "url": "https://kriskrug.co/2024/07/19/fuck-the-status-quo-ais-messy-love-child-with-creativity/",
+      "raw_sha256": "ca5290eacbaba865cb5de4ddecd10aad78a3a0ab7d2d8da3cdd89ad86e87491e",
+      "raw_length": 33112,
+      "expected_after_sha256": "27fbafc572787dda74cfc1461d79e07672ac3e078e7f046625c6c5906810b6a9",
+      "expected_after_length": 33112,
+      "body_h1_count": 9,
+      "expected_after_body_h1_count": 0,
+      "format": "gutenberg",
+      "heading_texts": [
+        "SUMMARY",
+        "IDEAS:",
+        "INSIGHTS:",
+        "QUOTES:",
+        "HABITS:",
+        "FACTS:",
+        "REFERENCES:",
+        "ONE-SENTENCE TAKEAWAY",
+        "RECOMMENDATIONS:"
+      ]
+    },
+    {
+      "id": 4826,
+      "endpoint": "posts",
+      "type": "post",
+      "slug": "join-the-future-proof-creatives-community",
+      "status": "publish",
+      "modified_gmt": "2026-06-29T04:36:09",
+      "url": "https://kriskrug.co/2024/03/05/join-the-future-proof-creatives-community/",
+      "raw_sha256": "59306ae2ade276de6ae3bbe93745fafbaa6ca4d2a0f74ae12920d1e4aecf87a8",
+      "raw_length": 19853,
+      "expected_after_sha256": "043a542624a6fecfa48b510d4e797416d00f2dcb8b466dc05c5bc76c10a11399",
+      "expected_after_length": 19853,
+      "body_h1_count": 1,
+      "expected_after_body_h1_count": 0,
+      "format": "gutenberg",
+      "heading_texts": [
+        "Appendix: FAQs"
+      ]
+    },
+    {
+      "id": 4174,
+      "endpoint": "posts",
+      "type": "post",
+      "slug": "2024-the-year-of-ai-revolution-a-rebels-guide-to-predicting-the-future",
+      "status": "publish",
+      "modified_gmt": "2026-06-29T04:36:36",
+      "url": "https://kriskrug.co/2024/01/19/2024-the-year-of-ai-revolution-a-rebels-guide-to-predicting-the-future/",
+      "raw_sha256": "b968d719dcb30bdb1661b03860de75d8fee7e7376a9573661ed3001e27a53b0c",
+      "raw_length": 15430,
+      "expected_after_sha256": "67552b93060dd76d01a6e5c52a6c8b2fa5e9b28ac2ebd7c1f34301e7a7bf3cc6",
+      "expected_after_length": 15430,
+      "body_h1_count": 1,
+      "expected_after_body_h1_count": 0,
+      "format": "gutenberg",
+      "heading_texts": [
+        "Navigating the AI Landscape in 2024"
+      ]
+    },
+    {
+      "id": 4372,
+      "endpoint": "posts",
+      "type": "post",
+      "slug": "building-ai-companions-w-john-anthony-hartman-of-ihaverobots",
+      "status": "publish",
+      "modified_gmt": "2026-06-29T04:36:40",
+      "url": "https://kriskrug.co/2023/12/28/building-ai-companions-w-john-anthony-hartman-of-ihaverobots/",
+      "raw_sha256": "1b2368b8bab5781f3f5487691bcf3ad9e402645b72cf7cc17daa567a31b6e282",
+      "raw_length": 8238,
+      "expected_after_sha256": "5998ffd6513ff8c85b0bf53d69ff89d72b73a0f79cf3eb2453cd790913c0be88",
+      "expected_after_length": 8238,
+      "body_h1_count": 1,
+      "expected_after_body_h1_count": 0,
+      "format": "gutenberg",
+      "heading_texts": [
+        "Chasing the Muses: John Anthony Hartman's Art Residency w/ MØTLEYKRÜG Media"
+      ]
+    },
+    {
+      "id": 3908,
+      "endpoint": "posts",
+      "type": "post",
+      "slug": "web3-will-fail-if-it-doesnt-put-people-before-profits-and-technology",
+      "status": "publish",
+      "modified_gmt": "2026-06-29T04:37:17",
+      "url": "https://kriskrug.co/2023/11/01/web3-will-fail-if-it-doesnt-put-people-before-profits-and-technology/",
+      "raw_sha256": "ea43cecce97779b772672cefa38263f40262716c8c0851d1a02406df445a92be",
+      "raw_length": 9847,
+      "expected_after_sha256": "a593beea5f867a5de8fc8cc7d49c32f7524fcad8bf2569004d369aa150c003f8",
+      "expected_after_length": 9847,
+      "body_h1_count": 1,
+      "expected_after_body_h1_count": 0,
+      "format": "gutenberg",
+      "heading_texts": [
+        "Reimagining Web3's Foundation"
+      ]
+    },
+    {
+      "id": 3567,
+      "endpoint": "posts",
+      "type": "post",
+      "slug": "community-art-project-development-process-guide",
+      "status": "publish",
+      "modified_gmt": "2026-06-29T04:38:07",
+      "url": "https://kriskrug.co/2023/10/15/community-art-project-development-process-guide/",
+      "raw_sha256": "0cf92d30ac25aa29e46a4df26a134cd996c4a691416bac4f983917ba859f446e",
+      "raw_length": 14618,
+      "expected_after_sha256": "ad72cac290ebb23cca31650d2c0c6ee3d4a6c0493eb3461e4a23948003831a75",
+      "expected_after_length": 14618,
+      "body_h1_count": 1,
+      "expected_after_body_h1_count": 0,
+      "format": "gutenberg",
+      "heading_texts": [
+        "Building Community Through Art: A Guide to Navigating the Complexities of Community Art Projects"
+      ]
+    },
+    {
+      "id": 3151,
+      "endpoint": "posts",
+      "type": "post",
+      "slug": "newsletter-002-rebirth-and-revolution",
+      "status": "publish",
+      "modified_gmt": "2026-06-15T04:36:04",
+      "url": "https://kriskrug.co/2023/09/18/newsletter-002-rebirth-and-revolution/",
+      "raw_sha256": "189796c84ae753ac732619f139fd2e40ddcddb8cb83740fde5b26265434f1916",
+      "raw_length": 76450,
+      "expected_after_sha256": "6233abf4bb8e06f05ce2398e17a3004922ce1b4c79e1cf32ef2022fad2e8af09",
+      "expected_after_length": 76450,
+      "body_h1_count": 6,
+      "expected_after_body_h1_count": 0,
+      "format": "gutenberg",
+      "heading_texts": [
+        "Hello Friends!",
+        "Upcoming Events:",
+        "Community Shoutouts:",
+        "News & Updates:",
+        "New MØTLEYKRÜG Podcast Episodes:",
+        "New Videoblogs on YOUTUBE:"
+      ]
+    },
+    {
+      "id": 2857,
+      "endpoint": "posts",
+      "type": "post",
+      "slug": "through-my-lens-new-projects-and-updates-from-kris-krug",
+      "status": "publish",
+      "modified_gmt": "2026-06-29T04:39:15",
+      "url": "https://kriskrug.co/2023/08/22/through-my-lens-new-projects-and-updates-from-kris-krug/",
+      "raw_sha256": "c6b1ce00c4cf5cc8289ea21530b6c3580ae60312101d389788c9c1ffffec15de",
+      "raw_length": 50617,
+      "expected_after_sha256": "4202e03fc8436ecd8e8645bbdc00f941ff56389084c5e70126e94daaa70376e1",
+      "expected_after_length": 50617,
+      "body_h1_count": 6,
+      "expected_after_body_h1_count": 0,
+      "format": "gutenberg",
+      "heading_texts": [
+        "News & Updates:",
+        "Upcoming:",
+        "Highlight: Generative AI's Role in Art and Creativity: A Deep Dive on YouTube",
+        "Shout-Outs:",
+        "Lets Work Together: 778.898.3076",
+        "Get In Touch:"
+      ]
+    },
+    {
+      "id": 1547,
+      "endpoint": "posts",
+      "type": "post",
+      "slug": "photo-essay-inside-the-negotiations-cop15",
+      "status": "publish",
+      "modified_gmt": "2026-07-11T19:45:56",
+      "url": "https://kriskrug.co/2009/12/14/photo-essay-inside-the-negotiations-cop15/",
+      "raw_sha256": "1264538397e97058ca23a0874eab6ac8bcdd247b43126b46988e6c1b0aed22b0",
+      "raw_length": 6306,
+      "expected_after_sha256": "5fdcbaedca580757dac223bfdcdcbeb98f5057c73b8f404b3611499c89500d7f",
+      "expected_after_length": 6306,
+      "body_h1_count": 1,
+      "expected_after_body_h1_count": 0,
+      "format": "classic",
+      "heading_texts": [
+        "COP15 United Nations Climate Change Summit"
+      ]
+    },
+    {
+      "id": 12013,
+      "endpoint": "pages",
+      "type": "page",
+      "slug": "photography",
+      "status": "publish",
+      "modified_gmt": "2026-06-17T16:02:00",
+      "url": "https://kriskrug.co/photography/",
+      "raw_sha256": "bf8dabd8d52e5c975866459ce6a4f80bb2f7a37046dd9e3f95dfff22ea5034e5",
+      "raw_length": 12504,
+      "expected_after_sha256": "5aca1f05b16edc79f0cf3e4fbcd1df98bf36344f53cdb7fe0e1ea5b423f02185",
+      "expected_after_length": 12504,
+      "body_h1_count": 1,
+      "expected_after_body_h1_count": 0,
+      "format": "classic",
+      "heading_texts": [
+        "Two decades in the room, with a camera."
+      ]
+    }
+  ]
+}
