@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "issue": 355,
+  "status": "human-review-required",
+  "live_wordpress_write_performed": false,
+  "evidence": {
+    "source": "Read-only Search Console API evidence recorded from issue #279 and refreshed for the matching landing page",
+    "window_start": "2026-06-12",
+    "window_end": "2026-07-09",
+    "private_analytics_export_included": false,
+    "landing_page": {
+      "impressions": 186,
+      "clicks": 0,
+      "ctr_percent": 0.0,
+      "average_position": 11.62
+    },
+    "queries": [
+      {
+        "text": "augie ai",
+        "impressions": 45,
+        "clicks": 0,
+        "ctr_percent": 0.0,
+        "average_position": 12.73
+      },
+      {
+        "text": "augie studio",
+        "impressions": 32,
+        "clicks": 0,
+        "ctr_percent": 0.0,
+        "average_position": 17.19
+      }
+    ]
+  },
+  "target": {
+    "id": 6019,
+    "slug": "augie-studio-review-ai-driven-video-production-analysis",
+    "status": "publish",
+    "modified": "2026-06-14T20:11:57",
+    "url": "https://kriskrug.co/2024/06/18/augie-studio-review-ai-driven-video-production-analysis/",
+    "post_title": "Augie Studio Review: AI-Driven Video Production Analysis"
+  },
+  "current_public_metadata": {
+    "observed_on": "2026-07-13",
+    "http_status": 200,
+    "canonical": "https://kriskrug.co/2024/06/18/augie-studio-review-ai-driven-video-production-analysis/",
+    "h1_count": 1,
+    "robots": "max-image-preview:large",
+    "indexable": true,
+    "document_title": "Augie Studio Review: AI-Driven Video Production Analysis - Kris Krug | AI Keynote Speaker & Creative Technologist",
+    "standard_meta_description_present": false,
+    "og_title": "Augie Studio Review: AI-Driven Video Production Analysis",
+    "og_description": "Lights, camera, AI action! Buckle up as we dive into Augie Studio, the cutting-edge platform revolutionizing video production by putting the power of artificial intelligence directly into creators' hands.",
+    "public_rest_meta_keys": [
+      "footnotes"
+    ],
+    "jetpack_seo_meta_fields_exposed": false
+  },
+  "first_party_sources": {
+    "acquisition": {
+      "url": "https://jwx.com/news/jwx-augie-acquisition",
+      "http_status": 200,
+      "published_on": "2026-01-15",
+      "confirmed_facts": [
+        "JWX acquired Aug X Labs, the company behind Augie Studio",
+        "Augie Studio is being incorporated into JWX Studio",
+        "Augie will sunset its direct-to-consumer product",
+        "the product focus is publishers and media companies"
+      ]
+    },
+    "current_studio": {
+      "url": "https://jwx.com/jwx-studio",
+      "http_status": 200,
+      "confirmed_facts": [
+        "JWX Studio is an AI-assisted video production and repurposing solution",
+        "the intended audience is publishers and media enterprises",
+        "the workflow retains human editorial control"
+      ]
+    },
+    "consumer_transition": {
+      "url": "https://my.augie.studio/",
+      "http_status": 200,
+      "confirmed_facts": [
+        "the consumer product is no longer offered",
+        "existing enterprise users can continue during the transition"
+      ]
+    }
+  },
+  "proposed_metadata": {
+    "field_values": {
+      "jetpack_seo_html_title": "Augie Studio Review: AI Video Tool After JWX Acquisition",
+      "advanced_seo_description": "A hands-on Augie Studio review, updated after JWX acquired Aug X Labs and sunset the consumer product. See what changed and who JWX Studio now serves."
+    },
+    "field_lengths": {
+      "jetpack_seo_html_title": 56,
+      "advanced_seo_description": 150
+    },
+    "post_title_change": false,
+    "metadata_rest_write_allowed_while_fields_unregistered": false
+  },
+  "body_insertion": {
+    "operation": "insert_before_exact_html",
+    "needle": "<p>Hey tech rebels and digital visionaries, <a href=\"https://kriskrug.co/\">Kris Krug</a> here with an exploration of brand spankin new <a href=\"https://augie.studio/\">Augie Studio</a>. This platform is pioneering the AI-driven video creation space, pushing the boundaries of what&#8217;s possible in media production.</p>",
+    "note_html": "<p><strong>Update, July 2026:</strong> <a href=\"https://jwx.com/news/jwx-augie-acquisition\">JWX acquired Aug X Labs</a>, the company behind Augie Studio, in January 2026. JWX is sunsetting Augie&#8217;s direct-to-consumer product and integrating its technology into <a href=\"https://jwx.com/jwx-studio\">JWX Studio</a> for publishers and media enterprises. The hands-on review below is preserved as a snapshot of the 2024 product.</p>",
+    "separator": "\n\n\n\n",
+    "replacement": "<p><strong>Update, July 2026:</strong> <a href=\"https://jwx.com/news/jwx-augie-acquisition\">JWX acquired Aug X Labs</a>, the company behind Augie Studio, in January 2026. JWX is sunsetting Augie&#8217;s direct-to-consumer product and integrating its technology into <a href=\"https://jwx.com/jwx-studio\">JWX Studio</a> for publishers and media enterprises. The hands-on review below is preserved as a snapshot of the 2024 product.</p>\n\n\n\n<p>Hey tech rebels and digital visionaries, <a href=\"https://kriskrug.co/\">Kris Krug</a> here with an exploration of brand spankin new <a href=\"https://augie.studio/\">Augie Studio</a>. This platform is pioneering the AI-driven video creation space, pushing the boundaries of what&#8217;s possible in media production.</p>",
+    "expected_needle_count_before": 1,
+    "expected_update_note_count_before": 0,
+    "expected_update_note_count_after": 1,
+    "original_review_otherwise_byte_preserved": true,
+    "external_links": [
+      {
+        "href": "https://jwx.com/news/jwx-augie-acquisition",
+        "anchor_text": "JWX acquired Aug X Labs"
+      },
+      {
+        "href": "https://jwx.com/jwx-studio",
+        "anchor_text": "JWX Studio"
+      }
+    ]
+  },
+  "future_write_boundary_if_separately_approved": {
+    "body_allowed_rest_top_level_keys": [
+      "content"
+    ],
+    "metadata_editor_fields": [
+      "jetpack_seo_html_title",
+      "advanced_seo_description"
+    ],
+    "metadata_rest_write_allowed": false,
+    "forbidden_rest_top_level_keys": [
+      "title",
+      "slug",
+      "status",
+      "date",
+      "date_gmt",
+      "categories",
+      "tags",
+      "meta",
+      "excerpt",
+      "author",
+      "featured_media",
+      "comment_status",
+      "ping_status",
+      "template",
+      "format",
+      "sticky",
+      "password"
+    ],
+    "requires": [
+      "exact human approval of the metadata and dated update note",
+      "Aurora standard-description ownership verified before judging metadata output",
+      "fresh target ID, slug, status, modified, canonical, and H1 checks",
+      "fresh content.raw contains the exact insertion needle once",
+      "no REST metadata write while the two Jetpack fields are unregistered",
+      "full body diff reviewed before the content-only write"
+    ],
+    "snapshot": {
+      "directory_pattern": "backup/<UTC>-issue-355-augie-jwx-update",
+      "required_before_write": true,
+      "required_files": [
+        "before-post-6019-edit.json",
+        "before-post-6019-content.raw.html",
+        "before-post-6019-public.html",
+        "sha256sums.txt",
+        "rollback-content-only.json"
+      ]
+    },
+    "readback": [
+      "authenticated content.raw equals the reviewed after-body",
+      "public source returns HTTP 200 and remains self-canonical and indexable",
+      "public source retains one H1 and the original visible post title",
+      "the dated update note and both official links render exactly once",
+      "the remainder of the original review is byte-preserved",
+      "all three first-party source URLs return HTTP 200"
+    ],
+    "rollback": [
+      "stop if a later edit changed the post or the current modified value differs from the recorded post-write value",
+      "restore only content from the before snapshot",
+      "restore only the two reviewed SEO fields through their registered editor surface",
+      "repeat authenticated and public readback after rollback"
+    ]
+  },
+  "next_digest": {
+    "earliest_full_days_after_live_change": 14,
+    "second_measurement_full_days_after_live_change": 28,
+    "queries": [
+      "augie ai",
+      "augie studio"
+    ],
+    "landing_page": "https://kriskrug.co/2024/06/18/augie-studio-review-ai-driven-video-production-analysis/",
+    "required_metrics": [
+      "impressions",
+      "clicks",
+      "ctr_percent",
+      "average_position"
+    ],
+    "success_signal": {
+      "combined_query_clicks_at_least": 1,
+      "augie_ai_average_position_below": 10.0,
+      "augie_studio_average_position_below": 15.0,
+      "landing_page_ctr_percent_above": 1.0
+    },
+    "attribution_rule": "Do not attribute movement to this handoff until the live edit is approved, applied, publicly verified, and recrawled."
+  }
+}
