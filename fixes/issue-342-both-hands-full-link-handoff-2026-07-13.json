@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "issue": 342,
+  "status": "human-review-required",
+  "live_wordpress_write_performed": false,
+  "evidence": {
+    "current_window": {
+      "start": "2026-06-13",
+      "end": "2026-07-10"
+    },
+    "source_page": {
+      "impressions": 56,
+      "clicks": 3,
+      "ctr_percent": 5.36,
+      "average_position": 8.27
+    },
+    "target_property": {
+      "impressions": 6,
+      "clicks": 0,
+      "ctr_percent": 0.0,
+      "average_position": 21.67
+    },
+    "target_homepage": {
+      "impressions": 4,
+      "clicks": 0,
+      "ctr_percent": 0.0,
+      "average_position": 16.5
+    },
+    "source": "2026-07-13 Growth Mirror monthly readout; digest-safe aggregate only"
+  },
+  "source": {
+    "id": 11171,
+    "slug": "both-hands-full",
+    "status": "publish",
+    "modified": "2026-06-28T20:26:51",
+    "modified_gmt": "2026-06-29T04:26:51",
+    "url": "https://kriskrug.co/2026/01/24/both-hands-full/",
+    "canonical": "https://kriskrug.co/2026/01/24/both-hands-full/",
+    "post_title": "Both Hands Full",
+    "http_status": 200,
+    "h1_count": 1,
+    "robots": "max-image-preview:large"
+  },
+  "target": {
+    "url": "https://www.bothhandsfull.com",
+    "canonical": "https://www.bothhandsfull.com",
+    "http_status": 200,
+    "h1_count": 1,
+    "robots": "index, follow"
+  },
+  "link_patch": {
+    "observed_in": "public_rest_content_rendered",
+    "current_href": "https://kriskrug.notion.site/keynote-both-hands-full?source=copy_link",
+    "replacement_href": "https://www.bothhandsfull.com",
+    "anchor_text": "both hands full",
+    "current_anchor_html": "<a href=\"https://kriskrug.notion.site/keynote-both-hands-full?source=copy_link\">both hands full</a>",
+    "replacement_anchor_html": "<a href=\"https://www.bothhandsfull.com\">both hands full</a>",
+    "context_before": "<p>So I’m asking you to walk forward with <a href=\"https://kriskrug.notion.site/keynote-both-hands-full?source=copy_link\">both hands full</a>.</p>",
+    "context_after": "<p>So I’m asking you to walk forward with <a href=\"https://www.bothhandsfull.com\">both hands full</a>.</p>",
+    "expected_context_count": 1,
+    "expected_current_anchor_count": 1,
+    "expected_target_href_count_before": 0,
+    "expected_target_href_count_after": 1,
+    "copy_change": false,
+    "rel_attribute_added": false,
+    "future_authenticated_raw_guard_required": true
+  },
+  "duplicate_publication_decision": {
+    "source_issue": "WalksWithASwagger/bothhandsfull#103",
+    "decision": "do_not_publish_duplicate",
+    "reason": "The article, title, and slug already exist on KrisKrug.co; repair the existing contextual destination instead."
+  },
+  "future_write_boundary_if_separately_approved": {
+    "publisher_batch_issue": "WalksWithASwagger/kriskrug-wp#339",
+    "allowed_rest_top_level_keys": [
+      "content"
+    ],
+    "forbidden_rest_top_level_keys": [
+      "title",
+      "slug",
+      "status",
+      "date",
+      "categories",
+      "tags",
+      "excerpt",
+      "meta"
+    ],
+    "requires": [
+      "fresh ID, slug, status, and modified-date checks",
+      "retained content.raw rollback snapshot",
+      "exact current-anchor and target-href counts before writing",
+      "human approval of the exact href-only replacement",
+      "one content write followed by authenticated and public readback",
+      "public source and target HTTP 200 plus self-canonical verification"
+    ]
+  },
+  "next_digest": {
+    "earliest_full_days_after_live_change": 14,
+    "secondary_review_days_after_live_change": 28,
+    "source_page": "https://kriskrug.co/2026/01/24/both-hands-full/",
+    "target_homepage": "https://www.bothhandsfull.com",
+    "compare": [
+      "source_page_impressions",
+      "source_page_clicks",
+      "source_page_ctr_percent",
+      "source_page_average_position",
+      "target_property_impressions",
+      "target_property_clicks",
+      "target_homepage_impressions",
+      "target_homepage_clicks",
+      "target_homepage_average_position"
+    ],
+    "note": "Measure only after the approved live edit is public and recrawled. Treat movement as directional evidence, not proof that one link caused it."
+  }
+}
