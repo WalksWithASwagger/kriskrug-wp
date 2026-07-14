@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "issue": 345,
+  "status": "human-review-required",
+  "live_wordpress_write_performed": false,
+  "live_before": {
+    "observed_on": "2026-07-13",
+    "public_rest_root": {
+      "url": "https://kriskrug.co/wp-json/",
+      "http_status": 200,
+      "raw_name": "Kris Krüg | Generative AI Tools &amp; Techniques",
+      "decoded_name": "Kris Krüg | Generative AI Tools & Techniques",
+      "raw_description": "Empowering Events &amp; Organizations for the AI Age"
+    },
+    "active_aurora_version": "1.3.37",
+    "active_aurora_version_evidence": {
+      "url": "https://kriskrug.co/wp-content/themes/kk-aurora/style.css",
+      "http_status": 200,
+      "version_header": "1.3.37"
+    },
+    "active_social_metadata_owner": "theme/kk-aurora/functions.php::render_social_meta_tags",
+    "inactive_bridge_snippet_id": 12,
+    "owner_receipt": "https://github.com/WalksWithASwagger/kriskrug-wp/issues/319#issuecomment-4953532560",
+    "route_matrix": [
+      {
+        "path": "/",
+        "document_title": "Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "normal_http_status": 200,
+        "cache_busted_http_status": 200,
+        "normal_og_site_name_count": 1,
+        "cache_busted_og_site_name_count": 1,
+        "og_site_name": "Kris Krüg | Generative AI Tools & Techniques"
+      },
+      {
+        "path": "/about/",
+        "document_title": "About Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "normal_http_status": 200,
+        "cache_busted_http_status": 200,
+        "normal_og_site_name_count": 1,
+        "cache_busted_og_site_name_count": 1,
+        "og_site_name": "Kris Krüg | Generative AI Tools & Techniques"
+      },
+      {
+        "path": "/speaking/",
+        "document_title": "AI Keynote Speaker Kris Krüg — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "normal_http_status": 200,
+        "cache_busted_http_status": 200,
+        "normal_og_site_name_count": 1,
+        "cache_busted_og_site_name_count": 1,
+        "og_site_name": "Kris Krüg | Generative AI Tools & Techniques"
+      },
+      {
+        "path": "/blog/",
+        "document_title": "Blog — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "normal_http_status": 200,
+        "cache_busted_http_status": 200,
+        "normal_og_site_name_count": 1,
+        "cache_busted_og_site_name_count": 1,
+        "og_site_name": "Kris Krüg | Generative AI Tools & Techniques"
+      },
+      {
+        "path": "/2026/01/24/both-hands-full/",
+        "document_title": "Both Hands Full — Kris Krug | AI Keynote Speaker & Creative Technologist",
+        "normal_http_status": 200,
+        "cache_busted_http_status": 200,
+        "normal_og_site_name_count": 1,
+        "cache_busted_og_site_name_count": 1,
+        "og_site_name": "Kris Krüg | Generative AI Tools & Techniques"
+      }
+    ]
+  },
+  "source_map": {
+    "wordpress_option": "blogname",
+    "public_readback": "GET https://kriskrug.co/wp-json/ field name",
+    "active_aurora_reader": "theme/kk-aurora/functions.php social_meta_tags og:site_name",
+    "inactive_bridge_reader": "fixes/og-restore-snippet.php $site",
+    "document_title_owner": "theme/kk-aurora/functions.php filter_document_title_parts"
+  },
+  "proposed_change": {
+    "wordpress_option": "blogname",
+    "current_decoded_value": "Kris Krüg | Generative AI Tools & Techniques",
+    "target_value": "Kris Krug",
+    "allowed_writes": [
+      "wordpress_option:blogname"
+    ],
+    "repo_rendering_code_change_required": false,
+    "reason": "The active and rollback social metadata owners already derive og:site_name from blogname, while Aurora's document-title filter owns the longer keynote descriptor independently."
+  },
+  "future_deployment_if_separately_approved": {
+    "requires": [
+      "explicit approval of the exact blogname change",
+      "fresh authenticated readback of the current blogname",
+      "complete rollback snapshot of the current blogname",
+      "confirmation Aurora remains the active social metadata owner",
+      "confirmation Code Snippet 12 remains inactive",
+      "confirmation no concurrent WordPress settings edit is in progress"
+    ],
+    "allowed_actions": [
+      "set blogname to Kris Krug"
+    ],
+    "forbidden_actions": [
+      "change the WordPress tagline",
+      "activate or edit Code Snippet 12",
+      "upload or edit Aurora",
+      "edit schema Code Snippet 5",
+      "edit posts, pages, media, or taxonomies",
+      "change analytics, Search Console, DNS, permissions, or credentials"
+    ],
+    "immediate_readback": [
+      "authenticated blogname",
+      "public REST root name",
+      "anonymous homepage og:site_name",
+      "cache-busted homepage og:site_name",
+      "homepage document title"
+    ],
+    "rollback": [
+      "restore the exact captured blogname",
+      "purge PressCACHE",
+      "repeat authenticated, public REST, anonymous, and cache-busted readback"
+    ]
+  },
+  "post_deploy_evaluation": {
+    "sample_urls": [
+      "https://kriskrug.co/",
+      "https://kriskrug.co/about/",
+      "https://kriskrug.co/speaking/",
+      "https://kriskrug.co/blog/",
+      "https://kriskrug.co/2026/01/24/both-hands-full/"
+    ],
+    "checks": [
+      "authenticated_blogname",
+      "public_rest_root",
+      "anonymous_normal_html",
+      "anonymous_cache_busted_html",
+      "crawler_user_agents",
+      "rss_feed_title",
+      "document_title",
+      "metadata_owner"
+    ],
+    "crawler_user_agents": [
+      "Twitterbot",
+      "facebookexternalhit",
+      "Googlebot"
+    ],
+    "expected": [
+      "public REST name is Kris Krug",
+      "exactly one og:site_name with value Kris Krug",
+      "document titles remain unchanged",
+      "Aurora remains the only active social metadata owner",
+      "Code Snippet 12 remains inactive",
+      "all sampled routes remain HTTP 200"
+    ],
+    "recrawl_policy": "Do not consume priority Search Console indexing quota for a site-name-only option change. Let normal crawling pick it up after public verification."
+  },
+  "adjacent_findings": {
+    "missing_homepage_og_title": {
+      "issue": 346,
+      "normal_count": 0,
+      "cache_busted_count": 0,
+      "expected_owner": "Aurora",
+      "status": "separately-tracked"
+    },
+    "missing_blog_canonical": {
+      "issue": 347,
+      "normal_count": 0,
+      "cache_busted_count": 0,
+      "present_in_page_sitemap": true,
+      "sitemap": "https://kriskrug.co/wp-sitemap-posts-page-1.xml",
+      "status": "separately-tracked"
+    }
+  },
+  "out_of_scope_issue_numbers": [
+    316,
+    346,
+    347
+  ],
+  "out_of_scope": [
+    "Person and WebSite schema deployment",
+    "homepage Open Graph title repair",
+    "Blog canonical repair",
+    "theme or plugin deployment",
+    "temporary bridge reactivation",
+    "post, page, media, or taxonomy changes",
+    "Search Console submissions or removals",
+    "analytics, DNS, permissions, or credentials"
+  ]
+}
