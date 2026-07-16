@@ -1,0 +1,258 @@
+{
+  "captured_at": "2026-07-16T01:46:00Z",
+  "note": "Phase B inventory only \u2014 no deletions. Public REST slug probe.",
+  "threshold_bytes": 500000,
+  "all_large_draft_count": 19,
+  "all_large_draft_mb": 222.1,
+  "published_candidate_count": 16,
+  "results": [
+    {
+      "dir": "2026-05-23-data-center-protest-signs",
+      "slug_guess": "data-center-protest-signs",
+      "wp_id_hint": null,
+      "image_bytes": 42147157,
+      "image_count": 14,
+      "live": {
+        "id": 11929,
+        "slug": "data-center-protest-signs",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/05/23/data-center-protest-signs/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-05-16-why-we-built-the-responsible-ai-professional-certification",
+      "slug_guess": "why-we-built-the-responsible-ai-professional-certification",
+      "wp_id_hint": null,
+      "image_bytes": 34938760,
+      "image_count": 13,
+      "live": {
+        "id": 12257,
+        "slug": "why-we-built-the-responsible-ai-professional-certification",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/06/18/why-we-built-the-responsible-ai-professional-certification/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-05-07-web-summit-vancouver-2026",
+      "slug_guess": "web-summit-vancouver-2026",
+      "wp_id_hint": null,
+      "image_bytes": 29505347,
+      "image_count": 10,
+      "live": {
+        "id": 11826,
+        "slug": "web-summit-vancouver-2026",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/05/07/web-summit-vancouver-2026/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-05-13-sovereign-ai-for-whom",
+      "slug_guess": "sovereign-ai-for-whom",
+      "wp_id_hint": null,
+      "image_bytes": 23888284,
+      "image_count": 6,
+      "live": {
+        "id": 11905,
+        "slug": "sovereign-ai-for-whom",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/06/16/sovereign-ai-for-whom/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-06-07-god-skills-agentic-loop-workflows",
+      "slug_guess": "god-skills-agentic-loop-workflows",
+      "wp_id_hint": null,
+      "image_bytes": 22687762,
+      "image_count": 6,
+      "live": {
+        "id": 12263,
+        "slug": "god-skills-agentic-loop-workflows",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/06/20/god-skills-agentic-loop-workflows/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-05-24-human-element-shane-loki-talk",
+      "slug_guess": "human-element-shane-loki-talk",
+      "wp_id_hint": null,
+      "image_bytes": 19213537,
+      "image_count": 7,
+      "disposition": "not-found-public-or-unpublished"
+    },
+    {
+      "dir": "2026-06-04-ai-keynote-slides-visual-workflow",
+      "slug_guess": "ai-keynote-slides-visual-workflow",
+      "wp_id_hint": null,
+      "image_bytes": 8208178,
+      "image_count": 4,
+      "live": {
+        "id": 12183,
+        "slug": "ai-keynote-slides-visual-workflow",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/06/04/ai-keynote-slides-visual-workflow/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-06-23-vancouver-made-world-cup",
+      "slug_guess": "vancouver-made-world-cup",
+      "wp_id_hint": null,
+      "image_bytes": 7547817,
+      "image_count": 11,
+      "live": {
+        "id": 12363,
+        "slug": "vancouver-made-world-cup",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/06/23/vancouver-made-world-cup/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-06-04-the-great-canadian-proximity-game",
+      "slug_guess": "the-great-canadian-proximity-game",
+      "wp_id_hint": null,
+      "image_bytes": 4131323,
+      "image_count": 2,
+      "live": {
+        "id": 12190,
+        "slug": "the-great-canadian-proximity-game",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/06/22/the-great-canadian-proximity-game/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-06-16-storyhive-haus-of-owl-jordan-dack",
+      "slug_guess": "storyhive-haus-of-owl-jordan-dack",
+      "wp_id_hint": null,
+      "image_bytes": 3973244,
+      "image_count": 8,
+      "live": {
+        "id": 12327,
+        "slug": "storyhive-haus-of-owl-jordan-dack",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/06/17/storyhive-haus-of-owl-jordan-dack/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-05-24-what-would-chat-do-and-why-thats-the-wrong-question",
+      "slug_guess": "what-would-chat-do-and-why-thats-the-wrong-question",
+      "wp_id_hint": null,
+      "image_bytes": 3950232,
+      "image_count": 2,
+      "live": {
+        "id": 12032,
+        "slug": "what-would-chat-do-and-why-thats-the-wrong-question",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/06/28/what-would-chat-do-and-why-thats-the-wrong-question/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-06-23-ethos-lab-block-party",
+      "slug_guess": "ethos-lab-block-party",
+      "wp_id_hint": null,
+      "image_bytes": 3391974,
+      "image_count": 7,
+      "live": {
+        "id": 12357,
+        "slug": "ethos-lab-block-party",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/06/23/ethos-lab-block-party/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-05-24-canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one",
+      "slug_guess": "canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one",
+      "wp_id_hint": null,
+      "image_bytes": 3224511,
+      "image_count": 2,
+      "live": {
+        "id": 12030,
+        "slug": "canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/06/26/canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-05-24-ai-wont-fix-your-broken-permit-process",
+      "slug_guess": "ai-wont-fix-your-broken-permit-process",
+      "wp_id_hint": null,
+      "image_bytes": 3186450,
+      "image_count": 2,
+      "live": {
+        "id": 12035,
+        "slug": "ai-wont-fix-your-broken-permit-process",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/06/24/ai-wont-fix-your-broken-permit-process/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-07-07-the-cheer-is-a-cap-table",
+      "slug_guess": "the-cheer-is-a-cap-table",
+      "wp_id_hint": "12479",
+      "image_bytes": 3009080,
+      "image_count": 2,
+      "live": {
+        "id": 12479,
+        "slug": "the-cheer-is-a-cap-table",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/07/10/the-cheer-is-a-cap-table/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-05-24-how-we-did-it-behind-the-scenes-of-the-sfu-siat-microcredential-project",
+      "slug_guess": "how-we-did-it-behind-the-scenes-of-the-sfu-siat-microcredential-project",
+      "wp_id_hint": null,
+      "image_bytes": 2878374,
+      "image_count": 2,
+      "disposition": "not-found-public-or-unpublished"
+    },
+    {
+      "dir": "2026-05-14-calling-us-all-in",
+      "slug_guess": "calling-us-all-in",
+      "wp_id_hint": null,
+      "image_bytes": 2524782,
+      "image_count": 6,
+      "live": {
+        "id": 11765,
+        "slug": "calling-us-all-in",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/05/14/calling-us-all-in/"
+      },
+      "disposition": "published-candidate"
+    },
+    {
+      "dir": "2026-05-25-cotton-underwear-paradox",
+      "slug_guess": "cotton-underwear-paradox",
+      "wp_id_hint": null,
+      "image_bytes": 2326190,
+      "image_count": 4,
+      "disposition": "not-found-public-or-unpublished"
+    },
+    {
+      "dir": "2026-07-05-artists-learn-machines-extract",
+      "slug_guess": "artists-learn-machines-extract",
+      "wp_id_hint": null,
+      "image_bytes": 1377753,
+      "image_count": 2,
+      "live": {
+        "id": 12473,
+        "slug": "artists-learn-machines-extract",
+        "status": "publish",
+        "link": "https://kriskrug.co/2026/07/06/artists-learn-machines-extract/"
+      },
+      "disposition": "published-candidate"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "captured_at": "2026-07-16T01:46:35.223457+00:00",
+  "live_theme": "1.3.37",
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "canonical": "https://kriskrug.co/",
+      "og_title": null,
+      "og_url": "https://kriskrug.co/",
+      "og_site_name": "Kris Kr\u00fcg | Generative AI Tools &amp; Techniques",
+      "desc": null
+    },
+    {
+      "path": "/blog/",
+      "status": 200,
+      "canonical": null,
+      "og_title": "Writing \u2014 Kris Krug",
+      "og_url": "https://kriskrug.co/",
+      "og_site_name": "Kris Kr\u00fcg | Generative AI Tools &amp; Techniques",
+      "desc": null
+    },
+    {
+      "path": "/blog/page/2/",
+      "status": 200,
+      "canonical": null,
+      "og_title": "Writing \u2014 Kris Krug",
+      "og_url": "https://kriskrug.co/",
+      "og_site_name": "Kris Kr\u00fcg | Generative AI Tools &amp; Techniques",
+      "desc": null
+    },
+    {
+      "path": "/about/",
+      "status": 200,
+      "canonical": "https://kriskrug.co/about/",
+      "og_title": "About Kris Kr\u00fcg",
+      "og_url": "https://kriskrug.co/about/",
+      "og_site_name": "Kris Kr\u00fcg | Generative AI Tools &amp; Techniques",
+      "desc": null
+    },
+    {
+      "path": "/speaking/",
+      "status": 200,
+      "canonical": "https://kriskrug.co/speaking/",
+      "og_title": "AI Keynote Speaker Kris Kr\u00fcg",
+      "og_url": "https://kriskrug.co/speaking/",
+      "og_site_name": "Kris Kr\u00fcg | Generative AI Tools &amp; Techniques",
+      "desc": null
+    }
+  ]
+}
