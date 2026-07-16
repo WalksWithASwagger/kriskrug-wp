@@ -10,7 +10,7 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 
 1. [`docs/current-state/README.md`](docs/current-state/README.md) — index; start with the newest `reports/morning-truth-*.md`
 2. [`docs/current-state/CURRENT-STATE-2026-07-16.md`](docs/current-state/CURRENT-STATE-2026-07-16.md) — declared snapshot for drift/morning-truth (Makefile default)
-3. [`docs/current-state/WORK-PLAN-2026-07-16.md`](docs/current-state/WORK-PLAN-2026-07-16.md) — active execution sequence (deploy → publisher batch → one content packet)
+3. [`docs/current-state/WORK-PLAN-2026-07-16.md`](docs/current-state/WORK-PLAN-2026-07-16.md) — **day runbook** (paste-ready startup block; deploy → publisher batch → one content packet)
 4. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
 5. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
 6. [`docs/current-state/HANDOFF-2026-06-17.md`](docs/current-state/HANDOFF-2026-06-17.md) — Aurora/theme/content handoff (version addenda may lag live; prefer CURRENT-STATE + newest morning-truth)

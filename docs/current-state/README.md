@@ -11,7 +11,7 @@ Read these first for current execution context:
 
 **Newest declared snapshot:** [CURRENT-STATE-2026-07-16.md](CURRENT-STATE-2026-07-16.md) — open PRs `0`, open issues `33`, WordPress `7.0.1`, live Aurora `1.3.37`, repo Aurora `1.3.40`; draft-queue zeros without `.env` remain a known false zero.
 
-**Active work plan:** [WORK-PLAN-2026-07-16.md](WORK-PLAN-2026-07-16.md) — secrets/truth → Aurora deploy (#351/#357) → measured publisher batch (#339) → one Track A packet.
+**Active work plan / day runbook:** [WORK-PLAN-2026-07-16.md](WORK-PLAN-2026-07-16.md) — merge PR #359 → Aurora 1.3.40 deploy (#351) → measured publisher batch (#339) → one Track A packet. Includes a paste-ready agent startup block.
 
 **Newest committed morning-truth artifact (before this session):** [reports/morning-truth-20260712-194347Z.md](reports/morning-truth-20260712-194347Z.md) — always prefer the newest `reports/morning-truth-*.md` and re-run `make morning-truth` / `make status-readonly` at session start.
 
