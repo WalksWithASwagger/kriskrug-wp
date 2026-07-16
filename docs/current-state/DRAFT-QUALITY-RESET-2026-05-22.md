@@ -2,7 +2,7 @@
 
 **Purpose:** correct the draft-publishing workflow after the first StoryHive/keynote WP draft pass produced reviewable artifacts, not publish-ready posts.
 **Scope:** Track A content + SEO only. No theme work.
-**Status:** active quality gate before any scheduling or publish run.
+**STATUS: Historical.** Useful quality-gate checklist; queue counts below are frozen May/June evidence — re-run authenticated draft-queue audit for live numbers.
 
 ## Live WordPress Queue Truth
 

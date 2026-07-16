@@ -38,8 +38,8 @@ This file is the declared snapshot for `make current-state-drift-check` / `make 
 - Aurora advanced on `main` through **1.3.40**; production remains on **1.3.37**.
 - July SEO wave merged (#332–#358 family): descriptions, OG/canonical repairs, schema identity prep, publisher handoffs, body-H1 migration tooling, search-title module.
 - July agent ops stack merged: `publish_common` (#312/#315), content packets (#311), Cloud AGENTS notes (#310).
-- Front-door docs + day runbook merged via PR #359; Monday GitHub queue filed as #360–#366.
-- Open issues moved ~33 → **40** after Monday queue filing; open PRs remain 0 between merges.
+- Front-door docs + day runbook merged via PR #359; Monday GitHub queue filed as #360–#366; long-run ops #368–#369.
+- Open issues moved ~33 → **42** after Monday + long-run queue filing; open PRs are **1** while the orchestra/hygiene stack (#367) is open.
 - Declared draft-page count normalized to `4` (was `5` in the June snapshot).
 
 ## Stash / secrets notes

@@ -155,7 +155,7 @@ Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](do
 
 ## Technology Stack
 
-- **Platform:** WordPress 6.9+ on Pagely (production), Aurora `kk-aurora` theme
+- **Platform:** WordPress **7.0.1** on Pagely (production), Aurora `kk-aurora` theme (live may lag repo — check CURRENT-STATE)
 - **Content pipeline:** Python (Notion API → WordPress REST API)
 - **Custom code:** PHP snippets (Code Snippets plugin on prod), `inc/digital-composting.php`, and packaged helper plugins such as `plugins/kk-sidebar-promos/`
 - **CLI Tools:** GitHub CLI (`gh`), Claude Code / Cursor agents

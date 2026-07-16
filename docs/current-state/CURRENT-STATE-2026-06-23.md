@@ -1,5 +1,7 @@
 # Current State Snapshot - 2026-06-23
 
+> **STATUS: Historical.** Superseded by [`CURRENT-STATE-2026-07-16.md`](CURRENT-STATE-2026-07-16.md).
+
 **Snapshot time:** 2026-06-23 (from morning-truth report 2026-06-18-195456Z plus live issue count confirmed same date).
 **Branch:** `main`
 **Mode:** Track A ops.

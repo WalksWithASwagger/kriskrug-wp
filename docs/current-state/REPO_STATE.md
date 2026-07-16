@@ -1,5 +1,7 @@
 # Repo State — `kriskrug-wp/`
 
+> **STATUS: Historical.** May 2026 baseline of what was checked in vs documented. Prefer [`CURRENT-STATE-2026-07-16.md`](CURRENT-STATE-2026-07-16.md) and [`REPO-HYGIENE-AUDIT-2026-07-12.md`](REPO-HYGIENE-AUDIT-2026-07-12.md) for newer hygiene truth.
+
 **Baseline date:** 2026-05-14.
 **Latest reconciliation:** 2026-05-20. Read dated addenda in this folder for current handoffs, especially `DIAGNOSTIC-POLISH-2026-05-20.md`.
 
