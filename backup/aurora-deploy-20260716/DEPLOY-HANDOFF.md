@@ -16,6 +16,8 @@ Issue #351 prepared a hashed **1.3.39** SEO-metadata package. `main` has since m
 
 Machine-readable: `backup/aurora-deploy-20260716/package-report.json`
 
+**Verified (agent, 2026-07-16T00:43:21Z):** both SHA-256 values above still match the local zips; live public theme remains `1.3.37`. Evidence: `docs/current-state/reports/aurora-140-package-verify-20260716-004321Z.md`. Re-hash immediately before any KK upload.
+
 Rebuild anytime:
 
 ```bash

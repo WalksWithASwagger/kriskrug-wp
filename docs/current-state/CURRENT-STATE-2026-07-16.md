@@ -1,16 +1,16 @@
 # Current State Snapshot - 2026-07-16
 
-**Snapshot time:** 2026-07-16 (from `make status-readonly` plus live public probes in the Cursor Cloud session).
-**Branch:** `main` (tip `b07eece` — merge of PR #358)
+**Snapshot time:** 2026-07-16 (orchestra refresh after PR #359 merge + Monday queue #360–#366).
+**Branch:** `main` (tip `1b5ca7d` — merge of PR #359)
 **Mode:** Track A ops + Track B deploy gate.
 
 This file is the declared snapshot for `make current-state-drift-check` / `make morning-truth` / `make status-readonly` (via `WORK_PLAN`).
 
 ## Verified State
 
-- `origin/main` is at `b07eece` (merge of PR #358, 2026-07-14).
-- Open PRs: `0`.
-- Open issues: `33`.
+- `origin/main` is at `1b5ca7d` (merge of PR #359, 2026-07-16).
+- Open PRs: `0` (before the orchestra evidence PR lands).
+- Open issues: `40` (includes Monday day-queue #360–#366).
 - Production still publicly reports WordPress `7.0.1`.
 - Live Aurora theme (`style.css` Version header): `1.3.37`.
 - Repo Aurora theme (`theme/kk-aurora/`): `1.3.40`.
@@ -18,16 +18,17 @@ This file is the declared snapshot for `make current-state-drift-check` / `make 
   - Counts above are the last **authenticated** shape retained from earlier morning-truth runs. Unauthenticated cloud reads still report missing `.env` / false zeros until `WP_USER` + `WP_APP_PASSWORD` are present — that zero is a **false zero**, not an empty queue.
 - WP public smoke: route checks pass; version gate fails only when tools still expect `6.9.4`.
 - `/projects/` → `301` to `/work/`.
+- Monday orchestra agent-safe slices: `docs/current-state/reports/orchestra-monday-queue-20260716-004321Z.md`.
 
 ## Highest-leverage open gates
 
 | Gate | Issue | Status |
 |---|---|---|
-| Aurora SEO metadata deploy | #351 | Package prepared as **1.3.39**; repo has since moved to **1.3.40** (search titles). Live still **1.3.37**. Zip artifacts live on KK machine under `backup/aurora-deploy-20260713/` (not in git). |
-| Measured July publisher batch | #339 | Repo handoffs ready; live writes blocked on explicit checklist approval + Aurora deploy. |
-| Topic-hub internal links | #278 / #284 | Handoff on `main` (`fixes/issue-284-*`). |
-| Accessibility statement | #288 / #48 | Draft packet on `main` (`content/drafts/accessibility-statement-2026-07/`). |
-| About/bio archive module | #290 | Plans on `main`. |
+| Aurora SEO metadata deploy | #351 / #362 | **1.3.40** package + checksums verified (`backup/aurora-deploy-20260716/DEPLOY-HANDOFF.md`). Live still **1.3.37**. Do not upload the 2026-07-13 **1.3.39** zip. |
+| Measured July publisher batch | #339 / #363 | Repo handoffs ready; blocked on live `1.3.40`, refreshed checklist (1.3.40 hashes), secrets, KK ticks. |
+| Topic-hub internal links | #278 / #284 / #364 | Handoff + 2026-07-16 public recheck green; write needs KK `patch_id` list. |
+| Accessibility statement | #288 / #48 / #365 | Draft packet on `main`; WP draft create blocked on human gates + secrets. `/accessibility/` still 404. |
+| About/bio archive module | #290 | Plans on `main` (parking lot). |
 
 ## What changed since CURRENT-STATE-2026-06-23
 
@@ -35,7 +36,8 @@ This file is the declared snapshot for `make current-state-drift-check` / `make 
 - Aurora advanced on `main` through **1.3.40**; production remains on **1.3.37**.
 - July SEO wave merged (#332–#358 family): descriptions, OG/canonical repairs, schema identity prep, publisher handoffs, body-H1 migration tooling, search-title module.
 - July agent ops stack merged: `publish_common` (#312/#315), content packets (#311), Cloud AGENTS notes (#310).
-- Open issues dropped from 48 → ~33; open PRs remain 0.
+- Front-door docs + day runbook merged via PR #359; Monday GitHub queue filed as #360–#366.
+- Open issues moved ~33 → **40** after Monday queue filing; open PRs remain 0 between merges.
 - Declared draft-page count normalized to `4` (was `5` in the June snapshot).
 
 ## Stash / secrets notes
