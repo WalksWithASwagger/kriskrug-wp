@@ -19,7 +19,7 @@
 
 ## Agent-safe status
 
-- Local draft copy + README evidence refresh already on `main` (via #359 lineage).
+- Local draft copy + README evidence refresh already on `main` (via #359 lineage); 2026-07-16 orchestra pass re-cited five-route pa11y 0 + #4 alt inventory in the packet README.
 - No WordPress draft create/update attempted (secrets absent + gates unanswered).
 
 ## When unlocked

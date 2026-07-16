@@ -29,9 +29,14 @@ No live WP writes without exact KK approval of the artifact/checklist.
 
 ## Agent-safe fillers if everything live is blocked
 
-1. #256 CSS dead-code + schema-snippets repo reconcile  
-2. #46 public pa11y five-route refresh  
-3. #4 public image-alt inventory refresh (no media PATCH)  
-4. Closeout docs for #254 / #361 / #36 once KK closes in UI  
+| Filler | Status (2026-07-16) | Artifact |
+|---|---|---|
+| #256 CSS / schema-snippets repo reconcile | Done (inventory; no deletions) | `reports/issue-256-css-schema-snippets-audit-20260716.md` |
+| #46 public pa11y five-route refresh | Done — 0 issues on five routes | `reports/issue-46-pa11y-five-routes-20260716.*` |
+| #4 public image-alt inventory | Done (no media PATCH) | `reports/issue-4-public-image-alt-20260716.*` |
+| #36 public meta-description re-probe | Done — standard `description` missing on core routes | `reports/issue-36-public-meta-reprobe-20260716.*` |
+| #353 public body-H1 re-probe | Done — 14/14 still multi-H1; home sole H1 intact | `reports/issue-353-public-h1-reprobe-20260716.*` |
+| #288 / #365 a11y draft gates | Packet review-ready; human gates still open | `content/drafts/accessibility-statement-2026-07/` |
+| Closeout docs for #254 / #361 once KK closes in UI | Waiting on human UI | — |
 
 Draft mirror of this file also lives for filing: `issues-to-create/long-run-workday-2026-07-16.md`.
