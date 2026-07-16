@@ -1,0 +1,32 @@
+{
+  "captured_at": "2026-07-16T01:28:23Z",
+  "standard": "WCAG2AA",
+  "live_theme": "1.3.37",
+  "routes": [
+    {
+      "path": "/",
+      "issue_count": 0,
+      "top_codes": "\u2014"
+    },
+    {
+      "path": "/about/",
+      "issue_count": 0,
+      "top_codes": "\u2014"
+    },
+    {
+      "path": "/blog/",
+      "issue_count": 0,
+      "top_codes": "\u2014"
+    },
+    {
+      "path": "/work/",
+      "issue_count": 0,
+      "top_codes": "\u2014"
+    },
+    {
+      "path": "/contact/",
+      "issue_count": 0,
+      "top_codes": "\u2014"
+    }
+  ]
+}
