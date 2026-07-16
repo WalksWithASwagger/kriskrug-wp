@@ -45,4 +45,4 @@ This file is the declared snapshot for `make current-state-drift-check` / `make 
 ## Stash / secrets notes
 
 - Cloud agents still need `scripts/notion-to-wp/.env` or injected `WP_USER` / `WP_APP_PASSWORD` (and optional `NOTION_TOKEN`).
-- Prefer the committed [`.env.schema`](../../.env.schema) as the agent-readable env contract; do not commit plaintext secrets.
+- Prefer the committed [`.env.schema`](../../.env.schema) as the agent-readable env contract; do not commit plaintext secrets. Rollout / vault / Cloud split: [`VARLOCK-ROLLOUT-2026-07-16.md`](VARLOCK-ROLLOUT-2026-07-16.md).

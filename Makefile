@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test javascript-syntax plugin-smoke theme-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check env-check clean
+.PHONY: help test python-test javascript-syntax plugin-smoke theme-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check env-check varlock-run clean
 
 PYTHON ?= python3
 VARLOCK ?= varlock
@@ -247,14 +247,41 @@ morning-truth: ## Run startup truth checks and write a timestamped markdown repo
 status-readonly: ## Print startup truth checks without writing a report
 	@python3 scripts/morning_truth_report.py --stdout --skip-fetch --work-plan "$${WORK_PLAN:-$(WORK_PLAN_DEFAULT)}" --base-url "$${BASE_URL:-https://kriskrug.co}" --expect-version "$${EXPECT_VERSION:-$(EXPECT_VERSION_DEFAULT)}" --request-timeout "$${REQUEST_TIMEOUT:-20}" --command-timeout "$${COMMAND_TIMEOUT:-120}"
 
-env-check: ## Run Varlock's agent-safe env schema check (requires varlock on PATH)
+env-check: ## Validate .env.schema via Varlock (soft-OK when secrets are absent)
 	@if command -v "$(VARLOCK)" >/dev/null 2>&1; then \
-		$(VARLOCK) load --agent --show-all; \
+		if $(VARLOCK) load --agent --show-all; then \
+			echo "env-check: schema + resolved values OK"; \
+		else \
+			echo "env-check: schema is readable; one or more values are missing/unresolved."; \
+			echo "This is expected in Cursor Cloud without secrets, or before local vault wiring."; \
+			echo "Wire WP_USER / WP_APP_PASSWORD (and optional NOTION_TOKEN) via:"; \
+			echo "  - gitignored .env.local with op(op://kk-dev/...) after enabling the 1Password plugin"; \
+			echo "  - Cursor Cloud secrets / process env"; \
+			echo "  - temporary scripts/notion-to-wp/.env cache (compat only)"; \
+			echo "Then: $(VARLOCK) run --inject vars -- make status-readonly"; \
+			exit 0; \
+		fi; \
 	else \
-		echo "varlock not on PATH. Install from https://varlock.dev or run: VARLOCK=/path/to/varlock make env-check"; \
+		echo "varlock not on PATH. Install: curl -sSfL https://varlock.dev/install.sh | sh -s"; \
+		echo "Then: export PATH=\"\$${XDG_CONFIG_HOME:-\$$HOME/.config}/varlock/bin:\$$PATH\""; \
 		echo "Schema contract is committed at .env.schema (readable without secrets)."; \
 		exit 0; \
 	fi
+
+# Usage: make varlock-run CMD='make status-readonly'
+# Prefer complex one-liners via the CLI directly:
+#   varlock run --inject vars -- python3 -c '...'
+varlock-run: ## Run CMD with Varlock-injected env (requires varlock + resolved secrets)
+	@if ! command -v "$(VARLOCK)" >/dev/null 2>&1; then \
+		echo "varlock not on PATH — see docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md"; \
+		exit 1; \
+	fi
+	@if [ -z "$(CMD)" ]; then \
+		echo "Usage: make varlock-run CMD='make status-readonly'"; \
+		echo "Or:    varlock run --inject vars -- <command>"; \
+		exit 1; \
+	fi
+	@$(VARLOCK) run --inject vars -- $(CMD)
 
 docs-truth-check: ## Scan non-evidence docs for known stale current-state claims
 	@python3 scripts/docs_truth_check.py --exclude docs/current-state/reports --exclude docs/current-state/raw
@@ -272,6 +299,7 @@ setup: ## Initial setup for new contributors
 	@bash skills/github-workflow-automation/scripts/gh_health_check.sh
 	@echo ""
 	@echo "✅ Setup complete! Run 'make help' to see available commands."
+	@echo "Secrets: see docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md (do not paste secrets into chat/git)."
 
 quick-start: ## Quick start guide for new contributors
 	@echo "Welcome to kriskrug-wp development!"

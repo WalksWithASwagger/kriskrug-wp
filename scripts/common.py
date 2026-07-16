@@ -68,7 +68,9 @@ def load_env(path: Path | str | None = None, *, overlay_os: bool = True) -> dict
     """Load .env values, preferring python-dotenv when installed.
 
     With no path, searches DEFAULT_ENV_PATHS and uses the first that exists.
-    When overlay_os is True, matching process env vars win over file values.
+    When overlay_os is True, matching process env vars win over file values
+    (so `varlock run --inject vars -- …` / Cursor Cloud secrets work without
+    rewriting gitignored `.env` files).
     """
     candidates = [Path(path)] if path else list(DEFAULT_ENV_PATHS)
     values: dict[str, str] = {}

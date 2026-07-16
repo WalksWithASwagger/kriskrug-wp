@@ -19,7 +19,12 @@ LOCAL_ENV_PATH = SCRIPT_DIR / ".env"
 
 
 def _kkai_env_path() -> Path:
-    """Optional sibling-repo .env. Override with KKAI_ENV_PATH / NOTION_ENV_PATH."""
+    """Optional sibling-repo .env fallback (compat only).
+
+    Preferred secret path: Varlock / process env / Cursor Cloud secrets
+    (see docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md). Override with
+    KKAI_ENV_PATH / NOTION_ENV_PATH when you still need the sibling file.
+    """
     for key in ("KKAI_ENV_PATH", "NOTION_ENV_PATH"):
         raw = os.environ.get(key)
         if raw:
