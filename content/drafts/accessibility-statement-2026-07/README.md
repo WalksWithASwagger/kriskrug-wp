@@ -14,15 +14,18 @@ Recommended excerpt: `KrisKrug.co is working to improve accessibility across cur
 - Do not publish, create, or update any live WordPress page from this packet.
 - No footer, menu, theme, plugin, schema, redirect, or production setting changes are included.
 - The statement is intentionally transparent and review-gated. It does not claim full WCAG conformance.
-- Supersedes the May 2026 draft package at `content/drafts/accessibility-statement-2026-05/` for current Aurora 1.3.36 evidence. Keep the May package as historical context.
+- Supersedes the May 2026 draft package at `content/drafts/accessibility-statement-2026-05/` for current Aurora live evidence (1.3.37 as of 2026-07-16). Keep the May package as historical context.
 
-## Evidence Used (2026-07-08)
+## Evidence Used (2026-07-16 refresh)
 
-- Live theme: `kk-aurora` **1.3.36** (`style.css` Version header).
-- Public `/accessibility/` still returns **404**.
-- Public `/contact/` returns **200** and remains the proposed reporting channel until KK confirms otherwise.
+- Live theme: `kk-aurora` **1.3.37** (`style.css` Version header; repo is ahead at **1.3.40**, undeployed).
+- Public `/accessibility/` still returns **404** (reconfirmed 2026-07-16).
+- Public `/contact/` remains the proposed reporting channel until KK confirms otherwise.
 - Handoff closeout (2026-07-05): five-route `pa11y --standard WCAG2AA` plus browser smoke closed #289/#293 for `/`, `/about/`, `/blog/`, `/work/`, `/contact/`.
 - Older archive/media alt-text debt remains open under #4; full WCAG audit remains open under #46.
+- Original packet evidence date was 2026-07-08 against Aurora 1.3.36; theme bump since then does not change the open human gates below.
+
+## Evidence Used (2026-07-08, historical)
 
 ## Draft Page Copy
 
@@ -36,7 +39,7 @@ This site includes current writing, older blog posts, photography, event coverag
 
 As of July 2026, KrisKrug.co has not completed an independent accessibility audit, and the site should not be described as fully compliant with WCAG or any other accessibility standard.
 
-The site currently runs on WordPress with the Aurora theme (`kk-aurora` 1.3.36). Recent work improved contrast, skip links, keyboard smoke coverage, and core-route readability on the homepage, About, Blog, Work, and Contact pages. That work is progress, not a whole-site conformance claim.
+The site currently runs on WordPress with the Aurora theme (`kk-aurora` 1.3.37 live as of July 2026). Recent work improved contrast, skip links, keyboard smoke coverage, and core-route readability on the homepage, About, Blog, Work, and Contact pages. That work is progress, not a whole-site conformance claim.
 
 WCAG 2.1 AA / WCAG 2.2 AA is the working reference for future improvements. **[NEEDS KK REVIEW]** Confirm which WCAG edition to name publicly before publish. This statement is not a WCAG conformance claim either way.
 
