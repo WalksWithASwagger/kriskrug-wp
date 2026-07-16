@@ -255,6 +255,62 @@ class MigrationGuardTests(unittest.TestCase):
         self.assertEqual(0, result["readback_body_h1_count"])
         self.assertEqual(migration.sha256_text(after_raw), result["readback_raw_sha256"])
 
+    def test_apply_aborts_on_slug_mismatch_with_zero_writes(self):
+        mismatched = wp_item(self.target, self.raw)
+        mismatched["slug"] = "not-the-reviewed-slug"
+        client = FakeWP(mismatched, mismatched)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaisesRegex(migration.MigrationError, "slug drift"):
+                migration.apply_target(
+                    client,
+                    self.target,
+                    confirmation=migration.confirmation_for(self.target["id"]),
+                    snapshot_dir=Path(tmp),
+                )
+
+        self.assertEqual([], client.posts)
+        self.assertEqual(1, len(client.gets))
+
+    def test_apply_write_payload_is_content_allowlist_only(self):
+        after_raw = "<h2>Example heading</h2><p>Body</p>"
+        client = FakeWP(
+            wp_item(self.target, self.raw),
+            wp_item(self.target, after_raw, modified_gmt="2026-07-13T12:01:00"),
+        )
+
+        with tempfile.TemporaryDirectory() as tmp:
+            migration.apply_target(
+                client,
+                self.target,
+                confirmation=migration.confirmation_for(self.target["id"]),
+                snapshot_dir=Path(tmp),
+                now=datetime(2026, 7, 14, 3, 0, tzinfo=timezone.utc),
+            )
+
+        _endpoint, payload = client.posts[0]
+        self.assertEqual({"content"}, set(payload))
+
+    def test_apply_fails_visibly_when_readback_does_not_match_expected_patch(self):
+        bad_after = wp_item(
+            self.target,
+            "<h2>Wrong heading</h2><p>Body</p>",
+            modified_gmt="2026-07-13T12:01:00",
+        )
+        client = FakeWP(wp_item(self.target, self.raw), bad_after)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaisesRegex(migration.MigrationError, "readback SHA-256"):
+                migration.apply_target(
+                    client,
+                    self.target,
+                    confirmation=migration.confirmation_for(self.target["id"]),
+                    snapshot_dir=Path(tmp),
+                    now=datetime(2026, 7, 14, 3, 0, tzinfo=timezone.utc),
+                )
+
+        self.assertEqual(1, len(client.posts))
+
     def test_default_cli_mode_is_read_only_audit(self):
         args = migration.parse_args([])
 

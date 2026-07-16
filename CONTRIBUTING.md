@@ -245,7 +245,7 @@ Manual validation:
 
 - **Content publishing:** dry-run the connector first (`--dry-run`), eyeball the rendered post on staging or with the WP REST API, then publish for real.
 - **PHP snippets in `fixes/`:** paste into Code Snippets on prod, save as inactive, toggle on, watch Query Monitor / front-end behavior.
-- **Aurora theme (Track B):** stand up on Cloudways or Local by Flywheel when a change needs rendered proof, then render every post type (Make Culture and Your Taste are the stress tests per [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md)).
+- **Aurora theme (Track B):** production is Pagely-hosted; Cloudways staging was planned and never used as the default path (see AGENTS.md historical notes). Prefer Local by Flywheel / public smoke / package-then-upload when rendered proof is needed, then render every post type (Make Culture and Your Taste are the stress tests per [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md)).
 
 If broader automated coverage is added (for example PHPUnit, Playwright, or end-to-end staging checks), extend this section with exact run commands.
 

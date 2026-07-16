@@ -90,4 +90,4 @@ Non-obvious caveats for future agents (the update script already installs deps):
 
 ---
 
-**Last verified:** 2026-07-16 morning truth (WP 7.0.1 live, Aurora live 1.3.37 / repo 1.3.40, 0 open PRs, ~33 open issues). If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.
+**Last verified:** 2026-07-16 orchestra pass (WP 7.0.1 live, Aurora live 1.3.37 / repo 1.3.40, Monday queue #360–#366 agent-safe prep in `docs/current-state/reports/orchestra-monday-queue-20260716-004321Z.md`, ~40 open issues). If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.

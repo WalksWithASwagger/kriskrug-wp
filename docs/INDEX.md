@@ -23,15 +23,18 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`current-state/CONTENT_AUDIT.md`](current-state/CONTENT_AUDIT.md) | Per-page review + post inventory + IA proposal |
 | [`current-state/FIX_QUEUE.md`](current-state/FIX_QUEUE.md) | P0 → P3 backlog |
 | [`current-state/ROADMAP.md`](current-state/ROADMAP.md) | Six-phase, 3-month plan; use as longer-range reference after the latest work plan |
-| [`current-state/WORK-PLAN-2026-07-01.md`](current-state/WORK-PLAN-2026-07-01.md) | **Active weekly plan** (rest of week). Live PR/issue readback + execution lanes; supersedes `WORK-PLAN-2026-05-23.md` |
+| [`current-state/WORK-PLAN-2026-07-16.md`](current-state/WORK-PLAN-2026-07-16.md) | **Active day runbook** (2026-07-16). Monday queue #360–#366; supersedes `WORK-PLAN-2026-07-01.md` |
+| [`current-state/WORK-PLAN-LONG-RUN-2026-07-16.md`](current-state/WORK-PLAN-LONG-RUN-2026-07-16.md) | Long-run unlock order (L1–L10) when live gates open |
+| [`current-state/CURRENT-STATE-2026-07-16.md`](current-state/CURRENT-STATE-2026-07-16.md) | Declared snapshot for drift checks (WP 7.0.1; live Aurora 1.3.37 / repo 1.3.40) |
 | [`current-state/CONTENT-ARCHITECTURE-RESET-2026-07-01.md`](current-state/CONTENT-ARCHITECTURE-RESET-2026-07-01.md) | Trust + Offers and Topic Hubs content architecture waves: fifteen live page migrations, snapshots, verification, and next-wave boundaries |
 | [`current-state/AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md`](current-state/AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md) | Aurora 1.3.27 readability reset live closeout, test evidence, blockers, and next Track B roadmap |
 | [`current-state/FULL-AUDIT-ROADMAP-2026-05-18.md`](current-state/FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit, roadmap, and human decision list |
-| [`current-state/HANDOFF-2026-05-24.md`](current-state/HANDOFF-2026-05-24.md) | Current cross-track state (Aurora/theme/content truth, deployment mechanics, open work) |
-| [`current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md`](current-state/AURORA-V3-QA-ROADMAP-2026-05-24.md) | Current Aurora v1.3.0 QA and rollout truth for Track B |
-| [`current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md`](current-state/TRACK-A-MORNING-TRUTH-2026-05-24.md) | Current Track A startup truth and verification command surface, last normalized against `reports/morning-truth-20260525-021945Z.md` |
-| [`current-state/reports/morning-truth-20260703-175742Z.md`](current-state/reports/morning-truth-20260703-175742Z.md) | Newest packaged `make morning-truth` artifact: `0` open PRs, `27` open issues, WP `6.9.4`, and draft queue/drift readback |
+| [`current-state/archive/HANDOFF-2026-05-24.md`](current-state/archive/HANDOFF-2026-05-24.md) | Historical cross-track state (Aurora/theme/content truth) |
+| [`current-state/archive/AURORA-V3-QA-ROADMAP-2026-05-24.md`](current-state/archive/AURORA-V3-QA-ROADMAP-2026-05-24.md) | Historical Aurora v1.3.0 QA roadmap (superseded by live 1.3.37 / repo 1.3.40) |
+| [`current-state/archive/TRACK-A-MORNING-TRUTH-2026-05-24.md`](current-state/archive/TRACK-A-MORNING-TRUTH-2026-05-24.md) | Historical Track A startup truth |
+| [`current-state/reports/morning-truth-20260716-002704Z.md`](current-state/reports/morning-truth-20260716-002704Z.md) | Newest packaged `make morning-truth` artifact as of front-door docs land; prefer newest `reports/morning-truth-*.md` |
 | [`current-state/reports/`](current-state/reports/) | Timestamped `make morning-truth` outputs; newest packaged file is the most recent immutable truth artifact |
+| [`current-state/WORK-PLAN-2026-07-01.md`](current-state/WORK-PLAN-2026-07-01.md) | Historical weekly plan (superseded by 2026-07-16 runbook) |
 | [`current-state/WORK-PLAN-2026-05-23.md`](current-state/WORK-PLAN-2026-05-23.md) | Historical baseline plan; keep for context only |
 | [`current-state/DIAGNOSTIC-POLISH-2026-05-20.md`](current-state/DIAGNOSTIC-POLISH-2026-05-20.md) | Repo-truth, technical-debt, SOTA, live-fix, and workflow diagnostic |
 | [`current-state/FIXES-LIVE-RECONCILIATION-2026-05-20.md`](current-state/FIXES-LIVE-RECONCILIATION-2026-05-20.md) | Current disposition of `fixes/` artifacts against live evidence |

@@ -21,9 +21,10 @@ Recommended excerpt: `KrisKrug.co is working to improve accessibility across cur
 - Live theme: `kk-aurora` **1.3.37** (`style.css` Version header; repo is ahead at **1.3.40**, undeployed).
 - Public `/accessibility/` still returns **404** (reconfirmed 2026-07-16).
 - Public `/contact/` remains the proposed reporting channel until KK confirms otherwise.
-- Handoff closeout (2026-07-05): five-route `pa11y --standard WCAG2AA` plus browser smoke closed #289/#293 for `/`, `/about/`, `/blog/`, `/work/`, `/contact/`.
-- Older archive/media alt-text debt remains open under #4; full WCAG audit remains open under #46.
-- Original packet evidence date was 2026-07-08 against Aurora 1.3.36; theme bump since then does not change the open human gates below.
+- Five-route `pa11y --standard WCAG2AA` refresh on 2026-07-16: **0** issues on `/`, `/about/`, `/blog/`, `/work/`, `/contact/` — see `docs/current-state/reports/issue-46-pa11y-five-routes-20260716.md` (matches the 2026-07-05 #289/#293 closeout shape).
+- Public image-alt inventory refresh the same day: `docs/current-state/reports/issue-4-public-image-alt-20260716.md` (archive/media debt still open under #4).
+- Full WCAG audit remains open under #46; this packet is **not** a conformance claim.
+- Original packet evidence date was 2026-07-08 against Aurora 1.3.36; theme bump + pa11y refresh do not change the open human gates below.
 
 ## Evidence Used (2026-07-08, historical)
 
@@ -128,7 +129,7 @@ Build the WordPress page itself as the accessible reference implementation:
 | Acceptance item | Draft status | Notes |
 |---|---|---|
 | `/accessibility` statement | Ready for review | Draft page copy above; public URL still 404. |
-| Current status | Ready for review | Names Aurora 1.3.36 progress without claiming full compliance. |
+| Current status | Ready for review | Names Aurora 1.3.37 progress + 2026-07-16 five-route pa11y 0 without claiming full compliance. |
 | Known issues | Ready for review | Lists alt text, archive variance, mobile QA, keyboard/focus, third-party embeds, full audit. |
 | Reporting mechanism | Needs human confirmation | Uses `/contact/` as the proposed channel. |
 | Accommodation process | Needs human/legal confirmation | Good-faith review; no timing SLA yet. |

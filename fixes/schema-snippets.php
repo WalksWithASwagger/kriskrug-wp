@@ -2,11 +2,17 @@
 /**
  * Schema.org JSON-LD snippets for kriskrug.co
  *
+ * REFERENCE / ARCHIVE — NOT THE LIVE DEPLOY PATH.
+ * Canonical live source: fixes/schema-snippets-deployed.php (Code Snippet id 5).
+ * Do NOT paste this file over the live snippet. It remains a future mu-plugin
+ * draft and is INERT until every VERIFY-ME placeholder is replaced.
+ *
  * Extends fixes/issue-39-schema-markup.php for sitewide coverage and adds
  * WebSite, Breadcrumb, Service schemas.
  *
  * DEPLOY AS A MUST-USE PLUGIN (not theme functions.php), so it survives
- * theme switches:
+ * theme switches — only after KK approval and a cutover plan that retires
+ * snippet 5:
  *   - Place this file at: wp-content/mu-plugins/kk-schema.php
  *   - mu-plugins are auto-loaded, no activation needed
  *   - On Pagely: drop via SSH/SFTP into wp-content/mu-plugins/

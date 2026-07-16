@@ -1,5 +1,7 @@
 # Live Site Inventory — kriskrug.co
 
+> **STATUS: Historical.** Frozen May 14 baseline fingerprint. For live WP / theme versions use [`CURRENT-STATE-2026-07-16.md`](CURRENT-STATE-2026-07-16.md) + public `style.css` readback.
+
 **Captured:** 2026-05-14 from public endpoints (no admin access used).
 **Method:** WP REST API, homepage HTML, response headers. See `raw/` for source dumps.
 

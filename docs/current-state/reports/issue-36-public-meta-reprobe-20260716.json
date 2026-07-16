@@ -1,0 +1,223 @@
+{
+  "captured_at": "2026-07-16T03:01:25Z",
+  "issue": 36,
+  "mode": "public-read-only",
+  "live_theme_note": "probe against public HTML; Aurora version from style.css not re-parsed here",
+  "routes": [
+    {
+      "path": "/",
+      "final_url": "https://kriskrug.co/",
+      "status": 200,
+      "title": "Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "canonical": "https://kriskrug.co/",
+      "description": null,
+      "description_len": 0,
+      "og:description": "Kris Kr\u00fcg, Generative AI for Creative Professionals Generative engines now spill out adequate everything. What the world needs, and will pay for, is authored judgment, taste that can be explained, defended, and taught. I\u2019m Kris Kr\u00fcg, Executive Director of BC + AI Ecosystem. I teach creative pr",
+      "og:description_len": 294,
+      "twitter:description": "Kris Kr\u00fcg, Generative AI for Creative Professionals Generative engines now spill out adequate everything. What the world needs, and will pay for, is authored judgment, taste that can be explained, defended, and taught. I\u2019m Kris Kr\u00fcg, Executive Director of BC + AI Ecosystem. I teach creative pros how to stay distinct in the synthetic age, [\u2026]",
+      "twitter:description_len": 343,
+      "og:title": null,
+      "h1_count": 1,
+      "h1_texts": [
+        "Authored judgment for generative everything."
+      ],
+      "html_len": 89135
+    },
+    {
+      "path": "/blog/",
+      "final_url": "https://kriskrug.co/blog/",
+      "status": 200,
+      "title": "Blog \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "canonical": null,
+      "description": null,
+      "description_len": 0,
+      "og:description": "Read Kris Kr\u00fcg's field notes on responsible AI, creative technology, community building, Indigenous tech, media, culture, practical workflows, and events.",
+      "og:description_len": 154,
+      "twitter:description": "Read Kris Kr\u00fcg's field notes on responsible AI, creative technology, community building, Indigenous tech, media, culture, practical workflows, and events.",
+      "twitter:description_len": 154,
+      "og:title": "Writing \u2014 Kris Krug",
+      "h1_count": 1,
+      "h1_texts": [
+        "Field notes for the age of generative everything."
+      ],
+      "html_len": 126883
+    },
+    {
+      "path": "/blog/page/2/",
+      "final_url": "https://kriskrug.co/blog/page/2/",
+      "status": 200,
+      "title": "Blog \u2014 Page 2 \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "canonical": null,
+      "description": null,
+      "description_len": 0,
+      "og:description": "Read Kris Kr\u00fcg's field notes on responsible AI, creative technology, community building, Indigenous tech, media, culture, practical workflows, and events.",
+      "og:description_len": 154,
+      "twitter:description": "Read Kris Kr\u00fcg's field notes on responsible AI, creative technology, community building, Indigenous tech, media, culture, practical workflows, and events.",
+      "twitter:description_len": 154,
+      "og:title": "Writing \u2014 Kris Krug",
+      "h1_count": 1,
+      "h1_texts": [
+        "Field notes for the age of generative everything."
+      ],
+      "html_len": 125995
+    },
+    {
+      "path": "/home/",
+      "final_url": "https://kriskrug.co/home/",
+      "status": 200,
+      "title": "Recent Posts & Updates: \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "canonical": "https://kriskrug.co/home/",
+      "description": null,
+      "description_len": 0,
+      "og:description": null,
+      "og:description_len": 0,
+      "twitter:description": null,
+      "twitter:description_len": 0,
+      "og:title": "Recent Posts & Updates:",
+      "h1_count": 1,
+      "h1_texts": [
+        "Recent Posts & Updates:"
+      ],
+      "html_len": 67446
+    },
+    {
+      "path": "/services/",
+      "final_url": "https://kriskrug.co/generative-ai-services/",
+      "status": 200,
+      "title": "Generative AI Creative Services & Strategy \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "canonical": "https://kriskrug.co/generative-ai-services/",
+      "description": null,
+      "description_len": 0,
+      "og:description": "AI services AI strategy for people who still care about culture. I help organizations, creative teams, schools, civic groups, and community builders move from AI pressure to practical fluency. The work is part strategy, part training, part sensemaking, and part creative courage. This is not generic ",
+      "og:description_len": 300,
+      "twitter:description": "AI services AI strategy for people who still care about culture. I help organizations, creative teams, schools, civic groups, and community builders move from AI pressure to practical fluency. The work is part strategy, part training, part sensemaking, and part creative courage. This is not generic prompt-hacking. It is hands-on capacity building for people who [\u2026]",
+      "twitter:description_len": 367,
+      "og:title": "Generative AI Creative Services & Strategy",
+      "h1_count": 1,
+      "h1_texts": [
+        "Generative AI Creative Services & Strategy"
+      ],
+      "html_len": 49947
+    },
+    {
+      "path": "/generative-ai-services/",
+      "final_url": "https://kriskrug.co/generative-ai-services/",
+      "status": 200,
+      "title": "Generative AI Creative Services & Strategy \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "canonical": "https://kriskrug.co/generative-ai-services/",
+      "description": null,
+      "description_len": 0,
+      "og:description": "AI services AI strategy for people who still care about culture. I help organizations, creative teams, schools, civic groups, and community builders move from AI pressure to practical fluency. The work is part strategy, part training, part sensemaking, and part creative courage. This is not generic ",
+      "og:description_len": 300,
+      "twitter:description": "AI services AI strategy for people who still care about culture. I help organizations, creative teams, schools, civic groups, and community builders move from AI pressure to practical fluency. The work is part strategy, part training, part sensemaking, and part creative courage. This is not generic prompt-hacking. It is hands-on capacity building for people who [\u2026]",
+      "twitter:description_len": 367,
+      "og:title": "Generative AI Creative Services & Strategy",
+      "h1_count": 1,
+      "h1_texts": [
+        "Generative AI Creative Services & Strategy"
+      ],
+      "html_len": 49947
+    },
+    {
+      "path": "/contact/",
+      "final_url": "https://kriskrug.co/contact/",
+      "status": 200,
+      "title": "Contact Kris Kr\u00fcg \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "canonical": "https://kriskrug.co/contact/",
+      "description": null,
+      "description_len": 0,
+      "og:description": "Contact Tell me what kind of room you are building. The fastest path is email. Send the shape of the thing: keynote, workshop, media appearance, strategy session, community partnership, or strange creative AI project. I read for context first. Include who it is for, when it needs to happen, where it",
+      "og:description_len": 300,
+      "twitter:description": "Contact Tell me what kind of room you are building. The fastest path is email. Send the shape of the thing: keynote, workshop, media appearance, strategy session, community partnership, or strange creative AI project. I read for context first. Include who it is for, when it needs to happen, where it happens, and what would [\u2026]",
+      "twitter:description_len": 328,
+      "og:title": "Contact Kris Kr\u00fcg",
+      "h1_count": 1,
+      "h1_texts": [
+        "Contact Kris Kr\u00fcg"
+      ],
+      "html_len": 47964
+    },
+    {
+      "path": "/about/",
+      "final_url": "https://kriskrug.co/about/",
+      "status": 200,
+      "title": "About Kris Kr\u00fcg \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "canonical": "https://kriskrug.co/about/",
+      "description": null,
+      "description_len": 0,
+      "og:description": "My name is Kris Krug \u2013 a boundary-pushing Creative Explorer, an intuitive Tech Whisperer, and a tenacious Culture Hacker. \n\nIn the fabric of the digital era, where technology often overshadows humanity, I've taken it upon myself to chart a different course. I\u2019m on a relentless mission to humanize te",
+      "og:description_len": 300,
+      "twitter:description": "My name is Kris Krug \u2013 a boundary-pushing Creative Explorer, an intuitive Tech Whisperer, and a tenacious Culture Hacker. \n\nIn the fabric of the digital era, where technology often overshadows humanity, I've taken it upon myself to chart a different course. I\u2019m on a relentless mission to humanize technology, to infuse it with empathy, ethics, and emotion.",
+      "twitter:description_len": 357,
+      "og:title": "About Kris Kr\u00fcg",
+      "h1_count": 1,
+      "h1_texts": [
+        "About Kris Kr\u00fcg"
+      ],
+      "html_len": 50627
+    },
+    {
+      "path": "/work/",
+      "final_url": "https://kriskrug.co/work/",
+      "status": 200,
+      "title": "Work \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "canonical": "https://kriskrug.co/work/",
+      "description": null,
+      "description_len": 0,
+      "og:description": "Explore Kris Kr\u00fcg's work across BC+AI, AI keynotes, community infrastructure, creative technology, training, and visual storytelling.",
+      "og:description_len": 133,
+      "twitter:description": "Explore Kris Kr\u00fcg's work across BC+AI, AI keynotes, community infrastructure, creative technology, training, and visual storytelling.",
+      "twitter:description_len": 133,
+      "og:title": "Work",
+      "h1_count": 1,
+      "h1_texts": [
+        "Work"
+      ],
+      "html_len": 52353
+    },
+    {
+      "path": "/speaking/",
+      "final_url": "https://kriskrug.co/speaking/",
+      "status": 200,
+      "title": "AI Keynote Speaker Kris Kr\u00fcg \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "canonical": "https://kriskrug.co/speaking/",
+      "description": null,
+      "description_len": 0,
+      "og:description": "Speaking AI keynotes that make the room braver. I help audiences meet AI with courage, taste, and usable imagination. The talks mix field stories, live demos, creative rebellion, practical workflows, and the hard questions about power, trust, authorship, memory, and what we refuse to automate. Forma",
+      "og:description_len": 300,
+      "twitter:description": "Speaking AI keynotes that make the room braver. I help audiences meet AI with courage, taste, and usable imagination. The talks mix field stories, live demos, creative rebellion, practical workflows, and the hard questions about power, trust, authorship, memory, and what we refuse to automate. Formats Keynotes High-energy, story-rich talks for conferences, leadership rooms, creative [\u2026]",
+      "twitter:description_len": 389,
+      "og:title": "AI Keynote Speaker Kris Kr\u00fcg",
+      "h1_count": 1,
+      "h1_texts": [
+        "AI Keynote Speaker Kris Kr\u00fcg"
+      ],
+      "html_len": 50515
+    },
+    {
+      "path": "/publications/",
+      "final_url": "https://kriskrug.co/publications/",
+      "status": 200,
+      "title": "Publications \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "canonical": "https://kriskrug.co/publications/",
+      "description": null,
+      "description_len": 0,
+      "og:description": "Publications, interviews, citations, and source trail The public record behind the rooms, photos, essays, interviews, and weird internet artifacts. This page restores the useful part of the old Publications archive: the links, media appearances, and publication trail that show how the work has moved",
+      "og:description_len": 300,
+      "twitter:description": "Publications, interviews, citations, and source trail The public record behind the rooms, photos, essays, interviews, and weird internet artifacts. This page restores the useful part of the old Publications archive: the links, media appearances, and publication trail that show how the work has moved through journalism, technology, culture, activism, and photography over time. It is [\u2026]",
+      "twitter:description_len": 388,
+      "og:title": "Publications",
+      "h1_count": 1,
+      "h1_texts": [
+        "Publications"
+      ],
+      "html_len": 56892
+    }
+  ],
+  "summary": {
+    "standard_description_missing_on_all_probed": true,
+    "home_og_title_missing": true,
+    "home_og_description_len": 294,
+    "compared_to": "issue-36-public-render-diagnosis-20260617-211531Z.md"
+  }
+}

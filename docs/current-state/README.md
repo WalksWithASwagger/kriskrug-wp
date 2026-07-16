@@ -9,17 +9,17 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 
 Read these first for current execution context:
 
-**Newest declared snapshot:** [CURRENT-STATE-2026-07-16.md](CURRENT-STATE-2026-07-16.md) — open PRs `0`, open issues `33`, WordPress `7.0.1`, live Aurora `1.3.37`, repo Aurora `1.3.40`; draft-queue zeros without `.env` remain a known false zero.
+**Newest declared snapshot:** [CURRENT-STATE-2026-07-16.md](CURRENT-STATE-2026-07-16.md) — open PRs / issues / WP / Aurora versions are declared there (re-run `make status-readonly` rather than trusting older counts in this index). As of the orchestra/hygiene stack: WordPress `7.0.1`, live Aurora `1.3.37`, repo Aurora `1.3.40`.
 
-**Active work plan / day runbook:** [WORK-PLAN-2026-07-16.md](WORK-PLAN-2026-07-16.md) — merge PR #359 → Aurora 1.3.40 deploy (#351) → measured publisher batch (#339) → one Track A packet. Includes a paste-ready agent startup block.
+**Active work plan / day runbook:** [WORK-PLAN-2026-07-16.md](WORK-PLAN-2026-07-16.md) — Monday queue #360–#366; live gates start at Aurora 1.3.40 upload (#362/#351). Long-run unlock order: [WORK-PLAN-LONG-RUN-2026-07-16.md](WORK-PLAN-LONG-RUN-2026-07-16.md).
 
-**Newest committed morning-truth artifact (before this session):** [reports/morning-truth-20260712-194347Z.md](reports/morning-truth-20260712-194347Z.md) — always prefer the newest `reports/morning-truth-*.md` and re-run `make morning-truth` / `make status-readonly` at session start.
+**Newest committed morning-truth artifact:** [reports/morning-truth-20260716-002704Z.md](reports/morning-truth-20260716-002704Z.md) — always prefer the newest `reports/morning-truth-*.md` and re-run `make morning-truth` / `make status-readonly` at session start.
 
-**Env contract:** [../.env.schema](../.env.schema) — Varlock schema for WP/Notion vars. Do not read plaintext `.env`.
+**Env contract:** [../../.env.schema](../../.env.schema) — Varlock schema for WP/Notion vars. Do not read plaintext `.env`.
 
 **Newest Track A addendum:** [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md) — Trust + Offers and Topic Hubs waves are live on fifteen high-value pages, snapshot-gated, with `0` readability failures in both audits.
 
-**Newest Track B / SEO deploy context:** [AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md](AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md) plus [../backup/aurora-deploy-20260713/DEPLOY-HANDOFF.md](../backup/aurora-deploy-20260713/DEPLOY-HANDOFF.md) (1.3.39 package notes; upload a fresh 1.3.40 zip per the 2026-07-16 work plan).
+**Newest Track B / SEO deploy context:** [AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md](AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md) plus [../../backup/aurora-deploy-20260716/DEPLOY-HANDOFF.md](../../backup/aurora-deploy-20260716/DEPLOY-HANDOFF.md) (deploy SHA for **1.3.40**; do not upload the 2026-07-13 **1.3.39** zip).
 
 **Historical handoff (version-laggy):** [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md) — keep for cache/a11y gotchas; do not treat its Aurora version as live truth.
 
@@ -61,10 +61,10 @@ Then use historical plans for context:
 | [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md) | Aurora 1.3.27 readability reset live closeout, evidence, blockers, and next Track B roadmap. |
 | [REPO-HYGIENE-AUDIT-2026-07-12.md](REPO-HYGIENE-AUDIT-2026-07-12.md) | 2026-07-12 audit of docs, branches, and cruft/bloat: branches already clean, dated docs kept as intentional history, ~31M `reports/` captures + 238M `content/drafts` + 295M `.git` flagged for gated cleanup. Removed two dead root docs and added `.gitignore` guards. |
 | [FULL-AUDIT-ROADMAP-2026-05-18.md](FULL-AUDIT-ROADMAP-2026-05-18.md) | May 18 post-closeout audit of repo, GitHub queue, Track A, Track B, and human decisions. |
-| [POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md](POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md) | Current post-ship audit and workplan after Aurora 1.3.10, Work metadata #68, open queue, draft audit, and ready/agent/block buckets. |
+| [POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md](POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md) | Historical post-ship audit/workplan after Aurora 1.3.10 era (superseded by WORK-PLAN-2026-07-16). |
 | [LOCAL-WP-QA-2026-06-04.md](LOCAL-WP-QA-2026-06-04.md) | Local WP QA path for Track B: `kriskrug-local.local:10003`, GraphQL startup, Local theme sync, and proof that `/blog/` plus a real article load with Aurora 1.3.11. |
 | [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md) | June 16/17 closeout: prod on Aurora 1.3.18 at that time, content cadence live through 07-02, #207/#208/#220 closed, #221 advanced, duplicate Pinterest tag fixed, open threads, verification commands, Pagely ARES-edge cache gotcha. Superseded for Aurora version truth by the 2026-07-01 readability closeout. |
-| [HANDOFF-2026-05-24.md](HANDOFF-2026-05-24.md) | Authoritative cross-track state as of 2026-05-24 (Aurora live, branch divergence warning, deploy mechanics). |
+| [HANDOFF-2026-05-24.md](archive/HANDOFF-2026-05-24.md) | Historical cross-track state as of 2026-05-24 (Aurora live, branch divergence warning, deploy mechanics). |
 | [AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md](AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md) | Aurora 1.3.10 article/blog composition closeout and next QA path. |
 | [WORK-PAGE-METADATA-68-2026-06-04.md](WORK-PAGE-METADATA-68-2026-06-04.md) | Work page metadata and OG image closeout for issue #68, with remaining #126 social-debugger follow-up. |
 | [AURORA-CONTENT-RECOVERY-2026-05-25.md](AURORA-CONTENT-RECOVERY-2026-05-25.md) | Recovery note for stale Aurora 1.3.0 production templates masking rich page content, plus the 1.3.3/1.3.4 deploy artifacts and verification markers. |
@@ -74,13 +74,13 @@ Then use historical plans for context:
 | [TRACK-A-RESTART-2026-05-31.md](TRACK-A-RESTART-2026-05-31.md) | Read-only restart pass after shutdown: verification, May 31 morning truth, Jetpack feedback counts, and human-gated queue disposition. |
 | [SHUTDOWN-2026-05-30.md](SHUTDOWN-2026-05-30.md) | End-of-day closeout for Cursor WordPress MCP helpers, verification results, open risks, and restart commands. |
 | [TRACK-A-SWARM-75-95-128-2026-05-29.md](TRACK-A-SWARM-75-95-128-2026-05-29.md) | Public-safe closeout for issues #75, #95, and #128, including dependency-aware Notion tests, draft `11879` readback, and PII-safe Jetpack feedback audit guidance. |
-| [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md) | Track A/Track B lane handoff with ownership boundaries and public-surface updates. |
-| [AURORA-V3-QA-ROADMAP-2026-05-24.md](AURORA-V3-QA-ROADMAP-2026-05-24.md) | Reconciled Aurora v1.3.0 line, local QA evidence, and post-merge rollout priorities. |
-| [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md) | Read-only truth memo with live evidence, drift flags, and verification matrix for safe next-session startup. |
-| `reports/` | Timestamped outputs from `make morning-truth` (read-only startup truth reports). Newest packaged artifact: `morning-truth-20260712-194347Z.md`; refresh live counts with `make status-readonly` before acting. |
+| [SESSION-HANDOFF-2026-05-24.md](archive/SESSION-HANDOFF-2026-05-24.md) | Historical Track A/Track B lane handoff with ownership boundaries and public-surface updates. |
+| [AURORA-V3-QA-ROADMAP-2026-05-24.md](archive/AURORA-V3-QA-ROADMAP-2026-05-24.md) | Historical Aurora v1.3.0 QA roadmap (superseded by live 1.3.37 / repo 1.3.40). |
+| [TRACK-A-MORNING-TRUTH-2026-05-24.md](archive/TRACK-A-MORNING-TRUTH-2026-05-24.md) | Historical read-only truth memo for May-24 startup. |
+| `reports/` | Timestamped outputs from `make morning-truth`. Newest packaged artifact: `morning-truth-20260716-002704Z.md`; refresh live counts with `make status-readonly` before acting. |
 | [WORK-PLAN-2026-05-23.md](WORK-PLAN-2026-05-23.md) | Historical Track A baseline after the Sovereign AI draft pipeline closeout. Live-count declarations were refreshed from the 2026-06-11 `make status-readonly` truth pass; branch assumptions remain historical. |
 | [WORK-PLAN-2026-05-21.md](WORK-PLAN-2026-05-21.md) | Historical next-session front door after the diagnostic/polish branch, docs tidy pass, and sidebar promo hardening. Superseded by `WORK-PLAN-2026-05-23.md`. |
-| [DRAFT-QUALITY-RESET-2026-05-22.md](DRAFT-QUALITY-RESET-2026-05-22.md) | Active Track A publishing correction: live draft counts, why the May 21-22 drafts are not schedule-ready, and the required editorial/link/image/block QA gate. |
+| [DRAFT-QUALITY-RESET-2026-05-22.md](DRAFT-QUALITY-RESET-2026-05-22.md) | Historical Track A publishing correction checklist (queue counts frozen; re-run draft-queue audit for live numbers). |
 | [DRAFT-QUEUE-AUDIT-2026-05-22.md](DRAFT-QUEUE-AUDIT-2026-05-22.md) | Historical draft queue routing snapshot plus the Sovereign AI addendum (`11905`); re-run `make draft-queue-audit` for live counts. |
 | [STORYHIVE-DRAFT-AUDIT-2026-05-22.md](STORYHIVE-DRAFT-AUDIT-2026-05-22.md) | Fine-toothed audit of the rebuilt StoryHive drafts, live WP readback, review-gate verification, and release roadmap. |
 | [WP-7-UPGRADE-2026-05-22.md](WP-7-UPGRADE-2026-05-22.md) | Track A WordPress 7.0 staging-first upgrade runbook, smoke command, Pagely gate, rollback plan, and "AI connectors stay empty" rule. |
@@ -131,26 +131,29 @@ Then use historical plans for context:
 | `fixes/llms.txt` | Deployment-ready curated `llms.txt` content for site root (P0.2). |
 | `fixes/llms-txt-template.md` | Deployment and rollback guide for `llms.txt` (P0.2). |
 | `fixes/robots-txt-update.txt` | Two robots.txt options with explicit AI-crawler stances (P0.4). |
-| `fixes/schema-snippets.php` | Mu-plugin: `Person`, `WebSite`, `Article`, `BreadcrumbList`, `Service` JSON-LD (P0.3). Supersedes the older `issue-39-schema-markup.php`. |
-| `fixes/schema-snippets-deployed.php` | Production Code Snippets version. Public HTML appears to include this schema path as of 2026-05-20; verify in wp-admin before editing. |
+| `fixes/schema-snippets.php` | Reference / future mu-plugin draft (inert `VERIFY-ME` guard). **Do not paste over** live snippet 5. |
+| `fixes/schema-snippets-deployed.php` | **Canonical live** Code Snippets source (snippet id 5). Keep synced with wp-admin; #316 is the identity rewrite lane. |
 
 ## TL;DR
 
-- **Site is on Pagely** (managed WP host), publicly reporting **WordPress 6.9.4** with **`kk-aurora` 1.3.10 active** as of the 2026-06-04 post-ship audit.
+> **STATUS: Historical narrative.** Counts and theme versions below are a layered timeline through mid-July 2026. For **current** open PR/issue counts, WP version, and Aurora live/repo versions, read [CURRENT-STATE-2026-07-16.md](CURRENT-STATE-2026-07-16.md) and re-run `make status-readonly`. Do not treat any bullet below as live truth.
+
+- **Site is on Pagely** (managed WP host). As of 2026-07-16: WordPress **7.0.1**, live Aurora **1.3.37**, repo Aurora **1.3.40** (see CURRENT-STATE).
 - **Jetpack is on the Free plan**, which is why WordPress.com MCP write access is currently blocked.
-- **Baseline note:** the May 14 snapshot started before later page-level snapshots, source packs, and Aurora theme work were added. Read the dated addenda above for current operating state.
-- **Current addendum:** start with the post-ship audit/workplan and newest morning-truth report, then use the Local WP QA note, Aurora 1.3.10 workplan, Work metadata closeout, Aurora logo closeout, and the 2026-05-24 handoff set ([`HANDOFF-2026-05-24.md`](HANDOFF-2026-05-24.md), [`AURORA-V3-QA-ROADMAP-2026-05-24.md`](AURORA-V3-QA-ROADMAP-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](TRACK-A-MORNING-TRUTH-2026-05-24.md)).
-- **June 11 addendum:** PRs #205, #210, and #212 are merged, open PRs are `0`, open issues are `63` including #206-#208, production still reports WordPress `6.9.4`, and the draft queue is `2` future posts, `72` draft posts, and `5` draft pages via `make status-readonly`.
-- **Follow-up addendum:** GSAP/CDN production drift remains tracked by #189/#204; Rafiki/content queue closeout is split across #206, #207, and #208; docs drift refresh #209 is closed.
-- **2026-06-17 addendum (historical Aurora truth, still useful for content cadence and SEO-root context):** Production ran **`kk-aurora` 1.3.18** at that time (origin + CDN, GSAP gone, reveals healthy); the 1.3.10/1.3.12 references above are historical. EPICs **#220** (Aurora drift) and issues **#207**/**#208** (content cadence) are **CLOSED**; #204/#189 already closed. Content cadence was live through **07-02** (`11905` live 06-16). #221 (SEO root files) advanced: robots.txt + llms.txt verified live; EPIC stays open for metadata inventory + #176 alt-text. Duplicate Pinterest `p:domain_verify` tag fixed (Jetpack field cleared, Google verification preserved). See [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md).
-- **2026-07-05 Aurora cache/a11y addendum:** Production now runs **`kk-aurora` 1.3.36** after PR #299. Canonical `/`, `/about/`, `/blog/`, `/work/`, and `/contact/` pass `pa11y --standard WCAG2AA`; #293 is closed after the live homepage contrast regression was fixed; #289 is closed after mobile/desktop keyboard/focus/reduced-motion smoke passed. See [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md#2026-07-05-aurora-136-cache--wcag-smoke-closeout).
-- **2026-07-02 Aurora cache/a11y addendum:** Production ran **`kk-aurora` 1.3.33** at that closeout. Canonical `/`, `/about/`, `/blog/`, `/work/`, and `/contact/` passed `pa11y --standard WCAG2AA`; the temporary a11y fallback snippet was inactive; PressCACHE purge succeeded; and Jetpack Boost served fresh bundle `a55f5152ba` on core routes. Keep #125 open for broader Boost/CWV follow-up, but the stale `b822d94c49`/`daddeafb99` cache episode is resolved and watchlisted. See [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md#2026-07-02-aurora-cache--a11y-deploy-checklist-addendum).
-- **2026-07-01 Aurora readability addendum:** Production ran **`kk-aurora` 1.3.27** at that closeout. The live readability audit passed with `0` failures across Home, Blog, article, Work, About, Vancouver AI category, and Contact at desktop/tablet/mobile widths. See [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md).
-- **2026-07-01 content architecture addendum:** The Trust + Offers and Topic Hubs waves are live on 15 pages. Body-only REST updates were snapshot-gated, legacy page-specific classes were removed from updated raw content, and both live viewport audits passed with `0` failures. See [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md).
-- **WordPress 7.0 addendum:** production still publicly reports WordPress 6.9.4 as of 2026-06-11 20:09 UTC (`make status-readonly` / `make wp7-smoke EXPECT_VERSION=6.9.4`). Use [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md), `make wp7-smoke`, and `make wp7-admin-readiness` before any staging or production upgrade.
-- **Draft queue addendum:** `make status-readonly` reported `2` future posts, `72` draft posts, and `5` draft pages on 2026-06-11 20:50 UTC after scheduling WP posts `11876` and `11878`; `sovereign-ai-for-whom` is already WP draft `11905`.
-- **Issue queue addendum:** `gh pr list --state open --limit 200` returned `0` open PRs after PR #212 merged, and `gh issue list --state open --limit 200` returned `63` open issues on 2026-06-11 20:40 UTC.
-- **Read-only fingerprinting works** through the public WP REST API; that's how this snapshot was built.
+- **Baseline note:** the May 14 snapshot started before later page-level snapshots, source packs, and Aurora theme work were added. Read the dated addenda above for operating history.
+- **Current addendum:** start with [CURRENT-STATE-2026-07-16.md](CURRENT-STATE-2026-07-16.md) / [WORK-PLAN-2026-07-16.md](WORK-PLAN-2026-07-16.md) and newest morning-truth report. May-24 handoff set lives under [`archive/`](archive/) ([`HANDOFF-2026-05-24.md`](archive/HANDOFF-2026-05-24.md), [`AURORA-V3-QA-ROADMAP-2026-05-24.md`](archive/AURORA-V3-QA-ROADMAP-2026-05-24.md), [`SESSION-HANDOFF-2026-05-24.md`](archive/SESSION-HANDOFF-2026-05-24.md), [`TRACK-A-MORNING-TRUTH-2026-05-24.md`](archive/TRACK-A-MORNING-TRUTH-2026-05-24.md)).
+- **June 11 addendum (historical):** PRs #205, #210, and #212 were merged; open issues were then `63` including #206-#208; production still reported WordPress `6.9.4`.
+- **Follow-up addendum (historical):** GSAP/CDN production drift was tracked by #189/#204; Rafiki/content queue closeout was split across #206–#208; docs drift refresh #209 closed.
+- **2026-06-17 addendum (historical Aurora truth, still useful for content cadence and SEO-root context):** Production ran **`kk-aurora` 1.3.18** at that time. See [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md).
+- **2026-07-05 Aurora cache/a11y addendum:** Production ran **`kk-aurora` 1.3.36** after PR #299. Canonical `/`, `/about/`, `/blog/`, `/work/`, and `/contact/` pass `pa11y --standard WCAG2AA`; #293/#289 closed. See [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md#2026-07-05-aurora-136-cache--wcag-smoke-closeout).
+- **2026-07-02 Aurora cache/a11y addendum:** Production ran **`kk-aurora` 1.3.33** at that closeout. Keep #125 open for broader Boost/CWV follow-up. See [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md#2026-07-02-aurora-cache--a11y-deploy-checklist-addendum).
+- **2026-07-01 Aurora readability addendum:** Production ran **`kk-aurora` 1.3.27** at that closeout. See [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md).
+- **2026-07-01 content architecture addendum:** The Trust + Offers and Topic Hubs waves are live on 15 pages. See [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md).
+- **2026-07-16 orchestra/hygiene addendum:** Monday queue #360–#366 agent-safe prep + stale branch prune + writer-safety tests (#322) live in PR #367. Live Aurora still **1.3.37**; deploy package is **1.3.40**. See [reports/orchestra-monday-queue-20260716-004321Z.md](reports/orchestra-monday-queue-20260716-004321Z.md) and [reports/repo-hygiene-prune-triage-20260716.md](reports/repo-hygiene-prune-triage-20260716.md).
+- **WordPress 7.0 addendum (historical staging note):** production reported WordPress **6.9.4** as of 2026-06-11; live is now **7.0.1** (see CURRENT-STATE). Keep [`WP-7-UPGRADE-2026-05-22.md`](WP-7-UPGRADE-2026-05-22.md) as the upgrade playbook reference.
+- **Draft queue addendum (historical):** `make status-readonly` reported `2` future posts, `72` draft posts, and `5` draft pages on 2026-06-11 — re-run authenticated audit for live queue counts.
+- **Issue queue addendum (historical):** June 11 snapshot was `0` open PRs / `63` open issues — prefer CURRENT-STATE + `gh` for live counts.
+- **Read-only fingerprinting works** through the public WP REST API; that's how the May baseline was built.
 - **Path to "safe to modify":** the strict backup/restore proof gate was retired on 2026-05-22. Use dry-runs, exact slug/ID/status checks, page/post snapshots or reversible diffs, and explicit rollback notes. Keep improving backup coverage as resilience, not as a blanket blocker.
 
 ## Verification Matrix (2026-06-11 20:09 UTC)

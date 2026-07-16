@@ -1,5 +1,7 @@
 # Post-Ship Audit + Workplan - 2026-06-04
 
+> **STATUS: Historical.** Sequencing reference only. Active day runbook: [`WORK-PLAN-2026-07-16.md`](WORK-PLAN-2026-07-16.md).
+
 **STATUS (2026-06-11):** Partially superseded. Steps referencing **#149** (Local WP QA), **#150** (article module tuning), and **#126** (Work OG) are **closed** with evidence. PRs #205, #210, and #212 are merged; open PRs are `0`; open issues are `63`, including the gated June 11 follow-ups #206-#208. GSAP/CDN production drift remains tracked by #189/#204, Rafiki/content queue closeout is tracked by #206-#208, and #62 is parked with the Luma spike result from #177/#212. Reconcile counts with `make status-readonly` before executing.
 
 ## Shipped Today
