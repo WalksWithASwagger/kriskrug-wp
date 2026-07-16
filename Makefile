@@ -1,9 +1,12 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test javascript-syntax plugin-smoke theme-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check clean
+.PHONY: help test python-test javascript-syntax plugin-smoke theme-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check env-check clean
 
 PYTHON ?= python3
+VARLOCK ?= varlock
+WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-07-16.md
+EXPECT_VERSION_DEFAULT := 7.0.1
 JAVASCRIPT_FILES := \
 	plugins/kk-marquee-board/assets/marquee.js \
 	scripts/marquee/render_og.cjs \
@@ -236,13 +239,22 @@ wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (ENV
 	@python3 scripts/wp7-admin-readiness.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"
 
 current-state-drift-check: ## Compare declared current-state snapshot values vs live read-only checks
-	@python3 scripts/check_current_state_drift.py --work-plan "$${WORK_PLAN:-docs/current-state/WORK-PLAN-2026-05-23.md}" --base-url "$${BASE_URL:-https://kriskrug.co}"
+	@python3 scripts/check_current_state_drift.py --work-plan "$${WORK_PLAN:-$(WORK_PLAN_DEFAULT)}" --base-url "$${BASE_URL:-https://kriskrug.co}"
 
 morning-truth: ## Run startup truth checks and write a timestamped markdown report
-	@python3 scripts/morning_truth_report.py --work-plan "$${WORK_PLAN:-docs/current-state/WORK-PLAN-2026-05-23.md}" --base-url "$${BASE_URL:-https://kriskrug.co}" --expect-version "$${EXPECT_VERSION:-6.9.4}" --request-timeout "$${REQUEST_TIMEOUT:-20}" --command-timeout "$${COMMAND_TIMEOUT:-120}"
+	@python3 scripts/morning_truth_report.py --work-plan "$${WORK_PLAN:-$(WORK_PLAN_DEFAULT)}" --base-url "$${BASE_URL:-https://kriskrug.co}" --expect-version "$${EXPECT_VERSION:-$(EXPECT_VERSION_DEFAULT)}" --request-timeout "$${REQUEST_TIMEOUT:-20}" --command-timeout "$${COMMAND_TIMEOUT:-120}"
 
 status-readonly: ## Print startup truth checks without writing a report
-	@python3 scripts/morning_truth_report.py --stdout --skip-fetch --work-plan "$${WORK_PLAN:-docs/current-state/WORK-PLAN-2026-05-23.md}" --base-url "$${BASE_URL:-https://kriskrug.co}" --expect-version "$${EXPECT_VERSION:-6.9.4}" --request-timeout "$${REQUEST_TIMEOUT:-20}" --command-timeout "$${COMMAND_TIMEOUT:-120}"
+	@python3 scripts/morning_truth_report.py --stdout --skip-fetch --work-plan "$${WORK_PLAN:-$(WORK_PLAN_DEFAULT)}" --base-url "$${BASE_URL:-https://kriskrug.co}" --expect-version "$${EXPECT_VERSION:-$(EXPECT_VERSION_DEFAULT)}" --request-timeout "$${REQUEST_TIMEOUT:-20}" --command-timeout "$${COMMAND_TIMEOUT:-120}"
+
+env-check: ## Run Varlock's agent-safe env schema check (requires varlock on PATH)
+	@if command -v "$(VARLOCK)" >/dev/null 2>&1; then \
+		$(VARLOCK) load --agent --show-all; \
+	else \
+		echo "varlock not on PATH. Install from https://varlock.dev or run: VARLOCK=/path/to/varlock make env-check"; \
+		echo "Schema contract is committed at .env.schema (readable without secrets)."; \
+		exit 0; \
+	fi
 
 docs-truth-check: ## Scan non-evidence docs for known stale current-state claims
 	@python3 scripts/docs_truth_check.py --exclude docs/current-state/reports --exclude docs/current-state/raw

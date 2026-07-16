@@ -18,7 +18,11 @@ vendor/
 
 # Environment
 .env
-.env.local
+.env*
+!.env.example
+!.env.schema
+scripts/notion-to-wp/.env
+!scripts/notion-to-wp/.env.example
 
 # IDE
 .vscode/

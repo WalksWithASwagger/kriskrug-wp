@@ -4,26 +4,19 @@ This file is the entry point for any AI agent (Claude Code, Cursor, Codex, etc.)
 
 ## What this repo is
 
-The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running the Aurora theme (`kk-aurora`) at 1.3.36 (live as of 2026-07-05 after PR #299). The repo is **adjacent to** the live site, not a mirror of it. `main` contains the canonical tracked theme line, plus content/ops tooling and docs. Custom repo-side WP code includes `inc/digital-composting.php` (merged, not yet deployed to prod) and `plugins/kk-sidebar-promos/` (packaged helper plugin, deploy only with an explicit rollback path and KK approval).
+The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running the Aurora theme (`kk-aurora`). **Live** theme as of 2026-07-16 public readback: **1.3.37**. **Repo** `main` theme line: **1.3.40** (SEO metadata + search-title work packaged; deploy gated on #351/#339). WordPress publicly reports **7.0.1**. The repo is **adjacent to** the live site, not a mirror of it. `main` contains the canonical tracked theme line, plus content/ops tooling and docs. Custom repo-side WP code includes `inc/digital-composting.php` and `plugins/kk-sidebar-promos/` (deploy only with an explicit rollback path and KK approval).
 
 ## Read this in order (top of repo, top of context)
 
 1. [`docs/current-state/README.md`](docs/current-state/README.md) — index; start with the newest `reports/morning-truth-*.md`
-2. [`docs/current-state/POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md`](docs/current-state/POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md) — June 2026 execution queue (verify closed steps against GitHub)
-3. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
-4. [`docs/current-state/REPO_STATE.md`](docs/current-state/REPO_STATE.md) — what's actually built vs. just documented
+2. [`docs/current-state/CURRENT-STATE-2026-07-16.md`](docs/current-state/CURRENT-STATE-2026-07-16.md) — declared snapshot for drift/morning-truth (Makefile default)
+3. [`docs/current-state/WORK-PLAN-2026-07-16.md`](docs/current-state/WORK-PLAN-2026-07-16.md) — **day runbook** (paste-ready startup block; deploy → publisher batch → one content packet)
+4. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
 5. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
-6. [`docs/current-state/HANDOFF-2026-06-17.md`](docs/current-state/HANDOFF-2026-06-17.md) — current Aurora/theme/content handoff with the 2026-07-05 Aurora 1.3.36 cache/a11y addendum; #289 and #293 are closed after five-route `pa11y` plus browser smoke
-7. [`docs/current-state/archive/AURORA-V3-QA-ROADMAP-2026-05-24.md`](docs/current-state/archive/AURORA-V3-QA-ROADMAP-2026-05-24.md) — historical Aurora v1.3.0 QA roadmap (archived; superseded by the live 1.3.36 line)
-8. [`docs/current-state/CURRENT-STATE-2026-06-23.md`](docs/current-state/CURRENT-STATE-2026-06-23.md) — canonical current state snapshot as of 2026-06-23
-9. [`docs/current-state/reports/morning-truth-20260624-175842Z.md`](docs/current-state/reports/morning-truth-20260624-175842Z.md) — latest startup truth memo; always prefer newest `reports/morning-truth-*.md`
-10. [`docs/current-state/WORK-PLAN-2026-05-23.md`](docs/current-state/WORK-PLAN-2026-05-23.md) — historical roadmap context (stale counts/branch assumptions)
+6. [`docs/current-state/HANDOFF-2026-06-17.md`](docs/current-state/HANDOFF-2026-06-17.md) — Aurora/theme/content handoff (version addenda may lag live; prefer CURRENT-STATE + newest morning-truth)
+7. [`.env.schema`](.env.schema) — Varlock env contract (names/sensitivity only; never read/print `.env`)
 
-Roadmap-derived execution issues filed 2026-06-09: **#186–#197** (CI, prod drift, tracker hygiene).
-
-For the detailed diagnostic behind that plan, read [`docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`](docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md).
-
-After those five, the rest of the repo will make sense.
+Older June plans (`POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md`, `CURRENT-STATE-2026-06-23.md`, `WORK-PLAN-2026-05-23.md`) are historical context unless a newer doc says otherwise.
 
 ## Two lanes — pick one per commit
 
@@ -52,7 +45,7 @@ Legacy branch split context is in [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-
 - **`.github/workflows/test-pr.yml`** — still active PR validation. Do not describe all workflows as dormant.
 - **`docs/architecture.md`, `docs/automation-guide.md`** — reference docs for the dormant swarm.
 - **`docs/cloudways-setup.md`, `docs/local-development-setup.md`, `.claude/context/wordpress-setup.md`** — Cloudways dev-server setup that was never used as planned. Relevant if/when Track B needs staging, otherwise ignore.
-- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use `HANDOFF-2026-06-17.md` and `CURRENT-STATE-2026-06-23.md` for current truth, plus the newest committed morning-truth report. `WORK-PLAN-2026-05-23.md` remains as historical context (Makefile default).
+- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use `CURRENT-STATE-2026-07-16.md`, `WORK-PLAN-2026-07-16.md`, and the newest committed morning-truth report for current truth. June handoffs and `WORK-PLAN-2026-05-23.md` remain historical context.
 
 Anything banner-tagged `STATUS: Historical` at the top is reference-only.
 
@@ -90,8 +83,11 @@ Non-obvious caveats for future agents (the update script already installs deps):
 - The Python venv lives at `scripts/notion-to-wp/.venv` and **many `Makefile` targets call `scripts/notion-to-wp/.venv/bin/python` directly** (e.g. `seo-audit`, `seo-backfill`, `draft-queue-audit`). If that venv is missing those targets break, so it must exist — the update script (re)creates it.
 - PHP is **8.3** here (CI pins 8.2). This does not affect linting: `phpcs.xml.dist` sets `testVersion 8.1-` as a static target, so `make validate` / `make plugin-smoke` run fine on 8.3.
 - Without `scripts/notion-to-wp/.env` (WP application password) and a Notion token, all connector/audit/report commands are effectively read-only/dry-run: the live publisher and `create_local_wp_draft.py` **hard-exit requiring creds even in dry-run**, so exercise the credential-free paths instead — `LOCAL_ONLY=1 make draft-queue-audit` and `make status-readonly` (the latter just logs a `missing env file` soft error and still completes).
+- Read [`.env.schema`](.env.schema) for the Varlock env contract. Do **not** read, print, or commit `.env` / `.env.local`. Use `make env-check` when `varlock` is on `PATH`; run provider commands via `varlock run --inject vars -- <command>` when secrets are resolved that way. Cursor Cloud secrets still must be injected separately — Varlock on a laptop does not reach this VM.
+- Makefile defaults for morning-truth/drift now point at `docs/current-state/CURRENT-STATE-2026-07-16.md` and expect WordPress **7.0.1**. Override with `WORK_PLAN=` / `EXPECT_VERSION=` only when intentionally comparing against an older snapshot.
 - `make morning-truth`, `make status-readonly`, and the audit targets make live HTTP calls to `https://kriskrug.co` when reachable; they degrade gracefully but expect outbound network for the WP smoke portions.
+- Live Aurora may lag repo Aurora (2026-07-16: live **1.3.37**, repo **1.3.40**). Do not treat `theme/kk-aurora/style.css` Version as proof of production without a public `style.css` readback.
 
 ---
 
-**Last verified:** 2026-07-05 after PR #299 / Aurora 1.3.36 live closeout and #289 WCAG smoke closure. If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.
+**Last verified:** 2026-07-16 morning truth (WP 7.0.1 live, Aurora live 1.3.37 / repo 1.3.40, 0 open PRs, ~33 open issues). If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.

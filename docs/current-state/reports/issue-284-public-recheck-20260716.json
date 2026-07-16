@@ -1,0 +1,260 @@
+{
+  "captured_at": "2026-07-16T00:34:59Z",
+  "handoff": "fixes/issue-284-topic-hub-links-handoff-2026-07-12.json",
+  "accessibility_http": 404,
+  "targets": [
+    {
+      "key": "ai_ethics",
+      "url": "https://kriskrug.co/ai-ethics/",
+      "status": 200,
+      "id": 12318
+    },
+    {
+      "key": "ai_tools",
+      "url": "https://kriskrug.co/ai-tools/",
+      "status": 200,
+      "id": 12321
+    },
+    {
+      "key": "indigenous_ai",
+      "url": "https://kriskrug.co/indigenous-ai/",
+      "status": 200,
+      "id": 12322
+    }
+  ],
+  "sources": [
+    {
+      "id": 5723,
+      "slug": "unpacking-ai-ethics-at-american-marketing-associationvisionconf2024",
+      "http_post": 200,
+      "status": "publish",
+      "modified_handoff": "2026-06-28T20:34:21",
+      "modified_live": "2026-06-28T20:34:21",
+      "modified_match": true,
+      "href_counts_handoff": {
+        "ai_ethics": 3,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_counts_live": {
+        "ai_ethics": 3,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_match": true,
+      "url": "https://kriskrug.co/2024/05/27/unpacking-ai-ethics-at-american-marketing-associationvisionconf2024/"
+    },
+    {
+      "id": 5489,
+      "slug": "cognitive-ai-creativity-and-ethics-w-professor-steve-dipaola",
+      "http_post": 200,
+      "status": "publish",
+      "modified_handoff": "2026-06-28T20:34:50",
+      "modified_live": "2026-06-28T20:34:50",
+      "modified_match": true,
+      "href_counts_handoff": {
+        "ai_ethics": 1,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_counts_live": {
+        "ai_ethics": 1,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_match": true,
+      "url": "https://kriskrug.co/2024/05/04/cognitive-ai-creativity-and-ethics-w-professor-steve-dipaola/"
+    },
+    {
+      "id": 4635,
+      "slug": "bridging-innovation-and-ethics-future-proof-creatives-and-the-path-forward-in-ai",
+      "http_post": 200,
+      "status": "publish",
+      "modified_handoff": "2026-07-01T16:24:10",
+      "modified_live": "2026-07-01T16:24:10",
+      "modified_match": true,
+      "href_counts_handoff": {
+        "ai_ethics": 2,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_counts_live": {
+        "ai_ethics": 2,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_match": true,
+      "url": "https://kriskrug.co/2024/02/13/bridging-innovation-and-ethics-future-proof-creatives-and-the-path-forward-in-ai/"
+    },
+    {
+      "id": 12030,
+      "slug": "canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one",
+      "http_post": 200,
+      "status": "publish",
+      "modified_handoff": "2026-06-28T14:14:24",
+      "modified_live": "2026-06-28T14:14:24",
+      "modified_match": true,
+      "href_counts_handoff": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_counts_live": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_match": true,
+      "url": "https://kriskrug.co/2026/06/26/canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one/"
+    },
+    {
+      "id": 12257,
+      "slug": "why-we-built-the-responsible-ai-professional-certification",
+      "http_post": 200,
+      "status": "publish",
+      "modified_handoff": "2026-06-28T20:25:58",
+      "modified_live": "2026-06-28T20:25:58",
+      "modified_match": true,
+      "href_counts_handoff": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_counts_live": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_match": true,
+      "url": "https://kriskrug.co/2026/06/18/why-we-built-the-responsible-ai-professional-certification/"
+    },
+    {
+      "id": 4773,
+      "slug": "creative-toolbox",
+      "http_post": 200,
+      "status": "publish",
+      "modified_handoff": "2026-06-14T20:08:44",
+      "modified_live": "2026-06-14T20:08:44",
+      "modified_match": true,
+      "href_counts_handoff": {
+        "ai_ethics": 0,
+        "ai_tools": 1,
+        "indigenous_ai": 0
+      },
+      "href_counts_live": {
+        "ai_ethics": 0,
+        "ai_tools": 1,
+        "indigenous_ai": 0
+      },
+      "href_match": true,
+      "url": "https://kriskrug.co/2024/03/01/creative-toolbox/"
+    },
+    {
+      "id": 3275,
+      "slug": "how-ai-tools-like-midjourney-dall%c2%b7e-chatgpt-are-reshaping-the-creative-landscape",
+      "http_post": 200,
+      "status": "publish",
+      "modified_handoff": "2026-06-14T20:34:30",
+      "modified_live": "2026-06-14T20:34:30",
+      "modified_match": true,
+      "href_counts_handoff": {
+        "ai_ethics": 0,
+        "ai_tools": 1,
+        "indigenous_ai": 0
+      },
+      "href_counts_live": {
+        "ai_ethics": 0,
+        "ai_tools": 1,
+        "indigenous_ai": 0
+      },
+      "href_match": true,
+      "url": "https://kriskrug.co/2023/10/08/how-ai-tools-like-midjourney-dall%c2%b7e-chatgpt-are-reshaping-the-creative-landscape/"
+    },
+    {
+      "id": 2781,
+      "slug": "audio-deep-fakes-ai-chatbots-and-new-web-development-tools",
+      "http_post": 200,
+      "status": "publish",
+      "modified_handoff": "2026-06-28T20:39:27",
+      "modified_live": "2026-06-28T20:39:27",
+      "modified_match": true,
+      "href_counts_handoff": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_counts_live": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_match": true,
+      "url": "https://kriskrug.co/2023/07/30/audio-deep-fakes-ai-chatbots-and-new-web-development-tools/"
+    },
+    {
+      "id": 12035,
+      "slug": "ai-wont-fix-your-broken-permit-process",
+      "http_post": 200,
+      "status": "publish",
+      "modified_handoff": "2026-07-01T16:24:28",
+      "modified_live": "2026-07-01T16:24:28",
+      "modified_match": true,
+      "href_counts_handoff": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_counts_live": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_match": true,
+      "url": "https://kriskrug.co/2026/06/24/ai-wont-fix-your-broken-permit-process/"
+    },
+    {
+      "id": 7450,
+      "slug": "indigenomics-now-2024-redefining-the-future-of-indigenous-economic-and-digital-sovereignty-through-ai",
+      "http_post": 200,
+      "status": "publish",
+      "modified_handoff": "2026-06-28T20:31:08",
+      "modified_live": "2026-06-28T20:31:08",
+      "modified_match": true,
+      "href_counts_handoff": {
+        "ai_ethics": 1,
+        "ai_tools": 0,
+        "indigenous_ai": 1
+      },
+      "href_counts_live": {
+        "ai_ethics": 1,
+        "ai_tools": 0,
+        "indigenous_ai": 1
+      },
+      "href_match": true,
+      "url": "https://kriskrug.co/2024/11/14/indigenomics-now-2024-redefining-the-future-of-indigenous-economic-and-digital-sovereignty-through-ai/"
+    },
+    {
+      "id": 11905,
+      "slug": "sovereign-ai-for-whom",
+      "http_post": 200,
+      "status": "publish",
+      "modified_handoff": "2026-07-01T16:24:30",
+      "modified_live": "2026-07-01T16:24:30",
+      "modified_match": true,
+      "href_counts_handoff": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_counts_live": {
+        "ai_ethics": 0,
+        "ai_tools": 0,
+        "indigenous_ai": 0
+      },
+      "href_match": true,
+      "url": "https://kriskrug.co/2026/06/16/sovereign-ai-for-whom/"
+    }
+  ],
+  "href_drift_count": 0,
+  "modified_drift_count": 0
+}

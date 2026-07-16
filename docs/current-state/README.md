@@ -5,35 +5,29 @@
 
 This folder is the source of truth for "what was true on May 14, 2026" and for dated working addenda that came out of the May 2026 recovery/redesign push. Treat the baseline files as historical snapshots and the latest dated handoff/truth docs plus the newest committed `reports/morning-truth-*.md` artifact as the current front door.
 
-## Current Front Door (verified 2026-07-05 via live public probes)
+## Current Front Door (verified 2026-07-16 via live public probes + `make status-readonly`)
 
 Read these first for current execution context:
 
-**Newest startup truth artifact:** [reports/morning-truth-20260712-194347Z.md](reports/morning-truth-20260712-194347Z.md) — read-only Track A verification captured `2` open PRs, `26` open issues, WordPress `6.9.4`, draft queue `0` future posts / `64` draft posts / `4` draft pages, and `0` WordPress smoke failures.
+**Newest declared snapshot:** [CURRENT-STATE-2026-07-16.md](CURRENT-STATE-2026-07-16.md) — open PRs `0`, open issues `33`, WordPress `7.0.1`, live Aurora `1.3.37`, repo Aurora `1.3.40`; draft-queue zeros without `.env` remain a known false zero.
+
+**Active work plan / day runbook:** [WORK-PLAN-2026-07-16.md](WORK-PLAN-2026-07-16.md) — merge PR #359 → Aurora 1.3.40 deploy (#351) → measured publisher batch (#339) → one Track A packet. Includes a paste-ready agent startup block.
+
+**Newest committed morning-truth artifact (before this session):** [reports/morning-truth-20260712-194347Z.md](reports/morning-truth-20260712-194347Z.md) — always prefer the newest `reports/morning-truth-*.md` and re-run `make morning-truth` / `make status-readonly` at session start.
+
+**Env contract:** [../.env.schema](../.env.schema) — Varlock schema for WP/Notion vars. Do not read plaintext `.env`.
 
 **Newest Track A addendum:** [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md) — Trust + Offers and Topic Hubs waves are live on fifteen high-value pages, snapshot-gated, with `0` readability failures in both audits.
 
-**Newest Track B addendum:** [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md#2026-07-05-aurora-136-cache--wcag-smoke-closeout) — production is on Aurora **1.3.36** after PR #299; #293 and #289 are closed; canonical Home/About/Blog/Work/Contact pass `pa11y --standard WCAG2AA` plus mobile/desktop browser keyboard/focus/reduced-motion smoke. Keep [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md) as the previous Track B readability closeout.
+**Newest Track B / SEO deploy context:** [AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md](AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md) plus [../backup/aurora-deploy-20260713/DEPLOY-HANDOFF.md](../backup/aurora-deploy-20260713/DEPLOY-HANDOFF.md) (1.3.39 package notes; upload a fresh 1.3.40 zip per the 2026-07-16 work plan).
 
-**Latest general handoff:** [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md) — prod was on Aurora **1.3.18** when first written, then received the 2026-07-02 Aurora **1.3.33** and 2026-07-05 Aurora **1.3.36** cache/a11y addenda. Content cadence live through 07-02, Storyhive companion **12327 LIVE** (2026-06-17), #207/#208/#220 closed.
+**Historical handoff (version-laggy):** [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md) — keep for cache/a11y gotchas; do not treat its Aurora version as live truth.
 
-1. [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md), [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md), [PERFORMANCE-RECOVERY-2026-07-01.md](PERFORMANCE-RECOVERY-2026-07-01.md), and the latest read-only startup truth from `make status-readonly`
-2. [POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md](POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md), `reports/morning-truth-20260609-043246Z.md`, and the latest read-only startup truth from `make status-readonly`
-3. [LOCAL-WP-QA-2026-06-04.md](LOCAL-WP-QA-2026-06-04.md)
-4. [AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md](AURORA-ARTICLE-LUX-COMPOSITION-1.3.10-WORKPLAN-2026-06-03.md)
-5. [WORK-PAGE-METADATA-68-2026-06-04.md](WORK-PAGE-METADATA-68-2026-06-04.md)
-6. [AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md](AURORA-HEADER-LOGO-CLOSEOUT-2026-06-03.md)
-7. [TRACK-A-RESTART-2026-05-31.md](TRACK-A-RESTART-2026-05-31.md)
-8. [SHUTDOWN-2026-05-30.md](SHUTDOWN-2026-05-30.md)
-9. [AURORA-CONTENT-RECOVERY-2026-05-25.md](AURORA-CONTENT-RECOVERY-2026-05-25.md)
-10. [AURORA-LIVE-QA-2026-05-25.md](AURORA-LIVE-QA-2026-05-25.md)
-11. [QUEUE-MERGE-CLEANUP-2026-05-26.md](QUEUE-MERGE-CLEANUP-2026-05-26.md)
-12. [TRACK-A-SWARM-75-95-128-2026-05-29.md](TRACK-A-SWARM-75-95-128-2026-05-29.md)
-13. [HANDOFF-2026-05-24.md](HANDOFF-2026-05-24.md)
-14. [SESSION-HANDOFF-2026-05-24.md](SESSION-HANDOFF-2026-05-24.md)
-15. [TRACK-A-MORNING-TRUTH-2026-05-24.md](TRACK-A-MORNING-TRUTH-2026-05-24.md)
-16. [TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)
-17. [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)
+1. [CURRENT-STATE-2026-07-16.md](CURRENT-STATE-2026-07-16.md), [WORK-PLAN-2026-07-16.md](WORK-PLAN-2026-07-16.md), and the latest read-only startup truth from `make status-readonly`
+2. [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md), [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md), [PERFORMANCE-RECOVERY-2026-07-01.md](PERFORMANCE-RECOVERY-2026-07-01.md)
+3. [POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md](POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md) — historical sequencing only
+4. [TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)
+5. [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)
 
 Side-worktree safety refresh (2026-06-02): canonical new work should start from
 `main` in a fresh lane-scoped branch. Do not edit
