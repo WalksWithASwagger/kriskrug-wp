@@ -1,0 +1,22 @@
+# WordPress Theme Upload Package
+
+- Source: `/workspace/theme/kk-aurora`
+- Slug: `kk-aurora`
+- Label: `seo-search-titles-1.3.40`
+- Version: `1.3.40`
+- Deploy zip: `/workspace/backup/aurora-deploy-20260716/kk-aurora-seo-search-titles-1.3.40-1.3.40-20260716.zip`
+- Deploy SHA256: `8e1c1321f94b1caf5d899697f5ddef6256d1274c74a67cd64d84645b1c24fad5`
+- Rollback zip: `/workspace/backup/aurora-deploy-20260716/kk-aurora-live-1.3.37-1.3.37-20260716.zip`
+- Rollback version: `1.3.37`
+- Rollback SHA256: `cfa1307e68db77c9bd8b9423fbd35be984a1d98b6d4f6829b3a540b701a1d1b4`
+- wp-admin upload URL: https://kriskrug.co/wp-admin/theme-install.php?browse=upload
+- Clipboard: not requested
+- Browser: not requested
+
+## Manual Upload Gate
+
+1. Open the wp-admin upload URL.
+2. Upload `kk-aurora-seo-search-titles-1.3.40-1.3.40-20260716.zip`.
+3. Choose the WordPress replace/update flow for the existing artifact.
+4. Confirm WordPress reports the expected uploaded version.
+5. Purge PressCACHE/cache layers and run the route-specific verification for the change.
