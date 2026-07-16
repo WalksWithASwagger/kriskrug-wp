@@ -15,7 +15,7 @@ Read these first for current execution context:
 
 **Newest committed morning-truth artifact:** [reports/morning-truth-20260716-002704Z.md](reports/morning-truth-20260716-002704Z.md) — always prefer the newest `reports/morning-truth-*.md` and re-run `make morning-truth` / `make status-readonly` at session start.
 
-**Env contract:** [../../.env.schema](../../.env.schema) — Varlock schema for WP/Notion vars. Do not read plaintext `.env`.
+**Env contract:** [../../.env.schema](../../.env.schema) — Varlock schema for WP/Notion vars. Rollout: [VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md). Do not read plaintext `.env`.
 
 **Newest Track A addendum:** [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md) — Trust + Offers and Topic Hubs waves are live on fifteen high-value pages, snapshot-gated, with `0` readability failures in both audits.
 

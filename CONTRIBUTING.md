@@ -27,6 +27,16 @@ By participating in this project, you agree to maintain a respectful, inclusive,
 
 ## How to Contribute
 
+### Secrets / Varlock (local + Cloud)
+
+Do **not** commit plaintext secrets. Canonical store is your vault (1Password `kk-dev`); this repo’s contract is [`.env.schema`](.env.schema).
+
+1. Install Varlock: `curl -sSfL https://varlock.dev/install.sh | sh -s` and put `~/.config/varlock/bin` on `PATH`
+2. Read [`docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md`](docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md)
+3. `make env-check` (soft-OK without secrets)
+4. Prefer `make varlock-run CMD='make status-readonly'` over maintaining plaintext `scripts/notion-to-wp/.env`
+5. Cursor Cloud needs the **same** values injected as Cloud secrets — laptop Varlock does not reach remote agents
+
 ### Reporting Issues
 
 1. **Search existing issues** first to avoid duplicates
