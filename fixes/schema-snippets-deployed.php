@@ -2,18 +2,25 @@
 /**
  * Schema.org JSON-LD — kriskrug.co
  *
- * Deployed via Code Snippets plugin on 2026-05-15 (not as a mu-plugin yet;
- * SSH access still pending). This is the actual PHP that lives inside the
- * "KK Schema" Code Snippet on production — keep it in sync if either side
- * is edited.
+ * CANONICAL LIVE SOURCE (Track A / Code Snippets).
+ * This is the PHP that belongs inside the production "KK Schema" Code Snippet
+ * (historically snippet id 5). Keep wp-admin and this file in sync if either
+ * side is edited. Do NOT paste fixes/schema-snippets.php over this without an
+ * explicit KK-approved migration to a mu-plugin.
  *
- * Differences from fixes/schema-snippets.php (the SSH-deployable mu-plugin
- * version):
+ * Deployed via Code Snippets plugin on 2026-05-15 (not as a mu-plugin yet;
+ * SSH access still pending).
+ *
+ * Differences from fixes/schema-snippets.php (reference / future mu-plugin):
  *   - VERIFY-ME placeholders replaced with confirmed values
  *   - Person image uses the public portrait already rendered on /about/
  *   - LinkedIn / GitHub / YouTube / Wikipedia omitted (URLs unverified or 404)
  *   - kk_schema_is_ready() guard removed (values are baked in)
  *   - Conditional Person.image / Person.sameAs filtering
+ *
+ * Known follow-ups (do not silently "fix" here):
+ *   - #316 identity wording still includes legacy "Generative AI Tools" in knows_about
+ *   - Headshot URL is the public /about/ portrait; confirm if KK wants a newer asset
  *
  * When pasting into Code Snippets: strip the opening <?php tag (Code Snippets
  * wraps the snippet automatically).
