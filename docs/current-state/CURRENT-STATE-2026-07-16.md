@@ -9,8 +9,8 @@ This file is the declared snapshot for `make current-state-drift-check` / `make 
 ## Verified State
 
 - `origin/main` is at `1b5ca7d` (merge of PR #359, 2026-07-16).
-- Open PRs: `0` (before the orchestra evidence PR lands).
-- Open issues: `40` (includes Monday day-queue #360–#366).
+- Open PRs: `1` (this orchestra/hygiene stack — #367).
+- Open issues: `42` (Monday day-queue #360–#366 plus long-run ops #368–#369).
 - Production still publicly reports WordPress `7.0.1`.
 - Live Aurora theme (`style.css` Version header): `1.3.37`.
 - Repo Aurora theme (`theme/kk-aurora/`): `1.3.40`.
@@ -19,6 +19,8 @@ This file is the declared snapshot for `make current-state-drift-check` / `make 
 - WP public smoke: route checks pass; version gate fails only when tools still expect `6.9.4`.
 - `/projects/` → `301` to `/work/`.
 - Monday orchestra agent-safe slices: `docs/current-state/reports/orchestra-monday-queue-20260716-004321Z.md`.
+- Stale branch prune + triage: `docs/current-state/reports/repo-hygiene-prune-triage-20260716.md` (25 remote heads deleted; #368 keep/kill leftovers).
+- Long-run day unlock order: `docs/current-state/WORK-PLAN-LONG-RUN-2026-07-16.md`.
 
 ## Highest-leverage open gates
 
