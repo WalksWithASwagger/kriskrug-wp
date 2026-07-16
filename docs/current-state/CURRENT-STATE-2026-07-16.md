@@ -1,15 +1,15 @@
 # Current State Snapshot - 2026-07-16
 
-**Snapshot time:** 2026-07-16 (orchestra refresh after PR #359 merge + Monday queue #360–#366).
-**Branch:** `main` (tip `1b5ca7d` — merge of PR #359)
+**Snapshot time:** 2026-07-16 (wind-down after #367 + #370 merge).
+**Branch:** `main` (tip after merge of PR #370)
 **Mode:** Track A ops + Track B deploy gate.
 
 This file is the declared snapshot for `make current-state-drift-check` / `make morning-truth` / `make status-readonly` (via `WORK_PLAN`).
 
 ## Verified State
 
-- `origin/main` is at `1b5ca7d` (merge of PR #359, 2026-07-16).
-- Open PRs: `1` (this orchestra/hygiene stack — #367).
+- `origin/main` includes merges of PR #359, #367 (orchestra/hygiene), and #370 (Varlock).
+- Open PRs: `0`.
 - Open issues: `42` (Monday day-queue #360–#366 plus long-run ops #368–#369).
 - Production still publicly reports WordPress `7.0.1`.
 - Live Aurora theme (`style.css` Version header): `1.3.37`.
@@ -39,7 +39,8 @@ This file is the declared snapshot for `make current-state-drift-check` / `make 
 - July SEO wave merged (#332–#358 family): descriptions, OG/canonical repairs, schema identity prep, publisher handoffs, body-H1 migration tooling, search-title module.
 - July agent ops stack merged: `publish_common` (#312/#315), content packets (#311), Cloud AGENTS notes (#310).
 - Front-door docs + day runbook merged via PR #359; Monday GitHub queue filed as #360–#366; long-run ops #368–#369.
-- Open issues moved ~33 → **42** after Monday + long-run queue filing; open PRs are **1** while the orchestra/hygiene stack (#367) is open.
+- Orchestra/hygiene stack merged via PR #367; Varlock vault/schema/Cloud secrets rollout merged via PR #370.
+- Open issues moved ~33 → **42** after Monday + long-run queue filing; open PRs are **0** after #367 + #370 merged to `main`.
 - Declared draft-page count normalized to `4` (was `5` in the June snapshot).
 
 ## Stash / secrets notes
