@@ -1,0 +1,77 @@
+# Dependabot version-update configuration (issue #375).
+#
+# Scope: version updates only. Enabling Dependabot ALERTS and SECURITY
+# updates is a separate, human-gated repository-settings change
+# (Settings -> Advanced Security) tracked under issue #374 — this file
+# cannot and does not toggle those.
+#
+# Update PRs are never auto-merged: repo allow_auto_merge is false and
+# the manual review/deploy model is preserved. Patch/minor updates are
+# grouped per ecosystem to keep noise down; major updates arrive as
+# individual PRs so each one is reviewable on its own.
+#
+# Labels below are limited to labels that already exist in this repo
+# (`ci`, `tech-debt`); there is no `dependencies` label as of 2026-07-16.
+
+version: 2
+
+updates:
+  # Composer dev toolchain (phpcs / wpcs) — composer.json + composer.lock at repo root
+  - package-ecosystem: "composer"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 3
+    labels:
+      - "ci"
+      - "tech-debt"
+    groups:
+      composer-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Root Python test requirements (requirements-test.txt)
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 3
+    labels:
+      - "ci"
+      - "tech-debt"
+    groups:
+      pip-root-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Notion -> WP connector requirements (scripts/notion-to-wp/requirements.txt)
+  - package-ecosystem: "pip"
+    directory: "/scripts/notion-to-wp"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 3
+    labels:
+      - "ci"
+      - "tech-debt"
+    groups:
+      pip-connector-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+
+  # GitHub Actions used by .github/workflows/
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 3
+    labels:
+      - "ci"
+      - "tech-debt"
+    groups:
+      actions-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
