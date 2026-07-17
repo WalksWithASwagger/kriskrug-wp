@@ -83,6 +83,7 @@ add_action('wp_head', function (): void {
         $attribute = str_starts_with($name, 'twitter:') ? 'name' : 'property';
         printf(
             '<meta %s="%s" content="%s" />' . "\n",
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $attribute is a hardcoded literal ('name' or 'property') selected by the ternary above.
             $attribute,
             esc_attr($name),
             esc_attr((string) $value)
