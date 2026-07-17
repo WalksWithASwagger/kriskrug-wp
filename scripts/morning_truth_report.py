@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -106,14 +107,65 @@ def build_label_counts(issues_json: list[dict[str, Any]]) -> dict[str, int]:
 
 def fetch_wp_queue_counts(repo_root: Path) -> tuple[dict[str, int] | None, str | None]:
     env_path = repo_root / "scripts/notion-to-wp/.env"
-    if not env_path.exists():
-        return None, f"missing env file: {env_path}"
+    has_env_file = env_path.exists()
+    has_process_creds = bool(os.environ.get("WP_USER") and os.environ.get("WP_APP_PASSWORD"))
+    if not has_env_file and not has_process_creds:
+        return None, (
+            f"WordPress credentials unavailable: missing env file: {env_path} "
+            "and WP_USER/WP_APP_PASSWORD not set in process env"
+        )
 
     try:
-        client = WPClient.from_env(env_path, timeout=30)
+        client = WPClient.from_env(env_path if has_env_file else None, timeout=30)
         return wp_queue_counts(client), None
     except Exception as exc:
         return None, f"failed to fetch live draft queue counts: {exc}"
+
+
+def format_json_count(payload: Any) -> str:
+    """Render a list length, or 'unavailable' when the source query failed."""
+    return str(len(payload)) if isinstance(payload, list) else "unavailable"
+
+
+def summarize_smoke(smoke_json: Any) -> dict[str, Any]:
+    """Summarize public smoke JSON; an unavailable result never reads as 0 failures."""
+    if not isinstance(smoke_json, dict):
+        return {"available": False, "failures": None, "warnings": None, "observed_version": None}
+    failures = 0
+    warnings = 0
+    for check in smoke_json.get("checks", []):
+        if check.get("status") == "fail":
+            failures += 1
+        elif check.get("status") == "warn":
+            warnings += 1
+    return {
+        "available": True,
+        "failures": failures,
+        "warnings": warnings,
+        "observed_version": smoke_json.get("observed_wordpress_version"),
+    }
+
+
+def collect_truth_errors(
+    prs_json: Any,
+    issues_json: Any,
+    queue_error: str | None,
+    smoke_available: bool,
+    drift_json: Any,
+) -> list[str]:
+    """List startup truth data sources that could not be evaluated."""
+    errors: list[str] = []
+    if not isinstance(prs_json, list):
+        errors.append("open PR list unavailable (gh pr list JSON failed or was unparsable)")
+    if not isinstance(issues_json, list):
+        errors.append("open issue list unavailable (gh issue list JSON failed or was unparsable)")
+    if queue_error:
+        errors.append(f"draft queue counts unavailable: {queue_error}")
+    if not smoke_available:
+        errors.append("public smoke result unavailable (missing or unparsable JSON); treat as degraded")
+    if not isinstance(drift_json, dict):
+        errors.append("current-state drift report unavailable (command or parsing failure)")
+    return errors
 
 
 def render_command_block(result: CommandResult) -> str:
@@ -144,6 +196,11 @@ def main() -> int:
     parser.add_argument("--out", help="Write report to this path.")
     parser.add_argument("--stdout", action="store_true", help="Print the report instead of writing a file.")
     parser.add_argument("--skip-fetch", action="store_true", help="Skip git fetch for strictly non-mutating runs.")
+    parser.add_argument(
+        "--fail-on-error",
+        action="store_true",
+        help="Exit non-zero when any startup truth data source is unavailable (opt-in automation gate).",
+    )
     args = parser.parse_args()
     if args.stdout and args.out:
         parser.error("--stdout cannot be combined with --out")
@@ -271,7 +328,11 @@ def main() -> int:
             repo_root,
         )
 
-    label_counts = build_label_counts(issues_json or [])
+    if isinstance(issues_json, list):
+        label_counts = build_label_counts(issues_json)
+        label_lines = [f"- `{key}`: `{count}`" for key, count in label_counts.items()]
+    else:
+        label_lines = ["- Issue label counts: `unavailable` (open issue JSON query failed)"]
     draft_queue_summary = (
         f"future posts `{queue_counts['future_posts']}`, "
         f"draft posts `{queue_counts['draft_posts']}`, "
@@ -280,16 +341,11 @@ def main() -> int:
         else "`unavailable` (see Draft Queue Counts stderr)"
     )
 
-    smoke_failures = 0
-    smoke_warnings = 0
-    observed_wp_version = "(unknown)"
-    if smoke_json:
-        observed_wp_version = smoke_json.get("observed_wordpress_version") or "(unknown)"
-        for check in smoke_json.get("checks", []):
-            if check.get("status") == "fail":
-                smoke_failures += 1
-            elif check.get("status") == "warn":
-                smoke_warnings += 1
+    smoke = summarize_smoke(smoke_json)
+    if smoke["available"]:
+        observed_wp_version = smoke["observed_version"] or "(unknown)"
+    else:
+        observed_wp_version = "unavailable"
 
     projects_status = parse_status_line(projects_headers.stdout)
     work_og_image = parse_og_image(work_page_html.stdout)
@@ -303,8 +359,8 @@ def main() -> int:
         "",
         "## Snapshot Summary",
         "",
-        f"- Open PRs: `{len(prs_json or [])}`",
-        f"- Open issues: `{len(issues_json or [])}`",
+        f"- Open PRs: `{format_json_count(prs_json)}`",
+        f"- Open issues: `{format_json_count(issues_json)}`",
         f"- WordPress version (smoke): `{observed_wp_version}`",
         f"- Draft queue: {draft_queue_summary}",
         f"- `/projects/` status: `{projects_status}`",
@@ -314,13 +370,7 @@ def main() -> int:
         "",
         "## Issue Label Signals",
         "",
-        f"- `priority:high`: `{label_counts['priority:high']}`",
-        f"- `aurora-v2`: `{label_counts['aurora-v2']}`",
-        f"- `track-b`: `{label_counts['track-b']}`",
-        f"- `swarm-ready`: `{label_counts['swarm-ready']}`",
-        f"- `swarm-parked`: `{label_counts['swarm-parked']}`",
-        f"- `needs-human-review`: `{label_counts['needs-human-review']}`",
-        f"- `auto-implement`: `{label_counts['auto-implement']}`",
+        *label_lines,
         "",
         "## Drift Check",
         "",
@@ -336,10 +386,13 @@ def main() -> int:
         for check in drift_json["checks"]:
             declared = check.get("declared")
             observed = check.get("observed")
-            drift = "YES" if check.get("drift") else "no"
+            if not check.get("evaluated", True):
+                drift = "not evaluated"
+            else:
+                drift = "YES" if check.get("drift") else "no"
             lines.append(
                 f"| {check.get('label')} | {declared if declared is not None else '(missing)'} | "
-                f"{observed if observed is not None else '(missing)'} | {drift} |"
+                f"{observed if observed is not None else 'unavailable'} | {drift} |"
             )
         if drift_json.get("errors"):
             lines.extend(["", "Drift checker errors:"])
@@ -348,13 +401,32 @@ def main() -> int:
     else:
         lines.append("- Drift report unavailable (command/parsing failure).")
 
+    if smoke["available"]:
+        smoke_lines = [
+            f"- Failures: `{smoke['failures']}`",
+            f"- Warnings: `{smoke['warnings']}`",
+        ]
+    else:
+        smoke_lines = [
+            "- Result: `unavailable` (public smoke output missing or unparsable; treat as degraded, not passing)",
+        ]
+
+    truth_errors = collect_truth_errors(prs_json, issues_json, queue_error, smoke["available"], drift_json)
+    if truth_errors:
+        availability_lines = [f"- `unavailable`: {error}" for error in truth_errors]
+    else:
+        availability_lines = ["- All startup truth data sources resolved."]
+
     lines.extend(
         [
             "",
             "## WP Smoke Summary",
             "",
-            f"- Failures: `{smoke_failures}`",
-            f"- Warnings: `{smoke_warnings}`",
+            *smoke_lines,
+            "",
+            "## Data Availability",
+            "",
+            *availability_lines,
             "",
             "## Aurora Risk (Read-Only)",
             "",
@@ -399,6 +471,12 @@ def main() -> int:
     else:
         out_path.write_text(report, encoding="utf-8")
         print(out_path)
+    if args.fail_on_error and truth_errors:
+        print(
+            f"morning-truth: {len(truth_errors)} data source(s) unavailable (--fail-on-error)",
+            file=sys.stderr,
+        )
+        return 1
     return 0
 
 

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -75,14 +76,36 @@ def parse_declared_values(work_plan: Path) -> dict[str, Any]:
 
 def fetch_wp_queue_counts(repo_root: Path) -> tuple[dict[str, int] | None, str | None]:
     env_path = repo_root / "scripts/notion-to-wp/.env"
-    if not env_path.exists():
-        return None, f"missing env file: {env_path}"
+    has_env_file = env_path.exists()
+    has_process_creds = bool(os.environ.get("WP_USER") and os.environ.get("WP_APP_PASSWORD"))
+    if not has_env_file and not has_process_creds:
+        return None, (
+            f"WordPress credentials unavailable: missing env file: {env_path} "
+            "and WP_USER/WP_APP_PASSWORD not set in process env"
+        )
 
     try:
-        client = WPClient.from_env(env_path, timeout=30)
+        client = WPClient.from_env(env_path if has_env_file else None, timeout=30)
         return wp_queue_counts(client), None
     except Exception as exc:
         return None, f"failed to fetch live draft queue counts: {exc}"
+
+
+def build_observed(
+    prs_json: Any,
+    issues_json: Any,
+    wp_counts: dict[str, int] | None,
+    smoke_json: Any,
+) -> dict[str, Any]:
+    """Map raw check payloads to observed values; failed sources stay None, never 0."""
+    return {
+        "open_prs": len(prs_json) if isinstance(prs_json, list) else None,
+        "open_issues": len(issues_json) if isinstance(issues_json, list) else None,
+        "wp_version": smoke_json.get("observed_wordpress_version") if isinstance(smoke_json, dict) else None,
+        "future_posts": wp_counts["future_posts"] if wp_counts else None,
+        "draft_posts": wp_counts["draft_posts"] if wp_counts else None,
+        "draft_pages": wp_counts["draft_pages"] if wp_counts else None,
+    }
 
 
 def evaluate_drift(declared: dict[str, Any], observed: dict[str, Any]) -> list[dict[str, Any]]:
@@ -98,14 +121,23 @@ def evaluate_drift(declared: dict[str, Any], observed: dict[str, Any]) -> list[d
     for key, label in labels:
         declared_value = declared.get(key)
         observed_value = observed.get(key)
-        drift = declared_value is not None and observed_value is not None and declared_value != observed_value
+        evaluated = declared_value is not None and observed_value is not None
+        drift = evaluated and declared_value != observed_value
+        if drift:
+            status = "drift"
+        elif evaluated:
+            status = "no drift"
+        else:
+            status = "not evaluated"
         checks.append(
             {
                 "key": key,
                 "label": label,
                 "declared": declared_value,
                 "observed": observed_value,
+                "evaluated": evaluated,
                 "drift": drift,
+                "status": status,
             }
         )
     return checks
@@ -123,8 +155,11 @@ def render_human(report: dict[str, Any]) -> str:
     ]
     for check in report["checks"]:
         declared = check["declared"] if check["declared"] is not None else "(missing)"
-        observed = check["observed"] if check["observed"] is not None else "(missing)"
-        drift = "YES" if check["drift"] else "no"
+        observed = check["observed"] if check["observed"] is not None else "unavailable"
+        if not check.get("evaluated", True):
+            drift = "not evaluated"
+        else:
+            drift = "YES" if check["drift"] else "no"
         lines.append(f"| {check['label']} | {declared} | {observed} | {drift} |")
 
     errors = report.get("errors", [])
@@ -145,7 +180,11 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--base-url", default="https://kriskrug.co", help="Site URL for smoke checks.")
     parser.add_argument("--json", action="store_true", help="Print JSON report.")
-    parser.add_argument("--fail-on-drift", action="store_true", help="Exit non-zero if any drift is detected.")
+    parser.add_argument(
+        "--fail-on-drift",
+        action="store_true",
+        help="Exit non-zero if any drift or check error is detected (opt-in automation gate).",
+    )
     return parser.parse_args()
 
 
@@ -177,14 +216,7 @@ def main() -> int:
         if error:
             errors.append(error)
 
-    observed = {
-        "open_prs": len(prs_json or []),
-        "open_issues": len(issues_json or []),
-        "wp_version": (smoke_json or {}).get("observed_wordpress_version"),
-        "future_posts": None if not wp_counts else wp_counts["future_posts"],
-        "draft_posts": None if not wp_counts else wp_counts["draft_posts"],
-        "draft_pages": None if not wp_counts else wp_counts["draft_pages"],
-    }
+    observed = build_observed(prs_json, issues_json, wp_counts, smoke_json)
 
     checks = evaluate_drift(declared, observed)
     report = {
