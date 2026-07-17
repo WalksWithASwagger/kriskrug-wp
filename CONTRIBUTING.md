@@ -15,7 +15,7 @@ Thank you for your interest in contributing to the [kriskrug.co](https://kriskru
 
 ## Code of Conduct
 
-By participating in this project, you agree to maintain a respectful, inclusive, and collaborative environment that aligns with Kris Krug's mission of building a responsible and inclusive AI future.
+By participating in this project, you agree to keep this a respectful, inclusive, and collaborative place to work. This is the operations repo for Kris Krug's personal site; treat it and the people around it with care.
 
 ### Our Standards
 
@@ -54,7 +54,7 @@ Do **not** commit plaintext secrets. Canonical store is your vault (1Password `k
 ### Code Contributions
 
 1. **Fork the repository**
-2. **Create a branch**: `feature/issue-123-short-description` or `fix/issue-456-bug-name`
+2. **Create a lane-scoped branch from `main`**: `fix/issue-456-bug-name`, `docs/issue-101-update-readme`, or an agent-lane branch like `codex/...` or `cursor/...` (see [Branch Naming](#branch-naming))
 3. **Make your changes** following our coding standards
 4. **Test thoroughly** - all tests must pass
 5. **Submit a pull request** using our PR template
@@ -199,15 +199,25 @@ See [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL
 
 ### Local Setup
 
+There is no local app server to boot. The live site runs on Pagely and is not file-synced here. Local work means running the CLI tools and the validation gates below.
+
+CI runs the gates on PHP 8.2, Python 3.12, and Node 20 (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)). The Aurora theme declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css). You don't need exact version matches locally, but if a gate behaves differently than CI, check your runtime versions first.
+
 ```bash
 # Clone repository
 git clone https://github.com/WalksWithASwagger/kriskrug-wp.git
 cd kriskrug-wp
 
-# Notion → WP publisher (Python)
+# Full Python test gate (repo root)
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements-test.txt
+make python-test PYTHON=python
+
+# Notion → WP publisher (its own venv; several Makefile targets call it directly)
 cd scripts/notion-to-wp
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
+cd ../..
 # Then see scripts/notion-to-wp/README.md for env vars + dry-run usage
 
 # WordPress PHP validation
@@ -219,10 +229,14 @@ make verify
 
 ### Branch Naming
 
-- Feature: `feature/issue-123-description`
-- Bug Fix: `fix/issue-456-bug-name`
-- Enhancement: `enhancement/issue-789-improvement`
+All work branches from current `main`, one lane per branch. Agent sessions use their lane prefix so it is obvious which tool owns the branch:
+
+- Agent lanes: `codex/short-description`, `cursor/short-description`, `claude/issue-123-short-description`
+- Bug fix: `fix/issue-456-bug-name`
 - Documentation: `docs/issue-101-update-readme`
+- Feature: `feature/issue-123-description`
+
+Keep one issue per branch and don't mix Track A content changes with Track B theme changes in the same branch.
 
 ### Commit Messages
 
@@ -270,9 +284,8 @@ If broader automated coverage is added (for example PHPUnit, Playwright, or end-
 Contributors will be:
 - Listed in release notes
 - Credited in PR descriptions
-- Recognized in the Kris Krug community
 
-Thank you for helping build a better AI future for British Columbia!
+Thanks for helping keep kriskrug.co healthy.
 
 ---
 

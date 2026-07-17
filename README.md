@@ -1,6 +1,6 @@
 # kriskrug-wp — Operations Hub for kriskrug.co
 
-> Building a Responsible & Inclusive AI Future for British Columbia
+> The personal site of Kris Krug: photographer, AI community builder, keynote speaker.
 
 **Live site:** [kriskrug.co](https://kriskrug.co/) (Pagely-hosted WordPress, Aurora `kk-aurora` theme)
 **Repo:** [WalksWithASwagger/kriskrug-wp](https://github.com/WalksWithASwagger/kriskrug-wp)
@@ -12,21 +12,9 @@ This repository is the **operations + content hub** for [kriskrug.co](https://kr
 
 ## About Kris Krug
 
-Kris Krug is a grassroots AI ecosystem initiative focused on building a responsible and inclusive AI future for British Columbia. Our community brings together:
+Kris Krug is a person, not an organization: a Vancouver-based photographer, AI community builder, and keynote speaker. [kriskrug.co](https://kriskrug.co/) is his personal site, covering his photography, writing, speaking, and community work.
 
-- AI enthusiasts and professionals
-- Policy makers and educators
-- Artists and creative technologists
-- Local community organizers
-- Technology innovators
-
-### Key Initiatives
-
-- **Regional Hubs** - Hyperlocal AI community building
-- **AI Film Club** - Exploring AI through cinema
-- **Mind/AI/Consciousness** - Philosophical discussions
-- **Events & Workshops** - Community learning opportunities
-- **Resource Directory** - Funding, hackathons, and tools
+Kris also convenes the BC + AI ecosystem community, but that project lives at [bc-ai.ca](https://bc-ai.ca/) and in its own repos. This repo is only about keeping his personal site healthy: publishing posts, maintaining the Aurora theme, and keeping SEO and schema in shape.
 
 ## Repository Purpose
 
@@ -96,8 +84,8 @@ skills/                          # Claude Code skills used in this repo
 ### Where to start
 
 - **Reading the site state:** `docs/current-state/README.md`
-- **Planning next work:** `docs/current-state/HANDOFF-2026-06-17.md` and `docs/current-state/CURRENT-STATE-2026-06-23.md`
-- **Latest startup truth:** `docs/current-state/reports/morning-truth-20260624-175842Z.md` (or run `make morning-truth` for a fresh read)
+- **Planning next work:** the newest dated `docs/current-state/CURRENT-STATE-*.md` and `docs/current-state/WORK-PLAN-*.md` (the index in `docs/current-state/README.md` names the current ones)
+- **Latest startup truth:** the newest `docs/current-state/reports/morning-truth-*.md` (run `make morning-truth` for a fresh one; dated links go stale fast, so always take the newest)
 - **Latest diagnostic truth:** `docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`
 - **Longer roadmap references:** `docs/current-state/ROADMAP.md` and `docs/current-state/FIX_QUEUE.md`
 - **Publishing a Notion post:** `scripts/notion-to-wp/README.md`
@@ -141,6 +129,24 @@ If you're editing a post, page, schema, redirect, or category → Track A. If yo
 
 ## Getting Started
 
+### What runs here
+
+There is no local app server. The live WordPress site runs on Pagely and is not file-synced with this repo. "Running" this repo means the CLI and validation surfaces:
+
+- `make status-readonly` or `make morning-truth` for startup truth
+- `make test` for the local test suite (Python, JavaScript syntax, plugin and theme smoke)
+- `make validate` for the WordPress PHP security ruleset (run `composer install` first)
+- `make verify` for the standard local gate (test + docs-truth-check + validate)
+- The Notion publisher CLI in [`scripts/notion-to-wp/`](scripts/notion-to-wp/)
+
+The full Python gate needs the packages in [`requirements-test.txt`](requirements-test.txt) at the repo root:
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements-test.txt
+make python-test PYTHON=python
+```
+
 ### For agents
 Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](docs/current-state/README.md).
 
@@ -160,6 +166,7 @@ Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](do
 - **Custom code:** PHP snippets (Code Snippets plugin on prod), `inc/digital-composting.php`, and packaged helper plugins such as `plugins/kk-sidebar-promos/`
 - **CLI Tools:** GitHub CLI (`gh`), Claude Code / Cursor agents
 - **Languages:** PHP, JavaScript, Python, Bash
+- **CI runtimes:** PHP 8.2, Python 3.12, Node 20 (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)); the Aurora theme itself declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css)
 
 ## Issue Labels
 
@@ -186,8 +193,11 @@ For questions about this repository or Kris Krug:
 
 - Create an issue in this repository
 - Visit [kriskrug.co](https://kriskrug.co/) for general inquiries
-- Join our community events
 
 ## License
 
-This repository is for project management, content publishing, and theme development. WordPress core and third-party plugins/themes maintain their respective licenses.
+Licensing is mixed on purpose:
+
+- The repo's own tooling, scripts, and docs are declared `proprietary` in [`composer.json`](composer.json). This is Kris's personal operations tooling, not a redistributable package.
+- The Aurora theme ([`theme/kk-aurora/`](theme/kk-aurora/)) is GPL-2.0-or-later, as declared in its `style.css`. WordPress themes are GPL derivatives, so the theme carries the GPL even though the surrounding repo does not.
+- WordPress core and third-party plugins/themes keep their own licenses.
