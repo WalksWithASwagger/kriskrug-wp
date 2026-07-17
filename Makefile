@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test javascript-syntax plugin-smoke theme-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check env-check varlock-run clean
+.PHONY: help test python-test javascript-syntax php-syntax plugin-smoke theme-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check env-check varlock-run clean
 
 PYTHON ?= python3
 VARLOCK ?= varlock
@@ -52,6 +52,17 @@ javascript-syntax: ## Check committed JavaScript syntax
 	@command -v node >/dev/null 2>&1 || { echo "ERROR: node is required for JavaScript syntax checks."; exit 1; }
 	@for file in $(JAVASCRIPT_FILES); do node --check "$$file"; done
 
+php-syntax: ## Run php -l across all tracked PHP in inc/, plugins/, theme/, fixes/
+	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for PHP syntax checks."; exit 1; }
+	@status=0; count=0; \
+	for file in $$(git ls-files 'inc/*.php' 'plugins/*.php' 'theme/*.php' 'fixes/*.php' | LC_ALL=C sort); do \
+		count=$$((count + 1)); \
+		out=$$(php -l "$$file" 2>&1) || { echo "$$out"; status=1; }; \
+	done; \
+	if [ "$$count" -eq 0 ]; then echo "ERROR: php-syntax found no tracked PHP files."; exit 1; fi; \
+	if [ "$$status" -ne 0 ]; then echo "php-syntax: FAILED ($$count files checked)"; exit 1; fi; \
+	echo "php-syntax: $$count files passed php -l"
+
 plugin-smoke: ## Run lightweight plugin smoke tests
 	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for plugin smoke tests."; exit 1; }
 	@php plugins/kk-sidebar-promos/tests/smoke.php
@@ -66,7 +77,8 @@ verify: ## Run the standard local verification suite
 	@$(MAKE) docs-truth-check
 	@$(MAKE) validate
 
-validate: ## Run WordPress coding standards check
+validate: ## Run PHP syntax gate plus WordPress coding standards check
+	@$(MAKE) php-syntax
 	@echo "Validating WordPress coding standards..."
 	@bash skills/github-workflow-automation/scripts/validate_wordpress.sh
 

@@ -24,11 +24,13 @@ function kk_gsc404_tracking_query_keys(): array {
  * Return true when the request carries legacy tracking params we should strip.
  */
 function kk_gsc404_has_tracking_query(): bool {
+    // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only key-presence check on public GET requests; no form data is processed.
     if (empty($_GET) || !is_array($_GET)) {
         return false;
     }
 
     foreach (kk_gsc404_tracking_query_keys() as $key) {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- key presence only; values are never read, and the redirect target is rebuilt from the sanitized path.
         if (array_key_exists($key, $_GET)) {
             return true;
         }

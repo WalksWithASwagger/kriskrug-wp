@@ -6,7 +6,9 @@
 	<arg name="parallel" value="8"/>
 	<arg value="p"/>
 
+	<file>fixes</file>
 	<file>inc</file>
+	<file>plugins/kk-marquee-board</file>
 	<file>plugins/kk-sidebar-promos</file>
 	<file>theme/kk-aurora/functions.php</file>
 	<file>theme/kk-aurora/inc</file>
