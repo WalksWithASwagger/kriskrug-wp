@@ -133,10 +133,12 @@ def load_config() -> Config:
     sources.extend(load_env(path) for path in _fallback_env_paths())
 
     def value(key: str, default: str | None = None) -> str | None:
+        if os.environ.get(key):
+            return os.environ[key]
         for source in sources:
             if source.get(key):
                 return source.get(key)
-        return os.environ.get(key) or default
+        return default
 
     base_url = value("WP_BASE_URL", DEFAULT_BASE_URL) or DEFAULT_BASE_URL
     wp_user = value("WP_USER")

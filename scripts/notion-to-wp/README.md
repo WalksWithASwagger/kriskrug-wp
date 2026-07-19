@@ -17,7 +17,7 @@ It does NOT inject schema. The `kk-schema` mu-plugin handles that sitewide. The 
 
 ### 1. Notion token
 
-Preferred: set `NOTION_TOKEN` via Varlock / process env / Cursor Cloud secrets (see repo-root [`.env.schema`](../../.env.schema) and [`docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md`](../../docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md)).
+Preferred: set `NOTION_TOKEN` in the user-managed Varlock values directory and run the command through Varlock (see repo-root [`.env.schema`](../../.env.schema) and [`docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md`](../../docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md)).
 
 Compat: put it in `scripts/notion-to-wp/.env`, or point `NOTION_ENV_PATH` / `KKAI_ENV_PATH` at a sibling env file. The optional local fallback `~/Code/notion-local/kk-ai-ecosystem/.env` still works if present but is **deprecated as secret source-of-truth**.
 
@@ -29,8 +29,8 @@ Generate one **once**:
 2. Scroll to **Application Passwords** (near the bottom of the page).
 3. Application Name: `kk-notion-to-wp`
 4. Click **Add New Application Password**.
-5. WordPress shows the password ONCE — copy it into the vault (1Password `kk-dev`) or a gitignored local file. Do not paste it into docs, issues, commits, or chat.
-6. Preferred: wire vault → `.env.local` with `op(...)` and run `make varlock-run CMD='…'`. Compat cache:
+5. WordPress shows the password once. Put it in the user-managed Varlock values file. Do not paste it into docs, issues, commits, or chat.
+6. Preferred: run the connector through `make varlock-run CMD='<command>'`. Compat cache:
 
 ```bash
 cp scripts/notion-to-wp/.env.example scripts/notion-to-wp/.env

@@ -53,11 +53,11 @@ def load_config() -> Config:
     fallback = dotenv_values(KKAI_ENV_PATH) if KKAI_ENV_PATH.exists() else {}
 
     def get(key: str, default: str | None = None) -> str | None:
-        return local.get(key) or fallback.get(key) or os.environ.get(key) or default
+        return os.environ.get(key) or local.get(key) or fallback.get(key) or default
 
     notion_token = get("NOTION_TOKEN")
     if not notion_token:
-        sys.exit(f"NOTION_TOKEN not found. Add to {LOCAL_ENV_PATH} or {KKAI_ENV_PATH}.")
+        sys.exit("NOTION_TOKEN not found. Run through Varlock or configure a legacy local env file.")
     return Config(
         notion_token=notion_token,
         wp_base_url=get("WP_BASE_URL", WP_BASE_URL_DEFAULT) or WP_BASE_URL_DEFAULT,
