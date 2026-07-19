@@ -1379,7 +1379,7 @@ a {
 }
 
 .aurora-writing-archive-list.wp-block-post-template {
-  align-items: stretch;
+  align-items: start;
   display: grid;
   gap: 12px;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -1387,7 +1387,7 @@ a {
 }
 
 .aurora-writing-archive-list.wp-block-post-template > li {
-  grid-column: span 6;
+  grid-column: span 4;
   margin: 0;
   min-width: 0;
   width: auto !important;
@@ -1401,7 +1401,7 @@ a {
   border-radius: var(--aurora-radius-card);
   display: grid;
   grid-template-rows: auto 1fr;
-  height: 100%;
+  height: auto;
   min-width: 0;
   overflow: hidden;
   transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
@@ -1529,38 +1529,6 @@ a {
 .aurora-writing-card-meta time,
 .aurora-writing-card-meta span {
   color: var(--aurora-ink-muted);
-}
-
-.aurora-writing-archive-list.wp-block-post-template > li:first-child {
-  grid-column: 1 / -1;
-}
-
-.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media,
-.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
-  aspect-ratio: 16 / 9 !important;
-}
-
-.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card {
-  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-  grid-template-rows: 1fr;
-  min-height: clamp(24rem, 38vw, 34rem);
-}
-
-.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media {
-  border-bottom: 0;
-  border-right: 1px solid rgba(247, 247, 242, 0.08);
-  height: 100%;
-}
-
-.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.03;
-}
-
-.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-body {
-  align-content: center;
-  gap: 0.62rem;
-  padding: clamp(1rem, 2.2vw, 1.45rem);
 }
 
 .aurora-writing-pagination {
@@ -3594,17 +3562,6 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   background-size: auto, auto, 16px 16px, auto;
 }
 
-.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.03;
-}
-
-.aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-body {
-  align-content: center;
-  gap: 0.66rem;
-  padding: clamp(1.2rem, 2.6vw, 2rem);
-}
-
 .aurora-article-map {
   background:
     linear-gradient(135deg, rgba(242, 180, 207, 0.05), rgba(157, 236, 242, 0.022)),
@@ -4185,13 +4142,7 @@ body .aurora-reading-progress span {
     max-width: 12.5ch;
   }
 
-  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-title {
-    font-size: 1.68rem;
-    line-height: 1.08;
-  }
-
-  .aurora-writing-archive .aurora-writing-card-body,
-  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-body {
+  .aurora-writing-archive .aurora-writing-card-body {
     padding: 1rem;
   }
 
