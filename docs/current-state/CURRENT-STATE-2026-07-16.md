@@ -9,7 +9,7 @@ This file is the declared snapshot for `make current-state-drift-check` / `make 
 ## Verified State
 
 - `origin/main` includes merges through deps cleanup (#429/#392/#393/#395/#399–#401/#432) and content packet #431.
-- Open PRs: `0`.
+- Open PRs: `1` (PR clearing post-#433 open-PR count).
 - Open issues: `77`.
 - Production still publicly reports WordPress `7.0.2`.
 - Live Aurora theme (`style.css` Version header): `1.3.37`.
