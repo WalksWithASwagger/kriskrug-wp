@@ -16,7 +16,7 @@ Dry-run by default. --execute creates the draft (status=draft, NEVER publishes,
 aborts if the slug already exists). --update refreshes the body of the existing
 draft found by slug.
 """
-import re, sys, json, pathlib
+import os, re, sys, json, pathlib
 import yaml
 from dotenv import dotenv_values
 from kk_notion_to_wp import WordPress, WP_BASE_URL_DEFAULT, WP_DEFAULT_AUTHOR_ID
@@ -57,9 +57,9 @@ if not WRITE:
 
 # ---- WP client (WP-only creds; no NOTION_TOKEN needed) ----
 env = dotenv_values(ENV)
-user = env.get("WP_USER")
-pw = (env.get("WP_APP_PASSWORD") or "").replace(" ", "")
-author_id = int(env.get("WP_DEFAULT_AUTHOR_ID", WP_DEFAULT_AUTHOR_ID))
+user = os.environ.get("WP_USER") or env.get("WP_USER")
+pw = (os.environ.get("WP_APP_PASSWORD") or env.get("WP_APP_PASSWORD") or "").replace(" ", "")
+author_id = int(os.environ.get("WP_DEFAULT_AUTHOR_ID") or env.get("WP_DEFAULT_AUTHOR_ID", WP_DEFAULT_AUTHOR_ID))
 if not (user and pw):
     sys.exit(f"[ABORT] WP_USER / WP_APP_PASSWORD missing from {ENV}")
 wp = WordPress(WP_BASE_URL_DEFAULT, user, pw)

@@ -267,8 +267,8 @@ env-check: ## Validate .env.schema via Varlock (soft-OK when secrets are absent)
 			echo "env-check: schema is readable; one or more values are missing/unresolved."; \
 			echo "This is expected in Cursor Cloud without secrets, or before local vault wiring."; \
 			echo "Wire WP_USER / WP_APP_PASSWORD (and optional NOTION_TOKEN) via:"; \
-			echo "  - gitignored .env.local with op(op://kk-dev/...) after enabling the 1Password plugin"; \
-			echo "  - Cursor Cloud secrets / process env"; \
+			echo "  - ~/.agents/env/values/.env.shared.local or .env.kriskrug-wp.local"; \
+			echo "  - cloud-agent secrets / process env"; \
 			echo "  - temporary scripts/notion-to-wp/.env cache (compat only)"; \
 			echo "Then: $(VARLOCK) run --inject vars -- make status-readonly"; \
 			exit 0; \

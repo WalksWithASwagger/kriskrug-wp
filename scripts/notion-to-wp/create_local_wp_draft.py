@@ -73,7 +73,7 @@ def load_wp_config() -> WPConfig:
     fallback = dotenv_values(KKAI_ENV_PATH) if KKAI_ENV_PATH.exists() else {}
 
     def get(key: str, default: str | None = None) -> str | None:
-        return local.get(key) or fallback.get(key) or os.environ.get(key) or default
+        return os.environ.get(key) or local.get(key) or fallback.get(key) or default
 
     user = get("WP_USER")
     app_password = (get("WP_APP_PASSWORD") or "").replace(" ", "")

@@ -11,4 +11,6 @@
 | `common.load_env()` process overlay | prefers OS env over file |
 | Cursor Cloud secrets | **not** set in this VM (expected) — documented as separate channel |
 
-Human follow-ups: fill 1Password `kk-dev`; enable plugin + `.env.local`; add same values to Cursor Cloud secrets.
+Superseded follow-up: the current contract uses the human-managed
+`~/.agents/env/values/` directory, not an external vault plugin. Cloud values
+remain separate and require explicit approval.
