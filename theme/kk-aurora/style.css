@@ -1204,6 +1204,7 @@ a {
 }
 
 .aurora-card-label {
+  align-self: start;
   background: rgba(18, 20, 27, 0.76);
   border: 1px solid var(--aurora-line);
   border-radius: 999px;
