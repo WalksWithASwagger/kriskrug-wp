@@ -6,7 +6,7 @@
 PYTHON ?= python3
 VARLOCK ?= varlock
 WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-07-16.md
-EXPECT_VERSION_DEFAULT := 7.0.1
+EXPECT_VERSION_DEFAULT := 7.0.2
 JAVASCRIPT_FILES := \
 	plugins/kk-marquee-board/assets/marquee.js \
 	scripts/marquee/render_og.cjs \
@@ -244,7 +244,7 @@ jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/
 		python3 scripts/jetpack_feedback_audit.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"; \
 	fi
 
-wp7-smoke: ## Run read-only public WP rollout smoke checks (BASE_URL=https://kriskrug.co EXPECT_VERSION=7.0.1)
+wp7-smoke: ## Run read-only public WP rollout smoke checks (BASE_URL=https://kriskrug.co EXPECT_VERSION=7.0.2)
 	@python3 scripts/wp7-public-smoke.py --base-url "$${BASE_URL:-https://kriskrug.co}" --timeout "$${REQUEST_TIMEOUT:-20}" $${EXPECT_VERSION:+--expect-version "$$EXPECT_VERSION"}
 
 wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (ENV_FILE=scripts/notion-to-wp/.env)

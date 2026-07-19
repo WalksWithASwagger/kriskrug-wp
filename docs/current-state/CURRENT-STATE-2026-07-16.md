@@ -1,17 +1,17 @@
 # Current State Snapshot - 2026-07-16
 
-**Snapshot time:** 2026-07-16 (wind-down after #367 + #370 merge).
-**Branch:** `main` (tip after merge of PR #370)
+**Snapshot time:** 2026-07-19 (truth sync after deps cleanup + live WP 7.0.2).
+**Branch:** `main`
 **Mode:** Track A ops + Track B deploy gate.
 
 This file is the declared snapshot for `make current-state-drift-check` / `make morning-truth` / `make status-readonly` (via `WORK_PLAN`).
 
 ## Verified State
 
-- `origin/main` includes merges of PR #359, #367 (orchestra/hygiene), and #370 (Varlock).
-- Open PRs: `0`.
-- Open issues: `42` (Monday day-queue #360–#366 plus long-run ops #368–#369).
-- Production still publicly reports WordPress `7.0.1`.
+- `origin/main` includes merges through deps cleanup (#429/#392/#393/#395/#399–#401/#432) and content packet #431.
+- Open PRs: `1` (this truth-sync PR #433).
+- Open issues: `77`.
+- Production still publicly reports WordPress `7.0.2`.
 - Live Aurora theme (`style.css` Version header): `1.3.37`.
 - Repo Aurora theme (`theme/kk-aurora/`): `1.3.40`.
 - WordPress draft queue: `5` scheduled posts, `64` draft posts, `4` draft pages.
@@ -34,13 +34,13 @@ This file is the declared snapshot for `make current-state-drift-check` / `make 
 
 ## What changed since CURRENT-STATE-2026-06-23
 
-- WordPress upgraded live to **7.0.1**.
+- WordPress upgraded live to **7.0.1**, then **7.0.2**.
 - Aurora advanced on `main` through **1.3.40**; production remains on **1.3.37**.
 - July SEO wave merged (#332–#358 family): descriptions, OG/canonical repairs, schema identity prep, publisher handoffs, body-H1 migration tooling, search-title module.
 - July agent ops stack merged: `publish_common` (#312/#315), content packets (#311), Cloud AGENTS notes (#310).
 - Front-door docs + day runbook merged via PR #359; Monday GitHub queue filed as #360–#366; long-run ops #368–#369.
 - Orchestra/hygiene stack merged via PR #367; Varlock vault/schema/Cloud secrets rollout merged via PR #370.
-- Open issues moved ~33 → **42** after Monday + long-run queue filing; open PRs are **0** after #367 + #370 merged to `main`.
+- Open issues moved ~33 → **42** after Monday + long-run queue filing; open PRs are **1** during truth-sync PR #433; open issues about **77**.
 - Declared draft-page count normalized to `4` (was `5` in the June snapshot).
 
 ## Stash / secrets notes
