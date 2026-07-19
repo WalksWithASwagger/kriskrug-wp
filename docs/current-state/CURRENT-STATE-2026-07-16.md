@@ -9,7 +9,7 @@ This file is the declared snapshot for `make current-state-drift-check` / `make 
 ## Verified State
 
 - `origin/main` includes merges through deps cleanup (#429/#392/#393/#395/#399–#401/#432) and content packet #431.
-- Open PRs: `1` (this truth-sync PR #433).
+- Open PRs: `0`.
 - Open issues: `77`.
 - Production still publicly reports WordPress `7.0.2`.
 - Live Aurora theme (`style.css` Version header): `1.3.37`.
@@ -40,7 +40,7 @@ This file is the declared snapshot for `make current-state-drift-check` / `make 
 - July agent ops stack merged: `publish_common` (#312/#315), content packets (#311), Cloud AGENTS notes (#310).
 - Front-door docs + day runbook merged via PR #359; Monday GitHub queue filed as #360–#366; long-run ops #368–#369.
 - Orchestra/hygiene stack merged via PR #367; Varlock vault/schema/Cloud secrets rollout merged via PR #370.
-- Open issues moved ~33 → **42** after Monday + long-run queue filing; open PRs are **1** during truth-sync PR #433; open issues about **77**.
+- Open issues moved ~33 → **42** after Monday + long-run queue filing; open PRs are **0** after truth-sync #433; open issues about **77**.
 - Declared draft-page count normalized to `4` (was `5` in the June snapshot).
 
 ## Stash / secrets notes
