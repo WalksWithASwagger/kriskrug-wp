@@ -789,14 +789,17 @@ a {
 .aurora-hero-media img {
   height: 100%;
   object-fit: cover;
-  object-position: 54% 38%;
+  object-position: 50% 34%;
   width: 100%;
 }
 
+/* Scrim backs the left-aligned copy for legibility without burying the photo.
+   The prior 0.94/0.76 left stop rendered the subject as near-black (issue #407);
+   these lighter stops keep white text readable while surfacing the image. */
 .aurora-hero-scrim {
   background:
-    linear-gradient(90deg, rgba(3, 4, 5, 0.94) 0%, rgba(3, 4, 5, 0.76) 38%, rgba(3, 4, 5, 0.22) 100%),
-    linear-gradient(180deg, rgba(3, 4, 5, 0.2), rgba(3, 4, 5, 0.78));
+    linear-gradient(90deg, rgba(3, 4, 5, 0.82) 0%, rgba(3, 4, 5, 0.5) 42%, rgba(3, 4, 5, 0.05) 100%),
+    linear-gradient(180deg, rgba(3, 4, 5, 0.12), rgba(3, 4, 5, 0.5));
   z-index: -2;
 }
 
