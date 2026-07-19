@@ -1,0 +1,5 @@
+source_host,source_path,disposition,http_status,target_url,target_anchor,evidence,notes
+developinganaimindset.com,/,permanent_redirect,301,https://kriskrug.co/speaking/developing-an-ai-mindset/,,D1 and D2,Exact semantic successor for the old root resource; authorize only after the successor passes every publish gate.
+developinganaimindset.com,/robots.txt,gone,410,,,D1 and D2,Publicly captured technical path with no content equivalent; do not send it to a generic page.
+developinganaimindset.com,/sitemap.xml,gone,410,,,D1,Current technical probe with no historical content evidence or truthful equivalent.
+developinganaimindset.com,/*,gone,410,,,D1 and D2,Provider-neutral fallback for every unmatched path; exact root rule must take precedence and any later equivalent path needs its own reviewed row.
