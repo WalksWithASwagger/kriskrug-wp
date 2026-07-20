@@ -68,11 +68,14 @@ class Issue345OpenGraphSiteNameTests(unittest.TestCase):
         self.assertFalse(change["repo_rendering_code_change_required"])
         self.assertFalse(self.data["live_wordpress_write_performed"])
 
-    def test_repo_owners_derive_site_name_and_preserve_title_positioning(self):
+    def test_theme_uses_reviewed_site_name_and_preserves_title_positioning(self):
         self.assertRegex(
             self.theme,
-            re.compile(r"'og:site_name'\s*=>\s*get_bloginfo\('name'\)"),
+            re.compile(r"'og:site_name'\s*=>\s*public_site_name\(\)"),
         )
+        self.assertIn("return 'Kris Krug';", self.theme)
+        self.assertIn("add_filter('get_bloginfo_rss'", self.theme)
+        self.assertIn("add_filter('get_wp_title_rss'", self.theme)
         self.assertRegex(
             self.bridge,
             re.compile(r"\$site\s*=\s*get_bloginfo\('name'\)"),
