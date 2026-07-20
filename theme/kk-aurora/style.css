@@ -1033,6 +1033,17 @@ a {
   margin: 0;
 }
 
+.aurora-hired-grid article {
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.aurora-hired-grid article:hover,
+.aurora-hired-grid article:focus-within {
+  background: rgba(247, 247, 242, 0.06);
+  border-color: var(--aurora-line-strong);
+  transform: translateY(-2px);
+}
+
 .aurora-inline-link {
   color: var(--aurora-signal);
   font-weight: 800;
