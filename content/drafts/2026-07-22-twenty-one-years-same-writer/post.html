@@ -1,0 +1,403 @@
+<!-- wp:html -->
+<style id="kk-voice-forensics-styles">
+.kk-vf-shell {
+  --kk-vf-bg: #0c1115;
+  --kk-vf-panel: #141a1f;
+  --kk-vf-panel-warm: #2b251a;
+  --kk-vf-ink: #f1ede5;
+  --kk-vf-muted: #aaa8a2;
+  --kk-vf-gold: #d19a45;
+  --kk-vf-red: #bd6258;
+  --kk-vf-line: #30373d;
+  background: var(--kk-vf-bg);
+  color: var(--kk-vf-ink);
+  border: 1px solid #20272c;
+  border-radius: 1.5rem;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, .28);
+  margin-block: 2rem 4rem;
+  overflow: hidden;
+  padding: clamp(2.25rem, 6vw, 5.5rem) clamp(1.1rem, 5vw, 4.5rem);
+}
+.kk-vf-shell * { box-sizing: border-box; }
+.kk-vf-wrap { margin-inline: auto; max-width: 920px; }
+.kk-vf-shell p,
+.kk-vf-shell li,
+.kk-vf-shell td,
+.kk-vf-shell th { color: var(--kk-vf-ink); }
+.kk-vf-shell p,
+.kk-vf-shell li { font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.78; }
+.kk-vf-shell a { color: #efb75f; text-decoration-thickness: .08em; text-underline-offset: .18em; }
+.kk-vf-shell a:hover { color: #ffd48f; }
+.kk-vf-shell a:focus-visible { outline: 3px solid var(--kk-vf-gold); outline-offset: 4px; }
+.kk-vf-kicker,
+.kk-vf-exhibit,
+.kk-vf-label {
+  color: var(--kk-vf-gold) !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .75rem !important;
+  font-weight: 700;
+  letter-spacing: .18em;
+  line-height: 1.4 !important;
+  text-transform: uppercase;
+}
+.kk-vf-dek {
+  color: #cbc6bd !important;
+  font-family: Iowan Old Style, Baskerville, Georgia, serif;
+  font-size: clamp(1.35rem, 3vw, 2rem) !important;
+  line-height: 1.38 !important;
+  margin: 1.5rem 0 2rem;
+  max-width: 780px;
+}
+.kk-vf-shell h2,
+.kk-vf-shell h3 {
+  color: var(--kk-vf-ink);
+  font-family: Iowan Old Style, Baskerville, Georgia, serif;
+  letter-spacing: -.025em;
+  line-height: 1.08;
+}
+.kk-vf-shell h2 { font-size: clamp(2.1rem, 5vw, 3.65rem); margin: .6rem 0 1.5rem; }
+.kk-vf-shell h3 { font-size: clamp(1.45rem, 3vw, 2.1rem); margin: 2.2rem 0 .8rem; }
+.kk-vf-rule { border: 0; border-top: 1px solid var(--kk-vf-line); margin: clamp(3.5rem, 8vw, 7rem) 0; }
+.kk-vf-callout {
+  background: var(--kk-vf-panel-warm);
+  border-left: 3px solid var(--kk-vf-gold);
+  margin: 2.2rem 0;
+  padding: clamp(1.35rem, 4vw, 2.3rem);
+}
+.kk-vf-callout p:first-child {
+  font-family: Iowan Old Style, Baskerville, Georgia, serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.42;
+  margin-top: 0;
+}
+.kk-vf-correction {
+  border: 2px solid var(--kk-vf-red);
+  margin: 2.5rem 0;
+  padding: clamp(1.25rem, 4vw, 2rem);
+}
+.kk-vf-correction strong { color: #ffb3aa; }
+.kk-vf-score-grid,
+.kk-vf-two-up,
+.kk-vf-action-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 2rem 0;
+}
+.kk-vf-score,
+.kk-vf-card,
+.kk-vf-action {
+  background: var(--kk-vf-panel);
+  border: 1px solid var(--kk-vf-line);
+  min-width: 0;
+  padding: 1.4rem;
+}
+.kk-vf-score strong {
+  color: var(--kk-vf-gold);
+  display: block;
+  font-family: Iowan Old Style, Baskerville, Georgia, serif;
+  font-size: clamp(3.2rem, 8vw, 5.6rem);
+  font-weight: 500;
+  letter-spacing: -.06em;
+  line-height: .95;
+  margin: .35rem 0 .75rem;
+}
+.kk-vf-score p { color: var(--kk-vf-muted) !important; font-size: .95rem; margin: 0; }
+.kk-vf-table-wrap { margin: 2rem 0; overflow-x: auto; }
+.kk-vf-table {
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  min-width: 760px;
+  width: 100%;
+}
+.kk-vf-table caption {
+  color: var(--kk-vf-muted);
+  font-size: .85rem;
+  margin-bottom: .75rem;
+  text-align: left;
+}
+.kk-vf-table th,
+.kk-vf-table td { border-bottom: 1px solid var(--kk-vf-line); padding: .95rem .8rem; text-align: right; vertical-align: top; }
+.kk-vf-table th:first-child,
+.kk-vf-table td:first-child { text-align: left; }
+.kk-vf-table thead th { color: var(--kk-vf-gold); font-size: .78rem; letter-spacing: .04em; }
+.kk-vf-table tbody tr:first-child td { color: #fff7e8; font-size: 1.2rem; font-weight: 800; }
+.kk-vf-bar-chart { margin: 2rem 0; }
+.kk-vf-bar-row { display: grid; gap: .7rem; grid-template-columns: minmax(120px, 1.2fr) 4fr 3.5rem; margin: .85rem 0; }
+.kk-vf-bar-label,
+.kk-vf-bar-value { color: var(--kk-vf-muted); font-size: .86rem; }
+.kk-vf-bar-value { color: var(--kk-vf-ink); font-variant-numeric: tabular-nums; text-align: right; }
+.kk-vf-track { align-self: center; background: #242b30; height: .72rem; overflow: hidden; }
+.kk-vf-bar { background: var(--kk-vf-gold); height: 100%; }
+.kk-vf-bar.is-muted { background: #657078; }
+.kk-vf-quote {
+  border-left: 0;
+  color: var(--kk-vf-ink);
+  font-family: Iowan Old Style, Baskerville, Georgia, serif;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.45;
+  margin: 2rem 0;
+  padding: 0;
+}
+.kk-vf-quote::before { color: var(--kk-vf-gold); content: "“"; display: block; font-size: 4rem; line-height: .5; margin-bottom: .5rem; }
+.kk-vf-quote small { color: var(--kk-vf-muted); display: block; font-family: ui-sans-serif, system-ui, sans-serif; font-size: .8rem; letter-spacing: .05em; margin-top: 1rem; text-transform: uppercase; }
+.kk-vf-retracted {
+  background: #191719;
+  border-top: 3px solid var(--kk-vf-red);
+  margin: 2.5rem 0;
+  padding: clamp(1.25rem, 4vw, 2rem);
+}
+.kk-vf-retracted .kk-vf-label { color: #e9897f !important; }
+.kk-vf-action { counter-increment: kk-vf-actions; }
+.kk-vf-action-grid { counter-reset: kk-vf-actions; }
+.kk-vf-action::before {
+  color: var(--kk-vf-gold);
+  content: "0" counter(kk-vf-actions);
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .85rem;
+  margin-bottom: .9rem;
+}
+.kk-vf-action h3 { font-size: 1.45rem; margin: 0 0 .6rem; }
+.kk-vf-action p { color: var(--kk-vf-muted) !important; font-size: .96rem; margin: 0; }
+.kk-vf-end {
+  border-top: 1px solid var(--kk-vf-line);
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+}
+.kk-vf-end p:last-child {
+  color: var(--kk-vf-gold) !important;
+  font-family: Iowan Old Style, Baskerville, Georgia, serif;
+  font-size: clamp(1.7rem, 4vw, 2.8rem) !important;
+  line-height: 1.15 !important;
+}
+@media (max-width: 700px) {
+  .kk-vf-shell { border-radius: 0; margin-inline: -.75rem; }
+  .kk-vf-score-grid,
+  .kk-vf-two-up,
+  .kk-vf-action-grid { grid-template-columns: 1fr; }
+  .kk-vf-bar-row { grid-template-columns: 1fr 3rem; }
+  .kk-vf-track { grid-column: 1 / -1; grid-row: 2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kk-vf-shell *, .kk-vf-shell *::before, .kk-vf-shell *::after { scroll-behavior: auto !important; transition: none !important; }
+}
+</style>
+
+<div class="kk-vf-shell alignwide">
+  <div class="kk-vf-wrap">
+    <p class="kk-vf-kicker">Voice Forensics / kriskrug.com 2003–2017</p>
+    <p class="kk-vf-dek">What 1,274 recovered blog posts taught me about AI voice, authorship, and the limits of a clean score.</p>
+
+    <p>We recovered 1,274 posts from my old blog, written between 2003 and 2017, from the Wayback Machine. Then we measured the useful part of that archive against the words I type today and the words machines write under my name.</p>
+
+    <div class="kk-vf-callout">
+      <p>2005 Kris scored <strong>2</strong> on my anti-slop scale. 2026 Kris, typing unguarded to his agents, also scored <strong>2</strong>.</p>
+      <p>Then an AI-assisted newsletter that went out under my name scored <strong>1</strong>. The machine was cleaner than I was.</p>
+    </div>
+
+    <p>That is not a compliment to the machine. It is a failure of the instrument, and it became the most useful finding in the whole experiment.</p>
+
+    <div class="kk-vf-correction">
+      <p><strong>Two things in the first analysis were wrong.</strong> I am leaving both in the record because how the study broke taught me more than the clean result did.</p>
+      <ol>
+        <li>A finding about sentence rhythm turned out to be a statistics error.</li>
+        <li>A supposedly hand-written 2026 corpus turned out to be mostly AI words after all.</li>
+      </ol>
+    </div>
+
+    <p>The experiment did not prove that a detector can find the human. It proved something narrower and stranger:</p>
+
+    <blockquote class="kk-vf-quote">A voice checker can catch a machine that nobody edited. It cannot tell you whether a person was ever there.</blockquote>
+
+    <hr class="kk-vf-rule">
+
+    <p class="kk-vf-exhibit">Exhibit A / The experiment that broke</p>
+    <h2>The same newsletter, written twice</h2>
+
+    <p>The knowledge base held an agent's draft of a Vancouver AI newsletter. Beehiiv held the version that actually went out. Same event. Nearly the same length. Very different scores.</p>
+
+    <div class="kk-vf-score-grid">
+      <div class="kk-vf-score">
+        <span class="kk-vf-label">Agent draft / unsent</span>
+        <strong>20</strong>
+        <p>slop score · 10 flags · 10 em dashes</p>
+      </div>
+      <div class="kk-vf-score">
+        <span class="kk-vf-label">Version that shipped</span>
+        <strong>0</strong>
+        <p>slop score · 0 flags · 0 em dashes</p>
+      </div>
+    </div>
+
+    <p>I first read this as a human beating a machine.</p>
+
+    <p>Then I corrected the provenance. The sent version was mostly AI words too. A person had selected, rewritten, cut, and scrubbed them, but this was not a clean human-versus-machine comparison.</p>
+
+    <p>It was an <strong>edited-versus-unedited</strong> comparison.</p>
+
+    <p>The checker caught the model when nobody had bothered to fight it. The moment someone did the editorial work, the score dropped to zero, the same result the checker gives some of my real writing.</p>
+
+    <p>The em dash still separated the two drafts cleanly, ten against zero. It remains a useful check because I almost never reach for one and models love the damn thing. But it catches an unedited model. It does not prove authorship.</p>
+
+    <hr class="kk-vf-rule">
+
+    <p class="kk-vf-exhibit">Exhibit B / The scorecard</p>
+    <h2>Four corpora and one awkward ruler</h2>
+
+    <p>The checker reads a 97-rule anti-glossary. No model judges the writing. No API call decides whether I sound like myself.</p>
+
+    <div class="kk-vf-table-wrap" role="region" aria-label="Voice score comparison" tabindex="0">
+      <table class="kk-vf-table">
+        <caption>Rounded aggregate rates from the offline voice-forensics analysis.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Measure</th>
+            <th scope="col">Classic Blogger</th>
+            <th scope="col">Kris typing</th>
+            <th scope="col">Sent as Kris, AI-assisted</th>
+            <th scope="col">Machine-Kris, unedited</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Slop score</td><td>2</td><td>2</td><td>1</td><td>12</td></tr>
+          <tr><td>Flags per 1,000 words</td><td>1.7</td><td>1.1</td><td>0.8</td><td>8.9</td></tr>
+          <tr><td>Em dashes per 1,000</td><td>0.9</td><td>0.7</td><td>0.0</td><td>8.2</td></tr>
+          <tr><td>Profanity per 1,000</td><td>0.4</td><td>5.5</td><td>0.8</td><td>1.0</td></tr>
+          <tr><td>“I” per 1,000</td><td>15.7</td><td>27.8</td><td>3.8</td><td>8.2</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Read the first row twice.</strong> A blog written in 2005 and prompts typed in 2026 land on the same slop score, from the same person, in two registers that could hardly be less alike. Then the AI-assisted newsletter scores even better.</p>
+
+    <p>The detector is inverted at the clean end. It rates the machine's polished prose as more authentically me than me, because real writing occasionally reaches for an awkward phrase, an unfashionable word, or a sentence that falls over.</p>
+
+    <p>A tool that punishes a writer for his own imperfections and rewards a model for having none cannot find the human. It finds the tidy.</p>
+
+    <h3>Two tells worth testing</h3>
+
+    <div class="kk-vf-two-up">
+      <div class="kk-vf-card">
+        <span class="kk-vf-label">Profanity / per 1,000 words</span>
+        <div class="kk-vf-bar-chart" aria-label="Profanity comparison">
+          <div class="kk-vf-bar-row"><span class="kk-vf-bar-label">Kris typing</span><span class="kk-vf-track"><span class="kk-vf-bar" style="display:block;width:100%"></span></span><span class="kk-vf-bar-value">5.5</span></div>
+          <div class="kk-vf-bar-row"><span class="kk-vf-bar-label">Machine-Kris</span><span class="kk-vf-track"><span class="kk-vf-bar is-muted" style="display:block;width:18%"></span></span><span class="kk-vf-bar-value">1.0</span></div>
+          <div class="kk-vf-bar-row"><span class="kk-vf-bar-label">Sent as Kris</span><span class="kk-vf-track"><span class="kk-vf-bar is-muted" style="display:block;width:15%"></span></span><span class="kk-vf-bar-value">0.8</span></div>
+        </div>
+        <p>Unguarded me swears about seven times more than writing produced on my behalf.</p>
+      </div>
+      <div class="kk-vf-card">
+        <span class="kk-vf-label">“I” / per 1,000 words</span>
+        <div class="kk-vf-bar-chart" aria-label="First-person comparison">
+          <div class="kk-vf-bar-row"><span class="kk-vf-bar-label">Kris typing</span><span class="kk-vf-track"><span class="kk-vf-bar" style="display:block;width:100%"></span></span><span class="kk-vf-bar-value">27.8</span></div>
+          <div class="kk-vf-bar-row"><span class="kk-vf-bar-label">Machine-Kris</span><span class="kk-vf-track"><span class="kk-vf-bar is-muted" style="display:block;width:30%"></span></span><span class="kk-vf-bar-value">8.2</span></div>
+          <div class="kk-vf-bar-row"><span class="kk-vf-bar-label">Sent as Kris</span><span class="kk-vf-track"><span class="kk-vf-bar is-muted" style="display:block;width:14%"></span></span><span class="kk-vf-bar-value">3.8</span></div>
+        </div>
+        <p>I say “I.” The machine hides in “we.”</p>
+      </div>
+    </div>
+
+    <p>The direction matches my voice guide. Profanity is authentic in informal writing, so do not sanitize it out. The machine sanitizes it out.</p>
+
+    <blockquote class="kk-vf-quote">come up with 10 fucking way better ones<small>Verified Kris, typed to an agent</small></blockquote>
+
+    <blockquote class="kk-vf-quote">Yeah, but make them fucking hilarious or funny or scathing.<small>Verified Kris, typed to an agent</small></blockquote>
+
+    <p>Set that beside a polished line that went to the mailing list under my name:</p>
+
+    <blockquote class="kk-vf-quote">We need better conversations. We need stranger experiments.<small>Sent as Kris, AI-assisted</small></blockquote>
+
+    <p>Both are mine in the loose sense that I approved the output. Only one is me in the documentary sense that I typed the words.</p>
+
+    <p>The gaps are interesting. They are not proof. Prompts to an agent are naturally first-person and imperative. A newsletter often speaks as “we.” Test matched registers before building a gate.</p>
+
+    <div class="kk-vf-retracted">
+      <p class="kk-vf-label">Retracted / The rhythm finding</p>
+      <h3>The number was real. The interpretation was wrong.</h3>
+      <p>The first calculation pooled hundreds of documents into one long string. That measured variation between 851 different posts, not rhythm within any one post. Measured per document, the effect collapsed and partly reversed.</p>
+      <p>A cadence gate built on the first result would have flagged some of my own writing as robotic. So the claim is withdrawn.</p>
+    </div>
+
+    <hr class="kk-vf-rule">
+
+    <p class="kk-vf-exhibit">Exhibit C / The coached machine</p>
+    <h2>The machine can pass the gate when you teach it the gate</h2>
+
+    <p>We generated five pieces in three different registers: Classic Blogger, Kris-Now, and generic Machine-Kris. Every passage was generated pastiche. None of it was real Kris writing.</p>
+
+    <div class="kk-vf-score-grid">
+      <div class="kk-vf-score"><span class="kk-vf-label">Two coached Kris registers</span><strong>0</strong><p>average slop score · zero em dashes</p></div>
+      <div class="kk-vf-score"><span class="kk-vf-label">Generic Machine-Kris</span><strong>38</strong><p>average slop score · thirteen em dashes</p></div>
+    </div>
+
+    <p>That does not mean the model failed to imitate me. It means the model was given two different jobs.</p>
+
+    <p>When told to write like a generic smart internet person, it produced portentous endings, empty tension, and phrases that could belong to anybody. When given concrete voice constraints and real examples, it cleared the gate completely.</p>
+
+    <p>The gate was not measuring whether a human wrote something. It was measuring whether anyone tried.</p>
+
+    <hr class="kk-vf-rule">
+
+    <p class="kk-vf-exhibit">Exhibit D / The genuine article</p>
+    <h2>Real 2005 is messier</h2>
+
+    <p>The archive gives us something rare: writing that is provably pre-AI because of its date.</p>
+
+    <blockquote class="kk-vf-quote">Nearly every time I go out to shoot I’m confronted with the cold hard fact that I don’t know a damn thing about photography. One day recently I realized the only ‘famous’ photographer whose work I could name and was more than superficially familiar with was Ansel Adams.<small><a href="https://web.archive.org/web/20080418131940/http://www.kriskrug.com:80/2005/05/24/photographers/">My New Favorite Photographers · 24 May 2005</a></small></blockquote>
+
+    <blockquote class="kk-vf-quote">Tomorrow I’m finally going to break the curse and leave North America. I’m 28 years old have traveled lots and lots around the States and Canada but have never left the continent.<small><a href="https://web.archive.org/web/20080516094738/http://www.kriskrug.com/2005/10/28/yvr-lhr-lgw-edi-lhr-yvr/">Breaking The Curse · 28 October 2005</a></small></blockquote>
+
+    <p>Missing commas. A run-on. “Lil” shows up two sentences later. The technically correct move would be to fix it.</p>
+
+    <p>The technically correct move would also remove evidence.</p>
+
+    <p>The old writing is not better because it is rough. It is valuable because nobody can plausibly claim a language model wrote it. In 2026, that kind of provenance is becoming a rare and appreciating asset.</p>
+
+    <p>The archive is an excellent style source and a terrible knowledge source. Twenty-year-old me will state things I no longer believe with total confidence. Train voice on it. Never train facts on it.</p>
+
+    <hr class="kk-vf-rule">
+
+    <p class="kk-vf-exhibit">Exhibit E / What changed</p>
+    <h2>Four things worth acting on</h2>
+
+    <div class="kk-vf-action-grid">
+      <section class="kk-vf-action">
+        <h3>Record provenance when the words are made</h3>
+        <p>If the difference matters, record who typed, generated, edited, and approved the words while those events are happening.</p>
+      </section>
+      <section class="kk-vf-action">
+        <h3>Name the checker's job correctly</h3>
+        <p>The anti-slop gate catches lazy output and repeated model habits. It is a lint tool, not an authorship detector.</p>
+      </section>
+      <section class="kk-vf-action">
+        <h3>Preserve the ugly parts</h3>
+        <p>Keep enough of the human process visible that everything does not get polished into the same tasteful grey paste.</p>
+      </section>
+      <section class="kk-vf-action">
+        <h3>Keep the retractions on the page</h3>
+        <p>The cadence claim was wrong. The “hand-written” corpus was not hand-written. The smaller claim that survived is stronger.</p>
+      </section>
+    </div>
+
+    <p>The first analysis also found that Dark Crystal was scoring against an older 54-rule copy of the anti-glossary while the source had 97 rules. That gap has since been fixed in the current code. The source and vendored copies are now byte-for-byte identical, and the checker loads all 97 rules.</p>
+
+    <p>That is exactly what an audit should do: find the boring operational bug and get it fixed.</p>
+
+    <div class="kk-vf-end">
+      <p>I started this project hoping to measure the distance between my old voice, my current voice, and the machines that write beside me. The archive did show continuity. Twenty-one years apart, across a blog and a command line, I still score like me.</p>
+
+      <p>But the bigger result is about the instrument. A checker can remove banned words. It can catch lazy cadence. It can stop the model from throwing an em dash every 122 words. It can make an AI draft less annoying.</p>
+
+      <p>It cannot prove authorship. It cannot recover provenance. It cannot tell you whether a person was ever there.</p>
+
+      <p>If your content system cannot answer <strong>who wrote this, who changed it, and who stands behind it</strong> before the score appears, you do not have a voice system yet.</p>
+
+      <p>You have lint. And lint does not get a byline.</p>
+
+      <p class="kk-vf-label">Related reading</p>
+      <p><a href="https://kriskrug.co/2026/01/24/both-hands-full/">Both Hands Full</a> · <a href="https://kriskrug.co/2026/05/04/punk-rock-ai/">Punk Rock AI</a></p>
+    </div>
+  </div>
+</div>
+<!-- /wp:html -->
