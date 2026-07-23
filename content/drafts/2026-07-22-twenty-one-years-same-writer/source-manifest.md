@@ -8,7 +8,7 @@
 
 ### S1. Claude artifact: Classic Blogger KK, A Voice Forensics Report
 
-- User-supplied URL: `https://claude.ai/code/artifact/c5f91855-b834-4ed9-9d3f-22367ce91d7c?org=4954a37b-7c01-4c78-8900-2673edbde262`
+- User-supplied private artifact. Its URL and organization identifier are intentionally omitted from this public repository.
 - Inspected in the authenticated browser on 2026-07-22.
 - Visibility at inspection: `Share, private`.
 - Supports the experiment narrative, selected aggregate rates, two visible retractions, the generated-pastiche disclosure, and the current thesis that the checker detects unedited output rather than human authorship.
