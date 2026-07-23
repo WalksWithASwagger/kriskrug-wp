@@ -13,7 +13,8 @@ Track A long-form article packet prepared from the private Claude voice-forensic
 - `image-brief.md`: featured-image direction and generation prompt.
 - `social-content.md`: draft-only LinkedIn, X, and Bluesky copy.
 - `publish-gate.md`: private-draft and publication requirements.
+- `wp-draft-receipt.md`: WordPress post ID, editor link, and post-create verification.
 
 ## Current state
 
-This packet is local only. The comparative rate table still needs a regenerated machine-readable score export before publication. `post.html` must be tested in a private WordPress draft because WordPress may strip the embedded `<style>` block depending on the writer's capabilities.
+This packet now has a private WordPress draft at post ID `12621`. WordPress retained the embedded scoped CSS and layout markers, while anonymous requests correctly return 404. The comparative rate table still needs a regenerated machine-readable score export, and the private draft still needs desktop and mobile render checks before publication.
