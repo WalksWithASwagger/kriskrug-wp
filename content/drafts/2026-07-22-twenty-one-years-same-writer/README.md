@@ -17,4 +17,4 @@ Track A long-form article packet prepared from the private Claude voice-forensic
 
 ## Current state
 
-This packet now has a private WordPress draft at post ID `12621`. WordPress retained the embedded scoped CSS and layout markers, while anonymous requests correctly return 404. The comparative rate table still needs a regenerated machine-readable score export, and the private draft still needs desktop and mobile render checks before publication.
+This packet now has a private WordPress draft at post ID `12621`. WordPress retained the embedded scoped CSS and layout markers, while anonymous requests correctly return 404. The saved body contains four verified links: two Wayback citations and two related KrisKrug.co articles. It has no inline images, featured image, or social-preview image yet; `image-brief.md` contains the approved direction, prompt, and alt text for that production pass. The comparative rate table still needs a regenerated machine-readable score export, and the private draft still needs desktop and mobile render checks before publication.

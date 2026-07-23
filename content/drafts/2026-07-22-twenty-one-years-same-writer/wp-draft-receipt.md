@@ -31,6 +31,18 @@
 - Anonymous pretty slug: HTTP 404
 - Public blog index: HTTP 200
 
+## Link and media inventory
+
+- Links in the saved WordPress body: 4
+- Wayback source citations: 2, both HTTP 200
+- Related KrisKrug.co articles: 2, both HTTP 200
+- Link to the private Claude artifact: none
+- Inline images: 0
+- Featured image: none
+- Open Graph or Twitter image: none
+- SEO title and description: prepared in `seo-meta.md`, not attached to the WordPress record
+- Image production brief: ready in `image-brief.md`
+
 ## Remaining gate
 
-The draft has not had an authenticated desktop/mobile render check. Do not publish until the comparison table, responsive overflow, focus states, and typography have been reviewed in WordPress preview.
+The draft has not had an authenticated desktop/mobile render check. Do not publish until the featured/social image is produced and reviewed, the comparison table and responsive overflow are checked, and focus states and typography have been reviewed in WordPress preview.
