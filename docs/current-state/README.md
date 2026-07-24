@@ -21,6 +21,8 @@ Read these first for current execution context:
 
 **Newest Track B / SEO deploy context:** [AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md](AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md) plus [../../backup/aurora-deploy-20260716/DEPLOY-HANDOFF.md](../../backup/aurora-deploy-20260716/DEPLOY-HANDOFF.md) (deploy SHA for **1.3.40**; do not upload the 2026-07-13 **1.3.39** zip).
 
+**SEO indexing + schema:** [SEO-INDEXING-RUNBOOK.md](SEO-INDEXING-RUNBOOK.md) — slow-burn, batch-at-a-time indexing/distribution checklist with the agent-safe vs KK-gated split (#426). Schema/publisher rules + smoke check: [SEO-PUBLISHER-SCHEMA-2026-07-19.md](SEO-PUBLISHER-SCHEMA-2026-07-19.md) (`make seo-publisher-smoke`, #425).
+
 **Historical handoff (version-laggy):** [HANDOFF-2026-06-17.md](HANDOFF-2026-06-17.md) — keep for cache/a11y gotchas; do not treat its Aurora version as live truth.
 
 1. [CURRENT-STATE-2026-07-16.md](CURRENT-STATE-2026-07-16.md), [WORK-PLAN-2026-07-16.md](WORK-PLAN-2026-07-16.md), and the latest read-only startup truth from `make status-readonly`
