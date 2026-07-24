@@ -1,0 +1,382 @@
+<!-- wp:html -->
+<style>
+  .kriskrug-sponsor-deck {
+    --bg-1: #07101f;
+    --bg-2: #090f28;
+    --text: #eef3ff;
+    --muted: #b7c6ea;
+    --accent: #5de2ff;
+    --accent-2: #7a6bff;
+    --line: rgba(255, 255, 255, 0.14);
+    color: var(--text);
+    background: radial-gradient(1200px 500px at 10% -10%, rgba(93, 226, 255, 0.14), transparent),
+                radial-gradient(900px 400px at 100% 0%, rgba(122, 107, 255, 0.13), transparent),
+                linear-gradient(140deg, var(--bg-1), var(--bg-2));
+    padding: 48px 20px;
+    font-family: "Sora", "Avenir Next", "Segoe UI", sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kriskrug-sponsor-deck::before,
+  .kriskrug-sponsor-deck::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(0px);
+    pointer-events: none;
+  }
+
+  .kriskrug-sponsor-deck::before {
+    width: 360px;
+    height: 360px;
+    right: -120px;
+    top: -80px;
+    border: 2px solid rgba(93, 226, 255, 0.2);
+  }
+
+  .kriskrug-sponsor-deck::after {
+    width: 460px;
+    height: 460px;
+    left: -170px;
+    bottom: -250px;
+    border: 2px solid rgba(122, 107, 255, 0.2);
+  }
+
+  .kriskrug-sponsor-deck * {
+    box-sizing: border-box;
+  }
+
+  .deck-shell {
+    max-width: 1120px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .deck-panel {
+    background: rgba(7, 14, 31, 0.62);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 32px;
+    backdrop-filter: blur(6px);
+    margin-bottom: 22px;
+  }
+
+  .hero {
+    background: linear-gradient(120deg, rgba(93, 226, 255, 0.18), rgba(122, 107, 255, 0.18));
+  }
+
+  .eyebrow {
+    margin: 0 0 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 3.2vw, 3.3rem);
+    margin: 0;
+    line-height: 1.05;
+  }
+
+  .hero p {
+    color: var(--muted);
+    font-size: 1.06rem;
+    max-width: 70ch;
+    margin-bottom: 0;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 22px;
+    align-items: center;
+  }
+
+  .pill-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    margin-top: 18px;
+  }
+
+  .pill {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    gap: 8px;
+  }
+
+  .pill span:last-child {
+    color: var(--accent);
+  }
+
+  .section-title {
+    margin: 0 0 12px;
+    font-size: 1.3rem;
+  }
+
+  .kicker {
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-size: 0.98rem;
+  }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+  }
+
+  .metric {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px;
+    background: rgba(6, 12, 26, 0.64);
+  }
+
+  .metric .num {
+    font-size: 2rem;
+    color: var(--accent);
+    margin: 0 0 6px;
+    font-weight: 700;
+  }
+
+  .metric p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .unverified {
+    color: #ffb347;
+    font-size: 0.75em;
+    vertical-align: super;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 16px;
+  }
+
+  .offer-grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+
+  .offer {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  }
+
+  .offer h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
+  .offer ul {
+    margin: 12px 0 0;
+    padding-left: 18px;
+    color: var(--muted);
+  }
+
+  .offer li {
+    margin-bottom: 8px;
+  }
+
+  .offer .price {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.35rem;
+  }
+
+  .cta {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .cta a {
+    text-decoration: none;
+    text-align: center;
+    color: #051129;
+    font-weight: 700;
+    border-radius: 14px;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    transition: transform 0.15s ease;
+    display: inline-block;
+  }
+
+  .cta a:hover {
+    transform: translateY(-2px);
+  }
+
+  .cta .ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--line);
+  }
+
+  .deck-panel ul {
+    margin-top: 0;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid,
+    .two-col {
+      grid-template-columns: 1fr;
+    }
+
+    .deck-panel {
+      padding: 24px;
+    }
+  }
+</style>
+
+<main class="kriskrug-sponsor-deck">
+  <div class="deck-shell">
+    <section class="deck-panel hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Kris Krug | Sponsorship Deck</div>
+          <h1>Sponsor the voice shaping AI, startup, and creator culture.</h1>
+          <p>
+            I bring a live community, high-trust audience, and clear distribution path across talks,
+            media, and social activations. This page was built for partners who want to appear where people
+            actually pay attention.</p>
+          <div class="pill-grid">
+            <div class="pill"><span>Audience</span><span>Built for decision makers</span></div>
+            <div class="pill"><span>Coverage</span><span>Conferences + web + newsletter</span></div>
+            <div class="pill"><span>Tone</span><span>Original, technical, practical</span></div>
+            <div class="pill"><span>Partnership focus</span><span>Awareness + trust + demand</span></div>
+          </div>
+        </div>
+        <div>
+          <p class="kicker">Partnership outcomes are built around three levers:</p>
+          <p>Attention, credibility, and conversion. Every placement is designed to maximize all three while
+            preserving creator authenticity.</p>
+          <!-- UNVERIFIED metrics block — confirm or replace before publish (see NOTES.md) -->
+          <div class="metric-grid" aria-label="top audience metrics">
+            <div class="metric">
+              <p class="num">5.4k+ <span class="unverified" title="Unverified — needs metrics approval">*</span></p>
+              <p>Discord/community followers and active listeners</p>
+            </div>
+            <div class="metric">
+              <p class="num">32% <span class="unverified" title="Unverified — needs metrics approval">*</span></p>
+              <p>Average engagement on sponsor-led moments</p>
+            </div>
+            <div class="metric">
+              <p class="num">Top-tier <span class="unverified" title="Unverified — needs brand approval">*</span></p>
+              <p>Profiled for startup, AI, and operator networks</p>
+            </div>
+          </div>
+          <p class="kicker" style="margin-top:12px;font-size:0.85rem;">* Draft placeholders — metrics require approval before publish.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="deck-panel">
+      <div class="section-title">Why partner here</div>
+      <p class="kicker">This is not generic ad inventory. It is integrated storytelling.</p>
+      <div class="two-col">
+        <div>
+          <p>
+            I host conversations that sit at the intersection of product, AI strategy, community action,
+            and startup reality. Your brand gets embedded in work that your audience already values.</p>
+          <ul>
+            <li>High-intent audience across founder, operator, and execution mindsets.</li>
+            <li>Trust-led messaging built from long-form interviews, keynote-style content, and member touchpoints.</li>
+            <li>Placement designed for recall—not just impressions.</li>
+          </ul>
+        </div>
+        <div>
+          <p>
+            We avoid vanity sponsorship. Every offer is mapped to a concrete outcome: leads, downloads,
+            event registrations, or profile authority.</p>
+          <ul>
+            <li>Flexible integrations, including brand segments, co-hosted sessions, and community activations.</li>
+            <li>Cross-channel amplification with clear performance checkpoints.</li>
+            <li>Transparent recap and reporting after campaign completion.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNVERIFIED pricing — confirm tiers before publish (see NOTES.md) -->
+    <section class="deck-panel">
+      <div class="section-title">Sponsorship packages</div>
+      <div class="offer-grid">
+        <article class="offer">
+          <p class="price">Starter | $2,500 <span class="unverified">*</span></p>
+          <h3>Launch Partner</h3>
+          <p>One-shot campaign for fast brand tests.</p>
+          <ul>
+            <li>One premium content placement</li>
+            <li>Social post + deck linkout</li>
+            <li>Post-campaign summary</li>
+          </ul>
+        </article>
+        <article class="offer">
+          <p class="price">Growth | $7,500 <span class="unverified">*</span></p>
+          <h3>Momentum Partner</h3>
+          <p>For teams that want sustained visibility over one season.</p>
+          <ul>
+            <li>2 podcast episodes + 1 event mention</li>
+            <li>Audience asset or giveaway integration</li>
+            <li>Dedicated campaign page in deck format</li>
+          </ul>
+        </article>
+        <article class="offer">
+          <p class="price">Command | $15,000 <span class="unverified">*</span></p>
+          <h3>Flagship Partner</h3>
+          <p>Full-funnel positioning around a major announcement.</p>
+          <ul>
+            <li>3 integrated moments across content channels</li>
+            <li>Conference segment co-branded</li>
+            <li>Joint report, interview, or announcement asset</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="deck-panel">
+      <div class="section-title">Add-ons and custom asks</div>
+      <p class="kicker">Need a live demo slot, hiring placement, or custom audience brief? We can build it.</p>
+      <div class="offer-grid">
+        <div class="offer">
+          <h3>Creator collab</h3>
+          <p>Product demos, interviews, and operator deep dives in my own tone.</p>
+        </div>
+        <div class="offer">
+          <h3>Event integration</h3>
+          <p>Badge logo, stage mention, room naming, and activation support.</p>
+        </div>
+        <div class="offer">
+          <h3>Lead gen loop</h3>
+          <p>Landing page with tracking, newsletter mention, and retargeting hooks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="deck-panel">
+      <div class="section-title">Let’s move this fast</div>
+      <div class="cta">
+        <a href="mailto:feelmoreplants@gmail.com">Start a conversation</a>
+        <a href="/sponsor" class="ghost">View media kit</a>
+        <a href="/events" class="ghost">Upcoming talks & events</a>
+      </div>
+    </section>
+  </div>
+</main>
+<!-- /wp:html -->
