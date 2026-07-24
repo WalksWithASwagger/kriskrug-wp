@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-07-24T22:12:53.494502+00:00",
+  "mode": "dry-run",
+  "manifest": "content/source-packs/site-photography-2026/media-manifest.json",
+  "base_url": "https://kriskrug.co",
+  "assets": [
+    {
+      "file": "assets/kris-krug-vancouver-magazine-power-50-2026.jpg",
+      "sha256": "caa3f86200d9c09cecac7fe6e01e13e51da267a2c6feeed16875fe9443006b9c",
+      "existing_media_ids": [],
+      "action": "upload",
+      "wordpress": {
+        "title": "Kris Krüg at Vancouver Magazine’s 2026 Power 50 Awards",
+        "alt_text": "Kris Krüg in a black tuxedo holding his Vancouver Magazine 2026 Power 50 award",
+        "caption": "Kris Krüg at Vancouver Magazine’s 2026 Power 50 Awards, Terminal City Club, February 5, 2026. Photo: Mark Kinskofer / Vision Event Photography.",
+        "description": "Recognition portrait of Kris Krüg holding his 2026 Vancouver Magazine Power 50 award at the Terminal City Club. Vancouver Magazine ranked him No. 46 for his role in Vancouver’s AI community. Photo: Mark Kinskofer / Vision Event Photography."
+      }
+    },
+    {
+      "file": "assets/kris-krug-creativemornings-portrait-close-2026.jpg",
+      "sha256": "5a47f67519fd6c3eccbea34c7abeb716a1fcce288a74b14a5390577e13ebc61a",
+      "existing_media_ids": [],
+      "action": "upload",
+      "wordpress": {
+        "title": "Kris Krüg portrait at CreativeMornings Vancouver, 2026",
+        "alt_text": "Portrait of Kris Krüg in a white shirt beside a brightly painted staircase",
+        "caption": "Kris Krüg at CreativeMornings Vancouver for his Punk Rock AI keynote, Vancouver Art Gallery, May 1, 2026. Photo: Michelle Diamond.",
+        "description": "Close portrait of Kris Krüg at the Vancouver Art Gallery on the morning of his Punk Rock AI keynote for CreativeMornings Vancouver’s CREATE theme. Photo: Michelle Diamond."
+      }
+    },
+    {
+      "file": "assets/kris-krug-creativemornings-portrait-staircase-2026.jpg",
+      "sha256": "df5d55b99e3e8652ebc836bedb1382924a1c8a75e67b179023de0f6ecded915e",
+      "existing_media_ids": [],
+      "action": "upload",
+      "wordpress": {
+        "title": "Kris Krüg at CreativeMornings Vancouver, 2026",
+        "alt_text": "Kris Krüg smiling beside a colourful geometric staircase in a white shirt and sunflower trousers",
+        "caption": "Kris Krüg at CreativeMornings Vancouver for his Punk Rock AI keynote, Vancouver Art Gallery, May 1, 2026. Photo: Michelle Diamond.",
+        "description": "Full-length portrait of Kris Krüg beside the Vancouver Art Gallery’s colourful painted staircase during his CreativeMornings Vancouver keynote morning. Photo: Michelle Diamond."
+      }
+    },
+    {
+      "file": "assets/kris-krug-van-ai-portrait-2025.jpg",
+      "sha256": "cb269ebc55303f591ac1641717ecbd9d6ed2786b2fe0f11f2a445fbf33991e8a",
+      "existing_media_ids": [],
+      "action": "upload",
+      "wordpress": {
+        "title": "Kris Krüg in a VAN-AI shirt at CreativeMornings Vancouver, 2025",
+        "alt_text": "Kris Krüg smiling with arms crossed, wearing teal glasses, a cap, and a VAN-AI shirt",
+        "caption": "Kris Krüg at CreativeMornings Vancouver, where BC + AI was presenting sponsor, Vancouver Art Gallery, October 3, 2025. Photo: Michelle Diamond.",
+        "description": "Portrait of Kris Krüg in a VAN-AI shirt at CreativeMornings Vancouver, where BC + AI was presenting sponsor. Useful for organizer and community-builder context; the photograph does not depict him hosting. Photo: Michelle Diamond."
+      }
+    }
+  ],
+  "summary": {
+    "assets": 4,
+    "planned_uploads": 4,
+    "existing_matches": 0,
+    "live_write": false
+  },
+  "rollback": {
+    "created_media_ids": [],
+    "admin_urls": [],
+    "method": "Remove only the listed unattached items through wp-admin after confirming no page references them."
+  }
+}

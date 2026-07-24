@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-07-24T22:16:07.636232+00:00",
+  "mode": "execute-chrome-session",
+  "assets": [
+    {
+      "file": "assets/kris-krug-vancouver-magazine-power-50-2026.jpg",
+      "media_id": 12626,
+      "action": "uploaded",
+      "verified": true,
+      "source_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-vancouver-magazine-power-50-2026.jpg"
+    },
+    {
+      "file": "assets/kris-krug-creativemornings-portrait-close-2026.jpg",
+      "media_id": 12627,
+      "action": "uploaded",
+      "verified": true,
+      "source_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-close-2026-scaled.jpg"
+    },
+    {
+      "file": "assets/kris-krug-creativemornings-portrait-staircase-2026.jpg",
+      "media_id": 12628,
+      "action": "uploaded",
+      "verified": true,
+      "source_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-staircase-2026-scaled.jpg"
+    },
+    {
+      "file": "assets/kris-krug-van-ai-portrait-2025.jpg",
+      "media_id": 12629,
+      "action": "uploaded",
+      "verified": true,
+      "source_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-van-ai-portrait-2025.jpg"
+    }
+  ],
+  "rollback": {
+    "created_media_ids": [
+      12626,
+      12627,
+      12628,
+      12629
+    ],
+    "admin_urls": [
+      "https://kriskrug.co/wp-admin/post.php?post=12626&action=edit",
+      "https://kriskrug.co/wp-admin/post.php?post=12627&action=edit",
+      "https://kriskrug.co/wp-admin/post.php?post=12628&action=edit",
+      "https://kriskrug.co/wp-admin/post.php?post=12629&action=edit"
+    ]
+  },
+  "summary": {
+    "uploaded": 4,
+    "reused": 0,
+    "live_write": true
+  }
+}

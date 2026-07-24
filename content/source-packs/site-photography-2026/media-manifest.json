@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "collection": "Kris Krüg website photography, 2025–2026",
+  "wordpress_base_url": "https://kriskrug.co",
+  "rights_note": "The site owner supplied these files and approved them for use on kriskrug.co. The manifest preserves embedded creator and copyright evidence and does not assert a broader public license.",
+  "assets": [
+    {
+      "file": "assets/kris-krug-vancouver-magazine-power-50-2026.jpg",
+      "original_filename": "55087080944_838b6429cb_b (1).jpg",
+      "sha256": "caa3f86200d9c09cecac7fe6e01e13e51da267a2c6feeed16875fe9443006b9c",
+      "bytes": 111325,
+      "width": 682,
+      "height": 1023,
+      "captured_at": null,
+      "event_date": "2026-02-05",
+      "event": "Vancouver Magazine 2026 Power 50 Awards",
+      "location": "Terminal City Club, Vancouver, British Columbia",
+      "creator": "Mark Kinskofer",
+      "embedded_creator": "Mark Kinskofer",
+      "credit": "Photo: Mark Kinskofer / Vision Event Photography.",
+      "rights_basis": "User-supplied and approved for kriskrug.co. Embedded Artist and IPTC By-line fields name Mark Kinskofer. Vancouver Magazine credits Vision Event Photography for the event and asks people sharing the photographs to tag Vancouver Magazine and Vision Event Photography; no public license is asserted here.",
+      "event_reference_url": "https://vanmag.com/city/power-50/power-50-2026-photos/",
+      "recognition_reference_url": "https://vanmag.com/city/power-50/introducing-vancouver-magazines-2026-power-50-list/",
+      "wordpress": {
+        "title": "Kris Krüg at Vancouver Magazine’s 2026 Power 50 Awards",
+        "alt_text": "Kris Krüg in a black tuxedo holding his Vancouver Magazine 2026 Power 50 award",
+        "caption": "Kris Krüg at Vancouver Magazine’s 2026 Power 50 Awards, Terminal City Club, February 5, 2026. Photo: Mark Kinskofer / Vision Event Photography.",
+        "description": "Recognition portrait of Kris Krüg holding his 2026 Vancouver Magazine Power 50 award at the Terminal City Club. Vancouver Magazine ranked him No. 46 for his role in Vancouver’s AI community. Photo: Mark Kinskofer / Vision Event Photography."
+      },
+      "recommended_uses": [
+        "About page recognition or credibility section",
+        "Press and media kit",
+        "Awards or public-presence archive"
+      ],
+      "not_recommended_for": [
+        "Speaking-page stage proof",
+        "Workshop or facilitation action imagery"
+      ],
+      "crop_notes": "Portrait orientation with the award readable at the supplied size. Avoid a face-only crop that removes the plaque."
+    },
+    {
+      "file": "assets/kris-krug-creativemornings-portrait-close-2026.jpg",
+      "original_filename": "CreativeMornings_KrisKrüg_MichelleDiamond-274.jpg",
+      "sha256": "5a47f67519fd6c3eccbea34c7abeb716a1fcce288a74b14a5390577e13ebc61a",
+      "bytes": 753725,
+      "width": 2048,
+      "height": 3072,
+      "captured_at": "2026-05-01T10:44:56",
+      "event_date": "2026-05-01",
+      "event": "CreativeMornings Vancouver: CREATE with Kris Krüg",
+      "location": "Vancouver Art Gallery, Vancouver, British Columbia",
+      "creator": "Michelle Diamond",
+      "embedded_creator": "michellediamond",
+      "credit": "Photo: Michelle Diamond.",
+      "rights_basis": "User-supplied and approved for kriskrug.co. Embedded Artist, Creator, By-line, Copyright, and Rights fields name Michelle Diamond.",
+      "event_reference_url": "https://creativemornings.com/talks/kris-krug",
+      "recap_reference_url": "https://kriskrug.co/2026/05/04/punk-rock-ai/",
+      "wordpress": {
+        "title": "Kris Krüg portrait at CreativeMornings Vancouver, 2026",
+        "alt_text": "Portrait of Kris Krüg in a white shirt beside a brightly painted staircase",
+        "caption": "Kris Krüg at CreativeMornings Vancouver for his Punk Rock AI keynote, Vancouver Art Gallery, May 1, 2026. Photo: Michelle Diamond.",
+        "description": "Close portrait of Kris Krüg at the Vancouver Art Gallery on the morning of his Punk Rock AI keynote for CreativeMornings Vancouver’s CREATE theme. Photo: Michelle Diamond."
+      },
+      "recommended_uses": [
+        "Contact page portrait for issue #421",
+        "About page portrait for issue #418",
+        "Speaker profile, media kit, and author bio"
+      ],
+      "not_recommended_for": [
+        "Documentary claim that the photograph shows Kris speaking on stage"
+      ],
+      "crop_notes": "Best all-purpose portrait in the batch. The face and torso support 4:5 and square crops; retain some painted staircase for visual identity."
+    },
+    {
+      "file": "assets/kris-krug-creativemornings-portrait-staircase-2026.jpg",
+      "original_filename": "CreativeMornings_KrisKrüg_MichelleDiamond-269.jpg",
+      "sha256": "df5d55b99e3e8652ebc836bedb1382924a1c8a75e67b179023de0f6ecded915e",
+      "bytes": 949888,
+      "width": 2048,
+      "height": 3072,
+      "captured_at": "2026-05-01T10:43:18",
+      "event_date": "2026-05-01",
+      "event": "CreativeMornings Vancouver: CREATE with Kris Krüg",
+      "location": "Vancouver Art Gallery, Vancouver, British Columbia",
+      "creator": "Michelle Diamond",
+      "embedded_creator": "michellediamond",
+      "credit": "Photo: Michelle Diamond.",
+      "rights_basis": "User-supplied and approved for kriskrug.co. Embedded Artist, Creator, By-line, Copyright, and Rights fields name Michelle Diamond.",
+      "event_reference_url": "https://creativemornings.com/talks/kris-krug",
+      "recap_reference_url": "https://kriskrug.co/2026/05/04/punk-rock-ai/",
+      "wordpress": {
+        "title": "Kris Krüg at CreativeMornings Vancouver, 2026",
+        "alt_text": "Kris Krüg smiling beside a colourful geometric staircase in a white shirt and sunflower trousers",
+        "caption": "Kris Krüg at CreativeMornings Vancouver for his Punk Rock AI keynote, Vancouver Art Gallery, May 1, 2026. Photo: Michelle Diamond.",
+        "description": "Full-length portrait of Kris Krüg beside the Vancouver Art Gallery’s colourful painted staircase during his CreativeMornings Vancouver keynote morning. Photo: Michelle Diamond."
+      },
+      "recommended_uses": [
+        "Personality-led About page section for issue #418",
+        "Secondary homepage or Speaking-page portrait",
+        "Editorial profile and social crops"
+      ],
+      "not_recommended_for": [
+        "Primary Speaking-page action image",
+        "Any claim that the photograph shows the keynote in progress"
+      ],
+      "crop_notes": "Full-body vertical with generous negative space at upper left. Strong for asymmetric desktop layouts; protect the sunflower trousers and painted staircase in wider crops."
+    },
+    {
+      "file": "assets/kris-krug-van-ai-portrait-2025.jpg",
+      "original_filename": "Oct2025_CreativeMornings_MichelleDiamond-94.jpg",
+      "sha256": "cb269ebc55303f591ac1641717ecbd9d6ed2786b2fe0f11f2a445fbf33991e8a",
+      "bytes": 282611,
+      "width": 1220,
+      "height": 1831,
+      "captured_at": "2025-10-03T08:45:58",
+      "event_date": "2025-10-03",
+      "event": "CreativeMornings Vancouver, October 2025",
+      "location": "Vancouver Art Gallery, Vancouver, British Columbia",
+      "creator": "Michelle Diamond",
+      "embedded_creator": "michellediamond",
+      "credit": "Photo: Michelle Diamond.",
+      "rights_basis": "User-supplied and approved for kriskrug.co. Embedded Artist, Creator, Copyright, and Rights fields name Michelle Diamond.",
+      "event_reference_url": "https://creativemornings.com/cities/van",
+      "wordpress": {
+        "title": "Kris Krüg in a VAN-AI shirt at CreativeMornings Vancouver, 2025",
+        "alt_text": "Kris Krüg smiling with arms crossed, wearing teal glasses, a cap, and a VAN-AI shirt",
+        "caption": "Kris Krüg at CreativeMornings Vancouver, where BC + AI was presenting sponsor, Vancouver Art Gallery, October 3, 2025. Photo: Michelle Diamond.",
+        "description": "Portrait of Kris Krüg in a VAN-AI shirt at CreativeMornings Vancouver, where BC + AI was presenting sponsor. Useful for organizer and community-builder context; the photograph does not depict him hosting. Photo: Michelle Diamond."
+      },
+      "recommended_uses": [
+        "BC + AI or Vancouver AI community-builder profile",
+        "Work page ecosystem section",
+        "About or Contact page alternate portrait"
+      ],
+      "not_recommended_for": [
+        "Documentary claim that the photograph shows Kris hosting a Vancouver AI event",
+        "Speaking or workshop action proof"
+      ],
+      "crop_notes": "Clean vertical portrait with a dark central background. Works at 4:5 or 3:4; keep the VAN-AI shirt mark visible when community context matters."
+    }
+  ]
+}

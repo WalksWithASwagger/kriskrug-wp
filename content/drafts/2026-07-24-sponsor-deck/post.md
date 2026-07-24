@@ -1,22 +1,20 @@
 ---
 title: "Sponsorship Deck"
 slug: sponsor-deck
-status: draft-only
+status: draft
 post_type: page
 date: 2026-07-24
+excerpt: "Sponsorship and partnership opportunities across Kris Krug's community, events, and media."
 issue: 459
 github_issue: https://github.com/WalksWithASwagger/kriskrug-wp/issues/459
 seo:
   title: "Sponsorship Deck | Kris Krug"
-  description: "Sponsorship and partnership opportunities for Kriskrug's community, events, and media."
+  description: "Sponsorship and partnership opportunities for Kris Krug's community, events, and media."
 notes:
-  draft_scope: "Content artifact only. No WordPress writes or publishing."
   intended_url: "/sponsor-deck"
-  review_notes: "See NOTES.md for unverified metrics and human gates."
+  review_notes: "KK approved metrics/pricing/CTAs 2026-07-24; rebuilt photo-led 2026-07-24 to match Services aesthetic."
 ---
 
 # Sponsorship Deck
 
-Draft page pack for `/sponsor-deck`. Body lives in `post.html` (WordPress HTML block).
-
-See `NOTES.md` before publish — metrics, pricing, and CTA targets need human approval.
+Body lives in `post.html` (WordPress HTML block). Photo-led media kit aligned with `/generative-ai-services/`.

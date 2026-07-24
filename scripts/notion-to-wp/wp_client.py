@@ -15,7 +15,7 @@ class WordPress:
         token = base64.b64encode(f"{user}:{app_password}".encode()).decode()
         self.s.headers.update({"Authorization": f"Basic {token}"})
 
-    def upload_media(self, path: Path, alt: str, mime: str = "image/jpeg") -> dict:
+    def upload_media_file(self, path: Path, mime: str = "image/jpeg") -> dict:
         with open(path, "rb") as f:
             data = f.read()
         r = self.s.post(
@@ -28,13 +28,49 @@ class WordPress:
             timeout=120,
         )
         r.raise_for_status()
-        media = r.json()
-        if alt:
-            self.s.post(
-                f"{self.base}/wp-json/wp/v2/media/{media['id']}",
-                json={"alt_text": alt},
-                timeout=30,
-            ).raise_for_status()
+        return r.json()
+
+    def update_media(self, media_id: int, payload: dict) -> dict:
+        r = self.s.post(
+            f"{self.base}/wp-json/wp/v2/media/{media_id}",
+            json=payload,
+            timeout=30,
+        )
+        r.raise_for_status()
+        return r.json()
+
+    def get_media(self, media_id: int, *, context: str = "view") -> dict:
+        r = self.s.get(
+            f"{self.base}/wp-json/wp/v2/media/{media_id}",
+            params={"context": context},
+            timeout=30,
+        )
+        r.raise_for_status()
+        return r.json()
+
+    def upload_media(
+        self,
+        path: Path,
+        alt: str,
+        mime: str = "image/jpeg",
+        *,
+        title: str = "",
+        caption: str = "",
+        description: str = "",
+    ) -> dict:
+        media = self.upload_media_file(path, mime=mime)
+        metadata = {
+            key: value
+            for key, value in {
+                "alt_text": alt,
+                "title": title,
+                "caption": caption,
+                "description": description,
+            }.items()
+            if value
+        }
+        if metadata:
+            return self.update_media(media["id"], metadata)
         return media
 
     def ensure_term(self, taxonomy: str, name: str) -> int:
