@@ -21,7 +21,7 @@
 | Packages | Starter `$2,500` | Pricing placeholder until KK confirms. |
 | Packages | Growth `$7,500` | Pricing placeholder until KK confirms. |
 | Packages | Command `$15,000` | Pricing placeholder until KK confirms. |
-| CTA | `partnerships@kriskrug.co` | Confirm mailbox is live and monitored. |
+| CTA | `feelmoreplants@gmail.com` | Confirm mailbox is live and monitored. |
 | CTA | `/sponsor` media kit link | Confirm target page exists or update URL. |
 | CTA | `/events` link | Confirm target page exists or update URL. |
 
