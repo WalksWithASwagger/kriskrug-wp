@@ -1,8 +1,12 @@
 # Publisher / News Discovery + Article Schema Rules — 2026-07-19
 
-Owner issue: #425. Read-only audit + the rule going forward. No live WordPress
-change is authorized by this doc; deploying a news sitemap or changing schema
-types is a separate, KK-gated step.
+Owner issue: #425. Read-only audit + the rule going forward.
+
+**2026-07-24 repo prep (not live yet):** `fixes/schema-snippets-deployed.php`
+defaults posts to `BlogPosting` with explicit `NewsArticle` via meta
+`_kk_schema_type` or tag `news-article`. Draft news sitemap snippet:
+`fixes/kk-news-sitemap-snippet.php` → `/news-sitemap.xml` for NewsArticle posts
+in the last 48 hours. **Live Code Snippet paste/activate remains KK-gated.**
 
 ## Audit (2026-07-19, public read-only)
 

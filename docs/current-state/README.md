@@ -17,7 +17,7 @@ Read these first for current execution context:
 
 **Env contract:** [../../.env.schema](../../.env.schema) — Varlock schema for WP/Notion vars. Rollout: [VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md). Do not read plaintext `.env`.
 
-**Newest Track A addendum:** [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md) — Trust + Offers and Topic Hubs waves are live on fifteen high-value pages, snapshot-gated, with `0` readability failures in both audits.
+**Newest Track A addendum:** [SESSION-CLOSEOUT-2026-07-24.md](SESSION-CLOSEOUT-2026-07-24.md) — sponsor-deck rebuild, site photography ingest, Contact portrait (#421). Prior architecture wave: [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md).
 
 **Newest Track B / SEO deploy context:** [AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md](AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md) plus [../../backup/aurora-deploy-20260716/DEPLOY-HANDOFF.md](../../backup/aurora-deploy-20260716/DEPLOY-HANDOFF.md) (deploy SHA for **1.3.40**; do not upload the 2026-07-13 **1.3.39** zip).
 

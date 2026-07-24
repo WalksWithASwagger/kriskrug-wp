@@ -65,6 +65,27 @@ function kk_schema_emit($schema) {
         . "</script>\n";
 }
 
+/**
+ * Article-family type for a post (#425).
+ * Default BlogPosting. NewsArticle only via meta `_kk_schema_type=NewsArticle`
+ * or post tag `news-article` (slug). Never blanket-apply NewsArticle.
+ */
+function kk_schema_post_type($post = null) {
+    $post = get_post($post);
+    if (!$post) {
+        return 'BlogPosting';
+    }
+    $allowed = array('BlogPosting', 'NewsArticle', 'Article');
+    $meta = get_post_meta($post->ID, '_kk_schema_type', true);
+    if (is_string($meta) && in_array($meta, $allowed, true)) {
+        return $meta;
+    }
+    if (has_tag('news-article', $post)) {
+        return 'NewsArticle';
+    }
+    return 'BlogPosting';
+}
+
 // 1. Person — sitewide
 function kk_schema_person() {
     $c = kk_schema_constants();
@@ -141,9 +162,13 @@ function kk_schema_article() {
     $section = ($cats && $cats[0]->name !== 'Misc') ? $cats[0]->name : null;
     $wc = str_word_count(wp_strip_all_tags($post->post_content));
 
+    // #425 rule: BlogPosting default; NewsArticle only when explicitly tagged.
+    // Override with post meta `_kk_schema_type` = BlogPosting|NewsArticle|Article.
+    $schema_type = kk_schema_post_type($post);
+
     $schema = array(
         '@context'         => 'https://schema.org',
-        '@type'            => 'Article',
+        '@type'            => $schema_type,
         'headline'         => get_the_title(),
         'description'      => get_the_excerpt(),
         'datePublished'    => get_the_date('c'),
