@@ -2695,6 +2695,129 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   color: var(--wp--preset--color--signal);
 }
 
+/* Footer bento (#417): integrated tile grid, all links preserved. */
+.aurora-footer-bento .aurora-footer-shell {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.aurora-footer-tile {
+  align-content: start;
+  background: rgba(247, 247, 242, 0.035);
+  border: 1px solid var(--aurora-line);
+  border-radius: var(--aurora-radius-card);
+  display: grid;
+  gap: 0.7rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.aurora-footer-tile:hover,
+.aurora-footer-tile:focus-within {
+  background: rgba(247, 247, 242, 0.05);
+  border-color: var(--aurora-line-strong);
+}
+
+.aurora-footer-tile-brand {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.aurora-footer-tile-newsletter {
+  grid-column: 3 / span 2;
+  grid-row: 1;
+}
+
+.aurora-footer-tile-projects {
+  grid-column: 3 / span 2;
+  grid-row: 2;
+}
+
+.aurora-footer-tile-site {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.aurora-footer-tile-utility {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.aurora-footer-tile-social {
+  grid-column: 3 / span 2;
+  grid-row: 3;
+}
+
+.aurora-footer-tile h3 {
+  color: var(--aurora-ink);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.aurora-footer-tile-brand h2 {
+  color: var(--aurora-ink);
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  line-height: 1.05;
+  margin: 0;
+  max-width: 18ch;
+}
+
+.aurora-footer-tile-brand p,
+.aurora-footer-tile-newsletter p {
+  color: var(--aurora-ink-soft);
+  margin: 0;
+}
+
+.aurora-footer-tile-newsletter h3 {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  line-height: 1.12;
+}
+
+.aurora-footer-links {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.aurora-footer-links-2col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.aurora-footer-links a {
+  color: var(--aurora-ink-muted);
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.aurora-footer-links a:hover,
+.aurora-footer-links a:focus-visible {
+  color: var(--wp--preset--color--signal);
+}
+
+@media (max-width: 900px) {
+  .aurora-footer-bento .aurora-footer-shell {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aurora-footer-bento .aurora-footer-tile {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .aurora-footer-bento .aurora-footer-tile-brand {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .aurora-footer-bento .aurora-footer-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .aurora-footer-bento .aurora-footer-tile-brand {
+    grid-column: 1;
+  }
+}
+
 .aurora-utility-grid {
   display: grid;
   gap: 1rem;
