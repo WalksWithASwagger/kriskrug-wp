@@ -23,6 +23,14 @@ MEDIA_MANIFEST_PATH = (
     / "assets"
     / "publications-press-media.md"
 )
+PUBLISH_GATE_PATH = (
+    REPO_ROOT
+    / "content"
+    / "source-packs"
+    / "keynotes-2026"
+    / "verification"
+    / "PUBLICATIONS-EDITORIAL-PUBLISH-GATE-2026-07-24.md"
+)
 
 
 class LinkAndImageParser(HTMLParser):
@@ -62,11 +70,14 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
         self.assertIn("@media (prefers-reduced-motion:reduce)", self.payload)
 
     def test_images_have_dimensions_and_alt_text(self):
-        self.assertEqual(9, len(self.parser.images))
+        self.assertEqual(6, len(self.parser.images))
         for image in self.parser.images:
             self.assertTrue(image.get("alt"))
             self.assertTrue(image.get("width"))
             self.assertTrue(image.get("height"))
+            self.assertTrue(image.get("src", "").startswith("../assets/"))
+            self.assertEqual(Path(image["src"]).name, image.get("data-media-key"))
+            self.assertTrue((PAYLOAD_PATH.parent / image["src"]).resolve().exists())
 
     def test_external_links_open_safely(self):
         self.assertGreaterEqual(len(self.parser.external_links), 47)
@@ -84,6 +95,13 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
             publications["meta"]["jetpack_seo_html_title"],
         )
         self.assertTrue(MEDIA_MANIFEST_PATH.exists())
+        manifest = MEDIA_MANIFEST_PATH.read_text(encoding="utf-8")
+        self.assertIn("Excluded from the publication set", manifest)
+        self.assertIn("explicit media approval", manifest)
+        gate = PUBLISH_GATE_PATH.read_text(encoding="utf-8")
+        self.assertIn("WordPress page ID: `1895`", gate)
+        self.assertRegex(gate, r"authenticated\s+`context=edit` snapshot")
+        self.assertIn("Do not delete uploaded media during emergency rollback", gate)
 
 
 if __name__ == "__main__":
