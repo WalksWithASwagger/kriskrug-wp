@@ -18,98 +18,98 @@
       "palette": [
         {
           "slug": "void",
-          "name": "Void (True Black)",
-          "color": "#000000"
+          "name": "Ink Black",
+          "color": "#171310"
         },
         {
           "slug": "deep",
-          "name": "Deep Space",
-          "color": "#0D0D12"
+          "name": "Cream Surface",
+          "color": "#efe6d2"
         },
         {
           "slug": "surface",
-          "name": "Surface",
-          "color": "#12121A"
+          "name": "Cream Panel",
+          "color": "#e6dcc2"
         },
         {
           "slug": "elevated",
-          "name": "Elevated",
-          "color": "#1A1A25"
+          "name": "Cream Elevated",
+          "color": "#e6dcc2"
         },
         {
           "slug": "muted",
-          "name": "Muted",
-          "color": "#252532"
+          "name": "Cream Muted",
+          "color": "#d9cdb0"
         },
         {
           "slug": "text-primary",
-          "name": "Text Primary",
-          "color": "#F0F0F5"
+          "name": "Ink Primary",
+          "color": "#171310"
         },
         {
           "slug": "text-secondary",
-          "name": "Text Secondary",
-          "color": "#B8B8C8"
+          "name": "Ink Secondary",
+          "color": "#3d342c"
         },
         {
           "slug": "text-muted",
-          "name": "Text Muted",
-          "color": "#8E8EA8"
+          "name": "Ink Muted",
+          "color": "#6b5f52"
         },
         {
           "slug": "paper",
-          "name": "Aurora Paper",
-          "color": "#F7F5F1"
+          "name": "Revive Paper",
+          "color": "#efe6d2"
         },
         {
           "slug": "signal",
-          "name": "Aurora Signal",
-          "color": "#F15B43"
+          "name": "Burnt Orange",
+          "color": "#d94a1f"
         },
         {
           "slug": "wildcard",
-          "name": "Aurora Wildcard",
-          "color": "#C8FF3D"
+          "name": "Riso Yellow",
+          "color": "#e8b53a"
         },
         {
           "slug": "cyan",
-          "name": "Aurora Cyan",
-          "color": "#00E5FF"
+          "name": "Rainbow Cyan",
+          "color": "#39a8d8"
         },
         {
           "slug": "teal",
-          "name": "Aurora Teal",
-          "color": "#00BFA5"
+          "name": "Rainbow Teal",
+          "color": "#1f8a86"
         },
         {
           "slug": "purple",
-          "name": "Aurora Purple",
-          "color": "#8B5CF6"
+          "name": "Rainbow Violet",
+          "color": "#6b3a97"
         },
         {
           "slug": "pink",
-          "name": "Aurora Pink",
-          "color": "#EC4899"
+          "name": "Rainbow Magenta",
+          "color": "#d6337a"
         },
         {
           "slug": "blue",
-          "name": "Aurora Blue",
-          "color": "#3B82F6"
+          "name": "Rainbow Cobalt",
+          "color": "#2b57a6"
         },
         {
           "slug": "success",
           "name": "Success",
-          "color": "#00BFA5"
+          "color": "#1f8a86"
         },
         {
           "slug": "warning",
           "name": "Warning",
-          "color": "#F59E0B"
+          "color": "#e8b53a"
         },
         {
           "slug": "error",
           "name": "Error",
-          "color": "#EF4444"
+          "color": "#d94a1f"
         }
       ],
       "gradients": [
@@ -162,14 +162,14 @@
       "fluid": true,
       "fontFamilies": [
         {
-          "fontFamily": "'Clash Display', 'Inter', system-ui, -apple-system, sans-serif",
+          "fontFamily": "'Space Grotesk', system-ui, -apple-system, sans-serif",
           "slug": "display",
-          "name": "Display (Clash Display)"
+          "name": "Display (Space Grotesk)"
         },
         {
-          "fontFamily": "'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+          "fontFamily": "'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
           "slug": "body",
-          "name": "Body (Inter)"
+          "name": "Body (DM Sans)"
         },
         {
           "fontFamily": "'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace",
@@ -432,7 +432,7 @@
   },
   "styles": {
     "color": {
-      "background": "var(--wp--preset--color--deep)",
+      "background": "var(--wp--preset--color--paper)",
       "text": "var(--wp--preset--color--text-primary)"
     },
     "typography": {

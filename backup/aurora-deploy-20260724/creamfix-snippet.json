@@ -1,0 +1,15 @@
+{
+  "id": 14,
+  "name": "TEMP Aurora 1.4.0 cream contrast file apply - retire after verify",
+  "desc": "One-time filesystem apply of cream-fix style.css + revive-port.css from media 12631. Set option kk_aurora_creamfix_140=done when finished. Deactivate after public verify.",
+  "code": "\n/**\n * One-time: apply Aurora 1.4.0 cream contrast CSS files from media zip 12631.\n * Safe to leave inactive after run; self-guards with option kk_aurora_creamfix_140.\n */\nadd_action('init', function () {\n\tif (get_option('kk_aurora_creamfix_140') === 'done') {\n\t\treturn;\n\t}\n\tif (!function_exists('get_template_directory')) {\n\t\treturn;\n\t}\n\n\t$media_id = 12631;\n\t$path = get_attached_file($media_id);\n\tif (!$path || !file_exists($path)) {\n\t\treturn;\n\t}\n\n\tif (!class_exists('ZipArchive')) {\n\t\treturn;\n\t}\n\n\t$zip = new ZipArchive();\n\tif ($zip->open($path) !== true) {\n\t\treturn;\n\t}\n\n\t$theme_dir = get_template_directory();\n\t$written = [];\n\n\tfor ($i = 0; $i < $zip->numFiles; $i++) {\n\t\t$name = $zip->getNameIndex($i);\n\t\tif ($name === false || str_contains($name, '..') || str_starts_with($name, '/')) {\n\t\t\tcontinue;\n\t\t}\n\t\t$base = basename($name);\n\t\tif ($base === 'style.css') {\n\t\t\t$dest = $theme_dir . '/style.css';\n\t\t} elseif ($base === 'revive-port.css') {\n\t\t\t$dest = $theme_dir . '/assets/css/revive-port.css';\n\t\t} else {\n\t\t\tcontinue;\n\t\t}\n\t\t$contents = $zip->getFromIndex($i);\n\t\tif ($contents === false) {\n\t\t\tcontinue;\n\t\t}\n\t\tif (file_put_contents($dest, $contents) !== false) {\n\t\t\t$written[] = $base;\n\t\t}\n\t}\n\t$zip->close();\n\n\tif (count($written) >= 2) {\n\t\tupdate_option('kk_aurora_creamfix_140', 'done', false);\n\t\tupdate_option('kk_aurora_creamfix_140_files', $written, false);\n\t\tif (function_exists('wp_cache_flush')) {\n\t\t\twp_cache_flush();\n\t\t}\n\t}\n}, 5);\n",
+  "tags": [],
+  "scope": "global",
+  "condition_id": 0,
+  "active": true,
+  "priority": 1,
+  "network": null,
+  "shared_network": false,
+  "modified": "2026-07-24 22:57:24",
+  "code_error": null
+}

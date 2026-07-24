@@ -4,14 +4,14 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.3.41
+Version: 1.4.0
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: kk-aurora
-Tags: full-site-editing, block-patterns, custom-colors, custom-menu, editor-style, featured-images, one-column, wide-blocks, dark-mode, accessibility-ready
+Tags: full-site-editing, block-patterns, custom-colors, custom-menu, editor-style, featured-images, one-column, wide-blocks, accessibility-ready
 
 KK Aurora WordPress Theme
 Copyright 2026 Kris Krug
@@ -52,8 +52,8 @@ Copyright 2026 Kris Krug
   --transition-normal: 300ms cubic-bezier(0, 0, 0.2, 1);
   --transition-slow: 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
   
-  /* Focus Ring */
-  --focus-ring: 0 0 0 2px var(--wp--preset--color--deep), 0 0 0 4px var(--wp--preset--color--signal);
+  /* Focus Ring — visible on cream paper */
+  --focus-ring: 0 0 0 2px #efe6d2, 0 0 0 4px #d94a1f;
 }
 
 /* ============================================
@@ -489,36 +489,37 @@ a {
    ============================================ */
 
 :root {
-  --aurora-ink: #e8e0d1;
-  --aurora-ink-soft: #cfc7bb;
-  --aurora-ink-muted: #9c968e;
-  --aurora-readable-accent: #f15b43;
-  --aurora-paper: #f7f5f1;
-  --aurora-signal: #f15b43;
+  /* Revive 1.4.0 cream/ink baseline (see assets/css/revive-port.css) */
+  --aurora-ink: #171310;
+  --aurora-ink-soft: rgba(23, 19, 16, 0.78);
+  --aurora-ink-muted: rgba(23, 19, 16, 0.55);
+  --aurora-readable-accent: #d94a1f;
+  --aurora-paper: #efe6d2;
+  --aurora-signal: #d94a1f;
   --aurora-signal-dark: #a52918;
-  --aurora-signal-control: #c8371f;
-  --aurora-signal-control-hover: #b82f1c;
-  --aurora-wildcard: #c8ff3d;
-  --aurora-opal-void: #090c11;
-  --aurora-opal-ink: #151821;
-  --aurora-opal-plum: #19151d;
-  --aurora-opal-warm: #1b1a20;
-  --aurora-opal-mint: #d9f76f;
-  --aurora-opal-blush: #f2b4cf;
-  --aurora-opal-ice: #9decf2;
-  --aurora-opal-gold: #ead18a;
-  --aurora-black: var(--aurora-opal-void);
-  --aurora-panel: rgba(21, 24, 33, 0.82);
-  --aurora-panel-solid: #151821;
-  --aurora-reader-pane: rgba(24, 24, 32, 0.88);
-  --aurora-reader-pane-solid: #181820;
-  --aurora-reader-border: rgba(232, 224, 209, 0.16);
-  --aurora-line: rgba(232, 224, 209, 0.16);
-  --aurora-line-strong: rgba(242, 180, 207, 0.38);
-  --aurora-warm: #f0b35a;
-  --aurora-radius-card: 8px;
-  --aurora-radius-control: 8px;
-  --aurora-shadow-deep: 0 24px 80px rgba(0, 0, 0, 0.34);
+  --aurora-signal-control: #d94a1f;
+  --aurora-signal-control-hover: #c03f18;
+  --aurora-wildcard: #e8b53a;
+  --aurora-opal-void: #efe6d2;
+  --aurora-opal-ink: #e6dcc2;
+  --aurora-opal-plum: #e6dcc2;
+  --aurora-opal-warm: #efe6d2;
+  --aurora-opal-mint: #e8b53a;
+  --aurora-opal-blush: #d6337a;
+  --aurora-opal-ice: #39a8d8;
+  --aurora-opal-gold: #e8b53a;
+  --aurora-black: #171310;
+  --aurora-panel: rgba(230, 220, 194, 0.92);
+  --aurora-panel-solid: #e6dcc2;
+  --aurora-reader-pane: rgba(239, 230, 210, 0.96);
+  --aurora-reader-pane-solid: #efe6d2;
+  --aurora-reader-border: rgba(23, 19, 16, 0.14);
+  --aurora-line: rgba(23, 19, 16, 0.14);
+  --aurora-line-strong: rgba(217, 74, 31, 0.35);
+  --aurora-warm: #e8b53a;
+  --aurora-radius-card: 4px;
+  --aurora-radius-control: 2px;
+  --aurora-shadow-deep: 0 18px 48px rgba(23, 19, 16, 0.12);
   --aurora-max: 1200px;
   --aurora-readable-measure: 720px;
   --aurora-readable-wide: 860px;
@@ -534,11 +535,8 @@ a {
 
 .aurora-theme {
   background-color: var(--aurora-opal-void);
-  background:
-    linear-gradient(118deg, rgba(242, 180, 207, 0.075) 0%, transparent 32%, rgba(157, 236, 242, 0.05) 66%, transparent 100%),
-    linear-gradient(24deg, transparent 0%, rgba(217, 247, 111, 0.045) 42%, transparent 68%),
-    linear-gradient(180deg, #10131a 0%, var(--aurora-opal-void) 44%, var(--aurora-opal-plum) 100%),
-    var(--aurora-opal-void);
+  background: var(--aurora-opal-void);
+  color: var(--aurora-ink);
 }
 
 .aurora-theme :where(p, a, span, li, figcaption) {
@@ -2345,10 +2343,8 @@ body.aurora-theme :where(#aurora-home-title, .aurora-page-title, .aurora-writing
 }
 
 body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-writing-archive-dek, .aurora-feed-links-copy p:not(.aurora-kicker), .aurora-page-content p, .aurora-prose p) {
-  background-color: rgba(9, 12, 17, 0.72);
-  box-decoration-break: clone;
+  background-color: transparent;
   color: var(--aurora-ink-soft) !important;
-  -webkit-box-decoration-break: clone;
   -webkit-text-fill-color: currentColor !important;
 }
 
@@ -2357,7 +2353,7 @@ body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker) {
 }
 
 body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-button__link {
-  background: rgba(9, 12, 17, 0.86) !important;
+  background: transparent !important;
   border-color: var(--aurora-line-strong) !important;
   color: var(--aurora-ink) !important;
   -webkit-text-fill-color: currentColor !important;
@@ -4451,10 +4447,8 @@ body.aurora-theme :where(#aurora-home-title, .aurora-page-title, .aurora-writing
 }
 
 body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-writing-archive-dek, .aurora-feed-links-copy p:not(.aurora-kicker), .aurora-page-content p, .aurora-prose p, .aurora-hero-copy p) {
-  background-color: rgba(9, 12, 17, 0.78) !important;
-  box-decoration-break: clone;
+  background-color: transparent !important;
   color: var(--aurora-ink-soft) !important;
-  -webkit-box-decoration-break: clone;
   -webkit-text-fill-color: currentColor !important;
 }
 
@@ -4463,54 +4457,47 @@ body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker) {
 }
 
 body.aurora-theme :where(.aurora-writing-pagination a, .aurora-writing-pagination .page-numbers, .aurora-writing-pagination .wp-block-query-pagination-previous, .aurora-writing-pagination .wp-block-query-pagination-next, .aurora-feed-link-grid a) {
-  background-color: rgba(9, 12, 17, 0.86) !important;
+  background-color: var(--aurora-panel-solid) !important;
   border-color: var(--aurora-line-strong) !important;
   color: var(--aurora-ink) !important;
   -webkit-text-fill-color: currentColor !important;
 }
 
 body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-button__link {
-  background: rgba(9, 12, 17, 0.9) !important;
+  background: transparent !important;
   border-color: var(--aurora-line-strong) !important;
   color: var(--aurora-ink) !important;
   -webkit-text-fill-color: currentColor !important;
 }
 
-/* Aurora 1.3.33 pa11y opaque contrast hardening */
+/* Aurora 1.4.0 cream contrast — supersedes 1.3.33/1.3.36 black opaque panes */
 body.aurora-theme #aurora-main :where(.aurora-page-header, .aurora-writing-archive-header, .aurora-feed-links-copy, .aurora-proof-section) {
-  background-color: #090c11 !important;
+  background-color: transparent !important;
 }
 
 body.aurora-theme #aurora-main :where(#aurora-home-title, .aurora-page-title, .aurora-writing-archive-title, .aurora-display-heading, .aurora-feed-links-copy h2, .aurora-hero-copy h1) {
-  background-color: #090c11 !important;
-  box-decoration-break: clone;
-  color: #f8f1e6 !important;
-  -webkit-box-decoration-break: clone;
+  background-color: transparent !important;
+  color: var(--aurora-ink) !important;
   -webkit-text-fill-color: currentColor !important;
 }
 
 body.aurora-theme #aurora-main :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-writing-archive-dek, .aurora-feed-links-copy p:not(.aurora-kicker), .aurora-page-content p, .aurora-prose p, .aurora-hero-copy p) {
-  background-color: #090c11 !important;
-  box-decoration-break: clone;
-  color: #f8f1e6 !important;
-  -webkit-box-decoration-break: clone;
+  background-color: transparent !important;
+  color: var(--aurora-ink-soft) !important;
   -webkit-text-fill-color: currentColor !important;
 }
 
 body.aurora-theme #aurora-main :where(.aurora-writing-pagination a, .aurora-writing-pagination .page-numbers, .aurora-writing-pagination .wp-block-query-pagination-previous, .aurora-writing-pagination .wp-block-query-pagination-next, .aurora-feed-link-grid a) {
-  background-color: #090c11 !important;
-  border-color: #f8f1e6 !important;
-  color: #f8f1e6 !important;
+  background-color: var(--aurora-panel-solid) !important;
+  border-color: var(--aurora-line) !important;
+  color: var(--aurora-ink) !important;
   -webkit-text-fill-color: currentColor !important;
 }
 
-/* Aurora 1.3.36 homepage feature-band contrast hardening */
 body.aurora-theme #aurora-main .aurora-feature-band-contrast > .aurora-section-heading,
 body.aurora-theme #aurora-main .aurora-offer-band + .aurora-feature-band > .aurora-section-heading {
-  background:
-    radial-gradient(circle at 8% 0%, rgba(242, 180, 207, 0.08), transparent 22rem),
-    #090c11 !important;
-  border: 1px solid rgba(248, 241, 230, 0.12);
+  background: var(--aurora-panel-solid) !important;
+  border: 1px solid var(--aurora-line);
   border-radius: var(--aurora-radius-card);
   padding: clamp(1.25rem, 3vw, 2rem);
 }
@@ -4519,16 +4506,14 @@ body.aurora-theme #aurora-main .aurora-feature-band-contrast > .aurora-section-h
 body.aurora-theme #aurora-main .aurora-feature-band-contrast > .aurora-section-heading p:not(.aurora-kicker),
 body.aurora-theme #aurora-main .aurora-offer-band + .aurora-feature-band > .aurora-section-heading h2,
 body.aurora-theme #aurora-main .aurora-offer-band + .aurora-feature-band > .aurora-section-heading p:not(.aurora-kicker) {
-  background-color: #090c11 !important;
-  box-decoration-break: clone;
-  color: #f8f1e6 !important;
-  -webkit-box-decoration-break: clone;
+  background-color: transparent !important;
+  color: var(--aurora-ink) !important;
   -webkit-text-fill-color: currentColor !important;
 }
 
 body.aurora-theme #aurora-main .wp-block-button:not(.is-style-aurora-primary) .wp-block-button__link {
-  background: #090c11 !important;
-  border-color: #f8f1e6 !important;
-  color: #f8f1e6 !important;
+  background: transparent !important;
+  border-color: var(--aurora-line-strong) !important;
+  color: var(--aurora-ink) !important;
   -webkit-text-fill-color: currentColor !important;
 }

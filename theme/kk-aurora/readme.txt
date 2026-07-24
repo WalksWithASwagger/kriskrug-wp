@@ -8,15 +8,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-KK Aurora is a cyberpunk-inspired WordPress theme featuring flowing gradients, deep space aesthetics, and purposeful motion design.
+KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.4.0 ports the Revive cream/ink visual system while staying on Pagely WordPress.
 
 Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Features ==
 
 * Full Site Editing (FSE) block theme
-* Dark mode by default
-* Animated gradient accents
+* Cream / ink Revive brand layer (1.4.0)
+* Woven marquee chrome + scroll progress
 * CSS/JS scroll reveals (no GSAP dependency on main; GSAP removed in 1.3.15)
 * High contrast accessibility
 * Mobile-first responsive design
@@ -30,14 +30,20 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Color Palette ==
 
-* Deep Space: #0D0D12 (primary background)
-* Surface: #12121A (cards, elevated surfaces)
-* Cyan: #00E5FF (primary accent)
-* Teal: #00BFA5 (secondary accent)
-* Purple: #8B5CF6 (tertiary accent)
-* Pink: #EC4899 (highlights)
+* Cream surface: #efe6d2
+* Ink text: #171310
+* Burnt orange accent: #d94a1f
+* Riso yellow: #e8b53a
+* Rainbow accents: teal / cyan / cobalt / violet / magenta
 
 == Changelog ==
+
+= 1.4.0 =
+* Port Revive cream/ink visual system into kk-aurora (Track B).
+* Retokenize theme.json + style.css; Space Grotesk / DM Sans / JetBrains Mono.
+* Rebuild sticky header (woven marquee, scroll progress), footer, and homepage section order.
+* Global page CSS bridge so Track A packs inherit cream/ink.
+* CTA remains Work with me → `/services/`; newsletter remains Beehiiv; no Field notes/Dispatch chrome labels.
 
 = 1.3.41 =
 * Primary CTA becomes "Work with me" → `/services/` (#422).

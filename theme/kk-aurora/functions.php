@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.3.41');
+define('KK_AURORA_VERSION', '1.4.0');
 
 require_once get_template_directory() . '/inc/seo-title.php';
 
@@ -87,6 +87,14 @@ function enqueue_assets(): void {
         'kk-aurora-bleeding-edge',
         get_theme_file_uri('assets/css/bleeding-edge.css'),
         [],
+        KK_AURORA_VERSION
+    );
+
+    // Revive cream/ink brand layer (loads last among theme styles)
+    wp_enqueue_style(
+        'kk-aurora-revive-port',
+        get_theme_file_uri('assets/css/revive-port.css'),
+        ['kk-aurora-style', 'kk-aurora-typography', 'kk-aurora-animations', 'kk-aurora-bleeding-edge'],
         KK_AURORA_VERSION
     );
 

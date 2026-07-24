@@ -148,26 +148,79 @@
     const progressFill = progressBar?.querySelector('span') || progressBar;
     const article = document.querySelector('.aurora-article');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
+
     if (!progressBar || !progressFill || !article || prefersReducedMotion) return;
-    
+
     function updateProgress() {
       const articleRect = article.getBoundingClientRect();
       const articleTop = articleRect.top + window.pageYOffset;
       const articleHeight = Math.max(articleRect.height - window.innerHeight, 1);
       const windowHeight = window.innerHeight;
       const scrollTop = window.pageYOffset;
-      
+
       const progress = Math.min(
         Math.max((scrollTop - articleTop + windowHeight * 0.35) / articleHeight, 0),
         1
       );
-      
+
       progressFill.style.transform = `scaleX(${progress})`;
     }
-    
+
     window.addEventListener('scroll', updateProgress, { passive: true });
     updateProgress();
+  }
+
+  function initHeaderScrollProgress() {
+    const bar = document.querySelector('.aurora-scroll-progress');
+    if (!bar) return;
+
+    function update() {
+      const doc = document.documentElement;
+      const max = Math.max(doc.scrollHeight - window.innerHeight, 1);
+      const progress = Math.min(Math.max(window.scrollY / max, 0), 1);
+      bar.style.setProperty('--scroll-progress', String(progress));
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+  }
+
+  function initRevealOnScroll() {
+    const nodes = document.querySelectorAll('[data-reveal]');
+    if (!nodes.length) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      nodes.forEach((node) => node.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    nodes.forEach((node) => observer.observe(node));
+  }
+
+  function initLiveMastheadDate() {
+    const el = document.querySelector('[data-live-date]');
+    if (!el) return;
+    try {
+      el.textContent = new Date().toLocaleDateString('en-US', {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      });
+    } catch (e) {
+      // keep server-rendered fallback
+    }
   }
 
   // ============================================
@@ -502,6 +555,9 @@
     initExternalLinks();
     initCodeCopy();
     initReadingProgress();
+    initHeaderScrollProgress();
+    initRevealOnScroll();
+    initLiveMastheadDate();
     initOpalReadingPane();
     initArticleReadingHelpers();
     initArticleBlogLuxMotion();

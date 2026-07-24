@@ -1,0 +1,225 @@
+[
+  {
+    "id": 1,
+    "name": "Make upload filenames lowercase",
+    "desc": "Makes sure that image and file uploads have lowercase filenames.\n\nThis is a sample snippet. Feel free to use it, edit it, or remove it.",
+    "code": "add_filter( 'sanitize_file_name', 'mb_strtolower' );",
+    "tags": [
+      "sample",
+      "media"
+    ],
+    "scope": "global",
+    "condition_id": 0,
+    "active": false,
+    "priority": 10,
+    "network": false,
+    "shared_network": false,
+    "modified": "2026-05-15 16:28:11",
+    "code_error": null
+  },
+  {
+    "id": 2,
+    "name": "Disable admin bar",
+    "desc": "Turns off the WordPress admin bar for everyone except administrators.\n\nThis is a sample snippet. Feel free to use it, edit it, or remove it.",
+    "code": "add_action( 'wp', function () {\n\tif ( ! current_user_can( 'manage_options' ) ) {\n\t\tshow_admin_bar( false );\n\t}\n} );",
+    "tags": [
+      "sample",
+      "admin-bar"
+    ],
+    "scope": "front-end",
+    "condition_id": 0,
+    "active": false,
+    "priority": 10,
+    "network": false,
+    "shared_network": false,
+    "modified": "2026-05-15 16:28:11",
+    "code_error": null
+  },
+  {
+    "id": 3,
+    "name": "Allow smilies",
+    "desc": "Allows smiley conversion in obscure places.\n\nThis is a sample snippet. Feel free to use it, edit it, or remove it.",
+    "code": "add_filter( 'widget_text', 'convert_smilies' );\nadd_filter( 'the_title', 'convert_smilies' );\nadd_filter( 'wp_title', 'convert_smilies' );\nadd_filter( 'get_bloginfo', 'convert_smilies' );",
+    "tags": [
+      "sample"
+    ],
+    "scope": "global",
+    "condition_id": 0,
+    "active": false,
+    "priority": 10,
+    "network": false,
+    "shared_network": false,
+    "modified": "2026-05-15 16:28:11",
+    "code_error": null
+  },
+  {
+    "id": 4,
+    "name": "Current year",
+    "desc": "Shortcode for inserting the current year into a post or page..\n\nThis is a sample snippet. Feel free to use it, edit it, or remove it.",
+    "code": "<?php echo date( 'Y' ); ?>",
+    "tags": [
+      "sample",
+      "dates"
+    ],
+    "scope": "content",
+    "condition_id": 0,
+    "active": false,
+    "priority": 10,
+    "network": false,
+    "shared_network": false,
+    "modified": "2026-05-15 16:28:11",
+    "code_error": null
+  },
+  {
+    "id": 5,
+    "name": "KK Schema",
+    "desc": "Person/WebSite/Article-family/Breadcrumb/Service JSON-LD. #425: BlogPosting default; NewsArticle via meta/tag.",
+    "code": "/**\n * Schema.org JSON-LD \u2014 kriskrug.co\n *\n * CANONICAL LIVE SOURCE (Track A / Code Snippets).\n * This is the PHP that belongs inside the production \"KK Schema\" Code Snippet\n * (historically snippet id 5). Keep wp-admin and this file in sync if either\n * side is edited. Do NOT paste fixes/schema-snippets.php over this without an\n * explicit KK-approved migration to a mu-plugin.\n *\n * Deployed via Code Snippets plugin on 2026-05-15 (not as a mu-plugin yet;\n * SSH access still pending).\n *\n * Differences from fixes/schema-snippets.php (reference / future mu-plugin):\n *   - VERIFY-ME placeholders replaced with confirmed values\n *   - Person image uses the public portrait already rendered on /about/\n *   - LinkedIn / GitHub / YouTube / Wikipedia omitted (URLs unverified or 404)\n *   - kk_schema_is_ready() guard removed (values are baked in)\n *   - Conditional Person.image / Person.sameAs filtering\n *\n * Known follow-ups (do not silently \"fix\" here):\n *   - #316 identity wording still includes legacy \"Generative AI Tools\" in knows_about\n *   - Headshot URL is the public /about/ portrait; confirm if KK wants a newer asset\n *\n * When pasting into Code Snippets: strip the opening <?php tag (Code Snippets\n * wraps the snippet automatically).\n */\n\nfunction kk_schema_constants() {\n    return array(\n        'site_name'            => 'Kris Krug',\n        'site_alternate_names' => array(\n            'Kris Kr\u00fcg',\n            'kriskrug.co',\n        ),\n        'site_url'             => 'https://kriskrug.co',\n        'person_name'          => 'Kris Kr\u00fcg',\n        'person_alt'           => 'Kris Krug',\n        'person_image'         => 'https://kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg',\n        'person_job'           => 'AI Keynote Speaker and Creative Technologist',\n        'person_descr'         => 'Vancouver-based AI keynote speaker, creative technologist, photographer, and community builder. Executive Director of BC + AI, founder of Vancouver AI, and lead curator of Futureproof Festival.',\n        // Only verified, owned URLs. Add LinkedIn etc. when KK confirms.\n        'same_as' => array(\n            'https://twitter.com/kriskrug',\n            'https://x.com/kriskrug',\n            'https://www.instagram.com/kriskrug/',\n        ),\n        'works_for' => array(\n            array('name' => 'BC + AI Ecosystem Industry Association', 'url' => 'https://bc-ai.ca/'),\n            array('name' => 'Vancouver AI',                           'url' => 'https://vancouver.ai/'),\n            array('name' => 'Futureproof Festival',                   'url' => 'https://futureproof.website/'),\n        ),\n        'knows_about' => array(\n            'Generative AI', 'AI Strategy', 'AI for Creative Professionals',\n            'AI for Journalism', 'AI Ethics', 'Photography', 'Community Building',\n            'Vancouver AI Ecosystem', 'Indigenous Technology', 'Generative AI Tools',\n        ),\n    );\n}\n\nfunction kk_schema_emit($schema) {\n    if (empty($schema)) return;\n    echo \"\\n<script type=\\\"application/ld+json\\\">\"\n        . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)\n        . \"</script>\\n\";\n}\n\n/**\n * Article-family type for a post (#425).\n * Default BlogPosting. NewsArticle only via meta `_kk_schema_type=NewsArticle`\n * or post tag `news-article` (slug). Never blanket-apply NewsArticle.\n */\nfunction kk_schema_post_type($post = null) {\n    $post = get_post($post);\n    if (!$post) {\n        return 'BlogPosting';\n    }\n    $allowed = array('BlogPosting', 'NewsArticle', 'Article');\n    $meta = get_post_meta($post->ID, '_kk_schema_type', true);\n    if (is_string($meta) && in_array($meta, $allowed, true)) {\n        return $meta;\n    }\n    if (has_tag('news-article', $post)) {\n        return 'NewsArticle';\n    }\n    return 'BlogPosting';\n}\n\n// 1. Person \u2014 sitewide\nfunction kk_schema_person() {\n    $c = kk_schema_constants();\n    $works = array();\n    foreach ($c['works_for'] as $org) {\n        if (!empty($org['url'])) {\n            $works[] = array('@type' => 'Organization', 'name' => $org['name'], 'url' => $org['url']);\n        }\n    }\n    $person = array(\n        '@context'      => 'https://schema.org',\n        '@type'         => 'Person',\n        '@id'           => $c['site_url'] . '/#person',\n        'name'          => $c['person_name'],\n        'alternateName' => $c['person_alt'],\n        'description'   => $c['person_descr'],\n        'url'           => $c['site_url'],\n        'jobTitle'      => $c['person_job'],\n        'worksFor'      => $works,\n        'sameAs'        => array_values(array_filter($c['same_as'])),\n        'knowsAbout'    => $c['knows_about'],\n    );\n    if (!empty($c['person_image'])) {\n        $person['image'] = $c['person_image'];\n    }\n    kk_schema_emit($person);\n}\nadd_action('wp_head', 'kk_schema_person', 5);\n\n// 2. WebSite + SearchAction \u2014 homepage only\nfunction kk_schema_website() {\n    if (!is_front_page() && !is_home()) return;\n    $c = kk_schema_constants();\n    kk_schema_emit(array(\n        '@context'        => 'https://schema.org',\n        '@type'           => 'WebSite',\n        '@id'             => $c['site_url'] . '/#website',\n        'url'             => $c['site_url'],\n        'name'            => $c['site_name'],\n        'alternateName'   => $c['site_alternate_names'],\n        'inLanguage'      => 'en-US',\n        'publisher'       => array('@id' => $c['site_url'] . '/#person'),\n        'potentialAction' => array(\n            '@type'       => 'SearchAction',\n            'target'      => array(\n                '@type'       => 'EntryPoint',\n                'urlTemplate' => $c['site_url'] . '/?s={search_term_string}',\n            ),\n            'query-input' => 'required name=search_term_string',\n        ),\n    ));\n}\nadd_action('wp_head', 'kk_schema_website', 6);\n\n// 3. Article \u2014 every blog post\nfunction kk_schema_article() {\n    if (!is_singular('post')) return;\n    $c = kk_schema_constants();\n    global $post;\n\n    $image = null;\n    if (has_post_thumbnail()) {\n        $src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');\n        if ($src) {\n            $image = array(\n                '@type'  => 'ImageObject',\n                'url'    => $src[0],\n                'width'  => $src[1],\n                'height' => $src[2],\n            );\n        }\n    }\n    $cats = get_the_category();\n    $section = ($cats && $cats[0]->name !== 'Misc') ? $cats[0]->name : null;\n    $wc = str_word_count(wp_strip_all_tags($post->post_content));\n\n    // #425 rule: BlogPosting default; NewsArticle only when explicitly tagged.\n    // Override with post meta `_kk_schema_type` = BlogPosting|NewsArticle|Article.\n    $schema_type = kk_schema_post_type($post);\n\n    $schema = array(\n        '@context'         => 'https://schema.org',\n        '@type'            => $schema_type,\n        'headline'         => get_the_title(),\n        'description'      => get_the_excerpt(),\n        'datePublished'    => get_the_date('c'),\n        'dateModified'     => get_the_modified_date('c'),\n        'author'           => array('@id' => $c['site_url'] . '/#person'),\n        'publisher'        => array('@id' => $c['site_url'] . '/#person'),\n        'mainEntityOfPage' => array('@type' => 'WebPage', '@id' => get_permalink()),\n        'wordCount'        => $wc,\n        'inLanguage'       => 'en-US',\n    );\n    if ($image)   $schema['image']          = $image;\n    if ($section) $schema['articleSection'] = $section;\n\n    kk_schema_emit($schema);\n}\nadd_action('wp_head', 'kk_schema_article', 7);\n\n// 4. BreadcrumbList \u2014 non-homepage\nfunction kk_schema_breadcrumb() {\n    if (is_front_page()) return;\n    $c = kk_schema_constants();\n    $items = array(\n        array('@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => $c['site_url']),\n    );\n    $pos = 2;\n    if (is_singular('post')) {\n        $items[] = array('@type' => 'ListItem', 'position' => $pos++, 'name' => 'Blog',          'item' => $c['site_url'] . '/blog/');\n        $items[] = array('@type' => 'ListItem', 'position' => $pos++, 'name' => get_the_title(), 'item' => get_permalink());\n    } elseif (is_page()) {\n        $items[] = array('@type' => 'ListItem', 'position' => $pos++, 'name' => get_the_title(), 'item' => get_permalink());\n    } elseif (is_category() || is_tag()) {\n        $items[] = array('@type' => 'ListItem', 'position' => $pos++, 'name' => single_term_title('', false), 'item' => get_term_link(get_queried_object()));\n    }\n    kk_schema_emit(array(\n        '@context'        => 'https://schema.org',\n        '@type'           => 'BreadcrumbList',\n        'itemListElement' => $items,\n    ));\n}\nadd_action('wp_head', 'kk_schema_breadcrumb', 8);\n\n// 5. Service \u2014 pages with a kk_service_audience custom field\nfunction kk_schema_service() {\n    if (!is_page()) return;\n    $audience = get_post_meta(get_queried_object_id(), 'kk_service_audience', true);\n    if (!$audience) return;\n    $c = kk_schema_constants();\n    kk_schema_emit(array(\n        '@context'    => 'https://schema.org',\n        '@type'       => 'Service',\n        'name'        => wp_strip_all_tags(get_the_title()),\n        'description' => wp_strip_all_tags(get_the_excerpt()),\n        'provider'    => array('@id' => $c['site_url'] . '/#person'),\n        'audience'    => array('@type' => 'Audience', 'audienceType' => $audience),\n        'url'         => get_permalink(),\n    ));\n}\nadd_action('wp_head', 'kk_schema_service', 9);\n",
+    "tags": [],
+    "scope": "global",
+    "condition_id": 0,
+    "active": true,
+    "priority": 10,
+    "network": false,
+    "shared_network": false,
+    "modified": "2026-07-24 22:27:20",
+    "code_error": null
+  },
+  {
+    "id": 6,
+    "name": "Hotfix 2026-05-24: Projects redirect + Work OG fallback",
+    "desc": "Temporary production hotfix mirroring merged theme logic from PR #130 until theme package is uploaded and caches are purged.",
+    "code": "if ( ! function_exists( 'kk_hotfix_projects_redirect_20260524' ) ) {\n    function kk_hotfix_projects_redirect_20260524() {\n        if ( is_admin() || wp_doing_ajax() || wp_doing_cron() ) {\n            return;\n        }\n\n        if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {\n            return;\n        }\n\n        $request_uri  = isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( (string) $_SERVER['REQUEST_URI'] ) : '';\n        $request_path = trim( (string) wp_parse_url( $request_uri, PHP_URL_PATH ), '/' );\n        if ( 'projects' !== $request_path ) {\n            return;\n        }\n\n        $method = isset( $_SERVER['REQUEST_METHOD'] ) ? strtoupper( (string) $_SERVER['REQUEST_METHOD'] ) : 'GET';\n        if ( ! in_array( $method, array( 'GET', 'HEAD' ), true ) ) {\n            return;\n        }\n\n        $target_url = home_url( '/recent-projects-include/' );\n        $work_page  = get_page_by_path( 'recent-projects-include' );\n\n        if ( ! ( $work_page instanceof WP_Post ) ) {\n            $work_page = get_page_by_path( 'work' );\n        }\n\n        if ( $work_page instanceof WP_Post ) {\n            $permalink = get_permalink( $work_page );\n            if ( false !== $permalink ) {\n                $target_url = $permalink;\n            }\n        }\n\n        wp_safe_redirect( $target_url, 301, 'KK Hotfix' );\n        exit;\n    }\n}\nadd_action( 'template_redirect', 'kk_hotfix_projects_redirect_20260524', 1 );\n\nif ( ! function_exists( 'kk_hotfix_work_og_fallback_20260524' ) ) {\n    function kk_hotfix_work_og_fallback_20260524( $tags ) {\n        if ( ! is_array( $tags ) ) {\n            return $tags;\n        }\n\n        if ( ! is_page( array( 'recent-projects-include', 'work' ) ) ) {\n            return $tags;\n        }\n\n        $image = 'https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&ssl=1';\n\n        $tags['og:image']            = $image;\n        $tags['og:image:secure_url'] = $image;\n        $tags['og:image:width']      = '1200';\n        $tags['og:image:height']     = '630';\n        $tags['og:image:alt']        = 'BC + AI ecosystem graphic showing community programs and events';\n        $tags['twitter:image']       = $image;\n        $tags['twitter:image:alt']   = 'BC + AI ecosystem graphic showing community programs and events';\n\n        return $tags;\n    }\n}\nadd_filter( 'jetpack_open_graph_tags', 'kk_hotfix_work_og_fallback_20260524' );\n",
+    "tags": [],
+    "scope": "front-end",
+    "condition_id": 0,
+    "active": false,
+    "priority": 1,
+    "network": false,
+    "shared_network": false,
+    "modified": "2026-05-24 22:55:19",
+    "code_error": null
+  },
+  {
+    "id": 7,
+    "name": "KK SEO root files: llms.txt + robots policy 2026-06-12",
+    "desc": "Approved Wave 3 fallback deploy for #221/#187/#188. Serves /llms.txt and /robots.txt exactly from repo artifacts. Rollback: deactivate this snippet.",
+    "code": "if ( ! function_exists( 'kk_seo_root_files_20260612_content' ) ) {\n    function kk_seo_root_files_20260612_content( $which ) {\n        $files = array(\n            'llms'   => '# Kris Kr\u00fcg\n\n> Vancouver-based generative AI strategist, photographer, and community builder. Founder + Executive Director of BC + AI Ecosystem, with past CTO work at Indigenomics.ai.\n\n## Core pages\n\n- [About Kris Kr\u00fcg](https://kriskrug.co/about/): Personal background, current rooms, and proof of work\n- [The KK Worldview](https://kriskrug.co/the-kk-worldview/): Beliefs about AI, creativity, and the human role\n- [Reconciliation & Indigenous Land Acknowledgement](https://kriskrug.co/reconciliation-indigenous-land-acknowledgement/): Commitments and context for place-based technology work\n- [Contact](https://kriskrug.co/contact/): How to reach Kris\n\n## Services and offers\n\n- [AI Upgrade for Modern Media Leaders](https://kriskrug.co/ai-upgrade-for-modern-media-leaders/): Training and strategy for newsrooms, PR teams, and editorial leaders\n- [AI Upgrade for Creative Professionals](https://kriskrug.co/ai-upgrade-for-creative-professionals/): AI workflows for photographers, designers, artists, and filmmakers\n- [AI Upgrade Community Coaching](https://kriskrug.co/ai-upgrade-community-coaching-w-kris-krug-peter-bittner/): Cohort-based coaching with Peter Bittner\n- [Generative AI Creative Services](https://kriskrug.co/generative-ai-services/): Custom creative-services engagements\n- [Generative AI Workshops](https://kriskrug.co/generative-ai-workshop-for-artists-creatives/): Workshops for artists and creative communities\n- [Cinematic Podcasts](https://kriskrug.co/cinematic-podcasts-hollywood-grade-storytelling-meets-generative-ai/): Hollywood-grade storytelling for branded podcasts\n\n## Podcast and speaking\n\n- [M\u00d8TLEYKR\u00dcG Podcast](https://kriskrug.co/motleykrug-podcast/): Conversations with builders, artists, and Indigenous technologists\n- [Speaking](https://kriskrug.co/speaking/): Topics, talks, and booking information\n- [Podcast Guesting / EPK](https://kriskrug.co/podcast-guesting-page-epk/): Booking context for podcast hosts\n\n## Notable writing\n\n- [BC + AI Is Live](https://kriskrug.co/2025/05/18/bc-ai-is-live-and-were-building-the-future-we-actually-want/): Founding statement for the BC + AI Ecosystem Industry Association\n- [BC\\'s AI Ecosystem: A Mycelial Network of Creation](https://kriskrug.co/2025/02/16/bcs-ai-ecosystem-a-mycelial-network-of-creation/): How a regional AI scene actually works\n- [A Creative Technologist\\'s AI Age Manifesto](https://kriskrug.co/2025/03/30/a-creative-technologists-ai-age-manifesto/): Working principles for creative technology\n- [How to Build an AI Second Brain That Actually Works for You](https://kriskrug.co/2025/04/01/how-to-build-an-ai-second-brain-that-actually-works-for-you/): Practical personal-knowledge workflow\n- [How Indigenomics.ai is Flipping the Script on Economic Power in Canada](https://kriskrug.co/2025/04/08/how-indigenomics-ai-is-flipping-the-script-on-economic-power-in-canada/): Indigenous-led AI economics\n- [What Journalists Need to Know About AI Right Now](https://kriskrug.co/2025/06/24/what-journalists-need-to-know-about-ai-right-now/): Newsroom-focused primer\n- [Punk Rock AI](https://kriskrug.co/2026/05/04/punk-rock-ai/): A counter-corporate stance on AI culture\n- [Web Summit Vancouver 2026](https://kriskrug.co/2026/05/07/web-summit-vancouver-2026/): Independent coverage and field notes\n\n## Projects and communities\n\n- [BC + AI Ecosystem](https://bc-ai.ca/): Community infrastructure for responsible, inclusive, place-rooted AI in British Columbia\n- [Indigenomics.ai](https://indigenomics.com/): Indigenous economic sovereignty and evidence-systems work Kris has supported through prior CTO work\n- [Vancouver AI Meetup](https://kriskrug.co/?s=vancouver+ai+meetup): Monthly community gathering archive and related posts\n\n## Archives and policies\n\n- [Blog index](https://kriskrug.co/blog/): All posts, most recent first\n- [Testimonials](https://kriskrug.co/testimonials/): Client and collaborator proof\n- [Publications](https://kriskrug.co/publications/): Published work and media references\n- [Events](https://kriskrug.co/events/): Events and appearances\n- [Sponsor the Cyberpunk Chronicles newsletter](https://kriskrug.co/sponsor-cyberpunk-chronicles-newsletter/): Newsletter sponsorship information\n- [Privacy Policy](https://kriskrug.co/privacy-policy/): Site privacy policy\n- [Product Review Policy](https://kriskrug.co/product-review-policy-instructions/): Product review policy and instructions\n',\n            'robots' => '# robots.txt for kriskrug.co\n# Stance: AI/search discovery and citation.\n# Source: WalksWithASwagger/kriskrug-wp fixes/robots.txt\n# Last reviewed: 2026-06-07\n\nSitemap: https://kriskrug.co/sitemap.xml\n\n# Curated LLM index. This is a comment, not a robots.txt directive.\n# llms.txt: https://kriskrug.co/llms.txt\n\nUser-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\nDisallow: /?s=\nDisallow: /search/\n\n# AI/search crawlers are intentionally allowed for public content.\n# Keep the baseline admin/search disallows in this group because specific\n# user-agent groups may not inherit the rules from User-agent: *.\nUser-agent: OAI-SearchBot\nUser-agent: GPTBot\nUser-agent: ChatGPT-User\nUser-agent: ClaudeBot\nUser-agent: Claude-User\nUser-agent: Claude-SearchBot\nUser-agent: PerplexityBot\nUser-agent: Perplexity-User\nUser-agent: Google-Extended\nUser-agent: Applebot-Extended\nUser-agent: CCBot\nUser-agent: Amazonbot\nUser-agent: cohere-ai\nUser-agent: Bytespider\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\nDisallow: /?s=\nDisallow: /search/\nAllow: /\n',\n        );\n        return $files[ $which ] ?? '';\n    }\n}\n\nif ( ! function_exists( 'kk_seo_root_files_20260612_serve' ) ) {\n    function kk_seo_root_files_20260612_serve() {\n        $path = parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH );\n\n        if ( '/llms.txt' === $path ) {\n            status_header( 200 );\n            header( 'Content-Type: text/plain; charset=utf-8' );\n            header( 'X-Robots-Tag: index, follow' );\n            echo kk_seo_root_files_20260612_content( 'llms' );\n            exit;\n        }\n\n        if ( '/robots.txt' === $path ) {\n            status_header( 200 );\n            header( 'Content-Type: text/plain; charset=utf-8' );\n            echo kk_seo_root_files_20260612_content( 'robots' );\n            exit;\n        }\n    }\n}\nadd_action( 'template_redirect', 'kk_seo_root_files_20260612_serve', 0 );\n",
+    "tags": [
+      "seo",
+      "root-files",
+      "roadmap"
+    ],
+    "scope": "front-end",
+    "condition_id": 0,
+    "active": true,
+    "priority": 10,
+    "network": false,
+    "shared_network": false,
+    "modified": "2026-07-01 20:20:18",
+    "code_error": null
+  },
+  {
+    "id": 8,
+    "name": "GSC404 query param canonicalize",
+    "desc": "301 canonicalization for legacy GSC tracking query params (?share, ?nb, ?amp). Repo source: fixes/gsc-404-query-param-canonicalize.php. Deployed 2026-06-18.",
+    "code": "/**\n * GSC 404 cleanup \u2014 canonicalize legacy tracking query params.\n *\n * Jetpack sharing turns ?share=twitter URLs into off-site 302s. Google indexed\n * those variants separately and reports them in Search Console Coverage.\n *\n * Deploy via Code Snippets on production (Track A). Keep this repo copy in sync.\n * Run early on template_redirect so it wins over Jetpack sharing handlers.\n *\n * When pasting into Code Snippets: strip the opening <?php tag.\n */\n\ndeclare(strict_types=1);\n\n/**\n * Query keys that should never be indexed as separate URLs.\n */\nfunction kk_gsc404_tracking_query_keys(): array {\n    return array('share', 'nb', 'amp');\n}\n\n/**\n * Return true when the request carries legacy tracking params we should strip.\n */\nfunction kk_gsc404_has_tracking_query(): bool {\n    if (empty($_GET) || !is_array($_GET)) {\n        return false;\n    }\n\n    foreach (kk_gsc404_tracking_query_keys() as $key) {\n        if (array_key_exists($key, $_GET)) {\n            return true;\n        }\n    }\n\n    return false;\n}\n\n/**\n * Build the canonical URL for the current request without tracking params.\n */\nfunction kk_gsc404_canonical_target_url(): string {\n    $request_uri = isset($_SERVER['REQUEST_URI'])\n        ? sanitize_text_field(wp_unslash((string) $_SERVER['REQUEST_URI']))\n        : '/';\n\n    $path = (string) wp_parse_url($request_uri, PHP_URL_PATH);\n    if ($path === '') {\n        $path = '/';\n    }\n\n    $path = '/' . ltrim(untrailingslashit($path), '/');\n    if ($path !== '/') {\n        $path = trailingslashit($path);\n    }\n\n    return home_url($path);\n}\n\n/**\n * 301 redirect tracking-param variants to the clean canonical URL.\n */\nfunction kk_gsc404_redirect_tracking_query_params(): void {\n    if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {\n        return;\n    }\n\n    if (defined('REST_REQUEST') && REST_REQUEST) {\n        return;\n    }\n\n    if (!kk_gsc404_has_tracking_query()) {\n        return;\n    }\n\n    $method = isset($_SERVER['REQUEST_METHOD'])\n        ? strtoupper(sanitize_key(wp_unslash((string) $_SERVER['REQUEST_METHOD'])))\n        : 'GET';\n\n    if (!in_array($method, array('GET', 'HEAD'), true)) {\n        return;\n    }\n\n    wp_safe_redirect(kk_gsc404_canonical_target_url(), 301, 'KK GSC404');\n    exit;\n}\nadd_action('template_redirect', 'kk_gsc404_redirect_tracking_query_params', 0);\n",
+    "tags": [
+      "gsc-404",
+      "seo",
+      "redirects"
+    ],
+    "scope": "front-end",
+    "condition_id": 0,
+    "active": true,
+    "priority": 10,
+    "network": false,
+    "shared_network": false,
+    "modified": "2026-06-18 05:04:55",
+    "code_error": null
+  },
+  {
+    "id": 9,
+    "name": "A11Y CTA contrast hotfix 2026-06-18",
+    "desc": "Temporary live CSS hotfix for primary CTA contrast. Remove after Aurora 1.3.22 is deployed from git.",
+    "code": "if ( ! function_exists( 'kk_a11y_cta_contrast_20260618' ) ) {\n    function kk_a11y_cta_contrast_20260618(): void {\n        ?>\n        <style id=\"kk-a11y-cta-contrast-20260618\">\n            .aurora-button-primary,\n            .wp-block-button.is-style-aurora-primary .wp-block-button__link {\n                background: #c8371f;\n                border-color: #c8371f;\n                color: #fffaf6;\n            }\n\n            .aurora-button-primary:hover,\n            .wp-block-button.is-style-aurora-primary .wp-block-button__link:hover {\n                background: #b82f1c;\n                border-color: #b82f1c;\n            }\n        </style>\n        <?php\n    }\n\n    add_action( 'wp_head', 'kk_a11y_cta_contrast_20260618', 30 );\n}\n",
+    "tags": [
+      "a11y",
+      "contrast",
+      "temporary",
+      "aurora-1.3.22"
+    ],
+    "scope": "front-end",
+    "condition_id": 0,
+    "active": false,
+    "priority": 10,
+    "network": false,
+    "shared_network": false,
+    "modified": "2026-06-18 05:19:51",
+    "code_error": null
+  },
+  {
+    "id": 10,
+    "name": "KK Asset Diet",
+    "desc": "Cut unused plugin CSS/JS flagged by Google PageSpeed: disables Jetpack search/carousel/sharedaddy modules, drops jQuery Migrate, dequeues Popup Maker. Source of truth: fixes/asset-diet-snippet.php",
+    "code": "/**\n * KK Asset Diet \u2014 kriskrug.co\n *\n * Cuts unused plugin CSS/JS flagged by Google PageSpeed (\"Reduce unused CSS\",\n * \"Reduce unused JavaScript\"). Deployed via the Code Snippets plugin on\n * production as the \"KK Asset Diet\" snippet (front-end scope). This file is the\n * source of truth \u2014 keep it in sync if either side is edited.\n *\n * Verified live 2026-06-28: every page was loading Jetpack Instant Search\n * (jp-search.js, served unminified), Jetpack Carousel + Swiper, Jetpack Sharing\n * (sharedaddy), Popup Maker (one site-wide auto-open popup #3884), and jQuery\n * Migrate. The kk-aurora theme itself is clean \u2014 its CSS/JS is concatenated and\n * minified by Jetpack Boost, so the reducible weight is all plugin JavaScript.\n *\n * Reversible by design: deleting this snippet (or Code Snippets safe-mode)\n * restores instant search, carousel, sharing, the popup, and jQuery Migrate.\n *\n * When pasting into Code Snippets: strip the opening <?php tag (Code Snippets\n * wraps the snippet automatically).\n */\n\n/**\n * 1. Disable Jetpack modules KK doesn't use: Instant Search, Carousel, Sharing.\n *    Search reverts to the lightweight core search form.\n */\nadd_filter('jetpack_active_modules', function (array $modules): array {\n    return array_values(array_diff($modules, ['search', 'carousel', 'sharedaddy']));\n});\n\n/**\n * 2. Drop jQuery Migrate on the front end. It is a legacy-API shim with no\n *    modern consumer once the plugins above stop loading.\n */\nadd_action('wp_default_scripts', function ($scripts): void {\n    if (is_admin()) {\n        return;\n    }\n    $jquery = $scripts->registered['jquery'] ?? null;\n    if ($jquery && !empty($jquery->deps)) {\n        $jquery->deps = array_diff($jquery->deps, ['jquery-migrate']);\n    }\n});\n\n/**\n * 3. Retire the site-wide auto-open Popup Maker popup (#3884) and its assets.\n *    pum_popup_is_loadable => false stops Popup Maker rendering AND enqueuing\n *    any popup. The dequeue is belt-and-suspenders against PM's combined asset\n *    cache, whose real handle is \"popup-maker-site\" (not \"pum-site-*\").\n */\nadd_filter('pum_popup_is_loadable', '__return_false');\nadd_action('wp_enqueue_scripts', function (): void {\n    wp_dequeue_style('popup-maker-site');\n    wp_dequeue_script('popup-maker-site');\n}, 100);\n\n/**\n * 4. Drop jQuery on the front end. The audit found no consumer: kk-aurora theme\n *    JS is vanilla, no enqueued script declares a jquery dep, and there are zero\n *    inline jQuery()/$() calls across every page type. Dequeue (not deregister)\n *    is self-protecting: if some script genuinely depends on jquery, WordPress\n *    re-adds it at print time, so this only removes jquery where it is unused.\n */\nadd_action('wp_enqueue_scripts', function (): void {\n    if (is_admin()) {\n        return;\n    }\n    wp_dequeue_script('jquery');\n    wp_dequeue_script('jquery-core');\n}, 100);",
+    "tags": [],
+    "scope": "front-end",
+    "condition_id": 0,
+    "active": true,
+    "priority": 10,
+    "network": false,
+    "shared_network": false,
+    "modified": "2026-06-28 22:11:13",
+    "code_error": null
+  },
+  {
+    "id": 11,
+    "name": "TEMP Aurora 1.3.33 a11y contrast fallback - remove after theme deploy",
+    "desc": "Temporary frontend-only CSS fallback created 2026-07-02 because Chrome/wp-admin theme zip upload refused selectable zip files. Source fix is committed in Aurora 1.3.33; deactivate this after the 1.3.33 theme package is successfully installed.",
+    "code": "add_action( 'wp_head', function () {\n\tif ( ! function_exists( 'wp_get_theme' ) || 'kk-aurora' !== wp_get_theme()->get_stylesheet() ) {\n\t\treturn;\n\t}\n\t?>\n\t<style id=\"kk-aurora-a11y-133-fallback\">\n\t\tbody.aurora-theme #aurora-main :where(.aurora-page-header, .aurora-writing-archive-header, .aurora-feed-links-copy, .aurora-proof-section) {\n\t\t\tbackground-color: #090c11 !important;\n\t\t}\n\n\t\tbody.aurora-theme #aurora-main :where(#aurora-home-title, .aurora-page-title, .aurora-writing-archive-title, .aurora-display-heading, .aurora-feed-links-copy h2, .aurora-hero-copy h1) {\n\t\t\tbackground-color: #090c11 !important;\n\t\t\tbox-decoration-break: clone;\n\t\t\tcolor: #f8f1e6 !important;\n\t\t\t-webkit-box-decoration-break: clone;\n\t\t\t-webkit-text-fill-color: currentColor !important;\n\t\t}\n\n\t\tbody.aurora-theme #aurora-main :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-writing-archive-dek, .aurora-feed-links-copy p:not(.aurora-kicker), .aurora-page-content p, .aurora-prose p, .aurora-hero-copy p) {\n\t\t\tbackground-color: #090c11 !important;\n\t\t\tbox-decoration-break: clone;\n\t\t\tcolor: #f8f1e6 !important;\n\t\t\t-webkit-box-decoration-break: clone;\n\t\t\t-webkit-text-fill-color: currentColor !important;\n\t\t}\n\n\t\tbody.aurora-theme #aurora-main :where(.aurora-writing-pagination a, .aurora-writing-pagination .page-numbers, .aurora-writing-pagination .wp-block-query-pagination-previous, .aurora-writing-pagination .wp-block-query-pagination-next, .aurora-feed-link-grid a) {\n\t\t\tbackground-color: #090c11 !important;\n\t\t\tborder-color: #f8f1e6 !important;\n\t\t\tcolor: #f8f1e6 !important;\n\t\t\t-webkit-text-fill-color: currentColor !important;\n\t\t}\n\n\t\tbody.aurora-theme #aurora-main .wp-block-button:not(.is-style-aurora-primary) .wp-block-button__link {\n\t\t\tbackground: #090c11 !important;\n\t\t\tborder-color: #f8f1e6 !important;\n\t\t\tcolor: #f8f1e6 !important;\n\t\t\t-webkit-text-fill-color: currentColor !important;\n\t\t}\n\t</style>\n\t<?php\n}, 999 );",
+    "tags": [
+      "temporary",
+      "aurora",
+      "accessibility"
+    ],
+    "scope": "front-end",
+    "condition_id": 0,
+    "active": false,
+    "priority": 999,
+    "network": false,
+    "shared_network": false,
+    "modified": "2026-07-02 18:34:20",
+    "code_error": null
+  },
+  {
+    "id": 12,
+    "name": "Open Graph + Twitter Card meta (social link previews)",
+    "desc": "Temporary direct OG/Twitter metadata bridge. Retire after Aurora 1.3.37 is live.",
+    "code": "/**\n * KK OG Restore \u2014 kriskrug.co\n *\n * Temporary production bridge for social link previews while Aurora 1.3.37 is\n * reviewed and deployed. The live Code Snippet must match this file exactly,\n * without the opening PHP tag.\n *\n * Rollback: deactivate the \"Open Graph + Twitter Card meta (social link\n * previews)\" snippet. Retire it after Aurora 1.3.37 is live and verified.\n */\n\nif (!defined('KK_OG_SNIPPET_ACTIVE')) {\n    define('KK_OG_SNIPPET_ACTIVE', true);\n}\n\nadd_action('wp_head', function (): void {\n    if (is_feed()) {\n        return;\n    }\n\n    $site = get_bloginfo('name');\n    $tags = [\n        'og:site_name'        => $site,\n        'og:title'            => wp_get_document_title(),\n        'og:type'             => 'website',\n        'og:url'              => home_url('/'),\n        'og:description'      => get_bloginfo('description'),\n        'twitter:site'        => '@feelmoreplants',\n    ];\n\n    if (is_singular()) {\n        $post = get_queried_object();\n        if ($post instanceof WP_Post) {\n            $description = get_the_excerpt($post);\n            if ($description === '') {\n                $description = wp_trim_words(wp_strip_all_tags($post->post_content), 40);\n            }\n\n            $tags['og:title'] = get_the_title($post);\n            $tags['og:type'] = is_singular('post') ? 'article' : 'website';\n            $tags['og:url'] = get_permalink($post);\n            $tags['og:description'] = $description;\n\n            $image = get_the_post_thumbnail_url($post, 'large');\n            if (!$image && preg_match('/<img[^>]+src=[\"\\']([^\"\\']+)/i', $post->post_content, $match)) {\n                $image = $match[1];\n            }\n            if ($image) {\n                $tags['og:image'] = $image;\n                $tags['og:image:secure_url'] = $image;\n            }\n        }\n    }\n\n    if (empty($tags['og:image']) && has_site_icon()) {\n        $tags['og:image'] = get_site_icon_url(512);\n        $tags['og:image:secure_url'] = $tags['og:image'];\n    }\n\n    if (function_exists('KKAurora\\\\work_page_open_graph_fallback')) {\n        $tags = KKAurora\\work_page_open_graph_fallback($tags);\n    }\n    if (function_exists('KKAurora\\\\writing_archive_open_graph_fallback')) {\n        $tags = KKAurora\\writing_archive_open_graph_fallback($tags);\n    }\n    if (function_exists('KKAurora\\\\twitter_card_tag_fallbacks')) {\n        $tags = KKAurora\\twitter_card_tag_fallbacks($tags);\n    }\n\n    $tags['og:description'] = mb_substr(wp_strip_all_tags((string) ($tags['og:description'] ?? '')), 0, 300);\n    $tags['twitter:card'] = empty($tags['og:image']) ? 'summary' : 'summary_large_image';\n    $tags['twitter:title'] = $tags['twitter:title'] ?? $tags['og:title'];\n    $tags['twitter:description'] = $tags['twitter:description'] ?? $tags['og:description'];\n    if (!empty($tags['og:image'])) {\n        $tags['twitter:image'] = $tags['twitter:image'] ?? $tags['og:image'];\n    }\n\n    foreach ($tags as $name => $value) {\n        if (!is_scalar($value) || $value === '') {\n            continue;\n        }\n        $attribute = str_starts_with($name, 'twitter:') ? 'name' : 'property';\n        printf(\n            '<meta %s=\"%s\" content=\"%s\" />' . \"\\n\",\n            $attribute,\n            esc_attr($name),\n            esc_attr((string) $value)\n        );\n    }\n}, 5);\n",
+    "tags": [],
+    "scope": "front-end",
+    "condition_id": 0,
+    "active": false,
+    "priority": 5,
+    "network": false,
+    "shared_network": false,
+    "modified": "2026-07-13 00:46:49",
+    "code_error": null
+  },
+  {
+    "id": 13,
+    "name": "KK News Sitemap",
+    "desc": "#425 Google News-style sitemap at /news-sitemap.xml for NewsArticle posts (48h).",
+    "code": "/**\n * Google News-style sitemap \u2014 kriskrug.co (#425)\n *\n * DRAFT for Code Snippets. Do not paste/activate without KK approval.\n * Emits only posts classified as NewsArticle (see kk_schema_post_type in\n * schema-snippets-deployed.php) from the last 48 hours at /news-sitemap.xml.\n *\n * When pasting into Code Snippets: strip the opening <?php tag.\n */\n\nif (!defined('ABSPATH')) {\n    exit;\n}\n\nadd_action('init', function () {\n    add_rewrite_rule('^news-sitemap\\.xml$', 'index.php?kk_news_sitemap=1', 'top');\n    add_rewrite_tag('%kk_news_sitemap%', '1');\n    // One-shot flush after first activate (avoids a manual Permalinks visit).\n    if (get_option('kk_news_sitemap_flushed') !== '1') {\n        flush_rewrite_rules(false);\n        update_option('kk_news_sitemap_flushed', '1', true);\n    }\n});\n\nadd_filter('query_vars', function ($vars) {\n    $vars[] = 'kk_news_sitemap';\n    return $vars;\n});\n\nadd_action('template_redirect', function () {\n    if (!get_query_var('kk_news_sitemap')) {\n        return;\n    }\n\n    $posts = get_posts(array(\n        'post_type'           => 'post',\n        'post_status'         => 'publish',\n        'posts_per_page'      => 100,\n        'ignore_sticky_posts' => true,\n        'date_query'          => array(\n            array(\n                'after'     => '48 hours ago',\n                'inclusive' => true,\n            ),\n        ),\n        'orderby'             => 'date',\n        'order'               => 'DESC',\n    ));\n\n    header('Content-Type: application/xml; charset=UTF-8');\n    echo '<?xml version=\"1.0\" encoding=\"UTF-8\"?>' . \"\\n\";\n    echo '<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"'\n        . ' xmlns:news=\"http://www.google.com/schemas/sitemap-news/0.9\">' . \"\\n\";\n\n    foreach ($posts as $post) {\n        $type = function_exists('kk_schema_post_type')\n            ? kk_schema_post_type($post)\n            : 'BlogPosting';\n        if ($type !== 'NewsArticle') {\n            continue;\n        }\n        $loc = esc_url(get_permalink($post));\n        $title = esc_html(get_the_title($post));\n        $pub = get_the_date('c', $post);\n        echo \"  <url>\\n\";\n        echo \"    <loc>{$loc}</loc>\\n\";\n        echo \"    <news:news>\\n\";\n        echo \"      <news:publication>\\n\";\n        echo \"        <news:name>Kris Krug</news:name>\\n\";\n        echo \"        <news:language>en</news:language>\\n\";\n        echo \"      </news:publication>\\n\";\n        echo \"      <news:publication_date>{$pub}</news:publication_date>\\n\";\n        echo \"      <news:title>{$title}</news:title>\\n\";\n        echo \"    </news:news>\\n\";\n        echo \"  </url>\\n\";\n    }\n\n    echo '</urlset>';\n    exit;\n});\n\n/**\n * After first activate: flush rewrite rules once (Settings \u2192 Permalinks \u2192 Save)\n * or run `flush_rewrite_rules()` from a one-shot admin action.\n */\n",
+    "tags": [],
+    "scope": "front-end",
+    "condition_id": 0,
+    "active": true,
+    "priority": 10,
+    "network": false,
+    "shared_network": false,
+    "modified": "2026-07-24 22:27:21",
+    "code_error": null
+  }
+]
