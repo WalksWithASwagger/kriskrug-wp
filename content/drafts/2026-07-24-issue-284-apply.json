@@ -1,0 +1,103 @@
+[
+  {
+    "id": 12035,
+    "label": "ordinary",
+    "ok": true,
+    "applied": [
+      {
+        "needle": "We train people in AI tools every day.",
+        "status": "WRAPPED",
+        "was_count": 1
+      }
+    ],
+    "link": "https://kriskrug.co/2026/06/24/ai-wont-fix-your-broken-permit-process/",
+    "modified": "2026-07-24T14:40:21"
+  },
+  {
+    "id": 12257,
+    "label": "ordinary",
+    "ok": false,
+    "applied": [
+      {
+        "needle": "That gap, between deployment speed and ethical practice, is ",
+        "status": "MISSING"
+      }
+    ],
+    "reason": "no change"
+  },
+  {
+    "id": 2781,
+    "label": "ordinary",
+    "ok": true,
+    "applied": [
+      {
+        "needle": "the entire field of AI technology",
+        "status": "WRAPPED",
+        "was_count": 1
+      }
+    ],
+    "link": "https://kriskrug.co/2023/07/30/audio-deep-fakes-ai-chatbots-and-new-web-development-tools/",
+    "modified": "2026-07-24T14:40:23"
+  },
+  {
+    "id": 12030,
+    "label": "ordinary",
+    "ok": true,
+    "applied": [
+      {
+        "needle": "AI ethics",
+        "status": "WRAPPED",
+        "was_count": 1
+      },
+      {
+        "needle": "community-built tools",
+        "status": "WRAPPED",
+        "was_count": 1
+      }
+    ],
+    "link": "https://kriskrug.co/2026/06/26/canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one/",
+    "modified": "2026-07-24T14:40:25"
+  },
+  {
+    "id": 12030,
+    "label": "indigenous",
+    "ok": true,
+    "applied": [
+      {
+        "needle": "Indigenous data sovereignty and stewardship",
+        "status": "WRAPPED",
+        "was_count": 1
+      }
+    ],
+    "link": "https://kriskrug.co/2026/06/26/canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one/",
+    "modified": "2026-07-24T14:40:27"
+  },
+  {
+    "id": 12035,
+    "label": "indigenous",
+    "ok": true,
+    "applied": [
+      {
+        "needle": "Indigenous leadership",
+        "status": "WRAPPED",
+        "was_count": 1
+      }
+    ],
+    "link": "https://kriskrug.co/2026/06/24/ai-wont-fix-your-broken-permit-process/",
+    "modified": "2026-07-24T14:40:28"
+  },
+  {
+    "id": 12257,
+    "label": "indigenous",
+    "ok": true,
+    "applied": [
+      {
+        "needle": "Indigenous ceremony",
+        "status": "WRAPPED",
+        "was_count": 1
+      }
+    ],
+    "link": "https://kriskrug.co/2026/06/18/why-we-built-the-responsible-ai-professional-certification/",
+    "modified": "2026-07-24T14:40:29"
+  }
+]

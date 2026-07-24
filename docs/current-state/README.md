@@ -9,7 +9,7 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 
 Read these first for current execution context:
 
-**Newest declared snapshot:** [CURRENT-STATE-2026-07-16.md](CURRENT-STATE-2026-07-16.md) — open PRs / issues / WP / Aurora versions are declared there (re-run `make status-readonly` rather than trusting older counts in this index). As of the orchestra/hygiene stack: WordPress `7.0.1`, live Aurora `1.3.37`, repo Aurora `1.3.40`.
+**Newest declared snapshot:** [CURRENT-STATE-2026-07-16.md](CURRENT-STATE-2026-07-16.md) — open PRs / issues / WP / Aurora versions are declared there (re-run `make status-readonly` rather than trusting older counts in this index). **Live readback 2026-07-24:** WordPress `7.0.x`, Aurora **`1.3.41`**.
 
 **Active work plan / day runbook:** [WORK-PLAN-2026-07-16.md](WORK-PLAN-2026-07-16.md) — Monday queue #360–#366; live gates start at Aurora 1.3.40 upload (#362/#351). Long-run unlock order: [WORK-PLAN-LONG-RUN-2026-07-16.md](WORK-PLAN-LONG-RUN-2026-07-16.md).
 
