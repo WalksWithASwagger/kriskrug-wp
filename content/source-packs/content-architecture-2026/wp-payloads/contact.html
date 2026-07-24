@@ -1,39 +1,290 @@
 <!-- wp:html -->
 <!-- content-architecture-2026:contact -->
-<section class="aurora-proof-section">
-  <p class="aurora-section-kicker">Contact</p>
-  <h2 class="aurora-display-heading">Tell me what kind of room you are building.</h2>
-  <p class="aurora-page-lead">The fastest path is email. Send the shape of the thing: keynote, workshop, media appearance, strategy session, community partnership, or strange creative AI project.</p>
-  <p>I read for context first. Include who it is for, when it needs to happen, where it happens, and what would make the work genuinely useful.</p>
-</section>
+<style>
+.kk-contact {
+  --kk-ink: #f0f0f5;
+  --kk-ink-2: #fff;
+  --kk-muted: #a6a6b3;
+  --kk-line: rgba(255, 255, 255, 0.14);
+  --kk-card: rgba(255, 255, 255, 0.04);
+  --kk-paper: rgba(255, 255, 255, 0.05);
+  --kk-accent: #00e5ff;
+  --kk-hot: #ff6a6a;
+  --kk-r: 14px;
+  --kk-sh: 0 1px 2px rgba(0, 0, 0, 0.45), 0 12px 28px -14px rgba(0, 0, 0, 0.7);
+  color: var(--kk-ink);
+  max-width: 72rem;
+}
+.kk-contact p,
+.kk-contact p::first-letter,
+.kk-contact li {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.kk-contact p::first-letter {
+  initial-letter: normal !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  float: none !important;
+  margin: 0 !important;
+  line-height: inherit !important;
+  color: inherit !important;
+}
+.kk-contact a {
+  color: var(--kk-accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+.kk-contact a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.kk-contact-hero {
+  padding: 0.2rem 0 1.8rem;
+  border-bottom: 1px solid var(--kk-line);
+}
+.kk-contact-kicker {
+  margin: 0 0 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+  color: var(--kk-hot);
+  font-weight: 800;
+}
+.kk-contact-display {
+  margin: 0.1rem 0 0.8rem;
+  font-size: clamp(1.85rem, 3.4vw, 2.55rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  max-width: 38rem;
+  color: var(--kk-ink-2);
+}
+.kk-contact-lead {
+  font-size: 1.12rem;
+  line-height: 1.62;
+  max-width: 42rem;
+  color: var(--kk-ink);
+  margin: 0 0 1rem;
+}
+.kk-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.35rem 0 0;
+}
+.kk-contact-button {
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  border: 2px solid var(--kk-accent);
+  border-radius: 8px;
+  text-decoration: none !important;
+  background: var(--kk-accent);
+  color: #04121a !important;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.kk-contact-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--kk-sh);
+  text-decoration: none !important;
+}
+.kk-contact-button.secondary {
+  background: transparent;
+  color: var(--kk-ink) !important;
+  border-color: var(--kk-line);
+}
+.kk-contact-button.secondary:hover {
+  border-color: var(--kk-accent);
+  color: var(--kk-accent) !important;
+}
+.kk-contact-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.9fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+.kk-contact-hero-photo {
+  margin: 0;
+  border: 1px solid var(--kk-line);
+  border-radius: var(--kk-r);
+  overflow: hidden;
+  background: var(--kk-card);
+  box-shadow: var(--kk-sh);
+}
+.kk-contact-hero-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+}
+.kk-contact-hero-photo figcaption {
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.78rem;
+  color: var(--kk-muted);
+  border-top: 1px solid var(--kk-line);
+  background: rgba(0, 0, 0, 0.28);
+}
+.kk-contact-section {
+  padding: 2.4rem 0;
+  border-bottom: 1px solid var(--kk-line);
+}
+.kk-contact-section > h2 {
+  position: relative;
+  padding-top: 1.1rem;
+  margin: 0 0 1rem;
+  font-size: 1.55rem;
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  font-weight: 800;
+  color: var(--kk-ink-2);
+}
+.kk-contact-section > h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.4rem;
+  height: 4px;
+  border-radius: 3px;
+  background: var(--kk-hot);
+}
+.kk-contact-section-intro {
+  max-width: 48rem;
+  margin: 0 0 1.2rem;
+  color: var(--kk-muted);
+  line-height: 1.6;
+}
+.kk-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.kk-contact-card {
+  border: 1px solid var(--kk-line);
+  border-radius: var(--kk-r);
+  background: var(--kk-card);
+  padding: 1.1rem;
+  box-shadow: var(--kk-sh);
+}
+.kk-contact-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.08rem;
+  color: var(--kk-ink-2);
+}
+.kk-contact-card p {
+  margin: 0;
+  color: var(--kk-muted);
+  line-height: 1.5;
+}
+.kk-contact-two {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(240px, 0.9fr);
+  gap: 1.2rem;
+  align-items: stretch;
+}
+.kk-contact-panel {
+  border: 1px solid var(--kk-line);
+  border-radius: var(--kk-r);
+  background: var(--kk-paper);
+  padding: 1.25rem;
+}
+.kk-contact-panel h2,
+.kk-contact-panel h3 {
+  margin: 0 0 0.55rem;
+  color: var(--kk-ink-2);
+}
+.kk-contact-panel p {
+  margin: 0 0 0.85rem;
+  color: var(--kk-muted);
+  line-height: 1.55;
+}
+.kk-contact-panel p:last-child {
+  margin-bottom: 0;
+}
+.kk-contact-email {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--kk-ink-2) !important;
+  word-break: break-word;
+}
+@media (max-width: 760px) {
+  .kk-contact-hero-grid,
+  .kk-contact-two {
+    grid-template-columns: 1fr;
+  }
+  .kk-contact-actions {
+    display: grid;
+  }
+}
+</style>
 
-<section class="aurora-proof-section">
-  <p class="aurora-section-kicker">The fastest path</p>
-  <div class="aurora-proof-grid">
-    <article class="aurora-card">
-      <h3>Book a talk or workshop</h3>
-      <p>Share the audience, date, venue or platform, budget range if you have one, and the change you want in the room.</p>
-    </article>
-    <article class="aurora-card">
-      <h3>Plan strategy or training</h3>
-      <p>Tell me what your team is trying to do with AI, what is stuck, and what kind of support would make the next step safer.</p>
-    </article>
-    <article class="aurora-card">
-      <h3>Media and podcasts</h3>
-      <p>Send the topic, format, timing, audience, and any prep links. The EPK has a cleaner producer-facing version.</p>
-    </article>
-    <article class="aurora-card">
-      <h3>Community collaborations</h3>
-      <p>For BC + AI, Vancouver AI, AI Film Club, or ecosystem work, include the people involved and the public value you want to create.</p>
-    </article>
-  </div>
-</section>
+<div class="kk-contact">
+  <section class="kk-contact-hero">
+    <div class="kk-contact-hero-grid">
+      <div>
+        <p class="kk-contact-kicker">Contact</p>
+        <h2 class="kk-contact-display">Tell me what kind of room you are building.</h2>
+        <p class="kk-contact-lead">The fastest path is email. Send the shape of the thing: keynote, workshop, media appearance, strategy session, community partnership, or strange creative AI project.</p>
+        <p class="kk-contact-lead">I read for context first. Include who it is for, when it needs to happen, where it happens, and what would make the work genuinely useful.</p>
+        <div class="kk-contact-actions">
+          <a class="kk-contact-button" href="mailto:feelmoreplants@gmail.com?subject=Inquiry%20from%20kriskrug.co">Email Kris</a>
+          <a class="kk-contact-button secondary" href="https://kriskrug.beehiiv.com/" target="_blank" rel="noopener noreferrer">Get the newsletter</a>
+        </div>
+      </div>
+      <figure class="kk-contact-hero-photo">
+        <img
+          src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-close-2026-scaled.jpg?w=1200&amp;ssl=1"
+          alt="Portrait of Kris Krüg in a white shirt beside a brightly painted staircase"
+          width="1200"
+          height="1500"
+          loading="eager"
+        />
+        <figcaption>CreativeMornings Vancouver, May 1, 2026. Photo: Michelle Diamond.</figcaption>
+      </figure>
+    </div>
+  </section>
 
-<section class="aurora-proof-section">
-  <div class="aurora-card">
-    <h2>Email Kris</h2>
-    <p><a href="mailto:feelmoreplants@gmail.com">feelmoreplants@gmail.com</a></p>
-    <p><a class="aurora-button" href="mailto:feelmoreplants@gmail.com?subject=Inquiry%20from%20kriskrug.co">Send the note</a></p>
-  </div>
-</section>
+  <section class="kk-contact-section">
+    <h2>What to include</h2>
+    <p class="kk-contact-section-intro">A short brief beats a vague hello. These are the details that help me answer faster.</p>
+    <div class="kk-contact-grid">
+      <article class="kk-contact-card">
+        <h3>Book a talk or workshop</h3>
+        <p>Share the audience, date, venue or platform, budget range if you have one, and the change you want in the room.</p>
+      </article>
+      <article class="kk-contact-card">
+        <h3>Plan strategy or training</h3>
+        <p>Tell me what your team is trying to do with AI, what is stuck, and what kind of support would make the next step safer.</p>
+      </article>
+      <article class="kk-contact-card">
+        <h3>Media and podcasts</h3>
+        <p>Send the topic, format, timing, audience, and any prep links. The <a href="/podcast-guesting-page-epk/">media EPK</a> has a cleaner producer-facing version.</p>
+      </article>
+      <article class="kk-contact-card">
+        <h3>Community collaborations</h3>
+        <p>For BC + AI, Vancouver AI, AI Film Club, or ecosystem work, include the people involved and the public value you want to create.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="kk-contact-section" style="border-bottom:0;">
+    <div class="kk-contact-two">
+      <div class="kk-contact-panel">
+        <h2>Email Kris</h2>
+        <p><a class="kk-contact-email" href="mailto:feelmoreplants@gmail.com">feelmoreplants@gmail.com</a></p>
+        <p>Same address for keynotes, workshops, media, strategy, and community partnerships.</p>
+        <p><a class="kk-contact-button" href="mailto:feelmoreplants@gmail.com?subject=Inquiry%20from%20kriskrug.co">Send the note</a></p>
+      </div>
+      <div class="kk-contact-panel">
+        <h3>Newsletter</h3>
+        <p>AI and creativity, once a week, no hype. Named people, real work, no vaporware. Free.</p>
+        <p><a class="kk-contact-button secondary" href="https://kriskrug.beehiiv.com/" target="_blank" rel="noopener noreferrer">Subscribe free</a></p>
+      </div>
+    </div>
+  </section>
+</div>
 <!-- /wp:html -->
