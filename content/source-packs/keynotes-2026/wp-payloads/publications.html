@@ -1,124 +1,581 @@
 <!-- wp:html -->
 <style>
-.kk-publications {
-  --kk-ink:#f0f0f5; --kk-ink-2:#fff; --kk-muted:#a6a6b3;
-  --kk-line:rgba(255,255,255,.14); --kk-paper:rgba(255,255,255,.05); --kk-card:rgba(255,255,255,.04);
-  --kk-accent:#00e5ff; --kk-hot:#ff6a6a; --kk-r:14px;
-  color:var(--kk-ink);
+.kk-press {
+  --press-paper:#efe7d8;
+  --press-ink:#17191d;
+  --press-night:#0d1014;
+  --press-panel:#15191f;
+  --press-line:rgba(239,231,216,.18);
+  --press-muted:#aaa89f;
+  --press-signal:#f5c84c;
+  --press-coral:#ff684f;
+  --press-radius:16px;
+  background:var(--press-night);
+  color:var(--press-paper);
+  font-family:"Avenir Next","Segoe UI",sans-serif;
+  padding:1.5rem;
 }
-.kk-publications p::first-letter { initial-letter:normal!important; font-size:inherit!important; font-weight:inherit!important; float:none!important; margin:0!important; line-height:inherit!important; color:inherit!important; }
-.kk-publications a { color:var(--kk-accent); font-weight:700; text-decoration:none; }
-.kk-publications a:hover, .kk-publications a:focus-visible { text-decoration:underline; text-underline-offset:3px; }
-.kk-publications-hero { padding:.4rem 0 2.2rem; border-bottom:1px solid var(--kk-line); }
-.kk-publications-kicker { margin:0 0 .65rem; text-transform:uppercase; letter-spacing:.14em; font-size:.74rem; color:var(--kk-hot); font-weight:800; }
-.kk-publications-display { margin:.1rem 0 1rem; font-size:2.25rem; line-height:1.08; letter-spacing:-.02em; font-weight:800; max-width:44rem; color:var(--kk-ink-2); }
-.kk-publications-lead { font-size:1.12rem; line-height:1.62; max-width:46rem; color:var(--kk-ink); }
-.kk-publications-proof { display:grid; grid-template-columns:repeat(auto-fit,minmax(165px,1fr)); gap:.7rem; margin-top:1.5rem; }
-.kk-publications-proof div { border:1px solid var(--kk-line); border-top:3px solid var(--kk-accent); border-radius:10px; padding:.95rem 1rem; background:var(--kk-card); }
-.kk-publications-proof strong { display:block; color:var(--kk-ink-2); font-size:1.02rem; line-height:1.2; }
-.kk-publications-proof span { display:block; color:var(--kk-muted); font-size:.9rem; margin-top:.25rem; line-height:1.45; }
-.kk-publications-section { padding:2.5rem 0; border-bottom:1px solid var(--kk-line); }
-.kk-publications-section > h2 { position:relative; padding-top:1.1rem; margin:0 0 1rem; font-size:1.62rem; line-height:1.14; letter-spacing:-.015em; font-weight:800; color:var(--kk-ink-2); }
-.kk-publications-section > h2::before { content:""; position:absolute; top:0; left:0; width:2.4rem; height:4px; border-radius:3px; background:var(--kk-hot); }
-.kk-publications-section-intro { max-width:48rem; margin:0 0 1.4rem; color:var(--kk-muted); font-size:1.02rem; line-height:1.6; }
-.kk-publications-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.1rem; }
-.kk-publications-card { border:1px solid var(--kk-line); border-radius:var(--kk-r); background:var(--kk-card); padding:1.2rem; box-shadow:0 1px 2px rgba(0,0,0,.45),0 12px 28px -14px rgba(0,0,0,.7); }
-.kk-publications-card h3 { margin:.15rem 0 .45rem; font-size:1.14rem; line-height:1.25; color:var(--kk-ink-2); }
-.kk-publications-card p { margin:.45rem 0; color:var(--kk-muted); line-height:1.55; }
-.kk-publications-tag { display:inline-block; margin:0 0 .6rem; background:rgba(255,106,106,.16); color:var(--kk-hot); padding:.28rem .6rem; border-radius:999px; font-size:.66rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
-.kk-publications-link-list { columns:2 18rem; margin:.3rem 0 0; padding-left:1.1rem; color:var(--kk-muted); }
-.kk-publications-link-list li { break-inside:avoid; margin:.3rem 0; line-height:1.45; }
-.kk-publications-note { border:1px solid var(--kk-line); border-radius:var(--kk-r); background:var(--kk-paper); padding:1.2rem; color:var(--kk-muted); line-height:1.58; }
-@media (max-width:760px){
-  .kk-publications-display{font-size:1.75rem;}
-  .kk-publications-link-list{columns:1;}
+.kk-press * { box-sizing:border-box; }
+.kk-press a { color:inherit; }
+.kk-press a:focus-visible,
+.kk-press summary:focus-visible { outline:3px solid var(--press-signal); outline-offset:5px; }
+.kk-press img { display:block; width:100%; }
+.kk-press-shell { max-width:1120px; margin:0 auto; }
+.kk-press-kicker,
+.kk-press-label,
+.kk-press-type,
+.kk-press-date {
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  line-height:1.3;
+  text-transform:uppercase;
+}
+.kk-press-kicker { color:var(--press-signal); margin:0 0 1rem; }
+.kk-press-hero {
+  display:grid;
+  grid-template-columns:minmax(0,1.65fr) minmax(220px,.65fr);
+  gap:2rem;
+  align-items:end;
+  padding:1rem 0 3.2rem;
+  border-bottom:1px solid var(--press-line);
+}
+.kk-press-display {
+  max-width:760px;
+  margin:0;
+  color:var(--press-paper);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  font-size:clamp(3rem,7.6vw,6.8rem);
+  font-weight:700;
+  letter-spacing:-.055em;
+  line-height:.86;
+}
+.kk-press-lead {
+  max-width:720px;
+  margin:1.5rem 0 0;
+  color:#d5cec1;
+  font-size:1.12rem;
+  line-height:1.68;
+}
+.kk-press-ledger {
+  margin:0;
+  padding:0 0 .2rem;
+  border-top:4px solid var(--press-coral);
+}
+.kk-press-ledger div {
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:.9rem;
+  align-items:baseline;
+  padding:.85rem 0;
+  border-bottom:1px solid var(--press-line);
+}
+.kk-press-ledger dt {
+  color:var(--press-signal);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  font-size:2.25rem;
+  font-weight:700;
+  line-height:1;
+}
+.kk-press-ledger dd { margin:0; color:var(--press-muted); font-size:.84rem; line-height:1.35; }
+.kk-press-section { padding:3.5rem 0; border-bottom:1px solid var(--press-line); }
+.kk-press-section-head {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,.58fr);
+  gap:2rem;
+  align-items:end;
+  margin-bottom:1.6rem;
+}
+.kk-press-section h2 {
+  margin:0;
+  color:var(--press-paper);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  font-size:clamp(2.2rem,5vw,4.3rem);
+  letter-spacing:-.04em;
+  line-height:.95;
+}
+.kk-press-section-intro { margin:0; color:var(--press-muted); line-height:1.6; }
+.kk-press-featured {
+  display:grid;
+  grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);
+  grid-template-rows:1fr 1fr;
+  gap:1rem;
+}
+.kk-press-feature {
+  position:relative;
+  display:grid;
+  grid-template-columns:42% 1fr;
+  min-width:0;
+  overflow:hidden;
+  border:1px solid var(--press-line);
+  border-radius:var(--press-radius);
+  background:var(--press-panel);
+  text-decoration:none;
+  transition:border-color .2s ease, transform .2s ease;
+  animation:kk-press-in .55s both;
+}
+.kk-press-feature:nth-child(2) { animation-delay:.08s; }
+.kk-press-feature:nth-child(3) { animation-delay:.16s; }
+.kk-press-feature:hover { border-color:var(--press-signal); transform:translateY(-4px); }
+.kk-press-feature:hover img { transform:scale(1.025); }
+.kk-press-feature.is-lead {
+  grid-row:1 / span 2;
+  grid-template-columns:1fr;
+  grid-template-rows:minmax(310px,1fr) auto;
+}
+.kk-press-feature figure { min-height:170px; margin:0; overflow:hidden; background:#090b0e; }
+.kk-press-feature.is-lead figure { min-height:390px; }
+.kk-press-feature img {
+  height:100%;
+  object-fit:cover;
+  transition:transform .35s ease;
+}
+.kk-press-feature-body { display:flex; flex-direction:column; justify-content:center; padding:1.25rem; }
+.kk-press-feature.is-lead .kk-press-feature-body { padding:1.5rem 1.6rem 1.7rem; }
+.kk-press-label { color:var(--press-coral); }
+.kk-press-feature h3 {
+  margin:.55rem 0 .7rem;
+  color:var(--press-paper);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  font-size:clamp(1.25rem,2.2vw,2rem);
+  letter-spacing:-.025em;
+  line-height:1.08;
+}
+.kk-press-feature.is-lead h3 { max-width:760px; font-size:clamp(2rem,4vw,3.35rem); }
+.kk-press-feature p { margin:0; color:var(--press-muted); line-height:1.5; }
+.kk-press-feature p + p { margin-top:.7rem; }
+.kk-press-feature .kk-press-credit { margin-top:1rem; font-size:.72rem; }
+.kk-press-feature .kk-press-context cite { font-style:italic; }
+.kk-press-feed { position:relative; margin-top:.5rem; }
+.kk-press-feed::before {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:112px;
+  width:1px;
+  background:var(--press-line);
+  content:"";
+}
+.kk-press-entry {
+  position:relative;
+  display:grid;
+  grid-template-columns:92px minmax(0,1fr) 190px;
+  gap:1.25rem;
+  align-items:center;
+  min-height:126px;
+  padding:1.05rem 0;
+  border-bottom:1px solid var(--press-line);
+}
+.kk-press-entry::before {
+  position:absolute;
+  left:106px;
+  width:13px;
+  height:13px;
+  border:3px solid var(--press-night);
+  border-radius:50%;
+  background:var(--press-signal);
+  content:"";
+}
+.kk-press-date { color:var(--press-signal); }
+.kk-press-date span { display:block; margin-top:.25rem; color:var(--press-muted); letter-spacing:.05em; }
+.kk-press-entry-body { min-width:0; padding-left:.75rem; }
+.kk-press-type { color:var(--press-coral); }
+.kk-press-entry h3 {
+  margin:.35rem 0 0;
+  color:var(--press-paper);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  font-size:clamp(1.2rem,2.1vw,1.75rem);
+  letter-spacing:-.02em;
+  line-height:1.15;
+}
+.kk-press-entry h3 a { text-decoration:none; text-decoration-thickness:1px; text-underline-offset:5px; }
+.kk-press-entry h3 a:hover { color:var(--press-signal); text-decoration:underline; }
+.kk-press-thumb {
+  aspect-ratio:16/9;
+  margin:0;
+  overflow:hidden;
+  border:1px solid var(--press-line);
+  border-radius:10px;
+  background:var(--press-panel);
+}
+.kk-press-thumb img { height:100%; object-fit:cover; }
+.kk-press-entry.no-image { grid-template-columns:92px minmax(0,1fr); }
+.kk-press-entry.no-image .kk-press-entry-body { padding-right:8rem; }
+.kk-press-legacy {
+  overflow:hidden;
+  border:1px solid var(--press-line);
+  border-radius:var(--press-radius);
+  background:var(--press-panel);
+}
+.kk-press-legacy summary {
+  cursor:pointer;
+  padding:1.25rem 1.4rem;
+  color:var(--press-paper);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  font-size:1.35rem;
+  font-weight:700;
+}
+.kk-press-legacy[open] summary { border-bottom:1px solid var(--press-line); }
+.kk-press-legacy-list { margin:0; padding:0; list-style:none; }
+.kk-press-legacy-list li {
+  display:grid;
+  grid-template-columns:74px minmax(150px,.42fr) minmax(0,1fr);
+  gap:1rem;
+  padding:.9rem 1.4rem;
+  border-bottom:1px solid var(--press-line);
+  color:var(--press-muted);
+  line-height:1.4;
+}
+.kk-press-legacy-list li:last-child { border-bottom:0; }
+.kk-press-legacy-list time { color:var(--press-signal); font-weight:800; }
+.kk-press-legacy-list strong { color:#d8d0c3; }
+.kk-press-legacy-list a { color:var(--press-paper); text-underline-offset:4px; }
+.kk-press-cta {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:2rem;
+  align-items:center;
+  padding:2rem;
+  border:1px solid var(--press-line);
+  border-left:5px solid var(--press-coral);
+  border-radius:var(--press-radius);
+  background:var(--press-paper);
+  color:var(--press-ink);
+}
+.kk-press-cta h2 { color:var(--press-ink); font-size:clamp(2rem,4vw,3.4rem); }
+.kk-press-cta p { max-width:650px; margin:.8rem 0 0; line-height:1.55; }
+.kk-press-cta a {
+  display:inline-flex;
+  min-height:48px;
+  align-items:center;
+  padding:.8rem 1rem;
+  border:2px solid var(--press-ink);
+  border-radius:999px;
+  background:var(--press-signal);
+  color:var(--press-ink);
+  font-weight:900;
+  text-decoration:none;
+  transition:background .2s ease, transform .2s ease;
+}
+.kk-press-cta a:hover { background:var(--press-coral); transform:translateY(-2px); }
+.kk-press-cta .kk-press-inline {
+  display:inline;
+  min-height:0;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.kk-press-cta .kk-press-inline:hover { background:transparent; color:#8b2417; transform:none; }
+@keyframes kk-press-in {
+  from { opacity:0; transform:translateY(18px); }
+  to { opacity:1; transform:translateY(0); }
+}
+@media (max-width:820px) {
+  .kk-press-hero,
+  .kk-press-section-head,
+  .kk-press-cta { grid-template-columns:1fr; }
+  .kk-press-ledger { display:grid; grid-template-columns:repeat(3,1fr); margin-top:.5rem; }
+  .kk-press-ledger div { display:block; padding:.85rem .6rem; border-right:1px solid var(--press-line); }
+  .kk-press-ledger div:last-child { border-right:0; }
+  .kk-press-ledger dd { margin-top:.35rem; }
+  .kk-press-featured { grid-template-columns:1fr; grid-template-rows:auto; }
+  .kk-press-feature.is-lead { grid-row:auto; }
+}
+@media (max-width:620px) {
+  .kk-press { padding:.85rem; }
+  .kk-press-display { font-size:clamp(3rem,16vw,4.7rem); }
+  .kk-press-ledger { grid-template-columns:1fr; }
+  .kk-press-ledger div { display:grid; grid-template-columns:78px 1fr; border-right:0; }
+  .kk-press-feature,
+  .kk-press-feature.is-lead { grid-template-columns:1fr; grid-template-rows:auto; }
+  .kk-press-feature figure,
+  .kk-press-feature.is-lead figure { min-height:220px; aspect-ratio:16/10; }
+  .kk-press-feed::before { left:6px; }
+  .kk-press-entry,
+  .kk-press-entry.no-image { grid-template-columns:1fr; gap:.65rem; padding:1.2rem 0 1.2rem 1.4rem; }
+  .kk-press-entry::before { top:1.38rem; left:0; }
+  .kk-press-entry-body,
+  .kk-press-entry.no-image .kk-press-entry-body { padding:0; }
+  .kk-press-date span { display:inline; margin:0 0 0 .35rem; }
+  .kk-press-thumb { width:100%; margin-top:.3rem; }
+  .kk-press-legacy-list li { grid-template-columns:62px 1fr; gap:.45rem .8rem; }
+  .kk-press-legacy-list a { grid-column:1 / -1; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .kk-press-feature { animation:none; transition:none; }
+  .kk-press-feature img,
+  .kk-press-cta a { transition:none; }
 }
 </style>
 
-<div class="kk-publications">
-  <section class="kk-publications-hero">
-    <p class="kk-publications-kicker">Publications, interviews, citations, and source trail</p>
-    <h2 class="kk-publications-display">The public record behind the rooms, photos, essays, interviews, and weird internet artifacts.</h2>
-    <p class="kk-publications-lead">This page restores the useful part of the old Publications archive: the links, media appearances, and publication trail that show how the work has moved through journalism, technology, culture, activism, and photography over time.</p>
-    <p class="kk-publications-lead">It is not trying to be a perfect vanity bibliography. It is a proof map, a source trail, and a way to find the older interviews without burying them inside the About page.</p>
-    <div class="kk-publications-proof">
-      <div><strong>Press trail</strong><span>BBC, CBC, Forbes, Reuters, WIRED, TED, and more.</span></div>
-      <div><strong>Interview archive</strong><span>Video, audio, blogs, broadcasts, and early web history.</span></div>
-      <div><strong>Creative commons impact</strong><span>Photos cited, remixed, published, and used across the web.</span></div>
-    </div>
-  </section>
-
-  <section class="kk-publications-section">
-    <h2>Featured trail</h2>
-    <p class="kk-publications-section-intro">A cleaned-up entry point to the publication and citation history that used to live as one giant undifferentiated list.</p>
-    <div class="kk-publications-grid">
-      <article class="kk-publications-card">
-        <span class="kk-publications-tag">Science + crowds</span>
-        <h3><a href="http://www.popsci.com/space-industry-needs-to-blast-its-doors-open">Popular Science: NASA Needs to Harness the Genius of Crowds</a></h3>
-        <p>A legacy Publications-page link that still explains a lot about the early open-web, crowd-intelligence thread in the work.</p>
-      </article>
-      <article class="kk-publications-card">
-        <span class="kk-publications-tag">Creative Commons</span>
-        <h3><a href="http://mediashift.org/2006/10/creative-commons-flickr-22-million-sharable-photos291/">PBS MediaShift: Creative Commons + Flickr</a></h3>
-        <p>Part of the long public record around open photography, shareable media, and the social web before everyone called it content strategy.</p>
-      </article>
-      <article class="kk-publications-card">
-        <span class="kk-publications-tag">TED</span>
-        <h3><a href="https://blog.ted.com/what-does-tedx-mean-to-me-answering-tedxsummit-photographer-kris-krug/">TED Blog: TEDxSummit photographer Kris Krug</a></h3>
-        <p>A useful marker from the global conference, photography, and community-documentation era.</p>
-      </article>
-      <article class="kk-publications-card">
-        <span class="kk-publications-tag">Legacy interview</span>
-        <h3><a href="https://thenextweb.com/apple/2010/10/16/pro-photographer-kris-krug-talks-about-taking-killer-photos-with-the-iphone/">The Next Web: Pro photographer Kris Krug talks iPhone photography</a></h3>
-        <p>One of the restored older interviews from the mobile-photography and digital-media chapter.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="kk-publications-section">
-    <h2>Interviews and video archive</h2>
-    <p class="kk-publications-section-intro">The old page had real interview proof hiding inside raw URLs. This keeps the source trail visible while admitting that some early-web destinations may have moved or disappeared.</p>
-    <ul class="kk-publications-link-list">
-      <li><a href="http://www.straight.com/article-333509/vancouver/geek-speak-kris-krug-coauthor-killer-photos-your-iphone">Georgia Straight: Geek Speak</a></li>
-      <li><a href="http://www.kempedmonds.com/2009/07/digital-footprint-interview-from.html">Kemp Edmonds: Digital Footprint interview</a></li>
-      <li><a href="http://www.cbc.ca/bc/news/yourstory/blog/2010/06/kris-krug-at-tedxoilspill.html">CBC BC: Kris Krug at TEDxOilSpill</a></li>
-      <li><a href="https://www.youtube.com/watch?v=5uyz7dzUKbA">TEDxOilSpill video archive</a></li>
-      <li><a href="http://www.bing.com/videos/watch/video/photojounalist-kris-krug-on-documenting-the-copenhagen-protests/17w22mq0w">Bing video: documenting the Copenhagen protests</a></li>
-      <li><a href="http://en.sevenload.com/videos/IVESi2m-Kris-Krug-Interview-World-Television-Festival">World Television Festival interview</a></li>
-      <li><a href="http://www.vimeo.com/17794857">Techvibes interview for W2 Media + Culture House</a></li>
-      <li><a href="http://www.liftstudios.ca/lsb027/">Lift Studios interview</a></li>
-      <li><a href="http://www.yesmagazine.org/planet/action-is-the-antidote-to-despair">YES! Magazine: Action is the antidote to despair</a></li>
-      <li><a href="http://robertouimet.com/2010/02/video-kris-krug-at-the-multimedia-gallery/">Kris Krug at the Multimedia Gallery</a></li>
-      <li><a href="http://www.drupalove.com/drupal-video/drupal-bryght-and-raincity-studios-w-kris-krug">Drupal video: Bryght and Raincity Studios</a></li>
-      <li><a href="http://techcrunch.com/2010/09/16/geeks-on-a-planes-eye-on-asia-beijing-seoul-editions-tctv/">TechCrunch: Geeks on a Plane Asia</a></li>
-      <li><a href="http://2007.northernvoice.ca/news/2007/04/04/kris-krugs-photography-session-at-northern-voice-videoblogged-on-podtech">Northern Voice photography session</a></li>
-    </ul>
-  </section>
-
-  <section class="kk-publications-section">
-    <h2>Published, featured, or cited by</h2>
-    <p class="kk-publications-section-intro">A representative slice from the larger About-page publication index. The full old list was enormous; this version keeps the signal without turning the page into a landfill of names.</p>
-    <div class="kk-publications-grid">
-      <div class="kk-publications-card">
-        <h3>News and culture</h3>
-        <p>BBC News, CBC, Globe &amp; Mail, The Guardian, The Atlantic, The Daily Beast, The Tyee, The Walrus, Toronto Star, USA Today, Time Magazine, Rolling Stone, Slate, Vice, The Verge, WIRED.</p>
+<div class="kk-press">
+  <div class="kk-press-shell">
+    <section class="kk-press-hero">
+      <div>
+        <p class="kk-press-kicker">Press, interviews, and citations / 2006 to now</p>
+        <h2 class="kk-press-display">A drumbeat, not a trophy shelf.</h2>
+        <p class="kk-press-lead">The useful story is the accumulation: independent reporting, long-form conversations, business coverage, public-interest debate, and the occasional gloriously strange corner of the internet. This archive starts with what just happened and moves backward. The older web is still here, but it no longer gets the first screen.</p>
       </div>
-      <div class="kk-publications-card">
-        <h3>Technology and business</h3>
-        <p>Ars Technica, Boing Boing, Business Insider, CNET, Fast Company, Forbes, Fortune, GeekWire, Mashable, Motherboard, Quartz, Reuters, TechCrunch, Techvibes, Wall Street Journal.</p>
-      </div>
-      <div class="kk-publications-card">
-        <h3>Environment, science, and public-interest media</h3>
-        <p>CleanTechnica, Climate Central, DeSmog, Earth Island Journal, National Geographic, National Observer, New Scientist, NPR, PBS MediaShift, The Narwhal, Yale Environment 360.</p>
-      </div>
-    </div>
-  </section>
+      <dl class="kk-press-ledger">
+        <div><dt>46</dt><dd>verified press clippings</dd></div>
+        <div><dt>21</dt><dd>published since 2023</dd></div>
+        <div><dt>20</dt><dd>years on the record</dd></div>
+      </dl>
+    </section>
 
-  <section class="kk-publications-section">
-    <h2>Need the current media kit?</h2>
-    <div class="kk-publications-note">
-      <p>For current bookings, podcast guesting, bios, headshots, and producer-friendly context, use the <a href="/podcast-guesting-page-epk/">Podcast Guesting / EPK page</a>. For current projects and AI work, start with <a href="/recent-projects-include/">Work</a>, <a href="/speaking/">Speaking</a>, or <a href="/generative-ai-services/">Services</a>.</p>
-    </div>
-  </section>
+    <section class="kk-press-section">
+      <div class="kk-press-section-head">
+        <h2>Right now</h2>
+        <p class="kk-press-section-intro">The newest three stories carry the clearest current signal: public AI infrastructure, the future of professional work, and a long-form conversation about authorship and consent.</p>
+      </div>
+      <div class="kk-press-featured">
+        <a class="kk-press-feature is-lead" href="https://thetyee.ca/News/2026/07/24/Who-Gets-Say-AI-Adoption/" target="_blank" rel="noopener noreferrer">
+          <figure>
+            <img src="https://thetyee.ca/News/2026/07/23/NoAIProtest.jpg" alt="Vancouver protesters opposing AI data centres, photographed from behind" width="1000" height="750">
+          </figure>
+          <div class="kk-press-feature-body">
+            <span class="kk-press-label">The Tyee / <time datetime="2026-07-24">July 24, 2026</time></span>
+            <h3>&lsquo;We Want a Role&rsquo;: Who Gets a Say in AI Adoption?</h3>
+            <p>Kris is the principal non-partisan expert voice on AI infrastructure as heavy industry, public bargaining, and consultation that can change outcomes.</p>
+            <p class="kk-press-context">The interview carries the argument from <cite>Both Hands on the Grid</cite> into Vancouver&rsquo;s municipal debate.</p>
+            <p class="kk-press-credit">Vancouver protest photo via Facebook, published by The Tyee.</p>
+          </div>
+        </a>
+
+        <a class="kk-press-feature" href="https://www.biv.com/news/economy-law-politics/bc-lawyers-face-ai-driven-shakeups-in-legal-work-12415161" target="_blank" rel="noopener noreferrer">
+          <figure>
+            <img src="https://www.vmcdn.ca/f/files/biv/260609-kriskrug-327.jpg;w=960" alt="Kris Kr&uuml;g seated outdoors in downtown Vancouver" width="960" height="640">
+          </figure>
+          <div class="kk-press-feature-body">
+            <span class="kk-press-label">Business in Vancouver / <time datetime="2026-06-15">June 15, 2026</time></span>
+            <h3>B.C. lawyers face AI-driven shakeups in legal work</h3>
+            <p>Lead expert commentary on adoption, training, culture, and where human judgment still matters.</p>
+            <p class="kk-press-credit">Photo: Rob Kruyt / BIV.</p>
+          </div>
+        </a>
+
+        <a class="kk-press-feature" href="https://www.youtube.com/watch?v=sxDwQRTZfCA" target="_blank" rel="noopener noreferrer">
+          <figure>
+            <img src="https://i.ytimg.com/vi/sxDwQRTZfCA/maxresdefault.jpg" alt="TELUS STORYHIVE interview thumbnail naming Kris Kr&uuml;g a techartist, cyber-punk, and AI anti-hero" width="1280" height="720">
+          </figure>
+          <div class="kk-press-feature-body">
+            <span class="kk-press-label">TELUS STORYHIVE / <time datetime="2026-05-20">May 20, 2026</time></span>
+            <h3>On Location: Victoria</h3>
+            <p>A long-form conversation about creative practice, generative AI, authorship, consent, and community infrastructure.</p>
+            <p class="kk-press-credit">Published interview thumbnail: TELUS STORYHIVE / Haus of Owl.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="kk-press-section">
+      <div class="kk-press-section-head">
+        <h2>The recent run</h2>
+        <p class="kk-press-section-intro">Newest first, with no attempt to sand the variety down. Policy, podcasts, art, scholarship, workshops, and broadcast commentary all belong to the same public record.</p>
+      </div>
+
+      <div class="kk-press-feed">
+        <article class="kk-press-entry">
+          <time class="kk-press-date" datetime="2026-02-09">Feb 09<span>2026</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">International press / Tela Viva News</span>
+            <h3><a href="https://telaviva.com.br/09/02/2026/festival-waiff-aborda-o-uso-da-inteligencia-artificial-no-mercado-audiovisual/" target="_blank" rel="noopener noreferrer">WAIFF examines artificial intelligence in the audiovisual market</a></h3>
+          </div>
+          <figure class="kk-press-thumb"><img src="https://cdn.telaviva.com.br/wp-content/uploads/2026/02/waiff.webp" alt="WAIFF 2026 programme artwork" width="1600" height="1000" loading="lazy"></figure>
+        </article>
+
+        <article class="kk-press-entry">
+          <time class="kk-press-date" datetime="2025-07-09">Jul 09<span>2025</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Video interview / E-ChannelNews</span>
+            <h3><a href="https://www.e-channelnews.com/interview-with-kris-krug-at-channelnext-central-2025/" target="_blank" rel="noopener noreferrer">Interview with AI Expert Kris Kr&uuml;g at ChannelNext Central 2025</a></h3>
+          </div>
+          <figure class="kk-press-thumb"><img src="https://www.e-channelnews.com/wp-content/uploads/2025/07/2034282568-935edd3de74bb2802e0be29648d9b8dc3b1d8038150ae0d2371f4015f32fba43-d.jpg" alt="ChannelNext interview thumbnail featuring Kris Kr&uuml;g" width="1280" height="720" loading="lazy"></figure>
+        </article>
+
+        <article class="kk-press-entry">
+          <time class="kk-press-date" datetime="2025-05-01">May 01<span>2025</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Profile / Portfolio.YVR</span>
+            <h3><a href="https://portfolioyvr.com/2025/05/kris-krug-taking-ai-and-art-to-new-heights-with-future-proof-creatives/" target="_blank" rel="noopener noreferrer">Taking AI and Art to New Heights with Future Proof Creatives</a></h3>
+          </div>
+          <figure class="kk-press-thumb"><img src="https://641e3c1c.delivery.rocketcdn.me/wp-content/uploads/2024/07/Pics-by-Peter-Holst-3.jpg" alt="Kris Kr&uuml;g standing in a light-filled Vancouver studio" width="1360" height="907" loading="lazy"></figure>
+        </article>
+
+        <article class="kk-press-entry no-image">
+          <time class="kk-press-date" datetime="2025-04-14">Apr 14<span>2025</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Scholarship / BC Studies</span>
+            <h3><a href="https://ojs.library.ubc.ca/index.php/bcstudies/article/view/199875" target="_blank" rel="noopener noreferrer">Building a Grass Roots AI Community of Practice: A Vancouver-Centered Use Case</a></h3>
+          </div>
+        </article>
+
+        <article class="kk-press-entry">
+          <time class="kk-press-date" datetime="2025-02-11">Feb 11<span>2025</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Expert series / Compass Horizons</span>
+            <h3><a href="https://horizons.compassdatacenters.com/series/exploring-ai-models-the-future-of-machine-learning/" target="_blank" rel="noopener noreferrer">Exploring AI Models: The Future of Machine Learning</a></h3>
+          </div>
+          <figure class="kk-press-thumb"><img src="https://horizons.compassdatacenters.com/wp-content/uploads/2025/02/HorizonsHeadshot-Landscape-5.jpg" alt="Kris Kr&uuml;g portrait published with the Compass Horizons series" width="1200" height="628" loading="lazy"></figure>
+        </article>
+
+        <article class="kk-press-entry no-image">
+          <time class="kk-press-date" datetime="2025-01-31">Jan 31<span>2025</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Podcast / Rachel Thexton Connects</span>
+            <h3><a href="https://podcasts.apple.com/us/podcast/id1663438596?i=1000687318552" target="_blank" rel="noopener noreferrer">One of Canada&rsquo;s Leading AI Voices Talks Tech and Tells His Story</a></h3>
+          </div>
+        </article>
+
+        <article class="kk-press-entry no-image">
+          <time class="kk-press-date" datetime="2025-01-28">Jan 28<span>2025</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Quoted expert / Pique Newsmagazine</span>
+            <h3><a href="https://www.piquenewsmagazine.com/local-news/we-cant-abdicate-this-future-to-governments-or-tech-bros-says-ai-expert-10076883" target="_blank" rel="noopener noreferrer">We can&rsquo;t abdicate this future to governments or tech bros</a></h3>
+          </div>
+        </article>
+
+        <article class="kk-press-entry">
+          <time class="kk-press-date" datetime="2025-01-21">Jan 21<span>2025</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">National news / CBC</span>
+            <h3><a href="https://www.cbc.ca/news/instagram-1.7437667" target="_blank" rel="noopener noreferrer">Meta accused of pro-Trump bias after #Democrat hashtag blocked on Instagram</a></h3>
+          </div>
+          <figure class="kk-press-thumb"><img src="https://i.cbc.ca/ais/1.7437711,1737502332000/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C179%2C8256%2C4644%29%3BResize%3D620" alt="Instagram app beside the Meta logo in a CBC News story image" width="620" height="349" loading="lazy"></figure>
+        </article>
+
+        <article class="kk-press-entry no-image">
+          <time class="kk-press-date" datetime="2025-01-10">Jan 10<span>2025</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Podcast / Human Biography</span>
+            <h3><a href="https://podcasts.apple.com/us/podcast/id1668006539?i=1000683484337" target="_blank" rel="noopener noreferrer">Kris Kr&uuml;g: Live With Curiosity</a></h3>
+          </div>
+        </article>
+
+        <article class="kk-press-entry no-image">
+          <time class="kk-press-date" datetime="2024-11-21">Nov 21<span>2024</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Video interview / Byte Club</span>
+            <h3><a href="https://www.youtube.com/watch?v=uMTBoHIdhdA" target="_blank" rel="noopener noreferrer">What Is Generative AI? A Visionary Interview with Tech Artist Kris Krug</a></h3>
+          </div>
+        </article>
+
+        <article class="kk-press-entry no-image">
+          <time class="kk-press-date" datetime="2024-08-22">Aug 22<span>2024</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Mention / Techcouver</span>
+            <h3><a href="https://techcouver.com/2024/08/22/aws-vancouver-canada-community-day-september/" target="_blank" rel="noopener noreferrer">AWS Invites Vancouver to Hold Canada&rsquo;s First-Ever Community Day</a></h3>
+          </div>
+        </article>
+
+        <article class="kk-press-entry">
+          <time class="kk-press-date" datetime="2024-06-01">Jun 01<span>2024</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Profile / FOLIO.YVR</span>
+            <h3><a href="https://folioyvr.com/2024/06/portfolio-yvr-kris-krug-future-proof-creatives/" target="_blank" rel="noopener noreferrer">Kris Krug and Future Proof Creatives Seek to Prove Human and AI Compatibility</a></h3>
+          </div>
+          <figure class="kk-press-thumb"><img src="https://folioyvr.com/wp-content/uploads/2024/06/IM_MMB_MichelleDiamond-27-scaled.jpg" alt="Kris Kr&uuml;g portrait published by FOLIO.YVR" width="1707" height="2560" loading="lazy"></figure>
+        </article>
+
+        <article class="kk-press-entry no-image">
+          <time class="kk-press-date" datetime="2024-05-06">May 06<span>2024</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Podcast / Teen2Life Experience</span>
+            <h3><a href="https://www.iheart.com/podcast/338-teen2life-experience-104980835/episode/047-ceo-of-future-proof-173991657/" target="_blank" rel="noopener noreferrer">CEO of Future Proof Creatives, Artist: Kris Kr&uuml;g</a></h3>
+          </div>
+        </article>
+
+        <article class="kk-press-entry no-image">
+          <time class="kk-press-date" datetime="2024-02-12">Feb 12<span>2024</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Workshop recap / Jessica Grey</span>
+            <h3><a href="https://jessicagrey.com/2024/02/12/my-recap-of-kris-krugs-first-future-proof-creatives-ai-workshop/" target="_blank" rel="noopener noreferrer">My Recap of Kris Kr&uuml;g&rsquo;s First Future Proof Creatives AI Workshop</a></h3>
+          </div>
+        </article>
+
+        <article class="kk-press-entry no-image">
+          <time class="kk-press-date" datetime="2024-01-08">Jan 08<span>2024</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Podcast / AI-Volution</span>
+            <h3><a href="https://www.youtube.com/watch?v=pss7CfiiBxg" target="_blank" rel="noopener noreferrer">Are We Done Yet? Kris Krug on AI-Volution</a></h3>
+          </div>
+        </article>
+
+        <article class="kk-press-entry no-image">
+          <time class="kk-press-date" datetime="2023-11-08">Nov 08<span>2023</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Podcast / The Kurty D Show</span>
+            <h3><a href="https://podcasts.apple.com/us/podcast/id1575595225?i=1000634160006" target="_blank" rel="noopener noreferrer">Widen the Lens with Kris Krug</a></h3>
+          </div>
+        </article>
+
+        <article class="kk-press-entry no-image">
+          <time class="kk-press-date" datetime="2023-09-08">Sep 08<span>2023</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Interview / Olio by Marilyn</span>
+            <h3><a href="https://www.oliobymarilyn.com/2023/09/interview-kriskrug-photographer-videographer-techartist-educator-consultant-ai-podcast.html" target="_blank" rel="noopener noreferrer">Photographer, Videographer, Techartist, Educator, and Community Consultant</a></h3>
+          </div>
+        </article>
+
+        <article class="kk-press-entry no-image">
+          <time class="kk-press-date" datetime="2023-09-07">Sep 07<span>2023</span></time>
+          <div class="kk-press-entry-body">
+            <span class="kk-press-type">Podcast / UNIQUEWAYS</span>
+            <h3><a href="https://podcasts.apple.com/us/podcast/id1632267449" target="_blank" rel="noopener noreferrer">Kris Kr&uuml;g, Storyteller</a></h3>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="kk-press-section">
+      <div class="kk-press-section-head">
+        <h2>The long trail</h2>
+        <p class="kk-press-section-intro">The early web is part of the story, just not the whole story. Open the archive for 25 more clippings spanning photography, citizen media, Creative Commons, startups, protest documentation, and social technology.</p>
+      </div>
+      <details class="kk-press-legacy">
+        <summary>Open the 2006 to 2016 source trail</summary>
+        <ol class="kk-press-legacy-list">
+          <li><time datetime="2016-10-12">2016</time><strong>Popular Science</strong><a href="https://web.archive.org/web/20251113175838/https://www.popsci.com/space-industry-needs-to-blast-its-doors-open/" target="_blank" rel="noopener noreferrer">NASA Needs to Harness the Genius of Crowds</a></li>
+          <li><time datetime="2015-01-14">2015</time><strong>BetaKit</strong><a href="https://betakit.com/nofilters-when-technology-makes-all-media-social/" target="_blank" rel="noopener noreferrer">#NoFilters: When Technology Makes All Media Social</a></li>
+          <li><time datetime="2012-04-15">2012</time><strong>TED Blog</strong><a href="https://blog.ted.com/what-does-tedx-mean-to-me-answering-tedxsummit-photographer-kris-krug/" target="_blank" rel="noopener noreferrer">What Does TEDx Mean to Me?</a></li>
+          <li><time datetime="2011-10-19">2011</time><strong>Vancouver Is Awesome</strong><a href="https://web.archive.org/web/20190817234830/https://www.vancouverisawesome.com/2011/10/19/our-picks-for-tedxvancouver-kris-krug-photographer/" target="_blank" rel="noopener noreferrer">Our Picks for TEDxVancouver: Kris Kr&uuml;g</a></li>
+          <li><time datetime="2011-07-23">2011</time><strong>Chris Coldewey</strong><a href="https://ccjrnl.com/post/44606639301/interview-with-kris-krug" target="_blank" rel="noopener noreferrer">Engineering Serendipity</a></li>
+          <li><time datetime="2010-12-14">2010</time><strong>Techvibes</strong><a href="https://vimeo.com/17794857" target="_blank" rel="noopener noreferrer">W2 Culture + Media House Interview</a></li>
+          <li><time datetime="2010-10-16">2010</time><strong>The Next Web</strong><a href="https://thenextweb.com/news/pro-photographer-kris-krug-talks-about-taking-killer-photos-with-the-iphone" target="_blank" rel="noopener noreferrer">Taking Killer Photos with the iPhone</a></li>
+          <li><time datetime="2010-09-16">2010</time><strong>TechCrunch</strong><a href="https://techcrunch.com/2010/09/16/geeks-on-a-planes-eye-on-asia-beijing-seoul-editions-tctv/" target="_blank" rel="noopener noreferrer">Geeks on a Plane: Beijing and Seoul</a></li>
+          <li><time datetime="2010-07-11">2010</time><strong>Georgia Straight</strong><a href="https://www.straight.com/article-333509/vancouver/geek-speak-kris-krug-coauthor-killer-photos-your-iphone" target="_blank" rel="noopener noreferrer">Geek Speak: Killer Photos With Your iPhone</a></li>
+          <li><time datetime="2010-07-06">2010</time><strong>YES! Magazine</strong><a href="https://web.archive.org/web/20100710131134/http://www.yesmagazine.org/planet/action-is-the-antidote-to-despair" target="_blank" rel="noopener noreferrer">Action Is the Antidote to Despair</a></li>
+          <li><time datetime="2010-02-22">2010</time><strong>CLT Blog</strong><a href="https://www.youtube.com/watch?v=9YubH5GqhnM" target="_blank" rel="noopener noreferrer">Citizen Media and Activism in Vancouver</a></li>
+          <li><time datetime="2010-02-17">2010</time><strong>Robert Ouimet</strong><a href="https://robertouimet.com/2010/02/video-kris-krug-at-the-multimedia-gallery/" target="_blank" rel="noopener noreferrer">Kris Krug at the Multimedia Gallery</a></li>
+          <li><time datetime="2010-01-13">2010</time><strong>On the Line</strong><a href="https://thecommentary.ca/ontheline/462-kris-krug/" target="_blank" rel="noopener noreferrer">On the Line #462: Kris Krug</a></li>
+          <li><time datetime="2009-12-17">2009</time><strong>Current TV</strong><a href="https://web.archive.org/web/20100719214616/http://www.bing.com/videos/watch/video/photojounalist-kris-krug-on-documenting-the-copenhagen-protests/17w22mq0w" target="_blank" rel="noopener noreferrer">Documenting the Copenhagen Protests</a></li>
+          <li><time datetime="2009-11-12">2009</time><strong>Lift Studios</strong><a href="https://www.liftstudios.ca/research/lsb027/" target="_blank" rel="noopener noreferrer">Catching Up with Kris Krug</a></li>
+          <li><time datetime="2009-07-24">2009</time><strong>Georgia Straight</strong><a href="https://www.straight.com/article-242844/geek-speak-kris-krug-technologist-and-photographer" target="_blank" rel="noopener noreferrer">Geek Speak: Technologist and Photographer</a></li>
+          <li><time datetime="2009-03-23">2009</time><strong>The Tyee</strong><a href="https://thetyee.ca/Mediacheck/2009/03/23/SocialMedia/" target="_blank" rel="noopener noreferrer">Citizen Journalists Poised to Reinvent Olympics News</a></li>
+          <li><time datetime="2008-01-30">2008</time><strong>The Lab with Leo</strong><a href="https://www.youtube.com/watch?v=xuQp1mOiEps" target="_blank" rel="noopener noreferrer">Drupal, Bryght, and Raincity Studios</a></li>
+          <li><time datetime="2007-10-01">2007</time><strong>The Lab with Leo</strong><a href="https://web.archive.org/web/20080314124626/http://www.kriskrug.com/2007/10/01/talking-about-bryght-on-the-lab-with-leo/" target="_blank" rel="noopener noreferrer">Bryght and Drupal Open-Source Segment</a></li>
+          <li><time datetime="2007-07-19">2007</time><strong>Beyond Robson</strong><a href="https://web.archive.org/web/20080218141319/http://www.beyondrobson.com/people/2007/07/cityphile_kris_krug/" target="_blank" rel="noopener noreferrer">CityPhile: Kris Krug</a></li>
+          <li><time datetime="2007-04-03">2007</time><strong>ScobleShow</strong><a href="https://web.archive.org/web/20070407015134/http://www.podtech.net/scobleshow/technology/1423/learn-better-photography-with-kris-krug-at-northern-voice" target="_blank" rel="noopener noreferrer">Learn Better Photography at Northern Voice</a></li>
+          <li><time datetime="2006-08-24">2006</time><strong>Chris Pirillo Show</strong><a href="https://web.archive.org/web/20090416114016/http://chris.pirillo.com/tara-hunt-kris-krug-and-mike-arrington-at-gnomedex-6/" target="_blank" rel="noopener noreferrer">Tara Hunt, Kris Krug, and Mike Arrington at Gnomedex 6</a></li>
+          <li><time datetime="2006-08-01">2006</time><strong>Shai Style</strong><a href="https://web.archive.org/web/20060805082219/http://shaistyle.wordpress.com/profiles-coming-soon/" target="_blank" rel="noopener noreferrer">Style Profiles: Kris Krug, One Cool Geek</a></li>
+          <li><time datetime="2006-05-23">2006</time><strong>Vancouver Sun</strong><a href="https://web.archive.org/web/20140325185443/http://www.canada.com/vancouversun/news/business/story.html?id=f4136e67-a7bf-4949-acf2-c0d8cf5b108a&amp;k=32474" target="_blank" rel="noopener noreferrer">Canadians Trying to Land Beijing Contracts</a></li>
+          <li><time datetime="2006-05-17">2006</time><strong>Kootenay Co-op Radio</strong><a href="https://web.archive.org/web/20080905162613/http://www.kriskrug.com/2006/05/18/interview-on-kootenay-co-op-radio-with-jill-boland-of-tech-village/" target="_blank" rel="noopener noreferrer">Web 2.0 and Blogging Radio Interview</a></li>
+        </ol>
+      </details>
+    </section>
+
+    <section class="kk-press-section">
+      <div class="kk-press-cta">
+        <div>
+          <h2>Working on a story?</h2>
+          <p>For current bios, approved headshots, interview topics, and producer-friendly context, use the media kit. For AI policy and infrastructure reporting, the <a class="kk-press-inline" href="https://bc-ai.ca/news/both-hands-on-the-grid" target="_blank" rel="noopener noreferrer">Both Hands on the Grid</a> position paper is the fastest route into the argument.</p>
+        </div>
+        <a href="/podcast-guesting-page-epk/">Open the media kit</a>
+      </div>
+    </section>
+  </div>
 </div>
 <!-- /wp:html -->
