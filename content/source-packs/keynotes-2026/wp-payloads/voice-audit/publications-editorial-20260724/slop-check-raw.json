@@ -1,0 +1,15 @@
+{
+  "total": 1,
+  "files": {
+    "content/source-packs/keynotes-2026/wp-payloads/publications.html": [
+      {
+        "line": 538,
+        "col": 264,
+        "match": "Harness",
+        "rule": "banned: harness",
+        "reason": "as in \"harness the power of\"; marketing filler",
+        "severity": "warn"
+      }
+    ]
+  }
+}
