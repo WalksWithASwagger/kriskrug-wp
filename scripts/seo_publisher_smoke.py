@@ -64,7 +64,7 @@ def iter_jsonld_nodes(html: str):
         except json.JSONDecodeError:
             continue
         graph = data.get("@graph") if isinstance(data, dict) else None
-        for node in (graph if isinstance(graph, list) else [data]):
+        for node in graph if isinstance(graph, list) else [data]:
             if isinstance(node, dict):
                 yield node
 
@@ -117,17 +117,12 @@ def main() -> int:
         if not ok:
             failures.append(msg)
 
-    # 2. Google-News style sitemap: known gap, reported not enforced.
-    news_found = False
-    for path in ("/news-sitemap.xml", "/sitemap-news.xml", "/wp-sitemap-news.xml"):
-        status, _ = fetch(base + path)
-        if status == 200:
-            news_found = True
-            print(f"PASS news sitemap present: {path}")
-            break
-    if not news_found:
-        notes.append("No Google-News sitemap (known gap; see #425 doc).")
-        print("NOTE no news sitemap yet (known gap, not a failure)")
+    # 2. Google-News style sitemap (#425 snippet → /news-sitemap.xml).
+    # Empty <urlset> is valid when no NewsArticle posts fall in the 48h window.
+    news_ok, news_msg = check_surface(base, "/news-sitemap.xml", "urlset")
+    print(("PASS " if news_ok else "FAIL ") + news_msg)
+    if not news_ok:
+        failures.append(news_msg)
 
     # 3. Recent posts must emit an Article-family node with required fields.
     links = recent_post_links(base, args.posts)

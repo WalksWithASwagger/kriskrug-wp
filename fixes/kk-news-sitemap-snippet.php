@@ -16,6 +16,11 @@ if (!defined('ABSPATH')) {
 add_action('init', function () {
     add_rewrite_rule('^news-sitemap\.xml$', 'index.php?kk_news_sitemap=1', 'top');
     add_rewrite_tag('%kk_news_sitemap%', '1');
+    // One-shot flush after first activate (avoids a manual Permalinks visit).
+    if (get_option('kk_news_sitemap_flushed') !== '1') {
+        flush_rewrite_rules(false);
+        update_option('kk_news_sitemap_flushed', '1', true);
+    }
 });
 
 add_filter('query_vars', function ($vars) {

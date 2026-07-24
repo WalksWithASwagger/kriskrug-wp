@@ -2,20 +2,21 @@
 
 Owner issue: #425. Read-only audit + the rule going forward.
 
-**2026-07-24 repo prep (not live yet):** `fixes/schema-snippets-deployed.php`
-defaults posts to `BlogPosting` with explicit `NewsArticle` via meta
-`_kk_schema_type` or tag `news-article`. Draft news sitemap snippet:
-`fixes/kk-news-sitemap-snippet.php` → `/news-sitemap.xml` for NewsArticle posts
-in the last 48 hours. **Live Code Snippet paste/activate remains KK-gated.**
+**2026-07-24 live:** Code Snippet **5** `KK Schema` emits `BlogPosting` by
+default (`NewsArticle` via `_kk_schema_type` or tag `news-article`). Snippet
+**13** `KK News Sitemap` serves `/news-sitemap.xml` (48h NewsArticle window;
+empty urlset is valid). Sources: `fixes/schema-snippets-deployed.php`,
+`fixes/kk-news-sitemap-snippet.php`. Snapshot before deploy:
+`/private/tmp/kriskrug-code-snippets-before-425-20260724T222705Z.json`.
 
 ## Audit (2026-07-19, public read-only)
 
 | Surface | State |
 |---|---|
 | Sitemap | WordPress core `wp-sitemap.xml` only: posts, pages, category, tag, users. Healthy (200). |
-| News sitemap | **Absent.** `/news-sitemap.xml`, `/sitemap-news.xml`, `/wp-sitemap-news.xml` all 404. |
+| News sitemap | **Live** at `/news-sitemap.xml` (snippet 13). Empty when no tagged NewsArticle posts in 48h. |
 | Feed | `/feed/` healthy (200, valid RSS). |
-| Post schema | Every post emits generic **`Article`** (from `fixes/schema-snippets-deployed.php:146`) plus `Person`, `Organization`/`WebSite`, `BreadcrumbList`, `ImageObject`. |
+| Post schema | Default **`BlogPosting`** (snippet 5 / `kk_schema_post_type`) plus `Person`, `Organization`/`WebSite`, `BreadcrumbList`, `ImageObject`. |
 | Required fields | Present on sampled posts: `headline`, `datePublished`, `dateModified`, `author` (@id `#person`), `publisher` (@id `#person`), `image`, `mainEntityOfPage`. |
 
 Takeaway: the plumbing is solid (canonical author/publisher identity, dates,
