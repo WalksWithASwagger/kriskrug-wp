@@ -511,6 +511,44 @@ function exclude_current_post_from_related_query(array $query, \WP_Block $block)
 }
 add_filter('query_loop_block_query_vars', __NAMESPACE__ . '\\exclude_current_post_from_related_query', 10, 2);
 
+function public_site_name(): string {
+    return 'Kris Krug';
+}
+
+function homepage_meta_description(): string {
+    return 'Kris Krug is a Vancouver AI keynote speaker, creative technologist, and community builder leading BC + AI and curating Futureproof Festival.';
+}
+
+function filter_feed_bloginfo(string $value, string $show): string {
+    if ($show === 'name') {
+        return public_site_name();
+    }
+
+    if ($show === 'description') {
+        return homepage_meta_description();
+    }
+
+    return $value;
+}
+add_filter('get_bloginfo_rss', __NAMESPACE__ . '\\filter_feed_bloginfo', 10, 2);
+
+function filter_feed_title(string $title): string {
+    if (is_home()) {
+        return public_site_name();
+    }
+
+    $stored_site_name = get_option('blogname', '');
+    if (!is_string($stored_site_name) || trim($stored_site_name) === '') {
+        return $title;
+    }
+
+    $decoded_title = html_entity_decode($title, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $decoded_site_name = html_entity_decode($stored_site_name, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+
+    return str_replace($decoded_site_name, public_site_name(), $decoded_title);
+}
+add_filter('get_wp_title_rss', __NAMESPACE__ . '\\filter_feed_title');
+
 /**
  * Resolve the standard search description from the site's existing SEO fields.
  */
@@ -519,6 +557,9 @@ function public_meta_description(): string {
 
     if (is_front_page()) {
         $description = get_option('advanced_seo_front_page_description', '');
+        if (!is_string($description) || trim($description) === '') {
+            $description = homepage_meta_description();
+        }
     } elseif (is_home()) {
         $description = writing_archive_meta_description();
     } elseif (is_singular()) {
@@ -584,7 +625,7 @@ function social_meta_tags(): array {
     $description = public_meta_description();
 
     $tags = [
-        'og:site_name'   => get_bloginfo('name'),
+        'og:site_name'   => public_site_name(),
         'og:title'       => wp_get_document_title(),
         'og:type'        => 'website',
         'og:url'         => home_url('/'),
