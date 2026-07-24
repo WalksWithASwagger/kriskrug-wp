@@ -10,10 +10,8 @@ Usage:
     python3 scripts/seo_publisher_smoke.py --base URL      # check another host
     python3 scripts/seo_publisher_smoke.py --posts 5       # sample N recent posts
 
-Exit code is non-zero if a required surface is broken or a sampled post is
-missing a required schema field. The absent Google-News sitemap is reported as
-a known gap (see docs/current-state/SEO-PUBLISHER-SCHEMA-2026-07-19.md), not a
-failure, so this stays green until that work is deliberately shipped.
+Exit code is non-zero if a required surface is broken, a sampled post is
+missing a required schema field, or `/news-sitemap.xml` is unhealthy.
 """
 
 from __future__ import annotations
