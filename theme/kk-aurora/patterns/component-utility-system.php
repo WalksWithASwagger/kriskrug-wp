@@ -36,7 +36,7 @@
     <div class="aurora-form-row">
       <label for="aurora-component-intent">What should we talk about?</label>
       <select id="aurora-component-intent" name="topic">
-        <option value="keynote">Book a keynote</option>
+        <option value="work">Work with me</option>
         <option value="workshop">Plan a workshop</option>
         <option value="training">Build a training program</option>
         <option value="media">Media or podcast appearance</option>

@@ -39,6 +39,10 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.3.41 =
+* Primary CTA becomes "Work with me" → `/services/` (#422).
+* Includes footer bento (#417/#449) and Wave 1 homepage theme fixes already on main.
+
 = 1.3.40 =
 * Render approved `jetpack_seo_html_title` values as exact singular document titles while preserving existing fallbacks (#357).
 
