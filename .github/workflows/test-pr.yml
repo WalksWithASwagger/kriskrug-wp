@@ -120,6 +120,41 @@ jobs:
       - name: Run complete Python gate
         run: make python-test PYTHON=python
 
+  # CSS regression ratchet (issue #472, AURORA-STYLESHEET-REBUILD-PLAN §3 step 0).
+  # Fails any PR that increases front-end CSS line count or code-only !important
+  # count. Raising the ceiling requires a waiver recorded in .css-budget.json.
+  css-ratchet:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Resolve merge base with the PR target branch
+        id: base
+        env:
+          BASE_BRANCH: ${{ github.base_ref }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin "+refs/heads/${BASE_BRANCH}:refs/remotes/origin/${BASE_BRANCH}"
+          # Merge base, not the branch tip: a PR that is simply behind main must
+          # not be blamed for line counts main grew on its own.
+          MERGE_BASE="$(git merge-base "refs/remotes/origin/${BASE_BRANCH}" HEAD)"
+          echo "ref=${MERGE_BASE}" >> "$GITHUB_OUTPUT"
+          echo "Merge base with ${BASE_BRANCH}: ${MERGE_BASE}"
+
+      - name: CSS inventory ratchet
+        run: |
+          python3 scripts/css_inventory.py --check \
+            --base-ref "${{ steps.base.outputs.ref }}" \
+            --github-summary
+
   # JavaScript/Node validation
   javascript-validation:
     needs: validate
@@ -168,7 +203,7 @@ jobs:
 
   # Summarize all checks
   summary:
-    needs: [validate, php-validation, python-tests, javascript-validation, docs-truth-check, security-scan]
+    needs: [validate, php-validation, python-tests, css-ratchet, javascript-validation, docs-truth-check, security-scan]
     if: always()
     runs-on: ubuntu-latest
     steps:
