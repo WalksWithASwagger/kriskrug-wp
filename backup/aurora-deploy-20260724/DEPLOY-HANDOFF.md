@@ -3,7 +3,8 @@
 ## Status
 
 **Live:** Aurora **1.4.0** with Revive cream/ink chrome + homepage.  
-Public `style.css` Version readback matches. Cream contrast hardening fix applied to live theme files.
+Public `style.css` Version readback matches. Full theme package re-synced from media **#12632** (snippet **#15**, inactive).  
+E2E: [e2e/E2E-REPORT-2026-07-24.md](e2e/E2E-REPORT-2026-07-24.md). Revisions: [../../docs/current-state/REVIVE-AURORA-REVISIONS-2026-07-24.md](../../docs/current-state/REVIVE-AURORA-REVISIONS-2026-07-24.md).
 
 ## Packages
 

@@ -9,7 +9,7 @@ This folder is the source of truth for "what was true on May 14, 2026" and for d
 
 Read these first for current execution context:
 
-**Newest declared snapshot:** [CURRENT-STATE-2026-07-16.md](CURRENT-STATE-2026-07-16.md) — open PRs / issues / WP / Aurora versions are declared there (re-run `make status-readonly` rather than trusting older counts in this index). **Live readback 2026-07-24:** WordPress `7.0.x`, Aurora **`1.4.0`** (Revive cream/ink port — [REVIVE-AURORA-PORT-2026-07-24.md](REVIVE-AURORA-PORT-2026-07-24.md), deploy [../../backup/aurora-deploy-20260724/DEPLOY-HANDOFF.md](../../backup/aurora-deploy-20260724/DEPLOY-HANDOFF.md)).
+**Newest declared snapshot:** [CURRENT-STATE-2026-07-16.md](CURRENT-STATE-2026-07-16.md) — open PRs / issues / WP / Aurora versions are declared there (re-run `make status-readonly` rather than trusting older counts in this index). **Live readback 2026-07-24:** WordPress `7.0.x`, Aurora **`1.4.0`** (Revive cream/ink port — [REVIVE-AURORA-PORT-2026-07-24.md](REVIVE-AURORA-PORT-2026-07-24.md), deploy [../../backup/aurora-deploy-20260724/DEPLOY-HANDOFF.md](../../backup/aurora-deploy-20260724/DEPLOY-HANDOFF.md), e2e [../../backup/aurora-deploy-20260724/e2e/E2E-REPORT-2026-07-24.md](../../backup/aurora-deploy-20260724/e2e/E2E-REPORT-2026-07-24.md), revisions [REVIVE-AURORA-REVISIONS-2026-07-24.md](REVIVE-AURORA-REVISIONS-2026-07-24.md)).
 
 **Active work plan / day runbook:** [WORK-PLAN-2026-07-16.md](WORK-PLAN-2026-07-16.md) — Monday queue #360–#366; live gates start at Aurora 1.3.40 upload (#362/#351). Long-run unlock order: [WORK-PLAN-LONG-RUN-2026-07-16.md](WORK-PLAN-LONG-RUN-2026-07-16.md).
 

@@ -1,0 +1,304 @@
+{
+  "generated_at": "2026-07-24T23:54:22Z",
+  "style": {
+    "version": "Version: 1.4.0",
+    "cream_fix": true,
+    "black_pane": 0
+  },
+  "boost": {
+    "id": "607a63d9eb",
+    "len": 136127,
+    "revive_surface": true,
+    "woven": true,
+    "black_pane": 0,
+    "space_grotesk": true
+  },
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "final": "https://kriskrug.co/?cb=1784937247513990000",
+      "bytes": 81607,
+      "woven": true,
+      "work_with_me": true,
+      "field_notes": 0,
+      "dispatch": 0,
+      "book_keynote": false,
+      "revive_home": true,
+      "newsletter_beehiiv": true,
+      "subscribe_free": true,
+      "space_grotesk": true,
+      "dm_sans": true,
+      "cream_token": true,
+      "cta_to_services": true,
+      "header_cta_href": "/services/",
+      "boost": "607a63d9eb",
+      "body_class": "home wp-singular page-template-default page page-id-3930 wp-embed-responsive wp-theme-kk-aurora aurora-theme"
+    },
+    {
+      "path": "/about/",
+      "status": 200,
+      "final": "https://kriskrug.co/about/?cb=1784937247513990000",
+      "bytes": 54058,
+      "woven": true,
+      "work_with_me": true,
+      "field_notes": 0,
+      "dispatch": 0,
+      "book_keynote": false,
+      "revive_home": false,
+      "newsletter_beehiiv": true,
+      "subscribe_free": true,
+      "space_grotesk": true,
+      "dm_sans": true,
+      "cream_token": true,
+      "cta_to_services": true,
+      "header_cta_href": "/services/",
+      "boost": "607a63d9eb",
+      "body_class": "wp-singular page-template-default page page-id-1208 wp-embed-responsive wp-theme-kk-aurora aurora-theme"
+    },
+    {
+      "path": "/work/",
+      "status": 200,
+      "final": "https://kriskrug.co/work/?cb=1784937247513990000",
+      "bytes": 56946,
+      "woven": true,
+      "work_with_me": true,
+      "field_notes": 1,
+      "dispatch": 0,
+      "book_keynote": false,
+      "revive_home": false,
+      "newsletter_beehiiv": true,
+      "subscribe_free": true,
+      "space_grotesk": true,
+      "dm_sans": true,
+      "cream_token": true,
+      "cta_to_services": true,
+      "header_cta_href": "/services/",
+      "boost": "607a63d9eb",
+      "body_class": "wp-singular page-template-default page page-id-2672 wp-embed-responsive wp-theme-kk-aurora aurora-theme"
+    },
+    {
+      "path": "/speaking/",
+      "status": 200,
+      "final": "https://kriskrug.co/speaking/?cb=1784937247513990000",
+      "bytes": 53907,
+      "woven": true,
+      "work_with_me": true,
+      "field_notes": 0,
+      "dispatch": 0,
+      "book_keynote": false,
+      "revive_home": false,
+      "newsletter_beehiiv": true,
+      "subscribe_free": true,
+      "space_grotesk": true,
+      "dm_sans": true,
+      "cream_token": true,
+      "cta_to_services": true,
+      "header_cta_href": "/services/",
+      "boost": "607a63d9eb",
+      "body_class": "wp-singular page-template-default page page-id-1887 wp-embed-responsive wp-theme-kk-aurora aurora-theme"
+    },
+    {
+      "path": "/services/",
+      "status": 200,
+      "final": "https://kriskrug.co/generative-ai-services/?cb=1784937247513990000",
+      "bytes": 53404,
+      "woven": true,
+      "work_with_me": true,
+      "field_notes": 0,
+      "dispatch": 0,
+      "book_keynote": false,
+      "revive_home": false,
+      "newsletter_beehiiv": true,
+      "subscribe_free": true,
+      "space_grotesk": true,
+      "dm_sans": true,
+      "cream_token": true,
+      "cta_to_services": true,
+      "header_cta_href": "/services/",
+      "boost": "607a63d9eb",
+      "body_class": "wp-singular page-template-default page page-id-2666 wp-embed-responsive wp-theme-kk-aurora aurora-theme"
+    },
+    {
+      "path": "/generative-ai-services/",
+      "status": 200,
+      "final": "https://kriskrug.co/generative-ai-services/?cb=1784937247513990000",
+      "bytes": 53404,
+      "woven": true,
+      "work_with_me": true,
+      "field_notes": 0,
+      "dispatch": 0,
+      "book_keynote": false,
+      "revive_home": false,
+      "newsletter_beehiiv": true,
+      "subscribe_free": true,
+      "space_grotesk": true,
+      "dm_sans": true,
+      "cream_token": true,
+      "cta_to_services": true,
+      "header_cta_href": "/services/",
+      "boost": "607a63d9eb",
+      "body_class": "wp-singular page-template-default page page-id-2666 wp-embed-responsive wp-theme-kk-aurora aurora-theme"
+    },
+    {
+      "path": "/photography/",
+      "status": 200,
+      "final": "https://kriskrug.co/photography/?cb=1784937247513990000",
+      "bytes": 63538,
+      "woven": true,
+      "work_with_me": true,
+      "field_notes": 0,
+      "dispatch": 0,
+      "book_keynote": false,
+      "revive_home": false,
+      "newsletter_beehiiv": true,
+      "subscribe_free": true,
+      "space_grotesk": true,
+      "dm_sans": true,
+      "cream_token": true,
+      "cta_to_services": true,
+      "header_cta_href": "/services/",
+      "boost": "607a63d9eb",
+      "body_class": "wp-singular page-template-default page page-id-12013 wp-embed-responsive wp-theme-kk-aurora aurora-theme"
+    },
+    {
+      "path": "/blog/",
+      "status": 200,
+      "final": "https://kriskrug.co/blog/?cb=1784937247513990000",
+      "bytes": 124655,
+      "woven": true,
+      "work_with_me": true,
+      "field_notes": 1,
+      "dispatch": 0,
+      "book_keynote": false,
+      "revive_home": false,
+      "newsletter_beehiiv": true,
+      "subscribe_free": true,
+      "space_grotesk": true,
+      "dm_sans": true,
+      "cream_token": true,
+      "cta_to_services": true,
+      "header_cta_href": "/services/",
+      "boost": "607a63d9eb",
+      "body_class": "blog wp-embed-responsive wp-theme-kk-aurora aurora-theme"
+    },
+    {
+      "path": "/contact/",
+      "status": 200,
+      "final": "https://kriskrug.co/contact/?cb=1784937247513990000",
+      "bytes": 58625,
+      "woven": true,
+      "work_with_me": true,
+      "field_notes": 0,
+      "dispatch": 0,
+      "book_keynote": false,
+      "revive_home": false,
+      "newsletter_beehiiv": true,
+      "subscribe_free": true,
+      "space_grotesk": true,
+      "dm_sans": true,
+      "cream_token": true,
+      "cta_to_services": true,
+      "header_cta_href": "/services/",
+      "boost": "607a63d9eb",
+      "body_class": "wp-singular page-template-default page page-id-2418 wp-embed-responsive wp-theme-kk-aurora aurora-theme"
+    },
+    {
+      "path": "/sponsor-deck/",
+      "status": 200,
+      "final": "https://kriskrug.co/sponsor-deck/?cb=1784937247513990000",
+      "bytes": 65816,
+      "woven": true,
+      "work_with_me": true,
+      "field_notes": 0,
+      "dispatch": 0,
+      "book_keynote": false,
+      "revive_home": false,
+      "newsletter_beehiiv": true,
+      "subscribe_free": true,
+      "space_grotesk": true,
+      "dm_sans": true,
+      "cream_token": true,
+      "cta_to_services": true,
+      "header_cta_href": "/services/",
+      "boost": "607a63d9eb",
+      "body_class": "wp-singular page-template-default page page-id-12625 wp-embed-responsive wp-theme-kk-aurora aurora-theme"
+    }
+  ],
+  "fse": {
+    "theme_version": "1.4.0",
+    "theme_status": "active",
+    "template_parts": [
+      {
+        "slug": "header",
+        "source": "theme",
+        "type": "wp_template_part",
+        "id": "kk-aurora//header"
+      },
+      {
+        "slug": "marquee-current",
+        "source": "theme",
+        "type": "wp_template_part",
+        "id": "kk-aurora//marquee-current"
+      },
+      {
+        "slug": "footer",
+        "source": "theme",
+        "type": "wp_template_part",
+        "id": "kk-aurora//footer"
+      },
+      {
+        "slug": "speaking-proof-grid",
+        "source": "theme",
+        "type": "wp_template_part",
+        "id": "kk-aurora//speaking-proof-grid"
+      }
+    ],
+    "templates": [
+      {
+        "slug": "single",
+        "source": "custom",
+        "id": "kk-aurora//single"
+      },
+      {
+        "slug": "index",
+        "source": "theme",
+        "id": "kk-aurora//index"
+      },
+      {
+        "slug": "page",
+        "source": "theme",
+        "id": "kk-aurora//page"
+      },
+      {
+        "slug": "archive-marquee_board",
+        "source": "theme",
+        "id": "kk-aurora//archive-marquee_board"
+      },
+      {
+        "slug": "front-page",
+        "source": "theme",
+        "id": "kk-aurora//front-page"
+      },
+      {
+        "slug": "single-marquee_board",
+        "source": "theme",
+        "id": "kk-aurora//single-marquee_board"
+      },
+      {
+        "slug": "home",
+        "source": "theme",
+        "id": "kk-aurora//home"
+      },
+      {
+        "slug": "404",
+        "source": "theme",
+        "id": "kk-aurora//404"
+      }
+    ],
+    "snippet_14": {
+      "active": false,
+      "name": "TEMP Aurora 1.4.0 cream contrast file apply - retire after verify"
+    }
+  }
+}
