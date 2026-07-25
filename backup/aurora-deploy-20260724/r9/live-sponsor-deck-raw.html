@@ -1,19 +1,17 @@
 <!-- wp:html -->
 <style>
 .kk-sponsor {
-  --kk-ink: #171310;
-  --kk-ink-2: #171310;
-  --kk-ink-soft: rgba(23, 19, 16, 0.78);
-  --kk-muted: rgba(23, 19, 16, 0.55);
-  --kk-line: rgba(23, 19, 16, 0.14);
-  --kk-card: #e6dcc2;
-  --kk-paper: #efe6d2;
-  --kk-accent: #d94a1f;
-  --kk-accent-text: #b53c18;
-  --kk-hot: #b53c18;
-  --kk-r: 2px;
-  --kk-sh: none;
-  color: var(--kk-ink-soft);
+  --kk-ink: #f0f0f5;
+  --kk-ink-2: #fff;
+  --kk-muted: #a6a6b3;
+  --kk-line: rgba(255, 255, 255, 0.14);
+  --kk-card: rgba(255, 255, 255, 0.04);
+  --kk-paper: rgba(255, 255, 255, 0.05);
+  --kk-accent: #00e5ff;
+  --kk-hot: #ff6a6a;
+  --kk-r: 14px;
+  --kk-sh: 0 1px 2px rgba(0, 0, 0, 0.45), 0 12px 28px -14px rgba(0, 0, 0, 0.7);
+  color: var(--kk-ink);
   max-width: 72rem;
 }
 .kk-sponsor p,
@@ -33,7 +31,7 @@
   color: inherit !important;
 }
 .kk-sponsor a {
-  color: var(--kk-accent-text);
+  color: var(--kk-accent);
   font-weight: 700;
   text-decoration: none;
 }
@@ -85,31 +83,27 @@ body.page-id-12625 .aurora-page-header {
 .kk-sponsor-button {
   display: inline-block;
   padding: 0.7rem 1.1rem;
-  border: 1px solid var(--kk-ink);
-  border-radius: var(--kk-r);
+  border: 2px solid var(--kk-accent);
+  border-radius: 8px;
   text-decoration: none !important;
-  background: var(--kk-ink);
-  color: var(--kk-paper) !important;
+  background: var(--kk-accent);
+  color: #04121a !important;
   font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .kk-sponsor-button:hover {
-  background: var(--kk-accent);
-  border-color: var(--kk-accent);
-  color: var(--kk-paper) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--kk-sh);
   text-decoration: none !important;
 }
 .kk-sponsor-button.secondary {
   background: transparent;
   color: var(--kk-ink) !important;
-  border-color: rgba(217, 74, 31, 0.4);
+  border-color: var(--kk-line);
 }
 .kk-sponsor-button.secondary:hover {
-  border-color: var(--kk-accent-text);
-  color: var(--kk-accent-text) !important;
+  border-color: var(--kk-accent);
+  color: var(--kk-accent) !important;
 }
 .kk-sponsor-hero-grid {
   display: grid;
@@ -137,7 +131,7 @@ body.page-id-12625 .aurora-page-header {
   font-size: 0.78rem;
   color: var(--kk-muted);
   border-top: 1px solid var(--kk-line);
-  background: var(--kk-card);
+  background: rgba(0, 0, 0, 0.28);
 }
 .kk-sponsor-proof {
   display: grid;
@@ -148,7 +142,7 @@ body.page-id-12625 .aurora-page-header {
 .kk-sponsor-proof div {
   border: 1px solid var(--kk-line);
   border-top: 3px solid var(--kk-accent);
-  border-radius: var(--kk-r);
+  border-radius: 10px;
   padding: 0.95rem 1rem;
   background: var(--kk-card);
 }
@@ -358,7 +352,7 @@ body.page-id-12625 .aurora-page-header {
 }
 </style>
 
-<div class="kk-sponsor kk-sponsor-deck kk-page">
+<div class="kk-sponsor">
   <section class="kk-sponsor-hero">
     <div class="kk-sponsor-hero-grid">
       <div>

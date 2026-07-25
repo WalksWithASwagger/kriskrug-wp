@@ -34,7 +34,7 @@ Close the gap between “stranger recognizes Revive direction” (done) and “e
 |---|---|---|---|---|
 | R7 | Contact still shows cyan bar / old accent chrome | Contact screenshot | Rewrite Contact pack to cream/ink density (after #421 portrait keep) | **Done** — page **2418**; ink CTAs, cream caption, no `#00e5ff` |
 | R8 | Services cards keep drop-cap / rounded SaaS card feel | Services screenshot | Rewrite Services HTML pack to Revive “Strategic intervention” ribbon cards | **Done** — page **2666**; ribbon cards I–IV, drop-caps killed |
-| R9 | Speaking / About / Work / Photography / Sponsor-deck uneven | Spot checks | One pack per commit: restyle to `.kk-page` tokens + remove leftover cyan | Each route screenshot passes cream/ink smell test |
+| R9 | Speaking / About / Work / Photography / Sponsor-deck uneven | Spot checks | One pack per commit: restyle to `.kk-page` tokens + remove leftover cyan | **Done** — pages **1887 / 1208 / 2672 / 12013 / 12625**; no pack cyan; report `backup/aurora-deploy-20260724/r9/R9-REPORT.md` |
 | R10 | Blog archive H1 still “Field notes…” | `/blog/` HTML | Rename to **Writing** (KK rejected Field notes on WP chrome) | **Done** — `home.html` H1 → “Writing for the age…”, media **#12634** / snippet **#18** |
 | R11 | Work page body still says “Field notes, talks…” | `/work/` HTML | Soft rewrite to “Writing, talks…” | **Done** — page **2672** + source pack `work.html` |
 
@@ -72,10 +72,10 @@ Do **not** mix Track A pack rewrites with Track B theme commits.
 
 - Accent text meets AA on cream; focus rings visible on paper.
 - Header reads as one composition at 375/768/1440 with Photography in IA.
-- Contact + Services packs no longer look like dark/cyan SaaS islands.
+- Contact + Services + Speaking/About/Work/Photography/Sponsor-deck packs no longer look like dark/cyan SaaS islands.
 - Blog/Work no longer say “Field notes” unless KK reverses that decision.
 - E2E report regenerated green; rollback zip retained.
 
 ## Immediate next step
 
-R7/R8 done. Next Track A as capacity: **R9** Speaking / About / Work / Photography / Sponsor-deck cream smell test.
+R7–R11 Track A packs done. Remaining polish: **R5/R6** header/rainbow (Track B), **R12–R15** ops/a11y.
