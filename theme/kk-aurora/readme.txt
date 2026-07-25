@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.4.5 clears the remaining pre-cream foreground colour literals and adds a regression test that requires every hardcoded foreground colour to declare the surface it renders on.
+KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.4.6 finishes the 1.4.0 cream port for the blog index: the writing card, its pagination and the featured-media panel were still painting pre-cream dark surfaces under cream-era ink.
 
 Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
@@ -39,6 +39,16 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 * Rainbow accents: teal / cyan / cobalt / violet / magenta
 
 == Changelog ==
+
+= 1.4.6 =
+* a11y (#485): `.aurora-writing-card` — the blog index card — still painted the pre-cream `#050708` under cream-era ink. Titles measured 1.00–1.06:1 and meta 1.00–1.03:1, i.e. the archive listing for every post on the site was effectively blank. The card is declared in six places; all six are reconciled to `--aurora-panel-solid`. Titles are now 12.95–13.53:1 and meta 5.48–5.73:1.
+* a11y (#485): converted the card's chrome with the surface, not just its background — borders and the meta rule moved from white tints to `--aurora-line`, the `::after` wash from a white sheen to an ink wash (it paints below the card body, so it is part of the measured backdrop), the four `::before` placeholder tiles from near-black textures to darkest-cream ones, and the shadows from black to ink.
+* a11y (#485): the archive excerpt was the one rule the dark card was still serving (near-white at 7.91:1). It has specificity (0,3,1) and does not inherit revive-port's cream fix, so it was converted with the surface rather than left to invert; now 7.40–7.62:1.
+* a11y (#485): `--aurora-ink-muted` was `rgba(23, 19, 16, 0.55)` (3.84:1 on cream) while theme.json's `text-muted`, the palette entry it aliases, was raised to `#5c5044` (6.30:1) back in 1.4.4. The CSS alias never followed. Both `:root` blocks now carry `#5c5044`, which lifts roughly 30 foreground declarations across ~15 components in one change.
+* a11y (#485): `.aurora-featured-media` kept a dark panel, which put its caption at 2.06:1 — and the caption's own colour declaration always lost the cascade to revive-port.css, so retuning it could never have helped. The panel is cream and the losing literal is deleted; the declaration that actually paints is 7.62:1.
+* a11y (#485): the card's `:focus-within` outline was `rgba(229, 70, 46, 0.7)` — 2.35:1 on cream, under the 3:1 floor for a focus indicator. Now `--aurora-readable-accent` (6.06:1).
+* a11y (#485): the blog index's pagination chips, RSS category chips and dispatch band were pre-cream dark surfaces on the same template; all three are cream, and the category pill's invisible white fill and border are ink tints.
+* test: `test_aurora_css_literal_contrast.py` gains five #485 regressions — every `.aurora-writing-card` rule is walked for dark surfaces so a fix to one declaration site cannot mask the other five, the token alias is pinned to theme.json, and the featured-media caption is measured on the declaration that wins rather than the one that is written.
 
 = 1.4.5 =
 * a11y: `.aurora-inline-link:hover` was #ff735d — 2.15:1 on cream, i.e. hovering made the link less legible than its 6.06:1 resting state. Now ink (14.88:1).
