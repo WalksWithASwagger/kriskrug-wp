@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.4.1');
+define('KK_AURORA_VERSION', '1.4.2');
 
 require_once get_template_directory() . '/inc/seo-title.php';
 
@@ -312,23 +312,23 @@ function body_classes(array $classes): array {
 add_filter('body_class', __NAMESPACE__ . '\\body_classes');
 
 /**
- * Preload critical fonts
+ * Preload critical fonts (Revive 1.4.x: Space Grotesk + DM Sans)
  */
 function preload_fonts(): void {
     ?>
-    <link rel="preload" href="<?php echo esc_url(get_theme_file_uri('assets/fonts/Inter-Variable.woff2')); ?>" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="<?php echo esc_url(get_theme_file_uri('assets/fonts/ClashDisplay-700.woff2')); ?>" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="<?php echo esc_url(get_theme_file_uri('assets/fonts/SpaceGrotesk-Variable.woff2')); ?>" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="<?php echo esc_url(get_theme_file_uri('assets/fonts/DMSans-Variable.woff2')); ?>" as="font" type="font/woff2" crossorigin>
     <?php
 }
 add_action('wp_head', __NAMESPACE__ . '\\preload_fonts', 1);
 
 /**
- * Add theme color meta tag
+ * Browser chrome meta — must match cream/ink surfaces (not legacy dark Aurora).
  */
 function theme_color_meta(): void {
     ?>
-    <meta name="theme-color" content="#0D0D12">
-    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#efe6d2">
+    <meta name="color-scheme" content="light">
     <?php
 }
 add_action('wp_head', __NAMESPACE__ . '\\theme_color_meta', 2);

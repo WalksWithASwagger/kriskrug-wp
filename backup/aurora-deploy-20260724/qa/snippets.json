@@ -1,0 +1,290 @@
+[
+  {
+    "id": 5,
+    "active": true,
+    "scope": "global",
+    "priority": 10,
+    "name": "KK Schema",
+    "code_len": 9432,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": false,
+      "wp_head": true,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 7,
+    "active": true,
+    "scope": "front-end",
+    "priority": 10,
+    "name": "KK SEO root files: llms.txt + robots policy 2026-06-12",
+    "code_len": 6513,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": false,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 8,
+    "active": true,
+    "scope": "front-end",
+    "priority": 10,
+    "name": "GSC404 query param canonicalize",
+    "code_len": 2328,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": false,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 10,
+    "active": true,
+    "scope": "front-end",
+    "priority": 10,
+    "name": "KK Asset Diet",
+    "code_len": 2861,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": false,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 13,
+    "active": true,
+    "scope": "front-end",
+    "priority": 10,
+    "name": "KK News Sitemap",
+    "code_len": 2803,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": false,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 1,
+    "active": false,
+    "scope": "global",
+    "priority": 10,
+    "name": "Make upload filenames lowercase",
+    "code_len": 52,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": false,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 2,
+    "active": false,
+    "scope": "front-end",
+    "priority": 10,
+    "name": "Disable admin bar",
+    "code_len": 115,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": false,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 3,
+    "active": false,
+    "scope": "global",
+    "priority": 10,
+    "name": "Allow smilies",
+    "code_len": 187,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": false,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 4,
+    "active": false,
+    "scope": "content",
+    "priority": 10,
+    "name": "Current year",
+    "code_len": 26,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": false,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 6,
+    "active": false,
+    "scope": "front-end",
+    "priority": 1,
+    "name": "Hotfix 2026-05-24: Projects redirect + Work OG fallback",
+    "code_len": 2408,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": false,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 9,
+    "active": false,
+    "scope": "front-end",
+    "priority": 10,
+    "name": "A11Y CTA contrast hotfix 2026-06-18",
+    "code_len": 736,
+    "mentions": {
+      "css_inject": true,
+      "theme_write": false,
+      "wp_head": true,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 11,
+    "active": false,
+    "scope": "front-end",
+    "priority": 999,
+    "name": "TEMP Aurora 1.3.33 a11y contrast fallback - remove after theme deploy",
+    "code_len": 1950,
+    "mentions": {
+      "css_inject": true,
+      "theme_write": false,
+      "wp_head": true,
+      "wp_footer": false,
+      "dark_hex": true,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 12,
+    "active": false,
+    "scope": "front-end",
+    "priority": 5,
+    "name": "Open Graph + Twitter Card meta (social link previews)",
+    "code_len": 3292,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": false,
+      "wp_head": true,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 14,
+    "active": false,
+    "scope": "global",
+    "priority": 1,
+    "name": "TEMP Aurora 1.4.0 cream contrast file apply - retire after verify",
+    "code_len": 1451,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": true,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 15,
+    "active": false,
+    "scope": "global",
+    "priority": 1,
+    "name": "TEMP Aurora 1.4.0 full theme sync from media - retire after verify",
+    "code_len": 1318,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": true,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 16,
+    "active": false,
+    "scope": "global",
+    "priority": 1,
+    "name": "TEMP Aurora 1.4.1 theme sync from media - retire after verify",
+    "code_len": 1269,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": true,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 17,
+    "active": false,
+    "scope": "global",
+    "priority": 1,
+    "name": "TEMP Aurora R10 home.html Writing H1 - retire after verify",
+    "code_len": 915,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": true,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  },
+  {
+    "id": 18,
+    "active": false,
+    "scope": "global",
+    "priority": 1,
+    "name": "TEMP Aurora R10 home.html Writing H1 - retire after verify",
+    "code_len": 915,
+    "mentions": {
+      "css_inject": false,
+      "theme_write": true,
+      "wp_head": false,
+      "wp_footer": false,
+      "dark_hex": false,
+      "cream_hex": false
+    }
+  }
+]

@@ -38,6 +38,10 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.4.2 =
+* Fix leftover dark meta: `color-scheme: light` + cream `theme-color`.
+* Preload Space Grotesk / DM Sans instead of unused Inter / Clash Display.
+
 = 1.4.1 =
 * Cream a11y polish: AA-safe accent text for kickers, visible focus rings on paper.
 * Remove duplicate theme skip link (keep WordPress core `#wp-skip-link`).

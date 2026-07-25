@@ -1,0 +1,120 @@
+{
+  "boost": {
+    "id": "06822ae7e0",
+    "len": 137475,
+    "revive_surface": true,
+    "accent_text": true,
+    "090c11": 0,
+    "focus_visible": true,
+    "woven": true,
+    "rgba91217": 0,
+    "0b0f16": 0
+  },
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "final": "https://kriskrug.co/?cb=1784939808346383000",
+      "woven": true,
+      "cta": true,
+      "skip": 2,
+      "field_h1": false,
+      "writing_h1": false,
+      "inline_styles": 18,
+      "boost": "06822ae7e0",
+      "body": "home wp-singular page-template-default page page-id-3930 wp-embed-responsive wp-theme-kk-a"
+    },
+    {
+      "path": "/about/",
+      "status": 200,
+      "final": "https://kriskrug.co/about/?cb=1784939808346383000",
+      "woven": true,
+      "cta": true,
+      "skip": 2,
+      "field_h1": false,
+      "writing_h1": false,
+      "inline_styles": 10,
+      "boost": "06822ae7e0",
+      "body": "wp-singular page-template-default page page-id-1208 wp-embed-responsive wp-theme-kk-aurora"
+    },
+    {
+      "path": "/work/",
+      "status": 200,
+      "final": "https://kriskrug.co/work/?cb=1784939808346383000",
+      "woven": true,
+      "cta": true,
+      "skip": 2,
+      "field_h1": false,
+      "writing_h1": false,
+      "inline_styles": 10,
+      "boost": "06822ae7e0",
+      "body": "wp-singular page-template-default page page-id-2672 wp-embed-responsive wp-theme-kk-aurora"
+    },
+    {
+      "path": "/speaking/",
+      "status": 200,
+      "final": "https://kriskrug.co/speaking/?cb=1784939808346383000",
+      "woven": true,
+      "cta": true,
+      "skip": 2,
+      "field_h1": false,
+      "writing_h1": false,
+      "inline_styles": 10,
+      "boost": "06822ae7e0",
+      "body": "wp-singular page-template-default page page-id-1887 wp-embed-responsive wp-theme-kk-aurora"
+    },
+    {
+      "path": "/services/",
+      "status": 200,
+      "final": "https://kriskrug.co/generative-ai-services/?cb=1784939808346383000",
+      "woven": true,
+      "cta": true,
+      "skip": 2,
+      "field_h1": false,
+      "writing_h1": false,
+      "inline_styles": 10,
+      "boost": "06822ae7e0",
+      "body": "wp-singular page-template-default page page-id-2666 wp-embed-responsive wp-theme-kk-aurora"
+    },
+    {
+      "path": "/photography/",
+      "status": 200,
+      "final": "https://kriskrug.co/photography/?cb=1784939808346383000",
+      "woven": true,
+      "cta": true,
+      "skip": 2,
+      "field_h1": false,
+      "writing_h1": false,
+      "inline_styles": 11,
+      "boost": "06822ae7e0",
+      "body": "wp-singular page-template-default page page-id-12013 wp-embed-responsive wp-theme-kk-auror"
+    },
+    {
+      "path": "/blog/",
+      "status": 200,
+      "final": "https://kriskrug.co/blog/?cb=1784939808346383000",
+      "woven": true,
+      "cta": true,
+      "skip": 2,
+      "field_h1": false,
+      "writing_h1": true,
+      "inline_styles": 18,
+      "boost": "06822ae7e0",
+      "body": "blog wp-embed-responsive wp-theme-kk-aurora aurora-theme"
+    },
+    {
+      "path": "/contact/",
+      "status": 200,
+      "final": "https://kriskrug.co/contact/?cb=1784939808346383000",
+      "woven": true,
+      "cta": true,
+      "skip": 2,
+      "field_h1": false,
+      "writing_h1": false,
+      "inline_styles": 11,
+      "boost": "06822ae7e0",
+      "body": "wp-singular page-template-default page page-id-2418 wp-embed-responsive wp-theme-kk-aurora"
+    }
+  ],
+  "inline_style_count": 18
+}
