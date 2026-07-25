@@ -57,11 +57,13 @@ The four ad-hoc scripts used (CSS metrics, token overlap, selector duplication +
 |---|---:|---:|---:|
 | CSS files | 5 | 6 | +1 |
 | Total lines | 6,219 | 7,456 | **+20%** |
-| `!important` in CSS files | **79** | **161** | **+104%** |
+| `!important` in CSS files (code-only)² | **79** | **160** | **+103%** |
 | `!important` in `style.css` | 72 | 71 | −1 |
 | `!important` in theme markup (`front-page.html`) | 24 | 0 | −24 |
 
 Reproduce: `git show 33887e7c:theme/kk-aurora/<file> \| grep -c -o '!important'`. The memo's own figure (6,219 lines / 5 files / 72 in `style.css`) reproduces exactly, so the comparison is like-for-like.
+
+² **Counting note.** The growth row compares *code-only* counts on both sides. Today's raw grep total is **161**, of which one is inside a comment (`revive-port.css:1062`), giving **160** real declarations — the figure the #256 audit (PR #468) reports independently. At `33887e7c` no `!important` appeared in a comment in any file, so **79** is both its raw and code-only count. Comparing today's raw 161 against that 79 would overstate the growth slightly; 79 → 160 is the honest like-for-like figure. Elsewhere in this document the per-file table reports raw counts with the discrepancy footnoted at ¹.
 
 The 1.4.0–1.4.3 Revive port added the sixth file and **more than doubled `!important` site-wide**, because the Revive brand layer overrides the 2026 layer rather than replacing it. Meanwhile the incremental approach did work where it was applied — `style.css` went down by one and the front-page inline block was deleted outright. But the net moved sharply the wrong way. **The debt is growing, not shrinking.** That is the strongest single argument for A over B, and the data did not exist when the B/C recommendation was written.
 
