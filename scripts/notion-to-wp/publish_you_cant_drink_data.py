@@ -220,7 +220,11 @@ else:
 v = wp.get_post(pid)
 vc = v["content"]["raw"]
 checks = {
-    "published": v["status"] == "publish",
+    # This script NEVER publishes (see the module docstring), so the safe outcome
+    # is status=draft. The check used to assert status=="publish", which printed
+    # "FAIL published" on every correct run and trained readers to skim past FAIL
+    # lines in a safety readback (issue #483).
+    "stays_draft": v["status"] == "draft",
     "featured_set": v.get("featured_media") == FEATURED_ID,
     "pullquotes_4": vc.count("wp:pullquote") == 8,
     "two_galleries": vc.count("wp:gallery") == 4,  # consolidated signs + AI (open+close each)
