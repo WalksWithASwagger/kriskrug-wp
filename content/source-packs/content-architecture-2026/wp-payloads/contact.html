@@ -1,18 +1,20 @@
 <!-- wp:html -->
 <!-- content-architecture-2026:contact -->
 <style>
-.kk-contact {
-  --kk-ink: #f0f0f5;
-  --kk-ink-2: #fff;
-  --kk-muted: #a6a6b3;
-  --kk-line: rgba(255, 255, 255, 0.14);
-  --kk-card: rgba(255, 255, 255, 0.04);
-  --kk-paper: rgba(255, 255, 255, 0.05);
-  --kk-accent: #00e5ff;
-  --kk-hot: #ff6a6a;
-  --kk-r: 14px;
-  --kk-sh: 0 1px 2px rgba(0, 0, 0, 0.45), 0 12px 28px -14px rgba(0, 0, 0, 0.7);
-  color: var(--kk-ink);
+.kk-contact,
+.kk-contact-2026 {
+  --kk-ink: #171310;
+  --kk-ink-2: #171310;
+  --kk-ink-soft: rgba(23, 19, 16, 0.78);
+  --kk-muted: rgba(23, 19, 16, 0.55);
+  --kk-line: rgba(23, 19, 16, 0.14);
+  --kk-card: #e6dcc2;
+  --kk-paper: #efe6d2;
+  --kk-accent: #d94a1f;
+  --kk-accent-text: #b53c18;
+  --kk-r: 2px;
+  --kk-sh: none;
+  color: var(--kk-ink-soft);
   max-width: 72rem;
 }
 .kk-contact p,
@@ -32,11 +34,12 @@
   color: inherit !important;
 }
 .kk-contact a {
-  color: var(--kk-accent);
+  color: var(--kk-accent-text);
   font-weight: 700;
   text-decoration: none;
 }
 .kk-contact a:hover {
+  color: var(--kk-ink);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -47,25 +50,27 @@
 .kk-contact-kicker {
   margin: 0 0 0.6rem;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.74rem;
-  color: var(--kk-hot);
-  font-weight: 800;
+  letter-spacing: 0.28em;
+  font-size: 0.68rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  color: var(--kk-accent-text);
+  font-weight: 600;
 }
 .kk-contact-display {
   margin: 0.1rem 0 0.8rem;
+  font-family: "Space Grotesk", system-ui, sans-serif;
   font-size: clamp(1.85rem, 3.4vw, 2.55rem);
   line-height: 1.08;
-  letter-spacing: -0.02em;
-  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-weight: 700;
   max-width: 38rem;
-  color: var(--kk-ink-2);
+  color: var(--kk-ink);
 }
 .kk-contact-lead {
   font-size: 1.12rem;
   line-height: 1.62;
   max-width: 42rem;
-  color: var(--kk-ink);
+  color: var(--kk-ink-soft);
   margin: 0 0 1rem;
 }
 .kk-contact-actions {
@@ -77,45 +82,52 @@
 .kk-contact-button {
   display: inline-block;
   padding: 0.7rem 1.1rem;
-  border: 2px solid var(--kk-accent);
-  border-radius: 8px;
+  border: 1px solid var(--kk-ink);
+  border-radius: var(--kk-r);
   text-decoration: none !important;
-  background: var(--kk-accent);
-  color: #04121a !important;
+  background: var(--kk-ink);
+  color: var(--kk-paper) !important;
   font-weight: 700;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 .kk-contact-button:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--kk-sh);
+  background: var(--kk-accent);
+  border-color: var(--kk-accent);
+  color: var(--kk-paper) !important;
   text-decoration: none !important;
 }
 .kk-contact-button.secondary {
   background: transparent;
   color: var(--kk-ink) !important;
-  border-color: var(--kk-line);
+  border-color: rgba(217, 74, 31, 0.4);
 }
 .kk-contact-button.secondary:hover {
-  border-color: var(--kk-accent);
-  color: var(--kk-accent) !important;
+  border-color: var(--kk-accent-text);
+  color: var(--kk-accent-text) !important;
+  background: transparent;
 }
 .kk-contact-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.9fr);
   gap: 1.5rem;
-  align-items: center;
+  align-items: start;
 }
 .kk-contact-hero-photo {
   margin: 0;
   border: 1px solid var(--kk-line);
   border-radius: var(--kk-r);
   overflow: hidden;
-  background: var(--kk-card);
-  box-shadow: var(--kk-sh);
+  background: var(--kk-paper);
+  box-shadow: none;
+  line-height: 0;
 }
 .kk-contact-hero-photo img {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center top;
@@ -124,9 +136,10 @@
   margin: 0;
   padding: 0.7rem 0.9rem;
   font-size: 0.78rem;
+  line-height: 1.4;
   color: var(--kk-muted);
   border-top: 1px solid var(--kk-line);
-  background: rgba(0, 0, 0, 0.28);
+  background: var(--kk-card);
 }
 .kk-contact-section {
   padding: 2.4rem 0;
@@ -136,11 +149,12 @@
   position: relative;
   padding-top: 1.1rem;
   margin: 0 0 1rem;
+  font-family: "Space Grotesk", system-ui, sans-serif;
   font-size: 1.55rem;
   line-height: 1.14;
-  letter-spacing: -0.015em;
-  font-weight: 800;
-  color: var(--kk-ink-2);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--kk-ink);
 }
 .kk-contact-section > h2::before {
   content: "";
@@ -148,9 +162,9 @@
   top: 0;
   left: 0;
   width: 2.4rem;
-  height: 4px;
-  border-radius: 3px;
-  background: var(--kk-hot);
+  height: 3px;
+  border-radius: 0;
+  background: var(--kk-accent);
 }
 .kk-contact-section-intro {
   max-width: 48rem;
@@ -168,16 +182,17 @@
   border-radius: var(--kk-r);
   background: var(--kk-card);
   padding: 1.1rem;
-  box-shadow: var(--kk-sh);
+  box-shadow: none;
 }
 .kk-contact-card h3 {
   margin: 0 0 0.45rem;
+  font-family: "Space Grotesk", system-ui, sans-serif;
   font-size: 1.08rem;
-  color: var(--kk-ink-2);
+  color: var(--kk-ink);
 }
 .kk-contact-card p {
   margin: 0;
-  color: var(--kk-muted);
+  color: var(--kk-ink-soft);
   line-height: 1.5;
 }
 .kk-contact-two {
@@ -189,17 +204,18 @@
 .kk-contact-panel {
   border: 1px solid var(--kk-line);
   border-radius: var(--kk-r);
-  background: var(--kk-paper);
+  background: var(--kk-card);
   padding: 1.25rem;
 }
 .kk-contact-panel h2,
 .kk-contact-panel h3 {
   margin: 0 0 0.55rem;
-  color: var(--kk-ink-2);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  color: var(--kk-ink);
 }
 .kk-contact-panel p {
   margin: 0 0 0.85rem;
-  color: var(--kk-muted);
+  color: var(--kk-ink-soft);
   line-height: 1.55;
 }
 .kk-contact-panel p:last-child {
@@ -208,7 +224,7 @@
 .kk-contact-email {
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--kk-ink-2) !important;
+  color: var(--kk-accent-text) !important;
   word-break: break-word;
 }
 @media (max-width: 760px) {
@@ -222,7 +238,7 @@
 }
 </style>
 
-<div class="kk-contact">
+<div class="kk-contact kk-contact-2026">
   <section class="kk-contact-hero">
     <div class="kk-contact-hero-grid">
       <div>
