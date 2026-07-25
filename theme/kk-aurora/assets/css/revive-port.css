@@ -19,7 +19,11 @@
   /* Solid control fill; label text is #fffaf6 (5.11:1). */
   --revive-accent-control: #c03f18;
   --revive-accent-control-hover: #a52918;
-  --revive-accent-control-label: #fffaf6;
+  /* Alias, not a redefinition: style.css:--aurora-signal-control-label is the
+     sole definition site for this value (PR #467 Path A direction). The
+     fallback only covers a partial deploy where style.css is still the
+     previous version; this token feeds the skip-link focus state. */
+  --revive-accent-control-label: var(--aurora-signal-control-label, #fffaf6);
   --revive-accent-soft: #e8b53a;
   --revive-line: rgba(23, 19, 16, 0.14);
   --revive-line-strong: rgba(181, 60, 24, 0.4);
@@ -693,7 +697,9 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.45;
-  color: rgba(239, 230, 210, 0.78);
+  /* Sits on the ::after ink scrim (rgba(23,19,16,.72)). 0.78 was 4.36:1 over
+     the worst case (scrim over a white photo region); 0.84 is 4.78:1. */
+  color: rgba(239, 230, 210, 0.84);
 }
 
 .aurora-services-band {

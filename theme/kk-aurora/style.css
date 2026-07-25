@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.4.4
+Version: 1.4.5
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -499,9 +499,17 @@ a {
   --aurora-paper: #efe6d2;
   --aurora-signal: #9a2f14;
   --aurora-signal-dark: #a52918;
-  /* Control fills carry #fffaf6 label text — both states clear 4.5:1 on it. */
+  /* Control fills carry the label token below — both states clear 4.5:1 on it. */
   --aurora-signal-control: #c03f18;
   --aurora-signal-control-hover: #a52918;
+  /* Sole definition site for solid-control label text. 5.11:1 on
+     --aurora-signal-control, 7.29:1 on --aurora-signal. revive-port.css
+     aliases --revive-accent-control-label to this rather than repeating it. */
+  --aurora-signal-control-label: #fffaf6;
+  /* Error text on cream. theme.json's `error` (#d94a1f) is a decorative fill
+     and only reaches 2.69:1 on cream, so it must never carry error copy.
+     7.37:1 on --aurora-paper, 6.70:1 on the darker cream --aurora-panel-solid. */
+  --aurora-error-text: #8a1f1f;
   --aurora-wildcard: #e8b53a;
   --aurora-opal-void: #efe6d2;
   --aurora-opal-ink: #e6dcc2;
@@ -582,7 +590,7 @@ a {
 .wp-block-button.is-style-aurora-primary .wp-block-button__link {
   background: var(--aurora-signal-control);
   border: 1px solid var(--aurora-signal-control);
-  color: #fffaf6;
+  color: var(--aurora-signal-control-label);
   box-shadow: 0 0 28px rgba(229, 70, 46, 0.22);
 }
 
@@ -1053,7 +1061,10 @@ a {
 }
 
 .aurora-inline-link:hover {
-  color: #ff735d;
+  /* #ff735d was a dark-palette value: 2.15:1 on cream, i.e. hovering made the
+     link *less* legible than its 6.06:1 resting state. Ink matches the
+     established cream hover pattern (revive-port.css: page-content links). */
+  color: var(--aurora-ink);
 }
 
 .aurora-testimonial-band {
@@ -2406,7 +2417,12 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 }
 
 .aurora-meta-divider {
-  color: rgba(232, 224, 209, 0.28);
+  /* Pre-cream residue: rgba(232, 224, 209, 0.28) is cream-on-cream (1.02:1).
+     It never rendered — `.aurora-article-meta span` (0,1,1) out-specifies this
+     rule and already supplies ink-muted — so this is a dead-literal cleanup
+     that makes the losing rule agree with the winner rather than a live fix.
+     3.84:1 on cream, clearing the 3:1 floor for this aria-hidden separator. */
+  color: var(--aurora-ink-muted);
 }
 
 .aurora-article-dek {
@@ -2905,7 +2921,9 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   background: var(--wp--preset--color--signal);
   border: 1px solid var(--wp--preset--color--signal);
   border-radius: var(--aurora-radius-control);
-  color: #041013;
+  /* #041013 was a label for the old bright signal. Against today's
+     signal (#9a2f14) it is 2.56:1; the control label token is 7.29:1. */
+  color: var(--aurora-signal-control-label);
   cursor: pointer;
   display: inline-flex;
   font-weight: 800;
@@ -2934,7 +2952,9 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 
 .aurora-form-error,
 .aurora-theme :where(.gform_validation_errors, .jetpack-field-error) {
-  color: #ffb4b4;
+  /* #ffb4b4 was a dark-palette pink: 1.36:1 on cream, so validation errors
+     were invisible on the surface they render against. */
+  color: var(--aurora-error-text);
 }
 
 .aurora-form-success,
@@ -3437,7 +3457,13 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 
 .aurora-single-2026 .aurora-article-dek {
   border-left: 2px solid rgba(242, 180, 207, 0.32);
-  color: rgba(232, 224, 209, 0.72);
+  /* Pre-cream residue: rgba(232, 224, 209, 0.72) is cream-on-cream (1.04:1).
+     The dek's visible text lives in an inner <p> that revive-port.css paints
+     --revive-ink-soft (8.11:1), so the old value only ever applied to direct
+     text in this <div> — of which the post-excerpt block renders none. A
+     dead-literal cleanup that also makes the rule correct if that markup ever
+     changes, not a live fix. */
+  color: var(--aurora-ink-soft);
   font-style: normal;
   line-height: 1.6;
   max-width: 64ch;
@@ -3520,6 +3546,12 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 }
 
 .aurora-featured-media :where(figcaption, .wp-element-caption) {
+  /* DEAD DECLARATION — do not "fix" this value in place. revive-port.css's
+     `.aurora-theme :where(p, li, figcaption)` has equal specificity (0,1,0)
+     and loads later, so it wins and paints this caption --revive-ink-soft:
+     dark ink on this rule's own dark panel, 2.06:1 live. The fix is to decide
+     .aurora-featured-media's surface (it is a pre-cream literal), not to
+     retune the caption. See the #470 sweep notes. */
   color: rgba(207, 199, 187, 0.72);
   font-size: 0.86rem;
   line-height: 1.45;
