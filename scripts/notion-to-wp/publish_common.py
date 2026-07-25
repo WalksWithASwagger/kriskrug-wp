@@ -1,22 +1,26 @@
 """Shared helpers for one-off publish_*.py scripts.
 
-Orchestration only: image manifests, text-post assembly, term/media ID
-validation, and SEO meta shaping. Gutenberg markup stays in wp_blocks.py.
+Orchestration only: front matter, marker -> block dispatch, image manifests,
+declared ID lookup, term/media ID validation, and SEO meta shaping. Gutenberg
+markup stays in wp_blocks.py.
 """
 from __future__ import annotations
 
+import functools
 import html
+import json
 import pathlib
 import re
 import sys
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, Callable, Sequence
 
 from connector_payload import normalize_seo_meta
 from kk_notion_to_wp import slugify
 from wp_blocks import heading, inline, separator
 
 MARKDOWN_IMG_IMAGES_RE = re.compile(r"^!\[(.+?)\]\(images/(.+?)\)$")
+PUBLISHER_IDS_PATH = pathlib.Path(__file__).resolve().parent / "publisher-ids.json"
 
 
 @dataclass(frozen=True)
@@ -35,6 +39,18 @@ def parse_publish_argv(argv: list[str] | None = None) -> PublishFlags:
     return PublishFlags(execute="--execute" in args, update="--update" in args)
 
 
+def strip_frontmatter(raw: str) -> str:
+    """Return the post body with a leading `---` YAML front matter block removed.
+
+    Exactly the index-walk the one-off scripts each carried inline: find the
+    closing `\\n---` after the opening fence and slice past it. Raises ValueError
+    (as `str.index` always did) when the fences are missing, so a malformed
+    post.md still fails loudly rather than publishing its own front matter.
+    """
+    fm_end = raw.index("\n---", raw.index("---") + 3)
+    return raw[fm_end + 4:]
+
+
 def split_body_blocks(body: str) -> list[str]:
     """Split post body on blank lines; return stripped non-empty blocks."""
     return [x.strip() for x in re.split(r"\n\s*\n", body) if x.strip()]
@@ -51,23 +67,102 @@ def render_paragraph_from_markdown(block: str) -> str:
     return paragraph_block(para)
 
 
-def render_text_post(body: str) -> str:
-    """Text-only post assembler: skip first H1, map ---/##/###/else via wp_blocks."""
+def raw_paragraph(block: str) -> str:
+    """Single-line-ish paragraph: inline() the whole block, newlines preserved.
+
+    This is publish_dc_protest_draft.py's paragraph shape. It differs from
+    render_paragraph_from_markdown, which joins source lines with <br>. Both are
+    kept because the difference is visible in already-shipped post bodies.
+    """
+    return paragraph_block(inline(block))
+
+
+# ---------------------------------------------------------------------------
+# marker -> block dispatch
+# ---------------------------------------------------------------------------
+# A handler is (matcher, render).
+#   matcher: a compiled regex (matched against the block) or a callable
+#            returning truthy for blocks it claims.
+#   render:  callable(block, match) -> block markup, or None to emit nothing.
+BlockRender = Callable[[str, Any], "str | None"]
+BlockHandler = "tuple[Any, BlockRender]"
+
+
+def exact(literal: str) -> Callable[[str], bool]:
+    """Matcher for a block that equals `literal` (e.g. `---`, `[[GALLERY-AI]]`)."""
+    return lambda block: block == literal
+
+
+def prefix(literal: str) -> Callable[[str], bool]:
+    """Matcher for a block starting with `literal` (e.g. `## `, `>>> `)."""
+    return lambda block: block.startswith(literal)
+
+
+def render_marker_blocks(
+    body: str,
+    handlers: Sequence[Any] = (),
+    *,
+    paragraph: Callable[[str], str] = render_paragraph_from_markdown,
+    skip_first_h1: bool = True,
+) -> list[str]:
+    """Split `body` into blocks and dispatch each through `handlers`.
+
+    The first `# ` block is dropped when `skip_first_h1` (the post title lives in
+    the WP title field, not the body). Handlers are tried in order and the first
+    match wins; anything unclaimed falls through to `paragraph`. A handler may
+    return None to emit nothing for that block.
+    """
     out: list[str] = []
     seen_title = False
     for block in split_body_blocks(body):
-        if block.startswith("# ") and not seen_title:
+        if skip_first_h1 and block.startswith("# ") and not seen_title:
             seen_title = True
             continue
-        if block == "---":
-            out.append(separator())
-        elif block.startswith("## "):
-            out.append(heading(inline(block[3:].strip()), level=2))
-        elif block.startswith("### "):
-            out.append(heading(inline(block[4:].strip()), level=3))
-        else:
-            out.append(render_paragraph_from_markdown(block))
-    return "\n\n".join(out)
+        rendered: str | None = None
+        claimed = False
+        for matcher, render in handlers:
+            if hasattr(matcher, "match"):
+                match = matcher.match(block)
+                if match is None:
+                    continue
+            else:
+                if not matcher(block):
+                    continue
+                match = None
+            claimed = True
+            rendered = render(block, match)
+            break
+        if not claimed:
+            rendered = paragraph(block)
+        if rendered is not None:
+            out.append(rendered)
+    return out
+
+
+def standard_text_handlers(*, h3: bool = True, pullquote_marker: bool = False) -> list[Any]:
+    """The `---` / `## ` / `### ` / `>>> ` handlers every one-off script shares.
+
+    `### ` never collides with the `## ` prefix ("###"[0:3] != "## "), so callers
+    may reorder or extend this list freely.
+    """
+    from wp_blocks import pullquote as _pullquote
+
+    handlers: list[Any] = [
+        (exact("---"), lambda block, match: separator()),
+        (prefix("## "), lambda block, match: heading(inline(block[3:].strip()), level=2)),
+    ]
+    if h3:
+        handlers.append(
+            (prefix("### "), lambda block, match: heading(inline(block[4:].strip()), level=3))
+        )
+    if pullquote_marker:
+        handlers.append((prefix(">>> "), lambda block, match: _pullquote(inline(block[4:].strip()))))
+    return handlers
+
+
+def render_text_post(body: str) -> str:
+    """Text-only post assembler: skip first H1, map ---/##/###/else via wp_blocks."""
+    return "\n\n".join(render_marker_blocks(body, standard_text_handlers()))
 
 
 def parse_markdown_image_order(
@@ -124,6 +219,54 @@ def find_media_by_stem(
     return None
 
 
+def find_or_upload_media(
+    wp: Any,
+    path: pathlib.Path,
+    alt: str,
+    *,
+    mime: str,
+    write: bool,
+    label: str | None = None,
+    log: list[str] | None = None,
+    extensions: tuple[str, ...] = (".jpg", ".jpeg", ".png", ".webp"),
+) -> tuple[int, str]:
+    """Idempotent single-file media resolve: reuse by stem, else upload.
+
+    Returns (media_id, source_url). In dry-run (`write=False`) returns
+    (0, "DRYRUN/<filename>") without touching WordPress. `label` prefixes the log
+    line (scripts log either a bare filename or `subdir/filename`).
+    """
+    name = label or path.name
+    if not write:
+        return 0, f"DRYRUN/{path.name}"
+    found = find_media_by_stem(wp, path.stem, extensions=extensions)
+    if found:
+        media_id, url = found
+        if log is not None:
+            log.append(f"{name} -> REUSE id={media_id}")
+        return media_id, url
+    media = wp.upload_media(path, alt=alt, mime=mime)
+    media_id, url = int(media["id"]), media["source_url"]
+    if log is not None:
+        log.append(f"{name} -> NEW id={media_id} {url}")
+    return media_id, url
+
+
+def find_existing_post_by_slug(wp: Any, slug: str) -> dict[str, Any] | None:
+    """Return the first post record matching `slug` in any status, else None.
+
+    The create/update guard every one-off script runs before it writes. Keeping it
+    in one place keeps the 2026-05-15 slug-idempotency rule in one place too:
+    callers must confirm the returned record is the intended target before PATCH.
+    """
+    hits = wp.s.get(
+        f"{wp.base}/wp-json/wp/v2/posts",
+        params={"slug": slug, "status": "any", "context": "edit"},
+        timeout=30,
+    ).json()
+    return hits[0] if isinstance(hits, list) and hits else None
+
+
 def upload_image_manifest(
     wp: Any | None,
     items: list[tuple[str, str]],
@@ -171,18 +314,16 @@ def load_photos_from_dir(
             alt = re.sub(r"^\d+-", "", path.stem).replace("-", " ") + " protest sign"
         else:
             alt = caption or path.stem
-        if write:
-            found = find_media_by_stem(wp, path.stem)
-            if found:
-                media_id, url = found
-                log.append(f"{subdir}/{path.name} -> REUSE id={media_id}")
-            else:
-                media = wp.upload_media(path, alt=alt, mime="image/jpeg")
-                media_id, url = media["id"], media["source_url"]
-                log.append(f"{subdir}/{path.name} -> NEW id={media_id} {url}")
-            items.append((media_id, url, alt, caption, path.name))
-        else:
-            items.append((0, f"DRYRUN/{path.name}", alt, caption, path.name))
+        media_id, url = find_or_upload_media(
+            wp,
+            path,
+            alt,
+            mime="image/jpeg",
+            write=write,
+            label=f"{subdir}/{path.name}",
+            log=log,
+        )
+        items.append((media_id, url, alt, caption, path.name))
     return items
 
 
@@ -294,3 +435,79 @@ def parse_int_arg(argv: list[str], flag: str, default: int | None = None) -> int
             raise SystemExit(f"[ABORT] {flag} requires an integer value")
         return int(argv[idx + 1])
     return default
+
+
+# ---------------------------------------------------------------------------
+# declared WordPress IDs (publisher-ids.json)
+# ---------------------------------------------------------------------------
+@functools.lru_cache(maxsize=None)
+def load_publisher_ids(path: pathlib.Path | None = None) -> dict[str, Any]:
+    """Load and cache publisher-ids.json (same loader shape as page-map.json)."""
+    return json.loads((path or PUBLISHER_IDS_PATH).read_text(encoding="utf-8"))
+
+
+def _declared(section: str, key: str, ids: dict[str, Any] | None = None) -> dict[str, Any]:
+    data = ids if ids is not None else load_publisher_ids()
+    entries = data.get(section) or {}
+    if key not in entries:
+        raise SystemExit(
+            f"[ABORT] unknown {section} key {key!r} in publisher-ids.json. "
+            f"Known keys: {sorted(entries)}"
+        )
+    return entries[key]
+
+
+def category_id(key: str, *, ids: dict[str, Any] | None = None) -> int:
+    """Declared category ID by logical key (e.g. 'ai-ethics-philosophy').
+
+    Structural validation only. Live existence is proven separately by
+    resolve_category_ids/validate_term_ids at write time.
+    """
+    entry = _declared("categories", key, ids)
+    value = entry.get("id")
+    if not isinstance(value, int) or value <= 0:
+        raise SystemExit(f"[ABORT] category {key!r} has a non-positive id: {value!r}")
+    return value
+
+
+def media_id(key: str, *, ids: dict[str, Any] | None = None) -> int:
+    """Declared media ID by logical key (e.g. 'you-cant-drink-data-featured')."""
+    entry = _declared("media", key, ids)
+    value = entry.get("id")
+    if not isinstance(value, int) or value <= 0:
+        raise SystemExit(f"[ABORT] media {key!r} has a non-positive id: {value!r}")
+    return value
+
+
+def media_group(key: str, *, ids: dict[str, Any] | None = None) -> list[dict[str, Any]]:
+    """Declared, ordered media set by logical key. Returns [{id, url, alt}, ...]."""
+    entry = _declared("media_groups", key, ids)
+    items = entry.get("items") or []
+    for item in items:
+        if not isinstance(item.get("id"), int) or item["id"] <= 0:
+            raise SystemExit(f"[ABORT] media group {key!r} has an entry with a bad id: {item!r}")
+        if not item.get("url") or not item.get("alt"):
+            raise SystemExit(f"[ABORT] media group {key!r} entry {item.get('id')} needs url + alt")
+    return list(items)
+
+
+def media_group_index(
+    key: str, *, ids: dict[str, Any] | None = None
+) -> tuple[dict[int, tuple[str, str]], list[int]]:
+    """media_group() as ({id: (url, alt)}, [id, ...]) in declared order."""
+    items = media_group(key, ids=ids)
+    return {it["id"]: (it["url"], it["alt"]) for it in items}, [it["id"] for it in items]
+
+
+def media_group_keys(key: str, *, ids: dict[str, Any] | None = None) -> dict[str, int]:
+    """media_group() as {declared key: media id}, so scripts can name a sign
+    instead of typing its production ID (e.g. SIGN["water-the-servers-last"])."""
+    keyed: dict[str, int] = {}
+    for item in media_group(key, ids=ids):
+        name = item.get("key")
+        if not name:
+            raise SystemExit(f"[ABORT] media group {key!r} entry {item['id']} has no 'key'")
+        if name in keyed:
+            raise SystemExit(f"[ABORT] media group {key!r} declares duplicate key {name!r}")
+        keyed[name] = item["id"]
+    return keyed

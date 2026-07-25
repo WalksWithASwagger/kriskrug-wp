@@ -36,9 +36,11 @@ sys.path.insert(0, str(SCRIPT_DIR))
 from common import WPClient, load_env, wp_credentials  # noqa: E402
 from publish_common import (  # noqa: E402
     build_seo_meta,
+    category_id,
     parse_publish_argv,
     render_paragraph_from_markdown,
     split_body_blocks,
+    strip_frontmatter,
 )
 from wp_blocks import inline  # noqa: E402
 
@@ -52,7 +54,8 @@ WRITE = FLAGS.write
 TITLE = "Keep the Machine Strange: Technological Resistance in the Age of AI"
 SLUG = "keep-the-machine-strange"
 DATE = "2026-06-28T09:00:00"
-CATEGORY_IDS = [1678, 1754]  # AI Ethics & Philosophy; Responsible AI & Policy
+# AI Ethics & Philosophy; Responsible AI & Policy (declared in publisher-ids.json)
+CATEGORY_IDS = [category_id("ai-ethics-philosophy"), category_id("responsible-ai-policy")]
 TAGS = ["Neil Postman", "Marshall McLuhan", "Technopoly", "Media Ecology",
         "Responsible AI", "AI Governance", "AI for All", "Both Hands Full",
         "Technological Resistance"]
@@ -205,8 +208,7 @@ def ensure_term(c, taxonomy, name):
 
 # ---- load + verify post.md --------------------------------------------------
 raw = (STAGE / "post.md").read_text(encoding="utf-8")
-fm_end = raw.index("\n---", raw.index("---") + 3)
-body = raw[fm_end + 4:]
+body = strip_frontmatter(raw)
 assert "—" not in body, "em-dash leaked into post.md body"
 
 base, user, pw = wp_credentials(load_env(ENV_PATH))
