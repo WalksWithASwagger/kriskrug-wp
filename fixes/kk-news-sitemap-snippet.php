@@ -60,18 +60,18 @@ add_action('template_redirect', function () {
         if ($type !== 'NewsArticle') {
             continue;
         }
-        $loc = esc_url(get_permalink($post));
-        $title = esc_html(get_the_title($post));
+        $loc = get_permalink($post);
+        $title = get_the_title($post);
         $pub = get_the_date('c', $post);
         echo "  <url>\n";
-        echo "    <loc>{$loc}</loc>\n";
+        echo '    <loc>' . esc_url($loc) . "</loc>\n";
         echo "    <news:news>\n";
         echo "      <news:publication>\n";
         echo "        <news:name>Kris Krug</news:name>\n";
         echo "        <news:language>en</news:language>\n";
         echo "      </news:publication>\n";
-        echo "      <news:publication_date>{$pub}</news:publication_date>\n";
-        echo "      <news:title>{$title}</news:title>\n";
+        echo '      <news:publication_date>' . esc_html($pub) . "</news:publication_date>\n";
+        echo '      <news:title>' . esc_html($title) . "</news:title>\n";
         echo "    </news:news>\n";
         echo "  </url>\n";
     }
