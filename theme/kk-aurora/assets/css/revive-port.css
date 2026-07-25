@@ -10,7 +10,10 @@
   --revive-surface-2: #e6dcc2;
   --revive-ink: #171310;
   --revive-ink-soft: rgba(23, 19, 16, 0.78);
-  --revive-ink-muted: rgba(23, 19, 16, 0.55);
+  /* theme.json `text-muted`. The old rgba(23, 19, 16, 0.55) was 3.84:1 on
+     --revive-surface and 3.75:1 on --revive-surface-2; this is 6.30 / 5.73:1.
+     All uses are foregrounds (see issue #485). */
+  --revive-ink-muted: #5c5044;
   /* Decorative-only orange (rules, ribbons, borders). Never put text on it. */
   --revive-accent: #d94a1f;
   /* Text-on-cream accent: 6.06:1 on #efe6d2, 4.77:1 on the darkest cream (#d9cdb0).
@@ -40,7 +43,7 @@
   /* Remap Aurora 2026 tokens onto Revive paper */
   --aurora-ink: #171310;
   --aurora-ink-soft: rgba(23, 19, 16, 0.78);
-  --aurora-ink-muted: rgba(23, 19, 16, 0.55);
+  --aurora-ink-muted: #5c5044;
   --aurora-paper: #efe6d2;
   --aurora-signal: #9a2f14;
   --aurora-readable-accent: #9a2f14;
