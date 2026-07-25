@@ -300,6 +300,11 @@ if not WRITE:
 # ---- create / update draft (idempotent by slug, never publishes) -------------
 hits = c.get("posts", params={"slug": SLUG, "status": "any", "context": "edit", "per_page": 5})
 existing = hits[0] if isinstance(hits, list) and hits else None
+# FLAG (issue #483, unresolved): this falls back to author 18 while
+# connector_config.WP_DEFAULT_AUTHOR_ID falls back to 1. One of them writes posts
+# under the wrong author whenever WP_DEFAULT_AUTHOR_ID is unset. NOT changed here --
+# which id is KK on the live site needs human confirmation against kriskrug.co, and
+# guessing would mis-attribute a post. Set WP_DEFAULT_AUTHOR_ID explicitly until then.
 author_id = int(load_env(ENV_PATH).get("WP_DEFAULT_AUTHOR_ID") or 18)
 
 if UPDATE:
