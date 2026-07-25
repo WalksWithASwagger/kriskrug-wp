@@ -328,3 +328,23 @@ quick-start: ## Quick start guide for new contributors
 	@echo "For full command list, run: make help"
 	@echo ""
 	@echo "Read CONTRIBUTING.md for contribution guidelines!"
+
+# --- #472 css inventory ---
+.PHONY: css-inventory css-inventory-json css-inventory-check css-inventory-freeze css-coverage
+
+css-inventory: ## CSS inventory table for theme/kk-aurora (AURORA-STYLESHEET-REBUILD-PLAN §1.1)
+	@$(PYTHON) scripts/css_inventory.py $(if $(REV),--rev $(REV),)
+
+css-inventory-json: ## Same inventory as machine-readable JSON
+	@$(PYTHON) scripts/css_inventory.py --format json $(if $(REV),--rev $(REV),)
+
+css-inventory-check: ## Ratchet: fail if front-end CSS lines or !important grew vs .css-budget.json
+	@$(PYTHON) scripts/css_inventory.py --check $(if $(BASE_REF),--base-ref $(BASE_REF),)
+
+css-inventory-freeze: ## Re-record .css-budget.json. Raising a number needs WAIVER_ISSUE + WAIVER_REASON
+	@$(PYTHON) scripts/css_inventory.py --freeze \
+		$(if $(WAIVER_ISSUE),--waiver-issue '$(WAIVER_ISSUE)',) \
+		$(if $(WAIVER_REASON),--waiver-reason '$(WAIVER_REASON)',)
+
+css-coverage: ## Live-route CSS coverage (read-only GETs against kriskrug.co). RECORD=1 saves it
+	@$(PYTHON) scripts/css_inventory.py --coverage $(if $(LIVE_CORPUS),--live-corpus $(LIVE_CORPUS),--fetch-routes) $(if $(RECORD),--record,)
