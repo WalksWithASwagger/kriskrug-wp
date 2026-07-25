@@ -346,5 +346,5 @@ css-inventory-freeze: ## Re-record .css-budget.json. Raising a number needs WAIV
 		$(if $(WAIVER_ISSUE),--waiver-issue '$(WAIVER_ISSUE)',) \
 		$(if $(WAIVER_REASON),--waiver-reason '$(WAIVER_REASON)',)
 
-css-coverage: ## Live-route CSS coverage (read-only GETs against kriskrug.co)
-	@$(PYTHON) scripts/css_inventory.py --coverage $(if $(LIVE_CORPUS),--live-corpus $(LIVE_CORPUS),--fetch-routes)
+css-coverage: ## Live-route CSS coverage (read-only GETs against kriskrug.co). RECORD=1 saves it
+	@$(PYTHON) scripts/css_inventory.py --coverage $(if $(LIVE_CORPUS),--live-corpus $(LIVE_CORPUS),--fetch-routes) $(if $(RECORD),--record,)

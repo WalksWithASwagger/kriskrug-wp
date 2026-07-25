@@ -92,6 +92,11 @@ MEDIA_BLOCK_RE = re.compile(r"@media([^{]*)\{")
 VAR_USE_RE = re.compile(r"var\(")
 PX_RE = re.compile(r"\d(?:\.\d+)?px\b")
 
+# 13 live routes plus a synthetic 404 probe, chosen for *template* variety
+# rather than volume: front page, several FSE page templates, the posts archive,
+# a category archive, a single post, and the 404 template. Issue #472 asks for
+# >= 10 routes; the plan's §1.5 heuristic used 10 page routes only and therefore
+# never exercised the single-post or archive templates.
 DEFAULT_ROUTES = [
     "/",
     "/about/",
@@ -99,12 +104,14 @@ DEFAULT_ROUTES = [
     "/services/",
     "/work/",
     "/photography/",
-    "/blog/",
+    "/publications/",
+    "/events/",
+    "/testimonials/",
     "/contact/",
-    "/creative-labs/",
-    "/newsletter/",
-    "/writing/",
-    "/kk-inventory-404-probe/",
+    "/blog/",
+    "/category/ai-creatives/",
+    "/2003/10/14/testing-testing-1-2-1-2-3-4/",
+    "/kk-inventory-404-probe/",  # expected 404 — exercises templates/404.html
 ]
 LIVE_ORIGIN = "https://kriskrug.co"
 
@@ -611,6 +618,7 @@ def coverage_report(corpus_dir: Path, routes: list[dict] | None) -> dict:
     return {
         "routes_fetched": routes,
         "route_count": len([r for r in (routes or []) if r.get("status")]),
+        "routes_http_200": len([r for r in (routes or []) if r.get("status") == 200]),
         "live_pages_in_corpus": data["corpus"]["live_files"],
         "authored_classes_total": total_authored,
         "unmatched_authored": len(authored),
@@ -721,7 +729,8 @@ def report_coverage_markdown(cov: dict) -> str:
     out = ["## Live-route CSS coverage\n"]
     out.append(
         f"{cov['live_pages_in_corpus']} saved public pages in the corpus "
-        f"({cov['route_count']} routes fetched this run).\n"
+        f"({cov['route_count']} routes fetched this run, "
+        f"{cov.get('routes_http_200', 0)} HTTP 200).\n"
     )
     out.append("| Metric | Value |")
     out.append("|---|---:|")
@@ -775,6 +784,11 @@ def main(argv: list[str] | None = None) -> int:
         help=f"fetch {len(DEFAULT_ROUTES)} public routes read-only into a temp corpus",
     )
     ap.add_argument(
+        "--record",
+        action="store_true",
+        help="write the coverage summary into .css-budget.json (small; not gated)",
+    )
+    ap.add_argument(
         "--explain-important-comments",
         action="store_true",
         help="show every !important that sits inside a comment (raw vs code-only delta)",
@@ -811,6 +825,26 @@ def main(argv: list[str] | None = None) -> int:
             else:
                 ap.error("--coverage needs --fetch-routes or --live-corpus DIR")
             cov = coverage_report(corpus, routes)
+        if args.record:
+            budget = load_budget() or {"metrics": {}, "waivers": []}
+            budget["coverage"] = {
+                "measured_at": _dt.date.today().isoformat(),
+                "theme_version": inventory(None)["theme_version"],
+                "routes": [r["route"] for r in (cov["routes_fetched"] or [])],
+                "routes_http_200": cov.get("routes_http_200", 0),
+                "authored_classes_total": cov["authored_classes_total"],
+                "unmatched_authored": cov["unmatched_authored"],
+                "unmatched_pct": cov["unmatched_pct"],
+                "high_confidence_dead_count": cov["high_confidence_dead_count"],
+                "high_confidence_dead_pct": cov["high_confidence_dead_pct"],
+                "high_confidence_dead": cov["high_confidence_dead"],
+                "removable_rule_blocks": cov["removable_rule_blocks"],
+                "removable_bytes": cov["removable_bytes"],
+            }
+            BUDGET_PATH.write_text(
+                json.dumps(budget, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+            )
+            print(f"recorded coverage in {BUDGET_PATH.relative_to(REPO_ROOT)}")
         text = json.dumps(cov, indent=2) if args.format == "json" else report_coverage_markdown(cov)
     else:
         data = inventory(args.rev)
