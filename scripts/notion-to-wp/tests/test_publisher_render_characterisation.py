@@ -334,7 +334,14 @@ class YouCantDrinkDataCharacterisationTests(unittest.TestCase):
         )
 
     def test_unknown_photo_key_emits_nothing(self):
-        """`![x](photo:9999)` with no matching upload is silently dropped."""
+        """`![x](photo:9999)` with no matching upload is silently dropped.
+
+        SUPERSEDED IN THE LIVE SCRIPT (issue #483): publish_you_cant_drink_data.py's
+        march_photo now raises SystemExit on an unknown key instead of returning
+        None. This test and the legacy/shared pair below are deliberately NOT
+        updated -- they are the frozen pre-#483 behaviour and the #254 equivalence
+        proof. Read them as history, not as the current publisher.
+        """
         out = self.render(photos_rest=[])
         self.assertNotIn("9999", "\n".join(out))
 
@@ -432,7 +439,13 @@ def shared_render_you_cant_drink(
     photos_rest: list,
     inbody_photos: dict,
 ) -> list[str]:
-    """publish_you_cant_drink_data.py, post-#254."""
+    """publish_you_cant_drink_data.py, post-#254 / pre-#483.
+
+    Frozen at the #254 shape so the equivalence proof below stays meaningful. The
+    live script's march_photo now aborts on an unknown photo key (#483) instead of
+    returning None; that one intentional divergence is covered by the script itself,
+    not here.
+    """
     def ai_sign(block, match):
         mid = int(match.group(2))
         url, alt = ai_signs[mid]
