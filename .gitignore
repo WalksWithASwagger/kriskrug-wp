@@ -72,3 +72,11 @@ docs/current-state/reports/screenshots/
 docs/current-state/reports/**/*.png
 docs/current-state/reports/**/*.html
 docs/current-state/reports/**/*.csv
+
+# QA / deploy visual captures under backup/ — same policy as reports/ above (#318, #369).
+# Keep the .md handoffs and .json metrics that carry the audit trail; ignore the raw PNGs.
+# Visual-regression evidence belongs in a hash manifest, not committed screenshots.
+# Existing tracked copies stay until an approved cleanup — this only stops NEW spill.
+backup/**/*.png
+backup/**/*.jpg
+backup/**/*.jpeg
