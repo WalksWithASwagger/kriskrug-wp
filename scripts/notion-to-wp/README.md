@@ -209,6 +209,48 @@ kk-aurora theme constraints baked into the defaults:
 
 Markup is locked by `tests/test_wp_blocks.py`.
 
+## Shared publisher orchestration (`publish_common.py`)
+
+`wp_blocks.py` owns the markup; `publish_common.py` owns everything the one-off
+`publish_*.py` scripts do *around* it — front matter, marker dispatch, media
+resolution, the slug guard, SEO meta, and declared IDs.
+
+- `strip_frontmatter(raw)` — drop a leading `---` YAML block.
+- `render_marker_blocks(body, handlers, *, paragraph=..., skip_first_h1=True)` —
+  split on blank lines, drop the first `# ` (the title lives in the WP title
+  field), then dispatch each block through ordered `(matcher, render)` handlers.
+  A matcher is a compiled regex or a callable (`exact("---")`, `prefix("## ")`);
+  a renderer returning `None` emits nothing. Unclaimed blocks fall through to
+  `paragraph`.
+- `standard_text_handlers(*, h3=True, pullquote_marker=False)` — the shared
+  `---` / `## ` / `### ` / `>>> ` set every script starts from.
+- `render_paragraph_from_markdown` (joins source lines with `<br>`) vs
+  `raw_paragraph` (keeps the newline). Both exist because both are already
+  shipped: `publish_dc_protest_draft.py` uses the latter, everything else the former.
+- `find_or_upload_media(...)` — idempotent resolve-by-filename-stem, then upload.
+  Dry-run returns `(0, "DRYRUN/<file>")` and never calls WordPress.
+- `find_existing_post_by_slug(wp, slug)` — the create/update guard. Confirm the
+  returned record is the intended target before any PATCH (2026-05-15 incident rule).
+
+### Declared IDs (`publisher-ids.json`)
+
+Production category and media IDs are declared once in `publisher-ids.json` —
+same shape as `content/source-packs/.../page-map.json` — instead of being typed
+into each script. Loaders: `category_id(key)`, `media_id(key)`,
+`media_group(key)`, `media_group_index(key)` (`{id: (url, alt)}` plus declared
+order) and `media_group_keys(key)` (`{name: id}`, so a script can say
+`SIGN["water-the-servers-last"]` instead of `11918`).
+
+Unknown keys and non-positive IDs abort with `[ABORT]`. Live existence is still
+proven separately at write time by `resolve_category_ids` / `validate_media_id`.
+Every script default stays overridable (`--category-id`, `--featured-media-id`)
+so a staging run never inherits a production ID.
+
+Locked by `tests/test_publish_common.py`, `tests/test_publisher_ids.py` and
+`tests/test_publisher_render_characterisation.py` (the last file keeps verbatim
+copies of the pre-consolidation loops and asserts the shared dispatcher still
+matches them byte for byte).
+
 ### Re-emitting an already-published post
 
 Rebuilding a live post's body from its source markdown is only safe when that source is still in sync with what's live. If the live post has drifted (manual edits, a newer source), a rebuild **drops** those blocks. To upgrade image markup on a drifted live post, transform the fetched live content **in place** (e.g. swap `"linkDestination":"none"` → `"lightbox":{"enabled":true}` and `wp-block-image__caption` → `wp-element-caption`), and diff the block structure before/after to confirm only the intended markup changed.

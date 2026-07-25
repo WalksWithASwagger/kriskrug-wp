@@ -7,19 +7,24 @@ Dry-run by default (writes staged post.html + prints plan). --execute uploads
 the 14 images and creates the DRAFT post. NEVER publishes.
 """
 import os
-import re, sys, json, shutil, pathlib
+import sys, json, shutil, pathlib
 from kk_notion_to_wp import WordPress, load_config
 from text_polish import purge_em_dashes
-from wp_blocks import inline, image, heading, separator
+from wp_blocks import image
 from publish_common import (
     MARKDOWN_IMG_IMAGES_RE,
     build_seo_meta,
+    category_id,
+    find_existing_post_by_slug,
     parse_int_arg,
     parse_markdown_image_order,
     parse_publish_argv,
+    raw_paragraph,
+    render_marker_blocks,
     resolve_category_ids,
     resolve_featured_media,
-    split_body_blocks,
+    standard_text_handlers,
+    strip_frontmatter,
     upload_image_manifest,
 )
 
@@ -36,8 +41,8 @@ SRC = _CONTENT_ROOT / "content" / "articles" / "kris-krug-thought-leadership" / 
 STAGE = REPO_ROOT / "content" / "drafts" / "2026-05-23-data-center-protest-signs"
 FLAGS = parse_publish_argv()
 EXECUTE = FLAGS.execute
-# Default category: AI Ethics & Philosophy. Override with --category-id N.
-CATEGORY_ID = parse_int_arg(sys.argv[1:], "--category-id", 1678)
+# Default category declared in publisher-ids.json. Override with --category-id N.
+CATEGORY_ID = parse_int_arg(sys.argv[1:], "--category-id", category_id("ai-ethics-philosophy"))
 
 TITLE = "Both Hands Full at the Data Center: Protest Signs for People Who Refuse to Pick a Side"
 SLUG = "data-center-protest-signs"
@@ -56,14 +61,12 @@ META_DESC = purge_em_dashes("I made AI protest signs for a Vancouver data-center
 SEO_META = build_seo_meta(SEO_TITLE, META_DESC)
 
 raw = (SRC / "draft.md").read_text()
-fm_end = raw.index("\n---", raw.index("---") + 3)
-body = raw[fm_end + 4:]
+body = strip_frontmatter(raw)
 # fixes + house em-dash purge (site-wide)
 body = body.replace(LINK39_OLD, LINK39_NEW)
 assert LINK39_NEW in body, "line-39 link fix did not apply"
 body = purge_em_dashes(body)
 
-blocks_src = split_body_blocks(body)
 image_order = parse_markdown_image_order(body)
 assert len(image_order) == 14, f"expected 14 images, found {len(image_order)}"
 
@@ -86,22 +89,20 @@ print("[media] " + ("uploaded" if EXECUTE else "DRY-RUN") + f" {len(uploaded)} i
 for line in log: print("   " + line)
 
 # ---- build Gutenberg blocks ----
-out = []
-seen_title = False
-for b in blocks_src:
-    if b.startswith("# ") and not seen_title:
-        seen_title = True; continue  # drop duplicate H1 (post title field)
-    m = MARKDOWN_IMG_IMAGES_RE.match(b)
-    if m:
-        fn, alt = m.group(2), m.group(1)
-        u = uploaded[fn]
-        out.append(image(u["id"], u["url"], alt, caption=alt, width=None, align=None, lightbox=True))
-    elif b.startswith("## "):
-        out.append(heading(inline(b[3:].strip())))
-    elif b == "---":
-        out.append(separator())
-    else:
-        out.append(f"<!-- wp:paragraph -->\n<p>{inline(b)}</p>\n<!-- /wp:paragraph -->")
+# NOTE: this post's paragraphs are raw_paragraph (no <br> join between source
+# lines), unlike the other one-off publishers. That shape is already shipped.
+def staged_image(block, match):
+    """`![alt](images/FILE.png)` -> full-width, click-to-zoom, alt doubles as caption."""
+    alt, filename = match.group(1), match.group(2)
+    media = uploaded[filename]
+    return image(media["id"], media["url"], alt, caption=alt, width=None, align=None, lightbox=True)
+
+
+out = render_marker_blocks(
+    body,
+    [(MARKDOWN_IMG_IMAGES_RE, staged_image)] + standard_text_handlers(h3=False),
+    paragraph=raw_paragraph,
+)
 content = "\n\n".join(out)
 (STAGE / "post.html").write_text(content)
 
@@ -117,9 +118,9 @@ if not EXECUTE:
     sys.exit(0)
 
 # ---- create-only slug guard ----
-hits = wp.s.get(f"{wp.base}/wp-json/wp/v2/posts", params={"slug": SLUG, "status": "any", "context": "edit"}, timeout=30).json()
-if isinstance(hits, list) and hits:
-    sys.exit(f"[ABORT] a post with slug {SLUG} already exists (id={hits[0]['id']}). Not creating a duplicate.")
+existing = find_existing_post_by_slug(wp, SLUG)
+if existing:
+    sys.exit(f"[ABORT] a post with slug {SLUG} already exists (id={existing['id']}). Not creating a duplicate.")
 
 # ---- terms ----
 category_ids = resolve_category_ids(wp, ids=[CATEGORY_ID])

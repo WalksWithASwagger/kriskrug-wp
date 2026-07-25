@@ -17,14 +17,20 @@ Marker syntax in post.md:
 """
 import re, sys, json, pathlib
 from kk_notion_to_wp import WordPress, load_config
-from wp_blocks import inline, inline_image, hero_image, heading, separator, pullquote
+from wp_blocks import inline_image, hero_image
 from publish_common import (
     build_seo_meta,
-    find_media_by_stem,
+    find_existing_post_by_slug,
+    find_or_upload_media,
     parse_publish_argv,
-    render_paragraph_from_markdown,
-    split_body_blocks,
+    render_marker_blocks,
+    standard_text_handlers,
+    strip_frontmatter,
 )
+
+IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp")
+POSTER_RE = re.compile(r"^!\[(.*?)\]\(poster:(\d+)\)$")
+SCREENSHOT_RE = re.compile(r"^!\[(.*?)\]\(screenshot:([a-z-]+)\)$")
 
 SCRIPT_DIR = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parents[1]
@@ -83,47 +89,35 @@ POSTERS = {
 
 # ---------------------------------------------------------------------------
 raw = (STAGE / "post.md").read_text()
-fm_end = raw.index("\n---", raw.index("---") + 3)
-body = raw[fm_end + 4:]
+body = strip_frontmatter(raw)
 assert "—" not in body, "em-dash leaked into post.md body"
 
 cfg = load_config()
 wp = WordPress(cfg.wp_base_url, cfg.wp_user, cfg.wp_app_password)
 
+
 media_log = []
+
+
+def stage_media(filename, alt, kind):
+    """Resolve a staged image to (id, url): reuse by filename stem, else upload."""
+    path = IMAGES / filename
+    assert path.exists(), f"missing staged {kind}: {path}"
+    return find_or_upload_media(
+        wp, path, alt, mime="image/png", write=WRITE, label=filename,
+        log=media_log, extensions=IMAGE_EXTENSIONS,
+    )
+
+
 poster_media = {}  # N -> (id, url, alt)
 for n, (fn, alt) in POSTERS.items():
-    p = IMAGES / fn
-    assert p.exists(), f"missing staged poster: {p}"
-    if WRITE:
-        found = find_media_by_stem(wp, p.stem, extensions=(".png", ".jpg", ".jpeg", ".webp"))
-        if found:
-            mid, url = found
-            media_log.append(f"{fn} -> REUSE id={mid}")
-        else:
-            m = wp.upload_media(p, alt=alt, mime="image/png")
-            mid, url = m["id"], m["source_url"]
-            media_log.append(f"{fn} -> NEW id={mid} {url}")
-        poster_media[n] = (mid, url, alt)
-    else:
-        poster_media[n] = (0, f"DRYRUN/{fn}", alt)
+    mid, url = stage_media(fn, alt, "poster")
+    poster_media[n] = (mid, url, alt)
 
 shot_media = {}  # key -> (id, url, alt, caption)
 for key, (fn, alt, caption) in SCREENSHOTS.items():
-    p = IMAGES / fn
-    assert p.exists(), f"missing staged screenshot: {p}"
-    if WRITE:
-        found = find_media_by_stem(wp, p.stem, extensions=(".png", ".jpg", ".jpeg", ".webp"))
-        if found:
-            mid, url = found
-            media_log.append(f"{fn} -> REUSE id={mid}")
-        else:
-            m = wp.upload_media(p, alt=alt, mime="image/png")
-            mid, url = m["id"], m["source_url"]
-            media_log.append(f"{fn} -> NEW id={mid} {url}")
-        shot_media[key] = (mid, url, alt, caption)
-    else:
-        shot_media[key] = (0, f"DRYRUN/{fn}", alt, caption)
+    mid, url = stage_media(fn, alt, "screenshot")
+    shot_media[key] = (mid, url, alt, caption)
 
 print(f"[media] {'wrote' if WRITE else 'DRY'} {len(poster_media)} posters + {len(shot_media)} screenshots")
 for l in media_log:
@@ -132,30 +126,23 @@ for l in media_log:
 FEATURED_ID = poster_media[1][0]
 
 # ---- build blocks ----
-out = []
-seen_title = False
-for b in split_body_blocks(body):
-    if b.startswith("# ") and not seen_title:
-        seen_title = True
-        continue
-    if b == "---":
-        out.append(separator())
-    elif b.startswith("## "):
-        out.append(heading(inline(b[3:].strip())))
-    elif b.startswith(">>> "):
-        out.append(pullquote(inline(b[4:].strip())))
-    else:
-        mp = re.match(r"^!\[(.*?)\]\(poster:(\d+)\)$", b)
-        ms = re.match(r"^!\[(.*?)\]\(screenshot:([a-z-]+)\)$", b)
-        if mp:
-            n = int(mp.group(2))
-            mid, url, alt = poster_media[n]
-            out.append(hero_image(mid, url, alt))
-        elif ms:
-            mid, url, alt, caption = shot_media[ms.group(2)]
-            out.append(inline_image(mid, url, alt, caption=caption))
-        else:
-            out.append(render_paragraph_from_markdown(b))
+def poster(block, match):
+    """`![alt](poster:N)` -> full-width section hero. alt comes from POSTERS."""
+    mid, url, alt = poster_media[int(match.group(2))]
+    return hero_image(mid, url, alt)
+
+
+def screenshot(block, match):
+    """`![alt](screenshot:KEY)` -> 460px captioned receipt. alt/caption from SCREENSHOTS."""
+    mid, url, alt, caption = shot_media[match.group(2)]
+    return inline_image(mid, url, alt, caption=caption)
+
+
+out = render_marker_blocks(
+    body,
+    standard_text_handlers(h3=False, pullquote_marker=True)
+    + [(POSTER_RE, poster), (SCREENSHOT_RE, screenshot)],
+)
 
 content = "\n\n".join(out)
 (STAGE / "post.html").write_text(content)
@@ -177,9 +164,7 @@ if not WRITE:
     sys.exit(0)
 
 # ---- find existing post by slug ----
-hits = wp.s.get(f"{wp.base}/wp-json/wp/v2/posts",
-                params={"slug": SLUG, "status": "any", "context": "edit"}, timeout=30).json()
-existing = hits[0] if isinstance(hits, list) and hits else None
+existing = find_existing_post_by_slug(wp, SLUG)
 
 if UPDATE:
     if not existing:
