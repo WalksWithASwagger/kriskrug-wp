@@ -348,3 +348,55 @@ css-inventory-freeze: ## Re-record .css-budget.json. Raising a number needs WAIV
 
 css-coverage: ## Live-route CSS coverage (read-only GETs against kriskrug.co). RECORD=1 saves it
 	@$(PYTHON) scripts/css_inventory.py --coverage $(if $(LIVE_CORPUS),--live-corpus $(LIVE_CORPUS),--fetch-routes) $(if $(RECORD),--record,)
+
+# --- #473 visual regression ---
+# Visual-regression baseline harness (AURORA-STYLESHEET-REBUILD-PLAN.md §4).
+# This is the gate for the Aurora stylesheet rebuild (#423): no rebuild step
+# lands without a green `make visual-diff` against a frozen baseline.
+#
+# Chromium is preinstalled; the harness refuses to download one. Override
+# PLAYWRIGHT_BROWSERS_PATH if your install lives elsewhere — do NOT run
+# `playwright install`.
+#
+# PNGs are NEVER committed. `docs/current-state/reports/visual-baseline/*` is
+# git-ignored; only the manifest/diff JSON and markdown reports are tracked.
+# Every target below ends by re-asserting that against the git index.
+#
+# A second .PHONY declaration keeps this block self-contained so it can be
+# appended or removed without touching the list at the top of the file.
+.PHONY: visual-preflight visual-baseline visual-diff visual-diff-report visual-guard visual-list visual-prune
+
+PLAYWRIGHT_BROWSERS_PATH ?= /opt/pw-browsers
+export PLAYWRIGHT_BROWSERS_PATH
+VISUAL := python3 scripts/visual_baseline.py
+
+visual-preflight: ## Check Chromium, the 11 routes and the no-PNG storage guard
+	@$(VISUAL) preflight $(if $(ROUTES),--routes $(ROUTES),)
+
+visual-baseline: ## Freeze a visual baseline (11 routes x 3 viewports); writes a hash manifest, never PNGs
+	@$(VISUAL) capture \
+		$(if $(ROUTES),--routes $(ROUTES),) \
+		$(if $(VIEWPORTS),--viewports $(VIEWPORTS),) \
+		$(if $(SCALE),--scale $(SCALE),) \
+		$(if $(EXPECT_THEME),--expect-theme-version $(EXPECT_THEME),) \
+		$(if $(BASE_URL),--base $(BASE_URL),)
+
+visual-diff: ## Capture a candidate and compare against a baseline. Usage: make visual-diff BASE=<run-id>
+	@$(VISUAL) diff \
+		$(if $(BASE),--base-run $(BASE),) \
+		$(if $(ROUTES),--routes $(ROUTES),) \
+		$(if $(VIEWPORTS),--viewports $(VIEWPORTS),) \
+		$(if $(STRICT),--strict,) \
+		$(if $(BASE_URL),--base $(BASE_URL),)
+
+visual-diff-report: ## Markdown summary of a diff for the PR body. Usage: make visual-diff-report DIFF=<run-id>
+	@$(VISUAL) report $(if $(DIFF),--diff-run $(DIFF),) $(if $(OUT),--out $(OUT),)
+
+visual-guard: ## Fail if any visual-regression binary is tracked or staged (#318)
+	@$(VISUAL) guard
+
+visual-list: ## List baseline manifests and which still have images on disk
+	@$(VISUAL) list
+
+visual-prune: ## Delete old capture directories, keeping the newest KEEP (default 2)
+	@$(VISUAL) prune $(if $(KEEP),--keep $(KEEP),)

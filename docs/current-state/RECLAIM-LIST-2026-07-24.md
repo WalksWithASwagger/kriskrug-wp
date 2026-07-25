@@ -31,6 +31,17 @@ Source inventory: `docs/current-state/reports/repo-hygiene-prune-triage-20260716
 |---|---|
 | `backup/` snapshots older than active rollback windows | Confirm no open Pagely/theme rollback references them |
 
+## Untracked-by-design (no reclaim needed, but budget for the disk)
+
+| Path | Why it is here |
+|---|---|
+| `docs/current-state/reports/visual-baseline/<run-id>/` | Visual-regression captures (#473). **Never tracked** — the whole artifact root is git-ignored one level down and `make visual-guard` re-asserts that against the index after every run. Only `manifest-*.json`, `diff-*.json` and `report-*.md` at the top level are committed. |
+
+These directories cost nothing in `.git`, but a full 11-route × 3-viewport run at
+device scale 2 is roughly 250–450 MB of PNG **on disk**. Baselines regenerate in
+one command, so there is no archival argument for keeping old ones: run
+`make visual-prune KEEP=2` (or `KEEP=1`) after a rebuild step lands.
+
 ## Explicit keep
 
 - Newest `docs/current-state/reports/morning-truth-*.md`
