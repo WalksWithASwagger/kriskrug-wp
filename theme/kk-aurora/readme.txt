@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.4.4 restores WCAG AA contrast for accent text, primary controls, and the skip link after the cream/ink restyle.
+KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.4.5 clears the remaining pre-cream foreground colour literals and adds a regression test that requires every hardcoded foreground colour to declare the surface it renders on.
 
 Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
@@ -39,6 +39,16 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 * Rainbow accents: teal / cyan / cobalt / violet / magenta
 
 == Changelog ==
+
+= 1.4.5 =
+* a11y: `.aurora-inline-link:hover` was #ff735d — 2.15:1 on cream, i.e. hovering made the link less legible than its 6.06:1 resting state. Now ink (14.88:1).
+* a11y: form validation errors were #ffb4b4 (1.36:1 on cream) and are now a new `--aurora-error-text` token, #8a1f1f (7.37:1).
+* a11y: search and form submit labels were #041013 on the signal fill (2.56:1) and now use the control-label token (7.29:1).
+* a11y: homepage work-card copy raised from 78% to 84% cream, so it clears 4.5:1 over the worst-case scrim (4.36:1 -> 4.78:1).
+* tokens: `--aurora-signal-control-label` is now the single definition site for control label text; revive-port.css aliases it instead of repeating #fffaf6.
+* cleanup: dropped dead pre-cream literals from `.aurora-meta-divider` and `.aurora-single-2026 .aurora-article-dek` (both lost the cascade, so neither was rendering).
+* test: `scripts/tests/test_aurora_css_literal_contrast.py` now requires every hardcoded foreground colour in the front-end CSS to be registered with the surface it renders against and to clear its contrast floor.
+* Note: section-head links ("Photography →", "Full index →") were already ink at 14.88:1 — see #470 for the corrected diagnosis.
 
 = 1.4.4 =
 * a11y: darken the accent orange to #9a2f14 so accent text clears 4.5:1 on every cream surface (was 2.69:1 on #d9cdb0).
