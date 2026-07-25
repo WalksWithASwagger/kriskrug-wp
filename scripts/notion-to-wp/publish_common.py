@@ -455,20 +455,18 @@ def resolve_category_ids(
     *,
     ids: list[int] | None = None,
     names: list[str] | None = None,
-    create_missing: bool = False,
 ) -> list[int]:
-    """Validate numeric IDs when provided; else resolve names via ensure_term_id."""
+    """Validate numeric IDs when provided; else resolve names via ensure_term_id.
+
+    Name resolution is always create-or-reuse (proximity's behaviour). There used to
+    be a `create_missing` flag whose two branches called ensure_term_id identically,
+    which read as an opt-in write guard that did not exist (issue #483). Dropped
+    rather than implemented: no caller passes names today, and a real read-only mode
+    needs a distinct resolver, not a flag on this one.
+    """
     if ids:
         return validate_term_ids(wp, "categories", ids)
-    resolved: list[int] = []
-    for name in names or []:
-        if create_missing:
-            resolved.append(ensure_term_id(wp, "categories", name))
-        else:
-            # Read-only resolve: ensure_term_id creates on miss; for names we still
-            # need create-or-reuse behavior matching proximity.
-            resolved.append(ensure_term_id(wp, "categories", name))
-    return resolved
+    return [ensure_term_id(wp, "categories", name) for name in names or []]
 
 
 def resolve_featured_media(
