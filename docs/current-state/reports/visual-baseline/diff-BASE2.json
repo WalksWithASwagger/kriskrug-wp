@@ -1,0 +1,863 @@
+{
+  "schema": "kk-visual-baseline/1",
+  "kind": "diff",
+  "issue": 473,
+  "created_at": "2026-07-25T21:05:13+00:00",
+  "baseline_run": "BASE1",
+  "candidate_run": "BASE2",
+  "base_url": "https://kriskrug.co",
+  "tolerance": {
+    "pixel_threshold": 0.2,
+    "pass_pct": 0.1,
+    "warn_pct": 1.0,
+    "height_delta_pct": 2.0
+  },
+  "masks": {
+    "marquee": [
+      ".aurora-woven-marquee",
+      ".aurora-woven-marquee-track",
+      ".kkm",
+      ".kkm-board",
+      "[class*='marquee']"
+    ],
+    "dates": [
+      "time",
+      ".wp-block-post-date",
+      ".aurora-article-date",
+      ".aurora-masthead-date",
+      "[class*='now-showing']",
+      "[class*='entry-date']",
+      "[class*='posted-on']"
+    ],
+    "beehiiv": [
+      "iframe[src*='beehiiv']",
+      "[class*='beehiiv']",
+      "[id*='beehiiv']",
+      "[data-beehiiv]"
+    ]
+  },
+  "verdict": "pass",
+  "counts": {
+    "pass": 33,
+    "warn": 0,
+    "fail": 0,
+    "error": 0
+  },
+  "css_identity": {
+    "baseline": {
+      "live_theme_version": "1.4.3",
+      "all_identical": false
+    },
+    "candidate": {
+      "live_theme_version": "1.4.3",
+      "repo_theme_version": "1.4.5",
+      "all_identical": false,
+      "files": [
+        {
+          "file": "style.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/style.css",
+          "live_status": 200,
+          "live_md5": "28a523c46532dc0fcebf58df32f63cf5",
+          "live_bytes": 111255,
+          "repo_md5": "0ab1fadf9e64d0c2444d25d6a90e9fb7",
+          "repo_bytes": 113860,
+          "identical": false
+        },
+        {
+          "file": "assets/css/animations.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/animations.css",
+          "live_status": 200,
+          "live_md5": "7645e93ae4fd628b59893794c70a8432",
+          "live_bytes": 7540,
+          "repo_md5": "7645e93ae4fd628b59893794c70a8432",
+          "repo_bytes": 7540,
+          "identical": true
+        },
+        {
+          "file": "assets/css/bleeding-edge.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/bleeding-edge.css",
+          "live_status": 200,
+          "live_md5": "88d0fc9c77d881ed0baa39f2f4edcb6f",
+          "live_bytes": 12390,
+          "repo_md5": "88d0fc9c77d881ed0baa39f2f4edcb6f",
+          "repo_bytes": 12390,
+          "identical": true
+        },
+        {
+          "file": "assets/css/editor.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/editor.css",
+          "live_status": 200,
+          "live_md5": "4b0cb7208888492ff361e8b0ff3863aa",
+          "live_bytes": 5343,
+          "repo_md5": "4b0cb7208888492ff361e8b0ff3863aa",
+          "repo_bytes": 5343,
+          "identical": true
+        },
+        {
+          "file": "assets/css/revive-port.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/revive-port.css",
+          "live_status": 200,
+          "live_md5": "737818af24412ef23a8493249c5ee9e4",
+          "live_bytes": 27630,
+          "repo_md5": "f1ffb49f638fcbb8956ffb0aff4b69ea",
+          "repo_bytes": 28495,
+          "identical": false
+        },
+        {
+          "file": "assets/css/typography-refined.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/typography-refined.css",
+          "live_status": 200,
+          "live_md5": "69e3035368a854cb3dc56accc4e44c1a",
+          "live_bytes": 16735,
+          "repo_md5": "69e3035368a854cb3dc56accc4e44c1a",
+          "repo_bytes": 16735,
+          "identical": true
+        }
+      ]
+    }
+  },
+  "boost": {
+    "baseline_css_bundle_hash": "78b2cf14fa",
+    "candidate_css_bundle_hash": "78b2cf14fa",
+    "changed": false,
+    "candidate": {
+      "source": "https://kriskrug.co/",
+      "home_status": 200,
+      "css_bundle_url": "https://s5102.pcdn.co/wp-content/boost-cache/static/78b2cf14fa.min.css",
+      "css_bundle_hash": "78b2cf14fa",
+      "css_bundle_md5": "8dad4baf6c2e420e8cb83000247f75fd",
+      "css_bundle_bytes": 138229,
+      "js_bundle_hash": "80bc38e6a8"
+    }
+  },
+  "pairs": [
+    {
+      "key": "home/mobile",
+      "route": "home",
+      "path": "/",
+      "viewport": "mobile",
+      "candidate_sha256": "05b4cfd9bf47bfa6676ff7dc1613ba2c9f7bac802d79e0cf9568ca8c0dfa6f79",
+      "baseline_sha256": "05b4cfd9bf47bfa6676ff7dc1613ba2c9f7bac802d79e0cf9568ca8c0dfa6f79",
+      "candidate_height": 18454,
+      "baseline_height": 18454,
+      "candidate_scroll_height": 9227,
+      "baseline_scroll_height": 9227,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 10,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "home/tablet",
+      "route": "home",
+      "path": "/",
+      "viewport": "tablet",
+      "candidate_sha256": "60507d74243c55b62cb8cd702ee25bdf201a4b1de7992aa568899c91dbd462ed",
+      "baseline_sha256": "60507d74243c55b62cb8cd702ee25bdf201a4b1de7992aa568899c91dbd462ed",
+      "candidate_height": 21322,
+      "baseline_height": 21322,
+      "candidate_scroll_height": 10661,
+      "baseline_scroll_height": 10661,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 10,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "home/desktop",
+      "route": "home",
+      "path": "/",
+      "viewport": "desktop",
+      "candidate_sha256": "57649ed19de69f0bb2bd7b2f46a2d0e9702dca45349c7367e661d699307bbfcc",
+      "baseline_sha256": "57649ed19de69f0bb2bd7b2f46a2d0e9702dca45349c7367e661d699307bbfcc",
+      "candidate_height": 12886,
+      "baseline_height": 12886,
+      "candidate_scroll_height": 6443,
+      "baseline_scroll_height": 6443,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 10,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "about/mobile",
+      "route": "about",
+      "path": "/about/",
+      "viewport": "mobile",
+      "candidate_sha256": "efdfa63faeabed8fbc80ac45ef5671dba3fbbd8169ad833a940a153b8a559139",
+      "baseline_sha256": "efdfa63faeabed8fbc80ac45ef5671dba3fbbd8169ad833a940a153b8a559139",
+      "candidate_height": 12544,
+      "baseline_height": 12544,
+      "candidate_scroll_height": 6272,
+      "baseline_scroll_height": 6272,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "about/tablet",
+      "route": "about",
+      "path": "/about/",
+      "viewport": "tablet",
+      "candidate_sha256": "9e7066edd757529ff72113152b28813d2c80bdb5c1b388c89ad15f543b3d3bed",
+      "baseline_sha256": "9e7066edd757529ff72113152b28813d2c80bdb5c1b388c89ad15f543b3d3bed",
+      "candidate_height": 10760,
+      "baseline_height": 10760,
+      "candidate_scroll_height": 5380,
+      "baseline_scroll_height": 5380,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "about/desktop",
+      "route": "about",
+      "path": "/about/",
+      "viewport": "desktop",
+      "candidate_sha256": "4df37fabe0fd2282cb6fbe0928b0671a86284ae448f965f5cc0e17eee35eae18",
+      "baseline_sha256": "4df37fabe0fd2282cb6fbe0928b0671a86284ae448f965f5cc0e17eee35eae18",
+      "candidate_height": 9076,
+      "baseline_height": 9076,
+      "candidate_scroll_height": 4538,
+      "baseline_scroll_height": 4538,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "services/mobile",
+      "route": "services",
+      "path": "/generative-ai-services/",
+      "viewport": "mobile",
+      "candidate_sha256": "6608948dee3a71b1c2460ab0b418c517a046840f91e55f763be8380cb2ee3f98",
+      "baseline_sha256": "6608948dee3a71b1c2460ab0b418c517a046840f91e55f763be8380cb2ee3f98",
+      "candidate_height": 9774,
+      "baseline_height": 9774,
+      "candidate_scroll_height": 4887,
+      "baseline_scroll_height": 4887,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "services/tablet",
+      "route": "services",
+      "path": "/generative-ai-services/",
+      "viewport": "tablet",
+      "candidate_sha256": "4d23aeedbaf525c2ca5e3ebf48e0136e3f172c45570d14081ded920a54402475",
+      "baseline_sha256": "4d23aeedbaf525c2ca5e3ebf48e0136e3f172c45570d14081ded920a54402475",
+      "candidate_height": 9078,
+      "baseline_height": 9078,
+      "candidate_scroll_height": 4539,
+      "baseline_scroll_height": 4539,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "services/desktop",
+      "route": "services",
+      "path": "/generative-ai-services/",
+      "viewport": "desktop",
+      "candidate_sha256": "fbd2eda3ad54001563a23621ebb79065166b213489a771aea57212a201cdc8b9",
+      "baseline_sha256": "fbd2eda3ad54001563a23621ebb79065166b213489a771aea57212a201cdc8b9",
+      "candidate_height": 7128,
+      "baseline_height": 7128,
+      "candidate_scroll_height": 3564,
+      "baseline_scroll_height": 3564,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "speaking/mobile",
+      "route": "speaking",
+      "path": "/speaking/",
+      "viewport": "mobile",
+      "candidate_sha256": "6a01da359292468085689f290596bce2a9f3b8643a813ad5898e9c79c0a7e301",
+      "baseline_sha256": "6a01da359292468085689f290596bce2a9f3b8643a813ad5898e9c79c0a7e301",
+      "candidate_height": 11784,
+      "baseline_height": 11784,
+      "candidate_scroll_height": 5892,
+      "baseline_scroll_height": 5892,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "speaking/tablet",
+      "route": "speaking",
+      "path": "/speaking/",
+      "viewport": "tablet",
+      "candidate_sha256": "b9426205ecccec4cc78f3e0b090c121e2270d6b00fa401d10b475b226edb4f14",
+      "baseline_sha256": "b9426205ecccec4cc78f3e0b090c121e2270d6b00fa401d10b475b226edb4f14",
+      "candidate_height": 10442,
+      "baseline_height": 10442,
+      "candidate_scroll_height": 5221,
+      "baseline_scroll_height": 5221,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "speaking/desktop",
+      "route": "speaking",
+      "path": "/speaking/",
+      "viewport": "desktop",
+      "candidate_sha256": "776220f843219cd3d8da9cb6266f57078f7f2747440236c4b892289e103c59dc",
+      "baseline_sha256": "776220f843219cd3d8da9cb6266f57078f7f2747440236c4b892289e103c59dc",
+      "candidate_height": 8674,
+      "baseline_height": 8674,
+      "candidate_scroll_height": 4337,
+      "baseline_scroll_height": 4337,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "work/mobile",
+      "route": "work",
+      "path": "/work/",
+      "viewport": "mobile",
+      "candidate_sha256": "b68956eff1aa42cdd4095b3cf9301456b196b46f0f856c11e5f9a8db9455c610",
+      "baseline_sha256": "b68956eff1aa42cdd4095b3cf9301456b196b46f0f856c11e5f9a8db9455c610",
+      "candidate_height": 11774,
+      "baseline_height": 11774,
+      "candidate_scroll_height": 5887,
+      "baseline_scroll_height": 5887,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "work/tablet",
+      "route": "work",
+      "path": "/work/",
+      "viewport": "tablet",
+      "candidate_sha256": "a65134378ce6d5702f2760cc8c48ccd085c4fc107e00fe57b17913bfd1ea391d",
+      "baseline_sha256": "a65134378ce6d5702f2760cc8c48ccd085c4fc107e00fe57b17913bfd1ea391d",
+      "candidate_height": 11672,
+      "baseline_height": 11672,
+      "candidate_scroll_height": 5836,
+      "baseline_scroll_height": 5836,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "work/desktop",
+      "route": "work",
+      "path": "/work/",
+      "viewport": "desktop",
+      "candidate_sha256": "6de36d98afb18d45155c8583ac108eb350e4d325b9345e46b000da66427f95bb",
+      "baseline_sha256": "6de36d98afb18d45155c8583ac108eb350e4d325b9345e46b000da66427f95bb",
+      "candidate_height": 8850,
+      "baseline_height": 8850,
+      "candidate_scroll_height": 4425,
+      "baseline_scroll_height": 4425,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "photography/mobile",
+      "route": "photography",
+      "path": "/photography/",
+      "viewport": "mobile",
+      "candidate_sha256": "eb8e70680e0e480623186f5082f95a83626cf05243b68fa5319482d62e3182b4",
+      "baseline_sha256": "eb8e70680e0e480623186f5082f95a83626cf05243b68fa5319482d62e3182b4",
+      "candidate_height": 17080,
+      "baseline_height": 17080,
+      "candidate_scroll_height": 8540,
+      "baseline_scroll_height": 8540,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "photography/tablet",
+      "route": "photography",
+      "path": "/photography/",
+      "viewport": "tablet",
+      "candidate_sha256": "7a178a3b8c2263ea911f79b1632ee55404558da8c9649e5bba7ec672ef7684eb",
+      "baseline_sha256": "ce3f5bb94f1b9f7f08073e8120067dabba6939e6f5e6f04b14280475ebd84380",
+      "candidate_height": 11808,
+      "baseline_height": 11808,
+      "candidate_scroll_height": 5904,
+      "baseline_scroll_height": 5904,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "method": "pixel",
+      "diff_pct": 0,
+      "diff_pixels": 0,
+      "total_pixels": 18137088,
+      "verdict": "pass"
+    },
+    {
+      "key": "photography/desktop",
+      "route": "photography",
+      "path": "/photography/",
+      "viewport": "desktop",
+      "candidate_sha256": "5f31d33a026323f9f1d95c0cda3a7e5af3ee517c364fdcbffc607d8a913b0811",
+      "baseline_sha256": "eb9043c59ee863d99485ca5597c91eef9cdb57920f2e3e6df6e1124882d7928d",
+      "candidate_height": 9026,
+      "baseline_height": 9026,
+      "candidate_scroll_height": 4513,
+      "baseline_scroll_height": 4513,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "method": "pixel",
+      "diff_pct": 0,
+      "diff_pixels": 0,
+      "total_pixels": 25994880,
+      "verdict": "pass"
+    },
+    {
+      "key": "blog/mobile",
+      "route": "blog",
+      "path": "/blog/",
+      "viewport": "mobile",
+      "candidate_sha256": "ef0e8b39e749a44b0310bd446372e91290494395b55874e2d37dbf731c2de91f",
+      "baseline_sha256": "ef0e8b39e749a44b0310bd446372e91290494395b55874e2d37dbf731c2de91f",
+      "candidate_height": 23118,
+      "baseline_height": 23118,
+      "candidate_scroll_height": 11559,
+      "baseline_scroll_height": 11559,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "blog/tablet",
+      "route": "blog",
+      "path": "/blog/",
+      "viewport": "tablet",
+      "candidate_sha256": "818e969e8572c8c1f9b4730855a5f051b7e70d6d93f0d892ec21569690358ed2",
+      "baseline_sha256": "818e969e8572c8c1f9b4730855a5f051b7e70d6d93f0d892ec21569690358ed2",
+      "candidate_height": 13682,
+      "baseline_height": 13682,
+      "candidate_scroll_height": 6841,
+      "baseline_scroll_height": 6841,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "blog/desktop",
+      "route": "blog",
+      "path": "/blog/",
+      "viewport": "desktop",
+      "candidate_sha256": "8af1eb2509ba1e326545febcca19afc3c04d4d4358f5bfca464d65e97bb7aacb",
+      "baseline_sha256": "8af1eb2509ba1e326545febcca19afc3c04d4d4358f5bfca464d65e97bb7aacb",
+      "candidate_height": 10894,
+      "baseline_height": 10894,
+      "candidate_scroll_height": 5447,
+      "baseline_scroll_height": 5447,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "contact/mobile",
+      "route": "contact",
+      "path": "/contact/",
+      "viewport": "mobile",
+      "candidate_sha256": "6a290b233bce6e9a76375f00fc1b41a73a8b9b8c9c199bf624490d961ef0967f",
+      "baseline_sha256": "6a290b233bce6e9a76375f00fc1b41a73a8b9b8c9c199bf624490d961ef0967f",
+      "candidate_height": 9434,
+      "baseline_height": 9434,
+      "candidate_scroll_height": 4717,
+      "baseline_scroll_height": 4717,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "contact/tablet",
+      "route": "contact",
+      "path": "/contact/",
+      "viewport": "tablet",
+      "candidate_sha256": "cb550cb7cd65c933d165baefdb69dad551c535989c1cea5aa3277fedf561ca99",
+      "baseline_sha256": "cb550cb7cd65c933d165baefdb69dad551c535989c1cea5aa3277fedf561ca99",
+      "candidate_height": 6520,
+      "baseline_height": 6520,
+      "candidate_scroll_height": 3260,
+      "baseline_scroll_height": 3260,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "contact/desktop",
+      "route": "contact",
+      "path": "/contact/",
+      "viewport": "desktop",
+      "candidate_sha256": "f4c97988e02a1566012879f338847b5eb4c49e1f91d6da0ed52e813e4fb52f80",
+      "baseline_sha256": "f4c97988e02a1566012879f338847b5eb4c49e1f91d6da0ed52e813e4fb52f80",
+      "candidate_height": 5836,
+      "baseline_height": 5836,
+      "candidate_scroll_height": 2918,
+      "baseline_scroll_height": 2918,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "single-post/mobile",
+      "route": "single-post",
+      "path": "/2026/07/18/i-am-nomad-ai-film/",
+      "viewport": "mobile",
+      "candidate_sha256": "97332769a82e7e257397235d26873771c6a990886b7a62e7bca6b6934c492ab5",
+      "baseline_sha256": "97332769a82e7e257397235d26873771c6a990886b7a62e7bca6b6934c492ab5",
+      "candidate_height": 40274,
+      "baseline_height": 40274,
+      "candidate_scroll_height": 20137,
+      "baseline_scroll_height": 20137,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 8,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "single-post/tablet",
+      "route": "single-post",
+      "path": "/2026/07/18/i-am-nomad-ai-film/",
+      "viewport": "tablet",
+      "candidate_sha256": "f5ea66eda2ba89df7a00f57d802861f50c52a71ce385e0cbb3f3c1c5fdec2406",
+      "baseline_sha256": "f5ea66eda2ba89df7a00f57d802861f50c52a71ce385e0cbb3f3c1c5fdec2406",
+      "candidate_height": 32634,
+      "baseline_height": 32634,
+      "candidate_scroll_height": 16317,
+      "baseline_scroll_height": 16317,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 8,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "single-post/desktop",
+      "route": "single-post",
+      "path": "/2026/07/18/i-am-nomad-ai-film/",
+      "viewport": "desktop",
+      "candidate_sha256": "cf90fcc186554e9ac98d85223148b0d8842367c18b6de71861ba63c0c87edc2d",
+      "baseline_sha256": "cf90fcc186554e9ac98d85223148b0d8842367c18b6de71861ba63c0c87edc2d",
+      "candidate_height": 35086,
+      "baseline_height": 35086,
+      "candidate_scroll_height": 17543,
+      "baseline_scroll_height": 17543,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 8,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "not-found/mobile",
+      "route": "not-found",
+      "path": "/definitely-not-a-page-404-probe/",
+      "viewport": "mobile",
+      "candidate_sha256": "e227d463d8de568b3fc00a66ee527f52e1b05923ba877225358f62d634a4aaad",
+      "baseline_sha256": "e227d463d8de568b3fc00a66ee527f52e1b05923ba877225358f62d634a4aaad",
+      "candidate_height": 5464,
+      "baseline_height": 5464,
+      "candidate_scroll_height": 2732,
+      "baseline_scroll_height": 2732,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "not-found/tablet",
+      "route": "not-found",
+      "path": "/definitely-not-a-page-404-probe/",
+      "viewport": "tablet",
+      "candidate_sha256": "bcb01a370804ff958152722f30edb80054c20cb0a5d3773363c96e6176fed4be",
+      "baseline_sha256": "bcb01a370804ff958152722f30edb80054c20cb0a5d3773363c96e6176fed4be",
+      "candidate_height": 4338,
+      "baseline_height": 4338,
+      "candidate_scroll_height": 2169,
+      "baseline_scroll_height": 2169,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "not-found/desktop",
+      "route": "not-found",
+      "path": "/definitely-not-a-page-404-probe/",
+      "viewport": "desktop",
+      "candidate_sha256": "1cb75c0380edeb30005fbb1ec4e97a95cffa5ac6abf7ebaed02373da1230c5ac",
+      "baseline_sha256": "1cb75c0380edeb30005fbb1ec4e97a95cffa5ac6abf7ebaed02373da1230c5ac",
+      "candidate_height": 4122,
+      "baseline_height": 4122,
+      "candidate_scroll_height": 2061,
+      "baseline_scroll_height": 2061,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "category-archive/mobile",
+      "route": "category-archive",
+      "path": "/category/vancouver-ai-ecosystem/",
+      "viewport": "mobile",
+      "candidate_sha256": "66a393226c91fad96a4a77067b220c2799ae4912e5145f4da7150735cd6d55ef",
+      "baseline_sha256": "66a393226c91fad96a4a77067b220c2799ae4912e5145f4da7150735cd6d55ef",
+      "candidate_height": 23190,
+      "baseline_height": 23190,
+      "candidate_scroll_height": 11595,
+      "baseline_scroll_height": 11595,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "category-archive/tablet",
+      "route": "category-archive",
+      "path": "/category/vancouver-ai-ecosystem/",
+      "viewport": "tablet",
+      "candidate_sha256": "f5a8df79e678983de7fa5b6c13a6b3e696024e29d484bd7687d4d06dbad80642",
+      "baseline_sha256": "f5a8df79e678983de7fa5b6c13a6b3e696024e29d484bd7687d4d06dbad80642",
+      "candidate_height": 17448,
+      "baseline_height": 17448,
+      "candidate_scroll_height": 8724,
+      "baseline_scroll_height": 8724,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "category-archive/desktop",
+      "route": "category-archive",
+      "path": "/category/vancouver-ai-ecosystem/",
+      "viewport": "desktop",
+      "candidate_sha256": "d68300cd5ddee8bde2084f544e82ce23c767be5e0312a07e1275e4c0b78f7438",
+      "baseline_sha256": "d68300cd5ddee8bde2084f544e82ce23c767be5e0312a07e1275e4c0b78f7438",
+      "candidate_height": 17894,
+      "baseline_height": 17894,
+      "candidate_scroll_height": 8947,
+      "baseline_scroll_height": 8947,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    }
+  ]
+}
