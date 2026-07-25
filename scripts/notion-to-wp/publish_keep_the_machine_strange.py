@@ -39,6 +39,7 @@ from publish_common import (  # noqa: E402
     category_id,
     parse_publish_argv,
     render_paragraph_from_markdown,
+    select_media_match,
     split_body_blocks,
     strip_frontmatter,
 )
@@ -165,15 +166,17 @@ def b_image(media_id, url, alt, caption=None, width=None, align="center"):
 
 # ---- media upload (idempotent) ----------------------------------------------
 def find_media(c, stem):
+    """Exact filename match only; ambiguity aborts. See publish_common.select_media_match.
+
+    This script talks to WPClient (scripts/common.py) rather than the connector's
+    WordPress client, so it cannot reuse find_media_by_stem — but it must not carry
+    its own matching rule, so the rule itself is shared (issue #483).
+    """
     try:
-        r = c.get("media", params={"search": stem, "per_page": 10, "context": "edit"})
+        r = c.get("media", params={"search": stem, "per_page": 100, "context": "edit"})
     except Exception:
         return None
-    for m in r or []:
-        base = m.get("source_url", "").rsplit("/", 1)[-1]
-        if base.startswith(stem):
-            return m["id"], m["source_url"]
-    return None
+    return select_media_match(r, stem)
 
 
 def upload_media(c, path, alt, mime):
