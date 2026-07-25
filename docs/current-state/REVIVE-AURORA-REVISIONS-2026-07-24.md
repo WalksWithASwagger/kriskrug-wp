@@ -35,8 +35,8 @@ Close the gap between “stranger recognizes Revive direction” (done) and “e
 | R7 | Contact still shows cyan bar / old accent chrome | Contact screenshot | Rewrite Contact pack to cream/ink density (after #421 portrait keep) | No cyan SaaS bars; portrait-led Revive density |
 | R8 | Services cards keep drop-cap / rounded SaaS card feel | Services screenshot | Rewrite Services HTML pack to Revive “Strategic intervention” ribbon cards | Matches homepage services band language |
 | R9 | Speaking / About / Work / Photography / Sponsor-deck uneven | Spot checks | One pack per commit: restyle to `.kk-page` tokens + remove leftover cyan | Each route screenshot passes cream/ink smell test |
-| R10 | Blog archive H1 still “Field notes…” | `/blog/` HTML | Rename to **Writing** (KK rejected Field notes on WP chrome) | No “Field notes” in archive title |
-| R11 | Work page body still says “Field notes, talks…” | `/work/` HTML | Soft rewrite to “Writing, talks…” | No Field notes phrasing |
+| R10 | Blog archive H1 still “Field notes…” | `/blog/` HTML | Rename to **Writing** (KK rejected Field notes on WP chrome) | **Done** — `home.html` H1 → “Writing for the age…”, media **#12634** / snippet **#18** |
+| R11 | Work page body still says “Field notes, talks…” | `/work/` HTML | Soft rewrite to “Writing, talks…” | **Done** — page **2672** + source pack `work.html` |
 
 ### P3 — Performance / cleanup (Ops)
 
@@ -78,4 +78,4 @@ Do **not** mix Track A pack rewrites with Track B theme commits.
 
 ## Immediate next step
 
-After **1.4.1** is live and verified: Track A slice — R10 blog title → R11 work copy → R7 Contact → R8 Services.
+R10/R11 done. Next Track A: **R7 Contact** → **R8 Services** (cream/ink pack restyles).
