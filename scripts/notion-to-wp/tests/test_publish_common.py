@@ -91,6 +91,146 @@ class PublishCommonTests(unittest.TestCase):
         self.assertTrue(flags.write)
 
 
+def _media(media_id: str | int, filename: str, *, original: str | None = None) -> dict:
+    """A media REST record as WordPress returns it."""
+    record: dict = {
+        "id": media_id,
+        "source_url": f"https://example.test/wp-content/uploads/2026/07/{filename}",
+    }
+    if original:
+        record["media_details"] = {"original_image": original}
+    return record
+
+
+class SelectMediaMatchTests(unittest.TestCase):
+    """Issue #483: prefix matching attached the wrong image and reported success."""
+
+    def test_exact_filename_matches(self):
+        self.assertEqual(
+            publish_common.select_media_match([_media(9, "hero.png")], "hero"),
+            (9, "https://example.test/wp-content/uploads/2026/07/hero.png"),
+        )
+
+    def test_scaled_variant_does_not_match_its_own_stem(self):
+        """The reported collision: uploading hero.png must not reuse hero-scaled.png."""
+        self.assertIsNone(
+            publish_common.select_media_match([_media(9, "hero-scaled.png")], "hero")
+        )
+
+    def test_dimension_variant_does_not_match(self):
+        """WordPress auto-generates -{width}x{height}; those are not the original."""
+        for variant in ("hero-1024x768.png", "hero-150x150.png", "hero-thumbnail.png"):
+            with self.subTest(variant=variant):
+                self.assertIsNone(
+                    publish_common.select_media_match([_media(9, variant)], "hero")
+                )
+
+    def test_re_export_suffix_does_not_match(self):
+        """hero-2.png is an editor's re-export, a different image entirely."""
+        self.assertIsNone(publish_common.select_media_match([_media(9, "hero-2.png")], "hero"))
+
+    def test_longer_stem_does_not_match_shorter_request(self):
+        self.assertIsNone(
+            publish_common.select_media_match([_media(9, "hero-at-city-hall.jpg")], "hero")
+        )
+
+    def test_scaled_attachment_matches_via_wordpress_original_image(self):
+        """A scaled attachment is still the same upload when WP says so itself."""
+        record = _media(9, "hero-scaled.png", original="hero.png")
+        self.assertEqual(
+            publish_common.select_media_match([record], "hero"),
+            (9, "https://example.test/wp-content/uploads/2026/07/hero-scaled.png"),
+        )
+
+    def test_original_image_still_requires_an_exact_stem(self):
+        record = _media(9, "hero-2-scaled.png", original="hero-2.png")
+        self.assertIsNone(publish_common.select_media_match([record], "hero"))
+
+    def test_extension_allow_list_is_enforced(self):
+        self.assertIsNone(
+            publish_common.select_media_match([_media(9, "hero.tiff")], "hero")
+        )
+        self.assertIsNone(
+            publish_common.select_media_match(
+                [_media(9, "hero.png")], "hero", extensions=(".jpg",)
+            )
+        )
+
+    def test_extension_match_is_case_insensitive(self):
+        self.assertEqual(
+            publish_common.select_media_match([_media(9, "hero.PNG")], "hero")[0], 9
+        )
+
+    def test_ambiguous_match_aborts_instead_of_picking_one(self):
+        records = [_media(9, "hero.png"), _media(10, "hero.png")]
+        with self.assertRaises(SystemExit) as ctx:
+            publish_common.select_media_match(records, "hero")
+        message = str(ctx.exception)
+        self.assertIn("ambiguous media match", message)
+        self.assertIn("9", message)
+        self.assertIn("10", message)
+
+    def test_ambiguity_counts_attachments_not_matching_names(self):
+        """One attachment matching by both source_url and original_image is not ambiguous."""
+        record = _media(9, "hero.png", original="hero.png")
+        self.assertEqual(publish_common.select_media_match([record], "hero")[0], 9)
+
+    def test_ambiguity_spans_the_extension_allow_list(self):
+        """hero.png and hero.jpg are different files; the publisher cannot pick."""
+        with self.assertRaises(SystemExit):
+            publish_common.select_media_match(
+                [_media(9, "hero.png"), _media(10, "hero.jpg")], "hero"
+            )
+
+    def test_malformed_records_are_skipped(self):
+        records = ["nonsense", {"id": 9}, {"source_url": "https://example.test/u/hero.png"}]
+        self.assertIsNone(publish_common.select_media_match(records, "hero"))
+
+    def test_empty_results(self):
+        self.assertIsNone(publish_common.select_media_match([], "hero"))
+        self.assertIsNone(publish_common.select_media_match(None, "hero"))
+
+
+class FindMediaByStemTests(unittest.TestCase):
+    def _wp(self, payload):
+        wp = mock.Mock()
+        wp.base = "https://example.test"
+        wp.s.get.return_value.json.return_value = payload
+        return wp
+
+    def test_scaled_collision_does_not_reuse(self):
+        wp = self._wp([_media(9, "hero-scaled.png")])
+        self.assertIsNone(publish_common.find_media_by_stem(wp, "hero"))
+
+    def test_ambiguity_propagates_out_of_the_lookup(self):
+        wp = self._wp([_media(9, "hero.png"), _media(10, "hero.png")])
+        with self.assertRaises(SystemExit):
+            publish_common.find_media_by_stem(wp, "hero")
+
+    def test_network_failure_returns_none(self):
+        wp = mock.Mock()
+        wp.base = "https://example.test"
+        wp.s.get.side_effect = RuntimeError("connection reset")
+        self.assertIsNone(publish_common.find_media_by_stem(wp, "hero"))
+
+    def test_non_list_payload_returns_none(self):
+        wp = self._wp({"code": "rest_forbidden"})
+        self.assertIsNone(publish_common.find_media_by_stem(wp, "hero"))
+
+
+class PrefixMatchRegressionGuardTests(unittest.TestCase):
+    """Both publishers must route media matching through the one shared rule (#483)."""
+
+    def test_keep_the_machine_strange_delegates_to_select_media_match(self):
+        source = (SCRIPT_DIR / "publish_keep_the_machine_strange.py").read_text()
+        self.assertIn("select_media_match", source)
+        self.assertNotIn("base.startswith(stem)", source)
+
+    def test_publish_common_has_no_stem_prefix_match(self):
+        source = (SCRIPT_DIR / "publish_common.py").read_text()
+        self.assertNotIn("startswith(stem)", source)
+
+
 class FindOrUploadMediaTests(unittest.TestCase):
     """Extracted from the copy-pasted resolve-or-upload loops (issue #254)."""
 

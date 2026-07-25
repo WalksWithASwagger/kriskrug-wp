@@ -133,10 +133,22 @@ def ai_sign(block, match):
 
 
 def march_photo(block, match):
-    """`![alt](photo:NNNN)` -> in-body march photo. Unknown key emits nothing."""
+    """`![alt](photo:NNNN)` -> in-body march photo. An unknown key aborts.
+
+    This used to emit nothing, which published a quietly shorter post than the one
+    in post.md: the author asked for a photo, the photo was missing from
+    photos/inbody/, and nothing said so (issue #483). Aborting surfaces it in the
+    dry-run, before any WordPress write, because the inbody/ directory is globbed
+    on both dry-run and execute.
+    """
     key = match.group(2)
     if key not in inbody_photos:
-        return None
+        raise SystemExit(
+            f"[ABORT] post.md references photo:{key} but no file in "
+            f"{STAGE / 'photos/inbody'} starts with '{key}-'. "
+            f"Known keys: {sorted(inbody_photos)}. "
+            f"Add the photo or remove the marker; do not publish a shorter post silently."
+        )
     mid, url, alt, cap = inbody_photos[key]
     align, width = INBODY_PHOTO.get(key, ("center", 660))
     return image(mid, url, alt, caption=cap, width=width, align=align)
@@ -208,7 +220,11 @@ else:
 v = wp.get_post(pid)
 vc = v["content"]["raw"]
 checks = {
-    "published": v["status"] == "publish",
+    # This script NEVER publishes (see the module docstring), so the safe outcome
+    # is status=draft. The check used to assert status=="publish", which printed
+    # "FAIL published" on every correct run and trained readers to skim past FAIL
+    # lines in a safety readback (issue #483).
+    "stays_draft": v["status"] == "draft",
     "featured_set": v.get("featured_media") == FEATURED_ID,
     "pullquotes_4": vc.count("wp:pullquote") == 8,
     "two_galleries": vc.count("wp:gallery") == 4,  # consolidated signs + AI (open+close each)

@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.4.5
+Version: 1.4.6
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -492,7 +492,13 @@ a {
   /* Revive 1.4.0 cream/ink baseline (see assets/css/revive-port.css) */
   --aurora-ink: #171310;
   --aurora-ink-soft: rgba(23, 19, 16, 0.78);
-  --aurora-ink-muted: rgba(23, 19, 16, 0.55);
+  /* Mirrors theme.json `text-muted` exactly. It previously aliased the palette
+     entry as rgba(23, 19, 16, 0.55), which is a *different colour*: 3.84:1 on
+     --aurora-paper, 3.75:1 on --aurora-panel-solid, 3.55:1 on the darkest cream
+     (#d9cdb0) — all below AA, across ~30 foreground uses. #5c5044 is 6.30 /
+     5.73 / 4.96:1 on those same three surfaces. Every use of this token is a
+     `color:` declaration, so the opaque value is safe. See issue #485. */
+  --aurora-ink-muted: #5c5044;
   /* Accent orange used as TEXT on cream must clear 4.5:1 against the darkest
      cream surface (muted #d9cdb0). #d94a1f only reached 2.69:1 there. */
   --aurora-readable-accent: #9a2f14;
@@ -1420,10 +1426,14 @@ a {
   width: auto !important;
 }
 
+/* Cream card. Declaration site 1 of 6 for this component — the 1.4.0 port
+   flipped .aurora-card / .aurora-media-card / .aurora-proof-grid > article and
+   missed this one, so the archive kept a #050708 surface under cream-era ink
+   (titles 1.00–1.06:1). Sites 2–6 are the .aurora-writing-archive overrides
+   below, the two breakpoint blocks, the shared category-pill rule, and the
+   reduced-motion block; all are reconciled to this surface. Issue #485. */
 .aurora-writing-card {
-  background:
-    linear-gradient(145deg, rgba(247, 247, 242, 0.055), rgba(247, 247, 242, 0.025)),
-    #050708;
+  background: var(--aurora-panel-solid);
   border: 1px solid var(--aurora-line);
   border-radius: var(--aurora-radius-card);
   display: grid;
@@ -1434,10 +1444,11 @@ a {
   transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
 }
 
+/* On the dark card the hover state was a lighten. On cream a lighten walks the
+   card into the page paper (--revive-surface, only 1.10:1 away), so the state
+   is carried by the accent border and the lift instead. */
 .aurora-writing-card:hover {
-  background:
-    linear-gradient(145deg, rgba(247, 247, 242, 0.075), rgba(247, 247, 242, 0.035)),
-    #050708;
+  background: var(--aurora-panel-solid);
   border-color: var(--aurora-line-strong);
   transform: translateY(-2px);
 }
@@ -1445,7 +1456,7 @@ a {
 .aurora-writing-card-media {
   aspect-ratio: 16 / 10 !important;
   background: var(--aurora-panel-solid);
-  border-bottom: 1px solid rgba(247, 247, 242, 0.08);
+  border-bottom: 1px solid var(--aurora-line);
   margin: 0;
   max-width: 100%;
   min-width: 0;
@@ -1469,9 +1480,9 @@ a {
   align-items: center;
   aspect-ratio: 16 / 10;
   background:
-    linear-gradient(135deg, rgba(229, 70, 46, 0.16), rgba(229, 70, 46, 0.16)),
+    linear-gradient(135deg, rgba(217, 74, 31, 0.18), rgba(217, 74, 31, 0.18)),
     var(--aurora-panel-solid);
-  border-bottom: 1px solid rgba(247, 247, 242, 0.08);
+  border-bottom: 1px solid var(--aurora-line);
   color: var(--aurora-ink-muted);
   content: "";
   display: flex;
@@ -1568,7 +1579,10 @@ a {
 .aurora-writing-pagination .wp-block-query-pagination-previous,
 .aurora-writing-pagination .wp-block-query-pagination-next {
   align-items: center;
-  background: rgba(9, 12, 17, 0.52);
+  /* Was rgba(9, 12, 17, 0.52) — a pre-cream dark chip. Over cream it flattens
+     to #77756e and put --aurora-ink at 4.01:1; on the card surface it is
+     13.53:1. Same blog index, same missed-port cause as the card. */
+  background: var(--aurora-panel-solid);
   border: 1px solid var(--aurora-line);
   border-radius: var(--aurora-radius-control);
   color: var(--aurora-ink);
@@ -1583,7 +1597,7 @@ a {
 
 .aurora-writing-pagination a:hover,
 .aurora-writing-pagination .page-numbers.current {
-  background: rgba(247, 247, 242, 0.06);
+  background: rgba(217, 74, 31, 0.12);
   border-color: var(--aurora-line-strong);
   color: var(--aurora-ink);
 }
@@ -1625,7 +1639,9 @@ a {
 
 .aurora-feed-link-grid a {
   align-items: center;
-  background: rgba(9, 12, 17, 0.52);
+  /* Same pre-cream dark chip as the pagination above; both live on
+     templates/home.html alongside the writing cards. */
+  background: var(--aurora-panel-solid);
   border: 1px solid var(--aurora-line);
   border-radius: var(--aurora-radius-control);
   color: var(--aurora-ink);
@@ -1640,16 +1656,19 @@ a {
 
 .aurora-feed-link-grid a:hover,
 .aurora-feed-link-grid a:focus-visible {
-  background: rgba(200, 255, 61, 0.08);
-  border-color: rgba(200, 255, 61, 0.35);
+  background: rgba(217, 74, 31, 0.12);
+  border-color: var(--aurora-line-strong);
   color: var(--aurora-ink);
 }
 
+/* The blog index's own dispatch band; it overrides the shared
+   .aurora-dispatch-band background, so converting it here is enough for
+   templates/home.html. The shared band is still pre-cream — separate issue. */
 .aurora-writing-dispatch {
   align-items: center;
   background:
-    linear-gradient(135deg, rgba(229, 70, 46, 0.04), rgba(229, 70, 46, 0.08)),
-    #07090b;
+    linear-gradient(135deg, rgba(217, 74, 31, 0.08), rgba(217, 74, 31, 0.14)),
+    var(--aurora-panel-solid);
   border: 1px solid var(--aurora-line);
   border-radius: var(--aurora-radius-card);
   display: grid;
@@ -3037,7 +3056,7 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   }
 
   .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media {
-    border-bottom: 1px solid rgba(247, 247, 242, 0.08);
+    border-bottom: 1px solid var(--aurora-line);
     border-right: 0;
     height: auto;
   }
@@ -3214,7 +3233,7 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   }
 
   .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media {
-    border-bottom: 1px solid rgba(247, 247, 242, 0.08);
+    border-bottom: 1px solid var(--aurora-line);
     border-right: 0;
     height: auto;
   }
@@ -3365,9 +3384,12 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   --aurora-lux-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --aurora-lux-quick: 220ms var(--aurora-lux-ease);
   --aurora-lux-slow: 560ms var(--aurora-lux-ease);
-  --aurora-composition-border: rgba(232, 224, 209, 0.14);
-  --aurora-composition-border-strong: rgba(242, 180, 207, 0.28);
-  --aurora-composition-shadow: 0 18px 48px rgba(0, 0, 0, 0.2);
+  /* Consumed only by .aurora-featured-media (3 declarations). Ported to ink on
+     cream with the panel itself — the old light-on-dark values were 1.05:1
+     against the new surface. */
+  --aurora-composition-border: rgba(23, 19, 16, 0.14);
+  --aurora-composition-border-strong: rgba(217, 74, 31, 0.35);
+  --aurora-composition-shadow: 0 18px 48px rgba(23, 19, 16, 0.12);
 }
 
 .aurora-single-2026 {
@@ -3477,11 +3499,15 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   padding-left: 0.85rem;
 }
 
+/* Declaration site 6: the category pill, shared with the single-post header.
+   The white fill/border were sized for a dark card; on cream they vanish into
+   the surface (fill 1.02:1, border 1.03:1 against the card). Ink tints of the
+   same weight read correctly on cream and keep the pill's text at 12.28:1. */
 .aurora-writing-card-category a,
 .aurora-article-category a,
 .aurora-post-tags a {
-  background: rgba(247, 247, 242, 0.045);
-  border: 1px solid rgba(247, 247, 242, 0.105);
+  background: rgba(23, 19, 16, 0.05);
+  border: 1px solid var(--aurora-line);
   border-radius: 999px;
   color: var(--aurora-ink);
   display: inline-flex;
@@ -3500,8 +3526,8 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 .aurora-article-category a:focus-visible,
 .aurora-post-tags a:hover,
 .aurora-post-tags a:focus-visible {
-  background: rgba(229, 70, 46, 0.075);
-  border-color: rgba(229, 70, 46, 0.34);
+  background: rgba(217, 74, 31, 0.1);
+  border-color: var(--aurora-line-strong);
   color: var(--wp--preset--color--signal);
 }
 
@@ -3519,10 +3545,15 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   outline-offset: 3px !important;
 }
 
+/* Was rgba(21, 24, 33, 0.76) over cream — flattens to ~#535253. That is the
+   surface the caption below renders on, and revive-port.css wins the caption
+   with --revive-ink-soft, giving 2.06:1. Retuning the caption cannot fix that
+   (the losing declaration is never painted); deciding this surface can. Cream
+   here matches every other ported panel (.aurora-card, .aurora-media-card,
+   .aurora-proof-grid > article, .aurora-writing-card) and puts the winning
+   caption declaration at 7.62:1. Issue #485. */
 .aurora-featured-media {
-  background:
-    linear-gradient(180deg, rgba(232, 224, 209, 0.06), rgba(232, 224, 209, 0.018)),
-    rgba(21, 24, 33, 0.76);
+  background: var(--aurora-panel-solid);
   border: 1px solid var(--aurora-composition-border);
   border-radius: var(--aurora-radius-card);
   box-shadow: var(--aurora-composition-shadow);
@@ -3545,14 +3576,12 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   width: 100%;
 }
 
+/* The pre-cream `color: rgba(207, 199, 187, 0.72)` is gone rather than retuned.
+   It never painted: revive-port.css's `.aurora-theme :where(p, li, figcaption)`
+   has equal specificity (0,1,0) and loads later, so it always won. With the
+   panel above now cream, the declaration that does win (--revive-ink-soft) is
+   7.62:1 instead of 2.06:1, and this rule keeps only its typography. */
 .aurora-featured-media :where(figcaption, .wp-element-caption) {
-  /* DEAD DECLARATION — do not "fix" this value in place. revive-port.css's
-     `.aurora-theme :where(p, li, figcaption)` has equal specificity (0,1,0)
-     and loads later, so it wins and paints this caption --revive-ink-soft:
-     dark ink on this rule's own dark panel, 2.06:1 live. The fix is to decide
-     .aurora-featured-media's surface (it is a pre-cream literal), not to
-     retune the caption. See the #470 sweep notes. */
-  color: rgba(207, 199, 187, 0.72);
   font-size: 0.86rem;
   line-height: 1.45;
   margin: 0.6rem auto 0;
@@ -3567,7 +3596,7 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 }
 
 .aurora-writing-archive .aurora-writing-archive-header {
-  border-bottom: 1px solid rgba(247, 247, 242, 0.09);
+  border-bottom: 1px solid var(--aurora-line);
   gap: 1rem 1.4rem;
   margin-bottom: 1.05rem;
   padding-bottom: 1.2rem;
@@ -3589,12 +3618,13 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   gap: 14px;
 }
 
+/* Declaration site 2: the archive override. This is the rule that actually
+   wins on templates/home.html (0,2,0 beats the base 0,1,0), so fixing only the
+   base rule would have changed nothing on the live blog index. */
 .aurora-writing-archive .aurora-writing-card {
-  background:
-    linear-gradient(150deg, rgba(247, 247, 242, 0.048), rgba(247, 247, 242, 0.018)),
-    #050708;
-  border-color: rgba(247, 247, 242, 0.095);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  background: var(--aurora-panel-solid);
+  border-color: var(--aurora-line);
+  box-shadow: 0 10px 30px rgba(23, 19, 16, 0.1);
   isolation: isolate;
   position: relative;
   transition:
@@ -3604,10 +3634,15 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
     transform var(--aurora-lux-quick);
 }
 
+/* The wash sits at z-index 2 under the body (z-index 3), so it is part of the
+   backdrop the title and meta are measured against — it is not decoration that
+   can be ignored. On the dark card it was a white sheen (a lift); on cream the
+   equivalent depth cue is an ink wash. Measured with the wash included:
+   title 12.95:1, meta 5.48:1, excerpt 7.40:1 at the hover opacity of 0.26. */
 .aurora-writing-archive .aurora-writing-card::after {
   background:
-    radial-gradient(circle at 18% 0%, rgba(229, 70, 46, 0.035), transparent 34%),
-    linear-gradient(118deg, rgba(247, 247, 242, 0.045), transparent 34%);
+    radial-gradient(circle at 18% 0%, rgba(217, 74, 31, 0.06), transparent 34%),
+    linear-gradient(118deg, rgba(23, 19, 16, 0.05), transparent 34%);
   content: "";
   inset: 0;
   opacity: 0.14;
@@ -3619,8 +3654,8 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 
 .aurora-writing-archive .aurora-writing-card:hover,
 .aurora-writing-archive .aurora-writing-card:focus-within {
-  border-color: rgba(247, 247, 242, 0.18);
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+  border-color: var(--aurora-line-strong);
+  box-shadow: 0 16px 38px rgba(23, 19, 16, 0.16);
   transform: translateY(-1px);
 }
 
@@ -3629,8 +3664,11 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   opacity: 0.26;
 }
 
+/* rgba(229, 70, 46, 0.7) flattened to 2.35:1 on cream — below the 3:1 SC 1.4.11
+   floor for a focus indicator. --aurora-readable-accent is 6.06:1 on the page
+   paper and 5.51:1 on the card, and matches the theme's other focus rings. */
 .aurora-writing-card:focus-within {
-  outline: 2px solid rgba(229, 70, 46, 0.7);
+  outline: 2px solid var(--aurora-readable-accent);
   outline-offset: 3px;
 }
 
@@ -3646,15 +3684,20 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   line-height: 1.14;
 }
 
+/* The one rule on this card that the dark surface was still serving: near-white
+   at 7.91:1 on #050708. It has specificity (0,3,1) and so beats revive-port's
+   `.aurora-theme :where(p, li, figcaption)` at (0,1,0) — it does not inherit
+   the cream fix, it has to be converted with the surface or it inverts from
+   legible to invisible. --aurora-ink-soft is 7.40–7.62:1 on the cream card. */
 .aurora-writing-archive .aurora-writing-card-excerpt,
 .aurora-writing-archive .aurora-writing-card-excerpt p {
-  color: rgba(247, 247, 242, 0.66);
+  color: var(--aurora-ink-soft);
   font-size: var(--aurora-card-body-size);
   line-height: 1.6;
 }
 
 .aurora-writing-archive .aurora-writing-card-meta {
-  border-top: 1px solid rgba(247, 247, 242, 0.07);
+  border-top: 1px solid var(--aurora-line);
   padding-top: 0.62rem;
 }
 
@@ -3691,43 +3734,48 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   transform: scale(1.018);
 }
 
+/* Placeholder tile for posts with no featured image. Purely decorative
+   (content: ""), but it is a 16:10 block at the top of every such card, so it
+   has to be cream or the card reads as half-ported. Base moves from near-black
+   to the palette's darkest cream (theme.json `muted` #d9cdb0) so the tile still
+   separates from the #e6dcc2 card, and the white hairline grid flips to ink. */
 .aurora-writing-archive .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
   aspect-ratio: 16 / 10;
   background:
-    radial-gradient(circle at 18% 20%, rgba(229, 70, 46, 0.18), transparent 18%),
-    radial-gradient(circle at 78% 78%, rgba(229, 70, 46, 0.04), transparent 22%),
-    linear-gradient(135deg, rgba(247, 247, 242, 0.12) 0 1px, transparent 1px 18px),
-    linear-gradient(145deg, rgba(14, 21, 22, 0.98), rgba(5, 7, 8, 0.98) 58%, rgba(20, 14, 11, 0.96));
+    radial-gradient(circle at 18% 20%, rgba(217, 74, 31, 0.2), transparent 18%),
+    radial-gradient(circle at 78% 78%, rgba(217, 74, 31, 0.06), transparent 22%),
+    linear-gradient(135deg, rgba(23, 19, 16, 0.1) 0 1px, transparent 1px 18px),
+    linear-gradient(145deg, #ded2b8, #d9cdb0 58%, #d8c9ae);
   background-size: auto, auto, 18px 18px, auto;
-  border-bottom-color: rgba(247, 247, 242, 0.075);
+  border-bottom-color: var(--aurora-line);
   content: "";
   display: block;
 }
 
 .aurora-writing-archive-list.wp-block-post-template > li:nth-child(3n + 2) .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
   background:
-    radial-gradient(circle at 72% 22%, rgba(200, 255, 61, 0.13), transparent 18%),
-    radial-gradient(circle at 20% 82%, rgba(229, 70, 46, 0.04), transparent 22%),
-    linear-gradient(0deg, rgba(247, 247, 242, 0.085) 0 1px, transparent 1px 17px),
-    linear-gradient(150deg, rgba(12, 19, 15, 0.98), rgba(5, 7, 8, 0.98) 62%, rgba(8, 17, 18, 0.96));
+    radial-gradient(circle at 72% 22%, rgba(232, 181, 58, 0.26), transparent 18%),
+    radial-gradient(circle at 20% 82%, rgba(217, 74, 31, 0.06), transparent 22%),
+    linear-gradient(0deg, rgba(23, 19, 16, 0.09) 0 1px, transparent 1px 17px),
+    linear-gradient(150deg, #dcd3b4, #d9cdb0 62%, #d5ceb4);
   background-size: auto, auto, 17px 17px, auto;
 }
 
 .aurora-writing-archive-list.wp-block-post-template > li:nth-child(3n + 3) .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
   background:
-    radial-gradient(circle at 24% 74%, rgba(240, 179, 90, 0.17), transparent 20%),
-    radial-gradient(circle at 82% 26%, rgba(229, 70, 46, 0.04), transparent 22%),
-    linear-gradient(35deg, rgba(247, 247, 242, 0.1) 0 1px, transparent 1px 20px),
-    linear-gradient(140deg, rgba(19, 14, 12, 0.98), rgba(5, 7, 8, 0.98) 58%, rgba(12, 13, 21, 0.96));
+    radial-gradient(circle at 24% 74%, rgba(214, 51, 122, 0.16), transparent 20%),
+    radial-gradient(circle at 82% 26%, rgba(217, 74, 31, 0.06), transparent 22%),
+    linear-gradient(35deg, rgba(23, 19, 16, 0.1) 0 1px, transparent 1px 20px),
+    linear-gradient(140deg, #ded0ae, #d9cdb0 58%, #d5cdb8);
   background-size: auto, auto, 20px 20px, auto;
 }
 
 .aurora-writing-archive-list.wp-block-post-template > li:nth-child(4n) .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
   background:
-    radial-gradient(circle at 70% 72%, rgba(154, 163, 165, 0.17), transparent 20%),
-    radial-gradient(circle at 24% 20%, rgba(0, 191, 165, 0.14), transparent 22%),
-    linear-gradient(90deg, rgba(247, 247, 242, 0.08) 0 1px, transparent 1px 16px),
-    linear-gradient(145deg, rgba(13, 16, 17, 0.98), rgba(5, 7, 8, 0.98) 58%, rgba(10, 18, 16, 0.96));
+    radial-gradient(circle at 70% 72%, rgba(57, 168, 216, 0.2), transparent 20%),
+    radial-gradient(circle at 24% 20%, rgba(31, 138, 134, 0.16), transparent 22%),
+    linear-gradient(90deg, rgba(23, 19, 16, 0.08) 0 1px, transparent 1px 16px),
+    linear-gradient(145deg, #d9d0b6, #d9cdb0 58%, #d3cfb6);
   background-size: auto, auto, 16px 16px, auto;
 }
 
