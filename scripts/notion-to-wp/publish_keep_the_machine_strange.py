@@ -39,6 +39,7 @@ from publish_common import (  # noqa: E402
     category_id,
     parse_publish_argv,
     render_paragraph_from_markdown,
+    select_media_match,
     split_body_blocks,
     strip_frontmatter,
 )
@@ -165,15 +166,17 @@ def b_image(media_id, url, alt, caption=None, width=None, align="center"):
 
 # ---- media upload (idempotent) ----------------------------------------------
 def find_media(c, stem):
+    """Exact filename match only; ambiguity aborts. See publish_common.select_media_match.
+
+    This script talks to WPClient (scripts/common.py) rather than the connector's
+    WordPress client, so it cannot reuse find_media_by_stem — but it must not carry
+    its own matching rule, so the rule itself is shared (issue #483).
+    """
     try:
-        r = c.get("media", params={"search": stem, "per_page": 10, "context": "edit"})
+        r = c.get("media", params={"search": stem, "per_page": 100, "context": "edit"})
     except Exception:
         return None
-    for m in r or []:
-        base = m.get("source_url", "").rsplit("/", 1)[-1]
-        if base.startswith(stem):
-            return m["id"], m["source_url"]
-    return None
+    return select_media_match(r, stem)
 
 
 def upload_media(c, path, alt, mime):
@@ -297,6 +300,11 @@ if not WRITE:
 # ---- create / update draft (idempotent by slug, never publishes) -------------
 hits = c.get("posts", params={"slug": SLUG, "status": "any", "context": "edit", "per_page": 5})
 existing = hits[0] if isinstance(hits, list) and hits else None
+# FLAG (issue #483, unresolved): this falls back to author 18 while
+# connector_config.WP_DEFAULT_AUTHOR_ID falls back to 1. One of them writes posts
+# under the wrong author whenever WP_DEFAULT_AUTHOR_ID is unset. NOT changed here --
+# which id is KK on the live site needs human confirmation against kriskrug.co, and
+# guessing would mis-attribute a post. Set WP_DEFAULT_AUTHOR_ID explicitly until then.
 author_id = int(load_env(ENV_PATH).get("WP_DEFAULT_AUTHOR_ID") or 18)
 
 if UPDATE:

@@ -192,31 +192,101 @@ def load_captions(directory: pathlib.Path) -> dict[str, str]:
     return caps
 
 
+DEFAULT_MEDIA_EXTENSIONS: tuple[str, ...] = (".jpg", ".jpeg", ".png", ".webp")
+
+
+def _split_basename(name: str) -> tuple[str, str]:
+    """('.../hero-scaled.PNG') -> ('hero-scaled', '.png'). No extension -> ('x', '')."""
+    base = name.rsplit("/", 1)[-1]
+    head, dot, ext = base.rpartition(".")
+    if not dot:
+        return base, ""
+    return head, f".{ext.lower()}"
+
+
+def select_media_match(
+    results: Any,
+    stem: str,
+    *,
+    extensions: tuple[str, ...] = DEFAULT_MEDIA_EXTENSIONS,
+) -> tuple[int, str] | None:
+    """Pick the one attachment in `results` whose filename is exactly `stem` + an
+    allowed extension. Returns (id, source_url), or None when nothing matches.
+
+    Matching rule (issue #483 — no prefix matching, ever):
+
+      * the `source_url` basename must split to (stem, ext) with ext in
+        `extensions` (case-insensitive on the extension only), OR
+      * `media_details.original_image` — WordPress's own record of the filename it
+        was handed before it produced a `-scaled` variant — must split the same way.
+
+    So `hero.png` matches an attachment served as `hero.png`, and matches a scaled
+    attachment whose `original_image` WordPress reports as `hero.png`. It does NOT
+    match `hero-2.png`, `hero-scaled.png`, `hero-thumbnail.png`, or
+    `hero-1024x768.png` — those are different files, and silently reusing one is
+    how the wrong image gets attached to a post.
+
+    Two or more DISTINCT attachment ids matching the same stem is an ambiguity the
+    caller cannot resolve safely, so it raises SystemExit rather than picking one.
+    That is the 2026-05-15 incident rule applied to media: never bind an operation
+    to a target you only half-identified.
+
+    Pure function over the REST payload so both WordPress clients in this repo can
+    share one matching rule without sharing a client.
+    """
+    allowed = tuple(ext.lower() for ext in extensions)
+    matches: dict[int, str] = {}
+    for media in results or []:
+        if not isinstance(media, dict):
+            continue
+        url = media.get("source_url") or ""
+        media_id = media.get("id")
+        if not url or media_id is None:
+            continue
+        original = (media.get("media_details") or {}).get("original_image") or ""
+        for name in (url, original):
+            if not name:
+                continue
+            head, ext = _split_basename(name)
+            if head == stem and ext in allowed:
+                matches[int(media_id)] = str(url)
+                break
+    if not matches:
+        return None
+    if len(matches) > 1:
+        listed = ", ".join(f"{mid} ({matches[mid]})" for mid in sorted(matches))
+        raise SystemExit(
+            f"[ABORT] ambiguous media match for {stem!r}: {len(matches)} attachments share "
+            f"that filename -> {listed}. Refusing to guess which one the post meant; "
+            f"delete or rename the duplicates in the media library, or pass an explicit id."
+        )
+    media_id, url = next(iter(matches.items()))
+    return media_id, url
+
+
 def find_media_by_stem(
     wp: Any,
     stem: str,
     *,
-    extensions: tuple[str, ...] = (".jpg", ".jpeg", ".png", ".webp"),
+    extensions: tuple[str, ...] = DEFAULT_MEDIA_EXTENSIONS,
 ) -> tuple[int, str] | None:
-    """Idempotent WP media lookup by basename stem (you_cant find_media logic)."""
+    """Idempotent WP media lookup by exact filename stem + extension allow-list.
+
+    Network failures return None (caller uploads instead — a duplicate upload is
+    recoverable, a wrong attachment is not). An ambiguous match raises SystemExit;
+    see select_media_match for the rule.
+    """
     try:
         result = wp.s.get(
             f"{wp.base}/wp-json/wp/v2/media",
-            params={"search": stem, "per_page": 10, "context": "edit"},
+            params={"search": stem, "per_page": 100, "context": "edit"},
             timeout=30,
         ).json()
     except Exception:
         return None
     if not isinstance(result, list):
         return None
-    for media in result:
-        base = media.get("source_url", "").rsplit("/", 1)[-1]
-        if base == f"{stem}.jpg" or base.startswith(stem):
-            return int(media["id"]), media["source_url"]
-        for ext in extensions:
-            if base == f"{stem}{ext}":
-                return int(media["id"]), media["source_url"]
-    return None
+    return select_media_match(result, stem, extensions=extensions)
 
 
 def find_or_upload_media(
@@ -228,7 +298,7 @@ def find_or_upload_media(
     write: bool,
     label: str | None = None,
     log: list[str] | None = None,
-    extensions: tuple[str, ...] = (".jpg", ".jpeg", ".png", ".webp"),
+    extensions: tuple[str, ...] = DEFAULT_MEDIA_EXTENSIONS,
 ) -> tuple[int, str]:
     """Idempotent single-file media resolve: reuse by stem, else upload.
 
@@ -385,20 +455,18 @@ def resolve_category_ids(
     *,
     ids: list[int] | None = None,
     names: list[str] | None = None,
-    create_missing: bool = False,
 ) -> list[int]:
-    """Validate numeric IDs when provided; else resolve names via ensure_term_id."""
+    """Validate numeric IDs when provided; else resolve names via ensure_term_id.
+
+    Name resolution is always create-or-reuse (proximity's behaviour). There used to
+    be a `create_missing` flag whose two branches called ensure_term_id identically,
+    which read as an opt-in write guard that did not exist (issue #483). Dropped
+    rather than implemented: no caller passes names today, and a real read-only mode
+    needs a distinct resolver, not a flag on this one.
+    """
     if ids:
         return validate_term_ids(wp, "categories", ids)
-    resolved: list[int] = []
-    for name in names or []:
-        if create_missing:
-            resolved.append(ensure_term_id(wp, "categories", name))
-        else:
-            # Read-only resolve: ensure_term_id creates on miss; for names we still
-            # need create-or-reuse behavior matching proximity.
-            resolved.append(ensure_term_id(wp, "categories", name))
-    return resolved
+    return [ensure_term_id(wp, "categories", name) for name in names or []]
 
 
 def resolve_featured_media(
