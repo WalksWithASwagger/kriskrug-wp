@@ -1,0 +1,88 @@
+/*
+ * Aurora cream pack chrome — Track A Code Snippet (CSS)
+ *
+ * Why this exists
+ * ---------------
+ * R7/R8/R9 (2026-07-24) shipped the cream/ink restyle of the inner content
+ * packs by pasting `<style>` blocks and `.kk-*` / `.kkx-*` pack namespaces
+ * straight into the WordPress page bodies. That violates the declared payload
+ * contract in `content/source-packs/content-architecture-2026/module-spec.md`
+ * ("Do not include inline `<style>` blocks", "Do not use retired class
+ * prefixes"), and it is what turned
+ * `scripts/tests/test_content_architecture_payloads.py` red.
+ *
+ * The payloads have been restored to the Aurora primitive vocabulary. The three
+ * presentational rules those inline blocks actually needed live here instead,
+ * scoped to theme classes only, so the same cream/ink result is reachable
+ * without page-local CSS systems.
+ *
+ * Deploy target: Code Snippets (CSS), site-wide, front end only.
+ * Rollback: deactivate the snippet. No page content changes required.
+ *
+ * NOTE FOR THE THEME LANE: every rule below is a theme concern. If/when these
+ * land in `theme/kk-aurora/assets/css/revive-port.css`, delete this snippet
+ * rather than running both.
+ */
+
+/* 1. Drop caps must not fire inside pack cards.
+ *    `typography-refined.css` targets `article > p:first-of-type::first-letter`,
+ *    which hits every `<article class="aurora-card">` / `aurora-media-card` in
+ *    the packs, not just the article body it was written for. */
+body.aurora-theme :where(.aurora-proof-section, .aurora-card, .aurora-media-card)
+  :where(p, li)::first-letter {
+  background: transparent !important;
+  color: inherit !important;
+  float: none !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  initial-letter: normal !important;
+  line-height: inherit !important;
+  margin: 0 !important;
+}
+
+/* 2. Plain `.aurora-button` still carries the pre-Revive dark treatment.
+ *    The `-primary` / `-secondary` variants are already cream-correct in
+ *    revive-port.css, so leave those alone. */
+body.aurora-theme
+  .aurora-button:not(.aurora-button-primary):not(.aurora-button-secondary) {
+  background: var(--revive-ink, #171310);
+  border: 1px solid var(--revive-ink, #171310);
+  border-radius: 2px;
+  color: var(--revive-surface, #efe6d2) !important;
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.7rem 1.1rem;
+  text-decoration: none !important;
+  text-transform: uppercase;
+}
+
+body.aurora-theme
+  .aurora-button:not(.aurora-button-primary):not(.aurora-button-secondary):hover {
+  background: var(--revive-accent, #d94a1f);
+  border-color: var(--revive-accent, #d94a1f);
+  color: var(--revive-surface, #efe6d2) !important;
+  text-decoration: none !important;
+}
+
+/* 3. Riso ribbon cards on inner pages.
+ *    `theme.json`/`revive-port.css` already ship `--service-ribbon` for the
+ *    homepage `.aurora-service-card`, but those rules are coloured for the dark
+ *    services band. Inner cream pages opt in per card via the same custom
+ *    property on `.aurora-card`. */
+body.aurora-theme .aurora-card[style*="--service-ribbon"] {
+  border-radius: 2px;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+body.aurora-theme .aurora-card[style*="--service-ribbon"]::before {
+  background: var(--service-ribbon, var(--revive-accent, #d94a1f));
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 8px;
+}

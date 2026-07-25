@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.4.3 tightens Revive chrome (left-pinned header, rainbow/riso accents) on Pagely WordPress.
+KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.4.4 restores WCAG AA contrast for accent text, primary controls, and the skip link after the cream/ink restyle.
 
 Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
@@ -32,11 +32,19 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 * Cream surface: #efe6d2
 * Ink text: #171310
-* Burnt orange accent: #d94a1f
+* Burnt orange accent (text/AA): #9a2f14
+* Burnt orange control fill: #c03f18
+* Burnt orange decorative: #d94a1f
 * Riso yellow: #e8b53a
 * Rainbow accents: teal / cyan / cobalt / violet / magenta
 
 == Changelog ==
+
+= 1.4.4 =
+* a11y: darken the accent orange to #9a2f14 so accent text clears 4.5:1 on every cream surface (was 2.69:1 on #d9cdb0).
+* a11y: darken `Ink Muted` to #5c5044 (3.93:1 -> 4.96:1 on the darkest cream surface).
+* a11y: primary control fill #c03f18 / hover #a52918 with #fffaf6 labels (was 4.09:1, now 5.11:1 / 6.91:1).
+* a11y: restore the theme skip link to #aurora-main and suppress the duplicate core skip link.
 
 = 1.4.3 =
 * R5: full-bleed header shell so brand pins left of the viewport, not mid-column on ultrawide.
