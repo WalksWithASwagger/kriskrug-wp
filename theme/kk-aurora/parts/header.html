@@ -1,6 +1,8 @@
 <!-- wp:html -->
 <header class="aurora-header aurora-header-2026" role="banner">
-  <!-- Skip link: WordPress core renders #wp-skip-link before .wp-site-blocks -->
+  <!-- Skip link: theme-owned, targets the #aurora-main landmark every template renders.
+       Core's generic #wp-skip-link is suppressed in functions.php so there is only one. -->
+  <a class="skip-link" href="#aurora-main">Skip to content</a>
   <div class="aurora-scroll-progress" aria-hidden="true"></div>
   <div class="aurora-woven-marquee" aria-hidden="true">
     <div class="aurora-woven-marquee-track">

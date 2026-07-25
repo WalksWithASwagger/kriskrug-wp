@@ -52,6 +52,27 @@ This pack turns high-value legacy content pages into a small reusable Aurora con
 | AI Conversations | 12319 | `/ai-conversations/` | Thought leadership / podcast hub |
 | Indigenous AI | 12322 | `/indigenous-ai/` | Careful Indigenous AI / sovereignty hub |
 
+## Open Divergence — packs vs live (2026-07-25)
+
+R7/R8/R9 shipped the cream/ink restyle to live pages **2418** (Contact), **2666**
+(Services), **1208**, **1887**, **2672** by pasting inline `<style>` blocks and
+`.kk-*` / `.kkx-*` pack namespaces into the page bodies. That is forbidden by
+[`module-spec.md`](module-spec.md) and broke the payload guard tests.
+
+The payloads here have been restored to the Aurora primitive vocabulary and the
+presentational rules moved to [`fixes/aurora-cream-pack-chrome.css`](../../../fixes/aurora-cream-pack-chrome.css)
+(Code Snippet, CSS). **These packs therefore no longer match live.** Reconciling
+requires, in order:
+
+1. Deploy `fixes/aurora-cream-pack-chrome.css` as a front-end CSS snippet (or
+   fold the rules into `revive-port.css` on the theme lane and drop the file).
+2. Snapshot, then re-deploy `contact.html` and `services.html` per
+   [`deploy-checklist.md`](deploy-checklist.md).
+3. Re-check `/about/`, `/speaking/`, `/work/` for drop caps and CTA contrast.
+
+The `photography.html` copy that R9 added here was an unmapped duplicate; the
+canonical mirror stays at `content/source-packs/keynotes-2026/wp-payloads/photography.html`.
+
 ## Safety Notes
 
 - Do not include a `title` field in REST updates.
