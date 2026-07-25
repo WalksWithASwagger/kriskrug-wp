@@ -18,9 +18,27 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.4.3');
+define('KK_AURORA_VERSION', '1.4.4');
 
 require_once get_template_directory() . '/inc/seo-title.php';
+
+/**
+ * Suppress the core block-template skip link.
+ *
+ * Core injects a generic `#wp-skip-link` that targets the first content
+ * container it can find. The theme ships its own `.skip-link` in
+ * `parts/header.html` pointing at the real `#aurora-main` landmark, so
+ * removing the core one avoids two competing "Skip to content" links.
+ *
+ * @since 1.4.4
+ */
+function remove_core_skip_link(): void {
+    // WordPress 6.4+.
+    remove_action('wp_enqueue_scripts', 'wp_enqueue_block_template_skip_link');
+    // WordPress 6.2–6.3.
+    remove_action('wp_footer', 'the_block_template_skip_link');
+}
+add_action('init', __NAMESPACE__ . '\\remove_core_skip_link');
 
 /**
  * Theme setup
