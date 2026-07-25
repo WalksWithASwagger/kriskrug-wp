@@ -145,6 +145,13 @@ jobs:
           git fetch --no-tags origin "+refs/heads/${BASE_BRANCH}:refs/remotes/origin/${BASE_BRANCH}"
           # Merge base, not the branch tip: a PR that is simply behind main must
           # not be blamed for line counts main grew on its own.
+          # On pull_request, actions/checkout gives us the PR *merge preview*
+          # (PR head already merged into the base). So HEAD's metrics are the
+          # post-merge state — what will actually land — and the merge base
+          # resolves to the base branch tip. A PR that is merely behind main is
+          # therefore compared against the merged result, not blamed for main's
+          # own growth. On a plain-head checkout this still yields the true
+          # fork point, so the step is correct either way.
           MERGE_BASE="$(git merge-base "refs/remotes/origin/${BASE_BRANCH}" HEAD)"
           echo "ref=${MERGE_BASE}" >> "$GITHUB_OUTPUT"
           echo "Merge base with ${BASE_BRANCH}: ${MERGE_BASE}"
