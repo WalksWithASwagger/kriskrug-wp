@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "note": "Declared WordPress IDs for the one-off publish_*.py scripts (issue #254). Same shape as content/source-packs/.../page-map.json: a logical key -> a record carrying the live ID plus enough context to re-verify it. These are kriskrug.co PRODUCTION IDs. Scripts read them as defaults only; every one is overridable on the command line (--category-id / --featured-media-id) so a staging run never has to inherit a prod ID. Loaders live in publish_common.py (category_id / media_id / media_group).",
+  "wordpress_base_url": "https://kriskrug.co",
+  "categories": {
+    "ai-ethics-philosophy": {
+      "id": 1678,
+      "name": "AI Ethics & Philosophy",
+      "pillar_url": "https://kriskrug.co/ai-ethics/",
+      "note": "Default category for publish_dc_protest_draft.py and publish_you_cant_drink_data.py; first of the two on publish_keep_the_machine_strange.py. Cross-checked against scripts/seo-backfill/linkinject_lib.py."
+    },
+    "responsible-ai-policy": {
+      "id": 1754,
+      "name": "Responsible AI & Policy",
+      "pillar_url": "https://kriskrug.co/ai-ethics/",
+      "note": "Second category on publish_keep_the_machine_strange.py. Folded category: no dedicated pillar page, links to the AI Ethics pillar."
+    }
+  },
+  "media": {
+    "you-cant-drink-data-featured": {
+      "id": 11976,
+      "note": "March selfie used as the featured/OG image on the 'You Can't Drink Data' draft. Jetpack ties og:image to the featured image."
+    }
+  },
+  "media_groups": {
+    "ai-protest-signs-2026-05": {
+      "note": "The 14 AI protest signs uploaded by publish_dc_protest_draft.py on 2026-05-23 and reused (never re-uploaded) by publish_you_cant_drink_data.py. Listed in the order they appear in the [[GALLERY-AI]] block; publish_you_cant_drink_data.py also indexes them by id for the ![alt](media:ID) marker.",
+      "items": [
+        {
+          "key": "both-hands-full",
+          "id": 11915,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/02-both-hands-full.png",
+          "alt": "BOTH HANDS FULL, neon block-stack lettering over two hands overflowing with shapes"
+        },
+        {
+          "key": "who-s-a-thirsty-little-data-center",
+          "id": 11919,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/06-who-s-a-thirsty-little-data-center.png",
+          "alt": "WHO'S A THIRSTY LITTLE DATA CENTER?, a googly-eyed building with its tongue out"
+        },
+        {
+          "key": "we-are-the-training-data",
+          "id": 11920,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/02-we-are-the-training-data.jpg",
+          "alt": "WE ARE THE TRAINING DATA, datamosh glitch type"
+        },
+        {
+          "key": "water-the-servers-last",
+          "id": 11918,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/04-water-the-servers-last.png",
+          "alt": "WATER THE SERVERS LAST, block-stack type with a watering can over a server rack"
+        },
+        {
+          "key": "my-position-yes-also-help",
+          "id": 11922,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/03-my-position-yes-also-help.png",
+          "alt": "MY POSITION: YES. ALSO: HELP., green YES over a panicked red HELP"
+        },
+        {
+          "key": "it-s-complicated",
+          "id": 11923,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/03-it-s-complicated.png",
+          "alt": "IT'S COMPLICATED, CMYK halftone"
+        },
+        {
+          "key": "i-contain-multitudes",
+          "id": 11924,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/04-i-contain-multitudes.png",
+          "alt": "I CONTAIN MULTITUDES, fractured tall glyphs in pink, teal, cream"
+        },
+        {
+          "key": "dumbest-timeline-the-keeper",
+          "id": 11916,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/01-dumbest-timeline-the-keeper.png",
+          "alt": "THIS IS THE DUMBEST TIMELINE & I WOULDN'T MISS IT, CMYK slab type"
+        },
+        {
+          "key": "ruthlessly-optimistic-absolutely-terrified",
+          "id": 11917,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/01-ruthlessly-optimistic-absolutely-terrified.png",
+          "alt": "RUTHLESSLY OPTIMISTIC & ABSOLUTELY TERRIFIED, acid riso, sunny yellow into blood red"
+        },
+        {
+          "key": "error-404-side-not-found",
+          "id": 11925,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/07-error-404-side-not-found.png",
+          "alt": "ERROR 404: SIDE NOT FOUND, RGB-split datamosh"
+        },
+        {
+          "key": "stop-okay-go-no-stop",
+          "id": 11926,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/09-stop-okay-go-no-stop.png",
+          "alt": "STOP. okay GO. no, STOP., clashing panels with a strike-through"
+        },
+        {
+          "key": "ai-wrote-a-better-sign",
+          "id": 11921,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/09-ai-wrote-a-better-sign.jpg",
+          "alt": "AI WROTE A BETTER SIGN THAN THIS ONE, neon block panels"
+        },
+        {
+          "key": "hush-now-little-supercluster",
+          "id": 11927,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/07-hush-now-little-supercluster.png",
+          "alt": "HUSH NOW, LITTLE SUPERCLUSTER, server racks tucked in under a quilt, crescent moon"
+        },
+        {
+          "key": "i-love-the-cloud-i-just-want-it-to-rain",
+          "id": 11928,
+          "url": "https://kriskrug.co/wp-content/uploads/2026/05/08-i-love-the-cloud-i-just-want-it-to-rain.png",
+          "alt": "I LOVE THE CLOUD, I JUST WANT IT TO RAIN, riso clouds and rain"
+        }
+      ]
+    }
+  }
+}
