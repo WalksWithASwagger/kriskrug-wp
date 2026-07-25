@@ -67,6 +67,11 @@
           "color": "#d94a1f"
         },
         {
+          "slug": "signal-text",
+          "name": "Burnt Orange Text",
+          "color": "#b53c18"
+        },
+        {
           "slug": "wildcard",
           "name": "Riso Yellow",
           "color": "#e8b53a"

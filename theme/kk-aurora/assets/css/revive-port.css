@@ -1,7 +1,8 @@
 /**
- * Revive → Aurora visual port (1.4.0)
+ * Revive → Aurora visual port (1.4.1)
  * Cream / ink / burnt-orange brand layer over kk-aurora.
  * See docs/current-state/REVIVE-AURORA-PORT-2026-07-24.md
+ * Revisions: docs/current-state/REVIVE-AURORA-REVISIONS-2026-07-24.md
  */
 
 :root {
@@ -10,10 +11,12 @@
   --revive-ink: #171310;
   --revive-ink-soft: rgba(23, 19, 16, 0.78);
   --revive-ink-muted: rgba(23, 19, 16, 0.55);
+  /* Fill/CTA orange stays bright; text-on-cream uses AA-safe darker orange */
   --revive-accent: #d94a1f;
+  --revive-accent-text: #b53c18; /* ~4.67:1 on cream */
   --revive-accent-soft: #e8b53a;
   --revive-line: rgba(23, 19, 16, 0.14);
-  --revive-line-strong: rgba(217, 74, 31, 0.35);
+  --revive-line-strong: rgba(181, 60, 24, 0.4);
   --revive-rainbow-1: #1f8a86;
   --revive-rainbow-2: #39a8d8;
   --revive-rainbow-3: #2b57a6;
@@ -30,6 +33,7 @@
   --aurora-ink-muted: rgba(23, 19, 16, 0.55);
   --aurora-paper: #efe6d2;
   --aurora-signal: #d94a1f;
+  --aurora-readable-accent: #b53c18;
   --aurora-signal-dark: #a52918;
   --aurora-signal-control: #d94a1f;
   --aurora-signal-control-hover: #c03f18;
@@ -45,9 +49,9 @@
   --aurora-reader-pane-solid: #efe6d2;
   --aurora-reader-border: rgba(23, 19, 16, 0.14);
   --aurora-line: rgba(23, 19, 16, 0.14);
-  --aurora-line-strong: rgba(217, 74, 31, 0.35);
+  --aurora-line-strong: rgba(181, 60, 24, 0.4);
   --aurora-shadow-deep: 0 18px 48px rgba(23, 19, 16, 0.12);
-  --focus-ring: 0 0 0 2px var(--revive-surface), 0 0 0 4px var(--revive-accent);
+  --focus-ring: 0 0 0 2px var(--revive-surface), 0 0 0 4px var(--revive-accent-text);
 }
 
 body.aurora-theme {
@@ -79,11 +83,12 @@ body.aurora-theme::before {
 
 .aurora-kicker,
 .aurora-section-kicker {
-  color: var(--revive-accent) !important;
+  color: var(--revive-accent-text) !important;
   font-family: "JetBrains Mono", ui-monospace, monospace !important;
   font-size: 0.68rem !important;
   font-weight: 600 !important;
   letter-spacing: 0.28em !important;
+  -webkit-text-fill-color: var(--revive-accent-text) !important;
 }
 
 .aurora-button-primary,
@@ -119,9 +124,40 @@ body.aurora-theme::before {
 
 .aurora-button-secondary:hover,
 .wp-block-button.is-style-aurora-ghost .wp-block-button__link:hover {
-  border-color: var(--revive-accent);
-  color: var(--revive-accent);
+  border-color: var(--revive-accent-text);
+  color: var(--revive-accent-text);
   background: transparent;
+}
+
+/* R2: cream-safe focus rings (must win over dark-theme outline:none) */
+body.aurora-theme :where(
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  summary,
+  .aurora-button,
+  .wp-block-button__link,
+  .aurora-primary-nav a,
+  .aurora-utility-link,
+  .aurora-header-cta,
+  .aurora-brand
+):focus-visible {
+  outline: 2px solid var(--revive-accent-text) !important;
+  outline-offset: 3px !important;
+  box-shadow: none !important;
+}
+
+body.aurora-theme .skip-link:focus,
+body.aurora-theme .skip-link:focus-visible,
+body.aurora-theme #wp-skip-link:focus,
+body.aurora-theme #wp-skip-link:focus-visible {
+  outline: 2px solid var(--revive-ink) !important;
+  outline-offset: 2px !important;
+  top: var(--wp--preset--spacing--40, 1rem);
+  background: var(--revive-accent) !important;
+  color: var(--revive-surface) !important;
 }
 
 /* ========== Header ========== */
@@ -131,6 +167,13 @@ body.aurora-theme::before {
   border-bottom: 1px solid var(--revive-line) !important;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+}
+
+body.aurora-theme .aurora-header-shell {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.65rem 1rem;
+  max-width: var(--revive-max);
+  padding: 0.55rem clamp(0.85rem, 2.5vw, 1.5rem);
 }
 
 .aurora-scroll-progress {
@@ -184,18 +227,32 @@ body.aurora-theme::before {
   }
 }
 
+body.aurora-theme .aurora-primary-nav {
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0.55rem 0.85rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
+  display: none;
+}
+
 .aurora-primary-nav a,
 .aurora-utility-link {
   color: var(--revive-ink-soft) !important;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.68rem !important;
+  letter-spacing: 0.08em;
+  font-size: 0.64rem !important;
   font-weight: 650;
+  white-space: nowrap;
 }
 
 .aurora-primary-nav a:hover,
 .aurora-utility-link:hover {
-  color: var(--revive-accent) !important;
+  color: var(--revive-accent-text) !important;
 }
 
 .aurora-header-cta {
@@ -240,7 +297,7 @@ body.aurora-theme::before {
   font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.28em;
-  color: var(--revive-accent);
+  color: var(--revive-accent-text);
 }
 
 .aurora-masthead-rule .aurora-masthead-date {
@@ -380,7 +437,7 @@ body.aurora-theme::before {
   font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.24em;
-  color: var(--revive-accent);
+  color: var(--revive-accent-soft);
 }
 
 .aurora-proof-strip {
@@ -445,7 +502,7 @@ body.aurora-theme::before {
 }
 
 .aurora-section-head h2 .accent {
-  color: var(--revive-accent);
+  color: var(--revive-accent-text);
 }
 
 .aurora-section-head a {
@@ -702,7 +759,7 @@ body.aurora-theme::before {
 }
 
 .aurora-writing-band .aurora-article-title a:hover {
-  color: var(--revive-accent);
+  color: var(--revive-accent-text);
 }
 
 .aurora-article-list {
@@ -772,7 +829,8 @@ body.aurora-theme::before {
 }
 
 .aurora-footer-2026 .aurora-kicker {
-  color: var(--revive-accent) !important;
+  color: var(--revive-accent-text) !important;
+  -webkit-text-fill-color: var(--revive-accent-text) !important;
 }
 
 .aurora-footer-2026 h2,
@@ -787,7 +845,7 @@ body.aurora-theme::before {
 }
 
 .aurora-footer-2026 a:hover {
-  color: var(--revive-accent) !important;
+  color: var(--revive-accent-text) !important;
 }
 
 .aurora-footer-tile {
@@ -918,7 +976,7 @@ body.aurora-theme .entry-content :where(.wp-block-group, .wp-block-columns, sect
 }
 
 body.aurora-theme .aurora-page-content a:not(.aurora-button):not(.wp-block-button__link) {
-  color: var(--revive-accent);
+  color: var(--revive-accent-text);
 }
 
 body.aurora-theme .aurora-page-content a:not(.aurora-button):not(.wp-block-button__link):hover {
@@ -978,8 +1036,8 @@ body.aurora-theme :where(
 
 body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker) {
   background: transparent !important;
-  color: var(--revive-accent) !important;
-  -webkit-text-fill-color: var(--revive-accent) !important;
+  color: var(--revive-accent-text) !important;
+  -webkit-text-fill-color: var(--revive-accent-text) !important;
 }
 
 body.aurora-theme #aurora-main :where(
@@ -1028,8 +1086,8 @@ body.aurora-theme #aurora-main :where(
 }
 
 body.aurora-theme #aurora-main :where(.aurora-kicker, .aurora-section-kicker) {
-  color: var(--revive-accent) !important;
-  -webkit-text-fill-color: var(--revive-accent) !important;
+  color: var(--revive-accent-text) !important;
+  -webkit-text-fill-color: var(--revive-accent-text) !important;
 }
 
 body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-button__link {

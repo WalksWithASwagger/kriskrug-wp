@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.4.0 ports the Revive cream/ink visual system while staying on Pagely WordPress.
+KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.4.1 polishes the Revive cream/ink layer (AA accent text, focus rings, header density) on Pagely WordPress.
 
 Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
@@ -37,6 +37,11 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 * Rainbow accents: teal / cyan / cobalt / violet / magenta
 
 == Changelog ==
+
+= 1.4.1 =
+* Cream a11y polish: AA-safe accent text for kickers, visible focus rings on paper.
+* Remove duplicate theme skip link (keep WordPress core `#wp-skip-link`).
+* Tighter header nav tracking + horizontal scroll instead of awkward wrap.
 
 = 1.4.0 =
 * Port Revive cream/ink visual system into kk-aurora (Track B).

@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-07-25T00:14:13Z",
+  "version": "1.4.1",
+  "skip_ids": [
+    "wp-block-template-skip-link-inline-css",
+    "wp-skip-link"
+  ],
+  "skip_text_count": 1,
+  "skip_a_attrs": 1,
+  "boost_id": "06822ae7e0",
+  "contrast": {
+    "accent_text_on_cream": 4.668369467252789,
+    "bright_accent_on_cream": 3.4183289934759093,
+    "ink_on_cream": 14.880004831722308
+  },
+  "header_theme_skip": false,
+  "accent_text_live": true
+}

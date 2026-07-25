@@ -1,16 +1,19 @@
-# Aurora 1.4.0 Revive port — deploy handoff (2026-07-24)
+# Aurora Revive port — deploy handoff (2026-07-24)
 
 ## Status
 
-**Live:** Aurora **1.4.0** with Revive cream/ink chrome + homepage.  
-Public `style.css` Version readback matches. Full theme package re-synced from media **#12632** (snippet **#15**, inactive).  
-E2E: [e2e/E2E-REPORT-2026-07-24.md](e2e/E2E-REPORT-2026-07-24.md). Revisions: [../../docs/current-state/REVIVE-AURORA-REVISIONS-2026-07-24.md](../../docs/current-state/REVIVE-AURORA-REVISIONS-2026-07-24.md).
+**Live:** Aurora **1.4.1** (R1–R4 cream a11y + header density).  
+Public `style.css` Version `1.4.1`. Full theme sync media **#12633** (snippet **#16**, inactive).  
+E2E: [e2e/E2E-REPORT-1.4.1-2026-07-24.md](e2e/E2E-REPORT-1.4.1-2026-07-24.md). Prior 1.4.0: [e2e/E2E-REPORT-2026-07-24.md](e2e/E2E-REPORT-2026-07-24.md). Revisions: [../../docs/current-state/REVIVE-AURORA-REVISIONS-2026-07-24.md](../../docs/current-state/REVIVE-AURORA-REVISIONS-2026-07-24.md).
 
 ## Packages
 
-- **Full theme (cream-fix):** `/Users/kk/Desktop/kk-aurora-revive-1.4.0-creamfix-1.4.0-20260724.zip`  
+- **1.4.1 a11y polish:** `/Users/kk/Desktop/kk-aurora-revive-a11y-1.4.1-1.4.1-20260725.zip`  
+  SHA256: `725a88ab8f1e2f141169d1b16bfc56ee47e06423da9d745a4b52f067620fbd84`  
+  Also in `backup/aurora-deploy-20260724/`. Media **#12633**.
+- **Full theme 1.4.0 (cream-fix):** `/Users/kk/Desktop/kk-aurora-revive-1.4.0-creamfix-1.4.0-20260724.zip`  
   SHA256: `17160188a7c8399807a1218700921edd7703e944703dcc66c782afbde63a4519`  
-  Also copied to `backup/aurora-deploy-20260724/`.
+  Media **#12632** (snippet **#15**, inactive).
 - **Earlier theme zip (pre cream-fix):** `/Users/kk/Desktop/kk-aurora-revive-1.4.0-1.4.0-20260724.zip`  
   SHA256: `2d0b19850467a265ca94a07d38c7af11eea5bcb4bb8e8169fed81b649e4ef757`
 - **Rollback 1.3.41:** `/Users/kk/Desktop/kk-aurora-rollback-1.3.41-20260724.zip`  
@@ -33,10 +36,12 @@ See [docs/current-state/REVIVE-AURORA-PORT-2026-07-24.md](../../docs/current-sta
 
 ```bash
 curl -sL "https://kriskrug.co/wp-content/themes/kk-aurora/style.css?cb=$RANDOM" | head -20
-# expect Version: 1.4.0 and cream contrast comment, no #090c11 opaque panes
+# expect Version: 1.4.1 and cream contrast comment, no #090c11 opaque panes
+curl -sL "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/revive-port.css?cb=$RANDOM" | head -20
+# expect 1.4.1 banner + --revive-accent-text
 ```
 
-Spot-check `/`, `/services/` (or `/generative-ai-services/`), `/contact/`, `/speaking/` — cream paper, woven marquee, **Work with me → `/services/`**, Beehiiv newsletter, no Field notes/Dispatch chrome labels.
+Spot-check `/`, `/services/` (or `/generative-ai-services/`), `/contact/`, `/speaking/` — cream paper, woven marquee, **Work with me → `/services/`**, Beehiiv newsletter, no Field notes/Dispatch chrome labels. Confirm one Skip link and visible focus rings on header links.
 
 Screenshots under `backup/aurora-deploy-20260724/screenshots/`.
 

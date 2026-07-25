@@ -1,8 +1,9 @@
 # Revive → Aurora revision plan (post 1.4.0)
 
 **Date:** 2026-07-24  
-**Baseline:** Live Aurora **1.4.0** (commit `819f182`) + full theme sync media **#12632**  
-**Evidence:** `backup/aurora-deploy-20260724/e2e/`  
+**Baseline:** Live Aurora **1.4.1** (media **#12633**, snippet **#16** inactive) closes R1–R4.  
+**Prior:** **1.4.0** commit `819f182` + media **#12632**.  
+**Evidence:** `backup/aurora-deploy-20260724/e2e/E2E-REPORT-1.4.1-2026-07-24.md`  
 **Contract:** [REVIVE-AURORA-PORT-2026-07-24.md](REVIVE-AURORA-PORT-2026-07-24.md)
 
 ## Goal
@@ -15,15 +16,15 @@ Close the gap between “stranger recognizes Revive direction” (done) and “e
 
 | ID | Issue | Evidence | Proposed fix | Done when |
 |---|---|---|---|---|
-| R1 | Burnt-orange kickers fail AA normal (3.42:1) | Contrast math on `#d94a1f` / `#efe6d2` | Darken accent for text to ≥4.5:1 (e.g. `#b53c18`) while keeping bright orange for large/CTA fills; or use ink for small kickers + orange underline | pa11y/contrast spot-check pass on kickers |
-| R2 | Focus rings weak/missing on cream controls | CTA `outline: none` under focus probe | Force `--focus-ring` / `outline: 2px solid var(--revive-accent)` on `:focus-visible` for header/footer buttons + nav | Keyboard tab through header shows clear ring |
-| R3 | Duplicate Skip links | DOM count = 2 | Deduplicate theme + FSE/plugin skip link | Exactly one skip link |
+| R1 | Burnt-orange kickers fail AA normal (3.42:1) | Contrast math on `#d94a1f` / `#efe6d2` | Darken accent for text to ≥4.5:1 (e.g. `#b53c18`) while keeping bright orange for large/CTA fills; or use ink for small kickers + orange underline | **Done in 1.4.1** — `--revive-accent-text: #b53c18` (~4.67:1) for kickers/links; bright `#d94a1f` kept for fills |
+| R2 | Focus rings weak/missing on cream controls | CTA `outline: none` under focus probe | Force `--focus-ring` / `outline: 2px solid var(--revive-accent)` on `:focus-visible` for header/footer buttons + nav | **Done in 1.4.1** — cream-safe `:focus-visible` rings on nav/CTAs/inputs |
+| R3 | Duplicate Skip links | DOM count = 2 | Deduplicate theme + FSE/plugin skip link | **Done in 1.4.1** — theme skip removed; keep `#wp-skip-link` |
 
 ### P1 — Chrome density (Track B)
 
 | ID | Issue | Evidence | Proposed fix | Done when |
 |---|---|---|---|---|
-| R4 | Primary nav wraps awkwardly (esp. ≤768 / wide with Photography) | Screenshots; 7-item nav | Compact tracking, optional “More” disclosure on small screens, or two-row intentional masthead nav | Single coherent header composition at 375/768/1280 |
+| R4 | Primary nav wraps awkwardly (esp. ≤768 / wide with Photography) | Screenshots; 7-item nav | Compact tracking, optional “More” disclosure on small screens, or two-row intentional masthead nav | **Done in 1.4.1** — tighter tracking + nowrap + horizontal scroll |
 | R5 | Header shell feels logo-centered vs Revive sticky left brand | Visual QA | Tighten grid (`auto 1fr auto`), reduce shell padding, ensure brand stays left of content max | Matches Revive site-header silhouette |
 | R6 | Rainbow word / riso motifs underused vs Revive | Homepage “message” gradient exists but easy to miss | Slightly larger italic rainbow span; optional riso rule under section heads | Stranger notices rainbow accent without hunting |
 
@@ -77,4 +78,4 @@ Do **not** mix Track A pack rewrites with Track B theme commits.
 
 ## Immediate next step
 
-Open Track B issue/PR for **1.4.1**: R1 + R2 + R3 (+ R4 if quick). Hold Track A pack rewrites until chrome a11y lands.
+After **1.4.1** is live and verified: Track A slice — R10 blog title → R11 work copy → R7 Contact → R8 Services.
