@@ -1,9 +1,9 @@
 # Revive → Aurora revision plan (post 1.4.0)
 
 **Date:** 2026-07-24  
-**Baseline:** Live Aurora **1.4.1** (media **#12633**, snippet **#16** inactive) closes R1–R4.  
-**Prior:** **1.4.0** commit `819f182` + media **#12632**.  
-**Evidence:** `backup/aurora-deploy-20260724/e2e/E2E-REPORT-1.4.1-2026-07-24.md`  
+**Baseline:** Live Aurora **1.4.3** (media **#12636**, snippet **#20** inactive) closes R5–R6.  
+**Prior:** **1.4.2** meta/fonts; **1.4.1** R1–R4; **1.4.0** cream port.  
+**Evidence:** `backup/aurora-deploy-20260724/e2e/E2E-REPORT-1.4.3-2026-07-24.md`  
 **Contract:** [REVIVE-AURORA-PORT-2026-07-24.md](REVIVE-AURORA-PORT-2026-07-24.md)
 
 ## Goal
@@ -25,8 +25,8 @@ Close the gap between “stranger recognizes Revive direction” (done) and “e
 | ID | Issue | Evidence | Proposed fix | Done when |
 |---|---|---|---|---|
 | R4 | Primary nav wraps awkwardly (esp. ≤768 / wide with Photography) | Screenshots; 7-item nav | Compact tracking, optional “More” disclosure on small screens, or two-row intentional masthead nav | **Done in 1.4.1** — tighter tracking + nowrap + horizontal scroll |
-| R5 | Header shell feels logo-centered vs Revive sticky left brand | Visual QA | Tighten grid (`auto 1fr auto`), reduce shell padding, ensure brand stays left of content max | Matches Revive site-header silhouette |
-| R6 | Rainbow word / riso motifs underused vs Revive | Homepage “message” gradient exists but easy to miss | Slightly larger italic rainbow span; optional riso rule under section heads | Stranger notices rainbow accent without hunting |
+| R5 | Header shell feels logo-centered vs Revive sticky left brand | Visual QA | Tighten grid (`auto 1fr auto`), reduce shell padding, ensure brand stays left of content max | **Done in 1.4.3** — full-bleed shell; brand ~36px from viewport left on ultrawide |
+| R6 | Rainbow word / riso motifs underused vs Revive | Homepage “message” gradient exists but easy to miss | Slightly larger italic rainbow span; optional riso rule under section heads | **Done in 1.4.3** — `1.08em` italic rainbow + 3px riso rule under `.aurora-section-head` |
 
 ### P2 — Inner page packs (Track A, separate commits)
 
@@ -78,4 +78,4 @@ Do **not** mix Track A pack rewrites with Track B theme commits.
 
 ## Immediate next step
 
-R7–R11 Track A packs done. Remaining polish: **R5/R6** header/rainbow (Track B), **R12–R15** ops/a11y.
+R1–R11 closed. Remaining: **R12–R15** ops/a11y (Boost checklist, temp media cleanup, latin-ext fonts, pa11y spot).

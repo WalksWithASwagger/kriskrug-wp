@@ -169,11 +169,30 @@ body.aurora-theme #wp-skip-link:focus-visible {
   -webkit-backdrop-filter: blur(14px);
 }
 
+/* R5: full-bleed shell — brand pins to viewport-left padding, not mid-column on ultrawide */
 body.aurora-theme .aurora-header-shell {
   grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 0.65rem 1rem;
-  max-width: var(--revive-max);
-  padding: 0.55rem clamp(0.85rem, 2.5vw, 1.5rem);
+  align-items: center;
+  gap: 0.5rem 1.15rem;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0.45rem clamp(0.9rem, 2.8vw, 2.25rem);
+}
+
+body.aurora-theme .aurora-brand {
+  justify-self: start;
+  flex-shrink: 0;
+}
+
+body.aurora-theme .aurora-brand-logo {
+  height: clamp(2.75rem, 3.6vw, 3.35rem);
+  max-width: min(10.5rem, 38vw);
+}
+
+body.aurora-theme .aurora-header-actions {
+  justify-self: end;
+  flex-shrink: 0;
 }
 
 .aurora-scroll-progress {
@@ -332,20 +351,28 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   color: var(--revive-ink);
 }
 
+/* R6: rainbow word readable at a glance (slightly larger italic + richer sweep) */
 .aurora-masthead-copy h1 .aurora-rainbow-word {
+  display: inline-block;
+  font-size: 1.08em;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  padding-right: 0.02em;
   background: linear-gradient(
     100deg,
-    var(--revive-rainbow-6),
-    var(--revive-rainbow-7),
-    var(--revive-rainbow-1),
-    var(--revive-rainbow-2),
-    var(--revive-rainbow-4),
-    var(--revive-rainbow-5)
+    var(--revive-rainbow-6) 0%,
+    var(--revive-rainbow-7) 18%,
+    var(--revive-rainbow-1) 36%,
+    var(--revive-rainbow-2) 52%,
+    var(--revive-rainbow-3) 68%,
+    var(--revive-rainbow-4) 84%,
+    var(--revive-rainbow-5) 100%
   );
+  background-size: 140% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-style: italic;
 }
 
 .aurora-masthead-dek {
@@ -481,14 +508,36 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
 }
 
 .aurora-section-head {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
   gap: 1rem;
-  border-bottom: 1px solid rgba(217, 74, 31, 0.22);
-  padding-bottom: 1rem;
+  border-bottom: 0;
+  padding-bottom: 1.15rem;
   margin-bottom: 2rem;
+}
+
+/* R6: riso rule under section heads */
+.aurora-section-head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--revive-rainbow-6) 0%,
+    var(--revive-rainbow-7) 16%,
+    var(--revive-rainbow-1) 32%,
+    var(--revive-rainbow-2) 48%,
+    var(--revive-rainbow-3) 64%,
+    var(--revive-rainbow-4) 80%,
+    var(--revive-rainbow-5) 100%
+  );
 }
 
 .aurora-section-head h2 {
@@ -654,8 +703,8 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   padding: clamp(3rem, 8vw, 5.5rem) clamp(1rem, 3vw, 2rem);
 }
 
-.aurora-services-band .aurora-section-head {
-  border-bottom-color: rgba(239, 230, 210, 0.18);
+.aurora-services-band .aurora-section-head::after {
+  opacity: 0.9;
 }
 
 .aurora-services-band .aurora-section-head h2,
