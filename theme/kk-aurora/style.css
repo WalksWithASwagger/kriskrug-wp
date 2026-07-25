@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.4.3
+Version: 1.4.4
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -493,12 +493,15 @@ a {
   --aurora-ink: #171310;
   --aurora-ink-soft: rgba(23, 19, 16, 0.78);
   --aurora-ink-muted: rgba(23, 19, 16, 0.55);
-  --aurora-readable-accent: #b53c18;
+  /* Accent orange used as TEXT on cream must clear 4.5:1 against the darkest
+     cream surface (muted #d9cdb0). #d94a1f only reached 2.69:1 there. */
+  --aurora-readable-accent: #9a2f14;
   --aurora-paper: #efe6d2;
-  --aurora-signal: #d94a1f;
+  --aurora-signal: #9a2f14;
   --aurora-signal-dark: #a52918;
-  --aurora-signal-control: #d94a1f;
-  --aurora-signal-control-hover: #c03f18;
+  /* Control fills carry #fffaf6 label text — both states clear 4.5:1 on it. */
+  --aurora-signal-control: #c03f18;
+  --aurora-signal-control-hover: #a52918;
   --aurora-wildcard: #e8b53a;
   --aurora-opal-void: #efe6d2;
   --aurora-opal-ink: #e6dcc2;
