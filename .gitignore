@@ -73,6 +73,19 @@ docs/current-state/reports/**/*.png
 docs/current-state/reports/**/*.html
 docs/current-state/reports/**/*.csv
 
+# Visual-regression harness artifacts (#473, storage rule from #318).
+# Deny-by-default: the whole artifact root is ignored one level down, so git
+# never descends into a run directory and its PNGs, curl cache and generated
+# drivers cannot be added even by `git add -A`. Only the hash manifests, diff
+# results and markdown reports at the top level are re-included by name — those
+# are the committed evidence. `scripts/visual_baseline.py guard` re-asserts this
+# against the index after every capture and diff.
+docs/current-state/reports/visual-baseline/*
+!docs/current-state/reports/visual-baseline/manifest-*.json
+!docs/current-state/reports/visual-baseline/diff-*.json
+!docs/current-state/reports/visual-baseline/report-*.md
+!docs/current-state/reports/visual-baseline/README.md
+
 # QA / deploy visual captures under backup/ — same policy as reports/ above (#318, #369).
 # Keep the .md handoffs and .json metrics that carry the audit trail; ignore the raw PNGs.
 # Visual-regression evidence belongs in a hash manifest, not committed screenshots.
