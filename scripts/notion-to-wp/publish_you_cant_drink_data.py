@@ -20,16 +20,23 @@ refreshes the body of the existing draft. NEVER publishes.
 """
 import re, sys, json, pathlib
 from kk_notion_to_wp import WordPress, load_config
-from wp_blocks import inline, image, gallery, heading, separator, pullquote
+from wp_blocks import image, gallery
 from publish_common import (
     build_seo_meta,
+    category_id,
+    exact,
+    find_existing_post_by_slug,
     load_photos_from_dir,
+    media_group_index,
+    media_group_keys,
+    media_id,
     parse_int_arg,
     parse_publish_argv,
-    render_paragraph_from_markdown,
+    render_marker_blocks,
     resolve_category_ids,
     resolve_featured_media,
-    split_body_blocks,
+    standard_text_handlers,
+    strip_frontmatter,
 )
 
 SCRIPT_DIR = pathlib.Path(__file__).resolve().parent
@@ -43,9 +50,12 @@ WRITE = FLAGS.write
 TITLE = "You Can't Drink Data"
 SLUG = "you-cant-drink-data"
 DATE = "2026-05-23T15:00:00"
-# Defaults match the live draft; override with --category-id / --featured-media-id.
-CATEGORY_ID = parse_int_arg(sys.argv[1:], "--category-id", 1678)
-FEATURED_ID = parse_int_arg(sys.argv[1:], "--featured-media-id", 11976)
+# Defaults are declared in publisher-ids.json and match the live draft;
+# override with --category-id / --featured-media-id.
+CATEGORY_ID = parse_int_arg(sys.argv[1:], "--category-id", category_id("ai-ethics-philosophy"))
+FEATURED_ID = parse_int_arg(
+    sys.argv[1:], "--featured-media-id", media_id("you-cant-drink-data-featured")
+)
 TAGS = ["ai-protest","data-centres","vancouver","clean-energy-ai",
         "indigenous-data-sovereignty","open-source-ai","both-hands-full"]
 SEO_TITLE = "You Can't Drink Data | Notes From My First AI Protest"
@@ -54,33 +64,22 @@ META_DESC = ("Kris Krug marches in Vancouver's first anti-AI, anti-data-centre p
              "dead end. A West Coast vision for building AI differently.")
 SEO_META = build_seo_meta(SEO_TITLE, META_DESC)
 
-# Already-uploaded AI protest signs (from the DC-signs draft): id -> (url, alt)
-AI_SIGNS = {
-    11915: ("https://kriskrug.co/wp-content/uploads/2026/05/02-both-hands-full.png", "BOTH HANDS FULL, neon block-stack lettering over two hands overflowing with shapes"),
-    11916: ("https://kriskrug.co/wp-content/uploads/2026/05/01-dumbest-timeline-the-keeper.png", "THIS IS THE DUMBEST TIMELINE & I WOULDN'T MISS IT, CMYK slab type"),
-    11917: ("https://kriskrug.co/wp-content/uploads/2026/05/01-ruthlessly-optimistic-absolutely-terrified.png", "RUTHLESSLY OPTIMISTIC & ABSOLUTELY TERRIFIED, acid riso, sunny yellow into blood red"),
-    11918: ("https://kriskrug.co/wp-content/uploads/2026/05/04-water-the-servers-last.png", "WATER THE SERVERS LAST, block-stack type with a watering can over a server rack"),
-    11919: ("https://kriskrug.co/wp-content/uploads/2026/05/06-who-s-a-thirsty-little-data-center.png", "WHO'S A THIRSTY LITTLE DATA CENTER?, a googly-eyed building with its tongue out"),
-    11920: ("https://kriskrug.co/wp-content/uploads/2026/05/02-we-are-the-training-data.jpg", "WE ARE THE TRAINING DATA, datamosh glitch type"),
-    11921: ("https://kriskrug.co/wp-content/uploads/2026/05/09-ai-wrote-a-better-sign.jpg", "AI WROTE A BETTER SIGN THAN THIS ONE, neon block panels"),
-    11922: ("https://kriskrug.co/wp-content/uploads/2026/05/03-my-position-yes-also-help.png", "MY POSITION: YES. ALSO: HELP., green YES over a panicked red HELP"),
-    11923: ("https://kriskrug.co/wp-content/uploads/2026/05/03-it-s-complicated.png", "IT'S COMPLICATED, CMYK halftone"),
-    11924: ("https://kriskrug.co/wp-content/uploads/2026/05/04-i-contain-multitudes.png", "I CONTAIN MULTITUDES, fractured tall glyphs in pink, teal, cream"),
-    11925: ("https://kriskrug.co/wp-content/uploads/2026/05/07-error-404-side-not-found.png", "ERROR 404: SIDE NOT FOUND, RGB-split datamosh"),
-    11926: ("https://kriskrug.co/wp-content/uploads/2026/05/09-stop-okay-go-no-stop.png", "STOP. okay GO. no, STOP., clashing panels with a strike-through"),
-    11927: ("https://kriskrug.co/wp-content/uploads/2026/05/07-hush-now-little-supercluster.png", "HUSH NOW, LITTLE SUPERCLUSTER, server racks tucked in under a quilt, crescent moon"),
-    11928: ("https://kriskrug.co/wp-content/uploads/2026/05/08-i-love-the-cloud-i-just-want-it-to-rain.png", "I LOVE THE CLOUD, I JUST WANT IT TO RAIN, riso clouds and rain"),
-}
-AI_GALLERY = [11915, 11919, 11920, 11918, 11922, 11923, 11924, 11916, 11917, 11925, 11926, 11921, 11927, 11928]
+# Already-uploaded AI protest signs (from the DC-signs draft), declared in
+# publisher-ids.json. AI_SIGNS is id -> (url, alt); AI_GALLERY is the declared
+# order used by the [[GALLERY-AI]] block.
+AI_SIGNS, AI_GALLERY = media_group_index("ai-protest-signs-2026-05")
 # short captions for the AI gallery (the slogan, lower-cased label)
 AI_CAP = {mid: AI_SIGNS[mid][1].split(",")[0] for mid in AI_GALLERY}
 
 # in-body AI signs: media id -> (caption, align, width). Small + floated so text wraps around them
 # (KK: "reduce the size and integrate them into the text"). Click to enlarge.
+# Signs are named via their declared key, so the production media IDs stay in
+# publisher-ids.json rather than being retyped here.
+SIGN = media_group_keys("ai-protest-signs-2026-05")
 INBODY_AI = {
-    11920: ("WE ARE THE TRAINING DATA. One of mine. The uncomfortable part is that it's just true.", "right", 300),
-    11918: ("WATER THE SERVERS LAST. Also mine. The watershed should outrank the GPU.", "left", 300),
-    11928: ("I LOVE THE CLOUD, I JUST WANT IT TO RAIN. Mine. Both-hands-full in eight words.", "right", 300),
+    SIGN["we-are-the-training-data"]: ("WE ARE THE TRAINING DATA. One of mine. The uncomfortable part is that it's just true.", "right", 300),
+    SIGN["water-the-servers-last"]: ("WATER THE SERVERS LAST. Also mine. The watershed should outrank the GPU.", "left", 300),
+    SIGN["i-love-the-cloud-i-just-want-it-to-rain"]: ("I LOVE THE CLOUD, I JUST WANT IT TO RAIN. Mine. Both-hands-full in eight words.", "right", 300),
 }
 # in-body documentary photos: key (leading IMG#) -> (align, width). Editorial = centered, larger.
 INBODY_PHOTO = {
@@ -91,13 +90,15 @@ INBODY_PHOTO = {
 PHOTOS_KEEP_PREFIX = {"05","07","10","13","14","15","16","17","18","21","23","24","25","26"}
 
 
-# in-body image / gallery / heading / separator / pullquote markup now lives in wp_blocks.py
+# in-body image / gallery / heading / separator / pullquote markup now lives in
+# wp_blocks.py; the marker -> block dispatch lives in publish_common.py.
+MEDIA_RE = re.compile(r"^!\[(.*?)\]\(media:(\d+)\)$")
+PHOTO_RE = re.compile(r"^!\[(.*?)\]\(photo:(\d+)\)$")
 
 
 # ---------------------------------------------------------------------------
 raw = (STAGE / "post.md").read_text()
-fm_end = raw.index("\n---", raw.index("---") + 3)
-body = raw[fm_end + 4:]
+body = strip_frontmatter(raw)
 assert "—" not in body, "em-dash leaked into post.md body"
 
 cfg = load_config()
@@ -123,43 +124,43 @@ print(f"[photos] {'wrote' if WRITE else 'DRY'} best={len(best_photos)} gallery_r
 for l in photo_log: print("   " + l)
 
 # ---- build blocks ----
-out = []
-seen_title = False
-blocks_src = split_body_blocks(body)
-for b in blocks_src:
-    b = b.strip()
-    if b.startswith("# ") and not seen_title:
-        seen_title = True
-        continue
-    if b == "---":
-        out.append(separator())
-    elif b.startswith("## "):
-        out.append(heading(inline(b[3:].strip())))
-    elif b.startswith(">>> "):
-        out.append(pullquote(inline(b[4:].strip())))
-    elif b == "[[GALLERY-BEST]]":
-        out.append(gallery([(i, u, a, c) for i, u, a, c, _ in best_photos], columns=3))
-    elif b == "[[GALLERY-AI]]":
-        out.append(gallery([(mid, AI_SIGNS[mid][0], AI_SIGNS[mid][1], AI_CAP[mid]) for mid in AI_GALLERY], columns=3))
-    elif b == "[[GALLERY-PHOTOS]]":
-        if photos_rest:
-            out.append(gallery([(i, u, a, c) for i, u, a, c, _ in photos_rest], columns=3))
-    else:
-        m = re.match(r"^!\[(.*?)\]\(media:(\d+)\)$", b)
-        mp = re.match(r"^!\[(.*?)\]\(photo:(\d+)\)$", b)
-        if m:
-            mid = int(m.group(2))
-            url, alt = AI_SIGNS[mid]
-            cap, align, width = INBODY_AI.get(mid, (None, "center", 320))
-            out.append(image(mid, url, alt, caption=cap, width=width, align=align))
-        elif mp:
-            key = mp.group(2)
-            if key in inbody_photos:
-                mid, url, alt, cap = inbody_photos[key]
-                align, width = INBODY_PHOTO.get(key, ("center", 660))
-                out.append(image(mid, url, alt, caption=cap, width=width, align=align))
-        else:
-            out.append(render_paragraph_from_markdown(b))
+def ai_sign(block, match):
+    """`![alt](media:ID)` -> small floated sign reusing an already-uploaded media id."""
+    mid = int(match.group(2))
+    url, alt = AI_SIGNS[mid]
+    cap, align, width = INBODY_AI.get(mid, (None, "center", 320))
+    return image(mid, url, alt, caption=cap, width=width, align=align)
+
+
+def march_photo(block, match):
+    """`![alt](photo:NNNN)` -> in-body march photo. Unknown key emits nothing."""
+    key = match.group(2)
+    if key not in inbody_photos:
+        return None
+    mid, url, alt, cap = inbody_photos[key]
+    align, width = INBODY_PHOTO.get(key, ("center", 660))
+    return image(mid, url, alt, caption=cap, width=width, align=align)
+
+
+out = render_marker_blocks(
+    body,
+    standard_text_handlers(h3=False, pullquote_marker=True)
+    + [
+        (exact("[[GALLERY-BEST]]"),
+         lambda b, m: gallery([(i, u, a, c) for i, u, a, c, _ in best_photos], columns=3)),
+        (exact("[[GALLERY-AI]]"),
+         lambda b, m: gallery(
+             [(mid, AI_SIGNS[mid][0], AI_SIGNS[mid][1], AI_CAP[mid]) for mid in AI_GALLERY],
+             columns=3,
+         )),
+        # emits nothing when every gallery/ photo is already shown in BEST
+        (exact("[[GALLERY-PHOTOS]]"),
+         lambda b, m: gallery([(i, u, a, c) for i, u, a, c, _ in photos_rest], columns=3)
+         if photos_rest else None),
+        (MEDIA_RE, ai_sign),
+        (PHOTO_RE, march_photo),
+    ],
+)
 
 content = "\n\n".join(out)
 (STAGE / "post.html").write_text(content)
@@ -178,9 +179,7 @@ if not WRITE:
     sys.exit(0)
 
 # ---- find existing post by slug ----
-hits = wp.s.get(f"{wp.base}/wp-json/wp/v2/posts",
-                params={"slug": SLUG, "status": "any", "context": "edit"}, timeout=30).json()
-existing = hits[0] if isinstance(hits, list) and hits else None
+existing = find_existing_post_by_slug(wp, SLUG)
 
 if UPDATE:
     if not existing:
