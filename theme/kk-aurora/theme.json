@@ -54,7 +54,7 @@
         {
           "slug": "text-muted",
           "name": "Ink Muted",
-          "color": "#6b5f52"
+          "color": "#5c5044"
         },
         {
           "slug": "paper",
@@ -64,12 +64,12 @@
         {
           "slug": "signal",
           "name": "Burnt Orange",
-          "color": "#d94a1f"
+          "color": "#9a2f14"
         },
         {
           "slug": "signal-text",
           "name": "Burnt Orange Text",
-          "color": "#b53c18"
+          "color": "#9a2f14"
         },
         {
           "slug": "wildcard",

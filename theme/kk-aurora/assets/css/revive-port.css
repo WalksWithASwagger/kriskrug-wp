@@ -11,9 +11,15 @@
   --revive-ink: #171310;
   --revive-ink-soft: rgba(23, 19, 16, 0.78);
   --revive-ink-muted: rgba(23, 19, 16, 0.55);
-  /* Fill/CTA orange stays bright; text-on-cream uses AA-safe darker orange */
+  /* Decorative-only orange (rules, ribbons, borders). Never put text on it. */
   --revive-accent: #d94a1f;
-  --revive-accent-text: #b53c18; /* ~4.67:1 on cream */
+  /* Text-on-cream accent: 6.06:1 on #efe6d2, 4.77:1 on the darkest cream (#d9cdb0).
+     The previous #b53c18 only reached 3.67:1 on #d9cdb0. */
+  --revive-accent-text: #9a2f14;
+  /* Solid control fill; label text is #fffaf6 (5.11:1). */
+  --revive-accent-control: #c03f18;
+  --revive-accent-control-hover: #a52918;
+  --revive-accent-control-label: #fffaf6;
   --revive-accent-soft: #e8b53a;
   --revive-line: rgba(23, 19, 16, 0.14);
   --revive-line-strong: rgba(181, 60, 24, 0.4);
@@ -32,11 +38,11 @@
   --aurora-ink-soft: rgba(23, 19, 16, 0.78);
   --aurora-ink-muted: rgba(23, 19, 16, 0.55);
   --aurora-paper: #efe6d2;
-  --aurora-signal: #d94a1f;
-  --aurora-readable-accent: #b53c18;
+  --aurora-signal: #9a2f14;
+  --aurora-readable-accent: #9a2f14;
   --aurora-signal-dark: #a52918;
-  --aurora-signal-control: #d94a1f;
-  --aurora-signal-control-hover: #c03f18;
+  --aurora-signal-control: #c03f18;
+  --aurora-signal-control-hover: #a52918;
   --aurora-wildcard: #e8b53a;
   --aurora-opal-void: #efe6d2;
   --aurora-opal-ink: #e6dcc2;
@@ -93,9 +99,9 @@ body.aurora-theme::before {
 
 .aurora-button-primary,
 .wp-block-button.is-style-aurora-primary .wp-block-button__link {
-  background: var(--revive-accent);
-  border-color: var(--revive-accent);
-  color: var(--revive-surface);
+  background: var(--revive-accent-control);
+  border-color: var(--revive-accent-control);
+  color: var(--revive-accent-control-label);
   box-shadow: none;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -156,8 +162,8 @@ body.aurora-theme #wp-skip-link:focus-visible {
   outline: 2px solid var(--revive-ink) !important;
   outline-offset: 2px !important;
   top: var(--wp--preset--spacing--40, 1rem);
-  background: var(--revive-accent) !important;
-  color: var(--revive-surface) !important;
+  background: var(--revive-accent-control) !important;
+  color: var(--revive-accent-control-label) !important;
 }
 
 /* ========== Header ========== */
@@ -285,9 +291,9 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
 }
 
 .aurora-header-cta:hover {
-  background: var(--revive-accent) !important;
-  border-color: var(--revive-accent) !important;
-  color: var(--revive-surface) !important;
+  background: var(--revive-accent-control) !important;
+  border-color: var(--revive-accent-control) !important;
+  color: var(--revive-accent-control-label) !important;
 }
 
 /* ========== Homepage Revive layout ========== */
