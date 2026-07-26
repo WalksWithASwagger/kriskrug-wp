@@ -14,13 +14,14 @@
 | B | #416 | `cursor/416-newsletter-section-f196` | #505 | Theme rewrite + thumbnails (Option C); needs KK copy pick |
 | B | #418 | `cursor/418-about-page-draft-f196` | #504 | Audit + payload draft; no live write |
 | C | #369 | `cursor/369-reclaim-list-f196` | #502 | ~266 MB ranked reclaim list; delete gated on KK |
-| B | #411 | `cursor/411-join-bc-section-f196` | (this wave) | Draft package only (avoid #505 collision) |
-| B | #412 | `cursor/412-creative-labs-f196` | (this wave) | Draft package only |
-| B | #413 | `cursor/413-logo-soup-f196` | (this wave) | Draft package; blocked on logo assets |
-| B | #414 | `cursor/414-speaking-stages-f196` | (this wave) | Draft package only |
-| B | #415 | `cursor/415-what-people-say-f196` | (this wave) | Draft + network spike; quote clearance gated |
-| B | #419 | `cursor/419-speaking-page-f196` | (this wave) | Speaking multimedia draft payload |
-| B | #420 | `cursor/420-services-page-f196` | (this wave) | Services language/scroll draft |
+| B | #411 | `cursor/411-join-bc-section-f196` | #510 | Draft package only (avoid #505 collision) |
+| B | #412 | `cursor/412-creative-labs-f196` | #513 | Draft package only |
+| B | #413 | `cursor/413-logo-soup-f196` | #509 | Draft package; blocked on logo assets |
+| B | #414 | `cursor/414-speaking-stages-f196` | #512 | Draft package only |
+| B | #415 | `cursor/415-what-people-say-f196` | #511 | Draft + network spike; quote clearance gated |
+| B | #419 | `cursor/419-speaking-page-f196` | #508 | Speaking multimedia draft payload |
+| B | #420 | `cursor/420-services-page-f196` | #507 | Services language/scroll draft |
+| Ops | #495 | `cursor/495-swarm-dispatch-report-f196` | #514 | This closeout report |
 
 ## Not dispatched (per #495)
 
