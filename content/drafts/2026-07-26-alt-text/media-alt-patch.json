@@ -1,0 +1,26 @@
+{
+  "issue": 4,
+  "captured": "2026-07-26",
+  "status": "draft-awaiting-KK",
+  "notes": "Not applied. Requires WP creds + KK approval. Execute via: python3 scripts/public_image_audit.py --execute --media-alt-file content/drafts/2026-07-26-alt-text/media-alt-patch.json",
+  "items": [
+    {
+      "media_id": 6835,
+      "slug": "evoto-30",
+      "source_url": "https://kriskrug.co/wp-content/uploads/2024/09/crowd-shot-vancovuer-ai.jpeg",
+      "severity": "S0",
+      "pages": ["https://kriskrug.co/home/"],
+      "current_alt_text": "",
+      "alt_text": "Crowded Vancouver AI community meetup under blue and magenta lights — attendees watch a speaker in an industrial studio space."
+    },
+    {
+      "media_id": 12604,
+      "slug": "22181199_f3857c8ca6_b",
+      "source_url": "https://kriskrug.co/wp-content/uploads/2005/06/22181199_f3857c8ca6_b.jpg",
+      "severity": "S1",
+      "pages": ["https://kriskrug.co/flickr-photographr-badge/"],
+      "current_alt_text": "",
+      "alt_text": "Vintage Flickr Photographer membership-badge graphic for Kris Krug (kk+), with portrait and signature."
+    }
+  ]
+}
