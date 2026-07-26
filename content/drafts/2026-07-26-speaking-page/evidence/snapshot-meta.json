@@ -1,0 +1,15 @@
+{
+  "fetched_at": "2026-07-26T19:50:00Z",
+  "url": "https://kriskrug.co/speaking/",
+  "page_id": 1887,
+  "http_status": 200,
+  "full_html_sha256": "09120f0139cc3d9d6729d0e38b6a7c13d39f7c23ba50556ff189bd5d349693b9",
+  "full_html_bytes": 54681,
+  "entry_content_sha256": "4aea36e40811ae2d4879c8b55b39d965c5dff472bb1330d84e4c3233cdfbf7f6",
+  "entry_content_bytes": 4856,
+  "iframe_count": 0,
+  "youtube_refs_in_main": 0,
+  "img_count_in_entry_sections": 4,
+  "booking_cta_count": 1,
+  "note": "Public HTML snapshot only. No authenticated REST GET. Full HTML kept out of git (large); entry content saved."
+}
