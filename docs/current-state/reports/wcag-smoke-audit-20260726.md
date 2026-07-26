@@ -124,7 +124,7 @@ No media PATCH in this session.
 
 - `lang="en-US"`, skip-link + target, single `h1`, `<main id="aurora-main">`, brand `aria-label` + wordmark alt, no blank links/buttons found, article media alts descriptive, YouTube iframe has `title`, primary palette text/CTA tokens meet AA on paper.
 
-## Remediaton roadmap (bounded)
+## Remediation roadmap (bounded)
 
 | Order | Action | Lane | Blocks closing #46? |
 |---:|---|---|---|
