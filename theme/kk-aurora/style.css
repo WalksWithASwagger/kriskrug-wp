@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.4.8
+Version: 1.5.0
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -16,6 +16,10 @@ Tags: full-site-editing, block-patterns, custom-colors, custom-menu, editor-styl
 KK Aurora WordPress Theme
 Copyright 2026 Kris Krug
 */
+
+@layer reset, tokens, base, primitives, components, patterns, utilities, overrides;
+@layer components {
+
 
 /* ============================================
    AURORA CUSTOM PROPERTIES
@@ -4599,4 +4603,6 @@ body.aurora-theme #aurora-main .wp-block-button:not(.is-style-aurora-primary) .w
   border-color: var(--aurora-line-strong) !important;
   color: var(--aurora-ink) !important;
   -webkit-text-fill-color: currentColor !important;
+}
+
 }
