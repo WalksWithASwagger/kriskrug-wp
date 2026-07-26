@@ -891,7 +891,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
 }
 
 .aurora-newsletter-thumb-media {
-  aspect-ratio: 3 / 2 !important;
+  aspect-ratio: 3 / 2;
   background: var(--revive-surface-2);
   border: 1px solid var(--revive-line);
   border-radius: 2px;
@@ -937,7 +937,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
 
 @media (max-width: 700px) {
   .aurora-newsletter-thumb-list.wp-block-post-template {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 }
 
