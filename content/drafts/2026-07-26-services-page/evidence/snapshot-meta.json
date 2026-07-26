@@ -1,0 +1,70 @@
+{
+  "fetched_at": "2026-07-26T20:15:03Z",
+  "entry_url": "https://kriskrug.co/services/",
+  "canonical_url": "https://kriskrug.co/generative-ai-services/",
+  "redirect": "301 /services/ -> /generative-ai-services/",
+  "page_id": 2666,
+  "slug": "generative-ai-services",
+  "full_html_sha256": "8be8f55201d82abc1f651d33ed783ce6eef4168508ff85ba6ce0e36c51327a3b",
+  "full_html_bytes": 58431,
+  "entry_content_sha256": "05db1ecae5ed91cbc46a94b48e5f23083610ddd006c7977ed4f577c521b6b21f",
+  "entry_content_bytes": 8706,
+  "inline_css_bytes": 4418,
+  "pack_class": "kk-services-2026",
+  "scroll_height_px": {
+    "1440": {
+      "iw": 1440,
+      "ih": 900,
+      "doc": 3548,
+      "pack": 2064,
+      "post": 2110,
+      "hero": 580,
+      "ribbon": 377,
+      "proof": 457,
+      "cta": 269
+    },
+    "768": {
+      "iw": 768,
+      "ih": 900,
+      "doc": 4485,
+      "pack": 2942,
+      "post": 2987,
+      "hero": 490,
+      "ribbon": 639,
+      "proof": 1191,
+      "cta": 249
+    },
+    "375": {
+      "iw": 375,
+      "ih": 812,
+      "doc": 4833,
+      "pack": 2827,
+      "post": 2871,
+      "hero": 662,
+      "ribbon": 734,
+      "proof": 799,
+      "cta": 266
+    }
+  },
+  "scroll_cut_targets_one_third": {
+    "1440": {
+      "doc_target_px": 2365,
+      "pack_target_px": 1376,
+      "doc_cut_px": 1183,
+      "pack_cut_px": 688
+    },
+    "768": {
+      "doc_target_px": 2990,
+      "pack_target_px": 1961,
+      "doc_cut_px": 1495,
+      "pack_cut_px": 981
+    },
+    "375": {
+      "doc_target_px": 3222,
+      "pack_target_px": 1885,
+      "doc_cut_px": 1611,
+      "pack_cut_px": 942
+    }
+  },
+  "note": "Public HTML + Playwright scrollHeight. No authenticated REST GET. No live WP write."
+}
