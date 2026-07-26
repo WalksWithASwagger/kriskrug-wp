@@ -1,3 +1,4 @@
+@layer components {
 /**
  * KK Aurora - Typography Refinements
  * 
@@ -682,4 +683,6 @@ input[type="reset"]:focus-visible {
   * {
     transition-property: color, background-color, border-color, text-decoration-color !important;
   }
+}
+
 }

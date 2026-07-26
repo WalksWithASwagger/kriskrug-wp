@@ -1,0 +1,23 @@
+/**
+ * KK Aurora — 09 late (Aurora 1.5.0, issue #474)
+ *
+ * DELIBERATELY UNLAYERED. This is the mechanism from plan §2.4 for the cases
+ * where the theme must win over theme.json's generated `global-styles-inline-css`
+ * (which WP prints AFTER the theme bundle and which is itself unlayered).
+ *
+ * Cascade math: unlayered beats layered for normal declarations, and among
+ * unlayered rules the later source wins. This file is enqueued LAST, so a rule
+ * here beats both the layered theme CSS and `global-styles-inline-css` — the
+ * same outcome the current 160 `!important` declarations buy, with none of the
+ * specificity ratchet and no `!important`.
+ *
+ * RULE OF USE: add a rule here ONLY when the pixel-diff gate (#473) shows a
+ * real regression caused by moving the theme into @layer components, and only
+ * with a comment naming the exact `global-styles` rule it answers. It is not a
+ * general dumping ground — every entry is a tracked debt to fold back into a
+ * component as the migration (#475–#481) makes theme.json emit the right value.
+ *
+ * Intentionally empty at scaffold time: the wholesale wrap in this same change
+ * is verified behavior-neutral by the gate first; any rules that must live here
+ * are added in response to that gate's diff, not guessed ahead of it.
+ */
