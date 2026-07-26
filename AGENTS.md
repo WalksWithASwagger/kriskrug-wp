@@ -62,7 +62,9 @@ See [`scripts/notion-to-wp/README.md`](scripts/notion-to-wp/README.md). Short ve
 - Commit messages: `<area>: <short imperative>` — e.g. `content: ...`, `docs: ...`, `feat: ...`, `fix: ...`.
 - One concern per commit. Don't bundle content edits with doc edits with theme edits.
 - Don't push to `main` without KK's go-ahead if the change touches prod-rendering code (schema, redirects, custom snippets).
-- PRs start as drafts unless the lane is tiny and fully verified. GitHub repo `allow_auto_merge` is `false`; green checks mean ready for human review, not permission to merge. Merge only after KK approval.
+- PRs start as drafts unless the lane is tiny and fully verified. Repo `allow_auto_merge` is `false`. Green checks mean ready for review, not automatic merge.
+- **Theme / plugins / `inc/` / live deploy PRs:** merge only after KK approval (and pixel gate when required).
+- **Content/docs-only PRs:** Cloud agents may approve+squash-merge when Cursor Cloud secret `GH_TOKEN` is a write-access PAT, or when label `agent-safe-merge` is applied (Actions secret `AGENT_MERGE_TOKEN`). See [`docs/current-state/AGENT-MERGE-PATH-2026-07-26.md`](docs/current-state/AGENT-MERGE-PATH-2026-07-26.md). The Cursor GitHub App token alone **cannot** satisfy required reviews.
 
 ## When in doubt
 
