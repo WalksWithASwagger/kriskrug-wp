@@ -87,8 +87,9 @@ merge_one() {
 }
 
 # 1) Unlock path first (this PR adds the Actions workflow for later)
-echo "==> Phase 0: unlock #506"
+echo "==> Phase 0: unlock #506 + merge script #543"
 merge_one 506 || echo "WARN: #506 merge failed (merge it in UI if needed); continuing"
+merge_one 543 || echo "WARN: #543 (this script PR) — merge in UI if running from a checkout of the branch"
 
 # Ordered safe queue (Futureproof folder order first, then rest)
 PRS=(
