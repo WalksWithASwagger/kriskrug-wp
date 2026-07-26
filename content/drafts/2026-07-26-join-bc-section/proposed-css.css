@@ -1,0 +1,120 @@
+/**
+ * #411  -  proposed work-band CSS (Join BC / Futureproof triptych)
+ *
+ * Apply inside theme/kk-aurora/assets/css/revive-port.css near the
+ * existing .aurora-work-triptych block AFTER PR #505 merges (or rebase
+ * onto that branch). Do not paste into style.css unless the Revive
+ * cascade moves.
+ *
+ * Goals:
+ * 1) Shared desktop baseline (kill Futureproof stagger)
+ * 2) Retire oversized card "drop" numbers → small mono index
+ * 3) Hover + focus-visible on cards and section-head link
+ * 4) Keep Space Grotesk headline (untouched)
+ */
+
+/* --- alignment: equal columns, shared top edge --- */
+.aurora-work-triptych {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 900px) {
+  .aurora-work-triptych {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+    align-items: stretch;
+  }
+
+  /* REMOVE the Revive stagger that pulls Futureproof up:
+     .aurora-work-card:nth-child(2) { margin-top: -2.5rem; }
+     Explicit reset in case an older rule wins: */
+  .aurora-work-card:nth-child(2) {
+    margin-top: 0;
+  }
+}
+
+/* --- drop glyph → quiet index --- */
+.aurora-work-card-num {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 1;
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(239, 230, 210, 0.72);
+  /* was: Space Grotesk 2.5rem accent wash  -  read as an ugly drop cap */
+}
+
+/* --- interaction: hover + focus --- */
+.aurora-work-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 2px;
+  transition: transform 180ms var(--revive-ease, ease), box-shadow 180ms ease;
+}
+
+.aurora-work-card-media {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 1px solid rgba(217, 74, 31, 0.12);
+  background: var(--revive-surface-2);
+  margin-bottom: 0; /* body lives inside media; keep chrome on the frame */
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.aurora-work-card:hover .aurora-work-card-media,
+.aurora-work-card:focus-visible .aurora-work-card-media {
+  border-color: rgba(217, 74, 31, 0.45);
+  box-shadow: 0 10px 28px rgba(23, 19, 16, 0.12);
+}
+
+.aurora-work-card:hover,
+.aurora-work-card:focus-visible {
+  transform: translateY(-2px);
+}
+
+.aurora-work-card:focus-visible {
+  outline: 2px solid var(--revive-accent, #9a2f14);
+  outline-offset: 3px;
+}
+
+.aurora-work-card:hover .aurora-work-card-media img,
+.aurora-work-card:focus-visible .aurora-work-card-media img {
+  transform: scale(1.04);
+  filter: grayscale(0);
+}
+
+/* section-head outbound link */
+.aurora-work-band .aurora-section-head a:hover {
+  color: var(--revive-accent-text, #9a2f14);
+}
+
+.aurora-work-band .aurora-section-head a:focus-visible {
+  outline: 2px solid var(--revive-accent, #9a2f14);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-work-card,
+  .aurora-work-card-media,
+  .aurora-work-card-media img {
+    transition: none;
+  }
+
+  .aurora-work-card:hover,
+  .aurora-work-card:focus-visible {
+    transform: none;
+  }
+
+  .aurora-work-card:hover .aurora-work-card-media img,
+  .aurora-work-card:focus-visible .aurora-work-card-media img {
+    transform: none;
+  }
+}
