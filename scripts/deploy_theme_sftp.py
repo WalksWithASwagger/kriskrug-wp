@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Hands-off kk-aurora theme deploy to Pagely over SFTP (PressFTP gateway).
 
-Password is read from the macOS Keychain, never from argv or chat:
-    security add-generic-password -a wpadmin5102 -s pagely-sftp-kriskrug -w "$(pbpaste)" -U
+Password source (never argv/chat logs):
+    1. Env WP_SFTP_PASSWORD (Cloud / non-macOS agents)
+    2. Else macOS Keychain:
+       security add-generic-password -a wpadmin5102 -s pagely-sftp-kriskrug -w "$(pbpaste)" -U
 
 Subcommands:
     probe   Connect, print the working dir, and locate wp-content/themes.
@@ -30,6 +32,10 @@ LOCAL_THEME = os.path.join(os.path.dirname(__file__), "..", "theme", "kk-aurora"
 
 
 def _password() -> str:
+    # Cloud / CI: prefer explicit env (never log it). Laptop: macOS Keychain.
+    env_pw = os.environ.get("WP_SFTP_PASSWORD", "").strip()
+    if env_pw:
+        return env_pw
     out = subprocess.run(
         ["security", "find-generic-password", "-s", KEYCHAIN_SERVICE, "-a", USER, "-w"],
         capture_output=True,
@@ -37,7 +43,8 @@ def _password() -> str:
     )
     if out.returncode != 0 or not out.stdout.strip():
         sys.exit(
-            f"No Keychain password for service '{KEYCHAIN_SERVICE}' account '{USER}'. Store it first."
+            "No SFTP password. Set WP_SFTP_PASSWORD, or store Keychain "
+            f"service '{KEYCHAIN_SERVICE}' account '{USER}'."
         )
     return out.stdout.rstrip("\n")
 

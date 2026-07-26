@@ -1,0 +1,22 @@
+# WordPress Theme Upload Package
+
+- Source: `/workspace/theme/kk-aurora`
+- Slug: `kk-aurora`
+- Label: `cascade-layers-1.5.0`
+- Version: `1.5.0`
+- Deploy zip: `/workspace/backup/aurora-deploy-20260726/kk-aurora-cascade-layers-1.5.0-1.5.0-20260726.zip`
+- Deploy SHA256: `54904cc082121cb6ed914a0abd84cdbe322677ddf02a6c07f0b66d9d6183b1ce`
+- Rollback zip: `/workspace/backup/aurora-deploy-20260726/kk-aurora-live-1.4.8-1.4.8-20260726.zip`
+- Rollback version: `1.4.8`
+- Rollback SHA256: `3f03487ebcab3a2daa5fcac5d0ecb8a95f64f4aafd1330de275bbcbce961b6cb`
+- wp-admin upload URL: https://kriskrug.co/wp-admin/theme-install.php?browse=upload
+- Clipboard: not requested
+- Browser: not requested
+
+## Manual Upload Gate
+
+1. Open the wp-admin upload URL.
+2. Upload `kk-aurora-cascade-layers-1.5.0-1.5.0-20260726.zip`.
+3. Choose the WordPress replace/update flow for the existing artifact.
+4. Confirm WordPress reports the expected uploaded version.
+5. Purge PressCACHE/cache layers and run the route-specific verification for the change.
