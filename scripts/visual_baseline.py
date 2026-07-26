@@ -229,11 +229,14 @@ TOLERANCE = {
 }
 
 # Theme CSS files whose live-vs-repo md5 identity is recorded per run (§4.5/§1.6).
+# Includes Aurora 1.5.0 scaffold sheets (#474): 02-tokens.css + 09-late.css.
 THEME_CSS_FILES = (
     "style.css",
+    "assets/css/02-tokens.css",
     "assets/css/animations.css",
     "assets/css/bleeding-edge.css",
     "assets/css/editor.css",
+    "assets/css/09-late.css",
     "assets/css/revive-port.css",
     "assets/css/typography-refined.css",
 )

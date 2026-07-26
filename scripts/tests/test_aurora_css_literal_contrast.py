@@ -59,12 +59,15 @@ ROOT = Path(__file__).resolve().parents[2]
 THEME_DIR = ROOT / "theme/kk-aurora"
 
 # Front-end sheets only. editor.css is not served to visitors.
+# Includes Aurora 1.5.0 scaffold sheets (#474): tokens + late (empty at scaffold).
 CSS_FILES = (
     "style.css",
+    "assets/css/02-tokens.css",
     "assets/css/revive-port.css",
     "assets/css/typography-refined.css",
     "assets/css/bleeding-edge.css",
     "assets/css/animations.css",
+    "assets/css/09-late.css",
 )
 
 AA_TEXT = 4.5
