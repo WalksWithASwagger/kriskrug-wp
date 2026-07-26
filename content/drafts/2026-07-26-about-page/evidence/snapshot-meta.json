@@ -1,0 +1,10 @@
+{
+  "fetched_at": "2026-07-26T19:45:00Z",
+  "url": "https://kriskrug.co/about/",
+  "page_id": 1208,
+  "full_html_sha256": "6da4bbdb0decbd5707423076eeb641b81d0fc57006f9b73f8b67a7d7d890aa6c",
+  "full_html_bytes": 54848,
+  "entry_content_sha256": "69e5409d40f14fbc3b10e6b686b6c63832a236611337eab6a3013fb92ee20d16",
+  "public_trail_count": 2,
+  "note": "Public HTML snapshot only. No authenticated REST GET. Full HTML kept out of git (large); entry content saved."
+}
