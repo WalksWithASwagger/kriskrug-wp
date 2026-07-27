@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test javascript-syntax php-syntax plugin-smoke theme-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check env-check varlock-run clean
+.PHONY: help test python-test javascript-syntax php-syntax plugin-smoke theme-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke check-live-parity wp7-admin-readiness current-state-drift-check morning-truth status-readonly docs-truth-check env-check varlock-run clean
 
 PYTHON ?= python3
 VARLOCK ?= varlock
@@ -249,6 +249,9 @@ wp7-smoke: ## Run read-only public WP rollout smoke checks (BASE_URL=https://kri
 
 seo-publisher-smoke: ## Run read-only publisher/schema smoke checks (#425) (BASE_URL=https://kriskrug.co)
 	@python3 scripts/seo_publisher_smoke.py --base "$${BASE_URL:-https://kriskrug.co}" --posts "$${POSTS:-3}"
+
+check-live-parity: ## Detect live-vs-repo Aurora theme version drift (#546) (BASE_URL=https://kriskrug.co)
+	@$(PYTHON) scripts/check_live_theme_parity.py --base "$${BASE_URL:-https://kriskrug.co}"
 
 wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (ENV_FILE=scripts/notion-to-wp/.env)
 	@python3 scripts/wp7-admin-readiness.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"
