@@ -1,0 +1,46 @@
+{
+  "tool": "playwright chromium headless",
+  "url": "https://kriskrug.co/generative-ai-services/",
+  "measured_at": "2026-07-26T20:15:03Z",
+  "viewports": {
+    "1440": {
+      "iw": 1440,
+      "ih": 900,
+      "doc": 3548,
+      "pack": 2064,
+      "post": 2110,
+      "hero": 580,
+      "ribbon": 377,
+      "proof": 457,
+      "cta": 269
+    },
+    "768": {
+      "iw": 768,
+      "ih": 900,
+      "doc": 4485,
+      "pack": 2942,
+      "post": 2987,
+      "hero": 490,
+      "ribbon": 639,
+      "proof": 1191,
+      "cta": 249
+    },
+    "375": {
+      "iw": 375,
+      "ih": 812,
+      "doc": 4833,
+      "pack": 2827,
+      "post": 2871,
+      "hero": 662,
+      "ribbon": 734,
+      "proof": 799,
+      "cta": 266
+    }
+  },
+  "acceptance_at_1440": {
+    "before_doc_px": 3548,
+    "before_pack_px": 2064,
+    "one_third_cut_doc_target_px": 2365,
+    "one_third_cut_pack_target_px": 1376
+  }
+}
