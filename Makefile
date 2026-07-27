@@ -251,7 +251,7 @@ seo-publisher-smoke: ## Run read-only publisher/schema smoke checks (#425) (BASE
 	@python3 scripts/seo_publisher_smoke.py --base "$${BASE_URL:-https://kriskrug.co}" --posts "$${POSTS:-3}"
 
 check-live-parity: ## Detect live-vs-repo Aurora theme version drift (#546) (BASE_URL=https://kriskrug.co)
-	@scripts/notion-to-wp/.venv/bin/python scripts/check_live_theme_parity.py --base "$${BASE_URL:-https://kriskrug.co}"
+	@$(PYTHON) scripts/check_live_theme_parity.py --base "$${BASE_URL:-https://kriskrug.co}"
 
 wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (ENV_FILE=scripts/notion-to-wp/.env)
 	@python3 scripts/wp7-admin-readiness.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"
