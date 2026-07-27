@@ -19,6 +19,8 @@ jobs:
     outputs:
       has_php: ${{ steps.changed-files.outputs.has_php }}
       has_docs: ${{ steps.changed-files.outputs.has_docs }}
+      has_css: ${{ steps.changed-files.outputs.has_css }}
+      has_deps: ${{ steps.changed-files.outputs.has_deps }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
 
@@ -40,43 +42,26 @@ jobs:
               name.startsWith('docs/') ||
               ['AGENTS.md', 'README.md', 'CONTRIBUTING.md', 'Makefile', 'scripts/docs_truth_check.py'].includes(name)
             );
+            const hasCss = names.some((name) => name.endsWith('.css'));
+            const hasDeps = names.some((name) =>
+              ['composer.json', 'composer.lock', 'package.json', 'package-lock.json'].includes(name) ||
+              /(?:^|\/)requirements[\w.-]*\.txt$/.test(name)
+            );
             core.info(`Changed files: ${names.length}`);
-            core.info(`has_php=${hasPhp} has_docs=${hasDocs}`);
+            core.info(`has_php=${hasPhp} has_docs=${hasDocs} has_css=${hasCss} has_deps=${hasDeps}`);
             core.setOutput('has_php', hasPhp ? 'true' : 'false');
             core.setOutput('has_docs', hasDocs ? 'true' : 'false');
-
-      - name: Check PR title format
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
-        with:
-          script: |
-            const pr = context.payload.pull_request;
-            const title = pr.title;
-
-            const validPrefixes = ['Fix:', 'Add:', 'Update:', 'Refactor:', 'Docs:', 'Chore:', 'Feature:'];
-            const hasValidPrefix = validPrefixes.some(prefix => title.startsWith(prefix));
-
-            if (!hasValidPrefix) {
-              core.warning(`PR title should start with one of: ${validPrefixes.join(', ')}`);
-            }
+            core.setOutput('has_css', hasCss ? 'true' : 'false');
+            core.setOutput('has_deps', hasDeps ? 'true' : 'false');
 
       - name: Check PR links to issue
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
-            const pr = context.payload.pull_request;
-            const body = pr.body || '';
-
+            const body = context.payload.pull_request.body || '';
             const hasIssueLink = /(?:fixes|closes|resolves)\s+#\d+/i.test(body);
-
             if (!hasIssueLink) {
-              core.warning('PR should link to an issue using "Fixes #123" or similar');
-
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: pr.number,
-                body: `⚠️ **Missing Issue Link**\n\nThis PR doesn't appear to link to an issue.\n\nPlease add a line like:\n- \`Fixes #123\`\n- \`Closes #456\`\n- \`Resolves #789\`\n\nThis ensures the issue is automatically closed when the PR is merged.`
-              });
+              core.warning('PR does not link an issue with "Fixes #123" / "Closes #123" — fine for standalone changes.');
             }
 
   # WordPress/PHP validation
@@ -125,6 +110,7 @@ jobs:
   # count. Raising the ceiling requires a waiver recorded in .css-budget.json.
   css-ratchet:
     needs: validate
+    if: needs.validate.outputs.has_css == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
@@ -188,8 +174,12 @@ jobs:
       - name: Check docs for stale current-state claims
         run: python3 scripts/docs_truth_check.py
 
-  # Security scanning
+  # Security scanning — only when dependency manifests change (Trivy fs scan).
+  # Already non-blocking (SARIF output, no exit-code); this stops it running on
+  # every docs/CSS/content PR that changes no dependencies.
   security-scan:
+    needs: validate
+    if: needs.validate.outputs.has_deps == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
