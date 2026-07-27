@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KK network clusters  -  spike (#415)</title>
+  <style>
+    :root {
+      --void: #030405;
+      --ink: #f7f7f2;
+      --muted: #9a9a92;
+      --line: rgba(247, 247, 242, 0.14);
+      --signal: #e5462e;
+      --cyan: #1f8a86;
+      --gold: #e8b53a;
+      --violet: #6b3a97;
+      --blue: #2b57a6;
+      --max: 1100px;
+      --mono: "IBM Plex Mono", "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+      --sans: "IBM Plex Sans", "Source Sans 3", "Segoe UI", sans-serif;
+      --display: "IBM Plex Serif", "Source Serif 4", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: var(--void);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.45;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    .banner {
+      border: 1px solid var(--line);
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.5rem;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.05;
+      margin: 0 0 0.5rem;
+    }
+
+    .lede {
+      color: var(--muted);
+      max-width: 40rem;
+      margin: 0 0 1.75rem;
+    }
+
+    .layout {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 900px) {
+      .layout {
+        grid-template-columns: minmax(0, 1.4fr) minmax(16rem, 0.8fr);
+        align-items: start;
+      }
+    }
+
+    .stage {
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 20% 15%, rgba(229, 70, 46, 0.12), transparent 28rem),
+        radial-gradient(circle at 80% 80%, rgba(31, 138, 134, 0.1), transparent 24rem),
+        #07090b;
+      overflow: hidden;
+      position: relative;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 360px;
+    }
+
+    .edge {
+      stroke: var(--line);
+      stroke-width: 1.25;
+      fill: none;
+      transition: stroke 160ms ease, stroke-width 160ms ease;
+    }
+
+    .edge.is-hot {
+      stroke: rgba(247, 247, 242, 0.55);
+      stroke-width: 2;
+    }
+
+    .node {
+      cursor: pointer;
+      outline: none;
+    }
+
+    .node circle {
+      stroke: var(--line);
+      stroke-width: 1.5;
+      transition: fill 160ms ease, stroke 160ms ease, transform 160ms ease;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+
+    .node text {
+      fill: var(--ink);
+      font-family: var(--sans);
+      font-size: 11px;
+      pointer-events: none;
+      text-anchor: middle;
+    }
+
+    .node:focus-visible circle,
+    .node:hover circle,
+    .node.is-active circle {
+      stroke: var(--ink);
+    }
+
+    .node.is-dim circle { opacity: 0.35; }
+    .node.is-dim text { opacity: 0.35; }
+    .edge.is-dim { opacity: 0.25; }
+
+    .hub circle { fill: var(--signal); }
+    .c-stages circle { fill: #171310; }
+    .c-rooms circle { fill: #0d1a1a; }
+    .c-practice circle { fill: #121018; }
+    .c-media circle { fill: #10141c; }
+    .c-future circle { fill: #1a140c; }
+
+    .hub circle { stroke: #ff8a74; }
+    .c-stages.is-active circle,
+    .c-stages:hover circle { stroke: var(--gold); }
+    .c-rooms.is-active circle,
+    .c-rooms:hover circle { stroke: var(--cyan); }
+    .c-practice.is-active circle,
+    .c-practice:hover circle { stroke: var(--violet); }
+    .c-media.is-active circle,
+    .c-media:hover circle { stroke: var(--blue); }
+    .c-future.is-active circle,
+    .c-future:hover circle { stroke: var(--signal); }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .drift {
+        animation: drift 14s ease-in-out infinite alternate;
+      }
+      @keyframes drift {
+        from { transform: translateY(0); }
+        to { transform: translateY(-6px); }
+      }
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      padding: 1.1rem 1.15rem 1.25rem;
+      background: #080b0d;
+      min-height: 12rem;
+    }
+
+    .panel .kicker {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 0.55rem;
+    }
+
+    .panel h2 {
+      font-family: var(--display);
+      font-size: 1.45rem;
+      margin: 0 0 0.65rem;
+      line-height: 1.15;
+    }
+
+    .panel p {
+      margin: 0 0 0.85rem;
+      color: var(--muted);
+    }
+
+    .panel blockquote {
+      margin: 0;
+      padding: 0.85rem 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 0.98rem;
+    }
+
+    .panel cite {
+      display: block;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-style: normal;
+      font-size: 0.85rem;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 1rem;
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .legend span::before {
+      content: "";
+      display: inline-block;
+      width: 0.55rem;
+      height: 0.55rem;
+      margin-right: 0.4rem;
+      border-radius: 50%;
+      vertical-align: middle;
+      border: 1px solid var(--line);
+    }
+
+    .legend .l-hub::before { background: var(--signal); }
+    .legend .l-stages::before { background: var(--gold); }
+    .legend .l-rooms::before { background: var(--cyan); }
+    .legend .l-practice::before { background: var(--violet); }
+    .legend .l-media::before { background: var(--blue); }
+    .legend .l-future::before { background: #ff8a74; }
+
+    .foot {
+      margin-top: 1.75rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      max-width: 42rem;
+    }
+
+    .foot code {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="banner">Draft spike · Issue #415 · Not for live embed · Labels are illustrative</p>
+    <h1>Network clusters</h1>
+    <p class="lede">
+      Lightweight SVG/CSS concept for how Kris&rsquo;s rooms group: stages, convening, practice, media, and Futureproof.
+      Click a node. No CDN. No framework. Replace placeholder people/orgs before any public claim.
+    </p>
+
+    <div class="layout">
+      <div class="stage" aria-label="Interactive network diagram">
+        <svg viewBox="0 0 900 560" role="img" aria-labelledby="net-title net-desc">
+          <title id="net-title">Illustrative network clusters around Kris Krug</title>
+          <desc id="net-desc">
+            Hub node Kris connected to five clusters: Stages, Rooms, Practice, Media, and Futureproof.
+            Activate a node to read a short description.
+          </desc>
+
+          <g class="drift">
+            <!-- edges -->
+            <line class="edge" data-clusters="stages" x1="450" y1="280" x2="200" y2="140" />
+            <line class="edge" data-clusters="stages" x1="450" y1="280" x2="150" y2="220" />
+            <line class="edge" data-clusters="rooms" x1="450" y1="280" x2="720" y2="150" />
+            <line class="edge" data-clusters="rooms" x1="450" y1="280" x2="780" y2="240" />
+            <line class="edge" data-clusters="practice" x1="450" y1="280" x2="200" y2="420" />
+            <line class="edge" data-clusters="practice" x1="450" y1="280" x2="300" y2="480" />
+            <line class="edge" data-clusters="media" x1="450" y1="280" x2="650" y2="430" />
+            <line class="edge" data-clusters="media" x1="450" y1="280" x2="760" y2="390" />
+            <line class="edge" data-clusters="future" x1="450" y1="280" x2="450" y2="110" />
+            <line class="edge" data-clusters="rooms stages" x1="200" y1="140" x2="450" y2="110" />
+            <line class="edge" data-clusters="rooms future" x1="720" y1="150" x2="450" y2="110" />
+
+            <!-- hub -->
+            <g class="node hub" tabindex="0" data-id="hub" data-cluster="hub" role="button" aria-pressed="true">
+              <circle cx="450" cy="280" r="34" />
+              <text x="450" y="284">Kris</text>
+            </g>
+
+            <!-- stages cluster -->
+            <g class="node c-stages" tabindex="0" data-id="stages" data-cluster="stages" role="button" aria-pressed="false">
+              <circle cx="200" cy="140" r="28" />
+              <text x="200" y="144">Stages</text>
+            </g>
+            <g class="node c-stages" tabindex="0" data-id="cmvan" data-cluster="stages" role="button" aria-pressed="false">
+              <circle cx="150" cy="220" r="20" />
+              <text x="150" y="224">CM/Van</text>
+            </g>
+
+            <!-- rooms cluster -->
+            <g class="node c-rooms" tabindex="0" data-id="rooms" data-cluster="rooms" role="button" aria-pressed="false">
+              <circle cx="720" cy="150" r="28" />
+              <text x="720" y="144">Rooms</text>
+            </g>
+            <g class="node c-rooms" tabindex="0" data-id="vanai" data-cluster="rooms" role="button" aria-pressed="false">
+              <circle cx="780" cy="240" r="20" />
+              <text x="780" y="244">Van AI</text>
+            </g>
+
+            <!-- practice -->
+            <g class="node c-practice" tabindex="0" data-id="practice" data-cluster="practice" role="button" aria-pressed="false">
+              <circle cx="200" cy="420" r="28" />
+              <text x="200" y="424">Practice</text>
+            </g>
+            <g class="node c-practice" tabindex="0" data-id="edu" data-cluster="practice" role="button" aria-pressed="false">
+              <circle cx="300" cy="480" r="20" />
+              <text x="300" y="484">Edu</text>
+            </g>
+
+            <!-- media -->
+            <g class="node c-media" tabindex="0" data-id="media" data-cluster="media" role="button" aria-pressed="false">
+              <circle cx="650" cy="430" r="26" />
+              <text x="650" y="434">Media</text>
+            </g>
+            <g class="node c-media" tabindex="0" data-id="photo" data-cluster="media" role="button" aria-pressed="false">
+              <circle cx="760" cy="390" r="18" />
+              <text x="760" y="394">Photo</text>
+            </g>
+
+            <!-- futureproof -->
+            <g class="node c-future" tabindex="0" data-id="future" data-cluster="future" role="button" aria-pressed="false">
+              <circle cx="450" cy="110" r="30" />
+              <text x="450" y="114">Futureproof</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <aside class="panel" id="detail" aria-live="polite">
+        <p class="kicker" id="detail-kicker">Hub</p>
+        <h2 id="detail-title">Kris Krug</h2>
+        <p id="detail-body">Center of gravity for the map. Edges are relationships of work, not org-chart authority. Swap illustrative labels for cleared people and orgs before any public page.</p>
+        <blockquote id="detail-quote">
+          <span id="detail-quote-text">Pick a cluster to see how proof might attach.</span>
+          <cite id="detail-quote-cite"></cite>
+        </blockquote>
+      </aside>
+    </div>
+
+    <div class="legend" aria-hidden="true">
+      <span class="l-hub">Hub</span>
+      <span class="l-stages">Stages</span>
+      <span class="l-rooms">Rooms</span>
+      <span class="l-practice">Practice</span>
+      <span class="l-media">Media</span>
+      <span class="l-future">Futureproof</span>
+    </div>
+
+    <p class="foot">
+      Prototype path: <code>content/drafts/2026-07-26-what-people-say/network-diagram-spike/index.html</code>.
+      Go/no-go lives in <code>NOTES.md</code>. Do not paste into WordPress until KK says go.
+    </p>
+  </main>
+
+  <script>
+    (function () {
+      var data = {
+        hub: {
+          kicker: "Hub",
+          title: "Kris Krug",
+          body: "Center of gravity for the map. Edges are relationships of work, not org-chart authority.",
+          quote: "Pick a cluster to see how proof might attach.",
+          cite: ""
+        },
+        stages: {
+          kicker: "Cluster · Stages",
+          title: "Stages",
+          body: "Keynotes and festival talks. CreativeMornings, LaSalle, Bass Coast, ChannelNext, World AI Film Festival.",
+          quote: "Visceral, real, and incredibly current. Truly authentic and up to date.",
+          cite: "Audience feedback · clearance still required"
+        },
+        cmvan: {
+          kicker: "Node · Stages",
+          title: "CreativeMornings Vancouver",
+          body: "Illustrative stage node. Replace with a cleared organizer name when ready.",
+          quote: "",
+          cite: ""
+        },
+        rooms: {
+          kicker: "Cluster · Rooms",
+          title: "Rooms",
+          body: "Convening layer: Vancouver AI, BC + AI ecosystem nights, civic and community rooms.",
+          quote: "Kris's talk and event design felt like a masterclass in community organizing.",
+          cite: "Ed Kennedy · clearance still required"
+        },
+        vanai: {
+          kicker: "Node · Rooms",
+          title: "Vancouver AI",
+          body: "Monthly public room. Illustrative label for cluster density, not a full member map.",
+          quote: "",
+          cite: ""
+        },
+        practice: {
+          kicker: "Cluster · Practice",
+          title: "Practice",
+          body: "Programs, workshops, and education rooms where people leave with a working frame.",
+          quote: "Kris helped shift how my design students see their future.",
+          cite: "Jai Djwa · clearance still required"
+        },
+        edu: {
+          kicker: "Node · Practice",
+          title: "Education rooms",
+          body: "Design schools and literacy sessions. Attach cleared faculty quotes here later.",
+          quote: "",
+          cite: ""
+        },
+        media: {
+          kicker: "Cluster · Media",
+          title: "Media",
+          body: "Photo, film, press, and long-running connector reputation. Stronger on /testimonials/ than as booking proof.",
+          quote: "Seeing the event through Kris' eyes is like doing it all over again… only better.",
+          cite: "Rob Cottingham · clearance still required · not Butterfield"
+        },
+        photo: {
+          kicker: "Node · Media",
+          title: "Photography lineage",
+          body: "Legacy archive energy. Keep off the homepage primary cards unless KK wants the bridge story.",
+          quote: "",
+          cite: ""
+        },
+        future: {
+          kicker: "Cluster · Festival",
+          title: "Futureproof",
+          body: "Flagship public gathering node. Bridges stages and rooms. No invented speaker quotes here.",
+          quote: "",
+          cite: ""
+        }
+      };
+
+      var nodes = Array.prototype.slice.call(document.querySelectorAll(".node"));
+      var edges = Array.prototype.slice.call(document.querySelectorAll(".edge"));
+      var kicker = document.getElementById("detail-kicker");
+      var title = document.getElementById("detail-title");
+      var body = document.getElementById("detail-body");
+      var quoteText = document.getElementById("detail-quote-text");
+      var quoteCite = document.getElementById("detail-quote-cite");
+      var quoteBlock = document.getElementById("detail-quote");
+
+      function paint(id) {
+        var item = data[id] || data.hub;
+        var cluster = (document.querySelector('.node[data-id="' + id + '"]') || {}).getAttribute
+          ? document.querySelector('.node[data-id="' + id + '"]').getAttribute("data-cluster")
+          : "hub";
+
+        kicker.textContent = item.kicker;
+        title.textContent = item.title;
+        body.textContent = item.body;
+        if (item.quote) {
+          quoteBlock.hidden = false;
+          quoteText.textContent = item.quote;
+          quoteCite.textContent = item.cite || "";
+        } else {
+          quoteBlock.hidden = true;
+          quoteText.textContent = "";
+          quoteCite.textContent = "";
+        }
+
+        nodes.forEach(function (n) {
+          var active = n.getAttribute("data-id") === id;
+          var same = n.getAttribute("data-cluster") === cluster || id === "hub";
+          n.classList.toggle("is-active", active);
+          n.classList.toggle("is-dim", id !== "hub" && !same);
+          n.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+
+        edges.forEach(function (e) {
+          var clusters = (e.getAttribute("data-clusters") || "").split(/\s+/);
+          var hot = id === "hub" || clusters.indexOf(cluster) !== -1;
+          e.classList.toggle("is-hot", hot && id !== "hub");
+          e.classList.toggle("is-dim", id !== "hub" && !hot);
+        });
+      }
+
+      function activate(node) {
+        paint(node.getAttribute("data-id"));
+      }
+
+      nodes.forEach(function (node) {
+        node.addEventListener("click", function () { activate(node); });
+        node.addEventListener("keydown", function (ev) {
+          if (ev.key === "Enter" || ev.key === " ") {
+            ev.preventDefault();
+            activate(node);
+          }
+        });
+      });
+
+      paint("hub");
+    })();
+  </script>
+</body>
+</html>

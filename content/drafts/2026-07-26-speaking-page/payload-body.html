@@ -1,0 +1,282 @@
+<!-- wp:html -->
+<!-- content-architecture-2026:speaking -->
+<!-- #419 draft payload - Option A media-first stack. DO NOT apply without KK approval. -->
+<style>
+.kk-r9-pack {
+  --kk-speak-paper: #efe6d2;
+  --kk-speak-panel: #e6dcc2;
+  --kk-speak-ink: #171310;
+  --kk-speak-ink-soft: #3d342c;
+  --kk-speak-on-photo: #efe6d2;
+  --kk-speak-max: 860px;
+  --kk-speak-gap: 1rem;
+  --kk-speak-signal: #d94a1f;
+  color: var(--kk-speak-ink);
+  background: transparent;
+}
+.kk-r9-pack :where(p, li)::first-letter {
+  initial-letter: normal !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  float: none !important;
+  margin: 0 !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  background: transparent !important;
+}
+.kk-r9-pack .aurora-proof-section {
+  max-width: var(--kk-speak-max) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: clamp(2.5rem, 6vw, 4.5rem) !important;
+  background: transparent !important;
+}
+.kk-r9-pack .aurora-proof-grid {
+  display: grid !important;
+  gap: var(--kk-speak-gap) !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+.kk-r9-pack .aurora-proof-grid--cta,
+.kk-r9-pack .aurora-proof-grid--hero {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+.kk-r9-pack .aurora-proof-grid--stages {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+.kk-r9-pack .aurora-card {
+  background: var(--kk-speak-panel) !important;
+  border: 1px solid rgba(23, 19, 16, 0.14) !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  color: var(--kk-speak-ink) !important;
+}
+.kk-r9-pack .aurora-card :where(h2, h3) {
+  color: var(--kk-speak-ink) !important;
+}
+.kk-r9-pack .aurora-card :where(p) {
+  color: var(--kk-speak-ink-soft) !important;
+}
+.kk-r9-pack .aurora-media-card {
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  min-height: 20rem;
+  overflow: hidden;
+  border: 1px solid rgba(23, 19, 16, 0.14) !important;
+}
+.kk-r9-pack .kk-speak-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  border: 1px solid rgba(23, 19, 16, 0.14);
+  min-height: 22rem;
+  background: #171310;
+}
+.kk-r9-pack .kk-speak-hero img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 22rem;
+  max-height: 34rem;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.kk-r9-pack .kk-speak-hero-copy {
+  margin-top: 1rem;
+}
+.kk-r9-pack .kk-speak-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #171310;
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid rgba(23, 19, 16, 0.14);
+}
+.kk-r9-pack .kk-speak-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.kk-r9-pack .kk-speak-stage-still {
+  margin: 0;
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid rgba(23, 19, 16, 0.14);
+  background: #171310;
+}
+.kk-r9-pack .kk-speak-stage-still img {
+  display: block;
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+.kk-r9-pack .aurora-button,
+.kk-r9-pack a.aurora-button {
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--kk-speak-ink);
+  border-radius: 2px;
+  background: var(--kk-speak-ink);
+  color: var(--kk-speak-paper) !important;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+}
+.kk-r9-pack .aurora-button:hover,
+.kk-r9-pack a.aurora-button:hover {
+  background: var(--kk-speak-signal);
+  border-color: var(--kk-speak-signal);
+  color: var(--kk-speak-paper) !important;
+  text-decoration: none !important;
+}
+@media (max-width: 720px) {
+  .kk-r9-pack .aurora-proof-grid,
+  .kk-r9-pack .aurora-proof-grid--stages {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .kk-r9-pack .aurora-media-card {
+    min-height: 18rem;
+  }
+  .kk-r9-pack .kk-speak-hero img {
+    min-height: 16rem;
+    max-height: 22rem;
+  }
+}
+</style>
+<div class="kk-page kk-r9-pack">
+
+<section class="aurora-proof-section">
+  <p class="aurora-section-kicker">Speaking</p>
+  <h2 class="aurora-display-heading">AI keynotes that make the room braver.</h2>
+  <div class="aurora-proof-grid aurora-proof-grid--hero">
+    <figure class="kk-speak-hero">
+      <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-25-scaled.jpg?w=1400&amp;ssl=1" alt="Kris Krüg on stage delivering a Both Hands Full keynote at LaSalle College Vancouver" width="1400" height="933" loading="eager" decoding="async" fetchpriority="high">
+    </figure>
+  </div>
+  <div class="kk-speak-hero-copy">
+    <p class="aurora-page-lead">On stages, on camera, and in the rooms that hire speakers: proof first, then the booking conversation.</p>
+    <p><a class="aurora-button" href="/contact/">Start a booking conversation</a></p>
+  </div>
+</section>
+
+<section class="aurora-proof-section">
+  <p class="aurora-section-kicker">Watch the work</p>
+  <h2 class="aurora-display-heading">Recent talks you can play now.</h2>
+  <div class="aurora-proof-grid">
+    <article class="aurora-card">
+      <h3>Vancouver AI Meetup, March 2026</h3>
+      <p>Creator rights, stolen training data, and why artists should stay ambitious.</p>
+      <div class="kk-speak-embed">
+        <iframe src="https://www.youtube.com/embed/T5ANAthZewE" title="We Trained AI on Stolen Work and I Am More Creative Than Ever at Vancouver AI Meetup March 2026" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </article>
+    <article class="aurora-card">
+      <h3>ChannelNext keynote</h3>
+      <p>Chaos, creativity, and a usable future of humanity talk for operators who still care about culture.</p>
+      <div class="kk-speak-embed">
+        <iframe src="https://www.youtube.com/embed/1OcC-0X6Nb8" title="The Future of Humanity AI Keynote on Chaos and Creativity at ChannelNext" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="aurora-proof-section">
+  <p class="aurora-section-kicker">On stages</p>
+  <h2 class="aurora-display-heading">Rooms where the talk had to land.</h2>
+  <div class="aurora-proof-grid aurora-proof-grid--stages">
+    <figure class="kk-speak-stage-still">
+      <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-10-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krüg presenting an AI keynote at LaSalle College Vancouver" loading="lazy" decoding="async">
+    </figure>
+    <figure class="kk-speak-stage-still">
+      <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/09/AI_Meetup_August2024_MichelleDiamond-184-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krüg speaking at a Vancouver AI community event" loading="lazy" decoding="async">
+    </figure>
+    <figure class="kk-speak-stage-still">
+      <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/09/AI_Meetup_August2024_MichelleDiamond-195-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krüg hosting a Vancouver AI Community Meetup" loading="lazy" decoding="async">
+    </figure>
+  </div>
+</section>
+
+<section class="aurora-proof-section">
+  <p class="aurora-section-kicker">Formats</p>
+  <div class="aurora-proof-grid">
+    <article class="aurora-card">
+      <h3>Keynotes</h3>
+      <p>High-energy, story-rich talks for conferences, leadership rooms, creative teams, schools, and public-interest technology gatherings.</p>
+    </article>
+    <article class="aurora-card">
+      <h3>Workshops</h3>
+      <p>Hands-on labs where people build real workflows, test tools, and leave with language they can use.</p>
+    </article>
+    <article class="aurora-card">
+      <h3>Executive briefings</h3>
+      <p>Plainspoken AI sensemaking for leaders who need useful strategy without hype theatre.</p>
+    </article>
+    <article class="aurora-card">
+      <h3>Hosting and moderation</h3>
+      <p>Warm, sharp facilitation for panels, salons, podcasts, livestreams, and rooms with too many acronyms.</p>
+    </article>
+  </div>
+</section>
+
+<section class="aurora-proof-section">
+  <p class="aurora-section-kicker">Signature topics</p>
+  <div class="aurora-proof-grid">
+    <article class="aurora-media-card">
+      <a href="https://www.bothhandsfull.com/">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-10-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krüg on stage for Both Hands Full at LaSalle College Vancouver" loading="lazy">
+        <div>
+          <h3>Both Hands Full</h3>
+          <p>How to stay human, creative, and useful while AI makes everything faster.</p>
+        </div>
+      </a>
+    </article>
+    <article class="aurora-media-card">
+      <a href="https://www.punkrockai.com/">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-cmvan-keynote-header.png?w=1200&amp;ssl=1" alt="Punk Rock AI CreativeMornings Vancouver keynote artwork" loading="lazy">
+        <div>
+          <h3>Punk Rock AI</h3>
+          <p>A culture-first way to use powerful tools without becoming obedient to them.</p>
+        </div>
+      </a>
+    </article>
+    <article class="aurora-media-card">
+      <a href="http://developinganaimindset.com/">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/04/AI-Immortality-w-Guy-Kawasaki.png?fit=1200%2C604&amp;ssl=1" alt="Developing an AI Mindset keynote graphic with Guy Kawasaki" loading="lazy">
+        <div>
+          <h3>Developing an AI mindset</h3>
+          <p>From tool panic to practice: how people learn, adapt, and keep judgment in the loop.</p>
+        </div>
+      </a>
+    </article>
+    <article class="aurora-media-card">
+      <a href="/responsible-ai-professional/">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/09/AI_Meetup_August2024_MichelleDiamond-184-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krüg speaking about responsible AI practice at a Vancouver AI community event" loading="lazy">
+        <div>
+          <h3>Responsible AI</h3>
+          <p>Bias, privacy, provenance, labor, trust, authenticity, and what responsible deployment means in practice.</p>
+        </div>
+      </a>
+    </article>
+  </div>
+</section>
+
+<section class="aurora-proof-section">
+  <div class="aurora-proof-grid aurora-proof-grid--cta">
+    <article class="aurora-card">
+      <h2>Book Kris for a keynote</h2>
+      <p>Send the audience, date, location, format, and the question your room is trying to answer. I will help shape the talk to the people in front of us.</p>
+      <p><a class="aurora-button" href="/contact/">Start a booking conversation</a></p>
+    </article>
+  </div>
+</section>
+
+</div>
+<!-- /wp:html -->

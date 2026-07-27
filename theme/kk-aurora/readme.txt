@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.4.6 finishes the 1.4.0 cream port for the blog index: the writing card, its pagination and the featured-media panel were still painting pre-cream dark surfaces under cream-era ink.
+KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.4.9 redesigns the homepage newsletter band (#416): honest weekly-email CTA, recent-post thumbnails, zero dispatch/field-notes chrome.
 
 Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
@@ -39,6 +39,10 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 * Rainbow accents: teal / cyan / cobalt / violet / magenta
 
 == Changelog ==
+
+= 1.4.9 =
+* content/ux (#416): homepage newsletter band rewritten in Dark Crystal voice; one honest email CTA; three recent-post thumbnails via query loop.
+* content (#416): blog-index newsletter band drops dispatch/field-notes chrome; class renamed to `.aurora-writing-newsletter`.
 
 = 1.4.6 =
 * a11y (#485): `.aurora-writing-card` — the blog index card — still painted the pre-cream `#050708` under cream-era ink. Titles measured 1.00–1.06:1 and meta 1.00–1.03:1, i.e. the archive listing for every post on the site was effectively blank. The card is declared in six places; all six are reconciled to `--aurora-panel-solid`. Titles are now 12.95–13.53:1 and meta 5.48–5.73:1.

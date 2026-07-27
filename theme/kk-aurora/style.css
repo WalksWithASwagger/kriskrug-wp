@@ -1665,10 +1665,9 @@ a {
   color: var(--aurora-ink);
 }
 
-/* The blog index's own dispatch band; it overrides the shared
-   .aurora-dispatch-band background, so converting it here is enough for
-   templates/home.html. The shared band is still pre-cream — separate issue. */
-.aurora-writing-dispatch {
+/* Blog-index newsletter band on templates/home.html. Overrides the shared
+   homepage .aurora-newsletter-band centering with a compact card layout. */
+.aurora-writing-newsletter {
   align-items: center;
   background:
     linear-gradient(135deg, rgba(217, 74, 31, 0.08), rgba(217, 74, 31, 0.14)),
@@ -1685,19 +1684,19 @@ a {
   width: min(calc(100% - clamp(2rem, 6vw, 4rem)), var(--aurora-max));
 }
 
-.aurora-writing-dispatch .aurora-kicker {
+.aurora-writing-newsletter .aurora-kicker {
   grid-column: 1 / -1;
   margin: 0;
 }
 
-.aurora-writing-dispatch h2 {
+.aurora-writing-newsletter h2 {
   color: var(--aurora-ink);
   font-size: clamp(1.35rem, 2vw, 1.9rem);
   line-height: 1.04;
   margin: 0;
 }
 
-.aurora-writing-dispatch p:not(.aurora-kicker) {
+.aurora-writing-newsletter p:not(.aurora-kicker) {
   color: var(--aurora-ink-soft);
   font-size: 0.95rem;
   line-height: 1.48;
@@ -1705,7 +1704,7 @@ a {
   max-width: 58ch;
 }
 
-.aurora-writing-dispatch .aurora-action-row {
+.aurora-writing-newsletter .aurora-action-row {
   justify-content: end;
   margin: 0;
 }
@@ -3254,11 +3253,11 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
     font-size: clamp(1.45rem, 7vw, 2.15rem);
   }
 
-  .aurora-writing-dispatch {
+  .aurora-writing-newsletter {
     grid-template-columns: 1fr;
   }
 
-  .aurora-writing-dispatch .aurora-action-row {
+  .aurora-writing-newsletter .aurora-action-row {
     justify-content: start;
   }
 

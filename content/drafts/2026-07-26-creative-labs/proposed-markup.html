@@ -1,0 +1,130 @@
+<!--
+  #412 Creative Labs  -  PROPOSED MARKUP (draft only)
+  Wires: copy Option B + Layout 1 (text below image)
+  Replace the existing #work / .aurora-work-band block in front-page.html
+  AFTER KK pick + Media Library ingest. Do not merge against #505 newsletter hunk blindly.
+
+  Image srcs below are INTENT targets. Replace INTERIM notes with Media Library
+  attachment URLs before deploy. No em dashes in copy.
+-->
+
+<section class="aurora-work-band aurora-creative-labs" id="work" aria-labelledby="aurora-work-title" data-reveal>
+  <div class="aurora-section-head">
+    <div>
+      <p class="aurora-kicker">Creative Labs</p>
+      <h2 id="aurora-work-title">What I build in <span class="accent">public</span>.</h2>
+      <p class="aurora-section-lede">BC + AI, Futureproof, and the keynote circuit. Not a portfolio wall. Live projects you can join or book.</p>
+    </div>
+    <a href="/work/">Full work index →</a>
+  </div>
+
+  <div class="aurora-work-triptych aurora-labs-grid">
+    <a class="aurora-work-card aurora-lab-card" href="https://bc-ai.ca/">
+      <div class="aurora-work-card-media">
+        <!-- INTENT: Media Library ingest of vancouver-ai-meetup-30-kris-community.jpg -->
+        <img
+          src="/wp-content/themes/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community.jpg"
+          alt="Kris Krüg onstage at a Vancouver AI meetup as the room raises hands"
+          width="1600"
+          height="1066"
+          loading="lazy"
+          decoding="async"
+          style="object-position: center 35%"
+        >
+        <span class="aurora-work-card-num" aria-hidden="true">01</span>
+      </div>
+      <div class="aurora-work-card-body">
+        <h3>BC + AI</h3>
+        <p>Meetups, certification, and policy rooms across BC. Come for the people.</p>
+        <span class="aurora-lab-door">Join →</span>
+      </div>
+    </a>
+
+    <a class="aurora-work-card aurora-lab-card" href="https://www.futureproof.website/">
+      <div class="aurora-work-card-media">
+        <!-- INTENT: replace with Media Library Futureproof crowd/venue photo (#497).
+             INTERIM stand-in only for layout review: LaSalle stage frame already on ML. -->
+        <img
+          src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-25-scaled.jpg?w=900&amp;ssl=1"
+          alt="Interim stand-in: Kris Krug presenting on stage at LaSalle College Vancouver (replace with Futureproof festival photo)"
+          width="900"
+          height="1200"
+          loading="lazy"
+          decoding="async"
+          style="object-position: center 25%"
+        >
+        <span class="aurora-work-card-num" aria-hidden="true">02</span>
+      </div>
+      <div class="aurora-work-card-body">
+        <h3>Futureproof</h3>
+        <p>Annual festival in the Pacific Northwest. Frontier tools, creative practice, public trust.</p>
+        <span class="aurora-lab-door">Attend →</span>
+      </div>
+    </a>
+
+    <a class="aurora-work-card aurora-lab-card" href="/speaking/">
+      <div class="aurora-work-card-media">
+        <!-- INTENT: Media Library master of CreativeMornings / keynote portrait (no punkrockai hotlink). -->
+        <img
+          src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-staircase-2026-scaled.jpg?w=900&amp;ssl=1"
+          alt="Kris Krug beside the Vancouver Art Gallery staircase at CreativeMornings"
+          width="900"
+          height="1200"
+          loading="lazy"
+          decoding="async"
+          style="object-position: center 20%"
+        >
+        <span class="aurora-work-card-num" aria-hidden="true">03</span>
+      </div>
+      <div class="aurora-work-card-body">
+        <h3>Keynotes</h3>
+        <p>I speak on AI, creativity, and human agency. 140+ stages since 2004. Booking 2026.</p>
+        <span class="aurora-lab-door">Book →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!--
+  Companion CSS sketch (NOT applied in this draft lane; land with theme implement):
+
+  .aurora-creative-labs .aurora-section-lede {
+    max-width: 36rem;
+    margin: 0.75rem 0 0;
+  }
+  .aurora-creative-labs .aurora-work-card-media {
+    aspect-ratio: 4 / 5;
+    margin-bottom: 1rem;
+  }
+  .aurora-creative-labs .aurora-work-card-media::after {
+    display: none;
+  }
+  .aurora-creative-labs .aurora-work-card-body {
+    position: static;
+    color: inherit;
+  }
+  .aurora-creative-labs .aurora-work-card-body h3 {
+    color: var(--revive-ink);
+    margin: 0 0 0.35rem;
+  }
+  .aurora-creative-labs .aurora-work-card-body p {
+    color: rgba(23, 19, 16, 0.78);
+  }
+  .aurora-creative-labs .aurora-lab-door {
+    display: inline-block;
+    margin-top: 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--revive-accent);
+  }
+  .aurora-creative-labs .aurora-work-card-num {
+    color: rgba(217, 74, 31, 0.55);
+  }
+  @media (min-width: 900px) {
+    .aurora-creative-labs .aurora-work-card:nth-child(2) {
+      margin-top: 0;
+    }
+  }
+-->
