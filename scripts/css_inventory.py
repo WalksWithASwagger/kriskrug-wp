@@ -23,8 +23,9 @@ Counting rules that matter
 
 They differ by exactly one today: ``assets/css/revive-port.css`` carries a
 section comment reading *"Those rules used !important black panes behind type"*.
-A raw grep therefore reports 161 across the six sheets where only 160 are real
-declarations. **The ratchet gates on ``important_code``.** Verify the case with::
+A raw grep therefore reports 161 across the front-end + editor sheets where only
+160 are real declarations. **The ratchet gates on ``important_code``.** Verify
+the case with::
 
     python3 scripts/css_inventory.py --explain-important-comments
 
@@ -687,9 +688,9 @@ def report_markdown(data: dict) -> str:
     w("")
     inf = data["informational"]
     w(
-        f"`!important` raw / code-only — all six sheets: "
+        f"`!important` raw / code-only — all {len(ALL_FILES)} sheets: "
         f"**{inf['all_files_important_raw']} raw**, **{inf['all_files_important_code']} code-only**; "
-        f"front-end five: **{inf['front_end_important_raw']} raw**, "
+        f"front-end {len(FRONT_END_FILES)}: **{inf['front_end_important_raw']} raw**, "
         f"**{data['metrics']['front_end_important']} code-only**. "
         f"The delta is comment text, listed below.\n"
     )
@@ -701,7 +702,7 @@ def report_markdown(data: dict) -> str:
         w("")
 
     s = data["structure"]
-    w("### Selector duplication (front-end five, nesting-aware)\n")
+    w(f"### Selector duplication (front-end {len(FRONT_END_FILES)}, nesting-aware)\n")
     w("| Metric | Value |")
     w("|---|---:|")
     w(f"| Distinct selectors (comma-split) | {s['distinct_selectors']:,} |")

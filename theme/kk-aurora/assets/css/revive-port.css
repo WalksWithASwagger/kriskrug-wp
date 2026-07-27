@@ -1,3 +1,4 @@
+@layer components {
 /**
  * Revive → Aurora visual port (1.4.1)
  * Cream / ink / burnt-orange brand layer over kk-aurora.
@@ -1264,4 +1265,6 @@ body.aurora-theme .aurora-primary-nav a {
     border: 0 !important;
     border-radius: 0 !important;
   }
+}
+
 }

@@ -1,0 +1,38 @@
+/**
+ * KK Aurora — 02 tokens (Aurora 1.5.0, issue #474)
+ *
+ * The ONLY place semantic --kk-* aliases are defined. Every value resolves to a
+ * theme.json preset/custom property (--wp--preset--* / --wp--custom--*); no
+ * literal colors, sizes, or durations live here — theme.json stays the single
+ * source of truth (plan §2.1, §2.3).
+ *
+ * These aliases are DEFINED here in step 2 but not yet CONSUMED by the existing
+ * sheets, so introducing this file is behavior-neutral. Components adopt the
+ * aliases in the later migration steps (#475–#481).
+ */
+@layer tokens {
+  :root {
+    /* Surfaces */
+    --kk-surface: var(--wp--preset--color--paper);
+    --kk-surface-sunk: var(--wp--preset--color--surface);
+    --kk-surface-raised: var(--wp--preset--color--elevated);
+
+    /* Ink / text */
+    --kk-ink: var(--wp--preset--color--text-primary);
+    --kk-ink-secondary: var(--wp--preset--color--text-secondary);
+    --kk-ink-muted: var(--wp--preset--color--text-muted);
+
+    /* Accent */
+    --kk-accent: var(--wp--preset--color--signal);
+    --kk-accent-ink: var(--wp--preset--color--signal-text);
+
+    /* Structure */
+    --kk-line: var(--wp--preset--color--muted);
+    --kk-measure: 66ch;
+
+    /* Breakpoint scale — declared once, consumed by later steps (plan §2.3) */
+    --kk-bp-sm: 480px;
+    --kk-bp-md: 768px;
+    --kk-bp-lg: 1200px;
+  }
+}

@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.4.9');
+define('KK_AURORA_VERSION', '1.5.0');
 
 require_once get_template_directory() . '/inc/seo-title.php';
 
@@ -77,6 +77,11 @@ add_action('after_setup_theme', __NAMESPACE__ . '\\theme_setup');
  * Enqueue frontend styles and scripts
  */
 function enqueue_assets(): void {
+    // style.css carries the @layer order declaration (reset, tokens, base,
+    // primitives, components, patterns, utilities, overrides) and wraps its own
+    // rules in @layer components. It must load before every other sheet so the
+    // layer order is established first (#474). Every handle below declares an
+    // explicit dependency on it rather than relying on registration order.
     wp_enqueue_style(
         'kk-aurora-style',
         get_stylesheet_uri(),
@@ -84,11 +89,19 @@ function enqueue_assets(): void {
         KK_AURORA_VERSION
     );
 
+    // Semantic --kk-* token aliases over theme.json presets (@layer tokens).
+    wp_enqueue_style(
+        'kk-aurora-tokens',
+        get_theme_file_uri('assets/css/02-tokens.css'),
+        ['kk-aurora-style'],
+        KK_AURORA_VERSION
+    );
+
     // Refined typography
     wp_enqueue_style(
         'kk-aurora-typography',
         get_theme_file_uri('assets/css/typography-refined.css'),
-        [],
+        ['kk-aurora-style'],
         KK_AURORA_VERSION
     );
 
@@ -96,7 +109,7 @@ function enqueue_assets(): void {
     wp_enqueue_style(
         'kk-aurora-animations',
         get_theme_file_uri('assets/css/animations.css'),
-        [],
+        ['kk-aurora-style'],
         KK_AURORA_VERSION
     );
 
@@ -104,15 +117,27 @@ function enqueue_assets(): void {
     wp_enqueue_style(
         'kk-aurora-bleeding-edge',
         get_theme_file_uri('assets/css/bleeding-edge.css'),
-        [],
+        ['kk-aurora-style'],
         KK_AURORA_VERSION
     );
 
-    // Revive cream/ink brand layer (loads last among theme styles)
+    // Revive cream/ink brand layer (loads last among the layered theme sheets)
     wp_enqueue_style(
         'kk-aurora-revive-port',
         get_theme_file_uri('assets/css/revive-port.css'),
-        ['kk-aurora-style', 'kk-aurora-typography', 'kk-aurora-animations', 'kk-aurora-bleeding-edge'],
+        ['kk-aurora-style', 'kk-aurora-tokens', 'kk-aurora-typography', 'kk-aurora-animations', 'kk-aurora-bleeding-edge'],
+        KK_AURORA_VERSION
+    );
+
+    // Late, UNLAYERED overrides (plan §2.4). Depends on WP's `global-styles` so
+    // it prints after `global-styles-inline-css`; unlayered + last means a rule
+    // here beats both the layered theme CSS and theme.json's generated styles
+    // without `!important`. Empty at scaffold time — rules are added only in
+    // response to the pixel-diff gate (#473).
+    wp_enqueue_style(
+        'kk-aurora-late',
+        get_theme_file_uri('assets/css/09-late.css'),
+        ['kk-aurora-revive-port', 'global-styles'],
         KK_AURORA_VERSION
     );
 
