@@ -1,8 +1,10 @@
 # Wind-down — swarm session 2026-07-26
 
+> **STATUS: Historical (merge cleanup done).** Operational truth moved to [`WIND-DOWN-MERGE-CLEANUP-20260726.md`](WIND-DOWN-MERGE-CLEANUP-20260726.md) (2026-07-27). Safe swarm PRs merged; only #493/#505 remain open.
+
 **Orchestrator:** https://cursor.com/agents/bc-019f9ff5-03d9-7811-b160-b82e45b0f196  
 **UTC close:** 2026-07-26T23:58Z  
-**Status:** Work shipped as draft/ready PRs. **Cloud cannot merge** (GitHub App token cannot approve; `GH_TOKEN` / `AGENT_MERGE_TOKEN` unset). Next human or agent with write PAT / browser login owns the merge cleanup.
+**Status (at write):** Work shipped as draft/ready PRs. **Cloud cannot merge** (GitHub App token cannot approve; `GH_TOKEN` / `AGENT_MERGE_TOKEN` unset). Next human or agent with write PAT / browser login owns the merge cleanup.
 
 ## Start here (next agent)
 
