@@ -191,17 +191,37 @@
   </div>
   <!-- /wp:group -->
 
-  <!-- wp:html -->
-  <section class="aurora-newsletter-band" id="newsletter" aria-labelledby="aurora-newsletter-title" data-reveal>
-    <p class="aurora-kicker">Newsletter</p>
-    <h2 id="aurora-newsletter-title">AI and creativity, once a week, no hype.</h2>
-    <p>The stuff I’d tell you over coffee. Named people, real work, no vaporware. Free.</p>
-    <div class="aurora-action-row">
-      <a class="aurora-button aurora-button-primary" href="https://kriskrug.beehiiv.com/">Subscribe free</a>
-      <a class="aurora-button aurora-button-secondary" href="/blog/">Read the writing</a>
+  <!-- wp:group {"tagName":"section","anchor":"newsletter","className":"aurora-newsletter-band","layout":{"type":"constrained","contentSize":"1200px"},"ariaLabel":"Weekly email"} -->
+  <section id="newsletter" class="wp-block-group aurora-newsletter-band">
+    <!-- wp:html -->
+    <div class="aurora-newsletter-copy" data-reveal>
+      <p class="aurora-kicker">Weekly email</p>
+      <h2 id="aurora-newsletter-title">Give me your email. I’ll earn every open.</h2>
+      <p>Once a week on AI, creativity, and the rooms where this work actually happens. Named people. Real receipts. No hype deck. Free.</p>
+      <div class="aurora-action-row">
+        <a class="aurora-button aurora-button-primary" href="https://kriskrug.beehiiv.com/">Get the weekly email</a>
+      </div>
     </div>
+    <!-- /wp:html -->
+
+    <!-- wp:heading {"level":3,"className":"aurora-newsletter-thumbs-label"} -->
+    <h3 class="wp-block-heading aurora-newsletter-thumbs-label">Recent writing</h3>
+    <!-- /wp:heading -->
+
+    <!-- wp:query {"queryId":16,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"className":"aurora-newsletter-thumbs-query"} -->
+    <div class="wp-block-query aurora-newsletter-thumbs-query">
+      <!-- wp:post-template {"className":"aurora-newsletter-thumb-list","layout":{"type":"grid","columnCount":3}} -->
+        <!-- wp:group {"tagName":"article","className":"aurora-newsletter-thumb","layout":{"type":"default"}} -->
+        <article class="wp-block-group aurora-newsletter-thumb">
+          <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"3/2","className":"aurora-newsletter-thumb-media"} /-->
+          <!-- wp:post-title {"level":4,"isLink":true,"className":"aurora-newsletter-thumb-title"} /-->
+        </article>
+        <!-- /wp:group -->
+      <!-- /wp:post-template -->
+    </div>
+    <!-- /wp:query -->
   </section>
-  <!-- /wp:html -->
+  <!-- /wp:group -->
 
 </main>
 <!-- /wp:group -->
