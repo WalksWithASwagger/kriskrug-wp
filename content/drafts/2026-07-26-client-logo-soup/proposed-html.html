@@ -1,0 +1,117 @@
+<!-- #413 draft markup - Option A copy. Placeholders for media URLs.
+     Insert as its own <!-- wp:html --> block between #stages and #archive.
+     Do not modify aurora-newsletter-band (#505). -->
+
+<section class="aurora-logo-soup" id="clients" aria-labelledby="aurora-logo-soup-title" data-reveal>
+  <div class="aurora-logo-soup-inner">
+    <div class="aurora-section-head aurora-section-heading-compact">
+      <div>
+        <p class="aurora-kicker">Clients</p>
+        <h2 id="aurora-logo-soup-title">The logos are the receipts.</h2>
+        <p class="aurora-logo-soup-lede">Teams and rooms that hired the work. Hover a mark for the one-line note.</p>
+      </div>
+    </div>
+
+    <ul class="aurora-logo-soup__grid" role="list">
+      <!-- Repeat ≥8 items after KK list + media upload.
+           Replace data-note, aria-label, src, width, height, alt. -->
+      <li>
+        <button type="button"
+          class="aurora-logo-soup__item"
+          aria-label="Client name placeholder"
+          data-note="One-line engagement note placeholder.">
+          <img src="" alt="Client name placeholder" width="320" height="120" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li>
+        <button type="button"
+          class="aurora-logo-soup__item"
+          aria-label="Client name placeholder"
+          data-note="One-line engagement note placeholder.">
+          <img src="" alt="Client name placeholder" width="320" height="120" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li>
+        <button type="button"
+          class="aurora-logo-soup__item"
+          aria-label="Client name placeholder"
+          data-note="One-line engagement note placeholder.">
+          <img src="" alt="Client name placeholder" width="320" height="120" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li>
+        <button type="button"
+          class="aurora-logo-soup__item"
+          aria-label="Client name placeholder"
+          data-note="One-line engagement note placeholder.">
+          <img src="" alt="Client name placeholder" width="320" height="120" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li>
+        <button type="button"
+          class="aurora-logo-soup__item"
+          aria-label="Client name placeholder"
+          data-note="One-line engagement note placeholder.">
+          <img src="" alt="Client name placeholder" width="320" height="120" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li>
+        <button type="button"
+          class="aurora-logo-soup__item"
+          aria-label="Client name placeholder"
+          data-note="One-line engagement note placeholder.">
+          <img src="" alt="Client name placeholder" width="320" height="120" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li>
+        <button type="button"
+          class="aurora-logo-soup__item"
+          aria-label="Client name placeholder"
+          data-note="One-line engagement note placeholder.">
+          <img src="" alt="Client name placeholder" width="320" height="120" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li>
+        <button type="button"
+          class="aurora-logo-soup__item"
+          aria-label="Client name placeholder"
+          data-note="One-line engagement note placeholder.">
+          <img src="" alt="Client name placeholder" width="320" height="120" loading="lazy" decoding="async">
+        </button>
+      </li>
+    </ul>
+
+    <p class="aurora-logo-soup__readout" id="aurora-logo-soup-readout" aria-live="polite">
+      Hover or focus a logo.
+    </p>
+  </div>
+</section>
+
+<!-- Tiny progressive enhancer (optional). Prefer theme JS enqueue in Track B apply.
+     Inline sketch kept here so behavior is reviewable without shipping theme JS yet. -->
+<script>
+(function () {
+  var root = document.getElementById('clients');
+  if (!root) return;
+  var readout = document.getElementById('aurora-logo-soup-readout');
+  var items = root.querySelectorAll('.aurora-logo-soup__item');
+  var empty = 'Hover or focus a logo.';
+  function setActive(btn) {
+    items.forEach(function (el) { el.classList.toggle('is-active', el === btn); });
+    if (!readout) return;
+    readout.textContent = btn
+      ? (btn.getAttribute('aria-label') + ': ' + (btn.getAttribute('data-note') || ''))
+      : empty;
+  }
+  items.forEach(function (btn) {
+    btn.addEventListener('mouseenter', function () { setActive(btn); });
+    btn.addEventListener('focus', function () { setActive(btn); });
+    btn.addEventListener('click', function () {
+      setActive(btn.classList.contains('is-active') && matchMedia('(hover: none)').matches ? null : btn);
+    });
+  });
+  root.addEventListener('mouseleave', function () {
+    if (!root.querySelector('.aurora-logo-soup__item:focus')) setActive(null);
+  });
+})();
+</script>
