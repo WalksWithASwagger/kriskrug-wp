@@ -6,14 +6,16 @@
 
 This file is the declared snapshot for `make current-state-drift-check` / `make morning-truth` / `make status-readonly` (via `WORK_PLAN`).
 
+**Theme-version correction (2026-07-27, #544):** The Verified State theme numbers below have been corrected to current live truth (live `1.5.0` / repo `main` `1.4.9`, with 1.5.0 on open PR #493; reconcile #545). Lines further down in this file that still cite the 2026-07-16 line (live `1.3.37` / repo `1.3.40`) in the gate table and changelog are **historical to this snapshot**, not current live state.
+
 ## Verified State
 
 - `origin/main` includes merges through deps cleanup (#429/#392/#393/#395/#399–#401/#432) and content packet #431.
 - Open PRs: `0`.
 - Open issues: `77`.
 - Production still publicly reports WordPress `7.0.2`.
-- Live Aurora theme (`style.css` Version header): `1.3.37`.
-- Repo Aurora theme (`theme/kk-aurora/`): `1.3.40`.
+- Live Aurora theme (`style.css` Version header): `1.5.0` (readback 2026-07-27: `curl -s https://kriskrug.co/wp-content/themes/kk-aurora/style.css | grep -i version` → `Version: 1.5.0`).
+- Repo Aurora theme (`theme/kk-aurora/` on `main`): `1.4.9`. Live is currently **ahead** of `main`: the live `1.5.0` exists in the repo only on open, unmerged PR #493 (`theme/474-cascade-layers-scaffold`). Reconcile tracked in #545.
 - WordPress draft queue: `5` scheduled posts, `64` draft posts, `4` draft pages.
   - Counts above are the last **authenticated** shape retained from earlier morning-truth runs. Unauthenticated cloud reads still report missing `.env` / false zeros until `WP_USER` + `WP_APP_PASSWORD` are present — that zero is a **false zero**, not an empty queue.
 - WP public smoke: route checks pass; version gate fails only when tools still expect `6.9.4`.
