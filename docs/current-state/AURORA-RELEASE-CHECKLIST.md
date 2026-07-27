@@ -7,6 +7,7 @@ Use this checklist for every manual `kk-aurora` production deploy on Pagely (wp-
 - [ ] Bump `Version:` in `theme/kk-aurora/style.css`
 - [ ] Bump `KK_AURORA_VERSION` in `theme/kk-aurora/functions.php` to match
 - [ ] Add changelog entry in `theme/kk-aurora/readme.txt` with PR/commit references
+- [ ] Add a version line to `theme/kk-aurora/CHANGELOG.md` and set its deploy-status marker (this is the deploy ledger)
 - [ ] Run `make verify` (or at minimum `make test` + `make validate`)
 - [ ] Visual spot-check on Local WP (`http://localhost:10003`) if available
 
