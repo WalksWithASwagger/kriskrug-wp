@@ -76,6 +76,8 @@ Run `make morning-truth` at session start (or before execution) to emit a timest
 
 If the task explicitly forbids file changes, run `make status-readonly` instead. It prints the same startup truth shape to stdout and does not write a report file.
 
+**Keeping the cadence alive:** `make morning-truth` writes the `.md` but does *not* auto-commit it — the report only becomes the shared source of truth once someone commits it. The report others read stays current only if the session that runs `morning-truth` also commits the fresh `docs/current-state/reports/morning-truth-*.md` (these `.md` summaries are tracked; only `reports/` PNG/HTML/CSV captures are gitignored). If the newest committed report is more than a few days stale, that means recent sessions ran `status-readonly` (stdout-only) or skipped the commit — not that the target is broken. Regenerate and commit one.
+
 ## Cursor Cloud specific instructions
 
 This repo is CLI tooling + a WordPress theme/plugins line — there is **no local web app or server to boot**. "Running" it means executing the Python CLIs (`scripts/notion-to-wp/`, `scripts/*.py`) and the PHP lint/smoke checks. Standard commands (`make test`, `make validate`, `make verify`, connector usage) are already documented in `CONTRIBUTING.md`, `Makefile`, and `scripts/notion-to-wp/README.md`; use those.
