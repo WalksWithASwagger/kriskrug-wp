@@ -53,6 +53,8 @@ Follow [`reports/repo-bloat-318-next-steps-20260726.md`](reports/repo-bloat-318-
 - Dependabot #556 on its own merit
 - Delete stale remotes: `codex/415-homepage-trust-identity`, `codex/approved-community-photo-20260720`, `codex/publications-editorial-archive`, `cursor/494-pixel-gate` (unless KK flags one to keep)
 
+**2026-07-30 execution:** stale remotes deleted (including `cursor/494-pixel-gate-f196`). Issue edit/label API blocked for Cloud App token — paste-ready commands in [`reports/phase-3-hygiene-20260730.md`](reports/phase-3-hygiene-20260730.md).
+
 ### Phase 4 — Product lanes
 
 Do **not** interleave theme visual deltas with content publishes.

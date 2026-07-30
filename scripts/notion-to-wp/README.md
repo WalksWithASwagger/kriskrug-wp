@@ -51,6 +51,8 @@ pip install -r requirements.txt
 
 ## Usage
 
+**Preferred for reviewed local packets:** `create_local_wp_draft.py` (see [Local draft package publisher](#local-draft-package-publisher)). Prefer that over minting new `publish_*.py` one-offs. Use `kk_notion_to_wp.py` when you still need a Notion fetch → local draft conversion.
+
 ```bash
 # Dry-run: writes content/drafts/<slug>/, prints REST payload, does NOT post
 python kk_notion_to_wp.py --dry-run https://www.notion.so/<page-id>
