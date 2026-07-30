@@ -34,6 +34,10 @@ gh issue edit 369 --add-label tech-debt --add-label priority:medium
 gh issue comment 369 --body 'A+D reclaim PR: https://github.com/WalksWithASwagger/kriskrug-wp/pull/558 (MASTER-PLAN Phase 2).'
 ```
 
+## Also open (not touched)
+
+- Dependabot [#556](https://github.com/WalksWithASwagger/kriskrug-wp/pull/556) (WPCS 3.4.1) — merge or close on its own merit; out of master-plan critical path.
+
 ## Related PRs
 
 - Docs truth + archive: https://github.com/WalksWithASwagger/kriskrug-wp/pull/557
