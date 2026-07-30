@@ -21,7 +21,7 @@ When you cut a new release, add a line here and follow
 ---
 
 ## 1.5.0
-**Deployed:** LIVE (PR #493 merged 2026-07-27; live==repo 1.5.0; #545 closed)
+**Deployed:** LIVE (deployed pre-merge; source is open PR #493, still unmerged, see #545)
 Cascade `@layer` scaffold plus `--kk-*` tokens (#474).
 
 ## 1.4.9

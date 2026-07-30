@@ -16,6 +16,7 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Day r
 - Production still publicly reports WordPress `7.0.2`.
 - Live Aurora theme (`style.css` Version header): `1.5.0` (readback 2026-07-30: `curl -s https://kriskrug.co/wp-content/themes/kk-aurora/style.css | grep -i version` → `Version: 1.5.0`).
 - Repo Aurora theme (`theme/kk-aurora/` on `main`): `1.5.0`. Live and repo are **in sync**.
+- Theme deploy ledger: `theme/kk-aurora/CHANGELOG.md` 1.5.0 entry may still say PR #493 “still unmerged” until a tiny theme-path follow-up; live==repo **1.5.0** is authoritative (this snapshot + public `style.css` readback).
 - WordPress draft queue: `0` scheduled posts, `65` draft posts, `4` draft pages.
   - Counts above are the last **authenticated** shape retained from morning-truth 2026-07-27. Unauthenticated cloud reads report `unavailable` / false zeros until `WP_USER` + `WP_APP_PASSWORD` are present — that zero is a **false zero**, not an empty queue.
 - WP public smoke: `0` failures / `0` warnings (`make status-readonly` 2026-07-30).
