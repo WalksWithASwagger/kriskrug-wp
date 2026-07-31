@@ -55,7 +55,7 @@ him.
 
 The exact approval needed for the next production step is:
 
-> Approve the six-file Publications media set and publish PR #454 to WordPress page 1895.
+> Approve the seven-file Publications media set (now including the 2026-07-31 BIV ecosystem piece as lead) and publish PR #454 to WordPress page 1895.
 
 Layout approval alone does not authorize media upload or public publication.
 
@@ -72,7 +72,7 @@ Layout approval alone does not authorize media upload or public publication.
 9. Update only page `1895`.
 10. Read back the raw WordPress content and metadata.
 11. Fetch the public page with a fresh cache-bypass query.
-12. Verify the new markers, all six images, 47 coverage links, desktop layout,
+12. Verify the new markers, all seven images, 47+ coverage links, desktop layout,
     390-pixel mobile layout, and zero horizontal overflow.
 13. Record the after-state and the exact restore command.
 
