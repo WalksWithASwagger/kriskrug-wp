@@ -9,12 +9,13 @@ Read these first:
 1. **[CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md)** — declared snapshot for `make morning-truth` / drift (Makefile default)
 2. **[WORK-PLAN-2026-07-30.md](WORK-PLAN-2026-07-30.md)** — active day/week runbook
 3. **[MASTER-PLAN-2026-07-30.md](MASTER-PLAN-2026-07-30.md)** — truth → reclaim → product lanes
-4. Newest **[reports/morning-truth-*.md](reports/)** — or run `make status-readonly` / `make morning-truth`
-5. **[TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)** — Track A vs Track B
-6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)** — slug/idempotency safety rules
-7. **[../../.env.schema](../../.env.schema)** + **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)** — env contract (never read plaintext `.env`)
+4. **[AGENTIC-CRUSH-PLAN-2026-07-31.md](AGENTIC-CRUSH-PLAN-2026-07-31.md)** — full audit + agentic execution waves (2026-07-31); Wave 0 (#557/#558) landed
+5. Newest **[reports/morning-truth-*.md](reports/)** — or run `make status-readonly` / `make morning-truth`
+6. **[TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)** — Track A vs Track B
+7. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)** — slug/idempotency safety rules
+8. **[../../.env.schema](../../.env.schema)** + **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)** — env contract (never read plaintext `.env`)
 
-**Live readback 2026-07-30:** WordPress `7.0.2`, Aurora **`1.5.0`** (live == repo `main`).
+**Live readback 2026-07-31:** WordPress `7.0.2`, Aurora **`1.5.0`** (live == repo `main`).
 
 ## Durable process docs (keep at top level)
 
