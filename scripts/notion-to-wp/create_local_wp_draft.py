@@ -68,22 +68,43 @@ class DraftPackage:
         return str(self.frontmatter.get("excerpt", "")).strip()
 
 
-def load_wp_config() -> WPConfig:
+def _env_get(key: str, default: str | None = None) -> str | None:
     local = dotenv_values(LOCAL_ENV_PATH) if LOCAL_ENV_PATH.exists() else {}
     fallback = dotenv_values(KKAI_ENV_PATH) if KKAI_ENV_PATH.exists() else {}
+    return os.environ.get(key) or local.get(key) or fallback.get(key) or default
 
-    def get(key: str, default: str | None = None) -> str | None:
-        return os.environ.get(key) or local.get(key) or fallback.get(key) or default
 
-    user = get("WP_USER")
-    app_password = (get("WP_APP_PASSWORD") or "").replace(" ", "")
-    if not user or not app_password:
-        raise RuntimeError(f"WP credentials not found in {LOCAL_ENV_PATH} or environment")
+def dry_run_wp_config() -> WPConfig:
+    """Payload-shape config for dry-run — no WP credentials required."""
     return WPConfig(
-        base_url=get("WP_BASE_URL", WP_BASE_URL_DEFAULT) or WP_BASE_URL_DEFAULT,
+        base_url=_env_get("WP_BASE_URL", WP_BASE_URL_DEFAULT) or WP_BASE_URL_DEFAULT,
+        user="",
+        app_password="",
+        author_id=int(
+            _env_get("WP_DEFAULT_AUTHOR_ID", str(WP_DEFAULT_AUTHOR_ID))
+            or WP_DEFAULT_AUTHOR_ID
+        ),
+    )
+
+
+def load_wp_config() -> WPConfig:
+    user = _env_get("WP_USER") or _env_get("WP_API_USERNAME")
+    app_password = (
+        _env_get("WP_APP_PASSWORD") or _env_get("WP_API_PASSWORD") or ""
+    ).replace(" ", "")
+    if not user or not app_password:
+        raise RuntimeError(
+            f"WP credentials not found in {LOCAL_ENV_PATH} or environment "
+            "(need WP_USER/WP_APP_PASSWORD or WP_API_USERNAME/WP_API_PASSWORD)"
+        )
+    return WPConfig(
+        base_url=_env_get("WP_BASE_URL", WP_BASE_URL_DEFAULT) or WP_BASE_URL_DEFAULT,
         user=user,
         app_password=app_password,
-        author_id=int(get("WP_DEFAULT_AUTHOR_ID", str(WP_DEFAULT_AUTHOR_ID)) or WP_DEFAULT_AUTHOR_ID),
+        author_id=int(
+            _env_get("WP_DEFAULT_AUTHOR_ID", str(WP_DEFAULT_AUTHOR_ID))
+            or WP_DEFAULT_AUTHOR_ID
+        ),
     )
 
 
@@ -165,10 +186,14 @@ def assert_slug_available(wp: WordPress, slug: str) -> None:
         for hit in hits:
             collisions.append(f"{kind[:-1]} {hit.get('id')} ({hit.get('status')})")
     if collisions:
-        raise RuntimeError(f"slug {slug!r} is already owned by: {', '.join(collisions)}")
+        raise RuntimeError(
+            f"slug {slug!r} is already owned by: {', '.join(collisions)}"
+        )
 
 
-def resolve_local_src(src: str, draft_dir: Path, repo_root: Path = REPO_ROOT) -> Path | None:
+def resolve_local_src(
+    src: str, draft_dir: Path, repo_root: Path = REPO_ROOT
+) -> Path | None:
     parsed = urlparse(src)
     if parsed.scheme in {"http", "https", "data"}:
         return None
@@ -196,7 +221,11 @@ def _set_img_class(attrs: str, media_id: int) -> str:
         classes = class_match.group(1).split()
         if class_name not in classes:
             classes.append(class_name)
-        return attrs[:class_match.start(1)] + " ".join(classes) + attrs[class_match.end(1):]
+        return (
+            attrs[: class_match.start(1)]
+            + " ".join(classes)
+            + attrs[class_match.end(1) :]
+        )
     stripped = attrs.rstrip()
     closing = "/>" if stripped.endswith("/>") else ">"
     body = stripped[:-2] if closing == "/>" else stripped[:-1]
@@ -213,13 +242,15 @@ def rewrite_uploaded_images(
 
     def replace(match: re.Match[str]) -> str:
         prefix, src, suffix, tail = match.groups()
-        local_path = resolve_local_src(html.unescape(src), draft_dir, repo_root=repo_root)
+        local_path = resolve_local_src(
+            html.unescape(src), draft_dir, repo_root=repo_root
+        )
         if not local_path or local_path not in by_path:
             return match.group(0)
         meta = by_path[local_path]
         media_id = int(meta["id"])
         rewritten_tail = _set_img_class(tail, media_id)
-        return f'{prefix}{html.escape(str(meta["source_url"]), quote=True)}{suffix}{rewritten_tail}'
+        return f"{prefix}{html.escape(str(meta['source_url']), quote=True)}{suffix}{rewritten_tail}"
 
     return re.sub(r'(<img\b[^>]*\bsrc=")([^"]+)(")([^>]*>)', replace, html_body)
 
@@ -227,7 +258,9 @@ def rewrite_uploaded_images(
 def ensure_term(wp: WordPress, taxonomy: str, name: str) -> int:
     slug = slugify(name)
     for params in ({"slug": slug, "per_page": 100}, {"search": name, "per_page": 100}):
-        response = wp.s.get(f"{wp.base}/wp-json/wp/v2/{taxonomy}", params=params, timeout=30)
+        response = wp.s.get(
+            f"{wp.base}/wp-json/wp/v2/{taxonomy}", params=params, timeout=30
+        )
         response.raise_for_status()
         for term in response.json():
             if term.get("slug") == slug or term.get("name", "").lower() == name.lower():
@@ -270,9 +303,19 @@ def logged_media(pkg: DraftPackage) -> dict[str, dict]:
     return media
 
 
-def build_payload(pkg: DraftPackage, cfg: WPConfig, content: str, uploaded: dict[Path, dict]) -> dict:
-    categories = [str(value).strip() for value in (pkg.frontmatter.get("categories") or []) if str(value).strip()]
-    tags = [str(value).strip() for value in (pkg.frontmatter.get("tags") or []) if str(value).strip()]
+def build_payload(
+    pkg: DraftPackage, cfg: WPConfig, content: str, uploaded: dict[Path, dict]
+) -> dict:
+    categories = [
+        str(value).strip()
+        for value in (pkg.frontmatter.get("categories") or [])
+        if str(value).strip()
+    ]
+    tags = [
+        str(value).strip()
+        for value in (pkg.frontmatter.get("tags") or [])
+        if str(value).strip()
+    ]
     post_date = str(pkg.frontmatter.get("post_date", "")).strip()
     payload: dict = {
         "title": pkg.title,
@@ -311,7 +354,10 @@ def upload_images(wp: WordPress, pkg: DraftPackage) -> dict[Path, dict]:
         log_line(pkg, f"uploading media {path.name}")
         media = wp.upload_media(path, alt=alt, mime=mime)
         uploaded[path.resolve()] = media
-        log_line(pkg, f"media {path.name} -> id={media.get('id')} url={media.get('source_url')}")
+        log_line(
+            pkg,
+            f"media {path.name} -> id={media.get('id')} url={media.get('source_url')}",
+        )
     return uploaded
 
 
@@ -320,10 +366,9 @@ def create_local_draft(post_md: Path, dry_run: bool = True) -> dict:
     issues = quality_issues(pkg)
     if issues:
         raise RuntimeError("quality gate failed: " + "; ".join(issues))
-    cfg = load_wp_config()
-    wp = WordPress(cfg.base_url, cfg.user, cfg.app_password)
-    assert_slug_available(wp, pkg.slug)
     if dry_run:
+        # Offline validation only — no credentials, no authenticated slug probe.
+        cfg = dry_run_wp_config()
         payload = build_payload(pkg, cfg, pkg.body_html, {})
         return {
             "dry_run": True,
@@ -332,7 +377,12 @@ def create_local_draft(post_md: Path, dry_run: bool = True) -> dict:
             "categories": payload.pop("_local_categories", []),
             "tags": payload.pop("_local_tags", []),
             "images": [str(path) for path, _alt in image_entries(pkg)],
+            "slug_check": "skipped_offline",
         }
+
+    cfg = load_wp_config()
+    wp = WordPress(cfg.base_url, cfg.user, cfg.app_password)
+    assert_slug_available(wp, pkg.slug)
 
     uploaded = upload_images(wp, pkg)
     content = rewrite_uploaded_images(pkg.body_html, pkg.draft_dir, uploaded)
@@ -360,7 +410,10 @@ def create_local_draft(post_md: Path, dry_run: bool = True) -> dict:
         f"id={readback.get('id')} status={readback.get('status')} slug={readback.get('slug')} "
         f"link={readback.get('link')}",
     )
-    log_line(pkg, f"edit URL: {cfg.base_url}/wp-admin/post.php?post={readback.get('id')}&action=edit")
+    log_line(
+        pkg,
+        f"edit URL: {cfg.base_url}/wp-admin/post.php?post={readback.get('id')}&action=edit",
+    )
     return {
         "id": readback.get("id"),
         "status": readback.get("status"),
