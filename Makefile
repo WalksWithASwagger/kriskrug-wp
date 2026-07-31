@@ -5,7 +5,7 @@
 
 PYTHON ?= python3
 VARLOCK ?= varlock
-WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-07-16.md
+WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-07-30.md
 EXPECT_VERSION_DEFAULT := 7.0.2
 JAVASCRIPT_FILES := \
 	plugins/kk-marquee-board/assets/marquee.js \

@@ -40,7 +40,7 @@ So we split them.
 - Categorization sweeps + link-graph building
 - Schema maintenance via [`fixes/schema-snippets-deployed.php`](../../fixes/schema-snippets-deployed.php) (Code Snippet id 5)
 - GSC + Lighthouse monitoring, sitemap health
-- Site-wide content cleanup driven by [`SITE-AUDIT-2026-05-16.md`](SITE-AUDIT-2026-05-16.md) (homepage hero rewrite, About H1 demotion, popup trigger change, /work/ redirect, etc.)
+- Site-wide content cleanup driven by [`SITE-AUDIT-2026-05-16.md`](archive/SITE-AUDIT-2026-05-16.md) (homepage hero rewrite, About H1 demotion, popup trigger change, /work/ redirect, etc.)
 - Image alt-text batches (existing FIX_QUEUE P1.4)
 
 ### Track A's success measures
@@ -61,7 +61,7 @@ So we split them.
 | **Owner** | Architect-mode Claude sessions (separate context) |
 | **Touches** | `theme/kk-aurora/` (theme.json, templates, patterns, assets), FSE Site Editor on staging, theme settings on production at cutover |
 | **Never touches** | Post content, post media, taxonomies, schema snippets, the connector |
-| **Lives in** | `theme/`, `demo/`, [`docs/current-state/AURORA-MIGRATION-PLAN.md`](AURORA-MIGRATION-PLAN.md) |
+| **Lives in** | `theme/`, `demo/`, [`docs/current-state/AURORA-MIGRATION-PLAN.md`](archive/AURORA-MIGRATION-PLAN.md) |
 
 ### What Track B does
 

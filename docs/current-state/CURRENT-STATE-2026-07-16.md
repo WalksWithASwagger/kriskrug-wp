@@ -1,5 +1,7 @@
 # Current State Snapshot - 2026-07-16
 
+> **STATUS: Historical.** Superseded by [`WORK-PLAN-2026-07-30.md`](WORK-PLAN-2026-07-30.md) + [`CURRENT-STATE-2026-07-30.md`](CURRENT-STATE-2026-07-30.md) + [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md).
+
 **Snapshot time:** 2026-07-19 (truth sync after deps cleanup + live WP 7.0.2).
 **Branch:** `main`
 **Mode:** Track A ops + Track B deploy gate.

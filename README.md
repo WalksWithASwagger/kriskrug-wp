@@ -103,7 +103,7 @@ Notion → kriskrug.co publishing, post-publish enrichment, schema maintenance, 
 
 - Publish a post: [`scripts/notion-to-wp/README.md`](scripts/notion-to-wp/README.md)
 - Enrichment + link-graph helper: [`scripts/notion-to-wp/text_polish.py`](scripts/notion-to-wp/text_polish.py)
-- Active backlog: [`docs/current-state/FIX_QUEUE.md`](docs/current-state/FIX_QUEUE.md), [`docs/current-state/SITE-AUDIT-2026-05-16.md`](docs/current-state/SITE-AUDIT-2026-05-16.md)
+- Active backlog: [`docs/current-state/FIX_QUEUE.md`](docs/current-state/archive/FIX_QUEUE.md), [`docs/current-state/SITE-AUDIT-2026-05-16.md`](docs/current-state/archive/SITE-AUDIT-2026-05-16.md)
 - Deployed schema: [`fixes/schema-snippets-deployed.php`](fixes/schema-snippets-deployed.php)
 
 ### Track B — Aurora theme (on `main` via lane-scoped branches)
@@ -121,7 +121,7 @@ FSE theme rebuild and polish. Touches `theme/kk-aurora/`, FSE templates, theme.j
   `/Users/kk/Code/kriskrug-wp/.claude/worktrees/agent-aec50fddbd7207f80`
   (`aurora/v2`) directly. Treat them as evidence or historical side branches
   unless a maintainer explicitly resumes one.
-- Migration plan: [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/AURORA-MIGRATION-PLAN.md)
+- Migration plan: [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/archive/AURORA-MIGRATION-PLAN.md)
 
 ### Which track am I in?
 

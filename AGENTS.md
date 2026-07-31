@@ -9,14 +9,14 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 ## Read this in order (top of repo, top of context)
 
 1. [`docs/current-state/README.md`](docs/current-state/README.md) — index; start with the newest `reports/morning-truth-*.md`
-2. [`docs/current-state/CURRENT-STATE-2026-07-16.md`](docs/current-state/CURRENT-STATE-2026-07-16.md) — declared snapshot for drift/morning-truth (Makefile default)
-3. [`docs/current-state/WORK-PLAN-2026-07-16.md`](docs/current-state/WORK-PLAN-2026-07-16.md) — **day runbook** (paste-ready startup block; deploy → publisher batch → one content packet)
-4. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
-5. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
-6. [`docs/current-state/HANDOFF-2026-06-17.md`](docs/current-state/HANDOFF-2026-06-17.md) — Aurora/theme/content handoff (version addenda may lag live; prefer CURRENT-STATE + newest morning-truth)
+2. [`docs/current-state/CURRENT-STATE-2026-07-30.md`](docs/current-state/CURRENT-STATE-2026-07-30.md) — declared snapshot for drift/morning-truth (Makefile default)
+3. [`docs/current-state/WORK-PLAN-2026-07-30.md`](docs/current-state/WORK-PLAN-2026-07-30.md) — **day runbook** (truth → reclaim → one product lane)
+4. [`docs/current-state/MASTER-PLAN-2026-07-30.md`](docs/current-state/MASTER-PLAN-2026-07-30.md) — hygiene + lane sequencing plan of record
+5. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
+6. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
 7. [`.env.schema`](.env.schema) — Varlock env contract (names/sensitivity only; never read/print `.env`)
 
-Older June plans (`POST-SHIP-AUDIT-WORKPLAN-2026-06-04.md`, `CURRENT-STATE-2026-06-23.md`, `WORK-PLAN-2026-05-23.md`) are historical context unless a newer doc says otherwise.
+Older May–June plans live under [`docs/current-state/archive/`](docs/current-state/archive/) (#549). Bannered July predecessors (`WORK-PLAN-2026-07-16.md`, `CURRENT-STATE-2026-07-16.md`, etc.) are historical unless a newer doc says otherwise.
 
 ## Two lanes — pick one per commit
 
@@ -45,7 +45,7 @@ Legacy branch split context is in [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-
 - **`.github/workflows/test-pr.yml`** — still active PR validation. Do not describe all workflows as dormant.
 - **`docs/architecture.md`, `docs/automation-guide.md`** — reference docs for the dormant swarm.
 - **`docs/cloudways-setup.md`, `docs/local-development-setup.md`, `.claude/context/wordpress-setup.md`** — Cloudways dev-server setup that was never used as planned. Relevant if/when Track B needs staging, otherwise ignore.
-- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use `CURRENT-STATE-2026-07-16.md`, `WORK-PLAN-2026-07-16.md`, and the newest committed morning-truth report for current truth. June handoffs and `WORK-PLAN-2026-05-23.md` remain historical context.
+- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use `CURRENT-STATE-2026-07-30.md`, `WORK-PLAN-2026-07-30.md`, `MASTER-PLAN-2026-07-30.md`, and the newest committed morning-truth report for current truth. May–June handoffs live under `docs/current-state/archive/`.
 
 Anything banner-tagged `STATUS: Historical` at the top is reference-only.
 
@@ -97,4 +97,4 @@ Non-obvious caveats for future agents (the update script already installs deps):
 
 ---
 
-**Last verified:** 2026-07-27 (live WP **7.0.2**; Aurora live **1.5.0** == repo `main` **1.5.0**, reconciled via the PR #493 merge; `make check-live-parity` passes on `main`; live theme version read back via `curl -s https://kriskrug.co/wp-content/themes/kk-aurora/style.css | grep -i version` returning `Version: 1.5.0`; Cloud secrets may still be unset in long-lived pods). If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.
+**Last verified:** 2026-07-30 (live WP **7.0.2**; Aurora live **1.5.0** == repo `main` **1.5.0**; front door is CURRENT-STATE / WORK-PLAN / MASTER-PLAN 2026-07-30; Cloud secrets may still be unset in long-lived pods). If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.

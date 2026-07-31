@@ -80,4 +80,4 @@ submission, Pagely purge, outreach.
 - #402 — surprising Search Console winners → authority hubs (source of batch themes).
 - #274 / #331 / #347 — taxonomy sitemap, canonical, and metadata handoffs (do not overlap; this runbook does not touch taxonomy).
 - #383 — queued SEO human-gate decisions.
-- Existing context: [SEO-PUBLISHER-SCHEMA-2026-07-19.md](SEO-PUBLISHER-SCHEMA-2026-07-19.md), [SEO_AUDIT.md](SEO_AUDIT.md), [SEO-OVERHAUL-2026-06-14.md](SEO-OVERHAUL-2026-06-14.md).
+- Existing context: [SEO-PUBLISHER-SCHEMA-2026-07-19.md](SEO-PUBLISHER-SCHEMA-2026-07-19.md), [SEO_AUDIT.md](archive/SEO_AUDIT.md), [SEO-OVERHAUL-2026-06-14.md](archive/SEO-OVERHAUL-2026-06-14.md).
