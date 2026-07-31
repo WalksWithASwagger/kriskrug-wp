@@ -93,3 +93,6 @@ docs/current-state/reports/visual-baseline/*
 backup/**/*.png
 backup/**/*.jpg
 backup/**/*.jpeg
+
+# #369 reclaim: published draft images live in WP media; do not re-add
+content/drafts/**/images/
