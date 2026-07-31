@@ -7,6 +7,7 @@ requests-based WordPress client (it does media upload and other package-specific
 work); this module is for the urllib-based scripts under scripts/ that currently
 hand-roll env loading and Basic-auth requests.
 """
+
 from __future__ import annotations
 
 import base64
@@ -47,7 +48,19 @@ DEFAULT_ENV_PATHS = (
     *_optional_env_paths(),
 )
 DEFAULT_BASE_URL = "https://kriskrug.co"
-_OVERRIDE_KEYS = ("WP_USER", "WP_APP_PASSWORD", "WP_BASE_URL", "WP_AUTH_MODE")
+_OVERRIDE_KEYS = (
+    "WP_USER",
+    "WP_APP_PASSWORD",
+    "WP_API_USERNAME",
+    "WP_API_PASSWORD",
+    "WP_BASE_URL",
+    "WP_AUTH_MODE",
+)
+# ~/.agents/env/wordpress uses MCP names; REST scripts historically use WP_USER.
+_WP_CREDENTIAL_ALIASES = (
+    ("WP_API_USERNAME", "WP_USER"),
+    ("WP_API_PASSWORD", "WP_APP_PASSWORD"),
+)
 
 
 def parse_simple_env(path: Path) -> dict[str, str]:
@@ -64,7 +77,9 @@ def parse_simple_env(path: Path) -> dict[str, str]:
     return values
 
 
-def load_env(path: Path | str | None = None, *, overlay_os: bool = True) -> dict[str, str]:
+def load_env(
+    path: Path | str | None = None, *, overlay_os: bool = True
+) -> dict[str, str]:
     """Load .env values, preferring python-dotenv when installed.
 
     With no path, searches DEFAULT_ENV_PATHS and uses the first that exists.
@@ -90,18 +105,27 @@ def load_env(path: Path | str | None = None, *, overlay_os: bool = True) -> dict
         for key in _OVERRIDE_KEYS:
             if os.environ.get(key):
                 values[key] = os.environ[key]
+    return apply_wp_credential_aliases(values)
+
+
+def apply_wp_credential_aliases(env: dict[str, str]) -> dict[str, str]:
+    """Fill WP_USER / WP_APP_PASSWORD from WP_API_* when the legacy names are empty."""
+    values = dict(env)
+    for src, dest in _WP_CREDENTIAL_ALIASES:
+        if not (values.get(dest) or "").strip() and (values.get(src) or "").strip():
+            values[dest] = values[src]
     return values
 
 
 def wp_credentials(env: dict[str, str] | None = None) -> tuple[str, str, str]:
     """Return (base_url, user, normalized app_password). Raises if missing."""
-    env = env if env is not None else load_env()
+    env = apply_wp_credential_aliases(env if env is not None else load_env())
     user = env.get("WP_USER", "")
     app_password = (env.get("WP_APP_PASSWORD", "") or "").replace(" ", "")
     base_url = env.get("WP_BASE_URL", DEFAULT_BASE_URL)
     if not user or not app_password:
         raise RuntimeError(
-            "WP_USER and WP_APP_PASSWORD required in scripts/notion-to-wp/.env"
+            "WP_USER/WP_APP_PASSWORD (or WP_API_USERNAME/WP_API_PASSWORD) required"
         )
     return base_url.rstrip("/"), user, app_password
 
@@ -173,7 +197,9 @@ class WPClient:
             profile_html = resp.read().decode(errors="replace")
         if "wp-login.php?action=logout" not in profile_html:
             raise RuntimeError("WordPress login did not produce an admin session")
-        match = re.search(r"var\s+wpApiSettings\s*=\s*(\{.*?\});", profile_html, flags=re.S)
+        match = re.search(
+            r"var\s+wpApiSettings\s*=\s*(\{.*?\});", profile_html, flags=re.S
+        )
         if not match:
             raise RuntimeError("WordPress admin session did not expose wpApiSettings")
         settings = json.loads(match.group(1))
@@ -233,7 +259,9 @@ class WPClient:
     def get(self, path: str, *, params: dict | None = None) -> Any:
         return self.request("GET", path, params=params)
 
-    def post(self, path: str, payload: Any | None = None, *, params: dict | None = None) -> Any:
+    def post(
+        self, path: str, payload: Any | None = None, *, params: dict | None = None
+    ) -> Any:
         return self.request("POST", path, payload=payload, params=params)
 
     def delete(self, path: str, *, params: dict | None = None) -> Any:

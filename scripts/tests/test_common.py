@@ -8,7 +8,14 @@ from urllib.error import HTTPError
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import common  # noqa: E402
-from common import WPClient, load_env, parse_simple_env, wp_credentials, wp_queue_counts  # noqa: E402
+from common import (  # noqa: E402
+    WPClient,
+    apply_wp_credential_aliases,
+    load_env,
+    parse_simple_env,
+    wp_credentials,
+    wp_queue_counts,
+)
 
 
 def _fake_response(body: str):
@@ -31,7 +38,9 @@ class _EnvFileMixin:
         import os
         import tempfile
 
-        fd = tempfile.NamedTemporaryFile("w", suffix=".env", delete=False, encoding="utf-8")
+        fd = tempfile.NamedTemporaryFile(
+            "w", suffix=".env", delete=False, encoding="utf-8"
+        )
         fd.write(text)
         fd.close()
         self.addCleanup(lambda: os.path.exists(fd.name) and os.unlink(fd.name))
@@ -40,7 +49,11 @@ class _EnvFileMixin:
 
 class ParseSimpleEnvTests(_EnvFileMixin, unittest.TestCase):
     def test_skips_comments_blanks_and_strips_quotes(self):
-        path = Path(self.write_env("# comment\n\nWP_USER=alice\nWP_APP_PASSWORD=\"p a s s\"\nBAD LINE\n"))
+        path = Path(
+            self.write_env(
+                '# comment\n\nWP_USER=alice\nWP_APP_PASSWORD="p a s s"\nBAD LINE\n'
+            )
+        )
         values = parse_simple_env(path)
         self.assertEqual(values, {"WP_USER": "alice", "WP_APP_PASSWORD": "p a s s"})
 
@@ -63,20 +76,28 @@ class LoadEnvTests(_EnvFileMixin, unittest.TestCase):
         self.assertEqual(values["WP_USER"], "fileuser")
 
     def test_auth_mode_os_overlay_wins(self):
-        path = self.write_env("WP_USER=fileuser\nWP_APP_PASSWORD=filepass\nWP_AUTH_MODE=basic\n")
+        path = self.write_env(
+            "WP_USER=fileuser\nWP_APP_PASSWORD=filepass\nWP_AUTH_MODE=basic\n"
+        )
         with mock.patch.dict("os.environ", {"WP_AUTH_MODE": "login"}, clear=False):
             values = load_env(path)
         self.assertEqual(values["WP_AUTH_MODE"], "login")
 
     def test_from_env_uses_auth_mode(self):
-        path = self.write_env("WP_USER=fileuser\nWP_APP_PASSWORD=filepass\nWP_AUTH_MODE=login\n")
+        path = self.write_env(
+            "WP_USER=fileuser\nWP_APP_PASSWORD=filepass\nWP_AUTH_MODE=login\n"
+        )
         client = WPClient.from_env(path)
         self.assertEqual(client.auth_mode, "login")
 
 
 class WpCredentialsTests(unittest.TestCase):
     def test_returns_tuple_and_strips_base_slash(self):
-        env = {"WP_USER": "u", "WP_APP_PASSWORD": "p a s s", "WP_BASE_URL": "https://example.com/"}
+        env = {
+            "WP_USER": "u",
+            "WP_APP_PASSWORD": "p a s s",
+            "WP_BASE_URL": "https://example.com/",
+        }
         self.assertEqual(wp_credentials(env), ("https://example.com", "u", "pass"))
 
     def test_defaults_base_url(self):
@@ -86,6 +107,33 @@ class WpCredentialsTests(unittest.TestCase):
     def test_raises_when_missing(self):
         with self.assertRaises(RuntimeError):
             wp_credentials({"WP_USER": "u"})
+
+    def test_accepts_wp_api_aliases(self):
+        env = {
+            "WP_API_USERNAME": "mcp-user",
+            "WP_API_PASSWORD": "app pass word",
+            "WP_BASE_URL": "https://example.com/",
+        }
+        self.assertEqual(
+            wp_credentials(env),
+            ("https://example.com", "mcp-user", "apppassword"),
+        )
+
+    def test_legacy_names_win_over_aliases(self):
+        env = {
+            "WP_USER": "legacy",
+            "WP_APP_PASSWORD": "legacy-pass",
+            "WP_API_USERNAME": "mcp-user",
+            "WP_API_PASSWORD": "mcp-pass",
+        }
+        self.assertEqual(wp_credentials(env)[1:], ("legacy", "legacy-pass"))
+
+    def test_apply_aliases_is_idempotent(self):
+        env = apply_wp_credential_aliases(
+            {"WP_API_USERNAME": "u", "WP_API_PASSWORD": "p"}
+        )
+        self.assertEqual(env["WP_USER"], "u")
+        self.assertEqual(apply_wp_credential_aliases(env)["WP_USER"], "u")
 
 
 class WPClientRequestTests(unittest.TestCase):
@@ -191,8 +239,10 @@ class WPClientRequestTests(unittest.TestCase):
                 raise item
             return item
 
-        with mock.patch("urllib.request.urlopen", side_effect=fake_urlopen), \
-             mock.patch("time.sleep"):
+        with (
+            mock.patch("urllib.request.urlopen", side_effect=fake_urlopen),
+            mock.patch("time.sleep"),
+        ):
             out = self.client.get("posts")
         self.assertEqual(out, {"ok": 1})
 
@@ -202,7 +252,9 @@ class WPClientPaginationTests(unittest.TestCase):
         client = WPClient("https://example.com", "u", "p")
         pages = [[{"id": i} for i in range(100)], [{"id": 100}, {"id": 101}]]
 
-        with mock.patch.object(client, "request", side_effect=lambda *a, **k: pages.pop(0)):
+        with mock.patch.object(
+            client, "request", side_effect=lambda *a, **k: pages.pop(0)
+        ):
             items = client.get_all("posts", per_page=100)
         self.assertEqual(len(items), 102)
 
@@ -228,9 +280,21 @@ class WPQueueCountsTests(unittest.TestCase):
         self.assertEqual(
             client.get_all.call_args_list,
             [
-                mock.call("posts", params={"status": "future", "context": "edit", "_fields": "id"}, per_page=100),
-                mock.call("posts", params={"status": "draft", "context": "edit", "_fields": "id"}, per_page=100),
-                mock.call("pages", params={"status": "draft", "context": "edit", "_fields": "id"}, per_page=100),
+                mock.call(
+                    "posts",
+                    params={"status": "future", "context": "edit", "_fields": "id"},
+                    per_page=100,
+                ),
+                mock.call(
+                    "posts",
+                    params={"status": "draft", "context": "edit", "_fields": "id"},
+                    per_page=100,
+                ),
+                mock.call(
+                    "pages",
+                    params={"status": "draft", "context": "edit", "_fields": "id"},
+                    per_page=100,
+                ),
             ],
         )
 

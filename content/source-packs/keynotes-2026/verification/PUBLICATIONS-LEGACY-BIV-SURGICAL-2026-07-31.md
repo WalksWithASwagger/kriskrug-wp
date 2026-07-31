@@ -1,6 +1,6 @@
 # Publications legacy surgical update — BIV 2026-07-31
 
-Status: **ready to apply** once `WP_USER` + `WP_APP_PASSWORD` resolve via Varlock.
+Status: **applied live** 2026-07-31T22:34:57Z (page 1895). Auth via `~/.agents/env/wordpress` (`WP_API_USERNAME` / `WP_API_PASSWORD`); rollback snapshot under `backup/20260731T223456Z-publications-biv-surgical/`.
 
 ## Why surgical (not full redesign)
 
@@ -18,16 +18,16 @@ See `../wp-payloads/publications-legacy-biv-card-fragment.html`
 
 ## Deploy sequence (auth REST)
 
-1. `pnpm exec varlock run --inject vars --` with `WP_USER` + `WP_APP_PASSWORD` present
+1. `pnpm exec varlock run --inject vars --` with `WP_USER` + `WP_APP_PASSWORD` present (or `WP_API_*` aliases from `~/.agents/env/wordpress`)
 2. Snapshot `GET /wp-json/wp/v2/pages/1895?context=edit` → rollback JSON
 3. Patch `content.raw` (or rendered-equivalent block markup) with the fragment
 4. Dry-run diff must show **one** new card + URL `12601298`
 5. `--apply` PATCH page 1895 only
 6. Cache-bypass verify: `curl -sL "https://kriskrug.co/publications/?cb=$RANDOM" | rg 12601298`
 
-## Blocker (2026-07-31)
+## Auth note (resolved 2026-07-31)
 
-Varlock inject currently reports `WP_USER` / `WP_APP_PASSWORD` unset in this environment. No live write attempted.
+`kriskrug-wp/.env.schema` previously looked for `WP_USER` / `WP_APP_PASSWORD` under `~/.agents/env/values/`, which were unset. Working credentials live at `~/.agents/env/wordpress/.env.local` as `WP_API_USERNAME` / `WP_API_PASSWORD` (WordPress MCP / Application Password over HTTPS). Schema now imports those keys; `scripts/common.py` maps them onto the legacy names.
 
 ## Related
 
