@@ -92,7 +92,9 @@ class CreateLocalWPDraftTests(unittest.TestCase):
                 repo_root=root,
             )
 
-        self.assertIn('src="https://kriskrug.co/wp-content/uploads/hero.jpg"', rewritten)
+        self.assertIn(
+            'src="https://kriskrug.co/wp-content/uploads/hero.jpg"', rewritten
+        )
         self.assertIn('class="wp-image-123"', rewritten)
         self.assertNotIn("content/drafts/example/images/hero.jpg", rewritten)
 
@@ -118,20 +120,77 @@ class CreateLocalWPDraftTests(unittest.TestCase):
 
         self.assertIn('class="wp-image-456"/>', rewritten)
 
+    def test_dry_run_succeeds_without_wp_credentials(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            post_md = self.write_package(Path(tmp))
+            with (
+                mock.patch.dict(
+                    "os.environ",
+                    {
+                        "WP_USER": "",
+                        "WP_APP_PASSWORD": "",
+                        "WP_API_USERNAME": "",
+                        "WP_API_PASSWORD": "",
+                    },
+                    clear=False,
+                ),
+                mock.patch.object(create_local_wp_draft, "LOCAL_ENV_PATH") as local_env,
+                mock.patch.object(create_local_wp_draft, "KKAI_ENV_PATH") as kkai_env,
+                mock.patch.object(create_local_wp_draft, "WordPress") as wp_cls,
+                mock.patch.object(create_local_wp_draft, "load_wp_config") as load_cfg,
+            ):
+                local_env.exists.return_value = False
+                kkai_env.exists.return_value = False
+                result = create_local_wp_draft.create_local_draft(post_md, dry_run=True)
+
+        self.assertTrue(result["dry_run"])
+        self.assertEqual(result["slug"], "guarded-draft")
+        self.assertEqual(result["slug_check"], "skipped_offline")
+        load_cfg.assert_not_called()
+        wp_cls.assert_not_called()
+
+    def test_execute_still_requires_wp_credentials(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            post_md = self.write_package(Path(tmp))
+            with (
+                mock.patch.dict(
+                    "os.environ",
+                    {
+                        "WP_USER": "",
+                        "WP_APP_PASSWORD": "",
+                        "WP_API_USERNAME": "",
+                        "WP_API_PASSWORD": "",
+                    },
+                    clear=False,
+                ),
+                mock.patch.object(create_local_wp_draft, "LOCAL_ENV_PATH") as local_env,
+                mock.patch.object(create_local_wp_draft, "KKAI_ENV_PATH") as kkai_env,
+            ):
+                local_env.exists.return_value = False
+                kkai_env.exists.return_value = False
+                with self.assertRaisesRegex(RuntimeError, "WP credentials not found"):
+                    create_local_wp_draft.create_local_draft(post_md, dry_run=False)
+
     def test_slug_collision_aborts_before_uploads_or_writes(self):
         with tempfile.TemporaryDirectory() as tmp:
             post_md = self.write_package(Path(tmp))
             wp = mock.Mock()
-            cfg = create_local_wp_draft.WPConfig("https://example.test", "user", "pass", 1)
+            cfg = create_local_wp_draft.WPConfig(
+                "https://example.test", "user", "pass", 1
+            )
             with (
-                mock.patch.object(create_local_wp_draft, "load_wp_config", return_value=cfg),
+                mock.patch.object(
+                    create_local_wp_draft, "load_wp_config", return_value=cfg
+                ),
                 mock.patch.object(create_local_wp_draft, "WordPress", return_value=wp),
                 mock.patch.object(
                     create_local_wp_draft,
                     "assert_slug_available",
                     side_effect=RuntimeError("slug collision"),
                 ),
-                mock.patch.object(create_local_wp_draft, "upload_images") as upload_images,
+                mock.patch.object(
+                    create_local_wp_draft, "upload_images"
+                ) as upload_images,
             ):
                 with self.assertRaisesRegex(RuntimeError, "slug collision"):
                     create_local_wp_draft.create_local_draft(post_md, dry_run=False)
@@ -146,12 +205,18 @@ class CreateLocalWPDraftTests(unittest.TestCase):
             wp = mock.Mock()
             wp.create_post.return_value = {"id": 99}
             wp.get_post.return_value = {"id": 99, "status": "publish", "slug": "wrong"}
-            cfg = create_local_wp_draft.WPConfig("https://example.test", "user", "pass", 1)
+            cfg = create_local_wp_draft.WPConfig(
+                "https://example.test", "user", "pass", 1
+            )
             with (
-                mock.patch.object(create_local_wp_draft, "load_wp_config", return_value=cfg),
+                mock.patch.object(
+                    create_local_wp_draft, "load_wp_config", return_value=cfg
+                ),
                 mock.patch.object(create_local_wp_draft, "WordPress", return_value=wp),
                 mock.patch.object(create_local_wp_draft, "assert_slug_available"),
-                mock.patch.object(create_local_wp_draft, "upload_images", return_value={}),
+                mock.patch.object(
+                    create_local_wp_draft, "upload_images", return_value={}
+                ),
             ):
                 with self.assertRaisesRegex(RuntimeError, "unexpected readback"):
                     create_local_wp_draft.create_local_draft(post_md, dry_run=False)
@@ -163,7 +228,9 @@ class CreateLocalWPDraftTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             post_md = self.write_package(Path(tmp), seo_title="Ethọ́s Lab")
             pkg = create_local_wp_draft.load_package(post_md)
-            cfg = create_local_wp_draft.WPConfig("https://example.test", "user", "pass", 1)
+            cfg = create_local_wp_draft.WPConfig(
+                "https://example.test", "user", "pass", 1
+            )
             payload = create_local_wp_draft.build_payload(pkg, cfg, pkg.body_html, {})
 
         self.assertEqual(
