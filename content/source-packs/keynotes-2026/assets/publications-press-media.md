@@ -12,7 +12,7 @@ third-party photograph as if it were a KrisKrug.co asset.
 
 | Local file | Published source | Context and credit | Decision |
 |---|---|---|---|
-| `press-2026-07-31-biv-ecosystem-context.jpg` | [Business in Vancouver](https://www.biv.com/news/technology/bc-groups-push-to-build-a-stronger-ai-ecosystem-12601298) | Article-page screenshot; the visible article photograph is credited to Rob Kruyt / BIV | Proposed after explicit media approval |
+| `press-2026-07-31-biv-ecosystem-context.jpg` | [Business in Vancouver](https://www.biv.com/news/technology/bc-groups-push-to-build-a-stronger-ai-ecosystem-12601298) | Article-page screenshot; the visible article photograph is credited to Rob Kruyt / BIV | Captured 2026-07-31; pending Kris media approval (not auto-approved) |
 | `press-2026-07-24-the-tyee-context.jpg` | [The Tyee](https://thetyee.ca/News/2026/07/24/Who-Gets-Say-AI-Adoption/) | Article-page screenshot showing The Tyee masthead, headline, byline, and story context | Proposed after explicit media approval |
 | `press-2026-06-15-biv-context.jpg` | [Business in Vancouver](https://www.biv.com/news/economy-law-politics/bc-lawyers-face-ai-driven-shakeups-in-legal-work-12415161) | Article-page screenshot; the visible article photograph is credited to Rob Kruyt / BIV | Proposed after explicit media approval |
 | `press-2026-05-20-storyhive.jpg` | [TELUS STORYHIVE / Haus of Owl](https://www.youtube.com/watch?v=sxDwQRTZfCA) | Published interview thumbnail | Proposed after explicit media approval |
