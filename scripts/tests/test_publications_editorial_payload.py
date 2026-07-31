@@ -56,11 +56,11 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
 
     def test_complete_reverse_chronological_inventory(self):
         self.assertEqual(3, self.payload.count('<a class="kk-press-feature'))
-        self.assertEqual(18, self.payload.count('<article class="kk-press-entry'))
+        self.assertEqual(19, self.payload.count('<article class="kk-press-entry'))
         self.assertEqual(25, self.payload.count("<li><time"))
 
         dates = re.findall(r'datetime="(\d{4}-\d{2}-\d{2})"', self.payload)
-        self.assertEqual(46, len(dates))
+        self.assertEqual(47, len(dates))
         self.assertEqual(sorted(dates, reverse=True), dates)
 
     def test_markup_and_voice_guards(self):
@@ -70,7 +70,7 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
         self.assertIn("@media (prefers-reduced-motion:reduce)", self.payload)
 
     def test_images_have_dimensions_and_alt_text(self):
-        self.assertEqual(6, len(self.parser.images))
+        self.assertEqual(7, len(self.parser.images))
         for image in self.parser.images:
             self.assertTrue(image.get("alt"))
             self.assertTrue(image.get("width"))
