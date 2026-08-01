@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.5.0
+Version: 1.5.7
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -808,8 +808,20 @@ a {
 .aurora-hero-media img {
   height: 100%;
   object-fit: cover;
-  object-position: 50% 34%;
+  object-position: 68% 26%;
   width: 100%;
+}
+
+/* Home hero only: nearly-square krug-1 fills a short wide band with no
+   horizontal crop, so object-position alone can't clear the face. Zoom +
+   left-anchor keeps scrim/copy on the open left and parks the portrait right. */
+.aurora-home-2026 .aurora-hero-media img {
+  bottom: 0;
+  left: 0;
+  max-width: none;
+  right: auto;
+  top: 0;
+  width: 145%;
 }
 
 /* Scrim backs the left-aligned copy for legibility without burying the photo.
@@ -829,6 +841,23 @@ a {
   min-height: clamp(600px, 80vh, 800px);
   padding: clamp(4rem, 8vw, 6rem) clamp(1rem, 3vw, 2rem) clamp(2rem, 4vw, 3rem);
   place-content: center start;
+}
+
+/* Home: pin copy to the left content edge and keep it narrow so it sits in
+   the open left of the zoomed portrait instead of over the face. */
+.aurora-home-2026 .aurora-hero-copy {
+  margin: 0 auto 0 max(0px, calc((100% - var(--aurora-max)) / 2));
+  max-width: min(34rem, 100%);
+}
+
+.aurora-home-2026 .aurora-hero-dek {
+  max-width: 42ch;
+}
+
+.aurora-hero-2026 .aurora-kicker {
+  /* Long kickers must wrap on narrow viewports; hero has overflow:hidden. */
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .aurora-hero-copy h1 {
@@ -3164,7 +3193,15 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   }
 
   .aurora-hero-media img {
-    object-position: 62% 30%;
+    object-position: 88% 20%;
+  }
+
+  .aurora-home-2026 .aurora-hero-media img {
+    /* Tall mobile viewports already crop horizontally — drop the desktop zoom. */
+    left: 0;
+    right: 0;
+    width: 100%;
+    object-position: 88% 20%;
   }
 
   .aurora-hero-copy h1 {
@@ -4540,6 +4577,13 @@ body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-de
 
 body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker) {
   color: var(--aurora-readable-accent) !important;
+}
+
+/* Full-bleed photo hero (krug-1 portrait): the legibility plates above would
+   paint a dark card over the photo; the hero scrim already handles contrast. */
+body.aurora-theme .aurora-hero-2026 :where(.aurora-hero-copy),
+body.aurora-theme .aurora-hero-2026 :where(.aurora-hero-copy h1, .aurora-hero-copy h2, #aurora-home-title, #aurora-about-title) {
+  background-color: transparent !important;
 }
 
 body.aurora-theme :where(.aurora-writing-pagination a, .aurora-writing-pagination .page-numbers, .aurora-writing-pagination .wp-block-query-pagination-previous, .aurora-writing-pagination .wp-block-query-pagination-next, .aurora-feed-link-grid a) {
