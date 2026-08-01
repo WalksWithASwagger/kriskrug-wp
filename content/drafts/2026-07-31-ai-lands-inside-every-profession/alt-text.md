@@ -26,6 +26,9 @@
 | 12651 | biv-quote-context.jpg (ad-heavy, superseded) | — | Retired; replaced by 12655. |
 | 12654 | biv-headline-clean.jpg | Business in Vancouver headline: B.C. groups push to build a stronger AI ecosystem, by Daisy Xiong. | B.C. groups push to build a stronger AI ecosystem · Business in Vancouver · Daisy Xiong · July 31, 2026. |
 | 12655 | biv-quote-clean.jpg | Business in Vancouver passage quoting Kris Krüg: artificial intelligence lands inside every single profession. | Archive / optional proof — quote runs as text pullquote in body. |
+| 12657 | aefl-parker-street-room.jpg | AI Ethical Futures Lab session at Parker Street Studios: about twenty people seated in a loose circle in an art-filled studio, mid-discussion. | AI Ethical Futures Lab at Parker Street Studios, July 2026 — the room got real. Photo: BC + AI. |
+| 12658 | comox-valley-meetup-room.jpg | Comox Valley AI meetup in a Courtenay community hall: rows of seated attendees facing a presentation screen. | Comox Valley AI in Courtenay — becoming its own thing. Photo: BC + AI. |
+| 12659 | vanai-conversation-pair.jpg | Two attendees in animated one-on-one conversation at a Vancouver AI gathering, hands mid-gesture. | The actual product. From one room to province-wide infrastructure. Photo: BC + AI. |
 | 12652 | tyee-ai-adoption-headline.jpg | Screenshot of The Tyee headline: Who Gets a Say in AI Adoption? | Related press · The Tyee · July 24, 2026. |
 
 ## Video embeds

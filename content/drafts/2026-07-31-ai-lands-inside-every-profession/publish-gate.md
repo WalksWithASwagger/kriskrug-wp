@@ -1,6 +1,8 @@
 # Publication gate
 
-Current authorization: **WordPress draft exists** (ID `12653`) — still pending-kris for **publish**. Multimedia package staged 2026-07-31; depth/polish/voice revision round applied same day (interview stories, named rooms, back-catalog links, ad-free BIV screenshots media 12654/12655, OrgBook cut, "Three groups, one page" reframe).
+Current status: **LIVE** — post `12653` was flipped to publish **in wp-admin by the owner at 2026-07-31 18:40 PT** (not by agent; agent updates sent content only). Live URL: https://kriskrug.co/2026/07/31/ai-lands-inside-every-profession/
+
+History: multimedia package staged 2026-07-31; depth/polish/voice revision round applied same day (interview stories, named rooms, back-catalog links, ad-free BIV screenshots media 12654/12655, OrgBook cut, "Three groups, one page" reframe); BC-AI depth layer applied same evening (11 bc-ai.ca news links, 3 BC-AI post images media 12657–12659, task-force + BC Studies + paper-trail beats) — this last update landed at 18:51 PT, after the owner's publish flip, so the live post carries the deepened version.
 
 ## Required before publication
 
