@@ -17,7 +17,7 @@ Voice: shorten for cards with `…` only; no invented paraphrases.
 | Clear | ID | Card quote | Cite | LinkedIn |
 |---|---|---|---|---|
 | [x] default | F1 = LI-KERRIS-F | “Two things can be true at once. AI is here and I'm going to keep enabling it across our teams. And it can be done responsibly, with humans first, by people who treat that as the actual job rather than a disclaimer at the bottom of a deck.” | Kerris Hougardy, MBA · Responsible AI Professional, Cohort 1 | https://www.linkedin.com/in/kerrishougardy/ |
-| [x] default | F2 = LI-LANDON | “The BC + AI Ecosystem … is different than any other AI group I'm aware of — full of artists and creatives, filmmakers and indigenous voices, as well as deep tech experts and entrepreneurs. It holds space for both wonder and scepticism around AI without veering too far one way or the other.” | Landon Steele · Steele Consulting Group | plain text (MISSING) |
+| [x] default | F2 = LI-LANDON | “The BC + AI Ecosystem … is different than any other AI group I'm aware of — full of artists and creatives, filmmakers and indigenous voices, as well as deep tech experts and entrepreneurs. It holds space for both wonder and scepticism around AI without veering too far one way or the other.” | Landon Steele · Steele Consulting Group | https://www.linkedin.com/in/landonsteele |
 | [x] default | F3 = LI-CARLY | “Kris Krüg has built something important for our community.” | Carly Steiman · Founder, Workbee Home Services | https://www.linkedin.com/in/carlysteiman/ |
 
 ---
@@ -48,9 +48,9 @@ Voice: shorten for cards with `…` only; no invented paraphrases.
 
 | Clear | ID | Card quote | Cite | LinkedIn |
 |---|---|---|---|---|
-| [x] default | R1 = LI-STEVE | “The room was packed and the program was a blend of entertaining films, short technical tutorials, and thoughtful discussion about where the industry is heading. … The room last night was full of people [re-inventing themselves and their industries and looking for ways to rebuild better].” | Steve Jones, CFA · BC + AI Film Club | plain text (MISSING) |
-| [ ] KK | R2 = LU-SIMON | “Honestly Kris, if you are still uncertain about whether you have created something that matters — a movement, a community, a force in BC — then you need your eyes, ears, and all other senses tested.” | Simon Haworth · Vancouver AI Meetup #30 | https://www.linkedin.com/in/simon-haworth/ |
-| [ ] KK | R3 = LU-SUZY | “The opening grounding … made the rest of the night feel that before anyone says 'agentic workflow,' remember whose land, whose water, whose stories, whose labour, and whose data we are standing on. … Rock on, Mr KK!” | Suzy Easton · Meetup #30 | plain text (MISSING) |
+| [x] default | R1 = LI-STEVE | “The room was packed and the program was a blend of entertaining films, short technical tutorials, and thoughtful discussion about where the industry is heading. … The room last night was full of people [re-inventing themselves and their industries and looking for ways to rebuild better].” | Steve Jones, CFA · BC + AI Film Club | https://www.linkedin.com/in/jonessteven |
+| [x] cleared | R2 = LU-SIMON | “Honestly Kris, if you are still uncertain about whether you have created something that matters — a movement, a community, a force in BC — then you need your eyes, ears, and all other senses tested.” | Simon Haworth · Vancouver AI Meetup #30 | https://www.linkedin.com/in/simon-haworth/ |
+| [x] cleared | R3 = LU-SUZY | “The opening grounding … made the rest of the night feel that before anyone says 'agentic workflow,' remember whose land, whose water, whose stories, whose labour, and whose data we are standing on. … Rock on, Mr KK!” | Suzy Easton · Meetup #30 | https://www.linkedin.com/in/suzyeaston |
 
 Note: Landon + Carly already appear in Featured; not duplicated in Rooms for density.
 
@@ -61,10 +61,12 @@ Note: Landon + Carly already appear in Featured; not duplicated in Rooms for den
 | Clear | ID | Card quote | Cite | LinkedIn |
 |---|---|---|---|---|
 | [x] default | A1 = LEG-ROB | “Anytime I see Kris at a conference, camera in hand, my heart lifts a little… Seeing the event through Kris' eyes is like doing it all over again… only better.” | Rob Cottingham | https://www.linkedin.com/in/robcottingham |
-| [x] default | A2 = LEG-JOSH | “A lesson in 'getting stuff done', kris is one of those people who seems to make the impossible possible – and manages to keep a few cards up his sleeve in the process.” | Joshua Dunford, BURNKIT | plain text (MISSING) |
-| [x] default | A3 = LEG-BEN | “Not pretentious but genuinely connected. Kris brings out the best in others and connects those around him.” | Benjamin Random | plain text (MISSING) |
-| [ ] hold | A4 = LEG-COREY | Canada / Kris fun line | Corey Dennis | optional |
-| [ ] hold | A5–A7 | Claudine / Stephanie / Danie short photo lines | — | optional |
+| [x] default | A2 = LEG-JOSH | “A lesson in 'getting stuff done', kris is one of those people who seems to make the impossible possible – and manages to keep a few cards up his sleeve in the process.” | Joshua Dunford, BURNKIT | https://www.linkedin.com/in/joshdunford |
+| [x] default | A3 = LEG-BEN | “Not pretentious but genuinely connected. Kris brings out the best in others and connects those around him.” | Benjamin Random | plain text (no verified URL) |
+| [x] cleared | A4 = LEG-COREY | Canada / Kris fun line | Corey Dennis | plain text (ambiguous modern profiles) |
+| [x] cleared | A5 = LEG-CLAUDINE | “Kris takes breathtaking, lyrical and gorgeous pictures.” | Claudine Co | plain text |
+| [x] cleared | A6 = LEG-STEPH | “Kris is unstoppable, except by large objects too heavy to move.” | Stephanie Vacher | https://www.linkedin.com/in/stephanievacher |
+| [x] cleared | A7 = LEG-DANIE | Flaming Lips / live big line (trimmed) | Danie Peace | plain text |
 
 **Attribution lock:** A1 is **Rob Cottingham** only. Never Butterfield.
 
@@ -77,11 +79,11 @@ Note: Landon + Carly already appear in Featured; not duplicated in Rooms for den
 | Featured | F1–F3 | 3 |
 | Talks | T1–T3 | 3 |
 | Programs | P1–P3 | 3 |
-| Rooms | R1 | 1 |
-| Archive | A1–A3 | 3 |
-| **Total default** | | **13** |
+| Rooms | R1–R3 | 3 |
+| Archive | A1–A7 | 7 |
+| **Total enriched** | | **19** |
 
-Still needing KK before live (if desired): **R2, R3** (Luma). Optional holds: T4, P4, A4–A7.
+Enrichment ship (2026-08-01): Luma R2/R3 cleared; Landon/Steve/Joshua/Stephanie LinkedIn linked; archive extras A4–A7 added. Remaining plain-text only: Benjamin, Corey, Claudine, Danie.
 
 ---
 

@@ -32,19 +32,17 @@ Replace the legacy flat `user-infos` stack with an Aurora body: hero → feature
 
 | Item | Status |
 |---|---|
-| Inventory + curated set | Done — **13** default quotes shipped |
-| Payload + page-map | Done |
-| Before snapshot | `backup/20260801-testimonials/page-snapshots/page-2409-testimonials-before.json` |
-| Dry-run | Passed (`target ok` id=2409) |
-| Live execute | **Done** — modified `2026-08-01T08:25:14` |
-| Cache-bypass verify | **PASS** — Aurora hero/quote cards present; no `user-infos`; no Butterfield; Kerris + Rob LinkedIn present |
-| Rollback manifest | `backup/20260801-testimonials/rollback-testimonials-2409.json` |
-| Commit / PR | `78bd19e` on `cursor/testimonials-page-overhaul` · draft [PR #582](https://github.com/WalksWithASwagger/kriskrug-wp/pull/582) |
+| Inventory + curated set | Done — **19** enriched quotes |
+| Payload + page-map | Done (enrichment markers include Simon/Suzy/Landon/Josh) |
+| Before snapshot | `backup/20260801-testimonials/` (v1) + enrichment backup when executed |
+| Dry-run / live execute | v1 merged via [PR #582](https://github.com/WalksWithASwagger/kriskrug-wp/pull/582); enrichment on `cursor/testimonials-enrichment` |
+| Cache-bypass verify | v1 PASS; re-verify after enrichment PATCH |
+| Rollback manifest | `backup/20260801-testimonials/rollback-testimonials-2409.json` (pre-enrichment baseline) |
+| Commit / PR | Squash-merged `#582` → `main` (`f066693`); enrichment follow-up on this branch |
 | Homepage #415 | Out of scope |
 
-**Default set shipped:** F1–F3, T1–T3, P1–P3, R1, A1–A3.  
-**Still gated for a follow-up PATCH:** Luma R2 (Simon), R3 (Suzy).  
-**LinkedIn coverage on live named cites:** 8 linked / 12 named (~67%); Landon, Steve, Joshua, Benjamin remain plain text — see [`linkedin-gaps.md`](./linkedin-gaps.md).
+**Enriched set:** F1–F3, T1–T3, P1–P3, R1–R3 (incl. Luma Simon/Suzy), A1–A7.  
+**LinkedIn coverage:** 14 linked / 16 named (~88%). Plain text: Benjamin, Corey, Claudine, Danie — see [`linkedin-gaps.md`](./linkedin-gaps.md).
 
 ## Exact commands
 
