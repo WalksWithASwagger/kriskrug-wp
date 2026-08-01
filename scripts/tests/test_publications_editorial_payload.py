@@ -1,5 +1,6 @@
 import json
 import re
+import sys
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
@@ -15,14 +16,28 @@ PAYLOAD_PATH = (
     / "publications.html"
 )
 META_PATH = PAYLOAD_PATH.parent / "page-meta.json"
-MEDIA_MANIFEST_PATH = (
+ASSETS_DIR = REPO_ROOT / "content" / "source-packs" / "keynotes-2026" / "assets"
+MEDIA_MANIFEST_PATH = ASSETS_DIR / "publications-press-media.md"
+PRESS_MEDIA_MANIFEST_JSON = ASSETS_DIR / "press-media-manifest.json"
+DESIGN_SPEC_PATH = (
     REPO_ROOT
     / "content"
     / "source-packs"
     / "keynotes-2026"
-    / "assets"
-    / "publications-press-media.md"
+    / "PUBLICATIONS-DESIGN-SPEC.md"
 )
+PRESS_IMAGE_NAME_RE = re.compile(
+    r"^press-\d{4}-\d{2}-\d{2}-[a-z0-9-]+\.jpg$",
+    re.IGNORECASE,
+)
+PRESS_IMAGE_NAME_V2_RE = re.compile(
+    r"^press-\d{4}-\d{2}-\d{2}-[a-z0-9-]+-v2\.jpg$",
+    re.IGNORECASE,
+)
+
+sys.path.insert(0, str(REPO_ROOT / "scripts"))
+from capture_press_media import load_manifest  # noqa: E402
+
 PUBLISH_GATE_PATH = (
     REPO_ROOT
     / "content"
@@ -46,6 +61,34 @@ FORBIDDEN_SKIN_MARKERS = (
     "#ff6a6a",
     "--press-night",
 )
+
+
+def manifest_lookups(manifest: dict) -> tuple[dict[str, dict], dict[str, dict]]:
+    """Return (by_key, by_legacy_file) maps for manifest entries."""
+    by_key: dict[str, dict] = {}
+    by_legacy: dict[str, dict] = {}
+    for entry in manifest["entries"]:
+        by_key[entry["key"]] = entry
+        legacy = entry.get("legacy_file")
+        if legacy:
+            by_legacy[legacy] = entry
+    return by_key, by_legacy
+
+
+def ratio_matches(
+    width: str | int, height: str | int, ratio: str, tolerance: float = 0.02
+) -> bool:
+    w, h = int(width), int(height)
+    if ratio == "16:10":
+        expected = 16 / 10
+    elif ratio == "16:9":
+        expected = 16 / 9
+    elif ratio == "1:1":
+        expected = 1.0
+    else:
+        return True
+    actual = w / h
+    return abs(actual - expected) <= tolerance
 
 
 class LinkAndImageParser(HTMLParser):
@@ -153,6 +196,106 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
         gap = GAP_REPORT_PATH.read_text(encoding="utf-8")
         self.assertIn("Power 50", gap)
         self.assertIn("cyan", gap.lower())
+
+    def test_design_spec_and_json_manifest_exist(self):
+        self.assertTrue(DESIGN_SPEC_PATH.exists())
+        spec = DESIGN_SPEC_PATH.read_text(encoding="utf-8")
+        self.assertIn("## Image tiers", spec)
+        self.assertIn("1200 × 750", spec)
+        self.assertIn("contact-sheet.html", spec)
+        self.assertTrue(PRESS_MEDIA_MANIFEST_JSON.exists())
+        manifest = load_manifest(PRESS_MEDIA_MANIFEST_JSON)
+        self.assertGreaterEqual(len(manifest["entries"]), 16)
+        self.assertIn("feature-lead", manifest["slots"])
+        self.assertIn("podcast", manifest["slots"])
+
+    def test_manifest_covers_all_legacy_press_assets(self):
+        manifest = load_manifest(PRESS_MEDIA_MANIFEST_JSON)
+        legacy_files = sorted(
+            p.name
+            for p in ASSETS_DIR.glob("press-*.jpg")
+            if not p.name.endswith("-v2.jpg")
+        )
+        manifest_legacy = {
+            e["legacy_file"] for e in manifest["entries"] if e.get("legacy_file")
+        }
+        self.assertGreaterEqual(len(legacy_files), 16)
+        self.assertEqual(set(legacy_files), manifest_legacy)
+
+    def test_manifest_target_keys_use_v2_naming(self):
+        manifest = load_manifest(PRESS_MEDIA_MANIFEST_JSON)
+        for entry in manifest["entries"]:
+            self.assertRegex(
+                entry["key"],
+                PRESS_IMAGE_NAME_V2_RE,
+                msg=f"manifest key must be -v2 target: {entry['key']}",
+            )
+            self.assertNotEqual(entry["key"], entry.get("legacy_file"))
+
+    def test_manifest_slot_dimensions_are_internally_consistent(self):
+        manifest = load_manifest(PRESS_MEDIA_MANIFEST_JSON)
+        slots = manifest["slots"]
+        for entry in manifest["entries"]:
+            slot_def = slots[entry["slot"]]
+            self.assertEqual(entry["width"], slot_def["width"])
+            self.assertEqual(entry["height"], slot_def["height"])
+            self.assertEqual(entry["ratio"], slot_def["ratio"])
+            self.assertTrue(
+                ratio_matches(entry["width"], entry["height"], entry["ratio"])
+            )
+
+    def test_payload_images_have_manifest_entries(self):
+        manifest = load_manifest(PRESS_MEDIA_MANIFEST_JSON)
+        _, by_legacy = manifest_lookups(manifest)
+        for image in self.parser.images:
+            media_key = image.get("data-media-key")
+            self.assertTrue(media_key, "every img must have data-media-key")
+            self.assertIn(
+                media_key,
+                by_legacy,
+                msg=f"payload img {media_key!r} must map to manifest legacy_file",
+            )
+
+    def test_payload_image_dimensions_match_manifest_targets(self):
+        """Spec gate: width/height attrs must match manifest target dimensions."""
+        manifest = load_manifest(PRESS_MEDIA_MANIFEST_JSON)
+        _, by_legacy = manifest_lookups(manifest)
+        for image in self.parser.images:
+            media_key = image["data-media-key"]
+            entry = by_legacy[media_key]
+            self.assertEqual(
+                str(entry["width"]),
+                str(image.get("width")),
+                msg=f"{media_key}: width must be {entry['width']} per manifest",
+            )
+            self.assertEqual(
+                str(entry["height"]),
+                str(image.get("height")),
+                msg=f"{media_key}: height must be {entry['height']} per manifest",
+            )
+            self.assertTrue(
+                ratio_matches(image["width"], image["height"], entry["ratio"]),
+                msg=f"{media_key}: attrs must match ratio {entry['ratio']}",
+            )
+
+    def test_payload_press_image_naming_convention(self):
+        for image in self.parser.images:
+            media_key = image.get("data-media-key", "")
+            if not media_key.startswith("press-"):
+                continue
+            self.assertRegex(
+                media_key,
+                PRESS_IMAGE_NAME_RE,
+                msg=f"press image naming must be press-YYYY-MM-DD-*: {media_key}",
+            )
+            date_part = media_key.split("-")[1:4]
+            self.assertEqual(
+                len(date_part), 3, msg=f"date segment missing in {media_key}"
+            )
+            year, month, day = date_part
+            self.assertEqual(len(year), 4)
+            self.assertEqual(len(month), 2)
+            self.assertEqual(len(day), 2)
 
 
 if __name__ == "__main__":
