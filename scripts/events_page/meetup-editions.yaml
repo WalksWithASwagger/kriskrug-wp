@@ -1,0 +1,326 @@
+schema_version: 1
+source: kk-kb content/projects/01-vancouver-ai-community/meetups/EDITION-HERO-INDEX.yaml
+generated_at: '2026-08-01T16:27:43Z'
+series: Vancouver AI Community Meetup
+numbering_note: 'Editions #1–#31 use anniversary-anchored numbering locked to #13
+  = 2025-01-29 and #31 = 2026-07-29 (May=#29 → June=#30 → July=#31). Older archive
+  filenames/READMEs disagree in places; those conflicts are noted per row.'
+coverage:
+  editions: 31
+  with_local_hero: 8
+  hero_coverage_pct: 25.8
+  with_luma_url: 21
+editions:
+- edition: 1
+  date: '2024-01-31'
+  title: 'Vancouver AI Meetup #1'
+  luma_url: null
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: null
+  date_confidence: approximate
+  notes: No month folder; first-of-2024 slot by anniversary-anchored numbering
+- edition: 2
+  date: '2024-02-28'
+  title: 'Vancouver AI Meetup #2'
+  luma_url: null
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2024/02-february
+  date_confidence: approximate
+  notes: Archive files mislabeled meetup-14
+- edition: 3
+  date: '2024-03-27'
+  title: 'Vancouver AI Meetup #3'
+  luma_url: null
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2024/03-march
+  date_confidence: approximate
+  notes: Archive files mislabeled meetup-15
+- edition: 4
+  date: '2024-04-24'
+  title: 'Vancouver AI Meetup #4'
+  luma_url: null
+  hero_image_kk_kb: content/projects/01-vancouver-ai-community/meetups/2024/04-april/photos/vancouver-ai-meetup-april-2024-112.jpg
+  hero_kind: night_photo
+  photographer_credit: null
+  archive_folder: 2024/04-april
+  date_confidence: approximate
+  notes: Strong local photo set
+- edition: 5
+  date: '2024-05-29'
+  title: 'Vancouver AI Meetup #5'
+  luma_url: null
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: null
+  date_confidence: approximate
+  notes: Month folder empty/moved
+- edition: 6
+  date: '2024-06-26'
+  title: 'Vancouver AI Meetup #6'
+  luma_url: null
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2024/06-june
+  date_confidence: approximate
+  notes: Archive files mislabeled meetup-18
+- edition: 7
+  date: '2024-07-31'
+  title: 'Vancouver AI Meetup #7'
+  luma_url: null
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: null
+  date_confidence: approximate
+  notes: Month folder empty/moved
+- edition: 8
+  date: '2024-08-28'
+  title: 'Vancouver AI Meetup #8'
+  luma_url: null
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2024/08-august
+  date_confidence: soft
+  notes: Special-events month; numbering soft
+- edition: 9
+  date: '2024-09-25'
+  title: 'Vancouver AI Meetup #9'
+  luma_url: null
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2024/09-september
+  date_confidence: soft
+  notes: 'Inventory says #9; files named meetup-21'
+- edition: 10
+  date: '2024-10-30'
+  title: 'Vancouver AI Meetup #10'
+  luma_url: https://luma.com/letsgo
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2024/10-october
+  date_confidence: luma_ledger
+  notes: Luma ledger 2026-04-18 dump
+- edition: 11
+  date: '2024-11-27'
+  title: 'Vancouver AI Meetup #11'
+  luma_url: https://luma.com/VanAI-11
+  hero_image_kk_kb: content/projects/01-vancouver-ai-community/meetups/2024/11-november/photos/vancouver-ai-meetup-november-2024-162.jpg
+  hero_kind: night_photo
+  photographer_credit: null
+  archive_folder: 2024/11-november
+  date_confidence: luma_ledger
+  notes: Local night photos present
+- edition: 12
+  date: '2024-12-15'
+  title: 'Vancouver AI Meetup #12 (NeurIPS)'
+  luma_url: https://luma.com/NeurIPS2024
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2024/12-december
+  date_confidence: luma_ledger
+  notes: NeurIPS special; also Synthesis afterparty KKBDAY
+- edition: 13
+  date: '2025-01-29'
+  title: 'Vancouver AI Meetup #13'
+  luma_url: https://luma.com/VAI13
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2025/01-january
+  date_confidence: documented
+  notes: One-year anniversary; numbering lock anchor
+- edition: 14
+  date: '2025-02-26'
+  title: 'Vancouver AI Meetup #14'
+  luma_url: https://luma.com/VAI14
+  hero_image_kk_kb: content/projects/01-vancouver-ai-community/meetups/2025/02-february/photos/vancouver-ai-meetup-feb-2025-072.jpg
+  hero_kind: night_photo
+  photographer_credit: null
+  archive_folder: 2025/02-february
+  date_confidence: luma_ledger
+  notes: Local photos
+- edition: 15
+  date: '2025-03-26'
+  title: 'Vancouver AI Meetup #15'
+  luma_url: https://luma.com/VAI15
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2025/03-march
+  date_confidence: luma_ledger
+  notes: null
+- edition: 16
+  date: '2025-04-30'
+  title: 'Vancouver AI Meetup #16'
+  luma_url: https://luma.com/VAI16
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: null
+  date_confidence: luma_ledger
+  notes: April 2025 archive folder missing
+- edition: 17
+  date: '2025-05-28'
+  title: 'Vancouver AI Meetup #17'
+  luma_url: https://luma.com/websummit-vancouver
+  hero_image_kk_kb: content/projects/01-vancouver-ai-community/meetups/2025/05-may/photos/surrey-ai-meetup-may-2025-027.jpg
+  hero_kind: night_photo
+  photographer_credit: null
+  archive_folder: 2025/05-may
+  date_confidence: documented
+  notes: Web Summit edition; local photos named surrey-ai-meetup — verify before public
+    use
+- edition: 18
+  date: '2025-06-25'
+  title: 'Vancouver AI Meetup #18'
+  luma_url: https://luma.com/VAI18
+  hero_image_kk_kb: content/projects/01-vancouver-ai-community/meetups/2025/06-june/photos/surrey-ai-meetup-june-2025-080.jpg
+  hero_kind: night_photo
+  photographer_credit: null
+  archive_folder: 2025/06-june
+  date_confidence: documented
+  notes: Michelle Diamond Pixieset June gallery external; local photos may be Surrey-named
+- edition: 19
+  date: '2025-07-30'
+  title: 'Vancouver AI Meetup #19'
+  luma_url: https://luma.com/julio
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2025/07-july
+  date_confidence: documented
+  notes: null
+- edition: 20
+  date: '2025-08-27'
+  title: 'Vancouver AI Meetup #20'
+  luma_url: https://luma.com/vai20
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2025/08-august
+  date_confidence: documented
+  notes: BC + AI launch / Peter Bittner keynote
+- edition: 21
+  date: '2025-09-24'
+  title: 'Vancouver AI Meetup #21'
+  luma_url: https://luma.com/vai21
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2025/09-september
+  date_confidence: documented
+  notes: Manuel Axelstrain keynote
+- edition: 22
+  date: '2025-10-29'
+  title: 'Vancouver AI Meetup #22'
+  luma_url: https://luma.com/vai22
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2025/10-october
+  date_confidence: documented
+  notes: AI Film Festival + hackathon finale
+- edition: 23
+  date: '2025-11-26'
+  title: 'Vancouver AI Meetup #23'
+  luma_url: https://luma.com/vai23
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2025/11-november
+  date_confidence: luma_ledger
+  notes: null
+- edition: 24
+  date: '2025-12-18'
+  title: 'Vancouver AI Meetup #24'
+  luma_url: https://luma.com/awards
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2025/12-december
+  date_confidence: luma_ledger
+  notes: Squatchie Awards; Festivus social 2025-12-14 is separate
+- edition: 25
+  date: '2026-01-28'
+  title: 'Vancouver AI Meetup #25'
+  luma_url: https://luma.com/liftoff
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2026/01-january
+  date_confidence: documented
+  notes: null
+- edition: 26
+  date: '2026-02-25'
+  title: 'Vancouver AI Meetup #26'
+  luma_url: https://luma.com/deepdive
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2026/02-february
+  date_confidence: documented
+  notes: MAC night
+- edition: 27
+  date: '2026-03-25'
+  title: 'Vancouver AI Meetup #27'
+  luma_url: null
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2026/03-march
+  date_confidence: folder_docs
+  notes: Luma URL not locked in folder README
+- edition: 28
+  date: '2026-04-29'
+  title: 'Vancouver AI Meetup #28'
+  luma_url: https://luma.com/vanai-april
+  hero_image_kk_kb: content/projects/01-vancouver-ai-community/meetups/2026/04-april/promo-graphics/9-6bf27e0d-957a-4c79-b2bf-90349fecbf45.png
+  hero_kind: promo
+  photographer_credit: null
+  archive_folder: 2026/04-april
+  date_confidence: documented
+  notes: Promo graphics present; April Pixieset album not local
+- edition: 29
+  date: '2026-05-27'
+  title: 'Vancouver AI Meetup #29'
+  luma_url: https://luma.com/vanai-may
+  hero_image_kk_kb: null
+  hero_kind: missing
+  photographer_credit: null
+  archive_folder: 2026/05-may
+  date_confidence: documented
+  notes: Building the AI Commons
+- edition: 30
+  date: '2026-06-24'
+  title: 'Vancouver AI Meetup #30'
+  luma_url: https://luma.com/june-vanai
+  hero_image_kk_kb: content/projects/01-vancouver-ai-community/meetups/2026/06-june/promo-graphics/13-meetup-30-full-lineup-hero.png
+  hero_kind: promo
+  photographer_credit: null
+  archive_folder: 2026/06-june
+  date_confidence: documented
+  notes: 'Prefer lineup hero promo; Michelle BBQ night photos also in #31 carousel
+    (June 2025 Pixieset)'
+- edition: 31
+  date: '2026-07-29'
+  title: 'Vancouver AI Meetup #31'
+  luma_url: https://luma.com/july-ai
+  hero_image_kk_kb: content/projects/01-vancouver-ai-community/meetups/2026/07-july/carousel-photos/09-veggie-skewers-michelle-diamond.jpg
+  hero_kind: night_photo
+  photographer_credit: Michelle Diamond / Diamond's Edge Photography
+  archive_folder: 2026/07-july
+  date_confidence: documented
+  notes: 'Ledger lock #31; on-stage #32 slip. Carousel night photos are Michelle Diamond
+    June 2025 BBQ set used for July promo'
