@@ -22,6 +22,9 @@ Caption: Vancouver AI Meetup 30 at the H.R. MacMillan Space Centre, June 2026. P
 | `images/biv-ecosystem-context.jpg` | **In body** — "Three groups, one page" (uploaded as `biv-headline-clean.jpg`, media 12654) | Contextual screenshot · Business in Vancouver / Daisy Xiong · ad-free recapture 2026-07-31 · do not scrape Rob Kruyt portrait as hero | Local capture from kk-kb press-clippings |
 | `images/biv-quote-context.jpg` | Archive / optional second BIV proof (uploaded as `biv-quote-clean.jpg`, media 12655; not in body — quote runs as text pullquote) | Same · ad-free recapture 2026-07-31 | Local capture |
 | `images/tyee-ai-adoption-headline.jpg` | Near compute / Tyee paragraph | Contextual screenshot · The Tyee | Local capture |
+| `images/aefl-parker-street-room.jpg` | "The rooms multiplied" — AEFL beat (media 12657) | BC + AI · AEFL 5 recap post | https://bc-ai.ca/images/news/ai-ethical-futures-lab-5-july-recap/aefl-5-room-wide-01.jpg |
+| `images/comox-valley-meetup-room.jpg` | "The rooms multiplied" — Comox beat (media 12658) | BC + AI · Comox Valley post | https://bc-ai.ca/images/communities/comox-valley/meetup-room.webp |
+| `images/vanai-conversation-pair.jpg` | "The product is interconnectedness" (media 12659) | BC + AI · from-one-room post / event archive | https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/news/vancouver-ai-building-bcs-ai-future/img_30.png |
 
 ## Video embeds
 

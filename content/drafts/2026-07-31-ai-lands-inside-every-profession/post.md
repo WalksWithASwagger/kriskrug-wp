@@ -2,7 +2,7 @@
 title: "AI Lands Inside Every Profession"
 slug: ai-lands-inside-every-profession
 post_date: "2026-07-31"
-status: draft
+status: publish  # flipped to publish in wp-admin by owner 2026-07-31 18:40 PT; live URL https://kriskrug.co/2026/07/31/ai-lands-inside-every-profession/
 post_type: post
 author_wp_id: 1
 wp_draft_id: 12653
@@ -26,7 +26,7 @@ seo:
 source_manifest: sources.md
 assets_manifest: ASSETS.md
 approval: pending-kris
-revision: "2026-07-31 depth/polish/voice round — interview stories, named rooms, back-catalog links, clean BIV screenshots, de-inside-baseball pass"
+revision: "2026-07-31 depth/polish/voice round + same-day BC-AI depth layer — interview stories, named rooms, back-catalog links, clean BIV screenshots, de-inside-baseball pass, 11 bc-ai.ca news links, 3 BC-AI post images (AEFL, Comox, conversation), task-force + BC Studies + paper-trail beats"
 kk_kb_issue: 2940
 kk_kb_epic: 2937
 ---
@@ -56,7 +56,7 @@ B.C. already has researchers, studios, startups, adopters, investors, and public
 
 What we have underbuilt is the boring, recurring infrastructure that turns scattered excellence into a region that can learn together, hire across silos, form companies, and show up in policy conversations with a shared memory.
 
-And here is the thing: B.C. has done this before. Our interactive and digital media economy did not happen by accident. People sat down, built the tax credits, built the industry associations, and stitched studios, schools, and government into a cluster on purpose. Ask anyone who was in those rooms in the 2000s. Nobody had done that for AI yet.
+And here is the thing: B.C. has done this before. Our interactive and digital media economy did not happen by accident. People sat down, built the tax credits, built the industry associations, and stitched studios, schools, and government into a cluster on purpose. Ask anyone who was in those rooms in the 2000s. I have been making the case that AI deserves the same deliberate treatment since [the very first weeks of this project](https://bc-ai.ca/news/why-we-need-to-double-down) — the entry-level jobs that built those talent pipelines are exactly what AI is dissolving first, and nobody had started building the replacement.
 
 Not another isolated lab.
 Not another one-off summit.
@@ -71,7 +71,7 @@ Eighty-five people crammed into that studio by the end. We were bursting. Then L
 A year later we made it official as the [BC + AI Ecosystem Association](https://bc-ai.ca/about), a member-funded nonprofit. I wrote the [origin arc separately](https://kriskrug.co/2026/06/30/zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey/). The short version of where that stands today:
 
 - about 300 paid annual members who actually know each other
-- 11 community subgroups — an AI Film Club run by Kevin Friel on a philosophy of "every human in every loop," an AI Ethical Futures Lab, education circles, and regional rooms in Surrey, Squamish, and the Comox Valley (first Thursday of the month, if you're on the Island)
+- 11 community subgroups — an [AI Film Club](https://bc-ai.ca/news/launching-the-bc-ai-film-club) run by Kevin Friel on a philosophy of "every human in every loop," an AI Ethical Futures Lab, education circles, and regional rooms in Surrey, Squamish, and the Comox Valley (first Thursday of the month, if you're on the Island)
 - weekly programming, not just a monthly flagship — the [events calendar](https://lu.ma/vancouver-ai) does not take weeks off
 - more than 3,000 people through the door since launch
 - [Responsible AI Professional](https://bc-ai.ca/certification/responsible-ai-professional) training in active use
@@ -90,6 +90,24 @@ We are bootstrapped on memberships, tickets, certifications, and sponsorship. Th
 
 *[Futureproof Festival](https://futureproof.website/) — October 28–30, 2026 · Space Centre.*
 
+## The rooms multiplied
+
+"Eleven subgroups" is an org-chart fact. Here is what it feels like from inside.
+
+The AI Ethical Futures Lab meets at Parker Street Studios, and somewhere around its fifth session it [stopped feeling like an event series and started feeling like civic infrastructure](https://bc-ai.ca/news/ai-ethical-futures-lab-5-july-recap) — a room people can come back to, where somebody can raise disability access and somebody else can raise data-centre heat and both threads belong to the same conversation. Public AI discourse keeps getting flattened into the shiny demo or the red-alert siren. The Lab is where we stop pretending that contradiction is a branding problem.
+
+[![AI Ethical Futures Lab at Parker Street Studios](https://kriskrug.co/wp-content/uploads/2026/07/aefl-parker-street-room.jpg)](https://bc-ai.ca/news/ai-ethical-futures-lab-5-july-recap)
+
+*AI Ethical Futures Lab at Parker Street Studios, July 2026. Photo: BC + AI.*
+
+The Film Club is where the professions argument gets cinematic. Kevin Friel spent twenty-five years at DNEG, BRON, and MPC; now he calls this the orchestration era — not one model, but a pipeline you conduct — and gives away every shortcut he knows on a Wednesday night. When we ran the [first AI Animation Accelerator](https://bc-ai.ca/news/what-we-learned-running-the-first-ai-animation-accelerator), one of our filmmakers showed a thirty-second commercial he had made for about a hundred dollars — work that would have carried a six-figure budget at his old studio. Two hundred and fifty people packed the Space Centre for our first film festival to watch six AI-made shorts. That is a profession renegotiating itself in public, in real time, in our rooms.
+
+And it is not a Vancouver story anymore. When we took the meetup to Courtenay, I called the first one Meetup #0 because I did not want to show up from the city pretending to know what the Island needed. We expected a dozen people. [About sixty-five showed up](https://bc-ai.ca/news/comox-valley-ai-is-becoming-its-own-thing) — farmers, teachers, local government folks, software people, artists, retirees. The valley was already having the conversation. You just have to give it a room.
+
+[![Comox Valley AI meetup in Courtenay](https://kriskrug.co/wp-content/uploads/2026/07/comox-valley-meetup-room.jpg)](https://bc-ai.ca/news/comox-valley-ai-is-becoming-its-own-thing)
+
+*Comox Valley AI in Courtenay — becoming its own thing. Photo: BC + AI.*
+
 ## What it looks like up close
 
 A health-tech CEO cornered me at one of our gatherings with a question that has stayed with me: when is this technology trustworthy enough for patient outcomes — for the responsibility that used to live entirely in the hands of doctors?
@@ -104,6 +122,12 @@ Three hundred people who do not know each other are a labour market.
 Three hundred people who share context, trust, and practice are a capability.
 
 The people in these rooms have each other's numbers in their phones. That sounds small. It is not. A region gets smarter when ideas can travel between a life-sciences operator, a procurement officer, a creative technologist, and a founder without waiting for a conference badge or a ministerial panel.
+
+[![Two attendees in animated conversation at a Vancouver AI gathering](https://kriskrug.co/wp-content/uploads/2026/07/vanai-conversation-pair.jpg)](https://bc-ai.ca/news/from-one-room-to-province-wide-infrastructure)
+
+*The actual product. [From one room to province-wide infrastructure](https://bc-ai.ca/news/from-one-room-to-province-wide-infrastructure). Photo: BC + AI.*
+
+Do not take my word for it. UBC researchers Patrick Pennefather and David Gaertner studied this community and published the result with me as a peer-reviewed case study in *BC Studies* — ["Building a Grass Roots AI Community of Practice"](https://bc-ai.ca/news/documenting-the-bc-ai-ecosystem-movement) (No. 224, April 2025). Their finding on what makes a local technology community hold together: not a platform, not a growth hack. Regular gatherings, porous participation, continuous documentation, and room for both formal and informal learning. In other words: the boring, recurring infrastructure. The stuff nobody funds.
 
 Ecosystem is not a vibe. It is repeated contact with consequences.
 
@@ -121,6 +145,8 @@ Vancouver is a ninety-minute flight from Silicon Valley, in the same time zone, 
 
 B.C. can combine applied AI, creative technology, university research, clean electricity, Indigenous ownership and data-sovereignty principles, and a livable Pacific coast into something distinct. I have made the long version of this argument in [Sovereign AI for Whom?](https://kriskrug.co/2026/06/16/sovereign-ai-for-whom/) and [Canada Doesn't Need a Bigger AI Machine. It Needs a Better One.](https://kriskrug.co/2026/06/26/canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one/)
 
+Ottawa is starting to notice. When Canada's AI Task Force ran its national consultation, [645 British Columbians answered](https://bc-ai.ca/news/bcs-response-to-the-canada-s-ai-task-force) — a fifth of every response in the country, second only to Ontario. We took the community [a platform built from those rooms](https://bc-ai.ca/news/bc-ai-s-platform-for-canada-s-ai-task-force), and then I read all thirty-two expert reports, because somebody should. Buried in them: three different Task Force experts, independently, naming Vancouver as a strategic location for federal AI investment. Not vague nods to "regional representation." Specific proposals about specific capability. The ground truth we have been building is starting to show up in the national paperwork.
+
 That includes compute. We have a chance to build clean, green, Indigenous-owned, hydropower data centres as a counterpoint to extractive defaults — if communities help write the terms instead of rubber-stamping blank cheques ([You Can't Drink Data](https://kriskrug.co/2026/05/23/you-cant-drink-data/)). [The Tyee carried a piece of that argument on July 24](https://thetyee.ca/News/2026/07/24/Who-Gets-Say-AI-Adoption/). The point is simpler than the policy detail: infrastructure without public agency is just someone else's factory on our grid.
 
 [![The Tyee headline screenshot](https://kriskrug.co/wp-content/uploads/2026/07/tyee-ai-adoption-headline.jpg)](https://thetyee.ca/News/2026/07/24/Who-Gets-Say-AI-Adoption/)
@@ -135,7 +161,7 @@ Here is what I appreciated most about Daisy's reporting. She came to this story 
 
 Advocacy work, recurring community, ethics and measurement, research pipelines, capital — a healthy region needs all of those layers, run by people with different mandates who talk to each other. The job is to stitch them together without flattening them into one logo. Nobody owns "the ecosystem." That is the point of the word.
 
-I have been telling this story since before it had institutions attached — the 2024 sketch is still up: [Future Proof: Inside Vancouver's Thriving AI Ecosystem](https://kriskrug.co/2024/10/10/future-proof-inside-vancouvers-thriving-ai-ecosystem/). Watching a business paper treat community infrastructure as economic news two years later? That is the drumbeat working.
+I have been telling this story since before it had institutions attached, and writing it down the whole way. The 2024 sketch is still up: [Future Proof: Inside Vancouver's Thriving AI Ecosystem](https://kriskrug.co/2024/10/10/future-proof-inside-vancouvers-thriving-ai-ecosystem/). Then the [BC + AI Report 2024](https://bc-ai.ca/news/bc-ai-report-2024) and a [field map of the provincial AI economy](https://bc-ai.ca/news/state-of-the-bc-ai-economy) that December. Then [a province-wide listening exercise](https://bc-ai.ca/news/what-does-the-bc-ai-ecosystem-need) asking British Columbians what the ecosystem actually needs, because the people living inside an ecosystem should shape it before decisions get announced. Watching a business paper treat community infrastructure as economic news two years into that paper trail? That is the drumbeat working.
 
 ## If you want in
 

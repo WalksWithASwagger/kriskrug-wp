@@ -29,6 +29,23 @@ URLs verified 2026-07-31 (depth/polish/voice revision round). Prefer one primary
 | https://bc-ai.ca/membership | Join BC + AI |
 | https://www.youtube.com/watch?v=-XEsqsEbpoo | Whistler Institute keynote (text link, deliberately not a third embed) |
 
+## BC-AI depth layer (added 2026-07-31 evening round)
+
+| URL | Anchor / role |
+|---|---|
+| https://bc-ai.ca/news/why-we-need-to-double-down | DigiBC cluster paragraph — "very first weeks of this project" |
+| https://bc-ai.ca/news/launching-the-bc-ai-film-club | receipts list — AI Film Club |
+| https://bc-ai.ca/news/ai-ethical-futures-lab-5-july-recap | AEFL "civic infrastructure" beat + room photo link |
+| https://bc-ai.ca/news/what-we-learned-running-the-first-ai-animation-accelerator | Film Club / accelerator beat ($100 commercial, festival) |
+| https://bc-ai.ca/news/comox-valley-ai-is-becoming-its-own-thing | Comox Meetup #0 story + room photo link |
+| https://bc-ai.ca/news/from-one-room-to-province-wide-infrastructure | interconnectedness image caption |
+| https://bc-ai.ca/news/documenting-the-bc-ai-ecosystem-movement | BC Studies peer-reviewed case study (Pennefather / Gaertner) |
+| https://bc-ai.ca/news/bcs-response-to-the-canada-s-ai-task-force | task force — 645 B.C. respondents |
+| https://bc-ai.ca/news/bc-ai-s-platform-for-canada-s-ai-task-force | task force — community platform |
+| https://bc-ai.ca/news/bc-ai-report-2024 | paper-trail paragraph |
+| https://bc-ai.ca/news/state-of-the-bc-ai-economy | paper-trail paragraph — field map |
+| https://bc-ai.ca/news/what-does-the-bc-ai-ecosystem-need | paper-trail paragraph — listening exercise |
+
 ## Removed in this revision
 
 - OrgBook `S0083444` registry link (inside baseball)
