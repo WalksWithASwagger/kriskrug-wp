@@ -31,6 +31,21 @@ PUBLISH_GATE_PATH = (
     / "verification"
     / "PUBLICATIONS-EDITORIAL-PUBLISH-GATE-2026-07-24.md"
 )
+GAP_REPORT_PATH = (
+    REPO_ROOT
+    / "content"
+    / "source-packs"
+    / "keynotes-2026"
+    / "verification"
+    / "PUBLICATIONS-KB-GAP-REPORT-2026-08-01.md"
+)
+
+FORBIDDEN_SKIN_MARKERS = (
+    "kk-publications",
+    "#00e5ff",
+    "#ff6a6a",
+    "--press-night",
+)
 
 
 class LinkAndImageParser(HTMLParser):
@@ -56,18 +71,42 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
 
     def test_complete_reverse_chronological_inventory(self):
         self.assertEqual(3, self.payload.count('<a class="kk-press-feature'))
-        self.assertEqual(19, self.payload.count('<article class="kk-press-entry'))
+        self.assertEqual(20, self.payload.count('<article class="kk-press-entry'))
         self.assertEqual(25, self.payload.count("<li><time"))
 
         dates = re.findall(r'datetime="(\d{4}-\d{2}-\d{2})"', self.payload)
-        self.assertEqual(47, len(dates))
+        self.assertEqual(48, len(dates))
         self.assertEqual(sorted(dates, reverse=True), dates)
+
+    def test_structure_and_reciprocal_links(self):
+        self.assertIn('class="kk-press-featured"', self.payload)
+        self.assertIn('class="kk-press-feed"', self.payload)
+        self.assertIn('class="kk-press-legacy"', self.payload)
+        self.assertIn("/podcast-guesting-page-epk/", self.payload)
+        self.assertIn(
+            "/2026/07/02/ai-media-appearances-podcast-guesting/", self.payload
+        )
+        self.assertIn("Media Appearances", self.payload)
+        self.assertIn("vanmag.com/city/power-50/", self.payload)
+
+    def test_forbids_dark_neon_ghost_skin(self):
+        lowered = self.payload.lower()
+        for marker in FORBIDDEN_SKIN_MARKERS:
+            self.assertNotIn(marker.lower(), lowered)
+        self.assertNotRegex(self.payload, r"--press-night\s*:")
+        self.assertNotIn("background:var(--press-night)", self.payload)
+        self.assertNotIn("background:#0d1014", self.payload)
 
     def test_markup_and_voice_guards(self):
         self.assertNotRegex(self.payload, r"<h1\b")
         self.assertNotIn("—", self.payload)
-        self.assertIn("@media (max-width:620px)", self.payload)
-        self.assertIn("@media (prefers-reduced-motion:reduce)", self.payload)
+        self.assertRegex(self.payload, r"@media\s*\(max-width:\s*620px\)")
+        self.assertRegex(self.payload, r"@media\s*\(prefers-reduced-motion:\s*reduce\)")
+        self.assertIn("Space Grotesk", self.payload)
+        self.assertIn("DM Sans", self.payload)
+        self.assertIn("--aurora-paper", self.payload)
+        self.assertIn("--aurora-ink", self.payload)
+        self.assertIn("--aurora-signal", self.payload)
 
     def test_images_have_dimensions_and_alt_text(self):
         self.assertEqual(7, len(self.parser.images))
@@ -98,10 +137,17 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
         manifest = MEDIA_MANIFEST_PATH.read_text(encoding="utf-8")
         self.assertIn("Excluded from the publication set", manifest)
         self.assertIn("explicit media approval", manifest)
+        self.assertIn("superseded", manifest.lower())
         gate = PUBLISH_GATE_PATH.read_text(encoding="utf-8")
         self.assertIn("WordPress page ID: `1895`", gate)
         self.assertRegex(gate, r"authenticated\s+`context=edit` snapshot")
         self.assertIn("Do not delete uploaded media during emergency rollback", gate)
+        self.assertIn("superseded", gate.lower())
+        self.assertIn("Aurora paper", gate)
+        self.assertTrue(GAP_REPORT_PATH.exists())
+        gap = GAP_REPORT_PATH.read_text(encoding="utf-8")
+        self.assertIn("Power 50", gap)
+        self.assertIn("cyan", gap.lower())
 
 
 if __name__ == "__main__":

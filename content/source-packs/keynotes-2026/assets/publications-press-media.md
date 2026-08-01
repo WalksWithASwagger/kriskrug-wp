@@ -1,8 +1,24 @@
 # Publications press media
 
-Status: proposed review set for the Publications page overhaul. The payload uses
-local relative paths so the branch is self-contained and cannot hotlink publisher
-servers. It is not ready to paste into WordPress.
+Status: **Aurora paper tear-sheet media checklist** (2026-08-01).
+The July 2026 dark neon draft skin is **superseded**. Local relative paths keep
+the branch self-contained; they must be rewritten to WordPress Media Library
+URLs before any live paste/PATCH. Not ready to paste into WordPress until KK
+approves the media set and the dry-run diff.
+
+## Local asset confirmation (2026-08-01)
+
+All seven press files exist under this directory:
+
+| Local file | Bytes (approx) |
+|---|---|
+| `press-2026-07-31-biv-ecosystem-context.jpg` | 245070 |
+| `press-2026-07-24-the-tyee-context.jpg` | 78954 |
+| `press-2026-06-15-biv-context.jpg` | 87250 |
+| `press-2026-05-20-storyhive.jpg` | 91465 |
+| `press-2026-02-09-tela-viva-context.jpg` | 50314 |
+| `press-2025-07-09-e-channelnews-context.jpg` | 51972 |
+| `press-2025-05-01-portfolio-yvr-context.jpg` | 105581 |
 
 ## Proposed publication set
 
@@ -33,18 +49,25 @@ The raw copies above were removed from this branch. Contextual screenshots still
 contain copyrighted source material. Their use on a press-clippings page requires
 Kris's explicit editorial approval and appropriate attribution.
 
-## Publication gate
+## WP upload + path rewrite checklist (prepare only until KK approves)
 
-1. Kris approves the seven-file media set above.
-2. Upload only the approved files to the KrisKrug.co WordPress Media Library.
+1. Kris approves the seven-file media set above (**explicit media approval**).
+2. Upload only those seven files to the KrisKrug.co WordPress Media Library.
 3. Preserve outlet and photographer credits in attachment captions where visible.
-4. Replace every relative image `src` with its uploaded WordPress media URL.
-5. Confirm that no `../assets/` paths or third-party image URLs remain.
-6. Snapshot page `1895` through authenticated `context=edit` before writing.
-7. Review an exact dry-run diff against the current published page.
-8. Apply only after exact target and publish approval.
-9. Verify the cache-bypassed public page on desktop and mobile.
-10. Keep the page snapshot as the rollback source.
+4. Record each `attachment_id` + CDN `source_url` beside the local filename.
+5. Replace every relative image `src` (`../assets/press-…`) with its uploaded URL.
+6. Confirm every `<img>` still has matching `data-media-key`, `alt`, `width`, `height`.
+7. Confirm that no `../assets/` paths or third-party image URLs remain in page raw.
+8. Snapshot page `1895` through authenticated `context=edit` before writing.
+9. Review an exact dry-run diff against the current published page.
+10. Apply only after exact target and publish approval.
+11. Verify the cache-bypassed public page on desktop and mobile.
+12. Keep the page snapshot as the rollback source.
 
-All 47 coverage links were rechecked during the July 2026 review pass. Media
-approval is separate from layout approval and public-publish approval.
+**Do not upload or PATCH in this lane without KK go-ahead.** Helper:
+
+`varlock run --path .env.schema --inject vars -- python3 scripts/deploy_publications_tearsheet.py --dry-run`
+
+Coverage inventory was reconciled 2026-08-01 (see
+`../verification/PUBLICATIONS-KB-GAP-REPORT-2026-08-01.md`). Media approval is
+separate from layout approval and public-publish approval.
