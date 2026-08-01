@@ -1,0 +1,11 @@
+{
+  "page_id": 2409,
+  "slug": "testimonials",
+  "url": "https://kriskrug.co/testimonials/",
+  "before_snapshot_json": "backup/20260801-testimonials/page-snapshots/page-2409-testimonials-before.json",
+  "before_snapshot_html": "backup/20260801-testimonials/page-snapshots/page-2409-testimonials-before.html",
+  "deploy_report": "backup/20260801-testimonials/deploy-report.json",
+  "restore_command": "varlock run --inject vars -- scripts/notion-to-wp/.venv/bin/python scripts/content_architecture_deploy.py --page testimonials --snapshot-dir backup/20260801-testimonials/page-snapshots --restore",
+  "restore_hint": "Uses content.raw from page-2409-testimonials-before.json via deploy script --restore",
+  "notes": "Default clearance set (13 quotes). Luma Simon/Suzy not shipped. No Butterfield. LinkedIn plain-text for Landon/Steve/Joshua/Benjamin."
+}
