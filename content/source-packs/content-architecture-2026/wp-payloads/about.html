@@ -1,9 +1,146 @@
 <!-- wp:html -->
 <!-- content-architecture-2026:about -->
+<style>
+.aurora-page-2026:has(.aurora-about-page) .aurora-page-header { display: none; }
+.aurora-page-2026:has(.aurora-about-page) {
+  overflow-x: clip;
+}
+/* Break the hero out of the prose column so About owns a true first viewport. */
+.aurora-about-page > .aurora-hero-2026 {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  min-height: clamp(640px, 88vh, 900px);
+  position: relative;
+}
+.aurora-about-page > .aurora-hero-2026 .aurora-hero-media img {
+  /* Match home: zoom + left-anchor so left scrim/copy clears the face. */
+  bottom: 0;
+  left: 0;
+  max-width: none;
+  object-position: 68% 26%;
+  right: auto;
+  top: 0;
+  width: 145%;
+}
+@media (max-width: 900px) {
+  .aurora-about-page > .aurora-hero-2026 .aurora-hero-media img {
+    left: 0;
+    right: 0;
+    object-position: 88% 20%;
+    width: 100%;
+  }
+}
+.aurora-about-page > .aurora-hero-2026 .aurora-hero-copy {
+  margin: 0 auto 0 max(0px, calc((100% - 1200px) / 2));
+  max-width: min(34rem, 100%);
+  min-height: clamp(640px, 88vh, 900px);
+  box-sizing: border-box;
+}
+.aurora-about-page > .aurora-hero-2026 .aurora-hero-dek {
+  max-width: 42ch;
+}
+.aurora-about-page :where(p, li)::first-letter {
+  initial-letter: normal !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  float: none !important;
+  margin: 0 !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  background: transparent !important;
+}
+
+/* Light ink over dark portrait hero — cream-paper forces dark !important on h2/p. */
+.aurora-about-page .aurora-hero-2026 :where(#aurora-about-title, .aurora-hero-copy h2) {
+  color: #f7f7f2 !important;
+  -webkit-text-fill-color: #f7f7f2 !important;
+}
+.aurora-about-page .aurora-hero-2026 :where(.aurora-hero-dek, .aurora-hero-copy p:not(.aurora-kicker)) {
+  color: #c8cac8 !important;
+  -webkit-text-fill-color: #c8cac8 !important;
+}
+.aurora-about-page .aurora-hero-2026 .aurora-kicker {
+  color: #e8b53a !important;
+  -webkit-text-fill-color: #e8b53a !important;
+}
+.aurora-about-page .aurora-hero-2026 .aurora-button-secondary {
+  background: rgba(247, 247, 242, 0.08) !important;
+  border-color: rgba(247, 247, 242, 0.35) !important;
+  color: #f7f7f2 !important;
+  -webkit-text-fill-color: #f7f7f2 !important;
+}
+.aurora-about-page .aurora-hero-copy h2 {
+  font-size: clamp(2.6rem, 5.2vw, 4.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin: 0;
+  max-width: 16ch;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  hyphens: manual;
+}
+@media (max-width: 700px) {
+  .aurora-about-page .aurora-hero-copy h2 {
+    font-size: clamp(2.1rem, 9vw, 3rem);
+    line-height: 1.05;
+    max-width: 14ch;
+  }
+}
+.aurora-about-page .aurora-proof-section .aurora-button,
+.aurora-about-page .aurora-proof-section a.aurora-button {
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid #171310;
+  border-radius: 2px;
+  background: #171310;
+  color: #efe6d2 !important;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+}
+.aurora-about-page .aurora-proof-section .aurora-button:hover,
+.aurora-about-page .aurora-proof-section a.aurora-button:hover {
+  background: #d94a1f;
+  border-color: #d94a1f;
+  color: #efe6d2 !important;
+  text-decoration: none !important;
+}
+.aurora-about-page .aurora-card,
+.aurora-about-page .aurora-media-card {
+  border-radius: 2px !important;
+  box-shadow: none !important;
+}
+</style>
+<div class="aurora-about-page">
+<section class="aurora-hero-2026" aria-labelledby="aurora-about-title">
+  <figure class="aurora-hero-media" aria-label="Portrait of Kris Krüg">
+    <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=2000&amp;ssl=1"
+      srcset="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=640&amp;ssl=1 640w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=960&amp;ssl=1 960w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=1280&amp;ssl=1 1280w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=1600&amp;ssl=1 1600w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=2000&amp;ssl=1 2000w"
+      sizes="100vw"
+      alt="Portrait of Kris Krüg"
+      width="2000"
+      height="1827"
+      fetchpriority="high"
+      decoding="async"/>
+  </figure>
+  <div class="aurora-hero-scrim" aria-hidden="true"></div>
+  <div class="aurora-hero-copy">
+    <p class="aurora-kicker">About</p>
+    <h2 id="aurora-about-title">I build culture around emerging technology.</h2>
+    <p class="aurora-hero-dek">I am Kris Krug: photographer, creative technologist, community builder, speaker, and field-note person for the weird edge where humans meet the machines they keep inventing.</p>
+    <div class="aurora-action-row">
+      <a class="aurora-button aurora-button-primary" href="/contact/">Contact Kris</a>
+      <a class="aurora-button aurora-button-secondary" href="/work/">See the work</a>
+    </div>
+  </div>
+</section>
+
 <section class="aurora-proof-section">
-  <p class="aurora-section-kicker">About</p>
-  <h2 class="aurora-display-heading">I build culture around emerging technology.</h2>
-  <p class="aurora-page-lead">I am Kris Krug: photographer, creative technologist, community builder, speaker, and field-note person for the weird edge where humans meet the machines they keep inventing.</p>
   <p>I have spent two decades documenting technology, art, activism, conferences, communities, and the back rooms where culture actually changes. These days, most of that work points at one question: how do we use AI to increase human capacity instead of flattening human judgment?</p>
 </section>
 
@@ -12,7 +149,7 @@
   <div class="aurora-proof-grid">
     <article class="aurora-media-card">
       <a href="https://bc-ai.ca/">
-        <img src="https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&amp;ssl=1" alt="BC plus AI ecosystem graphic" loading="lazy">
+        <img src="https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&amp;ssl=1" alt="BC plus AI ecosystem graphic" loading="lazy"/>
         <div>
           <h3>BC + AI Ecosystem</h3>
           <p>Building grassroots AI literacy, events, and community infrastructure across British Columbia.</p>
@@ -21,7 +158,7 @@
     </article>
     <article class="aurora-media-card">
       <a href="/speaking/">
-        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-cmvan-keynote-header.png?w=1280&amp;ssl=1" alt="Punk Rock AI CreativeMornings Vancouver keynote banner" loading="lazy">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-cmvan-keynote-header.png?w=1280&amp;ssl=1" alt="Punk Rock AI CreativeMornings Vancouver keynote banner" loading="lazy"/>
         <div>
           <h3>AI keynotes and workshops</h3>
           <p>Helping audiences understand AI through taste, courage, responsibility, and useful live demos.</p>
@@ -30,7 +167,7 @@
     </article>
     <article class="aurora-media-card">
       <a href="/photography/">
-        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=1200&amp;ssl=1" alt="Portrait of Kris Krug" loading="lazy">
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/20067931301_e7a16b6f2c_k-1.jpg?w=1200&amp;ssl=1" alt="Archive photograph from Kris Krug photography practice" loading="lazy"/>
         <div>
           <h3>Visual storytelling</h3>
           <p>A long public archive of people, movements, music, technology, and the strange theatre of modern life.</p>
@@ -39,7 +176,7 @@
     </article>
     <article class="aurora-media-card">
       <a href="/work/">
-        <img src="https://www.bothhandsfull.com/opengraph-image?46af5f0ff830fe03" alt="Both Hands Full keynote graphic" loading="lazy">
+        <img src="https://www.bothhandsfull.com/opengraph-image?46af5f0ff830fe03" alt="Both Hands Full keynote graphic" loading="lazy"/>
         <div>
           <h3>Creative AI systems</h3>
           <p>Projects, publishing loops, and experiments for staying distinct in the synthetic age.</p>
@@ -78,4 +215,5 @@
     <p><a class="aurora-button" href="/contact/">Contact Kris</a></p>
   </div>
 </section>
+</div>
 <!-- /wp:html -->
