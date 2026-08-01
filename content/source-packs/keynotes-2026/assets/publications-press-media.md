@@ -90,3 +90,12 @@ Kris's explicit editorial approval and appropriate attribution.
 Coverage inventory was reconciled 2026-08-01 (see
 `../verification/PUBLICATIONS-KB-GAP-REPORT-2026-08-01.md`). Media approval is
 separate from layout approval and public-publish approval.
+
+## Showpiece wave (2026-08-01)
+
+- Design spec: `../PUBLICATIONS-DESIGN-SPEC.md`
+- Manifest: `press-media-manifest.json` (24 ready assets)
+- Contact sheet: `contact-sheet.html`
+- Payload uses `-v2` clips + podcast covers + CBC Sandboxing thumb + Top Boss clip
+- Sections: Right now (equal cards), The Wall, Heard on, Recent run, In print, Long trail
+
