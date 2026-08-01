@@ -1,0 +1,11 @@
+{
+  "post_id": 11879,
+  "slug": "ai-media-appearances-podcast-guesting",
+  "snapshot_json": "backup/20260731-kris-youtube-press-roundup/post-11879-before-youtube-roundup-20260801T003350Z.json",
+  "snapshot_html": "backup/20260731-kris-youtube-press-roundup/post-11879-before-youtube-roundup-20260801T003350Z.html",
+  "before_sha256": "0986b8ede7f58410b01d5c2327e84ec44c3f3abe2ce2de92b1828e193cce5488",
+  "after_sha256": "4576bc1cc795a8c2354df047958aa4bb612938f40aa4509bf1d61578af09b78e",
+  "public_verification_url": "https://kriskrug.co/2026/07/02/ai-media-appearances-podcast-guesting/?cb=20260801003352",
+  "restore_command": "varlock run --inject vars -- python3 scripts/update_media_appearances_roundup.py --restore backup/20260731-kris-youtube-press-roundup/post-11879-before-youtube-roundup-20260801T003350Z.json --apply",
+  "cache_note": "Cache-bypass verified. Purge Pagely PressCACHE manually if canonical HTML remains stale."
+}
