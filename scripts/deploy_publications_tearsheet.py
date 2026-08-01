@@ -53,6 +53,14 @@ def sha256(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
+def normalize_wp_html(text: str) -> str:
+    """WordPress often rewrites void tags to XHTML self-closing form on save."""
+    text = text.replace("\r\n", "\n")
+    return re.sub(
+        r"<(img|br|hr|source|input)([^>]*?)\s*/?>", r"<\1\2>", text, flags=re.I
+    )
+
+
 def repo_relative(path: Path) -> str:
     try:
         return str(path.resolve().relative_to(REPO_ROOT))
@@ -386,8 +394,11 @@ def main() -> int:
         raise SystemExit("[ABORT] update response returned the wrong page id")
     readback = fetch_page(session, base_url)
     readback_raw = readback["content"]["raw"]
-    if sha256(readback_raw) != sha256(desired):
-        raise SystemExit("[ABORT] authenticated readback hash mismatch")
+    if normalize_wp_html(readback_raw) != normalize_wp_html(desired):
+        raise SystemExit(
+            "[ABORT] authenticated readback content mismatch "
+            f"(desired_sha={sha256(desired)} readback_sha={sha256(readback_raw)})"
+        )
     public_url = verify_public(readback["link"])
     manifest = write_manifest(
         args.snapshot_dir,
