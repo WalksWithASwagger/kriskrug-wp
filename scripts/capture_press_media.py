@@ -35,7 +35,9 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 import requests
-from PIL import Image
+
+# Pillow is optional at import time so unittest discovery can load
+# ``load_manifest`` without installing PIL in CI (requirements-test.txt).
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -179,6 +181,13 @@ def save_jpeg_exact(
     height: int,
 ) -> None:
     """Resize/crop center to exact dimensions and write JPEG."""
+    try:
+        from PIL import Image
+    except ImportError as exc:  # pragma: no cover - exercised only at capture time
+        raise SystemExit(
+            "Pillow is required for image capture. Install with: pip install Pillow"
+        ) from exc
+
     with Image.open(BytesIO(raw)) as img:
         img = img.convert("RGB")
         target_ratio = width / height
