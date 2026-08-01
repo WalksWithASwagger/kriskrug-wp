@@ -39,7 +39,7 @@ Replace the legacy flat `user-infos` stack with an Aurora body: hero → feature
 | Live execute | **Done** — modified `2026-08-01T08:25:14` |
 | Cache-bypass verify | **PASS** — Aurora hero/quote cards present; no `user-infos`; no Butterfield; Kerris + Rob LinkedIn present |
 | Rollback manifest | `backup/20260801-testimonials/rollback-testimonials-2409.json` |
-| Commit / PR | Not created (not requested) |
+| Commit / PR | `78bd19e` on `cursor/testimonials-page-overhaul` · draft [PR #582](https://github.com/WalksWithASwagger/kriskrug-wp/pull/582) |
 | Homepage #415 | Out of scope |
 
 **Default set shipped:** F1–F3, T1–T3, P1–P3, R1, A1–A3.  
