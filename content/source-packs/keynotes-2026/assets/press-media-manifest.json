@@ -60,7 +60,7 @@
       "outlet": "Business in Vancouver",
       "credit": "Coverage screenshot: BIV. Article photo: Rob Kruyt / BIV.",
       "published_date": "2026-07-31",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2026-07-24-the-tyee-context-v2.jpg",
@@ -75,7 +75,7 @@
       "outlet": "The Tyee",
       "credit": "Coverage screenshot: The Tyee.",
       "published_date": "2026-07-24",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2026-06-15-biv-context-v2.jpg",
@@ -90,7 +90,7 @@
       "outlet": "Business in Vancouver",
       "credit": "Coverage screenshot: BIV. Article photo: Rob Kruyt / BIV.",
       "published_date": "2026-06-15",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2026-05-20-storyhive-v2.jpg",
@@ -105,7 +105,7 @@
       "outlet": "TELUS STORYHIVE",
       "credit": "Published interview thumbnail: TELUS STORYHIVE / YouTube.",
       "published_date": "2026-05-20",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2026-02-09-tela-viva-context-v2.jpg",
@@ -120,14 +120,16 @@
       "outlet": "Tela Viva News",
       "credit": "Coverage screenshot: Tela Viva News.",
       "published_date": "2026-02-09",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2026-02-05-vanmag-power50-context-v2.jpg",
       "legacy_file": "press-2026-02-05-vanmag-power50-context.jpg",
       "tier": 2,
       "slot": "wall",
-      "slots_also": ["feed-thumb-clip"],
+      "slots_also": [
+        "feed-thumb-clip"
+      ],
       "ratio": "16:10",
       "width": 1200,
       "height": 750,
@@ -136,7 +138,7 @@
       "outlet": "Vancouver Magazine",
       "credit": "Coverage screenshot: Vancouver Magazine.",
       "published_date": "2026-02-05",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2025-07-09-e-channelnews-context-v2.jpg",
@@ -151,7 +153,7 @@
       "outlet": "E-ChannelNews",
       "credit": "Coverage screenshot: E-ChannelNews.",
       "published_date": "2025-07-09",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2025-05-01-portfolio-yvr-context-v2.jpg",
@@ -166,14 +168,16 @@
       "outlet": "Portfolio.YVR",
       "credit": "Coverage screenshot: Portfolio.YVR.",
       "published_date": "2025-05-01",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2025-04-14-bc-studies-context-v2.jpg",
       "legacy_file": "press-2025-04-14-bc-studies-context.jpg",
       "tier": 2,
       "slot": "wall",
-      "slots_also": ["feed-thumb-clip"],
+      "slots_also": [
+        "feed-thumb-clip"
+      ],
       "ratio": "16:10",
       "width": 1200,
       "height": 750,
@@ -182,7 +186,7 @@
       "outlet": "BC Studies",
       "credit": "Coverage screenshot: BC Studies / UBC.",
       "published_date": "2025-04-14",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2025-02-11-compass-horizons-context-v2.jpg",
@@ -197,14 +201,16 @@
       "outlet": "Compass Horizons",
       "credit": "Coverage screenshot: Compass Horizons.",
       "published_date": "2025-02-11",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2024-11-21-byte-club-v2.jpg",
       "legacy_file": "press-2024-11-21-byte-club.jpg",
       "tier": 1,
       "slot": "feed-thumb-video",
-      "slots_also": ["wall"],
+      "slots_also": [
+        "wall"
+      ],
       "ratio": "16:9",
       "width": 1280,
       "height": 720,
@@ -213,7 +219,7 @@
       "outlet": "Byte Club",
       "credit": "Published interview thumbnail: Byte Club / YouTube.",
       "published_date": "2024-11-21",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2024-08-22-techcouver-context-v2.jpg",
@@ -228,14 +234,16 @@
       "outlet": "Techcouver",
       "credit": "Coverage screenshot: Techcouver.",
       "published_date": "2024-08-22",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2024-06-01-folio-yvr-context-v2.jpg",
       "legacy_file": "press-2024-06-01-folio-yvr-context.jpg",
       "tier": 2,
       "slot": "wall",
-      "slots_also": ["feed-thumb-clip"],
+      "slots_also": [
+        "feed-thumb-clip"
+      ],
       "ratio": "16:10",
       "width": 1200,
       "height": 750,
@@ -244,7 +252,7 @@
       "outlet": "FOLIO.YVR",
       "credit": "Coverage screenshot: FOLIO.YVR.",
       "published_date": "2024-06-01",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2024-02-12-jessica-grey-context-v2.jpg",
@@ -259,7 +267,7 @@
       "outlet": "Jessica Grey",
       "credit": "Coverage screenshot: Jessica Grey.",
       "published_date": "2024-02-12",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2024-01-08-ai-volution-v2.jpg",
@@ -274,7 +282,7 @@
       "outlet": "AI-Volution",
       "credit": "Published interview thumbnail: AI-Volution / YouTube.",
       "published_date": "2024-01-08",
-      "status": "pending_recapture"
+      "status": "ready"
     },
     {
       "key": "press-2023-09-08-olio-context-v2.jpg",
@@ -289,7 +297,127 @@
       "outlet": "Olio by Marilyn",
       "credit": "Coverage screenshot: Olio by Marilyn.",
       "published_date": "2023-09-08",
-      "status": "pending_recapture"
+      "status": "ready"
+    },
+    {
+      "key": "press-2025-01-31-rachel-thexton-cover.jpg",
+      "legacy_file": null,
+      "tier": 1,
+      "slot": "podcast",
+      "ratio": "1:1",
+      "width": 600,
+      "height": 600,
+      "capture_method": "itunes_artwork",
+      "source_url": "https://podcasts.apple.com/us/podcast/id1663438596?i=1000687318552",
+      "outlet": "Rachel Thexton Connects",
+      "credit": "Podcast cover art via Apple Podcasts.",
+      "published_date": "2025-01-31",
+      "status": "ready"
+    },
+    {
+      "key": "press-2025-01-10-human-biography-cover.jpg",
+      "legacy_file": null,
+      "tier": 1,
+      "slot": "podcast",
+      "ratio": "1:1",
+      "width": 600,
+      "height": 600,
+      "capture_method": "itunes_artwork",
+      "source_url": "https://podcasts.apple.com/us/podcast/id1668006539?i=1000683484337",
+      "outlet": "Human Biography",
+      "credit": "Podcast cover art via Apple Podcasts.",
+      "published_date": "2025-01-10",
+      "status": "ready"
+    },
+    {
+      "key": "press-2023-09-07-uniqueways-cover.jpg",
+      "legacy_file": null,
+      "tier": 1,
+      "slot": "podcast",
+      "ratio": "1:1",
+      "width": 600,
+      "height": 600,
+      "capture_method": "itunes_artwork",
+      "source_url": "https://podcasts.apple.com/us/podcast/id1632267449?i=1000627111776",
+      "outlet": "UNIQUEWAYS",
+      "credit": "Podcast cover art via Apple Podcasts.",
+      "published_date": "2023-09-07",
+      "status": "ready"
+    },
+    {
+      "key": "press-2023-11-08-kurty-d-cover.jpg",
+      "legacy_file": null,
+      "tier": 1,
+      "slot": "podcast",
+      "ratio": "1:1",
+      "width": 600,
+      "height": 600,
+      "capture_method": "itunes_artwork",
+      "source_url": "https://podcasts.apple.com/us/podcast/id1575595225?i=1000634160006",
+      "outlet": "Kurty D Show",
+      "credit": "Podcast cover art via Apple Podcasts.",
+      "published_date": "2023-11-08",
+      "status": "ready"
+    },
+    {
+      "key": "press-2024-05-06-teen2life-cover.jpg",
+      "legacy_file": null,
+      "tier": 1,
+      "slot": "podcast",
+      "ratio": "1:1",
+      "width": 600,
+      "height": 600,
+      "capture_method": "itunes_artwork",
+      "source_url": "https://podcasts.apple.com/us/podcast/id1666427209?i=1000654718269",
+      "outlet": "Teen2Life Experience",
+      "credit": "Podcast cover art via Apple Podcasts.",
+      "published_date": "2024-05-06",
+      "status": "ready"
+    },
+    {
+      "key": "press-2024-07-03-cbc-sandboxing-ai-series.jpg",
+      "legacy_file": null,
+      "tier": 1,
+      "slot": "feed-thumb-video",
+      "ratio": "16:9",
+      "width": 1280,
+      "height": 720,
+      "capture_method": "youtube_thumbnail",
+      "source_url": "https://www.youtube.com/watch?v=0R7Re-EnPwA",
+      "outlet": "CBC Early Edition / Sandboxing AI",
+      "credit": "YouTube thumbnail: CBC Early Edition Sandboxing AI episode.",
+      "published_date": "2024-07-03",
+      "status": "ready"
+    },
+    {
+      "key": "press-2026-02-09-top-boss-bossier-v2.jpg",
+      "legacy_file": null,
+      "tier": 2,
+      "slot": "feed-thumb-clip",
+      "ratio": "16:10",
+      "width": 1200,
+      "height": 750,
+      "capture_method": "article_clip",
+      "source_url": "https://medium.com/@topbosstalk/kris-krug-technology-game-changer-172059b9b28c",
+      "outlet": "Top Boss / Bossier Brand",
+      "credit": "Coverage screenshot: Medium / Top Boss.",
+      "published_date": "2026-02-09",
+      "status": "ready"
+    },
+    {
+      "key": "press-2025-01-28-pique-context-v2.jpg",
+      "legacy_file": null,
+      "tier": 2,
+      "slot": "feed-thumb-clip",
+      "ratio": "16:10",
+      "width": 1200,
+      "height": 750,
+      "capture_method": "article_clip",
+      "source_url": "https://www.piquenewsmagazine.com/local-news/we-cant-abdicate-this-future-to-governments-or-tech-bros-says-ai-expert-10076883",
+      "outlet": "Pique",
+      "credit": "Coverage screenshot: Pique.",
+      "published_date": "2025-01-28",
+      "status": "ready"
     }
   ]
 }

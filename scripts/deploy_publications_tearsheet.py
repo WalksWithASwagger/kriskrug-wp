@@ -38,22 +38,30 @@ PAYLOAD_PATH = (
 ASSETS_DIR = REPO_ROOT / "content" / "source-packs" / "keynotes-2026" / "assets"
 DEFAULT_SNAPSHOT_DIR = Path("backup") / "publications-tearsheet"
 MEDIA_KEYS = [
-    "press-2026-07-31-biv-ecosystem-context.jpg",
-    "press-2026-07-24-the-tyee-context.jpg",
-    "press-2026-06-15-biv-context.jpg",
-    "press-2026-05-20-storyhive.jpg",
-    "press-2026-02-09-tela-viva-context.jpg",
-    "press-2026-02-05-vanmag-power50-context.jpg",
-    "press-2025-07-09-e-channelnews-context.jpg",
-    "press-2025-05-01-portfolio-yvr-context.jpg",
-    "press-2025-04-14-bc-studies-context.jpg",
-    "press-2025-02-11-compass-horizons-context.jpg",
-    "press-2024-11-21-byte-club.jpg",
-    "press-2024-08-22-techcouver-context.jpg",
-    "press-2024-06-01-folio-yvr-context.jpg",
-    "press-2024-02-12-jessica-grey-context.jpg",
-    "press-2024-01-08-ai-volution.jpg",
-    "press-2023-09-08-olio-context.jpg",
+    "press-2023-09-07-uniqueways-cover.jpg",
+    "press-2023-09-08-olio-context-v2.jpg",
+    "press-2023-11-08-kurty-d-cover.jpg",
+    "press-2024-01-08-ai-volution-v2.jpg",
+    "press-2024-02-12-jessica-grey-context-v2.jpg",
+    "press-2024-05-06-teen2life-cover.jpg",
+    "press-2024-06-01-folio-yvr-context-v2.jpg",
+    "press-2024-07-03-cbc-sandboxing-ai-series.jpg",
+    "press-2024-08-22-techcouver-context-v2.jpg",
+    "press-2024-11-21-byte-club-v2.jpg",
+    "press-2025-01-10-human-biography-cover.jpg",
+    "press-2025-01-28-pique-context-v2.jpg",
+    "press-2025-01-31-rachel-thexton-cover.jpg",
+    "press-2025-02-11-compass-horizons-context-v2.jpg",
+    "press-2025-04-14-bc-studies-context-v2.jpg",
+    "press-2025-05-01-portfolio-yvr-context-v2.jpg",
+    "press-2025-07-09-e-channelnews-context-v2.jpg",
+    "press-2026-02-05-vanmag-power50-context-v2.jpg",
+    "press-2026-02-09-tela-viva-context-v2.jpg",
+    "press-2026-02-09-top-boss-bossier-v2.jpg",
+    "press-2026-05-20-storyhive-v2.jpg",
+    "press-2026-06-15-biv-context-v2.jpg",
+    "press-2026-07-24-the-tyee-context-v2.jpg",
+    "press-2026-07-31-biv-ecosystem-context-v2.jpg",
 ]
 FORBIDDEN_AFTER = ("kk-publications", "#00e5ff", "#ff6a6a", "--press-night")
 
@@ -248,8 +256,8 @@ def verify_public(page_url: str) -> str:
             )
     if "kk-press-display" not in html:
         raise SystemExit("[ABORT] public HTML missing kk-press-display marker")
-    if html.count("data-media-key=") < 16:
-        raise SystemExit("[ABORT] public HTML expected >=16 data-media-key images")
+    if html.count("data-media-key=") < 24:
+        raise SystemExit("[ABORT] public HTML expected >=24 data-media-key images")
     return url
 
 
