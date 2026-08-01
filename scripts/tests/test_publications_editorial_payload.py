@@ -82,6 +82,9 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
         self.assertIn('class="kk-press-featured"', self.payload)
         self.assertIn('class="kk-press-feed"', self.payload)
         self.assertIn('class="kk-press-legacy"', self.payload)
+        self.assertIn('class="kk-press-board"', self.payload)
+        self.assertIn('class="kk-press-outlets"', self.payload)
+        self.assertIn('class="kk-press-pull"', self.payload)
         self.assertIn("/podcast-guesting-page-epk/", self.payload)
         self.assertIn(
             "/2026/07/02/ai-media-appearances-podcast-guesting/", self.payload
@@ -109,7 +112,9 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
         self.assertIn("--aurora-signal", self.payload)
 
     def test_images_have_dimensions_and_alt_text(self):
-        self.assertEqual(7, len(self.parser.images))
+        keys = [img.get("data-media-key") for img in self.parser.images]
+        self.assertGreaterEqual(len(self.parser.images), 16)
+        self.assertGreaterEqual(len(set(keys)), 16)
         for image in self.parser.images:
             self.assertTrue(image.get("alt"))
             self.assertTrue(image.get("width"))

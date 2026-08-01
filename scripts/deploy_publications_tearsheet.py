@@ -43,8 +43,17 @@ MEDIA_KEYS = [
     "press-2026-06-15-biv-context.jpg",
     "press-2026-05-20-storyhive.jpg",
     "press-2026-02-09-tela-viva-context.jpg",
+    "press-2026-02-05-vanmag-power50-context.jpg",
     "press-2025-07-09-e-channelnews-context.jpg",
     "press-2025-05-01-portfolio-yvr-context.jpg",
+    "press-2025-04-14-bc-studies-context.jpg",
+    "press-2025-02-11-compass-horizons-context.jpg",
+    "press-2024-11-21-byte-club.jpg",
+    "press-2024-08-22-techcouver-context.jpg",
+    "press-2024-06-01-folio-yvr-context.jpg",
+    "press-2024-02-12-jessica-grey-context.jpg",
+    "press-2024-01-08-ai-volution.jpg",
+    "press-2023-09-08-olio-context.jpg",
 ]
 FORBIDDEN_AFTER = ("kk-publications", "#00e5ff", "#ff6a6a", "--press-night")
 
@@ -173,8 +182,25 @@ def upload_media(
     session: requests.Session, base_url: str, snapshot_dir: Path
 ) -> dict[str, str]:
     assert_local_media()
+    map_path = snapshot_dir / "media-url-map.json"
     mapping: dict[str, str] = {}
+    if map_path.exists():
+        try:
+            existing = json.loads(map_path.read_text(encoding="utf-8"))
+            if isinstance(existing, dict):
+                mapping.update(
+                    {
+                        k: str(v)
+                        for k, v in existing.items()
+                        if k in MEDIA_KEYS and str(v).startswith("http")
+                    }
+                )
+        except json.JSONDecodeError:
+            pass
     for name in MEDIA_KEYS:
+        if name in mapping:
+            print(f"[SKIP] {name} -> {mapping[name]} (existing map)")
+            continue
         path = ASSETS_DIR / name
         mime = mimetypes.guess_type(name)[0] or "image/jpeg"
         with path.open("rb") as handle:
@@ -194,7 +220,6 @@ def upload_media(
             raise SystemExit(f"[ABORT] upload for {name} returned no source_url")
         mapping[name] = source
         print(f"[UPLOAD] {name} -> {source} (id={body.get('id')})")
-    map_path = snapshot_dir / "media-url-map.json"
     snapshot_dir.mkdir(parents=True, exist_ok=True)
     map_path.write_text(json.dumps(mapping, indent=2) + "\n", encoding="utf-8")
     print(f"[MAP] wrote {map_path}")
@@ -223,8 +248,8 @@ def verify_public(page_url: str) -> str:
             )
     if "kk-press-display" not in html:
         raise SystemExit("[ABORT] public HTML missing kk-press-display marker")
-    if html.count("data-media-key=") < 7:
-        raise SystemExit("[ABORT] public HTML expected >=7 data-media-key images")
+    if html.count("data-media-key=") < 16:
+        raise SystemExit("[ABORT] public HTML expected >=16 data-media-key images")
     return url
 
 
