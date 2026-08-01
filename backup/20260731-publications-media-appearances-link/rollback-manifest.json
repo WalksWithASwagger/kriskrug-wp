@@ -1,0 +1,11 @@
+{
+  "page_id": 1895,
+  "slug": "publications",
+  "snapshot_json": "backup/20260731-publications-media-appearances-link/page-1895-before-media-link-20260801T012648Z.json",
+  "snapshot_html": "backup/20260731-publications-media-appearances-link/page-1895-before-media-link-20260801T012648Z.html",
+  "before_sha256": "91ad83308f46c75bec70a8633c3b57eee9d7530004a1006468166f477dc04f1e",
+  "after_sha256": "1195a6b3720c7e9455ddda3435cf80f3fbea9823b0415d510ea5153ce59be075",
+  "public_verification_url": "https://kriskrug.co/publications/?cb=20260801012649",
+  "restore_command": "varlock run --path .env.schema --inject vars -- python3 scripts/update_publications_media_link.py --restore backup/20260731-publications-media-appearances-link/page-1895-before-media-link-20260801T012648Z.json --apply",
+  "cache_note": "Cache-bypass verified. Purge Pagely PressCACHE manually if canonical HTML remains stale."
+}
