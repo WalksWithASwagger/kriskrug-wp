@@ -1,0 +1,732 @@
+schema_version: 1
+page_id: 2250
+page_slug: events
+path_roots:
+  kk_kb: /Users/kk/Code/kk-kb
+  repo: /Users/kk/Code/kriskrug-wp
+notes: 'SSOT for dated /events cards. meetup-editions.yaml (harvest #1–#31) is merged at render time —
+  harvest wins on date/url/hero. Scaffold Past rows #10–#31 remain as fallbacks if harvest is absent.
+  Do not POST to page 2250 until KK eyeball on out/events-2250.generated.html.'
+events:
+- id: how-can-we-help-pitch-night-2026
+  title: How Can We Help? Pitch Night
+  date: '2026-09-08'
+  end: '2026-09-08T21:00:00-07:00'
+  bucket_hint: upcoming
+  kind: one-off
+  role: Panelist
+  url: https://www.eventbrite.ca/e/how-can-we-help-pitch-night-use-your-skills-to-support-nonprofits-tickets-1992057314051
+  image:
+    media_id: 12660
+    url: https://kriskrug.co/wp-content/uploads/2026/08/2026-09-08-how-can-we-help-pitch-night-social-promo.jpg
+    alt: Panelist social graphic for Brands for Better Foundation How Can We Help? Pitch Night featuring
+      Kris Krüg, Tuesday September 8 at BCIT Tech Collider
+  image_layout: portrait
+  blurb: Panelist for Brands for Better Foundation — connecting nonprofits with skilled professionals
+    for skills-based volunteering. Bringing a BC + AI Ecosystem perspective on practical knowledge-sharing
+    and responsible tech in service of community.
+  label: Tuesday, Sept 8 · 6–9pm · BCIT Tech Collider
+  tags:
+  - Panelist
+  - Vancouver
+  - Nonprofits
+  status: confirmed
+  cta_upcoming: Register on Eventbrite
+  cta_past: Event details
+- id: trunorth-ai-leadership-summit-2026
+  title: TruNorth AI Leadership Summit
+  date: '2026-09-09'
+  end: '2026-09-10T17:00:00-07:00'
+  bucket_hint: upcoming
+  kind: external
+  role: TBD — confirm with Jimmy before claiming speaking slot
+  url: https://www.trunorthai.ca/
+  image: {}
+  blurb: External summit at the Robert H. Lee Alumni Centre / UBC (Sep 9–10). Catalogued as proposed until
+    KK's exact role is confirmed — do not publish a keynote/panel claim yet.
+  label: Sept 9–10 · UBC · Robert H. Lee Alumni Centre
+  tags:
+  - External
+  - Vancouver
+  - Role TBD
+  status: proposed
+  cta_upcoming: Summit site
+  cta_past: Event details
+- id: vancouver-ai-meetup-2026-09-30
+  title: Vancouver AI Community Meetup
+  date: '2026-09-30'
+  end: '2026-09-30T22:00:00-07:00'
+  bucket_hint: upcoming
+  kind: meetup
+  role: Host
+  url: https://luma.com/sept-ai
+  image: {}
+  blurb: Next Vancouver AI Community Meetup — Wednesday, September 30. Hosted monthly at the H.R. MacMillan
+    Space Centre.
+  label: Wed, Sept 30 · Space Centre
+  tags:
+  - Host
+  - Monthly
+  - Vancouver
+  status: confirmed
+  cta_upcoming: Register on Luma
+  cta_past: Event details
+- id: futureproof-festival-2026
+  title: Futureproof Festival
+  date: '2026-10-28'
+  end: '2026-10-30T22:00:00-07:00'
+  bucket_hint: upcoming
+  kind: festival
+  role: Host / founder
+  url: https://futureproof.website/
+  image:
+    path: repo:content/drafts/2026-07-26-futureproof-festival-announcement/images/futureproof-salmon-starfield-share-20260527.jpg
+    alt: Futureproof Festival salmon-starfield share graphic
+    media_id: 12662
+    url: https://kriskrug.co/wp-content/uploads/2026/08/futureproof-salmon-starfield-share-20260527.jpg
+  image_layout: landscape
+  blurb: Inaugural Futureproof Festival at the H.R. MacMillan Space Centre — Oct 28–30, 2026. The rooms,
+    screenings, and conversations BC + AI has been building toward.
+  label: Oct 28–30 · H.R. MacMillan Space Centre
+  tags:
+  - Host
+  - Festival
+  - Vancouver
+  status: confirmed
+  cta_upcoming: Save the date
+  cta_past: Festival site
+- id: van-ai-meetup-31
+  title: 'Vancouver AI Community Meetup #31'
+  date: '2026-07-29'
+  end: '2026-07-29T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 31
+  role: Host & curator
+  url: https://luma.com/july-ai
+  image:
+    path: kk_kb:content/projects/01-vancouver-ai-community/meetups/2026/07-july/carousel-photos/09-veggie-skewers-michelle-diamond.jpg
+    photographer: Michelle Diamond / Diamond's Edge Photography
+    alt: 'Vancouver AI Meetup #31'
+    media_id: 12663
+    url: https://kriskrug.co/wp-content/uploads/2026/08/09-veggie-skewers-michelle-diamond.jpg
+  blurb: July 2026
+  label: July 2026
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-30
+  title: 'Vancouver AI Community Meetup #30'
+  date: '2026-06-24'
+  end: '2026-06-24T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 30
+  role: Host & curator
+  url: https://luma.com/june-vanai
+  image:
+    path: kk_kb:content/projects/01-vancouver-ai-community/meetups/2026/06-june/promo-graphics/13-meetup-30-full-lineup-hero.png
+    alt: 'Vancouver AI Meetup #30'
+    media_id: 12664
+    url: https://kriskrug.co/wp-content/uploads/2026/08/13-meetup-30-full-lineup-hero.png
+  blurb: June 2026
+  label: June 2026
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-29
+  title: 'Vancouver AI Community Meetup #29'
+  date: '2026-05-27'
+  end: '2026-05-27T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 29
+  role: Host & curator
+  url: https://luma.com/vanai-may
+  image: {}
+  blurb: May 2026 — Building the AI Commons
+  label: May 2026 — Building the AI Commons
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-28
+  title: 'Vancouver AI Community Meetup #28'
+  date: '2026-04-29'
+  end: '2026-04-29T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 28
+  role: Host & curator
+  url: https://luma.com/vanai-april
+  image:
+    path: kk_kb:content/projects/01-vancouver-ai-community/meetups/2026/04-april/promo-graphics/9-6bf27e0d-957a-4c79-b2bf-90349fecbf45.png
+    alt: 'Vancouver AI Meetup #28'
+    media_id: 12665
+    url: https://kriskrug.co/wp-content/uploads/2026/08/9-6bf27e0d-957a-4c79-b2bf-90349fecbf45.jpg
+  blurb: April 2026 — AI Ethical Futures Lab
+  label: April 2026 — AI Ethical Futures Lab
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-27
+  title: 'Vancouver AI Community Meetup #27'
+  date: '2026-03-25'
+  end: '2026-03-25T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 27
+  role: Host & curator
+  url: https://lu.ma/vancouver-ai
+  image: {}
+  blurb: March 2026
+  label: March 2026
+  tags:
+  - Meetup
+  - Vancouver
+  status: scaffold
+  cta_past: Recap / Luma
+- id: van-ai-meetup-26
+  title: 'Vancouver AI Community Meetup #26'
+  date: '2026-02-25'
+  end: '2026-02-25T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 26
+  role: Host & curator
+  url: https://lu.ma/vancouver-ai
+  image: {}
+  blurb: February 2026 — MAC Night
+  label: February 2026 — MAC Night
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-25
+  title: 'Vancouver AI Community Meetup #25'
+  date: '2026-01-28'
+  end: '2026-01-28T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 25
+  role: Host & curator
+  url: https://luma.com/liftoff
+  image: {}
+  blurb: January 2026
+  label: January 2026
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-24
+  title: 'Vancouver AI Community Meetup #24'
+  date: '2025-12-18'
+  end: '2025-12-18T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 24
+  role: Host & curator
+  url: https://luma.com/awards
+  image: {}
+  blurb: December 2025 — Squatchie Awards
+  label: December 2025 — Squatchie Awards
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-23
+  title: 'Vancouver AI Community Meetup #23'
+  date: '2025-11-26'
+  end: '2025-11-26T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 23
+  role: Host & curator
+  url: https://luma.com/vai23
+  image: {}
+  blurb: November 2025
+  label: November 2025
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-22
+  title: 'Vancouver AI Community Meetup #22'
+  date: '2025-10-29'
+  end: '2025-10-29T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 22
+  role: Host & curator
+  url: https://luma.com/vai22
+  image: {}
+  blurb: October 2025 — Film Festival + Hackathon Finale
+  label: October 2025 — Film Festival + Hackathon Finale
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-21
+  title: 'Vancouver AI Community Meetup #21'
+  date: '2025-09-24'
+  end: '2025-09-24T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 21
+  role: Host & curator
+  url: https://luma.com/vai21
+  image: {}
+  blurb: September 2025
+  label: September 2025
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-20
+  title: 'Vancouver AI Community Meetup #20'
+  date: '2025-08-27'
+  end: '2025-08-27T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 20
+  role: Host & curator
+  url: https://luma.com/vai20
+  image: {}
+  blurb: August 2025
+  label: August 2025
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-19
+  title: 'Vancouver AI Community Meetup #19'
+  date: '2025-07-30'
+  end: '2025-07-30T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 19
+  role: Host & curator
+  url: https://luma.com/julio
+  image: {}
+  blurb: July 2025
+  label: July 2025
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-18
+  title: 'Vancouver AI Community Meetup #18'
+  date: '2025-06-25'
+  end: '2025-06-25T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 18
+  role: Host & curator
+  url: https://luma.com/VAI18
+  image:
+    path: kk_kb:content/projects/01-vancouver-ai-community/meetups/2025/06-june/photos/surrey-ai-meetup-june-2025-080.jpg
+    alt: 'Vancouver AI Meetup #18'
+    media_id: 12666
+    url: https://kriskrug.co/wp-content/uploads/2026/08/surrey-ai-meetup-june-2025-080.jpg
+  blurb: June 2025
+  label: June 2025
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-17
+  title: 'Vancouver AI Community Meetup #17'
+  date: '2025-05-28'
+  end: '2025-05-28T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 17
+  role: Host & curator
+  url: https://luma.com/websummit-vancouver
+  image:
+    path: kk_kb:content/projects/01-vancouver-ai-community/meetups/2025/05-may/photos/surrey-ai-meetup-may-2025-027.jpg
+    alt: 'Vancouver AI Meetup #17'
+    media_id: 12667
+    url: https://kriskrug.co/wp-content/uploads/2026/08/surrey-ai-meetup-may-2025-027.jpg
+  blurb: May 2025 — Web Summit Edition
+  label: May 2025 — Web Summit Edition
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-16
+  title: 'Vancouver AI Community Meetup #16'
+  date: '2025-04-30'
+  end: '2025-04-30T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 16
+  role: Host & curator
+  url: https://luma.com/VAI16
+  image: {}
+  blurb: April 2025
+  label: April 2025
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-15
+  title: 'Vancouver AI Community Meetup #15'
+  date: '2025-03-26'
+  end: '2025-03-26T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 15
+  role: Host & curator
+  url: https://luma.com/VAI15
+  image: {}
+  blurb: March 2025
+  label: March 2025
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-14
+  title: 'Vancouver AI Community Meetup #14'
+  date: '2025-02-26'
+  end: '2025-02-26T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 14
+  role: Host & curator
+  url: https://luma.com/VAI14
+  image:
+    path: kk_kb:content/projects/01-vancouver-ai-community/meetups/2025/02-february/photos/vancouver-ai-meetup-feb-2025-072.jpg
+    alt: 'Vancouver AI Meetup #14'
+    media_id: 12668
+    url: https://kriskrug.co/wp-content/uploads/2026/08/vancouver-ai-meetup-feb-2025-072-scaled.jpg
+  blurb: February 2025
+  label: February 2025
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-13
+  title: 'Vancouver AI Community Meetup #13'
+  date: '2025-01-29'
+  end: '2025-01-29T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 13
+  role: Host & curator
+  url: https://luma.com/VAI13
+  image: {}
+  blurb: January 2025 — One Year Anniversary
+  label: January 2025 — One Year Anniversary
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-12
+  title: 'Vancouver AI Community Meetup #12'
+  date: '2024-12-15'
+  end: '2024-12-15T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 12
+  role: Host & curator
+  url: https://luma.com/NeurIPS2024
+  image: {}
+  blurb: December 2024 — NeurIPS Edition
+  label: December 2024 — NeurIPS Edition
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-11
+  title: 'Vancouver AI Community Meetup #11'
+  date: '2024-11-27'
+  end: '2024-11-27T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 11
+  role: Host & curator
+  url: https://luma.com/VanAI-11
+  image:
+    path: kk_kb:content/projects/01-vancouver-ai-community/meetups/2024/11-november/photos/vancouver-ai-meetup-november-2024-162.jpg
+    alt: 'Vancouver AI Meetup #11'
+    media_id: 12669
+    url: https://kriskrug.co/wp-content/uploads/2026/08/vancouver-ai-meetup-november-2024-162-scaled.jpg
+  blurb: November 2024
+  label: November 2024
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: van-ai-meetup-10
+  title: 'Vancouver AI Community Meetup #10'
+  date: '2024-10-30'
+  end: '2024-10-30T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 10
+  role: Host & curator
+  url: https://luma.com/letsgo
+  image: {}
+  blurb: October 2024 — hero owned by meetup-editions.yaml harvest when available
+  label: October 2024
+  tags:
+  - Meetup
+  - Vancouver
+  status: confirmed
+  cta_past: Recap / Luma
+- id: creativemornings-perils-parallels-2026
+  title: CreativeMornings — Perils & Parallels
+  date: '2026-05-01'
+  end: '2026-05-01T12:00:00-07:00'
+  kind: one-off
+  role: Speaker
+  url: https://creativemornings.com/
+  blurb: Morning talk on creative practice and AI.
+  label: May 1, 2026 · Vancouver
+  status: confirmed
+  bucket_hint: past
+  image: {}
+  tags:
+  - Speaker
+  cta_past: Details
+- id: waiff-sao-paulo-2026
+  title: World AI Film Festival Brasil
+  date: '2026-02-26'
+  end: '2026-02-26T21:00:00-03:00'
+  kind: one-off
+  role: Keynote
+  url: /speaking/
+  blurb: Opening keynote — keeping our souls intact when the machines get really good at making everything.
+  label: Feb 2026 · São Paulo · Keynote
+  status: confirmed
+  bucket_hint: past
+  image: {}
+  tags:
+  - Keynote
+  cta_past: Details
+- id: lasalle-college-keynote-2026
+  title: LaSalle College Vancouver
+  date: '2026-01-14'
+  end: '2026-01-14T20:00:00-07:00'
+  kind: one-off
+  role: Keynote
+  url: https://www.youtube.com/watch?v=-c7mgY2aSgM
+  blurb: 'Both Hands Full: what creatives actually need to know about AI.'
+  label: Jan 2026 · Vancouver · Keynote
+  status: confirmed
+  bucket_hint: past
+  image: {}
+  tags:
+  - Keynote
+  cta_past: Details
+- id: channelnext-2025
+  title: ChannelNext
+  date: '2025-06-03'
+  end: '2025-06-03T18:00:00-07:00'
+  kind: one-off
+  role: Keynote
+  url: https://www.youtube.com/watch?v=1OcC-0X6Nb8
+  blurb: 'The future of humanity: chaos & creativity — ending in a live on-stage AI synthesis.'
+  label: June 2025 · Conference · Keynote
+  status: confirmed
+  bucket_hint: past
+  image: {}
+  tags:
+  - Keynote
+  cta_past: Details
+- id: whistler-institute-2025
+  title: Whistler Institute Global Speaker Series
+  date: '2025-01-23'
+  end: '2025-01-23T20:00:00-07:00'
+  kind: one-off
+  role: Speaker
+  url: https://www.youtube.com/watch?v=-XEsqsEbpoo
+  blurb: Inside Vancouver's AI Boom — building AI culture that's practical, ethical, and alive.
+  label: Jan 2025 · Whistler
+  status: confirmed
+  bucket_hint: past
+  image: {}
+  tags:
+  - Speaker
+  cta_past: Details
+- id: van-ai-meetup-01
+  title: 'Vancouver AI Meetup #1'
+  date: '2024-01-31'
+  end: '2024-01-31T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 1
+  role: Host & curator
+  url: https://lu.ma/vancouver-ai
+  blurb: No month folder; first-of-2024 slot by anniversary-anchored numbering
+  label: No month folder; first-of-2024 slot by anniversary-anchored numbering
+  tags:
+  - Meetup
+  - Vancouver
+  status: scaffold
+  cta_past: Recap / Luma
+  image: {}
+- id: van-ai-meetup-02
+  title: 'Vancouver AI Meetup #2'
+  date: '2024-02-28'
+  end: '2024-02-28T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 2
+  role: Host & curator
+  url: https://lu.ma/vancouver-ai
+  blurb: Archive files mislabeled meetup-14
+  label: Archive files mislabeled meetup-14
+  tags:
+  - Meetup
+  - Vancouver
+  status: scaffold
+  cta_past: Recap / Luma
+  image: {}
+- id: van-ai-meetup-03
+  title: 'Vancouver AI Meetup #3'
+  date: '2024-03-27'
+  end: '2024-03-27T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 3
+  role: Host & curator
+  url: https://lu.ma/vancouver-ai
+  blurb: Archive files mislabeled meetup-15
+  label: Archive files mislabeled meetup-15
+  tags:
+  - Meetup
+  - Vancouver
+  status: scaffold
+  cta_past: Recap / Luma
+  image: {}
+- id: van-ai-meetup-04
+  title: 'Vancouver AI Meetup #4'
+  date: '2024-04-24'
+  end: '2024-04-24T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 4
+  role: Host & curator
+  url: https://lu.ma/vancouver-ai
+  blurb: Strong local photo set
+  label: Strong local photo set
+  tags:
+  - Meetup
+  - Vancouver
+  status: scaffold
+  cta_past: Recap / Luma
+  image:
+    path: kk_kb:content/projects/01-vancouver-ai-community/meetups/2024/04-april/photos/vancouver-ai-meetup-april-2024-112.jpg
+    alt: 'Vancouver AI Meetup #4'
+    media_id: 12670
+    url: https://kriskrug.co/wp-content/uploads/2026/08/vancouver-ai-meetup-april-2024-112.jpg
+- id: van-ai-meetup-05
+  title: 'Vancouver AI Meetup #5'
+  date: '2024-05-29'
+  end: '2024-05-29T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 5
+  role: Host & curator
+  url: https://lu.ma/vancouver-ai
+  blurb: Month folder empty/moved
+  label: Month folder empty/moved
+  tags:
+  - Meetup
+  - Vancouver
+  status: scaffold
+  cta_past: Recap / Luma
+  image: {}
+- id: van-ai-meetup-06
+  title: 'Vancouver AI Meetup #6'
+  date: '2024-06-26'
+  end: '2024-06-26T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 6
+  role: Host & curator
+  url: https://lu.ma/vancouver-ai
+  blurb: Archive files mislabeled meetup-18
+  label: Archive files mislabeled meetup-18
+  tags:
+  - Meetup
+  - Vancouver
+  status: scaffold
+  cta_past: Recap / Luma
+  image: {}
+- id: van-ai-meetup-07
+  title: 'Vancouver AI Meetup #7'
+  date: '2024-07-31'
+  end: '2024-07-31T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 7
+  role: Host & curator
+  url: https://lu.ma/vancouver-ai
+  blurb: Month folder empty/moved
+  label: Month folder empty/moved
+  tags:
+  - Meetup
+  - Vancouver
+  status: scaffold
+  cta_past: Recap / Luma
+  image: {}
+- id: van-ai-meetup-08
+  title: 'Vancouver AI Meetup #8'
+  date: '2024-08-28'
+  end: '2024-08-28T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 8
+  role: Host & curator
+  url: https://lu.ma/vancouver-ai
+  blurb: Special-events month; numbering soft
+  label: Special-events month; numbering soft
+  tags:
+  - Meetup
+  - Vancouver
+  status: scaffold
+  cta_past: Recap / Luma
+  image: {}
+- id: van-ai-meetup-09
+  title: 'Vancouver AI Meetup #9'
+  date: '2024-09-25'
+  end: '2024-09-25T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 9
+  role: Host & curator
+  url: https://lu.ma/vancouver-ai
+  blurb: 'Inventory says #9; files named meetup-21'
+  label: 'Inventory says #9; files named meetup-21'
+  tags:
+  - Meetup
+  - Vancouver
+  status: scaffold
+  cta_past: Recap / Luma
+  image: {}
