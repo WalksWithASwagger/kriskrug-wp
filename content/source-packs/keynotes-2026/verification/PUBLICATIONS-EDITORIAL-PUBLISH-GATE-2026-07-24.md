@@ -106,3 +106,12 @@ cleanup is a separate destructive action and requires a later approval.
 - Production write
 - Cache purge
 - Cache-bypassed production visual verification
+
+## Showpiece ship (2026-08-01)
+
+- Live page 1895 updated via `deploy_publications_tearsheet.py --upload-media --apply` (snapshot + rollback under `backup/publications-tearsheet/`).
+- Layout: full-bleed shell, equal Right-now cards, The Wall, Heard on, In print ledger, Recent run with `-v2` clips + podcast covers.
+- PR #583 merged. Branch tip at ship: `8e60bdb`.
+- Verify: `python3 -m unittest scripts.tests.test_publications_editorial_payload -v` and cache-bypass load of `/publications/`.
+- Deferred: In-print photo archive pulls; 3 fallback crops (Portfolio.YVR, FOLIO.YVR, Jessica Grey).
+
