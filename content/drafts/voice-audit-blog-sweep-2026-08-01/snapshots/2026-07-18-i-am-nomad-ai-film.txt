@@ -1,0 +1,154 @@
+Title: I AM NOMAD: Nine Cuts, One Melting Whale, and a Very Patient AI Editor
+Link: https://kriskrug.co/2026/07/18/i-am-nomad-ai-film/
+
+It was past three in the morning and the whale would not stop melting.
+
+I’d asked for one more take of the opening shot. The video model gave me a golden fish-aircraft dissolving into orange wax, then another, then an error, then forty more errors because the whole backend had picked that night to fall over. I sat there refreshing a queue and doing the math on what I’d just talked myself into. I was about to regenerate every shot in a film I’d already finished, and I had just discovered that the edit, the actual timing and rhythm that made it work, was written down precisely nowhere. It lived inside the exported pixels and nowhere else.
+
+That’s the part nobody tells you about making films with AI. The tools are magic right up until they hand you a problem no plugin solves. Then it’s just you and your taste at 3 a.m., trying to remember why you started.
+
+So let me tell you why Suzy Easton and I started, what it cost, what broke, and what we’d do differently. The back half of this is a real field guide. If you’re about to make your first AI film (and wondering what that even makes you ), skip down to it. The front half is the story that earned it.
+
+Watch the film
+
+Watch I AM NOMAD in 4K on YouTube . It runs 53.5 seconds. Sound on.
+
+The challenge
+
+The BC + AI Film Club runs on the oldest creative engine there is. Somebody hands you a constraint and a clock, and the constraint does the work your blank page can’t. This round the whole brief was one word: Retro . About sixty seconds of film.
+
+One word is a dare. Mine pointed at an airport. An airport for lost decades, where fish move through the terminal like aircraft, the clock refuses ordinary time, and a woman walks in with one bag and walks out with more time than she came with.
+
+The Skywhale Airport.
+
+How the first one got made
+
+The look came first because the look is the whole script. We generated and culled until ten hand-painted gouache keyframes out of Midjourney held together as one world: the golden whale, the traveler in her dark suit, the pink rotunda where fish hang off the ceiling like saints.
+
+The soundtrack grew beside them in Suno, a slow spoken-word lounge number called whale sky god , performed by a narrator from a movie that doesn’t exist. Then Veo 3.1 took each painting as a first frame and gave it breath, one scene at a time.
+
+Cut to the song. Wrapped in a website shaped like the airport itself. We put it out. People liked it. By every reasonable measure that was the finish line, and a smarter man would have stopped there.
+
+The itch
+
+I am not always a smarter man.
+
+The question that got me was simple. Is this film as good as it can be, or just as good as the tools were on the Tuesday I made it? Those are not the same question. In this medium the gap between them keeps widening while you sleep.
+
+When we shot the first version, 1080p was the hard ceiling in that production path. We’d written it down as a fact. By the time I started poking at it again, the available paths had changed. The final could now be rebuilt and delivered as a 4K master. My finished film was a rough draft and didn’t know it.
+
+And while I had the hood up, the film finally told me its real name. I’d been calling it A Psychedelic Airport for Time Travelers , which is a description wearing a title’s coat. But everyone who connected with it connected with her. The traveler. The one bag. The long navy coat. I AM NOMAD. Her story, finally with her name on the door.
+
+The Time Traveller at Gate Infinity.
+
+Gate Delay: duplicate selves.
+
+Down
+
+What followed was the most honest stretch of creative work I’ve done in a while, by which I mean it went sideways in ways that taught me something every single time.
+
+Regenerating is a casino. A new take of an old scene is a new performance. Same painting, same prompt, different soul. Some of the new ones buried the originals. Some lost the thread completely. Some were dead in the first two seconds and glorious in the last three. I ended up screening three versions of every scene side by side, the original next to the faithful redo next to the unhinged redo, calling it like a director in a room full of dailies. The bird needs to become the plane. Make her actually float in zero gravity instead of drifting. Use the part where she walks up to the counter, not the part where the room is already on fire.
+
+Then there was the matter of my own lost edit. The first cut had real craft in it. A dip to black after the title. Different slow motion on different shots. The big moments landing exactly on their lyrics. None of it was saved anywhere a human could read.
+
+So an AI editor running a repo-backed Python and ffmpeg rebuild pipeline reverse-engineered the movie out of its own footage. It measured cut points frame by frame, read the slow motion back out of duplicate frames, and pulled the fades off the brightness curve. We recovered every number and wrote the edit down as plain data, where it should have lived from day one.
+
+Then came the night the backend melted. Hours of errors while I regenerated everything on my own dime, a retry loop quietly grinding through the wreckage, clips trickling in one at a time like a slow leak. Eight rounds of retries to land ten shots. There is no creative wisdom in that part. Sometimes the work is just sitting with the machine while it has a hard night.
+
+The lowest point wasn’t technical. It was a cut where everything was right and the thing was still dead in my hands. Gorgeous takes, clean sound, 4K final, no pulse. The sync had drifted. “Saw herself already waiting” no longer hit on the duplicate selves. “The big yellow animal” sailed past the golden fish. I sent my editor a four-word note with no diplomacy in it, and we both finally understood the real rule of this film.
+
+In a piece carried by a song, the lyric grid isn’t decoration. It’s the spine. Move anything you want, but you re-time around the spine, never through it.
+
+Golden Fish Flight.
+
+Up
+
+Nine cuts to get there. Each one was a short paragraph of notes from me and about an hour of quiet machinery on the other end. Re-time, reassemble, upscale, remix, check, deliver.
+
+Some passes ran through Replicate and the later 4K generation path ran through the Gemini API. The assembly stayed reproducible in Python and ffmpeg. A Topaz pass handled upscale work where the selected material needed it, locked back to 24 frames per second after we caught the model’s cheerful attempt to turn it into 30. QA checked frame count, black frames, loudness, true peak, anchor images, and the exact final breath of the song.
+
+Somewhere in there the music moved to the first frame so the room never sits in silence. The title card got cut down to a second and a half because nobody came for the title card. The film learned its first dissolve, the melting whale bleeding into the baggage hall. It found its true length, 53.5 seconds, ending on the song’s last breath with no dead air anywhere in it.
+
+By cut nine the whale read as a calm bird before the trip kicked in, every hero shot sat back on its lyric, the rotunda landed on the word “arrived,” and I typed the only five words a project like this is allowed to end on.
+
+Good enough. Ship the fucking thing.
+
+Pink Rotunda Arrival.
+
+Then the film became an airport
+
+The movie was only one door. We built Skywhale Airways around it, a scroll-driven airport where all ten keyframes melt into one another, fish drift in parallax, and the soundtrack pushes the image around in real time.
+
+The site uses Vite and Three.js with a hand-built WebGL shader. You tap to board because the soundtrack needs a human gesture to start. Then the captions, color, fish traffic, and distortion move with the trip. Reduced-motion visitors get a calm version rather than a broken one.
+
+After the film, the Skywhale Artifact Lab lets you remix the terminal into an impossible 1024-pixel souvenir. Pick an artifact, a lyric omen, a decade, and a traveler’s name. It makes a boarding relic you can download or share.
+
+The Artifact Lab turns the film into a downloadable souvenir.
+
+The concept gallery holds the patches, pins, lyric die-cuts, baggage tags, and strange little relics that may or may not escape into the physical world. The press kit holds the synopsis, credits, stills, technical facts, and festival links. The colophon tells the shorter version of how the place was dreamed.
+
+And one thing did escape. The I AM NOMAD holographic sticker is real. The physical batch arrived this week, and the Duty-Free Souvenir Desk now has one actual working product for six US dollars. The rest of the gift shop can keep waiting in another decade.
+
+The I AM NOMAD holographic sticker from the Skywhale Duty-Free desk.
+
+Project manifest
+
+- Created by: Kris Krüg and Suzy Easton
+
+- Challenge: BC + AI Film Club, Retro, June 2026
+
+- Film: 53.5 seconds, 24 fps, 4K final
+
+- Stills: Ten curated Midjourney gouache keyframes
+
+- Music: whale sky god , created in Suno
+
+- Motion: Veo 3.1 through Replicate and Gemini production paths
+
+- Edit: Agent-assisted Python and ffmpeg rebuild, frame-level edit reconstruction, Topaz where needed, numerical QA
+
+- Airport: Vite, Three.js, WebGL, Web Audio, vanilla JavaScript
+
+- Aftershow: Artifact Lab, concept gallery, press kit, Shopify-powered Duty-Free
+
+- Archive: The public Skywhale Airways source repository
+
+The field guide
+
+This is everything I’d hand you before your first one. It would have bought me back a full day.
+
+Keyframes first. The look is the screenplay. Ten stills you’d hang on a wall beat a hundred prompts you sort of like. Everything downstream inherits from them, so spend your taste here.
+
+Anchor your character to a first frame. Feed each keyframe in as the model’s opening frame. That move is why the same woman in the same coat survived two complete regenerations without becoming someone else’s cousin.
+
+Put the style in one shared suffix. Keep per-scene prompts concrete about who, where, and what moves. Let one style line carry the vibe. When you want the film weirder, turn that one dial so the whole thing stays of a piece.
+
+Never run important text through image-to-video. Letters melt. Generate the title as a still, animate it with a text-safe move, and cut away before the type turns to soup.
+
+Slow motion is an edit, not a setting. Speed equals shot length divided by source window. Native speed feels like a documentary. A little stretch feels like a dream. A lot feels like memory. Pick on purpose.
+
+Write your edit down today, as data. Durations, source windows, transitions, per-shot speeds, in a file, in version control. The worst day of this project was excavating my own edit out of an MP4 with forensics. The most valuable thing we made is a tiny text file that can rebuild the film forever.
+
+Pin your big moments to the music and protect them. When you re-time anything, redistribute the seconds between your anchors, never across them. The angriest note I sent the entire project was about broken sync. Learn from my four words.
+
+QA with numbers so your taste stays free. Frame counts, loudness, true peak, black-frame detection. Let the machine own the objective stuff so every human conversation gets to be about feel.
+
+Probe before you batch. Reality shifts monthly out here. The same model can expose different resolutions on different services. An upscaler can quietly resample the frame rate. Generate one clip, inspect everything, then spend the real money.
+
+Be honest about budget. The film’s second life, two full regenerations plus re-rolls and upscales, ran about 150 US dollars in credits. Re-rolls are cheap. Regret is the expensive one.
+
+Work like a director, not a slot machine. Version every take and never overwrite. Review side by side at film pacing, not native speed, because a shot lies to you at the wrong tempo. Re-roll surgically. Know your stopping line.
+
+Credit the tools and keep the authorship. The tools acted like cameras, paintboxes, instruments, and tireless editing assistants. The authorship lived in the premise, selection, sequence, timing, sound, code, and the thousand calls about what belonged. Suzy and I made the project. The AI helped us build it. Saying so clearly is part of the work.
+
+Arrivals
+
+Here she is: I AM NOMAD , 53.5 seconds, 4K final, sound on. Walk through the airport at skywhaleairways.com . Hear whale sky god on Suno . Make yourself a relic in the Artifact Lab. Take home the one thing that made it through customs at the Duty-Free desk.
+
+If you want the rest of the rabbit holes, they live on my work page .
+
+If any of this put a hum in your hands, come to an AI Film Club or start one in your kitchen. Take the one-word prompt. Let the constraint carry the weight. Keep your edit in a text file like your life depends on it. Guard your sync like it owes you money.
+
+She arrived with more time than she left with. Turns out so did we.
+
+Kris

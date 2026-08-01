@@ -1,6 +1,7 @@
 # Publications editorial publish gate
 
-Status: review-ready, not approved for public deployment.
+Status: **Aurora paper tear-sheet ready in repo** — not approved for public deployment.
+July 2026 dark neon `kk-press` / live `.kk-publications` skins are **superseded**.
 
 ## Exact target
 
@@ -8,73 +9,88 @@ Status: review-ready, not approved for public deployment.
 - WordPress page ID: `1895`
 - Slug: `publications`
 - Status: `publish`
-- Live modified value observed through public REST: `2026-07-23T21:43:45`
-- Review branch: `codex/publications-editorial-archive`
-- Draft pull request: `#454`
+- Review branch: `cursor/publications-aurora-tearsheet`
+- Payload: `../wp-payloads/publications.html` (Aurora paper tear-sheet)
+- Research: `PUBLICATIONS-KB-GAP-REPORT-2026-08-01.md`
 
 ## Current live evidence
 
-A cache-bypassed fetch on July 24, 2026 returned the legacy Publications layout.
-The live HTML contains `kk-publications-display` and does not contain the proposed
-`kk-press-display` marker. The Tyee story is present as a card inside the older
-layout.
-
-Public HTML SHA-256 at the review point:
-
-`c00d07f2138adca0e889e09c35b67e5bbd42e8a867aa9ae13d9f13ed72fa168d`
+A cache-bypassed fetch on 2026-08-01 still returned the legacy Publications layout.
+The live HTML contains `kk-publications` and neon tokens `#00e5ff` / `#ff6a6a`.
+It does **not** contain the paper tear-sheet markers (`kk-press-display` on cream
+paper / Aurora tokens). Content images on the live page are effectively absent.
 
 The hash is drift evidence, not a rollback source. An authenticated
 `context=edit` snapshot is still required immediately before any write.
 
-## Proposed media set
+## Skin retirement (must be true after deploy)
 
-1. `press-2026-07-24-the-tyee-context.jpg`
-2. `press-2026-06-15-biv-context.jpg`
-3. `press-2026-05-20-storyhive.jpg`
-4. `press-2026-02-09-tela-viva-context.jpg`
-5. `press-2025-07-09-e-channelnews-context.jpg`
-6. `press-2025-05-01-portfolio-yvr-context.jpg`
+Public HTML must contain **zero** of:
 
-See `../assets/publications-press-media.md` for provenance, exclusions, and
-credit requirements.
+- `kk-publications`
+- `#00e5ff`
+- `#ff6a6a`
+- `--press-night`
+
+Regression lock: `scripts/tests/test_publications_editorial_payload.py`.
+
+## Proposed media set (7 files — still needs KK approval)
+
+1. `press-2026-07-31-biv-ecosystem-context.jpg` (lead)
+2. `press-2026-07-24-the-tyee-context.jpg`
+3. `press-2026-06-15-biv-context.jpg`
+4. `press-2026-05-20-storyhive.jpg`
+5. `press-2026-02-09-tela-viva-context.jpg`
+6. `press-2025-07-09-e-channelnews-context.jpg`
+7. `press-2025-05-01-portfolio-yvr-context.jpg`
+
+See `../assets/publications-press-media.md` for provenance, exclusions, credits,
+and the upload + path-rewrite checklist. Local files are present; **do not
+upload or PATCH without KK go-ahead**.
 
 ## Voice gate
 
-- Voice source: `/Users/kk/Code/kk-voice/crystal.md`
+- Voice source: `/Users/kk/Code/kk-voice/crystal.md` (or sibling `dark-crystal/kk-voice`)
 - Dominant facet: The Host
 - Secondary facet: The Anti-Hero, used lightly
-- Mechanical audit: one quoted Popular Science headline exception
-- Audit packet: `../wp-payloads/voice-audit/publications-editorial-20260724/`
+- Mechanical audit packet: `../wp-payloads/voice-audit/publications-paper-20260801/`
+- Prior July packet (dark skin): `../wp-payloads/voice-audit/publications-editorial-20260724/` — historical
 - Human voice review: pending Kris
-
-The two manual audit findings were applied and mechanically rechecked. Public
-publication still requires Kris to confirm that the rendered page sounds like
-him.
 
 ## Required approval
 
 The exact approval needed for the next production step is:
 
-> Approve the seven-file Publications media set (now including the 2026-07-31 BIV ecosystem piece as lead) and publish PR #454 to WordPress page 1895.
+> Approve the seven-file Publications media set and publish the Aurora paper
+> tear-sheet payload to WordPress page 1895 (after snapshot + dry-run review).
 
 Layout approval alone does not authorize media upload or public publication.
 
 ## Deployment sequence after approval
 
-1. Refresh PR `#454`, required checks, and the live page modified value.
-2. Fetch page `1895` with authenticated `context=edit`.
-3. Save the complete raw page and SEO metadata as the rollback snapshot.
-4. Upload only the six approved media files to the WordPress Media Library.
-5. Apply the documented alt text, outlet credit, and photographer credit.
-6. Replace every `../assets/` image path with its uploaded WordPress media URL.
-7. Assert that no relative image paths or third-party image URLs remain.
-8. Produce and review an exact content and SEO metadata diff.
-9. Update only page `1895`.
-10. Read back the raw WordPress content and metadata.
-11. Fetch the public page with a fresh cache-bypass query.
-12. Verify the new markers, all seven images, 47+ coverage links, desktop layout,
-    390-pixel mobile layout, and zero horizontal overflow.
-13. Record the after-state and the exact restore command.
+Use the tear-sheet deploy helper (dry-run first):
+
+```bash
+# 1) Snapshot + dry-run diff only (no write)
+varlock run --path .env.schema --inject vars -- \
+  python3 scripts/deploy_publications_tearsheet.py --dry-run
+
+# 2) After KK reviews the printed diff and approves media + apply:
+varlock run --path .env.schema --inject vars -- \
+  python3 scripts/deploy_publications_tearsheet.py --upload-media --apply
+```
+
+Manual sequence if the helper is unavailable:
+
+1. Authenticated `context=edit` snapshot of page `1895` → `backup/<stamp>-publications-tearsheet/`.
+2. Upload only the seven approved media files; set alt/captions/credits.
+3. Rewrite every `../assets/` image `src` to the WP Media Library CDN URL.
+4. Assert no residual relative paths or third-party hotlinks remain.
+5. Dry-run PATCH content (+ SEO meta from `page-meta.json` if still required).
+6. `--apply` only after KK go-ahead.
+7. Cache-bypass verify: no `kk-publications` / neon tokens; 7 images load; 48 dated
+   entries; EPK + Media Appearances links; desktop + ~390px mobile; no overflow.
+8. Record rollback JSON + restore command; purge cache if tooling available.
 
 ## Rollback
 
@@ -82,7 +98,7 @@ Restore page `1895` from the authenticated pre-write `content.raw` and SEO
 metadata snapshot. Do not delete uploaded media during emergency rollback. Media
 cleanup is a separate destructive action and requires a later approval.
 
-## Not yet run
+## Not yet run (blocked on KK approval)
 
 - Authenticated pre-write snapshot
 - WordPress Media Library uploads
