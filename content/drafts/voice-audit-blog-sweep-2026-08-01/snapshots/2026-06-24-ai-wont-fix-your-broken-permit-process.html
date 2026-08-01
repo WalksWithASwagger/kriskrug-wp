@@ -1,0 +1,229 @@
+
+<h2 class="wp-block-heading"><em><strong>But Here&#8217;s What It Can Actually Do</strong></em></h2>
+
+
+
+<p class="wp-block-paragraph">There&#8217;s a pitch deck making the rounds in every provincial capital right now. It has the same slides. An AI company, usually based somewhere far from here, promising to &#8220;magically fix government services&#8221; and &#8220;promise impossible efficiency.&#8221; The demo is slick. The timeline is aggressive. The ROI projections have the confidence of a racetrack tout with a laser pointer.</p>
+
+
+
+<p class="wp-block-paragraph">I&#8217;ve seen this movie before. And I&#8217;m tired of watching government officials buy tickets to it.</p>
+
+
+
+<p class="wp-block-paragraph">Let me be clear about where I&#8217;m coming from. I run the BC AI Ecosystem Association. We&#8217;ve built the largest grassroots AI community in Western Canada. We train people in <a href="https://kriskrug.co/ai-tools/">AI tools</a> every day. I vibe code something almost every morning. I believe in this technology deeply.</p>
+
+
+
+<p class="wp-block-paragraph">And precisely because I believe in it, I&#8217;m going to tell you where it works, where it doesn&#8217;t, and why most government AI projects are set up to fail before they start.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>The Three-Headed Problem Nobody Wants to Name</strong></h2>
+
+
+
+<p class="wp-block-paragraph">When people talk about AI for government services, particularly permitting and regulatory work, they usually frame it as one type of problem. The rules are complex, so let&#8217;s use AI to interpret them. The data is messy, so let&#8217;s use AI to clean it up. The process is slow, so let&#8217;s use AI to speed it up.</p>
+
+
+
+<p class="wp-block-paragraph">Here&#8217;s the thing. It&#8217;s all three. And pretending it&#8217;s just one is how you end up with a $20 million project that makes things worse.</p>
+
+
+
+<p class="wp-block-paragraph">Permitting, licensing, regulatory approvals. These are fundamentally <strong>coordination problems</strong> that manifest as rules interpretation and data quality issues. The rules are written. They&#8217;re not mysterious. What&#8217;s broken is that different departments interpret them differently, the data lives in seventeen systems that don&#8217;t talk to each other, and the applicant has no visibility into where their file is stuck or why.</p>
+
+
+
+<p class="wp-block-paragraph">I&#8217;ve been in rooms with municipal staff in Vancouver and Surrey. I&#8217;ve heard the frustration. Someone submits a permit application, it bounces between three departments over six months, and when it finally gets rejected, the reason is something that could have been caught on day one. That&#8217;s not a knowledge problem. That&#8217;s a communication problem wearing a bureaucratic disguise.</p>
+
+
+
+<p class="wp-block-paragraph">AI doesn&#8217;t fix institutional dysfunction. It amplifies whatever&#8217;s already there. If your process is a mess, AI gives you a faster mess. If your departments don&#8217;t coordinate, AI won&#8217;t magically make them start. If your data is scattered across incompatible systems, AI will just hallucinate connections that don&#8217;t exist.</p>
+
+
+
+<p class="wp-block-paragraph">You have to diagnose before you prescribe. And most AI vendors skip the diagnosis entirely.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>Where AI Actually Delivers Value</strong></h2>
+
+
+
+<p class="wp-block-paragraph">Okay, so I&#8217;ve told you what doesn&#8217;t work. Let me tell you what does.</p>
+
+
+
+<p class="wp-block-paragraph">There are specific, bounded tasks where current AI systems can genuinely help government operations. These aren&#8217;t the flashy demos. They&#8217;re not going to get you on the cover of a tech magazine. But they&#8217;re real, they&#8217;re reliable, and they can save significant time for both staff and applicants.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Pre-submission completeness checks.</strong> Before an application even enters the queue, AI can scan it against requirements and flag what&#8217;s missing, what&#8217;s in the wrong format, what additional documents are needed. This is pattern matching against a checklist. LLMs do this reliably. It catches the obvious errors that currently clog up staff time for weeks before someone sends an email saying &#8220;you forgot to attach page 3.&#8221;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Document summarization.</strong> A complex development application might include a 200-page environmental assessment, traffic studies, engineering reports. AI can pull out the key compliance points and present them in a digestible format for reviewers. That&#8217;s hours saved. That&#8217;s a reviewer who can focus on judgment calls instead of hunting through PDFs.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Cross-referencing against regulations.</strong> &#8220;Based on the zoning code, this application appears to require a variance for setback.&#8221; Note the word &#8220;appears.&#8221; The AI is flagging, not deciding. It&#8217;s saying &#8220;hey, you might want to look at this.&#8221; That&#8217;s useful. That&#8217;s appropriate scope.</p>
+
+
+
+<p class="wp-block-paragraph">The common thread here: AI is most reliable when the task has a clear right answer that exists in the source documents. When you&#8217;re asking &#8220;is this document attached?&#8221; or &#8220;what does section 4.2 say about setbacks?&#8221; the AI can answer that. When you&#8217;re asking &#8220;is this development appropriate for this neighborhood?&#8221; you&#8217;ve crossed into judgment territory. That&#8217;s not an AI question. That&#8217;s a human question, often a political one, and pretending otherwise is dangerous.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>Where It Gets Dangerous</strong></h2>
+
+
+
+<p class="wp-block-paragraph">Let me name three areas where deploying AI without strong human oversight is asking for trouble.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Discretionary decisions.</strong> Anything involving competing interests, value judgments, or interpreting &#8220;community standards.&#8221; Does this building fit the neighborhood character? Is this business use compatible with the residential feel of the area? Is &#8220;adequate&#8221; parking actually adequate? These words are doing political work. They&#8217;re encoding decades of community negotiation and compromise into bylaw language. An AI doesn&#8217;t know that. It sees patterns. It doesn&#8217;t understand context. Keep humans in the loop for anything discretionary. Full stop.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Edge cases and novel situations.</strong> LLMs are trained on what exists. They&#8217;re pattern matchers. If someone submits an application for something genuinely new, a building type that doesn&#8217;t fit existing categories, a use case nobody anticipated, the AI will confidently give you an answer based on the nearest pattern match. That confidence is the dangerous part. It doesn&#8217;t know what it doesn&#8217;t know. When the situation is novel, you need human judgment. The AI should flag &#8220;I haven&#8217;t seen something like this before&#8221; not invent an answer.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Anything with equity implications.</strong> This is the one that keeps me up at night. Who gets approved. Who gets rejected. Whose application moves fast. Whose gets buried. If historical data shows certain neighborhoods or certain types of applicants got rejected more often, the AI might learn that pattern as &#8220;normal.&#8221; It encodes the bias and calls it optimization. You need human oversight specifically watching for this. And you need to measure it, not just hope for the best. Hope is not a strategy in regulated environments.</p>
+
+
+
+<p class="wp-block-paragraph">The rule I&#8217;d advocate for: <strong>AI should never be the last word on anything that affects someone&#8217;s property rights, livelihood, or access to services.</strong> Flag, summarize, recommend. But a human signs off. Every single time.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>What Trust Actually Looks Like</strong></h2>
+
+
+
+<p class="wp-block-paragraph">Here&#8217;s where most government AI projects go wrong. They focus on the technology and skip the governance. The AI is actually the easy part. The hard part is building systems that are trustworthy in regulated environments.</p>
+
+
+
+<p class="wp-block-paragraph">If someone pitched me an AI system for government services, here&#8217;s what I&#8217;d demand before I&#8217;d trust it:</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Show me accuracy metrics against ground truth.</strong> Not &#8220;we tested it on 10 applications and it seemed good.&#8221; Precision and recall on a meaningful sample. How often does it flag something that&#8217;s actually fine? How often does it miss something that&#8217;s actually wrong? Both matter. False positives waste staff time. False negatives let problems through. Quantify it or you&#8217;re not ready.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Show me citations to source.</strong> Every flag, every recommendation, needs to point to the specific rule, bylaw, or requirement it&#8217;s referencing. &#8220;This may violate Section 4.2.3&#8221; not &#8220;this seems non-compliant.&#8221; If the AI can&#8217;t show its work, don&#8217;t trust it. Traceability isn&#8217;t optional in regulated environments.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Show me confidence bounds.</strong> The system needs to know what it doesn&#8217;t know. &#8220;High confidence: missing required document&#8221; is different from &#8220;Moderate confidence: possible issue, recommend human review.&#8221; If everything comes back with the same confidence level, the calibration is broken. You can&#8217;t triage effectively if everything looks the same.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Show me how it handles edge cases.</strong> What happens when someone submits something weird? What happens when someone tries to game the system? Does it fail gracefully or does it confidently make things up? Test the boundaries explicitly. The failure modes matter more than the success cases.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Show me the audit trail.</strong> Every AI interaction needs to be logged, reversible, and overridable by a human. If a reviewer disagrees with the AI, that needs to be captured and used to improve the system. The disagreements are your learning opportunities.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Show me the equity auditing.</strong> Before deployment and ongoing. Does this system treat applications from different neighborhoods, demographics, or applicant types equitably? If you&#8217;re not measuring it, you&#8217;re not managing it.</p>
+
+
+
+<p class="wp-block-paragraph">Most of what I just described isn&#8217;t even AI-specific. It&#8217;s what you&#8217;d want from any decision-support system in a regulated environment. The technology is the easy part. Governance is hard. And governance is where projects fail.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>Community-Driven, Not Top-Down</strong></h2>
+
+
+
+<p class="wp-block-paragraph">Here&#8217;s where BC has an opportunity to do something different.</p>
+
+
+
+<p class="wp-block-paragraph">Most government AI initiatives start with a vendor demo and work backwards. Someone in procurement sees a slick presentation, gets excited, and suddenly there&#8217;s a pilot project. The community the system is supposed to serve? They find out about it when it&#8217;s already built.</p>
+
+
+
+<p class="wp-block-paragraph">We&#8217;re advocating for something different. Community-driven AI development means starting with the people who actually interact with government services, both staff and applicants, and asking: what&#8217;s actually broken here? What would actually help? Is AI even the right tool, or would a better form or clearer guidelines solve this faster?</p>
+
+
+
+<p class="wp-block-paragraph">At BC AI, we&#8217;ve been building a Government Relations Committee. Fifteen members, including people with federal political experience, policy backgrounds, and direct connections to municipal decision-makers. We&#8217;re not just talking about AI governance. We&#8217;re actively engaging with policymakers at municipal, provincial, and federal levels to bring a community voice to these conversations.</p>
+
+
+
+<p class="wp-block-paragraph">We&#8217;re also the only AI community I know of that integrates <a href="https://kriskrug.co/indigenous-ai/">Indigenous leadership</a> into our governance. Coast Salish ceremony opens our events. UNDRIP alignment guides our policy positions. Carol Ann Hilton sits on our board. This isn&#8217;t tokenism. It&#8217;s structural commitment. When we talk about AI governance, we&#8217;re bringing perspectives that corporate vendors simply don&#8217;t have.</p>
+
+
+
+<p class="wp-block-paragraph">The question isn&#8217;t &#8220;how can government use AI?&#8221; The question is &#8220;what&#8217;s actually broken in this process, and would AI help or just add complexity?&#8221; Sometimes the answer is a better PDF form. Sometimes it&#8217;s clearer guidelines. Sometimes it&#8217;s fixing the coordination problem before you automate anything. And yes, sometimes it&#8217;s AI. But you have to diagnose before you prescribe.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>The Flag We&#8217;re Planting</strong></h2>
+
+
+
+<p class="wp-block-paragraph">Here&#8217;s where BC + AI stands:</p>
+
+
+
+<p class="wp-block-paragraph">We believe AI can genuinely help government serve people better. Document checks, summarization, pre-submission review, flagging likely issues. These are real use cases that can save time for staff and reduce frustration for applicants.</p>
+
+
+
+<p class="wp-block-paragraph">We believe human oversight is non-negotiable. AI should flag, summarize, and recommend. Humans should decide. Every time.</p>
+
+
+
+<p class="wp-block-paragraph">We believe trust requires measurement. Accuracy metrics, citations, confidence bounds, equity audits. If you can&#8217;t quantify it, you&#8217;re not ready for deployment.</p>
+
+
+
+<p class="wp-block-paragraph">We believe community voice matters. The people who use government services should have a say in how those services are automated. Top-down AI adoption without community input is innovation theater.</p>
+
+
+
+<p class="wp-block-paragraph">We believe governance is harder than technology. Most AI projects fail not because the tech didn&#8217;t work, but because nobody thought through the human systems around it.</p>
+
+
+
+<p class="wp-block-paragraph">And we believe BC has an opportunity to lead. Not by being first to deploy AI in government, but by being first to do it right. Community-driven. Human-centered. Accountable. Measurable.</p>
+
+
+
+<p class="wp-block-paragraph">That&#8217;s the flag we&#8217;re planting. If you want to help plant it with us, you know where to find us.</p>
+
+
+
+<p class="wp-block-paragraph"><em>Kris Krüg is Executive Director of the <a href="https://bc-ai.ca/">BC + AI Ecosystem</a> Association and founder of <a href="https://www.theupgrade.ai/">The Upgrade AI</a> Training. He has been building and training AI systems since 2022 and leads Western Canada&#8217;s largest grassroots AI community.</em></p>
+
+
+
+<h2 class="wp-block-heading">Receipts and next rooms</h2>
+
+
+
+<ul class="wp-block-list">
+
+<li><a href="https://bc-ai.ca/">BC + AI</a> for the community-governance layer.</li>
+
+
+<li><a href="https://bc-ai.ca/certification/responsible-ai-professional/">Responsible AI Professional Certification</a> for practical governance training.</li>
+
+
+<li><a href="https://kriskrug.co/contact/">Contact me</a> if your civic AI project needs a sharper diagnosis before the vendor demo eats the room.</li>
+
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>Related:</strong> More essays and interviews in this vein live in <a href="https://kriskrug.co/ai-conversations/">AI conversations</a>.</p>
+

@@ -1,0 +1,116 @@
+Title: Why We Built the Responsible AI Professional Certification
+Link: https://kriskrug.co/2026/06/18/why-we-built-the-responsible-ai-professional-certification/
+
+Kris Krüg , Executive Director, BC + AI Ecosystem Association
+
+Last October, I watched a room full of 250 people at the Vancouver Planetarium lean forward when our speaker asked: "How many of you are deploying AI systems at work right now?" Nearly every hand went up.
+
+Then he asked: "How many of you have a governance framework for how you're doing it?"
+
+The hands dropped. Maybe a dozen stayed raised.
+
+That gap, between deployment speed and ethical practice , is why we built our new Responsible AI Professional Certification program.
+
+The Problem We're Trying to Solve
+
+Every organization is rolling out AI. Fast. The pressure to ship, to automate, to not fall behind, it's real. I get it. I've been building technology for 25 years. I helped build the world's first Drupal development company. I created Dead.net for the Grateful Dead. I wrote books about BitTorrent and iPhone photography when those were emerging technologies.
+
+I've seen this pattern before: new tech arrives, everyone scrambles to adopt it, and the ethics conversation happens later. Usually after something goes wrong.
+
+With AI, we can't afford "later."
+
+And here's what I've learned running the Vancouver AI Meetup for the past two years: most people aren't trying to do harm. They're just moving fast and nobody gave them the frameworks to do it responsibly.
+
+Why BC + AI Built This
+
+When we started the Vancouver AI Meetup in 2024, we didn't know it would grow from 80 people in my studio to 250+ monthly attendees at the Space Centre. We didn't know we'd end up with 850+ Discord members, 99+ paying members, and seven Special Interest Groups covering everything from creative AI to enterprise governance.
+
+What we did know was that our community kept asking the same questions:
+
+"How do I evaluate whether this AI system should be deployed?"
+
+"What frameworks actually work for assessing risk?"
+
+"Who's teaching this stuff in a way that's practical, not just academic?"
+
+The certification programs that existed were either too theoretical (great for research papers, useless for Tuesday's deployment decision) or too narrow (focused on one jurisdiction's regulations, one company's products, one technical domain).
+
+We wanted something different. We wanted practical frameworks from multiple perspectives like UNESCO, OECD, NIST, and IEEE, applied to real scenarios. We wanted cohort-based learning where people wrestle with these questions together. We wanted participants to leave with actual artifacts they'd use, not just a certificate.
+
+So we built it. RAP, the Responsible AI Professional, is BC + AI's first certification program, developed in collaboration with TheUpgrade.
+
+What You'll Actually Learn
+
+RAP is four weeks, 90 minutes live each week, with pre-work and practical exercises. It's not attendance-based. You have to pass quizzes and complete artifacts. Here's the structure:
+
+Each week you build an artifact: Personal AI Inventory, Ethics Assessment, Deployment Checklist, Ethics Impact Assessment.
+
+By the end, these become your custom Ethics Practice Assistant, a GPT trained on your work that knows how you think about these issues.
+
+Who's Teaching This
+
+I'm the program lead. I bring the community perspective, I've spent two years listening to what people actually struggle with, what questions keep coming up, what gaps exist between the theory and practice.
+
+Martin Lopatka developed the curriculum. PhD in Forensic Statistics, Master's in AI, Mozilla alumni with production ML systems experience. He knows responsible AI assessment frameworks cold. He's volunteering his expertise because this work matters to him.
+
+Sarah Downey is our instructor focused on governance facilitation. She's been in nonprofit leadership for 20+ years and now helps mission-driven organizations adopt AI responsibly. Her perspective grounds everything we do in values-centered practice.
+
+What unites us: we believe this work requires both technical depth and human understanding. You can't do responsible AI with just frameworks. You can't do it with just good intentions either.
+
+Who This Is For
+
+RAP is built for three audiences:
+
+Leaders and executives who are overseeing AI deployments and need governance frameworks that actually work. Not policy documents that sit in a drawer. Real tools for real decisions.
+
+Career transitioners who have upskilling funds and want to differentiate themselves. If you're pivoting into AI governance or want to be the person your organization turns to when these questions come up, this is for you.
+
+People who want to build a practice rather than just get a credential. You're not here to check a box. You're here to walk away with frameworks, artifacts, and tools you'll actually use next week.
+
+What you don't need: technical AI experience. We'll explain how the systems work. But this isn't a programming course. If you're making decisions about AI, budgeting, deploying, governing, you're qualified.
+
+The Bigger Picture
+
+Here's why this matters beyond the individual credential:
+
+At BC + AI, we've built something unusual. We open every monthly meetup with Indigenous ceremony , not as acknowledgment theater, but as structural grounding. We're on the unceded territories of the Musqueam, Squamish, and Tsleil-Waututh peoples, and we try to act like it.
+
+We've turned down $10K sponsors whose practices conflicted with our values. When your community has principles, you have to be willing to live by them.
+
+RAP is an extension of that philosophy. We're not training people to check compliance boxes. We're building practitioners who understand that technology choices are human choices, that AI systems encode values, that "neutral" is a position too.
+
+The organizations that will lead in the AI era aren't the ones with the fastest models. They're the ones with people who know how to ask: Should we build this? Who gets hurt if we get it wrong? What oversight do we need? How do we maintain human agency?
+
+That's what we're teaching.
+
+How to Join
+
+Cohort 1 launched in May 2026. We limited it to 30 participants because we wanted cohort dynamics, real discussion, and instructor access.
+
+Pricing:
+
+- Standard: $1,500
+
+- Early Bird: $1,200
+
+- BC + AI Member: $750
+
+- Early Bird Member: $600
+
+The membership math is simple: BC + AI membership costs $340/year. The certification discount saves you $750. That's $410 net in your pocket, plus you get Friday office hours, Discord access, meetup priority, and all future BC + AI certification discounts.
+
+Current program information: Responsible AI Professional Certification
+
+Join BC + AI first: bc-ai.ca
+
+Questions? Come to Friday Office Hours (12 to 1 PM PT, free, open to all) or email hello@bc-ai.ca .
+
+Kris Krüg is the Executive Director of BC + AI Ecosystem Association, founder of the Vancouver AI Meetup, and a technology educator with 25 years of experience bridging creative and technical worlds. He's a National Geographic photographer, TED speaker, former SXSW Interactive Advisory Board member, and author of BitTorrent for Dummies and Killer Photos with Your iPhone.
+
+Related:
+
+- Responsible AI Professional Certification
+
+- BC + AI membership
+
+- The Upgrade AI

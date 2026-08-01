@@ -1,0 +1,161 @@
+Title: No One Knows What to Call Us Yet
+Link: https://kriskrug.co/2026/07/28/no-one-knows-what-to-call-us-yet/
+
+At 6:27 on a Friday evening in May, in a WhatsApp thread full of animators and filmmakers, Daniela Gamarra asked the kind of question that sounds small until you notice it is the whole industry trying to rename itself in public.
+
+Do we know the new AI titles that are more accepted or more common in the industry? For example AI animator? Or would it be better, technical artist? Haha
+
+Daniela Gamarra, BC + AI Film Club WhatsApp
+
+Eighteen minutes later Kevin Friel gave the only honest answer anyone can give right now.
+
+Nobody knows yet.
+
+That is funny because it is true. It is also a little terrifying, because titles are not vibes. Titles are how people get hired, credited, paid, protected, discovered, and taken seriously. A title tells a producer what you can be trusted with. It tells a union what work you actually performed. It tells a client whether you are making something beautiful, building a pipeline, directing a sequence, or cleaning up the mess a model made at three in the morning.
+
+So Daniela was not really asking whether to put “AI animator” on LinkedIn.
+
+She was asking how a new kind of film worker becomes legible before the paperwork catches up.
+
+The job board already moved
+
+There is no single accepted title yet, but the market is already leaving fingerprints all over the glass.
+
+DNEG is advertising Gen AI workflow roles inside environment and digital matte painting. TrueShort uses “AI Filmmaker” as an actual job title and wants people who can turn scripts, boards, and shot lists into finished sequences with AI-first tools. Sawhorse posts for an AI Filmmaker and an AI Production Pipeline Engineer, and describes the work as part art director, part filmmaker, part creative technologist, part technical pipeline brain.
+
+That pile-up of titles is the tell. Nobody has the taxonomy yet, so everybody is naming the missing piece from their own angle.
+
+A studio sees workflow risk, so it says pipeline engineer. A VFX house sees repeatability, so it says workflow designer. A streamer sees output, so it says AI filmmaker. An animator trying to keep drawing alive inside a new process says hybrid animation artist. A hiring manager with a games and virtual-production brain reaches for technical artist.
+
+None of those titles is wrong. Each one is a different promise.
+
+AI filmmaker says: I can ship finished moving-image work with these tools. AI animation artist says: I can animate, compose, and hold continuity with AI in the loop. Technical artist says: I can bridge art direction and technical implementation, and when the thing breaks, I can fix it. Workflow designer says: I can build repeatable systems other artists can actually use.
+
+Right now the best title is not the most futuristic one.
+
+It is the one that describes the responsibility you can carry when the lights are on and the deadline is hungry.
+
+AI Film Club became AI Film Crew
+
+This is exactly why the BC + AI Film Club matters.
+
+It started like a meetup. It is becoming a crew. A room where the industry rehearses its next job descriptions out loud, together, with receipts.
+
+The local archive says Film Club launched in June 2025 . By the end of that year the WhatsApp group had more than 127 people and over 1,100 messages. A February 2026 export clocked 2,711 messages, 184 unique voices, and 358 links shared. The January launch night at Multimodal Media Lab drew more than 150 signups and around 80 people in the room.
+
+Those numbers matter less as vanity metrics than as evidence of a pattern.
+
+People are not waiting for a school, a studio, a guild, or a software company to explain the change. They are gathering, showing work, comparing workflows, arguing about tools, and turning private anxiety into shared practice. I have watched this happen up close, and I wrote about how fast it went from a meetup to a movement in Zero to One .
+
+Film Club launch night: the future of film, animation, and work, from the room where the argument actually happens.
+
+The room has held VFX artists, animators, editors, sound people, technologists, students, working filmmakers, and total beginners in the same hour. That mix is the point. AI film work does not sit neatly in one old department. A single short can need writing, visual development, character reference, model selection, motion generation, edit rhythm, sound design, cleanup, color, disclosure, and one very human judgment call about whether the thing is good enough to show another human.
+
+That is not one job. It is also not nothing.
+
+Film Club is a translation layer for work that falls between the old titles. Every session is on the public record over at bc-ai.ca/videos , because the point was never to keep the conversation in the room.
+
+The work is orchestration now
+
+Kevin’s note about “technical artist” came with a warning. If you use that title, the expectation is drifting hard toward deep node-based workflow fluency and ComfyUI literacy.
+
+That is not a random tool preference. It is a signal. The work is moving from prompt to pipeline .
+
+In the early, viral version of AI filmmaking, the visible skill was prompting. Type a sentence, get an image, post the miracle. In professional practice that wears off fast. One good image is not the problem. The problem is consistency across shots. Character identity. Controllable camera language. Fixing hands, faces, edges, lighting, grain, depth, plates, and continuity. Knowing when to reach for Midjourney, Veo, Kling, Runway, Flux, ComfyUI, Nuke, Resolve, After Effects, or no AI at all.
+
+It is why ActionVFX is now teaching ComfyUI for VFX, combining it with Nuke, Resolve, and traditional compositing. The emerging job is less magician, more conductor. You are not asking the machine for art. You are arranging constraints, references, takes, passes, corrections, and taste until the sequence behaves. I made the same argument about the whole creative stack in Agent Orchestrators, Creative Insurgents, and the New Stack .
+
+Film Club, February 2026: Kling 3, SeeDance 2, and the shift into the orchestration era. Watch how fast the vocabulary moves.
+
+The visible skill used to be prompting. The real skill is knowing what to do with what comes back.
+
+The 80/20 flip
+
+Luke Minaker has a phrase for this. He calls it the 80/20 flip.
+
+In traditional production, especially commercial animation, artists know the ratio too well. Twenty percent creative decision-making, eighty percent grind. Cleanup. Iteration. Render chores. Revisions. Dependency chains. Waiting. Matching. Doing the same tiny thing forever because the pipeline demands it.
+
+Luke’s argument, proven through Tiny Ghost Studios and the BC + AI Animation Accelerator , is that a real AI-assisted pipeline can flip that ratio. Not by removing craft, but by moving human time back toward story, acting, timing, visual choice, and direction.
+
+There’s like the 20% creative and there’s the 80% grind. And I think that with AI now, it’s flipped it on its head. There’s the 80% creative and the 20% grind.
+
+Luke Minaker, Tiny Ghost Studios
+
+I trust Luke on this because he has the receipts. Thirty years animating professionally, directing by 21, Barbie and the major toy franchises, work watched over a billion times. Then a layoff. Then two years running Tiny Ghost on zero revenue, building in public, getting told no by VCs who wanted a 2019 pitch deck. Then their AI-built original IP, Blood and Glitter, got greenlit and funded, and the household names started calling.
+
+Luke Minaker on using AI animation to finally make the art-school film he always wanted to make. This is the man behind the 80/20 flip.
+
+This is also where titles get slippery. If someone says “AI animator,” do they mean a person who knows animation principles and uses AI to accelerate motion, or someone spinning the slot machine until something vaguely moves? If someone says “technical artist,” do they mean a person who can build a usable production workflow, or a person trying to sound employable?
+
+A title is only useful if it points to craft.
+
+Hybrid craft is the counterargument to slop
+
+Daniela’s own work is the perfect example of why this cannot be flattened into AI-enthusiasm versus AI-refusal .
+
+At Film Club she walked through a hybrid animation pipeline built around hand drawing, Procreate Dreams, Claude, frame extraction, and style transfer. The point was not to let AI replace drawing. The point was to find a way back to drawing without it taking a million years.
+
+That sentence is the whole argument.
+
+Daniela Gamarra shows her hand-drawn AI pipeline at BC + AI Film Club. This is the person who asked the question that started all of this.
+
+A lot of AI output still feels generic because the human hand never found its way back into the loop. It can look expensive and empty at the same time, the exact thing Rachel Horst built an anti-slop machine to fight . Daniela’s approach pushes the other way. Generate, inspect, extract frames, redraw, repair, re-upload, iterate. Slower than the automation fantasy. Faster than doing every frame by hand. A place for the artist to actually intervene. It is the same distinction I keep coming back to in Artists Learn, Machines Extract : the human contribution is the whole ballgame.
+
+So maybe “AI animator” is not quite enough for that work. Hybrid animation artist might be better. Visual narrative artist with an AI-assisted animation pipeline might be more precise. Creative technologist fits if the tool-building is central. Technical artist fits if the pipeline becomes reusable for others.
+
+Again, the name should follow the human contribution.
+
+A title is also a labour claim
+
+This is where the room gets quiet, because titles become power.
+
+If a studio says a model generated the material, who gets credit? If a writer uses AI as a tool, can the company treat the machine as source material? If an artist builds the character-consistency system that lets a director finish a film, is that VFX, animation, pipeline, technical direction, or something the org chart does not have a box for yet? If a performer, illustrator, or writer’s work trained a model, where does consent live? If a job posting says “technical artist” but really means “make a whole film with no crew,” what is the title hiding?
+
+The guilds already know this is not semantics. The WGA’s AI guidance is explicit that generative AI is not a writer and cannot be used to undermine writer credit or separated rights. IATSE put AI protections on the table for technicians, artisans, and craftspeople. The Animation Guild’s AI committee is tracking use across the industry and reading contract language in members’ favor.
+
+That is the formal version of Daniela’s question. What do we call the work so the worker does not disappear?
+
+Mayumi Rollings of Tiny Ghost asks the question underneath the question: is AI film still art? Her answer is not the one either camp expects.
+
+A better title should make three things legible: what craft you bring, what part of the pipeline you own, and what accountability sits with you.
+
+BC’s advantage, if we use it
+
+British Columbia has a real edge here, if we choose to use it well.
+
+Vancouver already understands film, animation, VFX, games, post, and the weird connective tissue between all of them. The province has artists who have shipped serious work, technologists who can build tools, organizers who can convene across silos, and venues like Multimodal Media Lab and VIVO that know the difference between a demo and a practice.
+
+BC + AI’s job is not to declare the final titles from above. It is to build the rooms where practitioners can test them. Film Club, the animation accelerator, the screenings, the half-broken demos, the serious critique after the fun part. This is how a field names itself before the institutions catch up.
+
+What the ecosystem actually produces: a cut from Blood and Glitter, the AI-built IP that got Tiny Ghost greenlit. Character, not prompt residue.
+
+In an industry where the tool stack changes every month, legibility is infrastructure . That is the whole reason we are building toward Future Proof , our festival at the H.R. MacMillan Space Centre this October, and why I have been chasing this particular horizon for a while now .
+
+So what should Daniela call them
+
+If the question is a public bio, “AI filmmaker” is already legible. It gets attention. People understand it well enough to click.
+
+If the work is animation specific and the person is actually making animated sequences, “AI animation artist” or “hybrid animation artist” is clearer. Hybrid animation artist has the added advantage of saying the important part out loud: there is hand craft, judgment, and pipeline work in the loop.
+
+If the work is building repeatable workflows for other artists, then “Gen AI workflow designer,” “AI pipeline artist,” or “creative technologist” may be more precise.
+
+If the title is “technical artist,” be ready for the expectation. In 2026 that increasingly means node-based workflow fluency, ComfyUI literacy, some comfort with compositing and finishing tools, and the ability to debug a creative pipeline under pressure.
+
+The safest answer is not to pick one forever. Use a title stack.
+
+- Public facing: AI Filmmaker or Hybrid Animation Artist
+
+- Studio facing: Technical Artist or AI Pipeline Artist, if the pipeline depth is real
+
+- Credit facing: name the actual contribution, whether that is AI animation, workflow design, compositing, character consistency, visual development, or direction
+
+No one knows what to call us yet because the work is still becoming visible. That is not a failure. That is a phase.
+
+The machine does not need a better title. The people do.
+
+If you want to stop watching this argument from the cheap seats and actually make the thing, that is what the accelerator is for. The next online cohorts are open now on Luma, three evening sessions each, a finished short on the other end. Cohort 3 registers at luma.com/Cartoon , Cohort 4 at luma.com/Scene . BC + AI members get 25% off with code BCAI25, and if cost is the barrier, email hello@bc-ai.ca and we will find you a seat.
+
+See you in the room.
+
+Kris Krüg
+Executive Director, BC + AI Ecosystem Association

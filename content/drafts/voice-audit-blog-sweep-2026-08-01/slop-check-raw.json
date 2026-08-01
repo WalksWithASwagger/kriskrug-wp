@@ -1,0 +1,379 @@
+{
+  "total": 44,
+  "files": {
+    "snapshots/2026-06-18-why-we-built-the-responsible-ai-professional-certification.txt": [],
+    "snapshots/2026-06-20-god-skills-agentic-loop-workflows.txt": [
+      {
+        "line": 76,
+        "col": 46,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 76,
+        "col": 48,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 76,
+        "col": 50,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 76,
+        "col": 52,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 122,
+        "col": 48,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 122,
+        "col": 50,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      }
+    ],
+    "snapshots/2026-06-22-the-great-canadian-proximity-game.txt": [
+      {
+        "line": 12,
+        "col": 152,
+        "match": "stakeholder alignment",
+        "rule": "banned: stakeholder alignment",
+        "reason": "committee theater",
+        "severity": "warn"
+      }
+    ],
+    "snapshots/2026-06-23-ethos-lab-block-party.txt": [
+      {
+        "line": 1,
+        "col": 12,
+        "match": "Ethos Lab",
+        "rule": "pattern: Ethos Labs?\\b",
+        "reason": "WRONG, canonical is Eth\u1ecd\u0301s Lab",
+        "severity": "warn"
+      }
+    ],
+    "snapshots/2026-06-23-vancouver-made-world-cup.txt": [],
+    "snapshots/2026-06-24-ai-wont-fix-your-broken-permit-process.txt": [],
+    "snapshots/2026-06-26-canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one.txt": [
+      {
+        "line": 38,
+        "col": 49,
+        "match": "stakeholders",
+        "rule": "banned: stakeholders",
+        "reason": "bureaucratic; say \"the people involved\"",
+        "severity": "warn"
+      },
+      {
+        "line": 336,
+        "col": 161,
+        "match": "thought leadership",
+        "rule": "pattern: \\bthought leader(ship)?\\b",
+        "reason": "name the actual work instead",
+        "severity": "warn"
+      }
+    ],
+    "snapshots/2026-06-28-what-would-chat-do-and-why-thats-the-wrong-question.txt": [
+      {
+        "line": 30,
+        "col": 34,
+        "match": "team",
+        "rule": "pattern: \\bteam\\b",
+        "reason": "Kris says \"crew\", not \"team\" (soft flag, judge by context)",
+        "severity": "warn"
+      }
+    ],
+    "snapshots/2026-06-30-zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey.txt": [
+      {
+        "line": 10,
+        "col": 450,
+        "match": "No pitches, no pyramid schemes, just ",
+        "rule": "pattern: no .+, no .+, just ",
+        "reason": "the \"no X, no Y, just Z\" LLM cadence",
+        "severity": "warn"
+      },
+      {
+        "line": 50,
+        "col": 190,
+        "match": "team",
+        "rule": "pattern: \\bteam\\b",
+        "reason": "Kris says \"crew\", not \"team\" (soft flag, judge by context)",
+        "severity": "warn"
+      },
+      {
+        "line": 118,
+        "col": 32,
+        "match": "seamless",
+        "rule": "banned: seamless",
+        "reason": "marketing filler",
+        "severity": "warn"
+      },
+      {
+        "line": 136,
+        "col": 242,
+        "match": "cutting-edge",
+        "rule": "banned: cutting-edge",
+        "reason": "brochure word",
+        "severity": "warn"
+      },
+      {
+        "line": 162,
+        "col": 24,
+        "match": "pivotal",
+        "rule": "banned: pivotal",
+        "reason": "LLM tell; say \"key\" or name why it mattered",
+        "severity": "warn"
+      },
+      {
+        "line": 190,
+        "col": 369,
+        "match": "Team",
+        "rule": "pattern: \\bteam\\b",
+        "reason": "Kris says \"crew\", not \"team\" (soft flag, judge by context)",
+        "severity": "warn"
+      }
+    ],
+    "snapshots/2026-07-02-ai-media-appearances-podcast-guesting.txt": [],
+    "snapshots/2026-07-06-artists-learn-machines-extract.txt": [],
+    "snapshots/2026-07-10-the-cheer-is-a-cap-table.txt": [],
+    "snapshots/2026-07-18-i-am-nomad-ai-film.txt": [],
+    "snapshots/2026-07-28-no-one-knows-what-to-call-us-yet.txt": [],
+    "snapshots/2026-07-31-ai-lands-inside-every-profession.txt": [
+      {
+        "line": 18,
+        "col": 72,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 28,
+        "col": 433,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 36,
+        "col": 166,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 36,
+        "col": 225,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 44,
+        "col": 26,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 46,
+        "col": 51,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 54,
+        "col": 67,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 60,
+        "col": 112,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 62,
+        "col": 24,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 64,
+        "col": 22,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 70,
+        "col": 185,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 72,
+        "col": 60,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 74,
+        "col": 165,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 74,
+        "col": 209,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 74,
+        "col": 417,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 76,
+        "col": 259,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 78,
+        "col": 30,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 82,
+        "col": 161,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 84,
+        "col": 286,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 86,
+        "col": 99,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 86,
+        "col": 201,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 86,
+        "col": 309,
+        "match": "team",
+        "rule": "pattern: \\bteam\\b",
+        "reason": "Kris says \"crew\", not \"team\" (soft flag, judge by context)",
+        "severity": "warn"
+      },
+      {
+        "line": 97,
+        "col": 184,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 115,
+        "col": 122,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 117,
+        "col": 147,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 123,
+        "col": 250,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      },
+      {
+        "line": 127,
+        "col": 89,
+        "match": "\u2014",
+        "rule": "banned: \u2014",
+        "reason": "em dash, hard rule, never (use a comma, colon, or two sentences)",
+        "severity": "warn"
+      }
+    ]
+  }
+}
