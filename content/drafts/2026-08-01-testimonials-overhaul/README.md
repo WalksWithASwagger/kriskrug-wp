@@ -1,7 +1,9 @@
 # Testimonials page overhaul — 2026-08-01
 
+> **Showpiece v2 kickoff:** see [`START-HERE.md`](./START-HERE.md) and epic [#593](https://github.com/WalksWithASwagger/kriskrug-wp/issues/593). v1 below shipped; v2 swarm extends it.
+
 **Track:** A (content) · **Live target:** WP page **2409** · `/testimonials/`  
-**Plan:** Cursor plan `testimonials_page_overhaul_bb42a748`  
+**Plan:** Cursor plan `testimonials_page_overhaul_bb42a748` (v1); showpiece v2 = epic #593  
 **Narrative:** Career arc — AI era first, photography/community archive second.
 
 ## Goal
