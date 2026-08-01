@@ -1,24 +1,30 @@
 # Publication gate
 
-Current authorization: **draft package only** — pending-kris. No live WordPress publish in Issue #2940.
+Current authorization: **WordPress draft exists** (ID `12653`) — still pending-kris for **publish**. Multimedia package staged 2026-07-31; depth/polish/voice revision round applied same day (interview stories, named rooms, back-catalog links, ad-free BIV screenshots media 12654/12655, OrgBook cut, "Three groups, one page" reframe).
 
 ## Required before publication
 
-- [ ] Kris approves public body wording and voice
+- [ ] Kris approves public body wording, voice, image set, and video embeds
 - [ ] Confirm membership language still **about / nearly 300** or replace with a recorded backend count
-- [ ] Confirm Michelle Diamond Space Centre photo reuse scope; upload to media library; set `featured_media_id`
-- [ ] Confirm Tyee relative-time phrase ("last week") still reads correctly at publish date
-- [ ] Recheck all external links (BIV may soft-wall; Cloudflare ok for agents)
-- [ ] Confirm categories, tags, excerpt, SEO title, and meta description in WordPress
-- [ ] Obtain explicit publication authorization
+- [x] Upload Michelle Diamond Space Centre photo; set `featured_media_id` (`12646`)
+- [ ] Confirm Michelle Diamond reuse scope for public publish (already credited on BC + AI / Futureproof)
+- [x] Tyee cite uses dated form ("on July 24") instead of relative "last week"
+- [ ] Recheck all external links in a logged-in preview
+- [x] Categories/tags/excerpt on draft (Responsible AI & Policy + Vancouver AI Ecosystem)
+- [ ] Confirm SEO title + meta description in Yoast / RankMath on the draft
+- [ ] Obtain explicit publication authorization → flip draft to publish
 
-## Explicitly out of scope for #2940
+## WordPress draft
 
-- Publishing or scheduling the post on kriskrug.co
+- Edit: https://kriskrug.co/wp-admin/post.php?post=12653&action=edit
+- Package: `post.html` / `post.md` / `ASSETS.md` / `media-upload-map.json`
+
+## Explicitly out of scope until Kris says publish
+
+- Flipping draft → publish / schedule
 - Buffer / social scheduling
 - BC + AI `/news` implementation (separate issue)
-- Publications page deployment
-- Scraping or reusing the Rob Kruyt / BIV portrait
+- Scraping or reusing the Rob Kruyt / BIV portrait as hero
 
 ## Tracking
 
