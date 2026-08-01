@@ -366,7 +366,8 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
 }
 
 /* R6: rainbow word readable at a glance (slightly larger italic + richer sweep) */
-.aurora-masthead-copy h1 .aurora-rainbow-word {
+.aurora-masthead-copy h1 .aurora-rainbow-word,
+.aurora-hero-copy h1 .aurora-rainbow-word {
   display: inline-block;
   font-size: 1.08em;
   font-style: italic;
@@ -1265,6 +1266,51 @@ body.aurora-theme .aurora-primary-nav a {
     border: 0 !important;
     border-radius: 0 !important;
   }
+}
+
+/* Full-bleed photo hero: restore light ink over dark scrim.
+   Global Revive remaps --aurora-ink to cream-paper ink; without this the
+   left-scrim copy paints dark-on-dark. Temporary .aurora-stage-photo--portrait
+   override removed — Home no longer uses that slot. */
+body.aurora-theme #aurora-main .aurora-hero-2026 {
+  --aurora-ink: #f7f7f2;
+  --aurora-ink-soft: #c8cac8;
+  --aurora-ink-muted: #8f9697;
+  --aurora-line: rgba(247, 247, 242, 0.22);
+  --aurora-line-strong: rgba(247, 247, 242, 0.4);
+}
+
+body.aurora-theme #aurora-main .aurora-hero-2026 :where(
+  #aurora-home-title,
+  .aurora-hero-copy h1
+) {
+  color: #f7f7f2 !important;
+  -webkit-text-fill-color: #f7f7f2 !important;
+}
+
+body.aurora-theme #aurora-main .aurora-hero-2026 :where(
+  .aurora-hero-dek,
+  .aurora-hero-copy p:not(.aurora-kicker)
+) {
+  color: #c8cac8 !important;
+  -webkit-text-fill-color: #c8cac8 !important;
+}
+
+body.aurora-theme #aurora-main .aurora-hero-2026 .aurora-kicker {
+  color: #e8b53a !important;
+  -webkit-text-fill-color: #e8b53a !important;
+}
+
+body.aurora-theme #aurora-main .aurora-hero-2026 .aurora-rainbow-word {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+body.aurora-theme #aurora-main .aurora-hero-2026 .aurora-button-secondary {
+  background: rgba(247, 247, 242, 0.08) !important;
+  border-color: rgba(247, 247, 242, 0.35) !important;
+  color: #f7f7f2 !important;
+  -webkit-text-fill-color: #f7f7f2 !important;
 }
 
 }
