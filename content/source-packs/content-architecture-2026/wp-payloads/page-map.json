@@ -47,5 +47,18 @@
     "url": "https://kriskrug.co/podcast-guesting-page-epk/",
     "payload": "podcast-guesting-page-epk.html",
     "markers": ["AI commentator, podcast guest, and event host", "What I bring to the mic", "Book Kris for media"]
+  },
+  "testimonials": {
+    "id": 2409,
+    "slug": "testimonials",
+    "url": "https://kriskrug.co/testimonials/",
+    "payload": "testimonials.html",
+    "markers": [
+      "Proof from the rooms, stages, and cohorts",
+      "Responsible AI Professional — Cohort 1",
+      "Photography and connector years",
+      "aurora-quote-card",
+      "Kerris Hougardy"
+    ]
   }
 }
