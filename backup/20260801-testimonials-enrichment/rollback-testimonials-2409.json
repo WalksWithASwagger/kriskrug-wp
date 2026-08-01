@@ -1,0 +1,9 @@
+{
+  "page_id": 2409,
+  "slug": "testimonials",
+  "url": "https://kriskrug.co/testimonials/",
+  "before_snapshot": "backup/20260801-testimonials-enrichment/page-snapshots/page-2409-testimonials-before.json",
+  "restore_command": "scripts/notion-to-wp/.venv/bin/python scripts/content_architecture_deploy.py --page testimonials --restore --snapshot-dir backup/20260801-testimonials-enrichment/page-snapshots",
+  "created_utc": "20260801T164340Z",
+  "note": "Rollback restores pre-enrichment content (post-#582 body)."
+}

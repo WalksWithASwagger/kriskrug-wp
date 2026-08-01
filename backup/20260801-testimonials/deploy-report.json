@@ -1,0 +1,27 @@
+{
+  "snapshot_dir": "backup/20260801-testimonials/page-snapshots",
+  "pages": [
+    {
+      "page": "testimonials",
+      "id": 2409,
+      "slug": "testimonials",
+      "url": "https://kriskrug.co/testimonials/",
+      "payload": "testimonials.html",
+      "before": {
+        "page": "testimonials",
+        "json": "backup/20260801-testimonials/page-snapshots/page-2409-testimonials-before.json",
+        "html": "backup/20260801-testimonials/page-snapshots/page-2409-testimonials-before.html",
+        "json_sha256": "c3acd718d88d1f6433567a948a1012a1960c1bd16153ad5391c590af9f1e6d1d",
+        "html_sha256": "41430e3a2036a8a461289f2468e554614f4b05c2cfa621e035463ba692391381"
+      },
+      "after": {
+        "page": "testimonials",
+        "json": "backup/20260801-testimonials/page-snapshots/page-2409-testimonials-after.json",
+        "html": "backup/20260801-testimonials/page-snapshots/page-2409-testimonials-after.html",
+        "json_sha256": "95528345bcf7217635fdfe366e01b1fdc45b0390813ff187179024ae478b1449",
+        "html_sha256": "9ad409d34ed8e011d1026b3a5146002db076c64aae4f1ab44b165e2e6a115a71"
+      },
+      "modified": "2026-08-01T08:25:14"
+    }
+  ]
+}
