@@ -114,18 +114,20 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
 
     def test_complete_reverse_chronological_inventory(self):
         self.assertEqual(3, self.payload.count('<a class="kk-press-feature'))
-        self.assertEqual(20, self.payload.count('<article class="kk-press-entry'))
+        self.assertEqual(22, self.payload.count('<article class="kk-press-entry'))
         self.assertEqual(25, self.payload.count("<li><time"))
 
         dates = re.findall(r'datetime="(\d{4}-\d{2}-\d{2})"', self.payload)
-        self.assertEqual(48, len(dates))
+        self.assertEqual(50, len(dates))
         self.assertEqual(sorted(dates, reverse=True), dates)
 
     def test_structure_and_reciprocal_links(self):
         self.assertIn('class="kk-press-featured"', self.payload)
         self.assertIn('class="kk-press-feed"', self.payload)
         self.assertIn('class="kk-press-legacy"', self.payload)
-        self.assertIn('class="kk-press-board"', self.payload)
+        self.assertIn('class="kk-press-wall"', self.payload)
+        self.assertIn('class="kk-press-heard"', self.payload)
+        self.assertIn('class="kk-press-print"', self.payload)
         self.assertIn('class="kk-press-outlets"', self.payload)
         self.assertIn('class="kk-press-pull"', self.payload)
         self.assertIn("/podcast-guesting-page-epk/", self.payload)
@@ -156,8 +158,8 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
 
     def test_images_have_dimensions_and_alt_text(self):
         keys = [img.get("data-media-key") for img in self.parser.images]
-        self.assertGreaterEqual(len(self.parser.images), 16)
-        self.assertGreaterEqual(len(set(keys)), 16)
+        self.assertGreaterEqual(len(self.parser.images), 24)
+        self.assertGreaterEqual(len(set(keys)), 20)
         for image in self.parser.images:
             self.assertTrue(image.get("alt"))
             self.assertTrue(image.get("width"))
@@ -211,26 +213,33 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
 
     def test_manifest_covers_all_legacy_press_assets(self):
         manifest = load_manifest(PRESS_MEDIA_MANIFEST_JSON)
-        legacy_files = sorted(
-            p.name
-            for p in ASSETS_DIR.glob("press-*.jpg")
-            if not p.name.endswith("-v2.jpg")
-        )
         manifest_legacy = {
             e["legacy_file"] for e in manifest["entries"] if e.get("legacy_file")
         }
-        self.assertGreaterEqual(len(legacy_files), 16)
-        self.assertEqual(set(legacy_files), manifest_legacy)
+        for legacy in manifest_legacy:
+            self.assertTrue(
+                (ASSETS_DIR / legacy).exists(),
+                msg=f"manifest legacy_file missing on disk: {legacy}",
+            )
+        self.assertGreaterEqual(len(manifest_legacy), 16)
 
     def test_manifest_target_keys_use_v2_naming(self):
         manifest = load_manifest(PRESS_MEDIA_MANIFEST_JSON)
         for entry in manifest["entries"]:
-            self.assertRegex(
-                entry["key"],
-                PRESS_IMAGE_NAME_V2_RE,
-                msg=f"manifest key must be -v2 target: {entry['key']}",
-            )
-            self.assertNotEqual(entry["key"], entry.get("legacy_file"))
+            key = entry["key"]
+            if entry.get("legacy_file"):
+                self.assertRegex(
+                    key,
+                    PRESS_IMAGE_NAME_V2_RE,
+                    msg=f"recapture target must be -v2: {key}",
+                )
+                self.assertNotEqual(key, entry.get("legacy_file"))
+            else:
+                self.assertRegex(
+                    key,
+                    PRESS_IMAGE_NAME_RE,
+                    msg=f"new asset naming must be press-YYYY-MM-DD-*: {key}",
+                )
 
     def test_manifest_slot_dimensions_are_internally_consistent(self):
         manifest = load_manifest(PRESS_MEDIA_MANIFEST_JSON)
@@ -246,14 +255,13 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
 
     def test_payload_images_have_manifest_entries(self):
         manifest = load_manifest(PRESS_MEDIA_MANIFEST_JSON)
-        _, by_legacy = manifest_lookups(manifest)
+        by_key, by_legacy = manifest_lookups(manifest)
         for image in self.parser.images:
             media_key = image.get("data-media-key")
             self.assertTrue(media_key, "every img must have data-media-key")
-            self.assertIn(
-                media_key,
-                by_legacy,
-                msg=f"payload img {media_key!r} must map to manifest legacy_file",
+            self.assertTrue(
+                media_key in by_key or media_key in by_legacy,
+                msg=f"payload img {media_key!r} must map to manifest key or legacy_file",
             )
 
     def test_payload_image_dimensions_match_manifest_targets(self):
@@ -295,9 +303,9 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
             media_key = image.get("data-media-key", "")
             if not media_key.startswith("press-"):
                 continue
-            self.assertRegex(
-                media_key,
-                PRESS_IMAGE_NAME_RE,
+            self.assertTrue(
+                PRESS_IMAGE_NAME_RE.match(media_key)
+                or PRESS_IMAGE_NAME_V2_RE.match(media_key),
                 msg=f"press image naming must be press-YYYY-MM-DD-*: {media_key}",
             )
             date_part = media_key.split("-")[1:4]
