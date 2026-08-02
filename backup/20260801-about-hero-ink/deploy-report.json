@@ -1,0 +1,27 @@
+{
+  "snapshot_dir": "backup/20260801-about-hero-ink/page-snapshots",
+  "pages": [
+    {
+      "page": "about",
+      "id": 1208,
+      "slug": "about",
+      "url": "https://kriskrug.co/about/",
+      "payload": "about.html",
+      "before": {
+        "page": "about",
+        "json": "backup/20260801-about-hero-ink/page-snapshots/page-1208-about-before.json",
+        "html": "backup/20260801-about-hero-ink/page-snapshots/page-1208-about-before.html",
+        "json_sha256": "15e1618decd9a2ff88e8e87a6422c72070b2d8037c8b2580820c04ecd929b210",
+        "html_sha256": "431bc3502c41a973ad2eea277db4887f6b4dc8d95cca7aa45d86ac41b4c5af3c"
+      },
+      "after": {
+        "page": "about",
+        "json": "backup/20260801-about-hero-ink/page-snapshots/page-1208-about-after.json",
+        "html": "backup/20260801-about-hero-ink/page-snapshots/page-1208-about-after.html",
+        "json_sha256": "8d3cee88a22a5cacafe4e514e6e422267635e14debcb7f805c5953cde13b0d19",
+        "html_sha256": "6263b678befef113c33bc539c4870b2df5955f9ba12b01899a1beae10e9ea2d2"
+      },
+      "modified": "2026-08-01T08:39:59"
+    }
+  ]
+}

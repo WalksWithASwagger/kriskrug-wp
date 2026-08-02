@@ -1,0 +1,9 @@
+{
+  "created_at": "20260801T163733Z",
+  "template_id": "kk-aurora//front-page",
+  "wp_id": 12661,
+  "primary_pre_change_snapshot": "backup/20260801-portrait-hero-redo/page-snapshots/front-page-before-20260801T163551Z.html",
+  "latest_after_snapshot": "backup/20260801-portrait-hero-redo/page-snapshots/front-page-after-bridge-20260801T163733Z.html",
+  "restore_command": "varlock run --inject vars -- python3 -c \"import sys; from pathlib import Path; sys.path.insert(0,'scripts'); from common import WPClient; raw=Path('backup/20260801-portrait-hero-redo/page-snapshots/front-page-before-20260801T163551Z.html').read_text(); print(WPClient.from_env().post('templates/kk-aurora//front-page', {'content': raw}).get('wp_id'))\"",
+  "css_note": "Theme style.css + revive-port.css NOT SFTP-deployed; template includes bridge <style> for light ink + object-position until KK approves theme CSS deploy."
+}

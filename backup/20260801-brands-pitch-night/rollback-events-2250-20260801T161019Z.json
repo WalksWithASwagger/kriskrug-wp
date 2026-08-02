@@ -1,0 +1,7 @@
+{
+  "page_id": 2250,
+  "before_snapshot": "backup/20260801-brands-pitch-night/page-snapshots/page-2250-events-before-20260801T160958Z.html",
+  "restore_hint": "POST /wp-json/wp/v2/pages/2250 with content = before HTML snapshot raw",
+  "media_id": 12660,
+  "media_note": "Media upload is additive; do not delete without KK approval"
+}

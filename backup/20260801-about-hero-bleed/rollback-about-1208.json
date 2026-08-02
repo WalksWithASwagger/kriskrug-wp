@@ -1,0 +1,15 @@
+{
+  "page_id": 1208,
+  "slug": "about",
+  "url": "https://kriskrug.co/about/",
+  "featured_media": 2682,
+  "featured_media_note": "Deploy updated content only; featured_media remains 2682",
+  "before_snapshot_json": "backup/20260801-about-hero-bleed/page-snapshots/page-1208-about-before.json",
+  "before_snapshot_html": "backup/20260801-about-hero-bleed/page-snapshots/page-1208-about-before.html",
+  "before_json_sha256": "08d640c0d51b22b8aae2cea534c5d2c7345ed974ba2870d304cabea57b551d55",
+  "after_snapshot_json": "backup/20260801-about-hero-bleed/page-snapshots/page-1208-about-after.json",
+  "after_snapshot_html": "backup/20260801-about-hero-bleed/page-snapshots/page-1208-about-after.html",
+  "deploy_report": "backup/20260801-about-hero-bleed/deploy-report.json",
+  "restore_command": "PYTHONPATH=scripts varlock run --inject vars -- scripts/notion-to-wp/.venv/bin/python scripts/content_architecture_deploy.py --page about --restore --snapshot-dir backup/20260801-about-hero-bleed/page-snapshots",
+  "cache_note": "Smoke with /about/?cb=… Cache-bypass verified for aurora-hero-2026 + krug-1. Purge Pagely PressCACHE if canonical HTML stays stale."
+}

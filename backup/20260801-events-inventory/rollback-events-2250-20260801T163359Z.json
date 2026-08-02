@@ -1,0 +1,23 @@
+{
+  "page_id": 2250,
+  "slug": "events",
+  "timestamp_utc": "20260801T163359Z",
+  "before_snapshot": "backup/20260801-events-inventory/page-snapshots/page-2250-events-before-20260801T163359Z.html",
+  "before_snapshot_json": "backup/20260801-events-inventory/page-snapshots/page-2250-events-before-20260801T163359Z.json",
+  "after_snapshot": "backup/20260801-events-inventory/page-snapshots/page-2250-events-after-20260801T163359Z.html",
+  "after_snapshot_json": "backup/20260801-events-inventory/page-snapshots/page-2250-events-after-20260801T163359Z.json",
+  "generated_source": "scripts/events_page/out/events-2250.generated.html",
+  "restore_hint": "POST content from backup/20260801-events-inventory/page-snapshots/page-2250-events-before-20260801T163359Z.html",
+  "media_uploaded": [
+    12662,
+    12663,
+    12664,
+    12665,
+    12666,
+    12667,
+    12668,
+    12669,
+    12670
+  ],
+  "pitch_night_media_id_unchanged": 12660
+}

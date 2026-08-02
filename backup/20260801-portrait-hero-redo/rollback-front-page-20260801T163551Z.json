@@ -1,0 +1,11 @@
+{
+  "created_at": "20260801T163551Z",
+  "template_id": "kk-aurora//front-page",
+  "wp_id": 12661,
+  "snapshot_before_json": "backup/20260801-portrait-hero-redo/page-snapshots/front-page-before-20260801T163551Z.json",
+  "snapshot_before_html": "backup/20260801-portrait-hero-redo/page-snapshots/front-page-before-20260801T163551Z.html",
+  "snapshot_after_json": "backup/20260801-portrait-hero-redo/page-snapshots/front-page-after-20260801T163551Z.json",
+  "snapshot_after_html": "backup/20260801-portrait-hero-redo/page-snapshots/front-page-after-20260801T163551Z.html",
+  "note": "WP may normalize void tags / entities; semantic markers verified separately",
+  "restore_command": "varlock run --inject vars -- python3 -c \"import sys; from pathlib import Path; sys.path.insert(0,'scripts'); from common import WPClient; raw=Path('backup/20260801-portrait-hero-redo/page-snapshots/front-page-before-20260801T163551Z.html').read_text(); print(WPClient.from_env().post('templates/kk-aurora//front-page', {'content': raw}).get('wp_id'))\""
+}

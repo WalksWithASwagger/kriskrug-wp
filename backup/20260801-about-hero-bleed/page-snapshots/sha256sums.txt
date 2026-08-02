@@ -1,0 +1,4 @@
+08d640c0d51b22b8aae2cea534c5d2c7345ed974ba2870d304cabea57b551d55  backup/20260801-about-hero-bleed/page-snapshots/page-1208-about-before.json
+7d196046f7bf40ef25a903edb50362abac2d2701a8f70269208d34ae3ac342cf  backup/20260801-about-hero-bleed/page-snapshots/page-1208-about-before.html
+15e1618decd9a2ff88e8e87a6422c72070b2d8037c8b2580820c04ecd929b210  backup/20260801-about-hero-bleed/page-snapshots/page-1208-about-after.json
+431bc3502c41a973ad2eea277db4887f6b4dc8d95cca7aa45d86ac41b4c5af3c  backup/20260801-about-hero-bleed/page-snapshots/page-1208-about-after.html

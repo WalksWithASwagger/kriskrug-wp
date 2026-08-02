@@ -1,0 +1,18 @@
+{
+  "page_id": 1208,
+  "slug": "about",
+  "url": "https://kriskrug.co/about/",
+  "featured_media": 2682,
+  "featured_media_note": "Deploy updated content only; featured_media remains 2682",
+  "change": "Scoped light-ink CSS for .aurora-about-page .aurora-hero-2026 so cream-paper dark !important does not blank hero copy over the portrait",
+  "before_snapshot_json": "backup/20260801-about-hero-ink/page-snapshots/page-1208-about-before.json",
+  "before_snapshot_html": "backup/20260801-about-hero-ink/page-snapshots/page-1208-about-before.html",
+  "before_json_sha256": "15e1618decd9a2ff88e8e87a6422c72070b2d8037c8b2580820c04ecd929b210",
+  "after_snapshot_json": "backup/20260801-about-hero-ink/page-snapshots/page-1208-about-after.json",
+  "after_snapshot_html": "backup/20260801-about-hero-ink/page-snapshots/page-1208-about-after.html",
+  "after_json_sha256": "8d3cee88a22a5cacafe4e514e6e422267635e14debcb7f805c5953cde13b0d19",
+  "deploy_report": "backup/20260801-about-hero-ink/deploy-report.json",
+  "payload": "content/source-packs/content-architecture-2026/wp-payloads/about.html",
+  "restore_command": "PYTHONPATH=scripts varlock run --inject vars -- scripts/notion-to-wp/.venv/bin/python scripts/content_architecture_deploy.py --page about --restore --snapshot-dir backup/20260801-about-hero-ink/page-snapshots",
+  "cache_note": "Smoke with /about/?cb=… Cache-bypass verified for #f7f7f2 / #c8cac8 / #e8b53a light-ink rules + aurora-hero-2026 + object-position 62% 28% + featured_media 2682. Purge Pagely PressCACHE if canonical HTML stays stale."
+}
