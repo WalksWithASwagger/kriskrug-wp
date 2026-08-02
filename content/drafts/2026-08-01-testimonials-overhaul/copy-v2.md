@@ -17,24 +17,29 @@
 
 ### Stat chips
 
-Ship only the four sourced chips. Every number footnoted below.
+Ship the six chips. Every number footnoted below.
 
 | Chip | Label | Source |
 |---|---|---|
-| `250+` | paid members, BC + AI Ecosystem Association | [^1] |
+| `300` | paid members, BC + AI Ecosystem Association | [^5] |
 | `3,000+` | participants across the ecosystem | [^1] |
 | `94+` | documented events | [^1] |
 | `31` | monthly Vancouver AI meetups and counting | [^2] |
+| `9.5/10` | Responsible AI Professional course rating, Cohort 1 | [^6] |
+| `~2,400` | attendees across 2024 events | [^7] |
 
-**Not shipped, explicit gaps:**
+**Sourcing notes (2026-08-01):**
 
-- **RAP course rating (9.5/10): MISSING.** Named as a candidate stat on #597 but not found in kk-kb, this repo, the live kriskrug.co Responsible AI Professional page, or bc-ai.ca (searched 2026-08-01). If KK has the Cohort 1 exit-survey export, add the chip with that file as the footnote. Until then it stays off the page.
-- **2024 attendees (~2,400): DO NOT SHIP.** The only traces are an LLM-generated passage quoted inside the BC Studies article and a web-search claim that kk-kb's own keynote framework flags as UNVERIFIED (`content/projects/01-vancouver-ai-community/meetups/state-of-the-union-keynote-framework.md`). The sourced `3,000+` participants chip covers this ground.
+- Member count updated from the bc-ai.ca `250+` claim to `300` per KK's direct ruling in the #615 reconciliation; the same figure now renders on posts 12034 and 12257. bc-ai.ca/about still says 250+ and needs its own refresh (bc-ai.ca lane, not this repo).
+- The RAP rating and 2024 attendee chips ship on KK's direct say-so (session ruling 2026-08-01, recorded on the #597 close). No survey export exists in kk-kb or this repo yet; if one lands, swap the footnote to the file path. kk-kb's keynote framework marks the public ~2,400 trace UNVERIFIED, so KK's confirmation is the source of record.
 
 ### Stat sources
 
 [^1]: Live readback of https://bc-ai.ca/about on 2026-08-01: "250+ paid members, 3,000+ participants, 94+ documented events, and recurring rooms". Same three numbers cleared for external use in the kk-kb claim ledger `content/communications/applications/2026-08-creative-bc-board/04-SOURCE-AND-CLAIM-LEDGER.md` (checked 2026-07-29).
 [^2]: Vancouver AI Meetup #31 ran 2026-07-29, documented in kk-kb `content/media/meetups/2026-07-29-vancouver-ai-meetup-31/` (recording + podcast files), following the #30 recap at `content/media/meetups/2026-06-24-vancouver-ai-meetup-30-recap.md`. Canonical count of 26 through end of 2025 per kk-kb `content/research-analysis/outputs/meetup-count-standardization-report.md` (issue #1141 there).
+[^5]: KK direct ruling, 2026-08-01 live session (issue #615 close): "$340/year, 300 members". Applied the same day to posts 12034 and 12257.
+[^6]: KK direct confirmation, 2026-08-01 live session (recorded on the #597 close): Cohort 1 exit-survey average 9.5/10. Internal survey; no export filed yet.
+[^7]: KK direct confirmation, 2026-08-01 live session (recorded on the #597 close): approximately 2,400 attendees across 2024 BC + AI events, per internal tracking.
 
 ---
 
