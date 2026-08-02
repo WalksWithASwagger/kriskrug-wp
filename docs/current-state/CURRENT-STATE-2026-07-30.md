@@ -14,7 +14,7 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Day r
 
 - `origin/main` includes Aurora **1.5.0** cascade scaffold (PR #493 / #474) and AGENTS version reconcile (`a6608e3`).
 - Open PRs: `0` (2026-08-02; the whole swarm queue merged, #556/#560/#561/#562 Dependabot included).
-- Open issues: `54` (2026-08-02; ~30 were minted by the 2026-08-01 swarm packets and most have since closed).
+- Open issues: `66` (2026-08-02, after the truth-reset coordination pass). The 2026-08-01 swarm minted ~30 and closed most of them; the count then rose again as #631-#642 were filed for the four proof surfaces (events heroes, Speaking children, and the 2026-08-02 command board #642), plus #643-#645 filed separately as Futureproof post children.
 - Production still publicly reports WordPress `7.0.2`.
 - Live Aurora theme (`style.css` Version header): `1.5.7` (readback 2026-08-02 → `Version: 1.5.7`), deployed 2026-08-01 with the full-bleed portrait hero (PR #618).
 - Repo Aurora theme (`theme/kk-aurora/` on `main`): `1.5.8`. Repo is **one patch ahead** of live: 1.5.8 adds the `aurora-tstm` testimonials CSS (PR #629), built but not deployed, gated on #601.
