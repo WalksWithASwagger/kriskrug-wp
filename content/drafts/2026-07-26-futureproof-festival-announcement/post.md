@@ -25,15 +25,15 @@ seo:
     28-30 2026 in Vancouver. Receipts from PopTech to DENT. The invitation is the point.
 images:
 - file: images/vanai-meetup31-stage-kris-futureproof-slide.webp
-  alt: Kris Krüg speaks on stage at Vancouver AI Meetup #31, in front of a Futureproof
+  alt: 'Kris Krüg speaks on stage at Vancouver AI Meetup #31, in front of a Futureproof
     slide reading Vancouver, we need to talk about AI, with salmon and skyline
-    artwork behind him.
+    artwork behind him.'
   role: lead
   source: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2026-07/large/b4717426bf89.webp
   credit: 'Photo: Michael Caswell. Edited: Kris Krüg.'
 - file: images/vanai-meetup31-audience-wide-shot.webp
-  alt: A wide shot from the back of the room, a full silhouetted audience facing
-    the lit Futureproof stage and screen during Vancouver AI Meetup #31.
+  alt: 'A wide shot from the back of the room, a full silhouetted audience facing
+    the lit Futureproof stage and screen during Vancouver AI Meetup #31.'
   role: community-room
   source: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2026-07/large/639c78efe5d2.webp
   credit: 'Photo: Michael Caswell.'
