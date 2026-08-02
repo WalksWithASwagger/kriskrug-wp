@@ -1,0 +1,118 @@
+# owned by issue #590: [swarm][events-w2] Catalog fragment: 2024 one-offs
+# Merged into events-catalog.yaml at render time by the fragment loader (#586 gate);
+# core catalog wins on id conflict. 2024 one-off stages only; no 2023 events, no meetups.
+# Source of truth: kk-kb appearance harvest (2026-07-11),
+# content/projects/05-marketing-and-outreach/press-and-media/appearances/.
+# date_confidence: approximate = day-level precision soft; flagged in card label copy.
+# hero_hint = pointer for the hero fetch engine (#587) / Wave 3; no binaries in this lane.
+events:
+- id: innovate-west-keynote-2024
+  title: Innovate West
+  date: '2024-04-20'
+  bucket_hint: past
+  kind: one-off
+  role: Keynote
+  url: https://kriskrug.co/2024/04/20/ai-mindset-keynote-at-innovate-west-2024-in-vancouver/
+  image: {}
+  blurb: 'Developing an AI Mindset: the Innovate West 2024 keynote that spawned the AI Mindset
+    microsite and workshop series.'
+  label: April 2024 (day approx) · Vancouver · Keynote
+  tags:
+  - Keynote
+  - Vancouver
+  status: confirmed
+  date_confidence: approximate
+  hero_hint: 'appearance page snapshot: kk_kb:content/projects/05-marketing-and-outreach/press-and-media/appearances/assets/2024-04-20-innovate-west-ai-mindset-page.html'
+  cta_past: Details
+- id: yorkton-film-festival-panel-2024
+  title: Yorkton Film Festival
+  date: '2024-05-24'
+  end: '2024-05-24T14:45:00-06:00'
+  bucket_hint: past
+  kind: one-off
+  role: Panelist
+  url: https://kriskrug.co/2024/05/25/ai-in-filmmaking-at-the-yorkton-film-festival/
+  image: {}
+  blurb: 'Unlocking the Cinematic Future: AI-in-filmmaking panel at Canada''s longest-running film
+    festival, with a live demo of the 7-language voice clone.'
+  label: May 24, 2024 · Yorkton, SK · Panel
+  tags:
+  - Panelist
+  - Film
+  status: confirmed
+  date_confidence: exact
+  hero_hint: 'appearance page snapshot: kk_kb:content/projects/05-marketing-and-outreach/press-and-media/appearances/assets/2024-05-24-yorkton-film-festival-ai-panel-page.html'
+  cta_past: Details
+- id: bcama-vision-conference-panel-2024
+  title: BCAMA Vision Conference
+  date: '2024-05-27'
+  bucket_hint: past
+  kind: one-off
+  role: Moderator
+  url: https://kriskrug.co/2024/05/27/unpacking-ai-ethics-at-american-marketing-associationvisionconf2024/
+  image: {}
+  blurb: Moderated the AI ethics panel at BCAMA's Vision Conference 2024, with panelists from Google
+    AI, NamasteData, Hootsuite, and PowerShifter.
+  label: May 2024 (day approx) · Vancouver · Moderator
+  tags:
+  - Moderator
+  - Vancouver
+  status: confirmed
+  date_confidence: approximate
+  hero_hint: 'appearance page snapshot: kk_kb:content/projects/05-marketing-and-outreach/press-and-media/appearances/assets/2024-05-27-bcama-vision-conference-panel-page.html'
+  cta_past: Details
+- id: enya-liftoff-keynote-2024
+  title: ENYA Liftoff
+  date: '2024-09-11'
+  bucket_hint: past
+  kind: one-off
+  role: Keynote
+  url: https://kriskrug.co/2024/09/11/the-human-algorithm-enya-learning-keynote/
+  image: {}
+  blurb: 'The Human Algorithm: keynote for Enya Learning''s Liftoff event at the Morris J. Wosk Centre
+    for Dialogue.'
+  label: Sept 2024 (day approx) · Wosk Centre, Vancouver · Keynote
+  tags:
+  - Keynote
+  - Vancouver
+  status: confirmed
+  date_confidence: approximate
+  hero_hint: 'appearance page snapshot: kk_kb:content/projects/05-marketing-and-outreach/press-and-media/appearances/assets/2024-09-11-enya-liftoff-human-algorithm-page.html'
+  cta_past: Details
+- id: adplist-fireside-2024
+  title: ADPList Vancouver Fireside
+  date: '2024-11-22'
+  end: '2024-11-22T21:00:00-08:00'
+  bucket_hint: past
+  kind: one-off
+  role: Fireside guest
+  url: https://lu.ma/ai-chat
+  image: {}
+  blurb: 'Featured fireside guest for AI in Action for Today and Tomorrow, an evening with Vancouver''s
+    design and tech community. 109 people came out.'
+  label: Nov 22, 2024 · Vancouver · Fireside
+  tags:
+  - Fireside
+  - Vancouver
+  status: confirmed
+  date_confidence: exact
+  hero_hint: 'Luma og image from https://lu.ma/ai-chat (still live); appearance snapshot: kk_kb:content/projects/05-marketing-and-outreach/press-and-media/appearances/assets/2024-11-22-adplist-fireside-ai-in-action-page.html'
+  cta_past: Details
+- id: dot-summit-autoloom-2024
+  title: Dialogue on Technology (DoT) Summit
+  date: '2024-12-04'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://kriskrug.beehiiv.com/p/vancouver-ai-revolution
+  image: {}
+  blurb: Presented the AutoLoom cybernetic post-photography portraiture project, built with SFU's
+    MetaCreation Lab and Lionel Ringenbach, at the DoT summit at the Wosk Centre for Dialogue.
+  label: Dec 2024 (day approx) · Wosk Centre, Vancouver · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  date_confidence: approximate
+  hero_hint: 'no source art on file; Rafiki generation OK later per #590 packet'
+  cta_past: Details
