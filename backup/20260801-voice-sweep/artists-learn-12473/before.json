@@ -1,0 +1,186 @@
+{
+  "id": 12473,
+  "date": "2026-07-06T09:30:45",
+  "date_gmt": "2026-07-06T17:30:45",
+  "guid": {
+    "rendered": "https://kriskrug.co/?p=12473",
+    "raw": "https://kriskrug.co/?p=12473"
+  },
+  "modified": "2026-07-06T11:05:25",
+  "modified_gmt": "2026-07-06T19:05:25",
+  "password": "",
+  "slug": "artists-learn-machines-extract",
+  "status": "publish",
+  "type": "post",
+  "link": "https://kriskrug.co/2026/07/06/artists-learn-machines-extract/",
+  "title": {
+    "raw": "Artists Learn. Machines Extract.",
+    "rendered": "Artists Learn. Machines Extract."
+  },
+  "content": {
+    "raw": "<!-- wp:paragraph -->\n<p><a href=\"https://morganeoger.ca/\">Morgane Oger</a> asked the good version of the copyright and AI question.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Not the lazy flame-war version. Not \"AI is theft\" as a bumper sticker. Not \"don't regulate math\" as a permission slip.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The good version:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>If artists have always learned from other artists, what makes machines trained on artists' work categorically different? Is the issue the training itself, or the derivative slop people pass off as their own?</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:embed {\"url\":\"https://www.youtube.com/watch?v=beudtZtvXkM\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true,\"className\":\"wp-embed-aspect-16-9 wp-has-aspect-ratio\"} -->\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\nhttps://www.youtube.com/watch?v=beudtZtvXkM\n</div><figcaption>Start here: how creatives can use AI without surrendering taste, agency, or craft.</figcaption></figure>\n<!-- /wp:embed -->\n\n<!-- wp:paragraph -->\n<p>My answer is: yes. Both. But not in the same way.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Artists learn from artists because culture is made of ghosts, teachers, rivals, lovers, books, bad tattoos, burned bridges, museum afternoons, basement shows, late-night YouTube holes, apprenticeships, mistakes, and the brutal little miracle of taste.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Influence is not clean. It never was. Every artist carries fingerprints.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>But a human artist does not ingest a million living people's work, compress it into a commercial prediction machine, hide the recipe, sell access back to the public, then tell the artists they should be grateful for the exposure fumes.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>That is not art school.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>That is a mine.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>And the mine is the part we keep pretending not to see.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Copyright already knows how to handle some of the downstream mess. If somebody makes a copycat illustration, song, article, photo, logo, or character too close to the protected expression that came before it, copyright can ask the old questions: was there access, was there copying, was a substantial part taken?</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Canada already has law for that. It is not magic, but it exists. It can deal with derivative slop when the slop is close enough to the original spark.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>That is where Morgane is right.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>If a prompt jockey sells a fake \"in the style of\" portrait that basically walks and talks like a living artist's work, copyright should be one of the tools on the table. Same as it would be for a human copycat with a scanner, a brush, or a suspiciously familiar portfolio.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>But the upstream training question is different.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>That is not just, \"did this one output copy that one work?\"</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>It is, \"who got to turn a whole culture into private infrastructure without asking?\"</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Canadian copyright protects original expression through <a href=\"https://kriskrug.co/2026/05/15/your-taste-is-your-moat/\">human skill and judgment</a>. That phrase matters. Skill and judgment are not decorative words. They are the sweat in the work. The choices. The scars. The thousands of small refusals that make a thing yours.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>And right now our Copyright Act does not give creators a clean answer on text and data mining for AI training. The federal consultation said the quiet part out loud: creators want consent, credit, compensation, and transparency. Tech companies want certainty. The country has not landed the deal.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Meanwhile, the EU made its own move back in 2019. It created text-and-data-mining exceptions, including a broad one unless rights holders reserve their rights. Then the AI Act layered in obligations for general-purpose AI providers to respect those rights reservations and publish a summary of training content.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>That is not perfect. In fact, it still asks creators to patrol the fence around a mine they did not build.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>But at least it admits the mine exists.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Canada is still doing the most Canadian possible thing: standing in the doorway with a clipboard, saying, \"Interesting concerns, let's continue the consultation.\"</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Creators need better than that.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The false choice is: burn the machines or let the machines eat everything.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>No.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>I am not anti-AI. I <a href=\"https://kriskrug.co/ai-upgrade-for-creative-professionals/\">build with this stuff</a>. I make weird little rituals with it. I have seen it help artists sketch, prototype, translate, caption, remix, remember, test, and ship. Used well, AI can be a studio assistant, a mirror, a compost bin, a sparring partner, a strange instrument.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>But consent is not anti-innovation.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Credit is not anti-innovation.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Compensation is not anti-innovation.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Transparency is not anti-innovation.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Those are the receipts that let innovation face the people it feeds on.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>So here is the middle path, in plain human:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Commercial AI training should not get a free private road through everybody's <a href=\"https://kriskrug.co/2026/05/16/make-culture-not-content/\">creative work</a>.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>If a company trains on living creators' work, there should be disclosure good enough to inspect, licensing paths that are not a joke, collective bargaining power so every illustrator is not fighting a trillion-dollar platform alone, and liability aimed at the people who built and sold the system, not just the unlucky user holding the prompt.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>At the same time, public-interest research, accessibility work, libraries, archives, and cultural preservation deserve a narrow lane. Not every machine reading a text is the same ethical event. A university lab studying disease, a public library preserving endangered language material, and a venture-backed model laundering the visual commons into a subscription product are not one thing.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Policy should be smart enough to know the difference.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The line is not \"humans good, machines bad.\"</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The line is consent, scale, secrecy, and substitution.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Human influence has lineage. You can name the teacher, the scene, the record, the elder, the beef, the book, the friend who changed your eye.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Industrial extraction has a balance sheet.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Human artists transform what they love through a body, a life, and a point of view.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Generative systems transform what they ingest through math, capital, and a product roadmap.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Those are not morally identical just because both can produce a picture.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>So yes, copyright should go after copycat slop.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>And yes, we also need rules for the training mine.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Because if creators cannot see what went in, cannot refuse, cannot bargain, cannot get paid, and cannot prove what came out, then copyright becomes a locked door with a painted handle.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Looks official. Opens nothing.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Canada can still get this right.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Not by panicking.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Not by pretending the cultural commons is a free buffet for whoever has the biggest GPU budget.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>By writing rules that protect human skill and judgment at both ends of the machine: the work that trains it, and the outputs that compete with the people it learned from.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>I am not anti-AI.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>I am anti pretending the mine is a classroom.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Receipts</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>This started as a public LinkedIn exchange with <a href=\"https://morganeoger.ca/\">Morgane Oger</a> under my post on Canada's copyright and AI policy gap. The legal spine here comes from the Supreme Court of Canada's \"skill and judgment\" language in CCH, its substantial-copying analysis in Cinar, Canada's current Copyright Act, the federal generative AI copyright consultation, and the EU's 2019 text-and-data-mining framework with newer AI Act transparency obligations.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul>\n<li><a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7479565149926780928/\">Original LinkedIn post</a></li>\n<li><a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7479565149926780928?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7479565149926780928%2C7479593390389489664%29&amp;dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287479593390389489664%2Curn%3Ali%3Aactivity%3A7479565149926780928%29\">Morgane Oger's comment</a></li>\n<li><a href=\"https://morganeoger.ca/\">Morgane Oger's official site</a></li>\n<li><a href=\"https://kriskrug.co/2023/10/30/rethinking-ownership-and-copyright-in-the-age-of-generative-ai/\">Rethinking Ownership and Copyright in the Age of Generative AI</a></li>\n<li><a href=\"https://www.youtube.com/watch?v=beudtZtvXkM\">How Creatives Can Thrive in the Age of AI</a></li>\n<li><a href=\"https://www.youtube.com/watch?v=wJUKAmwRHS4\">AI, Art &amp; Ethics: Frank Germano</a></li>\n<li><a href=\"https://hillnotes.ca/2025/10/27/copyright-and-artificial-intelligence/\">Copyright and Artificial Intelligence, HillNotes</a></li>\n<li><a href=\"https://ised-isde.canada.ca/site/strategic-policy-sector/en/marketplace-framework-policy/consultation-copyright-age-generative-artificial-intelligence-what-we-heard-report\">Canada's generative AI copyright consultation report</a></li>\n<li><a href=\"https://decisions.scc-csc.ca/scc-csc/scc-csc/en/2125/1/document.do\">CCH Canadian Ltd. v. Law Society of Upper Canada</a></li>\n<li><a href=\"https://decisions.scc-csc.ca/scc-csc/scc-csc/en/13390/1/document.do\">Cinar Corporation v. Robinson</a></li>\n<li><a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32019L0790\">EU Directive 2019/790</a></li>\n<li><a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32024R1689\">EU AI Act</a></li>\n</ul>\n<!-- /wp:list -->\n",
+    "rendered": "\n<p class=\"wp-block-paragraph\"><a href=\"https://morganeoger.ca/\">Morgane Oger</a> asked the good version of the copyright and AI question.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Not the lazy flame-war version. Not &#8220;AI is theft&#8221; as a bumper sticker. Not &#8220;don&#8217;t regulate math&#8221; as a permission slip.</p>\n\n\n\n<p class=\"wp-block-paragraph\">The good version:</p>\n\n\n\n<p class=\"wp-block-paragraph\">If artists have always learned from other artists, what makes machines trained on artists&#8217; work categorically different? Is the issue the training itself, or the derivative slop people pass off as their own?</p>\n\n\n\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\n<iframe loading=\"lazy\" title=\"How Creatives Can Thrive in the Age of AI\" width=\"500\" height=\"281\" src=\"https://www.youtube.com/embed/beudtZtvXkM?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>\n</div><figcaption>Start here: how creatives can use AI without surrendering taste, agency, or craft.</figcaption></figure>\n\n\n\n<p class=\"wp-block-paragraph\">My answer is: yes. Both. But not in the same way.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Artists learn from artists because culture is made of ghosts, teachers, rivals, lovers, books, bad tattoos, burned bridges, museum afternoons, basement shows, late-night YouTube holes, apprenticeships, mistakes, and the brutal little miracle of taste.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Influence is not clean. It never was. Every artist carries fingerprints.</p>\n\n\n\n<p class=\"wp-block-paragraph\">But a human artist does not ingest a million living people&#8217;s work, compress it into a commercial prediction machine, hide the recipe, sell access back to the public, then tell the artists they should be grateful for the exposure fumes.</p>\n\n\n\n<p class=\"wp-block-paragraph\">That is not art school.</p>\n\n\n\n<p class=\"wp-block-paragraph\">That is a mine.</p>\n\n\n\n<p class=\"wp-block-paragraph\">And the mine is the part we keep pretending not to see.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Copyright already knows how to handle some of the downstream mess. If somebody makes a copycat illustration, song, article, photo, logo, or character too close to the protected expression that came before it, copyright can ask the old questions: was there access, was there copying, was a substantial part taken?</p>\n\n\n\n<p class=\"wp-block-paragraph\">Canada already has law for that. It is not magic, but it exists. It can deal with derivative slop when the slop is close enough to the original spark.</p>\n\n\n\n<p class=\"wp-block-paragraph\">That is where Morgane is right.</p>\n\n\n\n<p class=\"wp-block-paragraph\">If a prompt jockey sells a fake &#8220;in the style of&#8221; portrait that basically walks and talks like a living artist&#8217;s work, copyright should be one of the tools on the table. Same as it would be for a human copycat with a scanner, a brush, or a suspiciously familiar portfolio.</p>\n\n\n\n<p class=\"wp-block-paragraph\">But the upstream training question is different.</p>\n\n\n\n<p class=\"wp-block-paragraph\">That is not just, &#8220;did this one output copy that one work?&#8221;</p>\n\n\n\n<p class=\"wp-block-paragraph\">It is, &#8220;who got to turn a whole culture into private infrastructure without asking?&#8221;</p>\n\n\n\n<p class=\"wp-block-paragraph\">Canadian copyright protects original expression through <a href=\"https://kriskrug.co/2026/05/15/your-taste-is-your-moat/\">human skill and judgment</a>. That phrase matters. Skill and judgment are not decorative words. They are the sweat in the work. The choices. The scars. The thousands of small refusals that make a thing yours.</p>\n\n\n\n<p class=\"wp-block-paragraph\">And right now our Copyright Act does not give creators a clean answer on text and data mining for AI training. The federal consultation said the quiet part out loud: creators want consent, credit, compensation, and transparency. Tech companies want certainty. The country has not landed the deal.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Meanwhile, the EU made its own move back in 2019. It created text-and-data-mining exceptions, including a broad one unless rights holders reserve their rights. Then the AI Act layered in obligations for general-purpose AI providers to respect those rights reservations and publish a summary of training content.</p>\n\n\n\n<p class=\"wp-block-paragraph\">That is not perfect. In fact, it still asks creators to patrol the fence around a mine they did not build.</p>\n\n\n\n<p class=\"wp-block-paragraph\">But at least it admits the mine exists.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Canada is still doing the most Canadian possible thing: standing in the doorway with a clipboard, saying, &#8220;Interesting concerns, let&#8217;s continue the consultation.&#8221;</p>\n\n\n\n<p class=\"wp-block-paragraph\">Creators need better than that.</p>\n\n\n\n<p class=\"wp-block-paragraph\">The false choice is: burn the machines or let the machines eat everything.</p>\n\n\n\n<p class=\"wp-block-paragraph\">No.</p>\n\n\n\n<p class=\"wp-block-paragraph\">I am not anti-AI. I <a href=\"https://kriskrug.co/ai-upgrade-for-creative-professionals/\">build with this stuff</a>. I make weird little rituals with it. I have seen it help artists sketch, prototype, translate, caption, remix, remember, test, and ship. Used well, AI can be a studio assistant, a mirror, a compost bin, a sparring partner, a strange instrument.</p>\n\n\n\n<p class=\"wp-block-paragraph\">But consent is not anti-innovation.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Credit is not anti-innovation.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Compensation is not anti-innovation.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Transparency is not anti-innovation.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Those are the receipts that let innovation face the people it feeds on.</p>\n\n\n\n<p class=\"wp-block-paragraph\">So here is the middle path, in plain human:</p>\n\n\n\n<p class=\"wp-block-paragraph\">Commercial AI training should not get a free private road through everybody&#8217;s <a href=\"https://kriskrug.co/2026/05/16/make-culture-not-content/\">creative work</a>.</p>\n\n\n\n<p class=\"wp-block-paragraph\">If a company trains on living creators&#8217; work, there should be disclosure good enough to inspect, licensing paths that are not a joke, collective bargaining power so every illustrator is not fighting a trillion-dollar platform alone, and liability aimed at the people who built and sold the system, not just the unlucky user holding the prompt.</p>\n\n\n\n<p class=\"wp-block-paragraph\">At the same time, public-interest research, accessibility work, libraries, archives, and cultural preservation deserve a narrow lane. Not every machine reading a text is the same ethical event. A university lab studying disease, a public library preserving endangered language material, and a venture-backed model laundering the visual commons into a subscription product are not one thing.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Policy should be smart enough to know the difference.</p>\n\n\n\n<p class=\"wp-block-paragraph\">The line is not &#8220;humans good, machines bad.&#8221;</p>\n\n\n\n<p class=\"wp-block-paragraph\">The line is consent, scale, secrecy, and substitution.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Human influence has lineage. You can name the teacher, the scene, the record, the elder, the beef, the book, the friend who changed your eye.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Industrial extraction has a balance sheet.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Human artists transform what they love through a body, a life, and a point of view.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Generative systems transform what they ingest through math, capital, and a product roadmap.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Those are not morally identical just because both can produce a picture.</p>\n\n\n\n<p class=\"wp-block-paragraph\">So yes, copyright should go after copycat slop.</p>\n\n\n\n<p class=\"wp-block-paragraph\">And yes, we also need rules for the training mine.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Because if creators cannot see what went in, cannot refuse, cannot bargain, cannot get paid, and cannot prove what came out, then copyright becomes a locked door with a painted handle.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Looks official. Opens nothing.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Canada can still get this right.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Not by panicking.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Not by pretending the cultural commons is a free buffet for whoever has the biggest GPU budget.</p>\n\n\n\n<p class=\"wp-block-paragraph\">By writing rules that protect human skill and judgment at both ends of the machine: the work that trains it, and the outputs that compete with the people it learned from.</p>\n\n\n\n<p class=\"wp-block-paragraph\">I am not anti-AI.</p>\n\n\n\n<p class=\"wp-block-paragraph\">I am anti pretending the mine is a classroom.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Receipts</h2>\n\n\n\n<p class=\"wp-block-paragraph\">This started as a public LinkedIn exchange with <a href=\"https://morganeoger.ca/\">Morgane Oger</a> under my post on Canada&#8217;s copyright and AI policy gap. The legal spine here comes from the Supreme Court of Canada&#8217;s &#8220;skill and judgment&#8221; language in CCH, its substantial-copying analysis in Cinar, Canada&#8217;s current Copyright Act, the federal generative AI copyright consultation, and the EU&#8217;s 2019 text-and-data-mining framework with newer AI Act transparency obligations.</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li><a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7479565149926780928/\">Original LinkedIn post</a></li>\n<li><a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7479565149926780928?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7479565149926780928%2C7479593390389489664%29&amp;dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287479593390389489664%2Curn%3Ali%3Aactivity%3A7479565149926780928%29\">Morgane Oger&#8217;s comment</a></li>\n<li><a href=\"https://morganeoger.ca/\">Morgane Oger&#8217;s official site</a></li>\n<li><a href=\"https://kriskrug.co/2023/10/30/rethinking-ownership-and-copyright-in-the-age-of-generative-ai/\">Rethinking Ownership and Copyright in the Age of Generative AI</a></li>\n<li><a href=\"https://www.youtube.com/watch?v=beudtZtvXkM\">How Creatives Can Thrive in the Age of AI</a></li>\n<li><a href=\"https://www.youtube.com/watch?v=wJUKAmwRHS4\">AI, Art &amp; Ethics: Frank Germano</a></li>\n<li><a href=\"https://hillnotes.ca/2025/10/27/copyright-and-artificial-intelligence/\">Copyright and Artificial Intelligence, HillNotes</a></li>\n<li><a href=\"https://ised-isde.canada.ca/site/strategic-policy-sector/en/marketplace-framework-policy/consultation-copyright-age-generative-artificial-intelligence-what-we-heard-report\">Canada&#8217;s generative AI copyright consultation report</a></li>\n<li><a href=\"https://decisions.scc-csc.ca/scc-csc/scc-csc/en/2125/1/document.do\">CCH Canadian Ltd. v. Law Society of Upper Canada</a></li>\n<li><a href=\"https://decisions.scc-csc.ca/scc-csc/scc-csc/en/13390/1/document.do\">Cinar Corporation v. Robinson</a></li>\n<li><a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32019L0790\">EU Directive 2019/790</a></li>\n<li><a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A32024R1689\">EU AI Act</a></li>\n</ul>\n\n",
+    "protected": false,
+    "block_version": 1
+  },
+  "excerpt": {
+    "raw": "Morgane Oger asked the good version of the copyright and AI question: if artists learn from artists, what makes machine training different? The answer lives in consent, scale, secrecy, and substitution.",
+    "rendered": "<p>Morgane Oger asked the good version of the copyright and AI question: if artists learn from artists, what makes machine training different? The answer lives in consent, scale, secrecy, and substitution.</p>\n",
+    "protected": false
+  },
+  "author": 18,
+  "featured_media": 12475,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": {
+    "footnotes": ""
+  },
+  "categories": [
+    1678
+  ],
+  "tags": [
+    474,
+    853,
+    1777,
+    1776,
+    1779,
+    397,
+    1778
+  ],
+  "permalink_template": "https://kriskrug.co/2026/07/06/%postname%/",
+  "generated_slug": "artists-learn-machines-extract",
+  "class_list": [
+    "post-12473",
+    "post",
+    "type-post",
+    "status-publish",
+    "format-standard",
+    "has-post-thumbnail",
+    "hentry",
+    "category-ai-ethics-philosophy",
+    "tag-ai",
+    "tag-ai-for-creatives",
+    "tag-canada",
+    "tag-copyright",
+    "tag-creators",
+    "tag-generative-ai",
+    "tag-policy"
+  ],
+  "_links": {
+    "self": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/12473",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/types/post"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/users/18"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/comments?post=12473"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 0,
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/12473/revisions"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/media/12475"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/media?parent=12473"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "category",
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/categories?post=12473"
+      },
+      {
+        "taxonomy": "post_tag",
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/tags?post=12473"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/12473"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/12473"
+      }
+    ],
+    "wp:action-sticky": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/12473"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/12473"
+      }
+    ],
+    "wp:action-create-categories": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/12473"
+      }
+    ],
+    "wp:action-assign-categories": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/12473"
+      }
+    ],
+    "wp:action-create-tags": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/12473"
+      }
+    ],
+    "wp:action-assign-tags": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/12473"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}
