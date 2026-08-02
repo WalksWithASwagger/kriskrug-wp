@@ -14,6 +14,7 @@ REPO_ROOT = HERE.parents[1]
 DEFAULT_KK_KB = Path("/Users/kk/Code/kk-kb")
 CATALOG_PATH = HERE / "events-catalog.yaml"
 MEETUP_EDITIONS_PATH = HERE / "meetup-editions.yaml"
+FRAGMENTS_DIR = HERE / "fragments"
 SHELL_PATH = HERE / "shell-events-2250.html"
 OUT_DIR = HERE / "out"
 ENV_PATH = REPO_ROOT / "scripts" / "notion-to-wp" / ".env"
@@ -205,7 +206,72 @@ def merge_meetup_editions(
     return list(by_id.values())
 
 
-def load_catalog(path: Path = CATALOG_PATH) -> dict[str, Any]:
+def load_fragments(
+    directory: Path = FRAGMENTS_DIR,
+) -> list[tuple[str, list[dict[str, Any]]]]:
+    """Load fragments/*.yaml as (filename, events) pairs, sorted by filename."""
+    if not directory.is_dir():
+        return []
+    fragments: list[tuple[str, list[dict[str, Any]]]] = []
+    for path in sorted(directory.glob("*.yaml")):
+        doc = load_yaml(path)
+        if not isinstance(doc, dict):
+            continue
+        events = [e for e in (doc.get("events") or []) if isinstance(e, dict)]
+        fragments.append((path.name, events))
+    return fragments
+
+
+def merge_fragments(
+    catalog_events: list[dict[str, Any]],
+    fragments: list[tuple[str, list[dict[str, Any]]]],
+) -> list[dict[str, Any]]:
+    """Merge fragment events into the catalog by id.
+
+    Same semantics as the meetup-editions harvest merge: an id match enriches
+    the existing record (non-empty fragment fields win, empty values never
+    clobber, image dicts merge key-by-key), so image-only fragment rows patch
+    heroes onto existing cards instead of appending duplicate empty cards.
+    New ids append in fragment-file order. The same id declared by two
+    fragment rows is a hard error.
+    """
+    by_id = {e["id"]: _norm_event(e) for e in catalog_events if e.get("id")}
+    claimed_by: dict[str, str] = {}
+
+    for name, events in fragments:
+        for raw in events:
+            eid = raw.get("id")
+            if not eid:
+                raise SystemExit(f"Fragment {name} has an event without an id")
+            if eid in claimed_by:
+                raise SystemExit(
+                    f"Duplicate fragment id '{eid}' in {name} "
+                    f"(already declared by {claimed_by[eid]})"
+                )
+            claimed_by[eid] = name
+            if eid in by_id:
+                merged = dict(by_id[eid])
+                for key, value in raw.items():
+                    if value in (None, "", [], {}):
+                        continue
+                    if key == "image":
+                        img = dict(merged.get("image") or {})
+                        for k, v in value.items():
+                            if v not in (None, ""):
+                                img[k] = v
+                        merged["image"] = img
+                    else:
+                        merged[key] = value
+                by_id[eid] = merged
+            else:
+                by_id[eid] = _norm_event(raw)
+
+    return list(by_id.values())
+
+
+def load_catalog(
+    path: Path = CATALOG_PATH, fragments_dir: Path = FRAGMENTS_DIR
+) -> dict[str, Any]:
     doc = load_yaml(path)
     if not doc or not isinstance(doc, dict):
         raise SystemExit(f"Catalog missing or invalid: {path}")
@@ -216,6 +282,10 @@ def load_catalog(path: Path = CATALOG_PATH) -> dict[str, Any]:
         doc["_harvest_merged"] = True
     else:
         doc["_harvest_merged"] = False
+    fragments = load_fragments(fragments_dir)
+    if fragments:
+        events = merge_fragments(events, fragments)
+    doc["_fragments_merged"] = [name for name, _ in fragments]
     doc["events"] = events
     return doc
 
