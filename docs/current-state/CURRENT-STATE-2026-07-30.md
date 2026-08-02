@@ -10,16 +10,18 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Day r
 
 ## Verified State
 
+> **Counters refreshed 2026-08-02** after the voice-sweep / events / testimonials swarm. The 2026-07-30 narrative below the counters still stands; only the numbers and theme versions moved.
+
 - `origin/main` includes Aurora **1.5.0** cascade scaffold (PR #493 / #474) and AGENTS version reconcile (`a6608e3`).
-- Open PRs: `1` (#556 Dependabot WPCS 3.4.0→3.4.1).
-- Open issues: `43`.
+- Open PRs: `0` (2026-08-02; the whole swarm queue merged, #556/#560/#561/#562 Dependabot included).
+- Open issues: `54` (2026-08-02; ~30 were minted by the 2026-08-01 swarm packets and most have since closed).
 - Production still publicly reports WordPress `7.0.2`.
-- Live Aurora theme (`style.css` Version header): `1.5.0` (readback 2026-07-30: `curl -s https://kriskrug.co/wp-content/themes/kk-aurora/style.css | grep -i version` → `Version: 1.5.0`).
-- Repo Aurora theme (`theme/kk-aurora/` on `main`): `1.5.0`. Live and repo are **in sync**.
-- Theme deploy ledger: `theme/kk-aurora/CHANGELOG.md` 1.5.0 entry may still say PR #493 “still unmerged” until a tiny theme-path follow-up; live==repo **1.5.0** is authoritative (this snapshot + public `style.css` readback).
-- WordPress draft queue: `0` scheduled posts, `65` draft posts, `4` draft pages.
-  - Counts above are the last **authenticated** shape retained from morning-truth 2026-07-27. Unauthenticated cloud reads report `unavailable` / false zeros until `WP_USER` + `WP_APP_PASSWORD` are present — that zero is a **false zero**, not an empty queue.
-- WP public smoke: `0` failures / `0` warnings (`make status-readonly` 2026-07-30).
+- Live Aurora theme (`style.css` Version header): `1.5.7` (readback 2026-08-02 → `Version: 1.5.7`), deployed 2026-08-01 with the full-bleed portrait hero (PR #618).
+- Repo Aurora theme (`theme/kk-aurora/` on `main`): `1.5.8`. Repo is **one patch ahead** of live: 1.5.8 adds the `aurora-tstm` testimonials CSS (PR #629), built but not deployed, gated on #601.
+- Theme deploy ledger: `theme/kk-aurora/CHANGELOG.md`. The public `style.css` readback is authoritative for what production runs, never the repo header.
+- WordPress draft queue: `0` scheduled posts, `67` draft posts, `4` draft pages.
+  - Counters above are the authenticated shape read on 2026-08-02. Unauthenticated cloud reads report `unavailable` / false zeros until `WP_USER` + `WP_APP_PASSWORD` are present — that zero is a **false zero**, not an empty queue.
+- WP public smoke: `0` failures / `0` warnings (`make morning-truth` 2026-08-02).
 - `/projects/` → `301` to `/work/`.
 - Homepage reveal safety net: absent. GSAP/ScrollTrigger CDN: absent.
 
