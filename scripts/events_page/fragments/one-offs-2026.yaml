@@ -1,0 +1,208 @@
+# One-off 2026 stages fragment (issue #588, swarm events-w2).
+#
+# Merge contract: records merge into events-catalog.yaml by id at load time,
+# same semantics as the meetup-editions.yaml harvest merge (fragment wins on
+# non-empty fields; empty values never clobber core). Loader wiring lands in
+# Wave 3 (#592) -- this file is inert until the loader reads fragments/.
+# The last five records intentionally reuse core catalog ids to wire heroes
+# onto existing one-off cards; if the loader appends instead of merging by id,
+# those five must be treated as image-only patches, not new cards.
+#
+# Dates and roles: kk-kb appearances SSOT,
+# kk-kb content/projects/05-marketing-and-outreach/press-and-media/appearances/
+# (all eight confirmed exact in the 2026-07-11 Wave 0 pass or by artifacts).
+# End times: exact where the appearance or Luma ledger records one; otherwise
+# 21:00 local, mirroring the renderer's date-only default. Offsets are
+# America/Vancouver: -08:00 (PST) before 2026-03-08, -07:00 (PDT) after.
+schema_version: 1
+fragment: one-offs-2026
+issue: 588
+events:
+
+# --- Eight delivered 2026 stages missing from the Past grid ---
+
+- id: 2026-07-09-sfu-ai-panel
+  title: SFU AI panel
+  date: '2026-07-09'
+  end: '2026-07-09T21:00:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Panelist
+  # url: none known -- appearance logs no SFU listing or recording yet
+  image: {}
+  hero_hint: 'MISSING: no repo or kk-kb artifact for this panel (appearance file logs none yet)'
+  blurb: Panel conversation on AI at Simon Fraser University.
+  label: July 2026 · SFU · Panelist
+  tags:
+  - Panelist
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+
+- id: 2026-07-09-bc-ai-film-club-july-idea-lab
+  title: 'BC + AI Film Club July: Idea Lab'
+  date: '2026-07-09'
+  # Luma event_end 2026-07-10T05:00:00Z == 22:00 PDT on the 9th
+  end: '2026-07-09T22:00:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://luma.com/summertime
+  image: {}
+  hero_hint: 'Luma cover og:image https://images.lumacdn.com/event-covers/l1/a962800f-4a22-4830-bf36-26b66c25a847.jpg (kk-kb content/luma-events/film-club/2026-07-10-ai-film-club-07-09-evt-hKf6hDeg7nnNTIZ.md)'
+  blurb: July idea lab at the Multimodal Media Lab. Community pitches and sticker votes on future monthly formats and Futureproof Festival activations.
+  label: July 2026 · Multimodal Media Lab · Host
+  tags:
+  - Host
+  - Film Club
+  - Vancouver
+  status: confirmed
+  cta_past: Luma
+
+- id: 2026-07-08-ai-ethical-futures-lab-morten
+  title: AI Ethical Futures Lab w/ Morten Rand-Hendriksen
+  date: '2026-07-08'
+  end: '2026-07-08T21:00:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  # url: none known -- this session is not yet in the kk-kb Luma ledger
+  image: {}
+  hero_hint: 'MISSING: session not in kk-kb Luma ledger yet; AEFL series covers live under kk-kb content/luma-events/aefl/'
+  blurb: Hosted an AI Ethical Futures Lab session with Morten Rand-Hendriksen, LinkedIn Learning instructor.
+  label: July 2026 · Vancouver · Host
+  tags:
+  - Host
+  - AI Ethics
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+
+- id: 2026-04-12-yvr-ai-welcome-salon-ted2026
+  title: YVR AI Welcome Salon (TED2026 week)
+  date: '2026-04-12'
+  # documented 5:00-7:30 PM PT window in kk-kb ted2026-yvr-ai-welcome README
+  end: '2026-04-12T19:30:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  # url: none known -- RSVP page was TBD in kk-kb project docs; no event Luma logged
+  image: {}
+  hero_hint: 'MISSING: kk-kb ted2026-yvr-ai-welcome/ holds comms copy only, no image assets'
+  blurb: Welcome salon at the Alibi Room in Gastown for AI folks in town during TED2026 week. TED-adjacent, not TED-affiliated.
+  label: April 2026 · Alibi Room, Gastown · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+
+- id: 2026-04-01-global-ai-summit-vancouver-panel
+  title: Global AI Summit Vancouver panel
+  date: '2026-04-01'
+  # documented 11:10-11:50 am panel slot
+  end: '2026-04-01T11:50:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Moderator
+  # url: none known -- summit community ran on a private Circle space
+  image: {}
+  hero_hint: 'MISSING: no public listing or asset in kk-kb for this summit'
+  blurb: 'Moderated the panel "Who Shapes the AI Future: Markets, Policy, or Culture?" at UBC Robson Square.'
+  label: April 2026 · UBC Robson Square · Moderator
+  tags:
+  - Moderator
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+
+- id: 2026-03-31-sea-to-sky-gondola-ai-ethics-workshop
+  title: Sea to Sky Gondola AI-ethics workshop
+  date: '2026-03-31'
+  # documented 10:00-11:50 am workshop slot
+  end: '2026-03-31T11:50:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Workshop lead
+  # url: none -- private corporate engagement, no public listing
+  image: {}
+  hero_hint: 'MISSING: private staff training, no public listing or photos logged'
+  blurb: Staff workshop on AI ethics and responsible use at the Summit Lodge in Squamish.
+  label: March 2026 · Squamish · Workshop lead
+  tags:
+  - Workshop
+  - Squamish
+  status: confirmed
+  cta_past: Details
+
+- id: 2026-02-01-vibe-working-workshop
+  title: Vibe Working Workshop
+  date: '2026-02-01'
+  end: '2026-02-01T21:00:00-08:00'
+  bucket_hint: past
+  kind: one-off
+  role: Workshop lead
+  # url: none known -- kk-kb workshop doc has no event listing
+  image: {}
+  hero_hint: 'MISSING: kk-kb workshop doc is text only'
+  blurb: 'Hands-on Vancouver AI workshop on vibe working: AI-assisted work practices and workflows.'
+  label: Feb 2026 · Vancouver · Workshop lead
+  tags:
+  - Workshop
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+
+- id: 2026-01-31-first-tech-challenge-think-award
+  title: 'FIRST Tech Challenge: Think Award'
+  date: '2026-01-31'
+  end: '2026-01-31T21:00:00-08:00'
+  bucket_hint: past
+  kind: one-off
+  role: Judge
+  # url: none known -- qualifier has no public recap link in kk-kb
+  image: {}
+  hero_hint: 'MISSING: kk-kb stem-outreach recap is text only'
+  blurb: Think Award judge at a FIRST Tech Challenge robotics qualifier at Port Moody Secondary.
+  label: Jan 2026 · Port Moody · Judge
+  tags:
+  - Judge
+  - STEM
+  status: confirmed
+  cta_past: Details
+
+# --- Hero wiring for five existing heroless core one-offs ---
+# Image-only overrides: ids match events-catalog.yaml records; every path is a
+# tracked repo asset (all under 250 KB), so no binaries were copied into
+# heroes/one-offs-2026/. Wave 3 applies these via the by-id merge, then
+# sync_event_media.py uploads and writes media ids back.
+
+# CreativeMornings (Perils & Parallels), 2026-05-01
+- id: creativemornings-perils-parallels-2026
+  image:
+    path: repo:content/source-packs/keynotes-2026/assets/punk-rock-ai-creative-mornings.jpg
+    alt: Kris Krüg speaking at CreativeMornings Vancouver in front of a Stop Saying Bias slide
+
+# World AI Film Festival Brasil keynote, 2026-02-26 (Tela Viva press thumb)
+- id: waiff-sao-paulo-2026
+  image:
+    path: repo:content/source-packs/keynotes-2026/assets/press-2026-02-09-tela-viva-context-v2.jpg
+    alt: Tela Viva press coverage of WAIFF 2026, the World AI Film Festival in Brazil
+
+# LaSalle College Vancouver keynote, 2026-01-14 (YouTube thumb, keynotes pack)
+- id: lasalle-college-keynote-2026
+  image:
+    path: repo:content/source-packs/keynotes-2026/video-research/thumbnails/lasalle-college-graduation.jpg
+    alt: Kris Krüg on stage at LaSalle College Vancouver asking what you would never give up to AI
+
+# ChannelNext keynote, 2025-06-03 (YouTube thumb, keynotes pack)
+- id: channelnext-2025
+  image:
+    path: repo:content/source-packs/keynotes-2026/video-research/thumbnails/channel-next.jpg
+    alt: 'ChannelNext keynote video thumbnail: Krüg on AI and who owns the future'
+
+# Whistler Institute Global Speaker Series, 2025-01-23 (YouTube thumb, keynotes pack)
+- id: whistler-institute-2025
+  image:
+    path: repo:content/source-packs/keynotes-2026/video-research/thumbnails/whistler-institute.jpg
+    alt: 'Whistler Institute talk video thumbnail: Building the Creative Technology Future'
