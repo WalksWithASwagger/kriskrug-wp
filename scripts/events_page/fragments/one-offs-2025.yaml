@@ -1,0 +1,213 @@
+# owned by issue #589 (swarm events-w2): 2025 one-off Past cards
+#
+# Schema: each row matches the events-catalog.yaml `events:` shape.
+# Facts sourced from kk-kb appearance records:
+#   content/projects/05-marketing-and-outreach/press-and-media/appearances/2025-*.md
+# date_precision: approximate marks rows where the appearance record pins the
+#   month/window but not the exact day; blurbs/labels stay month-level there.
+# image: null rows carry a hero_hint string for the Wave 3 hero engine (#587).
+# Loader note: the #586 fragment loader (lib.py merging fragments/*.yaml, core
+#   catalog wins on id conflict) had not landed on main when this file was
+#   written; until it does, verify via a merged temp catalog render dry-run.
+# Excluded on purpose: BC AI Film Festival and Vancouver AI #WebSummit edition
+#   (meetup-edition enrichments, owned by the meetup-polish issue #591).
+# No live WP writes from this file.
+events:
+- id: 2025-10-24-munda-mennuie-residency
+  title: "Munda M'ennuie Residency"
+  date: '2025-10-24'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://luma.com/arthurkuhn
+  image: null
+  hero_hint: 'Luma og image: https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=800,height=420/event-social/u4/c5e122eb-3848-428b-b7a6-d5fafed14556.png (page snapshot: kk-kb appearances/assets/2025-10-24-munda-mennuie-residency-page.html)'
+  blurb: Hosted Arthur Kuhn's Munda M'ennuie residency talk and live noise intervention under the Vancouver AI banner.
+  label: Oct 2025 · Vancouver · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+- id: 2025-10-22-dama-day-ai-for-nonprofits-keynote
+  title: 'DAMA Day Vancouver: AI for Non-Profits'
+  date: '2025-10-22'
+  bucket_hint: past
+  kind: one-off
+  role: Keynote
+  url: https://damavancouverbcchapter.wildapricot.org/
+  image: null
+  hero_hint: 'No image in kk-kb appearance assets (HTML page snapshot only: appearances/assets/2025-10-22-dama-day-data-for-good-keynote-page.html); Rafiki tile later OK'
+  blurb: 'Opening keynote with Sev Geraskin at the 4th annual DAMA Day, a one-day conference for BC non-profits navigating AI, run with Data for Good Vancouver at the Deloitte Summit building: two years of BC + AI community growth and what it gives back.'
+  label: Oct 2025 · Deloitte Summit · Keynote
+  tags:
+  - Keynote
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+- id: 2025-09-02-amd-media-copilot-workshop
+  title: AMD Media CoPilot AI Workshop
+  date: '2025-09-02'
+  bucket_hint: past
+  kind: one-off
+  role: Workshop lead
+  url: null
+  image: null
+  hero_hint: Private corporate session, no public asset; Rafiki tile later OK
+  blurb: Led a virtual AI workshop for AMD's global communications team, delivered with The Media Copilot's crew of veteran journalists. Private corporate engagement, no public listing.
+  label: Sept 2025 · Virtual · Workshop
+  tags:
+  - Workshop
+  - Virtual
+  status: confirmed
+  cta_past: Details
+- id: 2025-09-01-ea-creative-innovation-keynote
+  title: Electronic Arts Creative Innovation Keynote
+  date: '2025-09-01'
+  date_precision: approximate
+  bucket_hint: past
+  kind: one-off
+  role: Keynote
+  url: null
+  image: null
+  hero_hint: 'Rafiki tile later OK; transcript and recap live in kk-kb content/knowledge/keynotes/2025-09-ea-creative-innovation/'
+  blurb: 'Ninety minutes with about 50 senior Electronic Arts executives on AI as Mirror: AI tools, hackathons as catalysts, and training models on your own creative assets. September 2025, exact day approximate.'
+  label: Sept 2025 · EA HQ Burnaby · Keynote
+  tags:
+  - Keynote
+  - Burnaby
+  status: confirmed
+  cta_past: Details
+- id: 2025-08-10-calm-before-storm-siggraph
+  title: 'Calm Before the Storm #SIGGRAPH'
+  date: '2025-08-10'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://luma.com/siggraph2025
+  image: null
+  hero_hint: 'Luma og image: https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=800,height=420/event-social/t1/10d5018e-43ab-4417-9c13-e2b28f46557e.png (page snapshot: kk-kb appearances/assets/2025-08-10-calm-before-storm-siggraph-page.html)'
+  blurb: Locals-and-visitors social at the Alibi Room ahead of SIGGRAPH 2025 Vancouver.
+  label: Aug 2025 · Alibi Room · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+- id: 2025-07-11-bass-coast-brain-stage
+  title: 'Bass Coast Brain Stage: Dear AI'
+  date: '2025-07-11'
+  date_precision: approximate
+  bucket_hint: past
+  kind: one-off
+  role: Workshop lead
+  url: https://www.youtube.com/watch?v=owtSPcpRinI
+  image:
+    path: repo:scripts/events_page/heroes/one-offs-2025/2025-07-11-bass-coast-brain-stage-youtube.jpg
+    alt: 'Kris Krug speaking on the Bass Coast Brain Stage, Synthetic Consciousness / Dear AI talk thumbnail'
+  blurb: 'Brain Stage workshop at Bass Coast 2025 in Merritt: Dear AI, Before We Go Any Further... We Need To Talk About Your Soul. Festival ran July 11 to 14; talk video is on YouTube.'
+  label: July 2025 · Bass Coast, Merritt · Workshop
+  tags:
+  - Workshop
+  - Festival
+  status: confirmed
+  cta_past: Watch the talk
+- id: 2025-05-27-web-summit-indigenomics-ai
+  title: 'Web Summit: Indigenomics AI'
+  date: '2025-05-27'
+  date_precision: approximate
+  bucket_hint: past
+  kind: one-off
+  role: Panelist
+  url: https://vancouver.websummit.com/
+  image: null
+  hero_hint: 'Summit or press thumb: Carol Anne Hilton''s Web Summit Vancouver session "Indigenomics AI: Mapping Indigenous Economic Intelligence" speaker-profile art or Indigenomics Institute press image (page snapshot: kk-kb appearances/assets/2025-05-27-web-summit-indigenomics-ai-page.html)'
+  blurb: Presented Indigenomics AI, the platform mapping Indigenous economic intelligence, on stage at Web Summit Vancouver 2025 with Carol Anne Hilton. Summit ran May 27 to 30; exact session day unpinned.
+  label: May 2025 · Web Summit Vancouver · Panelist
+  tags:
+  - Panelist
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+- id: 2025-05-25-calm-before-storm-websummit
+  title: 'Calm Before the Storm: Web Summit'
+  date: '2025-05-25'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://luma.com/LocalsOnly
+  image: null
+  hero_hint: 'Luma og cover: https://images.lumacdn.com/event-covers/b0/710beed3-de0a-41ad-90c8-bb558072a7e4.png (page snapshot: kk-kb appearances/assets/2025-05-25-calm-before-storm-websummit-page.html)'
+  blurb: Locals-only pre-party at the Alibi Room before Web Summit Vancouver 2025 hit town. Precursor to the TED-week salon format.
+  label: May 2025 · Alibi Room · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+- id: 2025-05-06-bc-ai-ecosystem-launch
+  title: BC + AI Ecosystem Launch Session
+  date: '2025-05-06'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://luma.com/BCai
+  image: null
+  hero_hint: 'Luma og cover: https://images.lumacdn.com/event-covers/st/277a7cd4-bb28-455b-b435-0e09639c54d6.png (page snapshot: kk-kb appearances/assets/2025-05-06-bc-ai-ecosystem-launch-session-page.html)'
+  blurb: 'Hosted the launch session as BC + AI Ecosystem went live: Canada''s first grassroots AI industry association.'
+  label: May 2025 · Zoom · Host
+  tags:
+  - Host
+  - Virtual
+  status: confirmed
+  cta_past: Details
+- id: 2025-04-09-ted2025-community-meetup
+  title: TED2025 Community Meetup
+  date: '2025-04-09'
+  end: '2025-04-09T20:00:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://web.archive.org/web/20250324140102/https://lu.ma/TED-Vancouver
+  image: null
+  hero_hint: 'Wayback og image: https://web.archive.org/web/20250324140102im_/https://social-images.lu.ma/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=800,height=419/api/event-one?img=https%3A%2F%2Fimages.lumacdn.com%2Fgallery-images%2Fde%2Fa12a3146-d8ca-4e7d-865b-772a559a0a14&name=TED2025%20Community%20Meetup (live Luma page 404s; snapshot: kk-kb appearances/assets/2025-04-09-ted2025-community-meetup-page.html)'
+  blurb: TED-week community meetup with co-host Sean Cranbury, presented by Future Proof Creatives while TED2025 ran across town. Original Luma page is gone; link goes to the Wayback capture.
+  label: Apr 2025 · Vancouver · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+- id: 2025-03-20-data-storytelling-hackathon
+  title: Data Storytelling Hackathon
+  date: '2025-03-20'
+  date_precision: approximate
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://kriskrug.co/2025/03/20/is-a-hotdog-a-sandwich-vancouver-aidata-storytelling-hackathon-w-andrew-reid/
+  image: null
+  hero_hint: No local photo found in kk-kb; pull the featured image from the kriskrug.co recap post at the url, else Rafiki tile later OK
+  blurb: 'Vancouver AI data storytelling hackathon with Andrew Reid, asking the big one: is a hotdog a sandwich? Dated from the March 2025 announce and recap posts; exact event day approximate.'
+  label: Mar 2025 · Vancouver · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+- id: 2025-02-05-thinking-game-premiere
+  title: The Thinking Game Premiere
+  date: '2025-02-05'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://luma.com/thinking
+  image: null
+  hero_hint: 'Luma og cover: https://images.lumacdn.com/event-covers/4k/ddc1991a-7988-417e-aef9-c96718979816 (page snapshot: kk-kb appearances/assets/2025-02-05-thinking-game-premiere-page.html)'
+  blurb: Vancouver premiere of the DeepMind documentary The Thinking Game, around 500 guests, with a post-screening conversation with Dr. Mikhail Klassen.
+  label: Feb 2025 · Vancouver · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
