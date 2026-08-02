@@ -21,7 +21,6 @@ from lib import (
     SHELL_PATH,
     html_escape,
     load_catalog,
-    resolve_image_path,
     resolve_path_roots,
 )
 
@@ -84,9 +83,12 @@ def image_src(event: dict[str, Any], roots: dict[str, Path]) -> tuple[str, str]:
     if media_id and not url:
         # Placeholder until sync writes source_url; still emit a stable attr.
         return f"#media-{media_id}", alt
-    path = resolve_image_path(image, roots)
-    if path and path.exists():
-        return path.as_uri(), alt
+    # A hero that only exists on disk has no public URL. Emitting its local
+    # path.as_uri() here would put a file:///Users/kk/... src on page 2250.
+    # Never observed live: the 2026-08-02 audit records no file:// leaks and
+    # sync_event_media.py has always run before ship. The path was reachable
+    # though, so it is closed. Run sync first; degrade to empty until then.
+    # (#631)
     return "", alt
 
 
