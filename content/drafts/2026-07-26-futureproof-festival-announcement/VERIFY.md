@@ -15,6 +15,36 @@
 - Facts: dates, venue, Earlyworm CA$650/August 15, Call for Talks August 15, and 300/3,000+/94+ receipts are all current in the new body as of 2026-08-02 (sourced live from futureproof.website and KK's 2026-08-01 membership ruling).
 - New dependency for #500: the two Meetup #31 photos used as lead + supporting images are staged locally but are **unresolved hotlinks with no written cross-site reuse release** (see `asset-manifest.md`). #500 should not treat them as upload-ready without Kris's explicit sign-off, same as every other image in this package.
 
+### Dry-run executed 2026-08-02 (offline, no credentials, no WP writes)
+
+```
+scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py \
+  content/drafts/2026-07-26-futureproof-festival-announcement/post.md
+```
+
+**First run FAILED**, and the failure was real, not environmental:
+
+```
+ERROR: while parsing a block mapping
+expected <block end>, but found '<scalar>'
+```
+
+Two alt values contained `Meetup #31`. In YAML a whitespace-preceded `#` opens a comment, so the alt scalar truncated mid-sentence and the folded continuation line broke the block mapping. `post.md` would not load at all, meaning #500 could not have dry-run or created anything. Fixed by single-quoting both values (commit `91ab3f1`); the `#31` text and line folding are preserved.
+
+**Re-run PASSES.** Result:
+
+| Field | Value |
+|---|---|
+| `dry_run` | `true` |
+| `title` | The Bat Signal |
+| `slug` | `futureproof-festival-announcement` |
+| categories | Vancouver AI Ecosystem |
+| tags | Futureproof, BC + AI, Vancouver AI, Festival, Space Centre, Build What Lasts |
+| images resolved | 7 (all local files exist; wordmark correctly absent) |
+| `slug_check` | `skipped_offline` |
+
+**What this does and does not prove.** It proves the quality gate passes, the frontmatter parses, the payload shape is valid, and every referenced image resolves to a real local file. It does **not** prove the slug is free: the dry-run path is deliberately offline (`dry_run_wp_config()`, no authenticated probe), so `slug_check` is `skipped_offline`. The create-only slug collision check (`assert_slug_available`) runs only on the `--execute` path. #500 still owns that check, and must still abort on collision rather than PATCH.
+
 ## Verdict
 
 Package is **complete and verification-ready**.  
