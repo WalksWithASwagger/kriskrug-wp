@@ -103,6 +103,7 @@ def relative_luminance(rgb):
     red, green, blue = (_linearize(channel) for channel in rgb)
     return 0.2126 * red + 0.7152 * green + 0.0722 * blue
 
+
 def contrast_ratio(foreground, background):
     first = relative_luminance(foreground)
     second = relative_luminance(background)
@@ -285,6 +286,12 @@ SURFACES = {
     # grayscaled photo. Worst case is the scrim over a pure-white photo
     # region: 0.72*(23,19,16) + 0.28*(255,255,255).
     "work-card-scrim": (88, 85, 83),
+    # .aurora-hero-scrim (#618 hero) — two stacked gradients of rgb(3,4,5):
+    # 90deg 0.82→0.05 and 180deg 0.12→0.5. Worst case inside the copy box is
+    # its right/top edge (~40% viewport, top of copy): combined alpha
+    # 1-(1-.515)(1-.12)=0.573 over a pure-white photo. Left edge, where the
+    # copy actually anchors, measures (35, 36, 36).
+    "hero-2026-scrim-copy-edge": (111, 111, 112),
     # .aurora-writing-card / .aurora-featured-media after the #485 cream port:
     # both are flat var(--aurora-panel-solid). The card's ::after wash sits
     # under the card body (z-index 2 vs 3), so it is part of the backdrop; at
@@ -336,6 +343,52 @@ REGISTERED_LITERALS = {
         ".aurora-work-card-body",
         "#efe6d2",
     ): ("work-card-scrim", AA_TEXT, "card body text over the ink scrim"),
+    (
+        "assets/css/revive-port.css",
+        "body.aurora-theme #aurora-main .aurora-hero-2026 "
+        ":where( #aurora-home-title, .aurora-hero-copy h1 )",
+        "#f7f7f2",
+    ): (
+        "hero-2026-scrim-copy-edge",
+        AA_TEXT,
+        "hero display heading over the #618 gradient scrim: 4.67:1 at the "
+        "geometric worst case (white photo, lightest copy-zone scrim), "
+        "14.5:1 at the left edge where the title actually renders.",
+    ),
+    (
+        "assets/css/revive-port.css",
+        "body.aurora-theme #aurora-main .aurora-hero-2026 .aurora-button-secondary",
+        "#f7f7f2",
+    ): (
+        "hero-2026-scrim-copy-edge",
+        AA_TEXT,
+        "ghost-button label in the hero action row; the rgba(247,247,242,.08) "
+        "fill is negligible, so the scrim floor governs: 4.67:1 worst case.",
+    ),
+    (
+        "assets/css/revive-port.css",
+        "body.aurora-theme #aurora-main .aurora-hero-2026 "
+        ":where( .aurora-hero-dek, .aurora-hero-copy p:not(.aurora-kicker) )",
+        "#c8cac8",
+    ): (
+        "hero-2026-scrim-copy-edge",
+        NOT_STATIC,
+        "3.04:1 at the white-photo worst case, 9.4:1 over the real krug-1 "
+        "left field where the dek renders. The gradient alone cannot "
+        "guarantee AA at the copy-box edge; it holds because the portrait's "
+        "left region is near-black. Re-measure if the hero photo changes.",
+    ),
+    (
+        "assets/css/revive-port.css",
+        "body.aurora-theme #aurora-main .aurora-hero-2026 .aurora-kicker",
+        "#e8b53a",
+    ): (
+        "hero-2026-scrim-copy-edge",
+        NOT_STATIC,
+        "2.65:1 white-photo worst case, 8.2:1 over the real photo's left "
+        "field. Amber micro-label (0.72rem uppercase); needs a design call "
+        "(darker plate or guaranteed scrim floor) if the hero art lightens.",
+    ),
     (
         "assets/css/revive-port.css",
         ".aurora-work-card-body h3",
@@ -500,7 +553,9 @@ def declared_color(css_name, selector):
         for declaration in body.split(";"):
             match = re.match(r"\s*color\s*:\s*(.+)", declaration, flags=re.S)
             if match:
-                value = " ".join(match.group(1).split()).replace("!important", "").strip()
+                value = (
+                    " ".join(match.group(1).split()).replace("!important", "").strip()
+                )
     return value
 
 
@@ -517,21 +572,28 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
         a literal `color:` inside a component rule to be measured at all.
         """
         found = literal_color_declarations()
-        unregistered = sorted(entry for entry in found if entry not in REGISTERED_LITERALS)
+        unregistered = sorted(
+            entry for entry in found if entry not in REGISTERED_LITERALS
+        )
         self.assertEqual(
             unregistered,
             [],
             "Hardcoded foreground colour(s) with no registered surface. Either use "
             "a semantic token, or add an entry to REGISTERED_LITERALS naming the "
             "surface it renders against:\n"
-            + "\n".join(f"  {name}  {selector}  ->  {value}" for name, selector, value in unregistered),
+            + "\n".join(
+                f"  {name}  {selector}  ->  {value}"
+                for name, selector, value in unregistered
+            ),
         )
 
     def test_registry_has_no_stale_entries(self):
         """Registry entries must still exist in the CSS, so it cannot rot."""
         found = literal_color_declarations()
         stale = sorted(entry for entry in REGISTERED_LITERALS if entry not in found)
-        self.assertEqual(stale, [], f"REGISTERED_LITERALS entries no longer in the CSS: {stale}")
+        self.assertEqual(
+            stale, [], f"REGISTERED_LITERALS entries no longer in the CSS: {stale}"
+        )
 
     def test_registered_literals_meet_their_floor(self):
         failures = []
@@ -539,7 +601,9 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
             REGISTERED_LITERALS.items()
         ):
             if floor in EXEMPT_FLOORS:
-                self.assertTrue(note, f"{name} {selector} needs a note explaining the exemption")
+                self.assertTrue(
+                    note, f"{name} {selector} needs a note explaining the exemption"
+                )
                 continue
             surface = SURFACES[surface_key]
             ratio = contrast_ratio(composite(parse_color(value), surface), surface)
@@ -564,7 +628,9 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
             literal = resolve(declaration, self.properties)
             for surface_key in surface_keys:
                 surface = SURFACES[surface_key]
-                ratio = contrast_ratio(composite(parse_color(literal), surface), surface)
+                ratio = contrast_ratio(
+                    composite(parse_color(literal), surface), surface
+                )
                 if ratio < floor:
                     failures.append(
                         f"{name} {selector} -> {declaration} ({literal}) "
@@ -601,7 +667,9 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
 
     def test_front_page_still_renders_the_section_head_links(self):
         """Guard the selector itself — a renamed class would silence the test."""
-        front_page = (THEME_DIR / "templates/front-page.html").read_text(encoding="utf-8")
+        front_page = (THEME_DIR / "templates/front-page.html").read_text(
+            encoding="utf-8"
+        )
         self.assertIn("aurora-section-head", front_page)
         self.assertIn("Photography", front_page)
         self.assertIn("Full index", front_page)
@@ -630,9 +698,7 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
         # ...and it has to actually clear AA on every cream surface it lands on.
         for surface_key in ("cream", "cream-2", "cream-muted"):
             surface = SURFACES[surface_key]
-            ratio = contrast_ratio(
-                composite(parse_color(text_muted), surface), surface
-            )
+            ratio = contrast_ratio(composite(parse_color(text_muted), surface), surface)
             self.assertGreaterEqual(
                 ratio, AA_TEXT, f"text-muted on {surface_key} is {ratio:.2f}:1"
             )
@@ -660,18 +726,14 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
                 if not match:
                     continue
                 value = " ".join(match.group(2).split())
-                for literal in re.findall(
-                    r"#[0-9a-fA-F]{3,6}\b|rgba?\([^)]*\)", value
-                ):
+                for literal in re.findall(r"#[0-9a-fA-F]{3,6}\b|rgba?\([^)]*\)", value):
                     parsed = parse_color(literal)
                     if parsed[3] < 0.5:
                         # A translucent tint reads as a wash over whatever is
                         # beneath it, not as the surface itself.
                         continue
                     if relative_luminance(parsed[:3]) < 0.18:
-                        offenders.append(
-                            f"style.css:{line} {selector} -> {literal}"
-                        )
+                        offenders.append(f"style.css:{line} {selector} -> {literal}")
         self.assertEqual(
             offenders,
             [],
@@ -729,10 +791,14 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
         ):
             if " ".join(selector.split()) == ".aurora-featured-media":
                 for declaration in body.split(";"):
-                    match = re.match(r"\s*background\s*:\s*(.+)", declaration, flags=re.S)
+                    match = re.match(
+                        r"\s*background\s*:\s*(.+)", declaration, flags=re.S
+                    )
                     if match:
                         panel_rule = " ".join(match.group(1).split())
-        self.assertIsNotNone(panel_rule, "no background declared for .aurora-featured-media")
+        self.assertIsNotNone(
+            panel_rule, "no background declared for .aurora-featured-media"
+        )
         panel = parse_color(resolve(panel_rule, self.properties))
         self.assertEqual(panel[3], 1.0, "the featured-media panel must be opaque")
 
@@ -754,8 +820,12 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
     # -- sanity check on the maths ----------------------------------------
 
     def test_contrast_maths_matches_known_values(self):
-        self.assertAlmostEqual(contrast_ratio((0, 0, 0), (255, 255, 255)), 21.0, places=2)
-        self.assertAlmostEqual(contrast_ratio((255, 255, 255), (255, 255, 255)), 1.0, places=2)
+        self.assertAlmostEqual(
+            contrast_ratio((0, 0, 0), (255, 255, 255)), 21.0, places=2
+        )
+        self.assertAlmostEqual(
+            contrast_ratio((255, 255, 255), (255, 255, 255)), 1.0, places=2
+        )
         # #9a2f14 on cream #efe6d2, the accent-text value from #465.
         self.assertAlmostEqual(
             contrast_ratio((0x9A, 0x2F, 0x14), (0xEF, 0xE6, 0xD2)), 6.06, places=2
