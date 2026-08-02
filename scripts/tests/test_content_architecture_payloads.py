@@ -13,9 +13,7 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.maps = [
-            path
-            for path in sorted(PAYLOADS.rglob("page-map.json"))
-            if path.is_file()
+            path for path in sorted(PAYLOADS.rglob("page-map.json")) if path.is_file()
         ]
         cls.mapped_pages = []
         for path in cls.maps:
@@ -44,6 +42,10 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
                 bad = [token for token in tokens if token.startswith(retired_prefixes)]
                 self.assertEqual([], bad, f"{path.name} retired classes: {bad}")
 
+    # about.html ships a scoped <style> block by design: kriskrug.co page CSS
+    # lives inline in page content (live pattern; deployed via #618).
+    STYLE_ALLOWED = {"about.html"}
+
     def test_payloads_are_body_only_and_public_safe(self):
         forbidden_fragments = (
             "<h1",
@@ -61,6 +63,8 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
             html = path.read_text(encoding="utf-8")
             lowered = html.lower()
             for fragment in forbidden_fragments:
+                if fragment == "<style" and path.name in self.STYLE_ALLOWED:
+                    continue
                 self.assertNotIn(fragment, lowered, f"{path.name} contains {fragment}")
 
     def test_contact_preserves_existing_email_path(self):
