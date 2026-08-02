@@ -1,0 +1,360 @@
+
+ Rainy Vancouver night. Somebody’s laptop is open. Somebody else is asking the kind of question that makes a room go quiet:  Who owns the data in an AI future?  Not “who stores it” or “who can query it,” but who actually holds the power to say yes, to say no, to set the terms, to change them later, to benefit when value is created. 
+
+
+
+ This is the part of the AI conversation Canada keeps dodging: we don’t just lack compute. We lack consent architecture. 
+
+
+
+ Meanwhile, Maxime C. Cohen drops a clean, sharp white paper that basically says: Canada is in trouble. Not vibes-trouble. Measurable-trouble. His warning is blunt: we’ve been “too slow, too fragmented, and too modest in scale.” 
+
+
+
+ He’s not wrong. 
+
+
+
+ Cohen’s paper is one of the most coherent “Canada must get its act together” documents I’ve seen. It lays out the structural hits: compute scarcity, weak commercialization, adoption lag, and a real brain drain pipeline that keeps dumping Canadian talent into U.S. gravity wells. He cites a study where “two-thirds of Canadian software engineering students” from a cohort ended up in the U.S. within 5 years.  He points at a 46% compensation premium for U.S. tech workers over Canada, and the practical effect that has on retention. 
+
+
+
+ On compute, Cohen highlights Canada’s share of global AI compute capacity as 0.7%.  That number isn’t just a flex metric. It’s an indicator of who gets to do frontier-scale experiments, who gets to train, who gets to iterate, who gets to publish, and who gets to set standards by sheer repetition. 
+
+
+
+ On adoption, he cites an AI adoption rate of 12.2% for Canadian enterprises and frames it as a competitiveness problem, especially for SMEs. 
+
+
+
+ Then he does what policy people do when they’re being serious: he proposes infrastructure and governance that match the size of the problem. 
+
+
+
+ He calls for national GPU superclusters in the 10,000-50,000+ range.  He wants a national compute governance body and emphasizes “low-carbon infrastructure.”  He proposes a CAD $1-2B commercialization fund to deal with the scale-up gap.  He wants industry acting as “anchor customers” and procurement that actually scales Canadian startups. 
+
+
+
+ And he wants a “strong, active National AI Governance Council with a real mandate and accountability.” 
+
+
+
+ So yeah. Diagnosis is solid. 
+
+
+
+ Now the hard part: Cohen’s paper is necessary, but it’s not sufficient. 
+
+
+
+ Because the thing Cohen barely touches is the thing BC keeps tripping over (and learning from) in real-time: if we scale AI without stewardship, we just build a more efficient extraction machine. 
+
+
+
+ The part Cohen nails (and we should steal shamelessly) 
+
+
+
+ 1) Publish the feature: “We Agree on the Diagnosis. Our Cure Is Different.” 
+
+
+
+ This long-form piece: Canada doesn’t win a compute war by pretending compute doesn’t matter. 
+
+
+
+ Cohen is correct that “sovereign compute” is not optional if you want domestic research capacity, domestic products, and domestic sovereignty over sensitive workloads.  Without it, you become what he warns against: “a research supplier to other nations.” 
+
+
+
+ He also correctly calls for coordination across governments, industry, and researchers, plus faster commercialization mechanics. His recommendations are built for execution, not for panel discussions. 
+
+
+
+ BC + AI should take those tools and upgrade them with our missing ingredient:  governance that doesn’t treat community wellbeing as an afterthought.  
+
+
+
+ The part Cohen misses: trust is the limiting reagent 
+
+
+
+ Cohen’s paper is framed like a national competition problem. But in BC, we’re living inside a trust problem. 
+
+
+
+ And trust is not a PR issue. It’s an adoption ceiling. 
+
+
+
+ BC public opinion research from SFU’s Morris J. Wosk Centre for Dialogue says three-quarters of British Columbians do not trust tech companies to manage and develop AI carefully and with public wellbeing in mind. Two-thirds don’t trust government or NGOs either. Academic institutions do better, but even there it’s split. 
+
+
+
+ This is the social reality any “national AI strategy” has to operate inside. If you try to force adoption without rebuilding trust, you don’t get acceleration. You get backlash, refusal, and quiet sabotage. 
+
+
+
+ The same report says 82% feel “nervous” about AI in society, 86% worry about losing personal agency if companies and governments use AI to make decisions affecting their lives, and 56% don’t believe benefits outweigh risks. 
+
+
+
+ And here’s the kicker: despite low trust in government, BC residents still want regulation. 74% want government to impose regulations on companies developing or using generative AI systems to address false or misleading information. 
+
+
+
+ So if we’re designing a future AI economy, we’re not optimizing for “compute first.” We’re optimizing for “trust and consent first,” because without that, compute just scales conflict. 
+
+
+
+ What BC+AI has that Cohen’s framework doesn’t: a proven community engine 
+
+
+
+ Cohen is solving for institutions. BC+AI has been solving for people. 
+
+
+
+ The Vancouver AI Community Meetup case study in  BC Studies  describes something most policy frameworks can’t see: a grassroots practice community that becomes infrastructure. 
+
+
+
+ They reported “an average audience size… around 150 people,” with total attendance “around 2,400” in 2024, and “the community built itself without corporate sponsorship or government funding.” 
+
+
+
+ It’s also not just quantity. It’s format: open mic, demos, rapid iteration, “digital platforms,” and “dedicated physical spaces” where people keep showing up. 
+
+
+
+ That’s not a meetup anecdote. That’s an adoption mechanism. It’s how SMEs actually move: seeing real workflows, talking to peers, stealing patterns, trying again next week. 
+
+
+
+ Cohen’s procurement reforms and commercialization funds become radically more effective when there’s already a living lab generating demand and talent attachment. 
+
+
+
+ The Indigenous governance gap is not “inclusion.” It’s strategy. 
+
+
+
+ Here’s where BC’s West Coast model stops being “nice” and becomes  nationally differentiating . 
+
+
+
+ The BC AI Symposium Final Report explicitly calls out Indigenous rights and governance frameworks as real components of responsible AI. It notes that participants underscored the need to integrate “Indigenous rights and governance principles in AI development,” including UNDRIP and OCAP. 
+
+
+
+ The report also flags the environmental footprint of compute, calling for greener infrastructure and “green data centers,” and explicitly ties that to the “increasing computational power needed by AI systems.” 
+
+
+
+ And it doesn’t stop at principles. It points at practical governance and procurement problems: if we don’t build best practices and accountability frameworks, we get a “move fast and break things” import with a Canadian flag sticker slapped on top. 
+
+
+
+ This is the missing layer in Cohen’s blueprint:  stewardship . Not “ethics as a PDF,” but enforceable consent, reciprocal benefit, and governance with teeth. 
+
+
+
+ The BC AI JEDI Report uses a metaphor that’s almost too perfect: building the ecosystem as a “mycorrhizal web,” where exchange is mutual and regenerative, not extractive. It also names “ Indigenous data sovereignty and stewardship ” as a core necessity. 
+
+
+
+ That’s not a vibe. That’s the blueprint for how Canada becomes globally distinctive without trying to out-America America. 
+
+
+
+ So what do we do with Cohen’s paper? 
+
+
+
+ We don’t dunk on it. We remix it into something Canada can own. 
+
+
+
+ Cohen says Canada needs scale. I’m saying: fine, but only with stewardship. 
+
+
+
+ Cohen says Canada needs compute. I’m saying: fine, but only with consent, climate discipline, and value staying local. 
+
+
+
+ Cohen says Canada needs governance. I’m saying: fine, but governance must include Indigenous jurisdiction and community accountability, or it’s just a nicer-looking extraction layer. 
+
+
+
+ That’s the synthesis. 
+
+
+
+ The plan: a concrete “West Coast Response” that can ship 
+
+
+
+ Here’s what I’d publish, and how I’d execute it, fast. 
+
+
+
+ 1) Publish the feature: “We Agree on the Diagnosis. Our Cure Is Different.” 
+
+
+
+ This long-form piece (the thing you’re reading) becomes the public-facing bridge: respectful to Cohen’s rigor, brutally honest about what’s missing. 
+
+
+
+ Include short direct quotes from Cohen (no cherry-picking). Example: Canada has been “too slow, too fragmented, and too modest in scale.” 
+
+
+
+ Include real BC receipts: Vancouver AI’s scale and independence. 
+
+
+
+ Include the trust reality: three-quarters don’t trust tech companies. 
+
+
+
+ 2) Convene a national “Stewardship + Scale” roundtable (not a conference) 
+
+
+
+ 60-90 days. One day. No panels. Just working sessions. 
+
+
+
+ Invite Cohen. Invite Indigenous data governance leaders. Invite BC Hydro or energy system folks. Invite SMEs. Invite labour. 
+
+
+
+ Output is not a “statement.” Output is a draft spec. 
+
+
+
+ Deliverable:  The Stewarded Compute Accord (v0.1)  
+
+
+
+ A short, enforceable set of requirements for any publicly supported AI compute capacity in Canada: 
+
+
+
+ OCAP/UNDRIP-aligned data governance pathways for sensitive datasets. Low-carbon infrastructure requirements (Cohen already flags low-carbon compute as a priority).Public reporting on access, usage, and benefit distribution.Clear “no extractive deals” clauses for public assets. 
+
+
+
+ 3) Build a BC pilot: “Compute Commons + Consent Commons” 
+
+
+
+ If Cohen wants 10,000-50,000 GPU superclusters, BC can pilot the governance model for how that compute gets used. 
+
+
+
+ In 6-12 months: 
+
+
+
+ Stand up a small “Compute Commons” allocation model (even if the hardware is modest at first).Pair it with a “Consent Commons” toolkit: reusable legal templates, data-sharing agreements, and audit patterns aligned to OCAP/UNDRIP principles referenced in the symposium report. 
+
+
+
+ This turns “responsible AI” from branding into operational controls. 
+
+
+
+ 4) SME adoption: copy Cohen’s speed, use BC’s community engine 
+
+
+
+ Cohen emphasizes procurement and pilots that scale. 
+
+
+
+ BC’s move: 
+
+
+
+ Run 90-day “SME AI Sprints” that start in community (meetups, practice labs) and end in procurement-ready outputs.Use the Vancouver AI pattern: live demos, open mic, show your work.Track outcomes: time saved, error rates, employee satisfaction, risk incidents, and whether value stayed local. 
+
+
+
+ 5) Trust rebuilding isn’t optional. It’s a parallel workstream. 
+
+
+
+ The SFU public opinion report literally says any action will be “severely hampered” by lack of trust and will require “trust re-building” efforts. 
+
+
+
+ So we treat trust like infrastructure: 
+
+
+
+ publish plain-language model cards for  community-built tools ,publish impact assessments for pilots,run public “AI office hours” in multiple regions,measure sentiment quarterly, not annually. 
+
+
+
+ 6) Capital stack: take Cohen’s money, change the rules 
+
+
+
+ Cohen proposes a CAD $1-2B national commercialization fund. 
+
+
+
+ BC’s demand should be: if public money builds capacity, public benefit must be contractually real. 
+
+
+
+ revenue-share or equity-return terms that recycle value into regional capacity,cooperative options for SMEs (shared infrastructure, shared governance),open-source requirements where appropriate (JEDI’s ecosystem logic explicitly pushes open, collaborative building). 
+
+
+
+ Closing: Canada’s real advantage is not speed. It’s legitimacy. 
+
+
+
+ The U.S. can brute-force frontier scale. The EU can brute-force regulation. Canada’s best move is neither. Canada’s best move is to build AI that people will actually consent to live with. 
+
+
+
+ Cohen is building the scaffolding: compute, commercialization, coordination. 
+
+
+
+ BC+AI is building the missing organs: community practice, Indigenous governance, trust repair, non-extractive value flow. 
+
+
+
+ Put them together and Canada stops copying Silicon Valley’s worst habits with a polite smile. We become the place that figured out how to scale AI without hollowing out the people it claims to serve. 
+
+
+
+ That’s the West Coast contribution: scale, yes. But stewarded. Or it’s not progress, it’s just a faster leak. 
+
+
+
+ Public source checks 
+
+
+
+ 
+
+  Canada’s National Artificial Intelligence Strategy: AI for All  
+
+
+  Overview of Canada’s National Artificial Intelligence Strategy  
+
+
+  SFU Dialogue on Technology Project  
+
+
+  Indigenous data sovereignty and AI reflection  
+
+ 
+

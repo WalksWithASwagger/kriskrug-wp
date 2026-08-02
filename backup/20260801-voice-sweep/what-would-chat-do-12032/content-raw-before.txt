@@ -1,0 +1,368 @@
+<!-- wp:paragraph -->
+<p>We keep asking "what would Chat do?" when we should be asking: <strong>Who is steering: you, your values, or the algorithm wearing your face back at you?</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Last night I was vibe coding in the bathtub (yes, that's a real thing). Building an AI tool to help organize my coaching notes. Excited about the possibilities. Also keenly aware that the model I'm using was trained on data scraped without consent from millions of creators.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>I'm stoked about the opportunities AND I have real concerns. I walk forward with both in my hands at the same time.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>This isn't contradiction. It's reality.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">AI as Mirror (Not Tool)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Here's what most people miss: AI isn't a tool. It's a mirror.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>It shows you who you've been - your patterns, your biases, your blind spots - and amplifies them at planetary scale. The question isn't "how do we use this better?" The question is: <strong>What do we do with what the mirror reveals?</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Look in that mirror right now. What do you see?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>If you train a hiring algorithm on 20 years of tech industry data, you're training it on 20 years of gender imbalance. The system doesn't see bias. It sees patterns. And it optimizes for those patterns.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>What makes this insidious: it feels objective. "The algorithm said so" carries weight that "my gut says so" doesn't. That's what I call <strong>bias laundering</strong> - discrimination that looks like math.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Healthcare AI trained predominantly on male patient data misdiagnoses women. Financial systems use proxy variables (zip code, job title) that correlate with gender and race. Hiring tools perpetuate historical inequity while claiming neutrality.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The mirror doesn't lie. But you get to choose what you're becoming.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The Both/And Reality</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>AI discourse wants you to pick a team: techno-optimist or doomer.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>I refuse.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>I teach what I call the <strong>CASK Framework</strong> (credit to filmmaker Liz Marshall for the original concept):</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Curiosity</strong> - Wonder and fascination. Don't lose it.<strong>Awareness</strong> - Know what's actually happening (energy costs, water consumption, whose labor, whose data)<strong>Skepticism</strong> - Not cynicism, but "show me the receipts"<strong>Caution</strong> - Not every problem needs AI. Sometimes the responsible thing is to slow down.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>You can be fascinated by AI AND concerned about its impact. You can use these tools AND question who profits from them.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>I vibe code daily. I'm more creative than I've ever been. I also acknowledge these models are trained on stolen work without consent, and I know this threatens people's livelihoods.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>You don't collapse complexity into false certainty. You hold the tension and make decisions from there.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The Five Questions That Reveal Bias</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>When evaluating any AI system, ask:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>What data trained this?</strong> Who collected it? When?<strong>Who is represented?</strong> More importantly - who is MISSING?<strong>What proxy variables</strong> might encode protected characteristics?<strong>How is "success" defined?</strong> Who defined it?<strong>Who benefits?</strong> Who bears the risks?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>These aren't technical questions. They're values questions.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>First, don't gaslight yourself. If something feels wrong, it probably is. Trust that instinct.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Then document it. Share it. Your observation has value beyond your individual interaction. The more examples we surface, the harder it becomes for companies to claim these are edge cases.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Writing for the Bot (The Urgent Part)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Here's what people don't get:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>"If there are values you have which are not expressed yet in text, if they aren't reflected online, then to the AI they basically don't exist. And that is dangerously close to won't exist."</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Every transcript you publish. Every framework you articulate. Every conversation you document - that's training data for future systems.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Women's perspectives? Indigenous wisdom? Creative methodologies? Ethical frameworks?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>If they're not in the training data, they're not in the AI's understanding of the world.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>This reframes content creation. You're not building personal brand. <strong>You're architecting what future AI learns about human values.</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Your voice today shapes how AI understands humanity tomorrow.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>That's not personal branding. That's cultural transmission as technical responsibility.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Seven-Generation Thinking (Not a Metaphor)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Western AI asks: "How do we optimize this quarter?"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Indigenous AI asks: "What's the impact 200 years from now?"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>That's not inspiration. That's operational.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>In the Vancouver AI community I help run, every project answers:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Data sovereignty:</strong> Who controls this? Who gave consent?<strong>Relationship:</strong> Does this strengthen community or fracture it?<strong>Interconnection:</strong> What breaks when we're not looking?<strong>Stewardship:</strong> Are we extracting or creating conditions for flourishing?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Carol Ann Hilton (Nuu-chah-nulth Nation, Indigenomics Institute) sits on our board with real voting power, not a diversity checkbox. Gabriel George (Tsleil-Waututh Nation Elder) opens every event with ceremony - 25+ events, 100% consistency, foundational not performative. Peter Lucas Jones's frameworks guide our partnerships, built into our bylaws.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The result is not a magic-growth slide. It is people coming back month after month because the room feels useful, accountable, and alive.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>That's what structural integration looks like.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The Panel: Charting Better Courses Together</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>This is the frame I bring into panels, workshops, and rooms where people are trying to chart a better course together:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The Ultimate Question</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>What does AI reveal about who we are - and what are we going to do with that revelation?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The mirror shows us extraction or stewardship. Individual optimization or community flourishing. Quarterly thinking or seven-generation wisdom. Innovation theater or actual transformation.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The choice is ours.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Not avoiding AI. Not embracing it uncritically.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Steering with intention, wisdom, and collective accountability.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Join us:</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>WiT Regatta Panel:</strong> February 5, 12pm-1:30pm, Amazon YVR26 (The Post), 399 W Georgia St<strong>Vancouver AI Community:</strong> 250+ people monthly, <a href="https://vancouver.ai/">subscribe for updates</a><strong>Do this now:</strong> Document your values. Write for the bot. Your voice matters.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The people asking these questions are increasingly the people building these systems.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>That's how change happens.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><em>Kris Krug is a National Geographic photographer turned AI educator, founder of Vancouver AI and BC AI Ecosystem Association, and creator of The Upgrade certification program for creative professionals. He vibe codes daily, questions everything, and walks forward with both opportunities and concerns in his hands.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>My relationship with AI is non-consensual.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>That's not a hot take. That's just reality.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>AI came into my industry, photography, storytelling, creative work, and kicked the table over. I didn't get to choose whether to engage. The models are trained on work scraped without consent from millions of creators. My 130,000 Creative Commons images? Training data. Every photographer I know? Same story.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>And here's the thing: I'm more creative than I've ever been because of these tools.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Both things are true.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>KEY VIRAL QUOTES (From Panelist Call)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>"The word bias we've all said a hundred times is actually misogyny, homophobia, racism, sexism, transphobia, class war. When you name it for what it is, the conversation gets harder and more interesting."</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>? Use: Opening provocation, reframe from generic "bias" to specific discrimination</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>"Think WITH AI, not let AI think FOR you."</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>? Use: Practical principle, extremely shareable</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>THREE CORE THEMES (From Panelist Planning Call)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>THEME 1: AWARENESS - What Users Need to Know</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Training data reflects societal biases (AI is a mirror to society)Reinforcement learning: The more you interact, the more it agrees with youNAME THE BIASES SPECIFICALLY: racism, sexism, homophobia, transphobia, classism (not generic "bias")</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>THEME 2: SPEED VS. CRITICAL THINKING</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The real question: "What role does AI play vs. <a href="https://kriskrug.co/2026/07/28/no-one-knows-what-to-call-us-yet/">what role do YOU play</a>?"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Operational/repetitive tasks: AI can centerStrategic tasks where judgment matters: YOU center, AI assistsAnything involving humans (recruitment): Your judgment is CRITICAL</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>THEME 3: PRACTICAL TECHNIQUES</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Sonali's Multi-Tool Method:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Ask the same question to ChatGPT, <a href="https://claude.ai/">Claude</a>, and GeminiCompare outputs - where do they differ? Why?Synthesize yourself - don't just accept first answerThe differences reveal where biases lie. The synthesis is where YOUR judgment matters.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>REAL EXAMPLES FROM PANELIST CALL</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Fernanda's Image Generation Story:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Prompt: "Marketing professor" ? Harvard-blazer man, power pose</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Prompt: "Female teacher" ? Tiny Asian anime-style sexualized high school teacher</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Response: "Are you fucking kidding me?"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>? This is misogyny embedded in image generation systems, not abstract "bias"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>PANEL QUESTIONS (40-Minute Discussion)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Opening: "What's YOUR relationship with AI? Did you get to choose it?"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Core: "We keep saying 'bias.' But what are we actually talking about? Let's name it."</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Practical: "What techniques do you use right now to navigate AI's biases?"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Transition: "Who is steering: you, your values, or the algorithm wearing your face back at you? How do you know?"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Related</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://kriskrug.co/2026/01/24/both-hands-full/">Both Hands Full</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://kriskrug.co/?p=11876">The 75% Rule</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.sfu.ca/dialogue/what-we-do/initiatives/dot.html">SFU Dialogue on Technology Project</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://bc-ai.ca/certification/responsible-ai-professional/">Responsible AI Professional Certification</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->

@@ -1,0 +1,167 @@
+{
+  "id": 12350,
+  "date": "2026-06-23T10:13:48",
+  "date_gmt": "2026-06-23T18:13:48",
+  "guid": {
+    "rendered": "https://kriskrug.co/wp-content/uploads/2026/06/album-cover.jpg",
+    "raw": "https://kriskrug.co/wp-content/uploads/2026/06/album-cover.jpg"
+  },
+  "modified": "2026-08-01T18:23:19",
+  "modified_gmt": "2026-08-02T02:23:19",
+  "slug": "ethos-lab-youth-space-reimagined-5",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://kriskrug.co/ethos-lab-youth-space-reimagined-5/",
+  "title": {
+    "raw": "ethos lab youth space. reimagined. - 5",
+    "rendered": "ethos lab youth space. reimagined. &#8211; 5"
+  },
+  "author": 18,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://kriskrug.co/?attachment_id=12350",
+  "generated_slug": "ethos-lab-youth-space-reimagined-5",
+  "class_list": [
+    "post-12350",
+    "attachment",
+    "type-attachment",
+    "status-inherit",
+    "hentry"
+  ],
+  "description": {
+    "raw": "",
+    "rendered": "<p class=\"attachment\"><a href=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/06/album-cover.jpg?ssl=1\"><img data-recalc-dims=\"1\" loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"300\" src=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/06/album-cover.jpg?resize=300%2C300&#038;ssl=1\" class=\"attachment-medium size-medium\" alt=\"Block Party 2026 album cover, Eth&#7885;&#769;s Lab, in the underwater Atlantos house style\" srcset=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/06/album-cover.jpg?resize=300%2C300&amp;ssl=1 300w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/06/album-cover.jpg?resize=1024%2C1024&amp;ssl=1 1024w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/06/album-cover.jpg?resize=150%2C150&amp;ssl=1 150w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/06/album-cover.jpg?resize=768%2C768&amp;ssl=1 768w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/06/album-cover.jpg?w=1500&amp;ssl=1 1500w\" sizes=\"auto, (max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+    "raw": "",
+    "rendered": ""
+  },
+  "alt_text": "Block Party 2026 album cover, Eth&#7885;&#769;s Lab, in the underwater Atlantos house style",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+    "width": 1500,
+    "height": 1500,
+    "file": "2026/06/album-cover.jpg",
+    "filesize": 958496,
+    "sizes": {
+      "medium": {
+        "file": "album-cover-300x300.jpg",
+        "width": 300,
+        "height": 300,
+        "filesize": 35638,
+        "mime_type": "image/jpeg",
+        "source_url": "https://kriskrug.co/wp-content/uploads/2026/06/album-cover-300x300.jpg"
+      },
+      "large": {
+        "file": "album-cover-1024x1024.jpg",
+        "width": 1024,
+        "height": 1024,
+        "filesize": 254370,
+        "mime_type": "image/jpeg",
+        "source_url": "https://kriskrug.co/wp-content/uploads/2026/06/album-cover-1024x1024.jpg"
+      },
+      "thumbnail": {
+        "file": "album-cover-150x150.jpg",
+        "width": 150,
+        "height": 150,
+        "filesize": 10754,
+        "mime_type": "image/jpeg",
+        "source_url": "https://kriskrug.co/wp-content/uploads/2026/06/album-cover-150x150.jpg"
+      },
+      "medium_large": {
+        "file": "album-cover-768x768.jpg",
+        "width": 768,
+        "height": 768,
+        "filesize": 161737,
+        "mime_type": "image/jpeg",
+        "source_url": "https://kriskrug.co/wp-content/uploads/2026/06/album-cover-768x768.jpg"
+      },
+      "full": {
+        "file": "album-cover.jpg",
+        "width": 1500,
+        "height": 1500,
+        "mime_type": "image/jpeg",
+        "source_url": "https://kriskrug.co/wp-content/uploads/2026/06/album-cover.jpg"
+      }
+    },
+    "image_meta": {
+      "aperture": "0",
+      "credit": "Kris Kr\u00fcg",
+      "camera": "",
+      "caption": "",
+      "created_timestamp": "0",
+      "copyright": "",
+      "focal_length": "0",
+      "iso": "0",
+      "shutter_speed": "0",
+      "title": "ethos lab youth space. reimagined. - 5",
+      "orientation": "0",
+      "keywords": []
+    }
+  },
+  "post": null,
+  "source_url": "https://kriskrug.co/wp-content/uploads/2026/06/album-cover.jpg",
+  "missing_image_sizes": [],
+  "filename": "album-cover.jpg",
+  "filesize": 958496,
+  "exif_orientation": 1,
+  "_links": {
+    "self": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/media/12350",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/media"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/types/attachment"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/users/18"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/comments?post=12350"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/media/12350"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/media/12350"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

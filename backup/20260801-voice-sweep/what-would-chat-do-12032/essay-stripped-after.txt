@@ -1,0 +1,129 @@
+We keep asking “what would Chat do?” when we should be asking: Who is steering: you, your values, or the algorithm wearing your face back at you? 
+
+ Last night I was vibe coding in the bathtub (yes, that’s a real thing). Building an AI tool to help organize my coaching notes. Excited about the possibilities. Also keenly aware that the model I’m using was trained on data scraped without consent from millions of creators. 
+
+ I’m stoked about the opportunities AND I have real concerns. I walk forward with both in my hands at the same time. 
+
+ This isn’t contradiction. It’s reality. 
+
+ AI as Mirror (Not Tool) 
+
+ Here’s what most people miss: AI isn’t a tool. It’s a mirror. 
+
+ It shows you who you’ve been: your patterns, your biases, your blind spots. Then it amplifies them at planetary scale. The question isn’t “how do we use this better?” The question is: What do we do with what the mirror reveals? 
+
+ Look in that mirror right now. What do you see? 
+
+ If you train a hiring algorithm on 20 years of tech industry data, you’re training it on 20 years of gender imbalance. The system doesn’t see bias. It sees patterns. And it optimizes for those patterns. 
+
+ What makes this insidious: it feels objective. “The algorithm said so” carries weight that “my gut says so” doesn’t. That’s what I call bias laundering : discrimination that looks like math. 
+
+ Healthcare AI trained predominantly on male patient data misdiagnoses women. Financial systems use proxy variables (zip code, job title) that correlate with gender and race. Hiring tools perpetuate historical inequity while claiming neutrality. 
+
+ The mirror doesn’t lie. But you get to choose what you’re becoming. 
+
+ The Both/And Reality 
+
+ AI discourse wants you to pick a team: techno-optimist or doomer. 
+
+ I refuse. 
+
+ My relationship with AI is non-consensual. 
+
+ AI came into my industry, photography, storytelling, creative work, and kicked the table over. I didn’t get to choose whether to engage. The models are trained on work scraped without consent from millions of creators. My 130,000 Creative Commons images? Training data. Every photographer I know? Same story. 
+
+ And here’s the thing: I’m more creative than I’ve ever been because of these tools. 
+
+ Both things are true. 
+
+ I teach what I call the CASK Framework (credit to filmmaker Liz Marshall for the original concept): 
+
+ Curiosity : wonder and fascination. Don’t lose it. Awareness : know what’s actually happening (energy costs, water consumption, whose labor, whose data) Skepticism : not cynicism, but “show me the receipts” Caution : not every problem needs AI. Sometimes the responsible thing is to slow down. 
+
+ You can be fascinated by AI AND concerned about its impact. You can use these tools AND question who profits from them. 
+
+ You don’t collapse complexity into false certainty. You hold the tension and make decisions from there. 
+
+ The Five Questions That Reveal Bias 
+
+ When evaluating any AI system, ask: 
+
+ What data trained this? Who collected it? When? Who is represented? More importantly: who is MISSING? What proxy variables might encode protected characteristics? How is “success” defined? Who defined it? Who benefits? Who bears the risks? 
+
+ These aren’t technical questions. They’re values questions. 
+
+ First, don’t gaslight yourself. If something feels wrong, it probably is. Trust that instinct. 
+
+ Then document it. Share it. Your observation has value beyond your individual interaction. The more examples we surface, the harder it becomes for companies to claim these are edge cases. 
+
+ Writing for the Bot (The Urgent Part) 
+
+ Here’s what people don’t get: 
+
+ “If there are values you have which are not expressed yet in text, if they aren’t reflected online, then to the AI they basically don’t exist. And that is dangerously close to won’t exist.” 
+
+ Every transcript you publish. Every framework you articulate. Every conversation you document: that’s training data for future systems. 
+
+ Women’s perspectives? Indigenous wisdom? Creative methodologies? Ethical frameworks? 
+
+ If they’re not in the training data, they’re not in the AI’s understanding of the world. 
+
+ This reframes content creation. You’re not building personal brand. You’re architecting what future AI learns about human values. 
+
+ Your voice today shapes how AI understands humanity tomorrow. 
+
+ That’s not personal branding. That’s cultural transmission as technical responsibility. 
+
+ Seven-Generation Thinking (Not a Metaphor) 
+
+ Western AI asks: “How do we optimize this quarter?” 
+
+ Indigenous AI asks: “What’s the impact 200 years from now?” 
+
+ That’s not inspiration. That’s operational. 
+
+ In the Vancouver AI community I help run, every project answers: 
+
+ Data sovereignty: Who controls this? Who gave consent? Relationship: Does this strengthen community or fracture it? Interconnection: What breaks when we’re not looking? Stewardship: Are we extracting or creating conditions for flourishing? 
+
+ Carol Ann Hilton (Nuu-chah-nulth Nation, Indigenomics Institute) sits on our board with real voting power, not a diversity checkbox. Gabriel George (Tsleil-Waututh Nation Elder) opens every event with ceremony: 25+ events, foundational not performative. Peter Lucas Jones’s frameworks guide our partnerships, built into our bylaws. 
+
+ The result is not a magic-growth slide. It is people coming back month after month because the room feels useful, accountable, and alive. 
+
+ That’s what structural integration looks like. 
+
+ The Panel: Charting Better Courses Together 
+
+ This is the frame I bring into panels, workshops, and rooms where people are trying to chart a better course together: 
+
+ The Ultimate Question 
+
+ What does AI reveal about who we are? And what are we going to do with that revelation? 
+
+ The mirror shows us extraction or stewardship. Individual optimization or community flourishing. Quarterly thinking or seven-generation wisdom. Innovation theater or actual transformation. 
+
+ The choice is ours. 
+
+ Not avoiding AI. Not embracing it uncritically. 
+
+ Steering with intention, wisdom, and collective accountability. 
+
+ Join us: 
+
+ WiT Regatta Panel: February 5, 12pm-1:30pm, Amazon YVR26 (The Post), 399 W Georgia St Vancouver AI Community: 250+ people monthly, subscribe for updates Do this now: Document your values. Write for the bot. Your voice matters. 
+
+ The people asking these questions are increasingly the people building these systems. 
+
+ That’s how change happens. 
+
+ Kris Krüg is a National Geographic photographer turned AI educator, founder of Vancouver AI and BC AI Ecosystem Association, and creator of The Upgrade certification program for creative professionals. He vibe codes daily, questions everything, and walks forward with both opportunities and concerns in his hands. 
+
+ Related 
+
+ Both Hands Full 
+
+ The 75% Rule 
+
+ SFU Dialogue on Technology Project 
+
+ Responsible AI Professional Certification

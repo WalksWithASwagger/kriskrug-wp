@@ -1,0 +1,188 @@
+--- content.raw (live before)
++++ content.raw (proposed)
+@@ -25,3 +25,3 @@
+ <!-- wp:paragraph -->
+-<p>It shows you who you've been - your patterns, your biases, your blind spots - and amplifies them at planetary scale. The question isn't "how do we use this better?" The question is: <strong>What do we do with what the mirror reveals?</strong></p>
++<p>It shows you who you've been: your patterns, your biases, your blind spots. Then it amplifies them at planetary scale. The question isn't "how do we use this better?" The question is: <strong>What do we do with what the mirror reveals?</strong></p>
+ <!-- /wp:paragraph -->
+@@ -37,3 +37,3 @@
+ <!-- wp:paragraph -->
+-<p>What makes this insidious: it feels objective. "The algorithm said so" carries weight that "my gut says so" doesn't. That's what I call <strong>bias laundering</strong> - discrimination that looks like math.</p>
++<p>What makes this insidious: it feels objective. "The algorithm said so" carries weight that "my gut says so" doesn't. That's what I call <strong>bias laundering</strong>: discrimination that looks like math.</p>
+ <!-- /wp:paragraph -->
+@@ -61,2 +61,18 @@
+ <!-- wp:paragraph -->
++<p>My relationship with AI is non-consensual.</p>
++<!-- /wp:paragraph -->
++
++<!-- wp:paragraph -->
++<p>AI came into my industry, photography, storytelling, creative work, and kicked the table over. I didn't get to choose whether to engage. The models are trained on work scraped without consent from millions of creators. My 130,000 Creative Commons images? Training data. Every photographer I know? Same story.</p>
++<!-- /wp:paragraph -->
++
++<!-- wp:paragraph -->
++<p>And here's the thing: I'm more creative than I've ever been because of these tools.</p>
++<!-- /wp:paragraph -->
++
++<!-- wp:paragraph -->
++<p>Both things are true.</p>
++<!-- /wp:paragraph -->
++
++<!-- wp:paragraph -->
+ <p>I teach what I call the <strong>CASK Framework</strong> (credit to filmmaker Liz Marshall for the original concept):</p>
+@@ -65,3 +81,3 @@
+ <!-- wp:paragraph -->
+-<p><strong>Curiosity</strong> - Wonder and fascination. Don't lose it.<strong>Awareness</strong> - Know what's actually happening (energy costs, water consumption, whose labor, whose data)<strong>Skepticism</strong> - Not cynicism, but "show me the receipts"<strong>Caution</strong> - Not every problem needs AI. Sometimes the responsible thing is to slow down.</p>
++<p><strong>Curiosity</strong>: wonder and fascination. Don't lose it.<strong>Awareness</strong>: know what's actually happening (energy costs, water consumption, whose labor, whose data)<strong>Skepticism</strong>: not cynicism, but "show me the receipts"<strong>Caution</strong>: not every problem needs AI. Sometimes the responsible thing is to slow down.</p>
+ <!-- /wp:paragraph -->
+@@ -73,6 +89,2 @@
+ <!-- wp:paragraph -->
+-<p>I vibe code daily. I'm more creative than I've ever been. I also acknowledge these models are trained on stolen work without consent, and I know this threatens people's livelihoods.</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+ <p>You don't collapse complexity into false certainty. You hold the tension and make decisions from there.</p>
+@@ -89,3 +101,3 @@
+ <!-- wp:paragraph -->
+-<p><strong>What data trained this?</strong> Who collected it? When?<strong>Who is represented?</strong> More importantly - who is MISSING?<strong>What proxy variables</strong> might encode protected characteristics?<strong>How is "success" defined?</strong> Who defined it?<strong>Who benefits?</strong> Who bears the risks?</p>
++<p><strong>What data trained this?</strong> Who collected it? When?<strong>Who is represented?</strong> More importantly: who is MISSING?<strong>What proxy variables</strong> might encode protected characteristics?<strong>How is "success" defined?</strong> Who defined it?<strong>Who benefits?</strong> Who bears the risks?</p>
+ <!-- /wp:paragraph -->
+@@ -117,3 +129,3 @@
+ <!-- wp:paragraph -->
+-<p>Every transcript you publish. Every framework you articulate. Every conversation you document - that's training data for future systems.</p>
++<p>Every transcript you publish. Every framework you articulate. Every conversation you document: that's training data for future systems.</p>
+ <!-- /wp:paragraph -->
+@@ -165,3 +177,3 @@
+ <!-- wp:paragraph -->
+-<p>Carol Ann Hilton (Nuu-chah-nulth Nation, Indigenomics Institute) sits on our board with real voting power, not a diversity checkbox. Gabriel George (Tsleil-Waututh Nation Elder) opens every event with ceremony - 25+ events, 100% consistency, foundational not performative. Peter Lucas Jones's frameworks guide our partnerships, built into our bylaws.</p>
++<p>Carol Ann Hilton (Nuu-chah-nulth Nation, Indigenomics Institute) sits on our board with real voting power, not a diversity checkbox. Gabriel George (Tsleil-Waututh Nation Elder) opens every event with ceremony: 25+ events, foundational not performative. Peter Lucas Jones's frameworks guide our partnerships, built into our bylaws.</p>
+ <!-- /wp:paragraph -->
+@@ -189,3 +201,3 @@
+ <!-- wp:paragraph -->
+-<p>What does AI reveal about who we are - and what are we going to do with that revelation?</p>
++<p>What does AI reveal about who we are? And what are we going to do with that revelation?</p>
+ <!-- /wp:paragraph -->
+@@ -225,123 +237,3 @@
+ <!-- wp:paragraph -->
+-<p><em>Kris Krug is a National Geographic photographer turned AI educator, founder of Vancouver AI and BC AI Ecosystem Association, and creator of The Upgrade certification program for creative professionals. He vibe codes daily, questions everything, and walks forward with both opportunities and concerns in his hands.</em></p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>My relationship with AI is non-consensual.</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>That's not a hot take. That's just reality.</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>AI came into my industry, photography, storytelling, creative work, and kicked the table over. I didn't get to choose whether to engage. The models are trained on work scraped without consent from millions of creators. My 130,000 Creative Commons images? Training data. Every photographer I know? Same story.</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>And here's the thing: I'm more creative than I've ever been because of these tools.</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>Both things are true.</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>KEY VIRAL QUOTES (From Panelist Call)</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>"The word bias we've all said a hundred times is actually misogyny, homophobia, racism, sexism, transphobia, class war. When you name it for what it is, the conversation gets harder and more interesting."</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>? Use: Opening provocation, reframe from generic "bias" to specific discrimination</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>"Think WITH AI, not let AI think FOR you."</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>? Use: Practical principle, extremely shareable</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>THREE CORE THEMES (From Panelist Planning Call)</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>THEME 1: AWARENESS - What Users Need to Know</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>Training data reflects societal biases (AI is a mirror to society)Reinforcement learning: The more you interact, the more it agrees with youNAME THE BIASES SPECIFICALLY: racism, sexism, homophobia, transphobia, classism (not generic "bias")</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>THEME 2: SPEED VS. CRITICAL THINKING</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>The real question: "What role does AI play vs. <a href="https://kriskrug.co/2026/07/28/no-one-knows-what-to-call-us-yet/">what role do YOU play</a>?"</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>Operational/repetitive tasks: AI can centerStrategic tasks where judgment matters: YOU center, AI assistsAnything involving humans (recruitment): Your judgment is CRITICAL</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>THEME 3: PRACTICAL TECHNIQUES</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>Sonali's Multi-Tool Method:</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>Ask the same question to ChatGPT, <a href="https://claude.ai/">Claude</a>, and GeminiCompare outputs - where do they differ? Why?Synthesize yourself - don't just accept first answerThe differences reveal where biases lie. The synthesis is where YOUR judgment matters.</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>REAL EXAMPLES FROM PANELIST CALL</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>Fernanda's Image Generation Story:</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>Prompt: "Marketing professor" ? Harvard-blazer man, power pose</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>Prompt: "Female teacher" ? Tiny Asian anime-style sexualized high school teacher</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>Response: "Are you fucking kidding me?"</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>? This is misogyny embedded in image generation systems, not abstract "bias"</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>PANEL QUESTIONS (40-Minute Discussion)</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>Opening: "What's YOUR relationship with AI? Did you get to choose it?"</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>Core: "We keep saying 'bias.' But what are we actually talking about? Let's name it."</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>Practical: "What techniques do you use right now to navigate AI's biases?"</p>
+-<!-- /wp:paragraph -->
+-
+-<!-- wp:paragraph -->
+-<p>Transition: "Who is steering: you, your values, or the algorithm wearing your face back at you? How do you know?"</p>
++<p><em>Kris Krüg is a National Geographic photographer turned AI educator, founder of Vancouver AI and BC AI Ecosystem Association, and creator of The Upgrade certification program for creative professionals. He vibe codes daily, questions everything, and walks forward with both opportunities and concerns in his hands.</em></p>
+ <!-- /wp:paragraph -->

@@ -1,0 +1,500 @@
+<!-- wp:paragraph -->
+<p>Cohen White Paper Critique: BC+AI West Coast Alternative</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Subject:</strong> Strategic Analysis of Maxime C. Cohen's "State of AI in Canada" vs. BC + AI Community Model</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Executive Summary</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Maxime C. Cohen's white paper diagnoses Canada's AI crisis with academic rigor: talent drain (2/3 of software engineers leave), compute shortage (0.7% of global capacity), industrial adoption lag (12.2% vs. OECD average), and fragmented governance. His recommendations are policy-sound: build sovereign compute capacity, modernize tech transfer, establish a National AI Governance Council.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Yet Cohen operates within a traditional innovation paradigm, scale through capital investment and institutional coordination, that BC+AI's West Coast model fundamentally challenges. Cohen assumes Canada must race the U.S. on frontier models. BC+AI evidence suggests Canada leads differently: through Indigenous-grounded community stewardship that other nations want to replicate.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Strategic Reality:</strong> Cohen's framework is necessary but insufficient. His approach risks building better extraction without addressing the core tension between economic growth and community wellbeing. BC+AI's Indigenous-led framework prevents that extraction while positioning Canada as globally distinctive.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Section 1: Points of Strong Alignment</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Brain Drain Crisis (8/10 alignment)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Cohen documents the talent exodus with precision: compensation gap of 46% (US tech workers earn more), top PhD graduates fleeing within one year, Canadian universities unable to retain faculty facing U.S. offers of $300K-800K USD for senior AI engineers versus CAD $150K-300K domestically.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>BC+AI operates from the same diagnosis but attacks via different mechanism. Rather than salary competition (unwinnable against Silicon Valley), Vancouver AI grew from 80 to 250+ monthly participants in 21 months by embedding community identity, Indigenous ceremony (Gabriel George, Tsleil-Waututh Nation), and board representation (Carol Ann Hilton, Nuu-chah-nulth Nation). This suggests talent retention compounds through belonging, not just compensation.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>The Integration:</strong> Cohen's retention strategy (better pay, access to compute) is necessary. BC+AI's community stewardship is the force multiplier. Combined: competitive compensation <em>within</em> a distinctive cultural ecosystem.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Industrial Adoption Gap (9/10 alignment)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Cohen correctly identifies the SME adoption crisis: 12.2% adoption rate (among OECD lows), two-thirds of Canadian businesses with no AI plans in next 12 months, 99.8% of Canadian businesses are SMEs left behind by enterprise-focused solutions.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>BC+AI's emerging supplier ecosystem (Baseline, Genia) specifically targets SME execution, automating repetitive workflows without requiring data science expertise. But more importantly, Vancouver AI created a <em>practice community</em> where practitioners develop locally relevant use cases. This is adoption acceleration through proximity, not procurement reform.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>The Integration:</strong> Cohen proposes top-down solutions (modernize government procurement, reform tech transfer). BC+AI demonstrates bottom-up adoption pathways (community laboratories where SMEs see working examples). The policy levers work faster when community adoption has already created demand.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Section 2: Fundamental Divergences</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The Scale Paradigm (8/10 disagreement)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Cohen's entire framework rests on one assumption: <strong>Canada must compete at scale or face irrelevance.</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>He benchmarks Canada's 0.7% global compute capacity against the U.S. (74%), China (14%), and UAE (100+ billion in AI investment). His conclusion: Canada must make "multi-billion-dollar investments" in sovereign compute, venture capital scaling, and frontier model development to preserve global position.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>BC+AI's implicit challenge: <strong>Scale without stewardship amplifies extraction.</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Peter Lucas Jones (Haisla Nation, Time's 100 Most Influential in AI) articulates this through Indigenous data sovereignty, "Data extraction is colonialism in digital form." The question Cohen never asks: <em>Whose benefit? Who bears the cost?</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Amsterdam (5 million people, no sovereign compute) punches above its weight in AI by setting standards (not owning infrastructure). Canada's opportunity may not be racing the U.S. on frontier models but leading on <strong>responsible, community-grounded AI</strong>, which other nations actually want to replicate.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Real-World Test:</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>U.S. dominates frontier models (GPT, <a href="https://claude.ai/">Claude</a>) but faces recurring <a href="https://kriskrug.co/ai-ethics/">AI ethics</a> crisesEU leads on regulation (AI Act) but lags on innovationCanada positioned to pioneer: Research excellence + Responsible AI positioning + Indigenous leadershipVancouver AI's global recognition comes from <em>replicability</em> of the model, not from compute infrastructure</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Cohen's strategy risks: Building better extraction. BC+AI's framework prevents it.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The Extraction Problem (9/10 disagreement)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Cohen never addresses the core question: <strong>Who benefits from Canada's AI competitiveness?</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>His framework:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Assumes "raising Canadian GDP" benefits allTreats AI as neutral productivity toolDoesn't center Indigenous rights or community agencyProposes infrastructure (compute, capital, governance) without addressing value capture</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>BC+AI's operating principle: <strong>"Non-extractive economics", value stays in BC, not Silicon Valley.</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>This matters because Canada's historical pattern: Build research (universities capture prestige), build companies (VC captures returns), lose both to U.S. acquisition (Element AI to ServiceNow, Maluuba to Microsoft). Cohen documents this pattern but doesn't fundamentally address it.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Indigenous data sovereignty framework fills this gap: Communities must control their own data. AI trained on Indigenous knowledge requires consent and reciprocity. Current trajectory = digital colonialism.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>The Gap:</strong> Cohen's recommendations could strengthen Canadian AI while leaving Indigenous communities data-extracted and communities value-extracted. BC+AI's framework prevents that.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Regional Distinctiveness vs. National Centralization (6/10 disagreement)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Cohen proposes: "Unified national strategy that includes shared KPIs and cross-provincial coordination" with a "strong, active National AI Governance Council with real mandate and accountability."</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>BC+AI operates from an insider/outsider position: Direct government access (Innovate BC partnership, federal AI Minister connections) <em>and</em> freedom to critique, refusing top-down mandates. The voice profile captures this: "Insider/outsider is where I operate best."</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The disagreement isn't whether coordination matters (it does). It's <em>whether coordination must precede</em> regional success versus <em>whether regional success enables</em> coordination.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Cohen assumes: National framework ? regional implementation</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>BC+AI evidence: Regional momentum ? national network formation</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Vancouver AI didn't wait for national AI strategy to build. Five cities are now requesting the framework as replication model, creating de facto national network without formal governance.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Strategic Implication:</strong> Regional leaders set national pace (not vice versa). BC+AI's regional distinctiveness becomes Canada's national competitive advantage.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Section 3: Cohen's Blind Spots</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Indigenous Framework (Critical Gap)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Zero mention of Indigenous leadership, data sovereignty, or UNDRIP principles across the entire white paper. Yet:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>OCAP (Ownership, Control, Access, Possession) governance framework exists and directly addresses data sovereignty concernsPeter Lucas Jones's four pillars (Data Sovereignty, Relationship-Based Design, Seven-Generation Thinking, Interconnected Systems) directly solve problems Cohen identifiesIndigenous communities represent 5% of Canadian population but hold 30% of Canada's remaining natural resources and data rights</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>What Cohen Misses:</strong> If Canada embedded Indigenous principles in AI development, we'd be globally distinctive. Every technology is a choice about who controls data, who captures value, whose future we're building for.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Community Economics (Overlooked Model)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Cohen analyzes venture capital, corporate adoption, institutional coordination. He doesn't explore:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Cooperatives and community ownership modelsNon-profit infrastructure (Vancouver AI's proven scalability)Consortium approaches for SMEs (pooled investment, shared infrastructure)Revenue-sharing models that keep value local</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>What Cohen Misses:</strong> SMEs might organize differently if alternatives existed. Cooperative AI development (owned by users/workers, not distant VC) might solve adoption gap more sustainably than procurement reform.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Cultural Dimension (Invisible to Framework)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Cohen focuses on infrastructure (compute, capital, talent). He doesn't address:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>AI as mirror revealing who we are (Kris Krüg's insight)Ceremony and cultural grounding as innovationCommunity culture as retention force (Vancouver AI 212% growth without higher salaries)"Shipping culture, not content" as competitive advantage</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>What Cohen Misses:</strong> Distinctive competitive advantage comes from authenticity, not speed. Vancouver AI gets copied because communities see their values reflected. Silicon Valley doesn't.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Section 4: BC+AI Blind Spots (For Balance)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Scale Questions</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Vancouver AI thriving at 250 people. Canada has 40 million. How does intimate, ceremony-grounded community model scale without losing authenticity?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Gap:</strong> Replication pathway clear for cities of similar size/Indigenous population. Unclear for national scale. Cohen's centralized coordination actually solves this (though West Coast prefers network approach).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Research Infrastructure Needs</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Cohen correct: Foundation model research requires GPU access. Canada's 0.7% compute capacity is real constraint limiting research advancement.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Gap:</strong> BC+AI focused on adoption/community doesn't address where foundation models get trained. BC's clean energy makes sovereign compute infrastructure strategically sensible, but requires scale investment Cohen proposes.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Capital Sourcing Tension</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>BC+AI accepts corporate sponsorships (Microsoft, KPMG) while advocating "non-extractive economics." Tension between principle and pragmatism.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Gap:</strong> How to source growth capital without extractive logic? Cohen's growth funds suggestion (not just venture capital) potentially addresses this.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Section 5: Strategic Synthesis</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What Cohen's Framework Needs from BC+AI</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>1. Indigenous Framework Integration</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Embed Peter Lucas Jones's data sovereignty principles into national strategy. Effect: Canada distinctive by actually operationalizing responsible AI (not just publishing principles).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>2. Community-First Growth Model</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Recognize regional hubs (Vancouver, Montreal, Toronto) as drivers rather than expecting national coordination as prerequisite. Fund community infrastructure (meetups, local incubators, ceremony spaces) as economic development.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Effect: Cheaper talent retention (community belonging beats salary competition).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>3. Non-Extractive Economics</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>SME adoption pathways through cooperatives and community ownership. Indigenous communities benefit from AI development (not exploited by data extraction).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Effect: Sustainable, locally-grounded competitiveness.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What BC + AI Needs from Cohen</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>1. Research Infrastructure Investment: </strong>Sovereign compute capacity isn't extractive; it's research enabling. BC's clean energy + tech talent = legitimate competitive advantage for computing infrastructure.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>2. Policy Specificity: </strong>Tech transfer reform (university startups faster), procurement modernization (government as anchor customer), immigration pathways (talent retention support). Effect: <em>Community thrives when policy enables it.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>3. Growth Capital Strategy: </strong>Series B/C funding gap is real (Cohen's data). Government growth funds (not just venture capital) solve scale-up challenge without requiring extraction logic.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Section 6: West Coast Alternative Strategy</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Regional Distinctiveness as National Advantage</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Rather than racing U.S. on frontier compute, Canada leads through <em>regional specialization grounded in Indigenous values</em>:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>BC:</strong> Clean energy + Indigenous leadership + tech talent = Responsible AI infrastructure + Research advancement<strong>Montreal:</strong> Deep learning heritage + Responsible AI thought leadership + French ecosystem positioning<strong>Toronto:</strong> Venture capital concentration + Enterprise adoption maturity + Multinational presence<strong>Alberta:</strong> Energy systems AI + Conservation research + Indigenous consultation models<strong>Atlantic Canada:</strong> Marine/fisheries AI + Coastal resilience + First Nations partnerships</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Effect:</strong> Each region distinctive. National coherence through shared principles (Indigenous data sovereignty, seven-generation thinking, community stewardship), not through centralized mandates.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Competitive Advantage (Not Race)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Stop competing on U.S. game. Lead on global game:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Frontier models:</strong> U.S. wins (accept this, collaborate instead of race)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Responsible AI:</strong> Canada opportunity (Cohen acknowledges, BC+AI operationalizes)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Indigenous-led AI:</strong> Global leadership (no other nation positioned; replicable globally)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Regional distinctiveness:</strong> Competitive advantage (Amsterdam doesn't have GPU farms; it sets standards)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Effect:</strong> Canada distinctive, not derivative. Globally replicable model (Vancouver getting copied; Silicon Valley doesn't invite replication).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Recommendations for BC + AI Strategic Response</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">1. Frame as "We Agree on Diagnosis, Offer Different Cure"</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Cohen's brain drain, compute shortage, adoption gap, fragmented governance, all valid. Your innovation: Address these <em>through community stewardship + Indigenous leadership</em> rather than just capital/infrastructure. <strong>Positioning:</strong> <em>Not critique. Integration.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">2. Publish "West Coast Response to Cohen" Document</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Affirm: His diagnosis is rigorous and urgent ?Diverge: National centralization not only pathway; regional momentum sufficientPropose: Hybrid model, Cohen's infrastructure + BC+AI's cultureEvidence: Vancouver AI 212% growth, 5+ cities requesting replication</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Effect:</strong><em> Intellectual leadership positioning.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">3. Embed Indigenous Framework in Government Relations</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Active funding pursuits (Innovate BC, BC AI Institute) already positioned. Integrate: "Our competitive advantage is Indigenous-led responsible AI."</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Not charity. Strategic difference.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Effect:</strong> <em>Distinguish BC+AI from other regional players nationally.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">4. Engage Cohen Directly</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>His network (McGill, IVADO, Scale AI) spans Canada. Propose: His next analysis might feature regional models. Regional distinctiveness chapter in future white papers.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Effect:</strong> Intellectual integration at senior level.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Conclusion</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Cohen's white paper is institutionally necessary. It diagnoses Canada's AI competitiveness crisis with rigor and proposes policy solutions required for research infrastructure and national coordination.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>BC+AI's West Coast model is existentially important. It demonstrates that community-led, Indigenous-centered AI development creates distinctive competitive advantage (proven: 212% growth, global replication requests, authentic responsible AI).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Neither alone sufficient. Together, powerful.</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>If Canada built sovereign compute infrastructure (Cohen's call) <em>while grounding it</em> in Indigenous principles and community stewardship (BC+AI's call), we'd pioneer a model the world actually wants to replicate, instead of copying Silicon Valley's errors.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Currently, Cohen's recommendations risk building better extraction. BC+AI's framework prevents that and makes Canada's AI future sustainable and genuinely distinctive.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>The West Coast Contribution:</strong> Move from scale race to cultural leadership. That's the gap Cohen's framework leaves open, and where BC+AI adds irreplaceable value.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>References:</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Cohen, Maxime C. "The State of AI in Canada," Section 3.1, pp. 9-10; compensation data from DAIS and personal anecdotes cited</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>BC+AI Indigenous-Led AI Framework, Case Study section; Vancouver AI Community growth metrics, 2024-2025</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Cohen, Section 3.3, pp. 11; Statistics Canada AI adoption rates cited</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Cohen, Section 1.3, p. 4; Section 3.4.1, p. 11</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>BC+AI Indigenous-Led AI Framework, Peter Lucas Jones keynote synthesis, section on Data Sovereignty</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Cohen, Section 1.1, p. 2; "AI could add on order of several hundred billion dollars to Canada's GDP by 2035"</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>BC+AI Voice Profile and Worldview documentation; core principle of non-extractive economics</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Cohen, Section 3.2, p. 10; Element AI and Maluuba acquisitions documented</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Cohen, Section 3.5 (Fragmented National Coordination) and Executive Summary, p. 1-2</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>BC+AI Worldview document, "Insider/Outsider Positioning" section</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>BC+AI Indigenous-Led AI Framework, replication requests mentioned in Executive Summary</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Peter Lucas Jones keynote framework: Data Sovereignty, Relationship-Based Design, Seven-Generation Thinking, Interconnected Systems (all absent from Cohen analysis)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>KK Worldview: "AI as Mirror, Not Tool" - core philosophical difference</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Cohen, Section 3.2, pp. 10-11; funding gap documented across Series B and beyond for Canadian companies</p>
+<!-- /wp:paragraph -->
+
