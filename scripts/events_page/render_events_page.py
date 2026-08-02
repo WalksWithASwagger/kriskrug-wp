@@ -179,7 +179,7 @@ def render_compact_card(event: dict[str, Any], roots: dict[str, Path]) -> str:
 
 PAGE_SCOPED_CSS = """
 <style>
-  /* Dated event cards on /events/ — rich Upcoming + dense Past archive */
+  /* Dated event cards on /events/: rich Upcoming + dense Past archive */
   .aurora-events-page .aurora-proof-media--portrait img {
     aspect-ratio: 4 / 5;
     object-fit: cover;
@@ -315,7 +315,7 @@ def render_dynamic_block(
     <div class="aurora-section-heading">
       <p class="aurora-kicker">Upcoming</p>
       <h2 id="aurora-events-upcoming">On the calendar.</h2>
-      <p>Stages, festivals, and the next rooms — register and come say hi.</p>
+      <p>Stages, festivals, and the next rooms. Register and come say hi.</p>
     </div>
     <div class="aurora-proof-grid" data-events-grid="upcoming">
 {up_cards}

@@ -22,9 +22,9 @@ events:
     alt: Panelist social graphic for Brands for Better Foundation How Can We Help? Pitch Night featuring
       Kris Krüg, Tuesday September 8 at BCIT Tech Collider
   image_layout: portrait
-  blurb: Panelist for Brands for Better Foundation — connecting nonprofits with skilled professionals
+  blurb: 'Panelist for Brands for Better Foundation: connecting nonprofits with skilled professionals
     for skills-based volunteering. Bringing a BC + AI Ecosystem perspective on practical knowledge-sharing
-    and responsible tech in service of community.
+    and responsible tech in service of community.'
   label: Tuesday, Sept 8 · 6–9pm · BCIT Tech Collider
   tags:
   - Panelist
@@ -61,7 +61,7 @@ events:
   role: Host
   url: https://luma.com/sept-ai
   image: {}
-  blurb: Next Vancouver AI Community Meetup — Wednesday, September 30. Hosted monthly at the H.R. MacMillan
+  blurb: Next Vancouver AI Community Meetup on Wednesday, September 30. Hosted monthly at the H.R. MacMillan
     Space Centre.
   label: Wed, Sept 30 · Space Centre
   tags:
@@ -85,7 +85,7 @@ events:
     media_id: 12662
     url: https://kriskrug.co/wp-content/uploads/2026/08/futureproof-salmon-starfield-share-20260527.jpg
   image_layout: landscape
-  blurb: Inaugural Futureproof Festival at the H.R. MacMillan Space Centre — Oct 28–30, 2026. The rooms,
+  blurb: Inaugural Futureproof Festival at the H.R. MacMillan Space Centre, Oct 28–30, 2026. The rooms,
     screenings, and conversations BC + AI has been building toward.
   label: Oct 28–30 · H.R. MacMillan Space Centre
   tags:
@@ -148,8 +148,8 @@ events:
   role: Host & curator
   url: https://luma.com/vanai-may
   image: {}
-  blurb: May 2026 — Building the AI Commons
-  label: May 2026 — Building the AI Commons
+  blurb: 'May 2026: Building the AI Commons'
+  label: 'May 2026: Building the AI Commons'
   tags:
   - Meetup
   - Vancouver
@@ -169,8 +169,8 @@ events:
     alt: 'Vancouver AI Meetup #28'
     media_id: 12665
     url: https://kriskrug.co/wp-content/uploads/2026/08/9-6bf27e0d-957a-4c79-b2bf-90349fecbf45.jpg
-  blurb: April 2026 — AI Ethical Futures Lab
-  label: April 2026 — AI Ethical Futures Lab
+  blurb: 'April 2026: AI Ethical Futures Lab'
+  label: 'April 2026: AI Ethical Futures Lab'
   tags:
   - Meetup
   - Vancouver
@@ -203,8 +203,8 @@ events:
   role: Host & curator
   url: https://lu.ma/vancouver-ai
   image: {}
-  blurb: February 2026 — MAC Night
-  label: February 2026 — MAC Night
+  blurb: 'February 2026: MAC Night'
+  label: 'February 2026: MAC Night'
   tags:
   - Meetup
   - Vancouver
@@ -237,8 +237,8 @@ events:
   role: Host & curator
   url: https://luma.com/awards
   image: {}
-  blurb: December 2025 — Squatchie Awards
-  label: December 2025 — Squatchie Awards
+  blurb: 'December 2025: Squatchie Awards'
+  label: 'December 2025: Squatchie Awards'
   tags:
   - Meetup
   - Vancouver
@@ -271,8 +271,8 @@ events:
   role: Host & curator
   url: https://luma.com/vai22
   image: {}
-  blurb: October 2025 — Film Festival + Hackathon Finale
-  label: October 2025 — Film Festival + Hackathon Finale
+  blurb: 'October 2025: Film Festival + Hackathon Finale'
+  label: 'October 2025: Film Festival + Hackathon Finale'
   tags:
   - Meetup
   - Vancouver
@@ -364,8 +364,8 @@ events:
     alt: 'Vancouver AI Meetup #17'
     media_id: 12667
     url: https://kriskrug.co/wp-content/uploads/2026/08/surrey-ai-meetup-may-2025-027.jpg
-  blurb: May 2025 — Web Summit Edition
-  label: May 2025 — Web Summit Edition
+  blurb: 'May 2025: Web Summit Edition'
+  label: 'May 2025: Web Summit Edition'
   tags:
   - Meetup
   - Vancouver
@@ -436,8 +436,8 @@ events:
   role: Host & curator
   url: https://luma.com/VAI13
   image: {}
-  blurb: January 2025 — One Year Anniversary
-  label: January 2025 — One Year Anniversary
+  blurb: 'January 2025: One Year Anniversary'
+  label: 'January 2025: One Year Anniversary'
   tags:
   - Meetup
   - Vancouver
@@ -453,8 +453,8 @@ events:
   role: Host & curator
   url: https://luma.com/NeurIPS2024
   image: {}
-  blurb: December 2024 — NeurIPS Edition
-  label: December 2024 — NeurIPS Edition
+  blurb: 'December 2024: NeurIPS Edition'
+  label: 'December 2024: NeurIPS Edition'
   tags:
   - Meetup
   - Vancouver
@@ -491,7 +491,7 @@ events:
   role: Host & curator
   url: https://luma.com/letsgo
   image: {}
-  blurb: October 2024 — hero owned by meetup-editions.yaml harvest when available
+  blurb: 'October 2024: hero owned by meetup-editions.yaml harvest when available'
   label: October 2024
   tags:
   - Meetup
@@ -499,7 +499,7 @@ events:
   status: confirmed
   cta_past: Recap / Luma
 - id: creativemornings-perils-parallels-2026
-  title: CreativeMornings — Perils & Parallels
+  title: 'CreativeMornings: Perils & Parallels'
   date: '2026-05-01'
   end: '2026-05-01T12:00:00-07:00'
   kind: one-off
@@ -509,7 +509,11 @@ events:
   label: May 1, 2026 · Vancouver
   status: confirmed
   bucket_hint: past
-  image: {}
+  image:
+    path: repo:content/source-packs/keynotes-2026/assets/punk-rock-ai-creative-mornings.jpg
+    media_id: 12711
+    url: https://kriskrug.co/wp-content/uploads/2026/08/punk-rock-ai-creative-mornings.jpg
+    alt: Kris Krüg speaking at CreativeMornings Vancouver in front of a Stop Saying Bias slide
   tags:
   - Speaker
   cta_past: Details
@@ -520,11 +524,15 @@ events:
   kind: one-off
   role: Keynote
   url: /speaking/
-  blurb: Opening keynote — keeping our souls intact when the machines get really good at making everything.
+  blurb: 'Opening keynote: keeping our souls intact when the machines get really good at making everything.'
   label: Feb 2026 · São Paulo · Keynote
   status: confirmed
   bucket_hint: past
-  image: {}
+  image:
+    path: repo:content/source-packs/keynotes-2026/assets/press-2026-02-09-tela-viva-context-v2.jpg
+    media_id: 12712
+    url: https://kriskrug.co/wp-content/uploads/2026/08/press-2026-02-09-tela-viva-context-v2-1.jpg
+    alt: Tela Viva press coverage of WAIFF 2026, the World AI Film Festival in Brazil
   tags:
   - Keynote
   cta_past: Details
@@ -539,7 +547,11 @@ events:
   label: Jan 2026 · Vancouver · Keynote
   status: confirmed
   bucket_hint: past
-  image: {}
+  image:
+    path: repo:content/source-packs/keynotes-2026/video-research/thumbnails/lasalle-college-graduation.jpg
+    media_id: 12713
+    url: https://kriskrug.co/wp-content/uploads/2026/08/lasalle-college-graduation.jpg
+    alt: Kris Krüg on stage at LaSalle College Vancouver asking what you would never give up to AI
   tags:
   - Keynote
   cta_past: Details
@@ -550,11 +562,15 @@ events:
   kind: one-off
   role: Keynote
   url: https://www.youtube.com/watch?v=1OcC-0X6Nb8
-  blurb: 'The future of humanity: chaos & creativity — ending in a live on-stage AI synthesis.'
+  blurb: 'The future of humanity: chaos & creativity, ending in a live on-stage AI synthesis.'
   label: June 2025 · Conference · Keynote
   status: confirmed
   bucket_hint: past
-  image: {}
+  image:
+    path: repo:content/source-packs/keynotes-2026/video-research/thumbnails/channel-next.jpg
+    media_id: 12714
+    url: https://kriskrug.co/wp-content/uploads/2026/08/channel-next.jpg
+    alt: 'ChannelNext keynote video thumbnail: Krüg on AI and who owns the future'
   tags:
   - Keynote
   cta_past: Details
@@ -565,11 +581,15 @@ events:
   kind: one-off
   role: Speaker
   url: https://www.youtube.com/watch?v=-XEsqsEbpoo
-  blurb: Inside Vancouver's AI Boom — building AI culture that's practical, ethical, and alive.
+  blurb: Inside Vancouver's AI Boom, building AI culture that's practical, ethical, and alive.
   label: Jan 2025 · Whistler
   status: confirmed
   bucket_hint: past
-  image: {}
+  image:
+    path: repo:content/source-packs/keynotes-2026/video-research/thumbnails/whistler-institute.jpg
+    media_id: 12715
+    url: https://kriskrug.co/wp-content/uploads/2026/08/whistler-institute.jpg
+    alt: 'Whistler Institute talk video thumbnail: Building the Creative Technology Future'
   tags:
   - Speaker
   cta_past: Details
@@ -729,4 +749,422 @@ events:
   - Vancouver
   status: scaffold
   cta_past: Recap / Luma
+  image: {}
+- id: innovate-west-keynote-2024
+  title: Innovate West
+  date: '2024-04-20'
+  bucket_hint: past
+  kind: one-off
+  role: Keynote
+  url: https://kriskrug.co/2024/04/20/ai-mindset-keynote-at-innovate-west-2024-in-vancouver/
+  blurb: 'Developing an AI Mindset: the Innovate West 2024 keynote that spawned the AI Mindset microsite
+    and workshop series.'
+  label: April 2024 (day approx) · Vancouver · Keynote
+  tags:
+  - Keynote
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: yorkton-film-festival-panel-2024
+  title: Yorkton Film Festival
+  date: '2024-05-24'
+  end: '2024-05-24T14:45:00-06:00'
+  bucket_hint: past
+  kind: one-off
+  role: Panelist
+  url: https://kriskrug.co/2024/05/25/ai-in-filmmaking-at-the-yorkton-film-festival/
+  blurb: 'Unlocking the Cinematic Future: AI-in-filmmaking panel at Canada''s longest-running film festival,
+    with a live demo of the 7-language voice clone.'
+  label: May 24, 2024 · Yorkton, SK · Panel
+  tags:
+  - Panelist
+  - Film
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: bcama-vision-conference-panel-2024
+  title: BCAMA Vision Conference
+  date: '2024-05-27'
+  bucket_hint: past
+  kind: one-off
+  role: Moderator
+  url: https://kriskrug.co/2024/05/27/unpacking-ai-ethics-at-american-marketing-associationvisionconf2024/
+  blurb: Moderated the AI ethics panel at BCAMA's Vision Conference 2024, with panelists from Google AI,
+    NamasteData, Hootsuite, and PowerShifter.
+  label: May 2024 (day approx) · Vancouver · Moderator
+  tags:
+  - Moderator
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: enya-liftoff-keynote-2024
+  title: ENYA Liftoff
+  date: '2024-09-11'
+  bucket_hint: past
+  kind: one-off
+  role: Keynote
+  url: https://kriskrug.co/2024/09/11/the-human-algorithm-enya-learning-keynote/
+  blurb: 'The Human Algorithm: keynote for Enya Learning''s Liftoff event at the Morris J. Wosk Centre
+    for Dialogue.'
+  label: Sept 2024 (day approx) · Wosk Centre, Vancouver · Keynote
+  tags:
+  - Keynote
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: adplist-fireside-2024
+  title: ADPList Vancouver Fireside
+  date: '2024-11-22'
+  end: '2024-11-22T21:00:00-08:00'
+  bucket_hint: past
+  kind: one-off
+  role: Fireside guest
+  url: https://lu.ma/ai-chat
+  blurb: Featured fireside guest for AI in Action for Today and Tomorrow, an evening with Vancouver's
+    design and tech community. 109 people came out.
+  label: Nov 22, 2024 · Vancouver · Fireside
+  tags:
+  - Fireside
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: dot-summit-autoloom-2024
+  title: Dialogue on Technology (DoT) Summit
+  date: '2024-12-04'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://kriskrug.beehiiv.com/p/vancouver-ai-revolution
+  blurb: Presented the AutoLoom cybernetic post-photography portraiture project, built with SFU's MetaCreation
+    Lab and Lionel Ringenbach, at the DoT summit at the Wosk Centre for Dialogue.
+  label: Dec 2024 (day approx) · Wosk Centre, Vancouver · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2025-10-24-munda-mennuie-residency
+  title: Munda M'ennuie Residency
+  date: '2025-10-24'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://luma.com/arthurkuhn
+  blurb: Hosted Arthur Kuhn's Munda M'ennuie residency talk and live noise intervention under the Vancouver
+    AI banner.
+  label: Oct 2025 · Vancouver · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2025-10-22-dama-day-ai-for-nonprofits-keynote
+  title: 'DAMA Day Vancouver: AI for Non-Profits'
+  date: '2025-10-22'
+  bucket_hint: past
+  kind: one-off
+  role: Keynote
+  url: https://damavancouverbcchapter.wildapricot.org/
+  blurb: 'Opening keynote with Sev Geraskin at the 4th annual DAMA Day, a one-day conference for BC non-profits
+    navigating AI, run with Data for Good Vancouver at the Deloitte Summit building: two years of BC +
+    AI community growth and what it gives back.'
+  label: Oct 2025 · Deloitte Summit · Keynote
+  tags:
+  - Keynote
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2025-09-02-amd-media-copilot-workshop
+  title: AMD Media CoPilot AI Workshop
+  date: '2025-09-02'
+  bucket_hint: past
+  kind: one-off
+  role: Workshop lead
+  blurb: Led a virtual AI workshop for AMD's global communications team, delivered with The Media Copilot's
+    crew of veteran journalists. Private corporate engagement, no public listing.
+  label: Sept 2025 · Virtual · Workshop
+  tags:
+  - Workshop
+  - Virtual
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2025-09-01-ea-creative-innovation-keynote
+  title: Electronic Arts Creative Innovation Keynote
+  date: '2025-09-01'
+  bucket_hint: past
+  kind: one-off
+  role: Keynote
+  blurb: 'Ninety minutes with about 50 senior Electronic Arts executives on AI as Mirror: AI tools, hackathons
+    as catalysts, and training models on your own creative assets. September 2025, exact day approximate.'
+  label: Sept 2025 · EA HQ Burnaby · Keynote
+  tags:
+  - Keynote
+  - Burnaby
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2025-08-10-calm-before-storm-siggraph
+  title: 'Calm Before the Storm #SIGGRAPH'
+  date: '2025-08-10'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://luma.com/siggraph2025
+  blurb: Locals-and-visitors social at the Alibi Room ahead of SIGGRAPH 2025 Vancouver.
+  label: Aug 2025 · Alibi Room · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2025-07-11-bass-coast-brain-stage
+  title: 'Bass Coast Brain Stage: Dear AI'
+  date: '2025-07-11'
+  bucket_hint: past
+  kind: one-off
+  role: Workshop lead
+  url: https://www.youtube.com/watch?v=owtSPcpRinI
+  blurb: 'Brain Stage workshop at Bass Coast 2025 in Merritt: Dear AI, Before We Go Any Further... We
+    Need To Talk About Your Soul. Festival ran July 11 to 14; talk video is on YouTube.'
+  label: July 2025 · Bass Coast, Merritt · Workshop
+  tags:
+  - Workshop
+  - Festival
+  status: confirmed
+  cta_past: Watch the talk
+  image:
+    path: repo:scripts/events_page/heroes/one-offs-2025/2025-07-11-bass-coast-brain-stage-youtube.jpg
+    alt: Kris Krug speaking on the Bass Coast Brain Stage, Synthetic Consciousness / Dear AI talk thumbnail
+    media_id: 12716
+    url: https://kriskrug.co/wp-content/uploads/2026/08/2025-07-11-bass-coast-brain-stage-youtube.jpg
+- id: 2025-05-27-web-summit-indigenomics-ai
+  title: 'Web Summit: Indigenomics AI'
+  date: '2025-05-27'
+  bucket_hint: past
+  kind: one-off
+  role: Panelist
+  url: https://vancouver.websummit.com/
+  blurb: Presented Indigenomics AI, the platform mapping Indigenous economic intelligence, on stage at
+    Web Summit Vancouver 2025 with Carol Anne Hilton. Summit ran May 27 to 30; exact session day unpinned.
+  label: May 2025 · Web Summit Vancouver · Panelist
+  tags:
+  - Panelist
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2025-05-25-calm-before-storm-websummit
+  title: 'Calm Before the Storm: Web Summit'
+  date: '2025-05-25'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://luma.com/LocalsOnly
+  blurb: Locals-only pre-party at the Alibi Room before Web Summit Vancouver 2025 hit town. Precursor
+    to the TED-week salon format.
+  label: May 2025 · Alibi Room · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2025-05-06-bc-ai-ecosystem-launch
+  title: BC + AI Ecosystem Launch Session
+  date: '2025-05-06'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://luma.com/BCai
+  blurb: 'Hosted the launch session as BC + AI Ecosystem went live: Canada''s first grassroots AI industry
+    association.'
+  label: May 2025 · Zoom · Host
+  tags:
+  - Host
+  - Virtual
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2025-04-09-ted2025-community-meetup
+  title: TED2025 Community Meetup
+  date: '2025-04-09'
+  end: '2025-04-09T20:00:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://web.archive.org/web/20250324140102/https://lu.ma/TED-Vancouver
+  blurb: TED-week community meetup with co-host Sean Cranbury, presented by Future Proof Creatives while
+    TED2025 ran across town. Original Luma page is gone; link goes to the Wayback capture.
+  label: Apr 2025 · Vancouver · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2025-03-20-data-storytelling-hackathon
+  title: Data Storytelling Hackathon
+  date: '2025-03-20'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://kriskrug.co/2025/03/20/is-a-hotdog-a-sandwich-vancouver-aidata-storytelling-hackathon-w-andrew-reid/
+  blurb: 'Vancouver AI data storytelling hackathon with Andrew Reid, asking the big one: is a hotdog a
+    sandwich? Dated from the March 2025 announce and recap posts; exact event day approximate.'
+  label: Mar 2025 · Vancouver · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2025-02-05-thinking-game-premiere
+  title: The Thinking Game Premiere
+  date: '2025-02-05'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://luma.com/thinking
+  blurb: Vancouver premiere of the DeepMind documentary The Thinking Game, around 500 guests, with a post-screening
+    conversation with Dr. Mikhail Klassen.
+  label: Feb 2025 · Vancouver · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2026-07-09-sfu-ai-panel
+  title: SFU AI panel
+  date: '2026-07-09'
+  end: '2026-07-09T21:00:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Panelist
+  blurb: Panel conversation on AI at Simon Fraser University.
+  label: July 2026 · SFU · Panelist
+  tags:
+  - Panelist
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2026-07-09-bc-ai-film-club-july-idea-lab
+  title: 'BC + AI Film Club July: Idea Lab'
+  date: '2026-07-09'
+  end: '2026-07-09T22:00:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  url: https://luma.com/summertime
+  blurb: July idea lab at the Multimodal Media Lab. Community pitches and sticker votes on future monthly
+    formats and Futureproof Festival activations.
+  label: July 2026 · Multimodal Media Lab · Host
+  tags:
+  - Host
+  - Film Club
+  - Vancouver
+  status: confirmed
+  cta_past: Luma
+  image: {}
+- id: 2026-07-08-ai-ethical-futures-lab-morten
+  title: AI Ethical Futures Lab w/ Morten Rand-Hendriksen
+  date: '2026-07-08'
+  end: '2026-07-08T21:00:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  blurb: Hosted an AI Ethical Futures Lab session with Morten Rand-Hendriksen, LinkedIn Learning instructor.
+  label: July 2026 · Vancouver · Host
+  tags:
+  - Host
+  - AI Ethics
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2026-04-12-yvr-ai-welcome-salon-ted2026
+  title: YVR AI Welcome Salon (TED2026 week)
+  date: '2026-04-12'
+  end: '2026-04-12T19:30:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Host
+  blurb: Welcome salon at the Alibi Room in Gastown for AI folks in town during TED2026 week. TED-adjacent,
+    not TED-affiliated.
+  label: April 2026 · Alibi Room, Gastown · Host
+  tags:
+  - Host
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2026-04-01-global-ai-summit-vancouver-panel
+  title: Global AI Summit Vancouver panel
+  date: '2026-04-01'
+  end: '2026-04-01T11:50:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Moderator
+  blurb: 'Moderated the panel "Who Shapes the AI Future: Markets, Policy, or Culture?" at UBC Robson Square.'
+  label: April 2026 · UBC Robson Square · Moderator
+  tags:
+  - Moderator
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2026-03-31-sea-to-sky-gondola-ai-ethics-workshop
+  title: Sea to Sky Gondola AI-ethics workshop
+  date: '2026-03-31'
+  end: '2026-03-31T11:50:00-07:00'
+  bucket_hint: past
+  kind: one-off
+  role: Workshop lead
+  blurb: Staff workshop on AI ethics and responsible use at the Summit Lodge in Squamish.
+  label: March 2026 · Squamish · Workshop lead
+  tags:
+  - Workshop
+  - Squamish
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2026-02-01-vibe-working-workshop
+  title: Vibe Working Workshop
+  date: '2026-02-01'
+  end: '2026-02-01T21:00:00-08:00'
+  bucket_hint: past
+  kind: one-off
+  role: Workshop lead
+  blurb: 'Hands-on Vancouver AI workshop on vibe working: AI-assisted work practices and workflows.'
+  label: Feb 2026 · Vancouver · Workshop lead
+  tags:
+  - Workshop
+  - Vancouver
+  status: confirmed
+  cta_past: Details
+  image: {}
+- id: 2026-01-31-first-tech-challenge-think-award
+  title: 'FIRST Tech Challenge: Think Award'
+  date: '2026-01-31'
+  end: '2026-01-31T21:00:00-08:00'
+  bucket_hint: past
+  kind: one-off
+  role: Judge
+  blurb: Think Award judge at a FIRST Tech Challenge robotics qualifier at Port Moody Secondary.
+  label: Jan 2026 · Port Moody · Judge
+  tags:
+  - Judge
+  - STEM
+  status: confirmed
+  cta_past: Details
   image: {}
