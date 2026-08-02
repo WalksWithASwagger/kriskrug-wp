@@ -1,6 +1,10 @@
 schema_version: 1
 source: kk-kb content/projects/01-vancouver-ai-community/meetups/EDITION-HERO-INDEX.yaml
 generated_at: '2026-08-01T16:27:43Z'
+polish_note: 'Issue #591 2026-08-01: title enrichments on #12/#17/#22; hero_hint backfill
+  for all 23 heroless editions (14 luma-og, 9 missing-no-source with no kk-kb photos
+  and no Luma URL on file); Sep 30 upcoming merge row appended, not counted as a past
+  edition'
 series: Vancouver AI Community Meetup
 numbering_note: 'Editions #1–#31 use anniversary-anchored numbering locked to #13
   = 2025-01-29 and #31 = 2026-07-29 (May=#29 → June=#30 → July=#31). Older archive
@@ -10,6 +14,9 @@ coverage:
   with_local_hero: 8
   hero_coverage_pct: 25.8
   with_luma_url: 21
+  hero_hint_luma_og: 14
+  hero_hint_missing_no_source: 9
+  upcoming_merge_rows: 1
 editions:
 - edition: 1
   date: '2024-01-31'
@@ -17,6 +24,7 @@ editions:
   luma_url: null
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: missing-no-source
   photographer_credit: null
   archive_folder: null
   date_confidence: approximate
@@ -27,6 +35,7 @@ editions:
   luma_url: null
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: missing-no-source
   photographer_credit: null
   archive_folder: 2024/02-february
   date_confidence: approximate
@@ -37,6 +46,7 @@ editions:
   luma_url: null
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: missing-no-source
   photographer_credit: null
   archive_folder: 2024/03-march
   date_confidence: approximate
@@ -57,6 +67,7 @@ editions:
   luma_url: null
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: missing-no-source
   photographer_credit: null
   archive_folder: null
   date_confidence: approximate
@@ -67,6 +78,7 @@ editions:
   luma_url: null
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: missing-no-source
   photographer_credit: null
   archive_folder: 2024/06-june
   date_confidence: approximate
@@ -77,6 +89,7 @@ editions:
   luma_url: null
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: missing-no-source
   photographer_credit: null
   archive_folder: null
   date_confidence: approximate
@@ -87,6 +100,7 @@ editions:
   luma_url: null
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: missing-no-source
   photographer_credit: null
   archive_folder: 2024/08-august
   date_confidence: soft
@@ -97,6 +111,7 @@ editions:
   luma_url: null
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: missing-no-source
   photographer_credit: null
   archive_folder: 2024/09-september
   date_confidence: soft
@@ -107,6 +122,7 @@ editions:
   luma_url: https://luma.com/letsgo
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: 2024/10-october
   date_confidence: luma_ledger
@@ -123,10 +139,11 @@ editions:
   notes: Local night photos present
 - edition: 12
   date: '2024-12-15'
-  title: 'Vancouver AI Meetup #12 (NeurIPS)'
+  title: 'Vancouver AI Meetup #12 (#NeurIPS special edition)'
   luma_url: https://luma.com/NeurIPS2024
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: 2024/12-december
   date_confidence: luma_ledger
@@ -137,6 +154,7 @@ editions:
   luma_url: https://luma.com/VAI13
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: 2025/01-january
   date_confidence: documented
@@ -157,6 +175,7 @@ editions:
   luma_url: https://luma.com/VAI15
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: 2025/03-march
   date_confidence: luma_ledger
@@ -167,13 +186,14 @@ editions:
   luma_url: https://luma.com/VAI16
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: null
   date_confidence: luma_ledger
   notes: April 2025 archive folder missing
 - edition: 17
   date: '2025-05-28'
-  title: 'Vancouver AI Meetup #17'
+  title: 'Vancouver AI Meetup #17 (#WebSummit special edition)'
   luma_url: https://luma.com/websummit-vancouver
   hero_image_kk_kb: content/projects/01-vancouver-ai-community/meetups/2025/05-may/photos/surrey-ai-meetup-may-2025-027.jpg
   hero_kind: night_photo
@@ -198,6 +218,7 @@ editions:
   luma_url: https://luma.com/julio
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: 2025/07-july
   date_confidence: documented
@@ -208,6 +229,7 @@ editions:
   luma_url: https://luma.com/vai20
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: 2025/08-august
   date_confidence: documented
@@ -218,16 +240,18 @@ editions:
   luma_url: https://luma.com/vai21
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: 2025/09-september
   date_confidence: documented
   notes: Manuel Axelstrain keynote
 - edition: 22
   date: '2025-10-29'
-  title: 'Vancouver AI Meetup #22'
+  title: 'Vancouver AI Meetup #22 (First Annual BC + AI Film Festival)'
   luma_url: https://luma.com/vai22
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: 2025/10-october
   date_confidence: documented
@@ -238,6 +262,7 @@ editions:
   luma_url: https://luma.com/vai23
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: 2025/11-november
   date_confidence: luma_ledger
@@ -248,6 +273,7 @@ editions:
   luma_url: https://luma.com/awards
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: 2025/12-december
   date_confidence: luma_ledger
@@ -258,6 +284,7 @@ editions:
   luma_url: https://luma.com/liftoff
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: 2026/01-january
   date_confidence: documented
@@ -268,6 +295,7 @@ editions:
   luma_url: https://luma.com/deepdive
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: 2026/02-february
   date_confidence: documented
@@ -278,6 +306,7 @@ editions:
   luma_url: null
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: missing-no-source
   photographer_credit: null
   archive_folder: 2026/03-march
   date_confidence: folder_docs
@@ -298,6 +327,7 @@ editions:
   luma_url: https://luma.com/vanai-may
   hero_image_kk_kb: null
   hero_kind: missing
+  hero_hint: luma-og
   photographer_credit: null
   archive_folder: 2026/05-may
   date_confidence: documented
@@ -324,3 +354,10 @@ editions:
   date_confidence: documented
   notes: 'Ledger lock #31; on-stage #32 slip. Carousel night photos are Michelle Diamond
     June 2025 BBQ set used for July promo'
+- id: vancouver-ai-meetup-2026-09-30
+  kind: meetup
+  bucket_hint: upcoming
+  url: https://luma.com/sept-ai
+  hero_hint: luma-og
+  notes: Upcoming merge row, not a past edition; id matches the events-catalog.yaml
+    row so the hero hint merges at render time. Past edition count stays 31.
