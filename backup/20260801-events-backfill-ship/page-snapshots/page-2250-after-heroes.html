@@ -1,0 +1,885 @@
+
+<div class="aurora-events-page">
+  <section class="aurora-speaking-hero" aria-labelledby="aurora-events-title">
+    <div class="aurora-speaking-hero-copy">
+      <p class="aurora-kicker">Events I build, host &amp; speak at</p>
+      <h2 id="aurora-events-title">I don&#8217;t just attend the AI conversation. I host the room.</h2>
+      <p>From a monthly Vancouver meetup to film-club screenings, weekly office hours, and keynote stages from São Paulo to Whistler. These are the rooms where BC&#8217;s AI community actually shows up, argues, makes things, and leaves braver. Most run on Luma; come find the next one.</p>
+      <div class="aurora-action-row">
+        <a class="aurora-button aurora-button-primary" href="https://lu.ma/vancouver-ai">Follow on Luma</a>
+        <a class="aurora-button aurora-button-secondary" href="/speaking/">Book Kris to speak</a>
+      </div>
+    </div>
+  </section>
+
+
+<!-- EVENTS_DYNAMIC_START -->
+
+<style>
+  /* Dated event cards on /events/: rich Upcoming + dense Past archive */
+  .aurora-events-page .aurora-proof-media--portrait img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .aurora-events-page [data-events-bucket][data-events-empty="true"] {
+    display: none;
+  }
+  .aurora-events-page .aurora-event-cta-past {
+    display: none;
+  }
+  .aurora-events-page [data-events-grid="past"] .aurora-event-cta-upcoming {
+    display: none;
+  }
+  .aurora-events-page [data-events-grid="past"] .aurora-event-cta-past {
+    display: flex;
+  }
+  .aurora-events-page .aurora-event-status-note {
+    font-size: 0.9em;
+    opacity: 0.8;
+  }
+
+  /* Past archive: dense 3 / 2 / 1 grid */
+  .aurora-events-page [data-events-grid="past"] {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem 1rem;
+  }
+  @media (max-width: 900px) {
+    .aurora-events-page [data-events-grid="past"] {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 560px) {
+    .aurora-events-page [data-events-grid="past"] {
+      grid-template-columns: 1fr;
+    }
+  }
+  .aurora-events-page .aurora-event-card--compact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin: 0;
+  }
+  .aurora-events-page .aurora-event-compact-media {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.04);
+  }
+  .aurora-events-page .aurora-event-compact-media img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: center;
+  }
+  .aurora-events-page .aurora-event-compact-media--empty {
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(135deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+  }
+  .aurora-events-page .aurora-event-compact-body h3 {
+    font-size: 1.05rem;
+    margin: 0.15rem 0 0.35rem;
+    line-height: 1.25;
+  }
+  .aurora-events-page .aurora-event-compact-link {
+    font-size: 0.9rem;
+  }
+
+  /* Upcoming stays on the existing proof-grid / rich module rhythm */
+  .aurora-events-page [data-events-grid="upcoming"] .aurora-event-card--rich {
+    /* inherits .aurora-proof-module */
+  }
+</style>
+
+
+  <section class="aurora-proof-section" aria-labelledby="aurora-events-upcoming" data-events-bucket="upcoming" data-events-empty="false">
+    <div class="aurora-section-heading">
+      <p class="aurora-kicker">Upcoming</p>
+      <h2 id="aurora-events-upcoming">On the calendar.</h2>
+      <p>Stages, festivals, and the next rooms. Register and come say hi.</p>
+    </div>
+    <div class="aurora-proof-grid" data-events-grid="upcoming">
+      <article class="aurora-proof-module aurora-event-card aurora-event-card--rich" data-event-end="2026-09-08T21:00:00-07:00" data-event-id="how-can-we-help-pitch-night-2026">
+        <figure class="aurora-proof-media aurora-proof-media--portrait">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/2026-09-08-how-can-we-help-pitch-night-social-promo.jpg?ssl=1" alt="Panelist social graphic for Brands for Better Foundation How Can We Help? Pitch Night featuring Kris Krüg, Tuesday September 8 at BCIT Tech Collider" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-proof-body">
+          <p class="aurora-card-label">Tuesday, Sept 8 · 6–9pm · BCIT Tech Collider</p>
+          <h3>How Can We Help? Pitch Night</h3>
+          <p>Panelist for Brands for Better Foundation: connecting nonprofits with skilled professionals for skills-based volunteering. Bringing a BC + AI Ecosystem perspective on practical knowledge-sharing and responsible tech in service of community.</p>
+          <div class="aurora-proof-tags"><span>Panelist</span><span>Vancouver</span><span>Nonprofits</span></div>
+          <div class="aurora-proof-actions aurora-event-cta-upcoming">
+            <a class="aurora-button aurora-button-primary" href="https://www.eventbrite.ca/e/how-can-we-help-pitch-night-use-your-skills-to-support-nonprofits-tickets-1992057314051">Register on Eventbrite</a>
+          </div>
+          <div class="aurora-proof-actions aurora-event-cta-past">
+            <a class="aurora-button aurora-button-secondary" href="https://www.eventbrite.ca/e/how-can-we-help-pitch-night-use-your-skills-to-support-nonprofits-tickets-1992057314051">Event details</a>
+          </div>
+        </div>
+      </article>
+      <article class="aurora-proof-module aurora-event-card aurora-event-card--rich" data-event-end="2026-09-30T22:00:00-07:00" data-event-id="vancouver-ai-meetup-2026-09-30">
+        <div class="aurora-proof-body">
+          <p class="aurora-card-label">Wed, Sept 30 · Space Centre</p>
+          <h3>Vancouver AI Community Meetup</h3>
+          <p>Next Vancouver AI Community Meetup on Wednesday, September 30. Hosted monthly at the H.R. MacMillan Space Centre.</p>
+          <div class="aurora-proof-tags"><span>Host</span><span>Monthly</span><span>Vancouver</span></div>
+          <div class="aurora-proof-actions aurora-event-cta-upcoming">
+            <a class="aurora-button aurora-button-primary" href="https://luma.com/sept-ai">Register on Luma</a>
+          </div>
+          <div class="aurora-proof-actions aurora-event-cta-past">
+            <a class="aurora-button aurora-button-secondary" href="https://luma.com/sept-ai">Event details</a>
+          </div>
+        </div>
+      </article>
+      <article class="aurora-proof-module aurora-event-card aurora-event-card--rich" data-event-end="2026-10-30T22:00:00-07:00" data-event-id="futureproof-festival-2026">
+        <figure class="aurora-proof-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/futureproof-salmon-starfield-share-20260527.jpg?ssl=1" alt="Futureproof Festival salmon-starfield share graphic" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-proof-body">
+          <p class="aurora-card-label">Oct 28–30 · H.R. MacMillan Space Centre</p>
+          <h3>Futureproof Festival</h3>
+          <p>Inaugural Futureproof Festival at the H.R. MacMillan Space Centre, Oct 28–30, 2026. The rooms, screenings, and conversations BC + AI has been building toward.</p>
+          <div class="aurora-proof-tags"><span>Host</span><span>Festival</span><span>Vancouver</span></div>
+          <div class="aurora-proof-actions aurora-event-cta-upcoming">
+            <a class="aurora-button aurora-button-primary" href="https://futureproof.website/">Save the date</a>
+          </div>
+          <div class="aurora-proof-actions aurora-event-cta-past">
+            <a class="aurora-button aurora-button-secondary" href="https://futureproof.website/">Festival site</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="aurora-proof-section" aria-labelledby="aurora-events-past" data-events-bucket="past" data-events-empty="false">
+    <div class="aurora-section-heading">
+      <p class="aurora-kicker">Archive</p>
+      <h2 id="aurora-events-past">Past rooms.</h2>
+      <p>Every Vancouver AI meetup edition plus dated stages that have rolled off Upcoming.</p>
+    </div>
+    <div class="aurora-proof-grid" data-events-grid="past">
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-07-29T22:00:00-07:00" data-event-id="van-ai-meetup-31">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/09-veggie-skewers-michelle-diamond.jpg?ssl=1" alt="Vancouver AI Meetup #31 (photo: Michelle Diamond / Diamond's Edge Photography)" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #31 · Jul 2026</p>
+          <h3>Vancouver AI Meetup #31</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/july-ai">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-07-09T22:00:00-07:00" data-event-id="2026-07-09-bc-ai-film-club-july-idea-lab">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">July 2026 · Multimodal Media Lab · Host</p>
+          <h3>BC + AI Film Club July: Idea Lab</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/summertime">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-07-09T21:00:00-07:00" data-event-id="2026-07-09-sfu-ai-panel">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">July 2026 · SFU · Panelist</p>
+          <h3>SFU AI panel</h3>
+          
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-07-08T21:00:00-07:00" data-event-id="2026-07-08-ai-ethical-futures-lab-morten">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">July 2026 · Vancouver · Host</p>
+          <h3>AI Ethical Futures Lab w/ Morten Rand-Hendriksen</h3>
+          
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-06-24T22:00:00-07:00" data-event-id="van-ai-meetup-30">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/13-meetup-30-full-lineup-hero.png?ssl=1" alt="Vancouver AI Meetup #30" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #30 · Jun 2026</p>
+          <h3>Vancouver AI Meetup #30</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/june-vanai">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-05-27T22:00:00-07:00" data-event-id="van-ai-meetup-29">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #29 · May 2026</p>
+          <h3>Vancouver AI Meetup #29</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/vanai-may">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-05-01T12:00:00-07:00" data-event-id="creativemornings-perils-parallels-2026">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/punk-rock-ai-creative-mornings.jpg?ssl=1" alt="Kris Krüg speaking at CreativeMornings Vancouver in front of a Stop Saying Bias slide" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">May 1, 2026 · Vancouver</p>
+          <h3>CreativeMornings: Perils &amp; Parallels</h3>
+          <a class="aurora-event-compact-link" href="https://creativemornings.com/">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-04-29T22:00:00-07:00" data-event-id="van-ai-meetup-28">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/9-6bf27e0d-957a-4c79-b2bf-90349fecbf45.jpg?ssl=1" alt="Vancouver AI Meetup #28" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #28 · Apr 2026</p>
+          <h3>Vancouver AI Meetup #28</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/vanai-april">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-04-12T19:30:00-07:00" data-event-id="2026-04-12-yvr-ai-welcome-salon-ted2026">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">April 2026 · Alibi Room, Gastown · Host</p>
+          <h3>YVR AI Welcome Salon (TED2026 week)</h3>
+          
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-04-01T11:50:00-07:00" data-event-id="2026-04-01-global-ai-summit-vancouver-panel">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">April 2026 · UBC Robson Square · Moderator</p>
+          <h3>Global AI Summit Vancouver panel</h3>
+          
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-03-31T11:50:00-07:00" data-event-id="2026-03-31-sea-to-sky-gondola-ai-ethics-workshop">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">March 2026 · Squamish · Workshop lead</p>
+          <h3>Sea to Sky Gondola AI-ethics workshop</h3>
+          
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-03-25T22:00:00-07:00" data-event-id="van-ai-meetup-27">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #27 · Mar 2026</p>
+          <h3>Vancouver AI Meetup #27</h3>
+          <a class="aurora-event-compact-link" href="https://lu.ma/vancouver-ai">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-02-26T21:00:00-03:00" data-event-id="waiff-sao-paulo-2026">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/press-2026-02-09-tela-viva-context-v2-1.jpg?ssl=1" alt="Tela Viva press coverage of WAIFF 2026, the World AI Film Festival in Brazil" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Feb 2026 · São Paulo · Keynote</p>
+          <h3>World AI Film Festival Brasil</h3>
+          <a class="aurora-event-compact-link" href="/speaking/">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-02-25T22:00:00-07:00" data-event-id="van-ai-meetup-26">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #26 · Feb 2026</p>
+          <h3>Vancouver AI Meetup #26</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/deepdive">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-02-01T21:00:00-08:00" data-event-id="2026-02-01-vibe-working-workshop">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Feb 2026 · Vancouver · Workshop lead</p>
+          <h3>Vibe Working Workshop</h3>
+          
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-01-31T21:00:00-08:00" data-event-id="2026-01-31-first-tech-challenge-think-award">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Jan 2026 · Port Moody · Judge</p>
+          <h3>FIRST Tech Challenge: Think Award</h3>
+          
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-01-28T22:00:00-07:00" data-event-id="van-ai-meetup-25">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #25 · Jan 2026</p>
+          <h3>Vancouver AI Meetup #25</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/liftoff">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2026-01-14T20:00:00-07:00" data-event-id="lasalle-college-keynote-2026">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/lasalle-college-graduation.jpg?ssl=1" alt="Kris Krüg on stage at LaSalle College Vancouver asking what you would never give up to AI" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Jan 2026 · Vancouver · Keynote</p>
+          <h3>LaSalle College Vancouver</h3>
+          <a class="aurora-event-compact-link" href="https://www.youtube.com/watch?v=-c7mgY2aSgM">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-12-18T22:00:00-07:00" data-event-id="van-ai-meetup-24">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #24 · Dec 2025</p>
+          <h3>Vancouver AI Meetup #24</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/awards">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-11-26T22:00:00-07:00" data-event-id="van-ai-meetup-23">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #23 · Nov 2025</p>
+          <h3>Vancouver AI Meetup #23</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/vai23">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-10-29T22:00:00-07:00" data-event-id="van-ai-meetup-22">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #22 · Oct 2025</p>
+          <h3>Vancouver AI Meetup #22 (First Annual BC + AI Film Festival)</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/vai22">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-10-24T21:00:00-07:00" data-event-id="2025-10-24-munda-mennuie-residency">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Oct 2025 · Vancouver · Host</p>
+          <h3>Munda M&#8217;ennuie Residency</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/arthurkuhn">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-10-22T21:00:00-07:00" data-event-id="2025-10-22-dama-day-ai-for-nonprofits-keynote">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Oct 2025 · Deloitte Summit · Keynote</p>
+          <h3>DAMA Day Vancouver: AI for Non-Profits</h3>
+          <a class="aurora-event-compact-link" href="https://damavancouverbcchapter.wildapricot.org/">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-09-24T22:00:00-07:00" data-event-id="van-ai-meetup-21">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #21 · Sep 2025</p>
+          <h3>Vancouver AI Meetup #21</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/vai21">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-09-02T21:00:00-07:00" data-event-id="2025-09-02-amd-media-copilot-workshop">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Sept 2025 · Virtual · Workshop</p>
+          <h3>AMD Media CoPilot AI Workshop</h3>
+          
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-09-01T21:00:00-07:00" data-event-id="2025-09-01-ea-creative-innovation-keynote">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Sept 2025 · EA HQ Burnaby · Keynote</p>
+          <h3>Electronic Arts Creative Innovation Keynote</h3>
+          
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-08-27T22:00:00-07:00" data-event-id="van-ai-meetup-20">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #20 · Aug 2025</p>
+          <h3>Vancouver AI Meetup #20</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/vai20">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-08-10T21:00:00-07:00" data-event-id="2025-08-10-calm-before-storm-siggraph">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Aug 2025 · Alibi Room · Host</p>
+          <h3>Calm Before the Storm #SIGGRAPH</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/siggraph2025">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-07-30T22:00:00-07:00" data-event-id="van-ai-meetup-19">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #19 · Jul 2025</p>
+          <h3>Vancouver AI Meetup #19</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/julio">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-07-11T21:00:00-07:00" data-event-id="2025-07-11-bass-coast-brain-stage">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/2025-07-11-bass-coast-brain-stage-youtube.jpg?ssl=1" alt="Kris Krug speaking on the Bass Coast Brain Stage, Synthetic Consciousness / Dear AI talk thumbnail" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">July 2025 · Bass Coast, Merritt · Workshop</p>
+          <h3>Bass Coast Brain Stage: Dear AI</h3>
+          <a class="aurora-event-compact-link" href="https://www.youtube.com/watch?v=owtSPcpRinI">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-06-25T22:00:00-07:00" data-event-id="van-ai-meetup-18">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/surrey-ai-meetup-june-2025-080.jpg?ssl=1" alt="Vancouver AI Meetup #18" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #18 · Jun 2025</p>
+          <h3>Vancouver AI Meetup #18</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/VAI18">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-06-03T18:00:00-07:00" data-event-id="channelnext-2025">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/channel-next.jpg?ssl=1" alt="ChannelNext keynote video thumbnail: Krüg on AI and who owns the future" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">June 2025 · Conference · Keynote</p>
+          <h3>ChannelNext</h3>
+          <a class="aurora-event-compact-link" href="https://www.youtube.com/watch?v=1OcC-0X6Nb8">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-05-28T22:00:00-07:00" data-event-id="van-ai-meetup-17">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/surrey-ai-meetup-may-2025-027.jpg?ssl=1" alt="Vancouver AI Meetup #17 (#WebSummit special edition)" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #17 · May 2025</p>
+          <h3>Vancouver AI Meetup #17 (#WebSummit special edition)</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/websummit-vancouver">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-05-27T21:00:00-07:00" data-event-id="2025-05-27-web-summit-indigenomics-ai">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">May 2025 · Web Summit Vancouver · Panelist</p>
+          <h3>Web Summit: Indigenomics AI</h3>
+          <a class="aurora-event-compact-link" href="https://vancouver.websummit.com/">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-05-25T21:00:00-07:00" data-event-id="2025-05-25-calm-before-storm-websummit">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">May 2025 · Alibi Room · Host</p>
+          <h3>Calm Before the Storm: Web Summit</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/LocalsOnly">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-05-06T21:00:00-07:00" data-event-id="2025-05-06-bc-ai-ecosystem-launch">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">May 2025 · Zoom · Host</p>
+          <h3>BC + AI Ecosystem Launch Session</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/BCai">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-04-30T22:00:00-07:00" data-event-id="van-ai-meetup-16">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #16 · Apr 2025</p>
+          <h3>Vancouver AI Meetup #16</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/VAI16">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-04-09T20:00:00-07:00" data-event-id="2025-04-09-ted2025-community-meetup">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Apr 2025 · Vancouver · Host</p>
+          <h3>TED2025 Community Meetup</h3>
+          <a class="aurora-event-compact-link" href="https://web.archive.org/web/20250324140102/https://lu.ma/TED-Vancouver">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-03-26T22:00:00-07:00" data-event-id="van-ai-meetup-15">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #15 · Mar 2025</p>
+          <h3>Vancouver AI Meetup #15</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/VAI15">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-03-20T21:00:00-07:00" data-event-id="2025-03-20-data-storytelling-hackathon">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Mar 2025 · Vancouver · Host</p>
+          <h3>Data Storytelling Hackathon</h3>
+          <a class="aurora-event-compact-link" href="https://kriskrug.co/2025/03/20/is-a-hotdog-a-sandwich-vancouver-aidata-storytelling-hackathon-w-andrew-reid/">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-02-26T22:00:00-07:00" data-event-id="van-ai-meetup-14">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/vancouver-ai-meetup-feb-2025-072-scaled.jpg?ssl=1" alt="Vancouver AI Meetup #14" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #14 · Feb 2025</p>
+          <h3>Vancouver AI Meetup #14</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/VAI14">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-02-05T21:00:00-08:00" data-event-id="2025-02-05-thinking-game-premiere">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Feb 2025 · Vancouver · Host</p>
+          <h3>The Thinking Game Premiere</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/thinking">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-01-29T22:00:00-07:00" data-event-id="van-ai-meetup-13">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #13 · Jan 2025</p>
+          <h3>Vancouver AI Meetup #13</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/VAI13">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2025-01-23T20:00:00-07:00" data-event-id="whistler-institute-2025">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/whistler-institute.jpg?ssl=1" alt="Whistler Institute talk video thumbnail: Building the Creative Technology Future" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Jan 2025 · Whistler</p>
+          <h3>Whistler Institute Global Speaker Series</h3>
+          <a class="aurora-event-compact-link" href="https://www.youtube.com/watch?v=-XEsqsEbpoo">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-12-15T22:00:00-07:00" data-event-id="van-ai-meetup-12">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #12 · Dec 2024</p>
+          <h3>Vancouver AI Meetup #12 (#NeurIPS special edition)</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/NeurIPS2024">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-12-04T21:00:00-08:00" data-event-id="dot-summit-autoloom-2024">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Dec 2024 (day approx) · Wosk Centre, Vancouver · Host</p>
+          <h3>Dialogue on Technology (DoT) Summit</h3>
+          <a class="aurora-event-compact-link" href="https://kriskrug.beehiiv.com/p/vancouver-ai-revolution">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-11-27T22:00:00-07:00" data-event-id="van-ai-meetup-11">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/vancouver-ai-meetup-november-2024-162-scaled.jpg?ssl=1" alt="Vancouver AI Meetup #11" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #11 · Nov 2024</p>
+          <h3>Vancouver AI Meetup #11</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/VanAI-11">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-11-22T21:00:00-08:00" data-event-id="adplist-fireside-2024">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Nov 22, 2024 · Vancouver · Fireside</p>
+          <h3>ADPList Vancouver Fireside</h3>
+          <a class="aurora-event-compact-link" href="https://lu.ma/ai-chat">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-10-30T22:00:00-07:00" data-event-id="van-ai-meetup-10">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #10 · Oct 2024</p>
+          <h3>Vancouver AI Meetup #10</h3>
+          <a class="aurora-event-compact-link" href="https://luma.com/letsgo">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-09-25T22:00:00-07:00" data-event-id="van-ai-meetup-09">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #9 · Sep 2024</p>
+          <h3>Vancouver AI Meetup #9</h3>
+          <a class="aurora-event-compact-link" href="https://lu.ma/vancouver-ai">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-09-11T21:00:00-07:00" data-event-id="enya-liftoff-keynote-2024">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Sept 2024 (day approx) · Wosk Centre, Vancouver · Keynote</p>
+          <h3>ENYA Liftoff</h3>
+          <a class="aurora-event-compact-link" href="https://kriskrug.co/2024/09/11/the-human-algorithm-enya-learning-keynote/">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-08-28T22:00:00-07:00" data-event-id="van-ai-meetup-08">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #8 · Aug 2024</p>
+          <h3>Vancouver AI Meetup #8</h3>
+          <a class="aurora-event-compact-link" href="https://lu.ma/vancouver-ai">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-07-31T22:00:00-07:00" data-event-id="van-ai-meetup-07">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #7 · Jul 2024</p>
+          <h3>Vancouver AI Meetup #7</h3>
+          <a class="aurora-event-compact-link" href="https://lu.ma/vancouver-ai">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-06-26T22:00:00-07:00" data-event-id="van-ai-meetup-06">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #6 · Jun 2024</p>
+          <h3>Vancouver AI Meetup #6</h3>
+          <a class="aurora-event-compact-link" href="https://lu.ma/vancouver-ai">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-05-29T22:00:00-07:00" data-event-id="van-ai-meetup-05">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #5 · May 2024</p>
+          <h3>Vancouver AI Meetup #5</h3>
+          <a class="aurora-event-compact-link" href="https://lu.ma/vancouver-ai">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-05-27T21:00:00-07:00" data-event-id="bcama-vision-conference-panel-2024">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">May 2024 (day approx) · Vancouver · Moderator</p>
+          <h3>BCAMA Vision Conference</h3>
+          <a class="aurora-event-compact-link" href="https://kriskrug.co/2024/05/27/unpacking-ai-ethics-at-american-marketing-associationvisionconf2024/">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-05-24T14:45:00-06:00" data-event-id="yorkton-film-festival-panel-2024">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">May 24, 2024 · Yorkton, SK · Panel</p>
+          <h3>Yorkton Film Festival</h3>
+          <a class="aurora-event-compact-link" href="https://kriskrug.co/2024/05/25/ai-in-filmmaking-at-the-yorkton-film-festival/">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-04-24T22:00:00-07:00" data-event-id="van-ai-meetup-04">
+        <figure class="aurora-event-compact-media">
+          <img data-recalc-dims="1" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/vancouver-ai-meetup-april-2024-112.jpg?ssl=1" alt="Vancouver AI Meetup #4" loading="lazy" decoding="async" />
+        </figure>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #4 · Apr 2024</p>
+          <h3>Vancouver AI Meetup #4</h3>
+          <a class="aurora-event-compact-link" href="https://lu.ma/vancouver-ai">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-04-20T21:00:00-07:00" data-event-id="innovate-west-keynote-2024">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">April 2024 (day approx) · Vancouver · Keynote</p>
+          <h3>Innovate West</h3>
+          <a class="aurora-event-compact-link" href="https://kriskrug.co/2024/04/20/ai-mindset-keynote-at-innovate-west-2024-in-vancouver/">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-03-27T22:00:00-07:00" data-event-id="van-ai-meetup-03">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #3 · Mar 2024</p>
+          <h3>Vancouver AI Meetup #3</h3>
+          <a class="aurora-event-compact-link" href="https://lu.ma/vancouver-ai">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-02-28T22:00:00-07:00" data-event-id="van-ai-meetup-02">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #2 · Feb 2024</p>
+          <h3>Vancouver AI Meetup #2</h3>
+          <a class="aurora-event-compact-link" href="https://lu.ma/vancouver-ai">Recap / details</a>
+        </div>
+      </article>
+      <article class="aurora-event-card aurora-event-card--compact" data-event-end="2024-01-31T22:00:00-07:00" data-event-id="van-ai-meetup-01">
+<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>
+        <div class="aurora-event-compact-body">
+          <p class="aurora-card-label">Meetup #1 · Jan 2024</p>
+          <h3>Vancouver AI Meetup #1</h3>
+          <a class="aurora-event-compact-link" href="https://lu.ma/vancouver-ai">Recap / details</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+<script>
+(function () {
+  var page = document.querySelector('.aurora-events-page');
+  if (!page) return;
+
+  function parseEnd(iso) {
+    var t = Date.parse(iso);
+    return Number.isFinite(t) ? t : NaN;
+  }
+
+  function syncBuckets() {
+    var now = Date.now();
+    var upcomingGrid = page.querySelector('[data-events-grid="upcoming"]');
+    var pastGrid = page.querySelector('[data-events-grid="past"]');
+    var upcomingBucket = page.querySelector('[data-events-bucket="upcoming"]');
+    var pastBucket = page.querySelector('[data-events-bucket="past"]');
+    if (!upcomingGrid || !pastGrid || !upcomingBucket || !pastBucket) return;
+
+    var cards = Array.prototype.slice.call(page.querySelectorAll('[data-event-end]'));
+    cards.sort(function (a, b) {
+      return parseEnd(b.getAttribute('data-event-end')) - parseEnd(a.getAttribute('data-event-end'));
+    });
+
+    cards.forEach(function (card) {
+      var end = parseEnd(card.getAttribute('data-event-end'));
+      if (!Number.isFinite(end)) return;
+      var target = end <= now ? pastGrid : upcomingGrid;
+      if (card.parentElement !== target) target.appendChild(card);
+    });
+
+    upcomingBucket.setAttribute('data-events-empty', upcomingGrid.children.length ? 'false' : 'true');
+    pastBucket.setAttribute('data-events-empty', pastGrid.children.length ? 'false' : 'true');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', syncBuckets);
+  } else {
+    syncBuckets();
+  }
+})();
+</script>
+
+<!-- EVENTS_DYNAMIC_END -->
+
+  <section class="aurora-proof-section" aria-labelledby="aurora-events-host">
+    <div class="aurora-section-heading">
+      <p class="aurora-kicker">Series I produce &amp; host</p>
+      <h2 id="aurora-events-host">The rooms I build and keep building.</h2>
+      <p>Not one-off panels. Recurring rituals with their own crowds, collaborators, and momentum.</p>
+    </div>
+    <div class="aurora-proof-grid">
+      <article class="aurora-proof-module aurora-proof-module-text">
+        <div class="aurora-proof-body">
+          <p class="aurora-card-label">Monthly · Vancouver</p>
+          <h3>Vancouver AI Community Meetup</h3>
+          <p>The flagship night I host and curate: builders, artists, founders, and the curious in one room every month. Demos, talks, arguments, and the occasional Squatchie Award. The heartbeat of the local scene.</p>
+          <div class="aurora-proof-tags"><span>Host &amp; curator</span><span>Monthly</span><span>Community</span></div>
+          <div class="aurora-proof-actions">
+            <a class="aurora-button aurora-button-primary" href="https://lu.ma/vancouver-ai">See upcoming meetups</a>
+          </div>
+        </div>
+      </article>
+      <article class="aurora-proof-module aurora-proof-module-text">
+        <div class="aurora-proof-body">
+          <p class="aurora-card-label">Weekly · Online</p>
+          <h3>BC + AI Office Hours</h3>
+          <p>Every Friday, an open working session for the BC + AI ecosystem: questions, show-and-tell, and practical help moving real AI work forward. The connective tissue between the big monthly rooms.</p>
+          <div class="aurora-proof-tags"><span>Host</span><span>Weekly</span><span>Members</span></div>
+          <div class="aurora-proof-actions">
+            <a class="aurora-button aurora-button-primary" href="https://lu.ma/bcai">Join BC + AI on Luma</a>
+            <a class="aurora-button aurora-button-secondary" href="https://bc-ai.ca/">About BC + AI</a>
+          </div>
+        </div>
+      </article>
+      <article class="aurora-proof-module aurora-proof-module-text">
+        <div class="aurora-proof-body">
+          <p class="aurora-card-label">Monthly · Multimodal Media Lab</p>
+          <h3>AI Film Club</h3>
+          <p>Co-led with <strong>Kevin Friel</strong> and <strong>Luke Minaker</strong>: monthly screenings and hands-on accelerators for filmmakers staying human while the tools get good at everything. Building toward the 2nd Annual BC + AI Film Festival in October 2026.</p>
+          <div class="aurora-proof-tags"><span>Co-host</span><span>Screenings</span><span>Accelerators</span></div>
+          <div class="aurora-proof-actions">
+            <a class="aurora-button aurora-button-primary" href="https://lu.ma/film">See film events</a>
+          </div>
+        </div>
+      </article>
+      <article class="aurora-proof-module aurora-proof-module-text">
+        <div class="aurora-proof-body">
+          <p class="aurora-card-label">Ongoing · BC + AI</p>
+          <h3>The special-interest groups</h3>
+          <p>The deeper-end rooms inside the ecosystem: Mind, AI &amp; Consciousness (MAC) deepdives, the AI + Education SIG, and the AI Ethical Futures Lab, plus regional chapters spinning up beyond Vancouver.</p>
+          <div class="aurora-proof-tags"><span>MAC deepdives</span><span>AI + Education</span><span>Ethical Futures</span></div>
+          <div class="aurora-proof-actions">
+            <a class="aurora-button aurora-button-secondary" href="https://bc-ai.ca/">Explore BC + AI</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="aurora-proof-section" aria-labelledby="aurora-events-stages">
+    <div class="aurora-section-heading">
+      <p class="aurora-kicker">Stages I speak on</p>
+      <h2 id="aurora-events-stages">Keynotes, festivals, and the rooms that travel.</h2>
+      <p>A few recent ones, several with the full talk on tape.</p>
+    </div>
+    <div class="aurora-proof-grid">
+      <article class="aurora-proof-module aurora-proof-module-text">
+        <div class="aurora-proof-body">
+          <p class="aurora-card-label">São Paulo · Keynote</p>
+          <h3>World AI Film Festival Brasil</h3>
+          <p>Opening keynote: "How to keep our souls intact when the machines get really good at making everything." The Both Hands Full framework for filmmakers, students, and creative technologists.</p>
+          <div class="aurora-proof-actions">
+            <a class="aurora-button aurora-button-secondary" href="/speaking/">See speaking topics</a>
+          </div>
+        </div>
+      </article>
+      <article class="aurora-proof-module aurora-proof-module-text">
+        <div class="aurora-proof-body">
+          <p class="aurora-card-label">Vancouver · Keynote</p>
+          <h3>LaSalle College</h3>
+          <p>"Both Hands Full: what creatives actually need to know about AI." A graduation-season keynote on staying human, useful, and employable as the tools accelerate.</p>
+          <div class="aurora-proof-actions">
+            <a class="aurora-button aurora-button-primary" href="https://www.youtube.com/watch?v=-c7mgY2aSgM">Watch the keynote</a>
+          </div>
+        </div>
+      </article>
+      <article class="aurora-proof-module aurora-proof-module-text">
+        <div class="aurora-proof-body">
+          <p class="aurora-card-label">Whistler · Speaker series</p>
+          <h3>Whistler Institute Global Speaker Series</h3>
+          <p>"Inside Vancouver's AI Boom": the local scene as a case study in building AI culture that's practical, ethical, and alive instead of hype-driven.</p>
+          <div class="aurora-proof-actions">
+            <a class="aurora-button aurora-button-primary" href="https://www.youtube.com/watch?v=-XEsqsEbpoo">Watch the talk</a>
+          </div>
+        </div>
+      </article>
+      <article class="aurora-proof-module aurora-proof-module-text">
+        <div class="aurora-proof-body">
+          <p class="aurora-card-label">Conference · Keynote</p>
+          <h3>ChannelNext</h3>
+          <p>"The future of humanity: chaos &amp; creativity", a keynote that ends in a live, on-stage AI synthesis of the whole conference. The kind of risk that only works live.</p>
+          <div class="aurora-proof-actions">
+            <a class="aurora-button aurora-button-primary" href="https://www.youtube.com/watch?v=1OcC-0X6Nb8">Watch the keynote</a>
+          </div>
+        </div>
+      </article>
+      <article class="aurora-proof-module aurora-proof-module-text">
+        <div class="aurora-proof-body">
+          <p class="aurora-card-label">Web Summit Vancouver</p>
+          <h3>Calm Before the Storm</h3>
+          <p>The community night I host on the eve of the big conferences (Web Summit, SIGGRAPH), so the locals own the room before the circus arrives.</p>
+          <div class="aurora-proof-actions">
+            <a class="aurora-button aurora-button-secondary" href="https://lu.ma/websummit-vancouver">See the next one</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="aurora-proof-section" aria-labelledby="aurora-events-signature">
+    <div class="aurora-section-heading">
+      <p class="aurora-kicker">Signature moments</p>
+      <h2 id="aurora-events-signature">The nights people still talk about.</h2>
+    </div>
+    <div class="aurora-proof-grid">
+      <article class="aurora-proof-module aurora-proof-module-text">
+        <div class="aurora-proof-body">
+          <h3>The Thinking Game premiere</h3>
+          <p>A documentary night at the Space Centre theatre with the AI Salon: big screen, bigger conversation.</p>
+        </div>
+      </article>
+      <article class="aurora-proof-module aurora-proof-module-text">
+        <div class="aurora-proof-body">
+          <h3>The Squatchie Awards</h3>
+          <p>The community's tongue-in-cheek year-end recognition: Vancouver AI's answer to an awards show.</p>
+        </div>
+      </article>
+      <article class="aurora-proof-module aurora-proof-module-text">
+        <div class="aurora-proof-body">
+          <h3>Holiday Social / BC + AI Festivus</h3>
+          <p>The end-of-year gathering where the whole ecosystem (and a birthday or two) collides.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="aurora-final-cta" aria-labelledby="aurora-events-cta">
+    <p class="aurora-kicker">Bring me to your stage, or your city</p>
+    <h2 id="aurora-events-cta">Come to a room, or let's build one.</h2>
+    <p>Follow along on Luma for what's next, or bring a keynote, workshop, or community build to your event.</p>
+    <div class="aurora-action-row">
+      <a class="aurora-button aurora-button-primary" href="https://lu.ma/vancouver-ai">Follow on Luma</a>
+      <a class="aurora-button aurora-button-secondary" href="/speaking/">Book Kris to speak</a>
+    </div>
+  </section>
+</div>
+
