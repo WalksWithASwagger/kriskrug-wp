@@ -58,10 +58,15 @@ Sources assembled on branch `cursor/500-futureproof-wp-draft-prep-f196`:
 | Venue H.R. MacMillan Space Centre | YES (link: `hrmacmillanspacecentre.com`) |
 | Earlyworm CA$650 | YES |
 | Earlyworm priority ends August 15 | YES |
-| Receipts 250+ / 3,000+ / 94+ | YES |
-| Call for Talks priority July 31 | YES (package) |
+| Receipts 300 / 3,000+ / 94+ | YES |
+| Call for Talks closes August 15 | YES (package) |
 
-**Note:** Issue text says `prices (CA$650 / Aug 15 / Sept 31)`. There is no September 31, and the package uses **July 31** for Call for Talks priority (matching live tickets/CFT language in the story). Confirm with KK if a different cutoff was intended.
+**Note (updated 2026-08-02):** two facts were corrected after the 2026-07-26 check.
+
+1. **Call for Talks is August 15, not July 31.** KK extended it. The July 31 date was a *priority* window; the deadline is now a hard close. Canonical source is `~/Code/futureproof-festival/lib/pricing.ts:345` (`CALL_FOR_TALKS_CLOSE_DEADLINE = 2026-08-15T23:59:00-07:00`), confirmed by public readback of `futureproof.website/call-for-talks/` rendering "August 15, 2026". This resolves the old `Sept 31` ambiguity in the issue text; there is no September 31 and no September cutoff.
+2. **Membership is 300, not 250+.** Per KK's 2026-08-01 ruling: 300 paid members at $340/year. The 250+ figure predates it.
+
+Both Earlyworm and the Call for Talks now close on **August 15, 2026**. If this draft is created after that date, both lines need another pass.
 
 ### 4. Links live
 

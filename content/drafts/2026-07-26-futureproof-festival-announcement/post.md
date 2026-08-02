@@ -82,7 +82,7 @@ I started [Vancouver AI](https://vancouver.ai/) because I needed a room before I
 
 So we stacked. The meetups became working groups. The working groups became film nights, ethics labs, hackathons, office hours, artist experiments, and late-night planning docs with too many tabs open. People stayed to put chairs away. People brought better questions than the ones on the slide deck. Then [BC + AI](https://bc-ai.ca/) became the nonprofit container. Paperwork is where good ideas go to either become real or die of neglect. We chose real.
 
-Receipts, since people ask: 250+ members. 3,000+ attendees. 94+ events across the [BC + AI calendar](https://bc-ai.ca/events). That is the soil. Futureproof is the next body growing out of it.
+Receipts, since people ask: 300 members. 3,000+ attendees. 94+ events across the [BC + AI calendar](https://bc-ai.ca/events). That is the soil. Futureproof is the next body growing out of it.
 
 And the Space Centre? That one lands personal. I've spent more than a decade photographing rooms where people arrive as one version of themselves and leave a little rewired. TED stages. Olympic floors. Festival green rooms. You learn fast which venues are rentals and which ones are home. Putting Futureproof under that planetarium dome, with the Pacific right there and the city lit up outside, is not a flex. It's the room finally matching the idea. I sketched pieces of this future-festival itch years ago in [*Future Proof: Inside Vancouver's AI Ecosystem*](https://kriskrug.co/2024/10/10/future-proof-inside-vancouvers-thriving-ai-ecosystem/). Now the dates are real. One opening night. Two program days. A focused founding edition, not the week-long fever dream still waiting on the long arc.
 
@@ -131,7 +131,7 @@ Start here:
 
 - [RSVP on Luma](https://luma.com/futureproof-festival)
 - [Earlyworm pass](https://www.futureproof.website/tickets/) is CA$650. Priority ends August 15.
-- [Call for Talks](https://www.futureproof.website/call-for-talks/) priority closes July 31. If you've got something honest to put on a stage, put it in.
+- [Call for Talks](https://www.futureproof.website/call-for-talks/) closes August 15. If you've got something honest to put on a stage, put it in.
 - Want to sponsor or exhibit? Start on the [tickets](https://www.futureproof.website/tickets/) page and find us through [BC + AI](https://bc-ai.ca/) and the [events calendar](https://bc-ai.ca/events).
 
 The site is up. The room is booked. The community is real. The baby is here.
