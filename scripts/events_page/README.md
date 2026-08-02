@@ -77,3 +77,47 @@ Each dated card has `data-event-end`. Page-scoped JS moves cards between Upcomin
 - This folder does **not** POST page content.
 - Creds from `scripts/notion-to-wp/.env` (`WP_USER`, `WP_APP_PASSWORD`) — never commit or print them.
 - Pitch Night graphic is already WP media **12660**; leave that `media_id` alone.
+
+## Hero fetch engine (#587)
+
+`fetch_event_heroes.py` resolves candidate card art for catalog events without touching WordPress. It stages downloads under `heroes/_engine_cache/` (gitignored) and prints a JSON report to stdout. It never uploads media and never writes media IDs into the catalog; Wave 3 ship owns that sync via `sync_event_media.py`.
+
+Resolution order per event:
+
+1. Tracked asset already on the record: `image.path` with `repo:`, `kk_kb:`, or absolute prefix that exists on disk (`source: repo-asset`)
+2. YouTube `maxresdefault` thumbnail when `youtube_id` is present, or when `url` / `event_url` is a YouTube link (`source: youtube`)
+3. `og:image` from a local HTML snapshot (`og_html_path` on the event, prefix-aware) or from the live `event_url` / `url` page (`source: og-image`; page fetch happens only on `--execute`)
+4. `--allow-rafiki` (off by default) marks any remaining gap as `source: rafiki`. The script never generates tiles; Rafiki generation happens in its own toolchain.
+
+Rows whose `image.media_id` is already set report `source: wp-media` and are skipped, so existing uploads (like Pitch Night 12660) are never re-fetched. Events with no usable field report `source: none` with a `MISSING hero_hint` note.
+
+Usage:
+
+```bash
+# plan only (default; zero network)
+python3 scripts/events_page/fetch_event_heroes.py --dry-run
+
+# limit to specific ids (comma or space separated)
+python3 scripts/events_page/fetch_event_heroes.py --ids channelnext-2025,whistler-institute-2025
+
+# feed raw event dicts instead of the catalog
+python3 scripts/events_page/fetch_event_heroes.py --events-json my-events.json
+
+# actually download candidates into heroes/_engine_cache/ (GET-only)
+python3 scripts/events_page/fetch_event_heroes.py --execute
+
+# mark leftover gaps as Rafiki-tile eligible in the report
+python3 scripts/events_page/fetch_event_heroes.py --execute --allow-rafiki
+
+# also write the report to a file
+python3 scripts/events_page/fetch_event_heroes.py --dry-run --report /tmp/heroes.json
+```
+
+Report rows always carry `id`, `source`, `local_path`, plus `remote_url`, `fetched`, and `note` where useful. Sources: `wp-media`, `repo-asset`, `youtube`, `og-image`, `rafiki`, `none`. Summary counts go to stderr so stdout stays pipeable JSON.
+
+Engine safety:
+
+- Dry-run is the default and does zero network. `--execute` performs plain GET downloads only; there is no WP client in this script at all.
+- `maxresdefault` 404s on some older videos; the engine falls back to `hqdefault` and says so in the row note.
+- Cache files are disposable and re-runs reuse an existing cache file instead of re-downloading. Fetch errors land in the row note and the run keeps going.
+- Tests: `scripts/tests/test_fetch_event_heroes.py` (runs under `make python-test`).
