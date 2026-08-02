@@ -1,7 +1,7 @@
 ---
-title: The Baby Is Here
+title: The Bat Signal
 slug: futureproof-festival-announcement
-post_date: '2026-07-26'
+post_date: '2026-08-02'
 status: draft
 post_type: post
 author_wp_id: 1
@@ -16,23 +16,33 @@ tags:
 - Build What Lasts
 featured: true
 featured_media_id: 0
-excerpt: Futureproof Festival lands October 28-30, 2026 at the H.R. MacMillan Space
-  Centre in Vancouver. The FATALE dream grew up. The bat signal is out. Build what lasts.
+excerpt: Twenty-eight years of photographing other people's rooms taught me what
+  makes one worth building. Futureproof is the room. This is the invitation to
+  everyone who ever let me stand in theirs.
 seo:
-  meta_title: The Baby Is Here | Futureproof Festival
-  meta_description: Futureproof Festival, Oct 28-30 2026 at Vancouver's Space Centre.
-    Honest AI conversation, no hype, no panic. Earlyworm CA$650. Build what lasts.
+  meta_title: The Bat Signal | Futureproof Festival
+  meta_description: Kris Krüg's network bat signal for Futureproof Festival, Oct
+    28-30 2026 in Vancouver. Receipts from PopTech to DENT. The invitation is the point.
 images:
+- file: images/vanai-meetup31-stage-kris-futureproof-slide.webp
+  alt: Kris Krüg speaks on stage at Vancouver AI Meetup #31, in front of a Futureproof
+    slide reading Vancouver, we need to talk about AI, with salmon and skyline
+    artwork behind him.
+  role: lead
+  source: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2026-07/large/b4717426bf89.webp
+  credit: 'Photo: Michael Caswell. Edited: Kris Krüg.'
+- file: images/vanai-meetup31-audience-wide-shot.webp
+  alt: A wide shot from the back of the room, a full silhouetted audience facing
+    the lit Futureproof stage and screen during Vancouver AI Meetup #31.
+  role: community-room
+  source: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2026-07/large/639c78efe5d2.webp
+  credit: 'Photo: Michael Caswell.'
 - file: images/futureproof-honest-conversation-poster.png
   alt: Futureproof Festival poster with silhouetted figures walking toward a golden-lit
     portal under ornate arches. White type reads The most honest AI conversation
     happening anywhere this year. Dates Vancouver Oct 28-30, 2026.
-  role: hero
+  role: official-graphic
   source: https://www.futureproof.website/graphics/honest-conversation/futureproof-honest-conversation-poster.png
-- file: images/futureproof-wordmark-white-transparent.png
-  alt: FUTUREPROOF wordmark in white dotted grid letterforms on a transparent background.
-  role: wordmark
-  source: https://www.futureproof.website/brand/futureproof/futureproof-wordmark-white-transparent.png
 - file: images/manifesto-01-future-cultural-question.webp
   alt: Hand-painted Futureproof poster reading The Future Is a Cultural Question
     over an aurora above a forested shoreline with salmon and painted eyes.
@@ -56,84 +66,75 @@ images:
   source: https://www.futureproof.website/media/launch/futureproof-salmon-starfield-share-20260527.jpg
 ---
 
-The baby is here.
+Last month I stood on a stage in front of a room that shouldn't have been full on a Wednesday night, and it was full anyway.
 
-**[Futureproof Festival](https://futureproof.website/).** October 28-30, 2026. [H.R. MacMillan Space Centre](https://www.hrmacmillanspacecentre.com/), Vancouver. Presented by [BC + AI](https://bc-ai.ca/).
+Behind me: a slide painted with salmon and ravens and northern lights, the type reading **VANCOUVER, WE NEED TO TALK ABOUT AI.** In front of me: the Vancouver AI community, meetup number thirty-one, still showing up three years in. Michael Caswell caught the frame. I'm the guy mid-sentence, pointing at something I clearly believe.
 
->>> The most honest AI conversation happening anywhere this year. No hype. No panic.
+![Kris Krüg speaks on stage at Vancouver AI Meetup #31, in front of a Futureproof slide reading Vancouver, we need to talk about AI, with salmon and skyline artwork behind him.](images/vanai-meetup31-stage-kris-futureproof-slide.webp)
+
+That's not a metaphor for Futureproof. That's the rehearsal. The room already exists. I'm asking it to get bigger for three days in October.
+
+I told the fuller origin story, FATALE and all, in [*The Long Road to Futureproof*](https://kriskrug.co/2026/06/01/long-road-to-futureproof/). This one isn't that story again. This one is about who's invited.
+
+>>> Twenty-eight years on the internet. This is my bat signal.
+
+## The receipts, not the résumé
+
+I don't love talking about myself in the third-person conference-bio voice, all "award-winning" this and "thought leader" that. So here's the version with names, years, and links instead. Someone once called me an international badass man of mystery. Cute. What I actually am is a guy who kept showing up to rooms with a camera until the rooms started trusting me with more than the photos.
+
+Before any of this was AI, it was:
+
+- **[Northern Voice](https://en.wikipedia.org/wiki/Northern_Voice)**, 2005 to 2013. Vancouver's own blogging and social-software conference, and I was one of the people who organized it, alongside Darren Barefoot, Boris Mann, and a dozen other Vancouver internet weirdos. First time I turned a scene into a conference. Not the last.
+- The **[2010 Winter Olympics](https://mediashift.org/2010/02/true-north-media-house-w2-provide-citizen-media-hub-at-olympics053/)**, right here in this city. I wasn't credentialed press. I helped build **True North Media House**, an independent media hub for bloggers and citizen journalists who had no other seat at the world's biggest media event. That's the actual precedent for "non-extractive." I've done it before, at a bigger scale than this festival, with worse funding.
+- **[PopTech](https://www.flickr.com/photos/kk/albums/72157608995273506/)**, Camden, Maine, on and off from 2008 through 2013. PopTech's own account still credits the photos. Years of watching scientists, artists, and activists get put in one room on purpose.
+- **[TEDxSummit](https://blog.ted.com/what-does-tedx-mean-to-me-answering-tedxsummit-photographer-kris-krug/)**, Morocco, 2012, where TED's own blog called me "one of our photographers and a longtime friend of TEDx." Plus TEDxVancouver, TEDxOilSpill, and a few other cities. One format, endlessly local.
+- **[SXSW Interactive](https://www.flickr.com/photos/kk/albums/72157649379627911/)**, Austin, 2013. Eight hundred and one photos from one festival, because thirty thousand people in one convention center still has a hundred small rooms inside it if you look for them.
+- **[DENT](https://www.flickr.com/photos/kk/collections/72157691620626391/)**, Sun Valley and beyond, official photographer since 2014. I've called DENT a family reunion in public before, and I meant it. Creativity meets community, ideas take flight, you learn to karate spar with people you'll see again next year.
+
+None of that is a flex. It's a pattern. Every one of those rooms taught me the same four things, and I never got to build my own version of the room until now.
+
+## What twenty years behind the lens actually teaches you
+
+**The room is the product.** Not the stage, not the swag, not the sponsor logos. The unglamorous folding chairs and the hallway where the real conversation happens after the panel ends.
+
+**Hallways matter more than keynotes.** Every event I named above, the thing people remembered a year later happened between sessions, not during them.
+
+**Art and disagreement belong beside the technology, not after it.** PopTech knew this in 2008. DENT knows it every year. Most AI conferences in 2026 still don't.
+
+**Audiences are participants, not tickets.** True North Media House existed because the Olympics' official media system had no room for the people the Games actually affected. Futureproof exists for the same reason, aimed at AI instead of a sporting event.
+
+![A wide shot from the back of the room, a full silhouetted audience facing the lit Futureproof stage and screen during Vancouver AI Meetup #31.](images/vanai-meetup31-audience-wide-shot.webp)
+
+## Why Futureproof, why now, why Vancouver
+
+I started [Vancouver AI](https://vancouver.ai/) as Thursday nights, because you can't summon a founding festival out of a cold invite. You stack the small rooms until the scene can see itself. Then [BC + AI](https://bc-ai.ca/) became the nonprofit skeleton, because paperwork is where good ideas either become real or die of neglect. As of this writing that's **300 members**, **3,000+ people through the doors**, and **94+ documented events** since 2023. That's not my achievement. That's what a community builds when you stay out of its way and bring folding chairs.
+
+[Futureproof](https://futureproof.website/) is the next body growing out of that soil, built by BC + AI and this community, not by me alone. [Kevin Friel](https://www.futureproof.website/speakers/kevin-friel/) brings the BC + AI Film Club with him. A [growing public roster](https://www.futureproof.website/speakers/) of speakers is saying yes. Michael Caswell and Tristan Brand were the ones actually pointing cameras at the room the night this article opens on, because the guy who spent twenty years photographing other people's conferences finally gets to be caught in someone else's frame for a change.
+
+Vancouver, specifically, because I've spent more than a decade photographing rooms where people arrive as one version of themselves and leave a little rewired. You learn fast which venues are rentals and which ones are home. The [H.R. MacMillan Space Centre](https://www.hrmacmillanspacecentre.com/), with the Pacific outside and a planetarium dome overhead, is home.
 
 ![Futureproof Festival poster with silhouetted figures walking toward a golden-lit portal under ornate arches. White type reads The most honest AI conversation happening anywhere this year. Dates Vancouver Oct 28-30, 2026.](images/futureproof-honest-conversation-poster.png)
 
-I have long dreamt of an avant-garde festival of the future.
+## The bat signal
 
-Not another conference with a logo wall and a tote bag. A room where art, technology, business, ethics, film, music, and the gloriously unclassifiable local weirdos could collide on purpose. A place where people with both hands full could sit beside each other without picking a team. Builders who ship. Artists who refuse to be a lunchtime slot. Educators, founders, skeptics, policy people, students, and the person in the back row who came alone and leaves with collaborators.
+If you stacked chairs with me at Northern Voice. If you were in Camden, Sun Valley, Austin, or that room in Morocco. If you've sat in a Vancouver AI meetup, argued with me in a hallway, taught a workshop, opened with ceremony, photographed a room I was also photographing, or just kept showing up when the room was still half empty: this is the call.
 
-I wanted beautiful rooms and weird demos and proper talks. I wanted the hallway confession to matter as much as the keynote. I wanted a temporary culture, not a content calendar with lanyards.
+>>> Come make the room bigger. Bring your better questions, and bring the people you know who ask them too.
 
-For years that dream kept changing jackets. Futureproof Creatives. FITAL. Fatal Festival. Then [FATALE](https://fatalefestival.com/), the Future of Art, Technology and Alternative Living Experiment. Same voltage. Different label on the jar. I wrote about that long road in [*The Long Road to Futureproof*](https://kriskrug.co/2026/06/01/long-road-to-futureproof/). The itch never left. The city just needed time to grow a community that could hold it.
-
-And then Vancouver caught up to the dream.
-
-![FUTUREPROOF wordmark in white dotted grid letterforms on a transparent background.](images/futureproof-wordmark-white-transparent.png)
-
-## I didn't start these meetups to start a meetup
-
-I started [Vancouver AI](https://vancouver.ai/) because I needed a room before I could ask anyone to take a bigger swing. Trust before the festival. Community before the stage. You cannot summon a founding festival out of a cold Slack invite. You stack Thursday nights until the scene can see itself.
-
-So we stacked. The meetups became working groups. The working groups became film nights, ethics labs, hackathons, office hours, artist experiments, and late-night planning docs with too many tabs open. People stayed to put chairs away. People brought better questions than the ones on the slide deck. Then [BC + AI](https://bc-ai.ca/) became the nonprofit container. Paperwork is where good ideas go to either become real or die of neglect. We chose real.
-
-Receipts, since people ask: 300 members. 3,000+ attendees. 94+ events across the [BC + AI calendar](https://bc-ai.ca/events). That is the soil. Futureproof is the next body growing out of it.
-
-And the Space Centre? That one lands personal. I've spent more than a decade photographing rooms where people arrive as one version of themselves and leave a little rewired. TED stages. Olympic floors. Festival green rooms. You learn fast which venues are rentals and which ones are home. Putting Futureproof under that planetarium dome, with the Pacific right there and the city lit up outside, is not a flex. It's the room finally matching the idea. I sketched pieces of this future-festival itch years ago in [*Future Proof: Inside Vancouver's AI Ecosystem*](https://kriskrug.co/2024/10/10/future-proof-inside-vancouvers-thriving-ai-ecosystem/). Now the dates are real. One opening night. Two program days. A focused founding edition, not the week-long fever dream still waiting on the long arc.
-
-## What Futureproof actually is
-
-[Futureproof](https://futureproof.website/) is a festival, not a conference.
-
-AI is too weird, too powerful, too intimate, and too everywhere to leave inside the usual conference lanes. Builders need artists in the room before the interface is baked. Teachers and students need a real seat. Public-interest people and startup people need to talk without everyone performing their assigned costume. Indigenous governance, creative rights, labour, climate, computation, film, music, education, and business already overlap in real life. The event should admit that.
-
-So the shape is listening, making, and experiencing. Critique in one hand, curiosity in the other. Both hands full. The same stance I've been arguing in public for years: we use this stuff, and we refuse to pretend the costs are somebody else's problem.
-
-Public line, and I mean it: the most honest AI conversation happening anywhere this year. No hype. No panic.
-
-Tagline: **Build what lasts.**
-
-The world does not need Vancouver to mimic San Francisco with better mountains. We win if we build rooms that make better questions normal. We win if artists have power in the conversation beyond a cute performance slot after lunch. We win if the people affected by AI get a voice before the systems harden. That is the non-extractive piece. That is the part I do not want sanded off by conference logic.
+Speakers, builders, artists, photographers, organizers, skeptics, founders, and the gloriously unclassifiable people every good conference collects by accident. Old network, new network, doesn't matter. I'm not asking you to attend a product launch with better lighting. I'm asking you to help hold a room that can stay honest without collapsing into hype or panic.
 
 [[GALLERY-MANIFESTO]]
 
-## Who's already in the room
-
-The [public speaker lineup](https://www.futureproof.website/speakers/) is live, and it keeps growing. These are the people cleared and announced so far. Read their profiles. Show up ready to talk with them, not at them.
-
-- [Amber Case](https://www.futureproof.website/speakers/amber-case/), Founder, [Calm Tech Institute](https://calmtech.com/)
-- [Ana Serrano](https://www.futureproof.website/speakers/ana-serrano/), President & Vice-Chancellor, [OCAD University](https://www.ocadu.ca/)
-- [Lynda Brown-Ganzert](https://www.futureproof.website/speakers/lynda-brown-ganzert/), CEO, [RxPx Inc](https://rxpx.health/)
-- [Zaro](https://www.futureproof.website/speakers/gabe-zaro/), Community Intelligence Architect, [zaro.me](https://www.zaro.me/)
-- [Mayumi Rollings](https://www.futureproof.website/speakers/mayumi-rollings/), Founder & CEO, [Tiny Ghost Studios](https://tinyghoststudios.com/)
-- [Anthonia Ogundele](https://www.futureproof.website/speakers/anthonia-ogundele/), Founder & Executive Director, [Ethọ́s Lab](https://ethoslab.ca/)
-- [Kaoru Yoshihira](https://www.futureproof.website/speakers/kaoru-yoshihira/), Head of Partner Development, [BytePlus](https://www.byteplus.com/)
-- [Peter Bittner](https://www.futureproof.website/speakers/peter-bittner/), AI Trainer & Consultant, [The AI Upgrade](https://theupgrade.ai/)
-
-More to come. Watch the [speakers page](https://www.futureproof.website/speakers/). If your name belongs in that room and it is not there yet, the [Call for Talks](https://www.futureproof.website/call-for-talks/) exists for a reason.
-
-## The bat signal
-
-I've been on the internet for 28 years. This is my third trip around the sun with this community in its current form. If we've built something together, if you've sat in a meetup, stacked chairs, argued with me in a hallway, taught a workshop, sponsored a night, photographed a room, opened with ceremony, or just kept showing up when the room was still half empty, this is the call.
-
->>> Converge on Vancouver in October. Bring your better questions.
-
-I am not asking you to attend a product launch with better lighting. I am asking you to help make a founding room that can hold honesty without collapsing into hype or panic. That only works if the people who already know how to build culture here actually show up.
-
 ## Come make it real
 
-Start here:
+Everything below lives on the festival's own site, because prices and deadlines move faster than this post should try to track:
 
-- [RSVP on Luma](https://luma.com/futureproof-festival)
-- [Earlyworm pass](https://www.futureproof.website/tickets/) is CA$650. Priority ends August 15.
-- [Call for Talks](https://www.futureproof.website/call-for-talks/) closes August 15. If you've got something honest to put on a stage, put it in.
-- Want to sponsor or exhibit? Start on the [tickets](https://www.futureproof.website/tickets/) page and find us through [BC + AI](https://bc-ai.ca/) and the [events calendar](https://bc-ai.ca/events).
+- **[Futureproof Festival](https://futureproof.website/)**, October 28-30, 2026, H.R. MacMillan Space Centre, Vancouver.
+- **[RSVP on Luma](https://luma.com/futureproof-festival)**
+- **[Tickets](https://www.futureproof.website/tickets/)**, Earlyworm pricing through August 15, standard pricing after.
+- **[Call for Talks](https://www.futureproof.website/call-for-talks/)**, open through August 15. First-time speakers and rough first drafts genuinely welcome.
+- **Sponsor or exhibit?** Start on the [tickets](https://www.futureproof.website/tickets/) page and find the rest of us through [BC + AI](https://bc-ai.ca/) and the [events calendar](https://bc-ai.ca/events).
 
-The site is up. The room is booked. The community is real. The baby is here.
+I've been building toward this room since before I knew its name. Twenty-eight years on the internet, most of them spent photographing rooms like it, and the guest list is everyone who ever let me stand in theirs.
 
 **[Build what lasts.](https://futureproof.website/)**

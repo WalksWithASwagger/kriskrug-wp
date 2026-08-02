@@ -95,3 +95,9 @@ If a later re-check removes a name from https://www.futureproof.website/speakers
 3. **Also public on `/speakers/` but not in #498's eight:** Kris Krüg (Founder & Festival Director, BC + AI Ecosystem Association) — https://www.futureproof.website/speakers/kris-krug/. FP-3 may reference him as festival director separately; not counted in this checklist.
 4. **Local allowlist gap:** when festival-repo allowlist/pipeline are available, re-cross-check before publish. This package does not claim allowlist-file clearance.
 5. **No WP writes. No allowlist edits.** Track A draft artifact only.
+
+## #645 addendum (2026-08-02)
+
+Re-read of https://www.futureproof.website/speakers/ during the #645 rewrite found **two additional public names** beyond this file's original eight-name checklist: **Kevin Friel** (Festival Director, BC + AI Film Club) and Kris Krüg himself as festival director (already noted in point 3 above). Both are on the live public directory with `confirmed` entries at review time.
+
+The #645 rewrite (`post.md` / `post.html`) does not hard-code any speaker names or count. Per that issue's acceptance criteria, it links the [public roster page](https://www.futureproof.website/speakers/) directly rather than re-listing names, specifically to avoid this file's clearance list going stale again the next time the roster grows. If a future draft wants a named speaker list back in the body copy, redo the FP-2-style clearance pass above first and re-verify all ten (or more) names, not just the original eight.
