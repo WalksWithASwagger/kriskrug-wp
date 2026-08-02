@@ -14,9 +14,12 @@ All links re-curled with `curl -sL -o /dev/null -w "%{http_code}"` on 2026-08-02
 
 - https://futureproof.website/
 - https://www.futureproof.website/speakers/
+- https://www.futureproof.website/speakers/kevin-friel/
 - https://www.futureproof.website/tickets/
 - https://www.futureproof.website/call-for-talks/
 - https://luma.com/futureproof-festival
+
+The single named-speaker link (Kevin Friel) is the one exception to this piece's "link the roster, don't hard-code names" rule. It is there because the copy credits him by name for bringing the BC + AI Film Club into the festival, and a named credit should link to that person's own profile rather than a generic directory. He is publicly listed on the roster with a live profile (HTTP 200).
 
 ### Orgs
 
