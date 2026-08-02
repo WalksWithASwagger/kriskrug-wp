@@ -1,30 +1,45 @@
-# VOICE-NOTES: Futureproof announcement (#499)
+# VOICE-NOTES: The Bat Signal (#645 rewrite)
 
-Intentional choices for KK review before FP-4.
+Rewritten 2026-08-02. The July 26 "Baby Is Here" notes below are preserved for history since that draft's structure is gone; new notes follow for the current body.
 
 ## Kept on purpose
 
-- **Title "The Baby Is Here"** mirrors the story-arc beat and matches how KK talks about shipping something that lived in his head for years. Swap if he wants a more SEO-front Futureproof title.
-- **Opening public line as pull quote** ("most honest AI conversation...") then repeated once in body as "Public line, and I mean it" so the manifesto line lands twice without becoming a slogan spam.
-- **"I didn't start these meetups to start a meetup"** as H2: issue-mandated beat, kept as his own sentence rhythm.
-- **FATALE spelled out once**, linked to fatalefestival.com, then left behind. No acronym soup after that.
-- **Zaro as public display name** (not Gabriel), per FP-2 note.
-- **Both hands full / critique + curiosity** language: his existing register from companion posts, not new metaphor invention.
-- **Bat signal section** stays second-person and specific (stacked chairs, ceremony, hallway arguments) instead of abstract community cheerleading.
-- **Zero em dashes.** Commas and periods do the work.
+- **New title "The Bat Signal"** replaces "The Baby Is Here." The birth metaphor was right for a launch announcement; this piece's central action is an invitation, so the title names that directly, per #645's editorial brief.
+- **Opens on the Meetup #31 stage photo**, not the festival poster. "That's not a metaphor for Futureproof. That's the rehearsal." does the work of connecting the current room to the festival without over-explaining it.
+- **One link to *The Long Road to Futureproof*, early, then dropped.** States plainly this isn't that story again, so the piece doesn't accidentally retell the FATALE arc.
+- **"International badass man of mystery"** appears exactly once, self-deprecating, immediately undercut by "What I actually am is a guy who kept showing up." Per the issue brief: internal tuning fork or a single knowing line, never a repeated title.
+- **Receipts list uses years, cities, and links, not adjectives.** Northern Voice, the Olympics/True North Media House, PopTech, TEDxSummit, SXSW, DENT, each with the ledger's canonical URL from `network-receipts.md`.
+- **DENT "official photographer since 2014" stated in first person, unhedged.** In the ledger this is flagged as self-attested (not independently corroborated); in the article, Kris stating his own credential in his own voice is not an overclaim, since it's already how he describes himself publicly on his own about page. The hedge belongs in the research ledger, not the narrative.
+- **BC + AI receipts updated to 300 / 3,000+ / 94+** per KK's 2026-08-01 membership ruling, replacing the July 26 draft's "250+."
+- **Speaker roster not hard-coded.** Links to the live `/speakers/` page instead of naming individuals, per #645's acceptance criteria and because the public roster grew (Kevin Friel, Kris Krüg himself) since the July 26 clearance pass. See `speakers.md` addendum.
+- **Festival built by BC + AI and community, not solo-hero.** Explicit credit to Kevin Friel's Film Club thread, Michael Caswell and Tristan Brand's photography, and the "not by me alone" line.
+- **Zero em dashes.** Commas and periods do the work; mechanically verified (`grep -c '—'` returns 0 on both `post.md` and `post.html`).
 
 ## Places KK should rewrite if the voice is off
 
-1. **"The baby is here"** opener: strong and personal; if it reads too cute for a festival launch, replace with a colder lead and keep the phrase only once later.
-2. **"Third trip around the sun"** in the bat signal: calendar metaphor for ~3 years of this community form. Confirm he wants that framing public.
-3. **Speaker list tone** ("Show up ready to talk with them, not at them"): soft editorial nudge; cut if he wants a cleaner roster block.
-4. **"San Francisco with better mountains"**: recycled from *Long Road to Futureproof*. Keep as through-line or cut to avoid self-echo.
-5. **Earlyworm / Call for Talks CTA**: factual and tight. If pass names or sponsor language change before publish, edit only that list.
-6. **Venue link** uses `hrmacmillanspacecentre.com` (live 200). Confirm preferred public URL before publish.
+1. **"The Bat Signal" title**: on-the-nose by design, matching the issue's own working name for this piece. Swap if he wants something less literal once he's seen it in context.
+2. **Kevin Friel / AI Film Club mention**: added because he's publicly on the speakers page and it supports "built by community, not solo-hero." Cut if Kris wants fewer named individuals in this piece.
+3. **"Twenty-eight years on the internet" callback at the close**: mirrors the July 26 draft's number; confirm it's still accurate at time of publish.
+4. **Historical photo**: deliberately absent from this draft (see `asset-manifest.md`'s flagged/unresolved historical-photo section). If Kris wants one, it slots naturally into the receipts section.
+5. **Venue link** uses `hrmacmillanspacecentre.com` (live 200), unchanged from the original package.
 
 ## Out of scope / left for humans
 
-- Featured media ID (0 until FP-4 upload)
-- Any speakers beyond the FP-2 cleared eight
-- Week-long Oct 25-31 2027 vision language (deliberately absent)
-- Social caption drafts (see seo-meta.md OG notes only)
+- Featured media ID (0 until #500 upload)
+- Rights sign-off on the two Meetup #31 photos before any WordPress upload (see `asset-manifest.md`)
+- Any speaker beyond what's linked live on futureproof.website at draft-create time
+- Social caption drafts (see `seo-meta.md` OG notes only)
+
+---
+
+## Archived: July 26 "Baby Is Here" notes
+
+Intentional choices for KK review before FP-4, kept for history since that structure no longer exists in `post.md`/`post.html`:
+
+- Title "The Baby Is Here" mirrored the story-arc birth beat.
+- Opening public line as pull quote, repeated once as "Public line, and I mean it."
+- "I didn't start these meetups to start a meetup" as an issue-mandated H2.
+- FATALE spelled out once, linked, then left behind.
+- Zaro as public display name (not Gabriel).
+- Bat signal section stayed second-person and specific.
+- Zero em dashes.

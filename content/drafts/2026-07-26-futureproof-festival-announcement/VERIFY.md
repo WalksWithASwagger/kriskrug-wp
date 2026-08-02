@@ -3,14 +3,24 @@
 **Package:** `content/drafts/2026-07-26-futureproof-festival-announcement/`  
 **Slug:** `futureproof-festival-announcement`  
 **Target status:** WordPress `draft` only. Never `--publish`. Never `--update` / PATCH.  
-**Verified:** 2026-07-26 (cloud swarm agent, credential-free path)
+**Verified:** 2026-07-26 (cloud swarm agent, credential-free path); body rewritten 2026-08-02 for #645 (see note below); this file's own checklists below are **not yet re-run against the #645 body** and remain #500's job to re-verify before any draft create.
+
+## #645 rewrite note (2026-08-02) — re-verify before #500 acts
+
+`post.md` and `post.html` were substantially rewritten under #645 (new title "The Bat Signal," new lead image, conference-lineage receipts section, no hard-coded speaker list). The completeness table, em-dash count, speaker-embargo check, fact table, and link count below describe the **July 26 / early-August small-fix body**, not this new one. Before #500 runs any dry-run or draft-create command, re-run this file's checks against the current `post.md`/`post.html`. As a head start, the #645 rewrite pass already confirmed:
+
+- Em dashes: 0 in both `post.md` and `post.html` (re-checked 2026-08-02, same method as below).
+- Links: 17 unique URLs in the new body (down from 34; the hard-coded speaker/org list and FATALE links were removed, see `internal-links.md`), all HTTP 200 on 2026-08-02.
+- Speaker embargo: no individual speaker names appear in body copy at all now; the roster is linked, not listed, so the FP-2 embargo table in `speakers.md` is no longer a publish-blocking dependency for this piece (see `speakers.md`'s #645 addendum).
+- Facts: dates, venue, Earlyworm CA$650/August 15, Call for Talks August 15, and 300/3,000+/94+ receipts are all current in the new body as of 2026-08-02 (sourced live from futureproof.website and KK's 2026-08-01 membership ruling).
+- New dependency for #500: the two Meetup #31 photos used as lead + supporting images are staged locally but are **unresolved hotlinks with no written cross-site reuse release** (see `asset-manifest.md`). #500 should not treat them as upload-ready without Kris's explicit sign-off, same as every other image in this package.
 
 ## Verdict
 
 Package is **complete and verification-ready**.  
 **WP draft was NOT created** in this session: `WP_USER` / `WP_APP_PASSWORD` are unset, and `create_local_wp_draft.py` hard-exits without credentials even in dry-run (per AGENTS.md / connector README).
 
-Hand to KK (or a secrets-attached session) for dry-run → `--execute` create-only.
+Hand to KK (or a secrets-attached session) for dry-run → `--execute` create-only, **after** re-running this file's checklists against the #645 body.
 
 ---
 
