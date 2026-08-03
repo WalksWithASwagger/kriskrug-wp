@@ -2,8 +2,27 @@
 
 **Date of crawl:** 2026-08-02 (all HTTP was read-only GET; zero writes were made to the live site)
 **Scope:** rendered `<img>` alt attributes in delivered public HTML, plus the public media library
-**Machine-readable companion:** [`inventory.csv`](inventory.csv), 2,140 rows, one row per rendered image occurrence
+**Machine-readable companion:** [`inventory.csv`](inventory.csv), 2,140 rows. **One row per unique (page URL, image src) pair, not per rendered occurrence.** See the counting rule below before you quote any number from it.
+**Re-run it:** [`recount_live.py`](recount_live.py), read-only, re-fetches all 216 routes and re-derives every total in this file.
 **Out of scope:** the broader WCAG 2.1 AA audit, which is issue #46 and owns `docs/current-state/A11Y-*`. This file is images only.
+
+> ### Before you write a backfill script, read [the two fix surfaces](#read-this-first-there-are-two-fix-surfaces-and-a-library-only-backfill-silently-fixes-almost-nothing).
+> A script that only writes media library `alt_text` reaches **80 of the 1,185 findings**. It no-ops on the other 1,105 and exits clean while doing it.
+
+---
+
+## Counting rule (read this before quoting a number)
+
+An earlier version of this file mixed two different units and got three figures wrong. There are two, and they are not the same:
+
+- **Occurrence.** Every `<img>` element in the delivered HTML. If a page renders the same file twice, that is two occurrences.
+- **Row.** One unique `(page_url, image_src)` pair. `inventory.csv` stores rows. When a page renders the same `src` more than once, the crawler kept one row.
+
+Across the 216 audited routes on 2026-08-02: **2,161 occurrences, 2,140 rows.** 21 occurrences collapse into rows they share, spread over six routes (`/publications/` 14, `/2026/05/23/you-cant-drink-data/` 3, and one each on `/work/`, `/photography/`, `/sponsor-deck/`, `/2024/08/22/web-summit-vancouver-2025-and-how-you-can-shape-it/`).
+
+Almost all of that collapse lands on images that already have alt. Counted as violations: **1,185 rows, 1,186 occurrences.** So the 1,185 headline undercounts real screen-reader exposure by exactly one, and every other class in the table below is a row count.
+
+Verified by re-fetching all 216 routes on 2026-08-02: `python3 recount_live.py` returned `occurrences_total: 2161`, `unique_page_src_total: 2140`, `csv_rows_for_these_routes: 2140`, `violation_occurrences: 1186`, `violation_unique: 1185`, `routes_fetched: 216`, `fetch_errors: []`. Every per-class row total below reproduced exactly.
 
 ---
 
@@ -11,16 +30,16 @@
 
 **1,185 rendered content images across the 216 audited routes have no usable alt text right now.**
 
-| Class | Count | What it is |
-|---|---:|---|
-| `empty-alt-content-VIOLATION` | 1,060 | Content image rendered with `alt=""` |
-| `filename-style-alt-VIOLATION` | 107 | `alt` is the filename or a Flickr photo ID, useless to a screen reader |
-| `missing-alt-attr-VIOLATION` | 18 | No `alt` attribute at all, excluding the tracking pixel |
-| **Subtotal needing alt** | **1,185** | Spread across **129 of the 216 routes** |
-| `has-alt` | 736 | Real descriptive alt already in place |
-| `decorative-tracking-pixel` | 216 | Meta noscript pixel, one per route, needs `alt=""` not a description |
-| `decorative-empty-correct` | 3 | Correctly decorative, leave alone |
-| **Total rendered images observed** | **2,140** | |
+| Class | Rows | Occurrences | What it is |
+|---|---:|---:|---|
+| `empty-alt-content-VIOLATION` | 1,060 | 1,061 | Content image rendered with `alt=""` |
+| `filename-style-alt-VIOLATION` | 107 | 107 | `alt` is the filename or a Flickr photo ID, useless to a screen reader |
+| `missing-alt-attr-VIOLATION` | 18 | 18 | No `alt` attribute at all, excluding the tracking pixel |
+| **Subtotal needing alt** | **1,185** | **1,186** | Spread across **129 of the 216 routes** |
+| `has-alt` | 736 | 756 | Real descriptive alt already in place |
+| `decorative-tracking-pixel` | 216 | 216 | Meta noscript pixel, one per route, needs `alt=""` not a description |
+| `decorative-empty-correct` | 3 | 3 | Correctly decorative, leave alone |
+| **Total** | **2,140** | **2,161** | |
 
 Media library side: **2,879 image attachments enumerated, 494 of them (17.2%) have `alt_text` set.** So 2,385 attachments carry no alt text in the library. Not all of those render publicly, which is why the rendered number above is the one that matters for #4.
 
@@ -32,9 +51,21 @@ Extrapolated to the whole site (see the sampling method below): roughly **1,760 
 
 The high-traffic routes are in good shape, which matches the earlier narrowing work on this issue (issue #4 comment, 2026-06-18, and child issue #287, closed 2026-07-02).
 
-`/`, `/about/`, `/blog/`, `/speaking/`, `/contact/`, `/work/`, `/photography/`, `/generative-ai-services/`, `/glossary/`, `/events/` returned **zero empty-alt content images**. 96 images across those ten routes, all with descriptive alt, plus one Meta pixel each.
+`/`, `/about/`, `/blog/`, `/speaking/`, `/contact/`, `/work/`, `/photography/`, `/generative-ai-services/`, `/glossary/`, `/events/` returned **zero empty-alt content images, zero missing-alt, zero filename-style**.
 
-Verification: `make public-image-audit DEFAULT_URLS=1 FORMAT=json` on the eight-route default set returned `missing_attr: 8, empty_alt: 3, filename_style: 0` on 87 images. The three empties were the two `/home/` images and the one on `/flickr-photographr-badge/`. The full 216-route crawl reproduces that and then finds the rest.
+The exact numbers, because an earlier version of this file got them tangled:
+
+| | Occurrences | Rows in `inventory.csv` |
+|---|---:|---:|
+| Content images, all with descriptive alt | 96 | 94 |
+| Meta noscript pixel, one per route | 10 | 10 |
+| **Total** | **106** | **104** |
+
+96 is the true count of rendered content images on those ten routes. The CSV holds 94 rows for them because two pages render one `src` twice: `/photography/` renders the Iggy Pop archive frame twice, `/work/` renders `kk-laSalle-both-hands-full-25-scaled.jpg` twice. Both collapse to one row each. Nothing on those ten routes is a violation either way.
+
+Verification, 2026-08-02: `python3 recount_live.py --top-routes-only` returned `occurrences_total: 106`, `unique_page_src_total: 104`, `csv_rows_for_these_routes: 104`, `violation_occurrences: 0`, `by_classification_occurrences: {has-alt: 96, decorative-tracking-pixel: 10}`, and named both collapsed duplicates.
+
+Earlier corroboration: `make public-image-audit DEFAULT_URLS=1 FORMAT=json` on the eight-route default set returned `missing_attr: 8, empty_alt: 3, filename_style: 0` on 87 images. The three empties were the two `/home/` images and the one on `/flickr-photographr-badge/`. `/home/` and `/flickr-photographr-badge/` are in that default set but are not in the clean ten above.
 
 **So the violations are not on the front door. They are in page bodies and in the post archive.**
 
@@ -42,7 +73,11 @@ Verification: `make public-image-audit DEFAULT_URLS=1 FORMAT=json` on the eight-
 
 ## Method
 
-Everything here builds on the existing `scripts/public_image_audit.py`. The crawler in this pass imports that module's `ImageParser`, `RenderedImage`, `is_filename_style_alt`, and `row_dict` rather than re-implementing the classification, and only adds the route-selection and media-library join.
+Everything here builds on the existing `scripts/public_image_audit.py`. The crawler in this pass imports that module's `RenderedImage` (line 46), `ImageParser` (line 96), `is_filename_style_alt` (line 154), and `row_dict` (line 340) rather than re-implementing the classification, and only adds the route-selection and media-library join.
+
+**Reproducibility, stated plainly.** The one-shot wrapper that did the 216-route selection and the media-library join was never committed and is gone. That is a real gap and it is only half closed. What is committed is [`recount_live.py`](recount_live.py), which takes the route list straight out of the delivered `inventory.csv`, re-fetches all 216 routes over read-only GET, re-classifies every rendered `<img>` through the same `public_image_audit.py` helpers, and prints occurrence and row totals per class. Run on 2026-08-02 it reproduced the CSV row count and every per-class row total exactly (`routes_fetched: 216`, `fetch_errors: []`, `unique_page_src_total: 2140`). So the classification half of the headline is now independently checkable by anyone with the repo.
+
+What `recount_live.py` does **not** rebuild: the original route selection (it reads the routes back out of the CSV instead of re-deriving them from the REST API) and the media-library join. Anyone wanting to re-derive the route list or refresh the `media_library_alt` column has to write that part again.
 
 Routes crawled (216 unique after dedupe):
 
@@ -64,24 +99,47 @@ Per-year post distribution, from `X-WP-Total` on year-bounded queries:
 
 ---
 
-## The two fix surfaces, and why this matters before anyone writes
+## READ THIS FIRST: there are two fix surfaces and a library-only backfill silently fixes almost nothing
 
-This is the single most decision-relevant thing in the audit.
+> **A script that only writes `alt_text` on media library attachments will no-op on 1,105 of the 1,185 findings.** It will exit clean, report 1,185 attachments touched, and change 80 rendered images. If you ship one thing out of this document, ship this sentence.
 
-**Featured images pull alt from the media library at render time.** One `alt_text` write on the attachment fixes every place that image renders. 76 posts in the crawl render their hero featured image with `alt=""` purely because the attachment has no `alt_text`. Cheap, safe, high leverage.
+Two surfaces, and they are not interchangeable:
 
-**In-content image blocks bake the alt into `post_content`.** The core image block stores `alt=""` in the block markup, and that literal wins over the media library. Writing `alt_text` on the attachment will not change the rendered page.
+**1. Featured images pull alt from the media library at render time.** One `alt_text` write on the attachment fixes every place that image renders. 76 post heroes in the crawl render `alt=""` purely because the attachment has no `alt_text`. Cheap, safe, high leverage. This is the surface a library script actually reaches.
 
-Proof, from the crawl: seven images render with `alt=""` on a page even though their media library `alt_text` is populated. Examples:
+**2. In-content image blocks bake the alt into `post_content`.** The core image block stores `alt=""` in the block markup, and that literal wins over the media library. Writing `alt_text` on the attachment does not change the rendered page. This surface needs a `post_content` edit per post.
 
-| Media ID | Library `alt_text` | Renders as | On |
-|---:|---|---|---|
-| 2596 | `On location in the studio of Gordon Payne on Hornby Island` | `alt=""` | `/art-island-perspectives-from-a-creative-community/` |
-| 6657 | `Young Kris Krug standing in front of the Form Media Technologies sign in 2000.` | `alt=""` | `/2026/05/24/ai-mindset-creative-paradigm/` |
-| 11630 | `Responsible AI Professional Certification` | `alt=""` | `/2026/04/17/applied-ethical-ai-responsible-ai-professional-certification-rap/` |
-| 8549 | `Second Brain AI` | `alt=""` | `/2025/03/09/transcending-techs-darker-impulses/` |
+Split of the 1,185 by `fix_surface`, straight from `inventory.csv`:
 
-The `fix_surface` column in `inventory.csv` marks every row as `media-library-alt_text`, `post-content-block`, `post-content-html-or-theme`, `tracking-pixel-snippet`, or `leave-as-is`. Anyone shipping a batch should read that column first. A media-library-only script will silently no-op on 1,000+ of these.
+| `fix_surface` | Violation rows | Reachable by a media library write? |
+|---|---:|---|
+| `post-content-block` | 1,094 | **No** |
+| `post-content-html-or-theme` | 11 | **No** |
+| `media-library-alt_text` | 80 | Yes |
+| **Total** | **1,185** | **80 of 1,185** |
+
+### The proof, re-fetched live on 2026-08-02
+
+12 rendered images carry a populated media library `alt_text` and still render `alt=""` on the page. That is 12 rows across 11 unique media IDs. (An earlier version of this file said seven. That was wrong and it understated: no cut of `inventory.csv` yields seven.) All 12 were re-confirmed by fetching the live page and the live REST record on 2026-08-02:
+
+| Media ID | Library `alt_text` | Renders as | On | `fix_surface` |
+|---:|---|---|---|---|
+| 2596 | `On location in the studio of Gordon Payne on Hornby Island` | `alt=""` | `/art-island-perspectives-from-a-creative-community/` | `post-content-block` |
+| 6481 | `Small File Media Festival - Our Networks 2024` | `alt=""` | `/2024/06/26/blog-ai-the-revolution-of-governance-and-cybersecurity-a-night-with-anthony-green/` | `media-library-alt_text` |
+| 8211 | `Featured image for "Vancouver AI January 2025 Recap..."` | `alt=""` | `/2024/09/11/the-human-algorithm-enya-learning-keynote/` | `media-library-alt_text` |
+| 8211 | same attachment, second route | `alt=""` | `/2024/12/02/autolume-post-photographic-cybernetic-portraiture/` | `media-library-alt_text` |
+| 8549 | `Second Brain AI` | `alt=""` | `/2025/03/09/transcending-techs-darker-impulses/` | `post-content-block` |
+| 8675 | `Featured image for "Is A Hotdog A Sandwich?..."` | `alt=""` | `/2025/03/20/is-a-hotdog-a-sandwich-vancouver-aidata-storytelling-hackathon-w-andrew-reid/` | `post-content-block` |
+| 11264 | `Cover image for Make Culture, Not Content...` | `alt=""` | `/2026/02/03/name-the-bias/` | `post-content-block` |
+| 11630 | `Responsible AI Professional Certification` | `alt=""` | `/2026/04/17/applied-ethical-ai-responsible-ai-professional-certification-rap/` | `post-content-block` |
+| 6657 | `Young Kris Krug standing in front of the Form Media Technologies sign in 2000.` | `alt=""` | `/2026/05/24/ai-mindset-creative-paradigm/` | `post-content-block` |
+| 2456 | `Gulf Island Pirate Regatta` | `alt=""` | `/2019/04/02/upcoming-galiano-island-events/` | `post-content-block` |
+| 2464 | `Galiano Relief Retreat - Boathouse Studio` | `alt=""` | `/2019/04/10/small-art-printmaking-press-on-whaler-bay-galiano-island/` | `post-content-block` |
+| 6048 | `Psychedelic Vancouver skyline with floating orbs and a large green face reflected in water.` | `alt=""` | `/2024/06/19/blog-rise-of-the-vancouver-technopunks-hosting-the-web-summit-on-our-terms/` | `post-content-block` |
+
+**The cleanest demonstration is the two pages where the same attachment renders twice, one render per surface.** On `/2025/03/20/is-a-hotdog-a-sandwich-vancouver-aidata-storytelling-hackathon-w-andrew-reid/`, media 8675 renders once as `alt="Featured image for "“Is A Hotdog A Sandwich?”: Vancouver AI Data Storytelling Hackathon w/ Andrew Reid""` (the hero, reading the library) and once as `alt=""` (the in-content block, ignoring it). Same page, same file, same library record, two different rendered alts. Media 2456 does the identical thing on `/2019/04/02/upcoming-galiano-island-events/`. Any doubt about which surface wins is settled by those two pages.
+
+The `fix_surface` column in `inventory.csv` marks every row as `media-library-alt_text`, `post-content-block`, `post-content-html-or-theme`, `tracking-pixel-snippet`, or `leave-as-is`. Read that column before shipping any batch.
 
 ---
 
@@ -122,6 +180,10 @@ Batches 4 to 6 are volume work. They cannot be automated honestly, because the c
 ## Batch 1, exact proposed alt strings
 
 Every string below was written after fetching and looking at the image at 520px on 2026-08-02. They are apply-ready. Copy them verbatim, including the NCRs.
+
+**What the strings actually cover, counted properly.** 36 media IDs. **35 distinct strings**, not 36: media 7539 and 7617 are the same Isaac Shamam testimonial card used on two different course pages and carry byte-identical alt. 43 rows in `inventory.csv` carry a `proposed_alt` value, but only **39 of those rows are violations that need a fix** (34 in batch 1, 5 in batch 2). The other 4 rows are `has-alt` / `fix_surface=leave-as-is`: they are places where media 12646 and 6835 already render with real alt (the post-card renders on `/` and `/blog/` fall back to the post title, and 12646 has a real in-body alt on its own post). Those 4 are carried in the CSV for context and are not part of the 1,185.
+
+So the honest line is: **35 distinct strings, 36 attachments, closing 39 of the 1,185 findings.** Not "36 strings covering 43 instances".
 
 ### `/cinematic-podcasts-hollywood-grade-storytelling-meets-generative-ai/` (page 7764)
 
@@ -234,15 +296,31 @@ These are classified `has-alt` in the CSV because they are not empty, so they ar
 
 ---
 
-## Acceptance criteria on issue #4, honestly marked
+## Acceptance criteria on issue #4: 0 of 7 met
 
-- [ ] All images have descriptive alt text. **No.** 1,185 rendered images still need it. This pass inventories them and writes 36 exact strings covering 43 rendered instances.
-- [x] Alt text keyword-optimized where appropriate. Batch 1 and 2 strings name the people, the courses, the brands, and the events.
-- [x] Profile and headshots labeled with context. Media 7529 (Peter Bittner), 7530 (Kris Krüg), 7523 (both), and 2592 (Michelle Nyberg) all name the person and their role.
-- [x] Project images describe content and purpose. Course cards, logo walls, testimonial cards and podcast covers all carry their actual content.
-- [ ] Decorative images have empty `alt=""`. **Partly.** 3 are correctly decorative. The 216 Meta pixels still have no `alt` attribute at all and should get `alt=""`, which is batch 0.
-- [ ] Tested with screen readers. **Not done.** No screen reader was run in this pass.
-- [ ] WCAG 2.1 AA compliance verified. **Not done here.** That is issue #46.
+Every criterion on #4 is about the state of images **on the live site**. This pass made zero writes. Nothing here has been applied. So the count is 0 of 7, and it stays 0 of 7 until a batch actually runs.
+
+An earlier version of this file marked three of them `[x]` because a proposed string existed in this markdown file. That was wrong. A string in a draft is not alt text on a website. Re-checked live on 2026-08-02, `GET /wp-json/wp/v2/media/<id>?_fields=id,alt_text`: media 7529, 7530, 7523, 2592, 2872, 12646, 6835, 7615 and 7616 all return `alt_text=""`. Not one of them has moved.
+
+- [ ] All images have descriptive alt text. **No.** 1,185 findings, 0 fixed. This pass inventories them and drafts 35 distinct strings for 36 attachments, which would close 39 of them once applied.
+- [ ] Alt text keyword-optimized where appropriate. **No.** The drafted strings name the people, courses, brands and events, but none of them are on the site. Live `alt_text` on 7615 and 7616 is `""`.
+- [ ] Profile and headshots labeled with context. **No.** Strings are drafted for 7529 (Peter Bittner), 7530 (Kris Krüg), 7523 (both) and 2592 (Michelle Nyberg). All four attachments return `alt_text=""` live right now.
+- [ ] Project images describe content and purpose. **No.** Strings are drafted for the course cards, logo walls, testimonial cards and podcast covers. Media 2872 (the MØTLEYKRÜG cover) returns `alt_text=""` live.
+- [ ] Decorative images have empty `alt=""`. **No.** 3 are already correctly decorative, which predates this pass. The 216 Meta pixels still have no `alt` attribute at all. Batch 0 is the fix and it has not run.
+- [ ] Tested with screen readers. **No.** No screen reader was run in this pass.
+- [ ] WCAG 2.1 AA compliance verified. **No.** That is issue #46.
+
+### What this PR does close
+
+It is not zero work, it is just not site state. What is genuinely done:
+
+1. **The scope question on #4 is answered with a number.** The issue has sat open since January partly because "all images" was never bounded. It is 1,185 findings across 129 of 216 audited routes, with a per-row CSV. The 2026-06-17 and 2026-06-18 comments on #4 could only say "the recent lane is clean, the archive is unknown". The archive is no longer unknown.
+2. **The fix path is now known to be two paths, not one.** See the section above. That finding would have burned a whole backfill run.
+3. **35 strings are written and apply-ready**, which converts batch 1 and 2 from "look at every image" into "paste and verify".
+4. **The work is ordered into six batches with effort and blast radius per batch**, so KK can approve a slice instead of the whole thing.
+5. **The headline is now re-runnable** via `recount_live.py`.
+
+None of that is an acceptance criterion on #4. #4 closes when images on kriskrug.co have alt text.
 
 ## What needs KK
 
@@ -256,6 +334,7 @@ These are classified `has-alt` in the CSV because they are not empty, so they ar
 ## Files
 
 - `content/drafts/alt-text-backfill-2026-08-02/inventory.md`, this file
-- `content/drafts/alt-text-backfill-2026-08-02/inventory.csv`, 2,140 rows, columns: `batch, page_url, page_id, page_slug, page_title, tier, media_id, image_file, image_src, rendered_alt, alt_state, classification, fix_surface, media_library_alt, media_library_title, proposed_alt, needs_ncr, confidence, notes`
+- `content/drafts/alt-text-backfill-2026-08-02/inventory.csv`, 2,140 rows, one per unique `(page_url, image_src)` pair. Columns: `batch, page_url, page_id, page_slug, page_title, tier, media_id, image_file, image_src, rendered_alt, alt_state, classification, fix_surface, media_library_alt, media_library_title, proposed_alt, needs_ncr, confidence, notes`
+- `content/drafts/alt-text-backfill-2026-08-02/recount_live.py`, read-only re-verification of every total in this file. GET only, never writes to the site. `python3 recount_live.py` for all 216 routes, `--top-routes-only` for the fast ten-route check, `--json out.json` for machine-readable totals.
 
 Rows with `confidence` starting `TODO` are the ones still needing a human to look at the image. Rows with `confidence` starting `high` are apply-ready.
