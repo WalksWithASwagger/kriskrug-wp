@@ -1,0 +1,1468 @@
+{
+  "schema": "kk-visual-baseline/1",
+  "run_id": "20260803T033115Z",
+  "issue": 473,
+  "created_at": "2026-08-03T03:33:53+00:00",
+  "base_url": "https://kriskrug.co",
+  "artifact_dir": "docs/current-state/reports/visual-baseline/20260803T033115Z",
+  "artifacts_committed": false,
+  "tools": {
+    "node": "/opt/homebrew/bin/node",
+    "node_version": "v26.0.0",
+    "playwright": "1.62.1",
+    "chromium_exec": "/Users/kk/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+    "browsers_path": "/Users/kk/Library/Caches/ms-playwright"
+  },
+  "settings": {
+    "device_scale": 2,
+    "reduced_motion": "reduce",
+    "color_scheme": "light",
+    "forced_colors": "none",
+    "timezone": "America/Vancouver",
+    "settle_ms": 900,
+    "cache_bust": true,
+    "strip_srcset": true,
+    "mask_color": "#FF00FF",
+    "allow_hosts": [
+      "kriskrug.co",
+      "s5102.pcdn.co",
+      "i0.wp.com",
+      "i1.wp.com",
+      "i2.wp.com"
+    ],
+    "full_page": true
+  },
+  "tolerance": {
+    "pixel_threshold": 0.2,
+    "pass_pct": 0.1,
+    "warn_pct": 1.0,
+    "height_delta_pct": 2.0
+  },
+  "masks": {
+    "marquee": [
+      ".aurora-woven-marquee",
+      ".aurora-woven-marquee-track",
+      ".kkm",
+      ".kkm-board",
+      "[class*='marquee']"
+    ],
+    "dates": [
+      "time",
+      ".wp-block-post-date",
+      ".aurora-article-date",
+      ".aurora-masthead-date",
+      "[class*='now-showing']",
+      "[class*='entry-date']",
+      "[class*='posted-on']"
+    ],
+    "beehiiv": [
+      "iframe[src*='beehiiv']",
+      "[class*='beehiiv']",
+      "[id*='beehiiv']",
+      "[data-beehiiv]"
+    ]
+  },
+  "reveals": [
+    {
+      "selector": ".is-aurora-lux-reveal",
+      "add_class": "is-revealed"
+    },
+    {
+      "selector": ".aurora-fade-up",
+      "add_class": "is-visible"
+    },
+    {
+      "selector": ".aurora-scale-in",
+      "add_class": "is-visible"
+    },
+    {
+      "selector": ".aurora-hero-text",
+      "add_class": "is-visible"
+    }
+  ],
+  "routes": [
+    {
+      "id": "home",
+      "path": "/",
+      "template": "front-page.html",
+      "expect_status": 200
+    },
+    {
+      "id": "about",
+      "path": "/about/",
+      "template": "page.html",
+      "expect_status": 200
+    },
+    {
+      "id": "services",
+      "path": "/generative-ai-services/",
+      "template": "page.html",
+      "expect_status": 200,
+      "note": "canonical target of /services/ (301)"
+    },
+    {
+      "id": "speaking",
+      "path": "/speaking/",
+      "template": "page.html",
+      "expect_status": 200
+    },
+    {
+      "id": "work",
+      "path": "/work/",
+      "template": "page.html",
+      "expect_status": 200
+    },
+    {
+      "id": "photography",
+      "path": "/photography/",
+      "template": "page.html",
+      "expect_status": 200
+    },
+    {
+      "id": "blog",
+      "path": "/blog/",
+      "template": "index.html",
+      "expect_status": 200
+    },
+    {
+      "id": "contact",
+      "path": "/contact/",
+      "template": "page.html",
+      "expect_status": 200
+    },
+    {
+      "id": "single-post",
+      "path": "/2026/07/18/i-am-nomad-ai-film/",
+      "template": "single.html",
+      "expect_status": 200
+    },
+    {
+      "id": "not-found",
+      "path": "/definitely-not-a-page-404-probe/",
+      "template": "404.html",
+      "expect_status": 404
+    },
+    {
+      "id": "category-archive",
+      "path": "/category/vancouver-ai-ecosystem/",
+      "template": "archive.html",
+      "expect_status": 200,
+      "note": "stands in for the marquee board post; /marquee/ is 404 on live"
+    }
+  ],
+  "route_preflight": [
+    {
+      "id": "home",
+      "path": "/",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "id": "about",
+      "path": "/about/",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "id": "services",
+      "path": "/generative-ai-services/",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "id": "speaking",
+      "path": "/speaking/",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "id": "work",
+      "path": "/work/",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "id": "photography",
+      "path": "/photography/",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "id": "blog",
+      "path": "/blog/",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "id": "contact",
+      "path": "/contact/",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "id": "single-post",
+      "path": "/2026/07/18/i-am-nomad-ai-film/",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "id": "not-found",
+      "path": "/definitely-not-a-page-404-probe/",
+      "status": 404,
+      "expected": 404
+    },
+    {
+      "id": "category-archive",
+      "path": "/category/vancouver-ai-ecosystem/",
+      "status": 200,
+      "expected": 200
+    }
+  ],
+  "viewports": [
+    {
+      "name": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2
+    }
+  ],
+  "fetch_stats": {
+    "fetched": 132,
+    "cached": 376,
+    "blocked": 78,
+    "failed": 0
+  },
+  "captures": [
+    {
+      "id": "home",
+      "path": "/",
+      "template": "front-page.html",
+      "viewport": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 16,
+        "painted": 16
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 9,
+        "beehiiv": 0
+      },
+      "scroll_height": 19710,
+      "doc_title": "Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "home-mobile.png",
+      "ok": true,
+      "sha256": "fa6f731887cf57ecf8585ab25c0c10e93ff2d13b9cb4fd1b06556e705bf7c04d",
+      "bytes": 43518416,
+      "png_width": 4000,
+      "png_height": 39420,
+      "rel_path": "20260803T033115Z/png/home-mobile.png"
+    },
+    {
+      "id": "about",
+      "path": "/about/",
+      "template": "page.html",
+      "viewport": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 6,
+        "painted": 6
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 9260,
+      "doc_title": "About Kris Kr\u00fcg | AI Speaker, Creative Technologist & Community Builder",
+      "file": "about-mobile.png",
+      "ok": true,
+      "sha256": "34b8811ad8cd237af1c44d1b2926b918e4122169a18824a85fca23a8dce651fc",
+      "bytes": 6957722,
+      "png_width": 936,
+      "png_height": 18520,
+      "rel_path": "20260803T033115Z/png/about-mobile.png"
+    },
+    {
+      "id": "services",
+      "path": "/generative-ai-services/",
+      "template": "page.html",
+      "viewport": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 3,
+        "painted": 3
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 5809,
+      "doc_title": "Generative AI Creative Services & Strategy \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "services-mobile.png",
+      "ok": true,
+      "sha256": "3794ac5c0d92014e4f3aae7a368afe3c5266c6bae17ffd6eab369c974f37b241",
+      "bytes": 2934674,
+      "png_width": 936,
+      "png_height": 11618,
+      "rel_path": "20260803T033115Z/png/services-mobile.png"
+    },
+    {
+      "id": "speaking",
+      "path": "/speaking/",
+      "template": "page.html",
+      "viewport": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 5,
+        "painted": 5
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 6903,
+      "doc_title": "AI Keynote Speaker Kris Kr\u00fcg | Humanizing AI, Creativity & Community",
+      "file": "speaking-mobile.png",
+      "ok": true,
+      "sha256": "46f287e9929bbc9db739acb1a6147ef95c5f87677d38ce240565177ac7069602",
+      "bytes": 7727427,
+      "png_width": 2432,
+      "png_height": 13806,
+      "rel_path": "20260803T033115Z/png/speaking-mobile.png"
+    },
+    {
+      "id": "work",
+      "path": "/work/",
+      "template": "page.html",
+      "viewport": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 9,
+        "painted": 9
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 11736,
+      "doc_title": "Work | Kris Kr\u00fcg",
+      "file": "work-mobile.png",
+      "ok": true,
+      "sha256": "fffc10b29e9f0fcde80d8a1a6bb2c50995dbd39dcd7d33f10350ff5d363df29b",
+      "bytes": 33902753,
+      "png_width": 3104,
+      "png_height": 23472,
+      "rel_path": "20260803T033115Z/png/work-mobile.png"
+    },
+    {
+      "id": "photography",
+      "path": "/photography/",
+      "template": "page.html",
+      "viewport": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 18,
+        "painted": 18
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 8749,
+      "doc_title": "Photography \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "photography-mobile.png",
+      "ok": true,
+      "sha256": "b9f0f3fc6e5e17e2679d2d2b0cd04f811a37f7a24e2dc2850adea51e49a3d88b",
+      "bytes": 12019098,
+      "png_width": 936,
+      "png_height": 17498,
+      "rel_path": "20260803T033115Z/png/photography-mobile.png"
+    },
+    {
+      "id": "blog",
+      "path": "/blog/",
+      "template": "index.html",
+      "viewport": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 19,
+        "painted": 19
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 20,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "scroll_height": 12557,
+      "doc_title": "Blog \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "blog-mobile.png",
+      "ok": true,
+      "sha256": "79a25851a8a91fb18751d2de1338615b45dbdb568ee1b3ee95c49043d3e8fcc7",
+      "bytes": 12939104,
+      "png_width": 936,
+      "png_height": 25114,
+      "rel_path": "20260803T033115Z/png/blog-mobile.png"
+    },
+    {
+      "id": "contact",
+      "path": "/contact/",
+      "template": "page.html",
+      "viewport": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 2,
+        "painted": 2
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 4614,
+      "doc_title": "Contact Kris Kr\u00fcg \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "contact-mobile.png",
+      "ok": true,
+      "sha256": "c281070a9513e687f32cf12771d0ebb494f404ee7c0075359bca65d497db9a61",
+      "bytes": 1568492,
+      "png_width": 936,
+      "png_height": 9228,
+      "rel_path": "20260803T033115Z/png/contact-mobile.png"
+    },
+    {
+      "id": "single-post",
+      "path": "/2026/07/18/i-am-nomad-ai-film/",
+      "template": "single.html",
+      "viewport": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 9,
+        "painted": 9
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 76,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 8,
+        "beehiiv": 0
+      },
+      "scroll_height": 16499,
+      "doc_title": "I AM NOMAD: Nine Cuts, One Melting Whale, and a Very Patient AI Editor \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "single-post-mobile.png",
+      "ok": true,
+      "sha256": "53579c99bc3672fda4d085e55decd9ceadbe6e24e2af8ec56ec78961416ebb61",
+      "bytes": 8033022,
+      "png_width": 936,
+      "png_height": 32998,
+      "rel_path": "20260803T033115Z/png/single-post-mobile.png"
+    },
+    {
+      "id": "not-found",
+      "path": "/definitely-not-a-page-404-probe/",
+      "template": "404.html",
+      "viewport": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2,
+      "http_status": 404,
+      "images": {
+        "total": 1,
+        "painted": 1
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 2955,
+      "doc_title": "Page not found \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "not-found-mobile.png",
+      "ok": true,
+      "sha256": "8eba36a147ac7a7ef8455417ba71d5e302fde1d4e1e295186ad9f0eb4b105152",
+      "bytes": 584498,
+      "png_width": 936,
+      "png_height": 5910,
+      "rel_path": "20260803T033115Z/png/not-found-mobile.png"
+    },
+    {
+      "id": "category-archive",
+      "path": "/category/vancouver-ai-ecosystem/",
+      "template": "archive.html",
+      "viewport": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 1,
+        "painted": 1
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "scroll_height": 11456,
+      "doc_title": "Vancouver AI Ecosystem \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "category-archive-mobile.png",
+      "ok": true,
+      "sha256": "a4b9c1fc77667e2ab8e511a3df269c07bb0367fd1bc322561a3421d11aefab2e",
+      "bytes": 2251959,
+      "png_width": 936,
+      "png_height": 22912,
+      "rel_path": "20260803T033115Z/png/category-archive-mobile.png"
+    },
+    {
+      "id": "home",
+      "path": "/",
+      "template": "front-page.html",
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 16,
+        "painted": 16
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 9,
+        "beehiiv": 0
+      },
+      "scroll_height": 18391,
+      "doc_title": "Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "home-tablet.png",
+      "ok": true,
+      "sha256": "8b90282b8cd6458b090ee799ae5e0fbaf04f6b843dce66c0d18705046fdf18db",
+      "bytes": 42514605,
+      "png_width": 4000,
+      "png_height": 36782,
+      "rel_path": "20260803T033115Z/png/home-tablet.png"
+    },
+    {
+      "id": "about",
+      "path": "/about/",
+      "template": "page.html",
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 6,
+        "painted": 6
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 8850,
+      "doc_title": "About Kris Kr\u00fcg | AI Speaker, Creative Technologist & Community Builder",
+      "file": "about-tablet.png",
+      "ok": true,
+      "sha256": "0412446d5b734f19b0269261e0f82f79abebda93e6ff810dccbb769e5205f2c6",
+      "bytes": 13740927,
+      "png_width": 1536,
+      "png_height": 17700,
+      "rel_path": "20260803T033115Z/png/about-tablet.png"
+    },
+    {
+      "id": "services",
+      "path": "/generative-ai-services/",
+      "template": "page.html",
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 3,
+        "painted": 3
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 5226,
+      "doc_title": "Generative AI Creative Services & Strategy \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "services-tablet.png",
+      "ok": true,
+      "sha256": "e89fb71205808f4a0d1ac03b1b26351650db5fc81ba65659850a7c5e4d781da7",
+      "bytes": 4853759,
+      "png_width": 1536,
+      "png_height": 10452,
+      "rel_path": "20260803T033115Z/png/services-tablet.png"
+    },
+    {
+      "id": "speaking",
+      "path": "/speaking/",
+      "template": "page.html",
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 5,
+        "painted": 5
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 6335,
+      "doc_title": "AI Keynote Speaker Kris Kr\u00fcg | Humanizing AI, Creativity & Community",
+      "file": "speaking-tablet.png",
+      "ok": true,
+      "sha256": "a5c25caa370e7e5968130f17001a8a07af4b2101fef6ceae591ccb4b14ab8933",
+      "bytes": 7669093,
+      "png_width": 2432,
+      "png_height": 12670,
+      "rel_path": "20260803T033115Z/png/speaking-tablet.png"
+    },
+    {
+      "id": "work",
+      "path": "/work/",
+      "template": "page.html",
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 9,
+        "painted": 9
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 11251,
+      "doc_title": "Work | Kris Kr\u00fcg",
+      "file": "work-tablet.png",
+      "ok": true,
+      "sha256": "3b39165baf3c3859fc2678d386df91b3343f97a2663af7ab80740b5cdb226bd9",
+      "bytes": 33850940,
+      "png_width": 3104,
+      "png_height": 22502,
+      "rel_path": "20260803T033115Z/png/work-tablet.png"
+    },
+    {
+      "id": "photography",
+      "path": "/photography/",
+      "template": "page.html",
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 18,
+        "painted": 18
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 6385,
+      "doc_title": "Photography \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "photography-tablet.png",
+      "ok": true,
+      "sha256": "a737e548f155f4f50f6ee55d4caefd69c99c98a5b317c513624c33620fb924b9",
+      "bytes": 14827054,
+      "png_width": 1536,
+      "png_height": 12770,
+      "rel_path": "20260803T033115Z/png/photography-tablet.png"
+    },
+    {
+      "id": "blog",
+      "path": "/blog/",
+      "template": "index.html",
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 19,
+        "painted": 19
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 20,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "scroll_height": 7132,
+      "doc_title": "Blog \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "blog-tablet.png",
+      "ok": true,
+      "sha256": "40a8a27080eb9143612bc62be1685c57f7a90b50e6ef26bf2a4e3641fa31f135",
+      "bytes": 6457787,
+      "png_width": 1536,
+      "png_height": 14264,
+      "rel_path": "20260803T033115Z/png/blog-tablet.png"
+    },
+    {
+      "id": "contact",
+      "path": "/contact/",
+      "template": "page.html",
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 2,
+        "painted": 2
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 3515,
+      "doc_title": "Contact Kris Kr\u00fcg \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "contact-tablet.png",
+      "ok": true,
+      "sha256": "ddff25c69b847bd66fe002fa623a88530db513426356278d8d4619c088acdab0",
+      "bytes": 1565671,
+      "png_width": 1536,
+      "png_height": 7030,
+      "rel_path": "20260803T033115Z/png/contact-tablet.png"
+    },
+    {
+      "id": "single-post",
+      "path": "/2026/07/18/i-am-nomad-ai-film/",
+      "template": "single.html",
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 9,
+        "painted": 9
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 76,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 8,
+        "beehiiv": 0
+      },
+      "scroll_height": 14452,
+      "doc_title": "I AM NOMAD: Nine Cuts, One Melting Whale, and a Very Patient AI Editor \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "single-post-tablet.png",
+      "ok": true,
+      "sha256": "1c1fc75296b62ad93fcfcb85699114fe4d229ca0e93f3043e3f1c194e3739aa3",
+      "bytes": 18068356,
+      "png_width": 1536,
+      "png_height": 28904,
+      "rel_path": "20260803T033115Z/png/single-post-tablet.png"
+    },
+    {
+      "id": "not-found",
+      "path": "/definitely-not-a-page-404-probe/",
+      "template": "404.html",
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2,
+      "http_status": 404,
+      "images": {
+        "total": 1,
+        "painted": 1
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 2754,
+      "doc_title": "Page not found \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "not-found-tablet.png",
+      "ok": true,
+      "sha256": "d18bb3f92545819690adc0f4d7f4e3ca7118baa2923cb5004ce7ae2dfb1e915e",
+      "bytes": 600101,
+      "png_width": 1536,
+      "png_height": 5508,
+      "rel_path": "20260803T033115Z/png/not-found-tablet.png"
+    },
+    {
+      "id": "category-archive",
+      "path": "/category/vancouver-ai-ecosystem/",
+      "template": "archive.html",
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 1,
+        "painted": 1
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "scroll_height": 9125,
+      "doc_title": "Vancouver AI Ecosystem \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "category-archive-tablet.png",
+      "ok": true,
+      "sha256": "d9e64cedd4b331b7457107fd15ffebcc09d1731c80a843aa08657215e5224c8d",
+      "bytes": 2156955,
+      "png_width": 1536,
+      "png_height": 18250,
+      "rel_path": "20260803T033115Z/png/category-archive-tablet.png"
+    },
+    {
+      "id": "home",
+      "path": "/",
+      "template": "front-page.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 16,
+        "painted": 16
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 9,
+        "beehiiv": 0
+      },
+      "scroll_height": 18381,
+      "doc_title": "Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "home-desktop.png",
+      "ok": true,
+      "sha256": "42e7c1a11423a31135c33f73476149b4e1bcdd635ece432380f29e8b54da6b4f",
+      "bytes": 43825891,
+      "png_width": 4000,
+      "png_height": 36762,
+      "rel_path": "20260803T033115Z/png/home-desktop.png"
+    },
+    {
+      "id": "about",
+      "path": "/about/",
+      "template": "page.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 6,
+        "painted": 6
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 8850,
+      "doc_title": "About Kris Kr\u00fcg | AI Speaker, Creative Technologist & Community Builder",
+      "file": "about-desktop.png",
+      "ok": true,
+      "sha256": "cfdec232a3bae8c57819c65a7e591e347ac59a2247ff952f132a4019a52df332",
+      "bytes": 21882288,
+      "png_width": 2880,
+      "png_height": 17700,
+      "rel_path": "20260803T033115Z/png/about-desktop.png"
+    },
+    {
+      "id": "services",
+      "path": "/generative-ai-services/",
+      "template": "page.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 3,
+        "painted": 3
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 4248,
+      "doc_title": "Generative AI Creative Services & Strategy \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "services-desktop.png",
+      "ok": true,
+      "sha256": "d34b15e25ebf68a6141d695d9b4891e5f08c1f90839e25a165e954969267fb07",
+      "bytes": 3780874,
+      "png_width": 2880,
+      "png_height": 8496,
+      "rel_path": "20260803T033115Z/png/services-desktop.png"
+    },
+    {
+      "id": "speaking",
+      "path": "/speaking/",
+      "template": "page.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 5,
+        "painted": 5
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 6430,
+      "doc_title": "AI Keynote Speaker Kris Kr\u00fcg | Humanizing AI, Creativity & Community",
+      "file": "speaking-desktop.png",
+      "ok": true,
+      "sha256": "0a4ea1ed137aed5489f84da6c998a265610e7bc30500cfd3a39e4059c5663c61",
+      "bytes": 7874135,
+      "png_width": 2980,
+      "png_height": 12860,
+      "rel_path": "20260803T033115Z/png/speaking-desktop.png"
+    },
+    {
+      "id": "work",
+      "path": "/work/",
+      "template": "page.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 9,
+        "painted": 9
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 11368,
+      "doc_title": "Work | Kris Kr\u00fcg",
+      "file": "work-desktop.png",
+      "ok": true,
+      "sha256": "18cc4bbbb7f3e9ae88684fb862e837aa88ddd5100452971904e093d7c649fe23",
+      "bytes": 34135602,
+      "png_width": 3652,
+      "png_height": 22736,
+      "rel_path": "20260803T033115Z/png/work-desktop.png"
+    },
+    {
+      "id": "photography",
+      "path": "/photography/",
+      "template": "page.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 18,
+        "painted": 18
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 5155,
+      "doc_title": "Photography \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "photography-desktop.png",
+      "ok": true,
+      "sha256": "d6c2c21e8f876b5f4ae74fd60ebe24db8e8cacd87e7f11b9a5d095d1142acea5",
+      "bytes": 13495027,
+      "png_width": 2880,
+      "png_height": 10310,
+      "rel_path": "20260803T033115Z/png/photography-desktop.png"
+    },
+    {
+      "id": "blog",
+      "path": "/blog/",
+      "template": "index.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 19,
+        "painted": 19
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 20,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "scroll_height": 7343,
+      "doc_title": "Blog \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "blog-desktop.png",
+      "ok": true,
+      "sha256": "3984eae5261c7818bd844c8fef6da0eb53fa63f82480e3d166bbc019b1b157e4",
+      "bytes": 18850910,
+      "png_width": 2880,
+      "png_height": 14686,
+      "rel_path": "20260803T033115Z/png/blog-desktop.png"
+    },
+    {
+      "id": "contact",
+      "path": "/contact/",
+      "template": "page.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 2,
+        "painted": 2
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 3522,
+      "doc_title": "Contact Kris Kr\u00fcg \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "contact-desktop.png",
+      "ok": true,
+      "sha256": "1fe046045b1f2531b897108352cd30963644b637003b311120851d744ff3deb8",
+      "bytes": 2042431,
+      "png_width": 2880,
+      "png_height": 7044,
+      "rel_path": "20260803T033115Z/png/contact-desktop.png"
+    },
+    {
+      "id": "single-post",
+      "path": "/2026/07/18/i-am-nomad-ai-film/",
+      "template": "single.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 9,
+        "painted": 9
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 76,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 8,
+        "beehiiv": 0
+      },
+      "scroll_height": 15323,
+      "doc_title": "I AM NOMAD: Nine Cuts, One Melting Whale, and a Very Patient AI Editor \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "single-post-desktop.png",
+      "ok": true,
+      "sha256": "dcb9b5d18a3817006ae52337441944ea2f52cbd11a248cf6ca52baa34f08f637",
+      "bytes": 19305175,
+      "png_width": 2880,
+      "png_height": 30646,
+      "rel_path": "20260803T033115Z/png/single-post-desktop.png"
+    },
+    {
+      "id": "not-found",
+      "path": "/definitely-not-a-page-404-probe/",
+      "template": "404.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2,
+      "http_status": 404,
+      "images": {
+        "total": 1,
+        "painted": 1
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 2906,
+      "doc_title": "Page not found \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "not-found-desktop.png",
+      "ok": true,
+      "sha256": "e8a698225aff4579b0b53332169d1b679983fe24ff023d7b53fad80a82c69255",
+      "bytes": 668803,
+      "png_width": 2880,
+      "png_height": 5812,
+      "rel_path": "20260803T033115Z/png/not-found-desktop.png"
+    },
+    {
+      "id": "category-archive",
+      "path": "/category/vancouver-ai-ecosystem/",
+      "template": "archive.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 1,
+        "painted": 1
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "scroll_height": 9530,
+      "doc_title": "Vancouver AI Ecosystem \u2014 Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "category-archive-desktop.png",
+      "ok": true,
+      "sha256": "110602afb15b8fad6344f54d72dc8f7fcaed78851bb4eff87585b39a6b0238d4",
+      "bytes": 2459616,
+      "png_width": 2880,
+      "png_height": 19060,
+      "rel_path": "20260803T033115Z/png/category-archive-desktop.png"
+    }
+  ],
+  "kind": "baseline",
+  "css_identity": {
+    "files": [
+      {
+        "file": "style.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/style.css",
+        "live_status": 200,
+        "live_md5": "0c59494359f520cbbc83abf395e4d7a1",
+        "live_bytes": 119167,
+        "repo_md5": "dae3d9b6329d624293946b9678cbd83e",
+        "repo_bytes": 124925,
+        "identical": false
+      },
+      {
+        "file": "assets/css/02-tokens.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/02-tokens.css",
+        "live_status": 200,
+        "live_md5": "ab11ea146858480b3e842a2fb947e787",
+        "live_bytes": 1358,
+        "repo_md5": "ab11ea146858480b3e842a2fb947e787",
+        "repo_bytes": 1358,
+        "identical": true
+      },
+      {
+        "file": "assets/css/animations.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/animations.css",
+        "live_status": 200,
+        "live_md5": "657d47ff2b081658dca733a4404e0783",
+        "live_bytes": 7563,
+        "repo_md5": "657d47ff2b081658dca733a4404e0783",
+        "repo_bytes": 7563,
+        "identical": true
+      },
+      {
+        "file": "assets/css/bleeding-edge.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/bleeding-edge.css",
+        "live_status": 200,
+        "live_md5": "3edd3407f549465a9f23dda860af5306",
+        "live_bytes": 12413,
+        "repo_md5": "3edd3407f549465a9f23dda860af5306",
+        "repo_bytes": 12413,
+        "identical": true
+      },
+      {
+        "file": "assets/css/editor.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/editor.css",
+        "live_status": 200,
+        "live_md5": "4b0cb7208888492ff361e8b0ff3863aa",
+        "live_bytes": 5343,
+        "repo_md5": "4b0cb7208888492ff361e8b0ff3863aa",
+        "repo_bytes": 5343,
+        "identical": true
+      },
+      {
+        "file": "assets/css/09-late.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/09-late.css",
+        "live_status": 200,
+        "live_md5": "64080a6789f99b711affa5f534c2aef9",
+        "live_bytes": 1300,
+        "repo_md5": "64080a6789f99b711affa5f534c2aef9",
+        "repo_bytes": 1300,
+        "identical": true
+      },
+      {
+        "file": "assets/css/revive-port.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/revive-port.css",
+        "live_status": 200,
+        "live_md5": "7a15f15a1727a2a3517660a3092a8848",
+        "live_bytes": 32213,
+        "repo_md5": "7a15f15a1727a2a3517660a3092a8848",
+        "repo_bytes": 32213,
+        "identical": true
+      },
+      {
+        "file": "assets/css/typography-refined.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/typography-refined.css",
+        "live_status": 200,
+        "live_md5": "5c542499e2c2d7a4f5caa83879c8bcaa",
+        "live_bytes": 16758,
+        "repo_md5": "4c9c2f82d0f0a4c8f0518a8a66c73d6f",
+        "repo_bytes": 16784,
+        "identical": false
+      }
+    ],
+    "all_identical": false,
+    "live_theme_version": "1.5.7",
+    "repo_theme_version": "1.5.9"
+  },
+  "boost": {
+    "source": "https://kriskrug.co/",
+    "home_status": 200,
+    "css_bundle_url": "https://s5102.pcdn.co/wp-content/boost-cache/static/ec2a031717.min.css",
+    "css_bundle_hash": "ec2a031717",
+    "css_bundle_md5": "4bce8ff1c905976600cfe4934bd01b1b",
+    "css_bundle_bytes": 142406,
+    "js_bundle_hash": "5ada0d03dd"
+  }
+}
