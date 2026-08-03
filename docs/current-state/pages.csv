@@ -1,0 +1,47 @@
+id,slug,url,title,state,words,modified,inbound_posts,inbound_pages,inbound_page_ids,nav,inline_css_bytes,images,embeds,wave,proposed_action
+1208,about,https://kriskrug.co/about/,About Kris Krüg,DESIGNED,280,2026-08-01,7,2,3609 11887,primary+footer,3488,5,0,,none: already designed or template-driven
+1887,speaking,https://kriskrug.co/speaking/,AI Keynote Speaker Kris Krüg,DESIGNED,212,2026-07-24,6,11,1208 2250 2409 2666 2672 3609 11887 12316 12317 12318 12319,primary+footer,959,4,0,,none: already designed or template-driven
+1895,publications,https://kriskrug.co/publications/,Publications,DESIGNED-INLINE,1174,2026-08-01,1,0,,footer,15386,38,0,,none: already designed or template-driven
+2250,events,https://kriskrug.co/events/,Events,DESIGNED,1561,2026-08-01,2,1,12625,footer,2182,16,0,,none: already designed or template-driven
+2315,home,https://kriskrug.co/home/,Recent Posts & Updates:,LEGACY,465,2026-06-17,0,0,,no,0,12,0,W1,retire: redirect /home/ -> /
+2316,blog,https://kriskrug.co/blog/,Blog,UTILITY,0,2026-06-28,1,1,11887,primary+footer,0,0,0,,none: already designed or template-driven
+2389,news,https://kriskrug.co/news/,News,STUB,38,2026-06-17,0,0,,no,0,0,0,W1,retire: redirect /news/ -> /publications/
+2409,testimonials,https://kriskrug.co/testimonials/,Testimonials,DESIGNED,892,2026-08-01,0,0,,footer,0,0,0,,none: already designed or template-driven
+2418,contact,https://kriskrug.co/contact/,Contact Kris Krüg,DESIGNED-INLINE,228,2026-07-24,6,13,1208 1887 2409 2666 2672 3609 11914 12315 12317 12319 12320 12321 12322,primary+footer,5422,1,0,,none: already designed or template-driven
+2543,art-island-perspectives-from-a-creative-community,https://kriskrug.co/art-island-perspectives-from-a-creative-community/,Art Island: Perspectives from a Creative Community,LEGACY,815,2026-06-17,1,0,,no,0,7,0,W3,editorial media-text template
+2603,generative-ai-workshop-for-artists-creatives,https://kriskrug.co/generative-ai-workshop-for-artists-creatives/,Generative AI & Creative Potential Workshops,LEGACY,341,2026-06-17,2,0,,no,0,0,1,W2,offer template
+2666,generative-ai-services,https://kriskrug.co/generative-ai-services/,Generative AI Creative Services & Strategy,DESIGNED-INLINE,238,2026-07-24,8,5,3930 12316 12320 12321 12625,primary+footer,4418,2,0,,none: already designed or template-driven
+2672,work,https://kriskrug.co/work/,Work,DESIGNED,218,2026-07-24,3,3,1208 2666 12315,primary+footer,959,8,0,,none: already designed or template-driven
+2808,subscribe,https://kriskrug.co/subscribe/,(no title),STUB,0,2023-08-20,0,0,,no,0,0,1,W1,retire: redirect /subscribe/ -> beehiiv or fold into footer signup
+2828,motleykrug-podcast,https://kriskrug.co/motleykrug-podcast/,Kris Krüg’s MØTLEYKRÜG Podcast,LEGACY,903,2026-06-17,3,0,,footer,0,10,0,W3,media-card grid template
+2985,privacy-policy,https://kriskrug.co/privacy-policy/,KK Pledge to Privacy,LEGACY,434,2026-06-17,0,0,,footer,0,0,0,W3,policy template
+3595,japanese-introduction-page-kaykaysan,https://kriskrug.co/japanese-introduction-page-kaykaysan/,Japanese Introduction Page – KayKaySan,LEGACY,209,2026-06-17,1,0,,no,0,0,1,W4,language-intro template
+3598,chinese-introduction-kang-jia,https://kriskrug.co/chinese-introduction-kang-jia/,Chinese Introduction – Kang Jia,LEGACY,209,2026-06-17,1,0,,no,0,0,1,W4,language-intro template
+3600,russian-introduction-kristofor-kruglov,https://kriskrug.co/russian-introduction-kristofor-kruglov/,Russian Introduction – Kristofor Kruglov,LEGACY,223,2026-06-14,1,0,,no,0,0,1,W4,language-intro template
+3601,farsi-introduction-khalil-khalifa,https://kriskrug.co/farsi-introduction-khalil-khalifa/,Farsi Introduction – Khalil Khalifa,LEGACY,209,2026-06-17,1,0,,no,0,0,1,W4,language-intro template
+3603,swahili-introduction-kintu-krowfeather-karibu-kwenye-kabila-la-kidijitali-la-dunia-la-kris-krug-kuunganisha-dunia-kupitia-lugha-na-teknolojia,https://kriskrug.co/swahili-introduction-kintu-krowfeather-karibu-kwenye-kabila-la-kidijitali-la-dunia-la-kris-krug-kuunganisha-dunia-kupitia-lugha-na-teknolojia/,Swahili Introduction – Kintu Krowfeather – Karibu kwenye Kabila la Kidijitali la Dunia la Kris Krüg: Kuunganisha Dunia Kupitia Lugha na Teknolojia,LEGACY,518,2023-10-21,0,0,,no,0,0,1,W1,"retire: duplicate Swahili page, redirect to the surviving one"
+3606,hindi-introduction-krishna-vishwanathapriyadhanvanshi,https://kriskrug.co/hindi-introduction-krishna-vishwanathapriyadhanvanshi/,Hindi Introduction – Krishna Vishwanathapriyadhanvanshi,LEGACY,209,2026-06-17,1,0,,no,0,0,1,W4,language-intro template
+3609,podcast-guesting-page-epk,https://kriskrug.co/podcast-guesting-page-epk/,"Podcast Guest, AI Commentator, Event Host",DESIGNED,271,2026-07-18,3,5,1895 2418 12319 12320 12625,no,0,2,1,,none: already designed or template-driven
+3623,karibu-kwenye-kabila-la-kidijitali-la-dunia-la-kris-krug-kuunganisha-dunia-kupitia-lugha-na-teknolojia-swahili-welcome-page,https://kriskrug.co/karibu-kwenye-kabila-la-kidijitali-la-dunia-la-kris-krug-kuunganisha-dunia-kupitia-lugha-na-teknolojia-swahili-welcome-page/,Karibu kwenye Kabila la Kidijitali la Dunia la Kris Krüg: Kuunganisha Dunia Kupitia Lugha na Teknolojia – Swahili Welcome Page,LEGACY,391,2026-06-17,1,0,,no,0,0,1,W4,language-intro template (surviving Swahili page)
+3696,urdu-language-introduction-kris-krug,https://kriskrug.co/urdu-language-introduction-kris-krug/,Urdu Language Introduction – Kris Krüg,LEGACY,354,2026-06-14,1,0,,no,0,0,1,W4,language-intro template
+3899,reconciliation-indigenous-land-acknowledgement,https://kriskrug.co/reconciliation-indigenous-land-acknowledgement/,Reconciliation & Indigenous Land Acknowledgement,LEGACY,135,2026-06-17,0,1,12322,no,0,3,0,W3,statement template
+3930,empowering-events-organizations-for-the-ai-age,https://kriskrug.co/,(no title),DESIGNED,358,2026-06-29,0,0,,no,0,2,0,,none: already designed or template-driven
+3948,the-kk-worldview,https://kriskrug.co/the-kk-worldview/,The KK Worldview,LEGACY,259,2026-06-17,0,0,,no,0,0,0,W3,statement template
+3969,sponsor-cyberpunk-chronicles-newsletter,https://kriskrug.co/sponsor-cyberpunk-chronicles-newsletter/,Cyberpunk Chronicles Newsletter Sponsor Guide,LEGACY,1506,2026-06-17,0,0,,no,0,0,0,W2,offer template (reuse kk-sponsor from /sponsor-deck/)
+3974,product-review-policy-instructions,https://kriskrug.co/product-review-policy-instructions/,Product Review Policy & Instructions,LEGACY,862,2026-06-17,0,0,,no,0,0,0,W3,policy template
+6755,ai-upgrade-community-coaching-w-kris-krug-peter-bittner,https://kriskrug.co/ai-upgrade-community-coaching-w-kris-krug-peter-bittner/,AI Upgrade Community Coaching w/ Kris Krug & Peter Bittner,LEGACY,185,2026-06-17,0,0,,no,0,3,0,W2,offer template
+6770,ai-upgrade-for-creative-professionals,https://kriskrug.co/ai-upgrade-for-creative-professionals/,AI Upgrade for Creative Professionals,LEGACY,948,2026-06-29,5,0,,no,0,12,0,W2,offer template
+7610,ai-upgrade-for-modern-media-leaders,https://kriskrug.co/ai-upgrade-for-modern-media-leaders/,AI Upgrade for Modern Media Leaders,LEGACY,1401,2026-06-29,0,0,,no,0,7,0,W2,offer template
+7764,cinematic-podcasts-hollywood-grade-storytelling-meets-generative-ai,https://kriskrug.co/cinematic-podcasts-hollywood-grade-storytelling-meets-generative-ai/,Cinematic Podcasts: Hollywood-Grade Storytelling Meets Generative AI,LEGACY,738,2026-06-17,3,0,,no,0,2,3,W2,offer template
+11887,glossary,https://kriskrug.co/glossary/,AI Glossary,LEGACY,1209,2026-06-26,0,1,12321,no,0,0,0,W3,reference/definition template
+11914,responsible-ai-professional,https://kriskrug.co/responsible-ai-professional/,Responsible AI Professional Certification,DESIGNED,219,2026-07-01,0,3,1887 2672 12318,no,0,0,0,,none: already designed or template-driven
+12013,photography,https://kriskrug.co/photography/,Photography,DESIGNED-INLINE,267,2026-07-24,0,2,1208 2672,primary+footer,5024,17,0,,none: already designed or template-driven
+12315,vancouver-ai,https://kriskrug.co/vancouver-ai/,Vancouver AI Ecosystem,DESIGNED,216,2026-07-01,124,1,12317,no,0,3,0,,none: already designed or template-driven
+12316,ai-for-creatives,https://kriskrug.co/ai-for-creatives/,AI for Creatives,DESIGNED,218,2026-07-01,131,1,12321,no,0,3,0,,none: already designed or template-driven
+12317,ai-events,https://kriskrug.co/ai-events/,AI Events & Recaps,DESIGNED,202,2026-07-01,112,1,12315,no,0,3,0,,none: already designed or template-driven
+12318,ai-ethics,https://kriskrug.co/ai-ethics/,AI Ethics & Philosophy,DESIGNED,222,2026-07-01,42,1,12322,no,0,3,0,,none: already designed or template-driven
+12319,ai-conversations,https://kriskrug.co/ai-conversations/,Conversations & Interviews,DESIGNED,163,2026-07-01,32,0,,no,0,3,0,,none: already designed or template-driven
+12320,ai-for-journalists,https://kriskrug.co/ai-for-journalists/,AI for Journalism & Media,DESIGNED,198,2026-07-01,21,0,,no,0,2,0,,none: already designed or template-driven
+12321,ai-tools,https://kriskrug.co/ai-tools/,Generative AI Tools,DESIGNED,174,2026-07-01,15,0,,no,0,3,0,,none: already designed or template-driven
+12322,indigenous-ai,https://kriskrug.co/indigenous-ai/,Indigenous & Reconciliation in Tech,DESIGNED,203,2026-07-01,9,0,,no,0,3,0,,none: already designed or template-driven
+12625,sponsor-deck,https://kriskrug.co/sponsor-deck/,Sponsorship Deck,DESIGNED-INLINE,444,2026-07-24,0,0,,no,7752,7,0,,none: already designed or template-driven
