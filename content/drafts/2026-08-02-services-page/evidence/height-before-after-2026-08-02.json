@@ -1,0 +1,270 @@
+{
+  "measured_at": "2026-08-02",
+  "tool": "playwright chromium headless, logged out, colorScheme light, reducedMotion reduce, scroll-settle pass",
+  "url": "https://kriskrug.co/generative-ai-services/",
+  "note": "after variant = the live page with .kk-services-2026 innerHTML replaced by pack-proposed.html. Zero CSS change: same inline stylesheet, same fonts, same theme header and footer.",
+  "before": {
+    "375": {
+      "iw": 375,
+      "ih": 812,
+      "doc": 5326,
+      "post": 2644,
+      "header": 105,
+      "pageTitleBlock": 93,
+      "footer": 2344,
+      "pack": 2602,
+      "hero": 563,
+      "sections": [
+        {
+          "cls": "kk-services-hero",
+          "h": 563
+        },
+        {
+          "cls": "kk-services-section",
+          "h": 762
+        },
+        {
+          "cls": "kk-services-section",
+          "h": 868
+        },
+        {
+          "cls": "kk-services-section",
+          "h": 294
+        }
+      ],
+      "ribbonGrid": 680,
+      "proofGrid": 785,
+      "cta": 265,
+      "proofImg": 213,
+      "displayFontPx": "32px",
+      "firstOfferTop": 941,
+      "ctaTop": 2633
+    },
+    "768": {
+      "iw": 768,
+      "ih": 900,
+      "doc": 4812,
+      "post": 2758,
+      "header": 93,
+      "pageTitleBlock": 134,
+      "footer": 1651,
+      "pack": 2716,
+      "hero": 403,
+      "sections": [
+        {
+          "cls": "kk-services-hero",
+          "h": 403
+        },
+        {
+          "cls": "kk-services-section",
+          "h": 662
+        },
+        {
+          "cls": "kk-services-section",
+          "h": 1258
+        },
+        {
+          "cls": "kk-services-section",
+          "h": 277
+        }
+      ],
+      "ribbonGrid": 579,
+      "proofGrid": 1175,
+      "cta": 249,
+      "proofImg": 459,
+      "displayFontPx": "34.56px",
+      "firstOfferTop": 831,
+      "ctaTop": 2813
+    },
+    "1440": {
+      "iw": 1440,
+      "ih": 900,
+      "doc": 3737,
+      "post": 1860,
+      "header": 76,
+      "pageTitleBlock": 179,
+      "footer": 1384,
+      "pack": 1819,
+      "hero": 449,
+      "sections": [
+        {
+          "cls": "kk-services-hero",
+          "h": 449
+        },
+        {
+          "cls": "kk-services-section",
+          "h": 426
+        },
+        {
+          "cls": "kk-services-section",
+          "h": 532
+        },
+        {
+          "cls": "kk-services-section",
+          "h": 297
+        }
+      ],
+      "ribbonGrid": 343,
+      "proofGrid": 449,
+      "cta": 268,
+      "proofImg": 299,
+      "displayFontPx": "48px",
+      "firstOfferTop": 935,
+      "ctaTop": 1954
+    }
+  },
+  "after": {
+    "375": {
+      "iw": 375,
+      "ih": 812,
+      "doc": 4440,
+      "post": 1758,
+      "footer": 2344,
+      "pack": 1716,
+      "hero": 365,
+      "offers": 915,
+      "cta": 319,
+      "sections": [
+        365,
+        955,
+        319
+      ],
+      "firstOfferTop": 700,
+      "offersFullyAboveFold": false,
+      "cardHeights": [
+        176,
+        220,
+        203,
+        233
+      ]
+    },
+    "768": {
+      "iw": 768,
+      "ih": 900,
+      "doc": 3389,
+      "post": 1335,
+      "footer": 1651,
+      "pack": 1293,
+      "hero": 321,
+      "offers": 607,
+      "cta": 249,
+      "sections": [
+        321,
+        647,
+        249
+      ],
+      "firstOfferTop": 705,
+      "offersFullyAboveFold": false,
+      "cardHeights": [
+        124,
+        124,
+        152,
+        124
+      ]
+    },
+    "1440": {
+      "iw": 1440,
+      "ih": 900,
+      "doc": 3061,
+      "post": 1184,
+      "footer": 1384,
+      "pack": 1143,
+      "hero": 356,
+      "offers": 373,
+      "cta": 297,
+      "sections": [
+        356,
+        412,
+        297
+      ],
+      "firstOfferTop": 799,
+      "offersFullyAboveFold": false,
+      "cardHeights": [
+        156,
+        156,
+        185,
+        185
+      ]
+    }
+  },
+  "deltas": {
+    "1440": {
+      "doc": {
+        "before": 3737,
+        "after": 3061,
+        "delta_px": -676,
+        "pct": -18.1
+      },
+      "post": {
+        "before": 1860,
+        "after": 1184,
+        "delta_px": -676,
+        "pct": -36.3
+      },
+      "pack": {
+        "before": 1819,
+        "after": 1143,
+        "delta_px": -676,
+        "pct": -37.2
+      },
+      "footer": {
+        "before": 1384,
+        "after": 1384,
+        "delta_px": 0,
+        "pct": 0.0
+      }
+    },
+    "768": {
+      "doc": {
+        "before": 4812,
+        "after": 3389,
+        "delta_px": -1423,
+        "pct": -29.6
+      },
+      "post": {
+        "before": 2758,
+        "after": 1335,
+        "delta_px": -1423,
+        "pct": -51.6
+      },
+      "pack": {
+        "before": 2716,
+        "after": 1293,
+        "delta_px": -1423,
+        "pct": -52.4
+      },
+      "footer": {
+        "before": 1651,
+        "after": 1651,
+        "delta_px": 0,
+        "pct": 0.0
+      }
+    },
+    "375": {
+      "doc": {
+        "before": 5326,
+        "after": 4440,
+        "delta_px": -886,
+        "pct": -16.6
+      },
+      "post": {
+        "before": 2644,
+        "after": 1758,
+        "delta_px": -886,
+        "pct": -33.5
+      },
+      "pack": {
+        "before": 2602,
+        "after": 1716,
+        "delta_px": -886,
+        "pct": -34.1
+      },
+      "footer": {
+        "before": 2344,
+        "after": 2344,
+        "delta_px": 0,
+        "pct": 0.0
+      }
+    }
+  }
+}
