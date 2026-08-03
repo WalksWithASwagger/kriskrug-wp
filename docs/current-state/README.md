@@ -36,9 +36,9 @@ Read these first:
 | [REPO-HYGIENE-AUDIT-2026-07-12.md](REPO-HYGIENE-AUDIT-2026-07-12.md) | Docs/branch/cruft audit |
 | [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md) | Trust/Offers/Topic Hubs wave |
 
-## One-shot July closeouts and handoffs (reference, not the front door)
+## One-shot closeouts and handoffs (reference, not the front door)
 
-These are finished or single-issue documents that still sit at top level because a newer doc or an open issue cites them. None of them is a plan you should execute from.
+These are finished or single-issue documents that still sit at top level because a newer doc or an open issue cites them. None of them is a plan you should execute from. Most are July 2026; `AURORA-TEMPLATE-CONTENT-HANDOFF.md` is the outlier at 2026-05-23, and `AURORA-MOBILE-QA-127.md` carries no date at all.
 
 | File | What it was |
 |---|---|
@@ -73,15 +73,22 @@ Every file below carries a `STATUS: Historical` banner in its first lines pointi
 git diff --name-status --find-renames c369eef^1 c369eef -- docs/current-state | cut -c1-1 | sort | uniq -c
 ```
 
-No May or June 2026 plan is left at top level. The one dated-May file that stays here on purpose is `INCIDENT-2026-05-15-overwritten-post.md`, a standing safety rule.
+No May or June 2026 **plan** is left at top level. Two top-level files still carry May 2026 dates and both stay here on purpose:
 
-**Known link debt left by the move (open, not fixed here).** A repo-wide scan of 921 tracked markdown files found 497 relative link targets, 96 of them aimed at a file `c369eef` moved. 91 resolve. Four targets in three files outside `docs/current-state/` still point at the old top-level paths:
+- `INCIDENT-2026-05-15-overwritten-post.md`, date in the filename. A standing safety rule, read-order item 6 in `AGENTS.md`.
+- `AURORA-TEMPLATE-CONTENT-HANDOFF.md`, undated filename, `**Date:** 2026-05-23` on line 3 of the body. An unfinished FSE template copy handoff, listed in the one-shot table above.
 
-- `issues-to-create/jetpack-seo-audit-all-posts.md` to `../docs/current-state/SEO_AUDIT.md` (twice) and `../docs/current-state/CONTENT_AUDIT.md`
-- `issues-to-create/README.md` to `../docs/current-state/ISSUES-TO-CREATE-RECONCILIATION-2026-06-09.md`
-- `backup/2026-05-16/manifest.md` to `../../docs/current-state/FIX_QUEUE.md`
+Neither is a plan you execute from. Check with `ls docs/current-state/*.md | grep -E "2026-0[56]"` for filenames and `grep -l "2026-0[56]-" docs/current-state/*.md` for body dates.
 
-All four now live under `archive/`, so the fix is inserting `archive/` into the path. Separately, 37 of the 101 relative links **inside** archived files are broken: 33 lost one directory level and resolve by prefixing `../`, and 4 point at `fixes/` artifacts that no longer exist. Those are all inside historical documents and nothing current reads them.
+**Inbound link debt from the move: fixed 2026-08-02 (#566).** Five markdown links in three files outside `docs/current-state/` still pointed at pre-`c369eef` top-level paths. All five now point into `archive/` and resolve on disk:
+
+- `issues-to-create/jetpack-seo-audit-all-posts.md` lines 5, 57, 102, to `archive/SEO_AUDIT.md` (twice) and `archive/CONTENT_AUDIT.md`
+- `issues-to-create/README.md` line 5, to `archive/ISSUES-TO-CREATE-RECONCILIATION-2026-06-09.md`
+- `backup/2026-05-16/manifest.md` line 47, to `archive/FIX_QUEUE.md`
+
+**Current-doc surface is clean.** Scanning the 39 top-level `docs/current-state/*.md` plus `AGENTS.md`, `README.md`, `CONTRIBUTING.md` and `docs/INDEX.md` gives **0 broken relative links**. Every remaining break under `docs/current-state/` is inside `archive/`, which is historical by definition, plus one regex fragment in a `reports/` code block that a link scanner misreads as a link.
+
+**Still broken, and out of scope for #549.** A repo-wide scan of 921 tracked `.md` files (509 relative link targets) finds 114 unresolved: 37 inside `archive/` itself, 77 elsewhere. None of the 77 is archive-move rot. They break down as pseudo-scheme placeholders the publisher rewrites (`photo:7750`, `media:11920`, `poster:3`, `img:mcluhan`), root-relative live-site URLs that resolve on kriskrug.co and never on disk (`/contact`, `/speaking/`), regex fragments inside fenced code blocks that a naive link scanner misreads, and `images/` binaries referenced by `content/drafts/` posts that were never committed (they exist in some working copies as untracked files, so this count is worktree-sensitive). The 37 inside `archive/` are the real move damage: 33 lost one directory level and resolve by prefixing `../`, 4 point at `fixes/` artifacts that no longer exist. Both sets sit outside `docs/current-state/` top level, nothing on the front door reads them, and repairing them is its own issue.
 
 ## Reports and subdirectories
 

@@ -2,7 +2,7 @@
 
 **Labels:** `seo`, `content`, `audit`, `priority/high`
 **Estimated effort:** 6–10 hours (depends on how many posts get touched)
-**Related:** [`docs/current-state/SEO_AUDIT.md`](../docs/current-state/SEO_AUDIT.md), `docs/current-state/CONTENT_AUDIT.md`, FIX_QUEUE P1.1
+**Related:** [`docs/current-state/archive/SEO_AUDIT.md`](../docs/current-state/archive/SEO_AUDIT.md), `docs/current-state/archive/CONTENT_AUDIT.md`, `archive/FIX_QUEUE.md` P1.1
 
 ## Why
 
@@ -54,7 +54,7 @@ Group posts into bands so we don't try to fix all 941 at once:
 |---|---|---|
 | **A: Top 20 by traffic** | GA4 top-20 in last 12 months | Fully hand-curated SEO title + description + share message |
 | **B: Recent 2024+** | ~140 posts since 2024-01-01 | Curated where worth it, auto-derived (from article body, KK voice) elsewhere |
-| **C: Evergreen anchors** | The 10 from [CONTENT_AUDIT.md §2.5](../docs/current-state/CONTENT_AUDIT.md) | Hand-curated |
+| **C: Evergreen anchors** | The 10 from [CONTENT_AUDIT.md §2.5](../docs/current-state/archive/CONTENT_AUDIT.md) | Hand-curated |
 | **D: Long tail** | Everything else (~770 posts) | Auto-derive only; flag any that 404 or have empty body |
 
 ### 3. Fix mechanism
@@ -99,7 +99,7 @@ The Notion connector now does this by default — same logic applies to the audi
 
 ## Notes
 
-- See [`docs/current-state/SEO_AUDIT.md` §2.2](../docs/current-state/SEO_AUDIT.md) for the upstream finding that prompted this work.
+- See [`docs/current-state/archive/SEO_AUDIT.md` §2.2](../docs/current-state/archive/SEO_AUDIT.md) for the upstream finding that prompted this work.
 - This issue depends on **none** of the FIX_QUEUE P0 items, so it can run in parallel with the schema + llms.txt + robots.txt work.
 - After this lands, P1.5 ("rewrite long titles to fit 60-char SERP window") becomes trivial — most of it is already captured by the SEO title overrides.
 

@@ -1,6 +1,6 @@
 # Current State Snapshot - 2026-07-30
 
-**Snapshot time:** 2026-07-30 (truth reset after debt/docs/bloat audit; Aurora 1.5.0 live==repo).
+**Snapshot time:** 2026-07-30 (truth reset after debt/docs/bloat audit). Counters and theme versions refreshed 2026-08-02: Aurora live `1.5.7`, repo `main` `1.5.8`, repo one patch ahead.
 **Branch:** `main` (docs PR lands from lane-scoped branch)
 **Mode:** Ops hygiene (Phases 0–3) then Track A / Track B product lanes.
 
@@ -10,11 +10,11 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Day r
 
 ## Verified State
 
-> **Counters refreshed 2026-08-02** after the voice-sweep / events / testimonials swarm. The 2026-07-30 narrative below the counters still stands; only the numbers and theme versions moved.
+> **Counters refreshed 2026-08-03T02:38Z** (#566). The 2026-07-30 narrative below the counters still stands; only the numbers and theme versions moved. The two GitHub counters are the values `make current-state-drift-check` compares against, so they are re-read, not carried forward. While a parallel agent swarm is running they go stale within the hour, and a drift row on either of them is expected, not alarming: re-read with the commands below before believing this file.
 
 - `origin/main` includes Aurora **1.5.0** cascade scaffold (PR #493 / #474) and AGENTS version reconcile (`a6608e3`).
-- Open PRs: `0` (2026-08-02; the whole swarm queue merged, #556/#560/#561/#562 Dependabot included).
-- Open issues: `66` (2026-08-02, after the truth-reset coordination pass). The 2026-08-01 swarm minted ~30 and closed most of them; the count then rose again as #631-#642 were filed for the four proof surfaces (events heroes, Speaking children, and the 2026-08-02 command board #642), plus #643-#645 filed separately as Futureproof post children.
+- Open PRs: `8` (`gh pr list --state open --limit 100 --json number --jq 'length'`, 2026-08-03T02:38Z). All eight are the 2026-08-02 correction swarm: #652 through #659, one lane each, none merged yet.
+- Open issues: `58` (`gh issue list --state open --limit 300 --json number --jq 'length'`, 2026-08-03T02:38Z). The previously declared `66` was read on 2026-08-02 and went stale the same day as the swarm closed issues; #566 AC2 required the declared value to match the observed one, so it is re-read here.
 - Production still publicly reports WordPress `7.0.2`.
 - Live Aurora theme (`style.css` Version header): `1.5.7` (readback 2026-08-02 → `Version: 1.5.7`), deployed 2026-08-01 with the full-bleed portrait hero (PR #618).
 - Repo Aurora theme (`theme/kk-aurora/` on `main`): `1.5.8`. Repo is **one patch ahead** of live: 1.5.8 adds the `aurora-tstm` testimonials CSS (PR #629), built but not deployed, gated on #601.
