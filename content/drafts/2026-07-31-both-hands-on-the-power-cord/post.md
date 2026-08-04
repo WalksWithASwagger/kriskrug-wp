@@ -2,6 +2,7 @@
 title: Both Hands on the Power Cord
 slug: both-hands-on-the-power-cord
 status: draft
+post_date: '2026-08-03'
 excerpt: I marched through Vancouver in a crowd chanting ‘Fuck AI.’ Then I went home
   and used AI to organize my notes. That contradiction is the work.
 source_of_truth: kk-kb:content/sources/kriskrug-co/articles/both-hands-on-the-power-cord/article.md
@@ -12,6 +13,12 @@ seo:
   meta_title: 'Canada''s AI Energy Fight: Power, Protest and Sovereignty'
   meta_description: Kris Krüg connects Canada's AI energy race, data-centre protests,
     Indigenous sovereignty, and a both-hands-full plan for building what comes next.
+images:
+- file: images/cbc-the-early-edition-2026-08-03.jpg
+  alt: CBC The Early Edition program artwork featuring host Stephen Quinn
+  role: inline
+  source: https://images.radio-canada.ca/c_scale,w_1560,q_90/v1/cbc-music/programs/16x9/the_early_edition.png
+  credit: CBC/The Early Edition
 ---
 
 # Both Hands on the Power Cord
@@ -34,7 +41,19 @@ So I keep walking with both hands full.
 
 Critique in one hand. Curiosity in the other. No empty hand available for a pom-pom or a pitchfork.
 
-## Watch the conversation
+## Hear the BC Day conversation
+
+On August 3, Jason D'Souza spoke with me on [CBC's *The Early Edition*](https://www.cbc.ca/listen/live-radio/1-91-the-early-edition/clip/16229723-local-ai-leader-explains-provinces-tech-community-responding) about how British Columbia's tech community is responding to the federal AI strategy.
+
+![CBC The Early Edition program artwork featuring host Stephen Quinn](images/cbc-the-early-edition-2026-08-03.jpg)
+
+*CBC/The Early Edition program artwork. Host: Stephen Quinn.*
+
+<audio controls preload="metadata" src="https://mp3.cbc.ca/radio/2026/08/03/dave-JlqWqynA-20260803.mp3"></audio>
+
+*Kris Krüg on CBC's The Early Edition, August 3, 2026 (7:48). [Listen on CBC](https://www.cbc.ca/listen/live-radio/1-91-the-early-edition/clip/16229723-local-ai-leader-explains-provinces-tech-community-responding).*
+
+## Watch the Power Struggle conversation
 
 https://www.youtube.com/watch?v=n_aGBFGnPzo
 
