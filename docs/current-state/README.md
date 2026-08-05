@@ -2,20 +2,19 @@
 
 Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then the newest `reports/morning-truth-*.md`.
 
-## Current Front Door (verified 2026-08-02)
+## Current Front Door (verified 2026-08-05)
 
 Read these first:
 
-1. **[CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md)**, declared snapshot for `make morning-truth` / drift (the Makefile default `WORK_PLAN`)
-2. **[WORK-PLAN-2026-07-30.md](WORK-PLAN-2026-07-30.md)**, active day/week runbook
-3. **[MASTER-PLAN-2026-07-30.md](MASTER-PLAN-2026-07-30.md)**, truth then reclaim then product lanes
-4. **[AGENTIC-CRUSH-PLAN-2026-07-31.md](AGENTIC-CRUSH-PLAN-2026-07-31.md)**, audit-backed execution waves. Wave 0 landed: PR [#557](https://github.com/WalksWithASwagger/kriskrug-wp/pull/557) merged 2026-07-31, PR [#558](https://github.com/WalksWithASwagger/kriskrug-wp/pull/558) merged.
-5. Newest **[reports/morning-truth-*.md](reports/)**, or run `make status-readonly` / `make morning-truth`
-6. **[TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)**, Track A vs Track B
-7. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
-8. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
+1. **[WORK-PLAN-2026-08-05.md](WORK-PLAN-2026-08-05.md)**, active day/week runbook (supersedes 2026-07-30)
+2. **[CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md)**, declared snapshot for `make morning-truth` / drift (counts drifted — see newest report)
+3. **[MASTER-PLAN-2026-07-30.md](MASTER-PLAN-2026-07-30.md)**, truth then reclaim then product lanes (hygiene phases complete)
+4. Newest **[reports/morning-truth-*.md](reports/)**, or run `make status-readonly` / `make morning-truth`
+5. **[TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)**, Track A vs Track B
+6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
+7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
 
-**Live readback 2026-08-02:** WordPress `7.0.2`. Aurora live **`1.5.7`**, repo `main` **`1.5.8`**. The repo is one patch ahead: `1.5.8` is the `aurora-tstm` testimonials CSS, built but not deployed, gated on the #601 pixel gate. Verified with `curl -s https://kriskrug.co/wp-content/themes/kk-aurora/style.css | grep -i version` against `theme/kk-aurora/style.css`, and `make current-state-drift-check` for the WP version. Do not treat the repo `style.css` version as proof of production. Read back the public file, in either direction.
+**Live readback 2026-08-05:** WordPress `7.0.2`. Aurora live **`1.5.9`**, repo `main` **`1.5.10`**. The repo is one patch ahead: `1.5.10` is the a11y focus-visible states (#676), built but not deployed. The deploy gap widened from 1.5.7→1.5.8 to 1.5.9→1.5.10 during the 2026-08-05 merge session (25 PRs merged, 0 open). Verified with `curl -s https://kriskrug.co/wp-content/themes/kk-aurora/style.css | grep -i version` against `theme/kk-aurora/style.css`. Do not treat the repo `style.css` version as proof of production. Read back the public file, in either direction.
 
 ## Durable process docs (keep at top level)
 
