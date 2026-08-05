@@ -168,3 +168,49 @@ class MorningTruthAvailabilityTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ThemeParityLineTests(unittest.TestCase):
+    """Live-vs-repo Aurora drift reporting (#546 detector, wired into the report)."""
+
+    @staticmethod
+    def _result(returncode, stdout="", stderr=""):
+        return morning_truth_report.CommandResult(
+            title="Live vs Repo Aurora Version",
+            command=["python3", "scripts/check_live_theme_parity.py"],
+            returncode=returncode,
+            stdout=stdout,
+            stderr=stderr,
+        )
+
+    def test_drift_is_reported_as_drift(self):
+        line = morning_truth_report.render_theme_parity_line(
+            self._result(1, "FAIL theme version drift detected:\n  live: 1.5.7\n  repo: 1.5.8")
+        )
+        self.assertIn("DRIFT", line)
+        self.assertIn("1.5.7", line)
+        self.assertIn("1.5.8", line)
+
+    def test_match_is_reported_as_in_sync(self):
+        line = morning_truth_report.render_theme_parity_line(
+            self._result(0, "PASS live and repo agree on Version: 1.5.8")
+        )
+        self.assertIn("in sync", line)
+        self.assertNotIn("DRIFT", line)
+
+    def test_unreachable_live_is_not_reported_as_a_pass(self):
+        # The detector exits 0 for both a real match and a soft skip. A skip
+        # must not read as "in sync" or the report would launder a
+        # non-measurement into a green check.
+        line = morning_truth_report.render_theme_parity_line(
+            self._result(0, "WARN live theme unreachable (...)\nSKIP parity check (repo declares Version: 1.5.8)")
+        )
+        self.assertIn("not measured", line)
+        self.assertNotIn("in sync", line)
+
+    def test_repo_read_failure_is_reported_as_unmeasurable(self):
+        line = morning_truth_report.render_theme_parity_line(
+            self._result(2, "ERROR could not read repo Version from theme/kk-aurora/style.css")
+        )
+        self.assertIn("could not measure", line)
+        self.assertNotIn("in sync", line)
