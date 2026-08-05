@@ -96,3 +96,8 @@ backup/**/*.jpeg
 
 # #369 reclaim: published draft images live in WP media; do not re-add
 content/drafts/**/images/
+
+# #369 wave 2: source-packs verification screenshots are May-2026 QA evidence
+# that lives in git history. Keep the .md verification records; ignore the PNGs.
+content/source-packs/**/verification/**/screenshots*/
+content/source-packs/**/verification/**/*.png
