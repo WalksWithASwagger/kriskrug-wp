@@ -138,37 +138,16 @@ article p,
   }
 }
 
-/* Drop cap for first paragraph */
-article > p:first-of-type::first-letter,
-.entry-content > p:first-of-type::first-letter {
-  float: left;
-  font-size: 3.5em;
-  line-height: 0.8;
-  padding-right: 0.1em;
-  margin-top: 0.05em;
-  font-weight: 700;
-  color: var(--wp--preset--color--signal);
-}
-
-.aurora-page-content > p:first-of-type::first-letter {
-  color: inherit;
-  float: none;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  margin: 0;
-  padding-right: 0;
-}
-
-.aurora-prose > p:first-of-type::first-letter {
-  color: inherit;
-  float: none;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  margin: 0;
-  padding-right: 0;
-}
+/* Drop cap retired in 1.5.9 (#475, #411).
+   It selected `article > p:first-of-type`, which matched every card in the
+   content packs rather than prose openings. Live it rendered in exactly one
+   place: the three homepage aurora-service-cards, whose first paragraphs are
+   the roman numerals I. / II. / III., so it inflated the first stroke of each
+   numeral. KK called that out in #411 ("the initial drop cap looks ugly").
+   The two suppression rules that used to sit here, for .aurora-page-content
+   and .aurora-prose, existed only to defeat this rule and went with it. The
+   per-page `::first-letter ... !important` blocks on six live routes are now
+   redundant; #480 removes those. */
 
 /* ============================================
    LINKS
