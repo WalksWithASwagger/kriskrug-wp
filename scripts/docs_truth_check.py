@@ -65,6 +65,10 @@ KNOWN_STALE_PATTERNS: list[tuple[re.Pattern[str], str]] = [
         "The live site now runs the Aurora `kk-aurora` theme.",
     ),
     (
+        re.compile(r"Aurora\s*\**\s*`?1\.5\.0`?\s*\**\s*\(?\s*live\s*==?\s*repo", re.I),
+        "Aurora live==repo parity at 1.5.0 is stale; the 2026-08-02 public readback is live 1.5.7 against repo main 1.5.8. Cite a curl readback of the public style.css and name the direction of the gap.",
+    ),
+    (
         re.compile(r"Current live queue count is 43", re.I),
         "Draft queue count is stale; rerun or cite `make draft-queue-audit`.",
     ),

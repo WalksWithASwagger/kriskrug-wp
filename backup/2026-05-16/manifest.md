@@ -44,6 +44,6 @@ For a partial-recovery scenario (DB/plugin/theme corruption, hack rollback), thi
 
 ## Provenance
 
-This backup was triggered by Claude Code as part of [`docs/current-state/FIX_QUEUE.md`](../../docs/current-state/FIX_QUEUE.md) P0.1 ("Have a backup before we touch anything else"). It's the first full local backup of kriskrug.co since the May 15 2026 connector incident.
+This backup was triggered by Claude Code as part of [`docs/current-state/archive/FIX_QUEUE.md`](../../docs/current-state/archive/FIX_QUEUE.md) P0.1 ("Have a backup before we touch anything else"). It's the first full local backup of kriskrug.co since the May 15 2026 connector incident.
 
 The backup is gitignored (see [`.gitignore`](../../.gitignore)) — these files are not pushed to GitHub. Manifest + checksums ARE tracked.
