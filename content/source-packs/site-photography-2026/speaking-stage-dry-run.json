@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-08-03T02:43:22.850127+00:00",
+  "mode": "dry-run",
+  "manifest": "content/source-packs/site-photography-2026/speaking-stage-manifest.json",
+  "base_url": "https://kriskrug.co",
+  "assets": [
+    {
+      "file": "../../../theme/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community.jpg",
+      "sha256": "86934e9268e7cb6e1ecc7df95bd502006cafb73e038676f9aacba59f3aef0714",
+      "existing_media_ids": [],
+      "action": "upload",
+      "wordpress": {
+        "title": "Kris Krüg on stage at Vancouver AI Community Meetup 30",
+        "alt_text": "Kris Krüg speaking on stage at the Vancouver AI Community Meetup, dozens of audience hands raised in the H.R. MacMillan Space Centre planetarium.",
+        "caption": "Vancouver AI Community Meetup 30, H.R. MacMillan Space Centre, June 24, 2026. Photo: Michelle Diamond, Diamond's Edge Photography.",
+        "description": "Stage-action documentation of Kris Krüg hosting Vancouver AI Community Meetup 30 in the H.R. MacMillan Space Centre planetarium, roughly forty audience hands raised in response. Source frame June25_2026_BC+AIEvent_MichelleDiamond-94.jpg from the BC + AI photo pipeline. Photo: Michelle Diamond, Diamond's Edge Photography."
+      }
+    }
+  ],
+  "summary": {
+    "assets": 1,
+    "planned_uploads": 1,
+    "existing_matches": 0,
+    "live_write": false
+  },
+  "rollback": {
+    "created_media_ids": [],
+    "admin_urls": [],
+    "method": "Remove only the listed unattached items through wp-admin after confirming no page references them."
+  }
+}
