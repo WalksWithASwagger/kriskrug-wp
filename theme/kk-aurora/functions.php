@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.5.9');
+define('KK_AURORA_VERSION', '1.5.10');
 
 require_once get_template_directory() . '/inc/seo-title.php';
 require_once get_template_directory() . '/inc/seo-meta-rest.php';
