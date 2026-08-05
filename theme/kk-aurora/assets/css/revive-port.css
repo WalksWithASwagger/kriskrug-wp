@@ -310,61 +310,8 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   background: var(--revive-surface);
   color: var(--revive-ink);
 }
-
-.aurora-home-revive .aurora-masthead {
-  max-width: var(--revive-max);
-  margin: 0 auto;
-  padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 3vw, 2rem) clamp(3rem, 7vw, 5.5rem);
-}
-
-.aurora-masthead-rule {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.75rem;
-  align-items: flex-end;
-  border-bottom: 2px solid var(--revive-accent);
-  padding-bottom: 0.75rem;
-  margin-bottom: 2rem;
-  font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
-  color: var(--revive-accent-text);
-}
-
-.aurora-masthead-rule .aurora-masthead-date {
-  color: var(--revive-ink-muted);
-}
-
-.aurora-masthead-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 2rem;
-}
-
 @media (min-width: 960px) {
-  .aurora-masthead-grid {
-    grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
-    gap: 2.5rem;
-  }
 }
-
-.aurora-masthead-copy .aurora-kicker {
-  margin-bottom: 1.25rem;
-}
-
-.aurora-masthead-copy h1 {
-  font-family: "Space Grotesk", system-ui, sans-serif;
-  font-size: clamp(3.2rem, 10vw, 7.5rem);
-  font-weight: 700;
-  line-height: 0.88;
-  letter-spacing: -0.04em;
-  margin: 0 0 1.5rem;
-  max-width: 12ch;
-  color: var(--revive-ink);
-}
-
 /* R6: rainbow word readable at a glance (slightly larger italic + richer sweep) */
 .aurora-masthead-copy h1 .aurora-rainbow-word,
 .aurora-hero-copy h1 .aurora-rainbow-word {
@@ -389,62 +336,8 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   background-clip: text;
   color: transparent;
 }
-
-.aurora-masthead-dek {
-  max-width: 38rem;
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-  line-height: 1.55;
-  color: var(--revive-ink-soft);
-  margin: 0 0 1.75rem;
-}
-
-.aurora-dossier {
-  border-top: 1px solid var(--revive-line);
-  padding-top: 1.25rem;
-}
-
 @media (min-width: 960px) {
-  .aurora-dossier {
-    border-top: 0;
-    border-left: 1px solid rgba(217, 74, 31, 0.2);
-    padding-left: 1.75rem;
-    padding-top: 0;
-    align-self: end;
-  }
 }
-
-.aurora-dossier dl {
-  margin: 0;
-}
-
-.aurora-dossier .aurora-dossier-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  border-bottom: 1px solid rgba(23, 19, 16, 0.1);
-  padding: 0.7rem 0;
-  font-size: 0.95rem;
-}
-
-.aurora-dossier .aurora-dossier-row:last-child {
-  border-bottom: 0;
-}
-
-.aurora-dossier dt {
-  color: var(--revive-ink-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.68rem;
-  font-family: "JetBrains Mono", ui-monospace, monospace;
-}
-
-.aurora-dossier dd {
-  margin: 0;
-  font-family: "Space Grotesk", system-ui, sans-serif;
-  font-weight: 600;
-  color: var(--revive-ink);
-}
-
 .aurora-stage-photo {
   position: relative;
   margin: 0;
@@ -465,23 +358,6 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   background: linear-gradient(to top, rgba(239, 230, 210, 0.85), rgba(239, 230, 210, 0.2) 45%, transparent 70%);
   pointer-events: none;
 }
-
-.aurora-stage-caption {
-  position: absolute;
-  left: clamp(1rem, 3vw, 2rem);
-  right: clamp(1rem, 3vw, 2rem);
-  bottom: 1.25rem;
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.24em;
-  color: var(--revive-accent-soft);
-}
-
 .aurora-proof-strip {
   position: relative;
   border-block: 1px solid rgba(217, 74, 31, 0.12);

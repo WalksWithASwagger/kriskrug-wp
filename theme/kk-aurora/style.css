@@ -4,8 +4,8 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.5.10
-Version: 1.5.10
+Version: 1.6.0
+Version: 1.6.0
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -170,28 +170,6 @@ body::before {
 a {
   transition: color var(--transition-fast);
 }
-
-/* Animated underline for links */
-.aurora-link {
-  position: relative;
-  text-decoration: none;
-}
-
-.aurora-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--wp--preset--color--signal);
-  transition: width var(--transition-normal);
-}
-
-.aurora-link:hover::after {
-  width: 100%;
-}
-
 /* ============================================
    BUTTON STYLES
    ============================================ */
@@ -260,35 +238,6 @@ a {
     0 10px 40px rgba(0, 0, 0, 0.22),
     var(--aurora-glow-md) rgba(242, 180, 207, 0.035);
 }
-
-/* Card with gradient border on hover */
-.aurora-card-gradient {
-  position: relative;
-  background: var(--wp--preset--color--surface);
-  border-radius: var(--wp--custom--border--radius-lg);
-  padding: var(--wp--preset--spacing--60);
-}
-
-.aurora-card-gradient::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: var(--aurora-border-gradient);
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity var(--transition-normal);
-}
-
-.aurora-card-gradient:hover::before {
-  opacity: 1;
-}
-
 /* ============================================
    GLASS MORPHISM
    ============================================ */
@@ -308,12 +257,6 @@ a {
   padding-top: clamp(5rem, 9vw, 7.5rem);
   padding-bottom: clamp(5rem, 9vw, 7.5rem);
 }
-
-.aurora-section-tight {
-  padding-top: var(--wp--preset--spacing--100);
-  padding-bottom: var(--wp--preset--spacing--100);
-}
-
 /* Section with gradient divider */
 .aurora-section-divided {
   position: relative;
@@ -381,48 +324,9 @@ a {
 /* ============================================
    SCROLL ANIMATIONS (base setup for GSAP)
    ============================================ */
-
-.aurora-fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.aurora-fade-up.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: 
-    opacity var(--transition-slow),
-    transform var(--transition-slow);
-}
-
-.aurora-scale-in {
-  opacity: 0;
-  transform: scale(0.95);
-}
-
-.aurora-scale-in.is-visible {
-  opacity: 1;
-  transform: scale(1);
-  transition: 
-    opacity var(--transition-slow),
-    transform var(--transition-slow);
-}
-
 /* ============================================
    LOADING / SKELETON STATES
    ============================================ */
-
-.aurora-skeleton {
-  background: linear-gradient(
-    90deg,
-    var(--wp--preset--color--surface) 25%,
-    var(--wp--preset--color--elevated) 50%,
-    var(--wp--preset--color--surface) 75%
-  );
-  background-size: 200% 100%;
-  animation: skeleton-shimmer 1.5s ease-in-out infinite;
-}
-
 @keyframes skeleton-shimmer {
   0% {
     background-position: 200% 0;
@@ -476,16 +380,9 @@ a {
     padding-top: var(--wp--preset--spacing--100);
     padding-bottom: var(--wp--preset--spacing--100);
   }
-  
-  .aurora-hide-mobile {
-    display: none !important;
-  }
 }
 
 @media (min-width: 782px) {
-  .aurora-hide-desktop {
-    display: none !important;
-  }
 }
 
 /* ============================================
@@ -665,13 +562,6 @@ a {
   width: 0.8em;
   animation: aurora-spin 800ms linear infinite;
 }
-
-@keyframes aurora-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .aurora-kicker {
   color: var(--wp--preset--color--signal, #f15b43);
   font-family: var(--wp--preset--font-family--mono);
@@ -886,50 +776,6 @@ a {
   flex-wrap: wrap;
   gap: 0.65rem;
 }
-
-.aurora-proof-row {
-  margin-top: 1.1rem;
-}
-
-.aurora-proof-row a {
-  background: rgba(232, 224, 209, 0.07);
-  border: 1px solid var(--aurora-line);
-  border-radius: 999px;
-  color: var(--aurora-ink);
-  font-size: 0.84rem;
-  font-weight: 800;
-  padding: 0.52rem 0.72rem;
-  text-decoration: none;
-}
-
-.aurora-path-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-top: 0.8rem;
-}
-
-.aurora-path-row a {
-  background: rgba(232, 224, 209, 0.045);
-  border: 1px solid var(--aurora-line);
-  border-radius: 999px;
-  color: var(--aurora-ink-soft);
-  font-size: 0.79rem;
-  font-weight: 760;
-  padding: 0.45rem 0.68rem;
-  text-decoration: none;
-}
-
-.aurora-proof-row a:hover {
-  border-color: var(--aurora-line-strong);
-  color: var(--wp--preset--color--signal);
-}
-
-.aurora-path-row a:hover {
-  border-color: var(--aurora-line-strong);
-  color: var(--aurora-ink);
-}
-
 .aurora-action-row {
   margin-top: 1.8rem;
 }
@@ -937,72 +783,11 @@ a {
 .aurora-hero-copy .aurora-action-row {
   margin-top: 1.25rem;
 }
-
-.aurora-button-reel {
-  background: rgba(247, 247, 242, 0.02);
-}
-
-.aurora-hero-caption {
-  align-items: center;
-  bottom: clamp(1rem, 3vw, 2rem);
-  color: var(--aurora-ink-muted);
-  display: flex;
-  font-size: 0.76rem;
-  gap: 0.75rem;
-  left: clamp(1rem, 3vw, 2rem);
-  max-width: var(--aurora-max);
-  position: absolute;
-  right: clamp(1rem, 3vw, 2rem);
-}
-
-.aurora-hero-caption span {
-  border-left: 2px solid var(--wp--preset--color--signal);
-  padding-left: 0.65rem;
-}
-
-.aurora-signal-strip {
-  background: rgba(3, 4, 5, 0.92);
-  border-bottom: 1px solid var(--aurora-line);
-  border-top: 1px solid var(--aurora-line);
-  display: grid;
-  gap: 1px;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.aurora-signal-strip div {
-  background: rgba(247, 247, 242, 0.035);
-  padding: clamp(1.3rem, 3vw, 2rem);
-}
-
-.aurora-signal-strip strong {
-  color: var(--aurora-ink);
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 0.4rem;
-}
-
-.aurora-signal-strip span {
-  color: var(--aurora-ink-muted);
-  display: block;
-  font-size: 0.94rem;
-  line-height: 1.55;
-}
-
 .aurora-featured-strip,
 .aurora-stage-strip,
 .aurora-offer-band,
 .aurora-testimonial-band,
-.aurora-dispatch-band {
-  margin: 0 auto;
-  padding: clamp(3rem, 7vw, 5.5rem) clamp(1rem, 4vw, 2rem);
-}
-
 .aurora-featured-strip,
-.aurora-stage-strip {
-  background: #050708;
-  border-block: 1px solid var(--aurora-line);
-}
-
 .aurora-section-heading-compact {
   margin-bottom: clamp(1rem, 3vw, 1.5rem);
 }
@@ -1010,24 +795,6 @@ a {
 .aurora-section-heading-compact h2 {
   font-size: clamp(1.7rem, 3.5vw, 3rem);
 }
-
-.aurora-logo-row-wide {
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-  margin: 0 auto;
-  max-width: var(--aurora-max);
-}
-
-.aurora-logo-row-wide span {
-  align-items: center;
-  background: rgba(247, 247, 242, 0.035);
-  border: 1px solid var(--aurora-line);
-  border-radius: 8px;
-  display: inline-flex;
-  justify-content: center;
-  min-height: 54px;
-  padding: 0.75rem;
-}
-
 .aurora-offer-band {
   background:
     radial-gradient(circle at 12% 0%, rgba(229, 70, 46, 0.04), transparent 26rem),
@@ -1038,28 +805,12 @@ a {
 .aurora-hired-grid,
 .aurora-check-grid,
 .aurora-epk-grid,
-.aurora-faq-grid {
-  display: grid;
-  gap: 1rem;
-  margin: 0 auto;
-  max-width: var(--aurora-max);
-}
-
 .aurora-hired-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .aurora-hired-grid article,
 .aurora-epk-grid article,
-.aurora-faq-grid article {
-  background: rgba(247, 247, 242, 0.035);
-  border: 1px solid var(--aurora-line);
-  border-radius: var(--aurora-radius-card);
-  display: grid;
-  gap: 0.75rem;
-  padding: clamp(1rem, 3vw, 1.35rem);
-}
-
 .aurora-hired-grid .aurora-card-label {
   align-self: start;
   margin: 0;
@@ -1068,20 +819,8 @@ a {
 
 .aurora-hired-grid h3,
 .aurora-epk-grid h3,
-.aurora-faq-grid h3 {
-  color: var(--aurora-ink);
-  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
-  line-height: 1.08;
-  margin: 0;
-}
-
 .aurora-hired-grid p,
 .aurora-epk-grid p,
-.aurora-faq-grid p {
-  color: var(--aurora-ink-soft);
-  margin: 0;
-}
-
 .aurora-hired-grid article {
   transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
 }
@@ -1092,21 +831,6 @@ a {
   border-color: var(--aurora-line-strong);
   transform: translateY(-2px);
 }
-
-.aurora-inline-link {
-  color: var(--aurora-signal);
-  font-weight: 800;
-  text-decoration: underline;
-  text-underline-offset: 0.22em;
-}
-
-.aurora-inline-link:hover {
-  /* #ff735d was a dark-palette value: 2.15:1 on cream, i.e. hovering made the
-     link *less* legible than its 6.06:1 resting state. Ink matches the
-     established cream hover pattern (revive-port.css: page-content links). */
-  color: var(--aurora-ink);
-}
-
 .aurora-testimonial-band {
   background: #030405;
 }
@@ -1116,34 +840,7 @@ a {
   margin: 0 auto;
   max-width: var(--aurora-max);
 }
-
-.aurora-dispatch-band {
-  background:
-    linear-gradient(135deg, rgba(229, 70, 46, 0.18), rgba(200, 255, 61, 0.06)),
-    #07090b;
-  border-top: 1px solid var(--aurora-line);
-  text-align: center;
-}
-
-.aurora-dispatch-band h2 {
-  color: var(--aurora-ink);
-  font-size: clamp(2.1rem, 5vw, 4.6rem);
-  line-height: 1;
-  margin: 0;
-}
-
-.aurora-dispatch-band p {
-  color: var(--aurora-ink-soft);
-  font-size: clamp(1rem, 1.4vw, 1.2rem);
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .aurora-dispatch-band .aurora-action-row,
-.aurora-centered-actions {
-  justify-content: center;
-}
-
 .aurora-feature-band,
 .aurora-speaking-band,
 .aurora-writing-band,
@@ -1157,13 +854,6 @@ a {
   margin: 0 auto;
   padding: clamp(2.8rem, 6vw, 4.8rem) clamp(1rem, 4vw, 2rem) clamp(3.6rem, 7vw, 5.6rem);
 }
-
-.aurora-feature-band-dark {
-  background:
-    radial-gradient(circle at 80% 8%, rgba(229, 70, 46, 0.035), transparent 22rem),
-    #050708;
-}
-
 .aurora-section-heading {
   margin: 0 auto clamp(2rem, 5vw, 4rem);
   max-width: var(--aurora-max);
@@ -1212,11 +902,6 @@ a {
   overflow: hidden;
   position: relative;
 }
-
-.aurora-media-card-large {
-  grid-column: span 2;
-}
-
 .aurora-media-card a {
   color: inherit;
   display: grid;
@@ -1284,58 +969,7 @@ a {
   text-transform: uppercase;
   z-index: 1;
 }
-
-.aurora-text-card {
-  background:
-    linear-gradient(135deg, rgba(229, 70, 46, 0.16), transparent 44%),
-    linear-gradient(180deg, rgba(247, 247, 242, 0.08), rgba(247, 247, 242, 0.03));
-}
-
-.aurora-text-card::after {
-  display: none;
-}
-
-.aurora-speaking-band {
-  align-items: center;
-  background: #080b0d;
-  border-block: 1px solid var(--aurora-line);
-  display: grid;
-  gap: clamp(2rem, 6vw, 5rem);
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
-  max-width: none;
-}
-
 .aurora-speaking-copy,
-.aurora-speaking-panel {
-  margin-inline: auto;
-  max-width: 620px;
-}
-
-.aurora-speaking-copy {
-  justify-self: end;
-}
-
-.aurora-speaking-panel {
-  background: linear-gradient(180deg, rgba(247, 247, 242, 0.08), rgba(247, 247, 242, 0.035));
-  border: 1px solid var(--aurora-line);
-  border-radius: var(--aurora-radius-card);
-  display: grid;
-  gap: 0.75rem;
-  padding: clamp(1rem, 3vw, 1.6rem);
-  width: min(100%, 460px);
-}
-
-.aurora-speaking-panel span {
-  border-bottom: 1px solid var(--aurora-line);
-  color: var(--aurora-ink);
-  font-weight: 750;
-  padding: 0.75rem 0;
-}
-
-.aurora-speaking-panel span:last-child {
-  border-bottom: 0;
-}
-
 .aurora-writing-band {
   background: #030405;
 }
@@ -1786,181 +1420,9 @@ a {
   line-height: 1.7;
   max-width: 62ch;
 }
-
-.aurora-speaking-hero-keynote {
-  max-width: none;
-  min-height: clamp(520px, 70vh, 760px);
-  padding-bottom: clamp(4rem, 9vw, 7rem);
-  padding-top: clamp(6rem, 12vw, 9rem);
-  position: relative;
-}
-
-.aurora-speaking-hero-keynote::before {
-  background:
-    linear-gradient(90deg, rgba(3, 4, 5, 0.95), rgba(3, 4, 5, 0.64)),
-    url("https://i0.wp.com/www.punkrockai.com/public/photos/michelle-diamond/195.webp?w=2200&ssl=1") center / cover;
-  content: "";
-  inset: 0;
-  opacity: 0.9;
-  position: absolute;
-  z-index: -1;
-}
-
-.aurora-speaking-hero-keynote .aurora-speaking-hero-copy {
-  margin-inline: auto;
-  max-width: var(--aurora-max);
-}
-
-.aurora-human-line {
-  color: var(--aurora-ink-muted);
-  font-size: 0.95rem;
-  margin-top: 1rem;
-}
-
-.aurora-human-line a {
-  color: var(--aurora-ink);
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.aurora-topic-grid-keynotes {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.aurora-keynote-card {
-  align-content: start;
-}
-
-.aurora-topic-hook {
-  color: var(--aurora-ink);
-  font-size: 1.04rem;
-  font-weight: 760;
-}
-
-.aurora-topic-meta {
-  display: grid;
-  gap: 0.65rem;
-  margin: 0;
-}
-
-.aurora-topic-meta div {
-  border-top: 1px solid var(--aurora-line);
-  padding-top: 0.65rem;
-}
-
-.aurora-topic-meta dt {
-  color: var(--aurora-ink-muted);
-  font-size: 0.72rem;
-  font-weight: 850;
-  text-transform: uppercase;
-}
-
-.aurora-topic-meta dd {
-  color: var(--aurora-ink-soft);
-  margin: 0.18rem 0 0;
-}
-
-.aurora-topic-meta a {
-  color: var(--aurora-signal);
-}
-
-.aurora-speaking-reel-feature {
-  margin: clamp(1rem, 4vw, 2rem) auto;
-  max-width: var(--aurora-max);
-}
-
-.aurora-check-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  list-style: none;
-  padding: 0;
-}
-
-.aurora-check-grid li {
-  background: rgba(247, 247, 242, 0.035);
-  border: 1px solid var(--aurora-line);
-  border-radius: var(--aurora-radius-card);
-  color: var(--aurora-ink-soft);
-  line-height: 1.55;
-  margin: 0;
-  padding: 1rem 1rem 1rem 2.35rem;
-  position: relative;
-}
-
-.aurora-check-grid li::before {
-  background: var(--aurora-signal);
-  border-radius: 999px;
-  color: #fff;
-  content: "✓";
-  display: grid;
-  font-size: 0.78rem;
-  font-weight: 700;
-  height: 1.25rem;
-  left: 0.8rem;
-  place-items: center;
-  position: absolute;
-  top: 1.05rem;
-  width: 1.25rem;
-}
-
-.aurora-form-shell {
-  background: rgba(247, 247, 242, 0.035);
-  border: 1px solid var(--aurora-line);
-  border-radius: var(--aurora-radius-card);
-  margin: 0 auto;
-  max-width: var(--aurora-max);
-  padding: clamp(1rem, 3vw, 1.5rem);
-}
-
-.aurora-speaking-form {
-  display: grid;
-  gap: 0.9rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.aurora-speaking-form label {
-  color: var(--aurora-ink);
-  display: grid;
-  font-size: 0.82rem;
-  font-weight: 800;
-  gap: 0.35rem;
-}
-
 .aurora-speaking-form input,
 .aurora-speaking-form select,
-.aurora-speaking-form textarea {
-  background: rgba(3, 4, 5, 0.84);
-  border: 1px solid var(--aurora-line);
-  border-radius: var(--aurora-radius-control);
-  color: var(--aurora-ink);
-  font: inherit;
-  min-height: 44px;
-  padding: 0.72rem 0.85rem;
-  width: 100%;
-}
-
-.aurora-speaking-form textarea {
-  min-height: 130px;
-  resize: vertical;
-}
-
-.aurora-form-wide {
-  grid-column: span 3;
-}
-
-.aurora-speaking-form button {
-  cursor: pointer;
-  grid-column: 1 / span 1;
-}
-
 .aurora-epk-grid,
-.aurora-faq-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.aurora-faq-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
 .aurora-proof-section {
   margin: 0 auto;
   max-width: var(--aurora-max);
@@ -2151,14 +1613,6 @@ a {
 }
 
 .aurora-empty-state,
-.aurora-component-empty {
-  background: rgba(247, 247, 242, 0.035);
-  border: 1px dashed var(--aurora-line);
-  border-radius: var(--aurora-radius-card);
-  color: var(--aurora-ink-muted);
-  padding: 1rem;
-}
-
 .aurora-speaking-reel {
   align-items: stretch;
   background: linear-gradient(135deg, rgba(229, 70, 46, 0.07), rgba(247, 247, 242, 0.02));
@@ -2639,15 +2093,6 @@ a {
 }
 
 .aurora-display-heading,
-.aurora-page-content :where(.kk-display, .kkp-display) {
-  color: var(--aurora-ink);
-  font-size: var(--aurora-display-heading-size) !important;
-  letter-spacing: 0 !important;
-  line-height: 1.08 !important;
-  max-width: 18ch;
-  text-wrap: balance;
-}
-
 .aurora-theme :where(.aurora-page-title, .aurora-writing-archive-title, .aurora-display-heading, .aurora-feed-links-copy h2, .aurora-hero-copy h1) {
   color: var(--aurora-ink);
   -webkit-text-fill-color: currentColor;
@@ -2984,52 +2429,12 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   margin: 0 auto;
   max-width: var(--aurora-max);
 }
-
-.aurora-footer-brand h2 {
-  color: var(--aurora-ink);
-  font-size: clamp(2rem, 5vw, 4.2rem);
-  letter-spacing: 0;
-  line-height: 1.03;
-  margin: 0;
-  max-width: 12ch;
-}
-
-.aurora-footer-brand p {
-  color: var(--aurora-ink-soft);
-  max-width: 58ch;
-}
-
 .aurora-footer-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem;
   margin-top: 1.4rem;
 }
-
-.aurora-footer-nav {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
-}
-
-.aurora-footer-nav h3 {
-  color: var(--aurora-ink);
-  font-size: 0.9rem;
-  margin: 0 0 0.8rem;
-}
-
-.aurora-footer-nav a {
-  color: var(--aurora-ink-muted);
-  display: block;
-  font-size: 0.92rem;
-  margin: 0.6rem 0;
-  text-decoration: none;
-}
-
-.aurora-footer-nav a:hover {
-  color: var(--wp--preset--color--signal);
-}
-
 /* Footer bento (#417): integrated tile grid, all links preserved. */
 .aurora-footer-bento .aurora-footer-shell {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -3184,12 +2589,6 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   color: var(--aurora-ink-muted);
   margin: 0;
 }
-
-.aurora-footer-brand .aurora-newsletter-utility {
-  margin-top: 1rem;
-  max-width: 34rem;
-}
-
 .aurora-search-form,
 .aurora-theme .wp-block-search {
   display: grid;
@@ -3265,23 +2664,8 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 
 .aurora-form-message,
 .aurora-form-error,
-.aurora-form-success {
-  font-size: 0.84rem;
-  line-height: 1.5;
-}
-
 .aurora-form-error,
-.aurora-theme :where(.gform_validation_errors, .jetpack-field-error) {
-  /* #ffb4b4 was a dark-palette pink: 1.36:1 on cream, so validation errors
-     were invisible on the surface they render against. */
-  color: var(--aurora-error-text);
-}
-
 .aurora-form-success,
-.aurora-theme :where(.gform_confirmation_message, .contact-form-submission) {
-  color: var(--wp--preset--color--teal);
-}
-
 .aurora-footer-bottom {
   border-top: 1px solid var(--aurora-line);
   color: var(--aurora-ink-muted);
@@ -3374,10 +2758,6 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   .aurora-quote-grid-three,
   .aurora-check-grid,
   .aurora-epk-grid,
-  .aurora-faq-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .aurora-speaking-band,
   .aurora-footer-shell,
   .aurora-utility-grid {
@@ -3386,10 +2766,6 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 
   .aurora-speaking-reel {
     grid-template-columns: 1fr;
-  }
-
-  .aurora-speaking-copy {
-    justify-self: start;
   }
 }
 
@@ -3594,39 +2970,10 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   .aurora-check-grid,
   .aurora-epk-grid,
   .aurora-faq-grid,
-  .aurora-speaking-form {
-    grid-template-columns: 1fr;
-  }
-
   .aurora-form-wide,
-  .aurora-speaking-form button {
-    grid-column: auto;
-  }
-
-  .aurora-path-row {
-    gap: 0.45rem;
-  }
-
-  .aurora-proof-row {
-    margin-top: 1rem;
-  }
-
   .aurora-hero-copy .aurora-action-row {
     margin-top: 1.1rem;
   }
-
-  .aurora-path-row a {
-    align-items: center;
-    display: inline-flex;
-    font-size: 0.72rem;
-    min-height: 44px;
-    padding: 0.4rem 0.56rem;
-  }
-
-  .aurora-media-card-large {
-    grid-column: auto;
-  }
-
   .aurora-media-card {
     min-height: 18rem;
   }
@@ -3662,19 +3009,8 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   }
 
   .aurora-speaking-panel,
-  .aurora-speaking-copy {
-    max-width: none;
-  }
-
   .aurora-author-panel {
     display: block;
-  }
-
-  .aurora-hero-caption {
-    font-size: 0.68rem;
-    gap: 0.45rem;
-    left: 1rem;
-    right: 1rem;
   }
 }
 
@@ -4819,10 +4155,6 @@ body .aurora-reading-progress span {
   }
   
   .aurora-fade-up,
-  .aurora-scale-in {
-    opacity: 1 !important;
-    transform: none !important;
-  }
 }
 
 /* Aurora 1.3.32 public Boost cascade accessibility hardening */

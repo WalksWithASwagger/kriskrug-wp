@@ -100,27 +100,12 @@
 
 /* Fade in on scroll - CSS only */
 @supports (animation-timeline: scroll()) {
-  .aurora-scroll-reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: aurora-reveal linear forwards;
-    animation-timeline: view();
-    animation-range: entry 0% entry 30%;
-  }
-  
   @keyframes aurora-reveal {
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-  
-  /* Parallax with scroll timeline */
-  .aurora-parallax-subtle {
-    animation: aurora-parallax linear;
-    animation-timeline: scroll();
-  }
-  
   @keyframes aurora-parallax {
     from { transform: translateY(-5%); }
     to { transform: translateY(5%); }
@@ -131,13 +116,6 @@
    CONTAINER QUERIES
    Truly responsive components
    ============================================ */
-
-/* Cards respond to their container, not viewport */
-.aurora-card-container {
-  container-type: inline-size;
-  container-name: card;
-}
-
 @container card (max-width: 400px) {
   .aurora-card {
     padding: var(--wp--preset--spacing--40);
@@ -159,17 +137,7 @@
     padding: var(--wp--preset--spacing--60);
   }
 }
-
-/* Stats respond to container */
-.aurora-stats-container {
-  container-type: inline-size;
-  container-name: stats;
-}
-
 @container stats (max-width: 600px) {
-  .aurora-stat-number {
-    font-size: clamp(1.5rem, 8cqw, 2.5rem);
-  }
 }
 
 /* ============================================
@@ -285,16 +253,6 @@
   .aurora-hero-headline:hover {
     font-variation-settings: 'wght' 800;
   }
-  
-  /* Links get subtle weight change */
-  a.aurora-link-variable {
-    font-variation-settings: 'wght' 400;
-    transition: font-variation-settings 0.2s ease;
-    
-    &:hover {
-      font-variation-settings: 'wght' 500;
-    }
-  }
 }
 
 /* ============================================
@@ -323,19 +281,6 @@
    SUBGRID
    Perfect nested alignment
    ============================================ */
-
-.aurora-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  gap: var(--wp--preset--spacing--60);
-}
-
-.aurora-grid-item {
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 3; /* icon, title, description */
-}
-
 /* ============================================
    HAS() SELECTOR
    Parent styling based on children
@@ -381,18 +326,6 @@
    LOGICAL PROPERTIES
    RTL-ready by default
    ============================================ */
-
-.aurora-content {
-  padding-inline: var(--wp--preset--spacing--40);
-  margin-block: var(--wp--preset--spacing--80);
-}
-
-.aurora-aside {
-  border-inline-start: 3px solid var(--wp--preset--color--signal);
-  padding-inline-start: var(--wp--preset--spacing--40);
-  margin-block: var(--wp--preset--spacing--60);
-}
-
 /* ============================================
    ACCENT-COLOR
    Native form styling

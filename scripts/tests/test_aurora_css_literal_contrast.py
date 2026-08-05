@@ -307,11 +307,6 @@ SURFACES = {
 REGISTERED_LITERALS = {
     (
         "style.css",
-        ".aurora-check-grid li::before",
-        "#fff",
-    ): ("signal", AA_TEXT, "checkmark glyph on the solid signal fill"),
-    (
-        "style.css",
         ".aurora-writing-archive .aurora-writing-archive-dek",
         "rgba(247, 247, 242, 0.72)",
     ): (
@@ -448,15 +443,6 @@ RESOLVED_COMPONENT_COLORS = (
         "assets/css/revive-port.css",
         ".aurora-service-card a",
         ("ink",),
-        AA_TEXT,
-    ),
-    ("style.css", ".aurora-inline-link", ("cream", "cream-2"), AA_TEXT),
-    ("style.css", ".aurora-inline-link:hover", ("cream", "cream-2"), AA_TEXT),
-    (
-        "style.css",
-        ".aurora-form-error, "
-        ".aurora-theme :where(.gform_validation_errors, .jetpack-field-error)",
-        ("cream", "cream-2"),
         AA_TEXT,
     ),
     (
