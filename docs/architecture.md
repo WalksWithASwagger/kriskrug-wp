@@ -551,7 +551,7 @@ Git repo (main branch) → Review → Deploy to Cloudways dev → Test → Deplo
 **Level 3: Technical** (for maintainers)
 - docs/architecture.md (this file)
 - .github/agents/*.md
-- skills/github-workflow-automation/
+- .agents/skills/github-workflow-automation/
 
 **Level 4: Context** (for agents)
 - .claude/context/project-context.md

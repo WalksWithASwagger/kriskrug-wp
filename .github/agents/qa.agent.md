@@ -28,7 +28,7 @@ vendor/bin/phpunit --verbose --coverage-text
 
 ### 2. WordPress Coding Standards
 ```bash
-bash skills/github-workflow-automation/scripts/validate_wordpress.sh --standard WordPress-Extra
+bash .agents/skills/github-workflow-automation/scripts/validate_wordpress.sh --standard WordPress-Extra
 ```
 
 ### 3. PHP Syntax Check

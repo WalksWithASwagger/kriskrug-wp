@@ -286,7 +286,7 @@ Generate a JSON file with:
 ### PHPCS errors
 ```bash
 # Run locally
-bash skills/github-workflow-automation/scripts/validate_wordpress.sh --fix
+bash .agents/skills/github-workflow-automation/scripts/validate_wordpress.sh --fix
 
 # Or use composer
 composer global require wp-coding-standards/wpcs

@@ -230,7 +230,7 @@ vendor/bin/phpunit tests/test-feature.php
 
 ### Step 4: Run PHPCS
 ```bash
-bash skills/github-workflow-automation/scripts/validate_wordpress.sh --fix
+bash .agents/skills/github-workflow-automation/scripts/validate_wordpress.sh --fix
 # Fix all violations
 ```
 

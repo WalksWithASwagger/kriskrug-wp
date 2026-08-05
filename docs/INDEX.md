@@ -60,7 +60,7 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`../.claude/agents-vibe.md`](../.claude/agents-vibe.md) | Agent philosophy & community values |
 | [`../.claude/naming-conventions.md`](../.claude/naming-conventions.md) | Code naming standards |
 | [`../.claude/common-failures.md`](../.claude/common-failures.md) | Known failure patterns to avoid |
-| [`../skills/github-workflow-automation/SKILL.md`](../skills/github-workflow-automation/SKILL.md) | Batch issue creation + PR helpers |
+| [`../.agents/skills/github-workflow-automation/SKILL.md`](../.agents/skills/github-workflow-automation/SKILL.md) | Batch issue creation + PR helpers |
 
 ## 🟢 Current — entry points & contribution
 

@@ -54,7 +54,7 @@ escalation_rules:
 
   - condition: "stage == 'testing' AND qa_results.phpcs.errors > 0"
     action: "auto_fix_and_retry"
-    command: "bash skills/github-workflow-automation/scripts/validate_wordpress.sh --fix"
+    command: "bash .agents/skills/github-workflow-automation/scripts/validate_wordpress.sh --fix"
     retry_stage: "testing"
 
   - condition: "stage == 'review' AND review_decision == 'changes_requested'"
