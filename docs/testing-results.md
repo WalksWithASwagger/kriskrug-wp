@@ -17,10 +17,10 @@ All testable components of the agent swarm system have been validated successful
 **Test:** Created test issue from JSON file
 
 ```bash
-python3 skills/github-workflow-automation/scripts/validate_input.py --input test-data/sample-issues.json
+python3 .agents/skills/github-workflow-automation/scripts/validate_input.py --input test-data/sample-issues.json
 # Result: ✓ Validation passed
 
-python3 skills/github-workflow-automation/scripts/batch_create_issues.py --input test-data/sample-issues.json
+python3 .agents/skills/github-workflow-automation/scripts/batch_create_issues.py --input test-data/sample-issues.json
 # Result: ✓ Created: https://github.com/WalksWithASwagger/kk-wp/issues/8
 ```
 
@@ -33,7 +33,7 @@ python3 skills/github-workflow-automation/scripts/batch_create_issues.py --input
 **Test:** Verified gh CLI authentication and permissions
 
 ```bash
-bash skills/github-workflow-automation/scripts/gh_health_check.sh
+bash .agents/skills/github-workflow-automation/scripts/gh_health_check.sh
 # Result:
 # ✓ gh CLI installed (v2.83.1)
 # ✓ Authenticated as WalksWithASwagger
@@ -290,7 +290,7 @@ The following components need a WordPress installation to fully validate:
 
 1. **Create Issues in Bulk**
    ```bash
-   python3 skills/github-workflow-automation/scripts/batch_create_issues.py --input your-issues.json
+   python3 .agents/skills/github-workflow-automation/scripts/batch_create_issues.py --input your-issues.json
    ```
 
 2. **Auto-Label New Issues**

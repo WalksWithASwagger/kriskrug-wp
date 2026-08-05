@@ -80,14 +80,14 @@ verify: ## Run the standard local verification suite
 validate: ## Run PHP syntax gate plus WordPress coding standards check
 	@$(MAKE) php-syntax
 	@echo "Validating WordPress coding standards..."
-	@bash skills/github-workflow-automation/scripts/validate_wordpress.sh
+	@bash .agents/skills/github-workflow-automation/scripts/validate_wordpress.sh
 
 validate-fix: ## Auto-fix WordPress coding standard violations
 	@echo "Auto-fixing WordPress coding standards..."
-	@bash skills/github-workflow-automation/scripts/validate_wordpress.sh --fix
+	@bash .agents/skills/github-workflow-automation/scripts/validate_wordpress.sh --fix
 
 health: ## Check gh CLI and system health
-	@bash skills/github-workflow-automation/scripts/gh_health_check.sh
+	@bash .agents/skills/github-workflow-automation/scripts/gh_health_check.sh
 
 issues: ## Create issues from JSON/CSV file (use FILE=path.json)
 	@if [ -z "$(FILE)" ]; then \
@@ -95,15 +95,15 @@ issues: ## Create issues from JSON/CSV file (use FILE=path.json)
 		echo "Example: make issues FILE=test-data/issues.json"; \
 		exit 1; \
 	fi
-	@python3 skills/github-workflow-automation/scripts/validate_input.py --input $(FILE)
-	@python3 skills/github-workflow-automation/scripts/batch_create_issues.py --input $(FILE)
+	@python3 .agents/skills/github-workflow-automation/scripts/validate_input.py --input $(FILE)
+	@python3 .agents/skills/github-workflow-automation/scripts/batch_create_issues.py --input $(FILE)
 
 issues-dry-run: ## Preview issues without creating (use FILE=path.json)
 	@if [ -z "$(FILE)" ]; then \
 		echo "❌ Error: Please specify FILE=path.json"; \
 		exit 1; \
 	fi
-	@python3 skills/github-workflow-automation/scripts/batch_create_issues.py --input $(FILE) --dry-run
+	@python3 .agents/skills/github-workflow-automation/scripts/batch_create_issues.py --input $(FILE) --dry-run
 
 pr: ## Create PR from issue (use ISSUE=123)
 	@if [ -z "$(ISSUE)" ]; then \
@@ -111,14 +111,14 @@ pr: ## Create PR from issue (use ISSUE=123)
 		echo "Example: make pr ISSUE=123"; \
 		exit 1; \
 	fi
-	@python3 skills/github-workflow-automation/scripts/create_pr_from_issue.py --issue $(ISSUE)
+	@python3 .agents/skills/github-workflow-automation/scripts/create_pr_from_issue.py --issue $(ISSUE)
 
 pr-draft: ## Create draft PR from issue (use ISSUE=123)
 	@if [ -z "$(ISSUE)" ]; then \
 		echo "❌ Error: Please specify ISSUE=number"; \
 		exit 1; \
 	fi
-	@python3 skills/github-workflow-automation/scripts/create_pr_from_issue.py --issue $(ISSUE) --draft
+	@python3 .agents/skills/github-workflow-automation/scripts/create_pr_from_issue.py --issue $(ISSUE) --draft
 
 dashboard: ## Open gh-dash monitoring dashboard
 	@gh dash
@@ -314,7 +314,7 @@ clean: ## Clean up test artifacts and temporary files
 setup: ## Initial setup for new contributors
 	@echo "Setting up kriskrug-wp development environment..."
 	@echo ""
-	@bash skills/github-workflow-automation/scripts/gh_health_check.sh
+	@bash .agents/skills/github-workflow-automation/scripts/gh_health_check.sh
 	@echo ""
 	@echo "✅ Setup complete! Run 'make help' to see available commands."
 	@echo "Secrets: see docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md (do not paste secrets into chat/git)."
