@@ -626,10 +626,6 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
     gap: 1.75rem;
     align-items: start;
   }
-
-  .aurora-work-card:nth-child(2) {
-    margin-top: -2.5rem;
-  }
 }
 
 .aurora-work-card {
@@ -655,9 +651,16 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   transition: transform 800ms var(--revive-ease), filter 800ms var(--revive-ease);
 }
 
-.aurora-work-card:hover .aurora-work-card-media img {
+.aurora-work-card:hover .aurora-work-card-media img,
+.aurora-work-card:focus-within .aurora-work-card-media img {
   transform: scale(1.04);
   filter: grayscale(0);
+}
+
+.aurora-work-card:focus-within {
+  outline: 2px solid var(--revive-accent-text);
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 .aurora-work-card-media::after {
@@ -758,6 +761,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
 .aurora-service-card {
   position: relative;
   padding-left: 1.5rem;
+  transition: transform 200ms var(--revive-ease);
 }
 
 .aurora-service-card::before {
@@ -800,6 +804,19 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   text-transform: uppercase;
   letter-spacing: 0.14em;
   text-decoration: none;
+  transition: color 200ms var(--revive-ease);
+}
+
+.aurora-service-card a:hover,
+.aurora-service-card a:focus-visible {
+  color: var(--revive-surface);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.aurora-service-card:hover,
+.aurora-service-card:focus-within {
+  transform: translateY(-2px);
 }
 
 .aurora-writing-band {
