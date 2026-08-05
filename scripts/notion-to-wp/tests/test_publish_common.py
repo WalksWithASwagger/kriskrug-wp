@@ -84,6 +84,51 @@ class PublishCommonTests(unittest.TestCase):
             any(__import__("unicodedata").combining(c) for c in meta["jetpack_seo_html_title"])
         )
 
+    def test_verify_seo_meta_landed_all_present(self):
+        dropped = publish_common.verify_seo_meta_landed(
+            {"jetpack_seo_html_title": "T", "advanced_seo_description": "D", "footnotes": ""},
+            {"jetpack_seo_html_title": "T", "advanced_seo_description": "D"},
+        )
+        self.assertEqual(dropped, [])
+
+    def test_verify_seo_meta_landed_detects_silent_drop(self):
+        dropped = publish_common.verify_seo_meta_landed(
+            {"footnotes": ""},
+            {"jetpack_seo_html_title": "T", "advanced_seo_description": "D"},
+        )
+        self.assertEqual(
+            sorted(dropped),
+            ["advanced_seo_description", "jetpack_seo_html_title"],
+        )
+
+    def test_verify_seo_meta_landed_detects_value_mismatch(self):
+        dropped = publish_common.verify_seo_meta_landed(
+            {"jetpack_seo_html_title": "OLD", "advanced_seo_description": "D"},
+            {"jetpack_seo_html_title": "NEW", "advanced_seo_description": "D"},
+        )
+        self.assertEqual(dropped, ["jetpack_seo_html_title"])
+
+    def test_verify_seo_meta_landed_empty_expected_returns_empty(self):
+        self.assertEqual(publish_common.verify_seo_meta_landed({"footnotes": ""}, {}), [])
+        self.assertEqual(publish_common.verify_seo_meta_landed({"footnotes": ""}, None), [])
+
+    def test_verify_seo_meta_landed_skips_empty_sent_values(self):
+        dropped = publish_common.verify_seo_meta_landed(
+            {"footnotes": ""},
+            {"jetpack_seo_html_title": "", "advanced_seo_description": ""},
+        )
+        self.assertEqual(dropped, [])
+
+    def test_verify_seo_meta_landed_handles_none_response_meta(self):
+        dropped = publish_common.verify_seo_meta_landed(
+            None,
+            {"jetpack_seo_html_title": "T", "advanced_seo_description": "D"},
+        )
+        self.assertEqual(
+            sorted(dropped),
+            ["advanced_seo_description", "jetpack_seo_html_title"],
+        )
+
     def test_parse_publish_argv(self):
         flags = publish_common.parse_publish_argv(["--execute", "--update"])
         self.assertTrue(flags.execute)

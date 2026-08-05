@@ -135,7 +135,8 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
         slug_override: str | None = None,
         date_override: str | None = None,
         category_override: str | None = None,
-        diff_update: bool = False) -> int:
+        diff_update: bool = False,
+        allow_seo_drop: bool = False) -> int:
     cfg = load_config()
     nclient = Notion(cfg.notion_token)
     page_id = parse_page_id(notion_url)
@@ -380,6 +381,26 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
             f"link={verified.get('link')!r}")
     except Exception as e:
         log(f"WARNING: post-write verification GET failed: {e}")
+        verified = None
+
+    seo_expected = (payload.get("meta") or {})
+    from publish_common import verify_seo_meta_landed  # lazy: avoids circular import
+    seo_dropped = verify_seo_meta_landed(
+        (verified or result).get("meta"), seo_expected
+    )
+    if seo_dropped:
+        msg = (
+            f"[ABORT] SEO meta silently dropped by WordPress REST: {seo_dropped}. "
+            "jetpack_seo_html_title / advanced_seo_description are no longer "
+            "registered (Jetpack deactivated). The POST returned 200 but the "
+            "values were not stored. Re-register the keys (see #661 option 1) "
+            "or re-run with --allow-seo-drop to publish without SEO meta."
+        )
+        if allow_seo_drop:
+            log(f"WARNING: {msg}")
+        else:
+            log(msg)
+            return 4
     return 0
 
 
@@ -411,6 +432,13 @@ def main():
         default=None,
         help="Override Notion Type → WP category routing. Required for Feature posts when tags are ambiguous.",
     )
+    p.add_argument(
+        "--allow-seo-drop",
+        action="store_true",
+        help="Publish even if WordPress REST silently drops jetpack_seo_html_title / "
+             "advanced_seo_description (Jetpack deactivated, keys unregistered). "
+             "Without this flag the connector aborts when SEO meta does not land. See #661.",
+    )
     args = p.parse_args()
     sys.exit(run(
         args.notion_url,
@@ -422,6 +450,7 @@ def main():
         date_override=args.date,
         category_override=args.category,
         diff_update=args.diff,
+        allow_seo_drop=args.allow_seo_drop,
     ))
 
 

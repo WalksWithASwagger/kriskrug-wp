@@ -21,6 +21,7 @@ if (!defined('ABSPATH')) {
 define('KK_AURORA_VERSION', '1.5.8');
 
 require_once get_template_directory() . '/inc/seo-title.php';
+require_once get_template_directory() . '/inc/seo-meta-rest.php';
 
 /**
  * Suppress the core block-template skip link.

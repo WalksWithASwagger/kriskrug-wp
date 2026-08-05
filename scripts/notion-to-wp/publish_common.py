@@ -495,6 +495,38 @@ def build_seo_meta(meta_title: str, meta_description: str) -> dict[str, str]:
     }
 
 
+SEO_META_KEYS = ("jetpack_seo_html_title", "advanced_seo_description")
+
+
+def verify_seo_meta_landed(
+    response_meta: dict[str, Any] | None,
+    expected_meta: dict[str, str] | None,
+) -> list[str]:
+    """Return SEO meta keys that were sent but did not land in the REST response.
+
+    WordPress silently drops unregistered meta keys on write — the POST returns
+    200 and the value is never stored. Since Jetpack was deactivated on
+    kriskrug.co, ``jetpack_seo_html_title`` and ``advanced_seo_description`` are
+    no longer registered, so every connector publish silently loses them.
+
+    Pass the ``meta`` dict from the post-write readback (or the create/update
+    response) and the ``meta`` sub-dict from the payload. Any key that was sent
+    with a non-empty value but is absent or mismatched in the response is
+    listed. An empty list means everything landed (or nothing was sent).
+    """
+    if not expected_meta:
+        return []
+    response_meta = response_meta or {}
+    dropped: list[str] = []
+    for key in SEO_META_KEYS:
+        sent = expected_meta.get(key)
+        if not sent:
+            continue
+        if response_meta.get(key) != sent:
+            dropped.append(key)
+    return dropped
+
+
 def parse_int_arg(argv: list[str], flag: str, default: int | None = None) -> int | None:
     """Parse `--flag N` from argv; return default when absent."""
     if flag in argv:

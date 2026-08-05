@@ -19,6 +19,7 @@ from typing import Iterable
 import yaml
 
 from kk_notion_to_wp import WordPress, load_config, update_title_guard
+from publish_common import verify_seo_meta_landed
 
 
 MIN_WORDS = 900
@@ -277,7 +278,7 @@ def ensure_terms(wp: WordPress, taxonomy: str, values: Iterable[str]) -> list[in
     return ids
 
 
-def update_wp_draft(pkg: DraftPackage, html_body: str, wp_id: int) -> dict:
+def update_wp_draft(pkg: DraftPackage, html_body: str, wp_id: int, *, fail_on_warning: bool = False) -> dict:
     cfg = load_config()
     wp = WordPress(cfg.wp_base_url, cfg.wp_user, cfg.wp_app_password)
     existing = wp.get_post(wp_id)
@@ -317,6 +318,15 @@ def update_wp_draft(pkg: DraftPackage, html_body: str, wp_id: int) -> dict:
         }
 
     result = wp.update_post(wp_id, payload)
+    seo_dropped = verify_seo_meta_landed(result.get("meta"), payload.get("meta"))
+    if seo_dropped:
+        print(
+            f"WARNING: SEO meta silently dropped by WordPress REST: {seo_dropped}. "
+            "jetpack_seo_html_title / advanced_seo_description are no longer "
+            "registered (Jetpack deactivated). See #661."
+        )
+        if fail_on_warning:
+            raise RuntimeError(f"SEO meta dropped: {seo_dropped}")
     return result
 
 
@@ -343,7 +353,13 @@ def main() -> int:
         f"images={count_images(pkg.body)} blocks={html_body.count('<!-- wp:')}"
     )
     if args.wp_id is not None:
-        result = update_wp_draft(pkg, html_body, args.wp_id)
+        try:
+            result = update_wp_draft(
+                pkg, html_body, args.wp_id, fail_on_warning=args.fail_on_warning
+            )
+        except RuntimeError as e:
+            print(f"ERROR: {e}")
+            return 4
         print(f"UPDATED: WP draft {result['id']} {result.get('link')}")
     return 0
 
