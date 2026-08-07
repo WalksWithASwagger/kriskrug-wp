@@ -225,10 +225,10 @@
       }
       
       .aurora-header.is-scrolled {
-        background-color: rgba(13, 13, 18, 0.9);
+        background-color: rgba(239, 230, 210, 0.92);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+        box-shadow: 0 1px 0 rgba(23, 19, 16, 0.08);
       }
       
       .aurora-header.is-hidden {
