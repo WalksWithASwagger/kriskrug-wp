@@ -67,12 +67,30 @@
       "issue": "#676",
       "reason": "a11y focus-visible states on work + service cards (WCAG 2.4.7). Net +18 front-end lines: focus outlines, transitions, and hover/focus parity on interactive cards.",
       "theme_version": "1.5.10"
+    },
+    {
+      "date": "2026-08-04",
+      "metric": "front_end_lines",
+      "from": 7900,
+      "to": 8127,
+      "issue": "#476",
+      "reason": "Added primitives layer (04-primitives.css) with button, card, media, badge, kicker, prose measure, focus ring, and surface primitives (229 lines). Removed duplicate Aurora token remappings from revive-port.css (25 lines) and duplicate focus-ring declaration (1 line). Net +227 lines.",
+      "theme_version": "1.5.11"
+    },
+    {
+      "date": "2026-08-04",
+      "metric": "front_end_lines",
+      "from": 8105,
+      "to": 8128,
+      "issue": "#476",
+      "reason": "Added primitives layer (04-primitives.css) with button, card, media, badge, kicker, prose measure, focus ring, and surface primitives. Removed duplicate Aurora token remappings from revive-port.css and duplicate focus-ring declaration.",
+      "theme_version": "1.5.11"
     }
   ],
   "measured_at": "2026-08-04",
   "theme_version": "1.6.0",
   "informational": {
-    "all_files_lines": 8075,
+    "all_files_lines": 8302,
     "all_files_important_code": 173,
     "all_files_important_raw": 177,
     "front_end_important_raw": 176

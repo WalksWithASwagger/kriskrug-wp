@@ -68,8 +68,15 @@ function theme_setup(): void {
         'flex-width'  => true,
     ]);
     
-    // Add editor styles
+    // Add editor styles — load the full CSS stack for block-editor parity
+    // The editor canvas now gets the same layered CSS as the front end (issue #476)
     add_editor_style('style.css');
+    add_editor_style('assets/css/02-tokens.css');
+    add_editor_style('assets/css/04-primitives.css');
+    add_editor_style('assets/css/typography-refined.css');
+    add_editor_style('assets/css/animations.css');
+    add_editor_style('assets/css/bleeding-edge.css');
+    add_editor_style('assets/css/revive-port.css');
     add_editor_style('assets/css/editor.css');
 }
 add_action('after_setup_theme', __NAMESPACE__ . '\\theme_setup');
@@ -95,6 +102,14 @@ function enqueue_assets(): void {
         'kk-aurora-tokens',
         get_theme_file_uri('assets/css/02-tokens.css'),
         ['kk-aurora-style'],
+        KK_AURORA_VERSION
+    );
+
+    // Component primitives (button, card, media, badge, kicker, prose, focus ring, surface)
+    wp_enqueue_style(
+        'kk-aurora-primitives',
+        get_theme_file_uri('assets/css/04-primitives.css'),
+        ['kk-aurora-style', 'kk-aurora-tokens'],
         KK_AURORA_VERSION
     );
 
@@ -126,7 +141,7 @@ function enqueue_assets(): void {
     wp_enqueue_style(
         'kk-aurora-revive-port',
         get_theme_file_uri('assets/css/revive-port.css'),
-        ['kk-aurora-style', 'kk-aurora-tokens', 'kk-aurora-typography', 'kk-aurora-animations', 'kk-aurora-bleeding-edge'],
+        ['kk-aurora-style', 'kk-aurora-tokens', 'kk-aurora-primitives', 'kk-aurora-typography', 'kk-aurora-animations', 'kk-aurora-bleeding-edge'],
         KK_AURORA_VERSION
     );
 

@@ -3,6 +3,9 @@
  * Digital Composting Module
  * Registers Custom Post Type for Transcripts and Topics Taxonomy
  */
+if (!defined('ABSPATH')) {
+    exit;
+}
 function kk_register_transcript_assets() {
     register_post_type('transcript', [
         'labels' => [

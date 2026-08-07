@@ -51,11 +51,12 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 THEME_DIR = REPO_ROOT / "theme" / "kk-aurora"
 
 # Stylesheets audited, in the order functions.php enqueues them (later wins on
-# equal specificity). Includes Aurora 1.5.0 scaffold sheets (#474): tokens and
-# the deliberately-unlayered late overrides.
+# equal specificity). Includes Aurora 1.5.0 scaffold sheets (#474): tokens,
+# primitives (#476), and the deliberately-unlayered late overrides.
 CSS_FILES = [
     THEME_DIR / "style.css",
     THEME_DIR / "assets" / "css" / "02-tokens.css",
+    THEME_DIR / "assets" / "css" / "04-primitives.css",
     THEME_DIR / "assets" / "css" / "typography-refined.css",
     THEME_DIR / "assets" / "css" / "animations.css",
     THEME_DIR / "assets" / "css" / "bleeding-edge.css",
