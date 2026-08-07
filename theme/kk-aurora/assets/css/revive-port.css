@@ -65,6 +65,7 @@
   --aurora-line: rgba(23, 19, 16, 0.14);
   --aurora-line-strong: rgba(181, 60, 24, 0.4);
   --aurora-shadow-deep: 0 18px 48px rgba(23, 19, 16, 0.12);
+  --focus-ring: 0 0 0 2px var(--revive-surface), 0 0 0 4px var(--revive-accent-text);
 }
 
 body.aurora-theme {
@@ -500,6 +501,10 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.75rem;
     align-items: start;
+  }
+
+  .aurora-work-card:nth-child(2) {
+    margin-top: -2.5rem;
   }
 }
 

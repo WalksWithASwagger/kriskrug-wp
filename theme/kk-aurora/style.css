@@ -704,12 +704,12 @@ a {
 
 /* Home hero only: nearly-square krug-1 fills a short wide band with no
    horizontal crop, so object-position alone can't clear the face. Zoom +
-   left-anchor keeps scrim/copy on the open left and parks the portrait right. */
+   right-anchor puts the portrait in the right half for the left scrim/copy. */
 .aurora-home-2026 .aurora-hero-media img {
   bottom: 0;
-  left: 0;
+  left: auto;
   max-width: none;
-  right: auto;
+  right: 0;
   top: 0;
   width: 145%;
 }
@@ -737,17 +737,11 @@ a {
    the open left of the zoomed portrait instead of over the face. */
 .aurora-home-2026 .aurora-hero-copy {
   margin: 0 auto 0 max(0px, calc((100% - var(--aurora-max)) / 2));
-  max-width: min(34rem, 100%);
+  max-width: min(34rem, var(--aurora-max));
 }
 
 .aurora-home-2026 .aurora-hero-dek {
   max-width: 42ch;
-}
-
-.aurora-hero-2026 .aurora-kicker {
-  /* Long kickers must wrap on narrow viewports; hero has overflow:hidden. */
-  white-space: normal;
-  overflow-wrap: anywhere;
 }
 
 .aurora-hero-copy h1 {
@@ -2837,15 +2831,12 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   }
 
   .aurora-hero-media img {
-    object-position: 88% 20%;
+    object-position: 70% 24%;
   }
 
   .aurora-home-2026 .aurora-hero-media img {
-    /* Tall mobile viewports already crop horizontally — drop the desktop zoom. */
-    left: 0;
-    right: 0;
-    width: 100%;
-    object-position: 88% 20%;
+    /* Mobile already crops horizontally; lighter zoom keeps the face in frame. */
+    width: 125%;
   }
 
   .aurora-hero-copy h1 {
