@@ -59,26 +59,6 @@
 [data-aurora-delay="8"] { animation-delay: 0.8s; }
 
 /* ============================================
-   REDUCED MOTION
-   ============================================ */
-
-@media (prefers-reduced-motion: reduce) {
-  .aurora-gradient-animated,
-  .aurora-pulse,
-  .aurora-animate-fade-up,
-  .aurora-animate-fade-in,
-  .aurora-animate-scale-in,
-  .aurora-animate-slide-left,
-  .aurora-animate-slide-right,
-  .aurora-scroll-indicator,
-  .aurora-spinner,
-  .aurora-animate-fade-up,
-  .aurora-animate-fade-in,
-  .aurora-animate-scale-in,
-  .aurora-animate-slide-left,
-}
-
-/* ============================================
    NUMBER COUNTER (JS controlled)
    ============================================ */
 
@@ -90,9 +70,4 @@
 /* ============================================
    HERO SPECIFIC ANIMATIONS
    ============================================ */
-/* Reduced motion override */
-@media (prefers-reduced-motion: reduce) {
-  .aurora-hero-text .word,
-}
-
 }
