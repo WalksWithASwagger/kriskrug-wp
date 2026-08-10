@@ -414,6 +414,17 @@ REGISTERED_LITERALS = {
         ".aurora-service-card .aurora-service-meta",
         "rgba(239, 230, 210, 0.55)",
     ): ("ink", AA_TEXT, "service meta on the ink services band"),
+    (
+        "assets/css/revive-port.css",
+        "body.aurora-theme #aurora-main .aurora-service-card :where(.aurora-kicker)",
+        "rgba(239, 230, 210, 0.55)",
+    ): (
+        "ink",
+        AA_TEXT,
+        "service-card roman-numeral kickers on the ink band; outranks the "
+        "#aurora-main accent-kicker override that painted them #9a2f14 (2.45:1, "
+        "#708 / audit F19)",
+    ),
 }
 
 # Component rules whose foreground is a token. (file, selector) -> declaration
