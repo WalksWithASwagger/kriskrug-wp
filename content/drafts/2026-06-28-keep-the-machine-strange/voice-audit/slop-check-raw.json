@@ -1,0 +1,31 @@
+{
+  "total": 3,
+  "files": {
+    "content/drafts/2026-06-28-keep-the-machine-strange/post.md": [
+      {
+        "line": 49,
+        "col": 145,
+        "match": "Not a luddite. Not a guy jamming his boot into the gears. ",
+        "rule": "pattern: \\bNot [^.]{2,40}\\. Not [^.]{2,40}\\. ",
+        "reason": "reveal-ladder template (soft flag: earned when each rung carries new payload)",
+        "severity": "warn"
+      },
+      {
+        "line": 107,
+        "col": 19,
+        "match": "is not only bias testing and red teaming, important as those are. It is",
+        "rule": "pattern: \\b(is|are|was|were) not (just|only|simply) [^.]{3,80}\\. (It|That|They|These) (is|are|was|were)\\b",
+        "reason": "decontracted redefinition-reveal; dodges the contraction-based rules above (soft flag, judge density)",
+        "severity": "warn"
+      },
+      {
+        "line": 186,
+        "col": 25,
+        "match": "Not to flee the machine. Not to worship it. ",
+        "rule": "pattern: \\bNot [^.]{2,40}\\. Not [^.]{2,40}\\. ",
+        "reason": "reveal-ladder template (soft flag: earned when each rung carries new payload)",
+        "severity": "warn"
+      }
+    ]
+  }
+}

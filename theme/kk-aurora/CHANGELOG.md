@@ -20,8 +20,36 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.6.0
+**Deployed:** LIVE (public readback 2026-08-10; the 2026-08-10 SFTP window shipped 1.5.10 + 1.5.11 + 1.6.0 together, rollback `kk-aurora.bak-1786336956`)
+Delete 97 dead CSS classes and 9 dead `@keyframes` from `style.css` (#478, PR #681, merged 2026-08-07).
+
+## 1.5.11
+**Deployed:** Superseded (never live standalone; first reached production inside the 2026-08-10 1.6.0 deploy)
+Primitives layer plus block-editor parity so the editor canvas renders cream/ink instead of the pre-Revive dark palette (#476, PR #680, merged 2026-08-05).
+
+## 1.5.10
+**Deployed:** Superseded (never live standalone; first reached production inside the 2026-08-10 1.6.0 deploy)
+Focus-visible states on work and service cards for WCAG 2.4.7, plus the `functions.php` version catch-up missed in 1.5.9 (PR #676, merged 2026-08-05).
+
+## 1.5.9
+**Deployed:** Superseded (live 2026-08-05 to 2026-08-10 per public readbacks; replaced by the 1.6.0 deploy)
+Retire the drop cap (#475, PR #672, merged 2026-08-05).
+
+## 1.5.8
+**Deployed:** Superseded (never live as 1.5.8; deploy was gated on #601, and its CSS first shipped inside the later 1.5.9 deploy)
+`aurora-tstm` testimonials showpiece CSS (#596, PR #629, merged 2026-08-02).
+
+## 1.5.7
+**Deployed:** Superseded (SFTP-deployed live 2026-08-01 pre-merge; PR #618 synced the repo to live; replaced by the 1.5.9 deploy)
+Full-bleed `krug-1` portrait hero on Home and About (PR #618, merged 2026-08-01).
+
+## 1.5.1 through 1.5.6
+**Deployed:** Never released (skipped numbers)
+Reserved by the stylesheet rebuild plan (#475 as 1.5.1, #476 as 1.5.2, #477 as 1.5.3+) and skipped when the hero shipped straight to 1.5.7; the reserved work later landed as 1.5.9 and 1.5.11.
+
 ## 1.5.0
-**Deployed:** LIVE (deployed pre-merge; source is open PR #493, still unmerged, see #545)
+**Deployed:** Superseded (was live 2026-07-27 to 2026-08-01; source PR #493 merged 2026-07-27, resolving #545)
 Cascade `@layer` scaffold plus `--kk-*` tokens (#474).
 
 ## 1.4.9

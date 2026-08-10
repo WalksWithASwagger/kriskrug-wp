@@ -1,5 +1,8 @@
 # Publish gate — Keep the Machine Strange (2026-06-28)
 
+**PUBLISHED 2026-08-10** (KK approval in-session): https://kriskrug.co/2026/08/10/keep-the-machine-strange/
+Post 12410, dated 2026-08-10 at publish. Pre-publish voice audit in `voice-audit/` (verdict GO; one line edit applied at line 107, `--update` refreshed the body, then status flipped via slug-verified REST). Logged-out readback verified: HTTP 200, SEO title in `<title>`, McLuhan og:image, homepage + feed listing. Pre-publish snapshot retained in session scratchpad.
+
 DRAFT staged. Create on kriskrug.co:
   python3 scripts/notion-to-wp/publish_keep_the_machine_strange.py            # dry-run
   python3 scripts/notion-to-wp/publish_keep_the_machine_strange.py --execute  # draft-only, slug-idempotent

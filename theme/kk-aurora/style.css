@@ -2652,10 +2652,16 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   gap: 0.42rem;
 }
 
-.aurora-form-message,
-.aurora-form-error,
-.aurora-form-error,
-.aurora-form-success,
+.aurora-form-error {
+  /* #ffb4b4 was a dark-palette pink: 1.36:1 on cream, so validation errors
+     were invisible on the surface they render against. */
+  color: var(--aurora-error-text);
+}
+
+.aurora-form-success {
+  color: var(--wp--preset--color--teal);
+}
+
 .aurora-footer-bottom {
   border-top: 1px solid var(--aurora-line);
   color: var(--aurora-ink-muted);
