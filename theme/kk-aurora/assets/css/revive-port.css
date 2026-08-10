@@ -310,8 +310,6 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   background: var(--revive-surface);
   color: var(--revive-ink);
 }
-@media (min-width: 960px) {
-}
 /* R6: rainbow word readable at a glance (slightly larger italic + richer sweep) */
 .aurora-masthead-copy h1 .aurora-rainbow-word,
 .aurora-hero-copy h1 .aurora-rainbow-word {
@@ -335,8 +333,6 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-@media (min-width: 960px) {
 }
 .aurora-stage-photo {
   position: relative;
@@ -462,7 +458,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   gap: 0.55rem;
 }
 
-@media (min-width: 780px) {
+@media (min-width: 768px) {
   .aurora-contact-sheet {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.75rem;
@@ -496,7 +492,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   gap: 1.75rem;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   .aurora-work-triptych {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.75rem;
@@ -631,7 +627,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   margin-top: 2.5rem;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   .aurora-services-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 2.25rem;
@@ -730,7 +726,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   gap: 1.5rem;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 768px) {
   .aurora-article-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.75rem;
@@ -834,7 +830,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   color: var(--revive-accent);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .aurora-newsletter-thumb-list.wp-block-post-template {
     grid-template-columns: 1fr;
   }
@@ -1155,14 +1151,6 @@ body.aurora-theme .aurora-primary-nav a {
   border-radius: 0 !important;
   padding-inline: 0 !important;
   min-height: 0 !important;
-}
-
-@media (max-width: 900px) {
-  body.aurora-theme .aurora-primary-nav a {
-    background: transparent !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-  }
 }
 
 /* Full-bleed photo hero: restore light ink over dark scrim.

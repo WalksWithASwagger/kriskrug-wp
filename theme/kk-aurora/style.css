@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.6.0
+Version: 1.6.2
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -374,14 +374,11 @@ a {
    RESPONSIVE UTILITIES
    ============================================ */
 
-@media (max-width: 781px) {
+@media (max-width: 768px) {
   .aurora-section {
     padding-top: var(--wp--preset--spacing--100);
     padding-bottom: var(--wp--preset--spacing--100);
   }
-}
-
-@media (min-width: 782px) {
 }
 
 /* ============================================
@@ -1960,13 +1957,13 @@ a {
   margin-top: 1.5rem;
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1200px) {
   .aurora-tstm-wall {
     column-count: 2;
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .aurora-tstm-cta {
     padding: clamp(1.5rem, 6vw, 2rem);
   }
@@ -2526,7 +2523,7 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   color: var(--wp--preset--color--signal);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .aurora-footer-bento .aurora-footer-shell {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2541,7 +2538,7 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 480px) {
   .aurora-footer-bento .aurora-footer-shell {
     grid-template-columns: 1fr;
   }
@@ -2685,7 +2682,7 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   color: var(--wp--preset--color--signal);
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1200px) {
   .aurora-header-shell {
     column-gap: 1rem;
     grid-template-areas:
@@ -2762,7 +2759,7 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .aurora-header-shell {
     gap: 0.55rem 0.75rem;
     grid-template-columns: minmax(0, 1fr) auto;
@@ -3004,7 +3001,7 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   .aurora-utility-link {
     display: none;
   }
@@ -3949,13 +3946,13 @@ body .aurora-reading-progress span {
   transform: scaleY(1);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   .aurora-writing-archive .aurora-writing-archive-list.wp-block-post-template {
     gap: 16px;
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1200px) {
   .aurora-single-2026 .aurora-single-title {
     font-size: clamp(3.05rem, 5.8vw, 3.75rem);
     max-width: 14.5ch;
@@ -3966,7 +3963,7 @@ body .aurora-reading-progress span {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .aurora-single-2026 {
     padding-top: 1.35rem;
   }
@@ -4024,7 +4021,7 @@ body .aurora-reading-progress span {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   .aurora-single-2026 .aurora-single-title {
     font-size: 2.28rem;
   }
