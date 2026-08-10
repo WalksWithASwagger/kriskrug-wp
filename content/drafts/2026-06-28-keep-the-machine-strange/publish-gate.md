@@ -3,6 +3,8 @@
 **PUBLISHED 2026-08-10** (KK approval in-session): https://kriskrug.co/2026/08/10/keep-the-machine-strange/
 Post 12410, dated 2026-08-10 at publish. Pre-publish voice audit in `voice-audit/` (verdict GO; one line edit applied at line 107, `--update` refreshed the body, then status flipped via slug-verified REST). Logged-out readback verified: HTTP 200, SEO title in `<title>`, McLuhan og:image, homepage + feed listing. Pre-publish snapshot retained in session scratchpad.
 
+**2026-08-10 post-publish embed round** (KK request): added two verified-embeddable Postman videos — `hlrv7DIHllE` (College of DuPage, Surrender of Culture lecture) after the "in his own voice" paragraph, and `W36sM3_KY0k` (The Open Mind w/ Richard Heffner, taped 1985-12-14) after the Huxley paragraph. The 1995 PBS Cyberspace clip (`49rcVQ1vFAY`) is still embed-blocked (oEmbed 403); an anonymous "1992 Technopoly" upload was rejected for unverifiable provenance. Live via in-place body PATCH from rebuilt post.html; snapshot in session scratchpad. Featured-image replacement pending KK approval (see featured-image-forge skill).
+
 DRAFT staged. Create on kriskrug.co:
   python3 scripts/notion-to-wp/publish_keep_the_machine_strange.py            # dry-run
   python3 scripts/notion-to-wp/publish_keep_the_machine_strange.py --execute  # draft-only, slug-idempotent
