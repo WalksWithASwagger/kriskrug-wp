@@ -30,7 +30,9 @@
     --kk-line: var(--wp--preset--color--muted);
     --kk-measure: 66ch;
 
-    /* Breakpoint scale — declared once, consumed by later steps (plan §2.3) */
+    /* Breakpoint scale (plan §2.3, issue #479). Custom properties cannot
+       resolve inside @media conditions, so width queries repeat these three
+       literals — 480 / 768 / 1200 — and no other width value is allowed. */
     --kk-bp-sm: 480px;
     --kk-bp-md: 768px;
     --kk-bp-lg: 1200px;
