@@ -20,6 +20,14 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.6.2
+**Deployed:** Built, not deployed (live is 1.6.0)
+Collapse 12 width breakpoints to the 480/768/1200 token scale; CSS budget lowered to 6902 lines / 162 importants (#479, PR #703, merged 2026-08-10).
+
+## 1.6.1
+**Deployed:** Built, not deployed (live is 1.6.0; superseded in repo by 1.6.2 the same day)
+Detach form error/success selectors the #681 purge left glued to the footer rule and restore their color rules (#698, PR #699, merged 2026-08-10).
+
 ## 1.6.0
 **Deployed:** LIVE (public readback 2026-08-10; the 2026-08-10 SFTP window shipped 1.5.10 + 1.5.11 + 1.6.0 together, rollback `kk-aurora.bak-1786336956`)
 Delete 97 dead CSS classes and 9 dead `@keyframes` from `style.css` (#478, PR #681, merged 2026-08-07).
