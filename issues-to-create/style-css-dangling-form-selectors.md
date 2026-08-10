@@ -1,5 +1,7 @@
 # [THEME] #681 purge left dangling form-message selectors glued to the footer rule — Aurora 1.6.1
 
+**Filed:** [#698](https://github.com/WalksWithASwagger/kriskrug-wp/issues/698) (2026-08-10)
+
 **Labels:** bug, priority:low, track-b
 
 ## Problem

@@ -1,5 +1,7 @@
 # [QA] visual-baseline captures render 4000px linearized instead of config viewport — pixel gate unusable
 
+**Filed:** [#697](https://github.com/WalksWithASwagger/kriskrug-wp/issues/697) (2026-08-10)
+
 **Labels:** bug, priority:high, tests, track-b
 
 ## Problem
