@@ -104,7 +104,7 @@ I wrote a whole piece about the small, sneaky, personal version of this, the hab
 
 >>> The machine must not become the excuse.
 
-So responsible AI is not only bias testing and red teaming, important as those are. It is responsibility tracking. Who chose to use this. Who benefits. Who gets harmed. Who can appeal. Who is allowed to look inside. Who is accountable when the answer arrives wearing the lab coat of objectivity.
+So responsible AI runs deeper than bias testing and red teaming, important as those are. It is responsibility tracking. Who chose to use this. Who benefits. Who gets harmed. Who can appeal. Who is allowed to look inside. Who is accountable when the answer arrives wearing the lab coat of objectivity.
 
 Postman put the cleanest version of this to an interviewer back in 1995, and it still cuts. Am I using this technology, or is it using me?
 
