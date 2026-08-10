@@ -106,11 +106,26 @@ ROUTES: tuple[dict[str, Any], ...] = (
         # redirect. Verified 2026-07-25.
         "note": "canonical target of /services/ (301)",
     },
-    {"id": "speaking", "path": "/speaking/", "template": "page.html", "expect_status": 200},
+    {
+        "id": "speaking",
+        "path": "/speaking/",
+        "template": "page.html",
+        "expect_status": 200,
+    },
     {"id": "work", "path": "/work/", "template": "page.html", "expect_status": 200},
-    {"id": "photography", "path": "/photography/", "template": "page.html", "expect_status": 200},
+    {
+        "id": "photography",
+        "path": "/photography/",
+        "template": "page.html",
+        "expect_status": 200,
+    },
     {"id": "blog", "path": "/blog/", "template": "index.html", "expect_status": 200},
-    {"id": "contact", "path": "/contact/", "template": "page.html", "expect_status": 200},
+    {
+        "id": "contact",
+        "path": "/contact/",
+        "template": "page.html",
+        "expect_status": 200,
+    },
     {
         "id": "single-post",
         "path": "/2026/07/18/i-am-nomad-ai-film/",
@@ -294,12 +309,19 @@ def curl_bytes(url: str, timeout: int = 60) -> tuple[int, bytes]:
     try:
         proc = subprocess.run(
             [
-                "curl", "-sS", "-L",
-                "--max-time", str(timeout),
-                "-H", "Cache-Control: no-cache",
-                "-H", "Pragma: no-cache",
-                "-o", str(dest),
-                "-w", "%{http_code}",
+                "curl",
+                "-sS",
+                "-L",
+                "--max-time",
+                str(timeout),
+                "-H",
+                "Cache-Control: no-cache",
+                "-H",
+                "Pragma: no-cache",
+                "-o",
+                str(dest),
+                "-w",
+                "%{http_code}",
                 url,
             ],
             capture_output=True,
@@ -316,7 +338,17 @@ def curl_bytes(url: str, timeout: int = 60) -> tuple[int, bytes]:
 
 def curl_status(url: str, timeout: int = 45) -> int:
     proc = subprocess.run(
-        ["curl", "-sS", "-o", os.devnull, "-w", "%{http_code}", "--max-time", str(timeout), url],
+        [
+            "curl",
+            "-sS",
+            "-o",
+            os.devnull,
+            "-w",
+            "%{http_code}",
+            "--max-time",
+            str(timeout),
+            url,
+        ],
         capture_output=True,
         text=True,
         check=False,
@@ -328,7 +360,10 @@ def curl_status(url: str, timeout: int = 45) -> int:
 
 def git(*args: str) -> str:
     proc = subprocess.run(
-        ["git", "-C", str(REPO_ROOT), *args], capture_output=True, text=True, check=False
+        ["git", "-C", str(REPO_ROOT), *args],
+        capture_output=True,
+        text=True,
+        check=False,
     )
     return proc.stdout
 
@@ -347,7 +382,11 @@ NODE_PATH_CANDIDATES = (
 
 def resolve_node() -> str:
     for cand in NODE_CANDIDATES:
-        exe = shutil.which(cand) if "/" not in cand else (cand if Path(cand).exists() else None)
+        exe = (
+            shutil.which(cand)
+            if "/" not in cand
+            else (cand if Path(cand).exists() else None)
+        )
         if exe:
             return exe
     fatal(
@@ -360,7 +399,8 @@ def resolve_node() -> str:
 def node_env() -> dict[str, str]:
     env = dict(os.environ)
     env["NODE_PATH"] = os.pathsep.join(
-        [p for p in NODE_PATH_CANDIDATES if Path(p).is_dir()] + [env.get("NODE_PATH", "")]
+        [p for p in NODE_PATH_CANDIDATES if Path(p).is_dir()]
+        + [env.get("NODE_PATH", "")]
     ).strip(os.pathsep)
     # Belt and braces: even a bug in the driver cannot pull a browser down.
     env["PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD"] = "1"
@@ -459,7 +499,9 @@ def selected_viewports(only: list[str] | None, scale: int) -> list[dict[str, Any
     return vps
 
 
-def preflight_routes(base: str, routes: list[dict[str, Any]], strict: bool = True) -> list[dict]:
+def preflight_routes(
+    base: str, routes: list[dict[str, Any]], strict: bool = True
+) -> list[dict]:
     """Assert every route still answers with the status the config expects."""
     out = []
     problems = []
@@ -468,15 +510,34 @@ def preflight_routes(base: str, routes: list[dict[str, Any]], strict: bool = Tru
         # No -L here: a route that started redirecting is a config drift we want
         # to see, not follow.
         proc = subprocess.run(
-            ["curl", "-sS", "-o", os.devnull, "-w", "%{http_code}", "--max-time", "45", url],
+            [
+                "curl",
+                "-sS",
+                "-o",
+                os.devnull,
+                "-w",
+                "%{http_code}",
+                "--max-time",
+                "45",
+                url,
+            ],
             capture_output=True,
             text=True,
             check=False,
         )
         status = int((proc.stdout or "0").strip() or 0)
-        out.append({"id": r["id"], "path": r["path"], "status": status, "expected": r["expect_status"]})
+        out.append(
+            {
+                "id": r["id"],
+                "path": r["path"],
+                "status": status,
+                "expected": r["expect_status"],
+            }
+        )
         if status != r["expect_status"]:
-            problems.append(f"  {r['id']:<18} {r['path']}  expected {r['expect_status']}, got {status}")
+            problems.append(
+                f"  {r['id']:<18} {r['path']}  expected {r['expect_status']}, got {status}"
+            )
     if problems and strict:
         fatal(
             "route preflight failed — the route list has drifted from live:\n"
@@ -528,7 +589,9 @@ def css_identity(base: str) -> dict[str, Any]:
                 repo_version = theme_version(data.decode("utf-8", "replace"))
         else:
             row["repo_md5"] = None
-        row["identical"] = bool(row.get("live_md5")) and row.get("live_md5") == row.get("repo_md5")
+        row["identical"] = bool(row.get("live_md5")) and row.get("live_md5") == row.get(
+            "repo_md5"
+        )
         rows.append(row)
     return {
         "files": rows,
@@ -538,8 +601,12 @@ def css_identity(base: str) -> dict[str, Any]:
     }
 
 
-BOOST_CSS_RE = re.compile(r"""["']([^"']*/boost-cache/static/([0-9a-f]+)\.min\.css)["']""")
-BOOST_JS_RE = re.compile(r"""["']([^"']*/boost-cache/static/([0-9a-f]+)\.min\.js)["']""")
+BOOST_CSS_RE = re.compile(
+    r"""["']([^"']*/boost-cache/static/([0-9a-f]+)\.min\.css)["']"""
+)
+BOOST_JS_RE = re.compile(
+    r"""["']([^"']*/boost-cache/static/([0-9a-f]+)\.min\.js)["']"""
+)
 
 
 def boost_bundle(base: str) -> dict[str, Any]:
@@ -563,7 +630,9 @@ def boost_bundle(base: str) -> dict[str, Any]:
         out["css_bundle_url"] = url
         out["css_bundle_hash"] = m.group(2)
         try:
-            st, css = curl_bytes(url if url.startswith("http") else base.rstrip("/") + url)
+            st, css = curl_bytes(
+                url if url.startswith("http") else base.rstrip("/") + url
+            )
             if st == 200:
                 out["css_bundle_md5"] = hashlib.md5(css).hexdigest()
                 out["css_bundle_bytes"] = len(css)
@@ -630,9 +699,14 @@ async function fetchThroughCurl(url) {
                   '-o', bodyFile, '-D', hdrFile, '-w', '%{http_code}', url];
     const { stdout } = await execFileP('curl', args, { maxBuffer: 1 << 24 });
     const headers = fs.readFileSync(hdrFile, 'utf8');
-    const ct = headers.match(/^content-type:\s*(.+)$/im);
+    // curl -L concatenates every response's headers into one dump. Take the
+    // LAST content-type: on a 301 chain the first is the redirect's text/html,
+    // and fulfilling CSS as text/html makes Chromium reject the stylesheet
+    // (root cause of #697's unstyled 4000px captures).
+    const cts = [...headers.matchAll(/^content-type:\s*(.+)$/gim)];
     const meta = { status: Number(String(stdout).trim()) || 200,
-                   contentType: ct ? ct[1].trim() : 'application/octet-stream' };
+                   contentType: cts.length ? cts[cts.length - 1][1].trim()
+                                           : 'application/octet-stream' };
     fs.writeFileSync(metaFile, JSON.stringify(meta));
     fs.rmSync(hdrFile, { force: true });
     stats.fetched++;
@@ -880,6 +954,12 @@ async function main() {
         }
         rec.mask_matches = counts;
         rec.scroll_height = await page.evaluate(() => document.documentElement.scrollHeight);
+        // Overflow + defer diagnostics (#697): a document wider than the
+        // viewport means CSS did not constrain layout; a stylesheet link still
+        // at media="not all" means Boost's defer swap never completed.
+        rec.scroll_width = await page.evaluate(() => document.documentElement.scrollWidth);
+        rec.deferred_css_pending = await page.evaluate(() =>
+          document.querySelectorAll("link[rel='stylesheet'][media='not all']").length);
         rec.doc_title = await page.title();
 
         const file = path.join(cfg.pngDir, route.id + '-' + vp.name + '.png');
@@ -1176,8 +1256,19 @@ def do_capture(
             entry["png_width"] = w
             entry["png_height"] = h
             entry["rel_path"] = f"{run_id}/png/{rec['file']}"
+            expected_w = rec["width"] * rec["scale"]
+            if w != expected_w:
+                failures.append(
+                    f"{rec['id']}/{rec['viewport']}: png width {w} != viewport*scale "
+                    f"{expected_w} (scroll_width {rec.get('scroll_width')}, "
+                    f"deferred_css_pending {rec.get('deferred_css_pending')}) — "
+                    "horizontal overflow means the page rendered without its full "
+                    "CSS; capturing it would poison the baseline (#697)"
+                )
         else:
-            failures.append(f"{rec['id']}/{rec['viewport']}: {rec.get('error', 'unknown')}")
+            failures.append(
+                f"{rec['id']}/{rec['viewport']}: {rec.get('error', 'unknown')}"
+            )
         captures.append(entry)
 
     if failures:
@@ -1200,7 +1291,9 @@ def do_capture(
         "artifacts_committed": False,
         "tools": tools,
         "settings": {
-            "device_scale": viewports[0]["scale"] if viewports else DEFAULT_DEVICE_SCALE,
+            "device_scale": viewports[0]["scale"]
+            if viewports
+            else DEFAULT_DEVICE_SCALE,
             "reduced_motion": "reduce",
             "color_scheme": "light",
             "forced_colors": "none",
@@ -1236,7 +1329,18 @@ def do_capture(
 ALLOWED_TRACKED_RE = re.compile(
     r"^(?:manifest|diff)-[0-9A-Za-z._-]+\.json$|^report-[0-9A-Za-z._-]+\.md$|^README\.md$"
 )
-BINARY_EXT = (".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif", ".bmp", ".tiff", ".mp4", ".zip")
+BINARY_EXT = (
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".gif",
+    ".webp",
+    ".avif",
+    ".bmp",
+    ".tiff",
+    ".mp4",
+    ".zip",
+)
 
 
 def assert_ignored(path: Path) -> None:
@@ -1262,13 +1366,19 @@ def do_guard(quiet: bool = False) -> int:
     """Fail if any capture binary is tracked or staged. Run after every capture."""
     problems: list[str] = []
 
-    tracked = [p for p in git("ls-files", "--", ARTIFACT_ROOT_REL).splitlines() if p.strip()]
+    tracked = [
+        p for p in git("ls-files", "--", ARTIFACT_ROOT_REL).splitlines() if p.strip()
+    ]
     for p in tracked:
         name = Path(p).name
         if not ALLOWED_TRACKED_RE.match(name):
-            problems.append(f"tracked file under the artifact root is not an allowed manifest: {p}")
+            problems.append(
+                f"tracked file under the artifact root is not an allowed manifest: {p}"
+            )
 
-    staged = [p for p in git("diff", "--cached", "--name-only").splitlines() if p.strip()]
+    staged = [
+        p for p in git("diff", "--cached", "--name-only").splitlines() if p.strip()
+    ]
     for p in staged:
         if p.lower().endswith(BINARY_EXT):
             problems.append(f"binary staged for commit: {p}")
@@ -1288,7 +1398,9 @@ def do_guard(quiet: bool = False) -> int:
         )
 
     if problems:
-        print("FATAL: visual-baseline storage guard failed (issue #318):", file=sys.stderr)
+        print(
+            "FATAL: visual-baseline storage guard failed (issue #318):", file=sys.stderr
+        )
         for p in problems:
             print(f"  - {p}", file=sys.stderr)
         print(
@@ -1375,7 +1487,9 @@ def resolve_base_manifest(base_arg: str | None) -> Path:
 # ==========================================================================
 
 
-def verdict_for(diff_pct: float | None, height_delta_pct: float | None, tol: dict) -> str:
+def verdict_for(
+    diff_pct: float | None, height_delta_pct: float | None, tol: dict
+) -> str:
     if diff_pct is None:
         return "error"
     if height_delta_pct is not None and abs(height_delta_pct) > tol["height_delta_pct"]:
@@ -1429,7 +1543,10 @@ def cmd_capture(args: argparse.Namespace) -> int:
     css = css_identity(args.base)
     boost = boost_bundle(args.base)
 
-    if args.expect_theme_version and css.get("live_theme_version") != args.expect_theme_version:
+    if (
+        args.expect_theme_version
+        and css.get("live_theme_version") != args.expect_theme_version
+    ):
         fatal(
             "live theme version is "
             f"{css.get('live_theme_version')!r}, expected {args.expect_theme_version!r}.\n"
@@ -1461,17 +1578,23 @@ def cmd_capture(args: argparse.Namespace) -> int:
     total_bytes = sum(c.get("bytes", 0) for c in manifest["captures"])
     print()
     print(f"baseline run {run_id}")
-    print(f"  captures : {len(manifest['captures'])}  ({total_bytes / 1e6:.1f} MB, NOT committed)")
+    print(
+        f"  captures : {len(manifest['captures'])}  ({total_bytes / 1e6:.1f} MB, NOT committed)"
+    )
     print(f"  images   : {run_dir.relative_to(REPO_ROOT)}/png/  (git-ignored)")
     print(f"  manifest : {mpath.relative_to(REPO_ROOT)}  <- commit this")
     print(
         f"  theme    : live {css.get('live_theme_version')} / repo {css.get('repo_theme_version')}"
         f"  css identical: {css.get('all_identical')}"
     )
-    print(f"  boost    : css bundle {boost.get('css_bundle_hash')} js {boost.get('js_bundle_hash')}")
+    print(
+        f"  boost    : css bundle {boost.get('css_bundle_hash')} js {boost.get('js_bundle_hash')}"
+    )
     if not css.get("all_identical"):
         drifted = [r["file"] for r in css["files"] if not r["identical"]]
-        print(f"  NOTE     : live != repo for {drifted} — expected while a deploy is pending")
+        print(
+            f"  NOTE     : live != repo for {drifted} — expected while a deploy is pending"
+        )
     print()
     return do_guard()
 
@@ -1481,13 +1604,17 @@ def cmd_diff(args: argparse.Namespace) -> int:
     base_manifest_path = resolve_base_manifest(args.base_run)
     base_manifest = json.loads(base_manifest_path.read_text(encoding="utf-8"))
     if base_manifest.get("schema") != MANIFEST_SCHEMA:
-        fatal(f"{base_manifest_path} has schema {base_manifest.get('schema')!r}, expected {MANIFEST_SCHEMA!r}")
+        fatal(
+            f"{base_manifest_path} has schema {base_manifest.get('schema')!r}, expected {MANIFEST_SCHEMA!r}"
+        )
 
     base_run = base_manifest["run_id"]
     base_png_dir = ARTIFACT_ROOT / base_run / "png"
 
     routes = enabled_routes(args.routes)
-    viewports = selected_viewports(args.viewports, args.scale or base_manifest["settings"]["device_scale"])
+    viewports = selected_viewports(
+        args.viewports, args.scale or base_manifest["settings"]["device_scale"]
+    )
     if viewports and viewports[0]["scale"] != base_manifest["settings"]["device_scale"]:
         fatal(
             f"device scale mismatch: baseline was captured at "
@@ -1523,7 +1650,9 @@ def cmd_diff(args: argparse.Namespace) -> int:
     manifest["css_identity"] = css
     manifest["boost"] = boost
     manifest["baseline_run"] = base_run
-    manifest_path(run_id).write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    manifest_path(run_id).write_text(
+        json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
+    )
 
     base_by_key = {f"{c['id']}/{c['viewport']}": c for c in base_manifest["captures"]}
     cand_by_key = {f"{c['id']}/{c['viewport']}": c for c in manifest["captures"]}
@@ -1544,7 +1673,9 @@ def cmd_diff(args: argparse.Namespace) -> int:
             "candidate_height": cand.get("png_height"),
             "baseline_height": base_cap.get("png_height") if base_cap else None,
             "candidate_scroll_height": cand.get("scroll_height"),
-            "baseline_scroll_height": base_cap.get("scroll_height") if base_cap else None,
+            "baseline_scroll_height": base_cap.get("scroll_height")
+            if base_cap
+            else None,
             "mask_matches": cand.get("mask_matches"),
         }
         if base_cap is None:
@@ -1621,8 +1752,12 @@ def cmd_diff(args: argparse.Namespace) -> int:
             row["diff_pixels"] = res["diffPixels"]
             row["total_pixels"] = res["totalPixels"]
             if res.get("diffFile"):
-                row["diff_image"] = f"{run_dir.relative_to(REPO_ROOT)}/diff/{res['diffFile']}"
-            row["verdict"] = verdict_for(row["diff_pct"], row.get("height_delta_pct"), tol)
+                row["diff_image"] = (
+                    f"{run_dir.relative_to(REPO_ROOT)}/diff/{res['diffFile']}"
+                )
+            row["verdict"] = verdict_for(
+                row["diff_pct"], row.get("height_delta_pct"), tol
+            )
 
     # Report order follows the route/viewport declaration order, not the sort
     # order of the keys — a PR reviewer reads it top-to-bottom as the site.
@@ -1637,7 +1772,11 @@ def cmd_diff(args: argparse.Namespace) -> int:
 
     # Prune diff images for pairs that passed — they are noise and they are bytes.
     if diff_dir.exists() and not args.keep_all_diffs:
-        keep = {Path(r["diff_image"]).name for r in ordered if r.get("diff_image") and r["verdict"] != "pass"}
+        keep = {
+            Path(r["diff_image"]).name
+            for r in ordered
+            if r.get("diff_image") and r["verdict"] != "pass"
+        }
         for f in diff_dir.glob("*.png"):
             if f.name not in keep:
                 f.unlink()
@@ -1657,12 +1796,17 @@ def cmd_diff(args: argparse.Namespace) -> int:
         "masks": base_manifest["masks"],
         "verdict": worst_name,
         "counts": {
-            v: sum(1 for r in ordered if r["verdict"] == v) for v in ("pass", "warn", "fail", "error")
+            v: sum(1 for r in ordered if r["verdict"] == v)
+            for v in ("pass", "warn", "fail", "error")
         },
         "css_identity": {
             "baseline": {
-                "live_theme_version": base_manifest.get("css_identity", {}).get("live_theme_version"),
-                "all_identical": base_manifest.get("css_identity", {}).get("all_identical"),
+                "live_theme_version": base_manifest.get("css_identity", {}).get(
+                    "live_theme_version"
+                ),
+                "all_identical": base_manifest.get("css_identity", {}).get(
+                    "all_identical"
+                ),
             },
             "candidate": {
                 "live_theme_version": css.get("live_theme_version"),
@@ -1672,7 +1816,9 @@ def cmd_diff(args: argparse.Namespace) -> int:
             },
         },
         "boost": {
-            "baseline_css_bundle_hash": base_manifest.get("boost", {}).get("css_bundle_hash"),
+            "baseline_css_bundle_hash": base_manifest.get("boost", {}).get(
+                "css_bundle_hash"
+            ),
             "candidate_css_bundle_hash": boost.get("css_bundle_hash"),
             "changed": base_manifest.get("boost", {}).get("css_bundle_hash")
             != boost.get("css_bundle_hash"),
@@ -1777,7 +1923,9 @@ def render_report(result: dict[str, Any]) -> str:
     )
     for f in cand.get("files", []):
         mark = "=" if f["identical"] else "≠"
-        L.append(f"  - `{f['file']}` {mark} live `{(f.get('live_md5') or '')[:12]}` / repo `{(f.get('repo_md5') or '')[:12]}`")
+        L.append(
+            f"  - `{f['file']}` {mark} live `{(f.get('live_md5') or '')[:12]}` / repo `{(f.get('repo_md5') or '')[:12]}`"
+        )
     b = result["boost"]
     L.append(
         f"- Jetpack Boost CSS bundle: baseline `{b.get('baseline_css_bundle_hash')}` → "
@@ -1806,7 +1954,10 @@ def cmd_report(args: argparse.Namespace) -> int:
             p = ARTIFACT_ROOT / f"diff-{args.diff_run}.json"
     else:
         diffs = (
-            sorted(ARTIFACT_ROOT.glob("diff-*.json"), key=lambda p: (_created_at(p), p.name))
+            sorted(
+                ARTIFACT_ROOT.glob("diff-*.json"),
+                key=lambda p: (_created_at(p), p.name),
+            )
             if ARTIFACT_ROOT.exists()
             else []
         )
@@ -1839,7 +1990,9 @@ def cmd_list(args: argparse.Namespace) -> int:
     if not manifests:
         print("no baseline manifests yet — run `make visual-baseline`")
         return 0
-    print(f"{'run':<20} {'kind':<10} {'theme':<8} {'boost':<12} {'captures':>8}  images")
+    print(
+        f"{'run':<20} {'kind':<10} {'theme':<8} {'boost':<12} {'captures':>8}  images"
+    )
     for m in manifests:
         d = json.loads(m.read_text(encoding="utf-8"))
         png_dir = ARTIFACT_ROOT / d["run_id"] / "png"
@@ -1870,7 +2023,9 @@ def cmd_prune(args: argparse.Namespace) -> int:
         shutil.rmtree(d, ignore_errors=True)
         print(f"removed {d.relative_to(REPO_ROOT)}")
     print(f"kept {min(args.keep, len(dirs))} run dir(s); freed {freed / 1e6:.1f} MB")
-    print("Manifests are untouched — a lost baseline is one `make visual-baseline` away (§4.5.5).")
+    print(
+        "Manifests are untouched — a lost baseline is one `make visual-baseline` away (§4.5.5)."
+    )
     return 0
 
 
@@ -1888,7 +2043,9 @@ def build_parser() -> argparse.ArgumentParser:
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     def common(p: argparse.ArgumentParser) -> None:
-        p.add_argument("--base", default=BASE_URL, help="origin to capture (default %(default)s)")
+        p.add_argument(
+            "--base", default=BASE_URL, help="origin to capture (default %(default)s)"
+        )
         p.add_argument("--routes", nargs="*", help="subset of route ids or paths")
         p.add_argument("--viewports", nargs="*", help="subset of viewport names")
         p.add_argument(
@@ -1898,10 +2055,17 @@ def build_parser() -> argparse.ArgumentParser:
         )
 
     def capture_opts(p: argparse.ArgumentParser) -> None:
-        p.add_argument("--scale", type=int, default=DEFAULT_DEVICE_SCALE, help="device scale factor")
+        p.add_argument(
+            "--scale",
+            type=int,
+            default=DEFAULT_DEVICE_SCALE,
+            help="device scale factor",
+        )
         p.add_argument("--settle-ms", type=int, default=SETTLE_MS)
         p.add_argument("--no-cache-bust", action="store_true")
-        p.add_argument("--keep-cache", action="store_true", help="keep the per-run curl cache")
+        p.add_argument(
+            "--keep-cache", action="store_true", help="keep the per-run curl cache"
+        )
         p.add_argument("--run-id", help="override the run id (default: UTC timestamp)")
         p.add_argument("--masks", help="path to a JSON file overriding masks/reveals")
         p.add_argument(
@@ -1914,7 +2078,9 @@ def build_parser() -> argparse.ArgumentParser:
     common(p)
     p.set_defaults(func=cmd_preflight)
 
-    p = sub.add_parser("capture", help="capture and freeze a baseline (make visual-baseline)")
+    p = sub.add_parser(
+        "capture", help="capture and freeze a baseline (make visual-baseline)"
+    )
     common(p)
     capture_opts(p)
     p.add_argument("--kind", default="baseline", choices=["baseline", "candidate"])
@@ -1924,27 +2090,41 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.set_defaults(func=cmd_capture)
 
-    p = sub.add_parser("diff", help="capture a candidate and compare (make visual-diff)")
+    p = sub.add_parser(
+        "diff", help="capture a candidate and compare (make visual-diff)"
+    )
     common(p)
     capture_opts(p)
-    p.add_argument("--base-run", help="baseline run id or manifest path (default: newest)")
+    p.add_argument(
+        "--base-run", help="baseline run id or manifest path (default: newest)"
+    )
     p.add_argument("--strict", action="store_true", help="treat warn as failure")
     p.add_argument("--no-diff-images", action="store_true")
-    p.add_argument("--keep-all-diffs", action="store_true", help="keep diff images for passing pairs too")
+    p.add_argument(
+        "--keep-all-diffs",
+        action="store_true",
+        help="keep diff images for passing pairs too",
+    )
     p.add_argument("--strip-height", type=int, default=1024)
     p.add_argument("--port", type=int, default=8763)
     # Unlike `capture`, diff's --scale inherits the baseline's unless given.
     p.set_defaults(func=cmd_diff, scale=None)
 
-    p = sub.add_parser("report", help="markdown summary of a diff (make visual-diff-report)")
+    p = sub.add_parser(
+        "report", help="markdown summary of a diff (make visual-diff-report)"
+    )
     p.add_argument("--diff-run", help="diff run id or path (default: newest)")
     p.add_argument("--out", help="write markdown here instead of the artifact root")
     p.set_defaults(func=cmd_report)
 
-    p = sub.add_parser("list", help="list baseline manifests and which still have images on disk")
+    p = sub.add_parser(
+        "list", help="list baseline manifests and which still have images on disk"
+    )
     p.set_defaults(func=cmd_list)
 
-    p = sub.add_parser("guard", help="fail if any capture binary is tracked or staged (#318)")
+    p = sub.add_parser(
+        "guard", help="fail if any capture binary is tracked or staged (#318)"
+    )
     p.set_defaults(func=cmd_guard)
 
     p = sub.add_parser("prune", help="delete old capture directories (manifests kept)")
