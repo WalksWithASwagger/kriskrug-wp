@@ -20,6 +20,10 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.6.3
+**Deployed:** Built, not deployed (live is 1.6.0)
+PSI perf round: right-sized WebP theme assets (#702, PR #711), display-sized Photon variants in the contact sheet (#704, PR #714), self-hosted Futureproof key art (#705, PR #712), composited-only transitions (#707, PR #713), and the five homepage WCAG contrast fixes (#708, PR #715). Merged 2026-08-10.
+
 ## 1.6.2
 **Deployed:** Built, not deployed (live is 1.6.0)
 Collapse 12 width breakpoints to the 480/768/1200 token scale; CSS budget lowered to 6902 lines / 162 importants (#479, PR #703, merged 2026-08-10).
