@@ -477,7 +477,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 700ms var(--revive-ease), filter 700ms var(--revive-ease);
+  transition: transform 700ms var(--revive-ease);
   filter: grayscale(0.2);
 }
 
@@ -524,7 +524,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   height: 100%;
   object-fit: cover;
   filter: grayscale(0.35);
-  transition: transform 800ms var(--revive-ease), filter 800ms var(--revive-ease);
+  transition: transform 800ms var(--revive-ease);
 }
 
 .aurora-work-card:hover .aurora-work-card-media img,
@@ -803,7 +803,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
 
 .aurora-newsletter-thumb-media img {
   object-fit: cover;
-  transition: transform 400ms ease, filter 400ms ease;
+  transition: transform 400ms ease;
 }
 
 .aurora-newsletter-thumb:hover .aurora-newsletter-thumb-media img,
