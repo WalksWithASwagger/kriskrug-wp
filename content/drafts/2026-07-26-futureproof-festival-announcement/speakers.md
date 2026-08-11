@@ -2,7 +2,9 @@
 
 ## #500 public roster refresh (2026-08-11)
 
-The official public directory currently lists 13 speakers: Amber Case, Ana Serrano, Lynda Brown-Ganzert, Zaro, Kris Krüg, Mayumi Rollings, Anthonia Ogundele, Kaoru Yoshihira, Peter Bittner, Kevin Friel, Brewster Kahle, Sara Blenkhorn, and Brett Gaylor.
+The official public directory currently lists 13 speakers: Amber Case, Ana Serrano, Anthonia Ogundele, Brett Gaylor, Brewster Kahle, Zaro, Jos Duncan-Ase, Kevin Friel, Kris Krüg, Lynda Brown-Ganzert, Mayumi Rollings, Peter Bittner, and Sara Blenkhorn.
+
+This was refreshed again immediately before merge. Jos Duncan-Ase is on the current directory; Kaoru Yoshihira appears only in the dated July 26 snapshot preserved below and is no longer in the current public roster.
 
 The article does not reproduce this volatile roster. It names Kevin Friel in a specific community-credit sentence and links his live public profile; otherwise it links the canonical speaker directory. Recheck the directory immediately before public publication.
 
