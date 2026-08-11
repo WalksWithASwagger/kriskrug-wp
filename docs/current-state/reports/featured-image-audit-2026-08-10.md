@@ -44,3 +44,17 @@ Method: `featured-image-forge` skill audit mode. Mechanical gates (landscape, >=
 - **canada-ai-for-all-strategy-skeptical-guide:** generate a hero through the forge (currently has nothing).
 
 QC preview crops for every flagged post are in the session scratchpad (`audit-downloads/qc-*/`). Full machine-readable table: `featured-audit-2026.json` (same folder).
+
+## Outcome — fix round shipped 2026-08-10 (KK approved all seven)
+
+| Post | New featured | Source |
+|---|---|---|
+| you-cant-drink-data (11936) | media 11963, Granville march photo | existing post gallery |
+| both-hands-full (11171) | media 11205, LaSalle stage photo | existing post gallery |
+| web-summit-vancouver-2026 (11826) | media 11822, badge-math constellation | existing post gallery |
+| vancouver-made-world-cup (12363) | media 12359, kit crest | existing post gallery |
+| ethos-lab-block-party (12357) | media 12722, album art blur-extended to 16:9 | new build from real cover |
+| spa-at-the-end-of-time (11358) | media 12723, tub drawings blur-extended to 16:9 | new build from real art |
+| canada-ai-for-all-strategy-skeptical-guide (12184) | media 12724, maple-leaf-balloon inspection | generated (kriskrug style, forge QC) |
+
+All seven confirmed via logged-out og:image readback serving landscape ~16:9. Every candidate passed featured-image-forge mechanical gates + visual crop pass before presentation. Tier 2 (data-center-protest-signs, no-one-knows, storyhive, punk-rock-ai) and Tier 3 (calling-us-all-in) intentionally left as-is per KK's scope call.
