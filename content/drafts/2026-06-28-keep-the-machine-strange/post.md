@@ -62,6 +62,8 @@ Postman hands you a third move. Use the thing. Stay awake while you use it.
 
 If you have never heard Postman make this case in his own voice, it holds up. In 1992, the year Technopoly came out, he was on television saying it to anyone who would book him, sounding less like a scold than like a man who could already see the shape of the thing coming.
 
+YT: hlrv7DIHllE || The whole argument in his own voice: Postman lecturing on The Surrender of Culture to Technology, from the College of DuPage College Lecture Series archive.
+
 ## This is moving faster than our judgment
 
 A receipt, since I believe in those. The 2026 [Stanford AI Index](https://hai.stanford.edu/ai-index/2026-ai-index-report) clocked generative AI at roughly 53 percent adoption worldwide within three years of showing up. The personal computer took about fifteen years to travel that far. The internet took about seven. (Canada and the US actually sit below that global number, which is its own awkward conversation for another day.)
@@ -167,6 +169,8 @@ This is where Postman gets quietly terrifying. In [Amusing Ourselves to Death](h
 QUOTE: people will come to love their oppression, to adore the technologies that undo their capacities to think. || Neil Postman, Amusing Ourselves to Death (1985)
 
 Tell me that does not describe an endless, personalized, always-agreeable answer machine that never once asks you to struggle.
+
+YT: W36sM3_KY0k || Richard Heffner presses Postman on the Huxley question on The Open Mind, taped in December 1985, the year the book landed.
 
 ---
 

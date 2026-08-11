@@ -1,5 +1,5 @@
 ---
-title: Both Hands on the Power Cord
+title: 'Both Hands on the Power Cord: AI, Energy and Who Gets Canada''s Future'
 slug: both-hands-on-the-power-cord
 status: draft
 post_date: '2026-08-03'
@@ -14,14 +14,14 @@ seo:
   meta_description: Kris Krüg connects Canada's AI energy race, data-centre protests,
     Indigenous sovereignty, and a both-hands-full plan for building what comes next.
 images:
-- file: images/cbc-the-early-edition-2026-08-03.jpg
-  alt: CBC The Early Edition program artwork featuring host Stephen Quinn
-  role: inline
-  source: https://images.radio-canada.ca/c_scale,w_1560,q_90/v1/cbc-music/programs/16x9/the_early_edition.png
-  credit: CBC/The Early Edition
+- file: img/hero.jpg
+  alt: Kris Krüg and CBC interviewer Jason D'Souza in the CBC Vancouver studio
+  role: featured
+  source: Kris Krüg camera roll, IMG_0223.JPG, August 3, 2026
+  credit: Kris Krüg
 ---
 
-# Both Hands on the Power Cord
+# Both Hands on the Power Cord: AI, Energy and Who Gets Canada's Future
 
 ## AI, protest, and who gets Canada's future
 
@@ -45,9 +45,9 @@ Critique in one hand. Curiosity in the other. No empty hand available for a pom-
 
 On August 3, Jason D'Souza spoke with me on [CBC's *The Early Edition*](https://www.cbc.ca/listen/live-radio/1-91-the-early-edition/clip/16229723-local-ai-leader-explains-provinces-tech-community-responding) about how British Columbia's tech community is responding to the federal AI strategy.
 
-![CBC The Early Edition program artwork featuring host Stephen Quinn](images/cbc-the-early-edition-2026-08-03.jpg)
+![Kris Krüg and CBC interviewer Jason D'Souza in the CBC Vancouver studio](img/hero.jpg)
 
-*CBC/The Early Edition program artwork. Host: Stephen Quinn.*
+*Kris Krüg with interviewer Jason D'Souza at CBC Vancouver after their BC Day conversation. Photo: Kris Krüg.*
 
 <audio controls preload="metadata" src="https://mp3.cbc.ca/radio/2026/08/03/dave-JlqWqynA-20260803.mp3"></audio>
 
