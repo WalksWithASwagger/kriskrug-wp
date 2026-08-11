@@ -7,7 +7,7 @@
 
 ## Current result
 
-The repository package is refreshed and the guarded create-only WordPress run succeeded.
+The repository package is refreshed, the guarded create-only WordPress run succeeded, and the separately authorized final-copy sync is complete.
 
 | Field | Readback |
 |---|---|
@@ -18,7 +18,7 @@ The repository package is refreshed and the guarded create-only WordPress run su
 | Private preview | `https://kriskrug.co/?p=12732` |
 | Edit URL | `https://kriskrug.co/wp-admin/post.php?post=12732&action=edit` |
 
-No public publish occurred. No existing WordPress post was updated.
+No public publish occurred. Issue #500 completed without updating an existing post; after it closed, a separately authorized sync updated only the private draft's `content` and `excerpt` fields.
 
 ## 2026-08-11 release refresh
 
@@ -61,6 +61,8 @@ images resolved: 7
 slug before create: available
 create: id 12732
 authenticated readback: status=draft, slug=futureproof-festival-announcement, featured_media=12725
+final-copy sync: content + excerpt only
+post-sync readback: status=draft, title unchanged, featured_media=12725
 ```
 
 The connector test suite passed: **148 tests**.
@@ -77,10 +79,24 @@ The connector test suite passed: **148 tests**.
 | `manifesto-14-places-to-think.webp` | 12730 |
 | `futureproof-salmon-starfield-share-20260527.jpg` | 12731 |
 
-The full redacted execution receipt remains in the gitignored local `publish.log` beside this file.
+Local operational evidence remains gitignored beside this package: `publish.log`, the pre-write REST snapshot, the rollback manifest, and the narrow restore helper.
 
-## Remaining gate
+## Final-copy sync receipt
 
-The repository copy received three final voice refinements after the create-only call: “three decades” replaced an older year count, a generic conference-bio phrase was tightened, and the excerpt was aligned. The private WordPress draft therefore needs one guarded, human-approved in-place update before publication. The dry-run target guard passed for post `12732`; no update was executed because issue #500 explicitly forbids updates.
+Kris separately authorized the post-issue private-draft sync on 2026-08-11. The dry-run proved the payload contained only `content` and `excerpt`, with exactly:
 
-After that exact sync, review the private preview and authorize publication separately. Publishing is outside issue #500.
+- two “Twenty-eight years on the internet” → “Three decades on the internet” replacements;
+- one conference-bio phrase refinement;
+- the aligned excerpt.
+
+Authenticated post-write readback confirmed:
+
+- `status=draft` and slug unchanged;
+- visible title unchanged;
+- featured media unchanged at `12725`;
+- old phrases absent and new phrases present at the expected counts;
+- body SHA-256 `97d0c9042b5763f0917330b78845798f79327107c08c4c97799809ec39d1a4f7`.
+
+Rollback snapshot: `wp-snapshots/rest-post-12732-before-final-copy-sync-20260811T232451Z.json.tmp` (gitignored local evidence).
+
+The repository and private WordPress draft are now copy-aligned. Review the private preview and authorize publication separately; publishing remains outside issue #500 and this sync.
