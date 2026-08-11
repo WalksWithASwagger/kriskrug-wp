@@ -1,7 +1,7 @@
 ---
-title: The Bat Signal
+title: "The Bat Signal: Why I'm Building Futureproof Festival in Vancouver"
 slug: futureproof-festival-announcement
-post_date: '2026-08-02'
+post_date: '2026-08-11'
 status: draft
 post_type: post
 author_wp_id: 1
@@ -16,11 +16,11 @@ tags:
 - Build What Lasts
 featured: true
 featured_media_id: 0
-excerpt: Twenty-eight years of photographing other people's rooms taught me what
+excerpt: Decades of photographing other people's rooms taught me what
   makes one worth building. Futureproof is the room. This is the invitation to
   everyone who ever let me stand in theirs.
 seo:
-  meta_title: The Bat Signal | Futureproof Festival
+  meta_title: Building Futureproof Festival in Vancouver | Kris Krüg
   meta_description: Kris Krüg's network bat signal for Futureproof Festival, Oct
     28-30 2026 in Vancouver. Receipts from PopTech to DENT. The invitation is the point.
 images:
@@ -68,7 +68,7 @@ images:
 
 Last month I stood on a stage in front of a room that shouldn't have been full on a Wednesday night, and it was full anyway.
 
-Behind me: a slide painted with salmon and ravens and northern lights, the type reading **VANCOUVER, WE NEED TO TALK ABOUT AI.** In front of me: the Vancouver AI community, meetup number thirty-one, still showing up three years in. Michael Caswell caught the frame. I'm the guy mid-sentence, pointing at something I clearly believe.
+Behind me: a slide painted with salmon and ravens and northern lights, the type reading **VANCOUVER, WE NEED TO TALK ABOUT AI.** In front of me: the Vancouver AI community, meetup number thirty-one, still showing up almost three years in. Michael Caswell caught the frame. I'm the guy mid-sentence, pointing at something I clearly believe.
 
 ![Kris Krüg speaks on stage at Vancouver AI Meetup #31, in front of a Futureproof slide reading Vancouver, we need to talk about AI, with salmon and skyline artwork behind him.](images/vanai-meetup31-stage-kris-futureproof-slide.webp)
 
@@ -76,11 +76,11 @@ That's not a metaphor for Futureproof. That's the rehearsal. The room already ex
 
 I told the fuller origin story, FATALE and all, in [*The Long Road to Futureproof*](https://kriskrug.co/2026/06/01/long-road-to-futureproof/). This one isn't that story again. This one is about who's invited.
 
->>> Twenty-eight years on the internet. This is my bat signal.
+>>> Three decades on the internet. This is my bat signal.
 
 ## The receipts, not the résumé
 
-I don't love talking about myself in the third-person conference-bio voice, all "award-winning" this and "thought leader" that. So here's the version with names, years, and links instead. Someone once called me an international badass man of mystery. Cute. What I actually am is a guy who kept showing up to rooms with a camera until the rooms started trusting me with more than the photos.
+I don't love talking about myself in the third-person conference-bio voice, all shiny awards and self-importance. So here's the version with names, years, and links instead. Someone once called me an international badass man of mystery. Cute. What I actually am is a guy who kept showing up to rooms with a camera until the rooms started trusting me with more than the photos.
 
 Before any of this was AI, it was:
 
@@ -135,6 +135,6 @@ Everything below lives on the festival's own site, because prices and deadlines 
 - **[Call for Talks](https://www.futureproof.website/call-for-talks/)**, open through August 15. First-time speakers and rough first drafts genuinely welcome.
 - **Sponsor or exhibit?** Start on the [tickets](https://www.futureproof.website/tickets/) page and find the rest of us through [BC + AI](https://bc-ai.ca/) and the [events calendar](https://bc-ai.ca/events).
 
-I've been building toward this room since before I knew its name. Twenty-eight years on the internet, most of them spent photographing rooms like it, and the guest list is everyone who ever let me stand in theirs.
+I've been building toward this room since before I knew its name. Three decades on the internet, most of them spent photographing rooms like it, and the guest list is everyone who ever let me stand in theirs.
 
 **[Build what lasts.](https://futureproof.website/)**

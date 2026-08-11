@@ -1,5 +1,11 @@
 # Link audit: The Bat Signal (Futureproof network follow-up, #645)
 
+## #500 refresh (2026-08-11)
+
+All 24 unique `http(s)` URLs across `post.md` and `post.html` returned HTTP 200. This count includes the 17 editorial destinations below plus the seven public image sources embedded in the Gutenberg body.
+
+The private WordPress draft is `https://kriskrug.co/?p=12732`; it remains `status=draft` and is not a public publication receipt.
+
 Rewritten 2026-08-02 for #645. Supersedes the July 26 FP-4 link audit below the original speaker-list and FATALE links, which are no longer in the body copy (see `speakers.md` and `alt-text.md` addenda for why).
 
 All links re-curled with `curl -sL -o /dev/null -w "%{http_code}"` on 2026-08-02. **17 unique URLs, all HTTP 200.**

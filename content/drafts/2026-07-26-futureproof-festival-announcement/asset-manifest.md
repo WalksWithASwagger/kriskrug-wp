@@ -1,5 +1,21 @@
 # Asset Manifest — Futureproof Festival announcement (#497)
 
+## #500 WordPress receipt (2026-08-11)
+
+Kris approved the current visual sequence and cross-site reuse in the issue flow. The guarded create-only run uploaded the seven images referenced by `post.md` and created private WordPress draft `12732`. No public publish occurred.
+
+| File | Role | WordPress media ID |
+|---|---|---:|
+| `vanai-meetup31-stage-kris-futureproof-slide.webp` | lead / featured | 12725 |
+| `vanai-meetup31-audience-wide-shot.webp` | community-room | 12726 |
+| `futureproof-honest-conversation-poster.png` | official-graphic | 12727 |
+| `manifesto-01-future-cultural-question.webp` | gallery-1 | 12728 |
+| `manifesto-06-who-shapes-us.webp` | gallery-2 | 12729 |
+| `manifesto-14-places-to-think.webp` | gallery-3 | 12730 |
+| `futureproof-salmon-starfield-share-20260527.jpg` | gallery-4 | 12731 |
+
+The preferred lead is the current Vancouver AI stage photograph, not a portrait of someone who was absent. Photography: Michael Caswell. Editing: Kris Krüg. The supporting audience photograph is also by Michael Caswell.
+
 Wave 1 / FP-1. Design assets only. No post body, no WP API calls.
 
 Staged under `images/` from public production URLs on [futureproof.website](https://www.futureproof.website/). Festival-repo local paths (`~/Code/futureproof-festival/public/...`) were not available in this cloud VM; public equivalents of those production files were used instead. Binaries copied as-is (no open/edit).
