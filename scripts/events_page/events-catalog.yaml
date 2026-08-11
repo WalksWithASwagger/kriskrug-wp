@@ -8,6 +8,26 @@ notes: 'SSOT for dated /events cards. meetup-editions.yaml (harvest #1–#31) is
   harvest wins on date/url/hero. Scaffold Past rows #10–#31 remain as fallbacks if harvest is absent.
   Do not POST to page 2250 until KK eyeball on out/events-2250.generated.html.'
 events:
+- id: iida-thermador-coffee-conversations-2026
+  title: 'Coffee Conversations #1: The Impact of AI'
+  date: '2026-08-13'
+  end: '2026-08-13T11:00:00-07:00'
+  bucket_hint: upcoming
+  kind: external
+  role: Invited guest
+  url: https://www.iida-northernpacific.org/vancouverbc
+  image: {}
+  blurb: 'Invited guest at the first Coffee Conversations breakfast: an intimate small-room conversation
+    about AI''s impact on the evolution of design, with IIDA Northern Pacific''s Vancouver community and
+    Thermador.'
+  label: Thursday, Aug 13 · 9–11am · Thermador Experience & Design Centre
+  tags:
+  - Invited guest
+  - AI + Design
+  - Vancouver
+  status: confirmed
+  cta_upcoming: IIDA Vancouver
+  cta_past: IIDA Vancouver
 - id: how-can-we-help-pitch-night-2026
   title: How Can We Help? Pitch Night
   date: '2026-09-08'

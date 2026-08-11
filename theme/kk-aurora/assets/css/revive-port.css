@@ -109,7 +109,10 @@ body.aurora-theme::before {
 .wp-block-button.is-style-aurora-primary .wp-block-button__link {
   background: var(--revive-accent-control);
   border-color: var(--revive-accent-control);
-  color: var(--revive-accent-control-label);
+  /* !important: WP's unlayered global-styles `a:where(:not(.wp-element-button))`
+     beats any layered normal declaration and paints the label signal-on-signal
+     (#9a2f14 on #c03f18, 1.42:1). Layered important wins back the label (#708). */
+  color: var(--revive-accent-control-label) !important;
   box-shadow: none;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -121,7 +124,8 @@ body.aurora-theme::before {
 .wp-block-button.is-style-aurora-primary .wp-block-button__link:hover {
   background: var(--revive-accent-soft);
   border-color: var(--revive-accent-soft);
-  color: var(--revive-ink);
+  /* !important so the hover state outranks the base important above (#708). */
+  color: var(--revive-ink) !important;
   box-shadow: none;
 }
 
@@ -477,7 +481,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 700ms var(--revive-ease), filter 700ms var(--revive-ease);
+  transition: transform 700ms var(--revive-ease);
   filter: grayscale(0.2);
 }
 
@@ -524,7 +528,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   height: 100%;
   object-fit: cover;
   filter: grayscale(0.35);
-  transition: transform 800ms var(--revive-ease), filter 800ms var(--revive-ease);
+  transition: transform 800ms var(--revive-ease);
 }
 
 .aurora-work-card:hover .aurora-work-card-media img,
@@ -654,7 +658,9 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   font-family: "Space Grotesk", system-ui, sans-serif;
   font-size: 1.85rem;
   margin: 0.35rem 0 0.75rem;
-  color: var(--revive-surface);
+  /* !important: the unlayered global-styles `h1..h6` rule paints these ink on
+     the ink band (1.00:1, invisible tier names). See #708 / audit F3. */
+  color: var(--revive-surface) !important;
 }
 
 .aurora-service-card p {
@@ -674,7 +680,9 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
 }
 
 .aurora-service-card a {
-  color: var(--revive-accent-soft);
+  /* !important: unlayered global-styles link color puts #9a2f14 on the ink
+     band (2.45:1). Gold is 9.7:1 there. See #708 / audit F4. */
+  color: var(--revive-accent-soft) !important;
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -685,7 +693,8 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
 
 .aurora-service-card a:hover,
 .aurora-service-card a:focus-visible {
-  color: var(--revive-surface);
+  /* !important so the states outrank the base important above (#708). */
+  color: var(--revive-surface) !important;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -803,7 +812,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
 
 .aurora-newsletter-thumb-media img {
   object-fit: cover;
-  transition: transform 400ms ease, filter 400ms ease;
+  transition: transform 400ms ease;
 }
 
 .aurora-newsletter-thumb:hover .aurora-newsletter-thumb-media img,
@@ -886,12 +895,15 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   font-family: "Space Grotesk", system-ui, sans-serif;
 }
 
+/* :not(.aurora-button-primary): this important ink-soft wash was capturing the
+   footer CTA label too; rgba ink on the #c03f18 fill is 2.88:1 (#708, audit
+   F2). Excluded, the CTA falls back to the shared primary-button label rule. */
 .aurora-footer-2026 p,
-.aurora-footer-2026 a {
+.aurora-footer-2026 a:not(.aurora-button-primary) {
   color: var(--revive-ink-soft) !important;
 }
 
-.aurora-footer-2026 a:hover {
+.aurora-footer-2026 a:not(.aurora-button-primary):hover {
   color: var(--revive-accent-text) !important;
 }
 
@@ -1132,6 +1144,15 @@ body.aurora-theme #aurora-main :where(
 body.aurora-theme #aurora-main :where(.aurora-kicker, .aurora-section-kicker) {
   color: var(--revive-accent-text) !important;
   -webkit-text-fill-color: var(--revive-accent-text) !important;
+}
+
+/* The accent override above forces #9a2f14 onto the service-card roman-numeral
+   kickers inside the ink band (2.45:1, #708 / audit F19). Outrank it (1,2,1 vs
+   1,1,1) with the band's own cream, matching .aurora-service-meta. The
+   section-head "Services" kicker sits on a cream strip and keeps the accent. */
+body.aurora-theme #aurora-main .aurora-service-card :where(.aurora-kicker) {
+  color: rgba(239, 230, 210, 0.55) !important;
+  -webkit-text-fill-color: rgba(239, 230, 210, 0.55) !important;
 }
 
 body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-button__link {

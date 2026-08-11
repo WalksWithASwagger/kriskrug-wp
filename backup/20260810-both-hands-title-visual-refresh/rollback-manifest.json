@@ -1,0 +1,18 @@
+{
+  "post_id": 12656,
+  "slug": "both-hands-on-the-power-cord",
+  "snapshot_json": "backup/20260810-both-hands-title-visual-refresh/post-12656-before-title-visual-refresh-20260810T190026Z.json",
+  "snapshot_html": "backup/20260810-both-hands-title-visual-refresh/post-12656-before-title-visual-refresh-20260810T190026Z.html",
+  "before_content_sha256": "7b7caf5ba13e19dcd2791b1c737af9bbb4aaa4af952e2dbd8e490f5bca6e11ab",
+  "after_content_sha256": "50fa763eeca2d1beddc67e319d17186defbe66bad8368a09a70dec0b0e21323f",
+  "before_title": "Both Hands on the Power Cord",
+  "after_title": "Both Hands on the Power Cord: AI, Energy and Who Gets Canada's Future",
+  "before_featured_media": 12717,
+  "after_featured_media": 12721,
+  "new_media_id": 12721,
+  "new_media_url": "https://kriskrug.co/wp-content/uploads/2026/08/kris-krug-jason-dsouza-cbc-vancouver-2026-08-03-scaled.jpg",
+  "public_verification_url": "https://kriskrug.co/2026/08/03/both-hands-on-the-power-cord/?cb=20260810190029",
+  "og_image": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/kris-krug-jason-dsouza-cbc-vancouver-2026-08-03-scaled.jpg?fit=1024%2C576&amp;ssl=1",
+  "restore_command": "pnpm exec varlock run --inject vars -- python3 scripts/update_both_hands_power_cord.py --restore backup/20260810-both-hands-title-visual-refresh/post-12656-before-title-visual-refresh-20260810T190026Z.json --apply",
+  "rollback_note": "Restoring the post leaves the newly uploaded media attachment in the library."
+}
