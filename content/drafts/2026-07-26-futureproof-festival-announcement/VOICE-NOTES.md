@@ -1,10 +1,10 @@
-# VOICE-NOTES: The Bat Signal (#645 rewrite)
+# VOICE-NOTES: The Bat Signal: Why I'm Building Futureproof Festival in Vancouver
 
-Rewritten 2026-08-02. The July 26 "Baby Is Here" notes below are preserved for history since that draft's structure is gone; new notes follow for the current body.
+Refreshed 2026-08-11 for #500. The July 26 "Baby Is Here" notes below are preserved for history since that draft's structure is gone; current notes follow.
 
 ## Kept on purpose
 
-- **New title "The Bat Signal"** replaces "The Baby Is Here." The birth metaphor was right for a launch announcement; this piece's central action is an invitation, so the title names that directly, per #645's editorial brief.
+- **The title keeps "The Bat Signal" and adds the subject.** "Why I'm Building Futureproof Festival in Vancouver" answers the user's request for a more descriptive title without flattening the hook.
 - **Opens on the Meetup #31 stage photo**, not the festival poster. "That's not a metaphor for Futureproof. That's the rehearsal." does the work of connecting the current room to the festival without over-explaining it.
 - **One link to *The Long Road to Futureproof*, early, then dropped.** States plainly this isn't that story again, so the piece doesn't accidentally retell the FATALE arc.
 - **"International badass man of mystery"** appears exactly once, self-deprecating, immediately undercut by "What I actually am is a guy who kept showing up." Per the issue brief: internal tuning fork or a single knowing line, never a repeated title.
@@ -17,9 +17,9 @@ Rewritten 2026-08-02. The July 26 "Baby Is Here" notes below are preserved for h
 
 ## Places KK should rewrite if the voice is off
 
-1. **"The Bat Signal" title**: on-the-nose by design, matching the issue's own working name for this piece. Swap if he wants something less literal once he's seen it in context.
+1. **Descriptive title:** the hook remains, but the new subtitle names Futureproof Festival and Vancouver plainly.
 2. **Kevin Friel / AI Film Club mention**: added because he's publicly on the speakers page and it supports "built by community, not solo-hero." Cut if Kris wants fewer named individuals in this piece.
-3. **"Twenty-eight years on the internet" callback at the close**: mirrors the July 26 draft's number; confirm it's still accurate at time of publish.
+3. **"Three decades on the internet" callback at the close:** grounded in the current KK source record that dates his web/community work to 1995 without pretending to know the exact anniversary.
 4. **Historical photo**: deliberately absent from this draft (see `asset-manifest.md`'s flagged/unresolved historical-photo section). If Kris wants one, it slots naturally into the receipts section.
 5. **Venue link** uses `hrmacmillanspacecentre.com` (live 200), unchanged from the original package.
 

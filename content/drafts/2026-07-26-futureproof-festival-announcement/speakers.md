@@ -1,5 +1,11 @@
 # Futureproof Festival — public speaker lineup (#498 / FP-2)
 
+## #500 public roster refresh (2026-08-11)
+
+The official public directory currently lists 13 speakers: Amber Case, Ana Serrano, Lynda Brown-Ganzert, Zaro, Kris Krüg, Mayumi Rollings, Anthonia Ogundele, Kaoru Yoshihira, Peter Bittner, Kevin Friel, Brewster Kahle, Sara Blenkhorn, and Brett Gaylor.
+
+The article does not reproduce this volatile roster. It names Kevin Friel in a specific community-credit sentence and links his live public profile; otherwise it links the canonical speaker directory. Recheck the directory immediately before public publication.
+
 Verified **2026-07-26T19:47Z** against public web only.
 
 **Safety gate:** active speaker embargo. Local festival allowlist / pipeline files were **not** available on this VM (`~/Code/futureproof-festival/...`). Clearance below is based solely on live public pages at [futureproof.website](https://www.futureproof.website/). No allowlist JSON was read or edited.
