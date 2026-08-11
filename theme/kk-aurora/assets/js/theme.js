@@ -205,7 +205,16 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
-    nodes.forEach((node) => observer.observe(node));
+    // #701: mark in-viewport nodes visible synchronously so above-the-fold
+    // content never depends on an async observer callback to stay painted.
+    nodes.forEach((node) => {
+      const r = node.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        node.classList.add('is-visible');
+      } else {
+        observer.observe(node);
+      }
+    });
   }
 
   function initLiveMastheadDate() {

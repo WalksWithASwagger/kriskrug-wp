@@ -4,7 +4,12 @@
        Core's generic #wp-skip-link is suppressed in functions.php so there is only one. -->
   <a class="skip-link" href="#aurora-main">Skip to content</a>
   <div class="aurora-scroll-progress" aria-hidden="true"></div>
-  <div class="aurora-woven-marquee" aria-hidden="true">
+  <!-- Inline height guard (#701): duplicates .aurora-woven-marquee in
+       revive-port.css. The strip's 6px height must hold even when only
+       Jetpack Boost's critical CSS has applied — without it the two SVGs
+       render ~53px tall and the whole page shifts up when the deferred
+       bundle lands (the dominant CLS source). Keep in sync with the CSS. -->
+  <div class="aurora-woven-marquee" style="height:6px;overflow:hidden" aria-hidden="true">
     <div class="aurora-woven-marquee-track">
       <svg preserveAspectRatio="none" viewBox="0 0 360 12" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="auroraWovenA" x="0" y="0" width="60" height="12" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="4" height="12" fill="#171310"/><rect x="4" y="0" width="6" height="12" fill="#d94a1f"/><rect x="10" y="0" width="4" height="12" fill="#171310"/><rect x="14" y="0" width="6" height="12" fill="#e8b53a"/><rect x="20" y="0" width="4" height="12" fill="#efe6d2"/><rect x="24" y="0" width="6" height="12" fill="#1f8a86"/><rect x="30" y="0" width="4" height="12" fill="#171310"/><rect x="34" y="0" width="6" height="12" fill="#39a8d8"/><rect x="40" y="0" width="4" height="12" fill="#171310"/><rect x="44" y="0" width="6" height="12" fill="#6b3a97"/><rect x="50" y="0" width="4" height="12" fill="#efe6d2"/><rect x="54" y="0" width="6" height="12" fill="#d6337a"/></pattern></defs><rect width="360" height="12" fill="url(#auroraWovenA)"/></svg>
       <svg preserveAspectRatio="none" viewBox="0 0 360 12" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="auroraWovenB" x="0" y="0" width="60" height="12" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="4" height="12" fill="#171310"/><rect x="4" y="0" width="6" height="12" fill="#d94a1f"/><rect x="10" y="0" width="4" height="12" fill="#171310"/><rect x="14" y="0" width="6" height="12" fill="#e8b53a"/><rect x="20" y="0" width="4" height="12" fill="#efe6d2"/><rect x="24" y="0" width="6" height="12" fill="#1f8a86"/><rect x="30" y="0" width="4" height="12" fill="#171310"/><rect x="34" y="0" width="6" height="12" fill="#39a8d8"/><rect x="40" y="0" width="4" height="12" fill="#171310"/><rect x="44" y="0" width="6" height="12" fill="#6b3a97"/><rect x="50" y="0" width="4" height="12" fill="#efe6d2"/><rect x="54" y="0" width="6" height="12" fill="#d6337a"/></pattern></defs><rect width="360" height="12" fill="url(#auroraWovenB)"/></svg>
