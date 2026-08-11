@@ -342,7 +342,7 @@ a {
 /* Skip link */
 .skip-link {
   position: absolute;
-  top: -100%;
+  top: var(--wp--preset--spacing--40);
   left: var(--wp--preset--spacing--40);
   z-index: 9999;
   padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--50);
@@ -350,11 +350,13 @@ a {
   color: var(--wp--preset--color--deep);
   font-weight: 600;
   border-radius: var(--wp--custom--border--radius-sm);
-  transition: top var(--transition-fast);
+  /* Hidden via transform, not `top`: animating top forces layout (#707); 8px buffer avoids an edge sliver. */
+  transform: translateY(calc(-100% - var(--wp--preset--spacing--40) - 8px));
+  transition: transform var(--transition-fast);
 }
 
 .skip-link:focus {
-  top: var(--wp--preset--spacing--40);
+  transform: translateY(0);
 }
 
 /* Screen reader only */
@@ -905,7 +907,7 @@ a {
   inset: 0;
   object-fit: cover;
   position: absolute;
-  transition: transform 500ms ease, filter 500ms ease;
+  transition: transform 500ms ease;
   width: 100%;
 }
 
@@ -1131,7 +1133,7 @@ a {
 
 .aurora-writing-card-media img {
   object-fit: cover;
-  transition: filter 500ms ease, transform 500ms ease;
+  transition: transform 500ms ease;
 }
 
 .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
