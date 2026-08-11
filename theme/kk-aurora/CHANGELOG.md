@@ -20,6 +20,10 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.6.4
+**Deployed:** Built, not deployed (live is 1.6.0)
+CLS/LCP fix: critical-geometry guard in the header part pins marquee + header layout during the stale-Boost-critical-CSS window; reveal hide moves from stylesheet to JS ownership with synchronous above-fold reveal (#701, PR pending). After deploying, regenerate Jetpack Boost critical CSS.
+
 ## 1.6.3
 **Deployed:** Built, not deployed (live is 1.6.0)
 PSI perf round: right-sized WebP theme assets (#702, PR #711), display-sized Photon variants in the contact sheet (#704, PR #714), self-hosted Futureproof key art (#705, PR #712), composited-only transitions (#707, PR #713), and the five homepage WCAG contrast fixes (#708, PR #715). Merged 2026-08-10.

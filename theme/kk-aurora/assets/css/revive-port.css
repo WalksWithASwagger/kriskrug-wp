@@ -1047,24 +1047,21 @@ body.aurora-theme .aurora-article-title a {
   color: var(--revive-ink);
 }
 
-/* Soft reveals */
+/* Soft reveals. The initial opacity-0 hide is JS-owned (micro-interactions.js
+   injects it at init, after synchronously revealing in-viewport nodes) so the
+   hide can never arrive without the code that un-hides. A stylesheet-owned
+   hide rides Jetpack Boost's deferred bundle and blanks already-painted
+   above-the-fold content until the JS bundle executes — the LCP render-delay
+   gate in #701. Do not reintroduce opacity/transform initial states here. */
 [data-reveal] {
   opacity: 1;
   transform: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  [data-reveal] {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 700ms var(--revive-ease), transform 700ms var(--revive-ease);
-  }
-
-  [data-reveal].is-visible,
-  [data-reveal][data-shown="true"] {
-    opacity: 1;
-    transform: none;
-  }
+[data-reveal].is-visible,
+[data-reveal][data-shown="true"] {
+  opacity: 1;
+  transform: none;
 }
 
 /* --------------------------------------------------------------------------
