@@ -18,9 +18,9 @@ The recommended WordPress featured/OG media is now **`futureproof-salmon-starfie
 
 | File | Size | Role | Source / credit | SHA-256 |
 |---|---:|---|---|---|
-| `vanai-meetup31-stage-kris-futureproof-slide.webp` | 2400×1600 | opening proof | Michael Caswell photo; Kris Krüg edit; Meetup #31 R2 gallery | `4f2c77c776e54174b08b69a3e41cca4d954ffdb17149c59928ff04ab497e0647` |
+| `vanai-meetup31-stage-kris-futureproof-slide.webp` | 2400×1600 | opening proof | Michael Caswell photo; Kris Krüg edit; cross-site reuse approved 2026-08-12 | `4f2c77c776e54174b08b69a3e41cca4d954ffdb17149c59928ff04ab497e0647` |
 | Meetup #31 YouTube | 16:9 video | full-event embed, Futureproof at 19:04 | `https://www.youtube.com/watch?v=YitQ4fNEDW8` | n/a |
-| `vanai-meetup31-community-group-photo.webp` | 2400×1600 | room proof | Michael Caswell photo; Meetup #31 R2 gallery | `e3d58e4b17ebcd8e20d673ea5b21a0f2abc3afdeb202000f4c3617bb916a6360` |
+| `vanai-meetup31-community-group-photo.webp` | 2400×1600 | room proof | Michael Caswell photo; cross-site reuse approved 2026-08-12 | `e3d58e4b17ebcd8e20d673ea5b21a0f2abc3afdeb202000f4c3617bb916a6360` |
 | `receipt-true-north-media-house.png` | 1440×900 | historical screenshot | MediaShift page, captured 2026-08-12 | `bd630687fd16a0d4ef4507f1087c8be7f5abcadfe803f20926ae4b40a152390b` |
 | `receipt-tedx-summit-kris-krug.png` | 1440×900 | historical screenshot | TED Blog page, captured 2026-08-12 | `a7c864d3b2f5369261abd320ed3c00eb1db9e3b7bfbf8024d07bf558d12969a6` |
 | `receipt-dent-kris-krug.png` | 1440×900 | historical screenshot | KrisKrug.co page, captured 2026-08-12 | `7d02497cfd2a4dc3ed82e6c2d5b04c5cc18fd1fd6b517bf9feb6945dedbe27c8` |
@@ -33,10 +33,10 @@ The three repetitive manifesto tiles were removed. The new sequence alternates r
 
 ### Rights and release gate
 
-- The issue flow authorized using the existing Meetup #31 sequence and official campaign artwork for this update. The two Meetup frames are public BC + AI event photography and are credited to Michael Caswell on-page; the repository still lacks a separate written cross-site reuse release, so that confirmation remains a post-public follow-up.
+- Kris confirmed on 2026-08-12 that Michael Caswell's two Meetup #31 photographs are cleared for this cross-site use. Both remain credited to Caswell on-page, with Kris's edit credit retained on the stage frame.
 - FPH-011 and FPH-097 appear in `not-ai-publication-approval-2026-07-18.md`, which records Kris's public-promotional-reuse approval and Michelle Diamond's permission and credit.
 - The three page screenshots are full-width editorial receipts linked to their public sources. Do not detach them from captions/source links.
-- The page is now public. The live captions retain the named credits; direct cross-site reuse confirmation for the two Michael Caswell frames remains a follow-up.
+- The page is now public. The live captions retain the named credits and the Caswell reuse gate is closed.
 
 ### Storage note
 
@@ -131,7 +131,7 @@ All eight returned HTTP 200. These are public-source availability checks only �
   - `"photographer": "Michael Caswell"` on this specific frame (sha `b4717426bf89...`). The gallery's two credited photographers for the whole event are Michael Caswell (211 frames) and Tristan Brand (168 frames), confirmed by re-reading `manifest.json` on 2026-08-02; this frame's per-photo credit is Caswell alone.
   - Source caption: *"Kris presents a Futureproof slide: 'Vancouver — WE NEED TO TALK ABOUT AI,' with salmon and city artwork."*
 - **Owner/credit:** Photography **Michael Caswell**; editing **Kris Krüg** (per #644's issue text — not independently present in the pipeline's metadata, which tracks source photographer only, so the editing credit is carried forward from the issue as given).
-- **Rights/approval status: unresolved hotlink.** This is BC + AI's own event photography, publicly hosted on BC + AI's R2 CDN for the `bc-ai.ca` event-page gallery. It is not yet uploaded to kriskrug.co's WordPress media library, and there is no written cross-site reuse release in this repo or the bcai-website repo — only the fact that BC + AI (Kris's own nonprofit) commissioned it and it is already public. Treat as **candidate, not upload-ready**, same as every other image in this manifest, until Kris signs off on reuse and it goes through an actual media upload.
+- **Rights/approval status at this review stage:** unresolved hotlink. **Resolved 2026-08-12:** Kris confirmed the Caswell frame is cleared for the published cross-site use; the WordPress upload and named credit are recorded in the v2 receipt above.
 - **Visual confirmation:** Viewed directly (2026-08-02) — matches the caption exactly. Kris on stage, mic in hand, BC+AI-branded jacket, in front of the full-bleed "VANCOUVER WE NEED TO TALK ABOUT AI" Futureproof artwork (salmon, ravens, aurora, city skyline).
 - **Proposed article role:** lead/opening image, ahead of the July 26 poster. This is the "current, real room" proof the #645 editorial spine opens on.
 - **Crop guidance:** Source is 2400×1600 (3:2 landscape). Full frame works for a WP `size-large` block. For a tighter card/OG crop, center on Kris and the "WE NEED TO TALK ABOUT AI" line; avoid cropping so tight that the salmon/raven artwork disappears, since that's the visual echo of the Futureproof key art used elsewhere in this manifest.

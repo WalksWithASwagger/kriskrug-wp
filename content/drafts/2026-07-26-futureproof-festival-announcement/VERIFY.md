@@ -40,8 +40,8 @@ The article now distinguishes True North Media House from W2, identifies TEDxSum
 
 | Use | File | WordPress media ID | Source / approval |
 |---|---|---:|---|
-| Lead story photograph | `vanai-meetup31-stage-kris-futureproof-slide.webp` | 12725 | Michael Caswell; edited by Kris Krüg |
-| Community proof | `vanai-meetup31-community-group-photo.webp` | 12733 | Michael Caswell |
+| Lead story photograph | `vanai-meetup31-stage-kris-futureproof-slide.webp` | 12725 | Michael Caswell; edited by Kris Krüg; cross-site reuse approved 2026-08-12 |
+| Community proof | `vanai-meetup31-community-group-photo.webp` | 12733 | Michael Caswell; cross-site reuse approved 2026-08-12 |
 | True North source receipt | `receipt-true-north-media-house.png` | 12734 | Editorial screenshot with source link |
 | TEDx source receipt | `receipt-tedx-summit-kris-krug.png` | 12735 | Editorial screenshot with source link |
 | DENT source receipt | `receipt-dent-kris-krug.png` | 12736 | Editorial screenshot with source link |
@@ -146,10 +146,10 @@ payload: content only
 protected fields changed: none
 ```
 
-## Remaining follow-ups
+## Remaining follow-up
 
-1. Confirm Michael Caswell's cross-site reuse/credit line for the two Meetup photographs. The current captions credit him on-page.
-2. Recheck or remove the August 15 ticket and call-for-talks deadline after it passes.
-3. Keep the local mode-600 snapshot until the public page and repository closeout are accepted.
+When the planned deadline extension is public, replace the August 15 ticket and call-for-talks language with the verified new date. As of 2026-08-12 the extension is not yet public, so the live article has not been changed prematurely.
+
+Kris accepted the public page and approved cleanup on 2026-08-12. The two local mode-600 rollback snapshots and the finished worktree can therefore be deleted after this provenance closeout lands.
 
 This is a WordPress publication path, not a Vercel deployment. No Vercel project update is required for this post.
