@@ -1,4 +1,23 @@
-# VOICE-NOTES: The Bat Signal: Why I'm Building Futureproof Festival in Vancouver
+# VOICE-NOTES: Futureproof Festival of AI: A Bat Signal from Vancouver
+
+## V2 editorial decisions (2026-08-12)
+
+The working title is now **Futureproof Festival of AI: A Bat Signal from Vancouver**. It leads with the canonical event name for readers and search while preserving the personal hook.
+
+- **Facet:** Host with Anti-Hero edge. Kris is inviting people into a room, not pitching a product or writing a founder victory lap.
+- **Opening:** exact date, meetup number, video, event archive, and gallery replace the floating “last month” setup.
+- **Community before hero:** Vancouver AI and BC + AI get their own evidence section before the conference résumé.
+- **Receipts:** historical claims link the strongest available evidence and are paired with public-source screenshots.
+- **Distributed credit:** Michael Caswell, Michelle Diamond, Kevin Friel, Darren Barefoot, Boris Mann, and Brian Lamb are named where they did the work.
+- **Both hands full:** the festival is positioned as a room for critique and curiosity, with neither boosterism nor doom allowed to flatten the conversation.
+- **Specific CTA:** attend, speak, exhibit, sponsor, follow the roster, or follow the wider event archive.
+- **No generic wrap-up:** “This is the first Futureproof Festival. It is not the first room.” closes the proof arc before the final invitation.
+- **Zero authored em dashes:** retained as a hard voice rule.
+- **No exact unstable community totals:** disputed 250/300 member and attendance/event-count figures were replaced with conservative, defensible language.
+
+The remainder of this file is a frozen archive of the pre-v2 package. Its title, counts, venue, upload, and rights notes are superseded and must not be used as current release guidance.
+
+## Archived pre-v2 notes (superseded)
 
 Refreshed 2026-08-11 for #500. The July 26 "Baby Is Here" notes below are preserved for history since that draft's structure is gone; current notes follow.
 

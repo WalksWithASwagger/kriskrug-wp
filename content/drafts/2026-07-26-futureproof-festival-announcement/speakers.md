@@ -6,7 +6,7 @@ The official public directory currently lists 13 speakers: Amber Case, Ana Serra
 
 This was refreshed again immediately before merge. Jos Duncan-Ase is on the current directory; Kaoru Yoshihira appears only in the dated July 26 snapshot preserved below and is no longer in the current public roster.
 
-The article does not reproduce this volatile roster. It names Kevin Friel in a specific community-credit sentence and links his live public profile; otherwise it links the canonical speaker directory. Recheck the directory immediately before public publication.
+The live article does not reproduce this volatile roster. It names Kevin Friel in a specific community-credit sentence and links his public profile; otherwise it links the canonical speaker directory. Recheck the directory before any speaker-specific follow-up.
 
 Verified **2026-07-26T19:47Z** against public web only.
 
