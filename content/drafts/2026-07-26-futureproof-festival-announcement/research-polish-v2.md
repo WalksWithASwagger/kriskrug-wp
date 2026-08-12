@@ -67,7 +67,7 @@ The old three-poster manifesto grid was removed. It repeated campaign art withou
 
 ## Volatile follow-up checks
 
-- The August 15, 2026 Call for Talks and Earlyworm statements passed the publication-day check. Recheck or remove them after the deadline.
+- The August 15, 2026 Call for Talks and Earlyworm statements passed the publication-day check. Kris plans to extend the deadline but had not published the extension as of 2026-08-12; update only after the new date is public and verified.
 - Keep using the live speaker roster rather than copying a fixed count into the article.
 - Production checks confirmed the August 11 publication date, canonical URL, SEO metadata, approved OG image, and `BlogPosting` schema.
-- Confirm credited cross-site reuse for the Michael Caswell photographs as a post-public follow-up. Michelle Diamond frames FPH-011 and FPH-097 have an explicit public-reuse receipt.
+- Kris confirmed the two credited Michael Caswell photographs are cleared for this cross-site use on 2026-08-12. Michelle Diamond frames FPH-011 and FPH-097 retain their explicit public-reuse receipt.
