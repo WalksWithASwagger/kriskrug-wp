@@ -1,5 +1,67 @@
 # Asset Manifest — Futureproof Festival announcement (#497)
 
+## V2 visual package (2026-08-12)
+
+This section supersedes the earlier sequencing recommendations below. The older receipts remain for audit history.
+
+### Featured graphic
+
+The recommended WordPress featured/OG media is now **`futureproof-salmon-starfield-share-20260711.jpg`**, WordPress media ID `12739`.
+
+- Source: `https://www.futureproof.website/media/launch/futureproof-salmon-starfield-share-20260711.jpg`
+- Dimensions: 1200×630, exact 1.91:1 social-card ratio.
+- SHA-256: `68ecc3c42b32857916e5d62c7ac30efe5bfc387bb2614045abb42791121dfc08`
+- Provenance: official Futureproof Festival campaign art, approved as L04 in `data/brand-audit.json`. The earlier 20260527 file/media `12731` is rejected as L03 and is not reused.
+- Editorial reason: it clearly names the festival, carries the date and BC + AI attribution, and answers the request for a purpose-built graphic. The 3:2 stage photograph remains the opening editorial image.
+
+### Article sequence
+
+| File | Size | Role | Source / credit | SHA-256 |
+|---|---:|---|---|---|
+| `vanai-meetup31-stage-kris-futureproof-slide.webp` | 2400×1600 | opening proof | Michael Caswell photo; Kris Krüg edit; Meetup #31 R2 gallery | `4f2c77c776e54174b08b69a3e41cca4d954ffdb17149c59928ff04ab497e0647` |
+| Meetup #31 YouTube | 16:9 video | full-event embed, Futureproof at 19:04 | `https://www.youtube.com/watch?v=YitQ4fNEDW8` | n/a |
+| `vanai-meetup31-community-group-photo.webp` | 2400×1600 | room proof | Michael Caswell photo; Meetup #31 R2 gallery | `e3d58e4b17ebcd8e20d673ea5b21a0f2abc3afdeb202000f4c3617bb916a6360` |
+| `receipt-true-north-media-house.png` | 1440×900 | historical screenshot | MediaShift page, captured 2026-08-12 | `bd630687fd16a0d4ef4507f1087c8be7f5abcadfe803f20926ae4b40a152390b` |
+| `receipt-tedx-summit-kris-krug.png` | 1440×900 | historical screenshot | TED Blog page, captured 2026-08-12 | `a7c864d3b2f5369261abd320ed3c00eb1db9e3b7bfbf8024d07bf558d12969a6` |
+| `receipt-dent-kris-krug.png` | 1440×900 | historical screenshot | KrisKrug.co page, captured 2026-08-12 | `7d02497cfd2a4dc3ed82e6c2d5b04c5cc18fd1fd6b517bf9feb6945dedbe27c8` |
+| `vanai-space-centre-courtyard-community.webp` | 1800×1200 | participation proof | Michelle Diamond, approved public-reuse frame FPH-011 | `1bfe958b5ed5ad29a9f159032f5456fb1db18607d1d2e3a1e8252432bc9e7015` |
+| `space-centre-community-night.webp` | 1800×1200 | venue proof | Michelle Diamond, Futureproof photo library FPH-097 | `b611a54de56815613bee5823413b67a39a620c1217e74e6c9e0be1ba3049dc26` |
+| `futureproof-honest-conversation-poster.png` | 1024×1536 | one campaign-art pivot | official Futureproof art | `01fdaa144ff92bfa7a7cbd4155714c91a12c550194b3771438f790ef27258a7f` |
+| `futureproof-salmon-starfield-share-20260711.jpg` | 1200×630 | featured + closing invitation | approved official Futureproof art L04 | `68ecc3c42b32857916e5d62c7ac30efe5bfc387bb2614045abb42791121dfc08` |
+
+The three repetitive manifesto tiles were removed. The new sequence alternates real event photography, video, three full-width archival screenshots, place, and one campaign-art beat. The closing group photograph replaces an audience frame whose projected slide carried an expired one-night ticket offer.
+
+### Rights and release gate
+
+- The issue flow authorized using the existing Meetup #31 sequence and official campaign artwork for this update. The two Meetup frames are public BC + AI event photography and are credited to Michael Caswell on-page; the repository still lacks a separate written cross-site reuse release, so that confirmation remains a post-public follow-up.
+- FPH-011 and FPH-097 appear in `not-ai-publication-approval-2026-07-18.md`, which records Kris's public-promotional-reuse approval and Michelle Diamond's permission and credit.
+- The three page screenshots are full-width editorial receipts linked to their public sources. Do not detach them from captions/source links.
+- The page is now public. The live captions retain the named credits; direct cross-site reuse confirmation for the two Michael Caswell frames remains a follow-up.
+
+### Storage note
+
+`content/drafts/**/images/` is intentionally gitignored because shipped binaries live in WordPress media. The manifest, source URLs, dimensions, hashes, alt text, and media receipts are the tracked reconstruction record.
+
+### V2 WordPress media receipt
+
+The guarded draft-only sync completed on 2026-08-12. Exact media filename matching reused two attachments and uploaded seven missing assets:
+
+| File | WordPress media ID | Result |
+|---|---:|---|
+| `vanai-meetup31-stage-kris-futureproof-slide.webp` | 12725 | reused |
+| `futureproof-honest-conversation-poster.png` | 12727 | reused |
+| `vanai-meetup31-community-group-photo.webp` | 12733 | uploaded |
+| `receipt-true-north-media-house.png` | 12734 | uploaded |
+| `receipt-tedx-summit-kris-krug.png` | 12735 | uploaded |
+| `receipt-dent-kris-krug.png` | 12736 | uploaded |
+| `vanai-space-centre-courtyard-community.webp` | 12737 | uploaded |
+| `space-centre-community-night.webp` | 12738 | uploaded |
+| `futureproof-salmon-starfield-share-20260711.jpg` | 12739 | uploaded and featured |
+
+The prior media `12731` remains historical and is not used by v2 because its May artwork is rejected as L03 in the current Futureproof brand audit.
+
+A later WordPress action outside the guarded sync changed post `12732` to `publish`. Production readback now shows featured media `12739`, all nine body images, the video embed, and the expected captions.
+
 ## #500 WordPress receipt (2026-08-11)
 
 Kris approved the current visual sequence and cross-site reuse in the issue flow. The guarded create-only run uploaded the seven images referenced by `post.md` and created private WordPress draft `12732`. No public publish occurred.
@@ -108,7 +170,7 @@ The strongest already-vetted official campaign art remains `images/futureproof-h
 - **Source URL:** `https://www.futureproof.website/graphics/honest-conversation/futureproof-honest-conversation-poster.png`
 - **Festival-repo equivalent (for KK drop if re-export needed):** `public/graphics/honest-conversation/futureproof-honest-conversation-poster.png`
 - **Format:** PNG 1200×1800 (portrait)
-- **Alt:** Futureproof Festival poster: silhouetted figures walk toward a golden-lit portal between ornate arched windows marked with fish, trees, and eyes; teal and orange energy lines rise to a centered eye. White type reads "The most honest AI conversation happening anywhere this year." Teal line below: Vancouver · Oct 28-30, 2026 · Up to 600 people. BC+AI Ecosystem mark at lower left.
+- **Alt:** Futureproof Festival poster showing people gathered in a circle beneath an aurora, rising salmon, and a raven. Text reads "The most honest AI conversation happening this year," Vancouver, October 28-30, 2026, presented by BC + AI Ecosystem.
 
 ### 2. Wordmark
 

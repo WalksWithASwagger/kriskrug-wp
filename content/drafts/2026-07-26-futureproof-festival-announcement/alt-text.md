@@ -1,24 +1,15 @@
-# Image alt text
+# Image alt text and captions: v2
 
-Source of truth for roles and source URLs: `asset-manifest.md` (#644 update). Alts below match frontmatter + in-body placement in `post.md` / `post.html`, rewritten 2026-08-02 for #645.
+| Asset | Role | Alt | Credit/caption |
+|---|---|---|---|
+| `futureproof-salmon-starfield-share-20260711.jpg` | featured + close | Futureproof Festival key art with coral salmon and ravens moving toward a bright portal under an aurora. Text reads Futureproof Festival, October 28-30, 2026, presented by BC+AI. | Futureproof Festival art layer. |
+| `vanai-meetup31-stage-kris-futureproof-slide.webp` | opening proof | Kris Krüg speaks on stage at Vancouver AI Meetup #31 in front of a Futureproof slide reading Vancouver, we need to talk about AI. | Photo: Michael Caswell. Edited: Kris Krüg. |
+| `vanai-meetup31-community-group-photo.webp` | room proof | Dozens of Vancouver AI Meetup #31 participants gather on and in front of the stage for a closing group photo. | Vancouver AI Meetup #31, together at the end of the night. Photo: Michael Caswell. |
+| `receipt-true-north-media-house.png` | historical receipt | MediaShift's 2010 article documenting True North Media House and the citizen media hub at the Vancouver Olympics. | Screenshot of MediaShift for editorial reference, captured August 12, 2026. |
+| `receipt-tedx-summit-kris-krug.png` | historical receipt | TED Blog's 2012 article naming Kris Krüg as a TEDxSummit photographer. | Screenshot of TED Blog for editorial reference, captured August 12, 2026. |
+| `receipt-dent-kris-krug.png` | historical receipt | Kris Krüg's 2023 DENT article with a group photograph from the conference. | Screenshot of KrisKrug.co, captured August 12, 2026. |
+| `vanai-space-centre-courtyard-community.webp` | participation | Vancouver AI attendees talk in small groups across the Space Centre courtyard. | Community between sessions at the Space Centre. Photo: Michelle Diamond. |
+| `space-centre-community-night.webp` | place | The H.R. MacMillan Space Centre glows pink and blue at night while people gather inside. | Photo: Michelle Diamond. |
+| `futureproof-honest-conversation-poster.png` | campaign pivot | Futureproof Festival poster showing people gathered in a circle beneath an aurora, rising salmon, and a raven. Text reads The most honest AI conversation happening this year, Vancouver, October 28-30, 2026. | Futureproof Festival art layer. |
 
-- **vanai-meetup31-stage-kris-futureproof-slide.webp** (lead / hero) — alt: "Kris Krüg speaks on stage at Vancouver AI Meetup #31, in front of a Futureproof slide reading Vancouver, we need to talk about AI, with salmon and skyline artwork behind him." Credit: Photo: Michael Caswell. Edited: Kris Krüg.
-- **vanai-meetup31-audience-wide-shot.webp** (community-room) — alt: "A wide shot from the back of the room, a full silhouetted audience facing the lit Futureproof stage and screen during Vancouver AI Meetup #31." Credit: Photo: Michael Caswell.
-- **futureproof-honest-conversation-poster.png** (official-graphic, was hero) — alt: "Futureproof Festival poster with silhouetted figures walking toward a golden-lit portal under ornate arches. White type reads The most honest AI conversation happening anywhere this year. Dates Vancouver Oct 28-30, 2026."
-- **manifesto-01-future-cultural-question.webp** (gallery) — alt: "Hand-painted Futureproof poster reading The Future Is a Cultural Question over an aurora above a forested shoreline with salmon and painted eyes."
-- **manifesto-06-who-shapes-us.webp** (gallery) — alt: "Hand-painted Futureproof poster reading Who Gets to Shape What Shapes Us over rivers running through open hands."
-- **manifesto-14-places-to-think.webp** (gallery) — alt: "Hand-painted Futureproof poster reading The Future Needs Places to Think over a quiet tidepool reflecting stars."
-- **futureproof-salmon-starfield-share-20260527.jpg** (gallery + optional OG landscape) — alt: "Futureproof launch key art with coral salmon swimming toward a bright portal under aurora and stars. Title type FUTUREPROOF FESTIVAL, October 28-30, 2026, presented by BC+AI."
-
-## Dropped from this rewrite
-
-- **futureproof-wordmark-white-transparent.png** — was inline after the FATALE/dream beat in the July 26 draft. That beat (the FATALE renaming saga) isn't in the #645 rewrite, since it's already told in full in *The Long Road to Futureproof* and repeating it would duplicate that post's section-level argument. The wordmark file is still staged in `images/` and listed in `asset-manifest.md`'s July 26 set if a later draft wants it back.
-
-## Placement (current, #645)
-
-1. Meetup #31 stage photo immediately after the opening two paragraphs (the "last month I stood on a stage" scene).
-2. Meetup #31 audience photo after "What twenty years behind the lens actually teaches you," closing that section before the "why Futureproof" heading.
-3. Official-graphic poster after "The H.R. MacMillan Space Centre... is home," closing the "why Futureproof, why now, why Vancouver" section.
-4. Four-image manifesto gallery after "I'm asking you to help hold a room that can stay honest," inside "The bat signal" section (`[[GALLERY-MANIFESTO]]` marker in `post.md`).
-
-Binaries for the two new meetup photos are staged locally under `images/` (see `asset-manifest.md`), matching the July 26 set's staging pattern. `post.html` still hotlinks the public R2 and futureproof.website URLs directly, same convention as the original package, so #500 can swap to uploaded media IDs without rewriting alts.
+The title text visible inside screenshots and posters is described only when it helps the reader understand why the image is present. Photographer credits remain captions, not duplicated into alt text.

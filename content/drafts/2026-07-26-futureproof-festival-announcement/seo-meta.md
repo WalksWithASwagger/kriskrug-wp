@@ -1,45 +1,43 @@
-# SEO snapshot: The Bat Signal: Why I'm Building Futureproof Festival in Vancouver
+# SEO package: Futureproof Festival of AI
 
-Updated 2026-08-11 for #500. The visible title now keeps the bat-signal hook while making the subject explicit.
+Updated 2026-08-12 for the deeper v2 article.
 
 | Field | Value |
 |---|---|
-| Visible title (H1) | The Bat Signal: Why I'm Building Futureproof Festival in Vancouver |
-| SEO title (`<title>`) | Building Futureproof Festival in Vancouver \| Kris Krüg |
-| Slug | `futureproof-festival-announcement` (unchanged; permalink `/2026/08/11/futureproof-festival-announcement/` once dated) |
-| Meta description | Kris Krüg's network bat signal for Futureproof Festival, Oct 28-30 2026 in Vancouver. Receipts from PopTech to DENT. The invitation is the point. |
+| Authoring title | **Futureproof Festival of AI: A Bat Signal from Vancouver** |
+| SEO title | **Futureproof Festival of AI in Vancouver \| Kris Krüg** |
+| Focus keyphrase | `Futureproof Festival of AI in Vancouver` |
+| Secondary phrases | `Vancouver AI festival 2026`; `Futureproof Festival Vancouver`; `Kris Krüg Futureproof` |
+| Slug | `futureproof-festival-announcement` (preserved to keep draft identity stable) |
+| Meta description | **Kris Krüg's bat signal for Futureproof Festival of AI: three days of art, technology and honest AI conversation in Vancouver, October 28-30, 2026.** |
+| Excerpt | **Futureproof Festival of AI is the room Vancouver has been rehearsing for, three days of art, technology, argument, and better questions at the Space Centre.** |
 | Category | Vancouver AI Ecosystem |
-| Tags | Futureproof, BC + AI, Vancouver AI, Festival, Space Centre, Build What Lasts |
-| Excerpt | Decades of photographing other people's rooms taught me what makes one worth building. Futureproof is the room. This is the invitation to everyone who ever let me stand in theirs. |
-| Featured | YES (hero: `images/vanai-meetup31-stage-kris-futureproof-slide.webp`, per #644's preferred lead; `featured_media_id` assigned at #500 upload) |
-| Schema | Article (auto via kk-schema mu-plugin if deployed) |
-| OG image | Meetup #31 stage photo (2400x1600 landscape, safe OG crop). Landscape alternate if needed: `images/futureproof-salmon-starfield-share-20260527.jpg` (1200x630) |
-| Twitter Card | summary_large_image (Jetpack default) |
+| Schema | `BlogPosting`; do not add `Event` schema to this founder essay |
+| Featured / OG | Approved 1200×630 salmon-starfield graphic `futureproof-salmon-starfield-share-20260711.jpg`, WordPress media `12739` |
+| Twitter card | `summary_large_image` |
 
-## Character counts (SERP-safe)
+## Length gates
 
-| Field | Chars | Target |
-|---|---|---|
-| SEO title | 54 | ≤60 |
-| Meta description | 130 | 140-160 (slightly short; OK for voice, matches prior package's tolerance) |
+| Field | Characters | Gate |
+|---|---:|---|
+| Authoring title | 55 | descriptive and compact |
+| SEO title | 51 | ≤60 |
+| Meta description | 146 | 140–160 |
+| Excerpt | 156 | editorial excerpt, not a SERP field |
 
-## What changed from the July 26 snapshot
+## Search and entity decisions
 
-- **Title:** "The Bat Signal" → "The Bat Signal: Why I'm Building Futureproof Festival in Vancouver." The hook stays, but a reader no longer has to guess what the post is about.
-- **Featured image:** switched from the honest-conversation poster to the Meetup #31 stage photo, per #644's curation. The poster is now an official-graphic supporting image in the body, not the hero.
-- **Meta description:** no longer states ticket price or dates (those live on futureproof.website and move independently); instead names the two things this specific article does that the live origin post and the July 26 draft don't: the conference-lineage receipts and the direct invitation.
+- The H1, SEO title, first festival description, and metadata use the full canonical name **Futureproof Festival of AI**.
+- “Vancouver” disambiguates this event from similarly named US finance events.
+- Transactional intent remains on canonical festival pages for tickets, speakers, talk submissions, sponsors, and exhibitors.
+- The article adds five contextual KrisKrug.co internal links and links the BC + AI companion article instead of duplicating its regional framing.
+- The featured graphic is a dedicated 1.91:1 share asset rather than a 3:2 event photograph. The stage photograph stays as the opening editorial image.
 
-## OG / social notes
+## Production verification
 
-- Prefer the Meetup #31 stage photo as featured. It is landscape (2400×1600), which is safer for OG/card crops than the July 26 poster's portrait 1200×1800.
-- If a landscape alternate is still wanted, the salmon-starfield share JPEG remains the fallback (already used as kriskrug.co homepage Futureproof pillar art).
-- Share copy cue (not published here): "Three decades on the internet. This is my bat signal. Futureproof, Oct 28-30, Vancouver."
-- Do not invent speakers beyond what's linked to the live public roster; this draft intentionally does not hard-code names (see `speakers.md` #645 addendum).
-- Do not resurrect "The baby is here" language in social captions drawn from this piece; it belongs to the prior draft's framing, not this one's.
-
-## Next-step checks after #500 draft create (not this issue)
-
-- View source on draft preview: confirm `<meta name="description">` matches above.
-- Confirm featured image attached and `status=draft`.
-- Cards preview after KK voice sign-off, before public publish.
-- Re-confirm Earlyworm/Call for Talks dates are still both August 15 at time of draft create; if either festival-site date has moved, this package's "Come make it real" section links out rather than hard-coding, so only the VERIFY.md fact table needs a re-check, not the article body.
+- Canonical URL: `https://kriskrug.co/2026/08/11/futureproof-festival-announcement/`, HTTP 200.
+- The browser title uses the exact SEO title. The front end renders the authoring title as H1 **Futureproof Festival of AI** plus subtitle **A Bat Signal from Vancouver**.
+- The 146-character description, approved `12739` OG image, `summary_large_image` card, and `BlogPosting` block are present.
+- The live page has nine body images, one video iframe, responsive images, and no horizontal overflow at desktop or mobile widths.
+- Recheck or remove the August 15 deadline language after the deadline passes.
+- Add descriptive inbound links from the Long Road article, Vancouver AI hub, and AI Events hub as a separate scoped edit.
