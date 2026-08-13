@@ -5,7 +5,7 @@ status: draft
 post_date: "2026-06-18"
 author: "Kris Krüg"
 author_wp_id: 1
-excerpt: "A field note on the creative AI experiments I have been making lately: Skywhale Airways, Punk Rock AI, Too Weird to Die, and the Ethos Lab Block Party album."
+excerpt: "A field note on the Creative AI Human Lab: Skywhale Airways, Punk Rock AI, Gorgeous Ghost, Ghost Radio, Wedges, Too Weird to Die, and the Ethos Lab Block Party."
 categories:
   - "AI for Creatives"
 tags:
@@ -13,11 +13,14 @@ tags:
   - "AI for Creatives"
   - "Skywhale Airways"
   - "Punk Rock AI"
+  - "Gorgeous Ghost"
+  - "Ghost Radio"
+  - "Wedges"
   - "Both Hands Full"
   - "Ethos Lab"
 seo:
   meta_title: "What I’ve Been Making With Creative AI"
-  meta_description: "Kris Krüg maps the Creative AI Human Lab across Skywhale Airways, Punk Rock AI, Too Weird to Die, Ethos Lab Block Party, and consent-first public experiments."
+  meta_description: "Kris Krüg maps the Creative AI Human Lab across Skywhale Airways, Punk Rock AI, Gorgeous Ghost, Ghost Radio, Wedges, Too Weird to Die, and Ethos Lab Block Party."
 ---
 
 # What I’ve Been Making With Creative AI
@@ -32,7 +35,7 @@ The question underneath all of it is pretty simple: what can these tools become 
 
 Taste. Consent. Memory. Weirdness. Community. The room. The refusal to let the machine sand everything into the same smooth rectangle.
 
-That question has turned into a few different public artifacts lately: an AI short film and website, a keynote portal, two concept albums, and a bunch of process notes about how to use the tools without letting them flatten the work.
+That question has turned into a few different public artifacts lately: AI films and websites, a keynote portal, songs, an agent tool, and process notes about how to use the tools without letting them flatten the work.
 
 ## The Project Map
 
@@ -49,6 +52,24 @@ The film is 53 seconds, but the site is the larger artifact. It turns the animat
 The thesis is still the spine: AI is trained on stolen work without consent, and a lot of us are also more creative than we have ever been. Both things can be true. The punk move is to stay in the room.
 
 That site is a maker portal: talk, recap, photos, field course, exercises, widgets, and receipts. It is built the way the talk argues you should make things in 2026: simple, hand-rolled, taste-forward, and useful after the room empties.
+
+### Gorgeous Ghost
+
+[Gorgeous Ghost](https://gorgeousghost.com/) is the glam space opera: a song-long film from Planet Andromeda with a Signal Atlas you can actually wander through.
+
+It began as an AI film prompt challenge and grew teeth when the little film wanted a whole world around it. The result is part music video, part portal, part haunted transmission. The making matters as much as the finished minute: the site keeps the door open to the process instead of pretending the artifact arrived fully formed.
+
+### Ghost Radio
+
+[Ghost Radio](https://ghost.radio.fm/) is the companion signal — the smaller, stranger broadcast surface in the same constellation.
+
+Not every artifact needs to explain itself like a case study. Sometimes the right move is to make a frequency, leave the light on, and let the thing be a little mysterious. Ghost Radio gives the network somewhere to breathe between the film, the songs, and the notes about how they got made.
+
+### Wedges
+
+[Wedges](https://wedges.dev/) is the agent edition of Both Hands Full.
+
+It runs taste-extraction exercises through an MCP server and hands the result back as a portable profile: your voice, your eye, the things you refuse to outsource. The point is not to make the machine more impressive. The point is to give it a better chance of recognizing what it should leave alone.
 
 ### Too Weird to Die
 
@@ -68,9 +89,9 @@ That distinction is not decoration. It is the whole practice. Nothing public wit
 
 ### KrisKrug.co
 
-[KrisKrug.co Work](https://kriskrug.co/recent-projects-include/) is the hub.
+[KrisKrug.co Work](https://kriskrug.co/work/) is the hub.
 
-The standalone sites can each have their own physics. Skywhale should feel like a weird airport. Punk Rock AI should feel like zine paste and receipt paper. Ethos should feel like the room that made it. KrisKrug.co is where the threads can point back to each other without pretending they are the same project.
+The standalone sites can each have their own physics. Skywhale should feel like a weird airport. Punk Rock AI should feel like zine paste and receipt paper. Gorgeous Ghost should feel like a transmission from somewhere expensive and impossible. Wedges should feel like a sharp tool left on the table. Ethos should feel like the room that made it. KrisKrug.co is where the threads can point back to each other without pretending they are the same project.
 
 ## The Rules I Am Working By
 
@@ -109,6 +130,9 @@ Start anywhere:
 - [KrisKrug.co Work](https://kriskrug.co/recent-projects-include/)
 - [Skywhale Airways](https://skywhaleairways.com/)
 - [Punk Rock AI](https://www.punkrockai.com/)
+- [Gorgeous Ghost](https://gorgeousghost.com/)
+- [Ghost Radio](https://ghost.radio.fm/)
+- [Wedges](https://wedges.dev/)
 - [Too Weird to Die](https://www.bothhandsfull.com/album/too-weird-to-die)
 - [Ethos Lab Block Party](https://ethosblockparty.com/the-day)
 
