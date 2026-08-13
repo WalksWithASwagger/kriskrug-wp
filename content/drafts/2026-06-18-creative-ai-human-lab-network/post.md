@@ -127,7 +127,7 @@ It is not finished. That is the point.
 
 Start anywhere:
 
-- [KrisKrug.co Work](https://kriskrug.co/recent-projects-include/)
+- [KrisKrug.co Work](https://kriskrug.co/work/)
 - [Skywhale Airways](https://skywhaleairways.com/)
 - [Punk Rock AI](https://www.punkrockai.com/)
 - [Gorgeous Ghost](https://gorgeousghost.com/)
