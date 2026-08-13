@@ -2,11 +2,11 @@
 
 Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then the newest `reports/morning-truth-*.md`.
 
-## Current Front Door (verified 2026-08-05)
+## Current Front Door (verified 2026-08-12)
 
 Read these first:
 
-1. **[WORK-PLAN-2026-08-05.md](WORK-PLAN-2026-08-05.md)**, active day/week runbook (supersedes 2026-07-30)
+1. **[WORK-PLAN-2026-08-09.md](WORK-PLAN-2026-08-09.md)**, latest dated runbook (supersedes 2026-08-05; use the newest morning-truth report for live counters)
 2. **[CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md)**, declared snapshot for `make morning-truth` / drift (counts drifted — see newest report)
 3. **[MASTER-PLAN-2026-07-30.md](MASTER-PLAN-2026-07-30.md)**, truth then reclaim then product lanes (hygiene phases complete)
 4. Newest **[reports/morning-truth-*.md](reports/)**, or run `make status-readonly` / `make morning-truth`
@@ -14,7 +14,7 @@ Read these first:
 6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
 7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
 
-**Live readback 2026-08-05:** WordPress `7.0.2`. Aurora live **`1.5.9`**, repo `main` **`1.5.10`**. The repo is one patch ahead: `1.5.10` is the a11y focus-visible states (#676), built but not deployed. The deploy gap widened from 1.5.7→1.5.8 to 1.5.9→1.5.10 during the 2026-08-05 merge session (25 PRs merged, 0 open). Verified with `curl -s https://kriskrug.co/wp-content/themes/kk-aurora/style.css | grep -i version` against `theme/kk-aurora/style.css`. Do not treat the repo `style.css` version as proof of production. Read back the public file, in either direction.
+**Live readback 2026-08-12:** WordPress `7.0.4`. Aurora live and repo `main` are **in sync at `1.6.4`**. The public route smoke passes with the refreshed WordPress expectation; the public `style.css` readback remains authoritative for production theme state. Verified against `theme/kk-aurora/style.css`. Read back, do not assume, in either direction.
 
 ## Durable process docs (keep at top level)
 
