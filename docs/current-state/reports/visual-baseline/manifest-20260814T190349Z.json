@@ -1,0 +1,453 @@
+{
+  "schema": "kk-visual-baseline/1",
+  "run_id": "20260814T190349Z",
+  "issue": 473,
+  "created_at": "2026-08-14T19:04:23+00:00",
+  "base_url": "https://kriskrug.co",
+  "artifact_dir": "docs/current-state/reports/visual-baseline/20260814T190349Z",
+  "artifacts_committed": false,
+  "tools": {
+    "node": "/opt/homebrew/bin/node",
+    "node_version": "v26.0.0",
+    "playwright": "1.59.1",
+    "chromium_exec": "/Users/kk/Library/Caches/ms-playwright/chromium-1217/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+    "browsers_path": "/Users/kk/Library/Caches/ms-playwright"
+  },
+  "settings": {
+    "device_scale": 2,
+    "reduced_motion": "reduce",
+    "color_scheme": "light",
+    "forced_colors": "none",
+    "timezone": "America/Vancouver",
+    "settle_ms": 900,
+    "cache_bust": true,
+    "strip_srcset": true,
+    "mask_color": "#FF00FF",
+    "allow_hosts": [
+      "kriskrug.co",
+      "s5102.pcdn.co",
+      "i0.wp.com",
+      "i1.wp.com",
+      "i2.wp.com"
+    ],
+    "full_page": true
+  },
+  "tolerance": {
+    "pixel_threshold": 0.2,
+    "pass_pct": 0.1,
+    "warn_pct": 1.0,
+    "height_delta_pct": 2.0
+  },
+  "masks": {
+    "marquee": [
+      ".aurora-woven-marquee",
+      ".aurora-woven-marquee-track",
+      ".kkm",
+      ".kkm-board",
+      "[class*='marquee']"
+    ],
+    "dates": [
+      "time",
+      ".wp-block-post-date",
+      ".aurora-article-date",
+      ".aurora-masthead-date",
+      "[class*='now-showing']",
+      "[class*='entry-date']",
+      "[class*='posted-on']"
+    ],
+    "beehiiv": [
+      "iframe[src*='beehiiv']",
+      "[class*='beehiiv']",
+      "[id*='beehiiv']",
+      "[data-beehiiv]"
+    ]
+  },
+  "reveals": [
+    {
+      "selector": ".is-aurora-lux-reveal",
+      "add_class": "is-revealed"
+    },
+    {
+      "selector": ".aurora-fade-up",
+      "add_class": "is-visible"
+    },
+    {
+      "selector": ".aurora-scale-in",
+      "add_class": "is-visible"
+    },
+    {
+      "selector": ".aurora-hero-text",
+      "add_class": "is-visible"
+    }
+  ],
+  "routes": [
+    {
+      "id": "home",
+      "path": "/",
+      "template": "front-page.html",
+      "expect_status": 200
+    },
+    {
+      "id": "work",
+      "path": "/work/",
+      "template": "page.html",
+      "expect_status": 200
+    }
+  ],
+  "route_preflight": [
+    {
+      "id": "home",
+      "path": "/",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "id": "work",
+      "path": "/work/",
+      "status": 200,
+      "expected": 200
+    }
+  ],
+  "viewports": [
+    {
+      "name": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2
+    }
+  ],
+  "fetch_stats": {
+    "fetched": 44,
+    "cached": 87,
+    "blocked": 18,
+    "failed": 0
+  },
+  "captures": [
+    {
+      "id": "home",
+      "path": "/",
+      "template": "front-page.html",
+      "viewport": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 16,
+        "painted": 16
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 9,
+        "beehiiv": 0
+      },
+      "scroll_height": 11609,
+      "scroll_width": 375,
+      "deferred_css_pending": 0,
+      "doc_title": "Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "home-mobile.png",
+      "ok": true,
+      "sha256": "9f3fb03f767225476ffde1f8f1052e876faaa12ea11b4202a153f0465f96dd17",
+      "bytes": 5680388,
+      "png_width": 750,
+      "png_height": 23218,
+      "rel_path": "20260814T190349Z/png/home-mobile.png"
+    },
+    {
+      "id": "work",
+      "path": "/work/",
+      "template": "page.html",
+      "viewport": "mobile",
+      "width": 375,
+      "height": 812,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 13,
+        "painted": 13
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 9363,
+      "scroll_width": 375,
+      "deferred_css_pending": 0,
+      "doc_title": "Work | Kris Kr\u00fcg",
+      "file": "work-mobile.png",
+      "ok": true,
+      "sha256": "091d7161a3172d6ae1b1a1b1c994b0c0c3b1bc5dfae91c1c510dbd5a92cf78a5",
+      "bytes": 7643332,
+      "png_width": 750,
+      "png_height": 18726,
+      "rel_path": "20260814T190349Z/png/work-mobile.png"
+    },
+    {
+      "id": "home",
+      "path": "/",
+      "template": "front-page.html",
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 16,
+        "painted": 16
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 9,
+        "beehiiv": 0
+      },
+      "scroll_height": 7342,
+      "scroll_width": 768,
+      "deferred_css_pending": 0,
+      "doc_title": "Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "home-tablet.png",
+      "ok": true,
+      "sha256": "b448815677f741fd34a19fb3480118e3d0bac9a8621c8aa2c23da20c3d4c064e",
+      "bytes": 7232886,
+      "png_width": 1536,
+      "png_height": 14684,
+      "rel_path": "20260814T190349Z/png/home-tablet.png"
+    },
+    {
+      "id": "work",
+      "path": "/work/",
+      "template": "page.html",
+      "viewport": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 13,
+        "painted": 13
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 7600,
+      "scroll_width": 768,
+      "deferred_css_pending": 0,
+      "doc_title": "Work | Kris Kr\u00fcg",
+      "file": "work-tablet.png",
+      "ok": true,
+      "sha256": "c9b9af692f50d472b5f8d89d2b510da3169cc591a46b1cebb3b974feac3726e8",
+      "bytes": 13388007,
+      "png_width": 1536,
+      "png_height": 15200,
+      "rel_path": "20260814T190349Z/png/work-tablet.png"
+    },
+    {
+      "id": "home",
+      "path": "/",
+      "template": "front-page.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 16,
+        "painted": 16
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 9,
+        "beehiiv": 0
+      },
+      "scroll_height": 7634,
+      "scroll_width": 1440,
+      "deferred_css_pending": 0,
+      "doc_title": "Kris Krug | AI Keynote Speaker & Creative Technologist",
+      "file": "home-desktop.png",
+      "ok": true,
+      "sha256": "245e58e0034ba9e23dab64037019d610a43e9470413b1c31c2f51a05c42ececb",
+      "bytes": 13267151,
+      "png_width": 2880,
+      "png_height": 15268,
+      "rel_path": "20260814T190349Z/png/home-desktop.png"
+    },
+    {
+      "id": "work",
+      "path": "/work/",
+      "template": "page.html",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 900,
+      "scale": 2,
+      "http_status": 200,
+      "images": {
+        "total": 13,
+        "painted": 13
+      },
+      "reveal_matches": {
+        ".is-aurora-lux-reveal": 0,
+        ".aurora-fade-up": 0,
+        ".aurora-scale-in": 0,
+        ".aurora-hero-text": 0
+      },
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "scroll_height": 6322,
+      "scroll_width": 1440,
+      "deferred_css_pending": 0,
+      "doc_title": "Work | Kris Kr\u00fcg",
+      "file": "work-desktop.png",
+      "ok": true,
+      "sha256": "b31b799959489e36198893c1d0c1ef558a70d4108194fe10514d27d4e2fbb02f",
+      "bytes": 12928959,
+      "png_width": 2880,
+      "png_height": 12644,
+      "rel_path": "20260814T190349Z/png/work-desktop.png"
+    }
+  ],
+  "kind": "candidate",
+  "css_identity": {
+    "files": [
+      {
+        "file": "style.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/style.css",
+        "live_status": 200,
+        "live_md5": "af4097590b97f9dd703c3db97d670bf2",
+        "live_bytes": 111718,
+        "repo_md5": "af4097590b97f9dd703c3db97d670bf2",
+        "repo_bytes": 111718,
+        "identical": true
+      },
+      {
+        "file": "assets/css/02-tokens.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/02-tokens.css",
+        "live_status": 200,
+        "live_md5": "fb96a2c329156a1e8d76cbc3ceaffac8",
+        "live_bytes": 1508,
+        "repo_md5": "fb96a2c329156a1e8d76cbc3ceaffac8",
+        "repo_bytes": 1508,
+        "identical": true
+      },
+      {
+        "file": "assets/css/animations.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/animations.css",
+        "live_status": 200,
+        "live_md5": "2ad16452b3bd27634c886b74f1c72218",
+        "live_bytes": 2056,
+        "repo_md5": "2ad16452b3bd27634c886b74f1c72218",
+        "repo_bytes": 2056,
+        "identical": true
+      },
+      {
+        "file": "assets/css/bleeding-edge.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/bleeding-edge.css",
+        "live_status": 200,
+        "live_md5": "86d153dae94161ce2f529dfe97508b72",
+        "live_bytes": 10921,
+        "repo_md5": "86d153dae94161ce2f529dfe97508b72",
+        "repo_bytes": 10921,
+        "identical": true
+      },
+      {
+        "file": "assets/css/editor.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/editor.css",
+        "live_status": 200,
+        "live_md5": "4b0cb7208888492ff361e8b0ff3863aa",
+        "live_bytes": 5343,
+        "repo_md5": "4b0cb7208888492ff361e8b0ff3863aa",
+        "repo_bytes": 5343,
+        "identical": true
+      },
+      {
+        "file": "assets/css/09-late.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/09-late.css",
+        "live_status": 200,
+        "live_md5": "64080a6789f99b711affa5f534c2aef9",
+        "live_bytes": 1300,
+        "repo_md5": "64080a6789f99b711affa5f534c2aef9",
+        "repo_bytes": 1300,
+        "identical": true
+      },
+      {
+        "file": "assets/css/revive-port.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/revive-port.css",
+        "live_status": 200,
+        "live_md5": "53ff15f7b9e3f219ebebf52186fdc97d",
+        "live_bytes": 31561,
+        "repo_md5": "53ff15f7b9e3f219ebebf52186fdc97d",
+        "repo_bytes": 31561,
+        "identical": true
+      },
+      {
+        "file": "assets/css/typography-refined.css",
+        "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/typography-refined.css",
+        "live_status": 200,
+        "live_md5": "2dfeab83238dfd9dfce5b42c6888a515",
+        "live_bytes": 15136,
+        "repo_md5": "2dfeab83238dfd9dfce5b42c6888a515",
+        "repo_bytes": 15136,
+        "identical": true
+      }
+    ],
+    "all_identical": true,
+    "live_theme_version": "1.6.5",
+    "repo_theme_version": "1.6.5"
+  },
+  "boost": {
+    "source": "https://kriskrug.co/",
+    "home_status": 200,
+    "css_bundle_url": "https://s5102.pcdn.co/wp-content/boost-cache/static/8d99a2084d.min.css",
+    "css_bundle_hash": "8d99a2084d",
+    "css_bundle_md5": "881a15be19285f127e0a2f7144e7611c",
+    "css_bundle_bytes": 130926,
+    "js_bundle_hash": "a83fd32200"
+  },
+  "baseline_run": "20260814T185057Z"
+}

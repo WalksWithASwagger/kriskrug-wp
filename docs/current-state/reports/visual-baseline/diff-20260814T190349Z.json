@@ -1,0 +1,297 @@
+{
+  "schema": "kk-visual-baseline/1",
+  "kind": "diff",
+  "issue": 473,
+  "created_at": "2026-08-14T19:04:27+00:00",
+  "baseline_run": "20260814T185057Z",
+  "candidate_run": "20260814T190349Z",
+  "base_url": "https://kriskrug.co",
+  "tolerance": {
+    "pixel_threshold": 0.2,
+    "pass_pct": 0.1,
+    "warn_pct": 1.0,
+    "height_delta_pct": 2.0
+  },
+  "masks": {
+    "marquee": [
+      ".aurora-woven-marquee",
+      ".aurora-woven-marquee-track",
+      ".kkm",
+      ".kkm-board",
+      "[class*='marquee']"
+    ],
+    "dates": [
+      "time",
+      ".wp-block-post-date",
+      ".aurora-article-date",
+      ".aurora-masthead-date",
+      "[class*='now-showing']",
+      "[class*='entry-date']",
+      "[class*='posted-on']"
+    ],
+    "beehiiv": [
+      "iframe[src*='beehiiv']",
+      "[class*='beehiiv']",
+      "[id*='beehiiv']",
+      "[data-beehiiv]"
+    ]
+  },
+  "verdict": "fail",
+  "counts": {
+    "pass": 2,
+    "warn": 1,
+    "fail": 3,
+    "error": 0
+  },
+  "css_identity": {
+    "baseline": {
+      "live_theme_version": "1.6.4",
+      "all_identical": false
+    },
+    "candidate": {
+      "live_theme_version": "1.6.5",
+      "repo_theme_version": "1.6.5",
+      "all_identical": true,
+      "files": [
+        {
+          "file": "style.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/style.css",
+          "live_status": 200,
+          "live_md5": "af4097590b97f9dd703c3db97d670bf2",
+          "live_bytes": 111718,
+          "repo_md5": "af4097590b97f9dd703c3db97d670bf2",
+          "repo_bytes": 111718,
+          "identical": true
+        },
+        {
+          "file": "assets/css/02-tokens.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/02-tokens.css",
+          "live_status": 200,
+          "live_md5": "fb96a2c329156a1e8d76cbc3ceaffac8",
+          "live_bytes": 1508,
+          "repo_md5": "fb96a2c329156a1e8d76cbc3ceaffac8",
+          "repo_bytes": 1508,
+          "identical": true
+        },
+        {
+          "file": "assets/css/animations.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/animations.css",
+          "live_status": 200,
+          "live_md5": "2ad16452b3bd27634c886b74f1c72218",
+          "live_bytes": 2056,
+          "repo_md5": "2ad16452b3bd27634c886b74f1c72218",
+          "repo_bytes": 2056,
+          "identical": true
+        },
+        {
+          "file": "assets/css/bleeding-edge.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/bleeding-edge.css",
+          "live_status": 200,
+          "live_md5": "86d153dae94161ce2f529dfe97508b72",
+          "live_bytes": 10921,
+          "repo_md5": "86d153dae94161ce2f529dfe97508b72",
+          "repo_bytes": 10921,
+          "identical": true
+        },
+        {
+          "file": "assets/css/editor.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/editor.css",
+          "live_status": 200,
+          "live_md5": "4b0cb7208888492ff361e8b0ff3863aa",
+          "live_bytes": 5343,
+          "repo_md5": "4b0cb7208888492ff361e8b0ff3863aa",
+          "repo_bytes": 5343,
+          "identical": true
+        },
+        {
+          "file": "assets/css/09-late.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/09-late.css",
+          "live_status": 200,
+          "live_md5": "64080a6789f99b711affa5f534c2aef9",
+          "live_bytes": 1300,
+          "repo_md5": "64080a6789f99b711affa5f534c2aef9",
+          "repo_bytes": 1300,
+          "identical": true
+        },
+        {
+          "file": "assets/css/revive-port.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/revive-port.css",
+          "live_status": 200,
+          "live_md5": "53ff15f7b9e3f219ebebf52186fdc97d",
+          "live_bytes": 31561,
+          "repo_md5": "53ff15f7b9e3f219ebebf52186fdc97d",
+          "repo_bytes": 31561,
+          "identical": true
+        },
+        {
+          "file": "assets/css/typography-refined.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/typography-refined.css",
+          "live_status": 200,
+          "live_md5": "2dfeab83238dfd9dfce5b42c6888a515",
+          "live_bytes": 15136,
+          "repo_md5": "2dfeab83238dfd9dfce5b42c6888a515",
+          "repo_bytes": 15136,
+          "identical": true
+        }
+      ]
+    }
+  },
+  "boost": {
+    "baseline_css_bundle_hash": "52cc6907a1",
+    "candidate_css_bundle_hash": "8d99a2084d",
+    "changed": true,
+    "candidate": {
+      "source": "https://kriskrug.co/",
+      "home_status": 200,
+      "css_bundle_url": "https://s5102.pcdn.co/wp-content/boost-cache/static/8d99a2084d.min.css",
+      "css_bundle_hash": "8d99a2084d",
+      "css_bundle_md5": "881a15be19285f127e0a2f7144e7611c",
+      "css_bundle_bytes": 130926,
+      "js_bundle_hash": "a83fd32200"
+    }
+  },
+  "pairs": [
+    {
+      "key": "home/mobile",
+      "route": "home",
+      "path": "/",
+      "viewport": "mobile",
+      "candidate_sha256": "9f3fb03f767225476ffde1f8f1052e876faaa12ea11b4202a153f0465f96dd17",
+      "baseline_sha256": "eb2f04743124f0b6a9542871bdb1443cb0c9fb6d8e6568c7fad3545c59ea03a6",
+      "candidate_height": 23218,
+      "baseline_height": 23024,
+      "candidate_scroll_height": 11609,
+      "baseline_scroll_height": 11512,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 9,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.8425990271021543,
+      "method": "pixel",
+      "diff_pct": 0.835559,
+      "diff_pixels": 145500,
+      "total_pixels": 17413500,
+      "diff_image": "docs/current-state/reports/visual-baseline/20260814T190349Z/diff/home-mobile-diff.png",
+      "verdict": "warn"
+    },
+    {
+      "key": "home/tablet",
+      "route": "home",
+      "path": "/",
+      "viewport": "tablet",
+      "candidate_sha256": "b448815677f741fd34a19fb3480118e3d0bac9a8621c8aa2c23da20c3d4c064e",
+      "baseline_sha256": "ba40c7e9d0767ec8860049ab4009ee5e2530bad7803a80309d6c8068a1210c1e",
+      "candidate_height": 14684,
+      "baseline_height": 14684,
+      "candidate_scroll_height": 7342,
+      "baseline_scroll_height": 7342,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 9,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "method": "pixel",
+      "diff_pct": 0.067884,
+      "diff_pixels": 15311,
+      "total_pixels": 22554624,
+      "verdict": "pass"
+    },
+    {
+      "key": "home/desktop",
+      "route": "home",
+      "path": "/",
+      "viewport": "desktop",
+      "candidate_sha256": "245e58e0034ba9e23dab64037019d610a43e9470413b1c31c2f51a05c42ececb",
+      "baseline_sha256": "ffdd524c1de43a65e8cb5cd449c9252e1e603564c5ecbf7e44ea928c0f4d7df7",
+      "candidate_height": 15268,
+      "baseline_height": 15074,
+      "candidate_scroll_height": 7634,
+      "baseline_scroll_height": 7537,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 9,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 1.2869842112246253,
+      "method": "pixel",
+      "diff_pct": 1.453107,
+      "diff_pixels": 638958,
+      "total_pixels": 43971840,
+      "diff_image": "docs/current-state/reports/visual-baseline/20260814T190349Z/diff/home-desktop-diff.png",
+      "verdict": "fail"
+    },
+    {
+      "key": "work/mobile",
+      "route": "work",
+      "path": "/work/",
+      "viewport": "mobile",
+      "candidate_sha256": "091d7161a3172d6ae1b1a1b1c994b0c0c3b1bc5dfae91c1c510dbd5a92cf78a5",
+      "baseline_sha256": "e4a7205e262fe327126d3128f2cd5d94d3e9772c583a4b940010cfd9c75d8719",
+      "candidate_height": 18726,
+      "baseline_height": 18532,
+      "candidate_scroll_height": 9363,
+      "baseline_scroll_height": 9266,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 1.0468379020073386,
+      "method": "pixel",
+      "diff_pct": 1.145124,
+      "diff_pixels": 160827,
+      "total_pixels": 14044500,
+      "diff_image": "docs/current-state/reports/visual-baseline/20260814T190349Z/diff/work-mobile-diff.png",
+      "verdict": "fail"
+    },
+    {
+      "key": "work/tablet",
+      "route": "work",
+      "path": "/work/",
+      "viewport": "tablet",
+      "candidate_sha256": "c9b9af692f50d472b5f8d89d2b510da3169cc591a46b1cebb3b974feac3726e8",
+      "baseline_sha256": "3d9364e2a2dc87269a34dd5d577290a044efab2e1fbacd8a9a946015d3f191cc",
+      "candidate_height": 15200,
+      "baseline_height": 15200,
+      "candidate_scroll_height": 7600,
+      "baseline_scroll_height": 7600,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "method": "pixel",
+      "diff_pct": 0.06558,
+      "diff_pixels": 15311,
+      "total_pixels": 23347200,
+      "verdict": "pass"
+    },
+    {
+      "key": "work/desktop",
+      "route": "work",
+      "path": "/work/",
+      "viewport": "desktop",
+      "candidate_sha256": "b31b799959489e36198893c1d0c1ef558a70d4108194fe10514d27d4e2fbb02f",
+      "baseline_sha256": "6cd5eb9a17a23819199822dde345392b6af0dbadd4409d1c0258cbe6ccc40262",
+      "candidate_height": 12644,
+      "baseline_height": 12450,
+      "candidate_scroll_height": 6322,
+      "baseline_scroll_height": 6225,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 1.5582329317269077,
+      "method": "pixel",
+      "diff_pct": 1.754573,
+      "diff_pixels": 638923,
+      "total_pixels": 36414720,
+      "diff_image": "docs/current-state/reports/visual-baseline/20260814T190349Z/diff/work-desktop-diff.png",
+      "verdict": "fail"
+    }
+  ]
+}
