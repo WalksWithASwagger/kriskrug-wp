@@ -61,6 +61,25 @@ class EphemeralMorningTruthGuidanceTests(unittest.TestCase):
             any("morning-truth-checkpoint" in finding.message for finding in findings)
         )
 
+    def test_active_guidance_allows_negated_commit_safety_language(self):
+        samples = [
+            "Use `make morning-truth` for an ignored local copy; do not commit it.\n",
+            "Do not commit output from `make morning-truth`; it is ephemeral.\n",
+        ]
+
+        for sample in samples:
+            with self.subTest(sample=sample), tempfile.TemporaryDirectory() as tmp:
+                repo_root = Path(tmp)
+                readme = repo_root / "docs/current-state/README.md"
+                readme.parent.mkdir(parents=True)
+                readme.write_text(sample, encoding="utf-8")
+
+                findings = docs_truth_check.scan_file(repo_root, readme)
+
+            self.assertFalse(
+                any("morning-truth-checkpoint" in finding.message for finding in findings)
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

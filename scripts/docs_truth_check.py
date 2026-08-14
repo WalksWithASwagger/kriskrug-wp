@@ -133,11 +133,11 @@ ACTIVE_GUIDANCE_PATHS = {
 STALE_MORNING_TRUTH_FLOW_PATTERNS: list[re.Pattern[str]] = [
     re.compile(
         r"\bmake\s+morning-truth(?!-checkpoint)\b[^\n]*"
-        r"(?:\n\s*(?:[-*]|\d+[.)])?\s*)?\bcommit\b",
+        r"(?:\n\s*(?:[-*]|\d+[.)])?\s*)?(?<!not )\bcommit\b",
         re.I,
     ),
     re.compile(
-        r"\bcommit\b[^\n]*\bmake\s+morning-truth(?!-checkpoint)\b",
+        r"(?<!not )\bcommit\b[^\n]*\bmake\s+morning-truth(?!-checkpoint)\b",
         re.I,
     ),
 ]
