@@ -21,8 +21,8 @@ When you cut a new release, add a line here and follow
 ---
 
 ## 1.6.5
-**Deployed:** On main; deploy pending
-Add AI Garden to the project footer and ship the previously merged Creative AI Human Lab links with an explicit versioned release.
+**Deployed:** LIVE (public readback 2026-08-14; SFTP rollback `kk-aurora.bak-1786733540`)
+Add AI Garden to the project footer and ship the previously merged Creative AI Human Lab links with an explicit versioned release. Pagely page and CDN caches were purged successfully. The post-purge visual comparison confirmed live/repo CSS identity and a refreshed Jetpack Boost bundle; its threshold failures are confined to the intentional project-footer expansion documented in `report-20260814T190349Z.md`.
 
 ## 1.6.4
 **Deployed:** LIVE (public readback 2026-08-11; the 2026-08-11 window shipped 1.6.1 through 1.6.4 together, rollback `kk-aurora.bak-1786415439`)
