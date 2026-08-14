@@ -4,11 +4,11 @@ This file is the entry point for any AI agent (Claude Code, Cursor, Codex, etc.)
 
 ## What this repo is
 
-The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running the Aurora theme (`kk-aurora`). **Live** theme (`style.css` Version) as of 2026-08-12 public readback: **1.6.4**, **in sync** with repo `main` (SFTP-deployed 2026-08-11, shipping 1.6.1 through 1.6.4 — form-message colors, breakpoint consolidation, the PSI perf round, and the #701 CLS/LCP guard — in one window; server-side rollback at `kk-aurora.bak-1786415439`). **Post-deploy step still owed: regenerate Jetpack Boost critical CSS** (stale-snapshot geometry was the #701 root cause). WordPress publicly reports **7.0.4**. How verified: `curl -s https://kriskrug.co/wp-content/themes/kk-aurora/style.css | grep -i version` against `theme/kk-aurora/style.css`. Do not treat the repo `style.css` version as proof of production. Read back the public file, in either direction. The repo is **adjacent to** the live site, not a mirror of it. `main` contains the canonical tracked theme line, plus content/ops tooling and docs. Custom repo-side WP code includes `inc/digital-composting.php` and `plugins/kk-sidebar-promos/` (deploy only with an explicit rollback path and KK approval).
+The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagely-hosted WordPress site running the Aurora theme (`kk-aurora`). Live WordPress and theme versions change independently of this repo. Run `make status-readonly` and use the public `style.css` readback before making a current-state claim; never treat the repo version as production proof. The repo is **adjacent to** the live site, not a mirror of it. `main` contains the canonical tracked theme line, plus content/ops tooling and docs. Custom repo-side WP code includes `inc/digital-composting.php` and `plugins/kk-sidebar-promos/` (deploy only with an explicit rollback path and KK approval).
 
 ## Read this in order (top of repo, top of context)
 
-1. [`docs/current-state/README.md`](docs/current-state/README.md) — index; start with the newest `reports/morning-truth-*.md`
+1. [`docs/current-state/README.md`](docs/current-state/README.md) — current-state front door; run `make status-readonly` for live counters
 2. [`docs/current-state/CURRENT-STATE-2026-07-30.md`](docs/current-state/CURRENT-STATE-2026-07-30.md) — declared snapshot for drift/morning-truth (Makefile default)
 3. [`docs/current-state/WORK-PLAN-2026-08-09.md`](docs/current-state/WORK-PLAN-2026-08-09.md) — **day runbook** (repo-integrity rescue → truth → deploy window; supersedes 2026-08-05)
 4. [`docs/current-state/MASTER-PLAN-2026-07-30.md`](docs/current-state/MASTER-PLAN-2026-07-30.md) — hygiene + lane sequencing plan of record
@@ -45,7 +45,7 @@ Legacy branch split context is in [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-
 - **`.github/workflows/test-pr.yml`** — still active PR validation. Do not describe all workflows as dormant.
 - **`docs/architecture.md`, `docs/automation-guide.md`** — reference docs for the dormant swarm.
 - **`docs/cloudways-setup.md`, `docs/local-development-setup.md`, `.claude/context/wordpress-setup.md`** — Cloudways dev-server setup that was never used as planned. Relevant if/when Track B needs staging, otherwise ignore.
-- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use `CURRENT-STATE-2026-07-30.md`, `WORK-PLAN-2026-07-30.md`, `MASTER-PLAN-2026-07-30.md`, and the newest committed morning-truth report for current truth. May–June handoffs live under `docs/current-state/archive/`.
+- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use `CURRENT-STATE-2026-07-30.md`, `WORK-PLAN-2026-07-30.md`, `MASTER-PLAN-2026-07-30.md`, and a fresh `make status-readonly` run for current truth. May–June handoffs live under `docs/current-state/archive/`.
 
 Anything banner-tagged `STATUS: Historical` at the top is reference-only.
 
@@ -72,11 +72,11 @@ Read [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODE
 
 ## Morning truth command
 
-Run `make morning-truth` at session start (or before execution) to emit a timestamped read-only report under `docs/current-state/reports/` with git/issue/worktree state, WP smoke, draft queue counts, and current-state drift flags.
+Run `make status-readonly` at session start (or before execution). It prints git/issue/worktree state, WP smoke, draft queue counts, and current-state drift flags without writing a file.
 
-If the task explicitly forbids file changes, run `make status-readonly` instead. It prints the same startup truth shape to stdout and does not write a report file.
+Use `make morning-truth` only when a local copy is useful. It writes the same report to the gitignored `.generated/current-state/` directory.
 
-**Keeping the cadence alive:** `make morning-truth` writes the `.md` but does *not* auto-commit it — the report only becomes the shared source of truth once someone commits it. The report others read stays current only if the session that runs `morning-truth` also commits the fresh `docs/current-state/reports/morning-truth-*.md` (these `.md` summaries are tracked; only `reports/` PNG/HTML/CSV captures are gitignored). If the newest committed report is more than a few days stale, that means recent sessions ran `status-readonly` (stdout-only) or skipped the commit — not that the target is broken. Regenerate and commit one.
+Use `make morning-truth-checkpoint` only for an explicit release, incident, durable decision, or handoff checkpoint. That deliberate mode writes under `docs/current-state/reports/`; review and commit the report with the related work. Existing committed reports remain historical evidence, not a freshness requirement for routine sessions.
 
 ## Cursor Cloud specific instructions
 
@@ -92,9 +92,9 @@ Non-obvious caveats for future agents (the update script already installs deps):
 - **GitHub merge from Cloud:** set Cursor Cloud secret `GH_TOKEN` to a classic PAT with `repo` scope owned by an account that has write access (same value as Actions secret `AGENT_MERGE_TOKEN`). Without it, `gh pr review --approve` / `gh pr merge` fail under branch protection even when CI is green. Details: [`docs/current-state/AGENT-MERGE-PATH-2026-07-26.md`](docs/current-state/AGENT-MERGE-PATH-2026-07-26.md).
 - Without those env vars (and without a gitignored `scripts/notion-to-wp/.env` cache), connector/publisher paths stay unauthenticated: the live publisher and `create_local_wp_draft.py` **hard-exit requiring creds even in dry-run**. Use credential-free paths instead — `LOCAL_ONLY=1 make draft-queue-audit` and `make status-readonly`.
 - Read [`.env.schema`](.env.schema) and [`docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md`](docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md) for the Varlock env contract. Do **not** read, print, or commit `.env` / `.env.local`. Use `make env-check` when `varlock` is on `PATH` (soft-OK if secrets are absent). Prefer `make varlock-run CMD='…'` / `varlock run --inject vars -- …` when secrets are resolved. Sibling-path `KKAI_ENV_PATH` fallbacks are **compat only**, not the secret source of truth.
-- - `make morning-truth`, `make status-readonly`, and the audit targets make live HTTP calls to `https://kriskrug.co` when reachable; they degrade gracefully but expect outbound network for the WP smoke portions.
-- Live Aurora and repo Aurora drift in **either** direction. As of 2026-08-11 they are **in sync at 1.6.4** (second deploy window executed). Historically the drift has gone both ways: on 2026-07-27 they were in sync at 1.5.0, and on 2026-08-01 live ran *ahead* of `main` because the 1.5.7 hero was SFTP-deployed before PR #618 merged. Do not treat `theme/kk-aurora/style.css` Version as proof of production without a public `style.css` readback, and do not assume the direction of any future drift. Readback, don't assume, in either direction.
+- `make morning-truth`, `make status-readonly`, and the audit targets make live HTTP calls to `https://kriskrug.co` when reachable; they degrade gracefully but expect outbound network for the WP smoke portions.
+- Live Aurora and repo Aurora drift in **either** direction. Do not treat `theme/kk-aurora/style.css` Version as proof of production without a public `style.css` readback, and do not assume the direction of any future drift. Read back, don't assume.
 
 ---
 
-**Last verified:** 2026-08-12 (live WP **7.0.4**; Aurora live and repo `main` **in sync at 1.6.4**; public route smoke passed after refreshing the expected WordPress version; pixel gate repaired (#697) and ran clean on the 1.6.4 window — 33 small diffs all accounted for by intentional changes + same-day content drift; front door is CURRENT-STATE 2026-07-30 / WORK-PLAN 2026-08-09 / MASTER-PLAN 2026-07-30; Cloud secrets may still be unset in long-lived pods). If you're reading this much later and the repo has drifted, run `make morning-truth` (or `make status-readonly`) and treat the newest committed `docs/current-state/reports/morning-truth-*.md` as the source of truth.
+**Instruction review:** 2026-08-13. Runtime state is deliberately not pinned here. Run `make status-readonly`, consult the current-state front door, and use public readback evidence before acting on live-state assumptions.

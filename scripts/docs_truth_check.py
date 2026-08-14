@@ -127,7 +127,7 @@ CURRENT_LANGUAGE_PATTERNS = [
 ]
 
 ANCHOR_PATTERN = re.compile(
-    r"2026-\d\d-\d\d|morning-truth|reports/|HANDOFF-2026-05-24|TRACK-A-MORNING-TRUTH|AURORA-V3-QA",
+    r"2026-\d\d-\d\d|morning-truth|status-readonly|reports/|HANDOFF-2026-05-24|TRACK-A-MORNING-TRUTH|AURORA-V3-QA",
     re.I,
 )
 

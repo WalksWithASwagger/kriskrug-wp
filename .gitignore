@@ -65,6 +65,10 @@ content/drafts/2026-06-28-keep-the-machine-strange/img/
 # lightbox backfill rollback manifests (large, operational; keep on disk, not in git)
 scripts/notion-to-wp/backfill-rollback*.jsonl
 
+# Routine generated startup state is local and reproducible. Durable checkpoint
+# reports remain tracked under docs/current-state/reports/.
+.generated/current-state/
+
 # Operational capture artifacts under current-state reports — keep .md summaries,
 # ignore heavy captures (screenshots, page snapshots) so the folder stops re-bloating.
 # See REPO-HYGIENE-AUDIT-2026-07-12.md. Existing tracked copies stay until an approved cleanup.
