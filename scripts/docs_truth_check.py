@@ -121,6 +121,27 @@ STALE_FRONT_DOOR_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     ),
 ]
 
+ACTIVE_GUIDANCE_PATHS = {
+    Path("AGENTS.md"),
+    Path("README.md"),
+    Path("docs/INDEX.md"),
+    Path("docs/current-state/README.md"),
+    Path("docs/current-state/WORK-PLAN-2026-08-09.md"),
+    Path("docs/current-state/MASTER-PLAN-2026-07-30.md"),
+}
+
+STALE_MORNING_TRUTH_FLOW_PATTERNS: list[re.Pattern[str]] = [
+    re.compile(
+        r"\bmake\s+morning-truth(?!-checkpoint)\b[^\n]*"
+        r"(?:\n\s*(?:[-*]|\d+[.)])?\s*)?\bcommit\b",
+        re.I,
+    ),
+    re.compile(
+        r"\bcommit\b[^\n]*\bmake\s+morning-truth(?!-checkpoint)\b",
+        re.I,
+    ),
+]
+
 CURRENT_LANGUAGE_PATTERNS = [
     re.compile(r"\bcurrent (?:front door|execution truth|startup context|startup truth)\b", re.I),
     re.compile(r"\blatest startup truth\b", re.I),
@@ -182,6 +203,18 @@ def scan_file(repo_root: Path, path: Path) -> list[Finding]:
     findings: list[Finding] = []
     relative_path = path.relative_to(repo_root)
     text = path.read_text(encoding="utf-8")
+
+    if relative_path in ACTIVE_GUIDANCE_PATHS:
+        for pattern in STALE_MORNING_TRUTH_FLOW_PATTERNS:
+            for match in pattern.finditer(text):
+                findings.append(
+                    Finding(
+                        relative_path,
+                        text.count("\n", 0, match.start()) + 1,
+                        "Routine `make morning-truth` output must not be committed; use `make morning-truth-checkpoint` for durable evidence.",
+                        match.group(0).replace("\n", " ").strip(),
+                    )
+                )
 
     for line_number, line in enumerate(text.splitlines(), start=1):
         for pattern, message in KNOWN_STALE_PATTERNS + STALE_FRONT_DOOR_PATTERNS:
