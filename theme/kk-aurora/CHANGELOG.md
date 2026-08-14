@@ -20,6 +20,10 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.6.5
+**Deployed:** On main; deploy pending
+Add AI Garden to the project footer and ship the previously merged Creative AI Human Lab links with an explicit versioned release.
+
 ## 1.6.4
 **Deployed:** LIVE (public readback 2026-08-11; the 2026-08-11 window shipped 1.6.1 through 1.6.4 together, rollback `kk-aurora.bak-1786415439`)
 CLS/LCP fix: critical-geometry guard in the header part pins marquee + header layout during the stale-Boost-critical-CSS window; reveal hide moves from stylesheet to JS ownership with synchronous above-fold reveal (#701, PR pending). After deploying, regenerate Jetpack Boost critical CSS.
