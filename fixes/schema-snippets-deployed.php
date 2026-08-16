@@ -11,6 +11,24 @@
  * Deployed via Code Snippets plugin on 2026-05-15 (not as a mu-plugin yet;
  * SSH access still pending).
  *
+ * LAST VERIFIED AGAINST LIVE: 2026-08-15 (issue #741).
+ * Method: logged-out public readback of rendered JSON-LD on https://kriskrug.co/
+ * (Person + WebSite) and https://kriskrug.co/2026/08/10/keep-the-machine-strange/
+ * (Person + BlogPosting + BreadcrumbList). Values, block set and JSON key order
+ * all match this file, including Person.image appended last by the conditional
+ * below and the #425 BlogPosting default. The snippet body itself was NOT read
+ * back: code-snippets/v1 returns 401 without a WP app password and none was
+ * resolvable in that session.
+ *
+ * ONE UNRESOLVED DELTA (do not "fix" blind): live wraps each block as
+ * <script data-jetpack-boost="ignore" type="application/ld+json">, while
+ * kk_schema_emit() below prints no data-jetpack-boost attribute, and nothing in
+ * this repo adds one. Either Jetpack Boost injects it at output, or the live
+ * snippet body carries a small edit that never came back here. Resolve by
+ * reading the snippet body (wp-admin or an authenticated GET) before the next
+ * deploy, because pasting this file over the live snippet would drop the
+ * attribute if it is snippet-side.
+ *
  * Differences from fixes/schema-snippets.php (reference / future mu-plugin):
  *   - VERIFY-ME placeholders replaced with confirmed values
  *   - Person image uses the public portrait already rendered on /about/

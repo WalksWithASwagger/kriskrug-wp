@@ -199,7 +199,7 @@ if UPDATE:
     pid = existing["id"]
     featured_id = resolve_featured_media(wp, media_id=FEATURED_ID, write=True)
     payload = {"content": content, "featured_media": featured_id}
-    post = wp.update_post(pid, payload)
+    post = wp.update_post(pid, payload, expected_slug=SLUG)
     print(f"[post] UPDATED draft id={pid} status={post['status']}")
 else:
     if existing:
