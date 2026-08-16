@@ -2,31 +2,37 @@
 
 **Issue:** [#744](https://github.com/WalksWithASwagger/kriskrug-wp/issues/744)
 **Lane:** coordinate-ship, Lane O of the Round 3 swarm.
-**Status:** decision-ready. Nothing here has been executed. No issue was closed, edited, relabeled, or commented on by this lane.
+**Status:** refreshed 2026-08-16. The coordinator has completed the verified #22 close, and #725 auto-closed when #726 merged. All unchecked actions remain proposals; this corrective pass made no additional issue mutation.
 
-This dossier is what KK approves in one pass. The coordinator executes afterward, using the ready-to-paste comments below verbatim.
+This dossier is the decision packet for the remaining work. Completed actions are
+marked explicitly; the coordinator executes only the unchecked items after KK
+approval.
 
 ## Verdict summary
 
 | Item | #744 said | Verified verdict |
 |---|---|---|
-| #22 land acknowledgment | close | **CLOSE.** Renders live sitewide. |
+| #22 land acknowledgment | close | **DONE.** Closed 2026-08-16T06:10:27Z after fresh main and live verification. |
 | #339 July publisher batch | close | **DO NOT CLOSE.** Premise is false. Four of five live deliverables were never applied. |
 | #416 newsletter rename | close, trim to thumbnails | **CLOSE after one KK action.** Thumbnails already shipped. The remainder is the signup test, not the thumbnails. |
-| #725 morning truth ephemeral | closes when #726 merges | **CLOSE.** #726 merged `44bbbad` at 2026-08-16T05:43:23Z. All eight ACs verified on `origin/main`. |
+| #725 morning truth ephemeral | closes when #726 merges | **DONE.** Auto-closed 2026-08-16T05:43:24Z when #726 merged as `44bbbad`; all eight ACs were verified on `origin/main`. |
 | #642 swarm board | rewrite | Replacement body below. Residue is the Speaking lane plus two deploy gates. |
 | #318 repo bloat | rewrite | Replacement body below. Residue is Phase B draft images only. |
 | #402 SEO hubs | split | **9 child issues** proposed, full scope each. |
 | #481 class rename | drop `blocked` | Relabel is right, but the stated precondition is **not** fully met. Corrected comment below. |
-| `issues-to-create/` | archive 14 | **13 archive, 9 keep.** The audit list was wrong on 10 of 22 files. |
+| `issues-to-create/` | archive 14 | **14 archive, 8 keep.** #22's close moves `batch-2-content-positioning.json` into the conservative archive set. The original dispositions were wrong or missing for 11 of 22 drafts even though the refreshed archive count is also 14. |
 
-**Close candidates surviving verification: 2 unconditional (#22, #725), 1 pending one KK action (#416), 1 rejected (#339).**
+**Close-candidate state now: 2 completed (#22, #725), 1 pending one KK action (#416), 1 rejected (#339).**
 
 ---
 
 ## 1. Close candidates with proof
 
-### 1.1 #22 Indigenous Land Acknowledgment: CLOSE
+### 1.1 #22 Indigenous Land Acknowledgment: CLOSED
+
+The coordinator closed #22 as completed at 2026-08-16T06:10:27Z after a
+fresh verification pass. The evidence below is retained as the decision record,
+not as an outstanding close instruction.
 
 Verified 2026-08-15 by logged-out `curl` against production.
 
@@ -50,11 +56,13 @@ Acceptance criteria, one by one:
 - **Visible (footer or About page):** met. It is in `parts/footer.html`, an FSE template part, so it renders on every route. Confirmed on two independent routes.
 - **Coast Salish, Squamish, Tsleil-Waututh acknowledged:** met and more precise than the AC asked for. The live copy names Musqueam specifically rather than the umbrella term "Coast Salish". Musqueam, Squamish and Tsleil-Waututh are the three Nations whose unceded territories Vancouver sits on, which is the standard local form. This is a better acknowledgment than the AC drafted in January, not a partial one.
 - **Respectful, authentic tone:** met. Plain sentence, no separate banner, integrated with what the site is actually for.
-- **Links to nation websites:** not done. The AC marks this "Optional".
+- **Links to Nation websites:** met through the sitewide footer's Reconciliation
+  link (`theme/kk-aurora/parts/footer.html:80`) and the linked page's three Nation
+  links, confirmed by the coordinator's closing readback.
 - **Mobile responsive:** met by construction. It is a `<p>` inside the footer bento grid, inheriting the same responsive container as the rest of the footer, with no fixed width, no absolute positioning, and no separate media query.
 - **WCAG 2.1 AA:** met by construction. Body copy in the footer tile, no custom color pair of its own, inside a labelled `<section>`.
 
-**Ready-to-paste closing comment:**
+**Historical closing rationale (already executed; do not paste again):**
 
 ```markdown
 Closing as done. The land acknowledgment is live and has been for some time.
@@ -70,7 +78,7 @@ Verified 2026-08-15, logged out, against production:
 
 On the acceptance criteria: the live copy names Musqueam, Squamish and Tsleil-Waututh rather than the umbrella "Coast Salish" this issue drafted in January. That is the more precise and more standard local form, so treating it as met. Mobile and WCAG are met by construction: it is body copy in the footer bento tile with no fixed width, no custom color pair, and no separate breakpoint of its own.
 
-The one unmet item, links to the Nations' websites, is marked Optional in the AC. Not filing a follow-up for it. Say the word if you want those links added and I will open one.
+The sitewide footer links to the Reconciliation page, and that page links to each Nation website. The optional link criterion is met.
 ```
 
 ### 1.2 #339 July publisher batch: DO NOT CLOSE
@@ -207,9 +215,11 @@ Copy pick: the live copy is neither drafted Option A nor Option B verbatim, so a
 Signup flow confirmed by KK. Screenshots at 375/768/1440 not captured and not worth a separate issue; the section is a standard constrained group with a 3-column grid that collapses on the existing breakpoint scale (#479).
 ```
 
-### 1.4 #725 Morning truth ephemeral: CLOSE
+### 1.4 #725 Morning truth ephemeral: CLOSED
 
-PR #726 merged during this lane's session. Verified after the fact against `origin/main`.
+PR #726 merged during this lane's session and auto-closed #725 one second later.
+The evidence below is retained as the decision record, not as an outstanding
+close instruction.
 
 - Merge commit `44bbbad ops: make morning truth ephemeral by default (#726)`, merged 2026-08-16T05:43:23Z.
 - Diff: 12 files, +239 / -41, including `scripts/tests/test_morning_truth_report.py` (+46) and `scripts/tests/test_docs_truth_check.py` (+85).
@@ -228,7 +238,7 @@ Acceptance criteria checked against `git show origin/main:`:
 | README / current-state guidance updated consistently | `README.md`, `docs/INDEX.md`, `docs/current-state/README.md`, `MASTER-PLAN-2026-07-30.md`, `WORK-PLAN-2026-08-09.md` all in the diff. |
 | Tests cover default placement and checkpoint mode | Two new test files, `python-tests=SUCCESS` on the merge commit. |
 
-**Ready-to-paste closing comment:**
+**Historical closing rationale (already executed; do not paste again):**
 
 ```markdown
 Closing. PR #726 merged as `44bbbad ops: make morning truth ephemeral by default (#726)` at 2026-08-16T05:43:23Z.
@@ -370,7 +380,7 @@ Proposed split, sequenced. Every child inherits the same safety envelope: Track 
 | 6 | **`/ai-conversations/` hub: Matt McKenna** | 5 | Person-entity query landing on a real 18-block interview about DENT, sobriety, and a Miami coffee shop. The topic hub (page 12319) does not link to it. Add an interview card plus two inbound spokes from 2833 and 2423. Leave the existing 3330 link alone. | 3 (rows 16 to 18) | child 1 |
 | 7 | **`/events/` routing from the meetup archive** | 6 | The healthiest cluster with one clean gap. Nine meetup recap posts exist and the six checked all point at `/vancouver-ai/`, but **none point at `/events/`** (page 2250), which is the page carrying the live registration card. Somebody searching this term wants to attend the next one and is being routed to a topic hub. Add `/events/` links to 4495, 9197, 8418, 6815, 6251, 5768, and 4348, plus a calendar link from `/vancouver-ai/` (page 12315) block 11 alongside the existing archive link rather than replacing it. Post 4348 matters most: a 2023 directory with 60 external links and no date-proofing. | 8 (rows 19 to 26) | child 1 |
 | 8 | **Most Benevolent Outcomes cluster** | 1, 2 | Unusual case: the ranking asset **is** the hub, and the plan explicitly declines to build a spiritual landing page. Post 3814 is the deepest thing on the domain for this topic and has no inbound links from anything published after 2023. Four spokes in from 3948, 11936, 11358, 11700. Two spokes out to `/the-kk-worldview/` and `/ai-ethics/`. The category fix in child 1 also repairs its auto-footer, which currently sends readers of the best-performing spiritual post into the 2005 Drupal archive. | 6 (rows 2 to 7) | child 1 |
-| 9 | **Brand navigation for `krug ai`** | 9 | Smallest child, still real. No title change: the live `<title>` already reads `Kris Krug | AI Keynote Speaker & Creative Technologist` with the unaccented spelling. The move for a brand query is making the who-and-what pages one click from the AI posts people actually land on. Three links: 12653 to `/speaking/`, 12030 to `/about/`, 11700 to `/glossary/`. Use 11879 as the model, it already links to five internal pages; leave it alone. **Carry the warning forward:** the homepage title and description come from Jetpack `advanced_seo_title_formats.front_page`, not page 3930 post-meta and not the theme. Out of lane. | 3 (rows 32 to 34) | child 1 |
+| 9 | **Brand navigation for `krug ai`** | 9 | Smallest child, still real. No title change in this Track A child: the live `<title>` already reads `Kris Krug | AI Keynote Speaker & Creative Technologist` with the unaccented spelling. The move for a brand query is making the who-and-what pages one click from the AI posts people actually land on. Three links: 12653 to `/speaking/`, 12030 to `/about/`, 11700 to `/glossary/`. Use 11879 as the model, it already links to five internal pages; leave it alone. **Carry the warning forward:** the fallback and front-page title owner is `theme/kk-aurora/functions.php` through `document_title_parts` / `document_title_separator`, confirmed by #756 and its merged diagnosis. It is not Jetpack `advanced_seo_title_formats.front_page` or page 3930 post-meta. Any title change is a separate Track B release. | 3 (rows 32 to 34) | child 1 |
 
 **Coverage check: 6 + 4 + 4 + 3 + 8 + 5 + 3 + 4 = 37.** Every row in `link-matrix.csv` is assigned to exactly one child, with no overlap and no orphans. (Child 5's count of 4 link rows plus row 31, the 2819 dead-link repair, which is assigned to child 1 as a repair rather than a new link.)
 
@@ -473,7 +483,7 @@ The 2026-08-04 closeout on #642 records this issue as "class rename, deferred in
 
 ## 5. `issues-to-create/` reconciliation
 
-Verified per file against all 381 filed issues (`gh issue list --state all --limit 1000`), matching every draft item by title and body, with ambiguous renames confirmed by `gh issue view` (#3, #12, #68, #125, #194). **The audit list in #744 was wrong on 10 of the 22 files.**
+Verified per file against all 381 filed issues (`gh issue list --state all --limit 1000`), matching every draft item by title and body, with ambiguous renames confirmed by `gh issue view` (#3, #12, #68, #125, #194). Refreshed after #22 closed: **the original #744 dispositions were wrong or missing on 11 of the 22 draft files.**
 
 Three arithmetic notes on #744 first:
 
@@ -485,13 +495,14 @@ Three arithmetic notes on #744 first:
 
 A draft is REDUNDANT when **every** item in it maps to a filed issue that is closed. It is KEEP when any item is unfiled, or a filed child is still open. This is #744's own stated criterion ("their issues are filed and shipped"), applied literally.
 
-### Archive list: 13 files
+### Archive list: 14 files
 
 Move to `issues-to-create/archive/`. Move, not delete.
 
 | File | Evidence |
 |---|---|
 | `aurora-v2-redesign-epics.md` | 7 items to #80 through #86, all CLOSED |
+| `batch-2-content-positioning.json` | 12 items to #12 through #23, all CLOSED after #22 closed 2026-08-16T06:10:27Z |
 | `batch-3-4-all-remaining.json` | 25 items to #24 through #48, all CLOSED |
 | `batch-eng-hardening-2026-06-24.json` | 6 items to #251 through #256, all CLOSED |
 | `batch-marketing-archives-portal.json` | 16 items to #49 through #64, all CLOSED |
@@ -505,7 +516,7 @@ Move to `issues-to-create/archive/`. Move, not delete.
 | `style-css-dangling-form-selectors.md` | #698 CLOSED |
 | `visual-baseline-capture-mode-mismatch.md` | #697 CLOSED, pixel gate repaired |
 
-### Keep list: 9 files
+### Keep list: 8 files
 
 | File | Reason |
 |---|---|
@@ -513,7 +524,6 @@ Move to `issues-to-create/archive/`. Move, not delete.
 | `world-cup-fashion-cake-agent-tasks.md` | **Never filed.** `gh search issues` for "World Cup", "Becker", "fashion microsite" returns zero relevant hits, and no title in the 381-issue list mentions World Cup, Becker, cake, or microsite. Needs KK before filing: Becker credits, quotes, image approval, and FIFA trademark constraints. |
 | `aurora-launch-audit-2026-05-23.json` | 12 items to #116 through #127. **#122 and #127 still OPEN.** |
 | `batch-1-critical-bugs.json` | 10 items to #1 through #11. **#4 (alt text) still OPEN.** |
-| `batch-2-content-positioning.json` | 12 items to #12 through #23. **#22 still OPEN**, and it is a close candidate in this same dossier. If #22 closes, this file becomes archivable. |
 | `batch-site-redesign-2026-07-17.json` | 22 items to #403 through #424. **11 still OPEN:** #403 epic plus #411, #412, #413, #414, #415, #416, #418, #419, #420, #424. |
 | `testimonials-showpiece-v2-swarm-2026-08-01.md` | #593 through #602. **#593 and #602 OPEN**, and #602 is a KK decision gate. |
 | `voice-audit-blog-sweep-swarm-2026-08-01.json` | 13 items to #603 through #616. **#603 and #612 OPEN**, and #612 is a KK decision gate. |
@@ -523,33 +533,33 @@ Move to `issues-to-create/archive/`. Move, not delete.
 
 | Correction | Files |
 |---|---|
-| **Wrongly listed for archive** (still have open children) | `aurora-launch-audit` (#122, #127), `batch-1-critical-bugs` (#4), `batch-2-content-positioning` (#22), `batch-site-redesign-2026-07-17` (#403 plus 10), `testimonials-showpiece-v2` (#593, #602), `voice-audit-blog-sweep` `.json` and `.md` (#603, #612). Seven file entries. |
+| **Wrongly listed for archive** (still have open children) | `aurora-launch-audit` (#122, #127), `batch-1-critical-bugs` (#4), `batch-site-redesign-2026-07-17` (#403 plus 10), `testimonials-showpiece-v2` (#593, #602), `voice-audit-blog-sweep` `.json` and `.md` (#603, #612). Six file entries. |
 | **Wrongly listed as keep** (fully filed and closed, "needs per-item reconciliation" resolved) | `batch-eng-hardening-2026-06-24`, `batch-marketing-archives-portal`, `content-extraction-updates`, `long-run-workday-2026-07-16`. Four files. |
 | **Missing from both lists** | `batch-session-followups-2026-06-24.json`. Archive it. |
 
 ### Optional wider sweep, KK's call
 
-If KK prefers the aggressive rule, "a draft is archivable once its issues are **filed**, because GitHub is then the source of truth and an open child is tracked there, not here", then seven more file entries move to archive: `aurora-launch-audit`, `batch-1`, `batch-2`, `batch-site-redesign`, `testimonials-showpiece-v2`, and both `voice-audit-blog-sweep` files. That would leave only the two genuinely unfiled drafts, `contact-form-implementation-stub-from-277.md` and `world-cup-fashion-cake-agent-tasks.md`, plus `README.md`.
+If KK prefers the aggressive rule, "a draft is archivable once its issues are **filed**, because GitHub is then the source of truth and an open child is tracked there, not here", then six more file entries move to archive: `aurora-launch-audit`, `batch-1`, `batch-site-redesign`, `testimonials-showpiece-v2`, and both `voice-audit-blog-sweep` files. That would leave only the two genuinely unfiled drafts, `contact-form-implementation-stub-from-277.md` and `world-cup-fashion-cake-agent-tasks.md`, plus `README.md`.
 
-Tiering: **13 archive** (conservative, recommended), **+7 more** if KK adopts the aggressive rule, **2 keep regardless**. 13 + 7 + 2 = 22, which reconciles.
+Tiering: **14 archive** (conservative, recommended), **+6 more** if KK adopts the aggressive rule, **2 keep regardless**. 14 + 6 + 2 = 22, which reconciles.
 
-Recommend the conservative 13 for this pass. It matches #744's own stated criterion, and since this is a move and not a delete, the wider sweep stays available at zero cost later.
+Recommend the conservative 14 for this pass. It matches #744's own stated criterion, and since this is a move and not a delete, the wider sweep stays available at zero cost later.
 
 ---
 
 ## 6. Execution checklist for the coordinator
 
-Nothing below has been done. All of it needs KK approval first.
+Completed items are checked below. Every unchecked item still needs KK approval first.
 
-- [ ] Close **#22** with the comment in 1.1
-- [ ] Close **#725** with the comment in 1.4
+- [x] **#22 closed** 2026-08-16T06:10:27Z after fresh main/live verification
+- [x] **#725 auto-closed** 2026-08-16T05:43:24Z when #726 merged
 - [ ] **#416:** KK runs or waives the end-to-end signup test, then close with the comment in 1.3
 - [ ] **#339:** do NOT close. Post the comment in 1.2 and rewrite the body to the four unapplied items
 - [ ] Replace the **#642** body with 2.1
 - [ ] Replace the **#318** body with 2.2
 - [ ] File the 9 **#402** children from section 3, then append the epic block to #402
 - [ ] **#481:** read the #423 memo, then remove `blocked` and post the comment in section 4, choosing `needs-decision` or `needs-human-review` per the memo
-- [ ] `git mv` the 13 files in section 5 to `issues-to-create/archive/`
+- [ ] `git mv` the 14 files in section 5 to `issues-to-create/archive/`
 - [ ] Confirm the next Monday `backlog-reconcile.yml` run shows no drift flags on the touched issues
 
 ### Out of scope, do not propose for closure
@@ -560,8 +570,14 @@ Nothing below has been done. All of it needs KK approval first.
 
 ## Method and provenance
 
-All GitHub state read via `gh issue view` / `gh pr view` / `gh issue list` on 2026-08-15 and 2026-08-16 UTC. All live-site claims are logged-out `curl` against `https://kriskrug.co` on 2026-08-15, no authenticated reads, no writes. Repo claims are `git show origin/main:<path>` at `44bbbad`.
+All GitHub state read via `gh issue view` / `gh pr view` / `gh issue list` on 2026-08-15 and 2026-08-16 UTC. All live-site claims are logged-out `curl` against `https://kriskrug.co` on 2026-08-15, no authenticated reads, no writes. Repo claims were refreshed against `origin/main` after the original dossier PR merged.
 
-**This lane made no GitHub writes** other than the pull request carrying this file. No issue was closed, edited, relabeled, or commented on. No file was moved or deleted.
+**Original Lane O made no GitHub writes** other than the pull request carrying
+this file. Subsequent coordinator work closed #22, while #725 auto-closed from the
+#726 merge. This corrective pass only refreshed the dossier; no issue was edited,
+relabeled, or closed, and no draft file was moved or deleted.
 
-One state change happened mid-session and is recorded rather than hidden: **PR #726 merged at 2026-08-16T05:43:23Z**, between the first and second read of its state. The first read returned `state=OPEN`, which would have made #725 a failed close candidate. The second returned `state=MERGED`. The verification in 1.4 was performed against `origin/main` after the merge, not against the open PR.
+Two completed state changes are recorded rather than hidden: **PR #726 merged at
+2026-08-16T05:43:23Z**, auto-closing #725 at 05:43:24Z, and the coordinator closed
+#22 at 06:10:27Z after a fresh verification pass. The #22 close is what moves
+`batch-2-content-positioning.json` from keep to the conservative archive list.
