@@ -13,8 +13,8 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | File | What it covers |
 |---|---|
 | [`current-state/README.md`](current-state/README.md) | Index; front door pointers |
-| [`current-state/CURRENT-STATE-2026-07-30.md`](current-state/CURRENT-STATE-2026-07-30.md) | Declared snapshot for drift checks (WP 7.0.2; Aurora live 1.5.7 vs repo `main` 1.5.8, readback 2026-08-02) |
-| [`current-state/WORK-PLAN-2026-07-30.md`](current-state/WORK-PLAN-2026-07-30.md) | **Active day runbook** |
+| [`current-state/CURRENT-STATE-2026-07-30.md`](current-state/CURRENT-STATE-2026-07-30.md) | Declared snapshot for drift checks (WP 7.0.4; Aurora live and repo `main` in sync at 1.6.5, readback 2026-08-15) |
+| [`current-state/WORK-PLAN-2026-08-15.md`](current-state/WORK-PLAN-2026-08-15.md) | **Active day runbook** (supersedes 2026-08-09 and 2026-07-30) |
 | [`current-state/MASTER-PLAN-2026-07-30.md`](current-state/MASTER-PLAN-2026-07-30.md) | Truth → reclaim → product lanes |
 | [`current-state/TWO-TRACK-MODEL.md`](current-state/TWO-TRACK-MODEL.md) | Active Track A / Track B decision rule |
 | [`current-state/ACCESS_CHANNELS.md`](current-state/ACCESS_CHANNELS.md) | MCP / REST / Chrome / SSH — what works today |
