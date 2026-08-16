@@ -1,20 +1,20 @@
 # Current State of kriskrug.co
 
-Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then the newest `reports/morning-truth-*.md`.
+Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then run `make status-readonly` for current runtime signals.
 
-## Current Front Door (verified 2026-08-12)
+## Current Front Door (verified 2026-08-15)
 
 Read these first:
 
-1. **[WORK-PLAN-2026-08-09.md](WORK-PLAN-2026-08-09.md)**, latest dated runbook (supersedes 2026-08-05; use the newest morning-truth report for live counters)
-2. **[CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md)**, declared snapshot for `make morning-truth` / drift (counts drifted — see newest report)
+1. **[WORK-PLAN-2026-08-15.md](WORK-PLAN-2026-08-15.md)**, latest dated runbook (supersedes 2026-08-09; use `make status-readonly` for live counters)
+2. **[CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md)**, declared snapshot for morning-truth drift checks (compare it with a fresh `make status-readonly` run)
 3. **[MASTER-PLAN-2026-07-30.md](MASTER-PLAN-2026-07-30.md)**, truth then reclaim then product lanes (hygiene phases complete)
-4. Newest **[reports/morning-truth-*.md](reports/)**, or run `make status-readonly` / `make morning-truth`
+4. Run `make status-readonly` for current signals; use the newest **[reports/morning-truth-*.md](reports/)** only as durable checkpoint evidence
 5. **[TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)**, Track A vs Track B
 6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
 7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
 
-**Live readback 2026-08-12:** WordPress `7.0.4`. Aurora live and repo `main` are **in sync at `1.6.4`**. The public route smoke passes with the refreshed WordPress expectation; the public `style.css` readback remains authoritative for production theme state. Verified against `theme/kk-aurora/style.css`. Read back, do not assume, in either direction.
+**Live readback 2026-08-15:** WordPress `7.0.4`. Aurora live and repo `main` are **in sync at `1.6.5`**. The public route smoke passes with the refreshed WordPress expectation; the public `style.css` readback remains authoritative for production theme state. Verified against `theme/kk-aurora/style.css`. Read back, do not assume, in either direction.
 
 ## Durable process docs (keep at top level)
 
@@ -86,13 +86,14 @@ Neither is a plan you execute from. Check with `ls docs/current-state/*.md | gre
 - `issues-to-create/README.md` line 5, to `archive/ISSUES-TO-CREATE-RECONCILIATION-2026-06-09.md`
 - `backup/2026-05-16/manifest.md` line 47, to `archive/FIX_QUEUE.md`
 
-**Current-doc surface is clean.** Scanning the 39 top-level `docs/current-state/*.md` plus `AGENTS.md`, `README.md`, `CONTRIBUTING.md` and `docs/INDEX.md` gives **0 broken relative links**. Every remaining break under `docs/current-state/` is inside `archive/`, which is historical by definition, plus one regex fragment in a `reports/` code block that a link scanner misreads as a link.
+**Current-doc surface is clean.** Scanning the 51 top-level `docs/current-state/*.md` plus `AGENTS.md`, `README.md`, `CONTRIBUTING.md` and `docs/INDEX.md` gives **0 broken relative links**. Every remaining break under `docs/current-state/` is inside `archive/`, which is historical by definition, plus one regex fragment in a `reports/` code block that a link scanner misreads as a link.
 
 **Still broken, and out of scope for #549.** A repo-wide scan of 921 tracked `.md` files (509 relative link targets) finds 114 unresolved: 37 inside `archive/` itself, 77 elsewhere. None of the 77 is archive-move rot. They break down as pseudo-scheme placeholders the publisher rewrites (`photo:7750`, `media:11920`, `poster:3`, `img:mcluhan`), root-relative live-site URLs that resolve on kriskrug.co and never on disk (`/contact`, `/speaking/`), regex fragments inside fenced code blocks that a naive link scanner misreads, and `images/` binaries referenced by `content/drafts/` posts that were never committed (they exist in some working copies as untracked files, so this count is worktree-sensitive). The 37 inside `archive/` are the real move damage: 33 lost one directory level and resolve by prefixing `../`, 4 point at `fixes/` artifacts that no longer exist. Both sets sit outside `docs/current-state/` top level, nothing on the front door reads them, and repairing them is its own issue.
 
 ## Reports and subdirectories
 
-- `reports/`, timestamped `make morning-truth` output and ops evidence. Prefer the newest `morning-truth-*.md`. Markdown stays tracked; screenshot binaries are reclaim targets (#369 bucket D).
+- `.generated/current-state/`, gitignored local `make morning-truth` output. Routine startup telemetry stays here and is not committed.
+- `reports/`, durable checkpoint and ops evidence. `make morning-truth-checkpoint` writes here only for an explicit release, incident, durable decision, or handoff. Existing morning-truth Markdown remains tracked historical evidence; screenshot binaries are reclaim targets (#369 bucket D).
 - `raw/`, unprocessed captures feeding the audits.
 - `marketing/`, `portal/`, `templates/`, scoped working sets, not startup context.
 - `archive/`, everything above.

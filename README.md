@@ -58,19 +58,18 @@ fixes/                           # Production-ready code snippets / migrations
 plugins/
   └── kk-sidebar-promos/         # Packaged helper plugin for auto-expiring sidebar promos
 
-docs/current-state/              # Frozen baseline snapshot plus dated recovery/redesign handoffs
+docs/current-state/              # Dated truth snapshots plus recovery/redesign handoffs
   ├── README.md                  # Index of the snapshot
-  ├── SITE_INVENTORY.md          # Live-site fingerprint: host, theme, plugins, content shape
-  ├── REPO_STATE.md              # What's actually built vs. just documented
+  ├── CURRENT-STATE-*.md         # Dated truth snapshots; the newest is the declared one
+  ├── WORK-PLAN-*.md             # Dated day runbooks; the newest is active
+  ├── MASTER-PLAN-2026-07-30.md  # Hygiene + lane sequencing plan of record
+  ├── TWO-TRACK-MODEL.md         # The active operating model
   ├── ACCESS_CHANNELS.md         # MCP / REST / Chrome / SSH — what works today
   ├── BACKUP_PLAN.md             # The four pieces of a real WP backup + paths to get them
   ├── ROLLBACK_PLAYBOOK.md       # If a change breaks prod, here's the order of operations
-  ├── SEO_AUDIT.md               # Technical SEO + on-page + AI/generative-search readiness
-  ├── CONTENT_AUDIT.md           # Per-page review of all 34 pages + recent post inventory
-  ├── FIX_QUEUE.md               # P0 → P3 backlog
-  ├── ROADMAP.md                 # Where this is heading next
-  ├── FULL-AUDIT-ROADMAP-2026-05-18.md # Current queue audit + next roadmap
   ├── INCIDENT-2026-05-15-overwritten-post.md   # Postmortem for the connector overwrite
+  ├── reports/                   # Timestamped morning-truth reports
+  ├── archive/                   # Superseded May–June audits (SITE_INVENTORY, REPO_STATE, SEO_AUDIT, CONTENT_AUDIT, FIX_QUEUE, ROADMAP, FULL-AUDIT-ROADMAP-2026-05-18)
   └── raw/                       # Underlying API/HTML evidence behind the audit
 
 issues-to-create/                # Markdown drafts of GitHub issues waiting to be filed
@@ -85,12 +84,13 @@ skills/                          # Claude Code skills used in this repo
 
 - **Reading the site state:** `docs/current-state/README.md`
 - **Planning next work:** the newest dated `docs/current-state/CURRENT-STATE-*.md` and `docs/current-state/WORK-PLAN-*.md` (the index in `docs/current-state/README.md` names the current ones)
-- **Latest startup truth:** the newest `docs/current-state/reports/morning-truth-*.md` (run `make morning-truth` for a fresh one; dated links go stale fast, so always take the newest)
-- **Latest diagnostic truth:** `docs/current-state/DIAGNOSTIC-POLISH-2026-05-20.md`
-- **Longer roadmap references:** `docs/current-state/ROADMAP.md` and `docs/current-state/FIX_QUEUE.md`
+- **Current startup truth:** `make status-readonly` prints current repo/site signals without writing a file
+- **Local generated report:** `make morning-truth` writes to the gitignored `.generated/current-state/` directory
+- **Durable checkpoint:** `make morning-truth-checkpoint` writes to `docs/current-state/reports/` only for an explicit release, incident, durable decision, or handoff
+- **Latest diagnostic truth:** `docs/current-state/archive/DIAGNOSTIC-POLISH-2026-05-20.md` (May 2026, archived)
+- **Longer roadmap references:** `docs/current-state/archive/ROADMAP.md` and `docs/current-state/archive/FIX_QUEUE.md` (archived; the live backlog is the GitHub issue list)
 - **Publishing a Notion post:** `scripts/notion-to-wp/README.md`
 - **Reviewing staged drafts:** `content/drafts/README.md`
-- **Read-only startup status:** `make status-readonly` prints current repo/site signals without writing a report
 - **Filing an issue:** `issues-to-create/` for drafts; existing ones at [WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
 
 ## How work happens here
@@ -133,7 +133,7 @@ If you're editing a post, page, schema, redirect, or category → Track A. If yo
 
 There is no local app server. The live WordPress site runs on Pagely and is not file-synced with this repo. "Running" this repo means the CLI and validation surfaces:
 
-- `make status-readonly` or `make morning-truth` for startup truth
+- `make status-readonly` for startup truth; use `make morning-truth` only when a local generated copy is useful
 - `make test` for the local test suite (Python, JavaScript syntax, plugin and theme smoke)
 - `make validate` for the WordPress PHP security ruleset (run `composer install` first)
 - `make verify` for the standard local gate (test + docs-truth-check + validate)
@@ -161,7 +161,7 @@ Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](do
 
 ## Technology Stack
 
-- **Platform:** WordPress **7.0.1** on Pagely (production), Aurora `kk-aurora` theme (live may lag repo — check CURRENT-STATE)
+- **Platform:** WordPress on Pagely with the Aurora `kk-aurora` theme; run `make status-readonly` for current production versions
 - **Content pipeline:** Python (Notion API → WordPress REST API)
 - **Custom code:** PHP snippets (Code Snippets plugin on prod), `inc/digital-composting.php`, and packaged helper plugins such as `plugins/kk-sidebar-promos/`
 - **CLI Tools:** GitHub CLI (`gh`), Claude Code / Cursor agents
