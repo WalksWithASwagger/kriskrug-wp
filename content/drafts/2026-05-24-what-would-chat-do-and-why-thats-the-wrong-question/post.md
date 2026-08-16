@@ -201,6 +201,6 @@ Transition: "Who is steering: you, your values, or the algorithm wearing your fa
 ## Related
 
 - [Both Hands Full](https://kriskrug.co/2026/01/24/both-hands-full/)
-- [The 75% Rule](https://kriskrug.co/?p=11876)
+- [Send AI After the Art-Adjacent Work](https://kriskrug.co/2026/06/17/storyhive-haus-of-owl-jordan-dack/)
 - [SFU Dialogue on Technology Project](https://www.sfu.ca/dialogue/what-we-do/initiatives/dot.html)
 - [Responsible AI Professional Certification](https://bc-ai.ca/certification/responsible-ai-professional/)
