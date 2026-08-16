@@ -93,9 +93,15 @@ python3 ~/Code/kk-voice/scripts/voicecheck.py \
 
 Expect 27 flags.
 
+## Status update, 2026-08-15 (#734 live readback)
+
+Live apply **has happened**. Post 12653 now carries **zero** U+2014 in `content.rendered`, verified logged-out on 2026-08-15. The 3 em dashes still visible in the rendered page are theme chrome: 2 in the `parts/header.html` critical-geometry guard comment, 1 in the site-wide SEO title format. Neither is post content. Full evidence: [`docs/current-state/reports/voice-sweep-live-readback-20260815.md`](../../../docs/current-state/reports/voice-sweep-live-readback-20260815.md).
+
+The applied version was dash-only plus one of the three reveal-density variations (`That is a design choice, not a romance about grit.`). The other two rewrites in `remediated-body.md` are still unshipped, so this payload remains **ahead of live** on those two sentences. Landing them is a KK call, not a defect.
+
 ## Still open
 
-- Live apply against 12653 has not happened and is not authorized from this lane. #609 owns it: snapshot first, slug and ID check, cache-bypass curl after.
+- Two reveal-density variations from `remediated-body.md` not yet live (see status update above).
 - Festival naming decision is blocked on #614.
 - The checker gap that let this density through is #616's work in `~/Code/kk-voice/anti-glossary.md`. The candidate regex from the audit is `\b(is|are|was) not (just|only|simply) [^.]{3,80}\. (It|That|They|These) (is|are)\b`, soft flag, judged on density rather than per instance. Not touched here, different repo.
 - The L115 missing-word question above.
