@@ -90,11 +90,18 @@ class ApplyIssue764FixTests(unittest.TestCase):
     def test_apply_snapshots_every_target_before_first_wordpress_write(self):
         snapshot_dir = self.tmp_path / "snapshots"
         writes = []
+        saved = {}
+        calls = []
+        get_urls = []
 
         def fake_request(url, _header, body=None):
             post_id = int(url.split("/posts/")[1].split("?")[0])
             live = baseline(post_id)
             if body is None:
+                calls.append(("GET", post_id))
+                get_urls.append(url)
+                if post_id in saved:
+                    live["content"]["raw"] = saved[post_id]
                 return live
 
             snapshots = list(snapshot_dir.glob("*.json"))
@@ -103,6 +110,8 @@ class ApplyIssue764FixTests(unittest.TestCase):
                 all(stat.S_IMODE(path.stat().st_mode) == 0o600 for path in snapshots)
             )
             writes.append(post_id)
+            calls.append(("POST", post_id))
+            saved[post_id] = body["content"]
             return {**live, "content": {"raw": body["content"]}}
 
         with mock.patch.object(MODULE, "SNAPSHOT_DIR", snapshot_dir), mock.patch.object(
@@ -111,6 +120,81 @@ class ApplyIssue764FixTests(unittest.TestCase):
             self.assertEqual(0, run_main("--apply"))
 
         self.assertEqual(sorted(MODULE.TARGETS), writes)
+        ordered_ids = sorted(MODULE.TARGETS)
+        self.assertEqual(
+            [("GET", post_id) for post_id in ordered_ids]
+            + [
+                item
+                for post_id in ordered_ids
+                for item in (("POST", post_id), ("GET", post_id))
+            ],
+            calls,
+        )
+        self.assertTrue(all(url.endswith("?context=edit") for url in get_urls))
+
+    def test_apply_fails_when_post_claims_success_but_fresh_get_disagrees(self):
+        post_id = sorted(MODULE.TARGETS)[0]
+        calls = []
+
+        def fake_request(url, _header, body=None):
+            calls.append(("POST" if body else "GET", url))
+            live = baseline(post_id)
+            if body is not None:
+                return {**live, "content": {"raw": body["content"]}}
+            return live
+
+        with mock.patch.object(
+            MODULE, "SNAPSHOT_DIR", self.tmp_path / "snapshots"
+        ), mock.patch.object(MODULE, "request", side_effect=fake_request):
+            self.assertEqual(1, run_main("--post-id", str(post_id), "--apply"))
+
+        self.assertEqual(["GET", "POST", "GET"], [method for method, _ in calls])
+        self.assertTrue(calls[-1][1].endswith("?context=edit"))
+
+    def test_apply_fails_on_mismatched_post_response_even_if_fresh_get_matches(self):
+        post_id = sorted(MODULE.TARGETS)[0]
+        saved = False
+        calls = []
+
+        def fake_request(url, _header, body=None):
+            nonlocal saved
+            calls.append(("POST" if body else "GET", url))
+            live = baseline(post_id)
+            if body is not None:
+                saved = True
+                return live
+            if saved:
+                live["content"]["raw"] = payload(post_id)
+            return live
+
+        with mock.patch.object(
+            MODULE, "SNAPSHOT_DIR", self.tmp_path / "snapshots"
+        ), mock.patch.object(MODULE, "request", side_effect=fake_request):
+            self.assertEqual(1, run_main("--post-id", str(post_id), "--apply"))
+
+        self.assertEqual(["GET", "POST", "GET"], [method for method, _ in calls])
+        self.assertTrue(calls[-1][1].endswith("?context=edit"))
+
+    def test_apply_refuses_fresh_readback_slug_mismatch(self):
+        post_id = sorted(MODULE.TARGETS)[0]
+        wrote = False
+
+        def fake_request(_url, _header, body=None):
+            nonlocal wrote
+            live = baseline(post_id)
+            if body is not None:
+                wrote = True
+                return {**live, "content": {"raw": body["content"]}}
+            if wrote:
+                live["slug"] = "wrong-post"
+                live["content"]["raw"] = payload(post_id)
+            return live
+
+        with mock.patch.object(
+            MODULE, "SNAPSHOT_DIR", self.tmp_path / "snapshots"
+        ), mock.patch.object(MODULE, "request", side_effect=fake_request):
+            with self.assertRaisesRegex(SystemExit, "slug"):
+                run_main("--post-id", str(post_id), "--apply")
 
     def test_restore_refuses_post_outside_allowlist_without_network_or_disk_write(self):
         restore_file = self.tmp_path / "untrusted.json"
@@ -206,10 +290,14 @@ class ApplyIssue764FixTests(unittest.TestCase):
         current = {**original, "content": {"raw": payload(post_id)}}
         snapshot_dir = self.tmp_path / "snapshots"
         writes = []
+        restored = False
+        calls = []
 
         def fake_request(_url, _header, body=None):
+            nonlocal restored
             if body is None:
-                return current
+                calls.append("GET")
+                return original if restored else current
             backups = list(snapshot_dir.glob("*.json"))
             self.assertEqual(1, len(backups))
             self.assertEqual(
@@ -217,6 +305,8 @@ class ApplyIssue764FixTests(unittest.TestCase):
             )
             self.assertEqual(0o600, stat.S_IMODE(backups[0].stat().st_mode))
             writes.append(body)
+            calls.append("POST")
+            restored = True
             return {**original, "content": {"raw": body["content"]}}
 
         with mock.patch.object(MODULE, "SNAPSHOT_DIR", snapshot_dir), mock.patch.object(
@@ -227,6 +317,57 @@ class ApplyIssue764FixTests(unittest.TestCase):
             )
 
         self.assertEqual([{"content": original["content"]["raw"]}], writes)
+        self.assertEqual(["GET", "POST", "GET"], calls)
+
+    def test_restore_fails_when_post_claims_success_but_fresh_get_disagrees(self):
+        post_id = sorted(MODULE.TARGETS)[0]
+        original = baseline(post_id)
+        restore_file = self.tmp_path / "baseline.json"
+        restore_file.write_text(json.dumps(original), encoding="utf-8")
+        current = {**original, "content": {"raw": payload(post_id)}}
+        calls = []
+
+        def fake_request(_url, _header, body=None):
+            calls.append("POST" if body else "GET")
+            if body is not None:
+                return {**original, "content": {"raw": body["content"]}}
+            return current
+
+        with mock.patch.object(
+            MODULE, "SNAPSHOT_DIR", self.tmp_path / "snapshots"
+        ), mock.patch.object(MODULE, "request", side_effect=fake_request):
+            self.assertEqual(
+                1, run_main("--restore", str(restore_file), "--apply")
+            )
+
+        self.assertEqual(["GET", "POST", "GET"], calls)
+
+    def test_restore_fails_on_mismatched_post_response_even_if_fresh_get_matches(self):
+        post_id = sorted(MODULE.TARGETS)[0]
+        original = baseline(post_id)
+        restore_file = self.tmp_path / "baseline.json"
+        restore_file.write_text(json.dumps(original), encoding="utf-8")
+        current = {**original, "content": {"raw": payload(post_id)}}
+        restored = False
+        calls = []
+
+        def fake_request(url, _header, body=None):
+            nonlocal restored
+            calls.append(("POST" if body else "GET", url))
+            if body is not None:
+                restored = True
+                return current
+            return original if restored else current
+
+        with mock.patch.object(
+            MODULE, "SNAPSHOT_DIR", self.tmp_path / "snapshots"
+        ), mock.patch.object(MODULE, "request", side_effect=fake_request):
+            self.assertEqual(
+                1, run_main("--restore", str(restore_file), "--apply")
+            )
+
+        self.assertEqual(["GET", "POST", "GET"], [method for method, _ in calls])
+        self.assertTrue(calls[-1][1].endswith("?context=edit"))
 
 
 if __name__ == "__main__":

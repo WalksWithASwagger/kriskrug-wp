@@ -59,7 +59,7 @@ The DB is latin1, so anything above U+00FF written through REST comes back as `?
 Requires resolved creds. Everything below is safe to run as-is. The default
 dry run performs authenticated GETs and prints the reviewed diffs, but creates
 no files and makes no WordPress writes. Only `--apply` permits either snapshots
-or PATCH requests.
+or WordPress POST updates.
 
 ```bash
 # 1. Dry run. Prints the unified diff and the em-dash delta for both posts.
@@ -85,11 +85,14 @@ unless all three hold for all of them:
 
 After every target passes preflight, `--apply` writes a mode-0600
 `backup/issue-764-em-dash-404/rest-post-<id>-before-<stamp>.json` file for every
-pending post. Only after every snapshot succeeds does the first PATCH begin.
+pending post. Only after every snapshot succeeds does the first POST begin.
 That ordering prevents a second-post validation or snapshot failure from
 leaving a one-post partial apply. The script prints the exact rollback command
-on success. If a live body already equals its payload it prints `[SKIP]` and
-moves on, so re-running is safe.
+on success. After each update, it performs a separate authenticated
+`context=edit` GET, revalidates the ID and slug, and hashes that fresh body
+against the reviewed payload; the POST response is not treated as readback.
+If a live body already equals its payload it prints `[SKIP]` and moves on, so
+re-running is safe.
 
 ## Verify
 
@@ -144,10 +147,11 @@ Restore is dry-run by default too. It refuses a snapshot whose ID is outside
 the two-post allowlist, whose slug or body hash differs from the approved
 baseline, or whose live target has drifted from the reviewed payload. With
 `--apply`, it first saves the current live payload to a fresh mode-0600
-`rest-post-<id>-before-restore-<stamp>.json`, then performs the restore. If the
-original snapshot is missing, the committed `*-baseline-20260815.json` files in
-these `fix-764/` directories hold the same approved `content.raw` and pass the
-same validation.
+`rest-post-<id>-before-restore-<stamp>.json`, then performs the restore and
+verifies it through a separate authenticated `context=edit` GET with the same
+ID, slug, and approved baseline-body hash checks. If the original snapshot is
+missing, the committed `*-baseline-20260815.json` files in these `fix-764/`
+directories hold the same approved `content.raw` and pass the same validation.
 
 ## Optional, KK's call, not in the payload
 

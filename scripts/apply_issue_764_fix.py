@@ -4,7 +4,8 @@
 Dry-run by default. Every write is gated on three checks that satisfy the
 2026-05-15 incident rules: the target ID resolves to the expected slug, the live
 body still matches the baseline hash captured when the payload was written, and
-a fresh `context=edit` snapshot lands on disk before the PATCH.
+a fresh `context=edit` snapshot lands on disk before the POST update. Every
+update is then verified through an independent `context=edit` GET.
 
     make varlock-run CMD='python3 scripts/apply_issue_764_fix.py'
     make varlock-run CMD='python3 scripts/apply_issue_764_fix.py --apply'
@@ -136,6 +137,19 @@ def validate_live_identity(live: dict, post_id: int, spec: dict) -> None:
         )
 
 
+def response_matches(
+    response: dict, post_id: int, spec: dict, expected_sha256: str
+) -> bool:
+    content = response.get("content")
+    body = content.get("raw") if isinstance(content, dict) else None
+    return (
+        response.get("id") == post_id
+        and response.get("slug") == spec["slug"]
+        and isinstance(body, str)
+        and sha256(body) == expected_sha256
+    )
+
+
 def preflight_target(post_id: int, spec: dict, header: str) -> PreparedTarget:
     payload = (spec["dir"] / f"{post_id}-content-payload.html").read_text(
         encoding="utf-8"
@@ -178,21 +192,34 @@ def preflight_target(post_id: int, spec: dict, header: str) -> PreparedTarget:
 
 def apply_target(plan: PreparedTarget, header: str, snapshot: Path) -> bool:
     updated = request(
-        f"{BASE_URL}/wp-json/wp/v2/posts/{plan.post_id}",
+        f"{BASE_URL}/wp-json/wp/v2/posts/{plan.post_id}?context=edit",
         header,
         {"content": plan.payload},
     )
-    written = updated["content"]["raw"]
-    ok = sha256(written) == plan.spec["payload_sha256"]
+    response_ok = response_matches(
+        updated, plan.post_id, plan.spec, plan.spec["payload_sha256"]
+    )
     print(
-        f"[WRITE] {plan.post_id}: readback "
-        f"{'matches' if ok else 'DOES NOT MATCH'} the payload."
+        f"[WRITE] {plan.post_id}: POST response "
+        f"{'matches' if response_ok else 'DOES NOT MATCH'} the target and payload."
+    )
+
+    readback = request(
+        f"{BASE_URL}/wp-json/wp/v2/posts/{plan.post_id}?context=edit", header
+    )
+    validate_live_identity(readback, plan.post_id, plan.spec)
+    readback_ok = response_matches(
+        readback, plan.post_id, plan.spec, plan.spec["payload_sha256"]
+    )
+    print(
+        f"[READBACK] {plan.post_id}: fresh context=edit GET "
+        f"{'matches' if readback_ok else 'DOES NOT MATCH'} the payload."
     )
     print(
         "[ROLLBACK] python3 scripts/apply_issue_764_fix.py "
         f"--restore {snapshot} --apply"
     )
-    return ok
+    return response_ok and readback_ok
 
 
 def run_targets(
@@ -268,17 +295,30 @@ def restore(path: Path, header: str, stamp: str, apply: bool) -> bool:
         plan.live, plan.post_id, stamp, "before-restore"
     )
     updated = request(
-        f"{BASE_URL}/wp-json/wp/v2/posts/{plan.post_id}",
+        f"{BASE_URL}/wp-json/wp/v2/posts/{plan.post_id}?context=edit",
         header,
         {"content": plan.snapshot["content"]["raw"]},
     )
-    ok = updated["content"]["raw"] == plan.snapshot["content"]["raw"]
+    expected_hash = plan.spec["baseline_sha256"]
+    response_ok = response_matches(updated, plan.post_id, plan.spec, expected_hash)
     print(
-        f"[RESTORE] {plan.post_id}: readback "
-        f"{'matches' if ok else 'DOES NOT MATCH'} the snapshot."
+        f"[RESTORE] {plan.post_id}: POST response "
+        f"{'matches' if response_ok else 'DOES NOT MATCH'} the target and snapshot."
+    )
+
+    readback = request(
+        f"{BASE_URL}/wp-json/wp/v2/posts/{plan.post_id}?context=edit", header
+    )
+    validate_live_identity(readback, plan.post_id, plan.spec)
+    readback_ok = response_matches(
+        readback, plan.post_id, plan.spec, expected_hash
+    )
+    print(
+        f"[READBACK] {plan.post_id}: fresh context=edit GET "
+        f"{'matches' if readback_ok else 'DOES NOT MATCH'} the snapshot."
     )
     print(f"[RECOVERY] Pre-restore state: {recovery}")
-    return ok
+    return response_ok and readback_ok
 
 
 def main() -> int:
