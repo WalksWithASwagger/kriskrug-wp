@@ -1,3 +1,4 @@
+# Runtime-only deps for the notion-to-wp connector. It has no test deps: the canonical test environment is the repo-root requirements-test.txt, so install that one to run this package's suites.
 requests>=2.34.2
 python-dotenv>=1.2.2
 pyyaml>=6.0.3
