@@ -83,20 +83,23 @@ unless all three hold for all of them:
    else's edit,
 3. the payload file still hashes to what was reviewed in this PR.
 
-After every target passes preflight, `--apply` writes a mode-0600
-`backup/issue-764-em-dash-404/rest-post-<id>-before-<stamp>.json` file for every
-pending post. Only after every snapshot succeeds does the first POST begin.
-That ordering prevents a second-post validation or snapshot failure from
-leaving a one-post partial apply. The script prints the exact rollback command
-on success. After each update, it performs a separate authenticated
-`context=edit` GET, revalidates the ID and slug, and hashes that fresh body
-against the reviewed payload; the POST response is not treated as readback.
-If a live body already equals its payload it prints `[SKIP]` and moves on, so
-re-running is safe.
+After every target passes preflight, `--apply` performs a second authenticated
+`context=edit` GET and baseline-hash check for every pending target before any
+snapshot or POST. That all-target barrier catches edits made during preflight
+without leaving a one-post partial apply. Immediately before each target POST,
+the script fetches and validates it once more, then writes that fresh response
+to a mode-0600
+`backup/issue-764-em-dash-404/rest-post-<id>-before-<stamp>.json` snapshot. A
+body change observed by either revalidation aborts before the snapshot or POST,
+so stale preflight data cannot become the rollback artifact. After each update,
+a separate authenticated `context=edit` GET revalidates the ID, slug, and
+reviewed payload hash; the POST response is not treated as readback. If a live
+body already equals its payload it prints `[SKIP]` and moves on, so re-running
+is safe.
 
 ## Verify
 
-The PATCH is a post save, which triggers Pagely's site-wide ARES purge, so no
+The POST is a post save, which triggers Pagely's site-wide ARES purge, so no
 separate purge step is needed. Prove it anyway, because an authenticated fetch always
 shows `BYPASS`, so only an anonymous curl proves the public edge.
 
@@ -146,8 +149,10 @@ make varlock-run CMD='python3 scripts/apply_issue_764_fix.py --restore backup/is
 Restore is dry-run by default too. It refuses a snapshot whose ID is outside
 the two-post allowlist, whose slug or body hash differs from the approved
 baseline, or whose live target has drifted from the reviewed payload. With
-`--apply`, it first saves the current live payload to a fresh mode-0600
-`rest-post-<id>-before-restore-<stamp>.json`, then performs the restore and
+`--apply`, it performs another authenticated `context=edit` GET immediately
+before the write, revalidates the ID, slug, and reviewed payload hash, and saves
+that fresh response to a mode-0600
+`rest-post-<id>-before-restore-<stamp>.json`. It then performs the restore and
 verifies it through a separate authenticated `context=edit` GET with the same
 ID, slug, and approved baseline-body hash checks. If the original snapshot is
 missing, the committed `*-baseline-20260815.json` files in these `fix-764/`
