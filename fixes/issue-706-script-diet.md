@@ -57,11 +57,32 @@ grep -c "google_gtagjs-js" /tmp/kk-706-home-before.html  # expect 2 (tag + -afte
 ```bash
 # Full Code Snippets snapshot — code bodies included, this is the restore source.
 # Write it OUTSIDE the repo: it is a code dump, do not commit it.
-varlock run --inject vars -- sh -c \
-  'curl -s -u "$WP_USER:$WP_APP_PASSWORD" \
-    https://kriskrug.co/wp-json/code-snippets/v1/snippets \
-    > "$HOME/kk-snapshots/code-snippets-before-706-$(date -u +%Y%m%dT%H%M%SZ).json"'
+varlock run --inject vars -- sh -eu -c '
+  umask 077
+  snapshot_dir="${HOME}/kk-snapshots"
+  snapshot_path="${snapshot_dir}/code-snippets-before-706-$(date -u +%Y%m%dT%H%M%SZ).json"
+  tmp_path="${snapshot_path}.tmp"
+  mkdir -p "$snapshot_dir"
+  chmod 700 "$snapshot_dir"
+  trap "rm -f -- \"${tmp_path}\"" EXIT HUP INT TERM
+  curl --fail-with-body --silent --show-error \
+    --user "${WP_USER:?}:${WP_APP_PASSWORD:?}" \
+    https://kriskrug.co/wp-json/code-snippets/v1/snippets > "$tmp_path"
+  jq -e "type == \"array\"" "$tmp_path" >/dev/null
+  chmod 600 "$tmp_path"
+  ln "$tmp_path" "$snapshot_path"
+  rm "$tmp_path"
+  trap - EXIT HUP INT TERM
+  printf "Snapshot: %s\\n" "$snapshot_path"
+'
 ```
+
+The command fails on HTTP errors, accepts only a valid JSON array, and publishes
+the final path only with a same-directory hard link that refuses to overwrite
+an existing snapshot. The directory is
+mode 0700 and the snapshot is mode 0600. A failed fetch or validation removes
+the temporary file, so a truncated response cannot be mistaken for rollback
+evidence.
 
 PSI baseline already exists and is committed: `docs/current-state/reports/psi-mobile-2026-08-10.md`. Do not re-baseline — the whole point is comparing to it.
 
@@ -78,11 +99,13 @@ If no snippet matches, stop and report. The pixel is then coming from a surface 
 ### 2. Deactivate the pixel
 
 ```bash
-varlock run --inject vars -- curl -s -X POST \
-  -u "$WP_USER:$WP_APP_PASSWORD" \
-  -H 'Content-Type: application/json' \
-  -d '{"active": false}' \
-  https://kriskrug.co/wp-json/code-snippets/v1/snippets/<ID>
+varlock run --inject vars -- sh -eu -c '
+  curl --fail-with-body --silent --show-error -X POST \
+    --user "${WP_USER:?}:${WP_APP_PASSWORD:?}" \
+    -H "Content-Type: application/json" \
+    --data "{\"active\": false}" \
+    https://kriskrug.co/wp-json/code-snippets/v1/snippets/<ID>
+'
 ```
 
 Deactivate, do not delete. Per `wp-snippet-deploy`, REST DELETE is WAF-blocked anyway, and deactivation keeps the re-enable path to one call. Delete via wp-admin only after a soak, and only if KK wants it gone permanently.
@@ -102,7 +125,14 @@ Confirm no other snippet auto-deactivated (a PHP fatal makes Code Snippets disab
 
 Paste `issue-706-script-diet-snippet.php` into Code Snippets as a new snippet, **stripping the leading `<?php`**. Name it `KK Script Diet`. Scope **front-end**. Sibling for reference: the existing `KK Asset Diet` snippet, same scope, same source-of-truth-in-repo convention.
 
-It has passed `php -l` and `make validate` (phpcs, WordPress security ruleset) in the repo. The emitted JavaScript was also syntax-checked and exercised against a browser-semantics harness: nothing loads before interaction, an early `gtag()` call queues into `dataLayer` and survives, the tag is appended exactly once with `async`, interaction listeners are removed after boot, and the idle path fires via `requestIdleCallback(…, {timeout: 3000})` with a `setTimeout` fallback.
+It has passed `php -l` and `make validate` (phpcs, WordPress security ruleset) in the repo. The committed browser-semantics harness proves that nothing loads before interaction, an early `gtag()` call queues into `dataLayer` and survives, the tag is appended exactly once with `async`, interaction listeners are removed after boot, and the non-interaction path obeys the timing contract below.
+
+**Timing contract:** interaction may boot gtag immediately. Without interaction,
+gtag boots no earlier than 3 seconds after `load`: the loader waits three full
+seconds, then requests the next idle opportunity. That idle request has a
+one-second ceiling, so an active foreground page boots between roughly three
+and four seconds after `load` (subject to normal browser timer throttling). A
+browser without `requestIdleCallback` boots at the three-second timer.
 
 Purge Pagely cache.
 
@@ -121,7 +151,9 @@ Then confirm analytics still fires, in a browser with devtools open:
 
 1. Load `https://kriskrug.co/` logged out. Network tab filtered to `googletagmanager` — **nothing** during load.
 2. Click anywhere. `gtag/js?id=G-X7JE8B32L7` requests, followed by a `/g/collect` beacon.
-3. Reload, touch nothing, wait ~5 s. Same requests fire via the idle path.
+3. Reload, touch nothing. No request may fire in the first 3 s after `load`;
+   the same requests then fire at the next idle opportunity, no more than one
+   additional second later on an active foreground page.
 4. Realtime in GA4 shows the session.
 
 Step 4 is the one that actually proves the ruling was honoured — delayed, not dropped.
@@ -165,7 +197,7 @@ Baseline: `docs/current-state/reports/psi-mobile-2026-08-10.md` (mobile, Lightho
 
 LCP 7.6 s and CLS 0.430. Both trace to the theme's reveal system and the Boost critical-CSS snapshot (#701), and the 944 KiB image-delivery backlog is its own lane. If LCP or CLS shifts in the rerun, that is same-day content drift or the still-owed Boost critical-CSS regeneration, not this diet.
 
-**One honest caveat on the gtag half.** The bytes are not saved, they are moved. Whether PSI *shows* the gtag improvement depends on where Lighthouse's trace ends relative to the fire point. The snippet measures its 3 s idle window from the `load` event rather than from parse, and on this page load lands late, so gtag should fall outside the trace and the win should be visible. But if the rerun still attributes gtag cost, the fix is not broken — check the browser waterfall in the verify step above, which measures the thing that actually matters. If KK wants the metric to move unambiguously, the knob is the `3000` in `requestIdleCallback(boot, { timeout: 3000 })`; raising it or going interaction-only pushes the tag further out at the cost of losing bounced sessions from GA4.
+**One honest caveat on the gtag half.** The bytes are not saved, they are moved. Whether PSI *shows* the gtag improvement depends on where Lighthouse's trace ends relative to the fire point. The snippet measures its three-second delay from the `load` event rather than from parse, and on this page load lands late, so gtag should fall outside the trace and the win should be visible. But if the rerun still attributes gtag cost, the fix is not broken — check the browser waterfall in the verify step above, which measures the thing that actually matters. If KK wants the metric to move unambiguously, the knob is the `3000` delay before `requestIdleCallback`; raising it or going interaction-only pushes the tag further out at the cost of losing bounced sessions from GA4.
 
 **How to confirm:** rerun PSI mobile against `https://kriskrug.co/` (https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fkriskrug.co%2F, Mobile tab), then write `docs/current-state/reports/psi-mobile-<YYYY-MM-DD>.md` in the same shape as the 2026-08-10 report and commit it. Close #706 against the third acceptance criterion: "Post-apply PSI shows TBT long tasks from these origins gone."
 

@@ -89,9 +89,10 @@ add_action('wp_print_scripts', $kk_gtag_capture, 100);
  * deferred.
  *
  * Fires on the first real interaction intent (pointerdown / keydown /
- * touchstart / wheel), or on idle after the load event with a 3s ceiling —
- * whichever comes first. Idle is measured from `load`, not from parse, so the
- * tag never competes with the page's own critical path.
+ * touchstart / wheel), or no earlier than 3s after the load event. At that
+ * point it uses the browser's next idle opportunity, with a 1s ceiling on the
+ * idle wait. The delay is measured from `load`, not from parse, so the tag
+ * never competes with the page's own critical path.
  */
 add_action('wp_footer', static function () use (&$kk_gtag_delay): void {
     if (!$kk_gtag_delay['handled']) {
@@ -108,10 +109,15 @@ add_action('wp_footer', static function () use (&$kk_gtag_delay): void {
 	var events = ['pointerdown', 'keydown', 'touchstart', 'wheel'];
 	var opts = { passive: true, capture: true };
 	var fired = false;
+	var delayTimer = 0;
 
 	function boot() {
 		if (fired) { return; }
 		fired = true;
+		if (delayTimer) {
+			w.clearTimeout(delayTimer);
+			delayTimer = 0;
+		}
 		events.forEach(function (name) { w.removeEventListener(name, boot, opts); });
 
 		%2$s
@@ -122,20 +128,23 @@ add_action('wp_footer', static function () use (&$kk_gtag_delay): void {
 		d.head.appendChild(s);
 	}
 
-	function idle() {
-		if (w.requestIdleCallback) {
-			w.requestIdleCallback(boot, { timeout: 3000 });
-		} else {
-			w.setTimeout(boot, 3000);
-		}
+	function scheduleIdleBoot() {
+		delayTimer = w.setTimeout(function () {
+			delayTimer = 0;
+			if (w.requestIdleCallback) {
+				w.requestIdleCallback(boot, { timeout: 1000 });
+			} else {
+				boot();
+			}
+		}, 3000);
 	}
 
 	events.forEach(function (name) { w.addEventListener(name, boot, opts); });
 
 	if (d.readyState === 'complete') {
-		idle();
+		scheduleIdleBoot();
 	} else {
-		w.addEventListener('load', idle, { once: true });
+		w.addEventListener('load', scheduleIdleBoot, { once: true });
 	}
 })(window, document);
 JS;

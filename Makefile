@@ -51,6 +51,7 @@ python-test: ## Run all declared Python test suites
 javascript-syntax: ## Check committed JavaScript syntax
 	@command -v node >/dev/null 2>&1 || { echo "ERROR: node is required for JavaScript syntax checks."; exit 1; }
 	@for file in $(JAVASCRIPT_FILES); do node --check "$$file"; done
+	@node scripts/tests/issue_706_script_diet_harness.cjs
 
 php-syntax: ## Run php -l across all tracked PHP in inc/, plugins/, theme/, fixes/
 	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for PHP syntax checks."; exit 1; }
