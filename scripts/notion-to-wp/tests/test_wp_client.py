@@ -10,7 +10,12 @@ from unittest import mock
 SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPT_DIR))
 
-from wp_client import DryRunWriteBlocked, WordPress  # noqa: E402
+import publish_common  # noqa: E402
+from wp_client import (  # noqa: E402
+    DryRunWriteBlocked,
+    SlugVerificationFailed,
+    WordPress,
+)
 
 
 def offline_client() -> WordPress:
@@ -57,6 +62,34 @@ class WordPressMediaTests(unittest.TestCase):
 
 
 class WordPressDryRunGuardTests(unittest.TestCase):
+    def test_direct_session_post_refuses_under_dry_run_at_http_boundary(self):
+        wp = WordPress("https://example.test", "user", "password")
+
+        with mock.patch("requests.sessions.Session.request") as request:
+            with mock.patch.dict(os.environ, {"DRY_RUN": "1"}):
+                with self.assertRaises(DryRunWriteBlocked) as caught:
+                    wp.s.post(
+                        "https://example.test/wp-json/wp/v2/tags",
+                        json={"name": "ai"},
+                    )
+
+        self.assertIn("HTTP POST", str(caught.exception))
+        request.assert_not_called()
+
+    def test_publish_common_direct_session_write_is_blocked(self):
+        wp = WordPress("https://example.test", "user", "password")
+        not_found = mock.Mock(status_code=200)
+        not_found.json.return_value = []
+
+        with mock.patch(
+            "requests.sessions.Session.request", return_value=not_found
+        ) as request:
+            with mock.patch.dict(os.environ, {"DRY_RUN": "1"}):
+                with self.assertRaises(DryRunWriteBlocked):
+                    publish_common.ensure_term_id(wp, "tags", "ai")
+
+        request.assert_called_once()
+
     def test_create_post_refuses_under_dry_run_without_touching_http(self):
         wp = offline_client()
 
@@ -103,7 +136,9 @@ class WordPressDryRunGuardTests(unittest.TestCase):
 
     def test_dry_run_blocks_writes_without_blocking_reads(self):
         found = mock.Mock(status_code=200)
-        found.json.return_value = [{"id": 11765}]
+        found.json.return_value = [
+            {"id": 11765, "slug": "web-summit-vancouver-2026"}
+        ]
         wp = offline_client()
         wp.s.get.return_value = found
 
@@ -193,6 +228,63 @@ class WordPressSlugLookupTests(unittest.TestCase):
         _, post_id = self.lookup(500, [{"id": 11765}])
 
         self.assertIsNone(post_id)
+
+    def test_singleton_with_different_slug_is_rejected(self):
+        _, post_id = self.lookup(
+            200, [{"id": 999, "slug": "calling-us-all-in"}]
+        )
+
+        self.assertIsNone(post_id)
+
+    def test_update_with_slug_verifies_identity_before_posting(self):
+        found = mock.Mock(status_code=200)
+        found.json.return_value = [
+            {"id": 11765, "slug": "web-summit-vancouver-2026"}
+        ]
+        updated = mock.Mock()
+        updated.json.return_value = {
+            "id": 11765,
+            "slug": "web-summit-vancouver-2026",
+        }
+        wp = offline_client()
+        wp.s.get.return_value = found
+        wp.s.post.return_value = updated
+
+        result = wp.update_post(
+            11765,
+            {
+                "title": "Web Summit Vancouver 2026",
+                "slug": "web-summit-vancouver-2026",
+            },
+        )
+
+        self.assertEqual(result["id"], 11765)
+        wp.s.get.assert_called_once()
+        wp.s.post.assert_called_once_with(
+            "https://example.test/wp-json/wp/v2/posts/11765",
+            json={
+                "title": "Web Summit Vancouver 2026",
+                "slug": "web-summit-vancouver-2026",
+            },
+            timeout=60,
+        )
+
+    def test_update_rejects_mismatched_singleton_without_posting(self):
+        found = mock.Mock(status_code=200)
+        found.json.return_value = [{"id": 999, "slug": "calling-us-all-in"}]
+        wp = offline_client()
+        wp.s.get.return_value = found
+
+        with self.assertRaises(SlugVerificationFailed):
+            wp.update_post(
+                11765,
+                {
+                    "title": "Web Summit Vancouver 2026",
+                    "slug": "web-summit-vancouver-2026",
+                },
+            )
+
+        wp.s.post.assert_not_called()
 
 
 if __name__ == "__main__":
