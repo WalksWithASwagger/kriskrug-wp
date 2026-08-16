@@ -267,7 +267,7 @@ class PrefixMatchRegressionGuardTests(unittest.TestCase):
     """Both publishers must route media matching through the one shared rule (#483)."""
 
     def test_keep_the_machine_strange_delegates_to_select_media_match(self):
-        source = (SCRIPT_DIR / "publish_keep_the_machine_strange.py").read_text()
+        source = (SCRIPT_DIR.parent / "archive" / "publish_keep_the_machine_strange.py").read_text()
         self.assertIn("select_media_match", source)
         self.assertNotIn("base.startswith(stem)", source)
 
