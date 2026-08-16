@@ -160,12 +160,13 @@ class WordPress:
         r.raise_for_status()
         return r.json()
 
-    def update_post(self, post_id: int, payload: dict) -> dict:
+    def update_post(
+        self, post_id: int, payload: dict, *, expected_slug: str
+    ) -> dict:
         _refuse_write_under_dry_run("update_post")
-        intended_slug = payload.get("slug")
-        if intended_slug and self.find_post_by_slug(str(intended_slug)) != post_id:
+        if self.find_post_by_slug(expected_slug) != post_id:
             raise SlugVerificationFailed(
-                f"WordPress.update_post refused: slug {intended_slug!r} did not "
+                f"WordPress.update_post refused: slug {expected_slug!r} did not "
                 f"resolve uniquely to post id {post_id}."
             )
         r = self.s.post(f"{self.base}/wp-json/wp/v2/posts/{post_id}", json=payload, timeout=60)

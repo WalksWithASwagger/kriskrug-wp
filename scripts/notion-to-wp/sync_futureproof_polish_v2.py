@@ -675,7 +675,7 @@ def sync_futureproof(post_md: Path = DEFAULT_POST_MD, *, apply: bool = False) ->
     )
     prewrite = wp.get_post(TARGET_POST_ID)
     assert_post_unchanged(before, prewrite, pkg)
-    updated = wp.update_post(TARGET_POST_ID, payload)
+    updated = wp.update_post(TARGET_POST_ID, payload, expected_slug=pkg.slug)
     if int(updated.get("id") or 0) != TARGET_POST_ID:
         raise RuntimeError(f"unexpected update response id: {updated.get('id')!r}")
     after = wp.get_post(TARGET_POST_ID)
