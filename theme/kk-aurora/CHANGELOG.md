@@ -20,6 +20,10 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.6.6
+**Deployed:** On main; deploy pending
+Copy and dead-file cleanup, no layout or CSS change. Strips the five user-visible em dashes from theme copy: the homepage hero dek and services lede, the marquee archive lede, and the photo-gallery pattern's lede plus its placeholder alt text (#733). Removes `parts/speaking-proof-grid.html` and its `theme.json` templateParts registration; the part was placed by zero templates and live proof-grid content is DB page content, not this part (#743).
+
 ## 1.6.5
 **Deployed:** LIVE (public readback 2026-08-14; SFTP rollback `kk-aurora.bak-1786733540`)
 Add AI Garden to the project footer and ship the previously merged Creative AI Human Lab links with an explicit versioned release. Pagely page and CDN caches were purged successfully. The post-purge visual comparison confirmed live/repo CSS identity and a refreshed Jetpack Boost bundle; its threshold failures are confined to the intentional project-footer expansion documented in `report-20260814T190349Z.md`.
