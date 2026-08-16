@@ -72,9 +72,21 @@ def main():
         seen = {}
         for line in open(args.rollback):
             rec = json.loads(line)
-            seen.setdefault(rec["id"], rec["before"])  # earliest = true original
-        for pid, before in seen.items():
-            wp.update_post(pid, {"content": before})
+            slug = rec["slug"]
+            if not isinstance(slug, str) or not slug:
+                raise ValueError(
+                    f"rollback manifest requires a slug for post {rec.get('id')!r}"
+                )
+            seen.setdefault(
+                rec["id"],
+                {"slug": slug, "before": rec["before"]},
+            )  # earliest = true original
+        for pid, original in seen.items():
+            wp.update_post(
+                pid,
+                {"content": original["before"]},
+                expected_slug=original["slug"],
+            )
             print(f"restored {pid}")
         print(f"rollback complete: {len(seen)} posts")
         return
@@ -105,7 +117,7 @@ def main():
         with open(args.manifest, "a") as f:  # record original BEFORE writing (crash-safe)
             f.write(json.dumps({"id": pid, "slug": slug, "before": before}) + "\n")
         try:
-            wp.update_post(pid, {"content": after})
+            wp.update_post(pid, {"content": after}, expected_slug=slug)
             updated += 1
         except Exception as e:
             errors.append((pid, slug, str(e)[:60]))

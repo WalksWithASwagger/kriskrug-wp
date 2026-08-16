@@ -11,9 +11,14 @@ from notion_client import slugify
 
 DRY_RUN_ENV = "DRY_RUN"
 DRY_RUN_FALSEY = {"", "0", "false", "no", "off"}
+WRITE_HTTP_METHODS = {"POST", "PUT", "PATCH", "DELETE"}
 
 
 class DryRunWriteBlocked(RuntimeError):
+    pass
+
+
+class SlugVerificationFailed(RuntimeError):
     pass
 
 
@@ -32,10 +37,17 @@ def _refuse_write_under_dry_run(method: str) -> None:
         )
 
 
+class _DryRunSession(requests.Session):
+    def request(self, method, url, *args, **kwargs):
+        if method.upper() in WRITE_HTTP_METHODS:
+            _refuse_write_under_dry_run(f"HTTP {method.upper()}")
+        return super().request(method, url, *args, **kwargs)
+
+
 class WordPress:
     def __init__(self, base_url: str, user: str, app_password: str):
         self.base = base_url.rstrip("/")
-        self.s = requests.Session()
+        self.s = _DryRunSession()
         token = base64.b64encode(f"{user}:{app_password}".encode()).decode()
         self.s.headers.update({"Authorization": f"Basic {token}"})
 
@@ -129,7 +141,9 @@ class WordPress:
             return None
         hits = r.json()
         if isinstance(hits, list) and len(hits) == 1:
-            return hits[0]["id"]
+            hit = hits[0]
+            if isinstance(hit, dict) and hit.get("slug") == slug:
+                return hit.get("id")
         return None
 
     def get_post(self, post_id: int) -> dict:
@@ -146,8 +160,15 @@ class WordPress:
         r.raise_for_status()
         return r.json()
 
-    def update_post(self, post_id: int, payload: dict) -> dict:
+    def update_post(
+        self, post_id: int, payload: dict, *, expected_slug: str
+    ) -> dict:
         _refuse_write_under_dry_run("update_post")
+        if self.find_post_by_slug(expected_slug) != post_id:
+            raise SlugVerificationFailed(
+                f"WordPress.update_post refused: slug {expected_slug!r} did not "
+                f"resolve uniquely to post id {post_id}."
+            )
         r = self.s.post(f"{self.base}/wp-json/wp/v2/posts/{post_id}", json=payload, timeout=60)
         r.raise_for_status()
         return r.json()
