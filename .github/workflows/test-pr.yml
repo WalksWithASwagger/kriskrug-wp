@@ -21,6 +21,7 @@ jobs:
       has_docs: ${{ steps.changed-files.outputs.has_docs }}
       has_css: ${{ steps.changed-files.outputs.has_css }}
       has_deps: ${{ steps.changed-files.outputs.has_deps }}
+      has_voice: ${{ steps.changed-files.outputs.has_voice }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
 
@@ -47,12 +48,19 @@ jobs:
               ['composer.json', 'composer.lock', 'package.json', 'package-lock.json'].includes(name) ||
               /(?:^|\/)requirements[\w.-]*\.txt$/.test(name)
             );
+            const hasVoice = names.some((name) =>
+              ['.voice-waivers.json', 'Makefile', 'scripts/voice_check.py', '.github/workflows/test-pr.yml'].includes(name) ||
+              /^content\/drafts\/.+\/(?:post\.md|post\.html|post-body\.html|copy\.md)$/.test(name) ||
+              name === 'theme/kk-aurora/functions.php' ||
+              /^theme\/kk-aurora\/(?:templates|parts|patterns)\//.test(name)
+            );
             core.info(`Changed files: ${names.length}`);
-            core.info(`has_php=${hasPhp} has_docs=${hasDocs} has_css=${hasCss} has_deps=${hasDeps}`);
+            core.info(`has_php=${hasPhp} has_docs=${hasDocs} has_css=${hasCss} has_deps=${hasDeps} has_voice=${hasVoice}`);
             core.setOutput('has_php', hasPhp ? 'true' : 'false');
             core.setOutput('has_docs', hasDocs ? 'true' : 'false');
             core.setOutput('has_css', hasCss ? 'true' : 'false');
             core.setOutput('has_deps', hasDeps ? 'true' : 'false');
+            core.setOutput('has_voice', hasVoice ? 'true' : 'false');
 
       - name: Check PR links to issue
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
@@ -148,6 +156,22 @@ jobs:
             --base-ref "${{ steps.base.outputs.ref }}" \
             --github-summary
 
+  # Hard-rule copy gate. Runs only when its payload/theme scope or gate config changes.
+  voice-gate:
+    needs: validate
+    if: needs.validate.outputs.has_voice == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+
+      - name: Setup Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Check payload and theme voice rules
+        run: make voice-check PYTHON=python3
+
   # JavaScript/Node validation
   javascript-validation:
     needs: validate
@@ -200,7 +224,7 @@ jobs:
 
   # Summarize all checks
   summary:
-    needs: [validate, php-validation, python-tests, css-ratchet, javascript-validation, docs-truth-check, security-scan]
+    needs: [validate, php-validation, python-tests, css-ratchet, voice-gate, javascript-validation, docs-truth-check, security-scan]
     if: always()
     runs-on: ubuntu-latest
     steps:
