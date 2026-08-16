@@ -11,6 +11,7 @@ Thank you for your interest in contributing to the [kriskrug.co](https://kriskru
 - [Issue Guidelines](#issue-guidelines)
 - [Pull Request Process](#pull-request-process)
 - [Coding Standards](#coding-standards)
+- [Voice Gate](#voice-gate)
 - [Agent Automation](#agent-automation)
 
 ## Code of Conduct
@@ -111,6 +112,7 @@ Labels: bug, priority:high, mobile
 - [ ] Changes are documented in PR description
 - [ ] Issue is linked (use `Fixes #123` or `Closes #456`)
 - [ ] Commit messages are clear and descriptive
+- [ ] Run `make voice-check` if you touched payload copy or theme templates (see [Voice Gate](#voice-gate))
 - [ ] If you changed content via the Notion → WP publisher, you ran with `--dry-run` first and confirmed the slug-based idempotency match (see [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md))
 
 ### PR Template
@@ -254,6 +256,69 @@ Bad:
 - "changes"
 ```
 
+## Voice Gate
+
+`make voice-check` is the machine gate on the copy rules that are mechanically
+decidable (#747). It is a grep-class check in `scripts/voice_check.py`, not a
+voice-similarity scorer, and it never needs network or credentials.
+
+**What it flags**
+
+| Rule id | What it catches |
+|---|---|
+| `em-dash` | U+2014 in user-visible copy |
+| `slop:delve`, `slop:tapestry`, `slop:testament`, `slop:nestled`, `slop:in-a-world` | the small hard-rule slop lexicon |
+
+**What it scans**
+
+- **Payload copy**: `content/drafts/**/{post.md,post.html,post-body.html,copy.md}`.
+  The glob is narrow on purpose. Voice-audit reports, dash ledgers, and
+  remediation READMEs in the same tree legitimately *discuss* em dashes and are
+  out of scope by construction.
+- **Theme chrome**: `theme/kk-aurora/{templates,parts,patterns}`. HTML, CSS, and
+  PHP comments are blanked before matching, because a dash in a comment never
+  reaches a reader. On 2026-08-15 the theme carried 11 em dashes, of which 6
+  were comments and only 5 rendered (#733).
+
+**Writing *about* a dash.** Do not reach for a waiver. Write the character as
+the literal token `{EMDASH}`, the convention set by
+[`content/drafts/2026-08-02-emdash-remediation/dash-ledger.md`](content/drafts/2026-08-02-emdash-remediation/dash-ledger.md).
+That lets a ledger quote its originals without carrying them.
+
+**Chrome copy that lives outside the repo.** The sitewide `<title>` format
+string (#756) is a Jetpack setting, not a repo file, so no static scan can see
+it. Pipe a live readback through the same rules instead:
+
+```bash
+curl -s https://kriskrug.co/ | grep -o '<title>[^<]*</title>' | python3 scripts/voice_check.py -
+```
+
+**Waivers.** `.voice-waivers.json` at the repo root records per-file exemptions,
+each with an owning issue and a reason. Add one only for a legitimate case: a
+verbatim third-party pull quote, quoted source material, a banned-words list
+that has to name the banned words, or a pre-gate file whose remediation another
+issue owns.
+
+It is a ratchet, not a mute button. When a waived file stops violating, the gate
+reports the waiver as **stale** and fails until the entry is deleted, so the
+grandfathered baseline shrinks to zero instead of living forever. The same
+discipline as `.css-budget.json` (#472).
+
+**CI.** The `voice-gate` job in `test-pr.yml` runs on PRs that touch payload
+copy, theme templates, or the gate's own files. It scans the whole scope, not
+just changed files, which is what makes the waiver baseline a ratchet.
+
+**The fuller local pass.** CI deliberately checks hard rules only. The real
+checker (crystal facets, anti-glossary, similarity scoring) lives outside this
+repo and stays a manual local deep pass:
+
+```bash
+python3 ~/Code/kk-voice/scripts/voicecheck.py <file>
+```
+
+`make voice-check` prints that reminder on every run. Nothing in CI requires
+`~/Code/kk-voice` to exist.
+
 ## Testing
 
 This repo has focused automated tests for the Notion publisher safety guards, plus manual validation for production-adjacent WordPress changes.
@@ -264,6 +329,7 @@ Automated tests:
 - `make test` (runs the Notion publisher tests plus the sidebar promo smoke test)
 - `make validate` (runs the focused WordPress PHP security ruleset)
 - `make verify` (runs the standard local gate)
+- `make voice-check` (hard-rule copy gate; see [Voice Gate](#voice-gate))
 
 Manual validation:
 
