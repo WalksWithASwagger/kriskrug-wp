@@ -10,7 +10,7 @@
 
 ## Headline
 
-**The snippet is not live, and has not been live since the day it was created.**
+**The snippet is not live, and the first durable receipt records it inactive the next day.**
 
 It is **Code Snippet ID 12**, named `Open Graph + Twitter Card meta (social link
 previews)`, and it is **inactive**. Every Open Graph and Twitter Card tag on
