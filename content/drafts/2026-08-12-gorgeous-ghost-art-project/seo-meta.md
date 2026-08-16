@@ -4,7 +4,7 @@
 - Slug: `gorgeous-ghost`
 - Post date: `2026-08-12`
 - Meta title: `I Made a Gorgeous Ghost | Kris Krüg`
-- Meta description: `Gorgeous Ghost is Kris Krüg's 69.42-second glam space opera, film, song, and Signal Atlas made with the BC + AI Film Club.`
+- Meta description: `Gorgeous Ghost is Kris Krüg's 69.42-second glam space opera: a film, song, and Signal Atlas made for the BC + AI Film Club Prompt Challenge.`
 - Category: `Creative Technology & Making`
 - Tags: `Gorgeous Ghost`, `Creative AI`, `AI Film Club`, `AI Music`
 - Canonical: `https://kriskrug.co/2026/08/12/gorgeous-ghost/`

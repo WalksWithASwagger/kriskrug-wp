@@ -1,6 +1,6 @@
 # Critic verdict
 
-Verdict: publishable for authenticated preview
+Verdict: publishable after package normalization and explicit authenticated preview approval
 
 ## Voice
 

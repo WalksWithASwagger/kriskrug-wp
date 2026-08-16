@@ -5,7 +5,7 @@ status: draft
 post_date: "2026-08-12"
 author: "Kris Krüg"
 author_wp_id: 1
-excerpt: "Gorgeous Ghost is a 69.42-second glam space opera, film, song, and signal atlas made with the BC + AI Film Club. The new art project has escaped into the network."
+excerpt: "Gorgeous Ghost is a 69.42-second glam space opera: film, song, and Signal Atlas made for the BC + AI Film Club Prompt Challenge. It escaped into the network."
 categories:
   - "Creative Technology & Making"
 tags:
@@ -19,7 +19,7 @@ og_image: "https://gorgeousghost.com/og/share.jpg"
 og_image_alt: "The jeweled Gorgeous Ghost title and lightning-bolt eye in a field of stars"
 seo:
   meta_title: "I Made a Gorgeous Ghost | Kris Krüg"
-  meta_description: "Gorgeous Ghost is Kris Krüg's 69.42-second glam space opera, film, song, and Signal Atlas made with the BC + AI Film Club."
+  meta_description: "Gorgeous Ghost is Kris Krüg's 69.42-second glam space opera: a film, song, and Signal Atlas made for the BC + AI Film Club Prompt Challenge."
 ---
 
 ![The jeweled Gorgeous Ghost title and lightning-bolt eye in a field of stars](https://gorgeousghost.com/og/share.jpg)
