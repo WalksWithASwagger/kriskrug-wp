@@ -1,11 +1,35 @@
 from __future__ import annotations
 
 import base64
+import os
 from pathlib import Path
 
 import requests
 
 from notion_client import slugify
+
+
+DRY_RUN_ENV = "DRY_RUN"
+DRY_RUN_FALSEY = {"", "0", "false", "no", "off"}
+
+
+class DryRunWriteBlocked(RuntimeError):
+    pass
+
+
+def dry_run_active() -> bool:
+    return os.environ.get(DRY_RUN_ENV, "").strip().lower() not in DRY_RUN_FALSEY
+
+
+def _refuse_write_under_dry_run(method: str) -> None:
+    """Choke-point backstop for the 2026-05-15 overwrite: callers own their own
+    dry-run gate, and this catches the caller that forgets it."""
+    if dry_run_active():
+        raise DryRunWriteBlocked(
+            f"WordPress.{method} refused: {DRY_RUN_ENV}="
+            f"{os.environ.get(DRY_RUN_ENV, '')!r} blocks every WordPress write. "
+            f"Unset {DRY_RUN_ENV} to allow live writes."
+        )
 
 
 class WordPress:
@@ -16,6 +40,7 @@ class WordPress:
         self.s.headers.update({"Authorization": f"Basic {token}"})
 
     def upload_media_file(self, path: Path, mime: str = "image/jpeg") -> dict:
+        _refuse_write_under_dry_run("upload_media_file")
         with open(path, "rb") as f:
             data = f.read()
         r = self.s.post(
@@ -31,6 +56,7 @@ class WordPress:
         return r.json()
 
     def update_media(self, media_id: int, payload: dict) -> dict:
+        _refuse_write_under_dry_run("update_media")
         r = self.s.post(
             f"{self.base}/wp-json/wp/v2/media/{media_id}",
             json=payload,
@@ -74,6 +100,7 @@ class WordPress:
         return media
 
     def ensure_term(self, taxonomy: str, name: str) -> int:
+        _refuse_write_under_dry_run("ensure_term")
         r = self.s.get(
             f"{self.base}/wp-json/wp/v2/{taxonomy}",
             params={"search": name, "per_page": 50},
@@ -114,11 +141,13 @@ class WordPress:
         return r.json()
 
     def create_post(self, payload: dict) -> dict:
+        _refuse_write_under_dry_run("create_post")
         r = self.s.post(f"{self.base}/wp-json/wp/v2/posts", json=payload, timeout=60)
         r.raise_for_status()
         return r.json()
 
     def update_post(self, post_id: int, payload: dict) -> dict:
+        _refuse_write_under_dry_run("update_post")
         r = self.s.post(f"{self.base}/wp-json/wp/v2/posts/{post_id}", json=payload, timeout=60)
         r.raise_for_status()
         return r.json()
