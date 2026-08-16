@@ -9,142 +9,158 @@
     "waiver at all: write the character as the token {EMDASH}, the convention set",
     "by content/drafts/2026-08-02-emdash-remediation/dash-ledger.md.",
     "",
-    "This is a ratchet, not a mute button. When a waived file stops violating, the",
-    "gate reports the waiver as stale and fails until the entry is deleted, so the",
-    "grandfathered baseline below shrinks to zero instead of living forever.",
+    "Every waiver is pinned to the exact SHA-256 of the grandfathered file. Any",
+    "edit invalidates the waiver, so new hits fail. Removing all hits passes even",
+    "when another PR still carries the now-unused entry.",
     "",
-    "Fields: `path` (repo-relative), `rules` (rule ids, or [\"*\"] for all),",
+    "Fields: `path` (repo-relative), `sha256` (exact waived baseline),",
+    "`rules` (rule ids, or [\"*\"] for all),",
     "`issue` (who owns the fix or the ruling), `reason` (why this is not a bug)."
   ],
   "waivers": [
     {
       "path": "theme/kk-aurora/templates/front-page.html",
+      "sha256": "51ef505c51c3c7875adb1d19cd02c6bc091f5d3c251349fe22182642594ecbb7",
       "rules": ["em-dash"],
       "issue": "#733",
-      "reason": "TEMPORARY. The hero dek and services lede em dashes are already rewritten in PR #751 (Aurora 1.6.6), which is open and unmerged. Delete this entry in that PR; the stale-waiver check will demand it."
+      "reason": "TEMPORARY exact baseline. The hero dek and services lede are rewritten in PR #751; that edit invalidates this waiver automatically."
     },
     {
       "path": "theme/kk-aurora/templates/archive-marquee_board.html",
+      "sha256": "7d2a62b4b8817a42f4010f1f7d991ef8ce9ec6bb0ee1d6fe76c5e5b8fa5e0e27",
       "rules": ["em-dash"],
       "issue": "#733",
-      "reason": "TEMPORARY. Marquee archive lede em dash is rewritten in PR #751. Delete this entry in that PR."
+      "reason": "TEMPORARY exact baseline. The marquee archive lede is rewritten in PR #751."
     },
     {
       "path": "theme/kk-aurora/patterns/photo-gallery.php",
+      "sha256": "47907526a68d0a795416d6b933c7485453dda27dd66aa59dd68b6d53d1bb4829",
       "rules": ["em-dash"],
       "issue": "#733",
-      "reason": "TEMPORARY. Photo lede and the placeholder-alt sprintf are rewritten in PR #751. Delete this entry in that PR."
+      "reason": "TEMPORARY exact baseline. The photo lede and placeholder-alt string are rewritten in PR #751."
+    },
+    {
+      "path": "theme/kk-aurora/functions.php",
+      "sha256": "4fee2a5a17d9bc69b36feb60029c7bbd2dc4dd255e662583e50eb49606cdec82",
+      "rules": ["em-dash"],
+      "issue": "#756",
+      "reason": "TEMPORARY exact baseline for the confirmed theme-owned document title separator. The Track B fix remains decision and deploy gated."
     },
     {
       "path": "content/drafts/2026-07-26-client-logo-soup/copy.md",
+      "sha256": "6fcd2d521bb9cc6b6c114b9d475a2753f93044a719055ab4a19bdd46394a103f",
       "rules": ["slop:delve"],
       "issue": "#747",
       "reason": "Names the banned words in a do-not-use list ('Em dashes, \"delve\", \"landscape\", \"robust\", \"leverage\"'). Quoting the lexicon is the point of the line."
     },
     {
       "path": "content/drafts/2026-07-31-ai-lands-inside-every-profession/post.md",
+      "sha256": "21ef80431dc87d96fa4f522224f59fc41e30e236dec0a416f4c8b87a47d0e4b8",
       "rules": ["em-dash"],
       "issue": "#603",
       "reason": "Pre-remediation source for post 12653. The corrected body lives in content/drafts/2026-08-02-emdash-remediation/remediated-body.md; this file is kept as the before-state of record."
     },
     {
       "path": "content/drafts/2026-07-31-ai-lands-inside-every-profession/post.html",
+      "sha256": "8de47a738fc0cb27acb12c13801ed94730dda72cce845640d264665eca753e65",
       "rules": ["em-dash"],
       "issue": "#603",
       "reason": "Pre-remediation source for post 12653. See the .md sibling."
     },
     {
       "path": "content/drafts/2026-05-23-data-center-protest-signs/post.md",
+      "sha256": "e029e09f37869ac1fa0ba66244076b60af75bfece102e6881111a615043ea136",
       "rules": ["em-dash"],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. Not rewritten by the 2026-08-01 voice sweep."
     },
     {
       "path": "content/drafts/2026-05-24-human-element-shane-loki-talk/post.md",
+      "sha256": "ba913645fd1290c77e5ffd3eaf83046426103ae6c979875522459bb9b96e3145",
       "rules": ["em-dash"],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. Not rewritten by the 2026-08-01 voice sweep."
     },
     {
       "path": "content/drafts/2026-05-24-keynote-music-elevation-series-haus-of-owl/post.md",
+      "sha256": "c5bfe5c0e717f0bfcd5dad23502105433749ef0d49023fdcdf8322f1c60fe086",
       "rules": ["slop:tapestry"],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. Not rewritten by the 2026-08-01 voice sweep."
     },
     {
       "path": "content/drafts/2026-05-24-keynote-music-elevation-series-haus-of-owl/post.html",
+      "sha256": "cadd6f440c6ae184083961923bc5da4ddc2964c1f4869643a996e2a1b615eb58",
       "rules": ["slop:tapestry"],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. See the .md sibling."
     },
     {
       "path": "content/drafts/2026-05-24-nobel-chemistry-foldit/post.md",
+      "sha256": "85e835f79ec584bae5e1f8e1418fc0a9a267085fa3bb47ef72442b9aa6b36124",
       "rules": ["slop:testament"],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. Not rewritten by the 2026-08-01 voice sweep."
     },
     {
       "path": "content/drafts/2026-05-24-nobel-chemistry-foldit/post.html",
+      "sha256": "683e947fb856cb87595fbfe70be27a581fd6bde62fc1fee546f6d91ab9cb0e69",
       "rules": ["slop:testament"],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. See the .md sibling."
     },
     {
-      "path": "content/drafts/2026-06-16-storyhive-haus-of-owl-jordan-dack/post.md",
-      "rules": ["em-dash"],
-      "issue": "#603",
-      "reason": "Grandfathered pre-gate draft. Not rewritten by the 2026-08-01 voice sweep."
-    },
-    {
-      "path": "content/drafts/2026-06-16-storyhive-haus-of-owl-jordan-dack/post.html",
-      "rules": ["em-dash"],
-      "issue": "#603",
-      "reason": "Grandfathered pre-gate draft. See the .md sibling."
-    },
-    {
       "path": "content/drafts/2026-06-18-creative-ai-human-lab-network/post.md",
+      "sha256": "b9b1049b010843e127cfb0925fe56fe6dcb3c7950377b8a9d4490eed79ef4233",
       "rules": ["em-dash"],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft, single instance."
     },
     {
       "path": "content/drafts/2026-06-18-creative-ai-human-lab-network/post.html",
+      "sha256": "348928ad59925891f429ef245e37113a92bdb08d61c79c8e086b5b7231457e8c",
       "rules": ["em-dash"],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft, single instance. See the .md sibling."
     },
     {
       "path": "content/drafts/2026-07-24-accessibility-statement/post.md",
+      "sha256": "eaf5b8370399aba6871c77e541aa1e9e49ffd51908bf63e36a920710a47b331f",
       "rules": ["em-dash"],
       "issue": "#288",
       "reason": "Grandfathered pre-gate draft. Superseded by the 2026-07-25 revision and kept for provenance."
     },
     {
       "path": "content/drafts/2026-07-25-accessibility-statement/post.md",
+      "sha256": "8a70b773282732863764e873cd67e1be4e4c7ca533204d2f149090e8609e2402",
       "rules": ["em-dash"],
       "issue": "#288",
       "reason": "Grandfathered pre-gate draft, still awaiting KK copy approval. Fix the dashes in the same pass that fills the [KK: ...] placeholders."
     },
     {
       "path": "content/drafts/2026-07-24-sponsor-deck/post.html",
+      "sha256": "48c4b82de55e93ca4f2be388ff9650ba6030daacd78596badaf665eaa5f89ded",
       "rules": ["em-dash"],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft."
     },
     {
       "path": "content/drafts/2026-08-01-testimonials-overhaul/copy.md",
+      "sha256": "e3c6f4828e2bed8dc4645053d0dc25f8642f52156cf8bd50d3174d5907f3c30f",
       "rules": ["em-dash"],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. Page copy, not yet applied."
     },
     {
       "path": "content/drafts/wp-draft-10594-post-10594/post-body.html",
+      "sha256": "65fb7f00c68905937555d6b4b2d36dfa681a99a8c5c027992fb64fa334a3218f",
       "rules": ["em-dash"],
       "issue": "#603",
       "reason": "Snapshot of an existing WordPress draft, pulled down verbatim. Editing it here would desync it from the live draft it mirrors."
     },
     {
       "path": "content/drafts/wp-draft-11178-post-11178/post-body.html",
+      "sha256": "e1b14c5346cc5d7a0fe1b73da2460728d8af792d517310c48ee163fba261f3bf",
       "rules": ["em-dash"],
       "issue": "#603",
       "reason": "Snapshot of an existing WordPress draft, pulled down verbatim. Editing it here would desync it from the live draft it mirrors."

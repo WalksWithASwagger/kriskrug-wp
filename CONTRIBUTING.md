@@ -278,38 +278,35 @@ voice-similarity scorer, and it never needs network or credentials.
   The glob is narrow on purpose. Voice-audit reports, dash ledgers, and
   remediation READMEs in the same tree legitimately *discuss* em dashes and are
   out of scope by construction.
-- **Theme chrome**: `theme/kk-aurora/{templates,parts,patterns}`. HTML, CSS, and
-  PHP comments are blanked before matching, because a dash in a comment never
-  reaches a reader. On 2026-08-15 the theme carried 11 em dashes, of which 6
-  were comments and only 5 rendered (#733).
+- **Theme chrome**: `theme/kk-aurora/{templates,parts,patterns}` plus
+  `theme/kk-aurora/functions.php`. HTML, CSS, and PHP comments are blanked
+  before matching because a dash in a comment never reaches a reader. The root
+  `functions.php` is included because #756 confirmed that its
+  `document_title_separator` filter owns the sitewide fallback `<title>` dash.
 
 **Writing *about* a dash.** Do not reach for a waiver. Write the character as
 the literal token `{EMDASH}`, the convention set by
 [`content/drafts/2026-08-02-emdash-remediation/dash-ledger.md`](content/drafts/2026-08-02-emdash-remediation/dash-ledger.md).
 That lets a ledger quote its originals without carrying them.
 
-**Chrome copy that lives outside the repo.** The sitewide `<title>` format
-string (#756) is a Jetpack setting, not a repo file, so no static scan can see
-it. Pipe a live readback through the same rules instead:
+**Live verification.** The fallback `<title>` source is tracked in Aurora, but
+production can drift from the repo. After a theme deploy, pipe a public readback
+through the same rules:
 
 ```bash
 curl -s https://kriskrug.co/ | grep -o '<title>[^<]*</title>' | python3 scripts/voice_check.py -
 ```
 
-**Waivers.** `.voice-waivers.json` at the repo root records per-file exemptions,
-each with an owning issue and a reason. Add one only for a legitimate case: a
-verbatim third-party pull quote, quoted source material, a banned-words list
-that has to name the banned words, or a pre-gate file whose remediation another
-issue owns.
-
-It is a ratchet, not a mute button. When a waived file stops violating, the gate
-reports the waiver as **stale** and fails until the entry is deleted, so the
-grandfathered baseline shrinks to zero instead of living forever. The same
-discipline as `.css-budget.json` (#472).
+**Waivers.** `.voice-waivers.json` records an owning issue, reason, rules, and
+the exact SHA-256 of each grandfathered file. Add one only for quoted source
+material, a banned-words list that must name the words, or a pre-gate artifact
+owned by another issue. Any file edit changes its digest and invalidates the
+waiver, so new hits fail instead of hiding under an old exemption. Removing all
+hits passes even if a parallel PR still carries the now-unused waiver entry.
 
 **CI.** The `voice-gate` job in `test-pr.yml` runs on PRs that touch payload
-copy, theme templates, or the gate's own files. It scans the whole scope, not
-just changed files, which is what makes the waiver baseline a ratchet.
+copy, theme templates/parts/patterns, `theme/kk-aurora/functions.php`, or the
+gate's own files. It scans the whole scope against the exact baselines.
 
 **The fuller local pass.** CI deliberately checks hard rules only. The real
 checker (crystal facets, anti-glossary, similarity scoring) lives outside this
