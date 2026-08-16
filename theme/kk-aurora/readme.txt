@@ -40,6 +40,10 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.6.6 =
+* content (#733, PR #751): rewrite the five listed user-visible em dashes in the homepage, marquee archive, and photo-gallery pattern copy.
+* cleanup (#743, PR #751): remove the unplaced speaking proof-grid template part and its theme.json registration.
+
 = 1.4.9 =
 * content/ux (#416): homepage newsletter band rewritten in Dark Crystal voice; one honest email CTA; three recent-post thumbnails via query loop.
 * content (#416): blog-index newsletter band drops dispatch/field-notes chrome; class renamed to `.aurora-writing-newsletter`.
