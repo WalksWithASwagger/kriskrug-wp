@@ -56,8 +56,10 @@ The DB is latin1, so anything above U+00FF written through REST comes back as `?
 
 ## Apply
 
-Requires resolved creds. Everything below is safe to run as-is; the script is
-dry-run by default and writes nothing without `--apply`.
+Requires resolved creds. Everything below is safe to run as-is. The default
+dry run performs authenticated GETs and prints the reviewed diffs, but creates
+no files and makes no WordPress writes. Only `--apply` permits either snapshots
+or PATCH requests.
 
 ```bash
 # 1. Dry run. Prints the unified diff and the em-dash delta for both posts.
@@ -72,7 +74,8 @@ make varlock-run CMD='python3 scripts/apply_issue_764_fix.py --apply'
 
 `--post-id 12327` or `--post-id 12032` runs one at a time.
 
-Before each write the script hard-aborts unless all three hold:
+Before any write, the script preflights every selected post and hard-aborts
+unless all three hold for all of them:
 
 1. the ID resolves to the expected slug (2026-05-15 incident rule 2),
 2. the live body still hashes to the 2026-08-15 baseline, so a body that drifted
@@ -80,10 +83,13 @@ Before each write the script hard-aborts unless all three hold:
    else's edit,
 3. the payload file still hashes to what was reviewed in this PR.
 
-It also writes `backup/issue-764-em-dash-404/rest-post-<id>-before-<stamp>.json`
-(full `context=edit` snapshot) before the PATCH, and prints the exact rollback
-command on success. If the live body already equals the payload it prints `[SKIP]`
-and moves on, so re-running is safe.
+After every target passes preflight, `--apply` writes a mode-0600
+`backup/issue-764-em-dash-404/rest-post-<id>-before-<stamp>.json` file for every
+pending post. Only after every snapshot succeeds does the first PATCH begin.
+That ordering prevents a second-post validation or snapshot failure from
+leaving a one-post partial apply. The script prints the exact rollback command
+on success. If a live body already equals its payload it prints `[SKIP]` and
+moves on, so re-running is safe.
 
 ## Verify
 
@@ -134,9 +140,14 @@ make varlock-run CMD='python3 scripts/apply_issue_764_fix.py --restore backup/is
 make varlock-run CMD='python3 scripts/apply_issue_764_fix.py --restore backup/issue-764-em-dash-404/rest-post-12327-before-<stamp>.json --apply'
 ```
 
-Restore is dry-run by default too. If the snapshot is somehow missing, the
-committed `*-baseline-20260815.json` files in these `fix-764/` directories hold
-the same pre-change `content.raw` and work the same way.
+Restore is dry-run by default too. It refuses a snapshot whose ID is outside
+the two-post allowlist, whose slug or body hash differs from the approved
+baseline, or whose live target has drifted from the reviewed payload. With
+`--apply`, it first saves the current live payload to a fresh mode-0600
+`rest-post-<id>-before-restore-<stamp>.json`, then performs the restore. If the
+original snapshot is missing, the committed `*-baseline-20260815.json` files in
+these `fix-764/` directories hold the same approved `content.raw` and pass the
+same validation.
 
 ## Optional, KK's call, not in the payload
 
