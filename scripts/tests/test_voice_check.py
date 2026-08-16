@@ -7,8 +7,10 @@ out of the gate's own scan scope and cannot trip it.
 """
 
 import io
+import hashlib
 import json
 import sys
+import tempfile
 import unittest
 from contextlib import redirect_stdout
 from pathlib import Path
@@ -20,6 +22,10 @@ import voice_check  # noqa: E402
 
 FIXTURES = Path("scripts/tests/fixtures/voice_check")
 EM_DASH = "\u2014"
+
+
+def digest(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
 def run(paths, waivers=None, stdin=None):
@@ -70,7 +76,7 @@ class ExitCodeTests(unittest.TestCase):
         self.assertIn("5 violation(s)", out)
 
     def test_stdin_mode_gates_chrome_copy(self):
-        """#756: the sitewide <title> is a Jetpack setting, so it arrives piped."""
+        """#756: public readbacks can verify the theme-owned title source."""
         title = f"<title>AI Lands Inside Every Profession {EM_DASH} Kris Krug</title>"
         code, out = run(["-"], waivers=[], stdin=title)
         self.assertEqual(code, 1)
@@ -110,35 +116,67 @@ class CommentExclusionTests(unittest.TestCase):
 
 class WaiverTests(unittest.TestCase):
     def test_waiver_suppresses_its_own_rule_only(self):
-        waivers = [{"path": str(FIXTURES / "slop-post.md"), "rules": ["slop:delve"]}]
+        path = FIXTURES / "slop-post.md"
+        waivers = [
+            {
+                "path": str(path),
+                "sha256": digest(path),
+                "rules": ["slop:delve"],
+            }
+        ]
         code, out = run([str(FIXTURES / "slop-post.md")], waivers=waivers)
         self.assertEqual(code, 1)
         self.assertNotIn("slop:delve", out)
         self.assertIn("slop:tapestry", out)
-        self.assertIn("1 waived", out)
+        self.assertIn("1 baseline-waived", out)
 
     def test_wildcard_waiver_clears_the_file(self):
-        waivers = [{"path": str(FIXTURES / "dashed-post.md"), "rules": ["*"]}]
+        path = FIXTURES / "dashed-post.md"
+        waivers = [
+            {"path": str(path), "sha256": digest(path), "rules": ["*"]}
+        ]
         code, out = run([str(FIXTURES / "dashed-post.md")], waivers=waivers)
         self.assertEqual(code, 0, out)
-        self.assertIn("2 waived", out)
+        self.assertIn("2 baseline-waived", out)
 
-    def test_stale_waiver_fails_so_the_baseline_ratchets_down(self):
-        waivers = [
-            {
-                "path": str(FIXTURES / "clean-post.md"),
-                "rules": ["em-dash"],
-                "issue": "#751",
-            }
-        ]
-        code, out = run([str(FIXTURES / "clean-post.md")], waivers=waivers)
-        self.assertEqual(code, 1)
-        self.assertIn("[stale-waiver]", out)
-        self.assertIn("#751", out)
+    def test_changed_file_cannot_reuse_an_old_baseline_waiver(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "post.md"
+            path.write_text(f"Known baseline {EM_DASH} one hit.\n", encoding="utf-8")
+            waivers = [
+                {"path": str(path), "sha256": digest(path), "rules": ["em-dash"]}
+            ]
+            code, out = run([str(path)], waivers=waivers)
+            self.assertEqual(code, 0, out)
+
+            path.write_text(
+                f"Known baseline {EM_DASH} one hit.\nNew copy {EM_DASH} regression.\n",
+                encoding="utf-8",
+            )
+            code, out = run([str(path)], waivers=waivers)
+            self.assertEqual(code, 1)
+            self.assertIn("2 violation(s)", out)
+
+    def test_removing_a_waived_violation_does_not_block_cleanup(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "post.md"
+            path.write_text(f"Old copy {EM_DASH} pending cleanup.\n", encoding="utf-8")
+            waivers = [
+                {"path": str(path), "sha256": digest(path), "rules": ["em-dash"]}
+            ]
+            path.write_text("Clean replacement copy.\n", encoding="utf-8")
+
+            code, out = run([str(path)], waivers=waivers)
+
+        self.assertEqual(code, 0, out)
+        self.assertNotIn("stale-waiver", out)
 
     def test_unscanned_waiver_is_not_reported_stale(self):
         """CI may scan a subset; a waiver for an untouched file must stay quiet."""
-        waivers = [{"path": str(FIXTURES / "dashed-post.md"), "rules": ["*"]}]
+        path = FIXTURES / "dashed-post.md"
+        waivers = [
+            {"path": str(path), "sha256": digest(path), "rules": ["*"]}
+        ]
         code, out = run([str(FIXTURES / "clean-post.md")], waivers=waivers)
         self.assertEqual(code, 0, out)
         self.assertNotIn("[stale-waiver]", out)
@@ -152,11 +190,27 @@ class RepoBaselineTests(unittest.TestCase):
             self.assertTrue(entry.get("issue"), entry)
             self.assertTrue(entry.get("reason"), entry)
             self.assertTrue(entry.get("rules"), entry)
+            self.assertEqual(len(entry.get("sha256", "")), 64, entry)
+
+    def test_theme_title_source_is_in_default_scan(self):
+        self.assertIn(
+            Path("theme/kk-aurora/functions.php"), voice_check.default_targets()
+        )
 
     def test_repo_is_green_under_the_gate(self):
         """#747 acceptance: `make voice-check` passes on main with the baseline."""
         code, out = run([])
         self.assertEqual(code, 0, out)
+
+
+class WorkflowWiringTests(unittest.TestCase):
+    def test_pull_request_workflow_has_changed_file_voice_job(self):
+        workflow = (
+            voice_check.REPO_ROOT / ".github/workflows/test-pr.yml"
+        ).read_text(encoding="utf-8")
+        self.assertIn("has_voice", workflow)
+        self.assertIn("voice-gate:", workflow)
+        self.assertIn("needs.validate.outputs.has_voice == 'true'", workflow)
 
 
 if __name__ == "__main__":
