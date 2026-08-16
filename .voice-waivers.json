@@ -41,10 +41,10 @@
     },
     {
       "path": "theme/kk-aurora/functions.php",
-      "sha256": "4fee2a5a17d9bc69b36feb60029c7bbd2dc4dd255e662583e50eb49606cdec82",
+      "sha256": "0ac137f73b21b3d1b902471f83437888dd5816e3f10c282bc6701b8b460322fb",
       "rules": ["em-dash"],
       "issue": "#756",
-      "reason": "TEMPORARY exact baseline for the confirmed theme-owned document title separator. The Track B fix remains decision and deploy gated."
+      "reason": "TEMPORARY exact baseline for the confirmed theme-owned document title separator. PR #751 changes only the 1.6.6 cache-busting constant in this file; #756 remains decision and deploy gated."
     },
     {
       "path": "content/drafts/2026-07-26-client-logo-soup/copy.md",

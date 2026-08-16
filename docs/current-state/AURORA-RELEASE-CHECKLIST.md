@@ -39,8 +39,9 @@ Use this checklist for every manual `kk-aurora` production deploy on Pagely (wp-
 - [ ] Purge Pagely cache again
 - [ ] Re-verify logged-out render
 
-## Notes
+## Current release note (2026-08-16)
 
-- Versions **1.3.16–1.3.18** (PR #185 synthetic.ai refactor) are merged to `main`; repo `main` is now **1.3.18**.
-- Production was at **1.3.12** as of 2026-06-09 morning-truth.
-- 2026-06-14: deploy package staged at `backup/aurora-deploy-20260614/` (1.3.18 zip + git-rebuilt 1.3.12 rollback + checksums + `DEPLOY-HANDOFF.md`). Awaiting KK wp-admin upload (#204/#189).
+- Public `style.css` reports Aurora **1.6.5**. Draft PR #751 prepares **1.6.6** for #733 and #743; merge and deploy remain KK gates.
+- The committed pre-deploy baseline manifest is `reports/visual-baseline/manifest-20260816T151617Z.json`. It captures `/` and `/speaking/` at 200 across mobile, tablet, and desktop.
+- `/marquee/` currently returns 404 and is not a valid live release gate. Verify the marquee archive copy in source; the visual runbook uses `/category/vancouver-ai-ecosystem/` as the live archive-template substitute until the marquee route exists.
+- A post-deploy candidate diff, cache purge, public 1.6.6 readback, rollback receipt, and Jetpack Boost regeneration are still required. This checklist and PR do not authorize those actions.

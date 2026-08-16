@@ -34,7 +34,7 @@ $kk_tiles       = array(
 	<!-- /wp:heading -->
 
 	<!-- wp:paragraph {"className":"aurora-photo-lede"} -->
-	<p class="aurora-photo-lede">Documentary work across climate, culture, music, and power — 144,000+ exposures and counting. A practiced habit of paying attention, brought to the AI conversation.</p>
+	<p class="aurora-photo-lede">Documentary work across climate, culture, music, and power. 144,000+ exposures and counting. A practiced habit of paying attention, brought to the AI conversation.</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:group {"className":"aurora-photo-gallery","layout":{"type":"default"}} -->
@@ -47,7 +47,7 @@ $kk_tiles       = array(
 			<!-- /wp:paragraph -->
 
 			<!-- wp:image {"lightbox":{"enabled":true},"sizeSlug":"large","className":"aurora-photo-image"} -->
-			<figure class="wp-block-image size-large aurora-photo-image"><img src="<?php echo esc_url( $kk_placeholder ); ?>" alt="<?php echo esc_attr( sprintf( '%s — replace with photograph and descriptive alt text', $kk_tile['cat'] ) ); ?>"/><figcaption class="wp-element-caption"><?php echo esc_html( $kk_tile['caption'] ); ?></figcaption></figure>
+			<figure class="wp-block-image size-large aurora-photo-image"><img src="<?php echo esc_url( $kk_placeholder ); ?>" alt="<?php echo esc_attr( sprintf( '%s: replace with photograph and descriptive alt text', $kk_tile['cat'] ) ); ?>"/><figcaption class="wp-element-caption"><?php echo esc_html( $kk_tile['caption'] ); ?></figcaption></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:group -->
