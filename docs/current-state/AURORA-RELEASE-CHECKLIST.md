@@ -1,6 +1,6 @@
 # Aurora Theme Release Checklist
 
-Use this checklist for every manual `kk-aurora` production deploy on Pagely (wp-admin zip upload — no SFTP/SSH).
+Use this checklist for every manual `kk-aurora` production deploy on Pagely: wp-admin zip upload, no SFTP/SSH.
 
 ## Pre-release (repo)
 
@@ -30,7 +30,7 @@ Use this checklist for every manual `kk-aurora` production deploy on Pagely (wp-
 
 - [ ] Purge Pagely cache
 - [ ] Logged-out spot-check: homepage, `/blog/`, one real post
-- [ ] `make status-readonly` — confirm GSAP CDN check if version includes GSAP removal
+- [ ] `make status-readonly`: confirm GSAP CDN check if version includes GSAP removal
 - [ ] Cross-post evidence to open issues (#125, #127, #189 as applicable)
 
 ## Rollback
@@ -41,7 +41,7 @@ Use this checklist for every manual `kk-aurora` production deploy on Pagely (wp-
 
 ## Current release note (2026-08-16)
 
-- Public `style.css` reports Aurora **1.6.5**. Draft PR #751 prepares **1.6.6** for #733 and #743; merge and deploy remain KK gates.
+- Public `style.css` reports Aurora **1.6.5**. Source release **1.6.6** merged in PR #751 at `dcb7ff4` for #733 and #743; deployment remains a KK gate.
 - The committed pre-deploy baseline manifest is `reports/visual-baseline/manifest-20260816T151617Z.json`. It captures `/` and `/speaking/` at 200 across mobile, tablet, and desktop.
 - `/marquee/` currently returns 404 and is not a valid live release gate. Verify the marquee archive copy in source; the visual runbook uses `/category/vancouver-ai-ecosystem/` as the live archive-template substitute until the marquee route exists.
-- A post-deploy candidate diff, cache purge, public 1.6.6 readback, rollback receipt, and Jetpack Boost regeneration are still required. This checklist and PR do not authorize those actions.
+- A post-deploy candidate diff, cache purge, public 1.6.6 readback, rollback receipt, and Jetpack Boost regeneration are still required. This checklist and the repository merge do not authorize those actions.

@@ -21,7 +21,7 @@ When you cut a new release, add a line here and follow
 ---
 
 ## 1.6.6
-**Deployed:** NOT LIVE (draft PR #751; merge and deploy pending)
+**Deployed:** NOT LIVE (source merged in PR #751 at `dcb7ff4`; deploy pending)
 Copy and dead-file cleanup, no layout or CSS change. Strips the five user-visible em dashes from theme copy: the homepage hero dek and services lede, the marquee archive lede, and the photo-gallery pattern's lede plus its placeholder alt text (#733). Removes the orphaned speaking proof-grid template part and its `theme.json` registration; the part was placed by zero templates and live proof-grid content is DB page content, not this part (#743).
 
 ## 1.6.5
