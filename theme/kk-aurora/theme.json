@@ -802,11 +802,6 @@
       "name": "footer",
       "title": "Footer",
       "area": "footer"
-    },
-    {
-      "name": "speaking-proof-grid",
-      "title": "Speaking Proof Grid",
-      "area": "uncategorized"
     }
   ],
   "customTemplates": [
