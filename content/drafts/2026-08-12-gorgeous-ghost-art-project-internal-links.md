@@ -8,8 +8,8 @@
 
 ## Network hubs
 
-- https://kriskrug.co/recent-projects-include/ - KrisKrug.co Work hub
-- https://kriskrug.ai/ - Hopecode Garden public project index
+- https://kriskrug.co/work/ - KrisKrug.co Work hub
+- https://kriskrug.ai/network - canonical Signal Atlas for the full project network
 - https://www.punkrockai.com/ - Punk Rock AI keynote portal
 - https://www.bothhandsfull.com/ - Both Hands Full keynote and learning portal
 
