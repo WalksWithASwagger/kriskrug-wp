@@ -2,6 +2,8 @@
 
 This plugin lives in the issue-tracking repo because the live WordPress install isn't version-controlled here. Two install paths — pick whichever is easier.
 
+**Live status: NO, not installed or active on kriskrug.co. Verified 2026-08-15 (read-only), how: `kk_promo` is absent from `https://kriskrug.co/wp-json/wp/v2/types` and the CPT registers `show_in_rest => true` so it would appear there if active; `https://kriskrug.co/wp-json/wp/v2/kk_promo` returns 404; no `kk-sp` markup renders on the homepage or on a published post page; `https://kriskrug.co/wp-content/plugins/kk-sidebar-promos/assets/css/` returns 404.** Re-run those checks before trusting this line. Nothing below has been executed against live.
+
 ## Path A — Upload via WP admin (fastest)
 
 1. Build and verify the upload zip:
