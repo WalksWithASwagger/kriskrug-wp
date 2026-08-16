@@ -232,6 +232,27 @@ def render_command_block(result: CommandResult) -> str:
     return "\n".join(lines)
 
 
+def resolve_output_path(
+    repo_root: Path,
+    stamp: str,
+    *,
+    stdout: bool = False,
+    out: str | None = None,
+    checkpoint: bool = False,
+) -> Path | None:
+    if sum((stdout, out is not None, checkpoint)) > 1:
+        raise ValueError("only one output mode may be selected")
+    if stdout:
+        return None
+    if out:
+        path = Path(out)
+    elif checkpoint:
+        path = Path("docs/current-state/reports") / f"morning-truth-{stamp}.md"
+    else:
+        path = Path(".generated/current-state") / f"morning-truth-{stamp}.md"
+    return path if path.is_absolute() else (repo_root / path).resolve()
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-url", default="https://kriskrug.co")
@@ -253,11 +274,17 @@ def main() -> int:
         default=20,
         help="Timeout for each public smoke HTTP request.",
     )
-    parser.add_argument("--out", help="Write report to this path.")
-    parser.add_argument(
+    output_group = parser.add_mutually_exclusive_group()
+    output_group.add_argument("--out", help="Write report to this deliberate path.")
+    output_group.add_argument(
         "--stdout",
         action="store_true",
         help="Print the report instead of writing a file.",
+    )
+    output_group.add_argument(
+        "--checkpoint",
+        action="store_true",
+        help="Write a durable report under docs/current-state/reports/.",
     )
     parser.add_argument(
         "--skip-fetch",
@@ -270,21 +297,18 @@ def main() -> int:
         help="Exit non-zero when any startup truth data source is unavailable (opt-in automation gate).",
     )
     args = parser.parse_args()
-    if args.stdout and args.out:
-        parser.error("--stdout cannot be combined with --out")
 
     repo_root = Path(__file__).resolve().parents[1]
     now = datetime.now(UTC)
     stamp = now.strftime("%Y%m%d-%H%M%SZ")
-    out_path = None
-    if not args.stdout:
-        out_path = (
-            Path(args.out)
-            if args.out
-            else repo_root / "docs/current-state/reports" / f"morning-truth-{stamp}.md"
-        )
-        if not out_path.is_absolute():
-            out_path = (repo_root / out_path).resolve()
+    out_path = resolve_output_path(
+        repo_root,
+        stamp,
+        stdout=args.stdout,
+        out=args.out,
+        checkpoint=args.checkpoint,
+    )
+    if out_path:
         out_path.parent.mkdir(parents=True, exist_ok=True)
 
     startup_results = []
@@ -640,6 +664,7 @@ def main() -> int:
     if args.stdout:
         print(report, end="")
     else:
+        assert out_path is not None
         out_path.write_text(report, encoding="utf-8")
         print(out_path)
     if args.fail_on_error and truth_errors:

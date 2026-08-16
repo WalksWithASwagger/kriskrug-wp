@@ -51,8 +51,8 @@ Gorgeous Ghost now has a home of its own, but it is not an island.
 - [Punk Rock AI](https://www.punkrockai.com/) is the argument about taste, theft, refusal, and making with the tools without handing over the wheel.
 - [Both Hands Full](https://www.bothhandsfull.com/) is the film and learning portal for holding critique in one hand and curiosity in the other.
 - [Ghost Radio](https://ghost.radio.fm/) is the audio lab and broadcast deck.
-- [kriskrug.ai](https://kriskrug.ai/) is the living index of the weird public things I am building.
-- [KrisKrug.co Work](https://kriskrug.co/recent-projects-include/) is the narrative hub where the threads meet.
+- [The Signal Atlas](https://kriskrug.ai/network) is the living map of the weird public things I am building.
+- [KrisKrug.co Work](https://kriskrug.co/work/) is the narrative hub where the threads meet.
 
 That connective tissue matters. A project can be a film and still have a source trail. A song can be a song and still point to the people who helped it become real. An AI-assisted work can show the machinery without pretending the machinery had the taste.
 

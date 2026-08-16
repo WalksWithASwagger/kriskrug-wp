@@ -166,6 +166,52 @@ class MorningTruthAvailabilityTests(unittest.TestCase):
         self.assertEqual(errors, [])
 
 
+class MorningTruthOutputPathTests(unittest.TestCase):
+    def test_default_report_uses_generated_state_directory(self):
+        repo_root = Path("/workspace/kriskrug-wp")
+
+        output = morning_truth_report.resolve_output_path(
+            repo_root, "20260813-120000Z"
+        )
+
+        self.assertEqual(
+            output,
+            repo_root
+            / ".generated/current-state"
+            / "morning-truth-20260813-120000Z.md",
+        )
+
+    def test_checkpoint_report_uses_durable_reports_directory(self):
+        repo_root = Path("/workspace/kriskrug-wp")
+
+        output = morning_truth_report.resolve_output_path(
+            repo_root, "20260813-120000Z", checkpoint=True
+        )
+
+        self.assertEqual(
+            output,
+            repo_root
+            / "docs/current-state/reports"
+            / "morning-truth-20260813-120000Z.md",
+        )
+
+    def test_stdout_has_no_output_path(self):
+        output = morning_truth_report.resolve_output_path(
+            Path("/workspace/kriskrug-wp"), "20260813-120000Z", stdout=True
+        )
+
+        self.assertIsNone(output)
+
+    def test_output_modes_are_mutually_exclusive(self):
+        with self.assertRaisesRegex(ValueError, "only one output mode"):
+            morning_truth_report.resolve_output_path(
+                Path("/workspace/kriskrug-wp"),
+                "20260813-120000Z",
+                stdout=True,
+                checkpoint=True,
+            )
+
+
 if __name__ == "__main__":
     unittest.main()
 
