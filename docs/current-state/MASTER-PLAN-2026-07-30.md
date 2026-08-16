@@ -28,7 +28,7 @@ Make this repo trustworthy again so agents and humans stop navigating by stale w
 - Write this file + CURRENT-STATE + WORK-PLAN 2026-07-30
 - Retarget AGENTS.md, README, Makefile `WORK_PLAN_DEFAULT`, docs/INDEX
 - Banner-demote WORK-PLAN 07-16 / 07-19 / 07-26 (and peers)
-- Commit fresh `make morning-truth` report
+- Create, review, and commit a `make morning-truth-checkpoint` report for this durable truth reset
 - Fix obvious post-merge lies in active docs (e.g. CHANGELOG 1.5.0 “still unmerged”)
 
 ### Phase 1 — Docs archive (#549)

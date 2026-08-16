@@ -1,15 +1,15 @@
 # Current State of kriskrug.co
 
-Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then the newest `reports/morning-truth-*.md`.
+Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then run `make status-readonly` for current runtime signals.
 
 ## Current Front Door (verified 2026-08-12)
 
 Read these first:
 
-1. **[WORK-PLAN-2026-08-09.md](WORK-PLAN-2026-08-09.md)**, latest dated runbook (supersedes 2026-08-05; use the newest morning-truth report for live counters)
-2. **[CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md)**, declared snapshot for `make morning-truth` / drift (counts drifted — see newest report)
+1. **[WORK-PLAN-2026-08-09.md](WORK-PLAN-2026-08-09.md)**, latest dated runbook (supersedes 2026-08-05; use `make status-readonly` for live counters)
+2. **[CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md)**, declared snapshot for morning-truth drift checks (compare it with a fresh `make status-readonly` run)
 3. **[MASTER-PLAN-2026-07-30.md](MASTER-PLAN-2026-07-30.md)**, truth then reclaim then product lanes (hygiene phases complete)
-4. Newest **[reports/morning-truth-*.md](reports/)**, or run `make status-readonly` / `make morning-truth`
+4. Run `make status-readonly` for current signals; use the newest **[reports/morning-truth-*.md](reports/)** only as durable checkpoint evidence
 5. **[TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)**, Track A vs Track B
 6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
 7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
@@ -92,7 +92,8 @@ Neither is a plan you execute from. Check with `ls docs/current-state/*.md | gre
 
 ## Reports and subdirectories
 
-- `reports/`, timestamped `make morning-truth` output and ops evidence. Prefer the newest `morning-truth-*.md`. Markdown stays tracked; screenshot binaries are reclaim targets (#369 bucket D).
+- `.generated/current-state/`, gitignored local `make morning-truth` output. Routine startup telemetry stays here and is not committed.
+- `reports/`, durable checkpoint and ops evidence. `make morning-truth-checkpoint` writes here only for an explicit release, incident, durable decision, or handoff. Existing morning-truth Markdown remains tracked historical evidence; screenshot binaries are reclaim targets (#369 bucket D).
 - `raw/`, unprocessed captures feeding the audits.
 - `marketing/`, `portal/`, `templates/`, scoped working sets, not startup context.
 - `archive/`, everything above.
