@@ -33,8 +33,8 @@
  *   gtag behaves exactly as it does today. Failure mode is "no change", never
  *   "analytics silently gone".
  *
- * Deployed via the Code Snippets plugin (front-end scope). This file is the
- * source of truth — keep it in sync if either side is edited.
+ * Prepared for the Code Snippets plugin (front-end scope); not deployed as of
+ * 2026-08-16. This file is the source of truth if live activation is approved.
  *
  * When pasting into Code Snippets: strip the opening <?php tag (Code Snippets
  * wraps the snippet automatically).
