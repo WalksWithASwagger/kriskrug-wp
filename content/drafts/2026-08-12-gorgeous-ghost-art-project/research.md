@@ -31,9 +31,9 @@ Research dates: 2026-08-12; refreshed 2026-08-16
 - The public transcript includes the line “Come on, you gorgeous ghost, half a heaven and half a hole, far out, far gone, both hands full.”
 - The project should be described as an art/film/music work, not as a software product. Avoid claiming a release date, ownership of generated media, or public approval beyond the credits visible on the live site.
 
-## Repository publishing decision
+## Editorial recommendation; owner decision open
 
-- Recommendation: PUBLISH after an authenticated WordPress preview and fresh human approval.
+- Recommendation: PUBLISH after an authenticated WordPress preview and fresh human approval. Kris's publish-or-park decision remains open.
 - Repository scope stops before any CMS write. The local payload remains `status: draft`.
 - Retain `post_date: 2026-08-12` and canonical `https://kriskrug.co/2026/08/12/gorgeous-ghost/`.
 - Use category `Creative Technology & Making` and tags `Gorgeous Ghost`, `Creative AI`, `AI Film Club`, and `AI Music`.

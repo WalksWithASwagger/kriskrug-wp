@@ -1,12 +1,12 @@
 # Gorgeous Ghost publish gate
 
-Recommendation: **PUBLISH after preview**.
+Editorial recommendation: **PUBLISH after preview**. Kris's publish-or-park decision remains open.
 
 Repository state: local package prepared; no WordPress object created or updated; no provider state changed.
 
 Public preflight on 2026-08-16: the dated canonical and legacy bare-slug route return `404`; unauthenticated WordPress REST returns no published post or page with the slug. This does not prove that no draft or private object exists.
 
-## Locked editorial payload
+## Proposed editorial payload
 
 - Title: `I Made a Gorgeous Ghost`
 - Slug: `gorgeous-ghost`

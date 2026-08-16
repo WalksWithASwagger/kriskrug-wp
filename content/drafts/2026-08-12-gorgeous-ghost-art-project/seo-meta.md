@@ -17,4 +17,4 @@
 - The public credits name The Scallywags as Kris Krüg, Magenta Rune, Mayumi Rawlings, and Kevin Friel.
 - The public special-thanks line names Kaoru Yoshihira and Floyo.ai.
 - The public description is `The BC + AI Film Club Prompt Challenge`.
-- The repository decision is to use the external Gorgeous Ghost share image as the first body image and OG source.
+- The draft package uses the external Gorgeous Ghost share image as the proposed first body image and OG source; final approval remains part of the WordPress preview gate.

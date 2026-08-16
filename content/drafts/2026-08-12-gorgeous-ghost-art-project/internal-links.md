@@ -28,5 +28,5 @@
 
 - Link to Gorgeous Ghost in the opening section and closing CTA.
 - Link each network node once in the network section.
-- Keep the repository payload at `status: draft`; the recommended PUBLISH lane still requires an authenticated WordPress preview and fresh human approval.
+- Keep the repository payload at `status: draft`; PUBLISH is an editorial recommendation, not Kris's decision, and still requires an authenticated WordPress preview and fresh human approval.
 - Do not publish or send derivative social copy from this repository-only change.
