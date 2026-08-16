@@ -88,7 +88,7 @@ def main() -> int:
         payload["tags"] = ensure_terms(wp, "tags", tags)
     payload.pop("slug", None)  # never change the slug on update
 
-    result = wp.update_post(args.wp_id, payload)
+    result = wp.update_post(args.wp_id, payload, expected_slug=pkg.slug)
     readback = wp.get_post(int(result["id"]))
     if readback.get("status") != "draft" or readback.get("slug") != pkg.slug:
         raise SystemExit(

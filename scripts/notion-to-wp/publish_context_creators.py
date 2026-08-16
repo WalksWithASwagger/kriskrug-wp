@@ -170,7 +170,11 @@ if UPDATE:
     if not existing:
         sys.exit(f"[ABORT] --update but no post with slug {SLUG} found. Run --execute first.")
     pid = existing["id"]
-    post = wp.update_post(pid, {"content": content, "featured_media": FEATURED_ID})
+    post = wp.update_post(
+        pid,
+        {"content": content, "featured_media": FEATURED_ID},
+        expected_slug=SLUG,
+    )
     print(f"[post] UPDATED draft id={pid} status={post['status']}")
 else:
     if existing:
