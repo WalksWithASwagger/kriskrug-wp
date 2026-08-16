@@ -19,133 +19,161 @@
   "waivers": [
     {
       "path": "theme/kk-aurora/templates/front-page.html",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#733",
       "reason": "TEMPORARY. The hero dek and services lede em dashes are already rewritten in PR #751 (Aurora 1.6.6), which is open and unmerged. Delete this entry in that PR; the stale-waiver check will demand it."
     },
     {
       "path": "theme/kk-aurora/templates/archive-marquee_board.html",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#733",
       "reason": "TEMPORARY. Marquee archive lede em dash is rewritten in PR #751. Delete this entry in that PR."
     },
     {
       "path": "theme/kk-aurora/patterns/photo-gallery.php",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#733",
       "reason": "TEMPORARY. Photo lede and the placeholder-alt sprintf are rewritten in PR #751. Delete this entry in that PR."
     },
     {
       "path": "content/drafts/2026-07-26-client-logo-soup/copy.md",
-      "rules": ["slop:delve"],
+      "rules": [
+        "slop:delve"
+      ],
       "issue": "#747",
       "reason": "Names the banned words in a do-not-use list ('Em dashes, \"delve\", \"landscape\", \"robust\", \"leverage\"'). Quoting the lexicon is the point of the line."
     },
     {
       "path": "content/drafts/2026-07-31-ai-lands-inside-every-profession/post.md",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#603",
       "reason": "Pre-remediation source for post 12653. The corrected body lives in content/drafts/2026-08-02-emdash-remediation/remediated-body.md; this file is kept as the before-state of record."
     },
     {
       "path": "content/drafts/2026-07-31-ai-lands-inside-every-profession/post.html",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#603",
       "reason": "Pre-remediation source for post 12653. See the .md sibling."
     },
     {
       "path": "content/drafts/2026-05-23-data-center-protest-signs/post.md",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. Not rewritten by the 2026-08-01 voice sweep."
     },
     {
       "path": "content/drafts/2026-05-24-human-element-shane-loki-talk/post.md",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. Not rewritten by the 2026-08-01 voice sweep."
     },
     {
       "path": "content/drafts/2026-05-24-keynote-music-elevation-series-haus-of-owl/post.md",
-      "rules": ["slop:tapestry"],
+      "rules": [
+        "slop:tapestry"
+      ],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. Not rewritten by the 2026-08-01 voice sweep."
     },
     {
       "path": "content/drafts/2026-05-24-keynote-music-elevation-series-haus-of-owl/post.html",
-      "rules": ["slop:tapestry"],
+      "rules": [
+        "slop:tapestry"
+      ],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. See the .md sibling."
     },
     {
       "path": "content/drafts/2026-05-24-nobel-chemistry-foldit/post.md",
-      "rules": ["slop:testament"],
+      "rules": [
+        "slop:testament"
+      ],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. Not rewritten by the 2026-08-01 voice sweep."
     },
     {
       "path": "content/drafts/2026-05-24-nobel-chemistry-foldit/post.html",
-      "rules": ["slop:testament"],
-      "issue": "#603",
-      "reason": "Grandfathered pre-gate draft. See the .md sibling."
-    },
-    {
-      "path": "content/drafts/2026-06-16-storyhive-haus-of-owl-jordan-dack/post.md",
-      "rules": ["em-dash"],
-      "issue": "#603",
-      "reason": "Grandfathered pre-gate draft. Not rewritten by the 2026-08-01 voice sweep."
-    },
-    {
-      "path": "content/drafts/2026-06-16-storyhive-haus-of-owl-jordan-dack/post.html",
-      "rules": ["em-dash"],
+      "rules": [
+        "slop:testament"
+      ],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. See the .md sibling."
     },
     {
       "path": "content/drafts/2026-06-18-creative-ai-human-lab-network/post.md",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft, single instance."
     },
     {
       "path": "content/drafts/2026-06-18-creative-ai-human-lab-network/post.html",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft, single instance. See the .md sibling."
     },
     {
       "path": "content/drafts/2026-07-24-accessibility-statement/post.md",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#288",
       "reason": "Grandfathered pre-gate draft. Superseded by the 2026-07-25 revision and kept for provenance."
     },
     {
       "path": "content/drafts/2026-07-25-accessibility-statement/post.md",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#288",
       "reason": "Grandfathered pre-gate draft, still awaiting KK copy approval. Fix the dashes in the same pass that fills the [KK: ...] placeholders."
     },
     {
       "path": "content/drafts/2026-07-24-sponsor-deck/post.html",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft."
     },
     {
       "path": "content/drafts/2026-08-01-testimonials-overhaul/copy.md",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#603",
       "reason": "Grandfathered pre-gate draft. Page copy, not yet applied."
     },
     {
       "path": "content/drafts/wp-draft-10594-post-10594/post-body.html",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#603",
       "reason": "Snapshot of an existing WordPress draft, pulled down verbatim. Editing it here would desync it from the live draft it mirrors."
     },
     {
       "path": "content/drafts/wp-draft-11178-post-11178/post-body.html",
-      "rules": ["em-dash"],
+      "rules": [
+        "em-dash"
+      ],
       "issue": "#603",
       "reason": "Snapshot of an existing WordPress draft, pulled down verbatim. Editing it here would desync it from the live draft it mirrors."
     }
