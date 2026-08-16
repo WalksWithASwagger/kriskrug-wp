@@ -59,7 +59,8 @@ innocent. That file only reads per-post `jetpack_seo_html_title` meta and passes
 through untouched. The format lives in `functions.php`, which was not grepped.
 
 **Live/repo state:** live `kk-aurora` `style.css` Version **1.6.5**, repo `main` **1.6.5**, in sync.
-(Note for whoever updates `AGENTS.md`: the banner still says 1.6.4. Both moved to 1.6.5.)
+The stale `AGENTS.md` version banner observed during capture was corrected by PR #754; no follow-up
+edit is required here.
 
 ---
 
@@ -248,9 +249,10 @@ Arguments for the umlaut:
 - Google folds diacritics for matching, so `Krüg` still ranks for the query "kris krug". There is
   no measurable ranking penalty.
 - **No encoding risk here.** `ü` is U+00FC, which *is* representable in latin1. The known
-  latin1 corruption trap on this site (see the `kriskrug.co latin1 DB` memory) bites codepoints
-  outside latin1 such as `ọ` U+1ECD. Additionally, this is a **PHP source file in the theme, not a
-  DB write**, so the latin1 DB path is not involved at all. Double-safe.
+  latin1 boundary and the precomposed `ü` exception are recorded in
+  `docs/current-state/reports/voice-sweep-live-readback-20260815.md`; this report supersedes that
+  earlier report's source-location guess. Additionally, this is a **PHP source file in the theme,
+  not a DB write**, so the latin1 DB path is not involved at all. Double-safe.
 
 Argument for ASCII `Kris Krug`:
 - Deployed schema currently declares `site_name` as ASCII, and this string occupies the site slot.
@@ -327,13 +329,16 @@ since it is a prod-rendering change.
 
 ### Apply
 
-1. Branch from `main`, edit **only** `theme/kk-aurora/functions.php:337-357`.
-2. Bump `theme/kk-aurora/style.css` Version 1.6.5 → 1.6.6.
+1. Land or otherwise disposition PR #751 first; it already owns Aurora 1.6.6. Do not cut a second
+   parallel release with the same version.
+2. Branch from the resulting `main`, edit **only** `theme/kk-aurora/functions.php:337-357`, and
+   assign the next available patch version (expected 1.6.7 after #751).
 3. `make validate` (phpcs) and `make test`.
 4. Open the PR as a draft referencing #756. Get KK's ruling on §5.2 **before** deploy.
 5. Deploy via `scripts/deploy_theme_sftp.py` in the next deploy window. Capture the server-side
    backup path it prints (`kk-aurora.bak-<timestamp>`).
-6. Purge Pagely page cache (see the `pagely-page-cache-purge` memory: REST edits do not auto-purge).
+6. Follow the cache gate in `docs/current-state/SEO-INDEXING-RUNBOOK.md`: purge Pagely PressCACHE
+   in the approved admin window, then verify with a unique `?cachebust=$(date +%s)` request.
 7. Verify logged-out with the #756 command across 6 posts plus an archive, search, the feed, and 404.
 
 ### Rollback
