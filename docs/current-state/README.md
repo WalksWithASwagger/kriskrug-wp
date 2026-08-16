@@ -57,13 +57,13 @@ These are finished or single-issue documents that still sit at top level because
 
 Every file below carries a `STATUS: Historical` banner in its first lines pointing at the 2026-07-30 trio:
 
-- [CURRENT-STATE-2026-07-16.md](CURRENT-STATE-2026-07-16.md)
-- [WORK-PLAN-2026-07-01.md](WORK-PLAN-2026-07-01.md)
-- [WORK-PLAN-2026-07-16.md](WORK-PLAN-2026-07-16.md)
-- [WORK-PLAN-LONG-RUN-2026-07-16.md](WORK-PLAN-LONG-RUN-2026-07-16.md)
-- [WORK-PLAN-2026-07-19.md](WORK-PLAN-2026-07-19.md)
-- [WORK-PLAN-2026-07-25.md](WORK-PLAN-2026-07-25.md)
-- [WORK-PLAN-2026-07-26.md](WORK-PLAN-2026-07-26.md)
+- [CURRENT-STATE-2026-07-16.md](archive/CURRENT-STATE-2026-07-16.md)
+- [WORK-PLAN-2026-07-01.md](archive/WORK-PLAN-2026-07-01.md)
+- [WORK-PLAN-2026-07-16.md](archive/WORK-PLAN-2026-07-16.md)
+- [WORK-PLAN-LONG-RUN-2026-07-16.md](archive/WORK-PLAN-LONG-RUN-2026-07-16.md)
+- [WORK-PLAN-2026-07-19.md](archive/WORK-PLAN-2026-07-19.md)
+- [WORK-PLAN-2026-07-25.md](archive/WORK-PLAN-2026-07-25.md)
+- [WORK-PLAN-2026-07-26.md](archive/WORK-PLAN-2026-07-26.md)
 
 ## Archive (#549 close-out, verified 2026-08-02)
 

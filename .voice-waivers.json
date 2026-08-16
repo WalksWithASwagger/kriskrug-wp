@@ -110,20 +110,6 @@
       "reason": "Grandfathered pre-gate draft. See the .md sibling."
     },
     {
-      "path": "content/drafts/2026-06-16-storyhive-haus-of-owl-jordan-dack/post.md",
-      "sha256": "2e2c6d02dee733832db6ec534d723200964fca5054949f8903e78f7c842b141f",
-      "rules": ["em-dash"],
-      "issue": "#603",
-      "reason": "Grandfathered pre-gate draft. Not rewritten by the 2026-08-01 voice sweep."
-    },
-    {
-      "path": "content/drafts/2026-06-16-storyhive-haus-of-owl-jordan-dack/post.html",
-      "sha256": "f7a99e32224cb582a71b3e76186e2c2d374dd7d4f41fd0009516ec5c4ebf9510",
-      "rules": ["em-dash"],
-      "issue": "#603",
-      "reason": "Grandfathered pre-gate draft. See the .md sibling."
-    },
-    {
       "path": "content/drafts/2026-06-18-creative-ai-human-lab-network/post.md",
       "sha256": "b9b1049b010843e127cfb0925fe56fe6dcb3c7950377b8a9d4490eed79ef4233",
       "rules": ["em-dash"],
