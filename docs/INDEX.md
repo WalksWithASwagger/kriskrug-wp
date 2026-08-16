@@ -8,13 +8,13 @@ Navigation for everything in this repo. Entries are grouped by what they're for,
 
 ## 🟢 Current State And Dated Evidence
 
-The canonical baseline snapshot and current handoffs live in [`docs/current-state/`](current-state/). The May 14 files are frozen evidence; use the newest dated closeout plus the latest `make status-readonly` or `make morning-truth` output as the startup front door.
+The canonical baseline snapshot and current handoffs live in [`docs/current-state/`](current-state/). The May 14 files are frozen evidence; use the newest dated closeout plus a fresh `make status-readonly` run as the startup front door. Use `make morning-truth` only for an ignored local copy.
 
 | File | What it covers |
 |---|---|
 | [`current-state/README.md`](current-state/README.md) | Index; front door pointers |
-| [`current-state/CURRENT-STATE-2026-07-30.md`](current-state/CURRENT-STATE-2026-07-30.md) | Declared snapshot for drift checks (WP 7.0.2; Aurora live 1.5.7 vs repo `main` 1.5.8, readback 2026-08-02) |
-| [`current-state/WORK-PLAN-2026-07-30.md`](current-state/WORK-PLAN-2026-07-30.md) | **Active day runbook** |
+| [`current-state/CURRENT-STATE-2026-07-30.md`](current-state/CURRENT-STATE-2026-07-30.md) | Declared snapshot for drift checks (WP 7.0.4; Aurora live and repo `main` in sync at 1.6.5, readback 2026-08-15) |
+| [`current-state/WORK-PLAN-2026-08-15.md`](current-state/WORK-PLAN-2026-08-15.md) | **Active day runbook** (supersedes 2026-08-09 and 2026-07-30) |
 | [`current-state/MASTER-PLAN-2026-07-30.md`](current-state/MASTER-PLAN-2026-07-30.md) | Truth → reclaim → product lanes |
 | [`current-state/TWO-TRACK-MODEL.md`](current-state/TWO-TRACK-MODEL.md) | Active Track A / Track B decision rule |
 | [`current-state/ACCESS_CHANNELS.md`](current-state/ACCESS_CHANNELS.md) | MCP / REST / Chrome / SSH — what works today |
@@ -22,7 +22,7 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`current-state/ROLLBACK_PLAYBOOK.md`](current-state/ROLLBACK_PLAYBOOK.md) | Order of operations if a prod change breaks |
 | [`current-state/AURORA-STYLESHEET-REBUILD-PLAN.md`](current-state/AURORA-STYLESHEET-REBUILD-PLAN.md) | Path A stylesheet rebuild plan of record (#423) |
 | [`current-state/SEO-INDEXING-RUNBOOK.md`](current-state/SEO-INDEXING-RUNBOOK.md) | Indexing/distribution checklist |
-| [`current-state/reports/`](current-state/reports/) | Timestamped `make morning-truth` outputs; prefer newest `morning-truth-*.md` |
+| [`current-state/reports/`](current-state/reports/) | Explicit durable `make morning-truth-checkpoint` outputs; consult the checkpoint relevant to the release, incident, decision, or handoff |
 | [`current-state/archive/`](current-state/archive/) | Superseded May–June plans and closeouts (#549) |
 | [`current-state/AURORA-MOTION-GOVERNANCE-2026-05-20.md`](current-state/archive/AURORA-MOTION-GOVERNANCE-2026-05-20.md) | Motion budget and QA rules for Aurora |
 | [`current-state/TOMORROW-ROADMAP-2026-05-20.md`](current-state/archive/TOMORROW-ROADMAP-2026-05-20.md) | Historical next-session roadmap after rewrite recovery and branch/worktree cleanup |
