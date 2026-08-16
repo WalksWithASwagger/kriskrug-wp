@@ -369,7 +369,7 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
             log("This is the 2026-05-15 incident's safety net. If you're SURE you want to overwrite, "
                 "stop and verify the slug, WP ID, and intended target before changing the connector.")
             return 3
-        result = wp.update_post(existing_id, payload)
+        result = wp.update_post(existing_id, payload, expected_slug=slug)
         log(f"UPDATEd existing WP post {result['id']} — {result['link']}")
     log(f"edit URL: {cfg.wp_base_url}/wp-admin/post.php?post={result['id']}&action=edit")
     try:

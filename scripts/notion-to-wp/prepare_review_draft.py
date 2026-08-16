@@ -317,7 +317,7 @@ def update_wp_draft(pkg: DraftPackage, html_body: str, wp_id: int, *, fail_on_wa
             "advanced_seo_description": str(seo.get("meta_description", "")),
         }
 
-    result = wp.update_post(wp_id, payload)
+    result = wp.update_post(wp_id, payload, expected_slug=pkg.slug)
     seo_dropped = verify_seo_meta_landed(result.get("meta"), payload.get("meta"))
     if seo_dropped:
         print(
