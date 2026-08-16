@@ -335,24 +335,27 @@ add_action('init', __NAMESPACE__ . '\\register_block_styles');
  * @return array<string, string>
  */
 function filter_document_title_parts(array $title): array {
-    $site_descriptor = 'Kris Krug | AI Keynote Speaker & Creative Technologist';
+    // Front page carries the full descriptor for SEO; inner pages keep the tail
+    // short so the post title survives SERP truncation.
+    $front_page_descriptor = 'Kris Krüg | AI Keynote Speaker & Creative Technologist';
+    $site_suffix           = 'Kris Krüg';
 
     unset($title['tagline']);
 
     if (is_front_page()) {
-        $title['title'] = $site_descriptor;
+        $title['title'] = $front_page_descriptor;
         unset($title['site']);
         return $title;
     }
 
-    $title['site'] = $site_descriptor;
+    $title['site'] = $site_suffix;
 
     return $title;
 }
 add_filter('document_title_parts', __NAMESPACE__ . '\\filter_document_title_parts');
 
 function filter_document_title_separator(string $separator): string {
-    return '—';
+    return '|';
 }
 add_filter('document_title_separator', __NAMESPACE__ . '\\filter_document_title_separator');
 
