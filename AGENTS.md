@@ -10,7 +10,7 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 
 1. [`docs/current-state/README.md`](docs/current-state/README.md) — current-state front door; run `make status-readonly` for live counters
 2. [`docs/current-state/CURRENT-STATE-2026-07-30.md`](docs/current-state/CURRENT-STATE-2026-07-30.md) — declared snapshot for drift/morning-truth (Makefile default)
-3. [`docs/current-state/WORK-PLAN-2026-08-09.md`](docs/current-state/WORK-PLAN-2026-08-09.md) — **day runbook** (repo-integrity rescue → truth → deploy window; supersedes 2026-08-05)
+3. [`docs/current-state/WORK-PLAN-2026-08-15.md`](docs/current-state/WORK-PLAN-2026-08-15.md) — **day runbook** (2026-08-15 audit round: agent lanes #729–#750, KK decision queue, 1.6.6 deploy window; supersedes 2026-08-09)
 4. [`docs/current-state/MASTER-PLAN-2026-07-30.md`](docs/current-state/MASTER-PLAN-2026-07-30.md) — hygiene + lane sequencing plan of record
 5. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
 6. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
