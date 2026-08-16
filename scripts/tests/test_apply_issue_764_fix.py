@@ -87,12 +87,14 @@ class ApplyIssue764FixTests(unittest.TestCase):
         self.assertTrue(all(body is None for _, body in calls))
         self.assertFalse(snapshot_dir.exists())
 
-    def test_apply_snapshots_every_target_before_first_wordpress_write(self):
+    def test_apply_snapshots_each_fresh_target_before_its_wordpress_write(self):
         snapshot_dir = self.tmp_path / "snapshots"
         writes = []
         saved = {}
         calls = []
         get_urls = []
+        get_counts = {}
+        latest_live = {}
 
         def fake_request(url, _header, body=None):
             post_id = int(url.split("/posts/")[1].split("?")[0])
@@ -100,14 +102,22 @@ class ApplyIssue764FixTests(unittest.TestCase):
             if body is None:
                 calls.append(("GET", post_id))
                 get_urls.append(url)
+                get_counts[post_id] = get_counts.get(post_id, 0) + 1
+                live["modified_gmt"] = f"fresh-{get_counts[post_id]}"
                 if post_id in saved:
                     live["content"]["raw"] = saved[post_id]
+                latest_live[post_id] = live
                 return live
 
             snapshots = list(snapshot_dir.glob("*.json"))
-            self.assertEqual(len(MODULE.TARGETS), len(snapshots))
+            self.assertEqual(len(writes) + 1, len(snapshots))
             self.assertTrue(
                 all(stat.S_IMODE(path.stat().st_mode) == 0o600 for path in snapshots)
+            )
+            snapshot = next(path for path in snapshots if f"-{post_id}-" in path.name)
+            self.assertEqual(
+                latest_live[post_id],
+                json.loads(snapshot.read_text(encoding="utf-8")),
             )
             writes.append(post_id)
             calls.append(("POST", post_id))
@@ -123,14 +133,48 @@ class ApplyIssue764FixTests(unittest.TestCase):
         ordered_ids = sorted(MODULE.TARGETS)
         self.assertEqual(
             [("GET", post_id) for post_id in ordered_ids]
+            + [("GET", post_id) for post_id in ordered_ids]
             + [
                 item
                 for post_id in ordered_ids
-                for item in (("POST", post_id), ("GET", post_id))
+                for item in (
+                    ("GET", post_id),
+                    ("POST", post_id),
+                    ("GET", post_id),
+                )
             ],
             calls,
         )
         self.assertTrue(all(url.endswith("?context=edit") for url in get_urls))
+
+    def test_apply_revalidates_all_targets_before_snapshot_or_post(self):
+        ordered_ids = sorted(MODULE.TARGETS)
+        get_counts = {}
+        calls = []
+        snapshot_dir = self.tmp_path / "snapshots"
+
+        def fake_request(url, _header, body=None):
+            post_id = int(url.split("/posts/")[1].split("?")[0])
+            calls.append(("POST" if body else "GET", post_id))
+            live = baseline(post_id)
+            if body is None:
+                get_counts[post_id] = get_counts.get(post_id, 0) + 1
+                if post_id == ordered_ids[1] and get_counts[post_id] == 2:
+                    live["content"]["raw"] += "<!-- concurrent edit -->"
+            return live
+
+        with mock.patch.object(
+            MODULE, "SNAPSHOT_DIR", snapshot_dir
+        ), mock.patch.object(MODULE, "request", side_effect=fake_request):
+            with self.assertRaisesRegex(SystemExit, "changed after preflight"):
+                run_main("--apply")
+
+        self.assertEqual(
+            [("GET", post_id) for post_id in ordered_ids]
+            + [("GET", post_id) for post_id in ordered_ids],
+            calls,
+        )
+        self.assertFalse(snapshot_dir.exists())
 
     def test_apply_fails_when_post_claims_success_but_fresh_get_disagrees(self):
         post_id = sorted(MODULE.TARGETS)[0]
@@ -148,7 +192,10 @@ class ApplyIssue764FixTests(unittest.TestCase):
         ), mock.patch.object(MODULE, "request", side_effect=fake_request):
             self.assertEqual(1, run_main("--post-id", str(post_id), "--apply"))
 
-        self.assertEqual(["GET", "POST", "GET"], [method for method, _ in calls])
+        self.assertEqual(
+            ["GET", "GET", "GET", "POST", "GET"],
+            [method for method, _ in calls],
+        )
         self.assertTrue(calls[-1][1].endswith("?context=edit"))
 
     def test_apply_fails_on_mismatched_post_response_even_if_fresh_get_matches(self):
@@ -172,7 +219,10 @@ class ApplyIssue764FixTests(unittest.TestCase):
         ), mock.patch.object(MODULE, "request", side_effect=fake_request):
             self.assertEqual(1, run_main("--post-id", str(post_id), "--apply"))
 
-        self.assertEqual(["GET", "POST", "GET"], [method for method, _ in calls])
+        self.assertEqual(
+            ["GET", "GET", "GET", "POST", "GET"],
+            [method for method, _ in calls],
+        )
         self.assertTrue(calls[-1][1].endswith("?context=edit"))
 
     def test_apply_refuses_fresh_readback_slug_mismatch(self):
@@ -317,7 +367,32 @@ class ApplyIssue764FixTests(unittest.TestCase):
             )
 
         self.assertEqual([{"content": original["content"]["raw"]}], writes)
-        self.assertEqual(["GET", "POST", "GET"], calls)
+        self.assertEqual(["GET", "GET", "POST", "GET"], calls)
+
+    def test_restore_revalidates_before_snapshot_or_post(self):
+        post_id = sorted(MODULE.TARGETS)[0]
+        original = baseline(post_id)
+        restore_file = self.tmp_path / "baseline.json"
+        restore_file.write_text(json.dumps(original), encoding="utf-8")
+        current = {**original, "content": {"raw": payload(post_id)}}
+        snapshot_dir = self.tmp_path / "snapshots"
+        calls = []
+
+        def fake_request(_url, _header, body=None):
+            calls.append("POST" if body else "GET")
+            live = {**current, "content": {"raw": current["content"]["raw"]}}
+            if calls == ["GET", "GET"]:
+                live["content"]["raw"] += "<!-- concurrent edit -->"
+            return live
+
+        with mock.patch.object(
+            MODULE, "SNAPSHOT_DIR", snapshot_dir
+        ), mock.patch.object(MODULE, "request", side_effect=fake_request):
+            with self.assertRaisesRegex(SystemExit, "changed after preflight"):
+                run_main("--restore", str(restore_file), "--apply")
+
+        self.assertEqual(["GET", "GET"], calls)
+        self.assertFalse(snapshot_dir.exists())
 
     def test_restore_fails_when_post_claims_success_but_fresh_get_disagrees(self):
         post_id = sorted(MODULE.TARGETS)[0]
@@ -340,7 +415,7 @@ class ApplyIssue764FixTests(unittest.TestCase):
                 1, run_main("--restore", str(restore_file), "--apply")
             )
 
-        self.assertEqual(["GET", "POST", "GET"], calls)
+        self.assertEqual(["GET", "GET", "POST", "GET"], calls)
 
     def test_restore_fails_on_mismatched_post_response_even_if_fresh_get_matches(self):
         post_id = sorted(MODULE.TARGETS)[0]
@@ -366,7 +441,10 @@ class ApplyIssue764FixTests(unittest.TestCase):
                 1, run_main("--restore", str(restore_file), "--apply")
             )
 
-        self.assertEqual(["GET", "POST", "GET"], [method for method, _ in calls])
+        self.assertEqual(
+            ["GET", "GET", "POST", "GET"],
+            [method for method, _ in calls],
+        )
         self.assertTrue(calls[-1][1].endswith("?context=edit"))
 
 

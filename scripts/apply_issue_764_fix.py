@@ -55,7 +55,6 @@ BASE_URL = "https://kriskrug.co"
 class PreparedTarget:
     post_id: int
     spec: dict
-    live: dict
     payload: str
     already_applied: bool
 
@@ -65,7 +64,6 @@ class PreparedRestore:
     post_id: int
     spec: dict
     snapshot: dict
-    live: dict
     already_restored: bool
 
 
@@ -150,6 +148,25 @@ def response_matches(
     )
 
 
+def fetch_expected_live(
+    post_id: int,
+    spec: dict,
+    header: str,
+    expected_sha256: str,
+    operation: str,
+) -> dict:
+    live = request(f"{BASE_URL}/wp-json/wp/v2/posts/{post_id}?context=edit", header)
+    validate_live_identity(live, post_id, spec)
+    content = live.get("content")
+    body = content.get("raw") if isinstance(content, dict) else None
+    if not isinstance(body, str) or sha256(body) != expected_sha256:
+        sys.exit(
+            f"[ABORT] {post_id}: live body changed after preflight before "
+            f"{operation}; refusing to overwrite it."
+        )
+    return live
+
+
 def preflight_target(post_id: int, spec: dict, header: str) -> PreparedTarget:
     payload = (spec["dir"] / f"{post_id}-content-payload.html").read_text(
         encoding="utf-8"
@@ -163,7 +180,7 @@ def preflight_target(post_id: int, spec: dict, header: str) -> PreparedTarget:
     current = live["content"]["raw"]
     if sha256(current) == spec["payload_sha256"]:
         print(f"[SKIP] {post_id}: live body already equals the payload. Nothing to do.")
-        return PreparedTarget(post_id, spec, live, payload, True)
+        return PreparedTarget(post_id, spec, payload, True)
     if sha256(current) != spec["baseline_sha256"]:
         sys.exit(
             f"[ABORT] {post_id}: live body drifted from the 2026-08-15 baseline "
@@ -187,10 +204,18 @@ def preflight_target(post_id: int, spec: dict, header: str) -> PreparedTarget:
     for line in diff:
         print("   " + line)
 
-    return PreparedTarget(post_id, spec, live, payload, False)
+    return PreparedTarget(post_id, spec, payload, False)
 
 
-def apply_target(plan: PreparedTarget, header: str, snapshot: Path) -> bool:
+def apply_target(plan: PreparedTarget, header: str, stamp: str) -> bool:
+    live = fetch_expected_live(
+        plan.post_id,
+        plan.spec,
+        header,
+        plan.spec["baseline_sha256"],
+        "apply",
+    )
+    snapshot = write_snapshot(live, plan.post_id, stamp, "before")
     updated = request(
         f"{BASE_URL}/wp-json/wp/v2/posts/{plan.post_id}?context=edit",
         header,
@@ -236,13 +261,16 @@ def run_targets(
             )
         return True
 
-    snapshots = {
-        plan.post_id: write_snapshot(plan.live, plan.post_id, stamp, "before")
-        for plan in pending
-    }
-    return all(
-        apply_target(plan, header, snapshots[plan.post_id]) for plan in pending
-    )
+    for plan in pending:
+        fetch_expected_live(
+            plan.post_id,
+            plan.spec,
+            header,
+            plan.spec["baseline_sha256"],
+            "the apply batch",
+        )
+
+    return all(apply_target(plan, header, stamp) for plan in pending)
 
 
 def preflight_restore(path: Path, header: str) -> PreparedRestore:
@@ -271,13 +299,13 @@ def preflight_restore(path: Path, header: str) -> PreparedRestore:
     validate_live_identity(live, post_id, spec)
     current_hash = sha256(live["content"]["raw"])
     if current_hash == spec["baseline_sha256"]:
-        return PreparedRestore(post_id, spec, snapshot, live, True)
+        return PreparedRestore(post_id, spec, snapshot, True)
     if current_hash != spec["payload_sha256"]:
         sys.exit(
             f"[ABORT] {post_id}: current body matches neither the reviewed payload "
             "nor the approved baseline; refusing to overwrite live drift."
         )
-    return PreparedRestore(post_id, spec, snapshot, live, False)
+    return PreparedRestore(post_id, spec, snapshot, False)
 
 
 def restore(path: Path, header: str, stamp: str, apply: bool) -> bool:
@@ -291,9 +319,14 @@ def restore(path: Path, header: str, stamp: str, apply: bool) -> bool:
         print("[DRY RUN] restore validated; no local or WordPress write.")
         return True
 
-    recovery = write_snapshot(
-        plan.live, plan.post_id, stamp, "before-restore"
+    live = fetch_expected_live(
+        plan.post_id,
+        plan.spec,
+        header,
+        plan.spec["payload_sha256"],
+        "restore",
     )
+    recovery = write_snapshot(live, plan.post_id, stamp, "before-restore")
     updated = request(
         f"{BASE_URL}/wp-json/wp/v2/posts/{plan.post_id}?context=edit",
         header,
