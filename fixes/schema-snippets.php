@@ -3,9 +3,27 @@
  * Schema.org JSON-LD snippets for kriskrug.co
  *
  * REFERENCE / ARCHIVE — NOT THE LIVE DEPLOY PATH.
- * Canonical live source: fixes/schema-snippets-deployed.php (Code Snippet id 5).
- * Do NOT paste this file over the live snippet. It remains a future mu-plugin
- * draft and is INERT until every VERIFY-ME placeholder is replaced.
+ *
+ * CANONICAL FILE: fixes/schema-snippets-deployed.php (Code Snippet id 5).
+ * Edit that file, not this one. See fixes/README.md for the house rule.
+ *
+ * VERIFIED NOT LIVE — 2026-08-15, issue #741.
+ * Method: logged-out public readback of the rendered JSON-LD on
+ * https://kriskrug.co/ and https://kriskrug.co/2026/08/10/keep-the-machine-strange/
+ * (no credentials required; the Code Snippets REST route returns 401 without a
+ * WP app password, and none was resolvable in this environment). Three findings
+ * rule this file out as the live source:
+ *   1. Live emits 5 JSON-LD blocks. This file gates every emitter on
+ *      kk_schema_is_ready(), which is false while any VERIFY-ME string remains,
+ *      so as written it would emit nothing at all.
+ *   2. Live Person.worksFor is BC + AI / Vancouver AI / Futureproof Festival with
+ *      real URLs, and Person.sameAs is twitter/x/instagram. This file still has
+ *      Indigenomics.ai + The Upgrade AI and VERIFY-ME placeholder URLs.
+ *   3. Live posts emit "@type":"BlogPosting" via kk_schema_post_type() (#425),
+ *      which exists only in schema-snippets-deployed.php. This file hardcodes
+ *      "Article".
+ * Deletion of this file is proposed for KK approval in the #741 PR. Until then
+ * it stays as the mu-plugin reference draft.
  *
  * Extends fixes/issue-39-schema-markup.php for sitewide coverage and adds
  * WebSite, Breadcrumb, Service schemas.
