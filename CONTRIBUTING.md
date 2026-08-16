@@ -205,17 +205,20 @@ There is no local app server to boot. The live site runs on Pagely and is not fi
 
 CI runs the gates on PHP 8.2, Python 3.12, and Node 20 (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)). The Aurora theme declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css). You don't need exact version matches locally, but if a gate behaves differently than CI, check your runtime versions first.
 
+Two requirement files, one canonical test environment. Root [`requirements-test.txt`](requirements-test.txt) **is the canonical Python test env** — CI installs it, and it is the only file that satisfies `make python-test` (it is the runtime deps plus `pytest`). [`scripts/notion-to-wp/requirements.txt`](scripts/notion-to-wp/requirements.txt) is **runtime-only**: it exists so several `Makefile` targets can call `scripts/notion-to-wp/.venv/bin/python` directly, and installing only it leaves you unable to run that package's test suites. Install the root file when you want to run tests, including the `scripts/notion-to-wp/tests` suites.
+
 ```bash
 # Clone repository
 git clone https://github.com/WalksWithASwagger/kriskrug-wp.git
 cd kriskrug-wp
 
-# Full Python test gate (repo root)
+# Full Python test gate (repo root) — canonical test env
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements-test.txt
 make python-test PYTHON=python
 
 # Notion → WP publisher (its own venv; several Makefile targets call it directly)
+# Runtime-only. Add -r ../../requirements-test.txt if you also want to run tests from this venv.
 cd scripts/notion-to-wp
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt

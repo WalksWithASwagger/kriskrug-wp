@@ -4,6 +4,8 @@ This plugin lives in the repo because the live WordPress install isn't version-c
 It makes `/marquee/` a real WordPress route. **Deployment is gated** (live writes require KK
 approval + a WP application password). Nothing here runs automatically.
 
+**Live status: NO, not installed or active on kriskrug.co. Verified 2026-08-15 (read-only), how: `marquee_board` is absent from `https://kriskrug.co/wp-json/wp/v2/types` and the CPT registers `show_in_rest => true` so it would appear there if active; `https://kriskrug.co/wp-json/wp/v2/marquee_board` returns 404; `https://kriskrug.co/marquee/` returns 404; `https://kriskrug.co/wp-content/plugins/kk-marquee-board/assets/marquee.css` returns 404.** The gated go-live below has never been executed. The `aurora-woven-marquee` element in live page markup is an unrelated Aurora theme decoration, not this plugin.
+
 ## Order of operations (the gated go-live)
 
 1. **Deploy the plugin** (Path A or B below) → activate. Activation flushes rewrite rules.
