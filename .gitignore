@@ -105,3 +105,6 @@ content/drafts/**/images/
 # that lives in git history. Keep the .md verification records; ignore the PNGs.
 content/source-packs/**/verification/**/screenshots*/
 content/source-packs/**/verification/**/*.png
+
+# Per-deploy QA page snapshots: keep the JSON manifests, ignore the HTML captures (#737).
+backup/**/*.html
