@@ -45,7 +45,7 @@ Legacy branch split context is in [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-
 - **`.github/workflows/test-pr.yml`** — still active PR validation. Do not describe all workflows as dormant.
 - **`docs/architecture.md`, `docs/automation-guide.md`** — reference docs for the dormant swarm.
 - **`docs/cloudways-setup.md`, `docs/local-development-setup.md`, `.claude/context/wordpress-setup.md`** — Cloudways dev-server setup that was never used as planned. Relevant if/when Track B needs staging, otherwise ignore.
-- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use `CURRENT-STATE-2026-07-30.md`, `WORK-PLAN-2026-07-30.md`, `MASTER-PLAN-2026-07-30.md`, and a fresh `make status-readonly` run for current truth. May–June handoffs live under `docs/current-state/archive/`.
+- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use `CURRENT-STATE-2026-07-30.md`, `WORK-PLAN-2026-08-15.md`, `MASTER-PLAN-2026-07-30.md`, and a fresh `make status-readonly` run for current truth. May–June handoffs live under `docs/current-state/archive/`.
 
 Anything banner-tagged `STATUS: Historical` at the top is reference-only.
 
