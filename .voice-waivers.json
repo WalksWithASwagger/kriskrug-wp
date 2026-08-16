@@ -19,27 +19,6 @@
   ],
   "waivers": [
     {
-      "path": "theme/kk-aurora/templates/front-page.html",
-      "sha256": "51ef505c51c3c7875adb1d19cd02c6bc091f5d3c251349fe22182642594ecbb7",
-      "rules": ["em-dash"],
-      "issue": "#733",
-      "reason": "TEMPORARY exact baseline. The hero dek and services lede are rewritten in PR #751; that edit invalidates this waiver automatically."
-    },
-    {
-      "path": "theme/kk-aurora/templates/archive-marquee_board.html",
-      "sha256": "7d2a62b4b8817a42f4010f1f7d991ef8ce9ec6bb0ee1d6fe76c5e5b8fa5e0e27",
-      "rules": ["em-dash"],
-      "issue": "#733",
-      "reason": "TEMPORARY exact baseline. The marquee archive lede is rewritten in PR #751."
-    },
-    {
-      "path": "theme/kk-aurora/patterns/photo-gallery.php",
-      "sha256": "47907526a68d0a795416d6b933c7485453dda27dd66aa59dd68b6d53d1bb4829",
-      "rules": ["em-dash"],
-      "issue": "#733",
-      "reason": "TEMPORARY exact baseline. The photo lede and placeholder-alt string are rewritten in PR #751."
-    },
-    {
       "path": "theme/kk-aurora/functions.php",
       "sha256": "0ac137f73b21b3d1b902471f83437888dd5816e3f10c282bc6701b8b460322fb",
       "rules": ["em-dash"],
