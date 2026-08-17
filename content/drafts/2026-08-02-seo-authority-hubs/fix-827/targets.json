@@ -1,0 +1,104 @@
+{
+  "issue": 827,
+  "parent": 402,
+  "blocked_by": 826,
+  "live_reconfirm": "2026-08-17T06:35:00Z",
+  "status": "prepared_not_applied",
+  "style_sha256_12013": "23dc2ddaf20ffda0f94f619e9ade0068d3a9a0c5fdb38563538b6542a34c69b3",
+  "forbidden_href_substrings": [
+    "checklist-of-model-photographer-negotiation-items"
+  ],
+  "flickr_exit": "https://www.flickr.com/photos/kk/",
+  "flickr_button": "See 144,000+ frames on Flickr ?",
+  "child1_gate": [
+    {
+      "id": 3814,
+      "slug": "the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things",
+      "from_category": 1757,
+      "to_category": 1678
+    },
+    {
+      "id": 3330,
+      "slug": "the-future-called-i-answered",
+      "from_category": 1757,
+      "to_category": 1676
+    },
+    {
+      "id": 1067,
+      "slug": "hardcore-superstar-photoshoot",
+      "from_category": 1662,
+      "to_category": 1756
+    },
+    {
+      "id": 1063,
+      "slug": "made-in-vancouver-photoshoot",
+      "from_category": 1662,
+      "to_category": 1756
+    },
+    {
+      "id": 1147,
+      "slug": "fashion-photoshoot-for-discollection",
+      "from_category": 1665,
+      "to_category": 1756
+    }
+  ],
+  "items": [
+    {
+      "id": 12013,
+      "kind": "pages",
+      "slug": "photography",
+      "url": "https://kriskrug.co/photography/",
+      "modified_gmt_at_reconfirm": "2026-08-17T05:30:00",
+      "find": "lives on Flickr.</p>",
+      "replace": "lives on Flickr. Walk <a href=\"https://kriskrug.co/category/photography-visual-storytelling/\">the whole archive, twenty years of it</a> on this site. For <a href=\"https://kriskrug.co/2006/10/23/kk-on-modelmayhemcom/\">the fashion and model years, 2006 to 2008</a>, start with the ModelMayhem note.</p>",
+      "anchors": [
+        {
+          "row": 11,
+          "text": "the whole archive, twenty years of it",
+          "href": "https://kriskrug.co/category/photography-visual-storytelling/"
+        },
+        {
+          "row": 12,
+          "text": "the fashion and model years, 2006 to 2008",
+          "href": "https://kriskrug.co/2006/10/23/kk-on-modelmayhemcom/"
+        }
+      ],
+      "preserve_style": true,
+      "preserve_flickr": true
+    },
+    {
+      "id": 1222,
+      "kind": "posts",
+      "slug": "to-all-you-wannabe-fashion-photographers",
+      "url": "https://kriskrug.co/2007/04/27/to-all-you-wannabe-fashion-photographers/",
+      "modified_gmt_at_reconfirm": "2026-07-11T19:48:05",
+      "find": "<a href=\"http://www.flickr.com/photos/megs_pics/213783586/\">Photo by Megan Cole</a> \n\n<!-- wp:paragraph {\"className\":\"kk-collection-footer\"} -->",
+      "replace": "<a href=\"http://www.flickr.com/photos/megs_pics/213783586/\">Photo by Megan Cole</a> \n\nThat is also <a href=\"https://kriskrug.co/2006/10/23/kk-on-modelmayhemcom/\">how I found those people in the first place</a>.\n\n<!-- wp:paragraph {\"className\":\"kk-collection-footer\"} -->",
+      "anchors": [
+        {
+          "row": 13,
+          "text": "how I found those people in the first place",
+          "href": "https://kriskrug.co/2006/10/23/kk-on-modelmayhemcom/"
+        }
+      ],
+      "preserve_footer": true
+    },
+    {
+      "id": 1056,
+      "kind": "posts",
+      "slug": "kk-on-modelmayhemcom",
+      "url": "https://kriskrug.co/2006/10/23/kk-on-modelmayhemcom/",
+      "modified_gmt_at_reconfirm": "2026-06-15T05:20:28",
+      "find": "I've met a couple cool peeps already.</p>",
+      "replace": "I've met a couple cool peeps already. This is <a href=\"https://kriskrug.co/photography/\">where all of that ended up</a>.</p>",
+      "anchors": [
+        {
+          "row": 14,
+          "text": "where all of that ended up",
+          "href": "https://kriskrug.co/photography/"
+        }
+      ],
+      "preserve_footer": true
+    }
+  ]
+}
