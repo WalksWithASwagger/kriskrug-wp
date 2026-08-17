@@ -31,6 +31,7 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 == Color Palette ==
 
 * Cream surface: #efe6d2
+* Cream panel / elevated (alias): #e6dcc2
 * Ink text: #171310
 * Burnt orange accent (text/AA): #9a2f14
 * Burnt orange control fill: #c03f18
@@ -39,6 +40,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 * Rainbow accents: teal / cyan / cobalt / violet / magenta
 
 == Changelog ==
+
+= 1.6.9 =
+* tokens (#690): keep `surface` and `elevated` as the same cream `#e6dcc2`. Rename the elevated swatch to "Cream Elevated (same as Panel)" so the editor is honest. Do not delete either slug.
 
 = 1.6.6 =
 * content (#733, PR #751): rewrite the five listed user-visible em dashes in the homepage, marquee archive, and photo-gallery pattern copy.

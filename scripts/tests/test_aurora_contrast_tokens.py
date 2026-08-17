@@ -33,6 +33,17 @@ class AuroraContrastTokenTests(unittest.TestCase):
         theme = json.loads((THEME_DIR / "theme.json").read_text(encoding="utf-8"))
         palette = theme["settings"]["color"]["palette"]
         self.colors = {entry["slug"]: entry["color"] for entry in palette}
+        self.names = {entry["slug"]: entry["name"] for entry in palette}
+
+    def test_surface_and_elevated_preset_slugs_are_kept(self):
+        """#690: never delete these slugs; live editor/content may reference them."""
+        self.assertIn("surface", self.colors)
+        self.assertIn("elevated", self.colors)
+        self.assertEqual(self.colors["surface"].lower(), "#e6dcc2")
+        self.assertEqual(
+            self.colors["elevated"].lower(), self.colors["surface"].lower()
+        )
+        self.assertIn("same as Panel", self.names["elevated"])
 
     def test_text_tokens_meet_wcag_aa_on_dark_surfaces(self):
         foregrounds = ("text-primary", "text-secondary", "text-muted", "signal")
@@ -56,7 +67,9 @@ class AuroraContrastTokenTests(unittest.TestCase):
 
     def test_primary_cta_control_colors_meet_wcag_aa(self):
         css = (THEME_DIR / "style.css").read_text(encoding="utf-8")
-        control_colors = re.findall(r"--aurora-signal-control(?:-hover)?:\s*(#[0-9a-fA-F]{6});", css)
+        control_colors = re.findall(
+            r"--aurora-signal-control(?:-hover)?:\s*(#[0-9a-fA-F]{6});", css
+        )
 
         self.assertEqual(len(control_colors), 2)
         for color in control_colors:
@@ -64,7 +77,9 @@ class AuroraContrastTokenTests(unittest.TestCase):
 
     def test_homepage_feature_band_contrast_floor_is_present(self):
         css = (THEME_DIR / "style.css").read_text(encoding="utf-8")
-        front_page = (THEME_DIR / "templates/front-page.html").read_text(encoding="utf-8")
+        front_page = (THEME_DIR / "templates/front-page.html").read_text(
+            encoding="utf-8"
+        )
 
         self.assertIn("aurora-feature-band-contrast", front_page)
         self.assertIn(".aurora-feature-band-contrast > .aurora-section-heading", css)

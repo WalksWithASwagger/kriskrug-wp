@@ -20,6 +20,10 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.6.9
+**Deployed:** NOT LIVE (source pending; 1.6.7 is PR #789 title-format, 1.6.8 is PR #796 homepage)
+Document that palette slugs `surface` ("Cream Panel") and `elevated` ("Cream Elevated (same as Panel)") are the same hex `#e6dcc2`. Both slugs stay because CSS, patterns, and possible live editor classes reference them. Do not invent a lift hex without a designed cream step, and do not delete a preset (#690).
+
 ## 1.6.6
 **Deployed:** NOT LIVE (source merged in PR #751 at `dcb7ff4`; deploy pending)
 Copy and dead-file cleanup, no layout or CSS change. Strips the five user-visible em dashes from theme copy: the homepage hero dek and services lede, the marquee archive lede, and the photo-gallery pattern's lede plus its placeholder alt text (#733). Removes the orphaned speaking proof-grid template part and its `theme.json` registration; the part was placed by zero templates and live proof-grid content is DB page content, not this part (#743).

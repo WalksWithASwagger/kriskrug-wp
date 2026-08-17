@@ -12,7 +12,11 @@
  */
 @layer tokens {
   :root {
-    /* Surfaces */
+    /* Surfaces.
+       surface + elevated are the same cream (#e6dcc2). Keep both slugs:
+       editor/content may use has-surface-* / has-elevated-*. Do not delete
+       either preset (issue #690). Raised vs sunk is not a distinct cream
+       yet — same alias pattern as deep + paper (#efe6d2). */
     --kk-surface: var(--wp--preset--color--paper);
     --kk-surface-sunk: var(--wp--preset--color--surface);
     --kk-surface-raised: var(--wp--preset--color--elevated);
