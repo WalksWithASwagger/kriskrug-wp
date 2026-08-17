@@ -31,6 +31,15 @@ make visual-prune KEEP=2             # delete old capture dirs; manifests are ke
 All targets accept `ROUTES="home blog"` and `VIEWPORTS="desktop"` to narrow a run,
 and `BASE_URL=` to point at a different origin.
 
+### Capture retention (#749)
+
+PNG capture directories are gitignored and have no gate value once their
+window's `diff-*.json` / `report-*.md` is committed. Keep the newest baseline
+and the newest pre/post pair; prune the rest after each deploy window closes
+with `make visual-prune KEEP=2`. Tracked manifests and reports stay. Exact
+delete lists go through KK first — see
+[`reports/visual-baseline-prune-proposal-749-2026-08-16.md`](reports/visual-baseline-prune-proposal-749-2026-08-16.md).
+
 ## The deploy-step loop
 
 1. **Before** the deploy: `make visual-baseline`. Note the run id and commit the

@@ -1,0 +1,82 @@
+{
+  "about": {
+    "id": 1208,
+    "slug": "about",
+    "url": "https://kriskrug.co/about/",
+    "payload": "about.html",
+    "apply_gate": "theme-tokens-for-about-hero-plus-cream-pack-button",
+    "markers": [
+      "content-architecture-2026:about",
+      "I build culture around emerging technology",
+      "The rooms I am in now",
+      "A two-decade public trail",
+      "aurora-hero-2026",
+      "2023/07/krug-1.jpg"
+    ]
+  },
+  "speaking": {
+    "id": 1887,
+    "slug": "speaking",
+    "url": "https://kriskrug.co/speaking/",
+    "payload": "speaking.html",
+    "apply_gate": "cream-pack-plain-aurora-button",
+    "markers": [
+      "content-architecture-2026:speaking",
+      "AI keynotes that make the room braver",
+      "Signature topics",
+      "Book Kris for a keynote"
+    ]
+  },
+  "work": {
+    "id": 2672,
+    "slug": "work",
+    "url": "https://kriskrug.co/work/",
+    "payload": "work.html",
+    "apply_gate": "cream-pack-plain-aurora-button",
+    "markers": [
+      "content-architecture-2026:work",
+      "Systems, rooms, stories, and strange machines",
+      "BC + AI Ecosystem",
+      "Creative AI Human Lab"
+    ]
+  },
+  "services": {
+    "id": 2666,
+    "slug": "generative-ai-services",
+    "url": "https://kriskrug.co/generative-ai-services/",
+    "canonical_nav_route": "/services/",
+    "payload": "services.html",
+    "apply_gate": "blocked-until-theme-lands-kk-services-2026",
+    "markers": [
+      "content-architecture-2026:services",
+      "AI strategy for people who still care about culture",
+      "Community systems",
+      "Book an AI strategy session"
+    ]
+  },
+  "photography": {
+    "id": 12013,
+    "slug": "photography",
+    "url": "https://kriskrug.co/photography/",
+    "payload": "photography.html",
+    "apply_gate": "blocked-until-theme-lands-kkx",
+    "markers": [
+      "Two decades in the room, with a camera",
+      "kkx-masonry",
+      "See 144,000+ frames on Flickr"
+    ]
+  },
+  "contact": {
+    "id": 2418,
+    "slug": "contact",
+    "url": "https://kriskrug.co/contact/",
+    "payload": "contact.html",
+    "apply_gate": "blocked-until-theme-lands-kk-contact-2026-layout",
+    "markers": [
+      "content-architecture-2026:contact",
+      "Tell me what kind of room you are building",
+      "feelmoreplants@gmail.com",
+      "The fastest path"
+    ]
+  }
+}
