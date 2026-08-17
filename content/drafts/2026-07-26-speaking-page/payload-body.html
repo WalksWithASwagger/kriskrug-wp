@@ -1,13 +1,13 @@
 <!-- wp:html -->
 <!-- content-architecture-2026:speaking -->
-<!-- #419 draft payload - Option A media-first stack. DO NOT apply without KK approval. -->
+<!-- #419 draft payload. Six-talk bank is the architecture (KK #638 ruling 2026-08-17). DO NOT apply without KK approval. DO NOT PATCH page 1887 from this file. -->
+<!-- Asset constraint: only one photographer-cleared stage-action still is available, the Meetup 30 theme frame. LaSalle stills, CreativeMornings stills, and meetup 184/195 are not used. Above-the-fold AC is met with that one cleared frame plus two recorded talk embeds. -->
 <style>
 .kk-r9-pack {
   --kk-speak-paper: #efe6d2;
   --kk-speak-panel: #e6dcc2;
   --kk-speak-ink: #171310;
   --kk-speak-ink-soft: #3d342c;
-  --kk-speak-on-photo: #efe6d2;
   --kk-speak-max: 860px;
   --kk-speak-gap: 1rem;
   --kk-speak-signal: #d94a1f;
@@ -41,11 +41,12 @@
   width: 100% !important;
 }
 .kk-r9-pack .aurora-proof-grid--cta,
-.kk-r9-pack .aurora-proof-grid--hero {
+.kk-r9-pack .aurora-proof-grid--hero,
+.kk-r9-pack .aurora-proof-grid--six {
   grid-template-columns: minmax(0, 1fr) !important;
 }
-.kk-r9-pack .aurora-proof-grid--stages {
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+.kk-r9-pack .aurora-proof-grid--six {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 }
 .kk-r9-pack .aurora-card {
   background: var(--kk-speak-panel) !important;
@@ -53,19 +54,15 @@
   border-radius: 2px !important;
   box-shadow: none !important;
   color: var(--kk-speak-ink) !important;
+  padding: 1.1rem 1.15rem;
 }
 .kk-r9-pack .aurora-card :where(h2, h3) {
   color: var(--kk-speak-ink) !important;
+  margin: 0 0 0.4rem;
 }
 .kk-r9-pack .aurora-card :where(p) {
   color: var(--kk-speak-ink-soft) !important;
-}
-.kk-r9-pack .aurora-media-card {
-  border-radius: 2px !important;
-  box-shadow: none !important;
-  min-height: 20rem;
-  overflow: hidden;
-  border: 1px solid rgba(23, 19, 16, 0.14) !important;
+  margin: 0.4rem 0 0;
 }
 .kk-r9-pack .kk-speak-hero {
   position: relative;
@@ -74,6 +71,7 @@
   border: 1px solid rgba(23, 19, 16, 0.14);
   min-height: 22rem;
   background: #171310;
+  margin: 0;
 }
 .kk-r9-pack .kk-speak-hero img {
   display: block;
@@ -82,7 +80,12 @@
   min-height: 22rem;
   max-height: 34rem;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 35%;
+}
+.kk-r9-pack .kk-speak-hero figcaption {
+  margin: 0.45rem 0 0;
+  color: var(--kk-speak-ink-soft);
+  font-size: 0.88rem;
 }
 .kk-r9-pack .kk-speak-hero-copy {
   margin-top: 1rem;
@@ -103,18 +106,23 @@
   height: 100%;
   border: 0;
 }
-.kk-r9-pack .kk-speak-stage-still {
-  margin: 0;
-  border-radius: 2px;
-  overflow: hidden;
-  border: 1px solid rgba(23, 19, 16, 0.14);
-  background: #171310;
+.kk-r9-pack .kk-speak-tag {
+  display: inline-block;
+  margin: 0 0 0.45rem;
+  color: var(--kk-speak-signal);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
-.kk-r9-pack .kk-speak-stage-still img {
-  display: block;
-  width: 100%;
-  height: 12rem;
-  object-fit: cover;
+.kk-r9-pack .kk-speak-workshops {
+  margin: 0;
+  padding-left: 1.15rem;
+  columns: 2 16rem;
+  color: var(--kk-speak-ink-soft);
+}
+.kk-r9-pack .kk-speak-workshops li {
+  margin: 0.25rem 0;
 }
 .kk-r9-pack .aurora-button,
 .kk-r9-pack a.aurora-button {
@@ -139,15 +147,16 @@
 }
 @media (max-width: 720px) {
   .kk-r9-pack .aurora-proof-grid,
-  .kk-r9-pack .aurora-proof-grid--stages {
+  .kk-r9-pack .aurora-proof-grid--six {
     grid-template-columns: minmax(0, 1fr) !important;
   }
-  .kk-r9-pack .aurora-media-card {
-    min-height: 18rem;
-  }
+  .kk-r9-pack .kk-speak-hero,
   .kk-r9-pack .kk-speak-hero img {
     min-height: 16rem;
     max-height: 22rem;
+  }
+  .kk-r9-pack .kk-speak-workshops {
+    columns: 1;
   }
 }
 </style>
@@ -158,50 +167,105 @@
   <h2 class="aurora-display-heading">AI keynotes that make the room braver.</h2>
   <div class="aurora-proof-grid aurora-proof-grid--hero">
     <figure class="kk-speak-hero">
-      <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-25-scaled.jpg?w=1400&amp;ssl=1" alt="Kris Krüg on stage delivering a Both Hands Full keynote at LaSalle College Vancouver" width="1400" height="933" loading="eager" decoding="async" fetchpriority="high">
+      <img src="https://kriskrug.co/wp-content/themes/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community.jpg" srcset="https://kriskrug.co/wp-content/themes/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community-600.webp 600w, https://kriskrug.co/wp-content/themes/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community-1200.webp 1200w, https://kriskrug.co/wp-content/themes/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community.jpg 1600w" sizes="(max-width: 720px) 100vw, 860px" alt="Kris Krüg speaking on stage at the Vancouver AI Community Meetup, dozens of audience hands raised in the H.R. MacMillan Space Centre planetarium." width="1600" height="1066" loading="eager" decoding="async" fetchpriority="high">
+      <figcaption>Vancouver AI Community Meetup 30, H.R. MacMillan Space Centre, June 2026. Photo: Michelle Diamond, Diamond's Edge Photography.</figcaption>
     </figure>
   </div>
   <div class="kk-speak-hero-copy">
-    <p class="aurora-page-lead">On stages, on camera, and in the rooms that hire speakers: proof first, then the booking conversation.</p>
+    <p class="aurora-page-lead">Six signature talks. Recorded rooms you can play now. Book the one that fits the people in front of us.</p>
     <p><a class="aurora-button" href="/contact/">Start a booking conversation</a></p>
   </div>
 </section>
 
-<section class="aurora-proof-section">
-  <p class="aurora-section-kicker">Watch the work</p>
-  <h2 class="aurora-display-heading">Recent talks you can play now.</h2>
-  <div class="aurora-proof-grid">
+<section class="aurora-proof-section" id="signature-keynotes">
+  <p class="aurora-section-kicker">Signature keynotes</p>
+  <h2 class="aurora-display-heading">The six-talk bank.</h2>
+  <p>This is the set. Workshops sit under it as add-ons. There is no seventh keynote card.</p>
+  <div class="aurora-proof-grid aurora-proof-grid--six">
     <article class="aurora-card">
-      <h3>Vancouver AI Meetup, March 2026</h3>
-      <p>Creator rights, stolen training data, and why artists should stay ambitious.</p>
-      <div class="kk-speak-embed">
-        <iframe src="https://www.youtube.com/embed/T5ANAthZewE" title="We Trained AI on Stolen Work and I Am More Creative Than Ever at Vancouver AI Meetup March 2026" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      </div>
+      <span class="kk-speak-tag">Delivered</span>
+      <h3>Both Hands Full</h3>
+      <p>For filmmakers, artists, leaders, and organizations trying to stay human while AI gets very good at making everything. One hand on the risks, one hand on the possibilities, both feet still moving.</p>
+      <p>Best for festivals, creative conferences, leadership offsites, higher education, and cultural organizations.</p>
+      <p><a href="https://www.bothhandsfull.com/">Both Hands Full portal</a></p>
     </article>
     <article class="aurora-card">
-      <h3>ChannelNext keynote</h3>
-      <p>Chaos, creativity, and a usable future of humanity talk for operators who still care about culture.</p>
+      <span class="kk-speak-tag">Delivered</span>
+      <h3>Punk Rock AI / Creative Rebellion</h3>
+      <p>A maker-first talk about agency, taste, creative sovereignty, and using AI without surrendering the weird human parts that make culture matter.</p>
+      <p>Best for CreativeMornings-style rooms, design teams, agencies, schools, and arts organizations.</p>
+      <p><a href="https://www.punkrockai.com/">Punk Rock AI portal</a></p>
+    </article>
+    <article class="aurora-card">
+      <span class="kk-speak-tag">Delivered</span>
+      <h3>Developing an AI Mindset</h3>
+      <p>Shared language, confidence, and curiosity before AI becomes another forced software rollout. Collaborator, mentor, muse, research assistant, workflow partner. Human judgment stays in the center.</p>
+      <p>Best for associations, companies, schools, nonprofits, and teams starting their AI journey.</p>
+      <p><a href="http://developinganaimindset.com/">AI Mindset portal</a></p>
+    </article>
+    <article class="aurora-card">
+      <span class="kk-speak-tag">Available, in development</span>
+      <h3>Compost AI</h3>
+      <p>Turn archives, decisions, notes, stories, and relationships into sovereign creative soil instead of extractive data exhaust. Consent, context, and memory systems that make future work more alive.</p>
+      <p>Best for knowledge teams, artists, publishers, cultural organizations, and civic groups with rich archives.</p>
+      <p><a href="/contact/">Ask about this talk</a></p>
+    </article>
+    <article class="aurora-card">
+      <span class="kk-speak-tag">Program option</span>
+      <h3>Leadership After the AI Point of No Return</h3>
+      <p>For organizations that cannot wait for the AI dust to settle. Ship useful experiments, hold the line on trust and consent, and build governance people will actually use.</p>
+      <p>Best for executive audiences, associations, public sector groups, higher education, boards, and leadership retreats.</p>
+      <p><a href="/contact/">Ask about this talk</a></p>
+    </article>
+    <article class="aurora-card">
+      <span class="kk-speak-tag">Program option</span>
+      <h3>Power, Taste, and Trust</h3>
+      <p>Human judgment in the age of invisible AI infrastructure. Taste, trust, and power become the strategic layer when models and automation get cheap and everywhere.</p>
+      <p>Best for product leaders, design teams, policy audiences, founders, and organizations building AI-enabled services.</p>
+      <p><a href="/contact/">Ask about this talk</a></p>
+    </article>
+  </div>
+</section>
+
+<section class="aurora-proof-section" id="watch">
+  <p class="aurora-section-kicker">Watch the work</p>
+  <h2 class="aurora-display-heading">Recorded talks you can play now.</h2>
+  <p>Two public recordings. No autoplay. The stills from those nights are not cleared for this page, so the videos carry the proof.</p>
+  <div class="aurora-proof-grid">
+    <article class="aurora-card">
+      <span class="kk-speak-tag">CreativeMornings Vancouver</span>
+      <h3>Punk Rock AI</h3>
+      <p>Kris Krüg: The perils and parallels of AI's future. Official CreativeMornings HQ recording.</p>
       <div class="kk-speak-embed">
-        <iframe src="https://www.youtube.com/embed/1OcC-0X6Nb8" title="The Future of Humanity AI Keynote on Chaos and Creativity at ChannelNext" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <iframe src="https://www.youtube.com/embed/hYT-hsml_ds" title="Kris Krüg: The perils and parallels of AI's future at CreativeMornings Vancouver" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
+      <p>Originally presented at CreativeMornings Vancouver.</p>
+    </article>
+    <article class="aurora-card">
+      <span class="kk-speak-tag">LaSalle College Vancouver</span>
+      <h3>Both Hands Full</h3>
+      <p>What creatives actually need to know about AI. Full keynote on Kris Krüg's channel.</p>
+      <div class="kk-speak-embed">
+        <iframe src="https://www.youtube.com/embed/-c7mgY2aSgM?start=11" title="Both Hands Full: What Creatives Actually Need to Know About AI" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <p><a href="/2026/05/15/your-taste-is-your-moat/">Companion essay</a></p>
     </article>
   </div>
 </section>
 
 <section class="aurora-proof-section">
-  <p class="aurora-section-kicker">On stages</p>
-  <h2 class="aurora-display-heading">Rooms where the talk had to land.</h2>
-  <div class="aurora-proof-grid aurora-proof-grid--stages">
-    <figure class="kk-speak-stage-still">
-      <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-10-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krüg presenting an AI keynote at LaSalle College Vancouver" loading="lazy" decoding="async">
-    </figure>
-    <figure class="kk-speak-stage-still">
-      <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/09/AI_Meetup_August2024_MichelleDiamond-184-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krüg speaking at a Vancouver AI community event" loading="lazy" decoding="async">
-    </figure>
-    <figure class="kk-speak-stage-still">
-      <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/09/AI_Meetup_August2024_MichelleDiamond-195-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krüg hosting a Vancouver AI Community Meetup" loading="lazy" decoding="async">
-    </figure>
-  </div>
+  <p class="aurora-section-kicker">Workshop add-ons</p>
+  <h2 class="aurora-display-heading">Labs that sit next to the talks.</h2>
+  <p>These are add-ons, not a seventh signature keynote. Pair one with a talk, or book a half-day on its own.</p>
+  <ul class="kk-speak-workshops">
+    <li>AI mindset mapping for teams</li>
+    <li>Build your creative corpus</li>
+    <li>Prompting for taste, not just output</li>
+    <li>Personal knowledge-base and memory workflows</li>
+    <li>Community-first AI adoption</li>
+    <li>AI risk, consent, and cultural responsibility</li>
+    <li>Prototype day: from idea to public artifact</li>
+  </ul>
 </section>
 
 <section class="aurora-proof-section">
@@ -227,51 +291,9 @@
 </section>
 
 <section class="aurora-proof-section">
-  <p class="aurora-section-kicker">Signature topics</p>
-  <div class="aurora-proof-grid">
-    <article class="aurora-media-card">
-      <a href="https://www.bothhandsfull.com/">
-        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-10-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krüg on stage for Both Hands Full at LaSalle College Vancouver" loading="lazy">
-        <div>
-          <h3>Both Hands Full</h3>
-          <p>How to stay human, creative, and useful while AI makes everything faster.</p>
-        </div>
-      </a>
-    </article>
-    <article class="aurora-media-card">
-      <a href="https://www.punkrockai.com/">
-        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-cmvan-keynote-header.png?w=1200&amp;ssl=1" alt="Punk Rock AI CreativeMornings Vancouver keynote artwork" loading="lazy">
-        <div>
-          <h3>Punk Rock AI</h3>
-          <p>A culture-first way to use powerful tools without becoming obedient to them.</p>
-        </div>
-      </a>
-    </article>
-    <article class="aurora-media-card">
-      <a href="http://developinganaimindset.com/">
-        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/04/AI-Immortality-w-Guy-Kawasaki.png?fit=1200%2C604&amp;ssl=1" alt="Developing an AI Mindset keynote graphic with Guy Kawasaki" loading="lazy">
-        <div>
-          <h3>Developing an AI mindset</h3>
-          <p>From tool panic to practice: how people learn, adapt, and keep judgment in the loop.</p>
-        </div>
-      </a>
-    </article>
-    <article class="aurora-media-card">
-      <a href="/responsible-ai-professional/">
-        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/09/AI_Meetup_August2024_MichelleDiamond-184-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krüg speaking about responsible AI practice at a Vancouver AI community event" loading="lazy">
-        <div>
-          <h3>Responsible AI</h3>
-          <p>Bias, privacy, provenance, labor, trust, authenticity, and what responsible deployment means in practice.</p>
-        </div>
-      </a>
-    </article>
-  </div>
-</section>
-
-<section class="aurora-proof-section">
   <div class="aurora-proof-grid aurora-proof-grid--cta">
     <article class="aurora-card">
-      <h2>Book Kris for a keynote</h2>
+      <h2>Book Kris Krüg for a keynote</h2>
       <p>Send the audience, date, location, format, and the question your room is trying to answer. I will help shape the talk to the people in front of us.</p>
       <p><a class="aurora-button" href="/contact/">Start a booking conversation</a></p>
     </article>
