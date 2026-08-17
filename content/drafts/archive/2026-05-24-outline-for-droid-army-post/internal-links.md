@@ -4,9 +4,9 @@
 
 
 
-## External links (2)
+## External links (0)
 
-- https://chatgpt.com/c/67704c6a-691c-8001-899c-f8fb8bc0d3d5
-- https://claude.ai/chat/2d164aed-eb43-47ad-8539-292f564f5320
+- [REDACTED: private chatgpt.com/c session URL removed on archive, 2026-08-17]
+- [REDACTED: private claude.ai/chat session URL removed on archive, 2026-08-17]
 
 After publish, click-check every internal link in the live post. External links should open in a new tab with rel="noopener noreferrer" (the connector sets these automatically).

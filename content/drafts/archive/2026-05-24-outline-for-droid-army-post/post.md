@@ -208,6 +208,6 @@ For **each** bot, include the subsections: **(A) Purpose &amp; Capabilities, (B)
 
 **Glossary of AI &amp; Creative Terms****Resource Links****Acknowledgments**
 
-[https://claude.ai/chat/2d164aed-eb43-47ad-8539-292f564f5320](https://claude.ai/chat/2d164aed-eb43-47ad-8539-292f564f5320)
+[REDACTED: private claude.ai/chat session URL removed on archive, 2026-08-17]
 
-[https://chatgpt.com/c/67704c6a-691c-8001-899c-f8fb8bc0d3d5](https://chatgpt.com/c/67704c6a-691c-8001-899c-f8fb8bc0d3d5)
+[REDACTED: private chatgpt.com/c session URL removed on archive, 2026-08-17]
