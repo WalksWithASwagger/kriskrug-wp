@@ -1,6 +1,6 @@
 # Jetpack Boost critical CSS — #731 status 2026-08-17
 
-**Status:** still owed. App password cannot regenerate. wp-admin session is required.
+**Status:** still owed. App password cannot regenerate. Site is on **local/free** Critical CSS, not cloud. wp-admin session is required.
 **Live theme:** Aurora **1.6.8** (public `style.css`). Issue text still says 1.6.5; regenerate against **1.6.8**.
 
 ## Why this session could not click Regenerate
@@ -14,12 +14,13 @@
 | `GET /wp-json/jetpack-boost/v1/cloud-css/request-generate` | **404** (no cloud-css routes; manual Boost) |
 | `GET /wp-json/jetpack-boost/v1/list-source-providers` | **403** |
 | `GET /wp-json/jetpack-boost/v1/connection` | 200, `connected: true` |
+| One-shot mu-plugin `Modules_Setup::get_status()` | `critical_css: "1"`; **no `cloud_css`**. Cloud `regenerate_cloud_css()` skipped. Storage not cleared. Self-deleted. Report `wp-content/upgrade/kk-731-boost-regen.json` |
 
-Do not POST `set-provider-css` with hand-written CSS. That is not a regen.
+Do not POST `set-provider-css` with hand-written CSS. That is not a regen. Do not call `Regenerate::start()` on local mode from PHP: it would wipe `jb_store_css` and wait for the admin-page browser generator that we cannot run.
 
 ## Before-sample (canonical `/` and `/blog/`, 2026-08-17 05:47 UTC)
 
-Private full dump: `~/kk-snapshots/boost-critical-home-before-731-20260817T054734Z.css` (mode 0600).
+Private full dump: `~/kk-snapshots/boost-critical-home-before-731-20260817T054734Z.css` (mode 0600). `jb_store_css` edit snapshot: `~/kk-snapshots/jb_store_css-before-731-20260817T054800Z.json` (ids 12460 cornerstone, 12461 core_posts_page, both **modified 2026-07-01**).
 
 | Signal | `/` | `/blog/` |
 |---|---|---|
