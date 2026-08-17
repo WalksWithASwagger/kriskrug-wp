@@ -18,7 +18,7 @@ Issue: [#415](https://github.com/WalksWithASwagger/kriskrug-wp/issues/415)
 
 ## Verdict in one line
 
-Homepage currently has **no** "What People Say" band. The old placeholder ("Fresh proof belongs here before launch" + invented cites) is gone from live. Rebuild needs real cleared quotes, a quieter proof section that does not fight the newsletter ask, and a separate network diagram preview for KK reaction.
+Homepage now has a clustered What People Say band (`#what-people-say`) using three quotes already public on `/testimonials/`. The interactive network diagram stays a standalone preview in `network-diagram-spike/`. No live embed until KK says go.
 
 ## Hard gates before anything goes live
 

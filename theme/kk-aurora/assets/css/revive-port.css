@@ -359,6 +359,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   pointer-events: none;
 }
 .aurora-stages-band,
+.aurora-people-say-band,
 .aurora-archive-band,
 .aurora-work-band,
 .aurora-creative-labs,
@@ -541,6 +542,80 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   .aurora-stages-list a:active {
     transform: none;
   }
+}
+
+.aurora-people-say-band .aurora-section-lede {
+  max-width: 36rem;
+  margin: 0.75rem 0 0;
+  color: var(--revive-ink-soft);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.aurora-people-say-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .aurora-people-say-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+}
+
+.aurora-people-say-card {
+  position: relative;
+  margin: 0;
+  padding: 1.15rem 1.1rem 1.25rem;
+  background: var(--revive-surface-2);
+  border: 1px solid var(--revive-line);
+  border-radius: 2px;
+}
+
+.aurora-people-say-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--revive-accent);
+}
+
+.aurora-people-say-card:nth-child(2)::before {
+  background: var(--revive-rainbow-1);
+}
+
+.aurora-people-say-card:nth-child(3)::before {
+  background: var(--revive-rainbow-4);
+}
+
+.aurora-people-say-card blockquote {
+  margin: 0.65rem 0 0;
+}
+
+.aurora-people-say-card blockquote p {
+  margin: 0;
+  color: var(--revive-ink);
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+
+.aurora-people-say-card footer {
+  margin-top: 0.85rem;
+  color: var(--revive-ink-muted);
+  font-size: 0.82rem;
+  font-style: normal;
+}
+
+.aurora-people-say-card:hover,
+.aurora-people-say-card:focus-within {
+  border-color: var(--revive-line-strong);
+}
+
+.aurora-people-say-band .aurora-action-row {
+  margin-top: 1.5rem;
 }
 
 .aurora-section-head {
