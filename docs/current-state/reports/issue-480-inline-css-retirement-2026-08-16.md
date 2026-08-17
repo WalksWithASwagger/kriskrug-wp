@@ -1,5 +1,6 @@
 # Issue #480 — inline page-content CSS retirement (apply-ready prep)
 
+**2026-08-17 reconfirm:** [`issue-480-apply-ready-20260817.md`](issue-480-apply-ready-20260817.md) — CSS table unchanged; live Aurora is now 1.6.8. **DO NOT PATCH.**
 **Captured:** 2026-08-16T20:57Z–21:00Z, logged out, cache-busted (`?cb=480readback`).
 **Issue:** [#480](https://github.com/WalksWithASwagger/kriskrug-wp/issues/480). Step 7 of [`AURORA-STYLESHEET-REBUILD-PLAN.md`](../AURORA-STYLESHEET-REBUILD-PLAN.md).
 **Lane:** Track A. **Zero live WordPress writes.** No REST POST/PATCH. No publisher scripts.
