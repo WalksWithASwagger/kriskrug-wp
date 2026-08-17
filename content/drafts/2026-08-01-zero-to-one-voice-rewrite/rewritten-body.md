@@ -5,10 +5,11 @@ Draft body for WP post 12034, first person. Markdown reading copy of
 `content.raw`. The two are kept in lockstep: if one changes, change both.
 
 Status: **draft, awaiting KK approval. Nothing written to WordPress.**
+Membership figures recast to $340/year and 300 members (KK ruling, #615).
 
 ---
 
-**In January 2024 I opened my studio doors for a meetup and 80 people showed up.** Less than two years later, BC + AI was British Columbia's largest grassroots AI ecosystem: a registered nonprofit with Indigenous board leadership, 130 founding members by that November, and regional chapters across the province. This is the story of how we built something Canada had not seen before. Receipts included.
+**In January 2024 I opened my studio doors for a meetup and 80 people showed up.** Less than two years later, BC + AI was British Columbia's largest grassroots AI ecosystem: a registered nonprofit with Indigenous board leadership, 300 members, and regional chapters across the province. This is the story of how we built something Canada had not seen before. Receipts included.
 
 ## The spark: 80 people in my studio
 
@@ -113,7 +114,7 @@ That composition made Indigenous leadership a governing position, not an advisor
 
 The timing was deliberate. **Registration had gone through about a week earlier, around August 20, 2025**, but we held the public celebration for the milestone 20th meetup. Commemoration and declaration of intent in one night.
 
-**Thirty-four members signed up that first night**. Within the first 2.5 months (by early November 2025), the association had enrolled **130 paid members**, an average of 50 members per month. This exceeded expectations and validated the hybrid model: free or low-cost events for accessibility, paid membership for committed participants seeking deeper benefits.
+**Thirty-four members signed up that first night**. The hybrid model held: free or low-cost events for accessibility, paid membership for people who wanted deeper benefits. Membership now sits at **300**.
 
 ## How we priced membership
 
@@ -133,7 +134,7 @@ One debate from the August 25, 2025 onboarding meeting stuck with me: should the
 
 The nonprofit formation wasn't smooth. **Website payment integration got finished in a rush** right before the August 27 launch. The membership model meant wiring Stripe to a brand-new bank account, building a member database with sequential numbering, and automating email sequences for 15,000+ contacts.
 
-The most delicate move involved **existing Vancouver Core AI annual ticket holders** who had paid $450 for year-long event access. The new membership cost just $240 annually and came with more benefits. We sent voice messages to those early supporters laying out the change, offered BC + AI membership at approximately $200 (a small extra discount), and moved the Core AI channel to a members-only space. **Transparency over perfection** kept the trust intact through the switch.
+The most delicate move involved **existing Vancouver Core AI annual ticket holders** who had paid $450 for year-long event access. The new membership cost $340/year and came with more benefits. We sent voice messages to those early supporters laying out the change, offered BC + AI membership at approximately $200 to those early ticket holders, and moved the Core AI channel to a members-only space. **Transparency over perfection** kept the trust intact through the switch.
 
 Geographic equity took creative work. Surrey AI ran **half-price tickets** and better parking than downtown Vancouver. The BC + AI Youth Access Fund covered **scholarships for participants under 20 or over 80**, plus bus rides to hackathons and certification costs. The philosophy: **"Small, real dollars to the exact places that open doors."**
 
@@ -187,7 +188,7 @@ Certain moments changed BC + AI's trajectory:
 
 **The nonprofit registration** (August 2025) opened up sustainable operations, grant access, and collective advocacy, while the board composition and governance design protected the grassroots values.
 
-**Reaching 130 paid members** within 2.5 months validated the membership model and created financial runway for 2026 programming expansion.
+**Reaching 300 paid members** validated the membership model and created financial runway for 2026 programming expansion.
 
 **The Creative Mornings partnership** was the coming-of-age signal: one of Vancouver's most respected creative institutions wanted to build with us.
 
