@@ -1,6 +1,6 @@
 # #706 script diet apply receipt — 2026-08-17
 
-**Status:** live at origin on the main routes. PSI mobile rerun captured 2026-08-16 10:59 PDT (`qx4j9jir1j`).
+**Status:** live at origin on the main routes. PSI mobile rerun captured 2026-08-16 11:59 PDT (`qx4j9jir1j`).
 **Track:** Track A snippet/plugin surfaces. Not a theme deploy.
 **KK ruling (2026-08-10):** drop Facebook pixel `1720755522050230`; delay gtag to first interaction or 3 s idle.
 
@@ -51,7 +51,7 @@ Logged-out `https://kriskrug.co/?cb=…`. `#kk-gtag-delayed` 1, `#google_gtagjs-
 
 Pixel ID `1720755522050230` did not appear in the network log.
 
-## PSI mobile (2026-08-16 10:59 PDT)
+## PSI mobile (2026-08-16 11:59 PDT)
 
 Report: [`psi-mobile-2026-08-16.md`](psi-mobile-2026-08-16.md) / [qx4j9jir1j](https://pagespeed.web.dev/analysis/https-kriskrug-co/qx4j9jir1j?form_factor=mobile).
 

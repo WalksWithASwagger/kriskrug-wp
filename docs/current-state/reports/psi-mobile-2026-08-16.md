@@ -1,4 +1,4 @@
-# PageSpeed Insights — kriskrug.co mobile — 2026-08-16 10:59 PDT
+# PageSpeed Insights — kriskrug.co mobile — 2026-08-16 11:59 PDT
 
 Source: [PSI report `qx4j9jir1j`](https://pagespeed.web.dev/analysis/https-kriskrug-co/qx4j9jir1j?form_factor=mobile) (Lighthouse 13.4.1, emulated Moto G Power, slow 4G, HeadlessChromium 150). Captured in-session after #706 origin apply + Aurora **1.6.8**.
 Live state at capture: Aurora 1.6.8, WP 7.0.4, WPCode 7917 drafted, Code Snippets id 22 active.
