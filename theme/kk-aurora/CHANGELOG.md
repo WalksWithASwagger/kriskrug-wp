@@ -20,6 +20,10 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.6.7
+**Deployed:** NOT LIVE (deploy pending)
+Chrome copy: sitewide `<title>` separator becomes a pipe and the surname takes the umlaut (#756). Front page keeps the full descriptor; inner pages take a short `Kris Krüg` tail. Writing-archive og/twitter titles, `public_site_name()`, header, footer, and shipped patterns follow the same ruling. Live chrome uses `BC + AI` (spaces) per #735. Descriptors are not unified. No CSS change.
+
 ## 1.6.6
 **Deployed:** NOT LIVE (source merged in PR #751 at `dcb7ff4`; deploy pending)
 Copy and dead-file cleanup, no layout or CSS change. Strips the five user-visible em dashes from theme copy: the homepage hero dek and services lede, the marquee archive lede, and the photo-gallery pattern's lede plus its placeholder alt text (#733). Removes the orphaned speaking proof-grid template part and its `theme.json` registration; the part was placed by zero templates and live proof-grid content is DB page content, not this part (#743).
