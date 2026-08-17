@@ -429,7 +429,7 @@ RESOLVED_COMPONENT_COLORS = (
     # The #470 defect as filed: the two homepage band links.
     (
         "assets/css/revive-port.css",
-        ".aurora-section-head a",
+        ".aurora-section-head a:not(.aurora-button)",
         ("cream", "cream-2"),
         AA_TEXT,
     ),
@@ -640,7 +640,7 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
         this rule is the one the issue was filed against.
         """
         declaration = declared_color(
-            "assets/css/revive-port.css", ".aurora-section-head a"
+            "assets/css/revive-port.css", ".aurora-section-head a:not(.aurora-button)"
         )
         self.assertIsNotNone(declaration)
         self.assertTrue(
@@ -654,7 +654,7 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
             self.assertGreaterEqual(
                 ratio,
                 AA_TEXT,
-                f".aurora-section-head a ({literal}) on {surface_key} is {ratio:.2f}:1",
+                f".aurora-section-head a:not(.aurora-button) ({literal}) on {surface_key} is {ratio:.2f}:1",
             )
 
     def test_front_page_still_renders_the_section_head_links(self):
