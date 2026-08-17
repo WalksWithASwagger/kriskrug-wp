@@ -21,7 +21,7 @@
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.05em"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}},"textColor":"text-secondary","fontSize":"xs"} -->
-        <p class="has-text-align-center has-text-secondary-color has-text-color has-xs-font-size" style="margin-top:var(--wp--preset--spacing--30);letter-spacing:0.05em;text-transform:uppercase">BC+AI Members</p>
+        <p class="has-text-align-center has-text-secondary-color has-text-color has-xs-font-size" style="margin-top:var(--wp--preset--spacing--30);letter-spacing:0.05em;text-transform:uppercase">BC + AI Members</p>
         <!-- /wp:paragraph -->
       </div>
       <!-- /wp:group -->
