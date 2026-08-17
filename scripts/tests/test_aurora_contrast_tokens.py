@@ -33,6 +33,17 @@ class AuroraContrastTokenTests(unittest.TestCase):
         theme = json.loads((THEME_DIR / "theme.json").read_text(encoding="utf-8"))
         palette = theme["settings"]["color"]["palette"]
         self.colors = {entry["slug"]: entry["color"] for entry in palette}
+        self.names = {entry["slug"]: entry["name"] for entry in palette}
+
+    def test_surface_and_elevated_preset_slugs_are_kept(self):
+        """#690: never delete these slugs; live editor/content may reference them."""
+        self.assertIn("surface", self.colors)
+        self.assertIn("elevated", self.colors)
+        self.assertEqual(self.colors["surface"].lower(), "#e6dcc2")
+        self.assertEqual(
+            self.colors["elevated"].lower(), self.colors["surface"].lower()
+        )
+        self.assertIn("same as Panel", self.names["elevated"])
 
     def test_text_tokens_meet_wcag_aa_on_dark_surfaces(self):
         foregrounds = ("text-primary", "text-secondary", "text-muted", "signal")
