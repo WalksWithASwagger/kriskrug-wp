@@ -47,6 +47,23 @@ If Matthew cannot attend, replace his segment with a short recorded welcome or a
 
 ## Launch sequence
 
+## Decision confirmed 2026-08-16 (KK)
+
+Kris runs the ecosystem-connector role only. Darren Coleman hosts and facilitates the room in person. Kris supplies a two-minute recorded welcome and appears live only if the TruNorth travel works, which it likely will not. This resolves the September 9 conflict below and is the plan of record.
+
+The original runway below (August 10 through 14) did not execute: no Luma event was created and nothing was sent. Those dates have passed. Use the revised runway here; the dated steps below stay as the reference checklist for what each phase covers.
+
+### Revised runway (from 2026-08-16, 24 days out)
+
+- **By Aug 18:** Darren confirms venue, date, capacity, and the Coleman Technologies sponsor basics. Kris records the two-minute welcome. These two unblock everything else.
+- **By Aug 20:** create the Luma event under the BC + AI banner. This is the item that has blocked the whole sequence; it needs Kris or a delegate with Luma access.
+- **Aug 20 to 22:** first controlled invite wave to the local list plus warm Surrey contacts, framed as a founding Fraser Valley room.
+- **Aug 26:** ecosystem signal at the Vancouver AI meetup, as originally planned.
+- **Sept 2 to 8:** the finish-strong sequence below runs unchanged.
+- **Sept 9:** Darren hosts; recorded welcome plays; Kris keynotes TruNorth in Vancouver.
+
+The compression is real: the invite window is now about three weeks instead of four, so the Aug 18 and Aug 20 items are the hard gates. If the Luma event is not live by Aug 22, move the launch date rather than shipping a thin room.
+
 ### August 10–11 — close the foundation
 
 - Confirm 6:00–8:00 PM and the office access details.
