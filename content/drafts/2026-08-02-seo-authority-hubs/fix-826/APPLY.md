@@ -5,9 +5,9 @@ Script is dry-run by default. `--apply` is the only write switch.
 
 Parent: #402. This is child 1 of 9. Later hub children edit the same posts, so this lands first.
 
-## Live reconfirm (logged-out, 2026-08-17T03:30Z)
+## Live reconfirm (logged-out, 2026-08-17T06:30Z)
 
-Term IDs still match `scripts/seo-backfill/linkinject_lib.py`. `/contact/` returns 200.
+Same defects as the 03:30Z pass. Dated receipt: [`docs/current-state/reports/issue-826-apply-ready-20260817.md`](../../../../docs/current-state/reports/issue-826-apply-ready-20260817.md). Term IDs still match `scripts/seo-backfill/linkinject_lib.py`. `/contact/` returns 200.
 
 | ID | Slug | Live categories | Defect |
 |---|---|---|---|

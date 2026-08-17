@@ -1,6 +1,6 @@
 {
   "issue": 826,
-  "live_reconfirm": "2026-08-17T03:30:00Z",
+  "live_reconfirm": "2026-08-17T06:30:00Z",
   "contact_find": "http://www.kriskrug.com/contact",
   "contact_replace": "https://kriskrug.co/contact/",
   "term_ids": {
@@ -34,7 +34,7 @@
       "to_category": "ai-ethics-philosophy",
       "old_pillar_href": "https://kriskrug.co/category/web-early-blog/",
       "old_pillar_label": "Web and Early Blog archive",
-      "modified_gmt_at_reconfirm": "2026-06-28T20:37:13"
+      "modified_gmt_at_reconfirm": "2026-06-29T04:37:13"
     },
     {
       "id": 3330,
@@ -44,7 +44,7 @@
       "to_category": "events-reports",
       "old_pillar_href": null,
       "old_pillar_label": null,
-      "modified_gmt_at_reconfirm": "2026-06-14T16:57:04"
+      "modified_gmt_at_reconfirm": "2026-06-15T00:57:04"
     },
     {
       "id": 1067,
@@ -54,7 +54,7 @@
       "to_category": "photography-visual-storytelling",
       "old_pillar_href": "https://kriskrug.co/vancouver-ai/",
       "old_pillar_label": "Vancouver AI Ecosystem",
-      "modified_gmt_at_reconfirm": "2026-07-11T11:49:15"
+      "modified_gmt_at_reconfirm": "2026-07-11T19:49:15"
     },
     {
       "id": 1063,
@@ -64,7 +64,7 @@
       "to_category": "photography-visual-storytelling",
       "old_pillar_href": "https://kriskrug.co/vancouver-ai/",
       "old_pillar_label": "Vancouver AI Ecosystem",
-      "modified_gmt_at_reconfirm": "2026-07-11T11:49:39"
+      "modified_gmt_at_reconfirm": "2026-07-11T19:49:39"
     },
     {
       "id": 1147,
@@ -74,7 +74,7 @@
       "to_category": "photography-visual-storytelling",
       "old_pillar_href": "https://kriskrug.co/ai-for-creatives/",
       "old_pillar_label": "AI for Creatives",
-      "modified_gmt_at_reconfirm": "2026-07-11T11:49:01"
+      "modified_gmt_at_reconfirm": "2026-07-11T19:49:01"
     },
     {
       "id": 2819,
@@ -83,7 +83,7 @@
       "from_category": null,
       "to_category": null,
       "href_repair": true,
-      "modified_gmt_at_reconfirm": "2026-06-28T20:39:19"
+      "modified_gmt_at_reconfirm": "2026-06-29T04:39:19"
     }
   ]
 }
