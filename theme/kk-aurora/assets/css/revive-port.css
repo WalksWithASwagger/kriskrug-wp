@@ -664,7 +664,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   color: var(--revive-accent-text);
 }
 
-.aurora-section-head a {
+.aurora-section-head a:not(.aurora-button) {
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -967,7 +967,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
 }
 
 .aurora-newsletter-band {
-  text-align: center;
+  text-align: left;
   border-top: 1px solid var(--revive-line);
 }
 
@@ -975,20 +975,33 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
 .aurora-newsletter-copy h2 {
   font-family: "Space Grotesk", system-ui, sans-serif;
   font-size: clamp(2rem, 4.5vw, 3rem);
-  margin: 0.5rem 0 0.75rem;
+  margin: 0.35rem 0 0;
   color: var(--revive-ink);
 }
 
-.aurora-newsletter-band > p,
-.aurora-newsletter-copy > p:not(.aurora-kicker) {
+.aurora-newsletter-band .aurora-section-lede,
+.aurora-newsletter-copy .aurora-section-lede {
   max-width: 36rem;
-  margin: 0 auto 1.5rem;
+  margin: 0.75rem 0 0;
   color: var(--revive-ink-soft);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.aurora-newsletter-band > p,
+.aurora-newsletter-copy > p:not(.aurora-kicker):not(.aurora-section-lede) {
+  max-width: 36rem;
+  margin: 0.75rem 0 1.5rem;
+  color: var(--revive-ink-soft);
+}
+
+.aurora-newsletter-band .aurora-section-head {
+  align-items: flex-end;
 }
 
 .aurora-newsletter-band .aurora-action-row,
 .aurora-newsletter-copy .aurora-action-row {
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .aurora-newsletter-thumbs-label {
