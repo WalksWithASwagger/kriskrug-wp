@@ -1,0 +1,75 @@
+{
+  "issue": 827,
+  "parent_issue": 402,
+  "live_reconfirm": "2026-08-17T06:32:00Z",
+  "child_826_must_precede_apply": true,
+  "flickr_href": "https://www.flickr.com/photos/kk/",
+  "locate_12013": "This is a fraction of it",
+  "coda_must_contain": "lives on Flickr",
+  "peeps_line": "I've met a couple cool peeps already.",
+  "forbidden_href_needles": [
+    "checklist-of-model-photographer-negotiation-items"
+  ],
+  "out_of_payload_ids": [1210, 1067, 1063, 1147],
+  "targets": [
+    {
+      "id": 12013,
+      "rest": "pages",
+      "slug": "photography",
+      "url": "https://kriskrug.co/photography/",
+      "kind": "coda_page",
+      "keep_style": true,
+      "keep_flickr": true,
+      "modified_gmt_at_reconfirm": "2026-08-17T05:30:00",
+      "rows": [
+        {
+          "row": 11,
+          "href": "https://kriskrug.co/category/photography-visual-storytelling/",
+          "anchor": "the whole archive, twenty years of it",
+          "prefix": " The on-site version is ",
+          "suffix": "."
+        },
+        {
+          "row": 12,
+          "href": "https://kriskrug.co/2006/10/23/kk-on-modelmayhemcom/",
+          "anchor": "the fashion and model years, 2006 to 2008",
+          "prefix": " Start with ",
+          "suffix": "."
+        }
+      ]
+    },
+    {
+      "id": 1222,
+      "rest": "posts",
+      "slug": "to-all-you-wannabe-fashion-photographers",
+      "url": "https://kriskrug.co/2007/04/27/to-all-you-wannabe-fashion-photographers/",
+      "kind": "before_footer",
+      "modified_gmt_at_reconfirm": "2026-07-11T19:48:05",
+      "rows": [
+        {
+          "row": 13,
+          "href": "https://kriskrug.co/2006/10/23/kk-on-modelmayhemcom/",
+          "anchor": "how I found those people in the first place",
+          "paragraph": "<p>The year before this rant I posted <a href=\"https://kriskrug.co/2006/10/23/kk-on-modelmayhemcom/\">how I found those people in the first place</a>.</p>"
+        }
+      ]
+    },
+    {
+      "id": 1056,
+      "rest": "posts",
+      "slug": "kk-on-modelmayhemcom",
+      "url": "https://kriskrug.co/2006/10/23/kk-on-modelmayhemcom/",
+      "kind": "after_peeps",
+      "modified_gmt_at_reconfirm": "2026-06-15T05:20:28",
+      "rows": [
+        {
+          "row": 14,
+          "href": "https://kriskrug.co/photography/",
+          "anchor": "where all of that ended up",
+          "prefix": " Here is ",
+          "suffix": "."
+        }
+      ]
+    }
+  ]
+}
