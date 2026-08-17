@@ -2,7 +2,7 @@
 
 Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then run `make status-readonly` for current runtime signals.
 
-## Current Front Door (verified 2026-08-16)
+## Current Front Door (verified 2026-08-17)
 
 Read these first:
 
@@ -14,7 +14,7 @@ Read these first:
 6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
 7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
 
-**Live readback 2026-08-17:** WordPress last seen `7.0.4`. Aurora **live is `1.6.7`**; repo `main` is **`1.6.8`** (PR #844 homepage cluster). Title pipe + Krüg chrome is live. The 1.6.8 homepage bands are not. The public `style.css` readback remains authoritative for production theme state. Read back, do not assume, in either direction.
+**Live readback 2026-08-17 04:51 UTC:** WordPress last seen `7.0.4`. Aurora **live is `1.6.8`** (CSS and homepage HTML). Title pipe + Krüg chrome is live. Homepage bands (labs, logo soup, stages, What People Say) are live. Receipt: [`reports/aurora-168-live-deploy-20260817.md`](reports/aurora-168-live-deploy-20260817.md). The public `style.css` readback remains authoritative for production theme state. Read back, do not assume, in either direction.
 
 ## Durable process docs (keep at top level)
 
