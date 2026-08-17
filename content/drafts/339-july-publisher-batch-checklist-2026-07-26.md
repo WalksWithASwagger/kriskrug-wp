@@ -1,6 +1,8 @@
 # #339 July publisher batch — operator checklist
 
-**Status:** PREP ONLY — no live run without KK ticks + dry-run proof.  
+**Status:** Historical as of 2026-08-16. Superseded by [`339-july-publisher-batch-2026-08-16/README.md`](339-july-publisher-batch-2026-08-16/README.md). Live Aurora is 1.6.5, not 1.4.8. The 1.3.39 zip line is obsolete. Content items were still unapplied on 2026-08-16.
+
+**Original status:** PREP ONLY — no live run without KK ticks + dry-run proof.  
 **Full report:** [`docs/current-state/reports/publisher-batch-prep-339-20260726.md`](../../docs/current-state/reports/publisher-batch-prep-339-20260726.md)  
 **Captured:** 2026-07-26
 
