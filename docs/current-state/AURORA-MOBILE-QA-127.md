@@ -1,6 +1,8 @@
 # Aurora Mobile / Responsive QA — Issue #127
 
-**Status:** Code audit complete; manual device QA pending. **Scope:** verification of the *current* horizontal-scroll nav contract (not a hamburger — see #28). This doc is the test plan + the code-level findings; the visual checks must be run on a real device or Chrome DevTools **device mode** (a plain browser window resize does not reflow to the mobile breakpoints).
+**STATUS: Superseded (2026-08-16).** Live pass is in [`reports/issue-127-mobile-qa-2026-08-16.md`](reports/issue-127-mobile-qa-2026-08-16.md). Original acceptance criteria passed on Aurora **1.6.5**. Do not treat this file as a pending device-QA checklist. Breakpoints, pill-nav, and “≤700px” notes below are pre-#479 / pre-Revive.
+
+**Historical test plan** (kept for the keyboard/overflow checklist shape). Scope was verification of the *current* horizontal-scroll nav contract (not a hamburger — see #28). Visual checks belong in device mode, not a plain window resize.
 
 ## 1. Code-level audit (what's already implemented)
 
