@@ -40,6 +40,11 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.6.8 =
+* homepage (#411): rewrite Join BC / Futureproof work-band copy; shared-grid alignment; quiet card numerals; hover and focus-visible states.
+* homepage (#412): restore Creative Labs (Vancouver AI, Punk Rock AI, Both Hands Full, AI Garden) with text below the photo.
+* homepage (#413): monochrome interactive client logo soup. Stacks after #789 / 1.6.7.
+
 = 1.6.6 =
 * content (#733, PR #751): rewrite the five listed user-visible em dashes in the homepage, marquee archive, and photo-gallery pattern copy.
 * cleanup (#743, PR #751): remove the unplaced speaking proof-grid template part and its theme.json registration.

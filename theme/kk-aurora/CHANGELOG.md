@@ -20,6 +20,10 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.6.8
+**Deployed:** NOT LIVE (stacks after #789 / Aurora 1.6.7; 1.6.6 remains undeployed)
+Homepage cluster: rewrite the Join BC / Futureproof work-band copy, align the triptych, and quiet the card numerals (#411); restore a Creative Labs band with text-below-image cards (#412); bring back a monochrome interactive client logo soup (#413). No live deploy in this cut.
+
 ## 1.6.6
 **Deployed:** NOT LIVE (source merged in PR #751 at `dcb7ff4`; deploy pending)
 Copy and dead-file cleanup, no layout or CSS change. Strips the five user-visible em dashes from theme copy: the homepage hero dek and services lede, the marquee archive lede, and the photo-gallery pattern's lede plus its placeholder alt text (#733). Removes the orphaned speaking proof-grid template part and its `theme.json` registration; the part was placed by zero templates and live proof-grid content is DB page content, not this part (#743).
