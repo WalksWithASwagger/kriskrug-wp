@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.6.6');
+define('KK_AURORA_VERSION', '1.6.7');
 
 require_once get_template_directory() . '/inc/seo-title.php';
 require_once get_template_directory() . '/inc/seo-meta-rest.php';
@@ -335,24 +335,27 @@ add_action('init', __NAMESPACE__ . '\\register_block_styles');
  * @return array<string, string>
  */
 function filter_document_title_parts(array $title): array {
-    $site_descriptor = 'Kris Krug | AI Keynote Speaker & Creative Technologist';
+    // Front page keeps the full descriptor for SEO; inner pages take a short
+    // tail so the post title survives SERP truncation (#756).
+    $front_page_descriptor = 'Kris Krüg | AI Keynote Speaker & Creative Technologist';
+    $site_suffix           = 'Kris Krüg';
 
     unset($title['tagline']);
 
     if (is_front_page()) {
-        $title['title'] = $site_descriptor;
+        $title['title'] = $front_page_descriptor;
         unset($title['site']);
         return $title;
     }
 
-    $title['site'] = $site_descriptor;
+    $title['site'] = $site_suffix;
 
     return $title;
 }
 add_filter('document_title_parts', __NAMESPACE__ . '\\filter_document_title_parts');
 
 function filter_document_title_separator(string $separator): string {
-    return '—';
+    return '|';
 }
 add_filter('document_title_separator', __NAMESPACE__ . '\\filter_document_title_separator');
 
@@ -579,11 +582,11 @@ function exclude_current_post_from_related_query(array $query, \WP_Block $block)
 add_filter('query_loop_block_query_vars', __NAMESPACE__ . '\\exclude_current_post_from_related_query', 10, 2);
 
 function public_site_name(): string {
-    return 'Kris Krug';
+    return 'Kris Krüg';
 }
 
 function homepage_meta_description(): string {
-    return 'Kris Krug is a Vancouver AI keynote speaker, creative technologist, and community builder leading BC + AI and curating Futureproof Festival.';
+    return 'Kris Krüg is a Vancouver AI keynote speaker, creative technologist, and community builder leading BC + AI and curating Futureproof Festival.';
 }
 
 function filter_feed_bloginfo(string $value, string $show): string {
@@ -787,7 +790,7 @@ function work_page_open_graph_fallback(array $tags): array {
 }
 
 function writing_archive_meta_description(): string {
-    $fallback = 'Read Kris Krug field notes on responsible AI, creative technology, community building, Indigenous tech, media, culture, practical workflows, and events.';
+    $fallback = 'Read Kris Krüg field notes on responsible AI, creative technology, community building, Indigenous tech, media, culture, practical workflows, and events.';
     $posts_page_id = (int) get_option('page_for_posts');
     if ($posts_page_id <= 0) {
         return $fallback;
@@ -827,7 +830,7 @@ function writing_archive_open_graph_fallback(array $tags): array {
     $description = writing_archive_meta_description();
     $canonical = writing_archive_canonical_url();
 
-    $tags['og:title'] = 'Writing — Kris Krug';
+    $tags['og:title'] = 'Writing | Kris Krüg';
     if ($canonical !== '') {
         $tags['og:url'] = $canonical;
     }
@@ -838,7 +841,7 @@ function writing_archive_open_graph_fallback(array $tags): array {
     $tags['og:image:height'] = '686';
     $tags['og:image:alt'] = 'Mycelial network artwork representing connected AI-era field notes';
     $tags['twitter:card'] = 'summary_large_image';
-    $tags['twitter:title'] = 'Writing — Kris Krug';
+    $tags['twitter:title'] = 'Writing | Kris Krüg';
     $tags['twitter:description'] = $description;
     $tags['twitter:image'] = $image;
     $tags['twitter:image:alt'] = 'Mycelial network artwork representing connected AI-era field notes';
@@ -923,7 +926,7 @@ function writing_archive_category_feed_discovery(): void {
 
         printf(
             "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"%s\" href=\"%s\" />\n",
-            esc_attr(sprintf('%s category feed - Kris Krug', wp_strip_all_tags($category->name))),
+            esc_attr(sprintf('%s category feed - Kris Krüg', wp_strip_all_tags($category->name))),
             esc_url($feed_url)
         );
     }
