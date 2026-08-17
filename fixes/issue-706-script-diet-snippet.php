@@ -4,8 +4,8 @@
  *
  * Delays the Site Kit gtag.js load until the visitor interacts or the browser
  * goes idle after load. Pairs with the Meta Pixel removal, which is a
- * source-level change (deactivate the snippet that prints it) and is NOT done
- * here — see fixes/issue-706-script-diet.md for that half and the apply order.
+ * source-level change in WPCode Lite (not Code Snippets — confirmed 2026-08-16)
+ * and is NOT done here — see fixes/issue-706-script-diet.md.
  *
  * KK ruling on #706 (2026-08-10): drop the Facebook pixel entirely; delay gtag.
  *
