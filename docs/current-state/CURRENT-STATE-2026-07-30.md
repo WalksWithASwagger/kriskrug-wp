@@ -6,7 +6,7 @@
 
 This file is the declared snapshot for `make current-state-drift-check` / `make morning-truth` / `make status-readonly` (via `WORK_PLAN` / `WORK_PLAN_DEFAULT`).
 
-Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Latest dated runbook: [`WORK-PLAN-2026-08-16.md`](WORK-PLAN-2026-08-16.md).
+Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Latest dated runbook: [`WORK-PLAN-2026-08-17.md`](WORK-PLAN-2026-08-17.md).
 
 ## Verified State
 
