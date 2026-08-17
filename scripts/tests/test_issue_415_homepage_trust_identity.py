@@ -85,17 +85,13 @@ class Issue415HomepageTrustIdentityTests(unittest.TestCase):
             "Leadership audience quote",
         ):
             self.assertNotIn(placeholder, source)
-        self.assertNotIn("<blockquote", source)
         self.assertNotIn("aurora-testimonial-band", source)
-        # #415 replaced the placeholder testimonial band with a "Follow the
-        # work" band (id="aurora-relationships-title") that routed to three
-        # real front doors. Aurora 1.4.0 ("port Revive cream/ink system")
-        # re-cut the homepage to the section order locked in
-        # docs/current-state/REVIVE-AURORA-PORT-2026-07-24.md, which has no
-        # relationships band; the current work triptych is the section that
-        # now carries that job. Re-anchored to the triptych so the guard keeps
-        # asserting what #415 actually protects: no unverified quotes, and the
-        # homepage routes to the three real destinations below.
+        self.assertIn('id="what-people-say"', source)
+        self.assertIn("Jai Djwa", source)
+        self.assertIn("Ed Kennedy", source)
+        self.assertIn("Audience feedback", source)
+        self.assertIn('href="/testimonials/"', source)
+        # Work triptych still routes to the three real destinations.
         self.assertIn('id="aurora-work-title"', source)
         self.assertIn('class="aurora-work-triptych"', source)
         self.assertIn('href="/work/"', source)

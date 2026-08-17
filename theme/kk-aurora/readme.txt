@@ -40,6 +40,12 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.6.8 =
+* homepage (#411): rewrite Join BC / Futureproof work-band copy; shared-grid alignment; quiet card numerals; hover and focus-visible states.
+* homepage (#412): restore Creative Labs (Vancouver AI, Punk Rock AI, Both Hands Full, AI Garden) with text below the photo.
+* homepage (#413): monochrome interactive client logo soup.
+* homepage (#414–#416): stages proof reel, What People Say, newsletter CTA. Stacks after 1.6.7.
+
 = 1.6.7 =
 * content (#756): sitewide `<title>` separator is a pipe; inner pages take a short `Kris Krüg` tail; front page keeps the full descriptor.
 * content (#735): live chrome uses `BC + AI` (spaces) and `Kris Krüg` in header, footer, patterns, and `public_site_name()`.

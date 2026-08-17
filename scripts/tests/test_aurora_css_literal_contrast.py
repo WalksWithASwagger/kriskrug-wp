@@ -318,20 +318,15 @@ REGISTERED_LITERALS = {
     ),
     (
         "assets/css/revive-port.css",
-        ".aurora-proof-outlets span",
-        "rgba(23, 19, 16, 0.62)",
-    ): ("cream", AA_TEXT, "outlet names on cream"),
-    (
-        "assets/css/revive-port.css",
         ".aurora-work-card-num",
-        "rgba(217, 74, 31, 0.45)",
+        "rgba(239, 230, 210, 0.72)",
     ): (
         "work-card-scrim",
         NOT_STATIC,
-        "decorative index numeral pinned to the card's top-left, where the "
-        "::after scrim is fully transparent — it renders straight onto the "
-        "photo (measured 1.11:1 over mid-grey, 1.88:1 over white). Needs a "
-        "design call: scrim it, make it opaque, or mark it aria-hidden.",
+        "#411 retired the oversized accent drop-numeral. The quiet mono index "
+        "still sits top-left on bare photography (scrim is transparent there), "
+        "so the ratio is not statically determinable. Markup now marks it "
+        "aria-hidden.",
     ),
     (
         "assets/css/revive-port.css",
@@ -434,7 +429,7 @@ RESOLVED_COMPONENT_COLORS = (
     # The #470 defect as filed: the two homepage band links.
     (
         "assets/css/revive-port.css",
-        ".aurora-section-head a",
+        ".aurora-section-head a:not(.aurora-button)",
         ("cream", "cream-2"),
         AA_TEXT,
     ),
@@ -645,7 +640,7 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
         this rule is the one the issue was filed against.
         """
         declaration = declared_color(
-            "assets/css/revive-port.css", ".aurora-section-head a"
+            "assets/css/revive-port.css", ".aurora-section-head a:not(.aurora-button)"
         )
         self.assertIsNotNone(declaration)
         self.assertTrue(
@@ -659,7 +654,7 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
             self.assertGreaterEqual(
                 ratio,
                 AA_TEXT,
-                f".aurora-section-head a ({literal}) on {surface_key} is {ratio:.2f}:1",
+                f".aurora-section-head a:not(.aurora-button) ({literal}) on {surface_key} is {ratio:.2f}:1",
             )
 
     def test_front_page_still_renders_the_section_head_links(self):

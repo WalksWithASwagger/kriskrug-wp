@@ -28,6 +28,10 @@ Quotes in the detail panel are drawn from the Tier A bank text for demo only. Sa
 - No personal emails, phone numbers, or private CRM edges
 - No auto-fetch of LinkedIn / Notion
 
+## 2026-08-17 homepage cluster
+
+KK ruled proceed on the homepage cluster. The live homepage now ships three already-public quotes (Jai Djwa, Ed Kennedy, audience feedback) from `/testimonials/`. This HTML file stays a **standalone preview**. Do not embed it on the homepage until KK gives an explicit go.
+
 ## Go / no-go for KK
 
 | Decision | Meaning |
