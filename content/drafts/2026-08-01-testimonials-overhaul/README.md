@@ -35,17 +35,17 @@ Full table in [`consent-log.md`](./consent-log.md).
 
 **Do not publish decliners.** Anyone from `consent-outreach.md` who asks to be pulled moves to `pulled` in the consent log and comes off the page the same day. That promise is what makes the T2 ship-and-log ruling defensible.
 
-## Wave status (2026-08-02)
+## Wave status (2026-08-16)
 
 | Wave | Issues | State |
 |---|---|---|
 | 1 | #594 inventory · #595 LinkedIn · #597 copy · #596 CSS | Merged, closed |
 | 2 | #598 curate + consent log | Merged, closed |
 | 3 | #599 payload rebuild · #600 outreach packet | Merged, closed |
-| Gate | [#601](https://github.com/WalksWithASwagger/kriskrug-wp/issues/601) pixel-gate theme deploy | **Open, human-gated** |
-| Gate | [#602](https://github.com/WalksWithASwagger/kriskrug-wp/issues/602) snapshot-gate page deploy | **Open, human-gated** |
+| Gate | [#601](https://github.com/WalksWithASwagger/kriskrug-wp/issues/601) pixel-gate theme deploy | **Closed 2026-08-10.** Live CSS 1.6.5 includes `aurora-tstm`. |
+| Gate | [#602](https://github.com/WalksWithASwagger/kriskrug-wp/issues/602) snapshot-gate page deploy | **Open.** Payload on `main`; live body is still v1 (19 cards). |
 
-Everything is on `main`. **Nothing new is live:** Aurora 1.5.8 sits in the repo while production runs 1.5.7, and page 2409 still shows the v1 body. Both gates are KK's to open.
+Apply procedure: [`APPLY-RUNBOOK.md`](./APPLY-RUNBOOK.md). Live vs payload: [`live-vs-payload-2026-08-16.md`](./live-vs-payload-2026-08-16.md). Do not PATCH until KK comments on #602.
 
 ## Notes for whoever picks this up next
 
@@ -72,7 +72,7 @@ Everything is on `main`. **Nothing new is live:** Aurora 1.5.8 sits in the repo 
 
 ## Exact deploy commands
 
-These are what [#602](https://github.com/WalksWithASwagger/kriskrug-wp/issues/602) runs. Dry-run first, always. For v2 use a fresh snapshot dir (e.g. `backup/20260802-testimonials-v2/page-snapshots`) so the v1 rollback baseline stays intact.
+Canonical v2 commands live in [`APPLY-RUNBOOK.md`](./APPLY-RUNBOOK.md). Dry-run first, always. Use a fresh snapshot dir (not `backup/20260801-testimonials/`) so the v1 rollback baseline stays intact. Historical v1 shape, for reference:
 
 ```bash
 # Dry-run
@@ -100,7 +100,7 @@ Public verify: `https://kriskrug.co/testimonials/?cb=<timestamp>`
 
 ## Open follow-ups for KK
 
-1. Open the [#601](https://github.com/WalksWithASwagger/kriskrug-wp/issues/601) pixel gate to deploy Aurora 1.5.8, then the [#602](https://github.com/WalksWithASwagger/kriskrug-wp/issues/602) snapshot gate to publish the v2 body.
+1. [#601](https://github.com/WalksWithASwagger/kriskrug-wp/issues/601) is done. Open the [#602](https://github.com/WalksWithASwagger/kriskrug-wp/issues/602) snapshot gate to publish the v2 body (see [`APPLY-RUNBOOK.md`](./APPLY-RUNBOOK.md)).
 2. Rule on the five editorial calls in `curated-set-v2.md`.
 3. Send (or hand back) the 8 outreach messages in `consent-outreach.md`.
 4. Supply contacts for Harrison Reed, Becky Pallack, Sev Geraskin, who have no resolved public channel.
