@@ -71,7 +71,9 @@ LINK_MAP: list[tuple[str, str, str | None]] = [
 
     # KK's own pillar posts — internal cross-links to keep traffic on kriskrug.co
     (r"\bPunk\s+Rock\s+AI\b",                    "https://kriskrug.co/2026/05/04/punk-rock-ai/", "Punk Rock AI"),
-    (r"\bBoth\s+Hands\s+Full\b",                 "https://kriskrug.co/2026/05/16/make-culture-not-content/", "Both Hands Full — Make Culture, Not Content"),  # TODO(KK): confirm canonical target
+    # Live post 10594 (2026-08-16): title "Make Culture, Not Content"; body names
+    # "Both Hands Full" four times. Distinct from post 12656 (Power Cord).
+    (r"\bBoth\s+Hands\s+Full\b",                 "https://kriskrug.co/2026/05/16/make-culture-not-content/", "Both Hands Full: Make Culture, Not Content"),
     (r"\b(?:your\s+)?taste\s+is\s+your\s+moat\b","https://kriskrug.co/2026/05/15/your-taste-is-your-moat/", "Your Taste Is Your Moat"),
     (r"\bmycelial\s+network\b",                  "https://kriskrug.co/2025/02/16/bcs-ai-ecosystem-a-mycelial-network-of-creation/", "BC's AI Ecosystem: A Mycelial Network"),
 
