@@ -40,6 +40,10 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.6.7 =
+* content (#756): sitewide `<title>` separator is a pipe; inner pages take a short `Kris Krüg` tail; front page keeps the full descriptor.
+* content (#735): live chrome uses `BC + AI` (spaces) and `Kris Krüg` in header, footer, patterns, and `public_site_name()`.
+
 = 1.6.6 =
 * content (#733, PR #751): rewrite the five listed user-visible em dashes in the homepage, marquee archive, and photo-gallery pattern copy.
 * cleanup (#743, PR #751): remove the unplaced speaking proof-grid template part and its theme.json registration.

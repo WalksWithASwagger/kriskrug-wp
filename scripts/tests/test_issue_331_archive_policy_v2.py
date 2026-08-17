@@ -158,6 +158,8 @@ echo json_encode(
             "Do not change `robots.txt`",
             "Deactivate the snippet",
             "#767",
+            "merged PR #793",
+            "2026-08-16 19:28 PT",
         ):
             self.assertIn(expected, self.apply)
 
