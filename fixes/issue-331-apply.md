@@ -1,11 +1,16 @@
 # Archive sitemap policy — apply / rollback (#331)
 
-Prepared 2026-08-16. **Nothing here has been applied.** Activating this snippet
-is a live write and stays KK-gated. Do not change `robots.txt`. Do not submit,
-resubmit, or remove anything in Search Console from this lane.
+Prepared 2026-08-16. Reconfirmed the same evening (logged-out curl,
+2026-08-16 19:28 PT). **Nothing here has been applied.** Activating this
+snippet is a live write and stays KK-gated. Do not change `robots.txt`. Do
+not submit, resubmit, or remove anything in Search Console from this lane.
 
 REST `/wp/v2/users` and `/?author=N` probes are **not** this packet. Those
-are #767 / draft PR #793.
+are #767 / merged PR #793. This lane does not edit those files.
+
+v2 PHP is unchanged: the evening readback matched the earlier 2026-08-16
+inventory, so `fixes/issue-331-archive-sitemap-policy-v2.php` remains the
+deploy candidate. Do not activate both v1 and v2.
 
 ---
 
@@ -28,10 +33,17 @@ No custom-taxonomy child sitemap exists. Public REST taxonomies are
 `category`, `post_tag`, `nav_menu`, and `wp_pattern_category`. Only the first
 two appear in `/wp-sitemap.xml`.
 
-Sampled archives (category, tag, both authors, year/month/day) all return
-`200`, emit `meta robots=max-image-preview:large` only, and have **no**
-canonical. A control post still has a self-canonical. Date archives are
+Sampled archives (category, tag, both authors, year/month/day, plus
+`/category/vancouver-ai-ecosystem/page/2/`) all return `200`, emit
+`meta robots=max-image-preview:large` only, and have **no** canonical. A
+control post and `/about/` still have a self-canonical. Date archives are
 **not** in the sitemap and are still indexable.
+
+Evening reconfirm (2026-08-16 19:28 PT): child counts still 973 / 46 / 14 /
+633 / 2. Same 14 category slugs. `/sitemap.xml` still `301`s with
+`x-redirect-by: WordPress`. REST `/wp/v2/users` still returns `200` with
+`x-wp-total: 2` (out of scope; #767 / PR #793). No v3 snippet: v2 still
+covers the live surface.
 
 ---
 
