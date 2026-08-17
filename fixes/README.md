@@ -1,9 +1,9 @@
 # `fixes/` index
 
-65 files live here and they are two very different kinds of thing mixed into one
+67 files live here and they are two very different kinds of thing mixed into one
 directory:
 
-- **Snippet PHP sources** (14 `.php`). Some are the source of truth for PHP that
+- **Snippet PHP sources** (16 `.php`). Some are the source of truth for PHP that
   is running in production via the Code Snippets plugin; others are inactive,
   superseded, or drafts. Editing any of them is prod-adjacent work until its
   current slot/provider state is proved.
@@ -50,14 +50,16 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 
 | File | Purpose | Live? | Snippet ID | Last verified | Evidence |
 |---|---|---|---|---|---|
-| `schema-snippets-deployed.php` | **Canonical** Person / WebSite / BlogPosting / Breadcrumb / Service JSON-LD | **Live** | 5 | 2026-08-15 | Rendered JSON-LD matches values, block set and key order, incl. `Person.image` appended last and the #425 `BlogPosting` default. ID from `docs/current-state/TWO-TRACK-MODEL.md`, `docs/current-state/CSS-DEADCODE-OVERLAP-AUDIT.md` |
+| `schema-snippets-deployed.php` | **Canonical** Person / WebSite / BlogPosting / Breadcrumb / Service JSON-LD | **Live** | 5 | 2026-08-16 | Rendered JSON-LD matches values, block set and key order, incl. `Person.image` appended last and the #425 `BlogPosting` default. Live `data-jetpack-boost="ignore"` on those tags is Boost-injected (Defer JS), not authored here — see the file header and `docs/current-state/reports/schema-boost-ignore-758-2026-08-16.md`. ID from `docs/current-state/TWO-TRACK-MODEL.md`, `docs/current-state/CSS-DEADCODE-OVERLAP-AUDIT.md` |
 | `schema-snippets.php` | Reference / future mu-plugin draft of the same schema | **Not live** | none | 2026-08-15 | Gated on `kk_schema_is_ready()`, still full of `VERIFY-ME`, so it would emit nothing. Live `worksFor` / `sameAs` contradict it. Open issue #741 retains the authenticated-body proof and deletion/pointer decision |
 | `asset-diet-snippet.php` | Drops unused Jetpack / Popup Maker / jQuery Migrate CSS+JS | **Live** | 10 | not re-checked here | `docs/current-state/archive/WORK-PLAN-2026-07-01.md`, `docs/current-state/AURORA-STYLESHEET-DECISION-2026-08-02.md`. **Issue #706 is active against this file. Do not edit it without coordinating.** |
 | `issue-706-script-diet-snippet.php` | Prepared Site Kit gtag delay; pairs with a separately gated Meta Pixel removal | **Not live; prep only** | none | 2026-08-16 | `issue-706-script-diet.md` and merged PR #760 state that nothing was applied and #706 closes only after a KK-approved apply plus PSI verification |
 | `og-restore-snippet.php` | Retired Open Graph + Twitter Card bridge | **Inactive; theme is current provider** | 12 | capture: 2026-07-24; render: 2026-08-15 | Authenticated capture records ID 12 with `active=false`. Current markup contains the theme-only `meta name="description"`, theme `og:site_name`, and curated post description; activating this snippet would make the theme stand down and regress those fields. See `docs/current-state/reports/og-restore-snippet-diagnosis-20260815.md` |
 | `gsc-404-query-param-canonicalize.php` | Canonicalizes legacy `?share=` tracking params out of GSC | **Live** | 8 | not re-checked here | Deploy receipt `docs/current-state/reports/gsc-404-live-deploy-20260618-050833Z.md` |
 | `robots-txt-ai-policy.php` | robots.txt policy via the WP filter | **Not the live provider** | none | 2026-08-15 | Live `/robots.txt` is the physical file (its own header says `Source: ... fixes/robots.txt`), which wins over the filter exactly as this file's header warns. See Table B |
-| `issue-331-archive-sitemap-policy.php` | Excludes author archives from the core sitemap | **Not live** | none | 2026-08-15 | `/wp-sitemap.xml` still lists `wp-sitemap-users-1.xml` |
+| `issue-331-archive-sitemap-policy.php` | Excludes author archives from the core sitemap | **Not live** | none | 2026-08-15 | `/wp-sitemap.xml` still lists `wp-sitemap-users-1.xml`. Deploying this file is also the sitemap acceptance criterion of #767; do not treat #767 as a new archive-policy decision |
+| `issue-767-hide-rest-users.php` | Restricts unauthenticated GET/HEAD `/wp/v2/users` | **Not live; prep only** | none | 2026-08-16 | Draft for #767. Do not enable without KK approval and the Site Kit / block-editor checks in the file header |
+| `issue-767-disable-author-probes.php` | 404s `/?author=N` query probes; leaves pretty author archives to #331 | **Not live; prep only** | none | 2026-08-16 | Draft for #767. Default does not 404 `/author/<slug>/` |
 | `kk-news-sitemap-snippet.php` | Google News style sitemap at `/news-sitemap.xml` (#425) | **Active in the 2026-07-24 capture; public route not verified working** | 13 | capture: 2026-07-24; render: 2026-08-15 | Authenticated capture records ID 13 with `active=true`, while `/news-sitemap.xml` returned 301 rather than XML. The body was not read live in this pass, so do not assume this repo copy matches the current slot or redeploy it without authenticated readback and KK approval |
 | `issue-158-shopify-embed.php` | Shopify Buy Button wiring for a Shop page | **Not live** (draft) | none | 2026-08-15 | `/shop/` returns 404; no `kk-shop` or `BuyButton` in live markup. Placeholders unfilled |
 | `issue-39-schema-markup.php` | Original Person / Organization / Article schema | **Not live**, superseded by snippet 5 | none | 2026-08-15 | Live emits exactly one `Person` block and it has snippet 5's shape. `docs/current-state/archive/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md` records #39 as superseded |
@@ -69,10 +71,16 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 this file. "Active in the capture" means only that the committed authenticated
 2026-07-24 inventory recorded the Code Snippet slot as enabled. Neither phrase
 means the bodies are byte-identical, because no snippet body was read back live in
-this pass. One known open delta is recorded in the header of
-`schema-snippets-deployed.php`: live wraps JSON-LD in
-`<script data-jetpack-boost="ignore" ...>` and nothing in this repo emits that
-attribute. Resolve that before the next schema deploy.
+this pass. The live JSON-LD wrapper
+`<script data-jetpack-boost="ignore" type="application/ld+json">` is
+**Boost-injected** (issue #758): Jetpack Boost's Defer JS pipeline stamps
+that attribute onto `application/ld+json` (also `application/json` and
+`importmap`) so it does not move those blocks. `kk_schema_emit()` in
+`schema-snippets-deployed.php` correctly omits the attribute. Other live
+scripts (Site Kit gtag, Meta Pixel inline, `speculationrules`, Boost's
+own `boost-cache` bundle) are exempt because they are not in that type
+set. Pasting the repo file over snippet 5 will not strip the rendered
+attribute. Do not add it by hand.
 
 ## Table B. Served root files
 
@@ -110,10 +118,11 @@ Recorded here so they are not lost. None are fixed in the #741 PR.
 
 1. **No snippet body was ever read back.** Everything in Table A is inferred from
    rendered output. An authenticated `GET code-snippets/v1/snippets?context=edit`
-   would upgrade all of it to direct proof, and would settle the
-   `data-jetpack-boost` question. Needs `WP_USER` + `WP_APP_PASSWORD`.
-   This missing direct proof keeps issue #741 open; merging the index does not
-   satisfy its authenticated-body acceptance criterion.
+   would upgrade slot/body claims to direct proof. Needs `WP_USER` +
+   `WP_APP_PASSWORD`. The `data-jetpack-boost` wrapper is settled without that
+   read (#758): Boost injects it at output. The missing authenticated body
+   still keeps issue #741 open; merging the index does not satisfy its
+   authenticated-body acceptance criterion.
 2. **Snippet 12 is inactive and should not be reactivated.** The committed capture
    supplies its ID and inactive state; current rendered output proves Aurora is the
    provider. Optional deletion/rename of the inactive live slot remains KK-gated.
