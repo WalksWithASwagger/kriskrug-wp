@@ -106,5 +106,11 @@ content/drafts/**/images/
 content/source-packs/**/verification/**/screenshots*/
 content/source-packs/**/verification/**/*.png
 
-# Per-deploy QA page snapshots: keep the JSON manifests, ignore the HTML captures (#737).
+# Per-deploy QA page snapshots (#737): ignore HTML captures. Keep JSON tracked
+# on purpose — REST readback / rollback payloads, not backup-check input.
+# `make backup-check` / scripts/verify-backup-set.sh only require manifest.md,
+# manifest-checksums.txt, restore-notes.md, and the already-ignored archives
+# (*.gz / *.zip / *.wpress) inside backup/YYYY-MM-DD. Do not add
+# backup/**/*.json. Existing tracked HTML stays until a KK-approved
+# `git rm --cached` (see docs/current-state/reports/issue-737-backup-tree-archive-proposal-20260816.md).
 backup/**/*.html
