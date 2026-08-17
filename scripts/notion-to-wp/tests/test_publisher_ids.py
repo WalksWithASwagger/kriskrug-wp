@@ -14,6 +14,7 @@ import unittest
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parents[1]
+ARCHIVE_DIR = SCRIPT_DIR.parent / "archive"
 sys.path.insert(0, str(SCRIPT_DIR))
 
 import publish_common  # noqa: E402
@@ -184,19 +185,19 @@ class ScriptsCarryNoBareIdsTests(unittest.TestCase):
     """Acceptance criterion: the prod IDs no longer live in the script sources."""
 
     SCRIPTS = (
-        "publish_dc_protest_draft.py",
-        "publish_you_cant_drink_data.py",
-        "publish_keep_the_machine_strange.py",
-        "publish_context_creators.py",
-        "publish_proximity_game.py",
+        ARCHIVE_DIR / "publish_dc_protest_draft.py",
+        ARCHIVE_DIR / "publish_you_cant_drink_data.py",
+        ARCHIVE_DIR / "publish_keep_the_machine_strange.py",
+        SCRIPT_DIR / "publish_context_creators.py",
+        ARCHIVE_DIR / "publish_proximity_game.py",
     )
     RETIRED_LITERALS = ("1678", "1754", "11976") + tuple(str(i) for i in LEGACY_AI_GALLERY)
 
     def test_no_publisher_script_hardcodes_a_declared_id(self):
-        for name in self.SCRIPTS:
-            source = (SCRIPT_DIR / name).read_text(encoding="utf-8")
+        for path in self.SCRIPTS:
+            source = path.read_text(encoding="utf-8")
             for literal in self.RETIRED_LITERALS:
-                with self.subTest(script=name, literal=literal):
+                with self.subTest(script=path.name, literal=literal):
                     self.assertNotIn(literal, source)
 
 
