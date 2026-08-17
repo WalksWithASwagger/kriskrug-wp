@@ -40,6 +40,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.6.10 =
+* content (#735): sitewide live chrome uses `BC + AI` and `Kris Krüg`. Header, footer, hero-gradient pattern, stats-counter pattern. Descriptors not unified.
+
 = 1.6.6 =
 * content (#733, PR #751): rewrite the five listed user-visible em dashes in the homepage, marquee archive, and photo-gallery pattern copy.
 * cleanup (#743, PR #751): remove the unplaced speaking proof-grid template part and its theme.json registration.
