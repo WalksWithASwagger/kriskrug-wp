@@ -14,7 +14,7 @@ Read these first:
 6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
 7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
 
-**Live readback 2026-08-16:** WordPress `7.0.4`. Aurora **live is `1.6.5`**; repo `main` is **`1.6.6`** (PR #751, `dcb7ff4`). That is deploy drift, not a surprise source fork. The public `style.css` readback remains authoritative for production theme state. Read back, do not assume, in either direction.
+**Live readback 2026-08-16:** WordPress `7.0.4`. Aurora **live is `1.6.5`**; repo `main` is **`1.6.7`** (PR #789, includes 1.6.6). That is deploy drift, not a surprise source fork. The public `style.css` readback remains authoritative for production theme state. Read back, do not assume, in either direction.
 
 ## Durable process docs (keep at top level)
 
@@ -64,6 +64,9 @@ Every file below carries a `STATUS: Historical` banner in its first lines pointi
 - [WORK-PLAN-2026-07-19.md](archive/WORK-PLAN-2026-07-19.md)
 - [WORK-PLAN-2026-07-25.md](archive/WORK-PLAN-2026-07-25.md)
 - [WORK-PLAN-2026-07-26.md](archive/WORK-PLAN-2026-07-26.md)
+- [WORK-PLAN-2026-08-09.md](archive/WORK-PLAN-2026-08-09.md)
+- [WORK-PLAN-2026-08-15.md](archive/WORK-PLAN-2026-08-15.md)
+- [WORK-PLAN-2026-08-16.md](archive/WORK-PLAN-2026-08-16.md)
 
 ## Archive (#549 close-out, verified 2026-08-02)
 
