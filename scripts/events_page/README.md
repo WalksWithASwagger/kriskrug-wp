@@ -61,7 +61,7 @@ scripts/notion-to-wp/.venv/bin/python scripts/events_page/render_events_page.py
 # → scripts/events_page/out/events-2250.generated.html
 ```
 
-5. **Apply to live** (separate phase — snapshot page 2250 first, KK approval): POST the generated HTML to WP page **2250**. Do not skip rollback snapshot.
+5. **Apply to live** (separate phase — snapshot page 2250 first, KK approval on #635): follow [`content/drafts/2026-08-16-events-hero-backfill/APPLY-RUNBOOK.md`](../../content/drafts/2026-08-16-events-hero-backfill/APPLY-RUNBOOK.md). POST the generated HTML to WP page **2250**. Do not skip rollback snapshot. Do not treat a merged runbook PR as the live write.
 
 ## Harvest merge
 
