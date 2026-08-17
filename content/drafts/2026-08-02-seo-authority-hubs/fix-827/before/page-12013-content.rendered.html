@@ -1,0 +1,158 @@
+
+<style>
+.kkx{
+  --ink:#171310;--ink-soft:rgba(23,19,16,.78);--muted:rgba(23,19,16,.55);
+  --paper:#efe6d2;--card:#e6dcc2;--line:rgba(23,19,16,.14);
+  --accent:#d94a1f;--accent-text:#b53c18;
+  --grad:linear-gradient(120deg,#d94a1f 0%,#e8b53a 45%,#1f8a86 100%);
+  color:var(--ink-soft); max-width:72rem;
+}
+.kkx *{box-sizing:border-box}
+.kkx a{color:var(--accent-text);text-decoration:none;font-weight:700}
+.kkx a:hover,.kkx a:focus-visible{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.kkx :focus-visible{outline:2px solid var(--accent-text);outline-offset:3px;border-radius:2px}
+.kkx :where(p,li)::first-letter{
+  initial-letter:normal!important;font-size:inherit!important;font-weight:inherit!important;
+  float:none!important;margin:0!important;line-height:inherit!important;color:inherit!important;
+  background:transparent!important;
+}
+
+/* cinematic hero stays dark-on-photo */
+.kkx-hero{position:relative;min-height:clamp(560px,92vh,920px);display:grid;align-items:end;
+ margin:0 0 clamp(2rem,5vw,4rem);border-radius:2px;overflow:hidden;isolation:isolate;color:#efe6d2}
+.kkx-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:saturate(1.05) contrast(1.03)}
+.kkx-hero::after{content:"";position:absolute;inset:0;z-index:-1;
+ background:linear-gradient(180deg,rgba(23,19,16,.22) 0%,rgba(23,19,16,.12) 38%,rgba(23,19,16,.9) 100%),
+ radial-gradient(120% 80% at 12% 105%,rgba(217,74,31,.2),transparent 60%)}
+.kkx-hero-inner{padding:clamp(1.5rem,5vw,4rem)}
+.kkx-eyebrow{margin:0 0 .8rem;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#e8b53a}
+.kkx-hero h1,.kkx-hero h2{margin:0;font-family:"Space Grotesk",system-ui,sans-serif;font-size:clamp(2.6rem,8vw,6.4rem);font-weight:700;line-height:.94;letter-spacing:-.03em;max-width:16ch;text-wrap:balance;color:#efe6d2;text-shadow:0 2px 40px rgba(0,0,0,.5)}
+.kkx-lead{margin:1.2rem 0 0;max-width:46rem;font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.6;color:rgba(239,230,210,.82)}
+.kkx-lead strong{color:#efe6d2}
+
+.kkx-intro{max-width:46rem;margin:0 auto clamp(2.5rem,6vw,4.5rem);font-size:1.18rem;line-height:1.7;color:var(--ink-soft)}
+.kkx-intro strong{color:var(--ink)}
+
+.kkx-masonry{columns:3;column-gap:1rem}
+@media(max-width:1000px){.kkx-masonry{columns:2}}
+@media(max-width:620px){.kkx-masonry{columns:1}}
+.kkx-shot{position:relative;break-inside:avoid;margin:0 0 1rem;border-radius:2px;overflow:hidden;
+ background:var(--card);border:1px solid var(--line);box-shadow:none;transform:translateZ(0)}
+.kkx-shot img{display:block;width:100%;height:auto;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .6s ease;filter:saturate(.96)}
+.kkx-shot figcaption{position:absolute;inset:auto 0 0 0;padding:2.4rem 1rem .95rem;color:#efe6d2;font-size:.95rem;line-height:1.35;
+ background:linear-gradient(180deg,transparent,rgba(23,19,16,.55) 30%,rgba(23,19,16,.92));
+ transform:translateY(8px);opacity:.9;transition:opacity .4s ease,transform .4s ease}
+.kkx-kicker{display:block;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.3rem;color:#e8b53a}
+@media(hover:hover){
+ .kkx-shot:hover img{transform:scale(1.05);filter:saturate(1.1)}
+ .kkx-shot:hover figcaption{opacity:1;transform:translateY(0)}
+ .kkx-shot::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:2px;opacity:0;transition:opacity .4s ease;
+  box-shadow:inset 0 0 0 1px rgba(217,74,31,.45)}
+ .kkx-shot:hover::after{opacity:1}
+}
+
+@supports (animation-timeline:view()){
+ @media(prefers-reduced-motion:no-preference){
+  .kkx-shot{animation:kkx-rise linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
+  .kkx-intro,.kkx-hero-inner>*{animation:kkx-fade linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
+ }
+}
+@keyframes kkx-rise{from{opacity:0;transform:translateY(34px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes kkx-fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+.kkx-coda{margin:clamp(3rem,7vw,5rem) 0 0;padding:clamp(1.6rem,4vw,2.4rem);border-radius:2px;
+ border:1px solid var(--line);border-top:2px solid var(--accent);background:var(--card);box-shadow:none}
+.kkx-coda h2{margin:0 0 .5rem;font-family:"Space Grotesk",system-ui,sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+.kkx-coda p{margin:0 0 1.1rem;color:var(--ink-soft);max-width:48rem;line-height:1.6}
+.kkx-btn{display:inline-block;padding:.75rem 1.2rem;border-radius:2px;border:1px solid var(--ink);background:var(--ink);color:var(--paper)!important;
+ font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none!important;transition:background .15s ease,border-color .15s ease}
+.kkx-btn:hover{background:var(--accent);border-color:var(--accent);color:var(--paper)!important;text-decoration:none!important}
+</style>
+
+<div class="kkx kk-page">
+
+  <section class="kkx-hero">
+    <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-iggy-pop-at-south-by-southwest-2007-shot-by-kris-k.jpg?ssl=1" alt="Iggy Pop performing at South by Southwest, 2007, photographed by Kris Krüg" />
+    <div class="kkx-hero-inner">
+      <p class="kkx-eyebrow">Photography · 2004 – 2026</p>
+      <h2>Two decades in the room, with a camera.</h2>
+      <p class="kkx-lead">I didn&#8217;t watch this century happen — I shot it. The <strong>TEDxOilSpill</strong> expedition into the Gulf after Deepwater Horizon. The <strong>Midway Journey</strong> to the most remote island on Earth, choked with our plastic. The <strong>2010 Vancouver Olympics</strong>. The Dalai Lama&#8217;s Peace Summit. A decade of SXSW with Iggy Pop, Jack White, and Billy Bragg in the frame. 144,000+ exposures, all from inside the moment.</p>
+    </div>
+  </section>
+
+  <p class="kkx-intro">This is the consequential cut — <strong>the work that mattered</strong>, not selfies with famous people. Environmental photojournalism that traveled the world, the cultural and spiritual figures who shaped the conversation, and the music and film I shot on the floor. The full 144,000-frame archive lives on <a href="https://www.flickr.com/photos/kk/">Flickr</a>.</p>
+
+  <div class="kkx-masonry">
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-deepwater-horizon-oil-spill-gulf-of-mexico-1.jpg?ssl=1" alt="The Deepwater Horizon oil spill in the Gulf of Mexico, shot on the TEDxOilSpill expedition by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Climate</span>Deepwater Horizon — TEDxOilSpill</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-a-gulf-oil-rig.jpg?ssl=1" alt="A Gulf of Mexico oil rig, documented on the TEDxOilSpill expedition by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Climate</span>Gulf of Mexico — TEDxOilSpill</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-journey-to-midway-island-28554916809329-1.jpg?ssl=1" alt="Journey to Midway Island — documenting the most remote place on Earth and its ocean plastic, by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Climate</span>The Midway Journey</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-journey-to-midway-island-28554917413729.jpg?ssl=1" alt="Journey to Midway Island, Pacific — environmental documentary by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Climate</span>The Midway Journey</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-amazed-the-dalai-lama-at-vancouver-with-a-badge-scaled.jpg?ssl=1" alt="His Holiness the Dalai Lama at the Vancouver Peace Summit, photographed by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Movements</span>The Dalai Lama — Vancouver Peace Summit</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-eckhart-tolle2C-the-dalai-lama-and-ken-robinson-at-1-1.jpg?ssl=1" alt="Eckhart Tolle, the Dalai Lama and Sir Ken Robinson at Vancouver, photographed by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Movements</span>Tolle, the Dalai Lama &amp; Ken Robinson</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-blessings-the-dalai-lama-at-vancouver.jpg?ssl=1" alt="The Dalai Lama offering blessings at Vancouver, photographed by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Movements</span>The Dalai Lama, Vancouver</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-iggy-pop-at-south-by-southwest-2007-shot-by-kris-k.jpg?ssl=1" alt="Iggy Pop performing at South by Southwest, 2007, photographed by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Music</span>Iggy Pop — SXSW 2007</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-jack-white-of-the-raconteurs-shot-by-kris-krug-scaled.jpg?ssl=1" alt="Jack White of the Raconteurs, photographed by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Music</span>Jack White, the Raconteurs</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-billy-bragg-shot-by-kris-krug.jpg?ssl=1" alt="Billy Bragg, photographed by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Music</span>Billy Bragg</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-alex-maas2C-the-black-angels2C-sxsw-2007-1.jpg?ssl=1" alt="Alex Maas of The Black Angels at SXSW 2007, photographed by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Music</span>The Black Angels — SXSW 2007</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-all-your-base-are-belong-to-ilanaaq-281061547129.jpg?ssl=1" alt="Ilanaaq, the inukshuk emblem of the Vancouver 2010 Winter Olympics, photographed by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Sport</span>Vancouver 2010 — Ilanaaq</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-australia-womens-500m-speed-skating-richmond-o-scaled.jpg?ssl=1" alt="Women&#x27;s 500m speed skating, Richmond Olympic Oval, Vancouver 2010 Winter Olympics, by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Sport</span>Vancouver 2010 Olympics</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-george-bush-at-the-2008-beijing-olympics-2827525797-1.jpg?ssl=1" alt="President George W. Bush at the 2008 Beijing Olympics, photographed by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Power</span>George W. Bush — Beijing 2008</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-jake-gyllenhaal-sxsw-2011.jpg?ssl=1" alt="Jake Gyllenhaal at SXSW 2011, photographed by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Film</span>Jake Gyllenhaal — SXSW 2011</figcaption>
+      </figure>
+      <figure class="kkx-shot">
+        <img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-grace-park-28boomer29-on-battlestar-galactica-flic-1-scaled.jpg?ssl=1" alt="Grace Park on the set of Battlestar Galactica, photographed by Kris Krüg" loading="lazy" />
+        <figcaption><span class="kkx-kicker">Film</span>Grace Park — Battlestar Galactica</figcaption>
+      </figure>
+  </div>
+
+  <section class="kkx-coda">
+    <h2>This is a fraction of it.</h2>
+    <p>Twenty years, a hundred and forty thousand frames — environmental expeditions, Olympic Games, peace summits, festival floors, every one shot in the room. The deep archive, including the cross-processed portraits and the work that isn&#8217;t here, lives on Flickr.</p>
+    <a class="kkx-btn" href="https://www.flickr.com/photos/kk/">See 144,000+ frames on Flickr ?</a>
+  </section>
+</div>
+
