@@ -8,9 +8,10 @@ THEME_FUNCTIONS = ROOT / "theme/kk-aurora/functions.php"
 FRONT_PAGE = ROOT / "theme/kk-aurora/templates/front-page.html"
 SCHEMA_SOURCE = ROOT / "fixes/schema-snippets-deployed.php"
 SITE_NAME = "Kris Krug"
+PUBLIC_SITE_NAME = "Kris Krüg"
 STALE_IDENTITY = "Generative AI Tools & Techniques"
 HOME_DESCRIPTION = (
-    "Kris Krug is a Vancouver AI keynote speaker, creative technologist, and "
+    "Kris Krüg is a Vancouver AI keynote speaker, creative technologist, and "
     "community builder leading BC + AI and curating Futureproof Festival."
 )
 
@@ -23,7 +24,9 @@ class Issue415HomepageTrustIdentityTests(unittest.TestCase):
 
     @staticmethod
     def _function_block(source: str, name: str, next_name: str) -> str:
-        pattern = rf"function {re.escape(name)}\(.*?(?=function {re.escape(next_name)}\()"
+        pattern = (
+            rf"function {re.escape(name)}\(.*?(?=function {re.escape(next_name)}\()"
+        )
         match = re.search(pattern, source, re.DOTALL)
         if match is None:
             raise AssertionError(f"missing function block: {name}")
@@ -62,7 +65,7 @@ class Issue415HomepageTrustIdentityTests(unittest.TestCase):
             "render_social_meta_tags",
         )
 
-        self.assertIn(f"return '{SITE_NAME}';", self.theme)
+        self.assertIn(f"return '{PUBLIC_SITE_NAME}';", self.theme)
         self.assertIn("'og:site_name'   => public_site_name()", social)
         self.assertNotIn("get_bloginfo('name')", social)
         self.assertIn("function filter_feed_bloginfo", self.theme)
