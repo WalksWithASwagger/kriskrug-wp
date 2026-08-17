@@ -1,7 +1,6 @@
 # #764 APPLY — posts 12327 + 12032
 
-**Prepared, not applied. Do not PATCH until KK says go.**
-Script is dry-run by default. `--apply` is the only write switch.
+**Applied 2026-08-17T05:03Z.** Live REST: 12327 body U+2014 = 0; 12032 `?p=11876` = 0. `Eth??s Lab` left as-is. Snapshot dir `backup/issue-764-em-dash-404/`. Script remains dry-run by default; `--apply` is the write switch.
 
 Long-form notes: [RUNBOOK.md](RUNBOOK.md). 12032 files live next door at
 `content/drafts/2026-05-24-what-would-chat-do-and-why-thats-the-wrong-question/fix-764/`.

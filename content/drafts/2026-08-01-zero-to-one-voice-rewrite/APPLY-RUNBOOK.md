@@ -1,8 +1,6 @@
 # Apply + rollback runbook: post 12034 Zero to One (#612)
 
-**PREPARE, DO NOT APPLY.** This PR ships the payload and the procedure. It does
-not PATCH WordPress. Live apply waits on an explicit KK approval comment on
-#612.
+**Applied 2026-08-17T05:05Z.** Snapshot `backup/20260817T050528Z-12034-zero-to-one-612/`. This file remains the rollback procedure.
 
 Live target:
 

@@ -1,7 +1,6 @@
 # Zero to One first-person rewrite (issue #612, WP post 12034)
 
-**Status: draft only. Nothing has been written to WordPress. Live apply is gated
-on KK approval on #612, then the snapshot-first steps in `APPLY-RUNBOOK.md`.**
+**Status: applied 2026-08-17T05:05Z.** Live public HTML has first-person opening, `$340/year`, 300 members, no `130 paid members` / `$240`. Snapshot `backup/20260817T050528Z-12034-zero-to-one-612/`.
 
 Live target: WP post **12034**,
 https://kriskrug.co/2026/06/30/zero-to-one-from-meetup-to-movement-bc-ais-grassroots-journey/
