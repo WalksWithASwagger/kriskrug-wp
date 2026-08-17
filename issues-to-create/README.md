@@ -15,6 +15,7 @@ Use `make issues FILE=...` only after KK approves the "still valid" list.
 - [`testimonials-showpiece-v2-swarm-2026-08-01.md`](testimonials-showpiece-v2-swarm-2026-08-01.md) → #593–#602; #593 and #602 still open
 - [`voice-audit-blog-sweep-swarm-2026-08-01.json`](voice-audit-blog-sweep-swarm-2026-08-01.json) / [`voice-audit-blog-sweep-swarm-2026-08-01.md`](voice-audit-blog-sweep-swarm-2026-08-01.md) → #603–#616; #603 and #612 still open
 - [`world-cup-fashion-cake-agent-tasks.md`](world-cup-fashion-cake-agent-tasks.md) → never filed; needs KK before filing
+- [`seo-hubs-402/`](seo-hubs-402/) → 9 unfiled children of #402 (taxonomy first). Do not `gh issue create` until KK approves. Do not close #402.
 
 ## Archive (every mapped issue closed)
 
