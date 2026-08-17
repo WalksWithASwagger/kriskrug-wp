@@ -73,7 +73,7 @@ class Issue345OpenGraphSiteNameTests(unittest.TestCase):
             self.theme,
             re.compile(r"'og:site_name'\s*=>\s*public_site_name\(\)"),
         )
-        self.assertIn("return 'Kris Krug';", self.theme)
+        self.assertIn("return 'Kris Krüg';", self.theme)
         self.assertIn("add_filter('get_bloginfo_rss'", self.theme)
         self.assertIn("add_filter('get_wp_title_rss'", self.theme)
         self.assertRegex(
@@ -81,7 +81,7 @@ class Issue345OpenGraphSiteNameTests(unittest.TestCase):
             re.compile(r"\$site\s*=\s*get_bloginfo\('name'\)"),
         )
         self.assertIn(
-            "Kris Krug | AI Keynote Speaker & Creative Technologist",
+            "Kris Krüg | AI Keynote Speaker & Creative Technologist",
             self.theme,
         )
         self.assertIn("Code Snippet 12 is inactive", self.handoff)
@@ -90,9 +90,16 @@ class Issue345OpenGraphSiteNameTests(unittest.TestCase):
     def test_deployment_requires_approval_snapshot_and_public_readback(self):
         deployment = self.data["future_deployment_if_separately_approved"]
 
-        self.assertIn("explicit approval of the exact blogname change", deployment["requires"])
-        self.assertIn("fresh authenticated readback of the current blogname", deployment["requires"])
-        self.assertIn("complete rollback snapshot of the current blogname", deployment["requires"])
+        self.assertIn(
+            "explicit approval of the exact blogname change", deployment["requires"]
+        )
+        self.assertIn(
+            "fresh authenticated readback of the current blogname",
+            deployment["requires"],
+        )
+        self.assertIn(
+            "complete rollback snapshot of the current blogname", deployment["requires"]
+        )
         self.assertEqual(["set blogname to Kris Krug"], deployment["allowed_actions"])
         self.assertIn("restore the exact captured blogname", deployment["rollback"])
         self.assertIn("purge PressCACHE", deployment["rollback"])
@@ -104,9 +111,14 @@ class Issue345OpenGraphSiteNameTests(unittest.TestCase):
         self.assertIn("public_rest_root", evaluation["checks"])
         self.assertIn("anonymous_cache_busted_html", evaluation["checks"])
         self.assertIn("crawler_user_agents", evaluation["checks"])
-        self.assertIn("exactly one og:site_name with value Kris Krug", evaluation["expected"])
+        self.assertIn(
+            "exactly one og:site_name with value Kris Krug", evaluation["expected"]
+        )
         self.assertIn("document titles remain unchanged", evaluation["expected"])
-        self.assertIn("Aurora remains the only active social metadata owner", evaluation["expected"])
+        self.assertIn(
+            "Aurora remains the only active social metadata owner",
+            evaluation["expected"],
+        )
 
     def test_adjacent_defects_are_separately_tracked(self):
         adjacent = self.data["adjacent_findings"]
