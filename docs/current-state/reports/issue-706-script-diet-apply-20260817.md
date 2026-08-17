@@ -1,6 +1,6 @@
 # #706 script diet apply receipt — 2026-08-17
 
-**Status:** live at origin on the main routes. PSI mobile rerun still owed (wait ≥30 min after purge).
+**Status:** live at origin on the main routes. PSI mobile rerun captured 2026-08-16 10:59 PDT (`qx4j9jir1j`).
 **Track:** Track A snippet/plugin surfaces. Not a theme deploy.
 **KK ruling (2026-08-10):** drop Facebook pixel `1720755522050230`; delay gtag to first interaction or 3 s idle.
 
@@ -51,7 +51,19 @@ Logged-out `https://kriskrug.co/?cb=…`. `#kk-gtag-delayed` 1, `#google_gtagjs-
 
 Pixel ID `1720755522050230` did not appear in the network log.
 
+## PSI mobile (2026-08-16 10:59 PDT)
+
+Report: [`psi-mobile-2026-08-16.md`](psi-mobile-2026-08-16.md) / [qx4j9jir1j](https://pagespeed.web.dev/analysis/https-kriskrug-co/qx4j9jir1j?form_factor=mobile).
+
+| #706 claim | Result |
+|---|---|
+| TBT should move | **160 ms → 10 ms** |
+| Facebook long tasks gone | **gone** |
+| gtag out of the PSI trace | **not gone** (176.9 KiB / 72.4 KiB unused; 1 long task). Matches the delay-from-`load` caveat. Network check still passes. |
+| LCP / CLS should not move | **they moved** (7.6 s → 3.9 s, 0.43 → 0). Do not credit the diet; 1.6.8 homepage landed the same evening. |
+
+Do not GitHub-close #706 until KK accepts the gtag-in-trace caveat.
+
 ## Still owed
 
-1. PSI mobile vs `docs/current-state/reports/psi-mobile-2026-08-10.md`. The unauthenticated PSI API returned **429** (`quota_limit_value: 0`). Run https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fkriskrug.co%2F Mobile. TBT / third-party should move. LCP and CLS should not. Do not close #706 without that report.
-2. #731 Jetpack Boost critical-CSS regen in wp-admin. Prep: `reports/issue-731-boost-critical-css-blocked-20260817.md`.
+1. #731 Jetpack Boost critical-CSS regen in wp-admin. Prep: `reports/issue-731-boost-critical-css-blocked-20260817.md`. Local/free module confirmed 2026-08-17; cloud regen is a no-op here.
