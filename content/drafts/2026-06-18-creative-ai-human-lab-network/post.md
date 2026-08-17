@@ -5,7 +5,7 @@ status: draft
 post_date: "2026-06-18"
 author: "Kris Krüg"
 author_wp_id: 1
-excerpt: "A field note on the Creative AI Human Lab: Skywhale Airways, Punk Rock AI, Gorgeous Ghost, Ghost Radio, Wedges, Too Weird to Die, and the Ethos Lab Block Party."
+excerpt: "A field note on the Creative AI Human Lab: Skywhale Airways, Punk Rock AI, Gorgeous Ghost, Ghost Radio, Wedges, Too Weird to Die, Ethos Lab Block Party, Dark Crystal, and unofficial.city."
 categories:
   - "AI for Creatives"
 tags:
@@ -18,9 +18,11 @@ tags:
   - "Wedges"
   - "Both Hands Full"
   - "Ethos Lab"
+  - "Dark Crystal"
+  - "unofficial.city"
 seo:
   meta_title: "What I’ve Been Making With Creative AI"
-  meta_description: "Kris Krüg maps the Creative AI Human Lab across Skywhale Airways, Punk Rock AI, Gorgeous Ghost, Ghost Radio, Wedges, Too Weird to Die, and Ethos Lab Block Party."
+  meta_description: "Kris Krüg maps the Creative AI Human Lab across Skywhale Airways, Punk Rock AI, Gorgeous Ghost, Ghost Radio, Wedges, Too Weird to Die, Ethos Lab Block Party, Dark Crystal, and unofficial.city."
 ---
 
 # What I’ve Been Making With Creative AI
@@ -87,11 +89,23 @@ Eleven people came to the block party and told me one true thing each. We turned
 
 That distinction is not decoration. It is the whole practice. Nothing public without consent. Minors first-name-only. No copying artists by name. No turning somebody else’s culture into a costume. The tech helped carry the songs through the door, but the people are the reason the songs exist.
 
+### Dark Crystal
+
+[Dark Crystal](https://darkcrystal.app/) is the anti-slop machine: one being that holds chaos and refusal in the same stone.
+
+It reads what you feed it, grows wilder as it eats, then the facet that says no steps in. The gift is one clean human sentence. Not a productivity tool. A boundary you can demo.
+
+### unofficial.city
+
+[unofficial.city](https://unofficial.city/) is MADE ON: a protest kit collection that cites its sources, shows its process, and names the numbers.
+
+Everyone else made a souvenir. This one is the receipt. Stitched into the hem, not printed on a poster.
+
 ### KrisKrug.co
 
 [KrisKrug.co Work](https://kriskrug.co/work/) is the hub.
 
-The standalone sites can each have their own physics. Skywhale should feel like a weird airport. Punk Rock AI should feel like zine paste and receipt paper. Gorgeous Ghost should feel like a transmission from somewhere expensive and impossible. Wedges should feel like a sharp tool left on the table. Ethos should feel like the room that made it. KrisKrug.co is where the threads can point back to each other without pretending they are the same project.
+The standalone sites can each have their own physics. Skywhale should feel like a weird airport. Punk Rock AI should feel like zine paste and receipt paper. Gorgeous Ghost should feel like a transmission from somewhere expensive and impossible. Wedges should feel like a sharp tool left on the table. Ethos should feel like the room that made it. Dark Crystal should feel like a boundary you can hold. unofficial.city should feel like a kit with receipts in the hem. KrisKrug.co is where the threads can point back to each other without pretending they are the same project.
 
 ## The Rules I Am Working By
 
@@ -135,5 +149,7 @@ Start anywhere:
 - [Wedges](https://wedges.dev/)
 - [Too Weird to Die](https://www.bothhandsfull.com/album/too-weird-to-die)
 - [Ethos Lab Block Party](https://ethosblockparty.com/the-day)
+- [Dark Crystal](https://darkcrystal.app/)
+- [unofficial.city](https://unofficial.city/)
 
 Bring both hands. Keep your taste on. Do not let the machine have the last word.

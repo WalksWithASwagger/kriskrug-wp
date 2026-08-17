@@ -40,6 +40,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+= 1.6.9 =
+* footer: add Dark Crystal and unofficial.city to Projects; drop the vancouver-made.vercel.app alias.
+
 = 1.6.8 =
 * homepage (#411): rewrite Join BC / Futureproof work-band copy; shared-grid alignment; quiet card numerals; hover and focus-visible states.
 * homepage (#412): restore Creative Labs (Vancouver AI, Punk Rock AI, Both Hands Full, AI Garden) with text below the photo.
