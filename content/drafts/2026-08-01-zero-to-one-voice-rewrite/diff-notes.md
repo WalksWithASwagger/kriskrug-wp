@@ -3,6 +3,10 @@
 Live = `live-content-raw-2026-08-01.html` (includes KK's #615 membership edits).
 Proposed = `proposed-content-raw.html` / `rewritten-body.md`.
 
+**2026-08-16 addendum:** the payload recast leftover 130 / $240 lines to the
+current **$340 / 300** ruling. See `before-after.md`. Tables below that still
+list 130 as preserved describe the 2026-08-01 draft, not this round.
+
 Part 1 is the paragraph-by-paragraph person shift, which is the point of issue #612.
 Parts 2 through 6 are the mechanical, judgment, tense, date, and structural fixes.
 
