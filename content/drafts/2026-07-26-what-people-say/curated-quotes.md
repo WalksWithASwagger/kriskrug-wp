@@ -12,9 +12,9 @@ Status keys: `ready-if-cleared` · `legacy-optional` · `audience-generic` · `b
 
 | ID | Quote | Attribution | Theme | Source | Clearance |
 |---|---|---|---|---|---|
-| A1 | Kris helped shift how my design students see their future. In one hour, he demo'd building client prototypes in real-time, turned lectures into podcasts, and showed them how to be design orchestrators, not pixel pushers. | Jai Djwa | Talks / education | Keynote testimonial bank + speaking payload | [ ] KK clears |
-| A2 | Kris's talk and event design felt like a masterclass in community organizing. | Ed Kennedy | Convening | Keynote testimonial bank + speaking payload | [ ] KK clears |
-| A3 | Visceral, real, and incredibly current. Truly authentic and up to date. | Audience feedback | Talks | Testimonial bank (generic; keep labeled) | [ ] KK clears as unlabeled audience |
+| A1 | Kris helped shift how my design students see their future. In one hour, he demo'd building client prototypes in real-time, turned lectures into podcasts, and showed them how to be design orchestrators, not pixel pushers. | Jai Djwa | Talks / education | Keynote testimonial bank + live `/testimonials/` | [x] Already public on /testimonials/; used on homepage 2026-08-17 |
+| A2 | Kris's talk and event design felt like a masterclass in community organizing. | Ed Kennedy | Convening | Keynote testimonial bank + live `/testimonials/` | [x] Already public on /testimonials/; used on homepage 2026-08-17 |
+| A3 | Visceral, real, and incredibly current. Truly authentic and up to date. | Audience feedback | Talks | Testimonial bank (generic; keep labeled) + live `/testimonials/` | [x] Already public as unlabeled audience; used on homepage 2026-08-17 |
 | A4 | Loved seeing the tangible examples and understanding what's possible. | Audience feedback | Programs | Testimonial bank (generic; keep labeled) | [ ] KK clears as unlabeled audience |
 
 Homepage default if only two clear: **A1 + A2**. Add one audience line only if KK wants a third without a third named person.
