@@ -1,6 +1,6 @@
 <!-- wp:html -->
 <style>
-.kk-services { --kk-ink:#f0f0f5; --kk-ink-2:#fff; --kk-muted:#a6a6b3; --kk-line:rgba(255,255,255,.14); --kk-paper:rgba(255,255,255,.05); --kk-card:rgba(255,255,255,.04); --kk-accent:#00e5ff; --kk-hot:#ff6a6a; --kk-r:14px; --kk-sh:0 1px 2px rgba(0,0,0,.45),0 12px 28px -14px rgba(0,0,0,.7); color:var(--kk-ink); }
+.kk-services { --kk-ink:var(--aurora-ink, #171310); --kk-ink-2:var(--aurora-ink, #171310); --kk-muted:var(--aurora-ink-muted, #5c5044); --kk-line:var(--aurora-line, rgba(23, 19, 16, 0.14)); --kk-paper:var(--aurora-paper, #efe6d2); --kk-card:var(--aurora-panel-solid, #e6dcc2); --kk-accent:var(--aurora-signal, #9a2f14); --kk-hot:var(--aurora-signal, #9a2f14); --kk-hot-soft:rgba(154, 47, 20, 0.16); --kk-r:14px; --kk-sh:0 1px 2px rgba(23, 19, 16, 0.08),0 12px 28px -14px rgba(23, 19, 16, 0.14); color:var(--kk-ink); }
 .kk-services p::first-letter { initial-letter:normal!important; font-size:inherit!important; font-weight:inherit!important; float:none!important; margin:0!important; line-height:inherit!important; color:inherit!important; }
 .kk-services a { color:var(--kk-accent); font-weight:700; text-decoration:none; }
 .kk-services a:hover { text-decoration:underline; text-underline-offset:3px; }
@@ -9,7 +9,7 @@
 .kk-services-display { margin:.1rem 0 .8rem; font-size:2.2rem; line-height:1.1; letter-spacing:-.02em; font-weight:800; max-width:48rem; color:var(--kk-ink-2); }
 .kk-services-lead { font-size:1.14rem; line-height:1.62; max-width:48rem; color:var(--kk-ink); }
 .kk-services-actions { display:flex; flex-wrap:wrap; gap:.6rem; margin:1.4rem 0 0; }
-.kk-services-button { display:inline-block; padding:.7rem 1.1rem; border:2px solid var(--kk-accent); border-radius:8px; text-decoration:none!important; background:var(--kk-accent); color:#04121a!important; font-weight:700; transition:transform .15s,box-shadow .15s; }
+.kk-services-button { display:inline-block; padding:.7rem 1.1rem; border:2px solid var(--kk-accent); border-radius:8px; text-decoration:none!important; background:var(--kk-accent); color:var(--aurora-signal-control-label, #fffaf6)!important; font-weight:700; transition:transform .15s,box-shadow .15s; }
 .kk-services-button:hover { transform:translateY(-2px); box-shadow:var(--kk-sh); }
 .kk-services-button.secondary { background:transparent; color:var(--kk-ink)!important; border-color:var(--kk-line); }
 .kk-services-button.secondary:hover { border-color:var(--kk-accent); color:var(--kk-accent)!important; }
@@ -26,14 +26,14 @@
 .kk-services-proof span { display:block; color:var(--kk-muted); margin-top:.25rem; }
 .kk-services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.1rem; }
 .kk-services-card { border:1px solid var(--kk-line); border-radius:var(--kk-r); background:var(--kk-card); overflow:hidden; box-shadow:var(--kk-sh); transition:transform .18s,box-shadow .18s,border-color .18s; }
-.kk-services-card:hover { transform:translateY(-3px); border-color:rgba(0,229,255,.4); }
-.kk-services-card img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:rgba(255,255,255,.06); }
+.kk-services-card:hover { transform:translateY(-3px); border-color:var(--kk-accent); }
+.kk-services-card img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--kk-paper); }
 .kk-services-card-body { padding:1.1rem; }
 .kk-services-card h3 { margin-top:0; margin-bottom:.4rem; font-size:1.15rem; color:var(--kk-ink-2); }
 .kk-services-card p { margin:.45rem 0; color:var(--kk-muted); }
 .kk-services-card ul { margin:.6rem 0 .8rem 1.1rem; color:var(--kk-muted); }
 .kk-services-card li { margin:.25rem 0; }
-.kk-services-tag { display:inline-block; margin:0 0 .6rem; background:rgba(255,106,106,.16); color:var(--kk-hot); padding:.28rem .6rem; border-radius:999px; font-size:.66rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
+.kk-services-tag { display:inline-block; margin:0 0 .6rem; background:var(--kk-hot-soft); color:var(--kk-hot); padding:.28rem .6rem; border-radius:999px; font-size:.66rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
 .kk-services-two { display:grid; grid-template-columns:minmax(0,1fr) minmax(260px,.82fr); gap:1.5rem; align-items:start; }
 .kk-services-callout { background:var(--kk-paper); border:1px solid var(--kk-line); border-radius:var(--kk-r); padding:1.2rem; }
 .kk-services-models { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:.85rem; margin-top:1rem; }
