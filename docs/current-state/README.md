@@ -14,7 +14,7 @@ Read these first:
 6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
 7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
 
-**Live readback 2026-08-17 05:05 UTC:** WordPress last seen `7.0.4`. Aurora **live is `1.6.8`**. Title pipe + Krüg chrome is live. Homepage bands are live. Content applies #764 / #729 / #612 are live (receipt [`reports/gate0-content-apply-20260817.md`](reports/gate0-content-apply-20260817.md)). Theme receipt: [`reports/aurora-168-live-deploy-20260817.md`](reports/aurora-168-live-deploy-20260817.md). The public `style.css` readback remains authoritative for production theme state. Read back, do not assume, in either direction.
+**Live readback 2026-08-17 05:30 UTC:** WordPress last seen `7.0.4`. Aurora **live is `1.6.8`**. Content applies #764 / #729 / #612 are live. #706 script diet is live at origin (Code Snippets id 22; pixel markers 0 on `/` and `/about/`). PSI rerun still owed. Receipts: [`reports/gate0-content-apply-20260817.md`](reports/gate0-content-apply-20260817.md), [`reports/aurora-168-live-deploy-20260817.md`](reports/aurora-168-live-deploy-20260817.md). The public `style.css` readback remains authoritative for production theme state.
 
 ## Durable process docs (keep at top level)
 

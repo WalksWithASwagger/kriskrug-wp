@@ -33,8 +33,8 @@
  *   gtag behaves exactly as it does today. Failure mode is "no change", never
  *   "analytics silently gone".
  *
- * Prepared for the Code Snippets plugin (front-end scope); not deployed as of
- * 2026-08-16. This file is the source of truth if live activation is approved.
+ * Live as Code Snippets id **22**, front-end, activated 2026-08-17. Rollback:
+ * POST `/wp-json/code-snippets/v1/snippets/22/deactivate`.
  *
  * When pasting into Code Snippets: strip the opening <?php tag (Code Snippets
  * wraps the snippet automatically).
