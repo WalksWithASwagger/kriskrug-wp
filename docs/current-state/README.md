@@ -14,7 +14,7 @@ Read these first:
 6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
 7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
 
-**Live readback 2026-08-16:** WordPress `7.0.4`. Aurora **live is `1.6.5`**; repo `main` is **`1.6.7`** (PR #789, includes 1.6.6). That is deploy drift, not a surprise source fork. The public `style.css` readback remains authoritative for production theme state. Read back, do not assume, in either direction.
+**Live readback 2026-08-17:** WordPress last seen `7.0.4`. Aurora **live is `1.6.7`**; repo `main` is **`1.6.8`** (PR #844 homepage cluster). Title pipe + Krüg chrome is live. The 1.6.8 homepage bands are not. The public `style.css` readback remains authoritative for production theme state. Read back, do not assume, in either direction.
 
 ## Durable process docs (keep at top level)
 
