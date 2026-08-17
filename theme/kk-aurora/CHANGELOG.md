@@ -20,6 +20,10 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.6.8
+**Deployed:** NOT LIVE (stacks after Aurora 1.6.7; live is still 1.6.5)
+Homepage cluster: rewrite the Join BC / Futureproof work-band copy, align the triptych, and quiet the card numerals (#411); restore a Creative Labs band with text-below-image cards (#412); bring back a monochrome interactive client logo soup (#413). Stages, What People Say, and newsletter follow in the same cut (#414–#416). No live deploy in this cut. Pixel gate still owed.
+
 ## 1.6.7
 **Deployed:** NOT LIVE (deploy pending)
 Chrome copy: sitewide `<title>` separator becomes a pipe and the surname takes the umlaut (#756). Front page keeps the full descriptor; inner pages take a short `Kris Krüg` tail. Writing-archive og/twitter titles, `public_site_name()`, header, footer, and shipped patterns follow the same ruling. Live chrome uses `BC + AI` (spaces) per #735. Descriptors are not unified. No CSS change.
