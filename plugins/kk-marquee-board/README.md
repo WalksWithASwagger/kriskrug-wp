@@ -7,7 +7,7 @@
 > (`wp-sitemap-*.xml`) contains zero marquee entries.
 > **Do not deploy this without KK approval.** `make marquee-package` builds an upload zip and the
 > smoke tests pass, which makes this directory look ready to push. It is not. See
-> [`../../docs/current-state/DECISION-PARKED-PLUGINS-2026-08-02.md`](../../docs/current-state/DECISION-PARKED-PLUGINS-2026-08-02.md)
+> [`../../docs/current-state/archive/DECISION-PARKED-PLUGINS-2026-08-02.md`](../../docs/current-state/archive/DECISION-PARKED-PLUGINS-2026-08-02.md)
 > and issue [#571](https://github.com/WalksWithASwagger/kriskrug-wp/issues/571).
 
 ## The live marquee does not come from here

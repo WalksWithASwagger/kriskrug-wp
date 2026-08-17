@@ -71,4 +71,4 @@ Revert Contact page (id `2418`) to the email-CTA architecture payload (or last k
 
 - Decision memo: `docs/current-state/reports/contact-cta-decision-277-20260726.md`
 - Historical: `docs/current-state/CONTACT-FORM-DELIVERABILITY-FIX-2026-06-14.md`, #128, #174
-- Architecture note: Contact email path preserved in `docs/current-state/CONTENT-ARCHITECTURE-RESET-2026-07-01.md`
+- Architecture note: Contact email path preserved in `docs/current-state/archive/CONTENT-ARCHITECTURE-RESET-2026-07-01.md`

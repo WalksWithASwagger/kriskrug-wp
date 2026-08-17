@@ -50,9 +50,9 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 
 | File | Purpose | Live? | Snippet ID | Last verified | Evidence |
 |---|---|---|---|---|---|
-| `schema-snippets-deployed.php` | **Canonical** Person / WebSite / BlogPosting / Breadcrumb / Service JSON-LD | **Live** | 5 | 2026-08-15 | Rendered JSON-LD matches values, block set and key order, incl. `Person.image` appended last and the #425 `BlogPosting` default. ID from `docs/current-state/TWO-TRACK-MODEL.md`, `docs/current-state/CSS-DEADCODE-OVERLAP-AUDIT.md` |
+| `schema-snippets-deployed.php` | **Canonical** Person / WebSite / BlogPosting / Breadcrumb / Service JSON-LD | **Live** | 5 | 2026-08-15 | Rendered JSON-LD matches values, block set and key order, incl. `Person.image` appended last and the #425 `BlogPosting` default. ID from `docs/current-state/TWO-TRACK-MODEL.md`, `docs/current-state/archive/CSS-DEADCODE-OVERLAP-AUDIT.md` |
 | `schema-snippets.php` | Reference / future mu-plugin draft of the same schema | **Not live** | none | 2026-08-15 | Gated on `kk_schema_is_ready()`, still full of `VERIFY-ME`, so it would emit nothing. Live `worksFor` / `sameAs` contradict it. Open issue #741 retains the authenticated-body proof and deletion/pointer decision |
-| `asset-diet-snippet.php` | Drops unused Jetpack / Popup Maker / jQuery Migrate CSS+JS | **Live** | 10 | not re-checked here | `docs/current-state/archive/WORK-PLAN-2026-07-01.md`, `docs/current-state/AURORA-STYLESHEET-DECISION-2026-08-02.md`. **Issue #706 is active against this file. Do not edit it without coordinating.** |
+| `asset-diet-snippet.php` | Drops unused Jetpack / Popup Maker / jQuery Migrate CSS+JS | **Live** | 10 | not re-checked here | `docs/current-state/archive/WORK-PLAN-2026-07-01.md`, `docs/current-state/archive/AURORA-STYLESHEET-DECISION-2026-08-02.md`. **Issue #706 is active against this file. Do not edit it without coordinating.** |
 | `issue-706-script-diet-snippet.php` | Prepared Site Kit gtag delay; pairs with a separately gated Meta Pixel removal | **Not live; prep only** | none | 2026-08-16 | `issue-706-script-diet.md` and merged PR #760 state that nothing was applied and #706 closes only after a KK-approved apply plus PSI verification |
 | `og-restore-snippet.php` | Retired Open Graph + Twitter Card bridge | **Inactive; theme is current provider** | 12 | capture: 2026-07-24; render: 2026-08-15 | Authenticated capture records ID 12 with `active=false`. Current markup contains the theme-only `meta name="description"`, theme `og:site_name`, and curated post description; activating this snippet would make the theme stand down and regress those fields. See `docs/current-state/reports/og-restore-snippet-diagnosis-20260815.md` |
 | `gsc-404-query-param-canonicalize.php` | Canonicalizes legacy `?share=` tracking params out of GSC | **Live** | 8 | not re-checked here | Deploy receipt `docs/current-state/reports/gsc-404-live-deploy-20260618-050833Z.md` |
@@ -62,7 +62,7 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 | `issue-158-shopify-embed.php` | Shopify Buy Button wiring for a Shop page | **Not live** (draft) | none | 2026-08-15 | `/shop/` returns 404; no `kk-shop` or `BuyButton` in live markup. Placeholders unfilled |
 | `issue-39-schema-markup.php` | Original Person / Organization / Article schema | **Not live**, superseded by snippet 5 | none | 2026-08-15 | Live emits exactly one `Person` block and it has snippet 5's shape. `docs/current-state/archive/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md` records #39 as superseded |
 | `issue-43-twitter-cards.php` | Twitter/X card tags | **Not live** | none | 2026-08-15 | Live Twitter tags come from Aurora; authenticated capture shows the overlapping OG bridge (snippet 12) inactive |
-| `issue-8-aria-labels.php` | ARIA labels + focus rings for icon controls | **Not live** (draft) | none | 2026-08-15 | No `kk-issue-8-icon-accessibility` style id in live markup. Corroborated by the 13-route style-id enumeration in `docs/current-state/AURORA-STYLESHEET-DECISION-2026-08-02.md` (zero unknown ids) |
+| `issue-8-aria-labels.php` | ARIA labels + focus rings for icon controls | **Not live** (draft) | none | 2026-08-15 | No `kk-issue-8-icon-accessibility` style id in live markup. Corroborated by the 13-route style-id enumeration in `docs/current-state/archive/AURORA-STYLESHEET-DECISION-2026-08-02.md` (zero unknown ids) |
 | `issue-9-search-accessibility.php` | Accessible search form markup | **Not live** (draft) | none | 2026-08-15 | No `kk-site-search-field-` in live markup |
 
 **Reading the "Live?" column.** "Live" means current production behaviour matches
@@ -98,7 +98,7 @@ what is live; they describe what *was* applied or proposed at the time.
 - `*.css` (`aurora-cream-pack-chrome.css`, `issue-5-color-contrast.css`,
   `issue-9-button-hover-states.css`, `issue-10-cta-hover-states.css`). Historical
   CSS proposals. The two that reached production as snippets (9 and 11) are
-  recorded **inactive**; see `docs/current-state/AURORA-STYLESHEET-DECISION-2026-08-02.md`
+  recorded **inactive**; see `docs/current-state/archive/AURORA-STYLESHEET-DECISION-2026-08-02.md`
   before reactivating anything here.
 - `gsc-404-redirection-import-2026-06.json`, a one-shot Redirection plugin import.
 - Loose narrative docs: `README-FIXES-BATCH-1.md`, `UPDATED-ABOUT-PAGE-COMPLETE.md`,

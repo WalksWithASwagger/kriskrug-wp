@@ -22,36 +22,36 @@ Read these first:
 |---|---|
 | [SEO-INDEXING-RUNBOOK.md](SEO-INDEXING-RUNBOOK.md) | Indexing/distribution checklist (#426) |
 | [SEO-PUBLISHER-SCHEMA-2026-07-19.md](SEO-PUBLISHER-SCHEMA-2026-07-19.md) | Schema/publisher rules (`make seo-publisher-smoke`) |
-| [SEO-STRIKING-DISTANCE-2026-08-02.md](SEO-STRIKING-DISTANCE-2026-08-02.md) | #249 re-measure. **Read before running `make seo-audit`:** Jetpack is deactivated, the theme now owns SEO titles, and that target reports a false 1016/1016 missing |
 | [AURORA-STYLESHEET-REBUILD-PLAN.md](AURORA-STYLESHEET-REBUILD-PLAN.md) | Path A rebuild plan of record (#423) |
 | [AURORA-VISUAL-BASELINE-RUNBOOK.md](AURORA-VISUAL-BASELINE-RUNBOOK.md) | Pixel gate harness (#473) |
 | [AURORA-RELEASE-CHECKLIST.md](AURORA-RELEASE-CHECKLIST.md) | Theme release checklist |
-| [CSS-DEADCODE-OVERLAP-AUDIT.md](CSS-DEADCODE-OVERLAP-AUDIT.md) | Measured CSS debt feeding the rebuild |
-| [RECLAIM-LIST-2026-07-24.md](RECLAIM-LIST-2026-07-24.md) | #318/#369 reclaim proposal |
 | [reports/repo-bloat-318-next-steps-20260726.md](reports/repo-bloat-318-next-steps-20260726.md) | Executable A+D reclaim runbook |
 | [AGENT-MERGE-PATH-2026-07-26.md](AGENT-MERGE-PATH-2026-07-26.md) | Cloud merge / review path |
 | [ROLLBACK_PLAYBOOK.md](ROLLBACK_PLAYBOOK.md) | Prod undo order |
 | [BACKUP_PLAN.md](BACKUP_PLAN.md) | Backup pieces and gaps |
 | [ACCESS_CHANNELS.md](ACCESS_CHANNELS.md) | How we reach the site |
-| [REPO-HYGIENE-AUDIT-2026-07-12.md](REPO-HYGIENE-AUDIT-2026-07-12.md) | Docs/branch/cruft audit |
-| [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](CONTENT-ARCHITECTURE-RESET-2026-07-01.md) | Trust/Offers/Topic Hubs wave |
 
 ## One-shot closeouts and handoffs (reference, not the front door)
 
-These are finished or single-issue documents that still sit at top level because a newer doc or an open issue cites them. None of them is a plan you should execute from. Most are July 2026; `AURORA-TEMPLATE-CONTENT-HANDOFF.md` is the outlier at 2026-05-23, and `AURORA-MOBILE-QA-127.md` carries no date at all.
+Moved into [`archive/`](archive/) on 2026-08-17 (#740). None of them is a plan you should execute from.
 
 | File | What it was |
 |---|---|
-| [SESSION-CLOSEOUT-2026-07-24.md](SESSION-CLOSEOUT-2026-07-24.md) | Track A closeout |
-| [REVIVE-AURORA-PORT-2026-07-24.md](REVIVE-AURORA-PORT-2026-07-24.md) / [REVIVE-AURORA-REVISIONS-2026-07-24.md](REVIVE-AURORA-REVISIONS-2026-07-24.md) | Revive cream port context |
-| [INTERACTION-STATES-GAP-INVENTORY.md](INTERACTION-STATES-GAP-INVENTORY.md) | First acceptance criterion of #424, dated 2026-07-25 |
-| [AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md](AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md) | #357 search-title handoff |
-| [WP-AUTH-CLIENT-INVENTORY-2026-07-08.md](WP-AUTH-CLIENT-INVENTORY-2026-07-08.md) | #306 auth client inventory |
-| [AURORA-HOMEPAGE-BC-AI-FUTUREPROOF-2026-07-03.md](AURORA-HOMEPAGE-BC-AI-FUTUREPROOF-2026-07-03.md) | Homepage BC+AI / Futureproof closeout |
-| [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md) | Readability reset, shipped |
-| [PERFORMANCE-RECOVERY-2026-07-01.md](PERFORMANCE-RECOVERY-2026-07-01.md) | Performance closeout |
-| [AURORA-MOBILE-QA-127.md](AURORA-MOBILE-QA-127.md) | #127 mobile QA test plan, device pass still pending |
-| [AURORA-TEMPLATE-CONTENT-HANDOFF.md](AURORA-TEMPLATE-CONTENT-HANDOFF.md) | FSE template copy handoff, dated 2026-05-23 in the body |
+| [SESSION-CLOSEOUT-2026-07-24.md](archive/SESSION-CLOSEOUT-2026-07-24.md) | Track A closeout |
+| [REVIVE-AURORA-PORT-2026-07-24.md](archive/REVIVE-AURORA-PORT-2026-07-24.md) / [REVIVE-AURORA-REVISIONS-2026-07-24.md](archive/REVIVE-AURORA-REVISIONS-2026-07-24.md) | Revive cream port context |
+| [INTERACTION-STATES-GAP-INVENTORY.md](archive/INTERACTION-STATES-GAP-INVENTORY.md) | First acceptance criterion of #424, dated 2026-07-25 |
+| [AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md](archive/AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md) | #357 search-title handoff |
+| [WP-AUTH-CLIENT-INVENTORY-2026-07-08.md](archive/WP-AUTH-CLIENT-INVENTORY-2026-07-08.md) | #306 auth client inventory |
+| [AURORA-HOMEPAGE-BC-AI-FUTUREPROOF-2026-07-03.md](archive/AURORA-HOMEPAGE-BC-AI-FUTUREPROOF-2026-07-03.md) | Homepage BC+AI / Futureproof closeout |
+| [AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md](archive/AURORA-READABILITY-RESET-CLOSEOUT-2026-07-01.md) | Readability reset, shipped |
+| [PERFORMANCE-RECOVERY-2026-07-01.md](archive/PERFORMANCE-RECOVERY-2026-07-01.md) | Performance closeout |
+| [AURORA-MOBILE-QA-127.md](archive/AURORA-MOBILE-QA-127.md) | #127 mobile QA test plan, device pass still pending |
+| [AURORA-TEMPLATE-CONTENT-HANDOFF.md](archive/AURORA-TEMPLATE-CONTENT-HANDOFF.md) | FSE template copy handoff, dated 2026-05-23 in the body |
+| [SEO-STRIKING-DISTANCE-2026-08-02.md](archive/SEO-STRIKING-DISTANCE-2026-08-02.md) | #249 re-measure (Jetpack SEO titles are a false 1016/1016) |
+| [CSS-DEADCODE-OVERLAP-AUDIT.md](archive/CSS-DEADCODE-OVERLAP-AUDIT.md) | Measured CSS debt feeding the rebuild |
+| [RECLAIM-LIST-2026-07-24.md](archive/RECLAIM-LIST-2026-07-24.md) | #318/#369 reclaim proposal |
+| [REPO-HYGIENE-AUDIT-2026-07-12.md](archive/REPO-HYGIENE-AUDIT-2026-07-12.md) | Docs/branch/cruft audit |
+| [CONTENT-ARCHITECTURE-RESET-2026-07-01.md](archive/CONTENT-ARCHITECTURE-RESET-2026-07-01.md) | Trust/Offers/Topic Hubs wave |
 
 ## Historical, banner-tagged, not the front door
 
@@ -73,10 +73,7 @@ Every file below carries a `STATUS: Historical` banner in its first lines pointi
 git diff --name-status --find-renames c369eef^1 c369eef -- docs/current-state | cut -c1-1 | sort | uniq -c
 ```
 
-No May or June 2026 **plan** is left at top level. Two top-level files still carry May 2026 dates and both stay here on purpose:
-
-- `INCIDENT-2026-05-15-overwritten-post.md`, date in the filename. A standing safety rule, read-order item 6 in `AGENTS.md`.
-- `AURORA-TEMPLATE-CONTENT-HANDOFF.md`, undated filename, `**Date:** 2026-05-23` on line 3 of the body. An unfinished FSE template copy handoff, listed in the one-shot table above.
+No May or June 2026 **plan** is left at top level. The one top-level file that still carries a May 2026 date on purpose is `INCIDENT-2026-05-15-overwritten-post.md` (standing safety rule, read-order item 6 in `AGENTS.md`). `AURORA-TEMPLATE-CONTENT-HANDOFF.md` moved to `archive/` in the #740 pass.
 
 Neither is a plan you execute from. Check with `ls docs/current-state/*.md | grep -E "2026-0[56]"` for filenames and `grep -l "2026-0[56]-" docs/current-state/*.md` for body dates.
 

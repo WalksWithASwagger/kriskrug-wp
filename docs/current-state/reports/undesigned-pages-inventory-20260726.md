@@ -10,7 +10,7 @@
 The original “~25 undesigned pages” claim is still directionally right for the **long tail**, but the surface has changed:
 
 1. **Floor lift already shipped** — PR [#166](https://github.com/WalksWithASwagger/kriskrug-wp/pull/166) added `aurora-prose` to `templates/page.html`, so ordinary pages are no longer typographically bare.
-2. **Fifteen high-value pages already got Aurora content primitives** (2026-07-01 Trust + Offers + Topic Hubs; see [`CONTENT-ARCHITECTURE-RESET-2026-07-01.md`](../CONTENT-ARCHITECTURE-RESET-2026-07-01.md)).
+2. **Fifteen high-value pages already got Aurora content primitives** (2026-07-01 Trust + Offers + Topic Hubs; see [`CONTENT-ARCHITECTURE-RESET-2026-07-01.md`](../archive/CONTENT-ARCHITECTURE-RESET-2026-07-01.md)).
 3. **What remains for #122** is the prioritized split: a few **bespoke content redesigns** (nav / commercial / proof) vs **generic `page` template polish** for the true long tail — **without** a theme stylesheet rebuild ([#474](https://github.com/WalksWithASwagger/kriskrug-wp/issues/474)+).
 4. **Services** (`/generative-ai-services/`) stays on [#420](https://github.com/WalksWithASwagger/kriskrug-wp/issues/420), not this ticket’s execution queue.
 

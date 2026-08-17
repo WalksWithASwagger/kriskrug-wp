@@ -141,7 +141,7 @@ On `theme/474-cascade-layers-scaffold` (open, CI green as of this brief):
 - Rebaselines css-ratchet: front-end lines **7379 → 7458** under #494 waiver; `!important` still **159**
 - **Not deployable** until `make visual-diff` clears (#494 / pixel gate)
 
-Sources: #256 audit, [`CSS-DEADCODE-OVERLAP-AUDIT.md`](../CSS-DEADCODE-OVERLAP-AUDIT.md), [`AURORA-STYLESHEET-REBUILD-PLAN.md`](../AURORA-STYLESHEET-REBUILD-PLAN.md), [`REVIVE-AURORA-PORT-2026-07-24.md`](../REVIVE-AURORA-PORT-2026-07-24.md), live curl this session.
+Sources: #256 audit, [`CSS-DEADCODE-OVERLAP-AUDIT.md`](../archive/CSS-DEADCODE-OVERLAP-AUDIT.md), [`AURORA-STYLESHEET-REBUILD-PLAN.md`](../AURORA-STYLESHEET-REBUILD-PLAN.md), [`REVIVE-AURORA-PORT-2026-07-24.md`](../archive/REVIVE-AURORA-PORT-2026-07-24.md), live curl this session.
 
 ---
 

@@ -9,7 +9,7 @@ numbers that regressed silently between 2026-07-19 and 1.4.3 — front-end CSS
 
 Parsing is deliberately *not* reimplemented. Rule/selector structure comes from
 ``scripts/css_coverage_audit.py`` (PR #468), which already solved seven
-false-positive traps documented in ``docs/current-state/CSS-DEADCODE-OVERLAP-AUDIT.md``.
+false-positive traps documented in ``docs/current-state/archive/CSS-DEADCODE-OVERLAP-AUDIT.md``.
 This module adds three things on top: raw-vs-code-only counting, git-revision
 sourcing, and CSS-nesting awareness for the selector census.
 

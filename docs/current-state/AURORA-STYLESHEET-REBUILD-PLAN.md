@@ -472,7 +472,7 @@ All eleven captured logged out, no cookies, no auth.
 3. **Commit the manifest, not the pixels:** `docs/current-state/reports/visual-baseline/manifest-<timestamp>.json` — per capture, the route, viewport, SHA-256 of the PNG, byte size, full-page height, the theme version read back from live `style.css`, and the Boost bundle hash. That is a few KB of JSON and it is what actually proves "the baseline was frozen at X and the candidate matched." A hash manifest catches any change; the PNG is only needed to *look at* a change.
 4. **Diff images only, only when failing, only in the PR.** A failing run uploads its diff PNGs as **PR comment attachments or CI artifacts** — GitHub-hosted, not repo-hosted. If a diff must persist, downscale to ≤ 1200 px wide and convert to WebP (~50–100 KB vs ~950 KB), and put it under `backup/` with a dated dir and a line in the reclaim list.
 5. **Baseline regeneration is cheap** because the site is live and the repo matches it byte-for-byte (§1.6) — a lost baseline is one `make visual-baseline` away, so there is no archival argument for committing pixels.
-6. Add the new artifact root to `docs/current-state/RECLAIM-LIST-2026-07-24.md` so #318's cleanup pass knows about it.
+6. Add the new artifact root to `docs/current-state/archive/RECLAIM-LIST-2026-07-24.md` so #318's cleanup pass knows about it.
 
 ### 4.6 Interface
 
@@ -623,4 +623,4 @@ Stated plainly, per the issue's eval criterion that the inventory be cross-check
 
 **Prepared:** 2026-07-25, against `0064b4e`, theme 1.4.3, live readback the same day.
 **Related:** [#423](https://github.com/WalksWithASwagger/kriskrug-wp/issues/423) (this decision), [#256](https://github.com/WalksWithASwagger/kriskrug-wp/issues/256) (CSS dead-code + snippets-overlap audit), [#318](https://github.com/WalksWithASwagger/kriskrug-wp/issues/318) (repo bloat), [#424](https://github.com/WalksWithASwagger/kriskrug-wp/issues/424) (hover/focus pass), [#127](https://github.com/WalksWithASwagger/kriskrug-wp/issues/127) (mobile QA), Wave 2 pages [#410–#420](https://github.com/WalksWithASwagger/kriskrug-wp/issues/410).
-**Context docs:** [REVIVE-AURORA-PORT-2026-07-24.md](REVIVE-AURORA-PORT-2026-07-24.md) · [REVIVE-AURORA-REVISIONS-2026-07-24.md](REVIVE-AURORA-REVISIONS-2026-07-24.md) · [../../backup/aurora-deploy-20260724/DEPLOY-HANDOFF.md](../../backup/aurora-deploy-20260724/DEPLOY-HANDOFF.md) · [RECLAIM-LIST-2026-07-24.md](RECLAIM-LIST-2026-07-24.md) · [AURORA-RELEASE-CHECKLIST.md](AURORA-RELEASE-CHECKLIST.md)
+**Context docs:** [REVIVE-AURORA-PORT-2026-07-24.md](archive/REVIVE-AURORA-PORT-2026-07-24.md) · [REVIVE-AURORA-REVISIONS-2026-07-24.md](archive/REVIVE-AURORA-REVISIONS-2026-07-24.md) · [../../backup/aurora-deploy-20260724/DEPLOY-HANDOFF.md](../../backup/aurora-deploy-20260724/DEPLOY-HANDOFF.md) · [RECLAIM-LIST-2026-07-24.md](archive/RECLAIM-LIST-2026-07-24.md) · [AURORA-RELEASE-CHECKLIST.md](AURORA-RELEASE-CHECKLIST.md)

@@ -126,7 +126,8 @@ ACTIVE_GUIDANCE_PATHS = {
     Path("README.md"),
     Path("docs/INDEX.md"),
     Path("docs/current-state/README.md"),
-    Path("docs/current-state/WORK-PLAN-2026-08-09.md"),
+    Path("docs/current-state/archive/WORK-PLAN-2026-08-09.md"),
+    Path("docs/current-state/WORK-PLAN-2026-08-15.md"),
     Path("docs/current-state/MASTER-PLAN-2026-07-30.md"),
 }
 

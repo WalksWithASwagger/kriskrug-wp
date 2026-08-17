@@ -4,7 +4,7 @@
 
 **Live:** Aurora **1.4.3** (R5 left-pin header + R6 rainbow/riso).  
 Public `style.css` Version `1.4.3`. Full theme sync media **#12636** (snippet **#20**, inactive).  
-E2E: [e2e/E2E-REPORT-1.4.3-2026-07-24.md](e2e/E2E-REPORT-1.4.3-2026-07-24.md). Prior: 1.4.2 media **#12635** / 1.4.1 media **#12633**. Revisions: [../../docs/current-state/REVIVE-AURORA-REVISIONS-2026-07-24.md](../../docs/current-state/REVIVE-AURORA-REVISIONS-2026-07-24.md).
+E2E: [e2e/E2E-REPORT-1.4.3-2026-07-24.md](e2e/E2E-REPORT-1.4.3-2026-07-24.md). Prior: 1.4.2 media **#12635** / 1.4.1 media **#12633**. Revisions: [../../docs/current-state/archive/REVIVE-AURORA-REVISIONS-2026-07-24.md](../../docs/current-state/archive/REVIVE-AURORA-REVISIONS-2026-07-24.md).
 
 ## Packages
 
@@ -30,7 +30,7 @@ Optional cleanup: delete media **12631**, delete/retire snippet **#14**, purge P
 
 ## Contract
 
-See [docs/current-state/REVIVE-AURORA-PORT-2026-07-24.md](../../docs/current-state/REVIVE-AURORA-PORT-2026-07-24.md).
+See [docs/current-state/REVIVE-AURORA-PORT-2026-07-24.md](../../docs/current-state/archive/REVIVE-AURORA-PORT-2026-07-24.md).
 
 ## Verify
 
