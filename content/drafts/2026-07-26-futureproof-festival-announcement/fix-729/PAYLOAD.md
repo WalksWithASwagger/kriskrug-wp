@@ -1,6 +1,7 @@
 # Post 12732 deadline copy update (#729)
 
 **KK ruling (2026-08-16):** close the Call for Talks; extend the Earlyworm window to **August 31, 2026**.
+**Applied 2026-08-17T05:05Z.** Live HTML: `August 15, 2026` = 0, `August 31, 2026` = 1. Snapshot `backup/20260817T050520Z-12732-futureproof-729/`.
 **Target:** live WP post `12732` (https://kriskrug.co/2026/08/11/futureproof-festival-announcement/), Track A.
 **Method:** two exact find/replace ops on `content.rendered`, snapshot-first, slug/ID verified. No em dashes. No other copy touched.
 
