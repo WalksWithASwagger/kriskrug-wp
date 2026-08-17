@@ -57,5 +57,48 @@ class Homepage411WorkBandTests(unittest.TestCase):
         self.assertIn(".aurora-work-band .aurora-section-head a:focus-visible", self.css)
 
 
+class Homepage412CreativeLabsTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.front = FRONT_PAGE.read_text(encoding="utf-8")
+        cls.css = REVIVE.read_text(encoding="utf-8")
+        cls.labs = _section(cls.front, "aurora-creative-labs")
+
+    def test_labs_section_names_four_public_builds(self):
+        self.assertIn("Creative Labs", self.labs)
+        self.assertIn("The labs around the", self.labs)
+        for title in ("Vancouver AI", "Punk Rock AI", "Both Hands Full", "AI Garden"):
+            self.assertIn(title, self.labs)
+        self.assertIn("https://vancouver.ai/", self.labs)
+        self.assertIn("https://www.punkrockai.com/", self.labs)
+        self.assertIn("https://www.bothhandsfull.com/", self.labs)
+        self.assertIn("https://kriskrug.ai/", self.labs)
+
+    def test_labs_copy_is_plain_and_has_no_rooms_or_em_dashes(self):
+        self.assertEqual(0, len(re.findall(r"rooms?", self.labs, flags=re.I)))
+        self.assertNotIn("\u2014", self.labs)
+        self.assertNotIn("trust layer", self.labs)
+        self.assertIn("Kris Krüg", self.labs)
+
+    def test_labs_images_are_local_or_media_library(self):
+        srcs = re.findall(r"<img[^>]+src=\"([^\"]+)\"", self.labs)
+        self.assertEqual(4, len(srcs))
+        for src in srcs:
+            self.assertTrue(
+                src.startswith("/wp-content/themes/kk-aurora/")
+                or "kriskrug.co/wp-content/uploads/" in src
+                or "i0.wp.com/kriskrug.co/" in src,
+                f"lab image is a hotlink: {src}",
+            )
+        self.assertNotIn("punkrockai.com", " ".join(srcs))
+        self.assertNotIn("bothhandsfull.com/opengraph", " ".join(srcs))
+
+    def test_labs_layout_puts_text_below_the_photo(self):
+        self.assertIn("aspect-ratio: 4 / 5", self.css)
+        self.assertIn(".aurora-lab-card-body", self.css)
+        self.assertIn(".aurora-lab-card:focus-visible", self.css)
+        self.assertIn("object-position: center 35%", self.css)
+
+
 if __name__ == "__main__":
     unittest.main()
