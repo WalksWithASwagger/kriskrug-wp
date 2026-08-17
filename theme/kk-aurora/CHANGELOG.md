@@ -21,19 +21,19 @@ When you cut a new release, add a line here and follow
 ---
 
 ## 1.6.8
-**Deployed:** NOT LIVE (stacks after Aurora 1.6.7; live is still 1.6.5)
-Homepage cluster: rewrite the Join BC / Futureproof work-band copy, align the triptych, and quiet the card numerals (#411); restore a Creative Labs band with text-below-image cards (#412); bring back a monochrome interactive client logo soup (#413). Stages, What People Say, and newsletter follow in the same cut (#414–#416). No live deploy in this cut. Pixel gate still owed.
+**Deployed:** LIVE (SFTP 2026-08-17, latest rollback `kk-aurora.bak-1786942075`; prior swap `kk-aurora.bak-1786942015`). Public `style.css` reads 1.6.8. Custom FSE `front-page` (wp_id 12661) was snapshotted then POSTed from theme `front-page.html` at 2026-08-17 04:51 UTC; homepage now renders labs / logo soup / stages / What People Say. Pixel vs pre-HTML 1.6.7 (`20260817T044445Z` → `20260817T045150Z`): homepage fail 55–62% (expected height + new bands); 29 other pairs pass; `/blog/` tablet warn 0.49%. Boost CSS bundle hash moved `d4faec73b4` → `0f9e6b2840`. Explicit #731 wp-admin regen still owed.
+Homepage cluster: rewrite the Join BC / Futureproof work-band copy, align the triptych, and quiet the card numerals (#411); restore a Creative Labs band with text-below-image cards (#412); bring back a monochrome interactive client logo soup (#413). Stages, What People Say, and newsletter follow in the same cut (#414–#416).
 
 ## 1.6.7
-**Deployed:** NOT LIVE (deploy pending)
-Chrome copy: sitewide `<title>` separator becomes a pipe and the surname takes the umlaut (#756). Front page keeps the full descriptor; inner pages take a short `Kris Krüg` tail. Writing-archive og/twitter titles, `public_site_name()`, header, footer, and shipped patterns follow the same ruling. Live chrome uses `BC + AI` (spaces) per #735. Descriptors are not unified. No CSS change.
+**Deployed:** Superseded (was live 2026-08-17 until the 1.6.8 swap; rollback seat `kk-aurora.bak-1786938401`)
+Chrome copy: sitewide `<title>` separator becomes a pipe and the surname takes the umlaut (#756). Front page keeps the full descriptor; inner pages take a short `Kris Krüg` tail. Writing-archive og/twitter titles, `public_site_name()`, header, footer, and shipped patterns follow the same ruling. Live chrome uses `BC + AI` (spaces) per #735. Descriptors are not unified. No CSS change. 1.6.6 copy/orphan cleanup shipped in the same swap. Jetpack Boost critical-CSS regen (#731) still owed (wp-admin; app password cannot session-login).
 
 ## 1.6.6
-**Deployed:** NOT LIVE (source merged in PR #751 at `dcb7ff4`; deploy pending)
+**Deployed:** Superseded (never live standalone; first reached production inside the 2026-08-17 1.6.7 deploy)
 Copy and dead-file cleanup, no layout or CSS change. Strips the five user-visible em dashes from theme copy: the homepage hero dek and services lede, the marquee archive lede, and the photo-gallery pattern's lede plus its placeholder alt text (#733). Removes the orphaned speaking proof-grid template part and its `theme.json` registration; the part was placed by zero templates and live proof-grid content is DB page content, not this part (#743).
 
 ## 1.6.5
-**Deployed:** LIVE (public readback 2026-08-14, re-confirmed 2026-08-15; SFTP rollback `kk-aurora.bak-1786733540`)
+**Deployed:** Superseded (was live 2026-08-14 to 2026-08-17; replaced by the 1.6.7 deploy)
 Add AI Garden to the project footer and ship the previously merged Creative AI Human Lab links with an explicit versioned release. Pagely page and CDN caches were purged successfully. The post-purge visual comparison confirmed live/repo CSS identity and a refreshed Jetpack Boost bundle; its threshold failures are confined to the intentional project-footer expansion documented in `report-20260814T190349Z.md`.
 
 ## 1.6.4

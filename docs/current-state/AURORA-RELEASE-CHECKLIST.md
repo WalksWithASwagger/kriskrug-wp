@@ -41,7 +41,7 @@ Use this checklist for every manual `kk-aurora` production deploy on Pagely: wp-
 
 ## Current release note (2026-08-17)
 
-- Public `style.css` reports Aurora **1.6.7** (readback 2026-08-17 04:23 UTC). Source `main` is **1.6.8** (PR #844 homepage cluster). Do not treat 1.6.8 as live. Pixel gate before SFTP.
-- The committed pre-deploy baseline manifest is `reports/visual-baseline/manifest-20260816T151617Z.json`. It captures `/` and `/speaking/` at 200 across mobile, tablet, and desktop.
-- `/marquee/` currently returns 404 and is not a valid live release gate. Verify the marquee archive copy in source; the visual runbook uses `/category/vancouver-ai-ecosystem/` as the live archive-template substitute until the marquee route exists.
-- A post-deploy candidate diff, cache purge, public 1.6.6 readback, rollback receipt, and Jetpack Boost regeneration are still required. This checklist and the repository merge do not authorize those actions.
+- Live Aurora **1.6.8** (public `style.css` 2026-08-17; SFTP rollback `kk-aurora.bak-1786942075`). Homepage HTML matches theme `front-page.html` after FSE template 12661 POST.
+- Pre-HTML 1.6.7 baseline: `reports/visual-baseline/manifest-20260817T044445Z.json`. Post-HTML candidate: `manifest-20260817T045150Z.json` / `diff-20260817T045150Z.json` / `report-20260817T045150Z.md`. Homepage 55–62% fail is the #411–#416 bands; 29 other pairs passed; `/blog/` tablet warn 0.49%.
+- `/marquee/` currently returns 404 and is not a valid live release gate. The visual runbook uses `/category/vancouver-ai-ecosystem/` as the live archive-template substitute until the marquee route exists.
+- Jetpack Boost critical-CSS regen (#731) still needs a wp-admin session. Bundle hash did change `d4faec73b4` → `0f9e6b2840` after the HTML write; that is not a substitute for the explicit regen.
