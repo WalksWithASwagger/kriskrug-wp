@@ -54,6 +54,31 @@ preference:
 Either is a **live change** and therefore KK-gated. Ship behind the same
 snapshot-first flow as other live SEO snippets; do not auto-deploy.
 
+## Schema snippet deploy — rendered wrapper check (#758)
+
+Before and after any paste of `fixes/schema-snippets-deployed.php` into
+Code Snippet 5, diff the **rendered** JSON-LD wrappers, not just the PHP
+file. Jetpack Boost's Defer JS pipeline stamps
+`data-jetpack-boost="ignore"` onto `application/ld+json` at output. The
+repo emit is the bare `<script type="application/ld+json">` tag; that is
+intentional. A wp-admin body that matches the repo file can still be
+correct.
+
+1. Logged-out fetch of at least `/`, one post
+   (`/2026/08/10/keep-the-machine-strange/`), and one page (`/about/`).
+2. Count JSON-LD script tags and `data-jetpack-boost="ignore"`
+   occurrences. They should match each other and the expected block set
+   (home: Person + WebSite; post: Person + BlogPosting + BreadcrumbList;
+   page: Person + BreadcrumbList, plus Service when that field is set).
+3. Confirm every JSON-LD opening tag is
+   `<script data-jetpack-boost="ignore" type="application/ld+json">`,
+   `@type` values are unchanged, and non-JSON-LD scripts still lack the
+   attribute (Site Kit gtag, Meta Pixel inline, `speculationrules`,
+   Boost `boost-cache` bundle).
+4. Do **not** deploy a snippet paste to "sync" the attribute, and do not
+   add it to `kk_schema_emit()`. Evidence:
+   `reports/schema-boost-ignore-758-2026-08-16.md`.
+
 ## Regression check
 
 `scripts/seo_publisher_smoke.py` (read-only) verifies sitemap + feed health and

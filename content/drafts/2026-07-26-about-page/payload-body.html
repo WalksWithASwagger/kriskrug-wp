@@ -1,14 +1,12 @@
 <!-- wp:html -->
 <!-- content-architecture-2026:about -->
-<!-- #418 draft payload - Option A copy + unified page-scoped layout. DO NOT apply without KK approval. -->
+<!-- #418 draft payload. Cream paper + panel only. One 860px rail. Option A copy. DO NOT apply without KK approval. -->
 <style>
 .kk-r9-pack {
   --kk-about-paper: #efe6d2;
   --kk-about-panel: #e6dcc2;
   --kk-about-ink: #171310;
   --kk-about-ink-soft: #3d342c;
-  --kk-about-on-photo: #efe6d2;
-  --kk-about-on-photo-soft: rgba(239, 230, 210, 0.88);
   --kk-about-max: 860px;
   --kk-about-gap: 1rem;
   --kk-about-signal: #d94a1f;
@@ -40,43 +38,53 @@
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   margin: 0 !important;
   width: 100% !important;
+  align-items: stretch !important;
 }
 .kk-r9-pack .aurora-proof-grid--cta {
   grid-template-columns: minmax(0, 1fr) !important;
 }
-.kk-r9-pack .aurora-card {
+.kk-r9-pack .aurora-card,
+.kk-r9-pack .kk-about-room {
   background: var(--kk-about-panel) !important;
   border: 1px solid rgba(23, 19, 16, 0.14) !important;
   border-radius: 2px !important;
   box-shadow: none !important;
   color: var(--kk-about-ink) !important;
-}
-.kk-r9-pack .aurora-card :where(h2, h3) {
-  color: var(--kk-about-ink) !important;
-}
-.kk-r9-pack .aurora-card :where(p) {
-  color: var(--kk-about-ink-soft) !important;
-}
-.kk-r9-pack .aurora-media-card {
-  border-radius: 2px !important;
-  box-shadow: none !important;
-  min-height: 22rem;
   overflow: hidden;
-  border: 1px solid rgba(23, 19, 16, 0.14) !important;
+  min-height: 0;
 }
-.kk-r9-pack .aurora-media-card::after {
-  background: linear-gradient(
-    180deg,
-    transparent 20%,
-    rgba(13, 15, 21, 0.72) 70%,
-    rgba(13, 15, 21, 0.94) 100%
-  ) !important;
+.kk-r9-pack .aurora-card {
+  padding: 1.1rem 1.15rem;
 }
-.kk-r9-pack .aurora-media-card :where(h3) {
-  color: var(--kk-about-on-photo) !important;
+.kk-r9-pack .aurora-card :where(h2, h3),
+.kk-r9-pack .kk-about-room :where(h3) {
+  color: var(--kk-about-ink) !important;
+  margin: 0 0 0.4rem;
 }
-.kk-r9-pack .aurora-media-card :where(p) {
-  color: var(--kk-about-on-photo-soft) !important;
+.kk-r9-pack .aurora-card :where(p),
+.kk-r9-pack .kk-about-room :where(p) {
+  color: var(--kk-about-ink-soft) !important;
+  margin: 0.4rem 0 0;
+}
+.kk-r9-pack .kk-about-room a {
+  display: block;
+  color: inherit;
+  text-decoration: none !important;
+}
+.kk-r9-pack .kk-about-room a:hover h3,
+.kk-r9-pack .kk-about-room a:focus-visible h3 {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.kk-r9-pack .kk-about-room img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--kk-about-paper);
+}
+.kk-r9-pack .kk-about-room-body {
+  padding: 1.1rem 1.15rem 1.2rem;
 }
 .kk-r9-pack .aurora-button,
 .kk-r9-pack a.aurora-button {
@@ -103,53 +111,50 @@
   .kk-r9-pack .aurora-proof-grid {
     grid-template-columns: minmax(0, 1fr) !important;
   }
-  .kk-r9-pack .aurora-media-card {
-    min-height: 18rem;
-  }
 }
 </style>
 <div class="kk-page kk-r9-pack">
 <section class="aurora-proof-section">
   <p class="aurora-section-kicker">About</p>
   <h2 class="aurora-display-heading">I build culture around emerging technology.</h2>
-  <p class="aurora-page-lead">I am Kris Krug: photographer, creative technologist, community builder, speaker, and field-note person for the weird edge where humans meet the machines they keep inventing.</p>
+  <p class="aurora-page-lead">I am Kris Krüg: photographer, creative technologist, community builder, speaker, and field-note person for the weird edge where humans meet the machines they keep inventing.</p>
   <p>I have spent two decades documenting technology, art, activism, conferences, communities, and the back rooms where culture actually changes. These days, most of that work points at one question: how do we use AI to increase human capacity instead of flattening human judgment?</p>
 </section>
 
 <section class="aurora-proof-section">
   <p class="aurora-section-kicker">The rooms I am in now</p>
   <div class="aurora-proof-grid">
-    <article class="aurora-media-card">
+    <article class="kk-about-room">
       <a href="https://bc-ai.ca/">
-        <img src="https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&amp;ssl=1" alt="BC plus AI ecosystem graphic" loading="lazy">
-        <div>
+        <img src="https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&amp;ssl=1" alt="BC + AI ecosystem graphic" loading="lazy">
+        <div class="kk-about-room-body">
           <h3>BC + AI Ecosystem</h3>
           <p>Building grassroots AI literacy, events, and community infrastructure across British Columbia.</p>
         </div>
       </a>
     </article>
-    <article class="aurora-media-card">
+    <article class="kk-about-room">
       <a href="/speaking/">
         <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-cmvan-keynote-header.png?w=1280&amp;ssl=1" alt="Punk Rock AI CreativeMornings Vancouver keynote banner" loading="lazy">
-        <div>
+        <div class="kk-about-room-body">
           <h3>AI keynotes and workshops</h3>
           <p>Helping audiences understand AI through taste, courage, responsibility, and useful live demos.</p>
         </div>
       </a>
     </article>
-    <article class="aurora-media-card">
+    <article class="kk-about-room">
       <a href="/photography/">
-        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=1200&amp;ssl=1" alt="Portrait of Kris Krug" loading="lazy">
-        <div>
+        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=1200&amp;ssl=1" alt="Portrait of Kris Krüg" loading="lazy">
+        <div class="kk-about-room-body">
           <h3>Visual storytelling</h3>
           <p>A long public archive of people, movements, music, technology, and the strange theatre of modern life.</p>
         </div>
       </a>
     </article>
-    <article class="aurora-media-card">
+    <article class="kk-about-room">
       <a href="/work/">
         <img src="https://www.bothhandsfull.com/opengraph-image?46af5f0ff830fe03" alt="Both Hands Full keynote graphic" loading="lazy">
-        <div>
+        <div class="kk-about-room-body">
           <h3>Creative AI systems</h3>
           <p>Projects, publishing loops, and experiments for staying distinct in the synthetic age.</p>
         </div>

@@ -1,6 +1,6 @@
 # START HERE — Testimonials showpiece v2
 
-**Status:** Ready to swarm — do not deploy until Wave 4.  
+**Status:** Waves 1–3 and #601 are done. Page body is **not** live. Snapshot-gate apply is [`APPLY-RUNBOOK.md`](./APPLY-RUNBOOK.md) (#602). Do not PATCH without KK's comment.  
 **Epic:** [#593](https://github.com/WalksWithASwagger/kriskrug-wp/issues/593)  
 **Board:** [`issues-to-create/testimonials-showpiece-v2-swarm-2026-08-01.md`](../../../issues-to-create/testimonials-showpiece-v2-swarm-2026-08-01.md)
 
@@ -30,7 +30,7 @@ Do **not** start from `cursor/publications-aurora-tearsheet` or any dirty pubs/t
 
 ### 2. Then Wave 2 → 3 → 4
 - #598 curate + consent-log → #599 payload + #600 outreach → #601 theme deploy → #602 body deploy  
-- #601 / #602 stay `blocked` until KK unlocks
+- #601 closed. #602 is the remaining human gate: [`APPLY-RUNBOOK.md`](./APPLY-RUNBOOK.md).
 
 ## Hard blocks (every lane)
 William Jordan · Stephanie McKay · tilde/unresolved names · Butterfield **conference/camera** mis-quote.  

@@ -2,12 +2,17 @@
 /**
  * KK OG Restore — kriskrug.co
  *
- * Temporary production bridge for social link previews while Aurora 1.3.37 is
- * reviewed and deployed. The live Code Snippet must match this file exactly,
- * without the opening PHP tag.
+ * Code Snippet ID 12. INACTIVE since 2026-07-13. Do not activate.
  *
- * Rollback: deactivate the "Open Graph + Twitter Card meta (social link
- * previews)" snippet. Retire it after Aurora 1.3.37 is live and verified.
+ * Aurora now emits every Open Graph and Twitter Card tag from
+ * theme/kk-aurora/functions.php. This file is a historical bridge only.
+ * Activating it makes the theme stand down and regresses live metadata
+ * (homepage description, og:site_name, curated post descriptions).
+ *
+ * Ledger: fixes/README.md
+ * Evidence: docs/current-state/reports/og-restore-snippet-diagnosis-20260815.md
+ *
+ * If this snippet is ever re-enabled by mistake: deactivate ID 12 immediately.
  */
 
 if (!defined('KK_OG_SNIPPET_ACTIVE')) {

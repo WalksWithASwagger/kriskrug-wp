@@ -1,5 +1,7 @@
 # #339 Measured July Kris publisher batch — PREP ONLY
 
+**Status:** Historical as of 2026-08-16. Superseded by [`publisher-batch-refresh-339-20260816.md`](publisher-batch-refresh-339-20260816.md). Live Aurora is 1.6.5, not 1.4.8. Four of five content deliverables were still unapplied.
+
 **Captured:** `2026-07-26T20:40:00Z`  
 **Issue:** [#339](https://github.com/WalksWithASwagger/kriskrug-wp/issues/339) — `[SEO] Run the measured July Kris publisher batch`  
 **Companion orchestration:** [#363](https://github.com/WalksWithASwagger/kriskrug-wp/issues/363)  

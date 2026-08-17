@@ -1,7 +1,7 @@
 # Services page rethink, issue #420
 
-**Status:** draft only. No live write, no deploy, no CSS change proposed.
-**Measured:** 2026-08-02
+**Status:** draft only. No live write, no deploy.
+**Measured:** 2026-08-02. **Payload:** 2026-08-17 `payload-body.html` is the apply-ready body (cream rail, four offers, no image plane).
 **Live URL:** `GET /services/` returns 301 to `/generative-ai-services/` (200). WP page ID 2666.
 **Evidence:** `evidence/height-before-after-2026-08-02.json`, `pack-proposed.html`
 
@@ -149,7 +149,8 @@ No CSS. No theme files. No live write. No deploy. The layout depends on three ex
 
 - `copy-draft.md`: the rewritten copy, block by block, with the voice notes
 - `layout-proposal.md`: section order, the four height mechanisms, before/after counts, the #423 handoff
-- `pack-proposed.html`: apply-ready replacement for the `.kk-services-2026` inner HTML
+- `pack-proposed.html`: inner-HTML fragment from the 2026-08-02 measure pass
+- `payload-body.html`: **apply-ready** WP `content.raw` body (2026-08-17). Cream rail, four offers, no image plane, no live write.
 - `evidence/height-before-after-2026-08-02.json`: raw measurements, both variants, three viewports
 
 ## Apply gates, when KK approves

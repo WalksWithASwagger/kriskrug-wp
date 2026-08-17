@@ -11,23 +11,33 @@
  * Deployed via Code Snippets plugin on 2026-05-15 (not as a mu-plugin yet;
  * SSH access still pending).
  *
- * LAST VERIFIED AGAINST LIVE: 2026-08-15 (issue #741).
- * Method: logged-out public readback of rendered JSON-LD on https://kriskrug.co/
- * (Person + WebSite) and https://kriskrug.co/2026/08/10/keep-the-machine-strange/
- * (Person + BlogPosting + BreadcrumbList). Values, block set and JSON key order
- * all match this file, including Person.image appended last by the conditional
- * below and the #425 BlogPosting default. The snippet body itself was NOT read
- * back: code-snippets/v1 returns 401 without a WP app password and none was
- * resolvable in that session.
+ * LAST VERIFIED AGAINST LIVE: 2026-08-16 (issue #758).
+ * Method: logged-out public readback of rendered JSON-LD on
+ * https://kriskrug.co/2026/08/10/keep-the-machine-strange/ (Person +
+ * BlogPosting + BreadcrumbList), https://kriskrug.co/ (Person + WebSite),
+ * and https://kriskrug.co/about/ (Person + BreadcrumbList). Values, block
+ * set and JSON key order still match this file, including Person.image
+ * appended last and the #425 BlogPosting default. The snippet body itself
+ * was NOT read back: WP_USER / WP_APP_PASSWORD are unset in Cloud and
+ * code-snippets/v1 returns 401 without them.
  *
- * ONE UNRESOLVED DELTA (do not "fix" blind): live wraps each block as
- * <script data-jetpack-boost="ignore" type="application/ld+json">, while
- * kk_schema_emit() below prints no data-jetpack-boost attribute, and nothing in
- * this repo adds one. Either Jetpack Boost injects it at output, or the live
- * snippet body carries a small edit that never came back here. Resolve by
- * reading the snippet body (wp-admin or an authenticated GET) before the next
- * deploy, because pasting this file over the live snippet would drop the
- * attribute if it is snippet-side.
+ * WRAPPER DELTA (resolved, Boost-injected — do not add by hand):
+ * Live HTML wraps each block as
+ * <script data-jetpack-boost="ignore" type="application/ld+json">.
+ * kk_schema_emit() below still prints no data-jetpack-boost attribute.
+ * That is correct. Jetpack Boost's Defer JS pipeline
+ * (class-render-blocking-js.php::ignore_exclusion_scripts) stamps
+ * data-jetpack-boost="ignore" onto script tags whose type is
+ * application/ld+json, application/json, or importmap so later passes
+ * do not move those blocks. Other live scripts are exempt because they
+ * are not in that type set: Site Kit gtag (JS), Meta Pixel inline (JS),
+ * type=speculationrules, and Boost's own concatenated boost-cache
+ * bundle. Historical authenticated snippet bodies (2026-07-24 and
+ * earlier) emit the same bare <script type="application/ld+json"> as
+ * this file. Pasting this file over snippet 5 will not strip the
+ * rendered attribute; Boost will stamp it again. Do not add the
+ * attribute here. Evidence:
+ * docs/current-state/reports/schema-boost-ignore-758-2026-08-16.md
  *
  * Differences from fixes/schema-snippets.php (reference / future mu-plugin):
  *   - VERIFY-ME placeholders replaced with confirmed values
@@ -76,6 +86,8 @@ function kk_schema_constants() {
     );
 }
 
+// Boost Defer JS stamps data-jetpack-boost="ignore" onto this tag at
+// output. Do not add that attribute here; see the file header.
 function kk_schema_emit($schema) {
     if (empty($schema)) return;
     echo "\n<script type=\"application/ld+json\">"
