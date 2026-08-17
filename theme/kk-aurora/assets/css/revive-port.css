@@ -358,36 +358,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   background: linear-gradient(to top, rgba(239, 230, 210, 0.85), rgba(239, 230, 210, 0.2) 45%, transparent 70%);
   pointer-events: none;
 }
-.aurora-proof-strip {
-  position: relative;
-  border-block: 1px solid rgba(217, 74, 31, 0.12);
-  background: rgba(230, 220, 194, 0.55);
-  padding: 1.75rem clamp(1rem, 3vw, 2rem);
-  overflow: hidden;
-}
-
-.aurora-proof-strip-inner {
-  position: relative;
-  max-width: var(--revive-max);
-  margin: 0 auto;
-}
-
-.aurora-proof-outlets {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.85rem 1.75rem;
-  margin-top: 0.85rem;
-}
-
-.aurora-proof-outlets span {
-  font-family: "Space Grotesk", system-ui, sans-serif;
-  font-size: clamp(1.15rem, 2.2vw, 1.65rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: rgba(23, 19, 16, 0.62);
-}
-
+.aurora-stages-band,
 .aurora-archive-band,
 .aurora-work-band,
 .aurora-services-band,
@@ -396,6 +367,179 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   max-width: var(--revive-max);
   margin: 0 auto;
   padding: clamp(3rem, 8vw, 5.5rem) clamp(1rem, 3vw, 2rem);
+}
+
+.aurora-stages-band .aurora-section-lede {
+  max-width: 36rem;
+  margin: 0.75rem 0 0;
+  color: var(--revive-ink-soft);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.aurora-stages-reel-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .aurora-stages-reel-layout {
+    grid-template-columns: minmax(0, 1.25fr) minmax(16rem, 1fr);
+    gap: 1.15rem;
+    align-items: stretch;
+  }
+}
+
+.aurora-stages-feature,
+.aurora-stages-support-photo {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(217, 74, 31, 0.16);
+  background: var(--revive-ink);
+  text-decoration: none;
+  color: var(--revive-surface);
+}
+
+.aurora-stages-feature {
+  min-height: 18rem;
+}
+
+.aurora-stages-support-photo {
+  min-height: 12rem;
+}
+
+.aurora-stages-feature img,
+.aurora-stages-support-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms var(--revive-ease), filter 400ms var(--revive-ease);
+}
+
+.aurora-stages-feature-scrim {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  gap: 0.2rem;
+  padding: 1.15rem 1rem 1rem;
+  background: linear-gradient(to top, rgba(23, 19, 16, 0.88), rgba(23, 19, 16, 0.35) 70%, transparent);
+  pointer-events: none;
+}
+
+.aurora-stage-event,
+.aurora-stage-talk,
+.aurora-stage-kind {
+  display: block;
+}
+
+.aurora-stages-feature-scrim .aurora-stage-event,
+.aurora-stages-list .aurora-stage-event {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.aurora-stages-feature-scrim .aurora-stage-talk,
+.aurora-stages-list .aurora-stage-talk {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.aurora-stages-feature-scrim .aurora-stage-kind,
+.aurora-stages-list .aurora-stage-kind {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.aurora-stages-support {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+
+.aurora-stages-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--revive-line);
+}
+
+.aurora-stages-list a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "event kind"
+    "talk kind";
+  gap: 0.15rem 0.75rem;
+  padding: 0.85rem 0.35rem 0.85rem 0.7rem;
+  border-bottom: 1px solid var(--revive-line);
+  text-decoration: none;
+  color: var(--revive-ink);
+  box-shadow: inset 3px 0 0 transparent;
+  transition: background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.aurora-stages-list .aurora-stage-event { grid-area: event; }
+.aurora-stages-list .aurora-stage-talk { grid-area: talk; }
+.aurora-stages-list .aurora-stage-kind {
+  grid-area: kind;
+  align-self: center;
+  color: var(--revive-accent-text);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+}
+
+.aurora-stages-feature:hover img,
+.aurora-stages-feature:focus-visible img,
+.aurora-stages-support-photo:hover img,
+.aurora-stages-support-photo:focus-visible img {
+  transform: scale(1.03);
+  filter: saturate(1.06);
+}
+
+.aurora-stages-list a:hover,
+.aurora-stages-list a:focus-visible {
+  background: rgba(217, 74, 31, 0.06);
+  box-shadow: inset 3px 0 0 var(--revive-accent);
+}
+
+.aurora-stages-feature:active,
+.aurora-stages-support-photo:active,
+.aurora-stages-list a:active {
+  transform: translateY(1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-stages-feature img,
+  .aurora-stages-support-photo img,
+  .aurora-stages-list a,
+  .aurora-stages-feature,
+  .aurora-stages-support-photo {
+    transition: none;
+  }
+
+  .aurora-stages-feature:hover img,
+  .aurora-stages-feature:focus-visible img,
+  .aurora-stages-support-photo:hover img,
+  .aurora-stages-support-photo:focus-visible img {
+    transform: none;
+    filter: none;
+  }
+
+  .aurora-stages-feature:active,
+  .aurora-stages-support-photo:active,
+  .aurora-stages-list a:active {
+    transform: none;
+  }
 }
 
 .aurora-section-head {
@@ -1153,6 +1297,20 @@ body.aurora-theme #aurora-main :where(.aurora-kicker, .aurora-section-kicker) {
 body.aurora-theme #aurora-main .aurora-service-card :where(.aurora-kicker) {
   color: rgba(239, 230, 210, 0.55) !important;
   -webkit-text-fill-color: rgba(239, 230, 210, 0.55) !important;
+}
+
+/* Stage tiles sit on a dark photo scrim. Beat the homepage ink wash. */
+body.aurora-theme #aurora-main .aurora-stages-feature-scrim,
+body.aurora-theme #aurora-main .aurora-stages-feature-scrim .aurora-stage-event,
+body.aurora-theme #aurora-main .aurora-stages-feature-scrim .aurora-stage-talk,
+body.aurora-theme #aurora-main .aurora-stages-feature-scrim .aurora-stage-kind {
+  color: var(--revive-surface) !important;
+  -webkit-text-fill-color: var(--revive-surface) !important;
+}
+
+body.aurora-theme #aurora-main .aurora-stages-feature-scrim .aurora-stage-kind {
+  color: var(--revive-accent-soft) !important;
+  -webkit-text-fill-color: var(--revive-accent-soft) !important;
 }
 
 body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-button__link {

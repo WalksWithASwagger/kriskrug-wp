@@ -318,11 +318,6 @@ REGISTERED_LITERALS = {
     ),
     (
         "assets/css/revive-port.css",
-        ".aurora-proof-outlets span",
-        "rgba(23, 19, 16, 0.62)",
-    ): ("cream", AA_TEXT, "outlet names on cream"),
-    (
-        "assets/css/revive-port.css",
         ".aurora-work-card-num",
         "rgba(217, 74, 31, 0.45)",
     ): (
