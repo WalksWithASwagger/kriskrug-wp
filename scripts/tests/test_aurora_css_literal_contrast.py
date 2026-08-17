@@ -324,14 +324,14 @@ REGISTERED_LITERALS = {
     (
         "assets/css/revive-port.css",
         ".aurora-work-card-num",
-        "rgba(217, 74, 31, 0.45)",
+        "rgba(239, 230, 210, 0.72)",
     ): (
         "work-card-scrim",
         NOT_STATIC,
-        "decorative index numeral pinned to the card's top-left, where the "
-        "::after scrim is fully transparent — it renders straight onto the "
-        "photo (measured 1.11:1 over mid-grey, 1.88:1 over white). Needs a "
-        "design call: scrim it, make it opaque, or mark it aria-hidden.",
+        "#411 retired the oversized accent drop-numeral. The quiet mono index "
+        "still sits top-left on bare photography (scrim is transparent there), "
+        "so the ratio is not statically determinable. Markup now marks it "
+        "aria-hidden.",
     ),
     (
         "assets/css/revive-port.css",
