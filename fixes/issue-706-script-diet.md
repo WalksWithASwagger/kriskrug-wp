@@ -1,10 +1,49 @@
 # Third-party script diet — apply runbook (#706)
 
-Prepared 2026-08-15. **Nothing here has been applied.** Both halves are live writes and stay KK-gated.
+Prepared 2026-08-15, reconfirmed 2026-08-16. **Nothing here has been applied.** Both halves are live writes and stay KK-gated.
 
 KK ruling on #706 (2026-08-10): **drop the Facebook pixel entirely; delay gtag** to first interaction or 3 s idle.
 
-Artifact: [`issue-706-script-diet-snippet.php`](issue-706-script-diet-snippet.php) — the gtag half. The pixel half is a source-level deactivation, not code.
+Artifact: [`issue-706-script-diet-snippet.php`](issue-706-script-diet-snippet.php) — the gtag half. The pixel half is a source-level removal in **WPCode Lite**, not Code Snippets.
+
+---
+
+## Still live as of 2026-08-16
+
+Logged-out `curl` of `https://kriskrug.co/` (HTTP 200) and `https://kriskrug.co/about/` (HTTP 200). Counts are whole-document (Jetpack Boost relocates the `<script>` tags into `<body>`).
+
+| Marker | Home | About | Meaning |
+|---|---|---|---|
+| `fbevents` | 1 | 1 | Facebook pixel loader still present |
+| `fbq(` | 2 | 2 | `init` + `PageView` still fire |
+| `Meta Pixel` | 2 | 2 | Meta's start/end comment wrapper still in `<head>` |
+| Pixel ID `1720755522050230` | present | present | Unchanged |
+| `google_gtagjs` | 3 | 3 | Site Kit handle (`-js`, `-js-after`, sourceURL) still eager |
+| `G-X7JE8B32L7` | 2 | 2 | Same GA4 property |
+| `kk-gtag-delayed` | 0 | 0 | Prepared delay snippet is **not** live |
+| `<meta name="generator" content="Site Kit by Google 1.185.0" />` | present | present | Same injector as 2026-08-15 |
+
+Authenticated Code Snippets list (`GET /wp-json/code-snippets/v1/snippets`, Varlock-injected app password, HTTP 200): **21 snippets, none contain `fbq` / `fbevents` / `Meta Pixel` / `1720755522050230`.** There is no Code Snippets pixel ID. Do not invent one.
+
+WPCode Lite (`insert-headers-and-footers/ihaf` **2.3.8**) is active. Its Header & Footer boxes and snippet bodies are **not** on REST (probed `wpcode/v1` and `wp/v2` types: no route). WPCode snippet ID is **unknown**. Do not invent one.
+
+This lane did not edit live snippets, WPCode, cache, or GA4.
+
+---
+
+## KK one-sitting checklist
+
+Do the pixel first. Snapshot before every write. Do not delete anything.
+
+1. Copy the WPCode Header & Footer boxes (and any matching WPCode snippet) to `~/kk-snapshots/` before editing.
+2. Snapshot Code Snippets via the REST command in step 0 (restore source for the gtag half).
+3. In **WPCode** (not the Code Snippets plugin), find `1720755522050230` / `<!-- Meta Pixel Code -->`. If the box/snippet is pixel-only, deactivate or clear it. If mixed, delete only the Meta Pixel wrapper. If neither WPCode surface has it, **stop**.
+4. Purge Pagely PressCACHE. Logged-out grep: `fbevents` / `fbq(` / `facebook.com/tr` expect 0 on `/` and `/about/`. Use `?cb=$RANDOM` if the canonical URL is still a HIT.
+5. In the **Code Snippets** plugin, add `KK Script Diet` from [`issue-706-script-diet-snippet.php`](issue-706-script-diet-snippet.php), strip `<?php`, scope front-end, activate. Record the new ID here after install.
+6. Purge PressCACHE again. Logged-out grep: `google_gtagjs-js` expect 0, `kk-gtag-delayed` expect 1. Then the browser/GA4 checks in step 3.
+7. Rerun PSI mobile. **TBT / third-party / long tasks should move. LCP and CLS will not.** Do not credit this change if LCP/CLS shifts.
+
+Rollback is a toggle on each surface, not a backup restore. Code Snippets safe mode undoes only the gtag delay; it does **not** put the pixel back.
 
 ---
 
@@ -31,7 +70,11 @@ Verified 2026-08-15 by reading the public homepage (`curl https://kriskrug.co/`,
 - **Not a dedicated pixel plugin:** no pixel-related namespace in the public REST namespace list. What is there: `code-snippets/v1`, `google-site-kit/v1`, `jetpack/v4`, `jetpack-boost/v1`, `popup-maker/v2`, `redirection/v1`, `akismet/v1`, `zbscrm/v1`.
 - Repo corroboration: `content/drafts/alt-text-backfill-2026-08-02/inventory.csv` already logged this pixel's `<noscript>` image site-wide with source `tracking-pixel-snippet`.
 
-**Conclusion, stated at the confidence the evidence supports:** the pixel is hand-installed PHP/HTML on a `wp_head` hook, and the Code Snippets plugin is active and is the only surface on this site that does that. It is almost certainly a Code Snippet. This has **not** been confirmed by reading the snippet list, because that needs an authenticated REST call and credentials did not resolve in this worktree. Step 1 of the apply closes that gap in one call. Do not skip it.
+**Conclusion as of 2026-08-15:** hand-installed PHP/HTML on a `wp_head` hook, not the theme and not a dedicated pixel plugin.
+
+**Closed 2026-08-16:** it is **not** a Code Snippets plugin snippet. The authenticated list (21 bodies) has no pixel. Do not look for a Code Snippets ID, and do not invent one.
+
+**Remaining surface:** WPCode Lite 2.3.8 (`insert-headers-and-footers/ihaf`), whose bodies are not REST-enumerable. That is the wp-admin place to look (Header & Footer first, then WPCode's own snippet list). WPCode snippet ID is unknown; do not invent one. If both WPCode surfaces miss, stop and report — do not deactivate unrelated Code Snippets.
 
 ### One mechanism detail that matters for verification
 
@@ -51,11 +94,13 @@ Do the pixel first. It is the bigger, more certain win and it is pure subtractio
 # Rendered HTML, logged out — the before-picture for every grep below
 curl -s https://kriskrug.co/ > /tmp/kk-706-home-before.html
 grep -c "fbevents" /tmp/kk-706-home-before.html          # expect 1
-grep -c "google_gtagjs-js" /tmp/kk-706-home-before.html  # expect 2 (tag + -after)
+grep -c "google_gtagjs-js" /tmp/kk-706-home-before.html  # expect 3 as of 2026-08-16 (tag + -after + sourceURL)
 ```
 
+Also copy WPCode Header & Footer (and any matching WPCode snippet) to `~/kk-snapshots/` **before** step 1. That plugin has no REST dump; the Code Snippets JSON below does not restore the pixel.
+
 ```bash
-# Full Code Snippets snapshot — code bodies included, this is the restore source.
+# Full Code Snippets snapshot — gtag-half restore source only (pixel is not in this list).
 # Write it OUTSIDE the repo: it is a code dump, do not commit it.
 varlock run --inject vars -- sh -eu -c '
   umask 077
@@ -86,44 +131,56 @@ evidence.
 
 PSI baseline already exists and is committed: `docs/current-state/reports/psi-mobile-2026-08-10.md`. Do not re-baseline — the whole point is comparing to it.
 
-### 1. Locate the pixel, then read what else its snippet contains
+### 1. Locate the pixel in WPCode (wp-admin)
 
-From the snapshot JSON, find the snippet whose `code` contains `fbq` or `1720755522050230`. Record its `id`, `name`, `scope`, and `active`.
+The Code Snippets plugin list was already read on 2026-08-16. Skip searching it for the pixel. Two different left-nav items exist; use the right one:
 
-**Before deactivating, read the whole snippet body.** If it only prints the Meta Pixel block, deactivating it is the entire fix. If it also carries unrelated head markup — a verification meta, a Pinterest tag, anything — deactivating the snippet takes that down too. In that case edit the pixel block out and leave the rest, rather than flipping `active`.
+| Plugin | Left nav | Pixel? | Gtag delay? |
+|---|---|---|---|
+| **WPCode Lite** (Insert Headers and Footers) | **WPCode** | Yes — look here | No |
+| **Code Snippets** (Shea Bunge) | **Snippets** | No — 21 bodies checked | Yes — install `KK Script Diet` here |
 
-The `<meta name="google-site-verification">` that renders directly after the pixel is *probably* Site Kit's (Site Kit prints it at `wp_head` 99), but confirm from the snippet body rather than trusting that.
+Exact clicks:
 
-If no snippet matches, stop and report. The pixel is then coming from a surface this prep did not identify, and the removal step needs re-derivation before anything is touched.
+1. wp-admin → **WPCode → Header & Footer** (`admin.php?page=wpcode-headers-footers`). If that submenu is missing, try the legacy Insert Headers and Footers screen (`admin.php?page=ihaf`).
+2. Search the Header (then Body, then Footer) box for `1720755522050230` or `<!-- Meta Pixel Code -->`.
+3. If the boxes are empty of pixel markup: **WPCode → Code Snippets** (`admin.php?page=wpcode`) → search the same strings.
+4. **Before editing, snapshot.** Copy the entire box or snippet body to `~/kk-snapshots/wpcode-pixel-before-706-$(date -u +%Y%m%dT%H%M%SZ).txt` (mode 0600). This is the restore source. WPCode has no REST dump.
+5. Read the whole box/snippet. If it only prints the Meta Pixel block, deactivate the WPCode snippet (or clear that box). If it also carries unrelated head markup — a verification meta, a Pinterest tag, anything — delete only the `<!-- Meta Pixel Code -->` … `<!-- End Meta Pixel Code -->` wrapper and leave the rest. The Pinterest `p:domain_verify` meta and Site Kit's `google-site-verification` print as *separate* `wp_head` callbacks today; do not assume they share this box, and do not remove them "while you're there."
 
-### 2. Deactivate the pixel
+If neither WPCode surface matches, **stop and report**. Do not POST `active: false` at a Code Snippets ID. There isn't one.
 
-```bash
-varlock run --inject vars -- sh -eu -c '
-  curl --fail-with-body --silent --show-error -X POST \
-    --user "${WP_USER:?}:${WP_APP_PASSWORD:?}" \
-    -H "Content-Type: application/json" \
-    --data "{\"active\": false}" \
-    https://kriskrug.co/wp-json/code-snippets/v1/snippets/<ID>
-'
-```
+### 2. Remove the pixel, then purge
 
-Deactivate, do not delete. Per `wp-snippet-deploy`, REST DELETE is WAF-blocked anyway, and deactivation keeps the re-enable path to one call. Delete via wp-admin only after a soak, and only if KK wants it gone permanently.
+In WPCode: **Save** the Header & Footer change, or toggle the matching WPCode snippet **inactive**. Do not delete the WPCode snippet until after a soak, and only if KK wants it gone permanently.
 
-Purge Pagely cache after the write (REST edits do not auto-purge).
+Then purge the WordPress page cache:
+
+1. wp-admin → **Pagely® → PressCACHE™ → Purge page cache** (`admin.php?page=press_cache`).
+2. That clears origin. The ARES gateway edge can still serve the canonical URL as a HIT; confirm with `?cb=$RANDOM`. Instant public purge is Pagely Atomic (`atomic.pagely.com`) if origin is clean and the edge is not.
 
 **Verify:**
 
 ```bash
-curl -s https://kriskrug.co/ | grep -c "fbevents\|fbq(\|facebook.com/tr"   # expect 0
-curl -s https://kriskrug.co/about/ | grep -c "fbevents\|fbq("              # expect 0
+curl -s "https://kriskrug.co/?cb=$RANDOM" | grep -c "fbevents\|fbq(\|facebook.com/tr"   # expect 0
+curl -s "https://kriskrug.co/about/?cb=$RANDOM" | grep -c "fbevents\|fbq("              # expect 0
 ```
 
-Confirm no other snippet auto-deactivated (a PHP fatal makes Code Snippets disable things): re-fetch the snippet list and diff `active` flags against the snapshot.
+Also grep a no-query canonical fetch after a few minutes. Confirm Code Snippets `active` flags still match the step-0 snapshot (a PHP fatal in *that* plugin can auto-disable unrelated snippets; WPCode edits should not, but check anyway).
 
 ### 3. Install the gtag delay
 
-Paste `issue-706-script-diet-snippet.php` into Code Snippets as a new snippet, **stripping the leading `<?php`**. Name it `KK Script Diet`. Scope **front-end**. Sibling for reference: the existing `KK Asset Diet` snippet, same scope, same source-of-truth-in-repo convention.
+This half **is** the Code Snippets plugin (left nav **Snippets**). Sibling for reference: live `KK Asset Diet`, id 10, same front-end scope.
+
+**wp-admin (preferred for a one-sitting apply):**
+
+1. wp-admin → **Snippets → Add New** (`admin.php?page=add-snippet`).
+2. Title: `KK Script Diet`.
+3. Paste [`issue-706-script-diet-snippet.php`](issue-706-script-diet-snippet.php) **without** the opening `<?php` tag.
+4. Location: **Only run on site front-end**. Priority default.
+5. Save Changes and Activate. Record the new numeric ID in this runbook; it does not exist yet.
+
+**REST alternative** (same plugin; still snapshot-first via step 0): create in wp-admin rather than guessing an ID. Do not POST against a placeholder `<ID>`.
 
 It has passed `php -l` and `make validate` (phpcs, WordPress security ruleset) in the repo. The committed browser-semantics harness proves that nothing loads before interaction, an early `gtag()` call queues into `dataLayer` and survives, the tag is appended exactly once with `async`, interaction listeners are removed after boot, and the non-interaction path obeys the timing contract below.
 
@@ -134,12 +191,12 @@ one-second ceiling, so an active foreground page boots between roughly three
 and four seconds after `load` (subject to normal browser timer throttling). A
 browser without `requestIdleCallback` boots at the three-second timer.
 
-Purge Pagely cache.
+Purge PressCACHE again (`admin.php?page=press_cache`), then verify with a cache-bust query.
 
 **Verify:**
 
 ```bash
-curl -s https://kriskrug.co/ > /tmp/kk-706-home-after.html
+curl -s "https://kriskrug.co/?cb=$RANDOM" > /tmp/kk-706-home-after.html
 grep -c "google_gtagjs-js" /tmp/kk-706-home-after.html   # expect 0
 grep -c "kk-gtag-delayed"  /tmp/kk-706-home-after.html   # expect 1
 grep -c "G-X7JE8B32L7"     /tmp/kk-706-home-after.html   # expect >=1, inside the delayed loader
@@ -162,15 +219,15 @@ Step 4 is the one that actually proves the ruling was honoured — delayed, not 
 
 ## Rollback
 
-Each step is independently reversible. Nothing here needs a restore drill.
+Each step is independently reversible. Nothing here needs a restore drill. The two halves live in **different plugins**.
 
 | To undo | Do this | Effect |
 |---|---|---|
-| gtag delay | POST `{"active": false}` to the `KK Script Diet` snippet id | Dequeue stops, Site Kit's own tag prints eagerly again. Site Kit settings were never touched, so there is nothing to restore. |
-| Pixel removal | POST `{"active": true}` to the pixel snippet id | Pixel returns. If step 1 required editing the body instead of toggling, restore the `code` field verbatim from the before-snapshot JSON. |
-| Everything, instantly | Code Snippets safe mode | Disables all snippets at once. bc-ai.ca uses `…/wp-admin/admin.php?page=snippets&snippets-safe-mode=1`; confirm the same works here before relying on it as the panic button, since it is version-dependent. |
+| gtag delay | wp-admin → **Snippets** → toggle `KK Script Diet` inactive. REST equivalent: POST `{"active": false}` to that new Code Snippets id (record it at install; it does not exist yet). | Dequeue stops, Site Kit's own tag prints eagerly again. Site Kit settings were never touched. |
+| Pixel removal | WPCode: re-activate the snippet, or paste the Header & Footer box back from `~/kk-snapshots/wpcode-pixel-before-706-*.txt`. | Pixel returns. There is no Code Snippets pixel id to POST. |
+| gtag delay, instantly | Code Snippets safe mode: `https://kriskrug.co/wp-admin/admin.php?page=snippets&snippets-safe-mode=1` | Disables **all Code Snippets**, including unrelated live ones (`KK Schema`, `KK Asset Diet`, …). Confirm it works here before relying on it as the panic button. **Does not restore the pixel** (WPCode). |
 
-Purge Pagely cache after any rollback, then re-run the verify greps above inverted.
+Purge PressCACHE after any rollback (`admin.php?page=press_cache`), then re-run the verify greps inverted (cache-bust with `?cb=`).
 
 Pixel ID `1720755522050230` is recorded here so a re-add never needs an Events Manager dig. It is public in the page source, not a secret.
 
@@ -199,7 +256,7 @@ LCP 7.6 s and CLS 0.430. Both trace to the theme's reveal system and the Boost c
 
 **One honest caveat on the gtag half.** The bytes are not saved, they are moved. Whether PSI *shows* the gtag improvement depends on where Lighthouse's trace ends relative to the fire point. The snippet measures its three-second delay from the `load` event rather than from parse, and on this page load lands late, so gtag should fall outside the trace and the win should be visible. But if the rerun still attributes gtag cost, the fix is not broken — check the browser waterfall in the verify step above, which measures the thing that actually matters. If KK wants the metric to move unambiguously, the knob is the `3000` delay before `requestIdleCallback`; raising it or going interaction-only pushes the tag further out at the cost of losing bounced sessions from GA4.
 
-**How to confirm:** rerun PSI mobile against `https://kriskrug.co/` (https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fkriskrug.co%2F, Mobile tab), then write `docs/current-state/reports/psi-mobile-<YYYY-MM-DD>.md` in the same shape as the 2026-08-10 report and commit it. Close #706 against the third acceptance criterion: "Post-apply PSI shows TBT long tasks from these origins gone."
+**How to confirm:** rerun PSI mobile against `https://kriskrug.co/` (https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fkriskrug.co%2F, Mobile tab), then write `docs/current-state/reports/psi-mobile-<YYYY-MM-DD>.md` in the same shape as the 2026-08-10 report and commit it. Close #706 against the third acceptance criterion: "Post-apply PSI shows TBT long tasks from these origins gone." LCP and CLS staying put is expected, not a failed apply.
 
 Run it at least 30 minutes after the cache purge so PSI is not scoring a partially-warm edge.
 
