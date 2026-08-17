@@ -1,0 +1,38 @@
+{
+  "issue": 339,
+  "source_issues": [335, 336],
+  "mode": "overwrite",
+  "live_wordpress_write_performed": false,
+  "captured": "2026-08-17T02:20:44Z",
+  "note": "KK must explicitly approve overwriting the live non-empty SEO fields. Additive backfill will skip both posts. Dry-run without --execute first. REST keys are registered on live Aurora 1.6.5 via theme inc/seo-meta-rest.php (#661/#677).",
+  "items": [
+    {
+      "id": 35,
+      "slug": "the-lord-of-the-rings-drinking-game",
+      "issue": 335,
+      "live_before": {
+        "modified": "2026-06-14T22:30:33",
+        "jetpack_seo_html_title": "The Lord of the Rings Drinking Game | Kris Krüg",
+        "advanced_seo_description": "Well, I finally saw return of the king last night. I thought it was (predictably) great, and I (predictably) kicked myself for having not seeing it on the big screen."
+      },
+      "meta": {
+        "jetpack_seo_html_title": "The Lord of the Rings Drinking Game: 4 Original Rules",
+        "advanced_seo_description": "Four original Lord of the Rings drinking game rules for Frodo, Sam, Legolas, and cliff falls, plus a trilogy marathon option. Play responsibly."
+      }
+    },
+    {
+      "id": 8802,
+      "slug": "how-to-build-an-ai-second-brain-that-actually-works-for-you",
+      "issue": 336,
+      "live_before": {
+        "modified": "2026-06-28T20:27:34",
+        "jetpack_seo_html_title": "Build an AI Second Brain That Actually Works",
+        "advanced_seo_description": "Most digital systems are designed for neurotypical productivity zombies. What if you built one optimized for your actual thought patterns instead?"
+      },
+      "meta": {
+        "jetpack_seo_html_title": "Build an AI Second Brain That Actually Works for You",
+        "advanced_seo_description": "Build an AI second brain that works with your thought patterns, captures creative chaos, and turns scattered notes and voice memos into finished work."
+      }
+    }
+  ]
+}

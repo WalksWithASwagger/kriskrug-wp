@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "issue": 339,
+  "captured": "2026-08-17T02:20:44Z",
+  "live_wordpress_write_performed": false,
+  "aurora": {
+    "issue_body_zip": "1.3.39",
+    "verdict": "obsolete",
+    "live_style_css": "1.6.5",
+    "repo_style_css": "1.6.6",
+    "note": "Do not upload kk-aurora-seo-metadata-1.3.39-20260713.zip or the 1.3.37 rollback zip. OG and standard-description ownership is theme-side on current 1.6.5. Check remaining snippet gaps against 1.6.5 output, not that zip."
+  },
+  "wp_generator": "WordPress 7.0.4",
+  "items": [
+    {
+      "issue": 249,
+      "verdict": "STILL OPEN",
+      "write_kind": "content",
+      "payload": "apply-249-about-ycdd.md",
+      "target": {"type": "page", "id": 1208, "slug": "about", "modified": "2026-08-01T09:59:39"}
+    },
+    {
+      "issue": 328,
+      "verdict": "STILL OPEN",
+      "write_kind": "content",
+      "payload": "apply-328-most-benevolent.md",
+      "sources": [
+        {"type": "post", "id": 2950, "slug": "community-weaving-how-digital-interactions-shape-our-physical-world", "modified": "2026-06-28T20:38:58"},
+        {"type": "post", "id": 2665, "slug": "embracing-the-future-my-journey-with-generative-ai-and-building-a-learning-community-on-discord", "modified": "2026-06-28T20:39:43"}
+      ]
+    },
+    {
+      "issue": 335,
+      "verdict": "STILL OPEN",
+      "write_kind": "meta_and_content",
+      "payload": "apply-335-lotr-seo-and-footer.md",
+      "targets": [
+        {"type": "post", "id": 35, "slug": "the-lord-of-the-rings-drinking-game", "modified": "2026-06-14T22:30:33"},
+        {"type": "post", "id": 58, "slug": "mcsweeneys-lists", "modified": "2026-06-14T22:29:25"}
+      ]
+    },
+    {
+      "issue": 336,
+      "verdict": "STILL OPEN",
+      "write_kind": "meta_and_content",
+      "payload": "apply-336-ai-second-brain.md",
+      "target": {"type": "post", "id": 8802, "slug": "how-to-build-an-ai-second-brain-that-actually-works-for-you", "modified": "2026-06-28T20:27:34"},
+      "sources": [
+        {"type": "post", "id": 9774, "slug": "what-journalists-need-to-know-about-ai-right-now", "modified": "2026-06-14T20:05:53"},
+        {"type": "post", "id": 12327, "slug": "storyhive-haus-of-owl-jordan-dack", "modified": "2026-07-18T11:20:49"}
+      ]
+    },
+    {
+      "issue": 342,
+      "verdict": "STILL OPEN",
+      "write_kind": "content",
+      "payload": "apply-342-both-hands-full.md",
+      "target": {"type": "post", "id": 11171, "slug": "both-hands-full", "modified": "2026-08-10T18:24:39"}
+    },
+    {
+      "issue": "theme-zip",
+      "verdict": "DONE / DEAD",
+      "write_kind": "none",
+      "payload": null,
+      "note": "Aurora 1.3.39 zip deploy is obsolete. Live is 1.6.5."
+    }
+  ]
+}
