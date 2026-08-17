@@ -39,8 +39,19 @@ Page edit snapshots `~/kk-snapshots/page-*-before-706-purge-*.json` for the no-o
 - Pixel: reactivate WPCode 7917. Do not invent a Code Snippets pixel id.
 - Then cache-bust. PressCACHE/Atomic if the canonical URL stays stale.
 
+## Browser Network (Playwright, Chrome for Testing, 390×844, 2026-08-17 05:49 UTC)
+
+Logged-out `https://kriskrug.co/?cb=…`. `#kk-gtag-delayed` 1, `#google_gtagjs-js` 0.
+
+| Path | Facebook / fbevents | gtag |
+|---|---|---|
+| Load + 2.5 s, no input | **0** requests | **0** requests |
+| Then a click | 0 | **1** `gtag/js?id=G-X7JE8B32L7` |
+| Separate idle run, no input | **0** | first `gtag/js` at **2874 ms** after Playwright `load` (3 s timer is from the document `load` event, which fires slightly before Playwright's callback) |
+
+Pixel ID `1720755522050230` did not appear in the network log.
+
 ## Still owed
 
-1. Browser/GA4 checks from the runbook (Network: no `googletagmanager` during load; click then `gtag/js?id=G-X7JE8B32L7`; idle path after 3 s).
-2. PSI mobile vs `docs/current-state/reports/psi-mobile-2026-08-10.md`. TBT / third-party should move. LCP and CLS should not. Do not close #706 on HTML greps alone.
-3. #731 Jetpack Boost critical-CSS regen in wp-admin.
+1. PSI mobile vs `docs/current-state/reports/psi-mobile-2026-08-10.md`. The unauthenticated PSI API returned **429** (`quota_limit_value: 0`). Run https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fkriskrug.co%2F Mobile. TBT / third-party should move. LCP and CLS should not. Do not close #706 without that report.
+2. #731 Jetpack Boost critical-CSS regen in wp-admin. Prep: `reports/issue-731-boost-critical-css-blocked-20260817.md`.
