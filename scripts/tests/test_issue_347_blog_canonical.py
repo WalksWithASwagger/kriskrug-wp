@@ -111,7 +111,7 @@ class Issue347BlogCanonicalTests(unittest.TestCase):
         self.assertEqual("https://kriskrug.co/blog/page/2/", result["canonical"])
         self.assertEqual(result["canonical"], result["tags"]["og:url"])
         self.assertIn('href="https://kriskrug.co/blog/page/2/"', result["link"])
-        self.assertEqual("Writing — Kris Krug", result["tags"]["og:title"])
+        self.assertEqual("Writing | Kris Krüg", result["tags"]["og:title"])
 
     def test_non_blog_routes_do_not_gain_an_archive_canonical(self):
         result = render_archive_identity(
