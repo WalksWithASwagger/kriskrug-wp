@@ -100,5 +100,45 @@ class Homepage412CreativeLabsTests(unittest.TestCase):
         self.assertIn("object-position: center 35%", self.css)
 
 
+class Homepage413LogoSoupTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.front = FRONT_PAGE.read_text(encoding="utf-8")
+        cls.css = REVIVE.read_text(encoding="utf-8")
+        cls.js = (ROOT / "theme/kk-aurora/assets/js/theme.js").read_text(encoding="utf-8")
+        cls.soup = _section(cls.front, "aurora-logo-soup")
+
+    def test_logo_soup_has_at_least_eight_named_clients(self):
+        labels = re.findall(r'aria-label="([^"]+)"', self.soup)
+        self.assertGreaterEqual(len(labels), 8)
+        for name in (
+            "American Express",
+            "CIBC",
+            "Getty Images",
+            "Hootsuite",
+            "Lululemon",
+            "Microsoft",
+            "National Geographic",
+            "Pentagram",
+            "Red Bull",
+            "United Nations",
+        ):
+            self.assertIn(name, labels)
+
+    def test_logo_soup_copy_has_no_rooms_or_em_dashes(self):
+        self.assertEqual(0, len(re.findall(r"rooms?", self.soup, flags=re.I)))
+        self.assertNotIn("\u2014", self.soup)
+        self.assertIn("The logos are the receipts.", self.soup)
+        self.assertIn("Hover or focus a logo.", self.soup)
+
+    def test_logo_soup_is_monochrome_and_interactive(self):
+        self.assertIn("filter: grayscale(1) contrast(1.05)", self.css)
+        self.assertIn(".aurora-logo-soup__item:hover img", self.css)
+        self.assertIn(".aurora-logo-soup__item:focus-visible", self.css)
+        self.assertIn("aria-live=\"polite\"", self.soup)
+        self.assertIn("function initLogoSoup", self.js)
+        self.assertIn("initLogoSoup()", self.js)
+
+
 if __name__ == "__main__":
     unittest.main()

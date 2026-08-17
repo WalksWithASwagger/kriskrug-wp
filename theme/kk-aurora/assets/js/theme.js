@@ -525,6 +525,40 @@
   // FORM ENHANCEMENTS
   // ============================================
 
+  function initLogoSoup() {
+    const root = document.getElementById('clients');
+    if (!root) return;
+
+    const readout = document.getElementById('aurora-logo-soup-readout');
+    const items = root.querySelectorAll('.aurora-logo-soup__item');
+    const empty = 'Hover or focus a logo.';
+
+    function setActive(btn) {
+      items.forEach((el) => {
+        el.classList.toggle('is-active', el === btn);
+      });
+      if (!readout) return;
+      readout.textContent = btn
+        ? `${btn.getAttribute('aria-label')}: ${btn.getAttribute('data-note') || ''}`
+        : empty;
+    }
+
+    items.forEach((btn) => {
+      btn.addEventListener('mouseenter', () => setActive(btn));
+      btn.addEventListener('focus', () => setActive(btn));
+      btn.addEventListener('click', () => {
+        const stickyTap = window.matchMedia('(hover: none)').matches;
+        setActive(stickyTap && btn.classList.contains('is-active') ? null : btn);
+      });
+    });
+
+    root.addEventListener('mouseleave', () => {
+      if (!root.querySelector('.aurora-logo-soup__item:focus')) {
+        setActive(null);
+      }
+    });
+  }
+
   function initForms() {
     // Add active class to form groups with focus
     document.querySelectorAll('.aurora-form-group input, .aurora-form-group textarea').forEach(input => {
@@ -571,6 +605,7 @@
     initArticleReadingHelpers();
     initArticleBlogLuxMotion();
     initLazyImages();
+    initLogoSoup();
     initForms();
     initColorScheme();
   }

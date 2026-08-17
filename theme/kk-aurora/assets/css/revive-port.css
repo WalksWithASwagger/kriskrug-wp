@@ -786,6 +786,133 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   }
 }
 
+/* #413 Client logo soup: monochrome at rest, color + note on hover/focus. */
+.aurora-logo-soup {
+  position: relative;
+  max-width: none;
+  border-block: 1px solid rgba(217, 74, 31, 0.12);
+  background: rgba(230, 220, 194, 0.55);
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.aurora-logo-soup-inner {
+  max-width: var(--revive-max);
+  margin: 0 auto;
+}
+
+.aurora-logo-soup .aurora-section-head {
+  margin-bottom: 1.25rem;
+}
+
+.aurora-logo-soup-lede {
+  margin: 0.65rem 0 0;
+  max-width: 36rem;
+  color: var(--revive-ink-soft);
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  line-height: 1.45;
+}
+
+.aurora-logo-soup__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.75rem 0.5rem;
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.aurora-logo-soup__grid > li {
+  margin: 0;
+  padding: 0;
+}
+
+.aurora-logo-soup__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(7.5rem, 16vw, 10.5rem);
+  min-height: 3.25rem;
+  margin: 0;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+}
+
+.aurora-logo-soup__wordmark {
+  display: block;
+  width: 100%;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(0.78rem, 1.4vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--revive-ink-muted);
+  transition: color 200ms ease, opacity 200ms ease;
+}
+
+.aurora-logo-soup__wordmark[data-brand="lululemon"] {
+  text-transform: lowercase;
+  letter-spacing: 0.12em;
+}
+
+.aurora-logo-soup__item img {
+  display: block;
+  width: 100%;
+  height: 2.4rem;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.05);
+  opacity: 0.82;
+  transition: filter 200ms ease, opacity 200ms ease;
+}
+
+.aurora-logo-soup__item:hover .aurora-logo-soup__wordmark,
+.aurora-logo-soup__item:focus-visible .aurora-logo-soup__wordmark,
+.aurora-logo-soup__item.is-active .aurora-logo-soup__wordmark {
+  color: var(--revive-ink);
+}
+
+.aurora-logo-soup__item:hover img,
+.aurora-logo-soup__item:focus-visible img,
+.aurora-logo-soup__item.is-active img {
+  filter: none;
+  opacity: 1;
+}
+
+.aurora-logo-soup__item:focus-visible {
+  outline: 2px solid var(--revive-accent-text);
+  outline-offset: 3px;
+}
+
+.aurora-logo-soup__readout {
+  min-height: 1.5em;
+  margin: 1.1rem 0 0;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--revive-ink-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-logo-soup__wordmark,
+  .aurora-logo-soup__item img {
+    transition: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .aurora-logo-soup__item {
+    width: clamp(6.5rem, 42vw, 9rem);
+    min-height: 2.85rem;
+  }
+}
+
 .aurora-services-band {
   background: var(--revive-ink);
   color: var(--revive-surface);
