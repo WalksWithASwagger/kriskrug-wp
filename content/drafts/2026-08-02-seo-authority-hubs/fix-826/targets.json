@@ -1,0 +1,89 @@
+{
+  "issue": 826,
+  "live_reconfirm": "2026-08-17T03:30:00Z",
+  "contact_find": "http://www.kriskrug.com/contact",
+  "contact_replace": "https://kriskrug.co/contact/",
+  "term_ids": {
+    "web-early-blog": 1757,
+    "ai-ethics-philosophy": 1678,
+    "events-reports": 1676,
+    "vancouver-ai-ecosystem": 1662,
+    "ai-creatives": 1665,
+    "photography-visual-storytelling": 1756
+  },
+  "pillars": {
+    "1678": {
+      "url": "https://kriskrug.co/ai-ethics/",
+      "label": "AI Ethics and Philosophy"
+    },
+    "1676": {
+      "url": "https://kriskrug.co/ai-events/",
+      "label": "Events and Reports"
+    },
+    "1756": {
+      "url": "https://kriskrug.co/category/photography-visual-storytelling/",
+      "label": "Photography and Visual Storytelling"
+    }
+  },
+  "posts": [
+    {
+      "id": 3814,
+      "slug": "the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things",
+      "url": "https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/",
+      "from_category": "web-early-blog",
+      "to_category": "ai-ethics-philosophy",
+      "old_pillar_href": "https://kriskrug.co/category/web-early-blog/",
+      "old_pillar_label": "Web and Early Blog archive",
+      "modified_gmt_at_reconfirm": "2026-06-28T20:37:13"
+    },
+    {
+      "id": 3330,
+      "slug": "the-future-called-i-answered",
+      "url": "https://kriskrug.co/2023/09/29/the-future-called-i-answered/",
+      "from_category": "web-early-blog",
+      "to_category": "events-reports",
+      "old_pillar_href": null,
+      "old_pillar_label": null,
+      "modified_gmt_at_reconfirm": "2026-06-14T16:57:04"
+    },
+    {
+      "id": 1067,
+      "slug": "hardcore-superstar-photoshoot",
+      "url": "https://kriskrug.co/2006/11/15/hardcore-superstar-photoshoot/",
+      "from_category": "vancouver-ai-ecosystem",
+      "to_category": "photography-visual-storytelling",
+      "old_pillar_href": "https://kriskrug.co/vancouver-ai/",
+      "old_pillar_label": "Vancouver AI Ecosystem",
+      "modified_gmt_at_reconfirm": "2026-07-11T11:49:15"
+    },
+    {
+      "id": 1063,
+      "slug": "made-in-vancouver-photoshoot",
+      "url": "https://kriskrug.co/2006/11/13/made-in-vancouver-photoshoot/",
+      "from_category": "vancouver-ai-ecosystem",
+      "to_category": "photography-visual-storytelling",
+      "old_pillar_href": "https://kriskrug.co/vancouver-ai/",
+      "old_pillar_label": "Vancouver AI Ecosystem",
+      "modified_gmt_at_reconfirm": "2026-07-11T11:49:39"
+    },
+    {
+      "id": 1147,
+      "slug": "fashion-photoshoot-for-discollection",
+      "url": "https://kriskrug.co/2007/02/06/fashion-photoshoot-for-discollection/",
+      "from_category": "ai-creatives",
+      "to_category": "photography-visual-storytelling",
+      "old_pillar_href": "https://kriskrug.co/ai-for-creatives/",
+      "old_pillar_label": "AI for Creatives",
+      "modified_gmt_at_reconfirm": "2026-07-11T11:49:01"
+    },
+    {
+      "id": 2819,
+      "slug": "exquisite-corpse-collaborative-ai-art-experiment-on-discord-w-midjourney-zoom-out",
+      "url": "https://kriskrug.co/2023/08/16/exquisite-corpse-collaborative-ai-art-experiment-on-discord-w-midjourney-zoom-out/",
+      "from_category": null,
+      "to_category": null,
+      "href_repair": true,
+      "modified_gmt_at_reconfirm": "2026-06-28T20:39:19"
+    }
+  ]
+}
