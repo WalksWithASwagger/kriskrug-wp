@@ -50,7 +50,7 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 
 | File | Purpose | Live? | Snippet ID | Last verified | Evidence |
 |---|---|---|---|---|---|
-| `schema-snippets-deployed.php` | **Canonical** Person / WebSite / BlogPosting / Breadcrumb / Service JSON-LD | **Live** | 5 | 2026-08-15 | Rendered JSON-LD matches values, block set and key order, incl. `Person.image` appended last and the #425 `BlogPosting` default. ID from `docs/current-state/TWO-TRACK-MODEL.md`, `docs/current-state/CSS-DEADCODE-OVERLAP-AUDIT.md` |
+| `schema-snippets-deployed.php` | **Canonical** Person / WebSite / BlogPosting / Breadcrumb / Service JSON-LD | **Live** | 5 | 2026-08-16 | Rendered JSON-LD matches values, block set and key order, incl. `Person.image` appended last and the #425 `BlogPosting` default. Live `data-jetpack-boost="ignore"` on those tags is Boost-injected (Defer JS), not authored here — see the file header and `docs/current-state/reports/schema-boost-ignore-758-2026-08-16.md`. ID from `docs/current-state/TWO-TRACK-MODEL.md`, `docs/current-state/CSS-DEADCODE-OVERLAP-AUDIT.md` |
 | `schema-snippets.php` | Reference / future mu-plugin draft of the same schema | **Not live** | none | 2026-08-15 | Gated on `kk_schema_is_ready()`, still full of `VERIFY-ME`, so it would emit nothing. Live `worksFor` / `sameAs` contradict it. Open issue #741 retains the authenticated-body proof and deletion/pointer decision |
 | `asset-diet-snippet.php` | Drops unused Jetpack / Popup Maker / jQuery Migrate CSS+JS | **Live** | 10 | not re-checked here | `docs/current-state/archive/WORK-PLAN-2026-07-01.md`, `docs/current-state/AURORA-STYLESHEET-DECISION-2026-08-02.md`. **Issue #706 is active against this file. Do not edit it without coordinating.** |
 | `issue-706-script-diet-snippet.php` | Prepared Site Kit gtag delay; pairs with a separately gated Meta Pixel removal | **Not live; prep only** | none | 2026-08-16 | `issue-706-script-diet.md` and merged PR #760 state that nothing was applied and #706 closes only after a KK-approved apply plus PSI verification |
@@ -69,10 +69,16 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 this file. "Active in the capture" means only that the committed authenticated
 2026-07-24 inventory recorded the Code Snippet slot as enabled. Neither phrase
 means the bodies are byte-identical, because no snippet body was read back live in
-this pass. One known open delta is recorded in the header of
-`schema-snippets-deployed.php`: live wraps JSON-LD in
-`<script data-jetpack-boost="ignore" ...>` and nothing in this repo emits that
-attribute. Resolve that before the next schema deploy.
+this pass. The live JSON-LD wrapper
+`<script data-jetpack-boost="ignore" type="application/ld+json">` is
+**Boost-injected** (issue #758): Jetpack Boost's Defer JS pipeline stamps
+that attribute onto `application/ld+json` (also `application/json` and
+`importmap`) so it does not move those blocks. `kk_schema_emit()` in
+`schema-snippets-deployed.php` correctly omits the attribute. Other live
+scripts (Site Kit gtag, Meta Pixel inline, `speculationrules`, Boost's
+own `boost-cache` bundle) are exempt because they are not in that type
+set. Pasting the repo file over snippet 5 will not strip the rendered
+attribute. Do not add it by hand.
 
 ## Table B. Served root files
 
@@ -110,10 +116,11 @@ Recorded here so they are not lost. None are fixed in the #741 PR.
 
 1. **No snippet body was ever read back.** Everything in Table A is inferred from
    rendered output. An authenticated `GET code-snippets/v1/snippets?context=edit`
-   would upgrade all of it to direct proof, and would settle the
-   `data-jetpack-boost` question. Needs `WP_USER` + `WP_APP_PASSWORD`.
-   This missing direct proof keeps issue #741 open; merging the index does not
-   satisfy its authenticated-body acceptance criterion.
+   would upgrade slot/body claims to direct proof. Needs `WP_USER` +
+   `WP_APP_PASSWORD`. The `data-jetpack-boost` wrapper is settled without that
+   read (#758): Boost injects it at output. The missing authenticated body
+   still keeps issue #741 open; merging the index does not satisfy its
+   authenticated-body acceptance criterion.
 2. **Snippet 12 is inactive and should not be reactivated.** The committed capture
    supplies its ID and inactive state; current rendered output proves Aurora is the
    provider. Optional deletion/rename of the inactive live slot remains KK-gated.
