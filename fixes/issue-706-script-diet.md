@@ -1,6 +1,6 @@
 # Third-party script diet — apply runbook (#706)
 
-Prepared 2026-08-15, reconfirmed 2026-08-16. **Nothing here has been applied.** Both halves are live writes and stay KK-gated.
+**Applied 2026-08-17T05:26Z.** Pixel: WPCode CPT `7917` (`META PIXEL`) set to draft + `wpcode_snippets` cache rebuilt. Gtag delay: Code Snippets **id 22** `KK Script Diet`, front-end, active. Canonical HTML after no-op title-saves (pages 3930 `/`, 1208 `/about/`, 1887 `/speaking/`, 12013 `/photography/`, 2418 `/contact/`, 2672 `/work/`): `fbevents` 0, `google_gtagjs-js` 0, `kk-gtag-delayed` 1. Snapshots in `~/kk-snapshots/` (mode 0600), not the repo. Rollback: reactivate WPCode 7917; POST `{"active":false}` to snippet 22. PSI mobile rerun still owed (≥30 min after purge).
 
 KK ruling on #706 (2026-08-10): **drop the Facebook pixel entirely; delay gtag** to first interaction or 3 s idle.
 
@@ -178,7 +178,7 @@ This half **is** the Code Snippets plugin (left nav **Snippets**). Sibling for r
 2. Title: `KK Script Diet`.
 3. Paste [`issue-706-script-diet-snippet.php`](issue-706-script-diet-snippet.php) **without** the opening `<?php` tag.
 4. Location: **Only run on site front-end**. Priority default.
-5. Save Changes and Activate. Record the new numeric ID in this runbook; it does not exist yet.
+5. Save Changes and Activate. **Live id 22** (created 2026-08-17).
 
 **REST alternative** (same plugin; still snapshot-first via step 0): create in wp-admin rather than guessing an ID. Do not POST against a placeholder `<ID>`.
 
@@ -223,7 +223,7 @@ Each step is independently reversible. Nothing here needs a restore drill. The t
 
 | To undo | Do this | Effect |
 |---|---|---|
-| gtag delay | wp-admin → **Snippets** → toggle `KK Script Diet` inactive. REST equivalent: POST `{"active": false}` to that new Code Snippets id (record it at install; it does not exist yet). | Dequeue stops, Site Kit's own tag prints eagerly again. Site Kit settings were never touched. |
+| gtag delay | wp-admin → **Snippets** → toggle `KK Script Diet` inactive. REST: POST `{"active": false}` to `/wp-json/code-snippets/v1/snippets/22`. | Dequeue stops, Site Kit's own tag prints eagerly again. Site Kit settings were never touched. |
 | Pixel removal | WPCode: re-activate the snippet, or paste the Header & Footer box back from `~/kk-snapshots/wpcode-pixel-before-706-*.txt`. | Pixel returns. There is no Code Snippets pixel id to POST. |
 | gtag delay, instantly | Code Snippets safe mode: `https://kriskrug.co/wp-admin/admin.php?page=snippets&snippets-safe-mode=1` | Disables **all Code Snippets**, including unrelated live ones (`KK Schema`, `KK Asset Diet`, …). Confirm it works here before relying on it as the panic button. **Does not restore the pixel** (WPCode). |
 
