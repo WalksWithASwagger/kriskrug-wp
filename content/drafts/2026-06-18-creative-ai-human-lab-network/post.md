@@ -63,7 +63,7 @@ It began as an AI film prompt challenge and grew teeth when the little film want
 
 ### Ghost Radio
 
-[Ghost Radio](https://ghost.radio.fm/) is the companion signal — the smaller, stranger broadcast surface in the same constellation.
+[Ghost Radio](https://ghost.radio.fm/) is the companion signal: the smaller, stranger broadcast surface in the same constellation.
 
 Not every artifact needs to explain itself like a case study. Sometimes the right move is to make a frequency, leave the light on, and let the thing be a little mysterious. Ghost Radio gives the network somewhere to breathe between the film, the songs, and the notes about how they got made.
 
