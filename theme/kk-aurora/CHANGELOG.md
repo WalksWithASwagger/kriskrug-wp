@@ -21,11 +21,10 @@ When you cut a new release, add a line here and follow
 ---
 
 ## 1.6.9
-**Deployed:** On main
-Project footer: add Dark Crystal, retarget Vancouver Made to `https://unofficial.city/`, and keep BC + AI / Futureproof in the broader Projects list rather than the experiment webring.
+**Deployed:** LIVE (SFTP 2026-08-18, rollback `kk-aurora.bak-1787021714`). Public `style.css` reads 1.6.9. Projects footer links Dark Crystal and `https://unofficial.city/`. Work page 2672 got a surgical card insert (not a full `work.html` replace) so the live lab grid kept Skywhale, Gorgeous Ghost, Wedges, Ghost Radio, and Ethos. Snapshot: `backup/20260818T025650Z-work-lab-cards/`. Receipt: `docs/current-state/reports/aurora-169-live-deploy-20260818.md`.
 
 ## 1.6.8
-**Deployed:** LIVE (SFTP 2026-08-17, latest rollback `kk-aurora.bak-1786942075`; prior swap `kk-aurora.bak-1786942015`). Public `style.css` reads 1.6.8. Custom FSE `front-page` (wp_id 12661) was snapshotted then POSTed from theme `front-page.html` at 2026-08-17 04:51 UTC; homepage now renders labs / logo soup / stages / What People Say. Pixel vs pre-HTML 1.6.7 (`20260817T044445Z` → `20260817T045150Z`): homepage fail 55–62% (expected height + new bands); 29 other pairs pass; `/blog/` tablet warn 0.49%. Boost CSS bundle hash moved `d4faec73b4` → `0f9e6b2840`. Explicit #731 wp-admin regen still owed.
+**Deployed:** Superseded (was live 2026-08-17 until the 1.6.9 swap; rollback seat `kk-aurora.bak-1786942075`; prior swap `kk-aurora.bak-1786942015`). Public `style.css` reads 1.6.8. Custom FSE `front-page` (wp_id 12661) was snapshotted then POSTed from theme `front-page.html` at 2026-08-17 04:51 UTC; homepage now renders labs / logo soup / stages / What People Say. Pixel vs pre-HTML 1.6.7 (`20260817T044445Z` → `20260817T045150Z`): homepage fail 55–62% (expected height + new bands); 29 other pairs pass; `/blog/` tablet warn 0.49%. Boost CSS bundle hash moved `d4faec73b4` → `0f9e6b2840`. Explicit #731 wp-admin regen still owed.
 Homepage cluster: rewrite the Join BC / Futureproof work-band copy, align the triptych, and quiet the card numerals (#411); restore a Creative Labs band with text-below-image cards (#412); bring back a monochrome interactive client logo soup (#413). Stages, What People Say, and newsletter follow in the same cut (#414–#416).
 
 ## 1.6.7
