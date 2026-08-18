@@ -1,0 +1,182 @@
+{
+  "id": 1147,
+  "date": "2007-02-06T14:27:27",
+  "date_gmt": "2007-02-06T22:27:27",
+  "guid": {
+    "rendered": "http://kriskrug.co/?p=1147",
+    "raw": "http://kriskrug.co/?p=1147"
+  },
+  "modified": "2026-07-11T11:49:01",
+  "modified_gmt": "2026-07-11T19:49:01",
+  "password": "",
+  "slug": "fashion-photoshoot-for-discollection",
+  "status": "publish",
+  "type": "post",
+  "link": "https://kriskrug.co/2007/02/06/fashion-photoshoot-for-discollection/",
+  "title": {
+    "raw": "Fashion Photoshoot for Discollection",
+    "rendered": "Fashion Photoshoot for Discollection"
+  },
+  "content": {
+    "raw": "<a href=\"http://www.flickr.com/photos/kk/357281035/\" title=\"Photo Sharing\"><img src=\"http://farm1.static.flickr.com/151/357281035_f16b3043cd_m.jpg\" alt=\"In &amp; Out\" height=\"240\" width=\"161\" align=\"left\" style=\"margin-right: 5px\"/></a> <p><a href=\"http://flickr.com/photos/discollection\" title=\"Kdon&#39;s Flickr\">Kdon</a> over at <a href=\"http://discollection.ca\" title=\"Designer Vintage Clothes\">Discollection</a> is an amazing designer and stylist. I&#39;ve been using her for lots of <a href=\"http://staticphotography.com\" title=\"Vancouver Fashion and Portrait Photography\">Static Photography</a> shoots lately and was even more impressed than usual in the job she did styling the <a href=\"http://www.modelmayhem.com/member.php?id=269667\" title=\"Ashley-Rae on ModelMayhem\">Ashley-Rae</a> photoshoot with awesome <a href=\"http://discollection.ca\" title=\"Vancouer Designer Vintage Clothes\">designer vintage clothes</a> from her store. </p> \n\n<!-- wp:paragraph {\"className\":\"kk-collection-footer\"} -->\n<p class=\"kk-collection-footer\">Part of the <a href=\"https://kriskrug.co/ai-for-creatives/\">AI for Creatives</a> collection. See also: <a href=\"https://kriskrug.co/2026/06/04/ai-keynote-slides-visual-workflow/\">AI Keynote Slides Need Taste Before Prompts</a>.</p>\n<!-- /wp:paragraph -->",
+    "rendered": "<a href=\"http://www.flickr.com/photos/kk/357281035/\" title=\"Photo Sharing\"><img data-recalc-dims=\"1\" loading=\"lazy\" decoding=\"async\" src=\"https://i0.wp.com/farm1.static.flickr.com/151/357281035_f16b3043cd_m.jpg?resize=161%2C240\" alt=\"In &amp; Out\" height=\"240\" width=\"161\" align=\"left\" style=\"margin-right: 5px\"/></a> <p><a href=\"http://flickr.com/photos/discollection\" title=\"Kdon&#39;s Flickr\">Kdon</a> over at <a href=\"http://discollection.ca\" title=\"Designer Vintage Clothes\">Discollection</a> is an amazing designer and stylist. I&#39;ve been using her for lots of <a href=\"http://staticphotography.com\" title=\"Vancouver Fashion and Portrait Photography\">Static Photography</a> shoots lately and was even more impressed than usual in the job she did styling the <a href=\"http://www.modelmayhem.com/member.php?id=269667\" title=\"Ashley-Rae on ModelMayhem\">Ashley-Rae</a> photoshoot with awesome <a href=\"http://discollection.ca\" title=\"Vancouer Designer Vintage Clothes\">designer vintage clothes</a> from her store. </p> \n\n\n<p class=\"kk-collection-footer wp-block-paragraph\">Part of the <a href=\"https://kriskrug.co/ai-for-creatives/\">AI for Creatives</a> collection. See also: <a href=\"https://kriskrug.co/2026/06/04/ai-keynote-slides-visual-workflow/\">AI Keynote Slides Need Taste Before Prompts</a>.</p>\n",
+    "protected": false,
+    "block_version": 1
+  },
+  "excerpt": {
+    "raw": "",
+    "rendered": "<p>Kdon over at Discollection is an amazing designer and stylist. I&#39;ve been using her for lots of Static Photography shoots lately and was even more impressed than usual in the job she did styling the Ashley-Rae photoshoot with awesome designer vintage clothes from her store. Part of the AI for Creatives collection. See also: AI [&hellip;]</p>\n",
+    "protected": false
+  },
+  "author": 1,
+  "featured_media": 12533,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": {
+    "jetpack_seo_html_title": "Fashion Photoshoot for Discollection | Kris Krüg",
+    "advanced_seo_description": "Kdon over at Discollection is an amazing designer and stylist. I've been using her for lots of Static Photography shoots lately and was even more impressed than usual in the job she did styling the As…",
+    "footnotes": ""
+  },
+  "categories": [
+    1665
+  ],
+  "tags": [
+    533,
+    1195,
+    1196,
+    1198
+  ],
+  "permalink_template": "https://kriskrug.co/2007/02/06/%postname%/",
+  "generated_slug": "fashion-photoshoot-for-discollection",
+  "class_list": [
+    "post-1147",
+    "post",
+    "type-post",
+    "status-publish",
+    "format-standard",
+    "has-post-thumbnail",
+    "hentry",
+    "category-ai-creatives",
+    "tag-creativity",
+    "tag-fashion",
+    "tag-fashion-photography",
+    "tag-friends"
+  ],
+  "_links": {
+    "self": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1147",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/types/post"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/users/1"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/comments?post=1147"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 0,
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1147/revisions"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/media/12533"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/media?parent=1147"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "category",
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/categories?post=1147"
+      },
+      {
+        "taxonomy": "post_tag",
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/tags?post=1147"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1147"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1147"
+      }
+    ],
+    "wp:action-sticky": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1147"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1147"
+      }
+    ],
+    "wp:action-create-categories": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1147"
+      }
+    ],
+    "wp:action-assign-categories": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1147"
+      }
+    ],
+    "wp:action-create-tags": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1147"
+      }
+    ],
+    "wp:action-assign-tags": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1147"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

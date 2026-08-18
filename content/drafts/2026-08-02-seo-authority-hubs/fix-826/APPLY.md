@@ -1,6 +1,6 @@
 # #826 APPLY: taxonomy repair + post 2819 contact href
 
-**Prepared, not applied. Do not PATCH until KK says go.**
+**Applied 2026-08-18T02:15Z.** Receipt: [`docs/current-state/reports/issue-826-applied-20260818.md`](../../../../docs/current-state/reports/issue-826-applied-20260818.md). Re-run prints `[SKIP]`. Restore commands below still work.
 Script is dry-run by default. `--apply` is the only write switch.
 
 Parent: #402. This is child 1 of 9. Later hub children edit the same posts, so this lands first.
