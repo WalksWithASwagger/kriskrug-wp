@@ -1,0 +1,112 @@
+{
+  "issue": 831,
+  "parent": 402,
+  "blocked_by": 826,
+  "live_reconfirm": "2026-08-19T23:20:11Z",
+  "status": "prepared_not_applied",
+  "snapshot_note": "WP creds were unset. Public REST has no content.raw. Page 12319 raw is reconstructed from the 2026-07-01 architecture payload. Posts 2833 and 2423 use public content.rendered as a stand-in.",
+  "forbidden_href_substrings": [],
+  "preserve_existing_hrefs": [
+    "https://kriskrug.co/2025/03/01/shane-gibsons-ai-sales-dojo/",
+    "https://kriskrug.co/2025/01/25/human-biography-podcast-w-sharad-khare/",
+    "https://kriskrug.co/category/conversations-interviews/"
+  ],
+  "do_not_touch": [
+    {
+      "id": 3183,
+      "slug": "coffee-community-and-sobriety-matt-mckennas-decade-at-dent",
+      "reason": "no spoke out in the matrix; existing hub footer stays"
+    },
+    {
+      "id": 3330,
+      "slug": "the-future-called-i-answered",
+      "reason": "already links 3183; category is #826"
+    }
+  ],
+  "child1_gate": [
+    {
+      "id": 3814,
+      "slug": "the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things",
+      "from_category": 1757,
+      "to_category": 1678
+    },
+    {
+      "id": 3330,
+      "slug": "the-future-called-i-answered",
+      "from_category": 1757,
+      "to_category": 1676
+    },
+    {
+      "id": 1067,
+      "slug": "hardcore-superstar-photoshoot",
+      "from_category": 1662,
+      "to_category": 1756
+    },
+    {
+      "id": 1063,
+      "slug": "made-in-vancouver-photoshoot",
+      "from_category": 1662,
+      "to_category": 1756
+    },
+    {
+      "id": 1147,
+      "slug": "fashion-photoshoot-for-discollection",
+      "from_category": 1665,
+      "to_category": 1756
+    }
+  ],
+  "items": [
+    {
+      "id": 12319,
+      "kind": "pages",
+      "slug": "ai-conversations",
+      "url": "https://kriskrug.co/ai-conversations/",
+      "modified_gmt_at_reconfirm": "2026-07-01T20:28:05",
+      "find": "    <article class=\"aurora-media-card\">\n      <a href=\"https://kriskrug.co/category/conversations-interviews/\">",
+      "replace": "    <article class=\"aurora-media-card\">\n      <a href=\"https://kriskrug.co/2023/09/22/coffee-community-and-sobriety-matt-mckennas-decade-at-dent/\">\n        <img src=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/09/image-12.png?resize=640,400&amp;ssl=1\" alt=\"Matt McKenna at DENT the Future\" loading=\"lazy\">\n        <div>\n          <h3>Matt McKenna's decade at DENT</h3>\n          <p>Ten years of DENT, ten years sober, and a coffee shop in Miami.</p>\n        </div>\n      </a>\n    </article>\n    <article class=\"aurora-media-card\">\n      <a href=\"https://kriskrug.co/category/conversations-interviews/\">",
+      "anchors": [
+        {
+          "row": 15,
+          "text": "Matt McKenna's decade at DENT",
+          "href": "https://kriskrug.co/2023/09/22/coffee-community-and-sobriety-matt-mckennas-decade-at-dent/",
+          "link_style": "card"
+        }
+      ],
+      "preserve_existing_cards": true
+    },
+    {
+      "id": 2833,
+      "kind": "posts",
+      "slug": "dent-the-future-an-insiders-experiences-at-the-dent-conference",
+      "url": "https://kriskrug.co/2023/08/19/dent-the-future-an-insiders-experiences-at-the-dent-conference/",
+      "modified_gmt_at_reconfirm": "2026-06-15T04:37:42",
+      "find": "<a href=\"https://www.instagram.com/real_mckenna\">Matt McKenna</a>",
+      "replace": "<a href=\"https://kriskrug.co/2023/09/22/coffee-community-and-sobriety-matt-mckennas-decade-at-dent/\">Matt McKenna, who has been at every single one</a>",
+      "anchors": [
+        {
+          "row": 16,
+          "text": "Matt McKenna, who has been at every single one",
+          "href": "https://kriskrug.co/2023/09/22/coffee-community-and-sobriety-matt-mckennas-decade-at-dent/"
+        }
+      ],
+      "preserve_footer": true
+    },
+    {
+      "id": 2423,
+      "kind": "posts",
+      "slug": "dent-2019-photo-recap-gallery",
+      "url": "https://kriskrug.co/2019/03/30/dent-2019-photo-recap-gallery/",
+      "modified_gmt_at_reconfirm": "2026-06-29T04:39:59",
+      "find": "who have become friends and collaborators.",
+      "replace": "who have become friends and collaborators. <a href=\"https://kriskrug.co/2023/09/22/coffee-community-and-sobriety-matt-mckennas-decade-at-dent/\">I sat down with Matt McKenna a few years after this</a>.",
+      "anchors": [
+        {
+          "row": 17,
+          "text": "I sat down with Matt McKenna a few years after this",
+          "href": "https://kriskrug.co/2023/09/22/coffee-community-and-sobriety-matt-mckennas-decade-at-dent/"
+        }
+      ],
+      "preserve_footer": true
+    }
+  ]
+}
