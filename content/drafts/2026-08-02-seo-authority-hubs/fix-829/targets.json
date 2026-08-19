@@ -1,0 +1,126 @@
+{
+  "issue": 829,
+  "parent": 402,
+  "blocked_by": 826,
+  "live_reconfirm": "2026-08-19T23:23:05Z",
+  "status": "prepared_not_applied",
+  "snapshot_auth": false,
+  "forbidden_href_substrings": [
+    "/about/"
+  ],
+  "preserved_closing_needles": [
+    "just a faster leak"
+  ],
+  "card_blurb": "A thousand people on Granville Street, and the AI guy standing in the middle of them.",
+  "existing_source_trail_hrefs": [
+    "https://kriskrug.co/2026/05/04/punk-rock-ai/",
+    "https://kriskrug.co/2026/04/17/applied-ethical-ai-responsible-ai-professional-certification-rap/",
+    "https://kriskrug.co/category/ai-ethics-philosophy/"
+  ],
+  "child1_gate": [
+    {
+      "id": 3814,
+      "slug": "the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things",
+      "from_category": 1757,
+      "to_category": 1678
+    },
+    {
+      "id": 3330,
+      "slug": "the-future-called-i-answered",
+      "from_category": 1757,
+      "to_category": 1676
+    },
+    {
+      "id": 1067,
+      "slug": "hardcore-superstar-photoshoot",
+      "from_category": 1662,
+      "to_category": 1756
+    },
+    {
+      "id": 1063,
+      "slug": "made-in-vancouver-photoshoot",
+      "from_category": 1662,
+      "to_category": 1756
+    },
+    {
+      "id": 1147,
+      "slug": "fashion-photoshoot-for-discollection",
+      "from_category": 1665,
+      "to_category": 1756
+    }
+  ],
+  "items": [
+    {
+      "id": 12318,
+      "kind": "pages",
+      "slug": "ai-ethics",
+      "url": "https://kriskrug.co/ai-ethics/",
+      "modified_gmt_at_reconfirm": "2026-07-01T20:27:51",
+      "find": "    <article class=\"aurora-media-card\">\n      <a href=\"https://kriskrug.co/2026/05/04/punk-rock-ai/\">",
+      "replace": "    <article class=\"aurora-media-card\">\n      <a href=\"https://kriskrug.co/2026/05/23/you-cant-drink-data/\">\n        <img src=\"https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/7674-granville-march.jpg?resize=640,400&amp;ssl=1\" alt=\"The march fills two lanes heading down Granville Street under a grey Vancouver sky\" loading=\"lazy\"/>\n        <div>\n          <h3>You Can't Drink Data</h3>\n          <p>A thousand people on Granville Street, and the AI guy standing in the middle of them.</p>\n        </div>\n      </a>\n    </article>\n    <article class=\"aurora-media-card\">\n      <a href=\"https://kriskrug.co/2026/05/04/punk-rock-ai/\">",
+      "anchors": [
+        {
+          "row": 7,
+          "text": "You Can't Drink Data",
+          "href": "https://kriskrug.co/2026/05/23/you-cant-drink-data/",
+          "presence": "card_title",
+          "blurb": "A thousand people on Granville Street, and the AI guy standing in the middle of them."
+        }
+      ],
+      "preserve_existing_cards": true,
+      "preserve_source_trail": true
+    },
+    {
+      "id": 12030,
+      "kind": "posts",
+      "slug": "canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one",
+      "url": "https://kriskrug.co/2026/06/26/canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one/",
+      "modified_gmt_at_reconfirm": "2026-08-01T19:57:26",
+      "find": "We lack consent architecture.</p>",
+      "replace": "We lack consent architecture. I already wrote <a href=\"https://kriskrug.co/2026/05/23/you-cant-drink-data/\">what the water math looks like from street level</a>.</p>",
+      "anchors": [
+        {
+          "row": 8,
+          "text": "what the water math looks like from street level",
+          "href": "https://kriskrug.co/2026/05/23/you-cant-drink-data/"
+        }
+      ],
+      "preserve_closing": true,
+      "forbid_about": true
+    },
+    {
+      "id": 6144,
+      "kind": "posts",
+      "slug": "ai-is-not-your-friend-why-we-need-to-rethink-our-relationship-with-artificial-intelligence",
+      "url": "https://kriskrug.co/2024/06/29/ai-is-not-your-friend-why-we-need-to-rethink-our-relationship-with-artificial-intelligence/",
+      "modified_gmt_at_reconfirm": "2026-06-29T04:33:43",
+      "find": "Peace out! ???</p>",
+      "replace": "Peace out! ??? And <a href=\"https://kriskrug.co/2026/05/23/you-cant-drink-data/\">two years later I went to the protest and wrote down what the signs said</a>.</p>",
+      "anchors": [
+        {
+          "row": 9,
+          "text": "two years later I went to the protest and wrote down what the signs said",
+          "href": "https://kriskrug.co/2026/05/23/you-cant-drink-data/"
+        }
+      ],
+      "preserve_footer": true
+    },
+    {
+      "id": 11882,
+      "kind": "posts",
+      "slug": "we-trained-ai-on-stolen-work",
+      "url": "https://kriskrug.co/2026/05/19/we-trained-ai-on-stolen-work/",
+      "modified_gmt_at_reconfirm": "2026-06-24T18:20:09",
+      "find": "training material without consent.</p>",
+      "replace": "training material without consent. I also saw <a href=\"https://kriskrug.co/2026/05/23/you-cant-drink-data/\">the march where the illustrators showed up as a guild</a>.</p>",
+      "anchors": [
+        {
+          "row": 10,
+          "text": "the march where the illustrators showed up as a guild",
+          "href": "https://kriskrug.co/2026/05/23/you-cant-drink-data/"
+        }
+      ],
+      "preserve_existing_11936_links": true
+    }
+  ]
+}
