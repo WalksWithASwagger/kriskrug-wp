@@ -1,0 +1,23 @@
+{
+  "id": 3567,
+  "slug": "community-art-project-development-process-guide",
+  "status": "publish",
+  "link": "https://kriskrug.co/2023/10/15/community-art-project-development-process-guide/",
+  "modified": "2026-07-24T14:39:46",
+  "modified_gmt": "2026-07-24T22:39:46",
+  "type": "post",
+  "featured_media": 3584,
+  "categories": [
+    1665
+  ],
+  "content_source": "public_rest_rendered",
+  "content_raw_missing": true,
+  "content_rendered_bytes": 41410,
+  "content_raw_bytes": null,
+  "content_raw_has_style": false,
+  "content_raw_has_footer": true,
+  "has_kriskrug_com_contact": false,
+  "has_kriskrug_co_contact": false,
+  "has_cyber_love_garden_href": false,
+  "note": "WP creds missing. content.raw.html is the public content.rendered stand-in for --from-files. Live --apply must GET context=edit and slug-check before any PATCH."
+}

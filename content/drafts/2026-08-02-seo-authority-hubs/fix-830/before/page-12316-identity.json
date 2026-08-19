@@ -1,0 +1,22 @@
+{
+  "id": 12316,
+  "slug": "ai-for-creatives",
+  "status": "publish",
+  "link": "https://kriskrug.co/ai-for-creatives/",
+  "modified": "2026-07-01T12:27:40",
+  "modified_gmt": "2026-07-01T20:27:40",
+  "type": "page",
+  "featured_media": 0,
+  "categories": null,
+  "content_source": "source_pack_and_public_rest",
+  "content_raw_missing": false,
+  "content_rendered_bytes": 3620,
+  "content_raw_bytes": 3599,
+  "content_raw_has_style": false,
+  "content_raw_has_footer": false,
+  "has_kriskrug_com_contact": false,
+  "has_kriskrug_co_contact": false,
+  "has_cyber_love_garden_href": false,
+  "content_raw_source": "content/source-packs/content-architecture-2026/wp-payloads/topic-hubs/ai-for-creatives.html",
+  "note": "Public REST has no content.raw. Raw stand-in is the 2026-07-01 topic-hub payload that still matches live rendered (WP adds decoding=async on img)."
+}
