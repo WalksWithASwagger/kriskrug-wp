@@ -1,5 +1,5 @@
 # Canonical Python test environment for this repo. CI installs this file, and it is the only one that can run `make python-test` (it is the superset: runtime deps plus pytest).
 requests>=2.34.2
-python-dotenv>=1.2.2
+python-dotenv>=1.2.3
 pyyaml>=6.0.3
 pytest>=9.1.1
