@@ -1,0 +1,169 @@
+{
+  "id": 1056,
+  "date": "2006-10-23T14:23:00",
+  "date_gmt": "2006-10-23T22:23:00",
+  "guid": {
+    "rendered": "http://kriskrug.co/?p=1056",
+    "raw": "http://kriskrug.co/?p=1056"
+  },
+  "modified": "2026-06-14T21:20:28",
+  "modified_gmt": "2026-06-15T05:20:28",
+  "password": "",
+  "slug": "kk-on-modelmayhemcom",
+  "status": "publish",
+  "type": "post",
+  "link": "https://kriskrug.co/2006/10/23/kk-on-modelmayhemcom/",
+  "title": {
+    "raw": "kk+ on ModelMayhem.com",
+    "rendered": "kk+ on ModelMayhem.com"
+  },
+  "content": {
+    "raw": "<p class=\"link\"><a href=\"http://www.modelmayhem.com/member.php?id=237347\">kk+ on ModelMayhem.com</a></p><p class=\"extended\">I joined this community site called Model Mayhem to hopefully to know some more photographers, stylists and models in the fashion photography industry. Please check me out over there and give me your feedback. I've met a couple cool peeps already.</p> \n\n<!-- wp:paragraph {\"className\":\"kk-collection-footer\"} -->\n<p class=\"kk-collection-footer\">Part of the <a href=\"https://kriskrug.co/category/photography-visual-storytelling/\">Photography and Visual Storytelling</a> collection. See also: <a href=\"https://kriskrug.co/2023/10/23/embarking-on-a-media-revolution-my-participation-in-the-google-news-initiative-pre-launch-lab/\">Embarking on a Media Revolution: My Participation in the Google News Initiative Pre-launch Lab</a>.</p>\n<!-- /wp:paragraph -->",
+    "rendered": "<p class=\"link\"><a href=\"http://www.modelmayhem.com/member.php?id=237347\">kk+ on ModelMayhem.com</a></p><p class=\"extended\">I joined this community site called Model Mayhem to hopefully to know some more photographers, stylists and models in the fashion photography industry. Please check me out over there and give me your feedback. I&#8217;ve met a couple cool peeps already.</p> \n\n\n<p class=\"kk-collection-footer wp-block-paragraph\">Part of the <a href=\"https://kriskrug.co/category/photography-visual-storytelling/\">Photography and Visual Storytelling</a> collection. See also: <a href=\"https://kriskrug.co/2023/10/23/embarking-on-a-media-revolution-my-participation-in-the-google-news-initiative-pre-launch-lab/\">Embarking on a Media Revolution: My Participation in the Google News Initiative Pre-launch Lab</a>.</p>\n",
+    "protected": false,
+    "block_version": 1
+  },
+  "excerpt": {
+    "raw": "",
+    "rendered": "<p>kk+ on ModelMayhem.com I joined this community site called Model Mayhem to hopefully to know some more photographers, stylists and models in the fashion photography industry. Please check me out over there and give me your feedback. I&#8217;ve met a couple cool peeps already. Part of the Photography and Visual Storytelling collection. See also: Embarking [&hellip;]</p>\n",
+    "protected": false
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "closed",
+  "ping_status": "closed",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": {
+    "jetpack_seo_html_title": "kk+ on ModelMayhem.com | Kris Krüg",
+    "advanced_seo_description": "kk+ on ModelMayhem.com I joined this community site called Model Mayhem to hopefully to know some more photographers, stylists and models in the fashion photography industry.",
+    "footnotes": ""
+  },
+  "categories": [
+    1756
+  ],
+  "tags": [
+    1212
+  ],
+  "permalink_template": "https://kriskrug.co/2006/10/23/%postname%/",
+  "generated_slug": "kk-on-modelmayhem-com",
+  "class_list": [
+    "post-1056",
+    "post",
+    "type-post",
+    "status-publish",
+    "format-standard",
+    "hentry",
+    "category-photography-visual-storytelling",
+    "tag-misc"
+  ],
+  "_links": {
+    "self": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1056",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/types/post"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/users/1"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/comments?post=1056"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 0,
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1056/revisions"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/media?parent=1056"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "category",
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/categories?post=1056"
+      },
+      {
+        "taxonomy": "post_tag",
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/tags?post=1056"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1056"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1056"
+      }
+    ],
+    "wp:action-sticky": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1056"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1056"
+      }
+    ],
+    "wp:action-create-categories": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1056"
+      }
+    ],
+    "wp:action-assign-categories": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1056"
+      }
+    ],
+    "wp:action-create-tags": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1056"
+      }
+    ],
+    "wp:action-assign-tags": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1056"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

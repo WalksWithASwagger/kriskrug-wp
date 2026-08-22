@@ -248,13 +248,15 @@ class ApplyIssue826TaxonomyTests(unittest.TestCase):
             self.assertEqual(0, run_main("--apply", "--post-id", "3814"))
         self.assertTrue(all(body is None for _, body in calls))
 
-    def test_apply_md_does_not_claim_the_write_already_happened(self):
+    def test_apply_md_records_the_live_write_and_keeps_restore(self):
         apply_md = (
             MODULE.REPO_ROOT
             / "content/drafts/2026-08-02-seo-authority-hubs/fix-826/APPLY.md"
         ).read_text(encoding="utf-8")
-        self.assertIn("Prepared, not applied", apply_md)
+        self.assertIn("Applied 2026-08-18", apply_md)
+        self.assertIn("issue-826-applied-20260818.md", apply_md)
         self.assertIn("--apply", apply_md)
+        self.assertIn("--restore", apply_md)
         self.assertNotIn("\u2014", apply_md)
 
 

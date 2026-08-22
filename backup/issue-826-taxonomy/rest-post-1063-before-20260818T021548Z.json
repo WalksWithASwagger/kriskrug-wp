@@ -1,0 +1,176 @@
+{
+  "id": 1063,
+  "date": "2006-11-13T14:17:02",
+  "date_gmt": "2006-11-13T22:17:02",
+  "guid": {
+    "rendered": "http://kriskrug.co/?p=1063",
+    "raw": "http://kriskrug.co/?p=1063"
+  },
+  "modified": "2026-07-11T11:49:39",
+  "modified_gmt": "2026-07-11T19:49:39",
+  "password": "",
+  "slug": "made-in-vancouver-photoshoot",
+  "status": "publish",
+  "type": "post",
+  "link": "https://kriskrug.co/2006/11/13/made-in-vancouver-photoshoot/",
+  "title": {
+    "raw": "\"Made in Vancouver\" Photoshoot",
+    "rendered": "&#8220;Made in Vancouver&#8221; Photoshoot"
+  },
+  "content": {
+    "raw": "<a href=\"http://www.flickr.com/photos/kk/289909984/\" title=\"Photo Sharing\"><img src=\"http://static.flickr.com/107/289909984_340f2b9360_m.jpg\" width=\"160\" height=\"240\" alt=\"MadeInVan\" align=\"left\" style=\"margin-right: 5px\"/></a>Thanks to everyone who collaborated with me on the recent <a href=\"http://flickr.com/photos/kk/sets/72157594363048780/\">Made in Vancouver</a>' photoshoot... especially <a href=\"http://www.shaistyle.com\">Shai</a> from Prepwork, <a href=\"http://flickr.com/photos/discollection\">Kim</a> from <a href=\"http://discollection.wordpress.com\">Discollection</a> and <a href=\"http://http://www.modelmayhem.com/member.php?id=111868\">Jesse</a> from <a href=\"http://modelmayhem.com\">ModelMayhem</a>.\r\n\r\nCheck out some of Static's other <a href=\"http://staticphotography.com/services/fashion-photography\">fashion photography</a> in our <a href=\"http://staticphotography.com/services\">portfolio</a>.<!--break-->\r\n\r\n<em>(Cross-posted from my <a href=\"http://staticphotography.com/blog/kk/made-in-vancouver-photoshoot\">\"Made In Vancouver\" Photoshoot</a> post over at <a href=\"http://staticphotography.com\">Static Photography</a>.)</em> \n\n<!-- wp:paragraph {\"className\":\"kk-collection-footer\"} -->\n<p class=\"kk-collection-footer\">Part of the <a href=\"https://kriskrug.co/vancouver-ai/\">Vancouver AI Ecosystem</a> collection. See also: <a href=\"https://kriskrug.co/2025/12/11/vancouver-tech-journal-isnt-journalism/\">Vancouver Tech Journal Isn't Journalism</a>.</p>\n<!-- /wp:paragraph -->",
+    "rendered": "<a href=\"http://www.flickr.com/photos/kk/289909984/\" title=\"Photo Sharing\"><img data-recalc-dims=\"1\" loading=\"lazy\" decoding=\"async\" src=\"https://i0.wp.com/static.flickr.com/107/289909984_340f2b9360_m.jpg?resize=160%2C240\" width=\"160\" height=\"240\" alt=\"MadeInVan\" align=\"left\" style=\"margin-right: 5px\"/></a>Thanks to everyone who collaborated with me on the recent <a href=\"http://flickr.com/photos/kk/sets/72157594363048780/\">Made in Vancouver</a>&#8216; photoshoot&#8230; especially <a href=\"http://www.shaistyle.com\">Shai</a> from Prepwork, <a href=\"http://flickr.com/photos/discollection\">Kim</a> from <a href=\"http://discollection.wordpress.com\">Discollection</a> and <a href=\"http://http://www.modelmayhem.com/member.php?id=111868\">Jesse</a> from <a href=\"http://modelmayhem.com\">ModelMayhem</a>.\r\n\r\nCheck out some of Static&#8217;s other <a href=\"http://staticphotography.com/services/fashion-photography\">fashion photography</a> in our <a href=\"http://staticphotography.com/services\">portfolio</a>.<!--break-->\r\n\r\n<em>(Cross-posted from my <a href=\"http://staticphotography.com/blog/kk/made-in-vancouver-photoshoot\">&#8220;Made In Vancouver&#8221; Photoshoot</a> post over at <a href=\"http://staticphotography.com\">Static Photography</a>.)</em> \n\n\n<p class=\"kk-collection-footer wp-block-paragraph\">Part of the <a href=\"https://kriskrug.co/vancouver-ai/\">Vancouver AI Ecosystem</a> collection. See also: <a href=\"https://kriskrug.co/2025/12/11/vancouver-tech-journal-isnt-journalism/\">Vancouver Tech Journal Isn&#8217;t Journalism</a>.</p>\n",
+    "protected": false,
+    "block_version": 1
+  },
+  "excerpt": {
+    "raw": "",
+    "rendered": "<p>Thanks to everyone who collaborated with me on the recent Made in Vancouver&#8216; photoshoot&#8230; especially Shai from Prepwork, Kim from Discollection and Jesse from ModelMayhem. Check out some of Static&#8217;s other fashion photography in our portfolio. (Cross-posted from my &#8220;Made In Vancouver&#8221; Photoshoot post over at Static Photography.) Part of the Vancouver AI Ecosystem collection. [&hellip;]</p>\n",
+    "protected": false
+  },
+  "author": 1,
+  "featured_media": 12543,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": {
+    "jetpack_seo_html_title": "\"Made in Vancouver\" Photoshoot | Kris Krüg",
+    "advanced_seo_description": "Thanks to everyone who collaborated with me on the recent Made in Vancouver‘ photoshoot… especially Shai from Prepwork, Kim from Discollection and Jesse from ModelMayhem.",
+    "footnotes": ""
+  },
+  "categories": [
+    1662
+  ],
+  "tags": [
+    1212
+  ],
+  "permalink_template": "https://kriskrug.co/2006/11/13/%postname%/",
+  "generated_slug": "made-in-vancouver-photoshoot",
+  "class_list": [
+    "post-1063",
+    "post",
+    "type-post",
+    "status-publish",
+    "format-standard",
+    "has-post-thumbnail",
+    "hentry",
+    "category-vancouver-ai-ecosystem",
+    "tag-misc"
+  ],
+  "_links": {
+    "self": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1063",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/types/post"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/users/1"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/comments?post=1063"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 0,
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1063/revisions"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/media/12543"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/media?parent=1063"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "category",
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/categories?post=1063"
+      },
+      {
+        "taxonomy": "post_tag",
+        "embeddable": true,
+        "href": "https://kriskrug.co/wp-json/wp/v2/tags?post=1063"
+      }
+    ],
+    "wp:action-publish": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1063"
+      }
+    ],
+    "wp:action-unfiltered-html": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1063"
+      }
+    ],
+    "wp:action-sticky": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1063"
+      }
+    ],
+    "wp:action-assign-author": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1063"
+      }
+    ],
+    "wp:action-create-categories": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1063"
+      }
+    ],
+    "wp:action-assign-categories": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1063"
+      }
+    ],
+    "wp:action-create-tags": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1063"
+      }
+    ],
+    "wp:action-assign-tags": [
+      {
+        "href": "https://kriskrug.co/wp-json/wp/v2/posts/1063"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

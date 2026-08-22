@@ -264,10 +264,12 @@ class ApplyIssue827PhotographyHubTests(unittest.TestCase):
         self.assertEqual(1, len(snapshots))
         self.assertEqual(stat.S_IMODE(snapshots[0].stat().st_mode), 0o600)
 
-    def test_apply_md_does_not_claim_the_write_already_happened(self):
+    def test_apply_md_records_the_live_write_and_keeps_restore(self):
         apply_md = (MODULE.PACK / "APPLY.md").read_text(encoding="utf-8")
-        self.assertIn("Prepared, not applied", apply_md)
+        self.assertIn("Applied 2026-08-18", apply_md)
+        self.assertIn("issue-827-applied-20260818.md", apply_md)
         self.assertIn("--apply", apply_md)
+        self.assertIn("--restore", apply_md)
         self.assertIn("#480", apply_md)
         self.assertNotIn("\u2014", apply_md)
         self.assertNotIn("Fixes #827", apply_md)

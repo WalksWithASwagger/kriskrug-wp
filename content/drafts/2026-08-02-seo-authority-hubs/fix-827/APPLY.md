@@ -1,6 +1,6 @@
 # #827 APPLY: photography hub internal links
 
-**Prepared, not applied. Do not PATCH until #826 is live and KK says go.**
+**Applied 2026-08-18T02:18Z** (after live #826). Receipt: [`docs/current-state/reports/issue-827-applied-20260818.md`](../../../../docs/current-state/reports/issue-827-applied-20260818.md). Re-run prints `[SKIP]`. Restore commands below still work.
 Script is dry-run by default. `--apply` is the only write switch, and it refuses unless the five #826 category fixes are already live.
 
 Parent: #402. This is child 2 of 9. Child 1 (#826) still owns 1067 / 1063 / 1147. This pack does not recategorize or retitle them.

@@ -3,7 +3,8 @@
 **Lane:** Track A. **No live WordPress writes in this pack.** Bodies only.
 **Issue:** [#480](https://github.com/WalksWithASwagger/kriskrug-wp/issues/480) (step 7 of the Aurora stylesheet rebuild).
 **Built:** 2026-08-16, from logged-out public HTML + public REST `content.rendered`.
-**Reconfirm:** 2026-08-17 against live Aurora **1.6.8** — [`issue-480-apply-ready-20260817.md`](../../../../docs/current-state/reports/issue-480-apply-ready-20260817.md). Payloads **not recut**. Cream-pack still not live. **Not applied.**
+**Reconfirm:** 2026-08-17 against live Aurora **1.6.8** — [`issue-480-apply-ready-20260817.md`](../../../../docs/current-state/reports/issue-480-apply-ready-20260817.md). Cream-pack still not live. **Not applied.**
+**Photography recut:** 2026-08-18 after live #827. `photography.html` coda now keeps rows 11–14 (`the whole archive, twenty years of it` + `the fashion and model years, 2006 to 2008`). Other five payloads unchanged. Still do not PATCH.
 **This session did not snapshot and did not PATCH.** The next apply agent must snapshot first.
 
 This directory is a sibling of `wp-payloads/` on purpose. `scripts/tests/test_content_architecture_payloads.py` forbids `kk-*` / `kkx-*` class prefixes on every `*.html` under `wp-payloads/`. Live `/contact/`, `/services/`, `/photography/`, `/speaking/`, and `/work/` still use those namespaces. These payloads keep the live markup and only remove the anonymous `<style>` block (including every dead `::first-letter` suppression). Putting them under `wp-payloads/` would fail the payload guard.

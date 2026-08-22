@@ -39,9 +39,9 @@ Use this checklist for every manual `kk-aurora` production deploy on Pagely: wp-
 - [ ] Purge Pagely cache again
 - [ ] Re-verify logged-out render
 
-## Current release note (2026-08-17)
+## Current release note (2026-08-22)
 
-- Live Aurora **1.6.8** (public `style.css` 2026-08-17; SFTP rollback `kk-aurora.bak-1786942075`). Homepage HTML matches theme `front-page.html` after FSE template 12661 POST.
+- Live Aurora **1.6.9** (public `style.css` 2026-08-22; SFTP rollback `kk-aurora.bak-1787021714`). Lab webring chrome and surgical `/work/` cards are in [`reports/aurora-169-live-deploy-20260818.md`](reports/aurora-169-live-deploy-20260818.md). Homepage HTML from 1.6.8 (FSE template 12661) is still the base.
 - Pre-HTML 1.6.7 baseline: `reports/visual-baseline/manifest-20260817T044445Z.json`. Post-HTML candidate: `manifest-20260817T045150Z.json` / `diff-20260817T045150Z.json` / `report-20260817T045150Z.md`. Homepage 55–62% fail is the #411–#416 bands; 29 other pairs passed; `/blog/` tablet warn 0.49%.
 - `/marquee/` currently returns 404 and is not a valid live release gate. The visual runbook uses `/category/vancouver-ai-ecosystem/` as the live archive-template substitute until the marquee route exists.
 - Jetpack Boost critical-CSS regen (#731) still needs a wp-admin session. Bundle hash did change `d4faec73b4` → `0f9e6b2840` after the HTML write; that is not a substitute for the explicit regen.
