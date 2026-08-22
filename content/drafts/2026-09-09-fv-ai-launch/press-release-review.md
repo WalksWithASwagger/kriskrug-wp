@@ -1,5 +1,7 @@
 # Review of Darren's August 10 FV+AI Press Release
 
+> **Archived August 22, 2026.** The release published August 11, and this duplicate review is no longer an active send gate. Use the [canonical kk-kb review](https://github.com/WalksWithASwagger/kk-kb/tree/main/content/projects/02-bc-ai-ecosystem-nonprofit/community-programs/regional-chapters/fraser-valley-ai/press-release-review.md).
+
 **Recommendation:** hold submission until the event link, profile link, time, and ownership language are corrected. The release has a sound regional premise and a usable Darren quote, but it is not yet aligned with the community-first story Darren says he wants.
 
 ## Must fix before submission
