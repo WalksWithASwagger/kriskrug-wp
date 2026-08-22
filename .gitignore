@@ -27,6 +27,7 @@ scripts/notion-to-wp/.env
 # IDE
 .vscode/
 .idea/
+.cursor/
 
 # Agent worktrees (local scaffolding — branches live in their own checkouts)
 .claude/worktrees/
