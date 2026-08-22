@@ -1,6 +1,8 @@
 # FV+AI Launch Packet — September 9, 2026
 
-**Status:** working draft; no Luma event created and nothing published or sent
+> **Archived August 22, 2026.** This entire directory is a superseded pre-launch draft. Do not use its schedule, Luma state, ticket model, copy, or artwork as current truth. The canonical live packet is [maintained in kk-kb](https://github.com/WalksWithASwagger/kk-kb/tree/main/content/projects/02-bc-ai-ecosystem-nonprofit/community-programs/regional-chapters/fraser-valley-ai).
+
+**Status:** archived duplicate; retained only for repository history
 
 **Event date:** Wednesday, September 9, 2026
 

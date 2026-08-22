@@ -1,5 +1,7 @@
 # FV+AI Visual Notes
 
+> **Archived August 22, 2026.** The artwork in this directory is superseded and must not be reused. Use the [canonical kk-kb visual record](https://github.com/WalksWithASwagger/kk-kb/tree/main/content/projects/02-bc-ai-ecosystem-nonprofit/community-programs/regional-chapters/fraser-valley-ai/visual-notes.md).
+
 ## Cover A — Fraser Valley mural
 
 **File:** `fvai-luma-cover-mural.png`  
