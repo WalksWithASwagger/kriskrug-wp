@@ -1,0 +1,23 @@
+{
+  "id": 2661,
+  "slug": "headed-to-burning-man-shambhala-or-coachella-ignite-your-festival-persona",
+  "status": "publish",
+  "link": "https://kriskrug.co/2023/07/06/headed-to-burning-man-shambhala-or-coachella-ignite-your-festival-persona/",
+  "modified": "2026-06-28T20:39:47",
+  "modified_gmt": "2026-06-29T04:39:47",
+  "type": "post",
+  "featured_media": 2662,
+  "categories": [
+    1676
+  ],
+  "content_source": "public_rest_rendered",
+  "content_raw_missing": true,
+  "content_rendered_bytes": 7134,
+  "content_raw_bytes": null,
+  "content_raw_has_style": false,
+  "content_raw_has_footer": true,
+  "has_kriskrug_com_contact": false,
+  "has_kriskrug_co_contact": false,
+  "has_cyber_love_garden_href": false,
+  "note": "WP creds missing. content.raw.html is the public content.rendered stand-in for --from-files. Live --apply must GET context=edit and slug-check before any PATCH."
+}
