@@ -1,7 +1,7 @@
 # #826 apply-ready reconfirm, 2026-08-17
 
 **Issue:** [#826](https://github.com/WalksWithASwagger/kriskrug-wp/issues/826) (child 1 of [#402](https://github.com/WalksWithASwagger/kriskrug-wp/issues/402)). Both stay **open**.
-**Lane:** Track A. Gate 1 of [`WORK-PLAN-2026-08-17.md`](../WORK-PLAN-2026-08-17.md).
+**Lane:** Track A. Gate 1 of [`WORK-PLAN-2026-08-17.md`](../archive/WORK-PLAN-2026-08-17.md) (superseded by 2026-08-19; this receipt stays).
 **Payload:** [`content/drafts/2026-08-02-seo-authority-hubs/fix-826/`](../../../content/drafts/2026-08-02-seo-authority-hubs/fix-826/)
 **Script:** `scripts/apply_issue_826_taxonomy.py` (dry-run by default).
 **Verdict:** **Still apply-ready. Not applied.** Do not PATCH until KK says go.
