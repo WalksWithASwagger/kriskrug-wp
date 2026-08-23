@@ -113,3 +113,6 @@ If you're doing both in the same session, you've probably scope-crept; finish on
 ## Living doc
 
 Edit this file whenever the split needs refinement. Don't let it drift while the actual practice evolves elsewhere.
+
+<!-- gate probe: intentionally trips docs_truth_check -->
+Live site is still Catch Responsive.
