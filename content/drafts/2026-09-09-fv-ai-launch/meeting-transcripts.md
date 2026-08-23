@@ -1,5 +1,7 @@
 # FV+AI Meeting Transcript Records
 
+> **Archived August 22, 2026.** This duplicate is retained for repository history. Use the [canonical kk-kb transcript record](https://github.com/WalksWithASwagger/kk-kb/tree/main/content/projects/02-bc-ai-ecosystem-nonprofit/community-programs/regional-chapters/fraser-valley-ai/meeting-transcripts.md).
+
 These records separate verbatim source material from reconstruction. The June call has no recording in the knowledge base, so its record is a source-grounded reconstruction. The July 31 section is an edited excerpt from the actual Office Hours transcript, whose source export did not contain timestamps or speaker labels.
 
 ## June 19, 2026 — Kris Krüg and Darren Coleman planning call

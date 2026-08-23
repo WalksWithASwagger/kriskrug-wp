@@ -1,5 +1,7 @@
 # FV+AI Source Dossier
 
+> **Archived August 22, 2026.** This duplicate preserves an earlier research snapshot. Use the [canonical kk-kb source dossier](https://github.com/WalksWithASwagger/kk-kb/tree/main/content/projects/02-bc-ai-ecosystem-nonprofit/community-programs/regional-chapters/fraser-valley-ai/source-dossier.md).
+
 ## Executive read
 
 FV+AI is not a cold start. It grows from approximately ten Surrey gatherings, Darren Coleman's local business and Toastmasters network, and the regional-chapter pattern already proven in Comox Valley. Darren has offered the first venue, food, drinks, and local operational leadership. Kris has already approved the official BC + AI banner, the FV+AI shorthand, and the long-form name.
