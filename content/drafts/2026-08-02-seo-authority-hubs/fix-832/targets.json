@@ -1,0 +1,203 @@
+{
+  "issue": 832,
+  "parent": 402,
+  "blocked_by": 826,
+  "must_not_write_ids": [
+    2250
+  ],
+  "must_not_write_slug": "events",
+  "page_2250_rendered_sha256": "4353740134b28aa577de881cd41aaf071e8304444540687cb3562206145beb43",
+  "live_reconfirm": "2026-08-19T23:22:56Z",
+  "status": "prepared_not_applied",
+  "snapshot_note": "WP creds were unset. Posts 4495/9197/8418/6815/6251/5768/4348 before/content.raw.html files are public REST content.rendered stand-ins. Page 12315 content.raw.html is the 2026-07-01 authenticated backup whose modified_gmt still matches live. Page 2250 is a public rendered fixture only.",
+  "forbidden_href_substrings": [],
+  "forbidden_inserted_substrings": [
+    "Sept",
+    "September",
+    "Oct",
+    "October",
+    "Nov",
+    "November",
+    "—",
+    "–"
+  ],
+  "ai_events_href": "/ai-events/",
+  "ai_events_anchor": "Browse AI events",
+  "vancouver_ai_href": "https://kriskrug.co/vancouver-ai/",
+  "child1_gate": [
+    {
+      "id": 3814,
+      "slug": "the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things",
+      "from_category": 1757,
+      "to_category": 1678
+    },
+    {
+      "id": 3330,
+      "slug": "the-future-called-i-answered",
+      "from_category": 1757,
+      "to_category": 1676
+    },
+    {
+      "id": 1067,
+      "slug": "hardcore-superstar-photoshoot",
+      "from_category": 1662,
+      "to_category": 1756
+    },
+    {
+      "id": 1063,
+      "slug": "made-in-vancouver-photoshoot",
+      "from_category": 1662,
+      "to_category": 1756
+    },
+    {
+      "id": 1147,
+      "slug": "fashion-photoshoot-for-discollection",
+      "from_category": 1665,
+      "to_category": 1756
+    }
+  ],
+  "items": [
+    {
+      "id": 4495,
+      "kind": "posts",
+      "slug": "inside-the-innaugural-vancouver-ai-community-meetup",
+      "url": "https://kriskrug.co/2024/01/28/inside-the-innaugural-vancouver-ai-community-meetup/",
+      "modified_gmt_at_reconfirm": "2026-06-29T04:36:32",
+      "find": "to many more gatherings where AI meets creativity, technology, and community!</p>",
+      "replace": "to many more gatherings where AI meets creativity, technology, and community! And <a href=\"https://kriskrug.co/events/\">we still do this every month, and the next one is on the calendar</a>.</p>",
+      "anchors": [
+        {
+          "row": 18,
+          "text": "we still do this every month, and the next one is on the calendar",
+          "href": "https://kriskrug.co/events/"
+        }
+      ],
+      "preserve_footer": true,
+      "preserve_vancouver_ai": true
+    },
+    {
+      "id": 9197,
+      "kind": "posts",
+      "slug": "vancouver-ai-meetup-16-where-tech-creativity-and-community-collide",
+      "url": "https://kriskrug.co/2025/05/11/vancouver-ai-meetup-16-where-tech-creativity-and-community-collide/",
+      "modified_gmt_at_reconfirm": "2026-06-29T04:27:08",
+      "find": "converge to shape our collective future.</p>",
+      "replace": "converge to shape our collective future. If you want <a href=\"https://kriskrug.co/events/\">the next one</a>, it is on the calendar.</p>",
+      "anchors": [
+        {
+          "row": 19,
+          "text": "the next one",
+          "href": "https://kriskrug.co/events/"
+        }
+      ],
+      "preserve_footer": true,
+      "preserve_vancouver_ai": true
+    },
+    {
+      "id": 8418,
+      "kind": "posts",
+      "slug": "vancouver-ai-the-community-building-bcs-ai-future-february-meetup-recap",
+      "url": "https://kriskrug.co/2025/03/02/vancouver-ai-the-community-building-bcs-ai-future-february-meetup-recap/",
+      "modified_gmt_at_reconfirm": "2026-06-29T04:30:15",
+      "find": "<p class=\"wp-block-paragraph\"></p>\n\n\n\n<p class=\"kk-collection-footer wp-block-paragraph\">Part of the <a href=\"https://kriskrug.co/vancouver-ai/\">Vancouver AI Ecosystem</a> collection.</p>",
+      "replace": "<p class=\"wp-block-paragraph\">If you are nearby, <a href=\"https://kriskrug.co/events/\">come to the next one</a>.</p>\n\n\n\n<p class=\"kk-collection-footer wp-block-paragraph\">Part of the <a href=\"https://kriskrug.co/vancouver-ai/\">Vancouver AI Ecosystem</a> collection.</p>",
+      "anchors": [
+        {
+          "row": 20,
+          "text": "come to the next one",
+          "href": "https://kriskrug.co/events/"
+        }
+      ],
+      "preserve_footer": true,
+      "preserve_vancouver_ai": true
+    },
+    {
+      "id": 6815,
+      "kind": "posts",
+      "slug": "august-vancouver-ai-community-meetup-recap-hackers-hustlers-heretics",
+      "url": "https://kriskrug.co/2024/09/01/august-vancouver-ai-community-meetup-recap-hackers-hustlers-heretics/",
+      "modified_gmt_at_reconfirm": "2026-07-02T00:25:32",
+      "find": "More local ecosystem notes live in my <a href=\"https://kriskrug.co/vancouver-ai/\">Vancouver AI community</a> hub.</p>",
+      "replace": "More local ecosystem notes live in my <a href=\"https://kriskrug.co/vancouver-ai/\">Vancouver AI community</a> hub. Live dates sit on <a href=\"https://kriskrug.co/events/\">the current calendar</a>.</p>",
+      "anchors": [
+        {
+          "row": 21,
+          "text": "the current calendar",
+          "href": "https://kriskrug.co/events/"
+        }
+      ],
+      "preserve_vancouver_ai": true
+    },
+    {
+      "id": 6251,
+      "kind": "posts",
+      "slug": "creativity-in-the-age-of-ai-vancouver-ai-community-meetup-june-2024-highlights",
+      "url": "https://kriskrug.co/2024/07/08/creativity-in-the-age-of-ai-vancouver-ai-community-meetup-june-2024-highlights/",
+      "modified_gmt_at_reconfirm": "2026-06-29T04:33:29",
+      "find": "Host, <a href=\"https://lu.ma/future-proof\">Vancouver AI Community Meetups</a></p>",
+      "replace": "Host, <a href=\"https://lu.ma/future-proof\">Vancouver AI Community Meetups</a></p>\n\n\n\n<p class=\"wp-block-paragraph\">The live dates live <a href=\"https://kriskrug.co/events/\">where the next one lands</a>.</p>",
+      "anchors": [
+        {
+          "row": 22,
+          "text": "where the next one lands",
+          "href": "https://kriskrug.co/events/"
+        }
+      ],
+      "preserve_footer": true,
+      "preserve_vancouver_ai": true
+    },
+    {
+      "id": 5768,
+      "kind": "posts",
+      "slug": "june-vancouver-ai-community-meetup-recap-a-confluence-of-minds-and-machines",
+      "url": "https://kriskrug.co/2024/06/02/june-vancouver-ai-community-meetup-recap-a-confluence-of-minds-and-machines/",
+      "modified_gmt_at_reconfirm": "2026-06-29T04:34:16",
+      "find": "continue to explore, create, and inspire together.</p>",
+      "replace": "continue to explore, create, and inspire together. It is <a href=\"https://kriskrug.co/events/\">still monthly, still free, still worth the trip</a>.</p>",
+      "anchors": [
+        {
+          "row": 23,
+          "text": "still monthly, still free, still worth the trip",
+          "href": "https://kriskrug.co/events/"
+        }
+      ],
+      "preserve_vancouver_ai": true
+    },
+    {
+      "id": 4348,
+      "kind": "posts",
+      "slug": "2024-vancouver-ai-community-meetups",
+      "url": "https://kriskrug.co/2023/12/27/2024-vancouver-ai-community-meetups/",
+      "modified_gmt_at_reconfirm": "2026-06-29T04:36:48",
+      "find": "Our goal is to build an engaged group through knowledge sharing, collaboration, and discussion of real-world applications and ethical implications of AI.</em></p>",
+      "replace": "Our goal is to build an engaged group through knowledge sharing, collaboration, and discussion of real-world applications and ethical implications of AI.</em></p>\n\n\n\n<p class=\"wp-block-paragraph\">For dates that stay current, use <a href=\"https://kriskrug.co/events/\">the live calendar, which is the version that stays current</a>.</p>",
+      "anchors": [
+        {
+          "row": 24,
+          "text": "the live calendar, which is the version that stays current",
+          "href": "https://kriskrug.co/events/"
+        }
+      ],
+      "preserve_footer": true,
+      "preserve_vancouver_ai": true,
+      "insert_in_intro": true
+    },
+    {
+      "id": 12315,
+      "kind": "pages",
+      "slug": "vancouver-ai",
+      "url": "https://kriskrug.co/vancouver-ai/",
+      "modified_gmt_at_reconfirm": "2026-07-01T20:27:36",
+      "find": "<p><a class=\"aurora-button\" href=\"/ai-events/\">Browse AI events</a></p>",
+      "replace": "<p><a class=\"aurora-button\" href=\"/ai-events/\">Browse AI events</a> and <a href=\"https://kriskrug.co/events/\">the calendar</a>.</p>",
+      "anchors": [
+        {
+          "row": 25,
+          "text": "the calendar",
+          "href": "https://kriskrug.co/events/"
+        }
+      ],
+      "preserve_ai_events": true
+    }
+  ]
+}
