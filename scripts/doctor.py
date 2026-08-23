@@ -9,6 +9,7 @@ working tree safe to commit into. Read-only. Never prints a secret value.
 from __future__ import annotations
 
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -71,9 +72,10 @@ def check_gh() -> tuple[str, str]:
     code, out = run(["gh", "auth", "status"], timeout=25)
     if code != 0:
         return FAIL, "gh not authenticated"
-    import re
     m = re.search(r"Logged in to \S+ account (\S+)", out)
-    return OK, f"authenticated as {m.group(1)}" if m else (OK, "authenticated")
+    if m:
+        return OK, f"authenticated as {m.group(1)}"
+    return OK, "authenticated"
 
 
 def check_git_tree() -> tuple[str, str]:
