@@ -4,7 +4,7 @@
 **Lane:** Docs / ops first; then Track A or Track B — never interleaved in one commit.
 **Does not authorize** live WordPress writes, theme deploys, or history rewrite.
 
-Day runbook: [`WORK-PLAN-2026-08-17.md`](WORK-PLAN-2026-08-17.md). Declared snapshot: [`CURRENT-STATE-2026-07-30.md`](CURRENT-STATE-2026-07-30.md).
+Day runbook: [`WORK-PLAN-2026-08-23.md`](WORK-PLAN-2026-08-23.md). Declared snapshot: [`CURRENT-STATE-2026-07-30.md`](CURRENT-STATE-2026-07-30.md).
 
 ## Goal
 

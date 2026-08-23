@@ -2,11 +2,11 @@
 
 Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then run `make status-readonly` for current runtime signals.
 
-## Current Front Door (verified 2026-08-17)
+## Current Front Door (verified 2026-08-23)
 
 Read these first:
 
-1. **[WORK-PLAN-2026-08-17.md](WORK-PLAN-2026-08-17.md)**, latest dated runbook (supersedes 2026-08-16; use `make status-readonly` for live counters)
+1. **[WORK-PLAN-2026-08-23.md](WORK-PLAN-2026-08-23.md)**, latest dated runbook (supersedes 2026-08-17; use `make status-readonly` for live counters)
 2. **[CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md)**, declared snapshot for morning-truth drift checks (compare it with a fresh `make status-readonly` run)
 3. **[MASTER-PLAN-2026-07-30.md](MASTER-PLAN-2026-07-30.md)**, truth then reclaim then product lanes (hygiene phases complete)
 4. Run `make status-readonly` for current signals; use the newest **[reports/morning-truth-*.md](reports/)** only as durable checkpoint evidence
@@ -14,7 +14,7 @@ Read these first:
 6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
 7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
 
-**Live readback 2026-08-22:** WordPress last seen `7.0.4`. Aurora **live is `1.6.9`**. Content applies #764 / #729 / #612 / **#826** / **#827** are live. Lab webring chrome (Dark Crystal + unofficial.city) is live on the homepage footer and `/work/` (surgical card insert, not a full `work.html` replace). #706 script diet is live at origin (Code Snippets id 22; pixel markers 0 on `/` and `/about/`). PSI mobile 2026-08-16 11:59 PDT is in [`reports/psi-mobile-2026-08-16.md`](reports/psi-mobile-2026-08-16.md) (TBT 10 ms; gtag still in the PSI trace). Receipts: [`reports/gate0-content-apply-20260817.md`](reports/gate0-content-apply-20260817.md), [`reports/issue-826-applied-20260818.md`](reports/issue-826-applied-20260818.md), [`reports/issue-827-applied-20260818.md`](reports/issue-827-applied-20260818.md), [`reports/aurora-168-live-deploy-20260817.md`](reports/aurora-168-live-deploy-20260817.md), [`reports/aurora-169-live-deploy-20260818.md`](reports/aurora-169-live-deploy-20260818.md). The public `style.css` readback remains authoritative for production theme state.
+**Live readback 2026-08-23:** WordPress last seen `7.0.4`. Aurora **live is `1.6.9`**, repo `main` is `1.6.9` (parity). Content applies #764 / #729 / #612 / **#826** / **#827** are live. Lab webring chrome (Dark Crystal + unofficial.city) is live on the homepage footer and `/work/` (surgical card insert, not a full `work.html` replace). #706 script diet is live at origin (Code Snippets id 22; pixel markers 0 on `/` and `/about/`). PSI mobile 2026-08-16 11:59 PDT is in [`reports/psi-mobile-2026-08-16.md`](reports/psi-mobile-2026-08-16.md) (TBT 10 ms; gtag still in the PSI trace). Receipts: [`reports/gate0-content-apply-20260817.md`](reports/gate0-content-apply-20260817.md), [`reports/issue-826-applied-20260818.md`](reports/issue-826-applied-20260818.md), [`reports/issue-827-applied-20260818.md`](reports/issue-827-applied-20260818.md), [`reports/aurora-168-live-deploy-20260817.md`](reports/aurora-168-live-deploy-20260817.md), [`reports/aurora-169-live-deploy-20260818.md`](reports/aurora-169-live-deploy-20260818.md). The public `style.css` readback remains authoritative for production theme state.
 
 ## Durable process docs (keep at top level)
 
@@ -67,6 +67,7 @@ Every file below carries a `STATUS: Historical` banner in its first lines pointi
 - [WORK-PLAN-2026-08-09.md](archive/WORK-PLAN-2026-08-09.md)
 - [WORK-PLAN-2026-08-15.md](archive/WORK-PLAN-2026-08-15.md)
 - [WORK-PLAN-2026-08-16.md](archive/WORK-PLAN-2026-08-16.md)
+- [WORK-PLAN-2026-08-17.md](archive/WORK-PLAN-2026-08-17.md)
 
 ## Archive (#549 close-out, verified 2026-08-02)
 
