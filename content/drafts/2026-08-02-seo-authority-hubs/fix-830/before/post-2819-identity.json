@@ -1,0 +1,23 @@
+{
+  "id": 2819,
+  "slug": "exquisite-corpse-collaborative-ai-art-experiment-on-discord-w-midjourney-zoom-out",
+  "status": "publish",
+  "link": "https://kriskrug.co/2023/08/16/exquisite-corpse-collaborative-ai-art-experiment-on-discord-w-midjourney-zoom-out/",
+  "modified": "2026-08-17T18:16:05",
+  "modified_gmt": "2026-08-18T02:16:05",
+  "type": "post",
+  "featured_media": 2820,
+  "categories": [
+    1680
+  ],
+  "content_source": "public_rest_rendered",
+  "content_raw_missing": true,
+  "content_rendered_bytes": 18117,
+  "content_raw_bytes": null,
+  "content_raw_has_style": false,
+  "content_raw_has_footer": true,
+  "has_kriskrug_com_contact": false,
+  "has_kriskrug_co_contact": true,
+  "has_cyber_love_garden_href": false,
+  "note": "WP creds missing. content.raw.html is the public content.rendered stand-in for --from-files. Live --apply must GET context=edit and slug-check before any PATCH."
+}
