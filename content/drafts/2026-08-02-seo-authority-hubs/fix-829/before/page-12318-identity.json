@@ -1,0 +1,20 @@
+{
+  "id": 12318,
+  "slug": "ai-ethics",
+  "status": "publish",
+  "link": "https://kriskrug.co/ai-ethics/",
+  "modified": "2026-07-01T12:27:51",
+  "modified_gmt": "2026-07-01T20:27:51",
+  "type": "page",
+  "title_rendered": "AI Ethics &#038; Philosophy",
+  "content_rendered_bytes": 3755,
+  "content_rendered_sha256": "a1990a2cfc8c9b1d857e657d0af6b97541bea97dbd0cde21da477f005a8347db",
+  "content_raw_bytes": 3731,
+  "content_raw_sha256": "12b30e9340336176659ff44c44e8dde4d4a48c1f0c5789465861be95e57d946e",
+  "content_raw_has_footer": false,
+  "snapshot_at": "2026-08-19T23:23:05Z",
+  "snapshot_auth": false,
+  "snapshot_source_rendered": "public REST content.rendered (WP_USER/WP_APP_PASSWORD unset)",
+  "snapshot_source_raw": "historical authenticated context=edit from 2026-07-01 content-architecture apply; modified_gmt matches live",
+  "you_cant_drink_data_href_count": 0
+}
