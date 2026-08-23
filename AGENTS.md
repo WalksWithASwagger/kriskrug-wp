@@ -10,7 +10,7 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 
 1. [`docs/current-state/README.md`](docs/current-state/README.md) — current-state front door; run `make status-readonly` for live counters
 2. [`docs/current-state/CURRENT-STATE-2026-07-30.md`](docs/current-state/CURRENT-STATE-2026-07-30.md) — declared snapshot for drift/morning-truth (Makefile default)
-3. [`docs/current-state/WORK-PLAN-2026-08-19.md`](docs/current-state/WORK-PLAN-2026-08-19.md) — **day runbook** (Aurora 1.6.9 live; #826/#827 applied; hub packs #829–#832 next; supersedes 2026-08-17)
+3. [`docs/current-state/WORK-PLAN-2026-08-23.md`](docs/current-state/WORK-PLAN-2026-08-23.md) — **day runbook** (Aurora 1.6.9 live/repo parity; hub packs #829-#832 next; agent-safe-merge is broken, see the merge lane section; supersedes 2026-08-17)
 4. [`docs/current-state/MASTER-PLAN-2026-07-30.md`](docs/current-state/MASTER-PLAN-2026-07-30.md) — hygiene + lane sequencing plan of record
 5. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
 6. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
@@ -45,7 +45,7 @@ Legacy branch split context is in [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-
 - **`.github/workflows/test-pr.yml`** — still active PR validation. Do not describe all workflows as dormant.
 - **`docs/architecture.md`, `docs/automation-guide.md`** — reference docs for the dormant swarm.
 - **`docs/cloudways-setup.md`, `docs/local-development-setup.md`, `.claude/context/wordpress-setup.md`** — Cloudways dev-server setup that was never used as planned. Relevant if/when Track B needs staging, otherwise ignore.
-- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use `CURRENT-STATE-2026-07-30.md`, `WORK-PLAN-2026-08-19.md`, `MASTER-PLAN-2026-07-30.md`, and a fresh `make status-readonly` run for current truth. May–June handoffs live under `docs/current-state/archive/`.
+- **`docs/vision.md`, `docs/roadmap.md`** — early planning docs. Use `CURRENT-STATE-2026-07-30.md`, `WORK-PLAN-2026-08-23.md`, `MASTER-PLAN-2026-07-30.md`, and a fresh `make status-readonly` run for current truth. May–June handoffs live under `docs/current-state/archive/`.
 
 Anything banner-tagged `STATUS: Historical` at the top is reference-only.
 

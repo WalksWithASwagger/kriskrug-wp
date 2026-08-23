@@ -13,7 +13,7 @@ class EphemeralMorningTruthGuidanceTests(unittest.TestCase):
     def test_active_guidance_rejects_routine_report_commit_flow(self):
         with tempfile.TemporaryDirectory() as tmp:
             repo_root = Path(tmp)
-            work_plan = repo_root / "docs/current-state/WORK-PLAN-2026-08-19.md"
+            work_plan = repo_root / "docs/current-state/WORK-PLAN-2026-08-23.md"
             work_plan.parent.mkdir(parents=True)
             work_plan.write_text(
                 "1. `make morning-truth` while online.\n"
