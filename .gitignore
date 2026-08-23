@@ -70,6 +70,10 @@ scripts/notion-to-wp/backfill-rollback*.jsonl
 # reports remain tracked under docs/current-state/reports/.
 .generated/current-state/
 
+# Alt-text backfill pre-write snapshots + run reports (#4): local rollback
+# evidence, regenerated per run by apply_batches.py.
+.generated/alt-text-backfill/
+
 # Operational capture artifacts under current-state reports — keep .md summaries,
 # ignore heavy captures (screenshots, page snapshots) so the folder stops re-bloating.
 # See REPO-HYGIENE-AUDIT-2026-07-12.md. Existing tracked copies stay until an approved cleanup.
