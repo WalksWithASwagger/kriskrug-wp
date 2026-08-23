@@ -1,5 +1,7 @@
 # FV+AI September 9 Launch Plan
 
+> **Archived August 22, 2026.** This plan predates the live Luma event and is not operational. Use the [canonical kk-kb launch plan](https://github.com/WalksWithASwagger/kk-kb/tree/main/content/projects/02-bc-ai-ecosystem-nonprofit/community-programs/regional-chapters/fraser-valley-ai/launch-plan.md).
+
 ## Outcome
 
 Launch a credible, community-first Fraser Valley room under the BC + AI banner, with Darren Coleman as the local lead and a format that can become monthly without depending on Kris's physical presence.

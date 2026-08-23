@@ -8,12 +8,10 @@ Use `make issues FILE=...` only after KK approves the "still valid" list.
 
 ## Keep (still open children, or never filed)
 
-- [`aurora-launch-audit-2026-05-23.json`](aurora-launch-audit-2026-05-23.json) → filed as #116–#127; #122 and #127 still open
-- [`batch-1-critical-bugs.json`](batch-1-critical-bugs.json) → filed as #1–#11; #4 still open
-- [`batch-site-redesign-2026-07-17.json`](batch-site-redesign-2026-07-17.json) → filed as #403–#424; 11 still open
+- [`batch-1-critical-bugs.json`](batch-1-critical-bugs.json) → filed as #1–#11; **#4 still open**
+- [`batch-site-redesign-2026-07-17.json`](batch-site-redesign-2026-07-17.json) → filed as #403–#424; **#403 and #424 still open** (#411–#420 closed)
 - [`contact-form-implementation-stub-from-277.md`](contact-form-implementation-stub-from-277.md) → contingent stub; file only if KK picks Option B on #277
-- [`testimonials-showpiece-v2-swarm-2026-08-01.md`](testimonials-showpiece-v2-swarm-2026-08-01.md) → #593–#602; #593 and #602 still open
-- [`voice-audit-blog-sweep-swarm-2026-08-01.json`](voice-audit-blog-sweep-swarm-2026-08-01.json) / [`voice-audit-blog-sweep-swarm-2026-08-01.md`](voice-audit-blog-sweep-swarm-2026-08-01.md) → #603–#616; #603 and #612 still open
+- [`testimonials-showpiece-v2-swarm-2026-08-01.md`](testimonials-showpiece-v2-swarm-2026-08-01.md) → #593–#602; **#593 still open** (#602 closed)
 - [`world-cup-fashion-cake-agent-tasks.md`](world-cup-fashion-cake-agent-tasks.md) → never filed; needs KK before filing
 - [`seo-hubs-402/`](seo-hubs-402/) → filed 2026-08-16 as #826–#834 (children of #402). Keep #402 open. Receipt: [`docs/current-state/reports/seo-hub-split-402-20260816.md`](../docs/current-state/reports/seo-hub-split-402-20260816.md)
 
@@ -35,5 +33,7 @@ Moved, not deleted. Rule: archive only when every mapped issue is closed. See [`
 - [`archive/monday-agent-queue-2026-07-16.md`](archive/monday-agent-queue-2026-07-16.md) → #360–#366
 - [`archive/style-css-dangling-form-selectors.md`](archive/style-css-dangling-form-selectors.md) → #698
 - [`archive/visual-baseline-capture-mode-mismatch.md`](archive/visual-baseline-capture-mode-mismatch.md) → #697
+- [`archive/aurora-launch-audit-2026-05-23.json`](archive/aurora-launch-audit-2026-05-23.json) → #116–#127 (moved 2026-08-19 after #122 and #127 closed)
+- [`archive/voice-audit-blog-sweep-swarm-2026-08-01.json`](archive/voice-audit-blog-sweep-swarm-2026-08-01.json) / [`archive/voice-audit-blog-sweep-swarm-2026-08-01.md`](archive/voice-audit-blog-sweep-swarm-2026-08-01.md) → #603–#616 (moved 2026-08-19 after #603 and #612 closed)
 
 January batches (`batch-*.json`) were mostly superseded by the Aurora cutover; open residue from those batches is on the keep list above (#4 and the #403–#424 set).

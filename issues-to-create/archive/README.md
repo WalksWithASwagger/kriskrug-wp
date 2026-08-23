@@ -4,6 +4,8 @@ Conservative archive of issue drafts whose **every** mapped GitHub issue is clos
 
 A draft stays in `issues-to-create/` when any item is still unfiled, or when any filed child is still open. That is the #744 criterion ("their issues are filed and shipped") applied literally. Move, never delete.
 
+2026-08-19 remainder: `aurora-launch-audit-2026-05-23.json` and both `voice-audit-blog-sweep-swarm-2026-08-01` files moved here after every mapped child closed (`#122`, `#127`, `#603`, `#612`).
+
 The aggressive alternative — archive once issues are merely *filed*, because GitHub is then the source of truth — is KK's call and is not applied here. See `docs/current-state/reports/BACKLOG-GROOMING-DOSSIER-2026-08-15.md` section 5.
 
 Do not mass-file anything in this directory.

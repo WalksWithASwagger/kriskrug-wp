@@ -1,5 +1,7 @@
 # Luma Draft — FV+AI Launch
 
+> **Archived August 22, 2026.** This draft predates the live event and contains superseded ticket, capacity, copy, and visual assumptions. Use the [canonical kk-kb Luma record](https://github.com/WalksWithASwagger/kk-kb/tree/main/content/projects/02-bc-ai-ecosystem-nonprofit/community-programs/regional-chapters/fraser-valley-ai/luma-event-draft.md).
+
 ## Event fields
 
 **Name:** FV+AI Launch: Fraser Valley Community Meetup
