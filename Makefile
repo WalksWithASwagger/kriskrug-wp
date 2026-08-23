@@ -266,6 +266,9 @@ morning-truth: ## Write startup truth to the ignored generated-state directory
 morning-truth-checkpoint: ## Write an explicit durable checkpoint under current-state reports
 	@python3 scripts/morning_truth_report.py --checkpoint --work-plan "$${WORK_PLAN:-$(WORK_PLAN_DEFAULT)}" --base-url "$${BASE_URL:-https://kriskrug.co}" --expect-version "$${EXPECT_VERSION:-$(EXPECT_VERSION_DEFAULT)}" --request-timeout "$${REQUEST_TIMEOUT:-20}" --command-timeout "$${COMMAND_TIMEOUT:-120}"
 
+doctor: ## One-shot check: WP creds, venv, gh auth, git tree, live site
+	@python3 scripts/doctor.py
+
 status-readonly: ## Print startup truth checks without writing a report
 	@python3 scripts/morning_truth_report.py --stdout --skip-fetch --work-plan "$${WORK_PLAN:-$(WORK_PLAN_DEFAULT)}" --base-url "$${BASE_URL:-https://kriskrug.co}" --expect-version "$${EXPECT_VERSION:-$(EXPECT_VERSION_DEFAULT)}" --request-timeout "$${REQUEST_TIMEOUT:-20}" --command-timeout "$${COMMAND_TIMEOUT:-120}"
 
