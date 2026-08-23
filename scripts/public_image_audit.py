@@ -122,8 +122,19 @@ def parse_env(path: Path) -> dict[str, str]:
 
 def auth_session(base_url: str) -> requests.Session:
     env = parse_env(ENV_PATH)
-    user = env.get("WP_USER") or os.environ.get("WP_USER")
-    password = (env.get("WP_APP_PASSWORD") or os.environ.get("WP_APP_PASSWORD") or "").replace(" ", "")
+    user = (
+        env.get("WP_USER")
+        or os.environ.get("WP_USER")
+        or env.get("WP_API_USERNAME")
+        or os.environ.get("WP_API_USERNAME")
+    )
+    password = (
+        env.get("WP_APP_PASSWORD")
+        or os.environ.get("WP_APP_PASSWORD")
+        or env.get("WP_API_PASSWORD")
+        or os.environ.get("WP_API_PASSWORD")
+        or ""
+    ).replace(" ", "")
     if not user or not password:
         raise SystemExit(f"Missing WP credentials in {ENV_PATH} or environment")
     session = requests.Session()

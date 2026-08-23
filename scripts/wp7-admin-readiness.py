@@ -47,10 +47,14 @@ def load_env(path: Path) -> dict[str, str]:
 def load_config(path: Path) -> Config:
     values = load_env(path)
     base_url = values.get("WP_BASE_URL", "https://kriskrug.co").rstrip("/")
-    user = values.get("WP_USER")
-    app_password = (values.get("WP_APP_PASSWORD") or "").replace(" ", "")
+    user = values.get("WP_USER") or values.get("WP_API_USERNAME")
+    app_password = (
+        values.get("WP_APP_PASSWORD") or values.get("WP_API_PASSWORD") or ""
+    ).replace(" ", "")
     if not user or not app_password:
-        raise SystemExit(f"Missing WP_USER/WP_APP_PASSWORD in {path}")
+        raise SystemExit(
+            f"Missing WP_USER/WP_APP_PASSWORD (or WP_API_USERNAME/WP_API_PASSWORD) in {path}"
+        )
     return Config(base_url=base_url, user=user, app_password=app_password)
 
 
