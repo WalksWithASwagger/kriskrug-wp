@@ -1,5 +1,25 @@
 # Agent merge path — 2026-07-26
 
+> **STATUS 2026-08-23: NOT IN EFFECT. Do not cite this as a working path.**
+>
+> Verified today:
+> 1. Actions secret `AGENT_MERGE_TOKEN` was never set. Every `Agent safe merge` run
+>    fails at the first step with `Repo secret AGENT_MERGE_TOKEN is missing.`
+>    The workflow has never merged anything.
+> 2. The fix below, as written, would still not work. It says to create the PAT as
+>    `WalksWithASwagger`, but that account authors the agent PRs in this repo, and
+>    GitHub refuses `Can not approve your own pull request`. The PAT must belong to a
+>    **different** write-access account, not the PR author.
+>
+> **What actually works today:** `main` has `enforce_admins: false` and KK holds admin,
+> so `gh pr merge <n> --squash --admin` goes through. Required checks are `strict: true`,
+> so branches read `BEHIND`; check file overlap against `main` before an admin merge
+> rather than assuming the stale base is safe. Dependabot PRs have a different author
+> and take a normal approve plus merge.
+>
+> Fixing this properly means step 1 below on a second account. Until then the queue
+> drains by admin override only.
+
 ## Problem
 
 Cloud agents authenticate to GitHub with the **Cursor GitHub App installation token**. Under this repo's branch protection that token:
@@ -15,11 +35,14 @@ This is a known Cursor Cloud limitation (installation token scopes), not a bug i
 
 ## Fix (two paired credentials, one human setup)
 
-### 1. Create a classic PAT as `WalksWithASwagger` (or another write-access user)
+### 1. Create a classic PAT on a write-access account that is NOT the PR author
 
 Scopes: `repo` (private_repo not required — this repo is public, but `repo` is simplest).
 
-Do **not** use an account that is also the sole required CODEOWNER reviewer if you later add CODEOWNERS self-approve blocks; today there is no CODEOWNERS gate.
+The account must not be the one that authors the agent PRs. GitHub blocks self-approval
+outright, so a PAT owned by the PR author cannot satisfy the 1-review requirement no
+matter what scopes it carries. Today that means a second user or a machine account
+added as a collaborator with write access.
 
 ### 2. Store the same token in two places
 
