@@ -1,6 +1,6 @@
 # Agentic Crush Plan — 2026-07-31
 
-**Status:** active execution plan (audit-backed). Supersedes day sequencing in older WORK-PLANs once Wave 0 lands; does **not** replace safety rules in `INCIDENT-2026-05-15-overwritten-post.md` or `TWO-TRACK-MODEL.md`.
+**Status:** SUPERSEDED 2026-08-23 by [`WORK-PLAN-2026-08-23.md`](WORK-PLAN-2026-08-23.md). Historical below; the PRs it lists have merged and the `agent-safe-merge` lane it assumes was deleted. Was: active execution plan (audit-backed). Supersedes day sequencing in older WORK-PLANs once Wave 0 lands; does **not** replace safety rules in `INCIDENT-2026-05-15-overwritten-post.md` or `TWO-TRACK-MODEL.md`.
 **Lane rule:** one track per commit. Never interleave theme visual deltas with content publishes.
 **Does not authorize** live WP writes, theme deploys, or `git filter-repo` without explicit KK approval.
 

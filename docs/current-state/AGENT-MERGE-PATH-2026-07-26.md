@@ -1,6 +1,10 @@
 # Agent merge path — 2026-07-26
 
-> **STATUS 2026-08-23: NOT IN EFFECT. Do not cite this as a working path.**
+> **STATUS 2026-08-23: DELETED. The workflow this describes no longer exists.**
+>
+> `.github/workflows/agent-safe-merge.yml` was removed on 2026-08-23 after 33 runs and 0
+> successes. The `agent-safe-merge` label is now inert. This file is kept as the record of
+> why, and what a real fix would require.
 >
 > Verified today:
 > 1. Actions secret `AGENT_MERGE_TOKEN` was never set. Every `Agent safe merge` run
