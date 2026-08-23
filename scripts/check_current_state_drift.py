@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from common import WPClient, wp_queue_counts
+from common import WPClient, has_wp_process_credentials, wp_queue_counts
 
 
 @dataclass
@@ -77,11 +77,11 @@ def parse_declared_values(work_plan: Path) -> dict[str, Any]:
 def fetch_wp_queue_counts(repo_root: Path) -> tuple[dict[str, int] | None, str | None]:
     env_path = repo_root / "scripts/notion-to-wp/.env"
     has_env_file = env_path.exists()
-    has_process_creds = bool(os.environ.get("WP_USER") and os.environ.get("WP_APP_PASSWORD"))
+    has_process_creds = has_wp_process_credentials()
     if not has_env_file and not has_process_creds:
         return None, (
             f"WordPress credentials unavailable: missing env file: {env_path} "
-            "and WP_USER/WP_APP_PASSWORD not set in process env"
+            "and WP_USER/WP_APP_PASSWORD (or WP_API_USERNAME/WP_API_PASSWORD) not set in process env"
         )
 
     try:
