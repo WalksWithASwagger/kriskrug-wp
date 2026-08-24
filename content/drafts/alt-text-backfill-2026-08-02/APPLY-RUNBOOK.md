@@ -1,21 +1,24 @@
-# Alt-text backfill apply runbook (issue #4, batches 0-1)
+# Alt-text backfill apply runbook (issue #4, batches 0-3)
 
-KK approved batches 0-1 on 2026-08-23, dry-run-first per
-`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`. The ~1,070
-archive-scope images (inventory batches 4-6) are parked.
+KK approved the original media and content batches on 2026-08-23,
+dry-run-first per
+`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`. Those writes
+were applied and verified on 2026-08-24. The 76 inventory Batch 3 rows were
+then drafted from visual review, but **have not been approved for a live
+apply**. The ~1,070 archive-scope images (inventory batches 4-6) are parked.
 
 Batch names as approved:
 
-- **Batch 0 — media library `alt_text` writes** (`--batch media`). The
-  `media-library-alt_text` surface holds 80 violation rows, but only the 2
-  attachments with drafted strings (media 6835 and 12646, from inventory
-  batch 2) are apply-ready. The other 76 hero images (inventory batch 3) have
-  no drafted strings yet; the script reports them and never writes them —
-  a script must not invent alt text. Drafting those 76 strings is the
-  follow-up that unlocks the rest of this batch.
+- **Media library `alt_text` lane** (`--batch media`). The
+  `media-library-alt_text` surface holds 80 violation rows across 77 unique
+  attachments. Media 6835 and 12646 were applied and verified on 2026-08-24.
+  The remaining 76 rows cover 75 unique attachments in inventory Batch 3;
+  their strings are now drafted from visual review but remain local-only.
+  **The broad `--batch media --apply` command now selects all 77 attachments.**
+  Do not run it unless KK explicitly approves the Batch 3 live scope.
 - **Batch 1 — 34 `post_content` alt insertions** (`--batch content`) across
-  seven pages (2543, 2828, 3899, 6755, 6770, 7610, 7764), strings verbatim
-  from `inventory.md` / `inventory.csv` including NCRs.
+  seven pages (2543, 2828, 3899, 6755, 6770, 7610, 7764). Applied one page at
+  a time and independently verified as 34/34 `already-applied` on 2026-08-24.
 
 ## Run it (session with WP_USER + WP_APP_PASSWORD in process env)
 
@@ -25,18 +28,20 @@ cd content/drafts/alt-text-backfill-2026-08-02
 # 0. optional freshness check (read-only, ~2 min)
 python3 recount_live.py --top-routes-only
 
-# 1. dry-run both batches, read the reports
+# 1. Re-check current state; both commands are read-only without --apply.
+#    The media dry run includes the 75 unapproved Batch 3 attachments.
 python3 apply_batches.py --batch media
 python3 apply_batches.py --batch content
 
-# 2. apply batch 0, then verify
-python3 apply_batches.py --batch media --apply
-python3 apply_batches.py --batch media          # expect all already-applied
-
-# 3. apply batch 1, then verify
-python3 apply_batches.py --batch content --apply
-python3 apply_batches.py --batch content        # expect no-op / already-applied
+# 2. After explicit approval, stage exactly one Batch 3 attachment.
+python3 apply_batches.py --batch media --only-media-id <id>
+python3 apply_batches.py --batch media --only-media-id <id> --apply
+python3 apply_batches.py --batch media --only-media-id <id>
 ```
+
+Do not use the broad media `--apply` command for Batch 3. Apply one attachment
+at a time, inspect its snapshot and readback, then continue only while the
+results remain exact.
 
 Built-in safety, per write: live slug+ID (or media ID + file) verification
 against `inventory.csv` before any PATCH; full pre-write JSON snapshot to
@@ -67,10 +72,13 @@ python3 apply_batches.py --batch content --restore .generated/alt-text-backfill/
 Restore requires WordPress credentials even for its dry run. Never restore a
 whole batch blindly; inspect and restore only the target whose readback failed.
 
-## State as of 2026-08-23 (credential-free dry run, this session)
+## State as of 2026-08-24
 
-- Batch 0: both media IDs verified live, `alt_text` still empty, status
-  `would-write`. 76 rows reported needs-review (no strings drafted).
-- Batch 1: all 7 pages verified slug+ID against live, 34/34 rows matched an
-  empty-alt image in the rendered content, 0 conflicts. Unauthenticated runs
-  match against `content.rendered`; the apply path edits `content.raw`.
+- Media 6835 and 12646: applied with private mode-0600 snapshots and verified
+  by authenticated readback plus cache-bypassed public GET.
+- Content Batch 1: all seven pages applied one at a time with private snapshots;
+  an independent authenticated dry run returned 34/34 `already-applied`.
+- Inventory Batch 3: 76 rows / 75 unique attachments drafted after inspecting
+  every rendered image; CSV and target-loader checks pass. No Batch 3 live
+  write has been made or approved.
+- Inventory batches 4-6 remain parked.

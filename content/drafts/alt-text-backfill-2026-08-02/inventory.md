@@ -153,7 +153,7 @@ What I could verify live on 2026-08-02:
 - **The combining-diacritic case is stored as NCRs.** Media 12350 holds `Block Party 2026 album cover, Eth&#7885;&#769;s Lab, ...` and `curl -s https://kriskrug.co/blog/` returns `alt="The Eth&#7885;&#769;s Lab Block Party Album"`. That is the only NCR-escaped alt string in the entire 2,879-image library.
 - **UNVERIFIED:** 51 media items currently hold raw non-latin1 characters in `alt_text` (U+2014 em dash, U+201C/U+201D curly quotes) and they read back clean over REST. That does not match a strict "all non-latin1 gets substituted" model. I did not test a write, so I cannot say whether those were written through a different path or whether the substitution is narrower than the memory note describes. Do not treat raw em dashes in alt as proven safe.
 
-**Working rule for this backfill:** ASCII is always safe. Write anything outside ASCII as a numeric character reference. `ü` becomes `&#252;`, `Ø` becomes `&#216;`, `Ü` becomes `&#220;`, `ọ́` becomes `&#7885;&#769;`. Nine rows in `inventory.csv` are flagged `needs_ncr=yes`; they are the Kris Krüg name strings and the MØTLEYKRÜG podcast covers.
+**Working rule for this backfill:** ASCII is always safe. Write anything outside ASCII as a numeric character reference. `ü` becomes `&#252;`, `Ø` becomes `&#216;`, `Ü` becomes `&#220;`, `ọ́` becomes `&#7885;&#769;`. Sixteen rows in `inventory.csv` are flagged `needs_ncr=yes`; they are the Kris Krüg name strings and the MØTLEYKRÜG podcast covers.
 
 `inventory.csv` also escapes em dashes in the quoted-evidence columns (`rendered_alt`, `media_library_alt`, `media_library_title`, `page_title`) as `&#8212;` so the file contains no literal em dash. None of the `proposed_alt` values contain one.
 
@@ -164,14 +164,19 @@ What I could verify live on 2026-08-02:
 | Batch | Rows | Surface | What | Status |
 |---|---:|---|---|---|
 | 0 | 216 | Snippet or plugin | Meta noscript tracking pixel, one per route, add `alt=""` | Ready, one-line fix, kills 216 findings |
-| 1 | 34 | `post-content-block` | Seven site pages, all alt strings written below | Ready to apply |
-| 2 | 5 | Mixed | `/home/` plus two media items reused as post heroes | Ready to apply, but see the `/home/` question |
-| 3 | 76 | `media-library-alt_text` | Post hero featured images with empty alt, one library write each | Needs per-image review, cheapest per fix |
+| 1 | 34 | `post-content-block` | Seven site pages, all alt strings written below | Applied and independently verified 2026-08-24 |
+| 2 | 5 | Mixed | `/home/` plus two media items reused as post heroes | Media values applied; one in-content row and `/home/` decision remain |
+| 3 | 76 | `media-library-alt_text` | Post hero featured images with empty alt, 75 unique attachments | Visually reviewed and drafted; live apply not approved |
 | 4 | 266 | `post-content-block` | In-body images on 23 posts published 2025 to 2026 | Needs per-image review |
 | 5 | 698 | `post-content-block` | In-body images on 69 archive posts, mostly 2024 meetup recap galleries | Needs per-image review, biggest block |
 | 6 | 106 | `post-content-block` | 14 photoblog gallery posts where alt is a Flickr photo ID | Needs per-image review |
 
-Batch 0 first because it is one edit and clears 216 of the 1,401 total alt findings. Batch 1 and 2 next because they are already written. Batch 3 next because it is the highest fixes-per-effort ratio and it fixes hero images that appear on both the post and any card that renders the thumbnail.
+Batch 0 remains a one-edit fix for the tracking pixel. The Batch 1 content
+writes and the two Batch 2 media values were applied and verified on
+2026-08-24. Batch 3 remains the highest fixes-per-effort ratio because it
+fixes hero images that appear on both the post and any card that renders the
+thumbnail. Its 76 rows were visually reviewed and drafted on 2026-08-24, but
+live application still requires explicit approval.
 
 Batches 4 to 6 are volume work. They cannot be automated honestly, because the correct alt depends on what is in the photo. What can be automated is the harness: pull each image, show it, capture a proposed string, stage it as a diff against `post_content`, and gate the apply on review. Do not let a script invent alt text from a filename.
 
@@ -179,9 +184,9 @@ Batches 4 to 6 are volume work. They cannot be automated honestly, because the c
 
 ## Batch 1, exact proposed alt strings
 
-Every string below was written after fetching and looking at the image at 520px on 2026-08-02. They are apply-ready. Copy them verbatim, including the NCRs.
+Every string below was written after fetching and looking at the image at 520px on 2026-08-02. The Batch 1 strings were applied and verified on 2026-08-24. Copy them verbatim, including the NCRs, if a rollback or comparison is needed.
 
-**What the strings actually cover, counted properly.** 36 media IDs. **35 distinct strings**, not 36: media 7539 and 7617 are the same Isaac Shamam testimonial card used on two different course pages and carry byte-identical alt. 43 rows in `inventory.csv` carry a `proposed_alt` value, but only **39 of those rows are violations that need a fix** (34 in batch 1, 5 in batch 2). The other 4 rows are `has-alt` / `fix_surface=leave-as-is`: they are places where media 12646 and 6835 already render with real alt (the post-card renders on `/` and `/blog/` fall back to the post title, and 12646 has a real in-body alt on its own post). Those 4 are carried in the CSV for context and are not part of the 1,185.
+**What this section covers, counted properly.** 36 media IDs. **35 distinct strings**, not 36: media 7539 and 7617 are the same Isaac Shamam testimonial card used on two different course pages and carry byte-identical alt. That original Batch 1-2 subset covers 39 violation rows. The CSV now also carries the visually reviewed Batch 3 drafts: globally, 119 rows have a `proposed_alt`, including 115 violation rows, with 110 distinct strings across 111 attachment IDs. The remaining 4 rows are `has-alt` / `fix_surface=leave-as-is` context rows.
 
 So the honest line is: **35 distinct strings, 36 attachments, closing 39 of the 1,185 findings.** Not "36 strings covering 43 instances".
 
@@ -296,7 +301,13 @@ These are classified `has-alt` in the CSV because they are not empty, so they ar
 
 ---
 
-## Acceptance criteria on issue #4: 0 of 7 met
+## Historical issue #4 acceptance snapshot: 0 of 7 met on 2026-08-02
+
+> This subsection records the original no-write audit baseline and is not a
+> current live-state claim. On 2026-08-24, media 6835 and 12646 and all 34
+> Batch 1 content rows were applied and verified. See `APPLY-RUNBOOK.md` for
+> current execution state; a new full live recount is still required before
+> changing the issue-level WCAG verdict.
 
 Every criterion on #4 is about the state of images **on the live site**. This pass made zero writes. Nothing here has been applied. So the count is 0 of 7, and it stays 0 of 7 until a batch actually runs.
 
@@ -310,7 +321,7 @@ An earlier version of this file marked three of them `[x]` because a proposed st
 - [ ] Tested with screen readers. **No.** No screen reader was run in this pass.
 - [ ] WCAG 2.1 AA compliance verified. **No.** That is issue #46.
 
-### What this PR does close
+### What the 2026-08-02 audit closed
 
 It is not zero work, it is just not site state. What is genuinely done:
 
@@ -322,12 +333,12 @@ It is not zero work, it is just not site state. What is genuinely done:
 
 None of that is an acceptance criterion on #4. #4 closes when images on kriskrug.co have alt text.
 
-## What needs KK
+## What still needs KK
 
 1. **`/home/`:** redirect, unpublish, or keep and fix? It is a live 200 that nothing links to.
-2. **Approval to apply batch 0 and batch 1.** Batch 1 is 34 in-content block edits across seven pages, which means `post_content` writes on live pages, not media library writes. Those need snapshots and slug and ID checks per the incident rules in `docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`.
+2. **Approval to apply Batch 3.** The 76 reviewed rows cover 75 unique media-library writes. The broad media command now selects them, so approval must name this scope explicitly; execution should remain one attachment at a time with snapshots and exact readback.
 3. **Volume call on batches 4 to 6.** 1,070 images across 106 posts, mostly meetup recap galleries from 2023 and 2024. Options: do them all, do only posts that still get traffic, or accept the archive as-is and gate alt discipline on new posts only. This is a scope decision, not an engineering one.
-4. **The em dash and NCR question.** 51 media items currently hold raw em dashes and curly quotes in `alt_text` and read back clean. Either the latin1 substitution model is narrower than the memory note says, or those were written through a path other than a plain REST write. Worth one deliberate test write on a throwaway attachment before batch 3 runs, since batch 3 is media library writes.
+4. **NCR readback on the first applicable Batch 3 item.** Every proposed string is ASCII-only, with non-ASCII names represented as numeric character references. Stage the first NCR-bearing attachment individually and require exact authenticated readback before continuing.
 
 ---
 
@@ -337,4 +348,4 @@ None of that is an acceptance criterion on #4. #4 closes when images on kriskrug
 - `content/drafts/alt-text-backfill-2026-08-02/inventory.csv`, 2,140 rows, one per unique `(page_url, image_src)` pair. Columns: `batch, page_url, page_id, page_slug, page_title, tier, media_id, image_file, image_src, rendered_alt, alt_state, classification, fix_surface, media_library_alt, media_library_title, proposed_alt, needs_ncr, confidence, notes`
 - `content/drafts/alt-text-backfill-2026-08-02/recount_live.py`, read-only re-verification of every total in this file. GET only, never writes to the site. `python3 recount_live.py` for all 216 routes, `--top-routes-only` for the fast ten-route check, `--json out.json` for machine-readable totals.
 
-Rows with `confidence` starting `TODO` are the ones still needing a human to look at the image. Rows with `confidence` starting `high` are apply-ready.
+Rows with `confidence` starting `TODO` are the ones still needing a human to look at the image. Rows with `confidence` starting `high` have completed visual review; live approval is a separate gate.
