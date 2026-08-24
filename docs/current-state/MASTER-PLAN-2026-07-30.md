@@ -74,7 +74,7 @@ Do **not** interleave theme visual deltas with content publishes.
 
 | Gate | Owner |
 |---|---|
-| Phase 0–1 docs PRs | Agent draft; KK merge (admin override; agent-safe-merge was deleted 2026-08-23) |
+| Phase 0–1 docs PRs | Agent draft; normal protected merge after `summary` is green and the branch is up to date |
 | #369 A+D deletes | Locked by this plan; execute in dedicated reclaim PR |
 | Live theme uploads / pixel gate | KK for each #475+ deploy |
 | Content publish / schedule | KK per post |
