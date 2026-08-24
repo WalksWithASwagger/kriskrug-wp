@@ -47,6 +47,26 @@ is 1 when any item is refused, conflicted, or fails readback.
 
 `--only-page-id` / `--only-media-id` stage one target at a time if wanted.
 
+## Roll back one written target
+
+Each apply creates a private pre-write snapshot. Restore is also dry-run by
+default, accepts only mode-0600 files under the generated snapshot directory,
+revalidates the snapshot and live target against `inventory.csv`, refuses
+intervening live edits, snapshots the current state before restoring, and
+verifies an exact readback:
+
+```bash
+# Preview, inspect the report, then apply one restore.
+python3 apply_batches.py --batch media --restore .generated/alt-text-backfill/<run>/media-6835-before.json
+python3 apply_batches.py --batch media --restore .generated/alt-text-backfill/<run>/media-6835-before.json --apply
+
+python3 apply_batches.py --batch content --restore .generated/alt-text-backfill/<run>/page-3899-before.json
+python3 apply_batches.py --batch content --restore .generated/alt-text-backfill/<run>/page-3899-before.json --apply
+```
+
+Restore requires WordPress credentials even for its dry run. Never restore a
+whole batch blindly; inspect and restore only the target whose readback failed.
+
 ## State as of 2026-08-23 (credential-free dry run, this session)
 
 - Batch 0: both media IDs verified live, `alt_text` still empty, status
