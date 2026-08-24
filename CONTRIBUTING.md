@@ -98,7 +98,7 @@ Labels: bug, priority:high, mobile
 - **seo** - Search engine optimization
 - **content** - Content or UX improvements
 - **documentation** - Docs need updates
-- **auto-implement** - Historical automation-intent label; does not trigger the parked `agent-pr-generator` workflow
+- **auto-implement** - Historical automation-intent label; the `agent-pr-generator` workflow was deleted 2026-08-23 and nothing triggers on it
 - **needs-human-review** - Requires human attention
 - **priority:high** - Urgent issue
 - **priority:medium** - Important but not urgent
@@ -128,10 +128,12 @@ Your PR should include:
 
 ### Review Process
 
-1. **Human maintainer** (KK) reviews and approves
-2. **Merge** once approved
+1. Confirm **`Test PR / summary` is green**.
+2. Confirm the branch is **up to date with `main`**.
+3. Content/docs-only PRs may use the normal protected merge path.
+4. Theme, plugin, `inc/`, and live-deploy work requires KK review before merge; every live WordPress deploy requires separate explicit approval.
 
-> The older GitHub Actions agent swarm is parked (`agent-pr-generator.yml` is read-only and no longer label-triggered). `test-pr.yml` still runs as active PR validation; maintainers still do human review/approval.
+> The older GitHub Actions agent swarm is gone (`agent-pr-generator.yml` deleted 2026-08-23). `test-pr.yml` is the active PR validation.
 
 ## Coding Standards
 

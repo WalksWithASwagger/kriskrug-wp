@@ -10,11 +10,12 @@ Shared publisher code stays in `scripts/notion-to-wp/`: `publish_common.py`,
 `wp_blocks.py`, `wp_client.py`, `create_local_wp_draft.py`,
 `prepare_review_draft.py`, and the other tested generic entry points.
 
-## Root fossils (not moved, not deleted)
+## Root fossils (deleted 2026-08-22)
 
-`customize-for-kriskrug.sh` and `monitor-agents.sh` still sit at the repo root.
-KK approval is still required before those two Jan-2026 fossils are deleted.
-They remain in git history if they are ever needed.
+`customize-for-kriskrug.sh` (spent bc-ai → kk tree rewrite) and
+`monitor-agents.sh` (decommissioned auto-implement swarm poller) were deleted
+from the repo root after KK approved. Recover from git history if needed:
+`21e9463`.
 
 ## Left in place on purpose
 

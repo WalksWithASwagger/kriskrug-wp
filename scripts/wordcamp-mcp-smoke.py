@@ -21,10 +21,14 @@ def load_env(path: Path) -> tuple[str, str]:
             continue
         key, value = line.split("=", 1)
         values[key.strip()] = value.strip().strip('"').strip("'")
-    user = values.get("WP_USER", "")
-    password = (values.get("WP_APP_PASSWORD") or "").replace(" ", "")
+    user = values.get("WP_USER") or values.get("WP_API_USERNAME", "")
+    password = (
+        values.get("WP_APP_PASSWORD") or values.get("WP_API_PASSWORD") or ""
+    ).replace(" ", "")
     if not user or not password:
-        raise SystemExit(f"Missing WP_USER/WP_APP_PASSWORD in {path}")
+        raise SystemExit(
+            f"Missing WP_USER/WP_APP_PASSWORD (or WP_API_USERNAME/WP_API_PASSWORD) in {path}"
+        )
     return user, password
 
 

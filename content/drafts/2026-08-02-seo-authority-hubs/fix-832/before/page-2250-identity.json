@@ -1,0 +1,15 @@
+{
+  "id": 2250,
+  "slug": "events",
+  "status": "publish",
+  "link": "https://kriskrug.co/events/",
+  "modified": "2026-08-10T10:38:46",
+  "modified_gmt": "2026-08-10T18:38:46",
+  "type": "page",
+  "content_rendered_bytes": 56795,
+  "content_rendered_sha256": "4353740134b28aa577de881cd41aaf071e8304444540687cb3562206145beb43",
+  "snapshot_source": "public_rest_rendered_20260819_must_not_write_fixture",
+  "must_not_write": true,
+  "owned_by": 635,
+  "title_rendered": "Events"
+}

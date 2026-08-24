@@ -9,12 +9,12 @@ import os
 import re
 import subprocess
 import sys
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from common import WPClient, wp_queue_counts
+from common import WPClient, has_wp_process_credentials, wp_queue_counts
 
 
 @dataclass
@@ -57,9 +57,23 @@ def run_json_command(
     if result.returncode != 0 or not result.stdout:
         return result, None
     try:
-        return result, json.loads(result.stdout)
+        parsed = json.loads(result.stdout)
     except json.JSONDecodeError:
         return result, None
+    # The parsed value carries the signal; the raw payload is what callers render.
+    # `gh --json ... labels` returns kilobytes of label ids/colors per issue, which
+    # buries the report and burns agent context. Render a one-line receipt instead.
+    return replace(result, stdout=_json_receipt(parsed)), parsed
+
+
+def _json_receipt(parsed: Any) -> str:
+    if isinstance(parsed, list):
+        return f"parsed OK: {len(parsed)} records (raw JSON omitted)"
+    if isinstance(parsed, dict):
+        keys = ", ".join(sorted(parsed)[:8])
+        more = "..." if len(parsed) > 8 else ""
+        return f"parsed OK: {len(parsed)} keys ({keys}{more}) (raw JSON omitted)"
+    return "parsed OK (raw JSON omitted)"
 
 
 def parse_status_line(headers: str) -> str:
@@ -118,13 +132,11 @@ def build_label_counts(issues_json: list[dict[str, Any]]) -> dict[str, int]:
 def fetch_wp_queue_counts(repo_root: Path) -> tuple[dict[str, int] | None, str | None]:
     env_path = repo_root / "scripts/notion-to-wp/.env"
     has_env_file = env_path.exists()
-    has_process_creds = bool(
-        os.environ.get("WP_USER") and os.environ.get("WP_APP_PASSWORD")
-    )
+    has_process_creds = has_wp_process_credentials()
     if not has_env_file and not has_process_creds:
         return None, (
             f"WordPress credentials unavailable: missing env file: {env_path} "
-            "and WP_USER/WP_APP_PASSWORD not set in process env"
+            "and WP_USER/WP_APP_PASSWORD (or WP_API_USERNAME/WP_API_PASSWORD) not set in process env"
         )
 
     try:

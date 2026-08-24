@@ -22,8 +22,10 @@ def _clear_wp_process_creds():
     """Context manager that removes injected WP credentials for deterministic tests."""
     patcher = mock.patch.dict(os.environ)
     patcher.start()
-    os.environ.pop("WP_USER", None)
-    os.environ.pop("WP_APP_PASSWORD", None)
+    # Both name pairs must go: the credential gate accepts either, so leaving the
+    # WP_API_* pair set makes this test pass a bare shell but fail under Varlock.
+    for key in ("WP_USER", "WP_APP_PASSWORD", "WP_API_USERNAME", "WP_API_PASSWORD"):
+        os.environ.pop(key, None)
     return patcher
 
 
@@ -84,7 +86,11 @@ class CurrentStateDriftQueueCountsTests(unittest.TestCase):
 
         self.assertIsNone(result)
         self.assertIn("missing env file", error)
-        self.assertIn("WP_USER/WP_APP_PASSWORD not set in process env", error)
+        self.assertIn(
+            "WP_USER/WP_APP_PASSWORD (or WP_API_USERNAME/WP_API_PASSWORD) "
+            "not set in process env",
+            error,
+        )
 
 
 class CurrentStateDriftJsonSourceTests(unittest.TestCase):

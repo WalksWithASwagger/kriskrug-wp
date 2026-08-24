@@ -141,12 +141,15 @@ def load_config() -> Config:
         return default
 
     base_url = value("WP_BASE_URL", DEFAULT_BASE_URL) or DEFAULT_BASE_URL
-    wp_user = value("WP_USER")
-    wp_app_password = (value("WP_APP_PASSWORD") or "").replace(" ", "")
+    wp_user = value("WP_USER") or value("WP_API_USERNAME")
+    wp_app_password = (
+        value("WP_APP_PASSWORD") or value("WP_API_PASSWORD") or ""
+    ).replace(" ", "")
 
     if not wp_user or not wp_app_password:
         sys.exit(
-            f"Missing WP credentials. Set WP_USER and WP_APP_PASSWORD in {SCRIPT_ENV_PATH} "
+            f"Missing WP credentials. Set WP_USER/WP_APP_PASSWORD (or "
+            f"WP_API_USERNAME/WP_API_PASSWORD) in {SCRIPT_ENV_PATH} "
             "or environment variables."
         )
 

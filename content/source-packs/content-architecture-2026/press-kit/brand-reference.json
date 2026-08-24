@@ -1,0 +1,1058 @@
+{
+  "schema_version": 1,
+  "metadata": {
+    "generated_at_utc": "2026-08-23T01:14:33Z",
+    "timestamp_policy": "--check reuses the committed timestamp so clock time never creates drift.",
+    "theme": {
+      "name": {
+        "id": "theme_name",
+        "name": "Theme name",
+        "value": "KK Aurora",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/style.css",
+            "token": "Theme Name"
+          }
+        ]
+      },
+      "version": {
+        "id": "theme_version",
+        "name": "Theme version",
+        "value": "1.6.9",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/style.css",
+            "token": "Version"
+          }
+        ]
+      }
+    },
+    "source_files": [
+      {
+        "path": "theme/kk-aurora/theme.json",
+        "sha256": "e648ea8f9a3b34f9424e888d5f7eb3eac7ab0217175314ca050899fb79fa2208"
+      },
+      {
+        "path": "theme/kk-aurora/assets/css/02-tokens.css",
+        "sha256": "c1225b9a2e1405e07f388f43ea8cbc9dc1044484c69a582a3649bb4223ed4933"
+      },
+      {
+        "path": "theme/kk-aurora/style.css",
+        "sha256": "9174a53accc8dcc8bea2091793c7c46f9d5ef08960ac79bbc59ab0d184e90ea2"
+      }
+    ],
+    "publication_gate": "This exporter reads repository sources only. Before publication, run make status-readonly and verify that live and repository Aurora versions agree."
+  },
+  "colors": {
+    "surfaces": [
+      {
+        "id": "surface",
+        "name": "Primary surface",
+        "value": "#efe6d2",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/assets/css/02-tokens.css",
+            "token": "--kk-surface"
+          },
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--color--paper",
+            "location": "settings.color.palette[slug=paper]"
+          }
+        ]
+      },
+      {
+        "id": "surface_sunk",
+        "name": "Sunk surface",
+        "value": "#e6dcc2",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/assets/css/02-tokens.css",
+            "token": "--kk-surface-sunk"
+          },
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--color--surface",
+            "location": "settings.color.palette[slug=surface]"
+          }
+        ]
+      },
+      {
+        "id": "surface_raised",
+        "name": "Raised surface",
+        "value": "#e6dcc2",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/assets/css/02-tokens.css",
+            "token": "--kk-surface-raised"
+          },
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--color--elevated",
+            "location": "settings.color.palette[slug=elevated]"
+          }
+        ]
+      }
+    ],
+    "ink_text": [
+      {
+        "id": "ink",
+        "name": "Primary ink",
+        "value": "#171310",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/assets/css/02-tokens.css",
+            "token": "--kk-ink"
+          },
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--color--text-primary",
+            "location": "settings.color.palette[slug=text-primary]"
+          }
+        ]
+      },
+      {
+        "id": "ink_secondary",
+        "name": "Secondary ink",
+        "value": "#3d342c",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/assets/css/02-tokens.css",
+            "token": "--kk-ink-secondary"
+          },
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--color--text-secondary",
+            "location": "settings.color.palette[slug=text-secondary]"
+          }
+        ]
+      },
+      {
+        "id": "ink_muted",
+        "name": "Muted ink",
+        "value": "#5c5044",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/assets/css/02-tokens.css",
+            "token": "--kk-ink-muted"
+          },
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--color--text-muted",
+            "location": "settings.color.palette[slug=text-muted]"
+          }
+        ]
+      }
+    ],
+    "accent_action": [
+      {
+        "id": "accent",
+        "name": "Primary accent",
+        "value": "#9a2f14",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/assets/css/02-tokens.css",
+            "token": "--kk-accent"
+          },
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--color--signal",
+            "location": "settings.color.palette[slug=signal]"
+          }
+        ]
+      },
+      {
+        "id": "accent_ink",
+        "name": "Accent text",
+        "value": "#9a2f14",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/assets/css/02-tokens.css",
+            "token": "--kk-accent-ink"
+          },
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--color--signal-text",
+            "location": "settings.color.palette[slug=signal-text]"
+          }
+        ]
+      }
+    ],
+    "semantic": [
+      {
+        "id": "line",
+        "name": "Structure / line",
+        "value": "#d9cdb0",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/assets/css/02-tokens.css",
+            "token": "--kk-line"
+          },
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--color--muted",
+            "location": "settings.color.palette[slug=muted]"
+          }
+        ]
+      },
+      {
+        "id": "success",
+        "name": "Success",
+        "value": "#1f8a86",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--color--success",
+            "location": "settings.color.palette[slug=success]"
+          }
+        ]
+      },
+      {
+        "id": "warning",
+        "name": "Warning",
+        "value": "#e8b53a",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--color--warning",
+            "location": "settings.color.palette[slug=warning]"
+          }
+        ]
+      },
+      {
+        "id": "error",
+        "name": "Error",
+        "value": "#d94a1f",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--color--error",
+            "location": "settings.color.palette[slug=error]"
+          }
+        ]
+      }
+    ]
+  },
+  "typography": {
+    "font_families": [
+      {
+        "id": "display",
+        "name": "Display (Space Grotesk)",
+        "value": "'Space Grotesk', system-ui, -apple-system, sans-serif",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--font-family--display",
+            "location": "settings.typography.fontFamilies[slug=display]"
+          }
+        ]
+      },
+      {
+        "id": "body",
+        "name": "Body (DM Sans)",
+        "value": "'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--font-family--body",
+            "location": "settings.typography.fontFamilies[slug=body]"
+          }
+        ]
+      },
+      {
+        "id": "mono",
+        "name": "Monospace (JetBrains Mono)",
+        "value": "'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--font-family--mono",
+            "location": "settings.typography.fontFamilies[slug=mono]"
+          }
+        ]
+      }
+    ],
+    "type_scale": [
+      {
+        "id": "xs",
+        "name": "Extra Small",
+        "value": {
+          "default": "0.75rem",
+          "fluid_min": "0.75rem",
+          "fluid_max": "0.875rem"
+        },
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--font-size--xs",
+            "location": "settings.typography.fontSizes[slug=xs]"
+          }
+        ]
+      },
+      {
+        "id": "sm",
+        "name": "Small",
+        "value": {
+          "default": "0.875rem",
+          "fluid_min": "0.875rem",
+          "fluid_max": "1rem"
+        },
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--font-size--sm",
+            "location": "settings.typography.fontSizes[slug=sm]"
+          }
+        ]
+      },
+      {
+        "id": "base",
+        "name": "Base",
+        "value": {
+          "default": "1rem",
+          "fluid_min": "1rem",
+          "fluid_max": "1.125rem"
+        },
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--font-size--base",
+            "location": "settings.typography.fontSizes[slug=base]"
+          }
+        ]
+      },
+      {
+        "id": "lg",
+        "name": "Large",
+        "value": {
+          "default": "1.125rem",
+          "fluid_min": "1.125rem",
+          "fluid_max": "1.25rem"
+        },
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--font-size--lg",
+            "location": "settings.typography.fontSizes[slug=lg]"
+          }
+        ]
+      },
+      {
+        "id": "xl",
+        "name": "Extra Large",
+        "value": {
+          "default": "1.25rem",
+          "fluid_min": "1.25rem",
+          "fluid_max": "1.5rem"
+        },
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--font-size--xl",
+            "location": "settings.typography.fontSizes[slug=xl]"
+          }
+        ]
+      },
+      {
+        "id": "2xl",
+        "name": "2X Large",
+        "value": {
+          "default": "1.5rem",
+          "fluid_min": "1.5rem",
+          "fluid_max": "2rem"
+        },
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--font-size--2xl",
+            "location": "settings.typography.fontSizes[slug=2xl]"
+          }
+        ]
+      },
+      {
+        "id": "3xl",
+        "name": "3X Large",
+        "value": {
+          "default": "1.875rem",
+          "fluid_min": "1.875rem",
+          "fluid_max": "2.5rem"
+        },
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--font-size--3xl",
+            "location": "settings.typography.fontSizes[slug=3xl]"
+          }
+        ]
+      },
+      {
+        "id": "4xl",
+        "name": "4X Large",
+        "value": {
+          "default": "2.25rem",
+          "fluid_min": "2.25rem",
+          "fluid_max": "3rem"
+        },
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--font-size--4xl",
+            "location": "settings.typography.fontSizes[slug=4xl]"
+          }
+        ]
+      },
+      {
+        "id": "5xl",
+        "name": "5X Large",
+        "value": {
+          "default": "3rem",
+          "fluid_min": "3rem",
+          "fluid_max": "4.5rem"
+        },
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--font-size--5xl",
+            "location": "settings.typography.fontSizes[slug=5xl]"
+          }
+        ]
+      },
+      {
+        "id": "hero",
+        "name": "Hero",
+        "value": {
+          "default": "3.5rem",
+          "fluid_min": "3.5rem",
+          "fluid_max": "7rem"
+        },
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--font-size--hero",
+            "location": "settings.typography.fontSizes[slug=hero]"
+          }
+        ]
+      }
+    ]
+  },
+  "layout": {
+    "widths": [
+      {
+        "id": "content_width",
+        "name": "Content width",
+        "value": "800px",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "settings.layout.contentSize",
+            "location": "settings.layout.contentSize"
+          }
+        ]
+      },
+      {
+        "id": "wide_width",
+        "name": "Wide width",
+        "value": "1280px",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "settings.layout.wideSize",
+            "location": "settings.layout.wideSize"
+          }
+        ]
+      },
+      {
+        "id": "measure",
+        "name": "Reading measure",
+        "value": "66ch",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/assets/css/02-tokens.css",
+            "token": "--kk-measure"
+          }
+        ]
+      }
+    ],
+    "breakpoints": [
+      {
+        "id": "small",
+        "name": "Small",
+        "value": "480px",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/assets/css/02-tokens.css",
+            "token": "--kk-bp-sm"
+          }
+        ]
+      },
+      {
+        "id": "medium",
+        "name": "Medium",
+        "value": "768px",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/assets/css/02-tokens.css",
+            "token": "--kk-bp-md"
+          }
+        ]
+      },
+      {
+        "id": "large",
+        "name": "Large",
+        "value": "1200px",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/assets/css/02-tokens.css",
+            "token": "--kk-bp-lg"
+          }
+        ]
+      }
+    ]
+  },
+  "foundations": {
+    "spacing": [
+      {
+        "id": "10",
+        "name": "1",
+        "value": "0.25rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--10",
+            "location": "settings.spacing.spacingSizes[slug=10]"
+          }
+        ]
+      },
+      {
+        "id": "20",
+        "name": "2",
+        "value": "0.5rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--20",
+            "location": "settings.spacing.spacingSizes[slug=20]"
+          }
+        ]
+      },
+      {
+        "id": "30",
+        "name": "3",
+        "value": "0.75rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--30",
+            "location": "settings.spacing.spacingSizes[slug=30]"
+          }
+        ]
+      },
+      {
+        "id": "40",
+        "name": "4",
+        "value": "1rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--40",
+            "location": "settings.spacing.spacingSizes[slug=40]"
+          }
+        ]
+      },
+      {
+        "id": "50",
+        "name": "5",
+        "value": "1.25rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--50",
+            "location": "settings.spacing.spacingSizes[slug=50]"
+          }
+        ]
+      },
+      {
+        "id": "60",
+        "name": "6",
+        "value": "1.5rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--60",
+            "location": "settings.spacing.spacingSizes[slug=60]"
+          }
+        ]
+      },
+      {
+        "id": "70",
+        "name": "7",
+        "value": "1.75rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--70",
+            "location": "settings.spacing.spacingSizes[slug=70]"
+          }
+        ]
+      },
+      {
+        "id": "80",
+        "name": "8",
+        "value": "2rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--80",
+            "location": "settings.spacing.spacingSizes[slug=80]"
+          }
+        ]
+      },
+      {
+        "id": "90",
+        "name": "9",
+        "value": "2.5rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--90",
+            "location": "settings.spacing.spacingSizes[slug=90]"
+          }
+        ]
+      },
+      {
+        "id": "100",
+        "name": "10",
+        "value": "3rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--100",
+            "location": "settings.spacing.spacingSizes[slug=100]"
+          }
+        ]
+      },
+      {
+        "id": "120",
+        "name": "12",
+        "value": "4rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--120",
+            "location": "settings.spacing.spacingSizes[slug=120]"
+          }
+        ]
+      },
+      {
+        "id": "160",
+        "name": "16",
+        "value": "5rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--160",
+            "location": "settings.spacing.spacingSizes[slug=160]"
+          }
+        ]
+      },
+      {
+        "id": "200",
+        "name": "20",
+        "value": "6rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--200",
+            "location": "settings.spacing.spacingSizes[slug=200]"
+          }
+        ]
+      },
+      {
+        "id": "240",
+        "name": "24",
+        "value": "8rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--spacing--240",
+            "location": "settings.spacing.spacingSizes[slug=240]"
+          }
+        ]
+      }
+    ],
+    "radii": [
+      {
+        "id": "radius-sm",
+        "name": "Small",
+        "value": "0.25rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "settings.custom.border.radiusSm",
+            "location": "settings.custom.border.radiusSm"
+          }
+        ]
+      },
+      {
+        "id": "radius-md",
+        "name": "Medium",
+        "value": "0.5rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "settings.custom.border.radiusMd",
+            "location": "settings.custom.border.radiusMd"
+          }
+        ]
+      },
+      {
+        "id": "radius-lg",
+        "name": "Large",
+        "value": "0.75rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "settings.custom.border.radiusLg",
+            "location": "settings.custom.border.radiusLg"
+          }
+        ]
+      },
+      {
+        "id": "radius-xl",
+        "name": "Extra Large",
+        "value": "1rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "settings.custom.border.radiusXl",
+            "location": "settings.custom.border.radiusXl"
+          }
+        ]
+      },
+      {
+        "id": "radius-2-xl",
+        "name": "2X Large",
+        "value": "1.5rem",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "settings.custom.border.radius2xl",
+            "location": "settings.custom.border.radius2xl"
+          }
+        ]
+      },
+      {
+        "id": "radius-full",
+        "name": "Full / pill",
+        "value": "9999px",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "settings.custom.border.radiusFull",
+            "location": "settings.custom.border.radiusFull"
+          }
+        ]
+      }
+    ],
+    "shadows": [
+      {
+        "id": "sm",
+        "name": "Small",
+        "value": "0 1px 2px rgba(0, 0, 0, 0.5)",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--shadow--sm",
+            "location": "settings.shadow.presets[slug=sm]"
+          }
+        ]
+      },
+      {
+        "id": "md",
+        "name": "Medium",
+        "value": "0 4px 6px rgba(0, 0, 0, 0.4)",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--shadow--md",
+            "location": "settings.shadow.presets[slug=md]"
+          }
+        ]
+      },
+      {
+        "id": "lg",
+        "name": "Large",
+        "value": "0 10px 15px rgba(0, 0, 0, 0.3)",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--shadow--lg",
+            "location": "settings.shadow.presets[slug=lg]"
+          }
+        ]
+      },
+      {
+        "id": "xl",
+        "name": "Extra Large",
+        "value": "0 20px 25px rgba(0, 0, 0, 0.25)",
+        "provenance": [
+          {
+            "path": "theme/kk-aurora/theme.json",
+            "token": "--wp--preset--shadow--xl",
+            "location": "settings.shadow.presets[slug=xl]"
+          }
+        ]
+      }
+    ]
+  },
+  "buttons": [
+    {
+      "id": "background",
+      "name": "Background",
+      "value": "#9a2f14",
+      "provenance": [
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "styles.elements.button.color.background",
+          "location": "styles.elements.button.color.background"
+        },
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "--wp--preset--color--signal",
+          "location": "settings.color.palette[slug=signal]"
+        }
+      ]
+    },
+    {
+      "id": "text",
+      "name": "Text",
+      "value": "#efe6d2",
+      "provenance": [
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "styles.elements.button.color.text",
+          "location": "styles.elements.button.color.text"
+        },
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "--wp--preset--color--deep",
+          "location": "settings.color.palette[slug=deep]"
+        }
+      ]
+    },
+    {
+      "id": "font_family",
+      "name": "Font family",
+      "value": "'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      "provenance": [
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "styles.elements.button.typography.fontFamily",
+          "location": "styles.elements.button.typography.fontFamily"
+        },
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "--wp--preset--font-family--body",
+          "location": "settings.typography.fontFamilies[slug=body]"
+        }
+      ]
+    },
+    {
+      "id": "font_size",
+      "name": "Font size",
+      "value": "1rem",
+      "provenance": [
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "styles.elements.button.typography.fontSize",
+          "location": "styles.elements.button.typography.fontSize"
+        },
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "--wp--preset--font-size--base",
+          "location": "settings.typography.fontSizes[slug=base]"
+        }
+      ]
+    },
+    {
+      "id": "font_weight",
+      "name": "Font weight",
+      "value": "600",
+      "provenance": [
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "styles.elements.button.typography.fontWeight",
+          "location": "styles.elements.button.typography.fontWeight"
+        }
+      ]
+    },
+    {
+      "id": "letter_spacing",
+      "name": "Letter spacing",
+      "value": "0",
+      "provenance": [
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "styles.elements.button.typography.letterSpacing",
+          "location": "styles.elements.button.typography.letterSpacing"
+        },
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "--wp--custom--letter-spacing--normal",
+          "location": "settings.custom.letterSpacing.normal"
+        }
+      ]
+    },
+    {
+      "id": "padding-inline",
+      "name": "Inline padding",
+      "value": "1.5rem",
+      "provenance": [
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "settings.custom.button.paddingInline",
+          "location": "settings.custom.button.paddingInline"
+        },
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "--wp--preset--spacing--60",
+          "location": "settings.spacing.spacingSizes[slug=60]"
+        }
+      ]
+    },
+    {
+      "id": "padding-block",
+      "name": "Block padding",
+      "value": "0.75rem",
+      "provenance": [
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "settings.custom.button.paddingBlock",
+          "location": "settings.custom.button.paddingBlock"
+        },
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "--wp--preset--spacing--30",
+          "location": "settings.spacing.spacingSizes[slug=30]"
+        }
+      ]
+    },
+    {
+      "id": "radius",
+      "name": "Radius",
+      "value": "0.5rem",
+      "provenance": [
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "settings.custom.button.radius",
+          "location": "settings.custom.button.radius"
+        },
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "--wp--custom--border--radius-md",
+          "location": "settings.custom.border.radiusMd"
+        }
+      ]
+    },
+    {
+      "id": "radius-pill",
+      "name": "Pill radius",
+      "value": "9999px",
+      "provenance": [
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "settings.custom.button.radiusPill",
+          "location": "settings.custom.button.radiusPill"
+        },
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "--wp--custom--border--radius-full",
+          "location": "settings.custom.border.radiusFull"
+        }
+      ]
+    },
+    {
+      "id": "min-height",
+      "name": "Minimum height",
+      "value": "44px",
+      "provenance": [
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "settings.custom.button.minHeight",
+          "location": "settings.custom.button.minHeight"
+        }
+      ]
+    },
+    {
+      "id": "mobile-min-height",
+      "name": "Mobile minimum height",
+      "value": "48px",
+      "provenance": [
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "settings.custom.button.mobileMinHeight",
+          "location": "settings.custom.button.mobileMinHeight"
+        }
+      ]
+    },
+    {
+      "id": "icon-size",
+      "name": "Icon size",
+      "value": "1.125rem",
+      "provenance": [
+        {
+          "path": "theme/kk-aurora/theme.json",
+          "token": "settings.custom.button.iconSize",
+          "location": "settings.custom.button.iconSize"
+        }
+      ]
+    }
+  ],
+  "missing_or_noncanonical": [
+    {
+      "concept": "icon_system",
+      "status": "missing",
+      "reason": "The canonical Aurora sources do not define an icon family or usage rules.",
+      "checked_sources": [
+        "theme/kk-aurora/theme.json",
+        "theme/kk-aurora/assets/css/02-tokens.css"
+      ]
+    },
+    {
+      "concept": "logo_usage_rules",
+      "status": "missing",
+      "reason": "Logo files, clear-space rules, and lockups belong to the rights-cleared asset manifest.",
+      "checked_sources": [
+        "theme/kk-aurora/theme.json",
+        "theme/kk-aurora/assets/css/02-tokens.css"
+      ]
+    },
+    {
+      "concept": "photography_treatment",
+      "status": "missing",
+      "reason": "The canonical Aurora token sources do not define editorial photography rules.",
+      "checked_sources": [
+        "theme/kk-aurora/theme.json",
+        "theme/kk-aurora/assets/css/02-tokens.css"
+      ]
+    },
+    {
+      "concept": "brand_gradients",
+      "status": "noncanonical_for_press_kit",
+      "reason": "Gradient presets exist in theme.json but have no current --kk-* semantic role; they are intentionally omitted from press-kit guidance.",
+      "checked_sources": [
+        "theme/kk-aurora/theme.json",
+        "theme/kk-aurora/assets/css/02-tokens.css"
+      ]
+    },
+    {
+      "concept": "duotone_treatments",
+      "status": "noncanonical_for_press_kit",
+      "reason": "Duotone presets exist in theme.json but have no current --kk-* semantic role; they are intentionally omitted from press-kit guidance.",
+      "checked_sources": [
+        "theme/kk-aurora/theme.json",
+        "theme/kk-aurora/assets/css/02-tokens.css"
+      ]
+    }
+  ]
+}

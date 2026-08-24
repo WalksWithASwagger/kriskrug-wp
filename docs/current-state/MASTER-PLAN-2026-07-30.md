@@ -4,7 +4,7 @@
 **Lane:** Docs / ops first; then Track A or Track B — never interleaved in one commit.
 **Does not authorize** live WordPress writes, theme deploys, or history rewrite.
 
-Day runbook: [`WORK-PLAN-2026-08-17.md`](WORK-PLAN-2026-08-17.md). Declared snapshot: [`CURRENT-STATE-2026-07-30.md`](CURRENT-STATE-2026-07-30.md).
+Day runbook: [`WORK-PLAN-2026-08-23.md`](WORK-PLAN-2026-08-23.md). Declared snapshot: [`CURRENT-STATE-2026-07-30.md`](CURRENT-STATE-2026-07-30.md).
 
 ## Goal
 
@@ -74,7 +74,7 @@ Do **not** interleave theme visual deltas with content publishes.
 
 | Gate | Owner |
 |---|---|
-| Phase 0–1 docs PRs | Agent draft; KK merge (or agent-safe-merge if labeled) |
+| Phase 0–1 docs PRs | Agent draft; normal protected merge after `summary` is green and the branch is up to date |
 | #369 A+D deletes | Locked by this plan; execute in dedicated reclaim PR |
 | Live theme uploads / pixel gate | KK for each #475+ deploy |
 | Content publish / schedule | KK per post |

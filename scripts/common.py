@@ -117,6 +117,24 @@ def apply_wp_credential_aliases(env: dict[str, str]) -> dict[str, str]:
     return values
 
 
+def wp_process_credentials() -> tuple[str, str]:
+    """Return (user, app_password) from process env, honouring the WP_API_* aliases.
+
+    Returns ("", "") when neither name pair is populated. Callers that only gate on
+    WP_USER miss credentials supplied under the MCP names, which is the common case
+    for Varlock-resolved sessions.
+    """
+    resolved = apply_wp_credential_aliases(dict(os.environ))
+    user = (resolved.get("WP_USER") or "").strip()
+    app_password = (resolved.get("WP_APP_PASSWORD") or "").replace(" ", "").strip()
+    return user, app_password
+
+
+def has_wp_process_credentials() -> bool:
+    user, app_password = wp_process_credentials()
+    return bool(user and app_password)
+
+
 def wp_credentials(env: dict[str, str] | None = None) -> tuple[str, str, str]:
     """Return (base_url, user, normalized app_password). Raises if missing."""
     env = apply_wp_credential_aliases(env if env is not None else load_env())
