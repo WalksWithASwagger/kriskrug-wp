@@ -128,10 +128,12 @@ Your PR should include:
 
 ### Review Process
 
-1. **Human maintainer** (KK) reviews and approves
-2. **Merge** once approved
+1. Confirm **`Test PR / summary` is green**.
+2. Confirm the branch is **up to date with `main`**.
+3. Content/docs-only PRs may use the normal protected merge path.
+4. Theme, plugin, `inc/`, and live-deploy work requires KK review before merge; every live WordPress deploy requires separate explicit approval.
 
-> The older GitHub Actions agent swarm is gone (`agent-pr-generator.yml` deleted 2026-08-23). `test-pr.yml` is the active PR validation; maintainers still do human review/approval.
+> The older GitHub Actions agent swarm is gone (`agent-pr-generator.yml` deleted 2026-08-23). `test-pr.yml` is the active PR validation.
 
 ## Coding Standards
 

@@ -18,6 +18,7 @@ DEFAULT_BASES = [
     Path("README.md"),
     Path("AGENTS.md"),
     Path("CONTRIBUTING.md"),
+    Path(".env.schema"),
     Path("docs"),
 ]
 
@@ -74,39 +75,39 @@ KNOWN_STALE_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     ),
     (
         re.compile(r"WordPress has `?42`? draft posts", re.I),
-        "Draft queue count is stale; current normalized count is 71 draft posts.",
+        "Draft queue count is stale; rerun or cite `make draft-queue-audit`.",
     ),
     (
         re.compile(r"Open issues:\s*`?(?:61|69)`?", re.I),
-        "Open issue count is stale; current normalized count is 63 open issues.",
+        "Open issue count is stale; rerun or cite `make status-readonly`.",
     ),
     (
         re.compile(r"Open issues\s*\|\s*(?:61|64|69)\s*\|", re.I),
-        "Open issue table count is stale; current normalized count is 63 open issues.",
+        "Open issue table count is stale; rerun or cite `make status-readonly`.",
     ),
     (
         re.compile(r"Open PRs\s*\|\s*2\s*\|", re.I),
-        "Open PR table count is stale; current normalized count is 0 open PRs.",
+        "Open PR table count is stale; rerun or cite `make status-readonly`.",
     ),
     (
         re.compile(r"auto-implement`?\s*(?:issues)?\s*[:|]\s*`?(?:45|47|62)`?", re.I),
-        "Historical `auto-implement` count is stale; current normalized count is 44.",
+        "Historical `auto-implement` count is stale; query the current label inventory.",
     ),
     (
         re.compile(r"GitHub shows 64 open issues", re.I),
-        "Open issue count is stale; current normalized count is 63 open issues.",
+        "Open issue count is stale; rerun or cite `make status-readonly`.",
     ),
     (
         re.compile(r"Draft posts\s*\|\s*32\s*\|", re.I),
-        "Draft-post table count is stale; current normalized count is 71 draft posts.",
+        "Draft-post table count is stale; rerun or cite `make draft-queue-audit`.",
     ),
     (
         re.compile(r"Draft pages\s*\|\s*3\s*\|", re.I),
-        "Draft-page table count is stale; current normalized count is 5 draft pages.",
+        "Draft-page table count is stale; rerun or cite `make draft-queue-audit`.",
     ),
     (
         re.compile(r"authenticated WordPress (?:currently|now) has 32 draft posts", re.I),
-        "Draft queue wording is stale; current normalized count is 71 draft posts.",
+        "Draft queue wording is stale; rerun or cite `make draft-queue-audit`.",
     ),
 ]
 
@@ -129,6 +130,70 @@ ACTIVE_GUIDANCE_PATHS = {
     Path("docs/current-state/WORK-PLAN-2026-08-23.md"),
     Path("docs/current-state/MASTER-PLAN-2026-07-30.md"),
 }
+
+MERGE_POLICY_GUIDANCE_PATHS = {
+    Path("AGENTS.md"),
+    Path("CONTRIBUTING.md"),
+    Path(".env.schema"),
+    Path("docs/current-state/MASTER-PLAN-2026-07-30.md"),
+}
+
+STALE_MERGE_POLICY_PATTERNS: list[tuple[re.Pattern[str], str]] = [
+    (
+        re.compile(r"(?:only working path|KK merge)[^\n]*(?:admin override|--admin)", re.I),
+        "Merge policy must use the normal protected path, not a routine admin override.",
+    ),
+    (
+        re.compile(r"`?main`?[^\n]*requires?\s+(?:1|one)\s+approving review", re.I),
+        "Merge policy contains the retired one-review requirement.",
+    ),
+    (
+        re.compile(
+            r"(?:second[- ]account token|not the PR author)[^\n]*(?:merge|approve|unblock|fail)",
+            re.I,
+        ),
+        "Merge policy contains the retired second-account token requirement.",
+    ),
+    (
+        re.compile(r"classic PAT[^\n]*(?:approve|merge)", re.I),
+        "Merge policy contains the retired second-account token requirement.",
+    ),
+    (
+        re.compile(
+            r"(?:human maintainer[^\n]*(?:reviews?|approves?)|"
+            r"maintainers still do human review/approval)",
+            re.I,
+        ),
+        "Merge policy incorrectly makes human approval universal.",
+    ),
+]
+
+REQUIRED_AGENT_MERGE_POLICY_PATTERNS: list[tuple[re.Pattern[str], str]] = [
+    (
+        re.compile(r"\b0 approving reviews\b", re.I),
+        "Merge policy must state that `main` requires 0 approving reviews.",
+    ),
+    (
+        re.compile(r"(?:Test PR / )?summary`?[^\n]*green", re.I),
+        "Merge policy must require the green `summary` check.",
+    ),
+    (
+        re.compile(r"up to date with\s+`?main`?", re.I),
+        "Merge policy must require the branch to be up to date with `main`.",
+    ),
+    (
+        re.compile(r"gh pr merge <n> --squash --delete-branch", re.I),
+        "Merge policy must name the normal protected merge command.",
+    ),
+    (
+        re.compile(r"no\s+`?--admin`?", re.I),
+        "Merge policy must forbid routine `--admin` use.",
+    ),
+    (
+        re.compile(r"Theme\s*/\s*plugins[^\n]*inc[^\n]*ask KK before merging", re.I),
+        "Merge policy must preserve KK approval for theme, plugin, and `inc/` merges.",
+    ),
+]
 
 STALE_MORNING_TRUTH_FLOW_PATTERNS: list[re.Pattern[str]] = [
     re.compile(
@@ -187,9 +252,10 @@ def iter_markdown_files(repo_root: Path, bases: list[Path], excludes: list[Path]
         resolved = (repo_root / base).resolve()
         if not resolved.exists():
             continue
-        candidates = [resolved] if resolved.is_file() else resolved.rglob("*.md")
+        explicit_file = resolved.is_file()
+        candidates = [resolved] if explicit_file else resolved.rglob("*.md")
         for candidate in candidates:
-            if candidate.suffix.lower() != ".md":
+            if not explicit_file and candidate.suffix.lower() != ".md":
                 continue
             candidate = candidate.resolve()
             if any(candidate == excluded or is_relative_to(candidate, excluded) for excluded in exclude_paths):
@@ -215,6 +281,23 @@ def scan_file(repo_root: Path, path: Path) -> list[Finding]:
                         match.group(0).replace("\n", " ").strip(),
                     )
                 )
+
+    if relative_path in MERGE_POLICY_GUIDANCE_PATHS:
+        for pattern, message in STALE_MERGE_POLICY_PATTERNS:
+            for match in pattern.finditer(text):
+                findings.append(
+                    Finding(
+                        relative_path,
+                        text.count("\n", 0, match.start()) + 1,
+                        message,
+                        match.group(0).strip(),
+                    )
+                )
+
+    if relative_path == Path("AGENTS.md"):
+        for pattern, message in REQUIRED_AGENT_MERGE_POLICY_PATTERNS:
+            if not pattern.search(text):
+                findings.append(Finding(relative_path, 1, message, ""))
 
     for line_number, line in enumerate(text.splitlines(), start=1):
         for pattern, message in KNOWN_STALE_PATTERNS + STALE_FRONT_DOOR_PATTERNS:
