@@ -3,20 +3,24 @@
 KK approved the original media and content batches on 2026-08-23,
 dry-run-first per
 `docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`. Those writes
-were applied and verified on 2026-08-24. Batch 3 then completed with 73 safe
-media writes and two protected shared-context skips (6481 and 8211). The
+were applied and verified on 2026-08-24. Batch 3 then made 73 media writes. A
+2026-08-25 path-aware authenticated re-audit found five duplicate-filename
+joins. Three had been protected before write. Two writes landed on unrelated
+attachments 6729 and 11774 and need rollback; the actual targets 6014, 6126,
+6985, 7637, and 8871 remain unapplied. The
 ~1,070 archive-scope images (inventory batches 4-6) are parked and were not
 part of that approval.
 
 Batch names as approved:
 
 - **Media library `alt_text` lane** (`--batch media`). The
-  corrected `media-library-alt_text` surface holds 77 violation rows across 75 unique
+  corrected `media-library-alt_text` surface holds 80 violation rows across 78 unique
   attachments. Media 6835 and 12646 were applied and verified on 2026-08-24.
-  Batch 3 adds 73 applied attachments. The broad authenticated dry run now
-  selects 75 total targets and returns 75 `already-applied`; no media write
-  remains in this lane. Three historical rows involving attachments 6481 and
-  8211 are `investigate-shared-media-context`, not media-write targets.
+  Batch 3 has 71 intended attachments applied and five corrected pending
+  attachments. The 2026-08-25 path-aware authenticated dry run selects 78
+  total targets: 73 `already-applied` including media 6835 and 12646, and five
+  `would-write`. Media 6481 and 8211 are unrelated duplicate-filename
+  attachments and are not targets. Media 6729 and 11774 need rollback.
 - **Batch 1 — 34 `post_content` alt insertions** (`--batch content`) across
   seven pages (2543, 2828, 3899, 6755, 6770, 7610, 7764). Applied one page at
   a time and independently verified as 34/34 `already-applied` on 2026-08-24.
@@ -30,7 +34,7 @@ cd content/drafts/alt-text-backfill-2026-08-02
 python3 recount_live.py --top-routes-only
 
 # 1. Re-check current state; both commands are read-only without --apply.
-#    The media dry run should return 75 already-applied targets.
+#    The media dry run returns 73 already-applied and 5 would-write targets.
 python3 apply_batches.py --batch media
 python3 apply_batches.py --batch content
 
@@ -44,7 +48,7 @@ Do not use the broad media `--apply` command for Batch 3. Apply one attachment
 at a time, inspect its snapshot and readback, then continue only while the
 results remain exact.
 
-Built-in safety, per write: live slug+ID (or media ID + file) verification
+Built-in safety, per write: live slug+ID or media ID + exact upload-path verification
 against `inventory.csv` before any PATCH; full pre-write JSON snapshot to
 `.generated/alt-text-backfill/<run>/` (gitignored); existing different alt =
 CONFLICT and skipped, except when a reviewed filename-style violation still
@@ -73,27 +77,40 @@ python3 apply_batches.py --batch media --restore .generated/alt-text-backfill/<r
 
 python3 apply_batches.py --batch content --restore .generated/alt-text-backfill/<run>/page-3899-before.json
 python3 apply_batches.py --batch content --restore .generated/alt-text-backfill/<run>/page-3899-before.json --apply
+
+# 2026-08-25 identity correction: preview again before any approved restore.
+python3 apply_batches.py --batch media --restore .generated/alt-text-backfill/20260825T033423Z-media-apply/media-6729-before.json
+python3 apply_batches.py --batch media --restore .generated/alt-text-backfill/20260825T033618Z-media-apply/media-11774-before.json
 ```
 
 Restore requires WordPress credentials even for its dry run. Never restore a
 whole batch blindly; inspect and restore only the target whose readback failed.
+If a corrected inventory no longer selects a historically written media ID,
+restore additionally requires the snapshot's sibling apply report to contain
+one exact `written-verified` record, and refuses unless the live ID, upload
+path, and current alt still match that record.
 
-## State as of 2026-08-24
+## State as of 2026-08-25
 
 - Media 6835 and 12646: applied with private mode-0600 snapshots and verified
   by authenticated readback plus cache-bypassed public GET.
 - Content Batch 1: all seven pages applied one at a time with private snapshots;
   an independent authenticated dry run returned 34/34 `already-applied`.
-- Inventory Batch 3: 73 attachments applied and exact. All 73 pre-write
-  snapshots are mode 0600. The five canary reports showed cached false
+- Inventory Batch 3: 73 writes occurred; 71 intended attachments are exact.
+  All 73 pre-write snapshots are mode 0600. The five canary reports showed cached false
   mismatches, but authenticated edit-context, cache-bypassed public REST, and
   rendered-page checks were exact; PR #900 corrected the readback surface.
 - Media 5375 was the only reviewed filename-style replacement. PR #901 permits
   it only while the live value exactly matches the recorded inventory baseline;
   its write was exact and snapshotted.
-- Media 6481 and 8211 were not written. Their existing meaningful library alts
-  serve other contexts, so three inventory rows are now investigation-only.
-- Final authenticated media dry run: 75/75 targets `already-applied`, zero
-  identity failures. Full recount: 216/216 routes, zero fetch errors, 1,078
+- Media 6481 and 8211 were correctly not written. The three protected rows
+  actually target attachments 6126, 6985, and 7637.
+- Media 6729 and 11774 were written but are duplicate files from different
+  upload months. The actual targets are 6014 and 8871. A published-content scan
+  found no use of the wrong attachments; both private snapshots contain the
+  prior empty alt, and authenticated restore previews return `would-restore`.
+- The path-aware authenticated media dry run returns 78 targets: 73
+  `already-applied`, five `would-write`, and zero identity failures. Full recount:
+  216/216 routes, zero fetch errors, 1,078
   violation occurrences / 1,077 unique page-source violations.
 - Inventory batches 4-6 remain parked.
