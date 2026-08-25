@@ -3,23 +3,20 @@
 KK approved the original media and content batches on 2026-08-23,
 dry-run-first per
 `docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`. Those writes
-were applied and verified on 2026-08-24. The 76 inventory Batch 3 rows were
-then drafted from visual review. Five Batch 3 canary attachments were applied
-and independently verified on 2026-08-24; KK then approved proceeding with
-the remaining 70 reviewed attachments. The ~1,070 archive-scope images
-(inventory batches 4-6) are parked and are not part of that approval.
+were applied and verified on 2026-08-24. Batch 3 then completed with 73 safe
+media writes and two protected shared-context skips (6481 and 8211). The
+~1,070 archive-scope images (inventory batches 4-6) are parked and were not
+part of that approval.
 
 Batch names as approved:
 
 - **Media library `alt_text` lane** (`--batch media`). The
-  `media-library-alt_text` surface holds 80 violation rows across 77 unique
+  corrected `media-library-alt_text` surface holds 77 violation rows across 75 unique
   attachments. Media 6835 and 12646 were applied and verified on 2026-08-24.
-  The remaining 76 rows cover 75 unique attachments in inventory Batch 3;
-  their strings were drafted from visual review. Five canaries are live and
-  verified; 70 approved attachments remain.
-  **The broad `--batch media --apply` command now selects all 77 attachments.**
-  Do not run it for Batch 3; the approved procedure still requires one exact
-  `--only-media-id` at a time.
+  Batch 3 adds 73 applied attachments. The broad authenticated dry run now
+  selects 75 total targets and returns 75 `already-applied`; no media write
+  remains in this lane. Three historical rows involving attachments 6481 and
+  8211 are `investigate-shared-media-context`, not media-write targets.
 - **Batch 1 — 34 `post_content` alt insertions** (`--batch content`) across
   seven pages (2543, 2828, 3899, 6755, 6770, 7610, 7764). Applied one page at
   a time and independently verified as 34/34 `already-applied` on 2026-08-24.
@@ -33,11 +30,11 @@ cd content/drafts/alt-text-backfill-2026-08-02
 python3 recount_live.py --top-routes-only
 
 # 1. Re-check current state; both commands are read-only without --apply.
-#    The media dry run includes the 75 unapproved Batch 3 attachments.
+#    The media dry run should return 75 already-applied targets.
 python3 apply_batches.py --batch media
 python3 apply_batches.py --batch content
 
-# 2. After explicit approval, stage exactly one Batch 3 attachment.
+# 2. Historical one-item procedure; use only for an approved future correction.
 python3 apply_batches.py --batch media --only-media-id <id>
 python3 apply_batches.py --batch media --only-media-id <id> --apply
 python3 apply_batches.py --batch media --only-media-id <id>
@@ -87,12 +84,16 @@ whole batch blindly; inspect and restore only the target whose readback failed.
   by authenticated readback plus cache-bypassed public GET.
 - Content Batch 1: all seven pages applied one at a time with private snapshots;
   an independent authenticated dry run returned 34/34 `already-applied`.
-- Inventory Batch 3: 76 rows / 75 unique attachments drafted after inspecting
-  every rendered image; CSV and target-loader checks pass. Media 12597, 12593,
-  12541, 12536, and 12528 are live and exact by authenticated and cache-bypassed
-  public readback. Their original apply reports showed false mismatches because
-  the old helper read a stale public REST response immediately after writing;
-  this helper now binds both media reads to authenticated edit context.
-- KK approved proceeding one attachment at a time with the remaining 70
-  reviewed Batch 3 IDs. That approval does not include inventory batches 4-6.
+- Inventory Batch 3: 73 attachments applied and exact. All 73 pre-write
+  snapshots are mode 0600. The five canary reports showed cached false
+  mismatches, but authenticated edit-context, cache-bypassed public REST, and
+  rendered-page checks were exact; PR #900 corrected the readback surface.
+- Media 5375 was the only reviewed filename-style replacement. PR #901 permits
+  it only while the live value exactly matches the recorded inventory baseline;
+  its write was exact and snapshotted.
+- Media 6481 and 8211 were not written. Their existing meaningful library alts
+  serve other contexts, so three inventory rows are now investigation-only.
+- Final authenticated media dry run: 75/75 targets `already-applied`, zero
+  identity failures. Full recount: 216/216 routes, zero fetch errors, 1,078
+  violation occurrences / 1,077 unique page-source violations.
 - Inventory batches 4-6 remain parked.
