@@ -52,6 +52,7 @@ import os
 import re
 import stat
 import sys
+import time
 import urllib.request
 from pathlib import Path
 
@@ -129,6 +130,12 @@ def make_client() -> WPClient | None:
     if (env.get("WP_USER") or "").strip() and (env.get("WP_APP_PASSWORD") or "").strip():
         return WPClient.from_env()
     return None
+
+
+def get_media(media_id: str, client: WPClient | None) -> dict:
+    if client is not None:
+        return client.get(f"media/{media_id}", params={"context": "edit"})
+    return public_get(f"media/{media_id}?cb={time.time_ns()}")
 
 
 # ---------------------------------------------------------------------------
@@ -270,7 +277,7 @@ def run_media(client: WPClient | None, apply: bool, run_dir: Path, only_id: str 
     for t in targets:
         mid = t["media_id"]
         item = {"media_id": mid, "proposed_alt": t["proposed_alt"]}
-        live = public_get(f"media/{mid}")
+        live = get_media(mid, client)
         # slug+ID verification: right record, right file
         ok_id = str(live.get("id")) == mid
         ok_file = file_stem(live.get("source_url", "")) == file_stem(t["image_file"])
@@ -290,7 +297,7 @@ def run_media(client: WPClient | None, apply: bool, run_dir: Path, only_id: str 
             snap = snapshot(run_dir, f"media-{mid}-before", live)
             item["snapshot"] = str(snap)
             client.post(f"media/{mid}", {"alt_text": t["proposed_alt"]})
-            readback = public_get(f"media/{mid}")
+            readback = get_media(mid, client)
             item["readback_alt_text"] = readback.get("alt_text", "")
             item["status"] = (
                 "written-verified"
