@@ -51,12 +51,20 @@ def page_record(raw: str) -> dict:
     }
 
 
-def media_row(media_id: str, image_file: str, proposed_alt: str) -> dict[str, str]:
+def media_row(
+    media_id: str,
+    image_file: str,
+    proposed_alt: str,
+    *,
+    classification: str = "empty-alt-VIOLATION",
+    media_library_alt: str = "",
+) -> dict[str, str]:
     return {
         "fix_surface": "media-library-alt_text",
-        "classification": "empty-alt-VIOLATION",
+        "classification": classification,
         "media_id": media_id,
         "image_file": image_file,
+        "media_library_alt": media_library_alt,
         "proposed_alt": proposed_alt,
     }
 
@@ -264,6 +272,59 @@ class AltTextApplyBatchSafetyTests(unittest.TestCase):
 
         self.assertEqual(result, live)
         public_get.assert_called_once_with("media/100?cb=123")
+
+    def test_media_apply_replaces_exact_inventoried_filename_alt(self):
+        current = "community_event_100.jpg"
+        proposed = "Community members at an event"
+        rows = [
+            media_row(
+                "100",
+                "community.jpg",
+                proposed,
+                classification="filename-style-alt-VIOLATION",
+                media_library_alt=current,
+            )
+        ]
+        original = {
+            "id": 100,
+            "source_url": "https://kriskrug.co/wp-content/uploads/community.jpg",
+            "alt_text": current,
+        }
+        client = FakeClient([original, {**original, "alt_text": proposed}])
+
+        with mock.patch.object(MODULE, "load_rows", return_value=rows):
+            report = MODULE.run_media(client, True, self.run_dir, "100")
+
+        self.assertEqual(report["items"][0]["status"], "written-verified")
+        self.assertEqual(report["items"][0]["replacement_basis"], "inventory-baseline")
+        self.assertEqual(client.posts, [("media/100", {"alt_text": proposed})])
+
+    def test_media_apply_preserves_non_filename_inventory_alt(self):
+        current = "Existing contextual alt"
+        rows = [
+            media_row(
+                "100",
+                "community.jpg",
+                "Different contextual alt",
+                classification="empty-alt-content-VIOLATION",
+                media_library_alt=current,
+            )
+        ]
+        live = {
+            "id": 100,
+            "source_url": "https://kriskrug.co/wp-content/uploads/community.jpg",
+            "alt_text": current,
+        }
+        client = FakeClient([live])
+
+        with mock.patch.object(MODULE, "load_rows", return_value=rows):
+            report = MODULE.run_media(client, True, self.run_dir, "100")
+
+        self.assertEqual(
+            report["items"][0]["status"], "CONFLICT-existing-different-alt"
+        )
+        self.assertEqual(client.posts, [])
+        self.assertFalse(self.run_dir.exists())
 
     def test_content_restore_refuses_intervening_live_edits(self):
         rows = [content_row("100", "community.jpg", "New alt")]

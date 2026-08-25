@@ -23,7 +23,8 @@ Safety contract (docs/current-state/INCIDENT-2026-05-15-overwritten-post.md):
   * Before any write the full live JSON record is snapshotted to a local
     gitignored directory (.generated/alt-text-backfill/<run>/).
   * An existing non-empty value that differs from the proposed string is a
-    CONFLICT and is skipped, never overwritten.
+    CONFLICT and is skipped. The only replacement allowed is a reviewed
+    filename-style violation that still exactly matches its inventory baseline.
   * Every write is read back and verified; a per-item report is printed and
     saved next to the snapshots.
 
@@ -283,12 +284,20 @@ def run_media(client: WPClient | None, apply: bool, run_dir: Path, only_id: str 
         ok_file = file_stem(live.get("source_url", "")) == file_stem(t["image_file"])
         item["verified_id"] = ok_id
         item["verified_file"] = ok_file
-        item["live_alt_text"] = live.get("alt_text", "")
+        live_alt = live.get("alt_text", "")
+        item["live_alt_text"] = live_alt
+        planned_filename_replacement = (
+            t["classification"] == "filename-style-alt-VIOLATION"
+            and bool(t.get("media_library_alt"))
+            and live_alt == t["media_library_alt"]
+        )
+        if planned_filename_replacement:
+            item["replacement_basis"] = "inventory-baseline"
         if not (ok_id and ok_file):
             item["status"] = "REFUSED-identity-mismatch"
-        elif live.get("alt_text") == t["proposed_alt"]:
+        elif live_alt == t["proposed_alt"]:
             item["status"] = "already-applied"
-        elif live.get("alt_text"):
+        elif live_alt and not planned_filename_replacement:
             item["status"] = "CONFLICT-existing-different-alt"
         elif not apply:
             item["status"] = "would-write"
