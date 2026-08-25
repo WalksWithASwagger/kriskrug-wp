@@ -6,8 +6,18 @@
 **Re-run it:** [`recount_live.py`](recount_live.py), read-only, re-fetches all 216 routes and re-derives every total in this file.
 **Out of scope:** the broader WCAG 2.1 AA audit, which is issue #46 and owns `docs/current-state/A11Y-*`. This file is images only.
 
+> **Execution checkpoint, 2026-08-24:** Batch 1 is live and exact. Batch 3
+> completed with **73 media writes** and **2 protected skips** (6481 and 8211),
+> whose existing library alts serve other contexts and were not overwritten.
+> A final authenticated media dry run returned 75 `already-applied` targets
+> (the 73 Batch 3 attachments plus media 6835 and 12646), zero identity
+> failures, and no unexpected conflicts. A fresh public recount fetched
+> 216/216 routes with zero errors and measured 1,078 violation occurrences /
+> 1,077 unique page-source violations. The 2026-08-02 baseline below remains
+> historical evidence, not current live truth.
+
 > ### Before you write a backfill script, read [the two fix surfaces](#read-this-first-there-are-two-fix-surfaces-and-a-library-only-backfill-silently-fixes-almost-nothing).
-> A script that only writes media library `alt_text` reaches **80 of the 1,185 findings**. It no-ops on the other 1,105 and exits clean while doing it.
+> A script that only writes media library `alt_text` reaches **77 of the 1,185 findings**. It no-ops on the other 1,108 and exits clean while doing it. Three rows were corrected after execution review found that shared attachments 6481 and 8211 must not be overwritten with page-specific strings.
 
 ---
 
@@ -101,11 +111,11 @@ Per-year post distribution, from `X-WP-Total` on year-bounded queries:
 
 ## READ THIS FIRST: there are two fix surfaces and a library-only backfill silently fixes almost nothing
 
-> **A script that only writes `alt_text` on media library attachments will no-op on 1,105 of the 1,185 findings.** It will exit clean, report 1,185 attachments touched, and change 80 rendered images. If you ship one thing out of this document, ship this sentence.
+> **A script that only writes `alt_text` on media library attachments will no-op on 1,108 of the 1,185 findings.** It will exit clean, report 1,185 attachments touched, and change 77 rendered images. If you ship one thing out of this document, ship this sentence.
 
 Two surfaces, and they are not interchangeable:
 
-**1. Featured images pull alt from the media library at render time.** One `alt_text` write on the attachment fixes every place that image renders. 76 post heroes in the crawl render `alt=""` purely because the attachment has no `alt_text`. Cheap, safe, high leverage. This is the surface a library script actually reaches.
+**1. Featured images pull alt from the media library at render time.** One `alt_text` write on the attachment fixes every place that image renders. 73 Batch 3 post-hero rows were safe library targets. Three originally classified rows were shared-context exceptions and are now investigation-only. This is the surface a library script actually reaches.
 
 **2. In-content image blocks bake the alt into `post_content`.** The core image block stores `alt=""` in the block markup, and that literal wins over the media library. Writing `alt_text` on the attachment does not change the rendered page. This surface needs a `post_content` edit per post.
 
@@ -115,8 +125,9 @@ Split of the 1,185 by `fix_surface`, straight from `inventory.csv`:
 |---|---:|---|
 | `post-content-block` | 1,094 | **No** |
 | `post-content-html-or-theme` | 11 | **No** |
-| `media-library-alt_text` | 80 | Yes |
-| **Total** | **1,185** | **80 of 1,185** |
+| `media-library-alt_text` | 77 | Yes |
+| `investigate-shared-media-context` | 3 | **No; protect the current library alt** |
+| **Total** | **1,185** | **77 of 1,185** |
 
 ### The proof, re-fetched live on 2026-08-02
 
@@ -125,9 +136,9 @@ Split of the 1,185 by `fix_surface`, straight from `inventory.csv`:
 | Media ID | Library `alt_text` | Renders as | On | `fix_surface` |
 |---:|---|---|---|---|
 | 2596 | `On location in the studio of Gordon Payne on Hornby Island` | `alt=""` | `/art-island-perspectives-from-a-creative-community/` | `post-content-block` |
-| 6481 | `Small File Media Festival - Our Networks 2024` | `alt=""` | `/2024/06/26/blog-ai-the-revolution-of-governance-and-cybersecurity-a-night-with-anthony-green/` | `media-library-alt_text` |
-| 8211 | `Featured image for "Vancouver AI January 2025 Recap..."` | `alt=""` | `/2024/09/11/the-human-algorithm-enya-learning-keynote/` | `media-library-alt_text` |
-| 8211 | same attachment, second route | `alt=""` | `/2024/12/02/autolume-post-photographic-cybernetic-portraiture/` | `media-library-alt_text` |
+| 6481 | `Small File Media Festival - Our Networks 2024` | `alt=""` | `/2024/06/26/blog-ai-the-revolution-of-governance-and-cybersecurity-a-night-with-anthony-green/` | `investigate-shared-media-context` |
+| 8211 | `Featured image for "Vancouver AI January 2025 Recap..."` | `alt=""` | `/2024/09/11/the-human-algorithm-enya-learning-keynote/` | `investigate-shared-media-context` |
+| 8211 | same attachment, second route | `alt=""` | `/2024/12/02/autolume-post-photographic-cybernetic-portraiture/` | `investigate-shared-media-context` |
 | 8549 | `Second Brain AI` | `alt=""` | `/2025/03/09/transcending-techs-darker-impulses/` | `post-content-block` |
 | 8675 | `Featured image for "Is A Hotdog A Sandwich?..."` | `alt=""` | `/2025/03/20/is-a-hotdog-a-sandwich-vancouver-aidata-storytelling-hackathon-w-andrew-reid/` | `post-content-block` |
 | 11264 | `Cover image for Make Culture, Not Content...` | `alt=""` | `/2026/02/03/name-the-bias/` | `post-content-block` |
@@ -139,7 +150,7 @@ Split of the 1,185 by `fix_surface`, straight from `inventory.csv`:
 
 **The cleanest demonstration is the two pages where the same attachment renders twice, one render per surface.** On `/2025/03/20/is-a-hotdog-a-sandwich-vancouver-aidata-storytelling-hackathon-w-andrew-reid/`, media 8675 renders once as `alt="Featured image for "“Is A Hotdog A Sandwich?”: Vancouver AI Data Storytelling Hackathon w/ Andrew Reid""` (the hero, reading the library) and once as `alt=""` (the in-content block, ignoring it). Same page, same file, same library record, two different rendered alts. Media 2456 does the identical thing on `/2019/04/02/upcoming-galiano-island-events/`. Any doubt about which surface wins is settled by those two pages.
 
-The `fix_surface` column in `inventory.csv` marks every row as `media-library-alt_text`, `post-content-block`, `post-content-html-or-theme`, `tracking-pixel-snippet`, or `leave-as-is`. Read that column before shipping any batch.
+The `fix_surface` column in `inventory.csv` marks every row as `media-library-alt_text`, `post-content-block`, `post-content-html-or-theme`, `tracking-pixel-snippet`, `investigate-shared-media-context`, or `leave-as-is`. Read that column before shipping any batch.
 
 ---
 
@@ -166,17 +177,20 @@ What I could verify live on 2026-08-02:
 | 0 | 216 | Snippet or plugin | Meta noscript tracking pixel, one per route, add `alt=""` | Ready, one-line fix, kills 216 findings |
 | 1 | 34 | `post-content-block` | Seven site pages, all alt strings written below | Applied and independently verified 2026-08-24 |
 | 2 | 5 | Mixed | `/home/` plus two media items reused as post heroes | Media values applied; one in-content row and `/home/` decision remain |
-| 3 | 76 | `media-library-alt_text` | Post hero featured images with empty alt, 75 unique attachments | Visually reviewed and drafted; live apply not approved |
+| 3 | 73 | `media-library-alt_text` | Reviewed post-hero media, 73 unique attachments | Applied and authenticated-readback exact 2026-08-24 |
+| 3 residual | 3 | `investigate-shared-media-context` | Media 6481 once and 8211 twice | Protected no-write skips; determine the real render surface |
 | 4 | 266 | `post-content-block` | In-body images on 23 posts published 2025 to 2026 | Needs per-image review |
 | 5 | 698 | `post-content-block` | In-body images on 69 archive posts, mostly 2024 meetup recap galleries | Needs per-image review, biggest block |
 | 6 | 106 | `post-content-block` | 14 photoblog gallery posts where alt is a Flickr photo ID | Needs per-image review |
 
 Batch 0 remains a one-edit fix for the tracking pixel. The Batch 1 content
 writes and the two Batch 2 media values were applied and verified on
-2026-08-24. Batch 3 remains the highest fixes-per-effort ratio because it
-fixes hero images that appear on both the post and any card that renders the
-thumbnail. Its 76 rows were visually reviewed and drafted on 2026-08-24, but
-live application still requires explicit approval.
+2026-08-24. Batch 3 was the highest fixes-per-effort ratio because it fixes
+hero images that appear on both the post and any card that renders the
+thumbnail. Its 73 safe media targets were applied and verified one at a time.
+Media 6481 and 8211 were skipped because their non-empty library alts serve
+other contexts; their three rows now require surface investigation instead of
+a media-library overwrite.
 
 Batches 4 to 6 are volume work. They cannot be automated honestly, because the correct alt depends on what is in the photo. What can be automated is the harness: pull each image, show it, capture a proposed string, stage it as a diff against `post_content`, and gate the apply on review. Do not let a script invent alt text from a filename.
 
@@ -336,9 +350,8 @@ None of that is an acceptance criterion on #4. #4 closes when images on kriskrug
 ## What still needs KK
 
 1. **`/home/`:** redirect, unpublish, or keep and fix? It is a live 200 that nothing links to.
-2. **Approval to apply Batch 3.** The 76 reviewed rows cover 75 unique media-library writes. The broad media command now selects them, so approval must name this scope explicitly; execution should remain one attachment at a time with snapshots and exact readback.
+2. **Shared-media surface decision for 6481 and 8211.** Their current library alts are meaningful elsewhere. Re-audit the three claimed empty renders and fix the page/theme surface, or close them as stale; do not replace the library values.
 3. **Volume call on batches 4 to 6.** 1,070 images across 106 posts, mostly meetup recap galleries from 2023 and 2024. Options: do them all, do only posts that still get traffic, or accept the archive as-is and gate alt discipline on new posts only. This is a scope decision, not an engineering one.
-4. **NCR readback on the first applicable Batch 3 item.** Every proposed string is ASCII-only, with non-ASCII names represented as numeric character references. Stage the first NCR-bearing attachment individually and require exact authenticated readback before continuing.
 
 ---
 
