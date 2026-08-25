@@ -50,7 +50,9 @@ results remain exact.
 Built-in safety, per write: live slug+ID (or media ID + file) verification
 against `inventory.csv` before any PATCH; full pre-write JSON snapshot to
 `.generated/alt-text-backfill/<run>/` (gitignored); existing different alt =
-CONFLICT, skipped, never overwritten; post-write readback verification.
+CONFLICT and skipped, except when a reviewed filename-style violation still
+exactly matches its recorded inventory baseline; post-write readback
+verification.
 Authenticated media checks and readbacks use WordPress `context=edit` so a
 stale public REST cache cannot produce a false mismatch. Unauthenticated media
 dry runs add a cache-busting query parameter.
