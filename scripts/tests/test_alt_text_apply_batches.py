@@ -64,9 +64,11 @@ def media_row(media_id: str, image_file: str, proposed_alt: str) -> dict[str, st
 class FakeClient:
     def __init__(self, get_responses: list[dict]):
         self.get_responses = iter(copy.deepcopy(get_responses))
+        self.gets: list[tuple[str, dict | None]] = []
         self.posts: list[tuple[str, dict]] = []
 
-    def get(self, _path: str, *, params: dict | None = None) -> dict:
+    def get(self, path: str, *, params: dict | None = None) -> dict:
+        self.gets.append((path, params))
         return next(self.get_responses)
 
     def post(self, path: str, payload: dict) -> dict:
@@ -225,6 +227,43 @@ class AltTextApplyBatchSafetyTests(unittest.TestCase):
         self.assertTrue(recovery.is_file())
         self.assertEqual(stat.S_IMODE(recovery.stat().st_mode), 0o600)
         self.assertEqual(report["items"][0]["status"], "restored-verified")
+
+    def test_media_apply_uses_authenticated_state_for_write_and_readback(self):
+        proposed = "Community members at an event"
+        rows = [media_row("100", "community.jpg", proposed)]
+        original = {
+            "id": 100,
+            "source_url": "https://kriskrug.co/wp-content/uploads/community.jpg",
+            "alt_text": "",
+        }
+        client = FakeClient([original, {**original, "alt_text": proposed}])
+
+        with (
+            mock.patch.object(MODULE, "load_rows", return_value=rows),
+            mock.patch.object(MODULE, "public_get", return_value=original) as public_get,
+        ):
+            report = MODULE.run_media(client, True, self.run_dir, "100")
+
+        self.assertEqual(report["items"][0]["status"], "written-verified")
+        self.assertEqual(
+            client.gets,
+            [
+                ("media/100", {"context": "edit"}),
+                ("media/100", {"context": "edit"}),
+            ],
+        )
+        public_get.assert_not_called()
+
+    def test_unauthenticated_media_read_bypasses_public_cache(self):
+        live = {"id": 100, "alt_text": ""}
+        with (
+            mock.patch.object(MODULE.time, "time_ns", return_value=123),
+            mock.patch.object(MODULE, "public_get", return_value=live) as public_get,
+        ):
+            result = MODULE.get_media("100", None)
+
+        self.assertEqual(result, live)
+        public_get.assert_called_once_with("media/100?cb=123")
 
     def test_content_restore_refuses_intervening_live_edits(self):
         rows = [content_row("100", "community.jpg", "New alt")]

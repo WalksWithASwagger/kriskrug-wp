@@ -4,8 +4,10 @@ KK approved the original media and content batches on 2026-08-23,
 dry-run-first per
 `docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`. Those writes
 were applied and verified on 2026-08-24. The 76 inventory Batch 3 rows were
-then drafted from visual review, but **have not been approved for a live
-apply**. The ~1,070 archive-scope images (inventory batches 4-6) are parked.
+then drafted from visual review. Five Batch 3 canary attachments were applied
+and independently verified on 2026-08-24; KK then approved proceeding with
+the remaining 70 reviewed attachments. The ~1,070 archive-scope images
+(inventory batches 4-6) are parked and are not part of that approval.
 
 Batch names as approved:
 
@@ -13,9 +15,11 @@ Batch names as approved:
   `media-library-alt_text` surface holds 80 violation rows across 77 unique
   attachments. Media 6835 and 12646 were applied and verified on 2026-08-24.
   The remaining 76 rows cover 75 unique attachments in inventory Batch 3;
-  their strings are now drafted from visual review but remain local-only.
+  their strings were drafted from visual review. Five canaries are live and
+  verified; 70 approved attachments remain.
   **The broad `--batch media --apply` command now selects all 77 attachments.**
-  Do not run it unless KK explicitly approves the Batch 3 live scope.
+  Do not run it for Batch 3; the approved procedure still requires one exact
+  `--only-media-id` at a time.
 - **Batch 1 — 34 `post_content` alt insertions** (`--batch content`) across
   seven pages (2543, 2828, 3899, 6755, 6770, 7610, 7764). Applied one page at
   a time and independently verified as 34/34 `already-applied` on 2026-08-24.
@@ -47,6 +51,9 @@ Built-in safety, per write: live slug+ID (or media ID + file) verification
 against `inventory.csv` before any PATCH; full pre-write JSON snapshot to
 `.generated/alt-text-backfill/<run>/` (gitignored); existing different alt =
 CONFLICT, skipped, never overwritten; post-write readback verification.
+Authenticated media checks and readbacks use WordPress `context=edit` so a
+stale public REST cache cannot produce a false mismatch. Unauthenticated media
+dry runs add a cache-busting query parameter.
 Default is dry-run; `--apply` refuses to start without credentials. Exit code
 is 1 when any item is refused, conflicted, or fails readback.
 
@@ -79,6 +86,11 @@ whole batch blindly; inspect and restore only the target whose readback failed.
 - Content Batch 1: all seven pages applied one at a time with private snapshots;
   an independent authenticated dry run returned 34/34 `already-applied`.
 - Inventory Batch 3: 76 rows / 75 unique attachments drafted after inspecting
-  every rendered image; CSV and target-loader checks pass. No Batch 3 live
-  write has been made or approved.
+  every rendered image; CSV and target-loader checks pass. Media 12597, 12593,
+  12541, 12536, and 12528 are live and exact by authenticated and cache-bypassed
+  public readback. Their original apply reports showed false mismatches because
+  the old helper read a stale public REST response immediately after writing;
+  this helper now binds both media reads to authenticated edit context.
+- KK approved proceeding one attachment at a time with the remaining 70
+  reviewed Batch 3 IDs. That approval does not include inventory batches 4-6.
 - Inventory batches 4-6 remain parked.
