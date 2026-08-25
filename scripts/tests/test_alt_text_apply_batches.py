@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import copy
 import importlib.util
+import json
 import stat
 import sys
 import tempfile
@@ -64,6 +65,7 @@ def media_row(
         "classification": classification,
         "media_id": media_id,
         "image_file": image_file,
+        "image_src": f"https://s5102.pcdn.co/wp-content/uploads/{image_file}",
         "media_library_alt": media_library_alt,
         "proposed_alt": proposed_alt,
     }
@@ -236,6 +238,43 @@ class AltTextApplyBatchSafetyTests(unittest.TestCase):
         self.assertEqual(stat.S_IMODE(recovery.stat().st_mode), 0o600)
         self.assertEqual(report["items"][0]["status"], "restored-verified")
 
+    def test_media_restore_uses_apply_report_after_inventory_identity_correction(self):
+        proposed = "Alt written to the wrong duplicate attachment"
+        source_dir = self.run_dir / "source"
+        original = {
+            "id": 6729,
+            "source_url": "https://kriskrug.co/wp-content/uploads/2024/08/shared.png",
+            "alt_text": "",
+        }
+        source = MODULE.snapshot(source_dir, "media-6729-before", original)
+        (source_dir / "report.json").write_text(
+            json.dumps(
+                {
+                    "batch": "media (batch 0)",
+                    "mode": "APPLY",
+                    "items": [
+                        {
+                            "media_id": "6729",
+                            "proposed_alt": proposed,
+                            "status": "written-verified",
+                        }
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        current = {**original, "alt_text": proposed}
+        client = FakeClient([current, original])
+        corrected_rows = [media_row("6014", "shared.png", proposed)]
+
+        with mock.patch.object(MODULE, "load_rows", return_value=corrected_rows):
+            report = MODULE.run_restore(
+                "media", source, client, True, self.run_dir / "restore"
+            )
+
+        self.assertEqual(client.posts, [("media/6729", {"alt_text": ""})])
+        self.assertEqual(report["items"][0]["status"], "restored-verified")
+
     def test_media_apply_uses_authenticated_state_for_write_and_readback(self):
         proposed = "Community members at an event"
         rows = [media_row("100", "community.jpg", proposed)]
@@ -378,6 +417,25 @@ class AltTextApplyBatchSafetyTests(unittest.TestCase):
         with mock.patch.object(MODULE, "load_rows", return_value=rows):
             with self.assertRaisesRegex(SystemExit, "not in the approved media batch"):
                 MODULE.run_media(None, False, self.run_dir, "999")
+
+    def test_media_dry_run_rejects_duplicate_filename_from_wrong_upload_month(self):
+        rows = [media_row("6126", "shared-name.png", "Reviewed alt")]
+        rows[0]["image_src"] = (
+            "https://s5102.pcdn.co/wp-content/uploads/2024/06/shared-name.png"
+        )
+        wrong_upload = {
+            "id": 6126,
+            "source_url": "https://kriskrug.co/wp-content/uploads/2024/07/shared-name.png",
+            "alt_text": "",
+        }
+        client = FakeClient([wrong_upload])
+
+        with mock.patch.object(MODULE, "load_rows", return_value=rows):
+            report = MODULE.run_media(client, False, self.run_dir, "6126")
+
+        self.assertEqual(report["items"][0]["status"], "REFUSED-identity-mismatch")
+        self.assertFalse(report["items"][0]["verified_file"])
+        self.assertEqual(client.posts, [])
 
     def test_content_only_page_must_exist_in_the_approved_batch(self):
         rows = [content_row("100", "community.jpg", "New alt")]

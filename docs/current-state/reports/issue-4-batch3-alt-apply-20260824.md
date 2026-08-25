@@ -3,6 +3,14 @@
 Track A execution evidence for the reviewed Batch 3 media-library lane. This
 report does not close issue #4 or authorize the parked archive batches.
 
+> **Correction, 2026-08-25:** path-aware authenticated edit context found five
+> duplicate-filename joins. Three protected rows map to actual attachments 6126,
+> 6985, and 7637. Two writes to duplicates 6729 and 11774 should have targeted
+> 6014 and 8871 and require approval-gated rollback. Treat this report as the
+> historical execution record for the 73 writes; use
+> [`issue-4-residual-audit-20260825.md`](issue-4-residual-audit-20260825.md)
+> for current residual identities and next steps.
+
 ## Result
 
 - Reviewed Batch 3 scope: 75 unique attachments from 76 historical inventory

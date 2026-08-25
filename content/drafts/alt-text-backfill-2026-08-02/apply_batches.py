@@ -18,7 +18,8 @@ Safety contract (docs/current-state/INCIDENT-2026-05-15-overwritten-post.md):
 
   * Default is DRY-RUN. Nothing is written without ``--apply``.
   * Every write is preceded by a live slug+ID verification: the target is
-    fetched by ID and its slug/URL/file must match what inventory.csv says.
+    fetched by ID and its slug/URL or exact upload path must match what
+    inventory.csv says.
     Mismatch = the item is refused, never "fixed up".
   * Before any write the full live JSON record is snapshotted to a local
     gitignored directory (.generated/alt-text-backfill/<run>/).
@@ -56,6 +57,7 @@ import sys
 import time
 import urllib.request
 from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
 HERE = Path(__file__).resolve().parent
 REPO_ROOT = HERE.parents[2]
@@ -151,6 +153,29 @@ def file_stem(name_or_url: str) -> str:
     stem = re.sub(r"-e\d{10,}$", "", stem)
     stem = re.sub(r"-scaled$", "", stem)
     return stem.lower()
+
+
+def upload_path_identity(name_or_url: str) -> str:
+    path = unquote(urlsplit(name_or_url).path)
+    marker = "/wp-content/uploads/"
+    marker_at = path.lower().find(marker)
+    if marker_at == -1:
+        return ""
+    relative = path[marker_at + len(marker) :]
+    directory, _, basename = relative.rpartition("/")
+    extension = basename.rsplit(".", 1)[1].lower() if "." in basename else ""
+    normalized_name = file_stem(basename)
+    if extension:
+        normalized_name = f"{normalized_name}.{extension}"
+    return f"{directory.lower()}/{normalized_name}".lstrip("/")
+
+
+def media_file_matches(live_source: str, image_src: str, image_file: str) -> bool:
+    live_upload = upload_path_identity(live_source)
+    expected_upload = upload_path_identity(image_src)
+    if live_upload and expected_upload:
+        return live_upload == expected_upload
+    return file_stem(live_source) == file_stem(image_file)
 
 
 IMG_TAG_RE = re.compile(r"<img\b[^>]*/?>", re.IGNORECASE)
@@ -281,7 +306,9 @@ def run_media(client: WPClient | None, apply: bool, run_dir: Path, only_id: str 
         live = get_media(mid, client)
         # slug+ID verification: right record, right file
         ok_id = str(live.get("id")) == mid
-        ok_file = file_stem(live.get("source_url", "")) == file_stem(t["image_file"])
+        ok_file = media_file_matches(
+            live.get("source_url", ""), t.get("image_src", ""), t["image_file"]
+        )
         item["verified_id"] = ok_id
         item["verified_file"] = ok_file
         live_alt = live.get("alt_text", "")
@@ -429,22 +456,60 @@ def run_restore(
         targets, _ = media_targets(load_rows())
         by_id = {row["media_id"]: row for row in targets}
         target = by_id.get(saved_id)
-        if target is None:
-            raise SystemExit(
-                f"snapshot media {saved_id!r} is not in the approved media batch"
-            )
-        if file_stem(saved.get("source_url", "")) != file_stem(target["image_file"]):
-            raise SystemExit(f"snapshot media {saved_id} file does not match inventory.csv")
         restore_value = saved.get("alt_text")
         if not isinstance(restore_value, str):
             raise SystemExit(f"snapshot media {saved_id} has no string alt_text")
+        if target is not None:
+            if not media_file_matches(
+                saved.get("source_url", ""),
+                target.get("image_src", ""),
+                target["image_file"],
+            ):
+                raise SystemExit(
+                    f"snapshot media {saved_id} file does not match inventory.csv"
+                )
+            expected_applied_value = target["proposed_alt"]
+        else:
+            report_path = source.parent / "report.json"
+            try:
+                apply_report = json.loads(report_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                raise SystemExit(
+                    f"snapshot media {saved_id!r} is not in the approved media batch "
+                    "and has no valid sibling apply report"
+                ) from None
+            historical = [
+                entry
+                for entry in apply_report.get("items", [])
+                if str(entry.get("media_id")) == saved_id
+            ]
+            if (
+                apply_report.get("batch") != "media (batch 0)"
+                or apply_report.get("mode") != "APPLY"
+                or len(historical) != 1
+                or historical[0].get("status") != "written-verified"
+                or not isinstance(historical[0].get("proposed_alt"), str)
+                or not historical[0]["proposed_alt"]
+            ):
+                raise SystemExit(
+                    f"snapshot media {saved_id!r} has no exact written-verified apply record"
+                )
+            expected_applied_value = historical[0]["proposed_alt"]
         live = client.get(f"media/{saved_id}", params={"context": "edit"})
-        if str(live.get("id")) != saved_id or file_stem(
-            live.get("source_url", "")
-        ) != file_stem(target["image_file"]):
+        if target is not None:
+            live_file_matches = media_file_matches(
+                live.get("source_url", ""),
+                target.get("image_src", ""),
+                target["image_file"],
+            )
+        else:
+            saved_upload = upload_path_identity(saved.get("source_url", ""))
+            live_file_matches = bool(saved_upload) and saved_upload == upload_path_identity(
+                live.get("source_url", "")
+            )
+        if str(live.get("id")) != saved_id or not live_file_matches:
             raise SystemExit(f"live media {saved_id} identity does not match inventory.csv")
         current_value = live.get("alt_text")
-        expected_applied_value = target["proposed_alt"]
         endpoint = f"media/{saved_id}"
         payload = {"alt_text": restore_value}
         snapshot_name = f"media-{saved_id}-before-restore"
