@@ -39,6 +39,12 @@
  * attribute here. Evidence:
  * docs/current-state/reports/schema-boost-ignore-758-2026-08-16.md
  *
+ * PREPARED, NOT LIVE: issue #641 adds two Speaking-page VideoObject records
+ * below. Those additions have not been saved to production snippet id 5 as of
+ * 2026-08-27. The live verification above covers the pre-#641 block set only.
+ * See fixes/issue-641-speaking-video-schema-handoff-2026-08-27.md before any
+ * production action.
+ *
  * Differences from fixes/schema-snippets.php (reference / future mu-plugin):
  *   - VERIFY-ME placeholders replaced with confirmed values
  *   - Person image uses the public portrait already rendered on /about/
@@ -257,3 +263,40 @@ function kk_schema_service() {
     ));
 }
 add_action('wp_head', 'kk_schema_service', 9);
+
+/**
+ * Emit schema for the two recordings embedded on Speaking page 1887.
+ *
+ * @return void
+ */
+function kk_schema_speaking_videos() {
+    if (!is_page(1887)) return;
+    $c = kk_schema_constants();
+
+    kk_schema_emit(array(
+        '@context'      => 'https://schema.org',
+        '@type'         => 'VideoObject',
+        '@id'           => 'https://kriskrug.co/speaking/#video-creativemornings-vancouver',
+        'name'          => 'Kris Krüg: The perils and parallels of AI\'s future',
+        'description'   => 'Kris Krüg: The perils and parallels of AI\'s future. Official CreativeMornings HQ recording.',
+        'thumbnailUrl'  => 'https://i.ytimg.com/vi/hYT-hsml_ds/maxresdefault.jpg',
+        'uploadDate'    => '2026-07-08',
+        'duration'      => 'PT52M55S',
+        'embedUrl'      => 'https://www.youtube-nocookie.com/embed/hYT-hsml_ds',
+        'about'         => array('@id' => $c['site_url'] . '/#person'),
+    ));
+
+    kk_schema_emit(array(
+        '@context'      => 'https://schema.org',
+        '@type'         => 'VideoObject',
+        '@id'           => 'https://kriskrug.co/speaking/#video-both-hands-full',
+        'name'          => 'Both Hands Full: What Creatives Actually Need to Know About AI',
+        'description'   => 'What creatives actually need to know about AI. Full keynote on Kris Krüg\'s channel.',
+        'thumbnailUrl'  => 'https://i.ytimg.com/vi/-c7mgY2aSgM/maxresdefault.jpg',
+        'uploadDate'    => '2026-03-05',
+        'duration'      => 'PT1H19M34S',
+        'embedUrl'      => 'https://www.youtube-nocookie.com/embed/-c7mgY2aSgM?start=11',
+        'about'         => array('@id' => $c['site_url'] . '/#person'),
+    ));
+}
+add_action('wp_head', 'kk_schema_speaking_videos', 10);

@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "issue": 641,
+  "status": "repo-prepared-human-review-required",
+  "live_wordpress_write_performed": false,
+  "live_code_snippet_write_performed": false,
+  "target": {
+    "page_id": 1887,
+    "slug": "speaking",
+    "url": "https://kriskrug.co/speaking/",
+    "schema_owner": "fixes/schema-snippets-deployed.php",
+    "expected_snippet_id": 5
+  },
+  "proposed_video_objects": [
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "@id": "https://kriskrug.co/speaking/#video-creativemornings-vancouver",
+      "name": "Kris Krüg: The perils and parallels of AI's future",
+      "description": "Kris Krüg: The perils and parallels of AI's future. Official CreativeMornings HQ recording.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/hYT-hsml_ds/maxresdefault.jpg",
+      "uploadDate": "2026-07-08",
+      "duration": "PT52M55S",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/hYT-hsml_ds",
+      "about": {
+        "@id": "https://kriskrug.co/#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "@id": "https://kriskrug.co/speaking/#video-both-hands-full",
+      "name": "Both Hands Full: What Creatives Actually Need to Know About AI",
+      "description": "What creatives actually need to know about AI. Full keynote on Kris Krüg's channel.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/-c7mgY2aSgM/maxresdefault.jpg",
+      "uploadDate": "2026-03-05",
+      "duration": "PT1H19M34S",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/-c7mgY2aSgM?start=11",
+      "about": {
+        "@id": "https://kriskrug.co/#person"
+      }
+    }
+  ],
+  "identity_boundary": {
+    "canonical_person_id": "https://kriskrug.co/#person",
+    "reference_property": "about",
+    "inline_person_nodes_added": 0,
+    "creator_added": false,
+    "publisher_added": false,
+    "service_added": false,
+    "event_added": false
+  },
+  "public_evidence": {
+    "observed_on": "2026-08-27",
+    "route_checks": [
+      {
+        "url": "https://kriskrug.co/speaking/",
+        "http_status": 200
+      },
+      {
+        "url": "https://kriskrug.co/events/",
+        "http_status": 200,
+        "links_to": "https://kriskrug.co/speaking/"
+      },
+      {
+        "url": "https://kriskrug.co/testimonials/",
+        "http_status": 200,
+        "links_to": "https://kriskrug.co/speaking/"
+      }
+    ],
+    "video_metadata": [
+      {
+        "video_id": "hYT-hsml_ds",
+        "public_url": "https://www.youtube.com/watch?v=hYT-hsml_ds",
+        "title": "Kris Krüg: The perils and parallels of AI's future",
+        "upload_date": "2026-07-08",
+        "duration_seconds": 3175,
+        "duration_iso_8601": "PT52M55S",
+        "thumbnail_http_status": 200,
+        "thumbnail_content_type": "image/jpeg"
+      },
+      {
+        "video_id": "-c7mgY2aSgM",
+        "public_url": "https://www.youtube.com/watch?v=-c7mgY2aSgM",
+        "title": "Both Hands Full: What Creatives Actually Need to Know About AI",
+        "upload_date": "2026-03-05",
+        "duration_seconds": 4774,
+        "duration_iso_8601": "PT1H19M34S",
+        "thumbnail_http_status": 200,
+        "thumbnail_content_type": "image/jpeg"
+      }
+    ],
+    "schema_markup_validator": {
+      "endpoint": "https://validator.schema.org/validate",
+      "http_status": 200,
+      "num_objects": 2,
+      "type": "VideoObject",
+      "total_num_errors": 0,
+      "total_num_warnings": 0
+    },
+    "source": "logged-out route readback, direct thumbnail HTTP readback, public YouTube metadata, and Schema.org Markup Validator response"
+  },
+  "visible_page_evidence": {
+    "payload": "content/drafts/2026-07-26-speaking-page/payload-body.html",
+    "recordings": [
+      {
+        "video_object_id": "https://kriskrug.co/speaking/#video-creativemornings-vancouver",
+        "visible_heading": "Punk Rock AI",
+        "visible_description": "Kris Krüg: The perils and parallels of AI's future. Official CreativeMornings HQ recording.",
+        "visible_embed_url": "https://www.youtube-nocookie.com/embed/hYT-hsml_ds"
+      },
+      {
+        "video_object_id": "https://kriskrug.co/speaking/#video-both-hands-full",
+        "visible_heading": "Both Hands Full",
+        "visible_description": "What creatives actually need to know about AI. Full keynote on Kris Krüg's channel.",
+        "visible_embed_url": "https://www.youtube-nocookie.com/embed/-c7mgY2aSgM?start=11"
+      }
+    ]
+  },
+  "proof_triangle": {
+    "speaking_outbound_links": [
+      {
+        "path": "/events/",
+        "anchor": "Kris Krüg's event archive"
+      },
+      {
+        "path": "/testimonials/",
+        "anchor": "testimonials about Kris Krüg's work"
+      }
+    ],
+    "target_pages_edited": false,
+    "backlink_evidence": [
+      {
+        "path": "/events/",
+        "repo_source": "content/drafts/events-internal-links/PLAN.md",
+        "public_anchor": "Book Kris to speak"
+      },
+      {
+        "path": "/testimonials/",
+        "repo_source": "content/drafts/2026-08-01-testimonials-overhaul/live-content-rendered-2026-08-16.html",
+        "public_anchor": "Speaking"
+      }
+    ]
+  },
+  "future_code_snippets_update_if_separately_approved": {
+    "expected_snippet_id": 5,
+    "expected_current_scope": "active global PHP snippet",
+    "allowed_change": "snippet code matching the reviewed fixes/schema-snippets-deployed.php",
+    "ordering": "deploy and verify the Speaking page body before the schema snippet",
+    "requires": [
+      "fresh authenticated snippet ID, scope, activation-state, and body verification",
+      "complete current snippet rollback snapshot with checksum",
+      "byte-reviewed exact diff against the merged production mirror",
+      "explicit human approval of the exact snippet diff",
+      "one bounded save with no other snippet or WordPress mutation",
+      "authenticated and anonymous cache-busted readback",
+      "schema validation and rollback proof"
+    ],
+    "post_deploy_invariants": [
+      "exactly two VideoObject blocks on page 1887",
+      "zero VideoObject blocks from this function off page 1887",
+      "both VideoObject about values reference https://kriskrug.co/#person",
+      "one existing Person owner remains sitewide",
+      "no Event, Service, creator, publisher, or inline Person added by issue 641",
+      "no title, page body, taxonomy, theme, analytics, or other snippet change"
+    ]
+  },
+  "post_deploy_evaluation": {
+    "sample_urls": [
+      "https://kriskrug.co/speaking/",
+      "https://kriskrug.co/events/",
+      "https://kriskrug.co/testimonials/",
+      "https://kriskrug.co/about/"
+    ],
+    "checks": [
+      "authenticated_snippet_readback",
+      "anonymous_public_html",
+      "anonymous_cache_busted_html",
+      "json_ld_parse_and_exact_manifest_parity",
+      "schema_markup_validator",
+      "proof_triangle_link_readback"
+    ],
+    "rollback": "Restore the complete captured snippet ID 5 body and activation state, purge only the affected cache surface, and repeat authenticated and cache-busted readback."
+  }
+}
