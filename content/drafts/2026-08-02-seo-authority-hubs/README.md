@@ -26,7 +26,8 @@ Three files:
 | `fix-827/` | #827 | Applied and verified 2026-08-18; see `docs/current-state/reports/issue-827-applied-20260818.md` |
 | `fix-828/` | #828 | Drafted and dry-run verified; Kris voice review and a fresh live approval remain |
 | `fix-829/` to `fix-832/` | #829-#832 | Prepared only; each needs its own live approval |
-| No pack yet | #833-#834 | Issue scope only; #834 remains blocked on #829 and #833 |
+| `fix-833/` | #833 | Prepared only; needs its own live approval before #834 can be recut |
+| No pack yet | #834 | Issue scope only; remains blocked on #829 and #833 |
 
 ## Method
 
