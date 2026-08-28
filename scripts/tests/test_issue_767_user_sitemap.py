@@ -26,16 +26,16 @@ function add_filter() {{
 
 require {snippet_path};
 
-$provider     = new stdClass();
-$users_result = kk_767_sitemap_provider($provider, 'users');
-$posts_result = kk_767_sitemap_provider($provider, 'posts');
-$pages_result = kk_767_sitemap_provider($provider, 'pages');
+$provider          = new stdClass();
+$users_result      = kk_767_sitemap_provider($provider, 'users');
+$posts_result      = kk_767_sitemap_provider($provider, 'posts');
+$taxonomies_result = kk_767_sitemap_provider($provider, 'taxonomies');
 
 echo json_encode(
     array(
-        'users_removed'   => false === $users_result,
-        'posts_preserved' => $provider === $posts_result,
-        'pages_preserved' => $provider === $pages_result,
+        'users_removed'        => false === $users_result,
+        'posts_preserved'      => $provider === $posts_result,
+        'taxonomies_preserved' => $provider === $taxonomies_result,
     ),
     JSON_THROW_ON_ERROR
 );
@@ -52,7 +52,7 @@ echo json_encode(
     def test_removes_only_the_users_sitemap_provider(self):
         self.assertTrue(self.behavior["users_removed"])
         self.assertTrue(self.behavior["posts_preserved"])
-        self.assertTrue(self.behavior["pages_preserved"])
+        self.assertTrue(self.behavior["taxonomies_preserved"])
 
     def test_registers_one_narrow_filter_and_no_archive_policy(self):
         result = subprocess.run(
