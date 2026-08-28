@@ -167,6 +167,14 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
             "The 40-issue snapshot is stale; rerun `make status-readonly`.",
         ),
         (
+            re.compile(r"Open issues:\s*`43`", re.I),
+            "The pre-cleanup 43-issue snapshot is stale; rerun `make status-readonly`.",
+        ),
+        (
+            re.compile(r"Three `/private/tmp` worktree registrations were prunable", re.I),
+            "The approved #738 cleanup is complete; do not describe its stale registrations as pending.",
+        ),
+        (
             re.compile(r"WordPress draft queue:[^\n]*`65`\s*draft posts", re.I),
             "The 65-draft snapshot is stale; rerun `make status-readonly`.",
         ),
@@ -185,6 +193,10 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
         (
             re.compile(r"two wrong duplicate-media writes and five corrected targets await", re.I),
             "The issue #4 front door predates the partial identity-repair execution; use the current three-target state.",
+        ),
+        (
+            re.compile(r"43 open issues", re.I),
+            "The pre-cleanup issue count is stale; rerun `make status-readonly`.",
         ),
     ],
     Path("AGENTS.md"): [
