@@ -37,7 +37,8 @@ REPORTS = ROOT / "docs/current-state/reports"
 CLOSING_REF = re.compile(r"\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\s+#(\d+)", re.IGNORECASE)
 NEGATED_CLOSING_PREFIX = re.compile(
     r"\b(?:(?:do(?:es)?|did|will|would|should|must|can|could|is|are|was|were)\s+not|"
-    r"cannot|can't|won't)\s+(?:auto-)?$",
+    r"cannot|can't|won't|doesn't|didn't|shouldn't|mustn't|wouldn't|couldn't)"
+    r"\s+(?:auto-)?$",
     re.IGNORECASE,
 )
 # bare "#12" mention — weak signal (epic refs, progress notes)

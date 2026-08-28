@@ -37,7 +37,9 @@ class RefMatchingTests(unittest.TestCase):
         phrases = (
             "Did not close #14",
             "Does not auto-close #14",
+            "Does **not** close #14",
             "Cloud regeneration cannot close #14",
+            "This doesn't close #14",
             "This will not resolve #14",
         )
         for body in phrases:
