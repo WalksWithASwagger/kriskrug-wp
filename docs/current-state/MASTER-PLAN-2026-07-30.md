@@ -4,7 +4,9 @@
 **Lane:** Docs / ops first; then Track A or Track B — never interleaved in one commit.
 **Does not authorize** live WordPress writes, theme deploys, or history rewrite.
 
-Day runbook: [`WORK-PLAN-2026-08-24.md`](WORK-PLAN-2026-08-24.md). Declared snapshot: [`CURRENT-STATE-2026-07-30.md`](CURRENT-STATE-2026-07-30.md).
+Day runbook: [`WORK-PLAN-2026-08-25.md`](WORK-PLAN-2026-08-25.md). Declared snapshot: [`CURRENT-STATE-2026-07-30.md`](CURRENT-STATE-2026-07-30.md).
+
+**2026-08-28 reading note:** Phases 0–3 below record the July hygiene reset; do not execute their old branch or issue lists as a current queue. Use the dated runbook, the open GitHub issue list, and `make status-readonly` for current work.
 
 ## Goal
 

@@ -23,7 +23,7 @@ This repository is used for:
 1. **Site audits + state snapshots** of the live kriskrug.co WordPress install (see [`docs/current-state/`](docs/current-state/))
 2. **Content pipeline** — Notion → kriskrug.co publisher with safety guards (see [`scripts/notion-to-wp/`](scripts/notion-to-wp/))
 3. **Custom WordPress code** — schema markup, theme tweaks, helper plugins (see [`fixes/`](fixes/), [`inc/`](inc/), and [`plugins/`](plugins/))
-4. **Aurora theme work** — canonical theme source now tracked on `main` (merged via PR #129), with lane-scoped feature branches for larger slices; `aurora/v2` and `aurora/v3-reconcile` are preserved evidence/reconcile branches, not wholesale merge targets
+4. **Aurora theme work** — canonical theme source is tracked on `main`, with lane-scoped feature branches for bounded changes; verify any historical evidence branch still exists before relying on it
 5. **Issue tracking + project management** for fixes, content, and theme work
 
 ### Why a Separate Repo?
@@ -76,7 +76,7 @@ issues-to-create/                # Markdown drafts of GitHub issues waiting to b
 
 inc/                             # Custom WordPress modules (e.g., digital-composting CPT)
 
-skills/                          # Claude Code skills used in this repo
+.agents/skills/                  # Repository-local workflow skills
 .github/                         # PR validation plus parked historical agent-swarm definitions
 ```
 
@@ -103,7 +103,8 @@ Notion → kriskrug.co publishing, post-publish enrichment, schema maintenance, 
 
 - Publish a post: [`scripts/notion-to-wp/README.md`](scripts/notion-to-wp/README.md)
 - Enrichment + link-graph helper: [`scripts/notion-to-wp/text_polish.py`](scripts/notion-to-wp/text_polish.py)
-- Active backlog: [`docs/current-state/FIX_QUEUE.md`](docs/current-state/archive/FIX_QUEUE.md), [`docs/current-state/SITE-AUDIT-2026-05-16.md`](docs/current-state/archive/SITE-AUDIT-2026-05-16.md)
+- Active backlog: [open GitHub issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
+- Historical audit evidence: [`FIX_QUEUE.md`](docs/current-state/archive/FIX_QUEUE.md) and [`SITE-AUDIT-2026-05-16.md`](docs/current-state/archive/SITE-AUDIT-2026-05-16.md); neither is an execution queue
 - Deployed schema: [`fixes/schema-snippets-deployed.php`](fixes/schema-snippets-deployed.php)
 
 ### Track B — Aurora theme (on `main` via lane-scoped branches)
@@ -114,18 +115,14 @@ FSE theme rebuild and polish. Touches `theme/kk-aurora/`, FSE templates, theme.j
   lane-scoped `codex/...` branch. Use `aurora/v3-reconcile` only as deferred
   evidence for specific theme-polish files, and keep `aurora/v2` references as
   historical context unless a dated handoff says otherwise.
-- Side-worktree safety refresh (2026-06-02): do not edit
-  `/Users/kk/Code/kriskrug-wp-aurora-keynote`
-  (`codex/aurora-keynote-redesign`), `/Users/kk/Code/kriskrug-wp-aurora-reconcile`
-  (`aurora/v3-reconcile`), or the locked
-  `/Users/kk/Code/kriskrug-wp/.claude/worktrees/agent-aec50fddbd7207f80`
-  (`aurora/v2`) directly. Treat them as evidence or historical side branches
-  unless a maintainer explicitly resumes one.
+- Worktree safety: run `git worktree list` before editing. Treat every listed
+  side worktree as owned until its branch, PR, and filesystem state are
+  verified; do not rely on hard-coded paths from historical handoffs.
 - Migration plan: [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/archive/AURORA-MIGRATION-PLAN.md)
 
 ### Which track am I in?
 
-If you're editing a post, page, schema, redirect, or category → Track A. If you're editing theme files or FSE templates → Track B. Use the two-track model doc for historical context, but prefer the 2026-05-24 handoff docs for current branch/layout truth.
+If you're editing a post, page, schema, redirect, or category → Track A. If you're editing theme files or FSE templates → Track B. Use the two-track model for the decision rule and the current-state index plus a fresh `make status-readonly` run for current branch/layout truth.
 
 ## Getting Started
 
