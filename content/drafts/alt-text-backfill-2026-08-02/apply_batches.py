@@ -10,9 +10,10 @@ Two batches, applied separately, from inventory.csv in this directory:
                    as needs-review and never written (a script must not invent
                    alt text).
   --batch content  Batch 1: the 34 ``post-content-block`` rows across seven
-                   site pages. Inserts each row's ``proposed_alt`` into the
-                   empty ``alt=""`` of the matching image block in the page's
-                   raw ``post_content``, then PATCHes the page.
+                   site pages. An exact page+media selector may instead stage
+                   one reviewed inventory row outside Batch 1. Inserts each
+                   selected ``proposed_alt`` into the empty ``alt=""`` of the
+                   matching image block in raw ``post_content``.
 
 Safety contract (docs/current-state/INCIDENT-2026-05-15-overwritten-post.md):
 
@@ -40,6 +41,7 @@ Usage:
   python3 apply_batches.py --batch content            # dry-run
   python3 apply_batches.py --batch content --apply    # live writes
   python3 apply_batches.py --batch content --only-page-id 3899 --apply
+  python3 apply_batches.py --batch content --only-page-id 6815 --only-content-media-id 6835
   python3 apply_batches.py --batch content --restore <snapshot.json>
   python3 apply_batches.py --batch content --restore <snapshot.json> --apply
 """
@@ -102,19 +104,55 @@ def media_targets(rows: list[dict[str, str]]) -> tuple[list[dict], list[dict]]:
     return list(by_media.values()), needs_review
 
 
-def content_targets(rows: list[dict[str, str]]) -> dict[str, list[dict]]:
-    """Batch-1 rows grouped by page ID. All are pages (tier 2-page)."""
-    batch1 = [r for r in rows if r["batch"] == "batch-1"]
-    for r in batch1:
+def content_targets(
+    rows: list[dict[str, str]],
+    only_page_id: str | None = None,
+    only_content_media_id: str | None = None,
+) -> dict[str, list[dict]]:
+    """Approved Batch-1 rows, or one exact opt-in page+media inventory row."""
+    if only_content_media_id:
+        if not only_page_id:
+            raise SystemExit("--only-content-media-id requires --only-page-id")
+        selected = [
+            r
+            for r in rows
+            if r["page_id"] == only_page_id
+            and r["media_id"] == only_content_media_id
+        ]
+        if len(selected) != 1:
+            raise SystemExit(
+                "expected exactly one inventory row for page "
+                f"{only_page_id} and media {only_content_media_id}; found {len(selected)}"
+            )
+    else:
+        selected = [r for r in rows if r["batch"] == "batch-1"]
+
+    for r in selected:
         if r["fix_surface"] != "post-content-block" or not r["proposed_alt"].strip():
             raise SystemExit(
-                f"unexpected batch-1 row shape for media {r['media_id']} on "
+                f"unexpected content row shape for media {r['media_id']} on "
                 f"{r['page_url']} (fix_surface={r['fix_surface']!r})"
             )
     pages: dict[str, list[dict]] = {}
-    for r in batch1:
+    for r in selected:
         pages.setdefault(r["page_id"], []).append(r)
     return pages
+
+
+def content_resource(page_rows: list[dict[str, str]]) -> str:
+    """Return the WP REST resource after refusing ambiguous inventory shapes."""
+    if not page_rows:
+        raise SystemExit("selected content target has no inventory rows")
+    if all(row["tier"] == "2-page" for row in page_rows):
+        return "pages"
+    dated_post = re.compile(r"/\d{4}/\d{2}/\d{2}/[^/]+/$")
+    if all(
+        row["tier"] != "2-page"
+        and dated_post.fullmatch(urlsplit(row["page_url"]).path) is not None
+        for row in page_rows
+    ):
+        return "posts"
+    raise SystemExit("selected content rows do not identify one unambiguous WP resource")
 
 
 # ---------------------------------------------------------------------------
@@ -349,20 +387,29 @@ def run_media(client: WPClient | None, apply: bool, run_dir: Path, only_id: str 
 
 
 def run_content(
-    client: WPClient | None, apply: bool, run_dir: Path, only_page: str | None
+    client: WPClient | None,
+    apply: bool,
+    run_dir: Path,
+    only_page: str | None,
+    only_content_media: str | None = None,
 ):
-    pages = content_targets(load_rows())
-    if only_page:
+    pages = content_targets(load_rows(), only_page, only_content_media)
+    if only_page and not only_content_media:
         pages = {k: v for k, v in pages.items() if k == only_page}
         if not pages:
             raise SystemExit(f"page {only_page!r} is not in the approved content batch")
     report = {
-        "batch": "content (batch 1)",
+        "batch": (
+            "content (exact inventory target)"
+            if only_content_media
+            else "content (batch 1)"
+        ),
         "mode": "APPLY" if apply else "DRY-RUN",
         "authenticated": client is not None,
         "pages": [],
     }
     for page_id, page_rows in sorted(pages.items(), key=lambda kv: int(kv[0])):
+        resource = content_resource(page_rows)
         expect_slug = page_rows[0]["page_slug"]
         expect_url = page_rows[0]["page_url"].rstrip("/")
         entry = {
@@ -370,13 +417,14 @@ def run_content(
             "expected_slug": expect_slug,
             "page_url": page_rows[0]["page_url"],
             "rows": len(page_rows),
+            "wp_resource": resource,
         }
         if client:
-            live = client.get(f"pages/{page_id}", params={"context": "edit"})
+            live = client.get(f"{resource}/{page_id}", params={"context": "edit"})
             html = live.get("content", {}).get("raw", "")
             surface = "content.raw"
         else:
-            live = public_get(f"pages/{page_id}")
+            live = public_get(f"{resource}/{page_id}")
             html = live.get("content", {}).get("rendered", "")
             surface = "content.rendered (unauthenticated fallback; apply needs raw)"
         live_slug = live.get("slug", "")
@@ -400,7 +448,13 @@ def run_content(
         changed = sum(r["tags_changed"] for r in results)
         blocked = [r for r in results if r["status"] in ("no-match", "conflict")]
         entry["tags_to_change"] = changed
-        if blocked:
+        exact_count_invalid = bool(
+            only_content_media
+            and (len(results) != 1 or results[0]["tags_matched"] != 1)
+        )
+        if exact_count_invalid:
+            entry["status"] = "REFUSED-exact-target-match-count"
+        elif blocked:
             entry["blocked_rows"] = len(blocked)
             entry["status"] = "REFUSED-blocked-rows"
         elif not apply:
@@ -410,10 +464,11 @@ def run_content(
         elif changed == 0:
             entry["status"] = "no-op"
         else:
-            snap = snapshot(run_dir, f"page-{page_id}-before", live)
+            snap = snapshot(run_dir, f"{resource[:-1]}-{page_id}-before", live)
             entry["snapshot"] = str(snap)
-            client.post(f"pages/{page_id}", {"content": new_html})
-            readback = client.get(f"pages/{page_id}", params={"context": "edit"})
+            endpoint = f"{resource}/{page_id}"
+            client.post(endpoint, {"content": new_html})
+            readback = client.get(endpoint, params={"context": "edit"})
             raw = readback.get("content", {}).get("raw", "")
             _, readback_results = apply_rows_to_html(raw, page_rows)
             missing = [
@@ -437,6 +492,8 @@ def run_restore(
     client: WPClient,
     apply: bool,
     run_dir: Path,
+    only_page_id: str | None = None,
+    only_content_media_id: str | None = None,
 ) -> dict:
     try:
         source = source.resolve(strict=True)
@@ -514,7 +571,7 @@ def run_restore(
         payload = {"alt_text": restore_value}
         snapshot_name = f"media-{saved_id}-before-restore"
     else:
-        pages = content_targets(load_rows())
+        pages = content_targets(load_rows(), only_page_id, only_content_media_id)
         page_rows = pages.get(saved_id)
         if page_rows is None:
             raise SystemExit(
@@ -528,7 +585,8 @@ def run_restore(
         restore_value = saved.get("content", {}).get("raw")
         if not isinstance(restore_value, str):
             raise SystemExit(f"snapshot page {saved_id} has no content.raw")
-        live = client.get(f"pages/{saved_id}", params={"context": "edit"})
+        resource = content_resource(page_rows)
+        live = client.get(f"{resource}/{saved_id}", params={"context": "edit"})
         live_link = (live.get("link") or "").rstrip("/")
         if (
             str(live.get("id")) != saved_id
@@ -544,9 +602,9 @@ def run_restore(
             raise SystemExit(
                 f"snapshot page {saved_id} cannot reproduce the approved applied state"
             )
-        endpoint = f"pages/{saved_id}"
+        endpoint = f"{resource}/{saved_id}"
         payload = {"content": restore_value}
-        snapshot_name = f"page-{saved_id}-before-restore"
+        snapshot_name = f"{resource[:-1]}-{saved_id}-before-restore"
 
     if current_value == restore_value:
         item["status"] = "already-restored"
@@ -591,16 +649,29 @@ def main() -> int:
     mode.add_argument("--apply", action="store_true", help="perform live writes")
     ap.add_argument("--only-media-id", help="restrict media batch to one attachment")
     ap.add_argument("--only-page-id", help="restrict content batch to one page")
+    ap.add_argument(
+        "--only-content-media-id",
+        help="with --only-page-id, select one exact post_content inventory row",
+    )
     ap.add_argument("--restore", type=Path, help="restore one pre-write snapshot")
     ap.add_argument("--json", type=Path, help="also write the report to this path")
     args = ap.parse_args()
 
-    if args.batch == "media" and args.only_page_id:
-        raise SystemExit("--only-page-id is a content selector, not a media selector")
+    if args.batch == "media" and (args.only_page_id or args.only_content_media_id):
+        raise SystemExit(
+            "--only-page-id/--only-content-media-id are content selectors, not media selectors"
+        )
     if args.batch == "content" and args.only_media_id:
         raise SystemExit("--only-media-id is a media selector, not a content selector")
-    if args.restore and (args.only_media_id or args.only_page_id):
-        raise SystemExit("--restore cannot be combined with --only-media-id/--only-page-id")
+    if args.only_content_media_id and not args.only_page_id:
+        raise SystemExit("--only-content-media-id requires --only-page-id")
+    if args.restore and args.only_media_id:
+        raise SystemExit("--restore cannot be combined with --only-media-id")
+    if args.restore and args.only_page_id and not args.only_content_media_id:
+        raise SystemExit(
+            "--restore with a content selector requires both --only-page-id and "
+            "--only-content-media-id"
+        )
 
     client = make_client()
     if args.restore and client is None:
@@ -617,11 +688,25 @@ def main() -> int:
 
     if args.restore:
         assert client is not None
-        report = run_restore(args.batch, args.restore, client, args.apply, run_dir)
+        report = run_restore(
+            args.batch,
+            args.restore,
+            client,
+            args.apply,
+            run_dir,
+            args.only_page_id,
+            args.only_content_media_id,
+        )
     elif args.batch == "media":
         report = run_media(client, args.apply, run_dir, args.only_media_id)
     else:
-        report = run_content(client, args.apply, run_dir, args.only_page_id)
+        report = run_content(
+            client,
+            args.apply,
+            run_dir,
+            args.only_page_id,
+            args.only_content_media_id,
+        )
 
     out = json.dumps(report, indent=2, ensure_ascii=False)
     print(out)
