@@ -2,7 +2,7 @@
 
 Issue: [#402](https://github.com/WalksWithASwagger/kriskrug-wp/issues/402)
 Date of research: 2026-08-02
-Lane: Track A, plan only. Nothing in this folder has been applied to the live site.
+Lane: Track A. The research files are plans; bounded `fix-*` packs have separate states below.
 
 ## What this is
 
@@ -17,6 +17,16 @@ Three files:
 | `README.md` | Method, what was verified, what could not be verified |
 | `hub-plan.md` | One section per term: hub, spokes, anchors, insertion points, plus the fixes that are not links |
 | `link-matrix.csv` | Machine-readable: source_url, target_url, anchor_text, section_hint, http_status |
+
+## Execution status as of 2026-08-28
+
+| Pack | Issue | State |
+|---|---:|---|
+| `fix-826/` | #826 | Applied and verified 2026-08-18; see `docs/current-state/reports/issue-826-applied-20260818.md` |
+| `fix-827/` | #827 | Applied and verified 2026-08-18; see `docs/current-state/reports/issue-827-applied-20260818.md` |
+| `fix-828/` | #828 | Drafted and dry-run verified; Kris voice review and a fresh live approval remain |
+| `fix-829/` to `fix-832/` | #829-#832 | Prepared only; each needs its own live approval |
+| No pack yet | #833-#834 | Issue scope only; #834 remains blocked on #829 and #833 |
 
 ## Method
 
@@ -100,8 +110,9 @@ agent docs encoding SEO guardrails. Both touch files outside this lane's ownersh
 
 ## How to apply
 
-Nothing here is applied. When it is applied it happens post by post via the normal Track A
-path, dry-run then slug-match then write, per
+Do not apply the research files directly. Use the matching `fix-*` pack and its runbook.
+Issues #826 and #827 are historical applied receipts; #828 through #832 are not live. Every
+future write happens post by post through the normal Track A path, dry-run then slug-match then write, per
 [`scripts/notion-to-wp/README.md`](../../../scripts/notion-to-wp/README.md).
 
 Two ordering constraints:

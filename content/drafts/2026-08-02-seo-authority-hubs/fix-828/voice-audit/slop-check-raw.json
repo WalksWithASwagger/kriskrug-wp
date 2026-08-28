@@ -1,0 +1,23 @@
+{
+  "total": 2,
+  "files": {
+    "content/drafts/2026-08-02-seo-authority-hubs/fix-828/post-body.html": [
+      {
+        "line": 11,
+        "col": 177,
+        "match": "team",
+        "rule": "pattern: \\bteam\\b",
+        "reason": "Kris says \"crew\", not \"team\" (soft flag, judge by context)",
+        "severity": "warn"
+      },
+      {
+        "line": 45,
+        "col": 136,
+        "match": "team",
+        "rule": "pattern: \\bteam\\b",
+        "reason": "Kris says \"crew\", not \"team\" (soft flag, judge by context)",
+        "severity": "warn"
+      }
+    ]
+  }
+}
