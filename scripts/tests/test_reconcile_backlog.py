@@ -33,6 +33,38 @@ class RefMatchingTests(unittest.TestCase):
         self.assertIn(255, closing)
         self.assertNotIn(255, mention)
 
+    def test_negated_closing_keywords_remain_weak_mentions(self):
+        phrases = (
+            "Did not close #14",
+            "Does not auto-close #14",
+            "Cloud regeneration cannot close #14",
+            "This will not resolve #14",
+        )
+        for body in phrases:
+            with self.subTest(body=body):
+                prs = [{
+                    "number": 103,
+                    "title": "status",
+                    "body": body,
+                    "headRefName": "status-only",
+                    "mergedAt": "2026-06-04T00:00:00Z",
+                }]
+                closing, mention = rb.issues_referenced_by_merged_prs(self.issues, prs)
+                self.assertEqual(closing, {})
+                self.assertIn(14, mention)
+
+    def test_positive_closing_reference_survives_negated_reference(self):
+        prs = [{
+            "number": 104,
+            "title": "finish",
+            "body": "The prep did not close #14. This final change fixes #14.",
+            "headRefName": "finish-14",
+            "mergedAt": "2026-06-05T00:00:00Z",
+        }]
+        closing, mention = rb.issues_referenced_by_merged_prs(self.issues, prs)
+        self.assertIn(14, closing)
+        self.assertNotIn(14, mention)
+
     def test_reference_to_unknown_issue_ignored(self):
         prs = [{"number": 102, "title": "t", "body": "Fixes #9999", "headRefName": "z", "mergedAt": "2026-06-03T00:00:00Z"}]
         closing, mention = rb.issues_referenced_by_merged_prs(self.issues, prs)
