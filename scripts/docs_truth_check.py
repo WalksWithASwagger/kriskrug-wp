@@ -67,7 +67,7 @@ KNOWN_STALE_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     ),
     (
         re.compile(r"Aurora\s*\**\s*`?1\.5\.0`?\s*\**\s*\(?\s*live\s*==?\s*repo", re.I),
-        "Aurora live==repo parity at 1.5.0 is stale; the 2026-08-02 public readback is live 1.5.7 against repo main 1.5.8. Cite a curl readback of the public style.css and name the direction of the gap.",
+        "Aurora live==repo parity at 1.5.0 is stale; rerun `make status-readonly`, read the public style.css, and name the measured versions.",
     ),
     (
         re.compile(r"Current live queue count is 43", re.I),
@@ -127,8 +127,76 @@ ACTIVE_GUIDANCE_PATHS = {
     Path("README.md"),
     Path("docs/INDEX.md"),
     Path("docs/current-state/README.md"),
-    Path("docs/current-state/WORK-PLAN-2026-08-23.md"),
+    Path("docs/current-state/CURRENT-STATE-2026-07-30.md"),
+    Path("docs/current-state/WORK-PLAN-2026-08-25.md"),
     Path("docs/current-state/MASTER-PLAN-2026-07-30.md"),
+}
+
+PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
+    Path("README.md"): [
+        (
+            re.compile(r"(?m)^\s*skills/\s+#"),
+            "The repository-local skill path is `.agents/skills/`, not a top-level `skills/` directory.",
+        ),
+        (
+            re.compile(r"(?m)^-\s+Active backlog:.*(?:FIX_QUEUE|SITE-AUDIT)", re.I),
+            "The active backlog is the open GitHub issue list; archived audit files are evidence only.",
+        ),
+    ],
+    Path("docs/INDEX.md"): [
+        (
+            re.compile(r"\[\s*`?\.\./skills/`?\s*\]\(\.\./skills/\)"),
+            "The documentation index must link repository-local skills at `../.agents/skills/`.",
+        ),
+        (
+            re.compile(r"WORK-PLAN-2026-08-24\.md.*(?:active|current).*runbook", re.I),
+            "The active documentation index must point to `WORK-PLAN-2026-08-25.md`.",
+        ),
+    ],
+    Path("docs/current-state/CURRENT-STATE-2026-07-30.md"): [
+        (
+            re.compile(r"(?:Latest dated runbook|front door)[^\n]*WORK-PLAN-2026-08-24\.md", re.I),
+            "The declared snapshot must point to `WORK-PLAN-2026-08-25.md`.",
+        ),
+        (
+            re.compile(r"Open PRs:\s*`1`[^\n]*#710", re.I),
+            "The parked PR #710 counter is stale; rerun `make status-readonly`.",
+        ),
+        (
+            re.compile(r"Open issues:\s*`40`", re.I),
+            "The 40-issue snapshot is stale; rerun `make status-readonly`.",
+        ),
+        (
+            re.compile(r"WordPress draft queue:[^\n]*`65`\s*draft posts", re.I),
+            "The 65-draft snapshot is stale; rerun `make status-readonly`.",
+        ),
+    ],
+    Path("docs/current-state/MASTER-PLAN-2026-07-30.md"): [
+        (
+            re.compile(r"Day runbook:[^\n]*WORK-PLAN-2026-08-24\.md", re.I),
+            "The master plan must point to `WORK-PLAN-2026-08-25.md`.",
+        ),
+    ],
+    Path("docs/current-state/README.md"): [
+        (
+            re.compile(r"AGENT-MERGE-PATH-2026-07-26\.md[^\n]*Cloud merge / review path", re.I),
+            "The deleted agent-safe-merge workflow is historical, not an active merge path.",
+        ),
+        (
+            re.compile(r"two wrong duplicate-media writes and five corrected targets await", re.I),
+            "The issue #4 front door predates the partial identity-repair execution; use the current three-target state.",
+        ),
+    ],
+    Path("AGENTS.md"): [
+        (
+            re.compile(r"PHP is\s+\*\*\d+\.\d+\*\*\s+here", re.I),
+            "Do not pin the installed local PHP minor version; tell agents to inspect the runtime.",
+        ),
+        (
+            re.compile(r"repair two wrong duplicate-media writes and five corrected targets", re.I),
+            "The issue #4 orientation predates the partial identity-repair execution; use the current three-target state.",
+        ),
+    ],
 }
 
 MERGE_POLICY_GUIDANCE_PATHS = {
@@ -269,6 +337,17 @@ def scan_file(repo_root: Path, path: Path) -> list[Finding]:
     findings: list[Finding] = []
     relative_path = path.relative_to(repo_root)
     text = path.read_text(encoding="utf-8")
+
+    for pattern, message in PATH_SCOPED_STALE_PATTERNS.get(relative_path, []):
+        for match in pattern.finditer(text):
+            findings.append(
+                Finding(
+                    relative_path,
+                    text.count("\n", 0, match.start()) + 1,
+                    message,
+                    match.group(0).strip(),
+                )
+            )
 
     if relative_path in ACTIVE_GUIDANCE_PATHS:
         for pattern in STALE_MORNING_TRUTH_FLOW_PATTERNS:

@@ -23,7 +23,7 @@ class EphemeralMorningTruthGuidanceTests(unittest.TestCase):
     def test_active_guidance_rejects_routine_report_commit_flow(self):
         with tempfile.TemporaryDirectory() as tmp:
             repo_root = Path(tmp)
-            work_plan = repo_root / "docs/current-state/WORK-PLAN-2026-08-23.md"
+            work_plan = repo_root / "docs/current-state/WORK-PLAN-2026-08-25.md"
             work_plan.parent.mkdir(parents=True)
             work_plan.write_text(
                 "1. `make morning-truth` while online.\n"
@@ -89,6 +89,84 @@ class EphemeralMorningTruthGuidanceTests(unittest.TestCase):
             self.assertFalse(
                 any("morning-truth-checkpoint" in finding.message for finding in findings)
             )
+
+
+class ActiveFrontDoorRegressionTests(unittest.TestCase):
+    def test_current_work_plan_is_in_active_guidance_set(self):
+        self.assertIn(
+            Path("docs/current-state/WORK-PLAN-2026-08-25.md"),
+            docs_truth_check.ACTIVE_GUIDANCE_PATHS,
+        )
+
+    def test_rejects_superseded_active_runbook_links(self):
+        samples = {
+            "docs/INDEX.md": (
+                "| `WORK-PLAN-2026-08-24.md` | Active two-session runbook |\n"
+            ),
+            "docs/current-state/CURRENT-STATE-2026-07-30.md": (
+                "Latest dated runbook: WORK-PLAN-2026-08-24.md.\n"
+            ),
+            "docs/current-state/MASTER-PLAN-2026-07-30.md": (
+                "Day runbook: WORK-PLAN-2026-08-24.md.\n"
+            ),
+        }
+
+        for path, text in samples.items():
+            with self.subTest(path=path):
+                findings = scan_text(path, text)
+                self.assertTrue(
+                    any("WORK-PLAN-2026-08-25.md" in finding.message for finding in findings)
+                )
+
+    def test_rejects_nonexistent_top_level_skill_links(self):
+        samples = {
+            "README.md": "skills/  # Claude Code skills used in this repo\n",
+            "docs/INDEX.md": "| [`../skills/`](../skills/) | Skills |\n",
+        }
+
+        for path, text in samples.items():
+            with self.subTest(path=path):
+                findings = scan_text(path, text)
+                self.assertTrue(
+                    any(".agents/skills" in finding.message for finding in findings)
+                )
+
+    def test_rejects_archived_files_as_the_active_backlog(self):
+        findings = scan_text(
+            "README.md",
+            "- Active backlog: `FIX_QUEUE.md`, `SITE-AUDIT-2026-05-16.md`\n",
+        )
+
+        self.assertTrue(
+            any("open GitHub issue list" in finding.message for finding in findings)
+        )
+
+    def test_rejects_pinned_local_php_minor(self):
+        findings = scan_text(
+            "AGENTS.md",
+            "- PHP is **8.3** here (CI pins 8.2).\n",
+        )
+
+        self.assertTrue(
+            any("local PHP minor" in finding.message for finding in findings)
+        )
+
+    def test_rejects_pre_partial_issue_4_front_door_status(self):
+        samples = {
+            "AGENTS.md": (
+                "repair two wrong duplicate-media writes and five corrected targets\n"
+            ),
+            "docs/current-state/README.md": (
+                "two wrong duplicate-media writes and five corrected targets await repair\n"
+            ),
+        }
+
+        for path, text in samples.items():
+            with self.subTest(path=path):
+                findings = scan_text(path, text)
+                self.assertTrue(
+                    any("three-target state" in finding.message for finding in findings)
+                )
 
 
 class MergePolicyGuidanceTests(unittest.TestCase):

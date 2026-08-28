@@ -6,7 +6,7 @@ Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan 
 
 Read these first:
 
-1. **[WORK-PLAN-2026-08-25.md](WORK-PLAN-2026-08-25.md)**, active runbook (issue #4 residual audit complete; two wrong duplicate-media writes and five corrected targets await an approval-gated repair before authority-hub applies; use `make status-readonly` for live counters)
+1. **[WORK-PLAN-2026-08-25.md](WORK-PLAN-2026-08-25.md)**, active runbook (issue #4 restored the two wrong-identity writes and applied corrected media 6014/6126 before stopping safely; correct media 7637 repo-side, then seek a new approval for remaining media 6985/7637/8871 before authority-hub applies; use `make status-readonly` for live counters)
 2. **[CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md)**, declared snapshot for morning-truth drift checks (compare it with a fresh `make status-readonly` run)
 3. **[MASTER-PLAN-2026-07-30.md](MASTER-PLAN-2026-07-30.md)**, truth then reclaim then product lanes (hygiene phases complete)
 4. Run `make status-readonly` for current signals; use the newest **[reports/morning-truth-*.md](reports/)** only as durable checkpoint evidence
@@ -14,7 +14,7 @@ Read these first:
 6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
 7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
 
-**Live readback 2026-08-23:** WordPress last seen `7.0.4`. Aurora **live is `1.6.9`**, repo `main` is `1.6.9` (parity). Content applies #764 / #729 / #612 / **#826** / **#827** are live. Lab webring chrome (Dark Crystal + unofficial.city) is live on the homepage footer and `/work/` (surgical card insert, not a full `work.html` replace). #706 script diet is live at origin (Code Snippets id 22; pixel markers 0 on `/` and `/about/`). PSI mobile 2026-08-16 11:59 PDT is in [`reports/psi-mobile-2026-08-16.md`](reports/psi-mobile-2026-08-16.md) (TBT 10 ms; gtag still in the PSI trace). Receipts: [`reports/gate0-content-apply-20260817.md`](reports/gate0-content-apply-20260817.md), [`reports/issue-826-applied-20260818.md`](reports/issue-826-applied-20260818.md), [`reports/issue-827-applied-20260818.md`](reports/issue-827-applied-20260818.md), [`reports/aurora-168-live-deploy-20260817.md`](reports/aurora-168-live-deploy-20260817.md), [`reports/aurora-169-live-deploy-20260818.md`](reports/aurora-169-live-deploy-20260818.md). The public `style.css` readback remains authoritative for production theme state.
+**Live readback 2026-08-28 14:59Z:** WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`; 0 open PRs, 43 open issues, 0 scheduled posts, 66 draft posts, and 4 draft pages. Issue #602 was reopened after public page 2409 still showed the undeployed 19-card Testimonials body. Content applies #764 / #729 / #612 / **#826** / **#827** are live. Lab webring chrome (Dark Crystal + unofficial.city) is live on the homepage footer and `/work/` (surgical card insert, not a full `work.html` replace). #706 script diet is live at origin (Code Snippets id 22; pixel markers 0 on `/` and `/about/`), but its PSI closeout receipt remains open. Historical receipts: [`reports/gate0-content-apply-20260817.md`](reports/gate0-content-apply-20260817.md), [`reports/issue-826-applied-20260818.md`](reports/issue-826-applied-20260818.md), [`reports/issue-827-applied-20260818.md`](reports/issue-827-applied-20260818.md), [`reports/aurora-168-live-deploy-20260817.md`](reports/aurora-168-live-deploy-20260817.md), [`reports/aurora-169-live-deploy-20260818.md`](reports/aurora-169-live-deploy-20260818.md). Re-run `make status-readonly`; the public `style.css` readback remains authoritative for production theme state.
 
 ## Durable process docs (keep at top level)
 
@@ -29,7 +29,6 @@ Read these first:
 | [CSS-DEADCODE-OVERLAP-AUDIT.md](CSS-DEADCODE-OVERLAP-AUDIT.md) | Measured CSS debt feeding the rebuild |
 | [RECLAIM-LIST-2026-07-24.md](RECLAIM-LIST-2026-07-24.md) | #318/#369 reclaim proposal |
 | [reports/repo-bloat-318-next-steps-20260726.md](reports/repo-bloat-318-next-steps-20260726.md) | Executable A+D reclaim runbook |
-| [AGENT-MERGE-PATH-2026-07-26.md](AGENT-MERGE-PATH-2026-07-26.md) | Cloud merge / review path |
 | [ROLLBACK_PLAYBOOK.md](ROLLBACK_PLAYBOOK.md) | Prod undo order |
 | [BACKUP_PLAN.md](BACKUP_PLAN.md) | Backup pieces and gaps |
 | [ACCESS_CHANNELS.md](ACCESS_CHANNELS.md) | How we reach the site |
@@ -43,6 +42,7 @@ These are finished or single-issue documents that still sit at top level because
 | File | What it was |
 |---|---|
 | [SESSION-CLOSEOUT-2026-07-24.md](SESSION-CLOSEOUT-2026-07-24.md) | Track A closeout |
+| [AGENT-MERGE-PATH-2026-07-26.md](AGENT-MERGE-PATH-2026-07-26.md) | Historical record of the deleted `agent-safe-merge` workflow; current policy lives in `AGENTS.md` and `CONTRIBUTING.md` |
 | [REVIVE-AURORA-PORT-2026-07-24.md](REVIVE-AURORA-PORT-2026-07-24.md) / [REVIVE-AURORA-REVISIONS-2026-07-24.md](REVIVE-AURORA-REVISIONS-2026-07-24.md) | Revive cream port context |
 | [INTERACTION-STATES-GAP-INVENTORY.md](INTERACTION-STATES-GAP-INVENTORY.md) | First acceptance criterion of #424, dated 2026-07-25 |
 | [AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md](AURORA-SEO-TITLES-1.3.40-HANDOFF-2026-07-14.md) | #357 search-title handoff |
@@ -71,7 +71,7 @@ Every file below carries a `STATUS: Historical` banner in its first lines pointi
 
 ## Archive (#549 close-out, verified 2026-08-02)
 
-[`archive/`](archive/) holds **89 markdown files**: 4 that were already there plus **84 moved in commit `c369eef`** (PR #557, merged 2026-07-31). Every one was a `git mv` rename, so history is preserved and the moves are reversible. The diff for that commit against `docs/current-state/` is 84 `R`, 9 `M`, 6 `A`, and **zero `D`**. Verify with:
+At the #549 close-out, [`archive/`](archive/) held **89 markdown files**: 4 that were already there plus **84 moved in commit `c369eef`** (PR #557, merged 2026-07-31). It holds 102 as of 2026-08-28 after later plan archivals. Every #549 move was a `git mv` rename, so history is preserved and the moves are reversible. The diff for that commit against `docs/current-state/` is 84 `R`, 9 `M`, 6 `A`, and **zero `D`**. Verify with:
 
 ```
 git diff --name-status --find-renames c369eef^1 c369eef -- docs/current-state | cut -c1-1 | sort | uniq -c
@@ -90,7 +90,7 @@ Neither is a plan you execute from. Check with `ls docs/current-state/*.md | gre
 - `issues-to-create/README.md` line 5, to `archive/ISSUES-TO-CREATE-RECONCILIATION-2026-06-09.md`
 - `backup/2026-05-16/manifest.md` line 47, to `archive/FIX_QUEUE.md`
 
-**Current-doc surface is clean.** Scanning the 51 top-level `docs/current-state/*.md` plus `AGENTS.md`, `README.md`, `CONTRIBUTING.md` and `docs/INDEX.md` gives **0 broken relative links**. Every remaining break under `docs/current-state/` is inside `archive/`, which is historical by definition, plus one regex fragment in a `reports/` code block that a link scanner misreads as a link.
+**Top-level surface:** 43 `docs/current-state/*.md` files as of 2026-08-28. The #549 close-out scan found 0 broken relative links across the then-current top-level surface plus `AGENTS.md`, `README.md`, `CONTRIBUTING.md`, and `docs/INDEX.md`; re-run the link check before making a new current claim.
 
 **Still broken, and out of scope for #549.** A repo-wide scan of 921 tracked `.md` files (509 relative link targets) finds 114 unresolved: 37 inside `archive/` itself, 77 elsewhere. None of the 77 is archive-move rot. They break down as pseudo-scheme placeholders the publisher rewrites (`photo:7750`, `media:11920`, `poster:3`, `img:mcluhan`), root-relative live-site URLs that resolve on kriskrug.co and never on disk (`/contact`, `/speaking/`), regex fragments inside fenced code blocks that a naive link scanner misreads, and `images/` binaries referenced by `content/drafts/` posts that were never committed (they exist in some working copies as untracked files, so this count is worktree-sensitive). The 37 inside `archive/` are the real move damage: 33 lost one directory level and resolve by prefixing `../`, 4 point at `fixes/` artifacts that no longer exist. Both sets sit outside `docs/current-state/` top level, nothing on the front door reads them, and repairing them is its own issue.
 
@@ -104,4 +104,4 @@ Neither is a plan you execute from. Check with `ls docs/current-state/*.md | gre
 
 ## Side-worktree safety
 
-Canonical new work starts from `main` on a lane-scoped branch. Do not edit legacy side worktrees (`aurora/v2`, `aurora/v3-reconcile`, aurora-keynote) unless a maintainer explicitly resumes one.
+Canonical new work starts from `main` on a lane-scoped branch. Run `git worktree list --porcelain` before editing or cleaning up; treat every listed side worktree as owned until its branch, PR, and filesystem state are verified.

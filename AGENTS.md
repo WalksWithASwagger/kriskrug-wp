@@ -10,7 +10,7 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 
 1. [`docs/current-state/README.md`](docs/current-state/README.md) — current-state front door; run `make status-readonly` for live counters
 2. [`docs/current-state/CURRENT-STATE-2026-07-30.md`](docs/current-state/CURRENT-STATE-2026-07-30.md) — declared snapshot for drift/morning-truth (Makefile default)
-3. [`docs/current-state/WORK-PLAN-2026-08-25.md`](docs/current-state/WORK-PLAN-2026-08-25.md) — **day runbook** (issue #4 read-only residual audit complete; repair two wrong duplicate-media writes and five corrected targets after approval, then resume hub packs #829-#832 after a separate approval; supersedes 2026-08-24)
+3. [`docs/current-state/WORK-PLAN-2026-08-25.md`](docs/current-state/WORK-PLAN-2026-08-25.md) — **day runbook** (issue #4 restored the two wrong-identity writes and applied two corrected targets before stopping safely; correct media 7637 repo-side, then seek a new approval for remaining media 6985/7637/8871; hub packs #829-#832 need a separate approval; supersedes 2026-08-24)
 4. [`docs/current-state/MASTER-PLAN-2026-07-30.md`](docs/current-state/MASTER-PLAN-2026-07-30.md) — hygiene + lane sequencing plan of record
 5. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
 6. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow
@@ -86,7 +86,7 @@ This repo is CLI tooling + a WordPress theme/plugins line — there is **no loca
 Non-obvious caveats for future agents (the update script already installs deps):
 
 - The Python venv lives at `scripts/notion-to-wp/.venv` and **many `Makefile` targets call `scripts/notion-to-wp/.venv/bin/python` directly** (e.g. `seo-audit`, `seo-backfill`, `draft-queue-audit`). If that venv is missing those targets break, so it must exist — the update script (re)creates it.
-- PHP is **8.3** here (CI pins 8.2). This does not affect linting: `phpcs.xml.dist` sets `testVersion 8.1-` as a static target, so `make validate` / `make plugin-smoke` run fine on 8.3.
+- Local runtime versions vary by machine and image; run `php --version` before making a local-runtime claim (CI pins PHP 8.2). `phpcs.xml.dist` sets `testVersion 8.1-` as the static compatibility target, so local linting is intentionally decoupled from the installed PHP minor version.
 - Pixel gate (`make visual-preflight` / `visual-baseline` / `visual-diff`): Chromium is **not** always at `/opt/pw-browsers` in every Cloud image. If preflight FATAL, install Playwright locally under `~/.local/pw` with `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1`, point `PLAYWRIGHT_BROWSERS_PATH=~/.local/pw-browsers`, and symlink Playwright's `chromium-1148` (+ headless shell) binaries to the system Chrome at `/opt/google/chrome/chrome`. Export `NODE_PATH=$HOME/.local/pw/node_modules` when invoking make targets. Official gate still compares **post-deploy live vs pre-deploy live** — a frozen baseline alone is not merge proof.
 - Theme SFTP deploy (`scripts/deploy_theme_sftp.py`): accepts `WP_SFTP_PASSWORD` in process env (Cloud), else macOS Keychain service `pagely-sftp-kriskrug`. Needs `paramiko` installed. REST `WP_APP_PASSWORD` cannot upload themes via Appearance → Themes.
 - Authenticated work needs **either** `WP_USER` + `WP_APP_PASSWORD` **or** `WP_API_USERNAME` + `WP_API_PASSWORD` (optional `NOTION_TOKEN`). Every script accepts both pairs as of 2026-08-23; `scripts/common.py` aliases the API names onto the legacy ones. On KK's laptop the Varlock vault supplies only the `WP_API_*` pair, so **do not conclude credentials are missing because `WP_USER` is unset** - run `make doctor`. Cursor Cloud secrets may use either pair. Laptop Varlock/1Password does **not** inject into this VM. After secret entry, verify with a redacted presence check (`WP_USER` length only) before assuming auth works; a long-lived agent pod that started before secrets were saved may still see them as unset until a new session boots with the secrets attached.
@@ -98,4 +98,4 @@ Non-obvious caveats for future agents (the update script already installs deps):
 
 ---
 
-**Instruction review:** 2026-08-13. Runtime state is deliberately not pinned here. Run `make status-readonly`, consult the current-state front door, and use public readback evidence before acting on live-state assumptions.
+**Instruction review:** 2026-08-28. Runtime state is deliberately not pinned here. Run `make status-readonly`, consult the current-state front door, and use public readback evidence before acting on live-state assumptions.

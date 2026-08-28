@@ -13,8 +13,8 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | File | What it covers |
 |---|---|
 | [`current-state/README.md`](current-state/README.md) | Index; front door pointers |
-| [`current-state/CURRENT-STATE-2026-07-30.md`](current-state/CURRENT-STATE-2026-07-30.md) | Declared snapshot for drift checks (WP 7.0.4; Aurora live and repo `main` in sync at 1.6.5, readback 2026-08-15) |
-| [`current-state/WORK-PLAN-2026-08-24.md`](current-state/WORK-PLAN-2026-08-24.md) | **Active two-session runbook** (finish reviewed Batch 3 alt text, then resume hub applies; supersedes 2026-08-23) |
+| [`current-state/CURRENT-STATE-2026-07-30.md`](current-state/CURRENT-STATE-2026-07-30.md) | Declared snapshot for drift checks; compare its dated values with `make status-readonly` |
+| [`current-state/WORK-PLAN-2026-08-25.md`](current-state/WORK-PLAN-2026-08-25.md) | **Active runbook**: correct the remaining issue #4 media identity, then resume approval-gated authority-hub applies |
 | [`current-state/MASTER-PLAN-2026-07-30.md`](current-state/MASTER-PLAN-2026-07-30.md) | Truth → reclaim → product lanes |
 | [`current-state/TWO-TRACK-MODEL.md`](current-state/TWO-TRACK-MODEL.md) | Active Track A / Track B decision rule |
 | [`current-state/ACCESS_CHANNELS.md`](current-state/ACCESS_CHANNELS.md) | MCP / REST / Chrome / SSH — what works today |
@@ -101,9 +101,9 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 | [`../inc/`](../inc/) | Custom WordPress modules (currently: `digital-composting.php`) |
 | [`../issues-to-create/`](../issues-to-create/) | Markdown drafts of GitHub issues waiting to be filed |
 | [`../backup/`](../backup/) | Backup manifests (archives themselves are gitignored) |
-| [`../skills/`](../skills/) | Claude Code skills used by this repo |
+| [`../.agents/skills/`](../.agents/skills/) | Repository-local workflow skills |
 | [`../.github/`](../.github/) | Workflows, agent definitions, issue templates |
 
 ---
 
-**Last updated:** 2026-07-03. Added the latest morning-truth artifact. Note: this index does not exhaustively list every dated file under `docs/current-state/` - the June/July 2026 snapshots and closeouts are newer than some entries here, so treat `docs/current-state/` itself as the source of truth for the latest dated evidence. Update this index whenever you add or remove documentation, or whenever a doc's "Current vs Historical" status changes.
+**Last reviewed:** 2026-08-28. This index does not exhaustively list every dated file under `docs/current-state/`; use its front-door index and `make status-readonly` for current truth. Update this index whenever documentation is added, removed, or reclassified.
