@@ -2011,18 +2011,47 @@ def cmd_guard(args: argparse.Namespace) -> int:
 
 
 def cmd_prune(args: argparse.Namespace) -> int:
-    """Delete capture directories, keeping the newest N. Manifests are kept."""
+    """Delete capture directories without splitting a tracked diff pair."""
     if not ARTIFACT_ROOT.exists():
         print("nothing to prune")
         return 0
-    dirs = sorted(p for p in ARTIFACT_ROOT.iterdir() if p.is_dir())
-    victims = dirs[: max(0, len(dirs) - args.keep)]
+    dirs = sorted(
+        (p for p in ARTIFACT_ROOT.iterdir() if p.is_dir()),
+        key=lambda p: (
+            _created_at(manifest_path(p.name)) or p.name,
+            p.name,
+        ),
+    )
+    baselines_by_candidate = {}
+    for diff_path in ARTIFACT_ROOT.glob("diff-*.json"):
+        result = json.loads(diff_path.read_text(encoding="utf-8"))
+        baseline_run = result.get("baseline_run")
+        candidate_run = result.get("candidate_run")
+        if baseline_run and candidate_run:
+            baselines_by_candidate[candidate_run] = baseline_run
+
+    available = {d.name for d in dirs}
+    retained = set()
+    for d in reversed(dirs):
+        if len(retained) >= max(0, args.keep):
+            break
+        retained.add(d.name)
+        baseline_run = baselines_by_candidate.get(d.name)
+        if baseline_run in available:
+            retained.add(baseline_run)
+
+    victims = [d for d in dirs if d.name not in retained]
     freed = 0
+    dry_run = getattr(args, "dry_run", False)
     for d in victims:
         freed += sum(f.stat().st_size for f in d.rglob("*") if f.is_file())
-        shutil.rmtree(d, ignore_errors=True)
-        print(f"removed {d.relative_to(REPO_ROOT)}")
-    print(f"kept {min(args.keep, len(dirs))} run dir(s); freed {freed / 1e6:.1f} MB")
+        if dry_run:
+            print(f"would remove {d.relative_to(REPO_ROOT)}")
+        else:
+            shutil.rmtree(d, ignore_errors=True)
+            print(f"removed {d.relative_to(REPO_ROOT)}")
+    action = "would free" if dry_run else "freed"
+    print(f"kept {len(retained)} run dir(s); {action} {freed / 1e6:.1f} MB")
     print(
         "Manifests are untouched — a lost baseline is one `make visual-baseline` away (§4.5.5)."
     )
@@ -2128,7 +2157,13 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_guard)
 
     p = sub.add_parser("prune", help="delete old capture directories (manifests kept)")
-    p.add_argument("--keep", type=int, default=2)
+    p.add_argument(
+        "--keep",
+        type=int,
+        default=2,
+        help="minimum run directories to retain; tracked diff pairs stay together",
+    )
+    p.add_argument("--dry-run", action="store_true", help="print victims without deleting")
     p.set_defaults(func=cmd_prune)
 
     return ap
