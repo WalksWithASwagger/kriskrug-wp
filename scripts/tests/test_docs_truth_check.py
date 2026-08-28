@@ -168,6 +168,19 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
                     any("three-target state" in finding.message for finding in findings)
                 )
 
+    def test_rejects_pre_cleanup_issue_count_and_worktree_status(self):
+        samples = {
+            "docs/current-state/README.md": "0 open PRs, 43 open issues.\n",
+            "docs/current-state/CURRENT-STATE-2026-07-30.md": (
+                "Open issues: `43`. Three `/private/tmp` worktree registrations were prunable.\n"
+            ),
+        }
+
+        for path, text in samples.items():
+            with self.subTest(path=path):
+                findings = scan_text(path, text)
+                self.assertTrue(findings)
+
 
 class MergePolicyGuidanceTests(unittest.TestCase):
     def test_active_guidance_rejects_routine_admin_override(self):

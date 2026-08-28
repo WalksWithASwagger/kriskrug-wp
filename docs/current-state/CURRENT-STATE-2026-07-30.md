@@ -1,6 +1,6 @@
 # Current State Snapshot - 2026-07-30
 
-**Snapshot time:** 2026-07-30 truth reset; live counters and versions refreshed 2026-08-28 14:59Z: WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`.
+**Snapshot time:** 2026-07-30 truth reset; live counters and versions refreshed 2026-08-28 16:07Z: WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`.
 **Branch:** `main` (docs PR lands from lane-scoped branch)
 **Mode:** Ops hygiene (Phases 0–3) then Track A / Track B product lanes.
 
@@ -10,11 +10,11 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 
 ## Verified State
 
-> **Counters refreshed 2026-08-28T14:59Z after reopening #602.** These are the values `make current-state-drift-check` compares against. They can move as soon as a PR or issue changes, so re-read with the commands below before treating drift as a regression.
+> **Counters refreshed 2026-08-28T16:07Z after the Sprint Zero queue cleanup.** These are the values `make current-state-drift-check` compares against. They can move as soon as a PR or issue changes, so re-read with the commands below before treating drift as a regression.
 
-- `origin/main` was clean and synchronized before this docs-truth branch; its latest commit was PR #908 (`b918088`).
-- Open PRs: `0` (`gh pr list --state open --limit 100 --json number --jq 'length'`, 2026-08-28T14:59Z).
-- Open issues: `43` (`gh issue list --state open --limit 300 --json number --jq 'length'`, 2026-08-28T14:59Z). This includes correctly reopened Testimonials deploy issue #602.
+- `origin/main` was clean and synchronized before this docs-truth branch; its latest commit was PR #911 (`c26549b`).
+- Open PRs: `0` (`gh pr list --state open --limit 100 --json number --jq 'length'`, 2026-08-28T16:07Z).
+- Open issues: `41` (`gh issue list --state open --limit 300 --json number --jq 'length'`, 2026-08-28T16:07Z). This includes the correctly open Testimonials deploy issue #602 and local visual-prune gate #749.
 - Production still publicly reports WordPress `7.0.4`.
 - Live Aurora theme (`style.css` Version header): `1.6.9` (public readback 2026-08-28).
 - Repo Aurora theme (`theme/kk-aurora/` on `main`): `1.6.9`; live and repo are in parity.
@@ -32,7 +32,8 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 | Alt-text residual correction | #4 | Three media writes remain; media 7637 needs a corrected reviewed proposal before a new live approval |
 | Testimonials live deploy | #602 | Reopened 2026-08-28; live page 2409 is still the legacy 19-card body and needs its snapshot/editorial/approval gate |
 | Third-party script performance receipt | #706 | Script diet is live; matching post-change PSI evidence remains incomplete |
-| Repo bloat reduction | #318 | Inventory exists; cleanup remains a separate approved operation |
+| Draft-image bloat reduction | #318 | Current residue is 13 tracked images across three packages; authenticated publish-status proof and an exact approval list are required |
+| Local visual capture prune | #749 | Pair-safe dry-run is merged; three exact directories (~906 MiB) await separate deletion approval |
 | Site redesign epic | #403 | Track B roadmap; split into lane-scoped PRs |
 
 ## What changed since CURRENT-STATE-2026-07-16
@@ -41,11 +42,11 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 - Issue #4 completed the broad Batch 3 media pass, restored two wrong-identity writes, and stopped safely with three reviewed/corrected targets remaining.
 - The Speaking rebuild is live with two click-to-load privacy-hosted video facades; #640 remains open for the missing before/after LCP receipt.
 - Testimonials issue #602 was reopened because its runbook-only PR closed it while the live page remained undeployed.
-- Open issues moved ~77 → **43**; open PRs were **0** at the 2026-08-28 refresh.
+- Open issues moved ~77 → **41**; open PRs were **0** at the 2026-08-28 refresh.
 - Competing work plans are historical; this snapshot plus `WORK-PLAN-2026-08-25.md` and a fresh `make status-readonly` run are the front door.
 
 ## Stash / secrets notes
 
 - Cloud agents need process env `WP_USER` / `WP_APP_PASSWORD` (optional `NOTION_TOKEN`). Laptop Varlock does not inject into Cloud.
 - Prefer [`.env.schema`](../../.env.schema); do not commit plaintext secrets. Rollout: [`VARLOCK-ROLLOUT-2026-07-16.md`](VARLOCK-ROLLOUT-2026-07-16.md).
-- `git stash list` was empty on 2026-08-28. Three `/private/tmp` worktree registrations were prunable but not removed; cleanup remains approval-gated under #738.
+- `git stash list` was empty on 2026-08-28. Issue #738 is closed: the stale `/private/tmp` registrations and approved merged branch refs are gone, and the registered worktree/local branch/remote-head inventories each contain only `main`.
