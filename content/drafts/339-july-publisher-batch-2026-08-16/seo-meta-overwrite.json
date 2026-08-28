@@ -4,7 +4,7 @@
   "mode": "overwrite",
   "live_wordpress_write_performed": false,
   "captured": "2026-08-17T02:20:44Z",
-  "note": "KK must explicitly approve overwriting the live non-empty SEO fields. Additive backfill will skip both posts. Dry-run without --execute first. REST keys are registered on live Aurora 1.6.5 via theme inc/seo-meta-rest.php (#661/#677).",
+  "note": "KK must explicitly approve overwriting the live non-empty SEO fields. Additive backfill will skip both posts. Dry-run without --execute first. REST keys are registered on live Aurora 1.6.9 via theme inc/seo-meta-rest.php (#661/#677).",
   "items": [
     {
       "id": 35,

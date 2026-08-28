@@ -1,14 +1,14 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "issue": 339,
-  "captured": "2026-08-17T02:20:44Z",
+  "captured": "2026-08-28T22:40:34Z",
   "live_wordpress_write_performed": false,
   "aurora": {
     "issue_body_zip": "1.3.39",
     "verdict": "obsolete",
-    "live_style_css": "1.6.5",
-    "repo_style_css": "1.6.6",
-    "note": "Do not upload kk-aurora-seo-metadata-1.3.39-20260713.zip or the 1.3.37 rollback zip. OG and standard-description ownership is theme-side on current 1.6.5. Check remaining snippet gaps against 1.6.5 output, not that zip."
+    "live_style_css": "1.6.9",
+    "repo_style_css": "1.6.9",
+    "note": "Do not upload kk-aurora-seo-metadata-1.3.39-20260713.zip or the 1.3.37 rollback zip. OG and standard-description ownership is theme-side on current 1.6.9. Check remaining snippet gaps against 1.6.9 output, not that zip."
   },
   "wp_generator": "WordPress 7.0.4",
   "items": [
@@ -17,7 +17,19 @@
       "verdict": "STILL OPEN",
       "write_kind": "content",
       "payload": "apply-249-about-ycdd.md",
-      "target": {"type": "page", "id": 1208, "slug": "about", "modified": "2026-08-01T09:59:39"}
+      "target": {
+        "type": "page",
+        "id": 1208,
+        "slug": "about",
+        "modified": "2026-08-16T21:29:03",
+        "modified_gmt": "2026-08-17T05:29:03",
+        "content_raw_chars": 8857,
+        "content_raw_sha256": "3171b2f41bfc919aba40640200cb2bafe76e75329ba736efec1713cd29135783",
+        "desired_content_chars": 9075,
+        "desired_content_sha256": "857ea7af53db7dd2b5007123b0ac8efa86b0397c1e4baea5572c38c26b565b5b",
+        "find_count": 1,
+        "target_href_count": 0
+      }
     },
     {
       "issue": 328,
@@ -47,7 +59,19 @@
       "target": {"type": "post", "id": 8802, "slug": "how-to-build-an-ai-second-brain-that-actually-works-for-you", "modified": "2026-06-28T20:27:34"},
       "sources": [
         {"type": "post", "id": 9774, "slug": "what-journalists-need-to-know-about-ai-right-now", "modified": "2026-06-14T20:05:53"},
-        {"type": "post", "id": 12327, "slug": "storyhive-haus-of-owl-jordan-dack", "modified": "2026-07-18T11:20:49"}
+        {
+          "type": "post",
+          "id": 12327,
+          "slug": "storyhive-haus-of-owl-jordan-dack",
+          "modified": "2026-08-16T21:03:50",
+          "modified_gmt": "2026-08-17T05:03:50",
+          "content_raw_chars": 17706,
+          "content_raw_sha256": "045c697906260becae376d39fcf0987911ac9c94e5d3b25def8a4f1b4a69981d",
+          "desired_content_chars": 17812,
+          "desired_content_sha256": "32a77f548f700cde5edd77e8c6959dda04d9aa229e852b8f860c8ce87f09b4bd",
+          "find_count": 1,
+          "target_href_count": 0
+        }
       ]
     },
     {
@@ -62,7 +86,7 @@
       "verdict": "DONE / DEAD",
       "write_kind": "none",
       "payload": null,
-      "note": "Aurora 1.3.39 zip deploy is obsolete. Live is 1.6.5."
+      "note": "Aurora 1.3.39 zip deploy is obsolete. Live and repo are 1.6.9."
     }
   ]
 }

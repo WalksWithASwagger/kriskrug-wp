@@ -6,7 +6,7 @@
 **Live titles:** `The Lord of the Rings Drinking Game | Kris Krüg` and `McSweeney's Lists | Kris Krüg`
 **Evidence:** approved search title `...: 4 Original Rules` is absent. Public description is still the excerpt opener, not the approved rules summary. Both collection footers still recommend the 2023 AI companions post.
 
-Live REST now exposes `jetpack_seo_html_title` and `advanced_seo_description` on posts (Aurora 1.6.5, `inc/seo-meta-rest.php`). Both keys on post 35 are already non-empty, so this is an **overwrite**, not an additive backfill.
+Live REST exposes `jetpack_seo_html_title` and `advanced_seo_description` on posts (Aurora 1.6.9, `inc/seo-meta-rest.php`). Both keys on post 35 are already non-empty, so this is an **overwrite**, not an additive backfill.
 
 Do not change the public post title, excerpt, slug, date, or taxonomies.
 
@@ -31,7 +31,7 @@ scripts/notion-to-wp/.venv/bin/python scripts/seo-backfill/backfill_meta.py \
 
 No `--execute` until snapshot + KK overwrite tick. Apply the post 35 object first, then 8802 from the same file as part of #336.
 
-Public readback after write: document title becomes the approved search title (theme uses the meta value as the full `<title>`). Standard and OG descriptions should pick up the new description on current 1.6.5 output. Confirm on a cache-busted fetch; do not assume 1.3.39 zip behavior.
+Public readback after write: document title becomes the approved search title (theme uses the meta value as the full `<title>`). Standard and OG descriptions should pick up the new description on current 1.6.9 output. Confirm on a cache-busted fetch; do not assume 1.3.39 zip behavior.
 
 ## B. Footer pair
 
