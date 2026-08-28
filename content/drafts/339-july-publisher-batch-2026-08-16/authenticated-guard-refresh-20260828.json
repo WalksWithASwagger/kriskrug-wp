@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "issue": 339,
+  "captured": "2026-08-28T22:40:34Z",
+  "mode": "authenticated-read-only",
+  "live_wordpress_write_performed": false,
+  "objects": [
+    {
+      "type": "page",
+      "id": 1208,
+      "slug": "about",
+      "status": "publish",
+      "modified": "2026-08-16T21:29:03",
+      "modified_gmt": "2026-08-17T05:29:03",
+      "content_raw_chars": 8857,
+      "content_raw_sha256": "3171b2f41bfc919aba40640200cb2bafe76e75329ba736efec1713cd29135783",
+      "find_count": 1,
+      "target_href_count": 0,
+      "desired_content_chars": 9075,
+      "desired_content_sha256": "857ea7af53db7dd2b5007123b0ac8efa86b0397c1e4baea5572c38c26b565b5b",
+      "changed_chars": 218
+    },
+    {
+      "type": "post",
+      "id": 12327,
+      "slug": "storyhive-haus-of-owl-jordan-dack",
+      "status": "publish",
+      "modified": "2026-08-16T21:03:50",
+      "modified_gmt": "2026-08-17T05:03:50",
+      "content_raw_chars": 17706,
+      "content_raw_sha256": "045c697906260becae376d39fcf0987911ac9c94e5d3b25def8a4f1b4a69981d",
+      "find_count": 1,
+      "target_href_count": 0,
+      "desired_content_chars": 17812,
+      "desired_content_sha256": "32a77f548f700cde5edd77e8c6959dda04d9aa229e852b8f860c8ce87f09b4bd",
+      "changed_chars": 106
+    }
+  ]
+}

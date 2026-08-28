@@ -24,7 +24,7 @@ Modified guard: `2026-06-28T20:27:34`
 
 Same dry-run command as #335 (file contains both posts). Apply 8802 after 35.
 
-Public readback on current Aurora 1.6.5, not against 1.3.39 zip assumptions. Cache-bust the permalink.
+Public readback on current Aurora 1.6.9, not against 1.3.39 zip assumptions. Cache-bust the permalink.
 
 ## B. Inbound wraps
 
@@ -56,7 +56,9 @@ Live rendered context keeps an existing em dash after the phrase (`AI as a secon
 
 - Slug: `storyhive-haus-of-owl-jordan-dack`
 - URL: `https://kriskrug.co/2026/06/17/storyhive-haus-of-owl-jordan-dack/`
-- Modified guard: `2026-07-18T11:20:49` (refreshed; original July handoff had `2026-06-17T19:47:06`)
+- Modified guard: `2026-08-16T21:03:50` (authenticated refresh)
+- Current raw: 17,706 chars; SHA-256 `045c697906260becae376d39fcf0987911ac9c94e5d3b25def8a4f1b4a69981d`
+- Planned raw: 17,812 chars; SHA-256 `32a77f548f700cde5edd77e8c6959dda04d9aa229e852b8f860c8ce87f09b4bd`
 - Live needle count: 1
 - Live target-href count: 0
 

@@ -3,7 +3,9 @@
 **Verdict:** STILL OPEN
 **Write target:** page `1208`, slug `about`, `https://kriskrug.co/about/`
 **Link target:** post `11936`, slug `you-cant-drink-data` (read-only; do not PATCH this post)
-**Live `modified`:** `2026-08-01T09:59:39` (refreshed; July handoff had `2026-07-01T11:33:51` then `2026-07-24T17:22:59`)
+**Live `modified`:** `2026-08-16T21:29:03` (authenticated refresh; the August 16 change was the #706 cache-purge title save)
+**Current raw:** 8,857 chars; SHA-256 `3171b2f41bfc919aba40640200cb2bafe76e75329ba736efec1713cd29135783`
+**Planned raw:** 9,075 chars; SHA-256 `857ea7af53db7dd2b5007123b0ac8efa86b0397c1e4baea5572c38c26b565b5b`
 **REST + HTML:** 200 / self-canonical `/about/`
 **Evidence:** public HTML count of `you can't drink data` is **0**. Count of `you-cant-drink-data` hrefs is **0**. The reserved paragraph is still present exactly once.
 
@@ -29,7 +31,7 @@ ASCII apostrophe in `can't`. No em dash. No other About copy.
 
 1. `GET /wp-json/wp/v2/pages/1208?context=edit&_fields=id,slug,status,modified,title,content`
 2. Save to `backup/<UTC>-july-publisher/before-page-1208-edit.json` plus public `https://kriskrug.co/about/` HTML and SHA-256.
-3. Abort unless `id=1208`, `slug=about`, `status=publish`, and `modified=2026-08-01T09:59:39` (or a KK-acknowledged newer guard after a fresh needle reconfirm).
+3. Abort unless `id=1208`, `slug=about`, `status=publish`, `modified=2026-08-16T21:29:03`, and raw SHA-256 `3171b2f41bfc919aba40640200cb2bafe76e75329ba736efec1713cd29135783` (or a KK-acknowledged newer guard after a fresh needle reconfirm).
 4. Abort unless FIND occurs exactly once in `content.raw`. Gutenberg wrappers around the `<p>` are fine; do not replace unrelated hero copy.
 5. `POST /wp-json/wp/v2/pages/1208` with `{"content": ...}` only.
 6. Readback: authenticated raw contains the new sentence once; cache-busted `/about/` grep for `you can't drink data` returns 1; YCDD URL still 200; page slug/title/status unchanged.

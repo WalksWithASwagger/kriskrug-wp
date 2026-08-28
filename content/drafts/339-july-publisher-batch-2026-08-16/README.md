@@ -1,17 +1,17 @@
-# #339 July publisher batch, refreshed 2026-08-16
+# #339 July publisher batch, refreshed 2026-08-28
 
-**Status:** PREP ONLY. No live WordPress write. Credentials were not used.
+**Status:** PREP ONLY. Authenticated read-only guards refreshed; no live WordPress write.
 **Issue:** [#339](https://github.com/WalksWithASwagger/kriskrug-wp/issues/339)
 **Evidence report:** [`docs/current-state/reports/publisher-batch-refresh-339-20260816.md`](../../../docs/current-state/reports/publisher-batch-refresh-339-20260816.md)
 **Supersedes:** [`content/drafts/339-july-publisher-batch-checklist-2026-07-26.md`](../339-july-publisher-batch-checklist-2026-07-26.md) and the 2026-07-26 prep report.
 
-Live readback: `2026-08-17T02:20:44Z`. Aurora live `1.6.5` (public `style.css`). Repo `main` theme Version `1.6.6`. WordPress `7.0.4`.
+Authenticated readback: `2026-08-28T22:40:34Z`. Aurora live and repo `main` both `1.6.9`. WordPress `7.0.4`.
 
 ## DONE vs STILL OPEN
 
 | Item | Verdict | Why |
 |---|---|---|
-| Aurora 1.3.39 zip deploy | **DEAD / obsolete** | Live is 1.6.5. Do not upload that zip. OG/description work from that era needs a separate check against current 1.6.5 theme output. |
+| Aurora 1.3.39 zip deploy | **DEAD / obsolete** | Live is 1.6.9. Do not upload that zip. OG/description work from that era needs a separate check against current 1.6.9 theme output. |
 | #249 About YCDD sentence | **STILL OPEN** | `/about/` has 0 matches for `you can't drink data`. Opening paragraph still present. |
 | #328 Most Benevolent wraps | **STILL OPEN** | Needles present once each on 2950 and 2665. Zero hrefs to post 3814. |
 | #335 LOTR title/desc + footer pair | **STILL OPEN** | Public title is still `The Lord of the Rings Drinking Game \| Kris Krüg`. Footer still points at the AI companions post. |
@@ -22,9 +22,9 @@ Closed GitHub issues #249, #328, #335, #336, #342 were repo-side prep or measure
 
 ## Theme zip: strike this
 
-The #339 issue body still asks KK to approve deploying `kk-aurora-seo-metadata-1.3.39-20260713.zip`. **Strike that checkbox.** Production already runs Aurora **1.6.5**. Repo `main` is **1.6.6**. Uploading 1.3.39 would be a downgrade.
+The retired #339 contract asked KK to approve deploying `kk-aurora-seo-metadata-1.3.39-20260713.zip`. **Keep that action struck.** Production and repo `main` both run Aurora **1.6.9**. Uploading 1.3.39 would be a downgrade.
 
-Standard descriptions and per-post search titles are theme-owned (`inc/seo-title.php`, `inc/seo-meta-rest.php`). Sampled 1.6.5 routes already emit one `<meta name="description">`. Remaining OG/title-format questions belong with current theme output (and issues like #756), not with that zip.
+Standard descriptions and per-post search titles are theme-owned (`inc/seo-title.php`, `inc/seo-meta-rest.php`). Sampled 1.6.9 routes already emit one `<meta name="description">`. Remaining OG/title-format questions belong with current theme output, not with that zip.
 
 ## Payloads in this folder
 
@@ -37,7 +37,8 @@ Standard descriptions and per-post search titles are theme-owned (`inc/seo-title
 | `apply-342-both-hands-full.md` | Href-only on post 11171 |
 | `seo-meta-overwrite.json` | `--from-file` overwrite plan for posts 35 and 8802 |
 | `manifest.json` | Machine-readable verdicts and identity guards |
-| `live-evidence-compact.json` | Public REST + HTML head capture (no full HTML) |
+| `authenticated-guard-refresh-20260828.json` | Authenticated raw/desired hashes for the two previously drifted objects; no body content or credentials |
+| `live-evidence-compact.json` | Historical 2026-08-17 public REST + HTML head capture (no full HTML) |
 
 ## Shared apply rules (INCIDENT-2026-05-15)
 
@@ -64,7 +65,7 @@ Standard descriptions and per-post search titles are theme-owned (`inc/seo-title
 - [ ] Approve the four copy-preserving wraps (#328 and #336).
 - [ ] Approve the #335 footer pair.
 - [ ] Approve the #342 href-only replacement.
-- [ ] Acknowledge refreshed `modified` guards: page 1208 `2026-08-01T09:59:39`, post 11171 `2026-08-10T18:24:39`, post 12327 `2026-07-18T11:20:49`.
+- [ ] Acknowledge refreshed `modified` guards: page 1208 `2026-08-16T21:29:03`, post 11171 `2026-08-10T18:24:39`, post 12327 `2026-08-16T21:03:50`.
 - [ ] Dry-run evidence reviewed. Snapshot dir created.
 
 Out of scope: #331, #353, #340 bc-ai.net, GSC indexing quota, DNS/GA4, any live write in this PR.
