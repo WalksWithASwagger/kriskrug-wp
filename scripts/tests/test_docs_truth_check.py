@@ -168,26 +168,24 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
                     any("three-target state" in finding.message for finding in findings)
                 )
 
-    def test_rejects_pre_cleanup_issue_count_and_worktree_status(self):
+    def test_rejects_pre_cleanup_worktree_status(self):
+        findings = scan_text(
+            "docs/current-state/CURRENT-STATE-2026-07-30.md",
+            "Three `/private/tmp` worktree registrations were prunable.\n",
+        )
+
+        self.assertTrue(findings)
+
+    def test_delegates_issue_count_truth_to_live_drift_contract(self):
         samples = {
             "docs/current-state/README.md": "0 open PRs, 43 open issues.\n",
-            "docs/current-state/CURRENT-STATE-2026-07-30.md": (
-                "Open issues: `43`. Three `/private/tmp` worktree registrations were prunable.\n"
-            ),
+            "docs/current-state/CURRENT-STATE-2026-07-30.md": "Open issues: `40`.\n",
         }
 
         for path, text in samples.items():
             with self.subTest(path=path):
                 findings = scan_text(path, text)
-                self.assertTrue(findings)
-
-    def test_allows_current_issue_count_from_live_drift_contract(self):
-        findings = scan_text(
-            "docs/current-state/CURRENT-STATE-2026-07-30.md",
-            "Open issues: `40`.\n",
-        )
-
-        self.assertFalse(findings)
+                self.assertFalse(findings)
 
 
 class MergePolicyGuidanceTests(unittest.TestCase):
