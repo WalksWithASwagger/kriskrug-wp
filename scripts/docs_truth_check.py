@@ -163,10 +163,6 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
             "The parked PR #710 counter is stale; rerun `make status-readonly`.",
         ),
         (
-            re.compile(r"Open issues:\s*`40`", re.I),
-            "The 40-issue snapshot is stale; rerun `make status-readonly`.",
-        ),
-        (
             re.compile(r"Open issues:\s*`43`", re.I),
             "The pre-cleanup 43-issue snapshot is stale; rerun `make status-readonly`.",
         ),
