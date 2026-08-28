@@ -90,6 +90,8 @@ class SpeakingEmbedContractTests(unittest.TestCase):
 
     def test_facade_click_loads_and_focuses_the_deferred_iframe(self):
         self.assertIn(".kk-speak-embed-facade", self.html)
+        self.assertIn(r'content: "\25B6";', self.html)
+        self.assertNotIn('content: "▶";', self.html)
         self.assertRegex(self.html, r"addEventListener\(['\"]click['\"]")
         self.assertIn("template.content.cloneNode(true)", self.html)
         self.assertIn("replaceChildren", self.html)
