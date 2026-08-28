@@ -32,11 +32,26 @@ The Meetup 30 frame reads as community-host energy, not keynote-buyer energy. Th
 
 ---
 
+## Booking claim-to-source matrix (#904)
+
+The Profound export identifies the planner question only. It is not a factual source. KK's 2026-08-27 ruling is authoritative for the location update: Vancouver only. Prior residence labels are retired.
+
+| Claim family | Visible claim | Current first-party source |
+|---|---|---|
+| Identity and location | Kris is an AI keynote speaker based in Vancouver, British Columbia, Canada. | KK ruling for #904, 2026-08-27; `fixes/schema-snippets-deployed.php` (`person_job`, `person_descr`) |
+| Formats | Keynotes, workshops, executive briefings, and hosting and moderation. | Existing Formats cards in `payload-body.html`; public page 1887 readback, 2026-08-27 |
+| Audiences and topics | Leaders, creators, creative teams, executives, schools, nonprofits, companies, public-interest technology audiences, public sector groups, and cultural organizations; creative agency, human judgment, leadership, trust, consent, power, and organizational memory. | `content/source-packs/keynotes-2026/talk-topic-bank.md`; existing Formats cards in `payload-body.html` |
+| Booking inputs | Audience, date, location, format, and the room's question. | Existing end-booking CTA in `payload-body.html`; public page 1887 readback, 2026-08-27 |
+| Next step | Contact Kris through `/contact/`. | Existing hero and end-booking links in `payload-body.html`; public page 1887 readback, 2026-08-27 |
+
+---
+
 ## Content changes (six-talk architecture)
 
 | Band | Change |
 |---|---|
 | Hero | Cleared Meetup 30 theme still (`loading="eager"`) + short support line + booking CTA |
+| Planner facts | Answer-first Vancouver, British Columbia, Canada identification + five source-backed booking facts from the matrix above |
 | Signature keynotes | Six cards from `talk-topic-bank.md`, in bank order. Status tags: delivered / available in development / program option |
 | Watch | Two lazy YouTube iframes: `hYT-hsml_ds` (CreativeMornings / Punk Rock AI) and `-c7mgY2aSgM` (LaSalle / Both Hands Full). CreativeMornings credit line included. |
 | Workshop add-ons | The seven topic-bank add-ons. Labeled as add-ons, not keynotes. |
@@ -69,7 +84,7 @@ Page-scoped CSS under `.kk-r9-pack` keeps the cream rail, hero media, and 16:9 e
 
 1. Confirm secrets: `WP_USER` + `WP_APP_PASSWORD` present (length check only).
 2. Authenticated GET page `1887`; write `backup/<timestamp>-speaking-419/page-1887-before.json` + rendered HTML.
-3. Dry-run: print payload bytes; confirm six `<h3>` talk titles; confirm `Responsible AI` absent from the keynote grid; confirm ≥2 youtube embed URLs; confirm hero `<img>` is the Meetup 30 theme asset; confirm CTA count ≥2.
+3. Dry-run: print payload bytes; confirm `booking-facts` appears before `signature-keynotes`; confirm five planning cards; confirm six `<h3>` talk titles; confirm `Responsible AI` absent from the keynote grid; confirm ≥2 youtube embed URLs; confirm hero `<img>` is the Meetup 30 theme asset; confirm CTA count ≥2.
 4. KK signs media constraint + copy + screenshots plan.
 5. Body-only REST update (`content` raw = `payload-body.html`). Do not send `title`.
 6. Purge Pagely page cache for `/speaking/`.
@@ -81,6 +96,8 @@ Page-scoped CSS under `.kk-r9-pack` keeps the cream rail, hero media, and 16:9 e
 ### Acceptance
 
 - [ ] Six talks match the topic bank. No seventh keynote card. Responsible AI is not in the grid.
+- [ ] The answer-first block appears before the keynote grid and identifies Kris as an AI keynote speaker based in Vancouver, British Columbia, Canada.
+- [ ] Five planning cards cover location, formats, audiences and topics, booking inputs, and the `/contact/` next step.
 - [ ] Screenshots at **1440** and **390**: Meetup 30 still visible without scrolling; hero CTA visible.
 - [ ] ≥2 talk videos embedded (CreativeMornings + LaSalle).
 - [ ] Booking CTA above fold **and** at page end.
