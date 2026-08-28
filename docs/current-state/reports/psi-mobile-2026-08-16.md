@@ -59,7 +59,7 @@ Theme assets are now WebP (`futureproof-salmon-starfield-600.webp`, `vancouver-a
 - **Discover real-user data**: No Data.
 - Filmstrip still shows blank frames then a dark first paint of the cream homepage. That is the stale Boost critical-CSS snapshot (`--aurora-black:#030405`), owned by **#731**.
 
-## Do not close from this file alone
+## Closeout disposition
 
-- **#706** pixel half is done. Gtag half is done on origin HTML + Network. PSI still attributes gtag unused-JS / one long task. Close only if KK accepts the documented delay caveat.
+- **#706 closed 2026-08-28.** KK accepted the documented delay caveat: PSI still attributes gtag unused-JS / one long task, while origin HTML and browser Network checks satisfy the delayed-load contract.
 - **#731** is not done. Critical CSS rows are still 2026-07-01; wp-admin Regenerates is still required.
