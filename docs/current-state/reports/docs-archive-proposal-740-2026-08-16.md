@@ -1,7 +1,12 @@
 # #740 docs archive proposal — 2026-08-16
 
+> **STATUS: RETIRED 2026-08-28. DO NOT EXECUTE THIS MOVE TABLE.** Issue #740
+> closed after a fresh audit found that this proposal would move active records
+> and miss its own top-level-count target. Any future sweep requires a new dated,
+> per-file allow-list with current owning-issue and inbound-link evidence.
+
 **Issue:** [#740](https://github.com/WalksWithASwagger/kriskrug-wp/issues/740)
-**Status:** proposal only. No `git mv` in this pass.
+**Status:** historical proposal only. No files were moved from this table.
 **Inventory:** top-level `docs/current-state/*.md` = **42** files (2026-08-16).
 **Already archived (do not move again):** `WORK-PLAN-2026-08-05.md`, `WORK-PLAN-2026-07-30.md`, the May–June #549 set.
 
