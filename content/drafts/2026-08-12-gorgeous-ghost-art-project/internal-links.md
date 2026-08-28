@@ -17,12 +17,12 @@
 
 - https://kriskrug.co/2026/08/12/gorgeous-ghost/ - dated canonical retained from `post_date: 2026-08-12`
 
-## 2026-08-16 link audit
+## 2026-08-28 link audit
 
 - Every source and network URL above returned `200` after redirects.
 - The external share image returned `200 image/jpeg`.
 - The intended dated canonical and legacy bare-slug route both returned `404`, as expected before publication.
-- Public WordPress REST probes returned no published post or page for `gorgeous-ghost`; an authenticated all-status check remains required before any create action.
+- Public WordPress REST probes return no published post or page for `gorgeous-ghost`; the refreshed authenticated all-status check also found zero posts and zero pages.
 
 ## Draft notes
 

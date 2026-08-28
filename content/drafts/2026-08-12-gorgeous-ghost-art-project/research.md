@@ -1,6 +1,13 @@
 # Gorgeous Ghost art project research
 
-Research dates: 2026-08-12; refreshed 2026-08-16
+Research dates: 2026-08-12; refreshed 2026-08-16 and 2026-08-28
+
+## 2026-08-28 source refresh
+
+- The current public bundle still declares a `69420` ms runtime, seven film phases, and moment IDs `001` through `029`.
+- The live fallback credits still name The Scallywags as Kris Krüg, Magenta Rune, Mayumi Rawlings, and Kevin Friel; special thanks remain Kaoru Yoshihira and Floyo.ai; the Film Club line remains `The BC + AI Film Club Prompt Challenge`.
+- The project, Ghost Radio, Punk Rock AI, Both Hands Full, AI Garden network, and KrisKrug.co Work URLs all return `200` after redirects. The share image returns `200 image/jpeg`.
+- Both intended KrisKrug.co article routes still return `404`. An authenticated `status=any`, edit-context lookup still finds zero posts and zero pages for `gorgeous-ghost`.
 
 ## People
 
