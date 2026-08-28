@@ -304,6 +304,13 @@ These are classified `has-alt` in the CSV because they are not empty, so they ar
 
 ## Individually notable findings
 
+> **2026-08-28 follow-up:** Seventeen of the 18 missing-attribute images below
+> have now been visually reviewed and carry exact draft proposals in
+> `inventory.csv`. The post-5371 Midjourney source is broken and remains blank
+> rather than guessed. See
+> `docs/current-state/reports/issue-4-missing-alt-review-20260828.md` for the
+> evidence, wording, and future apply boundaries. No live write was made.
+
 - **Testimonial cards are images of text.** Fourteen of the batch 1 images are five-star review cards where the entire quote is baked into a PNG. Alt is the only path to that content today. That is also a WCAG 1.4.5 "images of text" question, which belongs to issue #46, not here. The alt strings above carry the full quote and the attributed name so the content is at least reachable.
 - **Two non-pixel images with no `alt` attribute at all** in the recent and 2024 sets:
   - `/2024/12/02/autolume-post-photographic-cybernetic-portraiture/`, hotlinked from `lh7-rt.googleusercontent.com/docsz/AD_4nXf...`, a Google Docs paste artifact

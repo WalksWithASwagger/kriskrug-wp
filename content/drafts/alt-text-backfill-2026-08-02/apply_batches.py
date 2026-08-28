@@ -118,6 +118,7 @@ def content_targets(
             for r in rows
             if r["page_id"] == only_page_id
             and r["media_id"] == only_content_media_id
+            and r["fix_surface"] == "post-content-block"
         ]
         if len(selected) != 1:
             raise SystemExit(
