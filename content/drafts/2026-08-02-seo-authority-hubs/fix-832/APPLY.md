@@ -17,7 +17,7 @@ No REST POST / PATCH / DELETE in this session. WP_USER / WP_APP_PASSWORD were un
 |---|---|---|---|---:|---|---|---|
 | 4495 | post | `inside-the-innaugural-vancouver-ai-community-meetup` | `/2024/01/28/inside-the-innaugural-vancouver-ai-community-meetup/` | 200 | **no** | yes (3) | Baked footer present. |
 | 9197 | post | `vancouver-ai-meetup-16-where-tech-creativity-and-community-collide` | `/2025/05/11/vancouver-ai-meetup-16-where-tech-creativity-and-community-collide/` | 200 | **no** | yes (1) | Baked footer present. |
-| 8418 | post | `vancouver-ai-the-community-building-bcs-ai-future-february-meetup-recap` | `/2025/03/02/vancouver-ai-the-community-building-bcs-ai-future-february-meetup-recap/` | 200 | **no** | yes (1) | Baked footer present. Empty `<p>` then footer. |
+| 8418 | post | `vancouver-ai-the-community-building-bcs-ai-future-february-meetup-recap` | `/2025/03/02/vancouver-ai-the-community-building-bcs-ai-future-february-meetup-recap/` | 200 | **no** | yes (1) | Baked footer present. Authenticated raw block terminus reconfirmed 2026-08-28. |
 | 6815 | post | `august-vancouver-ai-community-meetup-recap-hackers-hustlers-heretics` | `/2024/09/01/august-vancouver-ai-community-meetup-recap-hackers-hustlers-heretics` | 200 | **no** | yes (1) | No `kk-collection-footer`. Ends on the Related hub line. One AWS `/events/` URL is unrelated. |
 | 6251 | post | `creativity-in-the-age-of-ai-vancouver-ai-community-meetup-june-2024-highlights` | `/2024/07/08/creativity-in-the-age-of-ai-vancouver-ai-community-meetup-june-2024-highlights/` | 200 | **no** | yes (1) | `meetup.com/vancouver-ai-meetup/events/` is not the hub. Footer present. |
 | 5768 | post | `june-vancouver-ai-community-meetup-recap-a-confluence-of-minds-and-machines` | `/2024/06/02/june-vancouver-ai-community-meetup-recap-a-confluence-of-minds-and-machines/` | 200 | **no** | yes (1) | No footer. Has `/ai-events/` plus a Northeastern `/events/` URL. |
@@ -31,7 +31,7 @@ The live `/events/` card still talks about Luma and registration. Do not copy an
 
 ## Snapshot gaps
 
-- No `context=edit` `content.raw` for posts 4495, 9197, 8418, 6815, 6251, 5768, 4348. Those `before/*-content.raw.html` files are public `content.rendered` stand-ins so `--from-files` can run offline. The first authenticated dry-run must recut `find` if a live raw needle misses.
+- No committed `context=edit` `content.raw` fixture for posts 4495, 9197, 8418, 6815, 6251, 5768, 4348. Their `before/*-content.raw.html` files are public `content.rendered` stand-ins so `--from-files` can run offline. Post 8418's authenticated raw terminus was reconfirmed on 2026-08-28 at the unchanged `modified_gmt` and is pinned in `targets.json` with raw SHA-256 `ebf28d1f...bf3a4a15`; the rendered stand-in remains an explicit alternate for offline characterization. Recut any other `find` if a future authenticated dry run misses.
 - Page 2250 has public rendered only. That is enough to prove this pack never mutates it. There is no 2250 `content.raw` in the pack.
 - Page 12315 raw is the 2026-07-01 backup. Live `modified_gmt` is still `2026-07-01T20:27:36`, and the Browse AI events button text is unchanged.
 
@@ -60,7 +60,7 @@ Content only. Titles, slugs, dates, status, featured media, tags, categories, an
 |---|---|---|
 | 4495 | toast line ending `community!</p>` | trailing sentence, exact anchor `we still do this every month, and the next one is on the calendar` (row 18) |
 | 9197 | `converge to shape our collective future.</p>` | trailing sentence, exact anchor `the next one` (row 19) |
-| 8418 | empty paragraph immediately before the baked footer | new paragraph, exact anchor `come to the next one` (row 20) |
+| 8418 | raw empty paragraph block immediately before the baked footer; rendered stand-in retained as an explicit offline alternate | new paragraph, exact anchor `come to the next one` (row 20) |
 | 6815 | Related hub sentence (keeps the `/vancouver-ai/` link) | trailing sentence, exact anchor `the current calendar` (row 21) |
 | 6251 | Host sign-off line | new paragraph before the footer, exact anchor `where the next one lands` (row 22) |
 | 5768 | `continue to explore, create, and inspire together.</p>` | trailing sentence, exact anchor `still monthly, still free, still worth the trip` (row 23) |

@@ -99,8 +99,15 @@
       "slug": "vancouver-ai-the-community-building-bcs-ai-future-february-meetup-recap",
       "url": "https://kriskrug.co/2025/03/02/vancouver-ai-the-community-building-bcs-ai-future-february-meetup-recap/",
       "modified_gmt_at_reconfirm": "2026-06-29T04:30:15",
-      "find": "<p class=\"wp-block-paragraph\"></p>\n\n\n\n<p class=\"kk-collection-footer wp-block-paragraph\">Part of the <a href=\"https://kriskrug.co/vancouver-ai/\">Vancouver AI Ecosystem</a> collection.</p>",
-      "replace": "<p class=\"wp-block-paragraph\">If you are nearby, <a href=\"https://kriskrug.co/events/\">come to the next one</a>.</p>\n\n\n\n<p class=\"kk-collection-footer wp-block-paragraph\">Part of the <a href=\"https://kriskrug.co/vancouver-ai/\">Vancouver AI Ecosystem</a> collection.</p>",
+      "raw_sha256_at_reconfirm": "ebf28d1f71511b70d9023e34e3143ca02ff7d5835fe5dccd8572e622bf3a4a15",
+      "find": "<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"className\":\"kk-collection-footer\"} -->\n<p class=\"kk-collection-footer\">Part of the <a href=\"https://kriskrug.co/vancouver-ai/\">Vancouver AI Ecosystem</a> collection.</p>\n<!-- /wp:paragraph -->",
+      "replace": "<!-- wp:paragraph -->\n<p>If you are nearby, <a href=\"https://kriskrug.co/events/\">come to the next one</a>.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"className\":\"kk-collection-footer\"} -->\n<p class=\"kk-collection-footer\">Part of the <a href=\"https://kriskrug.co/vancouver-ai/\">Vancouver AI Ecosystem</a> collection.</p>\n<!-- /wp:paragraph -->",
+      "alternate_rewrites": [
+        {
+          "find": "<p class=\"wp-block-paragraph\"></p>\n\n\n\n<p class=\"kk-collection-footer wp-block-paragraph\">Part of the <a href=\"https://kriskrug.co/vancouver-ai/\">Vancouver AI Ecosystem</a> collection.</p>",
+          "replace": "<p class=\"wp-block-paragraph\">If you are nearby, <a href=\"https://kriskrug.co/events/\">come to the next one</a>.</p>\n\n\n\n<p class=\"kk-collection-footer wp-block-paragraph\">Part of the <a href=\"https://kriskrug.co/vancouver-ai/\">Vancouver AI Ecosystem</a> collection.</p>"
+        }
+      ],
       "anchors": [
         {
           "row": 20,
