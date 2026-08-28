@@ -1,0 +1,119 @@
+{
+  "issue": 833,
+  "parent": 402,
+  "blocked_by": 826,
+  "status": "prepared_not_applied",
+  "dependency_gate": {
+    "id": 3814,
+    "slug": "the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things",
+    "status": "publish",
+    "required_category": 1678,
+    "forbidden_category": 1757
+  },
+  "items": [
+    {
+      "id": 3948,
+      "kind": "pages",
+      "slug": "the-kk-worldview",
+      "status": "publish",
+      "date": "2023-11-03T07:47:30",
+      "title": "The KK Worldview",
+      "operations": [
+        {
+          "row": 1,
+          "text": "there is a prayer I actually say about this",
+          "href": "https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/",
+          "find": "<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>This is but one lens",
+          "replace": "<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>If you want the spiritual version, <a href=\"https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/\">there is a prayer I actually say about this</a>.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>This is but one lens"
+        }
+      ]
+    },
+    {
+      "id": 11936,
+      "kind": "posts",
+      "slug": "you-cant-drink-data",
+      "status": "publish",
+      "date": "2026-05-23T15:00:00",
+      "title": "You Can't Drink Data",
+      "categories": [1678],
+      "operations": [
+        {
+          "row": 2,
+          "text": "I say a prayer about this most mornings, which is either funny or the whole point",
+          "href": "https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/",
+          "find": "I've never believed that. So I laced up and went downtown to march.</p>",
+          "replace": "I've never believed that. So I laced up and went downtown to march. <a href=\"https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/\">I say a prayer about this most mornings, which is either funny or the whole point</a>.</p>"
+        }
+      ]
+    },
+    {
+      "id": 11358,
+      "kind": "posts",
+      "slug": "spa-at-the-end-of-time",
+      "status": "publish",
+      "date": "2026-02-20T09:36:35",
+      "title": "Spa at the End of Time",
+      "categories": [1678],
+      "preserve_footer": true,
+      "operations": [
+        {
+          "row": 3,
+          "text": "I have my own version of the seance",
+          "href": "https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/",
+          "kind": "append_to_paragraph",
+          "find": "voiced like a medium receiving transmissions",
+          "append_html": " <a href=\"https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/\">I have my own version of the seance</a>."
+        }
+      ]
+    },
+    {
+      "id": 11700,
+      "kind": "posts",
+      "slug": "punk-rock-ai",
+      "status": "publish",
+      "date": "2026-05-04T10:18:11",
+      "title": "Punk Rock AI",
+      "categories": [1678],
+      "preserve_footer": true,
+      "preserve_href_counts": [
+        "/glossary/"
+      ],
+      "operations": [
+        {
+          "row": 4,
+          "text": "the optimistic version of the same argument",
+          "href": "https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/",
+          "find": "The lifeboat is the posse. Room for one more.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"className\":\"kk-collection-footer\"} -->",
+          "replace": "The lifeboat is the posse. Room for one more.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>If you want <a href=\"https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/\">the optimistic version of the same argument</a>, read the prayer I say most mornings.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"className\":\"kk-collection-footer\"} -->"
+        }
+      ]
+    },
+    {
+      "id": 3814,
+      "kind": "posts",
+      "slug": "the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things",
+      "status": "publish",
+      "date": "2023-11-04T05:39:20",
+      "title": "Most Benevolent Outcomes Prayer for AI & All Living Things",
+      "categories": [1678],
+      "preserve_footer": true,
+      "operations": [
+        {
+          "row": 5,
+          "text": "the rest of my lens, written out plainly",
+          "href": "https://kriskrug.co/the-kk-worldview/",
+          "find": "<p>This prayer was shared with me by a friend this summer and I've been able to share it with many others since then.</p>",
+          "replace": "<p>This prayer was shared with me by a friend this summer and I've been able to share it with many others since then. You can read <a href=\"https://kriskrug.co/the-kk-worldview/\">the rest of my lens, written out plainly</a> on the worldview page.</p>"
+        },
+        {
+          "row": 6,
+          "text": "the less mystical version of this, which is how I actually practice it",
+          "href": "https://kriskrug.co/ai-ethics/",
+          "kind": "append_to_paragraph",
+          "find": "May our MBOs help us navigate these unknown waters",
+          "append_html": " For <a href=\"https://kriskrug.co/ai-ethics/\">the less mystical version of this, which is how I actually practice it</a>, start with the AI ethics hub."
+        }
+      ]
+    }
+  ]
+}
