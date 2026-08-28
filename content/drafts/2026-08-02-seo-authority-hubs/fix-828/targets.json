@@ -1,0 +1,99 @@
+{
+  "issue": 828,
+  "parent": 402,
+  "dependency": 827,
+  "status": "draft_for_human_review",
+  "reviewed_body_sha256": null,
+  "dead_href": "http://modelmayhem.com/posts.php?thread_id=138265",
+  "style_sha256_12013": "23dc2ddaf20ffda0f94f619e9ade0068d3a9a0c5fdb38563538b6542a34c69b3",
+  "required_topics": {
+    "usage_rights_and_territory": ["usage rights", "territory"],
+    "licence_duration": ["licence duration"],
+    "model_release_and_limits": ["model release", "limits"],
+    "nudity_and_implied_nudity": ["nudity", "implied nudity"],
+    "third_party_and_stock_sale": ["third-party sale", "stock sale"],
+    "retouching_and_approval": ["retouching", "approval"],
+    "raw_ownership": ["owns the raw files"],
+    "credit_format": ["credit format"],
+    "tfp_and_paid": ["TFP", "paid shoot"],
+    "escort_policy": ["escort policy"],
+    "call_wrap_and_overtime": ["call time", "wrap time", "overtime"],
+    "travel_and_parking": ["travel", "parking"],
+    "wardrobe_hair_and_makeup": ["wardrobe", "hair", "makeup"],
+    "cancellation_and_weather": ["cancellation", "weather"],
+    "gear_boundary": ["model should not be asked to carry"]
+  },
+  "items": [
+    {
+      "id": 1210,
+      "kind": "posts",
+      "slug": "checklist-of-model-photographer-negotiation-items",
+      "url": "https://kriskrug.co/2007/04/10/checklist-of-model-photographer-negotiation-items/",
+      "title": "Checklist of model-photographer negotiation items.",
+      "date": "2007-04-10T14:54:00",
+      "categories": [1756],
+      "tags": [1212],
+      "before_path": "content/drafts/2026-08-02-seo-authority-hubs/fix-828/before/post-1210-content.raw.html",
+      "replace_body": true,
+      "anchors": [
+        {
+          "row": 37,
+          "text": "twenty years of shooting since I wrote this",
+          "href": "https://kriskrug.co/photography/"
+        }
+      ],
+      "preserve_footer": true
+    },
+    {
+      "id": 12013,
+      "kind": "pages",
+      "slug": "photography",
+      "url": "https://kriskrug.co/photography/",
+      "before_path": "content/drafts/2026-08-02-seo-authority-hubs/fix-827/after/page-12013-content.raw.html",
+      "find": "start with the ModelMayhem note.</p>",
+      "replace": "start with the ModelMayhem note. The practical follow-through is <a href=\"https://kriskrug.co/2007/04/10/checklist-of-model-photographer-negotiation-items/\">the negotiation checklist I wrote in 2007 and still stand behind</a>.</p>",
+      "anchors": [
+        {
+          "row": 34,
+          "text": "the negotiation checklist I wrote in 2007 and still stand behind",
+          "href": "https://kriskrug.co/2007/04/10/checklist-of-model-photographer-negotiation-items/"
+        }
+      ],
+      "preserve_style": true
+    },
+    {
+      "id": 1222,
+      "kind": "posts",
+      "slug": "to-all-you-wannabe-fashion-photographers",
+      "url": "https://kriskrug.co/2007/04/27/to-all-you-wannabe-fashion-photographers/",
+      "before_path": "content/drafts/2026-08-02-seo-authority-hubs/fix-827/after/post-1222-content.raw.html",
+      "find": "That is also <a href=\"https://kriskrug.co/2006/10/23/kk-on-modelmayhemcom/\">how I found those people in the first place</a>.\n\n<!-- wp:paragraph {\"className\":\"kk-collection-footer\"} -->",
+      "replace": "That is also <a href=\"https://kriskrug.co/2006/10/23/kk-on-modelmayhemcom/\">how I found those people in the first place</a>. I turned the useful part into <a href=\"https://kriskrug.co/2007/04/10/checklist-of-model-photographer-negotiation-items/\">the checklist version of this rant</a>.\n\n<!-- wp:paragraph {\"className\":\"kk-collection-footer\"} -->",
+      "anchors": [
+        {
+          "row": 35,
+          "text": "the checklist version of this rant",
+          "href": "https://kriskrug.co/2007/04/10/checklist-of-model-photographer-negotiation-items/"
+        }
+      ],
+      "preserve_footer": true
+    },
+    {
+      "id": 1056,
+      "kind": "posts",
+      "slug": "kk-on-modelmayhemcom",
+      "url": "https://kriskrug.co/2006/10/23/kk-on-modelmayhemcom/",
+      "before_path": "content/drafts/2026-08-02-seo-authority-hubs/fix-827/after/post-1056-content.raw.html",
+      "find": "This is <a href=\"https://kriskrug.co/photography/\">where all of that ended up</a>.</p>",
+      "replace": "This is <a href=\"https://kriskrug.co/photography/\">where all of that ended up</a>. The practical version is <a href=\"https://kriskrug.co/2007/04/10/checklist-of-model-photographer-negotiation-items/\">the one useful thing I posted over there</a>.</p>",
+      "anchors": [
+        {
+          "row": 36,
+          "text": "the one useful thing I posted over there",
+          "href": "https://kriskrug.co/2007/04/10/checklist-of-model-photographer-negotiation-items/"
+        }
+      ],
+      "preserve_footer": true
+    }
+  ]
+}
