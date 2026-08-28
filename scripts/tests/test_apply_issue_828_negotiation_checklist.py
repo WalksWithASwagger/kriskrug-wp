@@ -90,6 +90,7 @@ class ApplyIssue828NegotiationChecklistTests(unittest.TestCase):
             spec_by_id(1222)["slug"], "to-all-you-wannabe-fashion-photographers"
         )
         self.assertEqual(spec_by_id(1056)["slug"], "kk-on-modelmayhemcom")
+        self.assertTrue(all(row["status"] == "publish" for row in TARGETS["items"]))
         anchors = [
             (anchor["row"], anchor["text"], anchor["href"])
             for spec in TARGETS["items"]
@@ -233,6 +234,17 @@ class ApplyIssue828NegotiationChecklistTests(unittest.TestCase):
             with self.assertRaises(SystemExit) as caught:
                 run_main("--item-id", "1056")
         self.assertIn("slug is", str(caught.exception))
+        self.assertTrue(all(payload is None for _, payload in calls))
+
+    def test_status_mismatch_aborts_before_any_write(self):
+        self.lives[1210]["status"] = "draft"
+        calls = []
+        with mock.patch.object(
+            MODULE, "request", side_effect=self._patch_request(calls)
+        ):
+            with self.assertRaises(SystemExit) as caught:
+                run_main("--item-id", "1210")
+        self.assertIn("status is", str(caught.exception))
         self.assertTrue(all(payload is None for _, payload in calls))
 
     def test_reviewed_single_item_apply_snapshots_writes_and_reads_back(self):

@@ -232,7 +232,7 @@ def validate_identity(live: dict, spec: dict) -> None:
             sys.exit(
                 f"[ABORT] {spec['id']}: title is {observed!r}, expected {spec['title']!r}."
             )
-    for field in ("date", "categories", "tags"):
+    for field in ("status", "date", "categories", "tags"):
         if field in spec and live.get(field) != spec[field]:
             sys.exit(
                 f"[ABORT] {spec['id']}: {field} is {live.get(field)!r}, expected {spec[field]!r}."
