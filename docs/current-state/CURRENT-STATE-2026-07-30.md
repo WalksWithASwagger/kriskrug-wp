@@ -1,6 +1,6 @@
 # Current State Snapshot - 2026-07-30
 
-**Snapshot time:** 2026-07-30 truth reset; live counters and versions refreshed 2026-08-28 20:58Z: WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`.
+**Snapshot time:** 2026-07-30 truth reset; live counters and versions refreshed 2026-08-28 21:19Z: WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`.
 **Branch:** `main` (docs PR lands from lane-scoped branch)
 **Mode:** Ops hygiene (Phases 0–3) then Track A / Track B product lanes.
 
@@ -10,11 +10,11 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 
 ## Verified State
 
-> **Counters refreshed 2026-08-28T20:58Z after the verified #749 closeout.** These are the values `make current-state-drift-check` compares against. They can move as soon as a PR or issue changes, so re-read with the commands below before treating drift as a regression.
+> **Counters refreshed 2026-08-28T21:19Z after the verified #706 closeout.** These are the values `make current-state-drift-check` compares against. They can move as soon as a PR or issue changes, so re-read with the commands below before treating drift as a regression.
 
-- `origin/main` was clean and synchronized before this docs-truth branch; its latest commit was PR #922 (`5bed6ed`).
-- Open PRs: `0` (`gh pr list --state open --limit 100 --json number --jq 'length'`, 2026-08-28T20:58Z).
-- Open issues: `38` (`gh issue list --state open --limit 300 --json number --jq 'length'`, 2026-08-28T20:58Z). This includes the correctly open Testimonials deploy issue #602; #749 is closed after the approved pair-safe cleanup reclaimed 927,688 KiB while retaining the newest complete comparison pair.
+- `origin/main` was clean and synchronized before this docs-truth branch; its latest commit was PR #923 (`3138599`).
+- Open PRs: `0` (`gh pr list --state open --limit 100 --json number --jq 'length'`, 2026-08-28T21:19Z).
+- Open issues: `37` (`gh issue list --state open --limit 300 --json number --jq 'length'`, 2026-08-28T21:19Z). This includes the correctly open Testimonials deploy issue #602; #706 is closed after KK accepted the documented delayed-gtag PSI caveat and a fresh eight-route readback reconfirmed the live contract.
 - Production still publicly reports WordPress `7.0.4`.
 - Live Aurora theme (`style.css` Version header): `1.6.9` (public readback 2026-08-28).
 - Repo Aurora theme (`theme/kk-aurora/` on `main`): `1.6.9`; live and repo are in parity.
@@ -31,7 +31,6 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 |---|---|---|
 | Alt-text residual correction | #4 | Three media writes remain; media 7637 needs a corrected reviewed proposal before a new live approval |
 | Testimonials live deploy | #602 | Reopened 2026-08-28; live page 2409 is still the legacy 19-card body and needs its snapshot/editorial/approval gate |
-| Third-party script performance receipt | #706 | Script diet is live; matching post-change PSI evidence remains incomplete |
 | Site redesign epic | #403 | Track B roadmap; split into lane-scoped PRs |
 
 ## What changed since CURRENT-STATE-2026-07-16
@@ -42,7 +41,8 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 - Testimonials issue #602 was reopened because its runbook-only PR closed it while the live page remained undeployed.
 - Issue #318 closed as a verified no-delete result: all three WordPress objects are drafts, so the exact removal allow-list is empty and all 13 tracked images remain in place.
 - Issue #749 closed after its exact approved pair-safe cleanup removed three local capture directories, reclaimed 927,688 KiB (~906 MiB), retained the `044445Z → 045150Z` comparison pair, and passed the 11-route visual preflight plus storage guard.
-- Open issues moved ~77 → **38**; open PRs were **0** at the 2026-08-28 refresh.
+- Issue #706 closed after KK accepted the documented PSI caveat: TBT moved from 160 ms to 10 ms and the Facebook tasks disappeared; a fresh eight-route readback found zero pixel/eager-gtag markers and one delayed loader per route.
+- Open issues moved ~77 → **37**; open PRs were **0** at the 2026-08-28 refresh.
 - Competing work plans are historical; this snapshot plus `WORK-PLAN-2026-08-25.md` and a fresh `make status-readonly` run are the front door.
 
 ## Stash / secrets notes

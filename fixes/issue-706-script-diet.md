@@ -1,6 +1,8 @@
 # Third-party script diet — apply runbook (#706)
 
-**Applied 2026-08-17T05:26Z.** Pixel: WPCode CPT `7917` (`META PIXEL`) set to draft + `wpcode_snippets` cache rebuilt. Gtag delay: Code Snippets **id 22** `KK Script Diet`, front-end, active. Canonical HTML after no-op title-saves (pages 3930 `/`, 1208 `/about/`, 1887 `/speaking/`, 12013 `/photography/`, 2418 `/contact/`, 2672 `/work/`): `fbevents` 0, `google_gtagjs-js` 0, `kk-gtag-delayed` 1. Snapshots in `~/kk-snapshots/` (mode 0600), not the repo. Rollback: reactivate WPCode 7917; POST `{"active":false}` to snippet 22. PSI mobile rerun still owed (≥30 min after purge).
+**Applied 2026-08-17T05:26Z.** Pixel: WPCode CPT `7917` (`META PIXEL`) set to draft + `wpcode_snippets` cache rebuilt. Gtag delay: Code Snippets **id 22** `KK Script Diet`, front-end, active. Canonical HTML after no-op title-saves (pages 3930 `/`, 1208 `/about/`, 1887 `/speaking/`, 12013 `/photography/`, 2418 `/contact/`, 2672 `/work/`): `fbevents` 0, `google_gtagjs-js` 0, `kk-gtag-delayed` 1. Snapshots in `~/kk-snapshots/` (mode 0600), not the repo. Rollback: reactivate WPCode 7917; POST `{"active":false}` to snippet 22.
+
+**Closed 2026-08-28.** KK accepted the documented PSI caveat after TBT moved from 160 ms to 10 ms and Facebook tasks disappeared. Fresh cache-busted HTML on all eight canonical routes reconfirmed zero pixel/eager-gtag markers and one delayed loader per route. The PSI trace still sees one gtag long task because it outlasts the interaction-or-three-second delay.
 
 KK ruling on #706 (2026-08-10): **drop the Facebook pixel entirely; delay gtag** to first interaction or 3 s idle.
 
@@ -8,7 +10,7 @@ Artifact: [`issue-706-script-diet-snippet.php`](issue-706-script-diet-snippet.ph
 
 ---
 
-## Still live as of 2026-08-16
+## Pre-apply baseline (2026-08-16)
 
 Logged-out `curl` of `https://kriskrug.co/` (HTTP 200) and `https://kriskrug.co/about/` (HTTP 200). Counts are whole-document (Jetpack Boost relocates the `<script>` tags into `<body>`).
 

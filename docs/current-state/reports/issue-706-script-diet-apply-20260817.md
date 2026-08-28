@@ -1,6 +1,6 @@
 # #706 script diet apply receipt — 2026-08-17
 
-**Status:** live at origin on the main routes. PSI mobile rerun captured 2026-08-16 11:59 PDT (`qx4j9jir1j`).
+**Status:** live at origin on the main routes. PSI mobile rerun captured 2026-08-16 11:59 PDT (`qx4j9jir1j`). #706 closed 2026-08-28 after KK accepted the documented gtag-in-trace caveat; a fresh eight-route public readback reconfirmed the live marker contract.
 **Track:** Track A snippet/plugin surfaces. Not a theme deploy.
 **KK ruling (2026-08-10):** drop Facebook pixel `1720755522050230`; delay gtag to first interaction or 3 s idle.
 
@@ -62,7 +62,7 @@ Report: [`psi-mobile-2026-08-16.md`](psi-mobile-2026-08-16.md) / [qx4j9jir1j](ht
 | gtag out of the PSI trace | **not gone** (176.9 KiB / 72.4 KiB unused; 1 long task). Matches the delay-from-`load` caveat. Network check still passes. |
 | LCP / CLS should not move | **they moved** (7.6 s → 3.9 s, 0.43 → 0). Do not credit the diet; 1.6.8 homepage landed the same evening. |
 
-Do not GitHub-close #706 until KK accepts the gtag-in-trace caveat.
+KK accepted the gtag-in-trace caveat on 2026-08-28. #706 is closed; no further implementation was part of that closeout.
 
 ## Still owed
 
