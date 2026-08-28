@@ -1,5 +1,10 @@
 # Issue #481 — class-rename blast radius (read-only)
 
+> **STATUS: HISTORICAL — ISSUE RETIRED 2026-08-28.** The audit below explains
+> why the global rename was unsafe. Do not use its “when (if)” implementation
+> notes as an active plan; a future naming migration requires a new issue and a
+> complete current live-content corpus.
+
 **Captured:** 2026-08-17T02:48Z, logged out, public GET only.
 **Issue:** [#481](https://github.com/WalksWithASwagger/kriskrug-wp/issues/481). Step 8 of [`AURORA-STYLESHEET-REBUILD-PLAN.md`](../AURORA-STYLESHEET-REBUILD-PLAN.md).
 **Lane:** Track B docs. **Zero theme edits. Zero live WordPress writes.** No REST POST/PATCH. No class rename.

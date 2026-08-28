@@ -3,9 +3,10 @@
 **Status:** Active. Implements step 1 / §4 of
 [`AURORA-STYLESHEET-REBUILD-PLAN.md`](AURORA-STYLESHEET-REBUILD-PLAN.md).
 
-This harness is the gate for the Aurora stylesheet rebuild ([#423](https://github.com/WalksWithASwagger/kriskrug-wp/issues/423)).
-Nothing in rebuild steps 2–8 (#474–#481) lands without a green `make visual-diff`
-against a frozen baseline.
+This harness is the gate for Aurora visual changes. Remaining Track B work such
+as #424 and #477 does not land without a green `make visual-diff` against the
+correct pre-change live baseline. The retired #481 global rename is not an
+active rebuild step.
 
 Implementation: [`scripts/visual_baseline.py`](../../scripts/visual_baseline.py).
 

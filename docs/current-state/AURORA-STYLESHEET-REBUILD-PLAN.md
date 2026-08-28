@@ -378,11 +378,14 @@ Once steps 3–5 have made the primitives real, delete the six inline page-conte
 *Rollback:* restore the page snapshot via REST (slug-verified, per the incident rules).
 *Gate:* visual diff on the six affected routes; `grep` for `!important` on rendered HTML trending to zero.
 
-**Step 8 — Rename and close out.** *(deploy: 1.6.1)*
-Rename `aurora-` / `revive-` / `kkm-` classes to `kk-` across theme CSS **and** the FSE templates/parts/patterns that reference them, in one atomic PR. Delete `09-late.css` if steps 2–6 removed its need. Publish the closeout doc and the final `make css-inventory` numbers against §2.7.
-*Why last:* class renames touch markup and content simultaneously and have the widest blast radius. Doing it first would have blocked every Wave 2 page issue for weeks.
-*Rollback:* re-upload 1.6.0 zip.
-*Gate:* full visual diff at all viewports; `make verify`; KK sign-off.
+**Step 8 — Retired 2026-08-28; do not execute the global rename.**
+Issue #481 closed as not planned after Aurora reached 1.6.9. A fresh audit found
+244 unique `aurora-*` selectors in the repo theme and live database content still
+using the prefix on About, Speaking, and Work. Renaming the surface would require
+a coordinated database migration and alias window without changing behaviour.
+If naming consistency becomes a demonstrated product problem, file a new
+versioned migration from a complete live REST corpus. Do not revive the 1.6.1
+plan or its issue body.
 
 ### 3.1 Interleaving with Wave 2
 
@@ -583,11 +586,12 @@ Implements §3 step 7. **Track A lane — separate commit and PR from every them
 Body sketch: Delete the inline `<style>` blocks currently served on `/about/`, `/speaking/`, `/work/` (959 B, 14 `!important` each), `/services/` (4,418 B, 13), `/photography/` (5,024 B, 12), `/contact/` (5,422 B, 17). Their palette locals become semantic tokens; their `::first-letter … !important` drop-cap suppression becomes unnecessary once follow-up #4 lands. Source of truth: `content/source-packs/content-architecture-2026/wp-payloads/{about,speaking,work}.html` plus the R7–R11 packs. Snapshot each page before edit; slug-verify before any PATCH per the 2026-05-15 incident rules; purge and verify logged out.
 AC: zero anonymous `<style>` blocks on the eight key routes; visual diff green on the six affected routes.
 
-**10. `[THEME] Rename aurora-/revive-/kkm- classes to a single kk- convention`**
-Labels: `track-b`, `refactor`, `needs-human-review`, `priority:low`
-Implements §3 step 8. Aurora 1.6.1. **Last step — widest blast radius.**
-Body sketch: Atomic rename across theme CSS, FSE templates, parts, patterns, **and** live page content that references `aurora-*` classes. Repo-wide grep plus a live REST dump of page content before renaming; keep old names as no-op aliases for one release if the grep is not provably exhaustive. Publish the closeout doc with final metrics against the §2.7 target table.
-AC: one prefix site-wide; full visual diff green; `make verify` green; KK sign-off.
+**10. Retired — global class-prefix rename**
+
+Do not file or implement this follow-up from the historical plan. Issue #481 was
+closed as not planned on 2026-08-28 after the live-content blast radius was
+reconfirmed. A future naming migration needs a new issue, current version scope,
+complete REST corpus, and product justification.
 
 ---
 
