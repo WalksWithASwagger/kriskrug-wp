@@ -181,6 +181,27 @@ class ApplyIssue832EventsRoutingTests(unittest.TestCase):
         self.assertGreater(listed, anchor)
         self.assertGreater(footer, listed)
 
+    def test_rewrite_8418_accepts_authenticated_raw_block_shape(self):
+        spec = spec_by_id(8418)
+        before = f"<p>existing body</p>\n\n{spec['find']}"
+        after = MODULE.rewrite_body(before, spec, TARGETS)
+        self.assertIsNotNone(after)
+        self.assertIn(
+            '<a href="https://kriskrug.co/events/">come to the next one</a>',
+            after,
+        )
+        self.assertEqual(
+            before.count("kk-collection-footer"),
+            after.count("kk-collection-footer"),
+        )
+        self.assertIsNone(MODULE.rewrite_body(after, spec, TARGETS))
+
+    def test_rewrite_8418_refuses_ambiguous_raw_and_rendered_variants(self):
+        spec = spec_by_id(8418)
+        alternate = spec["alternate_rewrites"][0]["find"]
+        with self.assertRaises(ValueError):
+            MODULE.rewrite_body(f"{spec['find']}\n{alternate}", spec, TARGETS)
+
     def test_rewrite_12315_adds_calendar_and_keeps_browse_ai_events(self):
         spec = spec_by_id(12315)
         before = before_body(12315)

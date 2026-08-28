@@ -134,9 +134,31 @@ def already_applied(body: str, spec: dict) -> bool:
     )
 
 
-def inserted_fragment(spec: dict) -> str:
-    find = spec["find"]
-    replace = spec["replace"]
+def rewrite_pairs(spec: dict) -> list[tuple[str, str]]:
+    pairs = [(spec["find"], spec["replace"])]
+    pairs.extend(
+        (row["find"], row["replace"])
+        for row in spec.get("alternate_rewrites", [])
+    )
+    return pairs
+
+
+def select_rewrite_pair(body: str, spec: dict) -> tuple[str, str]:
+    pairs = rewrite_pairs(spec)
+    counts = [body.count(find) for find, _ in pairs]
+    if sum(counts) != 1:
+        raise ValueError(
+            f"{spec['id']}: find variants occur {counts}; expected exactly one "
+            "single match. Insert by text match, not a stale block index."
+        )
+    return pairs[counts.index(1)]
+
+
+def inserted_fragment(
+    spec: dict, find: str | None = None, replace: str | None = None
+) -> str:
+    find = spec["find"] if find is None else find
+    replace = spec["replace"] if replace is None else replace
     prefix = os.path.commonprefix([find, replace])
     find_rest = find[len(prefix) :]
     replace_rest = replace[len(prefix) :]
@@ -159,15 +181,8 @@ def rewrite_body(body: str, spec: dict, targets: dict) -> str | None:
         raise ValueError(f"{spec['id']}: refused; page 2250 is not in the write set")
     if already_applied(body, spec):
         return None
-    find = spec["find"]
-    replace = spec["replace"]
-    count = body.count(find)
-    if count != 1:
-        raise ValueError(
-            f"{spec['id']}: find needle occurs {count} times; expected 1. "
-            "Insert by text match, not a stale block index."
-        )
-    added = inserted_fragment(spec)
+    find, replace = select_rewrite_pair(body, spec)
+    added = inserted_fragment(spec, find, replace)
     if "\u2014" in added or "\u2013" in added:
         raise ValueError(f"{spec['id']}: inserted copy contains a dash codepoint")
     if any(ord(char) > 127 for char in added):
