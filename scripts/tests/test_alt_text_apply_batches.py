@@ -461,6 +461,46 @@ class AltTextApplyBatchSafetyTests(unittest.TestCase):
             },
         )
 
+    def test_missing_attribute_visual_review_pins_17_proposals_and_one_blocker(self):
+        rows = [
+            row
+            for row in MODULE.load_rows()
+            if row["classification"] == "missing-alt-attr-VIOLATION"
+        ]
+        proposals = {
+            (row["page_id"], row["media_id"]): row["proposed_alt"]
+            for row in rows
+            if row["proposed_alt"]
+        }
+
+        self.assertEqual(len(rows), 18)
+        self.assertEqual(len(proposals), 17)
+        self.assertEqual(
+            proposals,
+            {
+                ("41", ""): "Apple Cinema Display shown from the front, side, and back against a black background",
+                ("54", "12597"): "Three-dimensional Spark Online logo with a blue and silver starburst",
+                ("61", "12593"): "Movable Type book cover reading An Eye to the Future with radiating pink and orange lines",
+                ("2287", "2289"): "Sharon Anderson Morris speaks into a microphone on the FiReFilms stage",
+                ("2287", "2290"): "Sally Anderson smiles during a Future in Review gathering",
+                ("2287", "2291"): "Berit Anderson and Evan Anderson smile together at Future in Review",
+                ("2287", "2292"): "Brett Horvath of Scout.ai laughs during an onstage conversation at Future in Review",
+                ("2287", "2293"): "Mark Anderson puts his arm around Sally Anderson at a Future in Review reception",
+                ("2287", "2294"): "Sharon Anderson Morris smiles while speaking with guests at Future in Review",
+                ("2287", "2295"): "Sharon Anderson Morris in a dark blazer and orange top at a documentary film event",
+                ("2287", "2296"): "Sharon Anderson Morris embraces Leah Boyer at Future in Review",
+                ("2287", "2298"): "Terri Orr and Sharon Anderson Morris smile together at Future in Review",
+                ("2287", "2300"): "Sharon Anderson Morris speaks at a FiRe 2015 podium",
+                ("2287", "2301"): "Sharon Anderson Morris and her daughter sit together at Future in Review",
+                ("2287", "2302"): "Sharon Anderson Morris talks with two attendees at FiRe 2016",
+                ("2287", "2303"): "Berit Anderson, Sally Anderson, Sharon Anderson Morris, and Evan Anderson at FiRe 2016",
+                ("7631", ""): "Layered digital collage of overlapping human faces and eyes in muted blue, peach, and black",
+            },
+        )
+        blocked = next(row for row in rows if row["page_id"] == "5371")
+        self.assertEqual(blocked["proposed_alt"], "")
+        self.assertIn("source unavailable", blocked["confidence"])
+
     def test_content_only_page_must_exist_in_the_approved_batch(self):
         rows = [content_row("100", "community.jpg", "New alt")]
 
@@ -534,6 +574,15 @@ class AltTextApplyBatchSafetyTests(unittest.TestCase):
             MODULE.content_targets([row], None, "6835")
         with self.assertRaisesRegex(SystemExit, "expected exactly one inventory row"):
             MODULE.content_targets([row, row.copy()], "3899", "6835")
+
+    def test_content_selector_ignores_same_page_media_library_row(self):
+        block = content_row("2295", "portrait.jpg", "Portrait alt")
+        library = media_row("2295", "portrait.jpg", "Portrait alt")
+        library.update({"batch": "batch-3", "page_id": "3899"})
+
+        pages = MODULE.content_targets([library, block], "3899", "2295")
+
+        self.assertEqual(pages, {"3899": [block]})
 
     def test_exact_content_target_refuses_multiple_matching_tags(self):
         row = content_row("6835", "crowd.jpg", "Crowd alt")

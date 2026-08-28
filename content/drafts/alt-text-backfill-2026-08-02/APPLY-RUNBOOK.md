@@ -129,4 +129,9 @@ path, and current alt still match that record.
 - The exact authenticated dry run for page 6815 / media 6835 verifies the post
   ID, slug, URL, one inventory row, and one empty-alt tag; it reports exactly
   one `would-change`. No page-6815 write has been made.
+- Seventeen of the 18 missing-attribute images have visually reviewed draft
+  proposals. The broken post-5371 Midjourney source remains blank pending a
+  recovery, replacement, or removal decision. See
+  `docs/current-state/reports/issue-4-missing-alt-review-20260828.md`. No live
+  write was made for this lane.
 - Inventory batches 4-6 remain parked.
