@@ -5,25 +5,30 @@ dry-run-first per
 `docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`. Those writes
 were applied and verified on 2026-08-24. Batch 3 then made 73 media writes. A
 2026-08-25 path-aware authenticated re-audit found five duplicate-filename
-joins. Three had been protected before write. Two writes landed on unrelated
-attachments 6729 and 11774 and need rollback; the actual targets 6014, 6126,
-6985, 7637, and 8871 remain unapplied. The
-~1,070 archive-scope images (inventory batches 4-6) are parked and were not
-part of that approval.
+joins. Three had been protected before write. The two writes that landed on
+unrelated attachments 6729 and 11774 have been restored; corrected targets
+6014 and 6126 have been applied. Corrected targets 6985, 7637, and 8871 remain
+unapplied and require a new exact approval. The ~1,070 archive-scope images
+(inventory batches 4-6) are parked and were not part of that approval.
 
 Batch names as approved:
 
 - **Media library `alt_text` lane** (`--batch media`). The
   corrected `media-library-alt_text` surface holds 80 violation rows across 78 unique
   attachments. Media 6835 and 12646 were applied and verified on 2026-08-24.
-  Batch 3 has 71 intended attachments applied and five corrected pending
-  attachments. The 2026-08-25 path-aware authenticated dry run selects 78
-  total targets: 73 `already-applied` including media 6835 and 12646, and five
-  `would-write`. Media 6481 and 8211 are unrelated duplicate-filename
-  attachments and are not targets. Media 6729 and 11774 need rollback.
+  The corrected lane now has 75 intended attachments applied and three
+  pending attachments. The authenticated dry run selects 78 total targets:
+  75 `already-applied` including media 6835 and 12646, and three `would-write`.
+  Media 6481, 8211, 6729, and 11774 are unrelated duplicate-filename
+  attachments and are not targets.
 - **Batch 1 — 34 `post_content` alt insertions** (`--batch content`) across
   seven pages (2543, 2828, 3899, 6755, 6770, 7610, 7764). Applied one page at
   a time and independently verified as 34/34 `already-applied` on 2026-08-24.
+- **Exact content target** (`--only-page-id` plus
+  `--only-content-media-id`). This opts out of broad Batch 1 selection and
+  requires exactly one matching inventory row. It supports both page and post
+  REST resources. The page-6815/media-6835 path is repo-ready but has not been
+  applied and still needs separate live approval.
 
 ## Run it (session with WP_USER + WP_APP_PASSWORD in process env)
 
@@ -34,14 +39,21 @@ cd content/drafts/alt-text-backfill-2026-08-02
 python3 recount_live.py --top-routes-only
 
 # 1. Re-check current state; both commands are read-only without --apply.
-#    The media dry run returns 73 already-applied and 5 would-write targets.
+#    The media dry run returns 75 already-applied and 3 would-write targets.
 python3 apply_batches.py --batch media
 python3 apply_batches.py --batch content
 
-# 2. Historical one-item procedure; use only for an approved future correction.
+# 2. One-item media procedure; use only for an approved future correction.
 python3 apply_batches.py --batch media --only-media-id <id>
 python3 apply_batches.py --batch media --only-media-id <id> --apply
 python3 apply_batches.py --batch media --only-media-id <id>
+
+# 3. Read-only exact post-content check for page 6815 / media 6835.
+python3 apply_batches.py --batch content --only-page-id 6815 --only-content-media-id 6835
+
+# Run only after separate exact live approval, then repeat the dry run.
+python3 apply_batches.py --batch content --only-page-id 6815 --only-content-media-id 6835 --apply
+python3 apply_batches.py --batch content --only-page-id 6815 --only-content-media-id 6835
 ```
 
 Do not use the broad media `--apply` command for Batch 3. Apply one attachment
@@ -60,7 +72,9 @@ dry runs add a cache-busting query parameter.
 Default is dry-run; `--apply` refuses to start without credentials. Exit code
 is 1 when any item is refused, conflicted, or fails readback.
 
-`--only-page-id` / `--only-media-id` stage one target at a time if wanted.
+`--only-page-id` stages one approved Batch 1 page. `--only-media-id` stages one
+media-library target. A content row outside Batch 1 requires the exact paired
+`--only-page-id` and `--only-content-media-id` selectors.
 
 ## Roll back one written target
 
@@ -78,9 +92,9 @@ python3 apply_batches.py --batch media --restore .generated/alt-text-backfill/<r
 python3 apply_batches.py --batch content --restore .generated/alt-text-backfill/<run>/page-3899-before.json
 python3 apply_batches.py --batch content --restore .generated/alt-text-backfill/<run>/page-3899-before.json --apply
 
-# 2026-08-25 identity correction: preview again before any approved restore.
-python3 apply_batches.py --batch media --restore .generated/alt-text-backfill/20260825T033423Z-media-apply/media-6729-before.json
-python3 apply_batches.py --batch media --restore .generated/alt-text-backfill/20260825T033618Z-media-apply/media-11774-before.json
+# An exact content target must repeat both selectors during restore.
+python3 apply_batches.py --batch content --only-page-id 6815 --only-content-media-id 6835 --restore .generated/alt-text-backfill/<run>/post-6815-before.json
+python3 apply_batches.py --batch content --only-page-id 6815 --only-content-media-id 6835 --restore .generated/alt-text-backfill/<run>/post-6815-before.json --apply
 ```
 
 Restore requires WordPress credentials even for its dry run. Never restore a
@@ -90,7 +104,7 @@ restore additionally requires the snapshot's sibling apply report to contain
 one exact `written-verified` record, and refuses unless the live ID, upload
 path, and current alt still match that record.
 
-## State as of 2026-08-25
+## State as of 2026-08-28
 
 - Media 6835 and 12646: applied with private mode-0600 snapshots and verified
   by authenticated readback plus cache-bypassed public GET.
@@ -103,14 +117,16 @@ path, and current alt still match that record.
 - Media 5375 was the only reviewed filename-style replacement. PR #901 permits
   it only while the live value exactly matches the recorded inventory baseline;
   its write was exact and snapshotted.
-- Media 6481 and 8211 were correctly not written. The three protected rows
-  actually target attachments 6126, 6985, and 7637.
-- Media 6729 and 11774 were written but are duplicate files from different
-  upload months. The actual targets are 6014 and 8871. A published-content scan
-  found no use of the wrong attachments; both private snapshots contain the
-  prior empty alt, and authenticated restore previews return `would-restore`.
-- The path-aware authenticated media dry run returns 78 targets: 73
-  `already-applied`, five `would-write`, and zero identity failures. Full recount:
-  216/216 routes, zero fetch errors, 1,078
-  violation occurrences / 1,077 unique page-source violations.
+- Media 6481 and 8211 were correctly not written. Media 6729 and 11774 were
+  restored to their prior empty values after exact snapshot and drift checks.
+- Corrected targets 6014 and 6126 are applied and verified. Media 6985, 7637,
+  and 8871 remain unapplied; media 7637's asset-specific proposal was corrected
+  in PR #913.
+- The path-aware authenticated media dry run returns 78 targets: 75
+  `already-applied`, three `would-write`, and zero identity failures. Full recount:
+  216/216 routes, zero fetch errors, 1,076
+  violation occurrences / 1,075 unique page-source violations.
+- The exact authenticated dry run for page 6815 / media 6835 verifies the post
+  ID, slug, URL, one inventory row, and one empty-alt tag; it reports exactly
+  one `would-change`. No page-6815 write has been made.
 - Inventory batches 4-6 remain parked.

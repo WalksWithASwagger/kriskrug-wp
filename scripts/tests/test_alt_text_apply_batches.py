@@ -32,6 +32,7 @@ def content_row(
     return {
         "batch": "batch-1",
         "fix_surface": "post-content-block",
+        "tier": "2-page",
         "page_id": "3899",
         "page_slug": "about",
         "page_url": "https://kriskrug.co/about/",
@@ -467,6 +468,152 @@ class AltTextApplyBatchSafetyTests(unittest.TestCase):
             with self.assertRaisesRegex(SystemExit, "not in the approved content batch"):
                 MODULE.run_content(None, False, self.run_dir, "999")
 
+    def test_content_target_selects_exact_page_and_media_outside_batch_one(self):
+        pages = MODULE.content_targets(MODULE.load_rows(), "6815", "6835")
+
+        self.assertEqual(list(pages), ["6815"])
+        self.assertEqual(len(pages["6815"]), 1)
+        self.assertEqual(pages["6815"][0]["media_id"], "6835")
+        self.assertEqual(
+            pages["6815"][0]["proposed_alt"],
+            "Vancouver AI meetup crowd standing shoulder to shoulder under magenta "
+            "light, watching something off frame",
+        )
+
+    def test_content_target_changes_only_the_exact_selected_image(self):
+        target = content_row("6835", "crowd-shot-vancovuer-ai-1024x683.jpeg", "Crowd alt")
+        target.update(
+            {
+                "batch": "batch-2",
+                "tier": "4-archive-sample",
+                "page_id": "6815",
+                "page_slug": "august-vancouver-ai-community-meetup-recap-hackers-hustlers-heretics",
+                "page_url": (
+                    "https://kriskrug.co/2024/09/01/"
+                    "august-vancouver-ai-community-meetup-recap-hackers-hustlers-heretics/"
+                ),
+            }
+        )
+        sibling = {**target, "batch": "batch-5", "media_id": "999", "image_file": "other.jpg"}
+        sibling["image_src"] = "https://kriskrug.co/wp-content/uploads/other.jpg"
+        original_html = (
+            '<img class="wp-image-6835" src="crowd-shot-vancovuer-ai-1024x683.jpeg" alt="">'
+            '<img class="wp-image-999" src="other.jpg" alt="">'
+        )
+        changed_html = original_html.replace(
+            'src="crowd-shot-vancovuer-ai-1024x683.jpeg" alt=""',
+            'src="crowd-shot-vancovuer-ai-1024x683.jpeg" alt="Crowd alt"',
+        )
+
+        def record(raw: str) -> dict:
+            return {
+                "id": 6815,
+                "slug": target["page_slug"],
+                "link": target["page_url"],
+                "status": "publish",
+                "content": {"raw": raw},
+            }
+
+        client = FakeClient([record(original_html), record(changed_html)])
+        with mock.patch.object(MODULE, "load_rows", return_value=[target, sibling]):
+            report = MODULE.run_content(
+                client, True, self.run_dir, "6815", "6835"
+            )
+
+        self.assertEqual(
+            client.posts,
+            [("posts/6815", {"content": changed_html})],
+        )
+        self.assertEqual(report["pages"][0]["rows"], 1)
+        self.assertEqual(report["pages"][0]["status"], "written-verified")
+
+    def test_content_media_selector_requires_exactly_one_page_row(self):
+        row = content_row("6835", "crowd.jpg", "Crowd alt")
+
+        with self.assertRaisesRegex(SystemExit, "requires --only-page-id"):
+            MODULE.content_targets([row], None, "6835")
+        with self.assertRaisesRegex(SystemExit, "expected exactly one inventory row"):
+            MODULE.content_targets([row, row.copy()], "3899", "6835")
+
+    def test_exact_content_target_refuses_multiple_matching_tags(self):
+        row = content_row("6835", "crowd.jpg", "Crowd alt")
+        row.update(
+            {
+                "batch": "batch-2",
+                "tier": "4-archive-sample",
+                "page_id": "6815",
+                "page_slug": "meetup-recap",
+                "page_url": "https://kriskrug.co/2024/09/01/meetup-recap/",
+            }
+        )
+        live = {
+            "id": 6815,
+            "slug": "meetup-recap",
+            "link": row["page_url"],
+            "status": "publish",
+            "content": {
+                "raw": (
+                    '<img class="wp-image-6835" src="crowd.jpg" alt="">'
+                    '<img class="wp-image-6835" src="crowd.jpg" alt="">'
+                )
+            },
+        }
+        client = FakeClient([live, live])
+
+        with mock.patch.object(MODULE, "load_rows", return_value=[row]):
+            report = MODULE.run_content(
+                client, True, self.run_dir, "6815", "6835"
+            )
+
+        self.assertEqual(client.posts, [])
+        self.assertEqual(
+            report["pages"][0]["status"], "REFUSED-exact-target-match-count"
+        )
+
+    def test_targeted_post_restore_uses_the_post_endpoint(self):
+        row = content_row("6835", "crowd.jpg", "Crowd alt")
+        row.update(
+            {
+                "batch": "batch-2",
+                "tier": "4-archive-sample",
+                "page_id": "6815",
+                "page_slug": "meetup-recap",
+                "page_url": "https://kriskrug.co/2024/09/01/meetup-recap/",
+            }
+        )
+        original = {
+            "id": 6815,
+            "slug": "meetup-recap",
+            "link": row["page_url"],
+            "status": "publish",
+            "content": {"raw": '<img class="wp-image-6835" src="crowd.jpg" alt="">'},
+        }
+        applied = copy.deepcopy(original)
+        applied["content"]["raw"] = (
+            '<img class="wp-image-6835" src="crowd.jpg" alt="Crowd alt">'
+        )
+        source = MODULE.snapshot(
+            self.run_dir / "source", "post-6815-before", original
+        )
+        client = FakeClient([applied, original])
+
+        with mock.patch.object(MODULE, "load_rows", return_value=[row]):
+            report = MODULE.run_restore(
+                "content",
+                source,
+                client,
+                True,
+                self.run_dir / "restore",
+                "6815",
+                "6835",
+            )
+
+        self.assertEqual(
+            client.posts,
+            [("posts/6815", {"content": original["content"]["raw"]})],
+        )
+        self.assertEqual(report["items"][0]["status"], "restored-verified")
+
     def test_proposed_alt_rejects_html_markup(self):
         with self.assertRaisesRegex(SystemExit, "HTML markup"):
             MODULE.set_tag_alt(
@@ -477,6 +624,14 @@ class AltTextApplyBatchSafetyTests(unittest.TestCase):
         cases = [
             (["--batch", "media", "--only-page-id", "3899"], "content selector"),
             (["--batch", "content", "--only-media-id", "100"], "media selector"),
+            (
+                ["--batch", "media", "--only-content-media-id", "100"],
+                "content selector",
+            ),
+            (
+                ["--batch", "content", "--only-content-media-id", "100"],
+                "requires --only-page-id",
+            ),
         ]
         for arguments, message in cases:
             with self.subTest(arguments=arguments):
