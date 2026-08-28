@@ -35,6 +35,12 @@ ROOT = Path(__file__).resolve().parent.parent
 REPORTS = ROOT / "docs/current-state/reports"
 # "Fixes #12" / "closed #12" — should have auto-closed on merge to default branch
 CLOSING_REF = re.compile(r"\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\s+#(\d+)", re.IGNORECASE)
+NEGATED_CLOSING_PREFIX = re.compile(
+    r"\b(?:(?:do(?:es)?|did|will|would|should|must|can|could|is|are|was|were)\s+not|"
+    r"cannot|can't|won't|doesn't|didn't|shouldn't|mustn't|wouldn't|couldn't)"
+    r"\s+(?:auto-)?$",
+    re.IGNORECASE,
+)
 # bare "#12" mention — weak signal (epic refs, progress notes)
 MENTION_REF = re.compile(r"#(\d+)")
 
@@ -124,6 +130,17 @@ def merged_unpruned_branches() -> list[str]:
     return out
 
 
+def closing_refs(text: str) -> set[int]:
+    """Return affirmative closing references, excluding explicit negations."""
+    refs = set()
+    for match in CLOSING_REF.finditer(text):
+        prefix = re.sub(r"[*_`~]", "", text[max(0, match.start() - 64) : match.start()])
+        if NEGATED_CLOSING_PREFIX.search(prefix):
+            continue
+        refs.add(int(match.group(1)))
+    return refs
+
+
 def issues_referenced_by_merged_prs(issues: list[dict], prs: list[dict]) -> tuple[dict, dict]:
     """Return ({issue#: [(pr#, when)]}, ...) for closing-keyword refs and mention-only refs.
 
@@ -135,7 +152,7 @@ def issues_referenced_by_merged_prs(issues: list[dict], prs: list[dict]) -> tupl
     mention: dict[int, list] = {}
     for pr in prs:
         text = f"{pr.get('title','')} {pr.get('body','') or ''} {pr.get('headRefName','')}"
-        closes = {int(m) for m in CLOSING_REF.findall(text)}
+        closes = closing_refs(text)
         mentions = {int(m) for m in MENTION_REF.findall(text)} - closes
         when = (pr.get("mergedAt", "") or "")[:10]
         for num in closes:
@@ -151,7 +168,7 @@ def stale_wishlist(issues: list[dict], stale_days: int) -> list[tuple]:
     cutoff = _now() - dt.timedelta(days=stale_days)
     out = []
     for i in issues:
-        labels = {l["name"] for l in i.get("labels", [])}
+        labels = {label["name"] for label in i.get("labels", [])}
         updated = _parse(i.get("updatedAt", ""))
         if "enhancement" in labels and updated and updated < cutoff:
             out.append((i["number"], i["title"], updated.date().isoformat()))
