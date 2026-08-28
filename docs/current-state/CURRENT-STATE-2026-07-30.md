@@ -1,6 +1,6 @@
 # Current State Snapshot - 2026-07-30
 
-**Snapshot time:** 2026-07-30 truth reset; live counters and versions refreshed 2026-08-28 20:38Z: WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`.
+**Snapshot time:** 2026-07-30 truth reset; live counters and versions refreshed 2026-08-28 20:58Z: WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`.
 **Branch:** `main` (docs PR lands from lane-scoped branch)
 **Mode:** Ops hygiene (Phases 0–3) then Track A / Track B product lanes.
 
@@ -10,11 +10,11 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 
 ## Verified State
 
-> **Counters refreshed 2026-08-28T20:38Z after the verified #318 closeout.** These are the values `make current-state-drift-check` compares against. They can move as soon as a PR or issue changes, so re-read with the commands below before treating drift as a regression.
+> **Counters refreshed 2026-08-28T20:58Z after the verified #749 closeout.** These are the values `make current-state-drift-check` compares against. They can move as soon as a PR or issue changes, so re-read with the commands below before treating drift as a regression.
 
-- `origin/main` was clean and synchronized before this docs-truth branch; its latest commit was PR #921 (`648a942`).
-- Open PRs: `0` (`gh pr list --state open --limit 100 --json number --jq 'length'`, 2026-08-28T20:38Z).
-- Open issues: `39` (`gh issue list --state open --limit 300 --json number --jq 'length'`, 2026-08-28T20:38Z). This includes the correctly open Testimonials deploy issue #602 and local visual-prune gate #749; #318 is closed after authenticated proof classified all three packages as unpublished and retained all 13 images.
+- `origin/main` was clean and synchronized before this docs-truth branch; its latest commit was PR #922 (`5bed6ed`).
+- Open PRs: `0` (`gh pr list --state open --limit 100 --json number --jq 'length'`, 2026-08-28T20:58Z).
+- Open issues: `38` (`gh issue list --state open --limit 300 --json number --jq 'length'`, 2026-08-28T20:58Z). This includes the correctly open Testimonials deploy issue #602; #749 is closed after the approved pair-safe cleanup reclaimed 927,688 KiB while retaining the newest complete comparison pair.
 - Production still publicly reports WordPress `7.0.4`.
 - Live Aurora theme (`style.css` Version header): `1.6.9` (public readback 2026-08-28).
 - Repo Aurora theme (`theme/kk-aurora/` on `main`): `1.6.9`; live and repo are in parity.
@@ -32,7 +32,6 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 | Alt-text residual correction | #4 | Three media writes remain; media 7637 needs a corrected reviewed proposal before a new live approval |
 | Testimonials live deploy | #602 | Reopened 2026-08-28; live page 2409 is still the legacy 19-card body and needs its snapshot/editorial/approval gate |
 | Third-party script performance receipt | #706 | Script diet is live; matching post-change PSI evidence remains incomplete |
-| Local visual capture prune | #749 | Pair-safe dry-run is merged; three exact directories (~906 MiB) await separate deletion approval |
 | Site redesign epic | #403 | Track B roadmap; split into lane-scoped PRs |
 
 ## What changed since CURRENT-STATE-2026-07-16
@@ -42,7 +41,8 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 - The Speaking rebuild is live with two click-to-load privacy-hosted video facades. #640 closed after two same-method mobile Lighthouse runs stayed within 2.62% of the 3,032.93 ms baseline, identified the first-party hero image as LCP, and passed the live embed contract.
 - Testimonials issue #602 was reopened because its runbook-only PR closed it while the live page remained undeployed.
 - Issue #318 closed as a verified no-delete result: all three WordPress objects are drafts, so the exact removal allow-list is empty and all 13 tracked images remain in place.
-- Open issues moved ~77 → **39**; open PRs were **0** at the 2026-08-28 refresh.
+- Issue #749 closed after its exact approved pair-safe cleanup removed three local capture directories, reclaimed 927,688 KiB (~906 MiB), retained the `044445Z → 045150Z` comparison pair, and passed the 11-route visual preflight plus storage guard.
+- Open issues moved ~77 → **38**; open PRs were **0** at the 2026-08-28 refresh.
 - Competing work plans are historical; this snapshot plus `WORK-PLAN-2026-08-25.md` and a fresh `make status-readonly` run are the front door.
 
 ## Stash / secrets notes
