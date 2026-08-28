@@ -437,6 +437,29 @@ class AltTextApplyBatchSafetyTests(unittest.TestCase):
         self.assertFalse(report["items"][0]["verified_file"])
         self.assertEqual(client.posts, [])
 
+    def test_similarly_named_media_have_asset_specific_proposals(self):
+        targets, _ = MODULE.media_targets(MODULE.load_rows())
+        proposals = {
+            row["media_id"]: row["proposed_alt"]
+            for row in targets
+            if row["media_id"] in {"6985", "7637"}
+        }
+
+        self.assertEqual(
+            proposals,
+            {
+                "6985": (
+                    "The Human Algorithm keynote graphic with Kris Kr&#252;g "
+                    "speaking beside a group at Enya Liftoff"
+                ),
+                "7637": (
+                    "Autolume: Post-Photographic Cybernetic Portraiture graphic "
+                    "showing a white-haired figure in red glasses surrounded by "
+                    "camera lenses"
+                ),
+            },
+        )
+
     def test_content_only_page_must_exist_in_the_approved_batch(self):
         rows = [content_row("100", "community.jpg", "New alt")]
 
