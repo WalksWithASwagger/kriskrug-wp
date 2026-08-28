@@ -25,7 +25,7 @@ Support commands:
 make visual-preflight                # Chromium + routes + storage guard, captures nothing
 make visual-guard                    # re-assert "no capture binary is tracked or staged"
 make visual-list                     # which manifests exist and which still have PNGs on disk
-make visual-prune KEEP=2             # delete old capture dirs; manifests are kept
+make visual-prune KEEP=2 DRY_RUN=1   # preview a pair-safe prune; manifests are kept
 ```
 
 All targets accept `ROUTES="home blog"` and `VIEWPORTS="desktop"` to narrow a run,
@@ -36,9 +36,13 @@ and `BASE_URL=` to point at a different origin.
 PNG capture directories are gitignored and have no gate value once their
 window's `diff-*.json` / `report-*.md` is committed. Keep the newest baseline
 and the newest pre/post pair; prune the rest after each deploy window closes
-with `make visual-prune KEEP=2`. Tracked manifests and reports stay. Exact
-delete lists go through KK first — see
-[`reports/visual-baseline-prune-proposal-749-2026-08-16.md`](reports/visual-baseline-prune-proposal-749-2026-08-16.md).
+with `make visual-prune KEEP=2`. `KEEP` is a minimum: when a retained candidate
+has a tracked diff, its baseline is retained too, so the command may keep more
+than two directories rather than split a pair. Preview with `DRY_RUN=1` and put
+the exact paths and sizes through KK before running the command without it.
+Tracked manifests and reports stay. The current approved-or-pending inventory
+belongs in a dated proposal; see
+[`reports/visual-baseline-prune-proposal-749-2026-08-28.md`](reports/visual-baseline-prune-proposal-749-2026-08-28.md).
 
 ## The deploy-step loop
 

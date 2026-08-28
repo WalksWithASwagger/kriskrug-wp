@@ -411,5 +411,5 @@ visual-guard: ## Fail if any visual-regression binary is tracked or staged (#318
 visual-list: ## List baseline manifests and which still have images on disk
 	@$(VISUAL) list
 
-visual-prune: ## Delete old capture directories, keeping the newest KEEP (default 2)
-	@$(VISUAL) prune $(if $(KEEP),--keep $(KEEP),)
+visual-prune: ## Delete old capture dirs pair-safely; set DRY_RUN=1 to preview
+	@$(VISUAL) prune $(if $(KEEP),--keep $(KEEP),) $(if $(DRY_RUN),--dry-run,)
