@@ -49,7 +49,8 @@ Follow [`reports/repo-bloat-318-next-steps-20260726.md`](reports/repo-bloat-318-
 
 ### Phase 3 — Issue / branch hygiene
 
-- Strip stale `blocked` from closed #474; keep #476–#481 blocked until prior step lands
+- Strip stale `blocked` from completed steps. #481 was retired on 2026-08-28;
+  do not revive its site-wide class rename from the old sequence.
 - Retitle #423 from DECISION shell to Path A epic (decision already recorded)
 - Label #369 (`tech-debt`, ops-relevant labels available)
 - Dependabot #556 on its own merit
@@ -63,7 +64,10 @@ Do **not** interleave theme visual deltas with content publishes.
 
 **Track A:** Prefer `scripts/notion-to-wp/create_local_wp_draft.py` over new `publish_*.py` one-offs. Dry-run → slug-match → publish. Futureproof #496–#500 draft-only. Stop treating `FIX_QUEUE.md` as the day backlog.
 
-**Track B:** After content batch quiet — #475 (1.5.1) → #476 (1.5.2) → #477/#479/#478/#480/#481, one PR each, pixel-gated. Plan of record: [`AURORA-STYLESHEET-REBUILD-PLAN.md`](AURORA-STYLESHEET-REBUILD-PLAN.md).
+**Track B:** Current remainder — finish or explicitly park #424, then take #477
+component consolidation and #480 inline-CSS retirement as separate pixel-gated
+lanes. #481's global class rename is retired. Plan of record:
+[`AURORA-STYLESHEET-REBUILD-PLAN.md`](AURORA-STYLESHEET-REBUILD-PLAN.md).
 
 ## Explicitly deferred
 
