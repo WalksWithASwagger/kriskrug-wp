@@ -6,14 +6,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        Help us improve the content and user experience of kk.ca!
+        Help us improve the content and user experience of kriskrug.co!
 
   - type: input
     id: url
     attributes:
       label: URL
       description: Which page has the content/UX issue?
-      placeholder: https://kk.ca/...
+      placeholder: https://kriskrug.co/...
     validations:
       required: true
 
@@ -120,9 +120,9 @@ body:
     attributes:
       label: Pre-submission Checklist
       options:
-        - label: I have checked this on the live site (kk.ca)
+        - label: I have checked this on the live site (kriskrug.co)
           required: true
         - label: I have searched existing issues
           required: true
-        - label: This suggestion aligns with BC+AI's mission and values
+        - label: This suggestion supports Kris Krug's personal site and its readers
           required: true

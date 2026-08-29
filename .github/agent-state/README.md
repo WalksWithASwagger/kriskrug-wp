@@ -1,6 +1,8 @@
 # Agent State Directory
 
-This directory stores state files for the agent swarm automation pipeline.
+> **STATUS: Historical.** This directory documents the retired GitHub Actions agent-swarm state model. The generator workflows were removed on 2026-08-23, no current workflow writes this state, and agents must not follow the update, cleanup, or troubleshooting commands below as live operating guidance. Start with `AGENTS.md` and `docs/current-state/README.md`.
+
+This directory stored state files for the former agent swarm automation pipeline.
 
 ## Structure
 

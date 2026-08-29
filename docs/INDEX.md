@@ -14,10 +14,10 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 |---|---|
 | [`current-state/README.md`](current-state/README.md) | Index; front door pointers |
 | [`current-state/CURRENT-STATE-2026-07-30.md`](current-state/CURRENT-STATE-2026-07-30.md) | Declared snapshot for drift checks; compare its dated values with `make status-readonly` |
-| [`current-state/WORK-PLAN-2026-08-25.md`](current-state/WORK-PLAN-2026-08-25.md) | **Active runbook**: correct the remaining issue #4 media identity, then resume approval-gated authority-hub applies |
+| [`current-state/WORK-PLAN-2026-08-25.md`](current-state/WORK-PLAN-2026-08-25.md) | **Active runbook**: issue #4's mapped media gate is complete; continue with the approval-gated authority-hub packs beginning at #829 |
 | [`current-state/MASTER-PLAN-2026-07-30.md`](current-state/MASTER-PLAN-2026-07-30.md) | Truth → reclaim → product lanes |
 | [`current-state/TWO-TRACK-MODEL.md`](current-state/TWO-TRACK-MODEL.md) | Active Track A / Track B decision rule |
-| [`current-state/ACCESS_CHANNELS.md`](current-state/ACCESS_CHANNELS.md) | MCP / REST / Chrome / SSH — what works today |
+| [`current-state/ACCESS_CHANNELS.md`](current-state/ACCESS_CHANNELS.md) | Varlock, REST, browser, GitHub, and SFTP access — what is verified or unverified today |
 | [`current-state/BACKUP_PLAN.md`](current-state/BACKUP_PLAN.md) | The four pieces of a real WP backup and how to get them |
 | [`current-state/ROLLBACK_PLAYBOOK.md`](current-state/ROLLBACK_PLAYBOOK.md) | Order of operations if a prod change breaks |
 | [`current-state/AURORA-STYLESHEET-REBUILD-PLAN.md`](current-state/AURORA-STYLESHEET-REBUILD-PLAN.md) | Path A stylesheet rebuild plan of record (#423) |
@@ -106,4 +106,4 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 
 ---
 
-**Last reviewed:** 2026-08-28. This index does not exhaustively list every dated file under `docs/current-state/`; use its front-door index and `make status-readonly` for current truth. Update this index whenever documentation is added, removed, or reclassified.
+**Last reviewed:** 2026-08-29. This index does not exhaustively list every dated file under `docs/current-state/`; use its front-door index and `make status-readonly` for current truth. Update this index whenever documentation is added, removed, or reclassified.

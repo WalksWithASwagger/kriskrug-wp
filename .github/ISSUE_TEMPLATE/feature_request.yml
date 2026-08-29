@@ -1,5 +1,5 @@
 name: Feature Request
-description: Suggest a new feature or enhancement for kk.ca
+description: Suggest a new feature or enhancement for kriskrug.co
 title: "[Feature]: "
 labels: ["enhancement"]
 body:
@@ -98,7 +98,7 @@ body:
       options:
         - label: I have searched existing issues to avoid duplicates
           required: true
-        - label: This feature aligns with BC+AI's mission
+        - label: This feature supports Kris Krug's personal site and its readers
           required: true
         - label: I have considered accessibility implications
           required: true

@@ -1,82 +1,83 @@
 # Access Channels — How We Can Reach kriskrug.co Today
 
-Every way Claude / this repo can currently observe or modify the live site, and what's blocked.
+> **Freshness:** Verified 2026-08-29. Run `make doctor` and `make status-readonly` before relying on any channel; credentials, browser sessions, and hosting access can change independently of this repo.
 
-## ✅ Available now
+This document records the supported ways an agent can observe or modify kriskrug.co. The site runs on Pagely and is not file-synced with this repository.
 
-### 1. Public WP REST API (read-only)
+## Available channels
+
+### 1. Public WordPress REST API
+
 - **URL:** `https://kriskrug.co/wp-json/`
-- **Capability:** Read posts, pages, users, taxonomies, types, taxonomies, theme presets where exposed.
-- **Auth:** None needed for public content.
-- **Limits:** Cannot read draft/private content, plugin configs, options, or user PII. Can't write anything.
-- **Used for:** Building this snapshot. Reusable for fingerprinting after any change.
+- **Authentication:** None for public content.
+- **Capability:** Read published posts, pages, media, taxonomies, types, and other publicly exposed data.
+- **Limits:** Cannot read drafts, private content, plugin settings, or protected options. Cannot write.
+- **Use it for:** Public inventory, route verification, and post-change readback.
 
-### 2. Authenticated WordPress REST via local connector
-- **Status:** Verified read-only on 2026-05-18 through `scripts/notion-to-wp/`. Application password rotated on 2026-05-18 at 11:14 PT; only the fresh connector credential remains active.
-- **Auth:** WordPress application password loaded from the gitignored local `.env`; never paste or commit it.
-- **Capability:** Read private draft status, authenticated `status=any` post/page lookups, categories, revisions, and other endpoints supported by the current app-password user.
-- **Write capability:** Technically possible through the connector. Live writes are no longer blocked by strict backup/restore proof. Use dry-run review, slug/ID/status verification, category checks, rollback notes, and explicit KK approval for risky publish/update work.
-- **Used for:** Confirming content counts (latest queue normalization: 71 draft posts, 5 draft pages), exact-slug status, and recent-post revision availability.
+### 2. Authenticated WordPress REST through Varlock
 
-### 3. WordPress.com MCP — `claude.ai WordPress.com` connector
-- **Status:** Authenticated as Kris on 2026-05-14.
-- **Site visible:** kriskrug.co (blog ID 159424804).
-- **Capability:** ⚠️ **Effectively zero** — every site-scoped operation (`posts.*`, `pages.*`, `media.*`, `theme.*`, `patterns.*`, etc.) returns *"This operation is disabled in your MCP settings."*
-- **Why:** Site is on Jetpack **Free**. MCP requires **Jetpack AI** or **Jetpack Complete**. See `https://jetpack.com/pricing/`.
-- **Unblock:** Upgrade Jetpack plan, then re-enable MCP operations in Jetpack settings.
-- **Codex note:** On 2026-05-18, Codex tool discovery did not expose a dedicated WordPress MCP tool. The authenticated REST connector above is the verified admin-data path in this repo.
+- **Status:** Authenticated reads, dry-runs, guarded writes, snapshots, and readbacks were verified on 2026-08-29.
+- **Authentication:** Varlock is the source of truth. The repo accepts either `WP_USER` + `WP_APP_PASSWORD` or `WP_API_USERNAME` + `WP_API_PASSWORD`; never read, print, or commit secret values.
+- **Capability:** Read draft/private status and supported admin endpoints; update exact posts, pages, and media through the guarded repo scripts.
+- **Inventory:** Use `make status-readonly` for current draft and scheduled-post counts; do not copy those volatile values into this access guide.
+- **Write gate:** Run an authenticated dry-run first, verify the exact ID and slug, capture a private rollback snapshot, obtain the approval required by the active issue, apply one bounded change, and perform authenticated plus public readback.
+- **Preferred invocation:** `make varlock-run CMD='…'` or `varlock run --inject vars -- …` using a documented repository command.
 
-### 4. Chrome MCP (`mcp__claude-in-chrome__*`)
-- **Status:** Available if the Chrome extension is connected.
-- **Capability:** Drive `wp-admin` in a real browser session — log in, edit posts/pages/settings, install plugins, run any UI action. Verify with on-page screenshots.
-- **Risk profile:** Every action is a real action. We should preview each change and confirm with you, especially anything that hits "Update" or "Save."
-- **When to use:** Whenever a wp-admin action is the cleanest path (e.g. installing a backup plugin, exporting via UI, toggling a setting that has no REST endpoint).
+### 3. Git and GitHub CLI
 
-### 5. Computer-use MCP
-- **Status:** Available, but browser-tier (read-only) for Safari/Chrome/etc.
-- **Capability:** Native macOS apps at full tier (Finder, Terminal at click-only, etc.). Useful for moving downloaded files, taking screenshots, opening apps.
-- **Not useful for:** Driving wp-admin (that's a browser → use Chrome MCP).
+- **Repository:** `WalksWithASwagger/kriskrug-wp`.
+- **Status:** `gh` authentication was verified by `make doctor` on 2026-08-29.
+- **Capability:** Normal issue, PR, Actions, and git operations subject to repository conventions and branch protection.
+- **Important:** The older GitHub Actions agent swarm is retired. Labels do not trigger it. `.github/workflows/test-pr.yml` remains the active PR validation workflow.
 
-### 6. Git + GitHub
-- **Repo:** `kriskrug-wp` (this one)
-- **Capability:** All standard git/gh operations. The agent swarm in `.github/` can be triggered via issues + labels.
+### 4. Browser or computer-use tools
 
-## 🚫 Not available
+- **Status:** Session-dependent; verify the active tool and authenticated browser state before relying on it.
+- **Capability:** Operate `wp-admin` when a UI-only action or manual block-editor verification is required.
+- **Risk:** Every Save, Update, Install, or Delete control is a real production action. Use an exact preview, rollback path, and the issue-specific approval gate.
 
-### SSH to Pagely (production)
-- **Why we need it:** Only path to a real `wp db export`, file diff against upstream Catch Responsive, and a true local mirror.
-- **What we need from you:** Pagely SSH host + user + key auth (or password if that's all we have for now).
-- **Substitute until then:** A WP-admin-installed backup plugin like UpdraftPlus or All-in-One WP Migration generates a downloadable archive (see `BACKUP_PLAN.md`).
+### 5. Pagely SFTP theme deployment
 
-### SSH to the Cloudways dev server (24.144.80.107)
-- **Status:** Documented in `docs/cloudways-setup.md`, user `master_qcteaefabe`. Whether it's still running and whether the key is set up is unknown — needs verification.
-- **Note:** This is a *separate* server from production. Useful for testing changes before pushing to Pagely.
+- **Path:** `scripts/deploy_theme_sftp.py` supports the repository's bounded theme deployment workflow.
+- **Authentication:** `WP_SFTP_PASSWORD` in the injected process environment or the documented macOS Keychain service.
+- **Availability:** Must be verified at execution time; a public `style.css` readback only proves the live version, not write access.
+- **Gate:** A merge is not a deployment. Theme deploys require explicit KK approval, a rollback path, and the applicable visual gate.
 
-### Direct database access
-- None today. Will follow SSH.
+## Unverified or unavailable channels
+
+### WordPress.com MCP
+
+A May 2026 check found site-scoped operations disabled. Treat that result as historical and do not assume the connector is available now. The authenticated REST tooling above is the supported admin-data path.
+
+### Production SSH and direct database access
+
+No current production shell or database session is documented as verified. Do not claim that either channel is available without a fresh connection check.
 
 ### Pagely control panel
-- Not connected here. Live admin lives at https://atomic.pagely.com (Pagely's customer dashboard).
 
-## Modification matrix — which channel can do what
+The control panel is not connected through this repository. Browser access, if needed, must be verified in the active session.
 
-| Action | Public REST | Auth REST connector | WP.com MCP | Chrome MCP | SSH | Notes |
-|---|---|---|---|---|---|---|
-| Read public posts/pages | ✅ | ✅ | 🚫 (disabled) | ✅ | ✅ | Public REST is fine for public corpus checks |
-| Read drafts/private status | 🚫 | ✅ | 🚫 (disabled) | ✅ | ✅ | Use authenticated connector for inventory; do not expose private draft dumps publicly |
-| Create a post draft | 🚫 | ✅ create-only | 🚫 (disabled) | ✅ | ✅ (via wp-cli) | Dry-run + slug verification + draft status required |
-| Edit a page | 🚫 | ✅ with checks | 🚫 (disabled) | ✅ | ✅ (via wp-cli) | Snapshot/readback + slug/ID/status verification required |
-| Install plugin | 🚫 | 🚫 | 🚫 | ✅ | ✅ | Wp-admin > Plugins > Add New |
-| Edit theme file | 🚫 | 🚫 | 🚫 | ⚠️ (Appearance > Editor, fragile) | ✅ | SSH strongly preferred |
-| Update theme code permanently | 🚫 | 🚫 | 🚫 | 🚫 | ✅ | Needs file write |
-| Export full site | 🚫 | 🚫 | 🚫 | ✅ (via plugin) | ✅ (cleanest) | UpdraftPlus / AIO-WP-Migration / wp-cli |
-| Database query | 🚫 | 🚫 | 🚫 | 🚫 | ✅ | Via wp-cli or wp-admin's tools |
-| Roll back a code change | 🚫 | 🚫 | 🚫 | ⚠️ (only if change made via UI) | ✅ | SSH + git on the server |
+### Cloudways development server
 
-## Recommendation for ordering
+The old Cloudways setup is historical and was not used as planned. Consult `docs/cloudways-setup.md` only if a future Track B staging task explicitly revives it.
 
-1. **Today, without SSH:** use authenticated REST for read-only admin inventory and exact-slug checks; use Chrome MCP for wp-admin-driven actions such as backup plugins or UI-only settings. Treat every action as preview + confirm.
-2. **For private create-only drafts:** run dry-run/diff, verify target slug/ID/status, keep status as `draft`, then use the least risky path for the specific change.
-3. **For public or destructive production writes:** run dry-run/diff or preview, verify target slug/ID/status, capture a page/post snapshot or reversible diff where appropriate, then use the least risky path for the specific change.
-4. **Once SSH lands:** switch primary infrastructure channel to SSH + wp-cli. Use Chrome MCP only for things that genuinely need the UI (block editor, Jetpack settings, etc.).
-5. **If Jetpack MCP is upgraded/enabled:** WordPress.com MCP may become a fast option for content edits, but it still cannot replace SSH for theme files, plugins, database export, or rollback.
+## Capability matrix
+
+| Action | Public REST | Auth REST + Varlock | Browser UI | Pagely SFTP | Notes |
+|---|---|---|---|---|---|
+| Read published content | Yes | Yes | Yes | No | Public REST is the preferred public readback |
+| Read drafts/private status | No | Yes | Yes | No | Keep private content out of public logs |
+| Create a draft | No | Guarded | Yes | No | Dry-run, identity check, and draft status required |
+| Edit a post, page, or media record | No | Guarded | Yes | No | Snapshot and readback required |
+| Change a plugin or WordPress setting | No | Endpoint-dependent | Yes | Sometimes | Requires an exact approved workflow |
+| Deploy theme files | No | No | Avoid | Yes | Separate Track B deploy approval required |
+| Export the full site or database | No | No | Plugin-dependent | No | No verified full-export channel today |
+| Query the database directly | No | No | No | No | Requires separately verified SSH/database access |
+
+## Recommended order of operations
+
+1. Run `make doctor`, then `make status-readonly`.
+2. Prefer public REST for observation and authenticated REST through Varlock for exact admin-data work.
+3. Before every live write, follow the active issue's dry-run, identity, snapshot, approval, apply, and readback contract.
+4. Use browser automation only when the REST path cannot perform or verify the required action.
+5. Treat theme merge and theme deployment as separate acts; verify the live public `style.css` after any approved deploy.

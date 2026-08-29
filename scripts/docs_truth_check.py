@@ -19,6 +19,15 @@ DEFAULT_BASES = [
     Path("AGENTS.md"),
     Path("CONTRIBUTING.md"),
     Path(".env.schema"),
+    Path(".claude/context/project-context.md"),
+    Path(".claude/agents-vibe.md"),
+    Path(".github/ISSUE_TEMPLATE/accessibility.yml"),
+    Path(".github/ISSUE_TEMPLATE/bug_report.yml"),
+    Path(".github/ISSUE_TEMPLATE/content.yml"),
+    Path(".github/ISSUE_TEMPLATE/feature_request.yml"),
+    Path(".github/ISSUE_TEMPLATE/performance.yml"),
+    Path(".github/agent-state/README.md"),
+    Path(".github/agents/doc-swarm/README.md"),
     Path("docs"),
 ]
 
@@ -132,6 +141,28 @@ ACTIVE_GUIDANCE_PATHS = {
     Path("docs/current-state/MASTER-PLAN-2026-07-30.md"),
 }
 
+PERSONAL_SITE_IDENTITY_PATTERNS: list[tuple[re.Pattern[str], str]] = [
+    (
+        re.compile(r"Kris Krug is a grassroots ecosystem initiative", re.I),
+        "Agent context must preserve Kris Krug's personal-site identity, not describe him as an organization.",
+    ),
+    (
+        re.compile(r"(?:This is community infrastructure|platform for building BC's inclusive AI future)", re.I),
+        "Agent context must preserve kriskrug.co's personal-site identity, not present it as BC + AI infrastructure.",
+    ),
+]
+
+ISSUE_TEMPLATE_IDENTITY_PATTERNS: list[tuple[re.Pattern[str], str]] = [
+    (
+        re.compile(r"\bkk\.ca\b", re.I),
+        "Issue templates must use the canonical kriskrug.co domain.",
+    ),
+    (
+        re.compile(r"BC\s*\+\s*AI(?:'s)?\s+(?:website|mission)", re.I),
+        "Issue templates must describe kriskrug.co as Kris Krug's personal site, not a BC + AI property.",
+    ),
+]
+
 PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     Path("README.md"): [
         (
@@ -151,6 +182,20 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
         (
             re.compile(r"WORK-PLAN-2026-08-24\.md.*(?:active|current).*runbook", re.I),
             "The active documentation index must point to `WORK-PLAN-2026-08-25.md`.",
+        ),
+        (
+            re.compile(r"correct the remaining issue #4 media identity", re.I),
+            "The audited current-state sequence must record issue #4's mapped media gate as complete.",
+        ),
+    ],
+    Path("docs/current-state/ACCESS_CHANNELS.md"): [
+        (
+            re.compile(
+                r"(?:agent swarm in `.github/` can be triggered|"
+                r"71 draft posts|5 draft pages|gitignored local `\.env`)",
+                re.I,
+            ),
+            "The audited current-state access guide must use Varlock, live counts by command, and the retired-swarm status.",
         ),
     ],
     Path("docs/current-state/CURRENT-STATE-2026-07-30.md"): [
@@ -195,6 +240,28 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
         (
             re.compile(r"repair two wrong duplicate-media writes and five corrected targets", re.I),
             "The issue #4 orientation predates the partial identity-repair execution; use the current three-target state.",
+        ),
+    ],
+    Path(".claude/context/project-context.md"): PERSONAL_SITE_IDENTITY_PATTERNS,
+    Path(".claude/agents-vibe.md"): PERSONAL_SITE_IDENTITY_PATTERNS,
+    Path(".github/ISSUE_TEMPLATE/accessibility.yml"): ISSUE_TEMPLATE_IDENTITY_PATTERNS,
+    Path(".github/ISSUE_TEMPLATE/bug_report.yml"): ISSUE_TEMPLATE_IDENTITY_PATTERNS,
+    Path(".github/ISSUE_TEMPLATE/content.yml"): ISSUE_TEMPLATE_IDENTITY_PATTERNS,
+    Path(".github/ISSUE_TEMPLATE/feature_request.yml"): ISSUE_TEMPLATE_IDENTITY_PATTERNS,
+    Path(".github/ISSUE_TEMPLATE/performance.yml"): ISSUE_TEMPLATE_IDENTITY_PATTERNS,
+}
+
+REQUIRED_PATH_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
+    Path(".github/agent-state/README.md"): [
+        (
+            re.compile(r"STATUS:\s*Historical", re.I),
+            "Retired swarm documentation must carry a `STATUS: Historical` banner.",
+        ),
+    ],
+    Path(".github/agents/doc-swarm/README.md"): [
+        (
+            re.compile(r"STATUS:\s*Historical", re.I),
+            "Retired swarm documentation must carry a `STATUS: Historical` banner.",
         ),
     ],
 }
@@ -348,6 +415,10 @@ def scan_file(repo_root: Path, path: Path) -> list[Finding]:
                     match.group(0).strip(),
                 )
             )
+
+    for pattern, message in REQUIRED_PATH_PATTERNS.get(relative_path, []):
+        if not pattern.search(text):
+            findings.append(Finding(relative_path, 1, message, ""))
 
     if relative_path in ACTIVE_GUIDANCE_PATHS:
         for pattern in STALE_MORNING_TRUTH_FLOW_PATTERNS:
