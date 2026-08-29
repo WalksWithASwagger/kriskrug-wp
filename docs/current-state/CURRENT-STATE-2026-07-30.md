@@ -1,6 +1,6 @@
 # Current State Snapshot - 2026-07-30
 
-**Snapshot time:** 2026-07-30 truth reset; live counters and versions refreshed 2026-08-28 22:46Z: WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`.
+**Snapshot time:** 2026-07-30 truth reset; live counters and versions refreshed 2026-08-29 20:22Z: WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`.
 **Branch:** `main` (docs PR lands from lane-scoped branch)
 **Mode:** Ops hygiene (Phases 0–3) then Track A / Track B product lanes.
 
@@ -10,18 +10,18 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 
 ## Verified State
 
-> **Counters refreshed 2026-08-28T22:46Z after retiring #481 and merging the #339 guard refresh.** These are the values `make current-state-drift-check` compares against. They can move as soon as a PR or issue changes, so re-read with the commands below before treating drift as a regression.
+> **Counters refreshed 2026-08-29T20:22Z before closing verified issue #829.** The expected open-issue count below is the post-close value. These are the values `make current-state-drift-check` compares against. They can move as soon as a PR or issue changes, so re-read with the commands below before treating drift as a regression.
 
-- `origin/main` was clean and synchronized before this docs-truth branch; its latest commit was PR #929 (`71fac0e`).
-- Open PRs: `0` (`gh pr list --state open --limit 100 --json number --jq 'length'`, 2026-08-28T22:46Z).
-- Open issues: `35` (`gh issue list --state open --limit 300 --json number --jq 'length'`, 2026-08-28T22:46Z). #481 is retired; #339 remains open with refreshed exact guards and no live write.
+- `origin/main` was clean and synchronized before this closeout branch; its latest commit was PR #936 (`fa4a1ab`).
+- Open PRs: `0` before this closeout PR (`gh pr list --state open --limit 100 --json number --jq 'length'`, 2026-08-29T20:22Z).
+- Open issues: `34` after closing verified #829. #339 remains open with refreshed exact guards and no live write.
 - Production still publicly reports WordPress `7.0.4`.
-- Live Aurora theme (`style.css` Version header): `1.6.9` (public readback 2026-08-28).
+- Live Aurora theme (`style.css` Version header): `1.6.9` (public readback 2026-08-29).
 - Repo Aurora theme (`theme/kk-aurora/` on `main`): `1.6.9`; live and repo are in parity.
 - Theme deploy ledger: `theme/kk-aurora/CHANGELOG.md`. The public `style.css` readback is authoritative for what production runs, never the repo header.
 - WordPress draft queue: `0` scheduled posts, `66` draft posts, `4` draft pages.
-  - Authenticated read 2026-08-28. Unauthenticated reads report `unavailable`, not a trustworthy empty queue.
-- WP public smoke passes with expected WordPress `7.0.4` (`make status-readonly`, 2026-08-28).
+  - Authenticated read 2026-08-29. Unauthenticated reads report `unavailable`, not a trustworthy empty queue.
+- WP public smoke passes with expected WordPress `7.0.4` (`make status-readonly`, 2026-08-29).
 - `/projects/` → `301` to `/work/`.
 - Homepage reveal safety net: absent. GSAP/ScrollTrigger CDN: absent.
 
@@ -30,6 +30,7 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 | Gate | Issue | Status |
 |---|---|---|
 | Alt-text residual correction | #4 | Media 6985, 7637, and 8871 were snapshotted, applied, and verified live on 2026-08-29; the broad authenticated media dry run is 78/78 `already-applied`, while separate body-image, archive, `/home/`, and WCAG lanes remain open |
+| Authority-hub sequence | #402 | #829 is live and verified; #830 is the next separately approval-gated child |
 | Measured publisher batch | #339 | All nine identities are current; exact approval is still required for two SEO overwrites and five content payloads |
 | Testimonials live deploy | #602 | Reopened 2026-08-28; live page 2409 is still the legacy 19-card body and needs its snapshot/editorial/approval gate |
 | Site redesign epic | #403 | Track B roadmap; split into lane-scoped PRs |
@@ -46,7 +47,8 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 - Issue #740 closed with no file moves; its obsolete 26-file archive table is explicitly retired and must not be reused.
 - Issue #481 closed as not planned after a fresh audit reconfirmed that the global class rename would require a coordinated live-content migration without product benefit.
 - Issue #339's two stale guards were refreshed from authenticated raw content; all packet tests and the full repo verification pass, with live execution still approval-gated.
-- Open issues moved ~77 → **35**; open PRs were **0** at the 2026-08-28 refresh.
+- Issue #829 added the You Can't Drink Data card to `/ai-ethics/` plus three exact inbound links; four private snapshots and rollback previews are recorded in the live receipt.
+- Open issues moved ~77 → **34** after the verified #829 closeout; open PRs were **0** before its closeout PR.
 - Competing work plans are historical; this snapshot plus `WORK-PLAN-2026-08-25.md` and a fresh `make status-readonly` run are the front door.
 
 ## Stash / secrets notes
