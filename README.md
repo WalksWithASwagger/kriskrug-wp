@@ -132,7 +132,7 @@ There is no local app server. The live WordPress site runs on Pagely and is not 
 
 - `make status-readonly` for startup truth; use `make morning-truth` only when a local generated copy is useful
 - `make test` for the local test suite (Python, JavaScript syntax, plugin and theme smoke)
-- `make ruff-changed BASE_REF=origin/main` for the Python files changed on the current branch; the existing repo-wide Ruff backlog is not part of this ratchet
+- `make ruff-changed BASE_REF=origin/main` for the E4/E7/E9/F Ruff baseline on Python files changed by the current branch; the existing repo-wide backlog is not part of this ratchet
 - `make validate` for the WordPress PHP security ruleset (run `composer install` first)
 - `make verify` for the standard local gate (test + docs-truth-check + validate)
 - The Notion publisher CLI in [`scripts/notion-to-wp/`](scripts/notion-to-wp/)

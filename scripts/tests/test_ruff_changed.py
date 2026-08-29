@@ -52,8 +52,18 @@ class ChangedPythonFilesTests(unittest.TestCase):
 
         self.assertEqual(result, 0)
         run.assert_called_once_with(
-            ["ruff", "check", "--", "changed.py", "new file.py"],
+            [
+                "ruff",
+                "check",
+                "--isolated",
+                "--select",
+                "E4,E7,E9,F",
+                "--",
+                "changed.py",
+                "new file.py",
+            ],
             cwd=Path("/repo"),
+            check=False,
         )
 
     def test_canonical_requirements_make_and_ci_wire_the_changed_file_gate(self):

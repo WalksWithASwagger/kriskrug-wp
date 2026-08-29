@@ -9,6 +9,9 @@ import subprocess
 from pathlib import Path
 
 
+RUFF_SELECT = "E4,E7,E9,F"
+
+
 def changed_python_files(
     repo_root: Path, base_ref: str, head_ref: str = "HEAD"
 ) -> list[str]:
@@ -39,7 +42,19 @@ def run_ruff(repo_root: Path, files: list[str], ruff: str = "ruff") -> int:
     for path in files:
         print(f"  {path}", flush=True)
 
-    result = subprocess.run([ruff, "check", "--", *files], cwd=repo_root)
+    result = subprocess.run(
+        [
+            ruff,
+            "check",
+            "--isolated",
+            "--select",
+            RUFF_SELECT,
+            "--",
+            *files,
+        ],
+        cwd=repo_root,
+        check=False,
+    )
     return result.returncode
 
 

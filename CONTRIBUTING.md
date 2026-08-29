@@ -333,7 +333,7 @@ Automated tests:
 - `make test` (runs the Notion publisher tests plus the sidebar promo smoke test)
 - `make validate` (runs the focused WordPress PHP security ruleset)
 - `make verify` (runs the standard local gate)
-- `make ruff-changed BASE_REF=origin/main` (checks only Python files changed from the selected base; CI runs the same ratchet)
+- `make ruff-changed BASE_REF=origin/main` (checks the isolated E4/E7/E9/F Ruff baseline only on Python files changed from the selected base; CI runs the same ratchet)
 - `make voice-check` (hard-rule copy gate; see [Voice Gate](#voice-gate))
 
 Manual validation:
