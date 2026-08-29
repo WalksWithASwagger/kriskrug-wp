@@ -2,9 +2,10 @@
   "issue": 829,
   "parent": 402,
   "blocked_by": 826,
-  "live_reconfirm": "2026-08-19T23:23:05Z",
-  "status": "prepared_not_applied",
-  "snapshot_auth": false,
+  "live_reconfirm": "2026-08-29T20:24:45Z",
+  "status": "applied_verified",
+  "snapshot_auth": true,
+  "applied_at": "2026-08-29T20:24:32Z",
   "forbidden_href_substrings": [
     "/about/"
   ],

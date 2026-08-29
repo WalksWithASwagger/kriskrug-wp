@@ -300,15 +300,15 @@ class ApplyIssue829AiEthicsHubTests(unittest.TestCase):
         self.assertEqual(1, len(snapshots))
         self.assertEqual(stat.S_IMODE(snapshots[0].stat().st_mode), 0o600)
 
-    def test_apply_md_does_not_claim_the_write_already_happened(self):
+    def test_apply_md_records_verified_write_without_claiming_parent_close(self):
         apply_md = (MODULE.PACK / "APPLY.md").read_text(encoding="utf-8")
-        self.assertIn("Prepared, not applied", apply_md)
+        self.assertIn("Applied and verified 2026-08-29", apply_md)
+        self.assertIn("[OK] nothing pending", apply_md)
         self.assertIn("--apply", apply_md)
         self.assertIn("#826", apply_md)
         self.assertIn("ai-ethics", apply_md)
         self.assertIn("just a faster leak", apply_md)
         self.assertNotIn("\u2014", apply_md)
-        self.assertNotIn("Fixes #829", apply_md)
         self.assertNotIn("Fixes #402", apply_md)
 
 
