@@ -10,7 +10,7 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 
 1. [`docs/current-state/README.md`](docs/current-state/README.md) — current-state front door; run `make status-readonly` for live counters
 2. [`docs/current-state/CURRENT-STATE-2026-07-30.md`](docs/current-state/CURRENT-STATE-2026-07-30.md) — declared snapshot for drift/morning-truth (Makefile default)
-3. [`docs/current-state/WORK-PLAN-2026-08-25.md`](docs/current-state/WORK-PLAN-2026-08-25.md) — **day runbook** (issue #4 restored the two wrong-identity writes, applied corrected media 6014/6126, and merged the corrected 7637 proposal; exact live approval is now required for remaining media 6985/7637/8871; hub packs #829-#832 need a separate approval; supersedes 2026-08-24)
+3. [`docs/current-state/WORK-PLAN-2026-08-25.md`](docs/current-state/WORK-PLAN-2026-08-25.md) — **day runbook** (issue #4's media identity-repair gate is complete: the two wrong-identity writes were restored and corrected media 6014/6126/6985/7637/8871 are verified live; hub packs #829-#832 need a separate approval; supersedes 2026-08-24)
 4. [`docs/current-state/MASTER-PLAN-2026-07-30.md`](docs/current-state/MASTER-PLAN-2026-07-30.md) — hygiene + lane sequencing plan of record
 5. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — the active operating model
 6. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — postmortem with the safety rules every agent must follow

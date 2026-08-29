@@ -7,18 +7,18 @@ were applied and verified on 2026-08-24. Batch 3 then made 73 media writes. A
 2026-08-25 path-aware authenticated re-audit found five duplicate-filename
 joins. Three had been protected before write. The two writes that landed on
 unrelated attachments 6729 and 11774 have been restored; corrected targets
-6014 and 6126 have been applied. Corrected targets 6985, 7637, and 8871 remain
-unapplied and require a new exact approval. The ~1,070 archive-scope images
-(inventory batches 4-6) are parked and were not part of that approval.
+6014, 6126, 6985, 7637, and 8871 have been applied and verified. The ~1,070
+archive-scope images (inventory batches 4-6) are parked and were not part of
+those approvals.
 
 Batch names as approved:
 
 - **Media library `alt_text` lane** (`--batch media`). The
   corrected `media-library-alt_text` surface holds 80 violation rows across 78 unique
   attachments. Media 6835 and 12646 were applied and verified on 2026-08-24.
-  The corrected lane now has 75 intended attachments applied and three
-  pending attachments. The authenticated dry run selects 78 total targets:
-  75 `already-applied` including media 6835 and 12646, and three `would-write`.
+  The corrected lane now has all 78 intended attachments applied. The final
+  authenticated dry run selects 78 total targets, all `already-applied`,
+  including media 6835 and 12646.
   Media 6481, 8211, 6729, and 11774 are unrelated duplicate-filename
   attachments and are not targets.
 - **Batch 1 — 34 `post_content` alt insertions** (`--batch content`) across
@@ -39,7 +39,7 @@ cd content/drafts/alt-text-backfill-2026-08-02
 python3 recount_live.py --top-routes-only
 
 # 1. Re-check current state; both commands are read-only without --apply.
-#    The media dry run returns 75 already-applied and 3 would-write targets.
+#    The media dry run returns 78 already-applied and zero would-write targets.
 python3 apply_batches.py --batch media
 python3 apply_batches.py --batch content
 
@@ -104,7 +104,7 @@ restore additionally requires the snapshot's sibling apply report to contain
 one exact `written-verified` record, and refuses unless the live ID, upload
 path, and current alt still match that record.
 
-## State as of 2026-08-28
+## State as of 2026-08-29
 
 - Media 6835 and 12646: applied with private mode-0600 snapshots and verified
   by authenticated readback plus cache-bypassed public GET.
@@ -119,13 +119,17 @@ path, and current alt still match that record.
   its write was exact and snapshotted.
 - Media 6481 and 8211 were correctly not written. Media 6729 and 11774 were
   restored to their prior empty values after exact snapshot and drift checks.
-- Corrected targets 6014 and 6126 are applied and verified. Media 6985, 7637,
-  and 8871 remain unapplied; media 7637's asset-specific proposal was corrected
-  in PR #913.
-- The path-aware authenticated media dry run returns 78 targets: 75
-  `already-applied`, three `would-write`, and zero identity failures. Full recount:
-  216/216 routes, zero fetch errors, 1,076
-  violation occurrences / 1,075 unique page-source violations.
+- Corrected targets 6014, 6126, 6985, 7637, and 8871 are applied and verified;
+  media 7637's asset-specific proposal was corrected in PR #913 before apply.
+  The three final targets each have a private mode-0600 snapshot, exact
+  authenticated and public readback, rendered hero verification, and an
+  independent `would-restore` preview.
+- The path-aware authenticated media dry run returns 78 targets: 78
+  `already-applied`, zero `would-write`, and zero identity or review failures.
+  Full recount: 216/216 routes, zero fetch errors, 1,075 violation occurrences /
+  1,073 unique page-source violations. This is a fresh aggregate, not a clean
+  historical delta; media 8871 still has a separately scoped body-image
+  `alt=""` row outside the approved media-library write.
 - The exact authenticated dry run for page 6815 / media 6835 verifies the post
   ID, slug, URL, one inventory row, and one empty-alt tag; it reports exactly
   one `would-change`. No page-6815 write has been made.

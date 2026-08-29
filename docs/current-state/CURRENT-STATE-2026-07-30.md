@@ -29,7 +29,7 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 
 | Gate | Issue | Status |
 |---|---|---|
-| Alt-text residual correction | #4 | Media 6985, 7637, and 8871 have current reviewed proposals and exact authenticated dry runs; live writes require fresh approval naming those three IDs |
+| Alt-text residual correction | #4 | Media 6985, 7637, and 8871 were snapshotted, applied, and verified live on 2026-08-29; the broad authenticated media dry run is 78/78 `already-applied`, while separate body-image, archive, `/home/`, and WCAG lanes remain open |
 | Measured publisher batch | #339 | All nine identities are current; exact approval is still required for two SEO overwrites and five content payloads |
 | Testimonials live deploy | #602 | Reopened 2026-08-28; live page 2409 is still the legacy 19-card body and needs its snapshot/editorial/approval gate |
 | Site redesign epic | #403 | Track B roadmap; split into lane-scoped PRs |
