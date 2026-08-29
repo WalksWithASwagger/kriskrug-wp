@@ -11,7 +11,7 @@ Use `make issues FILE=...` only after KK approves the "still valid" list.
 - [`batch-1-critical-bugs.json`](batch-1-critical-bugs.json) → filed as #1–#11; **#4 still open**
 - [`batch-site-redesign-2026-07-17.json`](batch-site-redesign-2026-07-17.json) → filed as #403–#424; **#403 and #424 still open** (#411–#420 closed)
 - [`contact-form-implementation-stub-from-277.md`](contact-form-implementation-stub-from-277.md) → contingent stub; file only if KK picks Option B on #277
-- [`testimonials-showpiece-v2-swarm-2026-08-01.md`](testimonials-showpiece-v2-swarm-2026-08-01.md) → #593–#602; **#593 still open** (#602 closed)
+- [`testimonials-showpiece-v2-swarm-2026-08-01.md`](testimonials-showpiece-v2-swarm-2026-08-01.md) → #593–#602; **#593 and #602 still open**
 - [`world-cup-fashion-cake-agent-tasks.md`](world-cup-fashion-cake-agent-tasks.md) → never filed; needs KK before filing
 - [`seo-hubs-402/`](seo-hubs-402/) → filed 2026-08-16 as #826–#834 (children of #402). Keep #402 open. Receipt: [`docs/current-state/reports/seo-hub-split-402-20260816.md`](../docs/current-state/reports/seo-hub-split-402-20260816.md)
 
