@@ -6,14 +6,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for helping make kk.ca accessible to everyone!
+        Thank you for helping make kriskrug.co accessible to everyone!
 
   - type: input
     id: url
     attributes:
       label: URL
       description: Which page has the accessibility issue?
-      placeholder: https://kk.ca/...
+      placeholder: https://kriskrug.co/...
     validations:
       required: true
 
@@ -129,7 +129,7 @@ body:
     attributes:
       label: Pre-submission Checklist
       options:
-        - label: I have checked this issue on the live site (kk.ca)
+        - label: I have checked this issue on the live site (kriskrug.co)
           required: true
         - label: I have searched existing accessibility issues
           required: true

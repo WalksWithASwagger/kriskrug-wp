@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a bug or issue with the BC+AI website
+description: Report a bug or issue with Kris Krug's personal website
 title: "[Bug]: "
 labels: ["bug"]
 body:
@@ -12,8 +12,8 @@ body:
     id: url
     attributes:
       label: URL
-      description: Which page on kk.ca has the issue?
-      placeholder: https://kk.ca/...
+      description: Which page on kriskrug.co has the issue?
+      placeholder: https://kriskrug.co/...
     validations:
       required: true
 
@@ -105,5 +105,5 @@ body:
           required: true
         - label: I have provided clear steps to reproduce
           required: true
-        - label: This issue is specific to kk.ca (not a general WordPress question)
+        - label: This issue is specific to kriskrug.co (not a general WordPress question)
           required: true

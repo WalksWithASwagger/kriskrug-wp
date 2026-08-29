@@ -1,5 +1,7 @@
 # Documentation Swarm
 
+> **STATUS: Historical.** This proposed swarm was never adopted as the current documentation workflow. The relevant generator workflows were removed on 2026-08-23. Use `AGENTS.md`, `docs/current-state/README.md`, and the active PR validation workflow instead.
+
 Specialized agent team for autonomous documentation generation and maintenance.
 
 ## Overview
@@ -34,4 +36,4 @@ Code Change → Content Analyzer → [README Writer, API Documenter, Tutorial Cr
 
 ## Status
 
-🆕 **In Development** - Coming soon to Kris Krug!
+**Retired proposal** — retained only as design history.

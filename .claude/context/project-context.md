@@ -1,260 +1,59 @@
 # Kris Krug Project Context
 
-> Building a Responsible & Inclusive AI Future for British Columbia
+> kriskrug.co is Kris Krug's personal website, not the BC + AI organization website.
 
-## Mission & Values
+## Identity
 
-### Core Mission
-Kris Krug is a grassroots ecosystem initiative dedicated to building a responsible and inclusive AI future for British Columbia. We bring together diverse voices—from AI enthusiasts and professionals to policy makers, educators, artists, and community organizers.
+Kris Krug is a Vancouver-based photographer, AI community builder, and keynote speaker. This site presents his photography, writing, speaking, experiments, and community work in his own name.
 
-### Core Values
+Kris also convenes the BC + AI ecosystem, but that project lives at `bc-ai.ca` and in separate repositories. Do not describe Kris as an organization or turn kriskrug.co into a BC + AI community portal.
 
-**1. Community First**
-- Grassroots, bottom-up approach
-- Regional hubs and hyperlocal engagement
-- Inclusive and welcoming to all
-- Collaborative rather than competitive
+## Repository purpose
 
-**2. Responsible AI**
-- Transparency and explainability
-- Privacy and data protection
-- Ethical considerations paramount
-- Question technology that may harm or exclude
+This repository is the operations and content hub adjacent to the Pagely-hosted WordPress site. It contains:
 
-**3. Inclusivity & Accessibility**
-- WCAG 2.1 AA compliance is mandatory, not optional
-- Multiple ways to participate (events, online, resources)
-- Consider diverse abilities, backgrounds, and contexts
-- Welcoming to newcomers and experts alike
+- guarded content and SEO publishing tools
+- draft and source content before publication
+- the canonical Aurora theme line
+- custom WordPress modules and helper plugins
+- audits, rollback evidence, and current operating runbooks
 
-**4. Regional Focus**
-- British Columbia context matters
-- Canadian spelling and sensibilities
-- Local hubs and regional engagement
-- Supporting BC's unique AI ecosystem
+The repository is not a file-for-file production mirror. Verify live state with `make status-readonly` and public readback before making production claims.
 
-**5. Knowledge Sharing**
-- Open resources and documentation
-- Educational approach
-- Share learnings broadly
-- Build collective intelligence
+## Audience
 
-## Target Audience
+- people considering Kris for speaking, photography, consulting, or collaboration
+- readers exploring his writing, projects, archives, and AI work
+- event and community participants looking for Kris's current work
+- search engines and assistive technologies that need clear, structured content
 
-### Primary Users
-- **AI Enthusiasts** - People curious about AI and its applications
-- **Professionals** - Those working in AI/ML fields
-- **Community Organizers** - People building local AI communities
-- **Policy Makers** - Government and institutional decision makers
-- **Educators** - Teachers and trainers
-- **Artists & Creatives** - Exploring AI in creative work
+## Editorial priorities
 
-### User Needs
-- Stay informed about AI developments
-- Connect with like-minded people
-- Find events and learning opportunities
-- Access resources (funding, tools, guides)
-- Contribute to responsible AI discourse
-- Participate in specialized communities (AI Film Club, Mind/AI/Consciousness)
+1. Preserve Kris's first-person identity and personality.
+2. Keep claims grounded in source material; do not invent credentials, quotations, dates, or outcomes.
+3. Make the next reader action clear without turning every page into generic marketing copy.
+4. Maintain accessible headings, links, media alternatives, contrast, focus states, and keyboard behavior.
+5. Protect performance, privacy, security, and search integrity.
 
-### Technical Context
-- **Diverse technical literacy** - From non-technical to expert developers
-- **Mobile-heavy usage** - Many users on phones, some on slower connections
-- **Accessibility needs** - Screen readers, keyboard navigation, etc.
-- **Geographic distribution** - Across British Columbia, some remote areas
+For voice calibration across Kris's different roles, use `docs/kris-krug-roles-module.md` as a reference, not as permission to fabricate a persona or unsupported claim.
 
-## Content Strategy
+## Engineering priorities
 
-### Voice & Tone
-- **Friendly but professional** - Approachable, not stuffy
-- **Educational** - Explain the "why", not just the "what"
-- **Inclusive** - Welcoming language, avoid jargon or explain it
-- **Optimistic** - Positive about AI's potential while acknowledging challenges
-- **Community-oriented** - "We" not "I", collective rather than individual
+- Follow `AGENTS.md` and the current-state front door before dated or historical plans.
+- Keep Track A content/SEO and Track B theme work separate by commit.
+- Prefer small WordPress-native changes over new frameworks.
+- Run dry-runs and exact slug/ID checks before WordPress mutations.
+- Capture a rollback path and perform authenticated plus public readback after an approved live write.
+- Do not equate merging repository code with deploying it to production.
 
-### Key Messages
-- AI can be built responsibly and inclusively
-- Community input shapes BC's AI future
-- Grassroots movements matter
-- Everyone has a role in shaping AI
-- British Columbia is building something special
+## Decision check
 
-## Design Principles
+Before changing the site, ask:
 
-### Accessibility First
-- Not just WCAG compliance, but genuinely usable by all
-- Keyboard navigation throughout
-- Screen reader friendly
-- High contrast, readable fonts
-- Multiple ways to accomplish tasks
+- Is this about Kris's personal site or a different organization?
+- Is the claim supported by a current source?
+- Is the change in the correct Track A or Track B lane?
+- Does it improve clarity, accessibility, performance, security, or reader value?
+- What evidence and rollback path will prove the change is safe?
 
-### Performance Matters
-- Mobile-first approach
-- Fast loading (< 3 seconds)
-- Optimized for slower connections
-- Minimal JavaScript where possible
-- Progressive enhancement
-
-### Content Before Chrome
-- Content is king
-- Navigation is simple and clear
-- Features serve content, not the other way around
-- Avoid unnecessary complexity
-
-### Community Personality
-- Visual warmth (not cold corporate)
-- Use of appropriate imagery
-- Celebration of diversity
-- BC regional identity (mountains, nature metaphors appropriate)
-
-## Key Initiatives
-
-### Regional Hubs
-Hyperlocal approach to building AI community across BC regions.
-
-### AI Film Club
-Exploring AI through cinema and media.
-
-### Mind/AI/Consciousness
-Philosophical discussions about AI and consciousness.
-
-### Events & Workshops
-Regular community gatherings, both online and in-person.
-
-### Resource Directory
-Curated resources for funding, tools, hackathons, and learning.
-
-## External Integrations
-
-### Notion (Content Management)
-- News updates and editorial content
-- Content sync to WordPress
-- Potential single-point-of-failure
-
-### Luma (Events)
-- Event listings and RSVPs
-- External platform dependency
-- Consider eventual consolidation
-
-## Technical Constraints
-
-### Current Known Issues (from audit)
-1. Contact form (Gravity Forms #3) not functional
-2. WCAG 2.1 AA compliance gaps
-3. Meta descriptions truncated
-4. Performance issues (JavaScript, assets)
-5. Navigation UX clarity issues
-6. External link dependencies
-7. Authentication flow undocumented
-
-### Performance Baselines (to improve)
-- Current page load: Unknown, needs measurement
-- Target: < 3 seconds on 3G
-- Core Web Vitals: Need to meet Google standards
-
-### Browser Support
-- Modern browsers (last 2 versions)
-- Mobile Safari (iOS users)
-- Chrome on Android
-- Desktop: Chrome, Firefox, Safari
-- Graceful degradation for older browsers
-
-## Development Priorities
-
-### Must Have
-1. Accessibility (WCAG 2.1 AA)
-2. Security (WordPress hardening)
-3. Performance (mobile-first)
-4. Functionality (core features work)
-
-### Should Have
-1. SEO optimization
-2. Analytics and insights
-3. Content freshness
-4. Community features
-
-### Nice to Have
-1. Advanced features
-2. Experimental AI integrations
-3. Polish and refinement
-
-## Success Metrics
-
-### Community Impact
-- Event attendance and engagement
-- Resource usage and downloads
-- Community member growth
-- Geographic reach across BC
-
-### Technical Quality
-- WCAG 2.1 AA compliance: 100%
-- Core Web Vitals: All green
-- Uptime: > 99.5%
-- Zero critical security issues
-
-### User Experience
-- Contact form completion rate
-- Event registration rate
-- Time on site
-- Return visitor rate
-
-## Canadian Context
-
-### Spelling & Language
-- Use Canadian spelling (colour, honour, centre, etc.)
-- Bilingual considerations (English/French where appropriate)
-- Indigenous acknowledgment and respect
-- BC-specific terminology and references
-
-### Regional Considerations
-- BC's diverse geography (urban Vancouver, rural communities, northern regions)
-- Time zones (PST/PDT)
-- Local AI companies and institutions
-- BC government and policy context
-
-## WordPress Philosophy Alignment
-
-### "Decisions, Not Options"
-- Keep interface simple
-- Don't overwhelm users with choices
-- Make good defaults
-- Progressive disclosure of complexity
-
-### Democratizing Publishing
-- Easy for non-technical users to manage
-- Empower community members to contribute
-- Lower barrier to participation
-
-### Performance & Accessibility
-- Core WordPress values that align with Kris Krug
-- Not negotiable, baked into everything
-
-## Agent Guidance
-
-When making decisions as an AI agent for Kris Krug:
-
-**Ask yourself:**
-- Does this serve the community?
-- Is it accessible to all?
-- Does it align with responsible AI principles?
-- Would someone in rural BC be able to use this on their phone?
-- Are we being inclusive?
-- Does this reflect Kris Krug's grassroots spirit?
-
-**Prioritize:**
-1. Accessibility over features
-2. Simplicity over complexity
-3. Community benefit over technical coolness
-4. Security and privacy over convenience
-5. Performance for all over perfect for some
-
-**Remember:**
-- This is for a community organization, not a corporation
-- Every code decision affects real people trying to participate in BC's AI future
-- Clean, well-documented code welcomes future contributors
-- Tests protect the community from bugs
-- Security protects people's privacy and trust
-
----
-
-**This is not just a website. It's a platform for building BC's inclusive AI future. Code accordingly.**
+Start with `AGENTS.md`, `docs/current-state/README.md`, and a fresh `make status-readonly` run.

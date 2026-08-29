@@ -188,6 +188,87 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
                 self.assertFalse(findings)
 
 
+class PersonalSiteIdentityRegressionTests(unittest.TestCase):
+    def test_rejects_bc_ai_personification_in_agent_context(self):
+        samples = {
+            ".claude/context/project-context.md": (
+                "Kris Krug is a grassroots ecosystem initiative dedicated to BC.\n"
+            ),
+            ".claude/agents-vibe.md": (
+                "This is community infrastructure for building BC's inclusive AI future.\n"
+            ),
+        }
+
+        for path, text in samples.items():
+            with self.subTest(path=path):
+                findings = scan_text(path, text)
+                self.assertTrue(
+                    any("personal-site identity" in finding.message for finding in findings)
+                )
+
+    def test_rejects_legacy_domain_and_bc_ai_mission_in_issue_templates(self):
+        samples = {
+            ".github/ISSUE_TEMPLATE/bug_report.yml": (
+                "description: Report a bug with the BC+AI website at kk.ca\n"
+            ),
+            ".github/ISSUE_TEMPLATE/feature_request.yml": (
+                "- label: This feature aligns with BC+AI's mission\n"
+            ),
+        }
+
+        for path, text in samples.items():
+            with self.subTest(path=path):
+                findings = scan_text(path, text)
+                self.assertTrue(
+                    any("kriskrug.co" in finding.message for finding in findings)
+                )
+
+    def test_default_scan_includes_agent_context_and_issue_templates(self):
+        expected = {
+            Path(".claude/context/project-context.md"),
+            Path(".claude/agents-vibe.md"),
+            Path(".github/ISSUE_TEMPLATE/accessibility.yml"),
+            Path(".github/ISSUE_TEMPLATE/bug_report.yml"),
+            Path(".github/ISSUE_TEMPLATE/content.yml"),
+            Path(".github/ISSUE_TEMPLATE/feature_request.yml"),
+            Path(".github/ISSUE_TEMPLATE/performance.yml"),
+            Path(".github/agent-state/README.md"),
+            Path(".github/agents/doc-swarm/README.md"),
+        }
+
+        self.assertTrue(expected.issubset(set(docs_truth_check.DEFAULT_BASES)))
+
+    def test_dormant_agent_guides_require_historical_banner(self):
+        samples = {
+            ".github/agent-state/README.md": "# Agent State Directory\n\nUsage instructions.\n",
+            ".github/agents/doc-swarm/README.md": "# Documentation Swarm\n\nComing soon.\n",
+        }
+
+        for path, text in samples.items():
+            with self.subTest(path=path):
+                findings = scan_text(path, text)
+                self.assertTrue(
+                    any("STATUS: Historical" in finding.message for finding in findings)
+                )
+
+    def test_rejects_audited_access_and_work_plan_drift(self):
+        samples = {
+            "docs/current-state/ACCESS_CHANNELS.md": (
+                "The agent swarm in `.github/` can be triggered via issues + labels.\n"
+            ),
+            "docs/INDEX.md": (
+                "Active runbook: correct the remaining issue #4 media identity.\n"
+            ),
+        }
+
+        for path, text in samples.items():
+            with self.subTest(path=path):
+                findings = scan_text(path, text)
+                self.assertTrue(
+                    any("audited current-state" in finding.message for finding in findings)
+                )
+
+
 class MergePolicyGuidanceTests(unittest.TestCase):
     def test_active_guidance_rejects_routine_admin_override(self):
         findings = scan_text(
