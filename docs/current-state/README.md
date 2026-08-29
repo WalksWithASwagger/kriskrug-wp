@@ -6,7 +6,7 @@ Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan 
 
 Read these first:
 
-1. **[WORK-PLAN-2026-08-25.md](WORK-PLAN-2026-08-25.md)**, active runbook (issue #4 restored the two wrong-identity writes, applied corrected media 6014/6126, and merged the tested 7637 correction; seek a new approval naming remaining media 6985/7637/8871 before authority-hub applies; use `make status-readonly` for live counters)
+1. **[WORK-PLAN-2026-08-25.md](WORK-PLAN-2026-08-25.md)**, active runbook (issue #4's media identity-repair gate is complete: the two wrong-identity writes were restored and corrected media 6014/6126/6985/7637/8871 are verified live; seek separate approval before authority-hub applies; use `make status-readonly` for live counters)
 2. **[CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md)**, declared snapshot for morning-truth drift checks (compare it with a fresh `make status-readonly` run)
 3. **[MASTER-PLAN-2026-07-30.md](MASTER-PLAN-2026-07-30.md)**, truth then reclaim then product lanes (hygiene phases complete)
 4. Run `make status-readonly` for current signals; use the newest **[reports/morning-truth-*.md](reports/)** only as durable checkpoint evidence

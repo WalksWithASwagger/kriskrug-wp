@@ -6,16 +6,17 @@
 **Re-run it:** [`recount_live.py`](recount_live.py), read-only, re-fetches all 216 routes and re-derives every total in this file.
 **Out of scope:** the broader WCAG 2.1 AA audit, which is issue #46 and owns `docs/current-state/A11Y-*`. This file is images only.
 
-> **Execution checkpoint, corrected 2026-08-25:** Batch 1 is live and exact.
+> **Execution checkpoint, updated 2026-08-29:** Batch 1 is live and exact.
 > Batch 3 performed **73 media writes**, but a path-aware 2026-08-25 audit found
 > five filename-only inventory joins. Three had been protected before write;
 > two writes landed on unrelated duplicate attachments 6729 and 11774. The
-> actual featured attachments are 6014, 6126, 6985, 7637, and 8871. All five
-> remain empty and unapplied; the two wrong writes require approval-gated
-> rollback to their private snapshots. A fresh public recount fetched
-> 216/216 routes with zero errors and measured 1,078 violation occurrences /
-> 1,077 unique page-source violations. The 2026-08-02 baseline below remains
-> historical evidence, not current live truth.
+> wrong writes were restored, and the actual featured attachments 6014, 6126,
+> 6985, 7637, and 8871 were applied and verified. The broad authenticated media
+> dry run now returns 78/78 `already-applied`. A fresh public recount fetched
+> 216/216 routes with zero errors and measured 1,075 violation occurrences /
+> 1,073 unique page-source violations. This is a fresh aggregate rather than a
+> clean historical delta; the 2026-08-02 baseline below remains historical
+> evidence, not current live truth.
 
 > ### Before you write a backfill script, read [the two fix surfaces](#read-this-first-there-are-two-fix-surfaces-and-a-library-only-backfill-silently-fixes-almost-nothing).
 > A script that only writes media library `alt_text` reaches **80 of the 1,185 findings**. It no-ops on the other 1,105 and exits clean while doing it. Three rows were corrected on 2026-08-25 after authenticated edit context proved the historical filename-only join had selected duplicate attachments from different upload months.
@@ -174,7 +175,7 @@ What I could verify live on 2026-08-02:
 | 0 | 216 | Snippet or plugin | Meta noscript tracking pixel, one per route, add `alt=""` | Ready, one-line fix, kills 216 findings |
 | 1 | 34 | `post-content-block` | Seven site pages, all alt strings written below | Applied and independently verified 2026-08-24 |
 | 2 | 5 | Mixed | `/home/` plus two media items reused as post heroes | Media values applied; one in-content row and `/home/` decision remain |
-| 3 | 76 | `media-library-alt_text` | Reviewed post-hero media, 76 unique attachments | 71 intended attachments applied; 6014, 6126, 6985, 7637, and 8871 remain unapplied; wrong duplicate writes 6729 and 11774 need rollback |
+| 3 | 76 | `media-library-alt_text` | Reviewed post-hero media, 76 unique attachments | All 76 corrected Batch 3 targets are applied and verified; wrong duplicate writes 6729 and 11774 were restored |
 | 4 | 266 | `post-content-block` | In-body images on 23 posts published 2025 to 2026 | Needs per-image review |
 | 5 | 698 | `post-content-block` | In-body images on 69 archive posts, mostly 2024 meetup recap galleries | Needs per-image review, biggest block |
 | 6 | 106 | `post-content-block` | 14 photoblog gallery posts where alt is a Flickr photo ID | Needs per-image review |
@@ -189,9 +190,9 @@ the same filename in different month directories. Authenticated edit context
 and a path-aware selector found five incorrect joins. Media 6481 and 8211 were
 protected before write. Media 6729 and 11774 were written, but are unrelated
 duplicates with no published post/page use found in a 1,019-item edit-context
-scan; their mode-0600 snapshots preserve the prior empty alts. The actual
-featured attachments are 6014, 6126, 6985, 7637, and 8871. They have empty
-library alts and remain an approval-gated five-item media follow-up.
+scan; their prior empty alts were restored from mode-0600 snapshots. The actual
+featured attachments 6014, 6126, 6985, 7637, and 8871 were then applied and
+verified with exact identity checks and private rollback snapshots.
 
 Batches 4 to 6 are volume work. They cannot be automated honestly, because the correct alt depends on what is in the photo. What can be automated is the harness: pull each image, show it, capture a proposed string, stage it as a diff against `post_content`, and gate the apply on review. Do not let a script invent alt text from a filename.
 
@@ -326,10 +327,10 @@ These are classified `has-alt` in the CSV because they are not empty, so they ar
 ## Historical issue #4 acceptance snapshot: 0 of 7 met on 2026-08-02
 
 > This subsection records the original no-write audit baseline and is not a
-> current live-state claim. On 2026-08-24, media 6835 and 12646 and all 34
-> Batch 1 content rows were applied and verified. See `APPLY-RUNBOOK.md` for
-> current execution state; a new full live recount is still required before
-> changing the issue-level WCAG verdict.
+> current live-state claim. The corrected media-library targets and all 34
+> Batch 1 content rows are now applied and verified. See `APPLY-RUNBOOK.md` for
+> current execution state. The fresh full live recount does not change the
+> issue-level WCAG verdict.
 
 Every criterion on #4 is about the state of images **on the live site**. This pass made zero writes. Nothing here has been applied. So the count is 0 of 7, and it stays 0 of 7 until a batch actually runs.
 
@@ -358,8 +359,7 @@ None of that is an acceptance criterion on #4. #4 closes when images on kriskrug
 ## What still needs KK
 
 1. **`/home/`:** redirect, unpublish, or keep and fix? It is a live 200 that nothing links to.
-2. **Five corrected Batch 3 identities plus two rollbacks.** Approve or park media 6014, 6126, 6985, 7637, and 8871 after individual authenticated dry runs. Media 6481 and 8211 are unrelated and must remain unchanged. Media 6729 and 11774 need approval-gated restoration to their private pre-write snapshots.
-3. **Volume call on batches 4 to 6.** 1,070 images across 106 posts, mostly meetup recap galleries from 2023 and 2024. Options: do them all, do only posts that still get traffic, or accept the archive as-is and gate alt discipline on new posts only. This is a scope decision, not an engineering one.
+2. **Volume call on batches 4 to 6.** 1,070 images across 106 posts, mostly meetup recap galleries from 2023 and 2024. Options: do them all, do only posts that still get traffic, or accept the archive as-is and gate alt discipline on new posts only. This is a scope decision, not an engineering one.
 
 ---
 
