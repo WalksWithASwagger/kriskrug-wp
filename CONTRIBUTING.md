@@ -109,6 +109,7 @@ Labels: bug, priority:high, mobile
 ### Before Submitting
 
 - [ ] Run `composer install` once, then `make verify` before opening a PR with code changes
+- [ ] Run `make ruff-changed BASE_REF=origin/main` if the PR changes Python
 - [ ] Changes are documented in PR description
 - [ ] Issue is linked (use `Fixes #123` or `Closes #456`)
 - [ ] Commit messages are clear and descriptive
@@ -207,7 +208,7 @@ There is no local app server to boot. The live site runs on Pagely and is not fi
 
 CI runs the gates on PHP 8.2, Python 3.12, and Node 20 (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)). The Aurora theme declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css). You don't need exact version matches locally, but if a gate behaves differently than CI, check your runtime versions first.
 
-Two requirement files, one canonical test environment. Root [`requirements-test.txt`](requirements-test.txt) **is the canonical Python test env** — CI installs it, and it is the only file that satisfies `make python-test` (it is the runtime deps plus `pytest`). [`scripts/notion-to-wp/requirements.txt`](scripts/notion-to-wp/requirements.txt) is **runtime-only**: it exists so several `Makefile` targets can call `scripts/notion-to-wp/.venv/bin/python` directly, and installing only it leaves you unable to run that package's test suites. Install the root file when you want to run tests, including the `scripts/notion-to-wp/tests` suites.
+Two requirement files, one canonical test environment. Root [`requirements-test.txt`](requirements-test.txt) **is the canonical Python test env** — CI installs it, and it is the only file that satisfies `make python-test` and `make ruff-changed` (it is the runtime deps plus `pytest` and Ruff). [`scripts/notion-to-wp/requirements.txt`](scripts/notion-to-wp/requirements.txt) is **runtime-only**: it exists so several `Makefile` targets can call `scripts/notion-to-wp/.venv/bin/python` directly, and installing only it leaves you unable to run that package's test suites. Install the root file when you want to run tests, including the `scripts/notion-to-wp/tests` suites.
 
 ```bash
 # Clone repository
@@ -218,6 +219,7 @@ cd kriskrug-wp
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements-test.txt
 make python-test PYTHON=python
+make ruff-changed BASE_REF=origin/main PYTHON=python
 
 # Notion → WP publisher (its own venv; several Makefile targets call it directly)
 # Runtime-only. Add -r ../../requirements-test.txt if you also want to run tests from this venv.
@@ -331,6 +333,7 @@ Automated tests:
 - `make test` (runs the Notion publisher tests plus the sidebar promo smoke test)
 - `make validate` (runs the focused WordPress PHP security ruleset)
 - `make verify` (runs the standard local gate)
+- `make ruff-changed BASE_REF=origin/main` (checks the isolated E4/E7/E9/F Ruff baseline only on Python files changed from the selected base; CI runs the same ratchet)
 - `make voice-check` (hard-rule copy gate; see [Voice Gate](#voice-gate))
 
 Manual validation:
