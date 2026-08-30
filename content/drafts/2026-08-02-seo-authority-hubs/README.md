@@ -18,16 +18,17 @@ Three files:
 | `hub-plan.md` | One section per term: hub, spokes, anchors, insertion points, plus the fixes that are not links |
 | `link-matrix.csv` | Machine-readable: source_url, target_url, anchor_text, section_hint, http_status |
 
-## Execution status as of 2026-08-28
+## Execution status as of 2026-08-30
 
 | Pack | Issue | State |
 |---|---:|---|
 | `fix-826/` | #826 | Applied and verified 2026-08-18; see `docs/current-state/reports/issue-826-applied-20260818.md` |
 | `fix-827/` | #827 | Applied and verified 2026-08-18; see `docs/current-state/reports/issue-827-applied-20260818.md` |
 | `fix-828/` | #828 | Drafted and dry-run verified; Kris voice review and a fresh live approval remain |
-| `fix-829/` to `fix-832/` | #829-#832 | Prepared only; each needs its own live approval |
+| `fix-829/` | #829 | Applied and verified 2026-08-29; see `docs/current-state/reports/issue-829-applied-20260829.md` |
+| `fix-830/` to `fix-832/` | #830-#832 | Prepared only; each needs its own live approval |
 | `fix-833/` | #833 | Prepared only; needs its own live approval before #834 can be recut |
-| No pack yet | #834 | Issue scope only; remains blocked on #829 and #833 |
+| No pack yet | #834 | Issue scope only; #829 is live, but #834 remains blocked on #833 and must be recut afterward |
 
 ## Method
 
