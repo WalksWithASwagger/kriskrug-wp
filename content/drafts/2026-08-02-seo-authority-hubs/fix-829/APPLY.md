@@ -97,7 +97,10 @@ Skip a row if that exact `href` + anchor already exists.
 
 Page 12318 is also the topic-hub payload `content/source-packs/content-architecture-2026/wp-payloads/topic-hubs/ai-ethics.html`. That file is a full-page replacement **without** this card. If it is applied after these links land, it will wipe the card unless it is re-cut.
 
-Post 12030 is also an #834 write surface (row 32, `/about/` in the closing paragraph). Sequencing: **#826 live first, then #829, then #834.** Do not apply the #834 `/about/` sentence in this pack.
+Post 12030 is also an #834 write surface (row 32, `/about/` in the closing
+paragraph). Its #829 dependency is live, but #834 remains blocked on #833's
+shared post-11700 write. Recut #834 after #833 is verified. Do not apply the
+#834 `/about/` sentence in this pack.
 
 ## Commands
 
