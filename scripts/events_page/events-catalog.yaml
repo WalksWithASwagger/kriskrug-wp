@@ -28,6 +28,25 @@ events:
   status: confirmed
   cta_upcoming: IIDA Vancouver
   cta_past: IIDA Vancouver
+- id: league-innovators-north-house-ai-show-tell-2026
+  title: 'League of Innovators × North House: AI Show & Tell'
+  date: '2026-09-02'
+  bucket_hint: upcoming
+  kind: external
+  role: Guest mentor
+  url: https://www.joinnorthhouse.com/impact
+  image: {}
+  blurb: 'Invited by Joel Hansen for a living-room-style session with the League of Innovators and North
+    House founder cohorts: live AI workflow and agent demos, followed by open Q&A. Praveen Varshney joins
+    as the other guest.'
+  label: Wednesday, Sept 2 · North House · Vancouver
+  tags:
+  - Guest mentor
+  - AI agents
+  - Founders
+  status: confirmed
+  cta_upcoming: About North House
+  cta_past: About North House
 - id: how-can-we-help-pitch-night-2026
   title: How Can We Help? Pitch Night
   date: '2026-09-08'

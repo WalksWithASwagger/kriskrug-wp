@@ -1,0 +1,27 @@
+{
+  "snapshot_dir": "backup/20260831T231343Z-content-architecture/page-snapshots",
+  "pages": [
+    {
+      "page": "events",
+      "id": 2250,
+      "slug": "events",
+      "url": "https://kriskrug.co/events/?cb=20260831-li-north-house-apply",
+      "payload": "/Users/kk/Code/kriskrug-wp/scripts/events_page/out/events-2250.generated.html",
+      "before": {
+        "page": "events",
+        "json": "backup/20260831T231343Z-content-architecture/page-snapshots/page-2250-events-before.json",
+        "html": "backup/20260831T231343Z-content-architecture/page-snapshots/page-2250-events-before.html",
+        "json_sha256": "5fb0032645767762be7272733203031b9adc50b42868840967824e1c5629fda1",
+        "html_sha256": "a25d1b11dbfd2e3566adf981c50f9dafac232710b426eaf16f5c3e225e9b537d"
+      },
+      "after": {
+        "page": "events",
+        "json": "backup/20260831T231343Z-content-architecture/page-snapshots/page-2250-events-after.json",
+        "html": "backup/20260831T231343Z-content-architecture/page-snapshots/page-2250-events-after.html",
+        "json_sha256": "5f2aeef05afb34a66a2adf3abf90b577c6934cc33ab273799a7ec08d001287e2",
+        "html_sha256": "6008bff260fc1a9b3a97df52959ab97b908417f679c52cebad33d7eba15105f0"
+      },
+      "modified": "2026-08-31T15:13:47"
+    }
+  ]
+}
