@@ -50,15 +50,18 @@ add_filter( 'wp_sitemaps_add_provider', 'kk_archive_policy_v2_sitemap_provider',
 /**
  * Exclude every public taxonomy from WordPress core taxonomy sitemaps.
  *
- * Category and post_tag are named so the intent stays greppable. Any other
- * public taxonomy is also dropped: live /wp-sitemap.xml has none today.
+ * Category and post_tag are the two that exist on live /wp-sitemap.xml today
+ * and are named in the body comment so the intent stays greppable. Any other
+ * public taxonomy is dropped by the same return.
  *
  * @param array $taxonomies Public taxonomy objects keyed by taxonomy name.
  * @return array
  */
 function kk_archive_policy_v2_sitemap_taxonomies( array $taxonomies ): array {
-	unset( $taxonomies['category'], $taxonomies['post_tag'] );
-
+	// Drop every public taxonomy, category and post_tag included. Returning an
+	// empty array rather than unsetting those two by name is the whole point of
+	// v2: a taxonomy registered later cannot reintroduce sitemap bloat by simply
+	// not being on a list.
 	return array();
 }
 add_filter( 'wp_sitemaps_taxonomies', 'kk_archive_policy_v2_sitemap_taxonomies', PHP_INT_MAX );
