@@ -1,13 +1,26 @@
 # #829 APPLY: You Can't Drink Data on the /ai-ethics/ hub
 
-**Prepared, not applied. Do not PATCH until #826 is live and KK says go.**
-Script is dry-run by default. `--apply` is the only write switch, and it refuses unless the five #826 category fixes are already live.
+**Applied and verified 2026-08-29.** The aggregate authenticated re-run is
+idempotent: all four targets return `[SKIP]` and `[OK] nothing pending.` Script
+remains dry-run by default. Do not reapply or extend this pack to #830-#834.
 
 Parent: #402. This is child 4 of 9. Child 1 (#826) still owns the taxonomy pass. This pack does not recategorize or retitle anything.
 
-Do not close #829 or #402 when this runbook merges.
+Close #829 with the verified receipt. Keep parent #402 open.
 
-## Live reconfirm (logged-out public GET, 2026-08-19T23:23Z)
+## Applied receipt
+
+KK approved the exact #829 live apply after the four-object authenticated dry
+run. Page 12318 and posts 12030, 6144, and 11882 were applied one at a time.
+Each write passed the #826 category gate, exact ID/slug check, mode-0600
+pre-write snapshot, authenticated idempotency readback, public REST check,
+cache-bypassed rendered check, ordinary cached-page check, and dry-run restore
+preview. No rollback was applied.
+
+Durable evidence:
+[`docs/current-state/reports/issue-829-applied-20260829.md`](../../../../docs/current-state/reports/issue-829-applied-20260829.md).
+
+## Pre-apply live reconfirm (logged-out public GET, 2026-08-19T23:23Z)
 
 No REST POST / PATCH / DELETE in this session. `WP_USER` and `WP_APP_PASSWORD` were unset, so there is no fresh `context=edit` `content.raw` from this run. Public REST confirmed slug/ID pairs and snapshotted `content.rendered` into `before/`.
 
@@ -84,7 +97,10 @@ Skip a row if that exact `href` + anchor already exists.
 
 Page 12318 is also the topic-hub payload `content/source-packs/content-architecture-2026/wp-payloads/topic-hubs/ai-ethics.html`. That file is a full-page replacement **without** this card. If it is applied after these links land, it will wipe the card unless it is re-cut.
 
-Post 12030 is also an #834 write surface (row 32, `/about/` in the closing paragraph). Sequencing: **#826 live first, then #829, then #834.** Do not apply the #834 `/about/` sentence in this pack.
+Post 12030 is also an #834 write surface (row 32, `/about/` in the closing
+paragraph). Its #829 dependency is live, but #834 remains blocked on #833's
+shared post-11700 write. Recut #834 after #833 is verified. Do not apply the
+#834 `/about/` sentence in this pack.
 
 ## Commands
 
@@ -97,7 +113,7 @@ python3 scripts/apply_issue_829_ai_ethics_hub.py --from-files
 # Live GET dry-run: authenticated context=edit + printed diffs. No snapshot, no POST.
 make varlock-run CMD='python3 scripts/apply_issue_829_ai_ethics_hub.py'
 
-# Apply only after #826 is live and KK approves that diff.
+# Historical apply command. Do not rerun after the verified 2026-08-29 apply.
 make varlock-run CMD='python3 scripts/apply_issue_829_ai_ethics_hub.py --apply'
 ```
 

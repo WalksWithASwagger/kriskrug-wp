@@ -119,3 +119,7 @@ content/source-packs/**/verification/**/*.png
 # backup/**/*.json. Existing tracked HTML stays until a KK-approved
 # `git rm --cached` (see docs/current-state/reports/issue-737-backup-tree-archive-proposal-20260816.md).
 backup/**/*.html
+
+# #829 authenticated context=edit rollback snapshots are local-only. The repo
+# is public; commit the receipt and hashes, not the full edit-context records.
+backup/issue-829-ai-ethics-hub/
