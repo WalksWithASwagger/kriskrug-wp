@@ -1,0 +1,15 @@
+{
+  "events": {
+    "id": 2250,
+    "slug": "events",
+    "url": "https://kriskrug.co/events/",
+    "payload": "/Users/kk/Code/kriskrug-wp/scripts/events_page/out/events-2250.generated.html",
+    "markers": [
+      "<!-- EVENTS_DYNAMIC_START -->",
+      "data-event-id=\"league-innovators-north-house-ai-show-tell-2026\"",
+      "aurora-event-art--generated",
+      "data-events-archive-toggle",
+      "Futureproof Festival"
+    ]
+  }
+}

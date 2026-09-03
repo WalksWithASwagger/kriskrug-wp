@@ -92,6 +92,53 @@ def image_src(event: dict[str, Any], roots: dict[str, Path]) -> tuple[str, str]:
     return "", alt
 
 
+POSTER_STOPWORDS = {"a", "an", "and", "at", "for", "of", "on", "the", "to", "with"}
+
+
+def poster_mark(event: dict[str, Any]) -> str:
+    words = [
+        word
+        for word in str(event.get("title") or "Event").replace("&", " ").split()
+        if word.lower().strip(":,.") not in POSTER_STOPWORDS
+    ]
+    mark = "".join(word[0] for word in words if word and word[0].isalnum())[:3]
+    return (mark or "KK").upper()
+
+
+def poster_date(event: dict[str, Any]) -> str:
+    dt = parse_end(event)
+    if not dt:
+        return "LIVE"
+    return dt.strftime("%b %d").upper().replace(" 0", " ")
+
+
+def artwork_html(
+    event: dict[str, Any], roots: dict[str, Path], *, base_class: str
+) -> str:
+    src, alt = image_src(event, roots)
+    if src:
+        fit = event.get("image_fit") or (
+            "contain" if event.get("image_layout") == "portrait" else "cover"
+        )
+        classes = (
+            f"{base_class} aurora-event-art aurora-event-art--image "
+            f"aurora-event-art--{html_escape(fit)}"
+        )
+        return f"""        <figure class="{classes}">
+          <img src="{html_escape(src)}" alt="{html_escape(alt)}" loading="lazy" decoding="async" />
+        </figure>"""
+
+    eid = str(event.get("id") or event.get("title") or "event")
+    palette = sum(ord(char) for char in eid) % 4
+    title = event.get("title") or "Event"
+    role = event.get("role") or event.get("kind") or "Appearance"
+    return f"""        <figure class="{base_class} aurora-event-art aurora-event-art--generated aurora-event-art--palette-{palette}" role="img" aria-label="Graphic for {html_escape(title)}">
+          <span class="aurora-event-art-date">{html_escape(poster_date(event))}</span>
+          <strong class="aurora-event-art-mark">{html_escape(poster_mark(event))}</strong>
+          <span class="aurora-event-art-role">{html_escape(role)}</span>
+        </figure>"""
+
+
 def tags_html(tags: list[Any]) -> str:
     if not tags:
         return ""
@@ -112,21 +159,10 @@ def render_rich_card(event: dict[str, Any], roots: dict[str, Path]) -> str:
     label = html_escape(event.get("label") or "")
     blurb = html_escape(event.get("blurb") or "")
     url = event.get("url") or "#"
-    src, alt = image_src(event, roots)
-    portrait = event.get("image_layout") != "landscape"
-    media_class = (
-        "aurora-proof-media aurora-proof-media--portrait"
-        if portrait
-        else "aurora-proof-media"
-    )
-    media_block = ""
-    if src:
-        media_block = f"""        <figure class="{media_class}">
-          <img src="{html_escape(src)}" alt="{html_escape(alt)}" loading="lazy" decoding="async" />
-        </figure>
-"""
+    media_block = artwork_html(event, roots, base_class="aurora-proof-media")
     return f"""      <article class="aurora-proof-module aurora-event-card aurora-event-card--rich" data-event-end="{end}" data-event-id="{eid}">
-{media_block}        <div class="aurora-proof-body">
+{media_block}
+        <div class="aurora-proof-body">
           <p class="aurora-card-label">{label}</p>
           <h3>{title}</h3>
           <p>{blurb}</p>
@@ -160,12 +196,7 @@ def render_compact_card(event: dict[str, Any], roots: dict[str, Path]) -> str:
     title = html_escape(event.get("title") or "")
     label = html_escape(edition_label(event))
     url = event.get("url") or ""
-    src, alt = image_src(event, roots)
-    media = '<div class="aurora-event-compact-media aurora-event-compact-media--empty" aria-hidden="true"></div>'
-    if src:
-        media = f"""        <figure class="aurora-event-compact-media">
-          <img src="{html_escape(src)}" alt="{html_escape(alt)}" loading="lazy" decoding="async" />
-        </figure>"""
+    media = artwork_html(event, roots, base_class="aurora-event-compact-media")
     link = ""
     if url:
         link = f'<a class="aurora-event-compact-link" href="{html_escape(url)}">Recap / details</a>'
@@ -181,11 +212,55 @@ def render_compact_card(event: dict[str, Any], roots: dict[str, Path]) -> str:
 
 PAGE_SCOPED_CSS = """
 <style>
-  /* Dated event cards on /events/: rich Upcoming + dense Past archive */
-  .aurora-events-page .aurora-proof-media--portrait img {
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    object-position: center top;
+  body.page-id-2250 .aurora-page-header {
+    padding-bottom: 0;
+  }
+  body.page-id-2250 .wp-block-post-title {
+    color: var(--wp--preset--color--signal, #c84b2f);
+    font-family: "DM Sans", system-ui, sans-serif;
+    font-size: 0.72rem !important;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+  .aurora-events-page {
+    --events-paper: #eee6d2;
+    --events-ink: #18140f;
+    --events-signal: #c84b2f;
+    --events-sky: #86a9c4;
+    --events-sun: #e3bd4f;
+    --events-plum: #57204d;
+    --events-line: rgba(24, 20, 15, 0.18);
+    --events-serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --events-sans: "DM Sans", system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+  }
+  .aurora-events-page > .aurora-speaking-hero {
+    order: 1;
+    padding-top: clamp(1.25rem, 3vw, 2.5rem);
+  }
+  .aurora-events-page .aurora-speaking-hero h2 {
+    color: var(--events-ink);
+    font-size: clamp(2.4rem, 6.5vw, 5.8rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+    margin: 0;
+    max-width: 14ch;
+    text-wrap: balance;
+  }
+  .aurora-events-page > [data-events-bucket="upcoming"] { order: 2; }
+  .aurora-events-page > [aria-labelledby="aurora-events-host"] { order: 3; }
+  .aurora-events-page > [aria-labelledby="aurora-events-stages"] { order: 4; }
+  .aurora-events-page > [aria-labelledby="aurora-events-signature"] { order: 5; }
+  .aurora-events-page > [data-events-bucket="past"] { order: 6; }
+  .aurora-events-page > .aurora-final-cta { order: 7; }
+
+  .aurora-events-page [data-events-bucket] {
+    border-top: 1px solid var(--events-line);
+    padding-top: clamp(2.5rem, 6vw, 5rem);
   }
   .aurora-events-page [data-events-bucket][data-events-empty="true"] {
     display: none;
@@ -204,13 +279,246 @@ PAGE_SCOPED_CSS = """
     opacity: 0.8;
   }
 
-  /* Past archive: dense 3 / 2 / 1 grid */
+  .aurora-events-page [data-events-grid="upcoming"] {
+    align-items: stretch;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .aurora-events-page .aurora-event-card--rich {
+    background: rgba(255, 252, 244, 0.34);
+    border-color: var(--events-line);
+    box-shadow: 0 1rem 3rem rgba(41, 29, 18, 0.06);
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+  .aurora-events-page .aurora-event-card--rich:hover,
+  .aurora-events-page .aurora-event-card--rich:focus-within {
+    border-color: rgba(200, 75, 47, 0.62);
+    box-shadow: 0 1.4rem 3.5rem rgba(41, 29, 18, 0.12);
+    transform: translateY(-4px);
+  }
+  .aurora-events-page .aurora-event-card--rich .aurora-proof-body {
+    flex: 1;
+    grid-template-rows: auto auto auto auto 1fr;
+    padding: clamp(1rem, 2.4vw, 1.4rem);
+  }
+  .aurora-events-page .aurora-event-card--rich .aurora-proof-body h3 {
+    font-family: var(--events-serif);
+    font-size: clamp(1.65rem, 3vw, 2.45rem);
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .aurora-events-page .aurora-event-card--rich .aurora-proof-actions {
+    align-self: end;
+    margin-top: auto;
+  }
+
+  .aurora-events-page .aurora-event-art {
+    aspect-ratio: 16 / 10;
+    border-bottom: 1px solid var(--events-line);
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  .aurora-events-page .aurora-event-art img {
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 280ms ease;
+    width: 100%;
+  }
+  .aurora-events-page .aurora-event-card:hover .aurora-event-art--cover img,
+  .aurora-events-page .aurora-event-card:focus-within .aurora-event-art--cover img {
+    transform: scale(1.025);
+  }
+  .aurora-events-page .aurora-event-art--contain {
+    background: #540016;
+  }
+  .aurora-events-page .aurora-event-art--contain img {
+    object-fit: contain;
+    padding: clamp(0.75rem, 2.5vw, 1.5rem);
+  }
+  .aurora-events-page .aurora-event-art--generated {
+    align-content: space-between;
+    background: var(--events-signal);
+    color: var(--events-ink);
+    display: grid;
+    isolation: isolate;
+    padding: clamp(0.8rem, 2.4vw, 1.25rem);
+  }
+  .aurora-events-page .aurora-event-art--generated::before {
+    border: 1px solid currentColor;
+    content: "";
+    inset: clamp(0.8rem, 2.4vw, 1.25rem);
+    opacity: 0.34;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+  }
+  .aurora-events-page .aurora-event-art--generated::after {
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    content: "";
+    height: 72%;
+    opacity: 0.26;
+    position: absolute;
+    right: -11%;
+    top: -28%;
+    width: 45%;
+    z-index: -1;
+  }
+  .aurora-events-page .aurora-event-art--palette-0 { background: var(--events-signal); }
+  .aurora-events-page .aurora-event-art--palette-1 { background: var(--events-sky); }
+  .aurora-events-page .aurora-event-art--palette-2 { background: var(--events-sun); }
+  .aurora-events-page .aurora-event-art--palette-3 { background: var(--events-plum); color: var(--events-paper); }
+  .aurora-events-page .aurora-event-art-date,
+  .aurora-events-page .aurora-event-art-role {
+    font-family: var(--events-sans);
+    font-size: clamp(0.62rem, 1vw, 0.74rem);
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    position: relative;
+    text-transform: uppercase;
+  }
+  .aurora-events-page .aurora-event-art-mark {
+    align-self: center;
+    font-family: var(--events-serif);
+    font-size: clamp(3rem, 8vw, 6.6rem);
+    font-weight: 400;
+    letter-spacing: -0.08em;
+    line-height: 0.7;
+    position: relative;
+  }
+  .aurora-events-page .aurora-event-art-role {
+    align-self: end;
+    justify-self: end;
+    max-width: 62%;
+    text-align: right;
+  }
+
+  /* Past archive: newest six first, complete archive on demand. */
   .aurora-events-page [data-events-grid="past"] {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem 1rem;
+    gap: 1.25rem;
+  }
+  .aurora-events-page .aurora-event-card--compact {
+    background: rgba(255, 252, 244, 0.3);
+    border: 1px solid var(--events-line);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: border-color 180ms ease, transform 180ms ease;
+  }
+  .aurora-events-page .aurora-event-card--compact:hover,
+  .aurora-events-page .aurora-event-card--compact:focus-within {
+    border-color: rgba(200, 75, 47, 0.62);
+    transform: translateY(-3px);
+  }
+  .aurora-events-page .aurora-event-compact-body {
+    padding: 0.9rem;
+  }
+  .aurora-events-page .aurora-event-compact-body h3 {
+    font-family: var(--events-serif);
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    margin: 0.25rem 0 0.65rem;
+  }
+  .aurora-events-page .aurora-event-compact-link {
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+  .aurora-events-page .aurora-event-card.is-archive-hidden {
+    display: none;
+  }
+  .aurora-events-page .aurora-event-archive-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  .aurora-events-page .aurora-event-archive-toggle {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--events-ink);
+    color: var(--events-ink);
+    cursor: pointer;
+    font-family: var(--events-sans);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.11em;
+    padding: 0.85rem 1.1rem;
+    text-transform: uppercase;
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+  .aurora-events-page .aurora-event-archive-toggle:hover,
+  .aurora-events-page .aurora-event-archive-toggle:focus-visible {
+    background: var(--events-ink);
+    color: var(--events-paper);
+    outline-offset: 4px;
+  }
+
+  .aurora-events-page .aurora-editorial-mark {
+    align-content: space-between;
+    aspect-ratio: 16 / 5;
+    background: var(--events-sky);
+    border-bottom: 1px solid var(--events-line);
+    color: var(--events-ink);
+    display: grid;
+    overflow: hidden;
+    padding: 0.8rem 1rem;
+    position: relative;
+  }
+  .aurora-events-page .aurora-editorial-mark::after {
+    border: 1px solid currentColor;
+    content: "";
+    inset: 0.55rem;
+    opacity: 0.3;
+    position: absolute;
+  }
+  .aurora-events-page .aurora-editorial-mark span {
+    font-family: var(--events-serif);
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    letter-spacing: -0.06em;
+    line-height: 0.8;
+    position: relative;
+    z-index: 1;
+  }
+  .aurora-events-page .aurora-editorial-mark small {
+    font-family: var(--events-sans);
+    font-size: 0.62rem;
+    font-weight: 800;
+    justify-self: end;
+    letter-spacing: 0.14em;
+    position: relative;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+  .aurora-events-page .aurora-proof-module-text:nth-child(4n + 2) .aurora-editorial-mark { background: var(--events-sun); }
+  .aurora-events-page .aurora-proof-module-text:nth-child(4n + 3) .aurora-editorial-mark { background: var(--events-signal); }
+  .aurora-events-page .aurora-proof-module-text:nth-child(4n) .aurora-editorial-mark { background: var(--events-plum); color: var(--events-paper); }
+
+  @keyframes aurora-event-arrive {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .aurora-events-page [data-events-grid="upcoming"] .aurora-event-card {
+    animation: aurora-event-arrive 420ms ease both;
   }
   @media (max-width: 900px) {
+    .aurora-events-page [data-events-grid="upcoming"] {
+      grid-template-columns: 1fr;
+    }
     .aurora-events-page [data-events-grid="past"] {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -219,42 +527,31 @@ PAGE_SCOPED_CSS = """
     .aurora-events-page [data-events-grid="past"] {
       grid-template-columns: 1fr;
     }
+    .aurora-events-page .aurora-event-card--compact {
+      display: grid;
+      grid-template-columns: minmax(7.25rem, 38vw) minmax(0, 1fr);
+    }
+    .aurora-events-page .aurora-event-card--compact .aurora-event-art {
+      aspect-ratio: 1;
+      border-bottom: 0;
+      border-right: 1px solid var(--events-line);
+      height: 100%;
+    }
+    .aurora-events-page .aurora-event-art-mark {
+      font-size: clamp(2.4rem, 18vw, 4.2rem);
+    }
+    .aurora-events-page .aurora-event-art-role {
+      display: none;
+    }
   }
-  .aurora-events-page .aurora-event-card--compact {
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-    margin: 0;
-  }
-  .aurora-events-page .aurora-event-compact-media {
-    margin: 0;
-    overflow: hidden;
-    border-radius: 2px;
-    background: rgba(0, 0, 0, 0.04);
-  }
-  .aurora-events-page .aurora-event-compact-media img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    object-position: center;
-  }
-  .aurora-events-page .aurora-event-compact-media--empty {
-    aspect-ratio: 16 / 10;
-    background: linear-gradient(135deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
-  }
-  .aurora-events-page .aurora-event-compact-body h3 {
-    font-size: 1.05rem;
-    margin: 0.15rem 0 0.35rem;
-    line-height: 1.25;
-  }
-  .aurora-events-page .aurora-event-compact-link {
-    font-size: 0.9rem;
-  }
-
-  /* Upcoming stays on the existing proof-grid / rich module rhythm */
-  .aurora-events-page [data-events-grid="upcoming"] .aurora-event-card--rich {
-    /* inherits .aurora-proof-module */
+  @media (prefers-reduced-motion: reduce) {
+    .aurora-events-page *,
+    .aurora-events-page *::before,
+    .aurora-events-page *::after {
+      animation-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>
 """
@@ -264,6 +561,23 @@ ROLLOFF_SCRIPT = """
 (function () {
   var page = document.querySelector('.aurora-events-page');
   if (!page) return;
+  var archivePreviewCount = 6;
+  var archiveExpanded = false;
+
+  function syncArchive() {
+    var pastGrid = page.querySelector('[data-events-grid="past"]');
+    var toggle = page.querySelector('[data-events-archive-toggle]');
+    if (!pastGrid || !toggle) return;
+    var cards = Array.prototype.slice.call(pastGrid.children);
+    cards.forEach(function (card, index) {
+      card.classList.toggle('is-archive-hidden', !archiveExpanded && index >= archivePreviewCount);
+    });
+    toggle.hidden = cards.length <= archivePreviewCount;
+    toggle.setAttribute('aria-expanded', archiveExpanded ? 'true' : 'false');
+    toggle.textContent = archiveExpanded
+      ? 'Show recent appearances'
+      : 'Show complete archive (' + cards.length + ')';
+  }
 
   function parseEnd(iso) {
     var t = Date.parse(iso);
@@ -292,6 +606,15 @@ ROLLOFF_SCRIPT = """
 
     upcomingBucket.setAttribute('data-events-empty', upcomingGrid.children.length ? 'false' : 'true');
     pastBucket.setAttribute('data-events-empty', pastGrid.children.length ? 'false' : 'true');
+    syncArchive();
+  }
+
+  var archiveToggle = page.querySelector('[data-events-archive-toggle]');
+  if (archiveToggle) {
+    archiveToggle.addEventListener('click', function () {
+      archiveExpanded = !archiveExpanded;
+      syncArchive();
+    });
   }
 
   if (document.readyState === 'loading') {
@@ -332,6 +655,9 @@ def render_dynamic_block(
     </div>
     <div class="aurora-proof-grid" data-events-grid="past">
 {past_cards}
+    </div>
+    <div class="aurora-event-archive-actions">
+      <button class="aurora-event-archive-toggle" type="button" data-events-archive-toggle aria-expanded="false">Show complete archive ({len(past)})</button>
     </div>
   </section>
 {ROLLOFF_SCRIPT}"""

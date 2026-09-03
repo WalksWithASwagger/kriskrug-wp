@@ -35,7 +35,13 @@ events:
   kind: external
   role: Guest mentor
   url: https://www.joinnorthhouse.com/impact
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/brand/north-house-logo.webp
+    alt: North House logo in white on its deep burgundy field
+    media_id: 12741
+    url: https://kriskrug.co/wp-content/uploads/2026/08/north-house-logo.webp
+  image_layout: landscape
+  image_fit: contain
   blurb: 'Invited by Joel Hansen for a living-room-style session with the League of Innovators and North
     House founder cohorts: live AI workflow and agent demos, followed by open Q&A. Praveen Varshney joins
     as the other guest.'
