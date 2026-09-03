@@ -1,0 +1,7 @@
+{
+  "page_id": 2250,
+  "slug": "events",
+  "url": "https://kriskrug.co/events/",
+  "before_snapshot": "backup/20260831T234807Z-events-art-direction/page-snapshots/page-2250-events-before.json",
+  "restore_command": "make varlock-run CMD='python3 scripts/content_architecture_deploy.py --map backup/20260831T234807Z-events-art-direction/page-map.json --page events --snapshot-dir backup/20260831T234807Z-events-art-direction/page-snapshots --restore'"
+}
