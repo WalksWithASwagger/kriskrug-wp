@@ -146,3 +146,107 @@ Deactivate the snippet. Purge cache. Repeat the sitemap index plus the
 representative archive and post/page readback. Rollback restores prior
 provider and robots behavior. It must not edit content, terms, users,
 permalinks, redirects, `robots.txt`, or Search Console rows.
+
+---
+
+## Pre-deploy evidence review, 2026-09-02
+
+Added by the kk-kb SEO/AEO audit. This section exists to close the **first**
+acceptance criterion on issue #331, which gates the whole change:
+
+> Search Console query-to-page evidence is reviewed for category, tag, and
+> author archive traffic before changing policy.
+
+That review had not been done. It is done now, and it did not need production
+access: the evidence is in the committed weekly-digest export at
+`kk-kb:content/admin/scheduled-task-reports/seo-growth-weekly/data/2026-08-31/normalized-search-console.json`.
+
+### The archives have no measurable search value
+
+Window 2026-08-22 to 2026-08-28 against the prior seven days. Search Console
+returns page rows only for URLs that drew at least one impression, so the
+denominator below is "URLs with any search activity at all".
+
+| Group | URLs with data | Clicks | Impressions |
+|---|---:|---:|---:|
+| Posts and pages | 276 | 48 | 2,370 |
+| Tag, category, author archives | **2** | **1** | **1** |
+
+649 archive URLs are submitted in the sitemap. Two of them registered anything:
+
+```
+1 click,  1 impression   https://kriskrug.co/author/kk/page/36/
+0 clicks, 0 impressions  https://kriskrug.co/tag/shout-outs/
+```
+
+The single click is on page 36 of a paginated author archive.
+
+### What that settles
+
+- **No allowlist exception is warranted.** The acceptance criteria allow
+  retaining a tag or category archive that has "demonstrated search value" or
+  "real query demand". None has any. There is nothing to put on the list.
+- **The `noindex, follow` policy costs no measured traffic.** The archives are
+  39% of the submitted sitemap and about 2% of measured clicks, all of it from
+  one paginated author page.
+- **`follow` remains load-bearing** and is not affected by this evidence. These
+  archives are internal-link hubs into the 973 posts; the finding is that nobody
+  arrives *on* them from search, not that they carry no link value.
+
+### Limits of this evidence
+
+One 7-day window plus its prior week. It is not a seasonal picture, and a tag
+with a once-a-year spike would not appear. The margin is wide enough that this
+is unlikely to change the decision: 649 URLs produced one impression across two
+weeks. If a seasonal argument is wanted before deploying, the 28-day context
+window in the same export is the next place to look.
+
+## Behavioural verification of the v2 snippet, 2026-09-02
+
+Run against PHP 8.4 with minimal WordPress shims for `add_filter()` and the
+conditional tags, exercising each filter body directly. This proves the snippet
+does what the acceptance criteria ask; it does not replace the post-deploy live
+readback below.
+
+| Filter | Input | Result |
+|---|---|---|
+| `wp_sitemaps_taxonomies` | `category, post_tag, portfolio_type` | empty, every taxonomy dropped |
+| `wp_sitemaps_add_provider` | `users` | `false`, provider dropped |
+| `wp_sitemaps_add_provider` | `posts`, `terms` | kept, so `posts-post` and `posts-page` survive |
+| `wp_robots` | author / tag / category / date / tax | `noindex, follow` with `follow` present |
+| `wp_robots` | single post or page | unchanged, `index` preserved |
+
+`php -l` passes and `make validate` passes. An earlier revision of this section
+claimed the repo's coding-standards gate was broken. That claim was wrong and is
+corrected here on 2026-09-02.
+
+`phpcs.xml.dist` resolves all five referenced sniffs against the pinned
+`wp-coding-standards/wpcs` 3.4.1 (`phpcs --standard=phpcs.xml.dist -e` reports
+"contains 5 sniffs"), and `make validate` returns 7/7 files with zero
+violations. It also runs in CI: `test-pr.yml`'s `php-validation` job invokes
+`make validate` directly and passed on this PR's own run.
+
+The failure mode behind the original claim is environmental, not a ruleset
+defect. `dealerdirect/phpcodesniffer-composer-installer` writes phpcs's
+`installed_paths`; when that plugin is skipped, phpcs cannot locate the
+WordPress standard and reports every sniff as missing. Editing the ruleset would
+remove five working security sniffs and fix nothing.
+
+The one genuine finding from that investigation, that
+`.github/workflows/reusable-wordpress-validation.yml` has no caller and never
+fires, is tracked in #942.
+
+## One code change made to the deploy candidate
+
+`kk_archive_policy_v2_sitemap_taxonomies()` called
+`unset( $taxonomies['category'], $taxonomies['post_tag'] )` and then returned
+`array()` unconditionally, discarding the variable it had just modified. The
+behaviour was correct, but the dead `unset()` made the function look like it
+returned the filtered array. A maintainer tidying it by returning `$taxonomies`
+would silently revert v2 to v1 behaviour and let any future public taxonomy back
+into the sitemap, which is the exact regression v2 exists to prevent.
+
+The `unset()` is gone and the two taxonomy names are kept in a body comment, so
+the intent stays greppable. Verified above that the return is still empty.
+
+**Activation is still KK-gated and unchanged.** Nothing here has been applied.
