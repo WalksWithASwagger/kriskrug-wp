@@ -1,5 +1,9 @@
 # Draft Queue Triage, 2026-09-03
 
+> **EXECUTED 2026-09-03.** KK approved the recommended dispositions and chose to
+> mark shipped packages in place rather than move them. All four dispositions
+> are applied. See "What was executed" at the end.
+
 Decision sheet for issue #745. **Read-only. No package was moved, renamed, or
 deleted to produce this.** Execution waits on KK's ruling per group.
 
@@ -140,3 +144,36 @@ keep them in `content/drafts/` with a status marker, or move them to a
 `content/drafts/published/` directory so the active queue only ever contains
 genuinely unpublished work. The second is tidier but touches 21 packages, so
 it is KK's call rather than a default.
+
+---
+
+## What was executed, 2026-09-03
+
+KK ruled: approve the dispositions, and mark the shipped packages in place
+rather than moving them to a `published/` directory.
+
+| Disposition | Count | Action taken |
+|---|---:|---|
+| Shipped | 21 | `STATUS.md` marked `shipped`, naming the live URL. Left in place. |
+| Rewrite | 6 | `STATUS.md` marked `rewrite candidate`, each linked to a new scoped issue: #950, #951, #952, #953, #954, #955. |
+| Shelve | 11 | `STATUS.md` marked `shelved`. |
+| Cull | 19 | `git mv` to `content/drafts/archive/`, each with `STATUS.md` marked `culled` and restore instructions. |
+
+**Nothing was deleted.** Package count is conserved: 108 before, 89 active plus
+19 archived after. `LOCAL_ONLY=1 make draft-queue-audit` now lists 89 packages,
+down from 108, so the active queue reads truthfully.
+
+### The 28th package, found during execution
+
+The count discrepancy in #745 is resolved. `2026-05-24-nik-badminton-a-sassy-critique-setting-the-ai-record-straight`
+was already quarantined to `content/drafts/archive/` on 2026-08-16 in `f684f17`,
+before this triage ran. So the batch was 28, and 27 were in the active queue.
+It has been given a `STATUS.md` too, so the archive is uniformly labelled.
+
+### One side effect worth recording
+
+Moving the culled packages broke two `.voice-waivers.json` entries, because
+waivers are keyed by exact file path. The file contents did not change, only
+their location, so the two paths were rewritten to point into `archive/`.
+`make voice-check` is back to 164 files, 0 violations, 214 waived, matching
+its pre-move state.
