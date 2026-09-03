@@ -237,7 +237,7 @@ Recommend (b) — 5-line snippet, immediate effect, survives the Aurora migratio
 
 Every page that links to `http://www.twitter.com/feelmoreplants` returns HTTP 520 (Cloudflare/origin error). Twitter rebranded to X.com; the old domain is partially functional but apparently unhealthy on HEAD requests, which means SEO crawlers and link-checkers see it as dead.
 
-The schema snippet ([`fixes/schema-snippets-deployed.php`](../../fixes/schema-snippets-deployed.php)) already uses the new URLs (`twitter.com/kriskrug` and `x.com/kriskrug`), so this is just inline-link rot in older posts/pages.
+The schema snippet ([`fixes/schema-snippets-deployed.php`](../../../fixes/schema-snippets-deployed.php)) already uses the new URLs (`twitter.com/kriskrug` and `x.com/kriskrug`), so this is just inline-link rot in older posts/pages.
 
 **Fix:** sitewide search-and-replace `twitter.com/feelmoreplants` → `x.com/kriskrug`. Can be done via WP-CLI:
 ```

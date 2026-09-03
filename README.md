@@ -111,7 +111,7 @@ Notion → kriskrug.co publishing, post-publish enrichment, schema maintenance, 
 
 FSE theme rebuild and polish. Touches `theme/kk-aurora/`, FSE templates, theme.json. Avoid bundling theme edits with content publishing changes in the same commit.
 
-- Current branch model (2026-05-29): start Track B work from `main` on a
+- Current branch model: start Track B work from `main` on a
   lane-scoped `codex/...` branch. Use `aurora/v3-reconcile` only as deferred
   evidence for specific theme-polish files, and keep `aurora/v2` references as
   historical context unless a dated handoff says otherwise.

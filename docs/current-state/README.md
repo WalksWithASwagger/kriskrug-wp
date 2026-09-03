@@ -2,7 +2,7 @@
 
 Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then run `make status-readonly` for current runtime signals.
 
-## Current Front Door (verified 2026-08-29)
+## Current Front Door (verified 2026-09-03)
 
 Read these first:
 
@@ -13,6 +13,8 @@ Read these first:
 5. **[TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)**, Track A vs Track B
 6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
 7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
+
+**Public/repository readback 2026-09-03 04:09Z:** WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`; 0 open PRs and 34 open issues. Authenticated draft-queue counts were unavailable in this Cloud session, so the 2026-08-29 counts below remain dated evidence rather than a current claim.
 
 **Live readback 2026-08-29 20:22Z:** WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`; 0 open PRs before the #829 closeout, 34 open issues after it closes, 0 scheduled posts, 66 draft posts, and 4 draft pages. Issue #829 is live and verified: `/ai-ethics/` has the first-position You Can't Drink Data card and posts 12030, 6144, and 11882 have their exact inbound anchors; all four mode-0600 snapshots and restore previews are recorded in the [receipt](reports/issue-829-applied-20260829.md). Issue #602 remains open because public page 2409 still shows the undeployed 19-card Testimonials body. #706 closed after KK accepted its documented delayed-gtag PSI caveat; TBT moved from 160 ms to 10 ms, Facebook tasks disappeared, and a fresh eight-route readback found zero pixel/eager-gtag markers with one delayed loader per route ([receipt](reports/issue-706-script-diet-apply-20260817.md)). #749 closed after its exact approved pair-safe cleanup reclaimed 927,688 KiB (~906 MiB) while retaining the newest complete comparison pair; the 11-route visual preflight and storage guard passed. #318 closed as a no-delete result because authenticated status proof found all three packages still in draft; all 13 tracked images remain ([receipt](reports/issue-318-publish-status-20260828.md)). #740 closed with no file moves after its obsolete 26-file archive table was explicitly retired. #481 closed as not planned after its live-content blast radius was reconfirmed. #339 now has current raw and planned hashes for all previously stale guards; no publisher write occurred. Content applies #764 / #729 / #612 / **#826** / **#827** / **#829** are live. The Speaking rebuild is live, and #640 closed after its same-method LCP receipt and live embed contract passed. Lab webring chrome (Dark Crystal + unofficial.city) is live on the homepage footer and `/work/` (surgical card insert, not a full `work.html` replace). Historical receipts: [`reports/gate0-content-apply-20260817.md`](reports/gate0-content-apply-20260817.md), [`reports/issue-826-applied-20260818.md`](reports/issue-826-applied-20260818.md), [`reports/issue-827-applied-20260818.md`](reports/issue-827-applied-20260818.md), [`reports/aurora-168-live-deploy-20260817.md`](reports/aurora-168-live-deploy-20260817.md), [`reports/aurora-169-live-deploy-20260818.md`](reports/aurora-169-live-deploy-20260818.md). Re-run `make status-readonly`; the public `style.css` readback remains authoritative for production theme state.
 
@@ -68,10 +70,13 @@ Every file below carries a `STATUS: Historical` banner in its first lines pointi
 - [WORK-PLAN-2026-08-15.md](archive/WORK-PLAN-2026-08-15.md)
 - [WORK-PLAN-2026-08-16.md](archive/WORK-PLAN-2026-08-16.md)
 - [WORK-PLAN-2026-08-17.md](archive/WORK-PLAN-2026-08-17.md)
+- [AGENTIC-CRUSH-PLAN-2026-07-31.md](archive/AGENTIC-CRUSH-PLAN-2026-07-31.md)
+- [WORK-PLAN-2026-08-23.md](archive/WORK-PLAN-2026-08-23.md)
+- [WORK-PLAN-2026-08-24.md](archive/WORK-PLAN-2026-08-24.md)
 
 ## Archive (#549 close-out, verified 2026-08-02)
 
-At the #549 close-out, [`archive/`](archive/) held **89 markdown files**: 4 that were already there plus **84 moved in commit `c369eef`** (PR #557, merged 2026-07-31). It holds 102 as of 2026-08-28 after later plan archivals. Every #549 move was a `git mv` rename, so history is preserved and the moves are reversible. The diff for that commit against `docs/current-state/` is 84 `R`, 9 `M`, 6 `A`, and **zero `D`**. Verify with:
+At the #549 close-out, [`archive/`](archive/) held **89 markdown files**: 4 that were already there plus **84 moved in commit `c369eef`** (PR #557, merged 2026-07-31). It holds 105 as of 2026-09-03 after later plan archivals. Every #549 move was a `git mv` rename, so history is preserved and the moves are reversible. The diff for that commit against `docs/current-state/` is 84 `R`, 9 `M`, 6 `A`, and **zero `D`**. Verify with:
 
 ```
 git diff --name-status --find-renames c369eef^1 c369eef -- docs/current-state | cut -c1-1 | sort | uniq -c
@@ -90,9 +95,9 @@ Neither is a plan you execute from. Check with `ls docs/current-state/*.md | gre
 - `issues-to-create/README.md` line 5, to `archive/ISSUES-TO-CREATE-RECONCILIATION-2026-06-09.md`
 - `backup/2026-05-16/manifest.md` line 47, to `archive/FIX_QUEUE.md`
 
-**Top-level surface:** 43 `docs/current-state/*.md` files as of 2026-08-28. The #549 close-out scan found 0 broken relative links across the then-current top-level surface plus `AGENTS.md`, `README.md`, `CONTRIBUTING.md`, and `docs/INDEX.md`; re-run the link check before making a new current claim.
+**Top-level surface:** 40 `docs/current-state/*.md` files as of 2026-09-03. The #549 close-out scan found 0 broken relative links across the then-current top-level surface plus `AGENTS.md`, `README.md`, `CONTRIBUTING.md`, and `docs/INDEX.md`; re-run the link check before making a new current claim.
 
-**Still broken, and out of scope for #549.** A repo-wide scan of 921 tracked `.md` files (509 relative link targets) finds 114 unresolved: 37 inside `archive/` itself, 77 elsewhere. None of the 77 is archive-move rot. They break down as pseudo-scheme placeholders the publisher rewrites (`photo:7750`, `media:11920`, `poster:3`, `img:mcluhan`), root-relative live-site URLs that resolve on kriskrug.co and never on disk (`/contact`, `/speaking/`), regex fragments inside fenced code blocks that a naive link scanner misreads, and `images/` binaries referenced by `content/drafts/` posts that were never committed (they exist in some working copies as untracked files, so this count is worktree-sensitive). The 37 inside `archive/` are the real move damage: 33 lost one directory level and resolve by prefixing `../`, 4 point at `fixes/` artifacts that no longer exist. Both sets sit outside `docs/current-state/` top level, nothing on the front door reads them, and repairing them is its own issue.
+**Repo-wide relative-link sweep completed 2026-09-03.** A scan of all 1,110 tracked Markdown files now finds zero unresolved relative link targets. The sweep repaired 69 paths across archived plans, issue drafts, superseded content drafts, and one active source-pack runbook. The scanner ignores fenced code, external URLs, root-relative live-site routes, fragments, and publisher pseudo-schemes (`photo:`, `media:`, `poster:`, `img:`), because those are not repository file targets.
 
 ## Reports and subdirectories
 

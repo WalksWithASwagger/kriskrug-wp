@@ -1,7 +1,7 @@
 # Voice Audit Blog Sweep — Swarm Issue Board
 
 **Status:** Filed on WalksWithASwagger/kriskrug-wp (#603–#616)  
-**Source audit:** [`content/drafts/voice-audit-blog-sweep-2026-08-01/00-summary.md`](../content/drafts/voice-audit-blog-sweep-2026-08-01/00-summary.md) (commit `c93c5b5`)  
+**Source audit:** [`content/drafts/voice-audit-blog-sweep-2026-08-01/00-summary.md`](../../content/drafts/voice-audit-blog-sweep-2026-08-01/00-summary.md) (commit `c93c5b5`)
 **Skill loop:** snapshot-first `wp-live-edit` on kriskrug.co (Track A only)  
 **Out of scope forever for this swarm:** Track B theme edits, Aurora CSS, homepage, unrelated drafts
 
