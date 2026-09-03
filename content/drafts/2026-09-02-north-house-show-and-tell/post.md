@@ -52,7 +52,7 @@ Somewhere in the middle a founder pushed back properly. His argument: the toolin
 
 I could not give him a clean answer, because there is not one. My own technical capability is genuinely ten times what it was. I deploy servers, set up DNS, run web apps I built myself, wire it into automations. I could not do any of that before.
 
-But he is right about the gap. We went from maybe ten thousand power users to a million. Going to a billion needs power, data centres, and robotics arms that do not exist yet. General Electric is roughly six years backlogged on the turbines that would spin the chips. Somebody else in the room, who lives in Accra and spends time in China, pointed out that a copper mine takes fifteen years to spool up and Site C took thirty.
+But he is right about the gap. We went from maybe ten thousand power users to a million. Going to a billion needs power, data centres, and robotics arms that do not exist yet. General Electric is roughly six years backlogged on the turbines that would spin the chips. Somebody else in the room, who lives in Accra and spends time in China, pointed out that a copper mine takes fifteen years to spool up. Big energy builds take longer still.
 
 You cannot agent your way around a copper mine.
 
