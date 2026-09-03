@@ -42,6 +42,7 @@ Legacy branch split context is in [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-
 
 - **`.github/agents/`** — the older GitHub Actions agent swarm (orchestrator → analyzer → test-writer → implementer → QA → reviewer → PR creator). It produced PRs #71 and #72 in May 2026 and is not used by current sessions.
 - **`.github/workflows/agent-pr-generator.yml`, `sync-projects.yml`, `agent-safe-merge.yml`** — deleted 2026-08-23. The first two were parked diagnostic stubs; the third never merged a single PR. `docs/architecture.md` and `docs/automation-guide.md` still describe them and are reference-only.
+- **`.github/workflows/reusable-wordpress-validation.yml`** — deleted 2026-09-02 (#942). It was `workflow_call`-only with no caller in this repo or the org, so it never fired. PHP coding-standards enforcement is and was `test-pr.yml`'s `php-validation` job, which runs `make validate` directly.
 - **`docs/current-state/AGENT-MERGE-PATH-2026-07-26.md`** — historical record of the deleted `agent-safe-merge` workflow, not current merge guidance.
 - **`.github/workflows/test-pr.yml`** — still active PR validation. Do not describe all workflows as dormant.
 - **`docs/architecture.md`, `docs/automation-guide.md`** — reference docs for the dormant swarm.
