@@ -1,6 +1,6 @@
 # Long-run work day queue — agent issues to file (2026-07-16)
 
-> **STATUS: Historical.** Superseded by [`WORK-PLAN-2026-07-30.md`](WORK-PLAN-2026-07-30.md) + [`CURRENT-STATE-2026-07-30.md`](CURRENT-STATE-2026-07-30.md) + [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md).
+> **STATUS: Historical.** Superseded by [`WORK-PLAN-2026-07-30.md`](WORK-PLAN-2026-07-30.md) + [`CURRENT-STATE-2026-07-30.md`](../CURRENT-STATE-2026-07-30.md) + [`MASTER-PLAN-2026-07-30.md`](../MASTER-PLAN-2026-07-30.md).
 
 Use this when KK can take actions again (secrets + approvals). Ordered by leverage. Prefer filing as GitHub issues (or confirming the existing numbers) before starting.
 

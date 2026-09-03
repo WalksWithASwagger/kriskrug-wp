@@ -8,7 +8,7 @@
 
 This doc was the primary handoff on 2026-05-19. It complements but does not replace the current roadmap docs:
 - [`ROADMAP.md`](ROADMAP.md) — the 3-month plan written 2026-05-15 (still good, partially executed)
-- [`TWO-TRACK-MODEL.md`](TWO-TRACK-MODEL.md) — Track A vs Track B operating split
+- [`TWO-TRACK-MODEL.md`](../TWO-TRACK-MODEL.md) — Track A vs Track B operating split
 - [`SITE-AUDIT-2026-05-16.md`](SITE-AUDIT-2026-05-16.md) — reader-facing punch list with completion notes
 - [`SWARM-STATUS-2026-05-18.md`](SWARM-STATUS-2026-05-18.md) — command-desk status after the first bounded swarm
 - [`NEXT-ROUND-WORK-2026-05-19.md`](NEXT-ROUND-WORK-2026-05-19.md) — current next-session command sheet after the queue and keynote closeout
@@ -56,8 +56,8 @@ What's live:
 - **YouTube embed spacer fix** on Your Taste — stripped `wp-has-aspect-ratio` to kill Jetpack's phantom 438px spacer
 
 Authority-page evidence:
-- Source pack: [`../../content/source-packs/keynotes-2026/README.md`](../../content/source-packs/keynotes-2026/README.md)
-- Latest verification: [`../../content/source-packs/keynotes-2026/verification/IA-POLISH-CONTINUATION-VERIFICATION-2026-05-18.md`](../../content/source-packs/keynotes-2026/verification/IA-POLISH-CONTINUATION-VERIFICATION-2026-05-18.md)
+- Source pack: [`../../../content/source-packs/keynotes-2026/README.md`](../../../content/source-packs/keynotes-2026/README.md)
+- Latest verification: [`../../../content/source-packs/keynotes-2026/verification/IA-POLISH-CONTINUATION-VERIFICATION-2026-05-18.md`](../../../content/source-packs/keynotes-2026/verification/IA-POLISH-CONTINUATION-VERIFICATION-2026-05-18.md)
 - Latest rollback snapshots: `backup/20260518-223014/page-snapshots/` and `backup/20260518-224340/page-snapshots/`
 
 ### Track B — Aurora v2 redesign (lives on `aurora/v2`, pushed to origin)
@@ -74,7 +74,7 @@ What exists:
 
 ### Infrastructure / safety
 - **Backup ✓** — UpdraftPlus full backup on 2026-05-16 (db 4.7MB + plugins 62MB + themes 15MB + mu-plugins 52KB + others 1.5MB) in `backup/2026-05-16/` with SHA-256 manifest. Uploads 13GB skipped.
-- **Schema ✓** — Person, WebSite, Article, BreadcrumbList, Service JSON-LD all live via [`fixes/schema-snippets-deployed.php`](../../fixes/schema-snippets-deployed.php) (Code Snippet id 5)
+- **Schema ✓** — Person, WebSite, Article, BreadcrumbList, Service JSON-LD all live via [`fixes/schema-snippets-deployed.php`](../../../fixes/schema-snippets-deployed.php) (Code Snippet id 5)
 - **Connector ✓** — `scripts/notion-to-wp/kk_notion_to_wp.py` with hardened safety guards (slug-based idempotency, title-similarity check, CREATE default). Auto-link + em-dash purge baked in via `text_polish.py`
 - **Categorization ✓** — 102 recent posts in 9 real categories (was 99% Misc)
 
@@ -115,7 +115,7 @@ You need to look at it first. Then:
 - B2. Smoke-test every post type — long-form (Your Taste), embed-heavy (Make Culture with YouTube + gallery), photo-heavy (About), short (early Field Notes posts)
 - B3. Test plugin compatibility — Jetpack, Popup Maker, Site Kit, Redirection, Code Snippets all should work, but verify each. Schema mu-plugin is theme-agnostic so it should be fine.
 - B4. Recreate any Catch Responsive Customizer settings you depended on, as `theme.json` overrides or Additional CSS
-- B5. Production cutover plan: low-traffic Sunday morning Pacific, fresh backup immediately before, Catch Responsive stays installed-but-inactive for one-click rollback ([`ROLLBACK_PLAYBOOK.md`](ROLLBACK_PLAYBOOK.md) §A)
+- B5. Production cutover plan: low-traffic Sunday morning Pacific, fresh backup immediately before, Catch Responsive stays installed-but-inactive for one-click rollback ([`ROLLBACK_PLAYBOOK.md`](../ROLLBACK_PLAYBOOK.md) §A)
 
 **Tier 3 (production cutover):**
 - C1. Backup
@@ -211,7 +211,7 @@ These unblock specific items but aren't blockers for the bigger arcs:
 3. [`AGENT-SWARM-OPERATING-PLAN-2026-05-18.md`](AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) — current lanes for issue swarms, draft publishing, Aurora, and content/nav structure
 4. [`DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md`](DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md) — next-batch post packs and publisher checks
 5. [`AURORA-STAGING-REPORT-2026-05-18.md`](AURORA-STAGING-REPORT-2026-05-18.md) — Local Aurora smoke and current header/nav blocker
-6. [`TWO-TRACK-MODEL.md`](TWO-TRACK-MODEL.md) — how Track A vs Track B work
+6. [`TWO-TRACK-MODEL.md`](../TWO-TRACK-MODEL.md) — how Track A vs Track B work
 7. [`SITE-AUDIT-2026-05-16.md`](SITE-AUDIT-2026-05-16.md) — punch list (closed + open) with deep-inspect findings
 8. [`AURORA-MIGRATION-PLAN.md`](AURORA-MIGRATION-PLAN.md) — Track B's playbook (refreshed with rebase-first instructions)
 9. [`ROADMAP.md`](ROADMAP.md) — 3-month plan, partially executed (use as backlog reference)
@@ -221,8 +221,8 @@ These unblock specific items but aren't blockers for the bigger arcs:
 - [`TRAFFIC-DIAGNOSTIC-2026-05-15.md`](TRAFFIC-DIAGNOSTIC-2026-05-15.md) — why traffic is what it is + highest-leverage fixes
 - [`SEO_AUDIT.md`](SEO_AUDIT.md) + [`CONTENT_AUDIT.md`](CONTENT_AUDIT.md) — May 8 baseline (some items now resolved)
 - [`SITE_INVENTORY.md`](SITE_INVENTORY.md) — plugin/theme/page inventory
-- [`BACKUP_PLAN.md`](BACKUP_PLAN.md) + [`ROLLBACK_PLAYBOOK.md`](ROLLBACK_PLAYBOOK.md)
-- [`INCIDENT-2026-05-15-overwritten-post.md`](INCIDENT-2026-05-15-overwritten-post.md) — the connector incident postmortem
+- [`BACKUP_PLAN.md`](../BACKUP_PLAN.md) + [`ROLLBACK_PLAYBOOK.md`](../ROLLBACK_PLAYBOOK.md)
+- [`INCIDENT-2026-05-15-overwritten-post.md`](../INCIDENT-2026-05-15-overwritten-post.md) — the connector incident postmortem
 - [`FIX_QUEUE.md`](FIX_QUEUE.md) — older granular fix backlog
 
 **Working dirs:**

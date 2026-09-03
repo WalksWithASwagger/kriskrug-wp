@@ -2,7 +2,7 @@
 
 **Decision (KK, 2026-05-15):** "Migrate to staging (Cloudways dev) + iterate before going live."
 
-**Refresh note (2026-05-16):** This is Track B's owning doc per [`TWO-TRACK-MODEL.md`](TWO-TRACK-MODEL.md). The current Aurora branch (`origin/claude/setup-wordpress-rebuild-KVLxh`) has been **idle since 2026-01-18 — 4 months stale**. Its diff against `main` shows 142 files changed, 8,090 insertions, and **31,999 deletions** — it would erase `scripts/notion-to-wp/`, `docs/current-state/`, the connector, the incident postmortem, and the backup manifest if merged directly. **Do NOT merge as-is.**
+**Refresh note (2026-05-16):** This is Track B's owning doc per [`TWO-TRACK-MODEL.md`](../TWO-TRACK-MODEL.md). The current Aurora branch (`origin/claude/setup-wordpress-rebuild-KVLxh`) has been **idle since 2026-01-18 — 4 months stale**. Its diff against `main` shows 142 files changed, 8,090 insertions, and **31,999 deletions** — it would erase `scripts/notion-to-wp/`, `docs/current-state/`, the connector, the incident postmortem, and the backup manifest if merged directly. **Do NOT merge as-is.**
 
 The first Track B session must:
 1. Create a fresh `aurora/v2` branch from current `main`
@@ -47,7 +47,7 @@ Staging-first gives us a safe surface to validate the migration without putting 
 
 ## Staging server: Cloudways dev (24.144.80.107)
 
-Per [`docs/cloudways-setup.md`](../cloudways-setup.md):
+Per [`docs/cloudways-setup.md`](../../cloudways-setup.md):
 - Server IP: `24.144.80.107`
 - SSH user: `master_qcteaefabe` (per the setup doc)
 - Password OR SSH key auth (KK to confirm which is set up)
@@ -155,7 +155,7 @@ When the time comes for the live cutover (after staging is happy):
 3. **Activate** during a low-traffic window (Sunday morning Pacific is a safe bet)
 4. **Smoke test** — homepage, latest 3 posts, About, Contact, Services
 5. **Monitor for 24h** — Pagely's stats panel + GSC for crawl errors + KK's user reports
-6. **Roll back plan** — Catch Responsive stays installed (just not active). One click in wp-admin reverts. (Per [`ROLLBACK_PLAYBOOK.md`](ROLLBACK_PLAYBOOK.md) §A.)
+6. **Roll back plan** — Catch Responsive stays installed (just not active). One click in wp-admin reverts. (Per [`ROLLBACK_PLAYBOOK.md`](../ROLLBACK_PLAYBOOK.md) §A.)
 
 ---
 

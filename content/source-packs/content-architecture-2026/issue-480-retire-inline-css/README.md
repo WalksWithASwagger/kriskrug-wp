@@ -24,7 +24,7 @@ Confirmed with `GET https://kriskrug.co/wp-json/wp/v2/pages?slug=…&_fields=id,
 | `/photography/` | `photography` | 12013 | publish | 2026-07-24T17:23:03 | `photography.html` |
 | `/contact/` | `contact` | 2418 | publish | 2026-07-24T17:05:35 | `contact.html` |
 
-Before any PATCH: re-GET the slug, confirm exactly one page, confirm `id` matches this table, then snapshot that ID. Never PATCH on an unverified slug match ([incident 2026-05-15](../../../docs/current-state/INCIDENT-2026-05-15-overwritten-post.md)).
+Before any PATCH: re-GET the slug, confirm exactly one page, confirm `id` matches this table, then snapshot that ID. Never PATCH on an unverified slug match ([incident 2026-05-15](../../../../docs/current-state/INCIDENT-2026-05-15-overwritten-post.md)).
 
 ## What was stripped
 

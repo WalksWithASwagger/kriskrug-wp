@@ -1,6 +1,6 @@
 # Current State Snapshot - 2026-07-16
 
-> **STATUS: Historical.** Superseded by [`WORK-PLAN-2026-07-30.md`](WORK-PLAN-2026-07-30.md) + [`CURRENT-STATE-2026-07-30.md`](CURRENT-STATE-2026-07-30.md) + [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md).
+> **STATUS: Historical.** Superseded by [`WORK-PLAN-2026-07-30.md`](WORK-PLAN-2026-07-30.md) + [`CURRENT-STATE-2026-07-30.md`](../CURRENT-STATE-2026-07-30.md) + [`MASTER-PLAN-2026-07-30.md`](../MASTER-PLAN-2026-07-30.md).
 
 **Snapshot time:** 2026-07-19 (truth sync after deps cleanup + live WP 7.0.2).
 **Branch:** `main`
@@ -50,4 +50,4 @@ This file is the declared snapshot for `make current-state-drift-check` / `make 
 ## Stash / secrets notes
 
 - Cloud agents still need `scripts/notion-to-wp/.env` or injected `WP_USER` / `WP_APP_PASSWORD` (and optional `NOTION_TOKEN`).
-- Prefer the committed [`.env.schema`](../../.env.schema) as the agent-readable env contract; do not commit plaintext secrets. Rollout / vault / Cloud split: [`VARLOCK-ROLLOUT-2026-07-16.md`](VARLOCK-ROLLOUT-2026-07-16.md).
+- Prefer the committed [`.env.schema`](../../../.env.schema) as the agent-readable env contract; do not commit plaintext secrets. Rollout / vault / Cloud split: [`VARLOCK-ROLLOUT-2026-07-16.md`](../VARLOCK-ROLLOUT-2026-07-16.md).
