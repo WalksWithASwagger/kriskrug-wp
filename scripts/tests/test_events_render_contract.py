@@ -30,6 +30,7 @@ import render_events_page as render  # noqa: E402
 CARD_RE = re.compile(r'<article class="([^"]*aurora-event-card[^"]*)"')
 CARD_ID_RE = re.compile(r'data-event-id="([^"]*)"')
 CARD_END_RE = re.compile(r'data-event-end="([^"]*)"')
+ART_RE = re.compile(r'<figure class="[^"]*\baurora-event-art(?:\s|")')
 H3_RE = re.compile(r"<h3>(.*?)</h3>", re.DOTALL)
 
 
@@ -71,7 +72,7 @@ class LocalPathsNeverShip(unittest.TestCase):
             self.assertNotIn("file://", html)
             self.assertNotIn("/Users/", html)
             self.assertNotIn("<img", html)
-            self.assertIn("aurora-event-compact-media--empty", html)
+            self.assertIn("aurora-event-art--generated", html)
 
     def test_prefixed_local_path_emits_no_src_on_rich_card(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -81,7 +82,7 @@ class LocalPathsNeverShip(unittest.TestCase):
             self.assertNotIn("file://", html)
             self.assertNotIn("/Users/", html)
             self.assertNotIn("<img", html)
-            self.assertNotIn("<figure", html)
+            self.assertIn("aurora-event-art--generated", html)
 
     def test_absolute_local_path_emits_no_src(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -259,22 +260,29 @@ class Escaping(unittest.TestCase):
         self.assertEqual(alt, "Meetup floor (photo: Michelle Diamond)")
 
 
-class EmptyMedia(unittest.TestCase):
-    def test_compact_card_without_media_uses_the_empty_variant(self):
+class ArtworkFallback(unittest.TestCase):
+    def test_compact_card_without_media_uses_a_generated_poster(self):
         html = render.render_compact_card(event(image={}), roots_for(Path(".")))
-        self.assertIn(
-            '<div class="aurora-event-compact-media aurora-event-compact-media--empty"'
-            ' aria-hidden="true"></div>',
-            html,
-        )
+        self.assertIn("aurora-event-art--generated", html)
+        self.assertIn('role="img"', html)
         self.assertNotIn("<img", html)
-        self.assertNotIn("<figure", html)
+        self.assertIn("<figure", html)
 
-    def test_rich_card_without_media_emits_no_figure(self):
+    def test_rich_card_without_media_uses_a_generated_poster(self):
         html = render.render_rich_card(event(image={}), roots_for(Path(".")))
         self.assertNotIn("<img", html)
-        self.assertNotIn("<figure", html)
+        self.assertIn("aurora-event-art--generated", html)
+        self.assertIn("<figure", html)
         self.assertIn("aurora-proof-body", html)
+
+    def test_contain_fit_is_explicit_on_real_artwork(self):
+        ev = event(
+            image={"url": "https://kriskrug.co/logo.webp", "alt": "Logo"},
+            image_fit="contain",
+        )
+        html = render.render_rich_card(ev, roots_for(Path(".")))
+        self.assertIn("aurora-event-art--contain", html)
+        self.assertIn('src="https://kriskrug.co/logo.webp"', html)
 
     def test_compact_card_without_a_url_emits_no_link(self):
         html = render.render_compact_card(event(url=""), roots_for(Path(".")))
@@ -311,6 +319,17 @@ class RealCatalogSmoke(unittest.TestCase):
         withheld = {e["id"] for e in doc["events"]} - {e["id"] for e in publishable}
         for eid in withheld:
             self.assertNotIn(f'data-event-id="{eid}"', html)
+
+    def test_real_render_gives_every_dated_card_an_artboard(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            html = self.render_main(Path(tmp) / "events-2250.generated.html")
+        self.assertEqual(len(ART_RE.findall(html)), len(CARD_RE.findall(html)))
+
+    def test_real_render_includes_the_accessible_archive_toggle(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            html = self.render_main(Path(tmp) / "events-2250.generated.html")
+        self.assertIn('data-events-archive-toggle', html)
+        self.assertIn('aria-expanded="false"', html)
 
     def test_real_render_carries_no_local_paths(self):
         with tempfile.TemporaryDirectory() as tmp:
