@@ -19,41 +19,41 @@ Use this key throughout the deck:
 - **CURRENT booking route:** send media, keynote, workshop, and collaboration inquiries through [kriskrug.co/contact](https://kriskrug.co/contact/). The public pages ask for the audience, topic or goal, format, timing, location or platform, and useful prep links. `[C3]`
 - **CURRENT availability boundary:** the site invites inquiries but does not promise dates, travel, turnaround, or general remote/in-person media availability. The homepage says workshops can be remote or in person; do not generalize that line to every format. `[C4]`
 
-## PENDING #735: booking descriptor and bios
+## RULED #735: booking descriptor and bios
 
-This entire section depends on the remaining #735 decisions. It is complete as a decision packet, not an approved canon. Do not copy these role strings into a public payload until the issue has a dated final ruling.
+**KK ruled on 2026-09-03.** This section is now approved canon and may be used in public payloads.
 
-### What #735 has and has not decided
+### What #735 decided
 
 - **Settled:** display the person name as **Kris Krüg**. The repo schema retains the diacritic-free spelling only as an ASCII alternate. `[C1]`
-- **Still open:** choose the organization styling **BC + AI** or **BC+AI**. The reviewed landing pages and homepage currently use the spaced form, while #735 remains open and no dated final decision note was found. Use the placeholder `{BC_AI_NAME}` until the ruling lands. `[C5]`
-- **Still open:** choose one descriptor set. Current public and repo surfaces disagree. `[C6]`
+- **RULED 2026-09-03:** the organization styling is **BC + AI**, spaced. This ratifies what the homepage, About, and the live EPK already publish, so no public surface has to change. The `{BC_AI_NAME}` placeholder is retired. `[C5]`
+- **RULED 2026-09-03:** one descriptor set, the merged one-line descriptor below. The four competing candidates are kept underneath as history, not as alternatives to pick from. `[C6]`
 
-Current descriptor candidates:
+Superseded candidates, kept for provenance only:
 
 1. **Homepage:** “AI keynote speaker · Creative technologist · Community builder”
 2. **Current EPK:** “AI commentator, podcast guest, and event host”
 3. **About:** “photographer, creative technologist, community builder, speaker, and field-note person”
 4. **Schema job title:** “AI Keynote Speaker and Creative Technologist”
-5. **Shipped pattern:** “Executive Director {BC_AI_NAME} · Lead Curator, Futureproof Festival · Techartist & Culture Hacker”
+5. **Shipped pattern:** “Executive Director BC + AI · Lead Curator, Futureproof Festival · Techartist & Culture Hacker”
 
 ### One-line booking descriptor
 
-**PROPOSED:** Kris Krüg is an AI keynote speaker, creative technologist, photographer, community builder, and host who makes complicated technology human, useful, and alive. `[C6][C7]`
+**APPROVED 2026-09-03:** Kris Krüg is an AI keynote speaker, creative technologist, photographer, community builder, and host who makes complicated technology human, useful, and alive. `[C6][C7]`
 
 Five-second test: it says who Kris is, what he does for a room, and why a producer would bring him in.
 
 ### 25-word bio
 
-**PROPOSED, 25 words:** Kris Krüg is an AI keynote speaker, creative technologist, photographer, community builder, and host who makes complicated technology human, useful, practical, and alive for audiences. `[C6][C7]`
+**APPROVED 2026-09-03, 25 words:** Kris Krüg is an AI keynote speaker, creative technologist, photographer, community builder, and host who makes complicated technology human, useful, practical, and alive for audiences. `[C6][C7]`
 
 ### 75-word bio
 
-**PROPOSED, 75 words:** Kris Krüg is an AI keynote speaker, creative technologist, photographer, community builder, and host. He helps audiences understand fast-moving AI tools without flattening the creative, ethical, and political questions that make them matter. His talks and conversations mix field stories, practical workflows, live demos, cultural critique, and good friction about authorship, labor, trust, consent, taste, and power. Bring him in when the room needs clear language, honest tension, and a useful question underneath the hype. `[C6][C7][C8]`
+**APPROVED 2026-09-03, 75 words:** Kris Krüg is an AI keynote speaker, creative technologist, photographer, community builder, and host. He helps audiences understand fast-moving AI tools without flattening the creative, ethical, and political questions that make them matter. His talks and conversations mix field stories, practical workflows, live demos, cultural critique, and good friction about authorship, labor, trust, consent, taste, and power. Bring him in when the room needs clear language, honest tension, and a useful question underneath the hype. `[C6][C7][C8]`
 
 ### 150-word bio
 
-**PROPOSED, 150 words:** Kris Krüg is an AI keynote speaker, creative technologist, photographer, community builder, and host. He helps audiences understand fast-moving AI tools without flattening the creative, ethical, and political questions that make them matter. His talks and conversations mix field stories, practical workflows, live demos, cultural critique, and good friction about authorship, labor, trust, consent, taste, and power. Bring him in when the room needs clear language, honest tension, and a useful question underneath the hype. Across keynotes, workshops, interviews, commentary, hosting, and moderation, he connects generative AI to creative practice, responsible deployment, community infrastructure, and the human judgment behind the tools. His public work spans two decades of documenting technology, art, activism, conferences, and communities, alongside current rooms built around AI literacy and public conversation. Producers can expect warmth, curiosity, sharp cultural analysis, real examples, and enough weirdness to keep the exchange from sounding like a press release on air. `[C6][C7][C8][C9]`
+**APPROVED 2026-09-03, 150 words:** Kris Krüg is an AI keynote speaker, creative technologist, photographer, community builder, and host. He helps audiences understand fast-moving AI tools without flattening the creative, ethical, and political questions that make them matter. His talks and conversations mix field stories, practical workflows, live demos, cultural critique, and good friction about authorship, labor, trust, consent, taste, and power. Bring him in when the room needs clear language, honest tension, and a useful question underneath the hype. Across keynotes, workshops, interviews, commentary, hosting, and moderation, he connects generative AI to creative practice, responsible deployment, community infrastructure, and the human judgment behind the tools. His public work spans two decades of documenting technology, art, activism, conferences, and communities, alongside current rooms built around AI literacy and public conversation. Producers can expect warmth, curiosity, sharp cultural analysis, real examples, and enough weirdness to keep the exchange from sounding like a press release on air. `[C6][C7][C8][C9]`
 
 ## Formats
 
@@ -111,7 +111,7 @@ Use these as direction for copy, interviews, and design. They describe the curre
 
 These project URLs are linked from the current homepage or Speaking page. `[C12]`
 
-- `{BC_AI_NAME}`: <https://bc-ai.ca/>. Keep the placeholder until #735 closes.
+- BC + AI: <https://bc-ai.ca/>. Styling ruled 2026-09-03.
 - Vancouver AI: <https://vancouver.ai/>
 - Futureproof Festival: <https://www.futureproof.website/>
 - Both Hands Full: <https://www.bothhandsfull.com/>
@@ -125,9 +125,9 @@ Do not substitute a private email, phone number, calendar URL, or unpublished bo
 
 **PROPOSED:** Today I am joined by Kris Krüg. We are talking about [topic], [specific tension], and what people can actually do next. Kris, welcome.
 
-### Full introduction, blocked on #735
+### Full introduction, unblocked 2026-09-03
 
-**PENDING:** Today I am joined by Kris Krüg, [paste the approved one-line descriptor]. We are talking about [topic], [specific tension], and what people can actually do next. Kris, welcome.
+**APPROVED:** Today I am joined by Kris Krüg, [paste the approved one-line descriptor]. We are talking about [topic], [specific tension], and what people can actually do next. Kris, welcome.
 
 Do not improvise an award, client list, audience size, superlative, current title, or availability claim into either introduction.
 
@@ -161,12 +161,12 @@ Keep the credit attached wherever the image travels. Do not write “courtesy of
 1. Prefer the current public EPK, About, Speaking, Homepage, and Contact pages for wording and public facts.
 2. Use `content/source-packs/content-architecture-2026/wp-payloads/` as the canonical repo source chain, while remembering that public readback is production truth.
 3. Use `content/source-packs/keynotes-2026/wp-payloads/podcast-guesting-page-epk.html` only as evidence and an idea bank. It contains broader availability and media claims that are intentionally not promoted here.
-4. Let #735 control the unresolved organization spacing and descriptor set. This deck records the conflict; it does not settle it.
+4. #735 ruled the organization spacing and descriptor set on 2026-09-03. This deck records that ruling.
 5. Let the issue #878 asset manifest control image rights and final credit language. This deck supplies only the template.
 
 ## Producer handoff checklist
 
-- Replace no `{...}` placeholder until its source decision is recorded.
+- No `{...}` placeholder remains; #735 retired the last one on 2026-09-03.
 - Confirm pronunciation and location directly with Kris before adding either to public copy.
 - Choose one approved bio length; do not splice descriptors from different versions.
 - Keep the public contact route instead of publishing private contact or calendar details.

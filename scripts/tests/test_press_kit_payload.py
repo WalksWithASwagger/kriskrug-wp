@@ -182,7 +182,13 @@ def check_booking_ctas(html):
 
 
 def check_copy_deck(text):
-    """Required sections, and #735 still visibly unresolved."""
+    """Required sections, the #735 ruling recorded, and remaining gates still marked.
+
+    #735 was ruled on 2026-09-03, so the contract flipped from "the open
+    choices must stay marked" to "the ruling must stay recorded and its
+    placeholder must not come back". Pronunciation and location are separate
+    PENDING items and are still open.
+    """
     problems = []
     for heading in (
         "## Identity, pronunciation, location, and availability",
@@ -194,10 +200,15 @@ def check_copy_deck(text):
     ):
         if heading not in text:
             problems.append(f"copy deck missing section: {heading}")
-    if "PENDING" not in text:
-        problems.append("copy deck no longer marks any PENDING item")
-    if "Still open" not in text:
-        problems.append("copy deck no longer marks the open #735 choices")
+    if "PENDING pronunciation" not in text or "PENDING location" not in text:
+        problems.append("copy deck stopped marking pronunciation/location as pending")
+    if "RULED 2026-09-03" not in text:
+        problems.append("copy deck no longer records the #735 ruling")
+    if "Still open" in text:
+        problems.append("copy deck still marks a #735 choice open after the ruling")
+    # The placeholder may only survive in the line that retires it.
+    if text.count("{BC_AI_NAME}") > 1:
+        problems.append("retired {BC_AI_NAME} placeholder reintroduced")
     return problems
 
 
