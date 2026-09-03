@@ -1,0 +1,13 @@
+{
+  "deployed_at_utc": "20260903T174920Z",
+  "issues": ["#767", "#331"],
+  "snippets_created": [
+    {"id": 24, "name": "KK 767: restrict unauthenticated REST users", "scope": "global", "source": "fixes/issue-767-hide-rest-users.php"},
+    {"id": 25, "name": "KK 767: disable author enumeration probes", "scope": "front-end", "source": "fixes/issue-767-disable-author-probes.php"},
+    {"id": 26, "name": "KK 331 v2: archive sitemap + indexability policy", "scope": "front-end", "source": "fixes/issue-331-archive-sitemap-policy-v2.php"}
+  ],
+  "before_snapshot": "backup/20260903T174920Z-767-331-snippets/snippets-before.json",
+  "after_snapshot": "backup/20260903T174920Z-767-331-snippets/snippets-after.json",
+  "rollback": "Set active=false on snippet ids 24, 25, 26 via POST /wp-json/code-snippets/v1/snippets/{id} with {\"active\": false}. No snippet existed before this deploy, so deactivating all three restores the prior state exactly. Then purge the Pagely gateway cache and re-run scripts/check_user_enumeration.sh.",
+  "not_deployed": "fixes/issue-767-hide-user-sitemap.php stays unused: #331 v2 already drops the users sitemap provider, and the apply doc forbids running both paths."
+}
