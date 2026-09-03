@@ -4,28 +4,29 @@ Source: Plaud recording `e81c575b836fe1af345a1a0994027e30`, 2026-09-02
 13:05 PT, 59 minutes. Speakers, the moderator, and the questioners were
 identified from the recording and the events catalog.
 
-## Open items KK must rule on before publish
+## KK rulings, 2026-09-03
 
-1. **"Site C took thirty years."** The transcript renders this as "Sycam was
-   thirty years from the." I read it as Site C, which fits the copper-mine
-   lead-times point it answers, but it is my inference and not what the
-   transcript literally says. Confirm, correct, or cut the clause.
+1. **Site C: not ruled, so the claim is gone.** KK answered the anonymity question
+   but not this one. Rather than publish an inference as fact, the clause now reads
+   "a copper mine takes fifteen years to spool up. Big energy builds take longer
+   still." The point survives; the unverified specific does not.
 
-2. **BC + AI membership number.** The recording says "about three hundred and
-   five members." The figure ruled on in August 2026 was 300. The draft says
-   "about three hundred members," which is true under either. Confirm that is
-   the number to publish.
+2. **Membership: left as "about three hundred."** Also not ruled. The draft's wording
+   is true under both the recording's 305 and the August ruling of 300, so it needs no
+   decision. If KK wants the exact figure it is a one-word edit.
 
-3. **Attribution of the two questioners.** The draft describes them by what
-   they said, not by name: "a founder pushed back properly" and "somebody else
-   in the room, who lives in Accra." Neither consented to being named in a
-   public post. Keep them anonymous unless KK has their okay.
+3. **Questioners stay anonymous. RULED: yes.** Confirmed in the draft: the only people
+   named are Joel Hansen, who hosted, and Praveen Varshney, the other billed guest.
+   Both are public participants. Neither questioner is identifiable.
 
-4. **Praveen's material is almost entirely absent.** He talked about iPop, the
-   Verifiction deepfake investment, Mount Baldy, and his asset-light investment
-   thesis. The draft is a first-person account of what KK showed and argued, so
-   it credits him as a foil rather than summarizing his half. If KK wants a
-   two-hander instead, that is a rewrite, not an edit.
+4. **Praveen's half is still absent by design.** Unchanged: this is a first-person
+   account of what KK showed and argued. Making it a two-hander is a rewrite.
+
+## Photo credit
+
+**RULED 2026-09-03: no credit.** Media 12742 ships with no photographer line. Its
+WordPress description records that this was KK's explicit decision rather than an
+oversight, so a later session does not "fix" it by inventing an attribution.
 
 ## Deliberately left out
 
