@@ -1,12 +1,40 @@
+---
+title: What I actually showed a room of founders about AI workflows
+slug: what-i-showed-founders-about-ai-workflows
+post_date: '2026-09-03'
+status: draft
+post_type: post
+author_wp_id: 1
+categories:
+- Events & Reports
+- Vancouver AI Ecosystem
+tags:
+- AI workflows
+- AI agents
+- GitHub
+- BC + AI
+- North House
+- League of Innovators
+- Futureproof
+- Data centres
+- AI policy
+featured: true
+featured_media_id: 12742
+excerpt: 'Joel Hansen put me in front of the League of Innovators and North House founder cohorts for an hour. I skipped the panel and showed them the thing I actually do every day, then the room pushed back hard on whether any of it reaches the real economy before the robots do.'
+seo:
+  meta_title: 'What I showed a room of founders about AI workflows | Kris Krug'
+  meta_description: 'A GitHub-first agent workflow, a public policy report built in 75 minutes, and the argument for a federal AI centre in BC. Notes from the North House Show and Tell.'
+---
+
 # What I actually showed a room of founders about AI workflows
 
-Joel Hansen put me and Praveen Varshney in front of the League of Innovators and North House founder cohorts last Wednesday. An hour, a picnic table, and a room that had clearly sat through enough AI panels to be suspicious of another one.
+Joel Hansen put me and Praveen Varshney in front of the League of Innovators and North House founder cohorts yesterday. An hour, a picnic table, and a room that had clearly sat through enough AI panels to be suspicious of another one.
 
 So I did not do the panel. I opened a laptop and showed them the thing I actually do every day.
 
 ## The whole workflow is one habit
 
-I do not start anything anymore without starting a GitHub repo.
+> I do not start anything anymore without starting a GitHub repo.
 
 That is the entire trick. New assignment, new project, any discrete chunk of work: step one is a repo. Then I go to Claude and say here is the brief, let us set up a project for this. Now the thing has a home, it is backed up, I can roll it back, and every agent I point at it knows where to look.
 
@@ -44,7 +72,7 @@ Meanwhile the province capped data centre power at one hundred and fifty megawat
 
 So the honest options are: buy our tokens from Alberta, buy them from Silicon Valley, or build here in a way that fits our values. I want the third one. Clean, green hydropower data centres, and if a chunk of that compute is going to national defence and Telus, then some of it flows back to schools and communities. We want to be part of the bargain, not a business tech ghetto.
 
-That is why the BC + AI Ecosystem Association exists. One year old, about three hundred members. Coming together is how you get a phone call returned.
+That is why the [BC + AI Ecosystem Association](https://bc-ai.ca/) exists. One year old, about three hundred members. Coming together is how you get a phone call returned. The [rooms we run](https://kriskrug.co/events/) are the whole mechanism.
 
 ## The best question was the skeptical one
 
@@ -58,11 +86,11 @@ You cannot agent your way around a copper mine.
 
 ## The thing I keep thinking about
 
-That same guy said something that stuck. He lives in Ghana now. He said nobody there is a doomer. It does not matter what age you are, there is no debate about whether AI is good or bad. It is happening, it is good, and the question is how to be part of it. Super intelligence works the same in Accra as it does in Vancouver.
+That same guy said something that stuck. Nobody where he lives is a doomer. It does not matter what age you are, there is no debate about whether AI is good or bad. It is happening, it is good, and the question is how to be part of it. Super intelligence works the same in Accra as it does in Vancouver.
 
 Then he comes here and finds us tearing each other apart about it.
 
-I do not think that means they are right and we are wrong. Central planning buys speed and costs something else, and I would rather argue in public than be pointed in a direction five years at a time. But it is worth noticing that the divisiveness is ours. It is a choice we are making, not a property of the technology.
+I do not think that means they are right and we are wrong. Central planning buys speed and costs something else, and I would rather argue in public than be pointed in a direction five years at a time. But it is worth noticing that the divisiveness is ours. It is a choice we are making, not a property of the technology. I have [written about that before](https://kriskrug.co/2026/08/10/keep-the-machine-strange/).
 
 ## One challenge to take home
 
