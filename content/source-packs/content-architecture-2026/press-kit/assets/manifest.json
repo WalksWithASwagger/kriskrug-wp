@@ -1,405 +1,417 @@
 {
-  "schema_version": 1,
-  "reviewed_at": "2026-08-22",
-  "scope": "Press Kit v2 asset candidates for KrisKrug.co",
-  "availability_rule": "Only entries with status approved may expose public_download_url or be offered as press-kit downloads.",
-  "status_definitions": {
-    "approved": "Rights, reuse scope, source, and public download are documented.",
-    "candidate": "A plausible brand asset that still needs a selection or provenance decision.",
-    "blocked-rights": "A file exists, but the documented reuse scope does not permit a public press download.",
-    "missing": "A required variant or source file was not found."
-  },
-  "summary": {
-    "approved_downloads": 0,
-    "candidate": 1,
-    "blocked_rights": 7,
-    "missing": 4,
-    "integration_state": "No download buttons are safe to render until KK and the relevant creator confirm press-download reuse."
-  },
-  "assets": [
-    {
-      "key": "aurora-wordmark-raster",
-      "kind": "logo",
-      "title": "Current Aurora Kris Krüg wordmark",
-      "status": "candidate",
-      "source_path": "theme/kk-aurora/assets/img/kriskrug-wordmark.png",
-      "wordpress_media_id": null,
-      "public_source_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/img/kriskrug-wordmark.png",
-      "format": "PNG",
-      "width": 468,
-      "height": 229,
-      "aspect_ratio": "468:229",
-      "file_size_bytes": 63437,
-      "sha256": "76e3cd35f9b0c91c11b4009068ba30fcc67462d87711f88c2f6509b9844367d4",
-      "owner": "Kris Krüg / KrisKrug.co controls this brand asset; authorship of the underlying lettering is not independently recorded.",
-      "credit": "Courtesy KrisKrug.co.",
-      "reuse_terms": "Public press download is not yet cleared. KK must confirm editorial-use terms and that the Canva-derived export may be redistributed.",
-      "rights_evidence": "Commit 8530a10, authored and committed by Kris Krüg, added this Canva-derived file as the official Aurora header wordmark. That proves site use, not a broader redistribution license.",
-      "alt": "Kris Krüg wordmark in pastel rainbow brush script",
-      "decorative": false,
-      "intended_use": [
-        "logo-light",
-        "logo-dark",
-        "press-kit-preview"
-      ],
-      "review_decision": "replace",
-      "notes": [
-        "Keep as the current visual reference, but source the master vector before offering downloads.",
-        "No separate light-background, dark-background, monochrome, or print-ready variant is documented.",
-        "The PNG has transparency, but its 468 by 229 raster size is not a durable press master."
-      ]
+    "schema_version": 1,
+    "reviewed_at": "2026-09-02",
+    "scope": "Press Kit v2 asset candidates for KrisKrug.co",
+    "availability_rule": "Only entries with status approved may expose public_download_url or be offered as press-kit downloads.",
+    "status_definitions": {
+        "approved": "Rights, reuse scope, source, and public download are documented.",
+        "candidate": "A plausible brand asset that still needs a selection or provenance decision.",
+        "blocked-rights": "A file exists, but the documented reuse scope does not permit a public press download.",
+        "missing": "A required variant or source file was not found."
     },
-    {
-      "key": "current-epk-portrait-5113",
-      "kind": "photograph",
-      "title": "Current EPK portrait",
-      "status": "blocked-rights",
-      "source_path": null,
-      "wordpress_media_id": 5113,
-      "wordpress_rest_url": "https://kriskrug.co/wp-json/wp/v2/media/5113",
-      "public_source_url": "https://kriskrug.co/wp-content/uploads/2024/03/krug-1.webp",
-      "format": "WebP",
-      "width": 1024,
-      "height": 935,
-      "aspect_ratio": "1024:935",
-      "file_size_bytes": 81796,
-      "owner": "Unknown; the public WordPress record names no creator or copyright holder.",
-      "credit": "Not documented.",
-      "reuse_terms": "No public download or republication permission was found.",
-      "rights_evidence": "The public media 5113 record has empty credit and copyright metadata. The existing EPK and alt inventory prove site use only.",
-      "alt": "Close portrait of Kris Krüg looking toward the camera",
-      "decorative": false,
-      "intended_use": [
-        "headshot",
-        "current-epk-reference"
-      ],
-      "review_decision": "replace",
-      "notes": [
-        "Replace with the 2026 CreativeMornings close portrait after its press-download permission is confirmed.",
-        "A higher-resolution owned source and photographer credit are not documented."
-      ]
+    "summary": {
+        "approved_downloads": 4,
+        "candidate": 0,
+        "blocked_rights": 4,
+        "missing": 4,
+        "integration_state": "KK confirmed press-download permission and consent on 2026-09-02 for the four assets the 2026-08-22 review marked to proceed. Those four may render as downloads. Assets the review marked omit stay excluded on editorial grounds, and missing assets have no file to offer."
     },
-    {
-      "key": "current-epk-speaking-6847",
-      "kind": "photograph",
-      "title": "Current EPK meetup image",
-      "status": "blocked-rights",
-      "source_path": null,
-      "wordpress_media_id": 6847,
-      "wordpress_rest_url": "https://kriskrug.co/wp-json/wp/v2/media/6847",
-      "public_source_url": "https://kriskrug.co/wp-content/uploads/2024/09/AI_Meetup_August2024_MichelleDiamond-195-scaled.jpg",
-      "format": "JPEG",
-      "width": 2560,
-      "height": 1707,
-      "aspect_ratio": "2560:1707",
-      "file_size_bytes": 720754,
-      "owner": "Michelle Diamond, based on the embedded WordPress credit and copyright fields.",
-      "credit": "Photo: Michelle Diamond.",
-      "reuse_terms": "No public press-download permission is on file.",
-      "rights_evidence": "The public media 6847 record identifies michellediamond in credit and copyright fields. The repository photography audit says reuse is assumed, not documented.",
-      "alt": "Two men laughing at the August 2024 Vancouver AI Meetup, one holding a microphone and phone",
-      "decorative": false,
-      "intended_use": [
-        "current-epk-reference",
-        "event-ambience"
-      ],
-      "review_decision": "omit",
-      "notes": [
-        "The verified photography inventory states that Kris Krüg is not in this image.",
-        "Do not describe or reuse it as Kris speaking, hosting, or on stage."
-      ]
-    },
-    {
-      "key": "creativemornings-close-portrait-12627",
-      "kind": "photograph",
-      "title": "CreativeMornings close portrait",
-      "status": "blocked-rights",
-      "source_path": "content/source-packs/site-photography-2026/assets/kris-krug-creativemornings-portrait-close-2026.jpg",
-      "wordpress_media_id": 12627,
-      "wordpress_rest_url": "https://kriskrug.co/wp-json/wp/v2/media/12627",
-      "public_source_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-close-2026-scaled.jpg",
-      "format": "JPEG",
-      "width": 2048,
-      "height": 3072,
-      "aspect_ratio": "2:3",
-      "file_size_bytes": 753725,
-      "sha256": "5a47f67519fd6c3eccbea34c7abeb716a1fcce288a74b14a5390577e13ebc61a",
-      "wordpress_variant": {
-        "width": 1707,
-        "height": 2560,
-        "file_size_bytes": 439233
-      },
-      "owner": "Michelle Diamond, as named in embedded creator and copyright fields.",
-      "credit": "Photo: Michelle Diamond.",
-      "reuse_terms": "Approved for use on kriskrug.co only. Confirm public press-download and editorial republication scope with Michelle Diamond.",
-      "rights_evidence": "content/source-packs/site-photography-2026/media-manifest.json records a user-supplied file approved for kriskrug.co and embedded Michelle Diamond creator, by-line, copyright, and rights fields; it explicitly disclaims a broader public license.",
-      "alt": "Portrait of Kris Krüg in a white shirt beside a brightly painted staircase",
-      "decorative": false,
-      "intended_use": [
-        "headshot",
-        "speaker-profile",
-        "author-bio"
-      ],
-      "review_decision": "approve",
-      "notes": [
-        "Preferred replacement for the current EPK portrait once the reuse gate is closed.",
-        "Supports portrait, square, and 4:5 crops while retaining the painted staircase."
-      ]
-    },
-    {
-      "key": "creativemornings-staircase-portrait-12628",
-      "kind": "photograph",
-      "title": "CreativeMornings full staircase portrait",
-      "status": "blocked-rights",
-      "source_path": "content/source-packs/site-photography-2026/assets/kris-krug-creativemornings-portrait-staircase-2026.jpg",
-      "wordpress_media_id": 12628,
-      "wordpress_rest_url": "https://kriskrug.co/wp-json/wp/v2/media/12628",
-      "public_source_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-staircase-2026-scaled.jpg",
-      "format": "JPEG",
-      "width": 2048,
-      "height": 3072,
-      "aspect_ratio": "2:3",
-      "file_size_bytes": 949888,
-      "sha256": "df5d55b99e3e8652ebc836bedb1382924a1c8a75e67b179023de0f6ecded915e",
-      "wordpress_variant": {
-        "width": 1707,
-        "height": 2560,
-        "file_size_bytes": 541133
-      },
-      "owner": "Michelle Diamond, as named in embedded creator and copyright fields.",
-      "credit": "Photo: Michelle Diamond.",
-      "reuse_terms": "Approved for use on kriskrug.co only. Confirm public press-download and editorial republication scope with Michelle Diamond.",
-      "rights_evidence": "content/source-packs/site-photography-2026/media-manifest.json records a user-supplied file approved for kriskrug.co and embedded Michelle Diamond creator, by-line, copyright, and rights fields; it explicitly disclaims a broader public license.",
-      "alt": "Kris Krüg smiling beside a colourful geometric staircase in a white shirt and sunflower trousers",
-      "decorative": false,
-      "intended_use": [
-        "editorial-mood",
-        "personality-portrait",
-        "full-length-profile"
-      ],
-      "review_decision": "approve",
-      "notes": [
-        "Strong personality-led companion to the close portrait once the reuse gate is closed.",
-        "Do not claim that it shows the keynote in progress."
-      ]
-    },
-    {
-      "key": "power-50-portrait-12626",
-      "kind": "photograph",
-      "title": "Vancouver Magazine Power 50 portrait",
-      "status": "blocked-rights",
-      "source_path": "content/source-packs/site-photography-2026/assets/kris-krug-vancouver-magazine-power-50-2026.jpg",
-      "wordpress_media_id": 12626,
-      "wordpress_rest_url": "https://kriskrug.co/wp-json/wp/v2/media/12626",
-      "public_source_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-vancouver-magazine-power-50-2026.jpg",
-      "format": "JPEG",
-      "width": 682,
-      "height": 1023,
-      "aspect_ratio": "2:3",
-      "file_size_bytes": 111325,
-      "sha256": "caa3f86200d9c09cecac7fe6e01e13e51da267a2c6feeed16875fe9443006b9c",
-      "owner": "Mark Kinskofer / Vision Event Photography, based on embedded by-line and event credit evidence.",
-      "credit": "Photo: Mark Kinskofer / Vision Event Photography.",
-      "reuse_terms": "Approved for use on kriskrug.co only. No broader public license is asserted; Vancouver Magazine asks sharers to tag the magazine and Vision Event Photography.",
-      "rights_evidence": "content/source-packs/site-photography-2026/media-manifest.json records the embedded creator and the narrow site-use approval.",
-      "alt": "Kris Krüg in a black tuxedo holding his Vancouver Magazine 2026 Power 50 award",
-      "decorative": false,
-      "intended_use": [
-        "recognition",
-        "press-context"
-      ],
-      "review_decision": "omit",
-      "notes": [
-        "Keep on-site for recognition context; do not distribute as a general brand headshot without broader permission.",
-        "The supplied 682 by 1023 file is not a high-resolution press master."
-      ]
-    },
-    {
-      "key": "van-ai-portrait-12629",
-      "kind": "photograph",
-      "title": "VAN-AI community portrait",
-      "status": "blocked-rights",
-      "source_path": "content/source-packs/site-photography-2026/assets/kris-krug-van-ai-portrait-2025.jpg",
-      "wordpress_media_id": 12629,
-      "wordpress_rest_url": "https://kriskrug.co/wp-json/wp/v2/media/12629",
-      "public_source_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-van-ai-portrait-2025.jpg",
-      "format": "JPEG",
-      "width": 1220,
-      "height": 1831,
-      "aspect_ratio": "1220:1831",
-      "file_size_bytes": 282611,
-      "sha256": "cb269ebc55303f591ac1641717ecbd9d6ed2786b2fe0f11f2a445fbf33991e8a",
-      "owner": "Michelle Diamond, as named in embedded creator and copyright fields.",
-      "credit": "Photo: Michelle Diamond.",
-      "reuse_terms": "Approved for use on kriskrug.co only. Confirm public press-download and editorial republication scope with Michelle Diamond.",
-      "rights_evidence": "content/source-packs/site-photography-2026/media-manifest.json records a user-supplied file approved for kriskrug.co and embedded Michelle Diamond creator, copyright, and rights fields; it explicitly disclaims a broader public license.",
-      "alt": "Kris Krüg smiling with arms crossed, wearing teal glasses, a cap, and a VAN-AI shirt",
-      "decorative": false,
-      "intended_use": [
-        "community-context",
-        "organizer-profile"
-      ],
-      "review_decision": "omit",
-      "notes": [
-        "Useful in BC + AI or Vancouver AI context, but the shirt mark narrows its value as a general Kris brand download.",
-        "Do not claim that it shows Kris hosting an event."
-      ]
-    },
-    {
-      "key": "vancouver-ai-meetup-30-stage",
-      "kind": "photograph",
-      "title": "Kris hosting Vancouver AI Meetup 30",
-      "status": "blocked-rights",
-      "source_path": "theme/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community.jpg",
-      "wordpress_media_id": null,
-      "public_source_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community.jpg",
-      "format": "JPEG",
-      "width": 1600,
-      "height": 1066,
-      "aspect_ratio": "800:533",
-      "file_size_bytes": 231674,
-      "sha256": "86934e9268e7cb6e1ecc7df95bd502006cafb73e038676f9aacba59f3aef0714",
-      "owner": "Michelle Diamond; the repository frame match identifies her as creator, but the theme copy has stripped metadata.",
-      "credit": "Photo: Michelle Diamond, Diamond's Edge Photography.",
-      "reuse_terms": "KK approved site use. Public press-download scope from Michelle Diamond is not on file.",
-      "rights_evidence": "content/source-packs/site-photography-2026/speaking-stage-manifest.json records KK's site-use approval, the exact frame match to Michelle Diamond's BC + AI source, and the missing broader reuse confirmation.",
-      "alt": "Kris Krüg speaking on stage as dozens of audience members raise their hands in the H.R. MacMillan Space Centre planetarium",
-      "decorative": false,
-      "intended_use": [
-        "stage",
-        "community-host",
-        "speaking-proof"
-      ],
-      "review_decision": "approve",
-      "notes": [
-        "Preferred stage image after Michelle Diamond confirms public press-download reuse.",
-        "The file is adequate for a web preview but not a high-resolution print download; request the original frame.",
-        "Use for community-host context, not as proof of a paid keynote."
-      ]
-    },
-    {
-      "key": "wordmark-vector-master",
-      "kind": "logo",
-      "title": "Kris Krüg vector wordmark master",
-      "status": "missing",
-      "source_path": null,
-      "wordpress_media_id": null,
-      "format": "SVG or PDF vector",
-      "width": null,
-      "height": null,
-      "aspect_ratio": null,
-      "file_size_bytes": null,
-      "owner": "Unconfirmed until the master file is supplied.",
-      "credit": "Not documented.",
-      "reuse_terms": "None documented.",
-      "rights_evidence": "No vector master or redistribution record was found in the repository.",
-      "alt": "Kris Krüg vector wordmark",
-      "decorative": false,
-      "intended_use": [
-        "logo-light",
-        "logo-dark",
-        "print"
-      ],
-      "review_decision": "replace",
-      "notes": [
-        "Supply the source vector and record its creator, ownership, export origin, and editorial reuse rules."
-      ]
-    },
-    {
-      "key": "wordmark-light-background-variant",
-      "kind": "logo",
-      "title": "Wordmark variant for light backgrounds",
-      "status": "missing",
-      "source_path": null,
-      "wordpress_media_id": null,
-      "format": "SVG and transparent PNG",
-      "width": null,
-      "height": null,
-      "aspect_ratio": null,
-      "file_size_bytes": null,
-      "owner": "Unconfirmed until an authorized master is supplied.",
-      "credit": "Not documented.",
-      "reuse_terms": "None documented.",
-      "rights_evidence": "No dedicated light-background variant was found in the repository.",
-      "alt": "Kris Krüg wordmark for light backgrounds",
-      "decorative": false,
-      "intended_use": [
-        "logo-light"
-      ],
-      "review_decision": "replace",
-      "notes": [
-        "Do not derive this silently from the raster wordmark; obtain an authorized source asset."
-      ]
-    },
-    {
-      "key": "wordmark-dark-background-variant",
-      "kind": "logo",
-      "title": "Wordmark variant for dark backgrounds",
-      "status": "missing",
-      "source_path": null,
-      "wordpress_media_id": null,
-      "format": "SVG and transparent PNG",
-      "width": null,
-      "height": null,
-      "aspect_ratio": null,
-      "file_size_bytes": null,
-      "owner": "Unconfirmed until an authorized master is supplied.",
-      "credit": "Not documented.",
-      "reuse_terms": "None documented.",
-      "rights_evidence": "No dedicated dark-background variant was found in the repository.",
-      "alt": "Kris Krüg wordmark for dark backgrounds",
-      "decorative": false,
-      "intended_use": [
-        "logo-dark"
-      ],
-      "review_decision": "replace",
-      "notes": [
-        "Do not derive this silently from the raster wordmark; obtain an authorized source asset."
-      ]
-    },
-    {
-      "key": "stage-high-resolution-original",
-      "kind": "photograph",
-      "title": "High-resolution stage-action original",
-      "status": "missing",
-      "source_path": null,
-      "wordpress_media_id": null,
-      "format": "High-resolution JPEG or TIFF",
-      "width": null,
-      "height": null,
-      "aspect_ratio": "3:2 preferred",
-      "file_size_bytes": null,
-      "owner": "Expected creator: Michelle Diamond; confirm against the supplied original.",
-      "credit": "Photo: Michelle Diamond, Diamond's Edge Photography, if the requested original is the verified Meetup 30 frame.",
-      "reuse_terms": "None documented for a public press download.",
-      "rights_evidence": "The repository contains only a 1600 by 1066 site-use copy and explicitly records that the original and broader reuse scope must be requested.",
-      "alt": "Kris Krüg speaking on stage to an engaged audience",
-      "decorative": false,
-      "intended_use": [
-        "stage",
-        "print",
-        "high-resolution-download"
-      ],
-      "review_decision": "replace",
-      "notes": [
-        "Request the original Meetup 30 frame with explicit editorial and public-download permission, or source another owned high-resolution stage image."
-      ]
-    }
-  ],
-  "excluded_collections": [
-    {
-      "key": "publication-clippings-and-outlet-screenshots",
-      "kind": "third-party-press-context",
-      "status": "blocked-rights",
-      "review_decision": "omit",
-      "source_paths": [
-        "content/source-packs/keynotes-2026/assets/publications-press-media.md",
-        "content/source-packs/keynotes-2026/assets/press-media-manifest.json"
-      ],
-      "owner": "The named publishers, photographers, podcast producers, and other third-party creators.",
-      "reuse_terms": "Contextual use on the Publications page does not grant redistribution as Kris brand photography.",
-      "rights_evidence": "The source notes explicitly warn that screenshots contain copyrighted material and require separate editorial approval and attribution.",
-      "notes": "Keep clippings and publisher artwork in press-coverage context only. Never expose them through brand-asset download controls."
-    }
-  ]
+    "assets": [
+        {
+            "key": "aurora-wordmark-raster",
+            "kind": "logo",
+            "title": "Current Aurora Kris Krüg wordmark",
+            "status": "approved",
+            "source_path": "theme/kk-aurora/assets/img/kriskrug-wordmark.png",
+            "wordpress_media_id": null,
+            "public_source_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/img/kriskrug-wordmark.png",
+            "format": "PNG",
+            "width": 468,
+            "height": 229,
+            "aspect_ratio": "468:229",
+            "file_size_bytes": 63437,
+            "sha256": "76e3cd35f9b0c91c11b4009068ba30fcc67462d87711f88c2f6509b9844367d4",
+            "owner": "Kris Krüg / KrisKrug.co controls this brand asset; authorship of the underlying lettering is not independently recorded.",
+            "credit": "Courtesy KrisKrug.co.",
+            "reuse_terms": "Public press download is not yet cleared. KK must confirm editorial-use terms and that the Canva-derived export may be redistributed. Press download and editorial republication confirmed by KK on 2026-09-02.",
+            "rights_evidence": "Commit 8530a10, authored and committed by Kris Krüg, added this Canva-derived file as the official Aurora header wordmark. That proves site use, not a broader redistribution license. KK confirmed press-download permission and consent for this asset on 2026-09-02. Recorded as the site owner's attestation that creator permission was obtained; it is not a written licence file from the creator.",
+            "alt": "Kris Krüg wordmark in pastel rainbow brush script",
+            "decorative": false,
+            "intended_use": [
+                "logo-light",
+                "logo-dark",
+                "press-kit-preview"
+            ],
+            "review_decision": "replace",
+            "notes": [
+                "Keep as the current visual reference, but source the master vector before offering downloads.",
+                "No separate light-background, dark-background, monochrome, or print-ready variant is documented.",
+                "The PNG has transparency, but its 468 by 229 raster size is not a durable press master."
+            ],
+            "public_download_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/img/kriskrug-wordmark.png",
+            "rights_cleared_by": "KK",
+            "rights_cleared_at": "2026-09-02"
+        },
+        {
+            "key": "current-epk-portrait-5113",
+            "kind": "photograph",
+            "title": "Current EPK portrait",
+            "status": "blocked-rights",
+            "source_path": null,
+            "wordpress_media_id": 5113,
+            "wordpress_rest_url": "https://kriskrug.co/wp-json/wp/v2/media/5113",
+            "public_source_url": "https://kriskrug.co/wp-content/uploads/2024/03/krug-1.webp",
+            "format": "WebP",
+            "width": 1024,
+            "height": 935,
+            "aspect_ratio": "1024:935",
+            "file_size_bytes": 81796,
+            "owner": "Unknown; the public WordPress record names no creator or copyright holder.",
+            "credit": "Not documented.",
+            "reuse_terms": "No public download or republication permission was found.",
+            "rights_evidence": "The public media 5113 record has empty credit and copyright metadata. The existing EPK and alt inventory prove site use only.",
+            "alt": "Close portrait of Kris Krüg looking toward the camera",
+            "decorative": false,
+            "intended_use": [
+                "headshot",
+                "current-epk-reference"
+            ],
+            "review_decision": "replace",
+            "notes": [
+                "Replace with the 2026 CreativeMornings close portrait after its press-download permission is confirmed.",
+                "A higher-resolution owned source and photographer credit are not documented."
+            ]
+        },
+        {
+            "key": "current-epk-speaking-6847",
+            "kind": "photograph",
+            "title": "Current EPK meetup image",
+            "status": "blocked-rights",
+            "source_path": null,
+            "wordpress_media_id": 6847,
+            "wordpress_rest_url": "https://kriskrug.co/wp-json/wp/v2/media/6847",
+            "public_source_url": "https://kriskrug.co/wp-content/uploads/2024/09/AI_Meetup_August2024_MichelleDiamond-195-scaled.jpg",
+            "format": "JPEG",
+            "width": 2560,
+            "height": 1707,
+            "aspect_ratio": "2560:1707",
+            "file_size_bytes": 720754,
+            "owner": "Michelle Diamond, based on the embedded WordPress credit and copyright fields.",
+            "credit": "Photo: Michelle Diamond.",
+            "reuse_terms": "No public press-download permission is on file.",
+            "rights_evidence": "The public media 6847 record identifies michellediamond in credit and copyright fields. The repository photography audit says reuse is assumed, not documented.",
+            "alt": "Two men laughing at the August 2024 Vancouver AI Meetup, one holding a microphone and phone",
+            "decorative": false,
+            "intended_use": [
+                "current-epk-reference",
+                "event-ambience"
+            ],
+            "review_decision": "omit",
+            "notes": [
+                "The verified photography inventory states that Kris Krüg is not in this image.",
+                "Do not describe or reuse it as Kris speaking, hosting, or on stage."
+            ]
+        },
+        {
+            "key": "creativemornings-close-portrait-12627",
+            "kind": "photograph",
+            "title": "CreativeMornings close portrait",
+            "status": "approved",
+            "source_path": "content/source-packs/site-photography-2026/assets/kris-krug-creativemornings-portrait-close-2026.jpg",
+            "wordpress_media_id": 12627,
+            "wordpress_rest_url": "https://kriskrug.co/wp-json/wp/v2/media/12627",
+            "public_source_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-close-2026-scaled.jpg",
+            "format": "JPEG",
+            "width": 2048,
+            "height": 3072,
+            "aspect_ratio": "2:3",
+            "file_size_bytes": 753725,
+            "sha256": "5a47f67519fd6c3eccbea34c7abeb716a1fcce288a74b14a5390577e13ebc61a",
+            "wordpress_variant": {
+                "width": 1707,
+                "height": 2560,
+                "file_size_bytes": 439233
+            },
+            "owner": "Michelle Diamond, as named in embedded creator and copyright fields.",
+            "credit": "Photo: Michelle Diamond.",
+            "reuse_terms": "Approved for use on kriskrug.co only. Confirm public press-download and editorial republication scope with Michelle Diamond. Press download and editorial republication confirmed by KK on 2026-09-02.",
+            "rights_evidence": "content/source-packs/site-photography-2026/media-manifest.json records a user-supplied file approved for kriskrug.co and embedded Michelle Diamond creator, by-line, copyright, and rights fields; it explicitly disclaims a broader public license. KK confirmed press-download permission and consent for this asset on 2026-09-02. Recorded as the site owner's attestation that creator permission was obtained; it is not a written licence file from the creator.",
+            "alt": "Portrait of Kris Krüg in a white shirt beside a brightly painted staircase",
+            "decorative": false,
+            "intended_use": [
+                "headshot",
+                "speaker-profile",
+                "author-bio"
+            ],
+            "review_decision": "approve",
+            "notes": [
+                "Preferred replacement for the current EPK portrait once the reuse gate is closed.",
+                "Supports portrait, square, and 4:5 crops while retaining the painted staircase."
+            ],
+            "public_download_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-close-2026-scaled.jpg",
+            "rights_cleared_by": "KK",
+            "rights_cleared_at": "2026-09-02"
+        },
+        {
+            "key": "creativemornings-staircase-portrait-12628",
+            "kind": "photograph",
+            "title": "CreativeMornings full staircase portrait",
+            "status": "approved",
+            "source_path": "content/source-packs/site-photography-2026/assets/kris-krug-creativemornings-portrait-staircase-2026.jpg",
+            "wordpress_media_id": 12628,
+            "wordpress_rest_url": "https://kriskrug.co/wp-json/wp/v2/media/12628",
+            "public_source_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-staircase-2026-scaled.jpg",
+            "format": "JPEG",
+            "width": 2048,
+            "height": 3072,
+            "aspect_ratio": "2:3",
+            "file_size_bytes": 949888,
+            "sha256": "df5d55b99e3e8652ebc836bedb1382924a1c8a75e67b179023de0f6ecded915e",
+            "wordpress_variant": {
+                "width": 1707,
+                "height": 2560,
+                "file_size_bytes": 541133
+            },
+            "owner": "Michelle Diamond, as named in embedded creator and copyright fields.",
+            "credit": "Photo: Michelle Diamond.",
+            "reuse_terms": "Approved for use on kriskrug.co only. Confirm public press-download and editorial republication scope with Michelle Diamond. Press download and editorial republication confirmed by KK on 2026-09-02.",
+            "rights_evidence": "content/source-packs/site-photography-2026/media-manifest.json records a user-supplied file approved for kriskrug.co and embedded Michelle Diamond creator, by-line, copyright, and rights fields; it explicitly disclaims a broader public license. KK confirmed press-download permission and consent for this asset on 2026-09-02. Recorded as the site owner's attestation that creator permission was obtained; it is not a written licence file from the creator.",
+            "alt": "Kris Krüg smiling beside a colourful geometric staircase in a white shirt and sunflower trousers",
+            "decorative": false,
+            "intended_use": [
+                "editorial-mood",
+                "personality-portrait",
+                "full-length-profile"
+            ],
+            "review_decision": "approve",
+            "notes": [
+                "Strong personality-led companion to the close portrait once the reuse gate is closed.",
+                "Do not claim that it shows the keynote in progress."
+            ],
+            "public_download_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-staircase-2026-scaled.jpg",
+            "rights_cleared_by": "KK",
+            "rights_cleared_at": "2026-09-02"
+        },
+        {
+            "key": "power-50-portrait-12626",
+            "kind": "photograph",
+            "title": "Vancouver Magazine Power 50 portrait",
+            "status": "blocked-rights",
+            "source_path": "content/source-packs/site-photography-2026/assets/kris-krug-vancouver-magazine-power-50-2026.jpg",
+            "wordpress_media_id": 12626,
+            "wordpress_rest_url": "https://kriskrug.co/wp-json/wp/v2/media/12626",
+            "public_source_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-vancouver-magazine-power-50-2026.jpg",
+            "format": "JPEG",
+            "width": 682,
+            "height": 1023,
+            "aspect_ratio": "2:3",
+            "file_size_bytes": 111325,
+            "sha256": "caa3f86200d9c09cecac7fe6e01e13e51da267a2c6feeed16875fe9443006b9c",
+            "owner": "Mark Kinskofer / Vision Event Photography, based on embedded by-line and event credit evidence.",
+            "credit": "Photo: Mark Kinskofer / Vision Event Photography.",
+            "reuse_terms": "Approved for use on kriskrug.co only. No broader public license is asserted; Vancouver Magazine asks sharers to tag the magazine and Vision Event Photography.",
+            "rights_evidence": "content/source-packs/site-photography-2026/media-manifest.json records the embedded creator and the narrow site-use approval.",
+            "alt": "Kris Krüg in a black tuxedo holding his Vancouver Magazine 2026 Power 50 award",
+            "decorative": false,
+            "intended_use": [
+                "recognition",
+                "press-context"
+            ],
+            "review_decision": "omit",
+            "notes": [
+                "Keep on-site for recognition context; do not distribute as a general brand headshot without broader permission.",
+                "The supplied 682 by 1023 file is not a high-resolution press master."
+            ]
+        },
+        {
+            "key": "van-ai-portrait-12629",
+            "kind": "photograph",
+            "title": "VAN-AI community portrait",
+            "status": "blocked-rights",
+            "source_path": "content/source-packs/site-photography-2026/assets/kris-krug-van-ai-portrait-2025.jpg",
+            "wordpress_media_id": 12629,
+            "wordpress_rest_url": "https://kriskrug.co/wp-json/wp/v2/media/12629",
+            "public_source_url": "https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-van-ai-portrait-2025.jpg",
+            "format": "JPEG",
+            "width": 1220,
+            "height": 1831,
+            "aspect_ratio": "1220:1831",
+            "file_size_bytes": 282611,
+            "sha256": "cb269ebc55303f591ac1641717ecbd9d6ed2786b2fe0f11f2a445fbf33991e8a",
+            "owner": "Michelle Diamond, as named in embedded creator and copyright fields.",
+            "credit": "Photo: Michelle Diamond.",
+            "reuse_terms": "Approved for use on kriskrug.co only. Confirm public press-download and editorial republication scope with Michelle Diamond.",
+            "rights_evidence": "content/source-packs/site-photography-2026/media-manifest.json records a user-supplied file approved for kriskrug.co and embedded Michelle Diamond creator, copyright, and rights fields; it explicitly disclaims a broader public license.",
+            "alt": "Kris Krüg smiling with arms crossed, wearing teal glasses, a cap, and a VAN-AI shirt",
+            "decorative": false,
+            "intended_use": [
+                "community-context",
+                "organizer-profile"
+            ],
+            "review_decision": "omit",
+            "notes": [
+                "Useful in BC + AI or Vancouver AI context, but the shirt mark narrows its value as a general Kris brand download.",
+                "Do not claim that it shows Kris hosting an event."
+            ]
+        },
+        {
+            "key": "vancouver-ai-meetup-30-stage",
+            "kind": "photograph",
+            "title": "Kris hosting Vancouver AI Meetup 30",
+            "status": "approved",
+            "source_path": "theme/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community.jpg",
+            "wordpress_media_id": null,
+            "public_source_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community.jpg",
+            "format": "JPEG",
+            "width": 1600,
+            "height": 1066,
+            "aspect_ratio": "800:533",
+            "file_size_bytes": 231674,
+            "sha256": "86934e9268e7cb6e1ecc7df95bd502006cafb73e038676f9aacba59f3aef0714",
+            "owner": "Michelle Diamond; the repository frame match identifies her as creator, but the theme copy has stripped metadata.",
+            "credit": "Photo: Michelle Diamond, Diamond's Edge Photography.",
+            "reuse_terms": "KK approved site use. Public press-download scope from Michelle Diamond is not on file. Press download and editorial republication confirmed by KK on 2026-09-02.",
+            "rights_evidence": "content/source-packs/site-photography-2026/speaking-stage-manifest.json records KK's site-use approval, the exact frame match to Michelle Diamond's BC + AI source, and the missing broader reuse confirmation. KK confirmed press-download permission and consent for this asset on 2026-09-02. Recorded as the site owner's attestation that creator permission was obtained; it is not a written licence file from the creator.",
+            "alt": "Kris Krüg speaking on stage as dozens of audience members raise their hands in the H.R. MacMillan Space Centre planetarium",
+            "decorative": false,
+            "intended_use": [
+                "stage",
+                "community-host",
+                "speaking-proof"
+            ],
+            "review_decision": "approve",
+            "notes": [
+                "Preferred stage image after Michelle Diamond confirms public press-download reuse.",
+                "The file is adequate for a web preview but not a high-resolution print download; request the original frame.",
+                "Use for community-host context, not as proof of a paid keynote."
+            ],
+            "public_download_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community.jpg",
+            "rights_cleared_by": "KK",
+            "rights_cleared_at": "2026-09-02"
+        },
+        {
+            "key": "wordmark-vector-master",
+            "kind": "logo",
+            "title": "Kris Krüg vector wordmark master",
+            "status": "missing",
+            "source_path": null,
+            "wordpress_media_id": null,
+            "format": "SVG or PDF vector",
+            "width": null,
+            "height": null,
+            "aspect_ratio": null,
+            "file_size_bytes": null,
+            "owner": "Unconfirmed until the master file is supplied.",
+            "credit": "Not documented.",
+            "reuse_terms": "None documented.",
+            "rights_evidence": "No vector master or redistribution record was found in the repository.",
+            "alt": "Kris Krüg vector wordmark",
+            "decorative": false,
+            "intended_use": [
+                "logo-light",
+                "logo-dark",
+                "print"
+            ],
+            "review_decision": "replace",
+            "notes": [
+                "Supply the source vector and record its creator, ownership, export origin, and editorial reuse rules."
+            ]
+        },
+        {
+            "key": "wordmark-light-background-variant",
+            "kind": "logo",
+            "title": "Wordmark variant for light backgrounds",
+            "status": "missing",
+            "source_path": null,
+            "wordpress_media_id": null,
+            "format": "SVG and transparent PNG",
+            "width": null,
+            "height": null,
+            "aspect_ratio": null,
+            "file_size_bytes": null,
+            "owner": "Unconfirmed until an authorized master is supplied.",
+            "credit": "Not documented.",
+            "reuse_terms": "None documented.",
+            "rights_evidence": "No dedicated light-background variant was found in the repository.",
+            "alt": "Kris Krüg wordmark for light backgrounds",
+            "decorative": false,
+            "intended_use": [
+                "logo-light"
+            ],
+            "review_decision": "replace",
+            "notes": [
+                "Do not derive this silently from the raster wordmark; obtain an authorized source asset."
+            ]
+        },
+        {
+            "key": "wordmark-dark-background-variant",
+            "kind": "logo",
+            "title": "Wordmark variant for dark backgrounds",
+            "status": "missing",
+            "source_path": null,
+            "wordpress_media_id": null,
+            "format": "SVG and transparent PNG",
+            "width": null,
+            "height": null,
+            "aspect_ratio": null,
+            "file_size_bytes": null,
+            "owner": "Unconfirmed until an authorized master is supplied.",
+            "credit": "Not documented.",
+            "reuse_terms": "None documented.",
+            "rights_evidence": "No dedicated dark-background variant was found in the repository.",
+            "alt": "Kris Krüg wordmark for dark backgrounds",
+            "decorative": false,
+            "intended_use": [
+                "logo-dark"
+            ],
+            "review_decision": "replace",
+            "notes": [
+                "Do not derive this silently from the raster wordmark; obtain an authorized source asset."
+            ]
+        },
+        {
+            "key": "stage-high-resolution-original",
+            "kind": "photograph",
+            "title": "High-resolution stage-action original",
+            "status": "missing",
+            "source_path": null,
+            "wordpress_media_id": null,
+            "format": "High-resolution JPEG or TIFF",
+            "width": null,
+            "height": null,
+            "aspect_ratio": "3:2 preferred",
+            "file_size_bytes": null,
+            "owner": "Expected creator: Michelle Diamond; confirm against the supplied original.",
+            "credit": "Photo: Michelle Diamond, Diamond's Edge Photography, if the requested original is the verified Meetup 30 frame.",
+            "reuse_terms": "None documented for a public press download.",
+            "rights_evidence": "The repository contains only a 1600 by 1066 site-use copy and explicitly records that the original and broader reuse scope must be requested.",
+            "alt": "Kris Krüg speaking on stage to an engaged audience",
+            "decorative": false,
+            "intended_use": [
+                "stage",
+                "print",
+                "high-resolution-download"
+            ],
+            "review_decision": "replace",
+            "notes": [
+                "Request the original Meetup 30 frame with explicit editorial and public-download permission, or source another owned high-resolution stage image."
+            ]
+        }
+    ],
+    "excluded_collections": [
+        {
+            "key": "publication-clippings-and-outlet-screenshots",
+            "kind": "third-party-press-context",
+            "status": "blocked-rights",
+            "review_decision": "omit",
+            "source_paths": [
+                "content/source-packs/keynotes-2026/assets/publications-press-media.md",
+                "content/source-packs/keynotes-2026/assets/press-media-manifest.json"
+            ],
+            "owner": "The named publishers, photographers, podcast producers, and other third-party creators.",
+            "reuse_terms": "Contextual use on the Publications page does not grant redistribution as Kris brand photography.",
+            "rights_evidence": "The source notes explicitly warn that screenshots contain copyrighted material and require separate editorial approval and attribution.",
+            "notes": "Keep clippings and publisher artwork in press-coverage context only. Never expose them through brand-asset download controls."
+        }
+    ]
 }
