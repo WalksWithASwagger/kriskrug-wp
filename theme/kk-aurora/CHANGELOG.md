@@ -20,8 +20,12 @@ When you cut a new release, add a line here and follow
 
 ---
 
-## 1.6.10
+## 1.6.11
 **Deployed:** On main, deploy status not confirmed.
+Reverts the 1.6.10 event-artboard CSS in full. It should never have shipped. The `/events/` art direction was **not** missing its styles: `scripts/events_page/render_events_page.py` emits a complete page-scoped design system in a `<style>` block with its own `--events-*` token set, and it has done since the art-direction work in PR #943. The 1.6.10 rules were added on the false premise that no CSS existed, and every one of them lost to the page-scoped rules on specificity (`.aurora-events-page .aurora-event-art` beats `.aurora-event-art`), so they were inert on the only page those classes appear. Removing 130 dead front-end lines and retiring the #943 budget waiver; budget back to 7489 / 173 exactly.
+
+## 1.6.10
+**Deployed:** Superseded by 1.6.11, which reverts it. Was live 2026-09-03 for roughly 30 minutes (rollback seat `kk-aurora.bak-1788461588`).
 Events artboards and editorial marks (#943). PR #943 shipped the renderer markup for `/events/` with no CSS at all, so the generated posters and the twelve editorial marks had nothing to style them and the page could not ship. This adds it: `.aurora-event-art` and its `--image` / `--generated` / `--cover` / `--contain` variants, four `--palette-N` gradients, the date/mark/role spans, `.aurora-event-compact-media`, and `.aurora-editorial-mark`. Event photos crop at 4:3 rather than inheriting `.aurora-proof-media`'s 16:9, which guillotines a portrait frame. +130 front-end lines in `style.css`, `!important` held at 173, and zero new color literals: the four palettes use `color-mix` over existing `var(--aurora-*)` tokens, so the contrast registry needed no new entries. Budget waived 7489 to 7619 against #943.
 
 ## 1.6.9

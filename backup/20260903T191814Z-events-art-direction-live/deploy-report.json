@@ -1,0 +1,27 @@
+{
+  "snapshot_dir": "backup/20260903T191814Z-events-art-direction-live/page-snapshots",
+  "pages": [
+    {
+      "page": "events",
+      "id": 2250,
+      "slug": "events",
+      "url": "https://kriskrug.co/events/",
+      "payload": "/Users/kk/Code/kriskrug-wp/scripts/events_page/out/events-2250.generated.html",
+      "before": {
+        "page": "events",
+        "json": "backup/20260903T191814Z-events-art-direction-live/page-snapshots/page-2250-events-before.json",
+        "html": "backup/20260903T191814Z-events-art-direction-live/page-snapshots/page-2250-events-before.html",
+        "json_sha256": "52b08d32f6981e0ae29c980670acee9d260b92c79a2d0765240e0313daf55632",
+        "html_sha256": "6f2cc23fd682d6635f29f214470f0ba674ab18e21f094a48ba8059f5f72a3088"
+      },
+      "after": {
+        "page": "events",
+        "json": "backup/20260903T191814Z-events-art-direction-live/page-snapshots/page-2250-events-after.json",
+        "html": "backup/20260903T191814Z-events-art-direction-live/page-snapshots/page-2250-events-after.html",
+        "json_sha256": "b07bf49e04a0d2bbf39d96f4a3d886109851db1912eb213c8abc47c0e20390db",
+        "html_sha256": "389358abd8210b52fd271a6d8d65bf83fd51f472391c106a7248f7be4bf4ad31"
+      },
+      "modified": "2026-09-03T11:18:35"
+    }
+  ]
+}
