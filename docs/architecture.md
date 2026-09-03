@@ -147,6 +147,8 @@ Actions:
 ```
 
 #### reusable-wordpress-validation.yml
+
+> **Deleted 2026-09-02 (#942).** This workflow had no caller and never ran. Described here for history only.
 ```
 Callable workflow for PHPCS validation
 Inputs: standard, php-version, files

@@ -119,6 +119,8 @@ Title: Contact form not working on mobile Safari
 
 ### 5. Reusable WordPress Validation (`reusable-wordpress-validation.yml`)
 
+> **Deleted 2026-09-02 (#942).** This workflow had no caller and never ran. Described here for history only.
+
 **Type:** Reusable workflow (called by other workflows)
 
 **Inputs:**
