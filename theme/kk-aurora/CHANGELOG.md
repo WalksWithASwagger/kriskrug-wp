@@ -20,6 +20,10 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.6.10
+**Deployed:** On main, deploy status not confirmed.
+Events artboards and editorial marks (#943). PR #943 shipped the renderer markup for `/events/` with no CSS at all, so the generated posters and the twelve editorial marks had nothing to style them and the page could not ship. This adds it: `.aurora-event-art` and its `--image` / `--generated` / `--cover` / `--contain` variants, four `--palette-N` gradients, the date/mark/role spans, `.aurora-event-compact-media`, and `.aurora-editorial-mark`. Event photos crop at 4:3 rather than inheriting `.aurora-proof-media`'s 16:9, which guillotines a portrait frame. +130 front-end lines in `style.css`, `!important` held at 173, and zero new color literals: the four palettes use `color-mix` over existing `var(--aurora-*)` tokens, so the contrast registry needed no new entries. Budget waived 7489 to 7619 against #943.
+
 ## 1.6.9
 **Deployed:** LIVE (SFTP 2026-08-18, rollback `kk-aurora.bak-1787021714`). Public `style.css` reads 1.6.9. Projects footer links Dark Crystal and `https://unofficial.city/`. Work page 2672 got a surgical card insert (not a full `work.html` replace) so the live lab grid kept Skywhale, Gorgeous Ghost, Wedges, Ghost Radio, and Ethos. Snapshot: `backup/20260818T025650Z-work-lab-cards/`. Receipt: `docs/current-state/reports/aurora-169-live-deploy-20260818.md`.
 

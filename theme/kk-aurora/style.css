@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.6.9
+Version: 1.6.10
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -4242,4 +4242,134 @@ body.aurora-theme #aurora-main .wp-block-button:not(.is-style-aurora-primary) .w
   -webkit-text-fill-color: currentColor !important;
 }
 
+}
+
+/* ---------------------------------------------------------------------------
+   Event artboards and editorial marks (#943)
+   Every /events/ card gets a visual: real artwork when the catalog has one,
+   otherwise a generated poster built from the title initials, date and role.
+   Renderer: scripts/events_page/render_events_page.py artwork_html().
+   Tokens only, no new color literals, so the contrast registry is unchanged.
+--------------------------------------------------------------------------- */
+
+.aurora-event-art {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Event photos are a mix of portrait and landscape. 4:3 crops both kindly,
+   where the inherited 16:9 guillotines a vertical frame. */
+.aurora-event-art--image img {
+  aspect-ratio: 4 / 3;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.aurora-event-art--cover img {
+  object-fit: cover;
+}
+
+/* contain is for logos and posters, which must not be cropped at all. */
+.aurora-event-art--contain img {
+  object-fit: contain;
+  padding: 1.1rem;
+}
+
+.aurora-event-art--generated {
+  aspect-ratio: 4 / 3;
+  border-bottom: 1px solid var(--aurora-line);
+  gap: 0.4rem;
+  padding: 1.25rem;
+  place-content: center;
+  display: grid;
+  text-align: center;
+}
+
+.aurora-event-art-date {
+  color: var(--aurora-ink-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.aurora-event-art-mark {
+  color: var(--aurora-ink);
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.aurora-event-art-role {
+  color: var(--aurora-ink-soft);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+/* Four palettes so a grid of generated posters does not read as one slab.
+   color-mix keeps these on existing tokens instead of new literals. */
+.aurora-event-art--palette-0 {
+  background: linear-gradient(150deg, color-mix(in srgb, var(--aurora-signal) 9%, var(--aurora-panel-solid)), var(--aurora-panel-solid));
+}
+
+.aurora-event-art--palette-1 {
+  background: linear-gradient(30deg, color-mix(in srgb, var(--aurora-readable-accent) 8%, var(--aurora-panel-solid)), var(--aurora-panel-solid));
+}
+
+.aurora-event-art--palette-2 {
+  background: linear-gradient(210deg, color-mix(in srgb, var(--aurora-line-strong) 22%, var(--aurora-panel-solid)), var(--aurora-panel-solid));
+}
+
+.aurora-event-art--palette-3 {
+  background: linear-gradient(330deg, color-mix(in srgb, var(--aurora-ink-soft) 7%, var(--aurora-panel-solid)), var(--aurora-panel-solid));
+}
+
+/* Compact cards use the same artboard at a shorter crop. */
+.aurora-event-compact-media {
+  border-bottom: 1px solid var(--aurora-line);
+}
+
+.aurora-event-compact-media.aurora-event-art--image img,
+.aurora-event-compact-media.aurora-event-art--generated {
+  aspect-ratio: 16 / 9;
+}
+
+/* Editorial marks label the twelve standing rooms on /events/. Decorative,
+   aria-hidden in the markup, so they carry no meaning a screen reader needs. */
+.aurora-editorial-mark {
+  align-items: baseline;
+  border-bottom: 1px solid var(--aurora-line);
+  display: flex;
+  gap: 0.6rem;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+}
+
+.aurora-editorial-mark span {
+  color: var(--aurora-ink);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.aurora-editorial-mark small {
+  color: var(--aurora-ink-muted);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .aurora-event-art--image img {
+    transition: transform var(--aurora-lux-quick) var(--aurora-lux-ease);
+  }
+
+  .aurora-event-card:hover .aurora-event-art--image img {
+    transform: scale(1.02);
+  }
 }
