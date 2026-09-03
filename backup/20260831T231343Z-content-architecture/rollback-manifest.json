@@ -1,0 +1,10 @@
+{
+  "page_id": 2250,
+  "slug": "events",
+  "url": "https://kriskrug.co/events/",
+  "before_snapshot": "backup/20260831T231343Z-content-architecture/page-snapshots/page-2250-events-before.json",
+  "after_snapshot": "backup/20260831T231343Z-content-architecture/page-snapshots/page-2250-events-after.json",
+  "before_raw_sha256": "aea466598a0d45d4d492927a08a96968bbba05ae1592a1a7b35f4b0e1bf2f012",
+  "after_raw_sha256": "c64706cd28eeba3aaa209b66abb0a45aaf1bc9147a45c886f91f7f7f07f2a173",
+  "restore_command": "make varlock-run CMD='python3 scripts/content_architecture_deploy.py --map backup/20260831T231343Z-content-architecture/page-map.json --page events --snapshot-dir backup/20260831T231343Z-content-architecture/page-snapshots --restore'"
+}
