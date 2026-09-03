@@ -232,9 +232,10 @@ defect. `dealerdirect/phpcodesniffer-composer-installer` writes phpcs's
 WordPress standard and reports every sniff as missing. Editing the ruleset would
 remove five working security sniffs and fix nothing.
 
-The one genuine finding from that investigation, that
-`.github/workflows/reusable-wordpress-validation.yml` has no caller and never
-fires, is tracked in #942.
+The one genuine finding from that investigation was that
+`.github/workflows/reusable-wordpress-validation.yml` had no caller and never
+fired. The workflow was deleted on 2026-09-02 via #942; PHP validation remains
+in `test-pr.yml`, which invokes `make validate` directly.
 
 ## One code change made to the deploy candidate
 

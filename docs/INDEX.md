@@ -80,6 +80,8 @@ These were written in the era-1 push (Jan–early May 2026) when the plan was "G
 |---|---|
 | [`architecture.md`](architecture.md) | Architecture of the dormant GitHub Actions agent swarm |
 | [`automation-guide.md`](automation-guide.md) | How to operate the dormant swarm |
+| [`FIRST-AGENT-SUCCESS.md`](FIRST-AGENT-SUCCESS.md) | Historical record of the first automated agent PR |
+| [`testing-results.md`](testing-results.md) | Era-1 test results and now-retired automation follow-ups |
 | [`vision.md`](vision.md) | Long-term vision (3–5 years) from era 1 |
 | [`roadmap.md`](roadmap.md) | Superseded by [`current-state/ROADMAP.md`](current-state/archive/ROADMAP.md) |
 | [`cloudways-setup.md`](cloudways-setup.md) | Cloudways dev-server setup. Relevant if/when Track B needs staging |

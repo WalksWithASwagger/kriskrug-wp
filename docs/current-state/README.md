@@ -70,10 +70,13 @@ Every file below carries a `STATUS: Historical` banner in its first lines pointi
 - [WORK-PLAN-2026-08-15.md](archive/WORK-PLAN-2026-08-15.md)
 - [WORK-PLAN-2026-08-16.md](archive/WORK-PLAN-2026-08-16.md)
 - [WORK-PLAN-2026-08-17.md](archive/WORK-PLAN-2026-08-17.md)
+- [AGENTIC-CRUSH-PLAN-2026-07-31.md](archive/AGENTIC-CRUSH-PLAN-2026-07-31.md)
+- [WORK-PLAN-2026-08-23.md](archive/WORK-PLAN-2026-08-23.md)
+- [WORK-PLAN-2026-08-24.md](archive/WORK-PLAN-2026-08-24.md)
 
 ## Archive (#549 close-out, verified 2026-08-02)
 
-At the #549 close-out, [`archive/`](archive/) held **89 markdown files**: 4 that were already there plus **84 moved in commit `c369eef`** (PR #557, merged 2026-07-31). It holds 102 as of 2026-08-28 after later plan archivals. Every #549 move was a `git mv` rename, so history is preserved and the moves are reversible. The diff for that commit against `docs/current-state/` is 84 `R`, 9 `M`, 6 `A`, and **zero `D`**. Verify with:
+At the #549 close-out, [`archive/`](archive/) held **89 markdown files**: 4 that were already there plus **84 moved in commit `c369eef`** (PR #557, merged 2026-07-31). It holds 105 as of 2026-09-03 after later plan archivals. Every #549 move was a `git mv` rename, so history is preserved and the moves are reversible. The diff for that commit against `docs/current-state/` is 84 `R`, 9 `M`, 6 `A`, and **zero `D`**. Verify with:
 
 ```
 git diff --name-status --find-renames c369eef^1 c369eef -- docs/current-state | cut -c1-1 | sort | uniq -c
@@ -92,7 +95,7 @@ Neither is a plan you execute from. Check with `ls docs/current-state/*.md | gre
 - `issues-to-create/README.md` line 5, to `archive/ISSUES-TO-CREATE-RECONCILIATION-2026-06-09.md`
 - `backup/2026-05-16/manifest.md` line 47, to `archive/FIX_QUEUE.md`
 
-**Top-level surface:** 43 `docs/current-state/*.md` files as of 2026-08-28. The #549 close-out scan found 0 broken relative links across the then-current top-level surface plus `AGENTS.md`, `README.md`, `CONTRIBUTING.md`, and `docs/INDEX.md`; re-run the link check before making a new current claim.
+**Top-level surface:** 40 `docs/current-state/*.md` files as of 2026-09-03. The #549 close-out scan found 0 broken relative links across the then-current top-level surface plus `AGENTS.md`, `README.md`, `CONTRIBUTING.md`, and `docs/INDEX.md`; re-run the link check before making a new current claim.
 
 **Repo-wide relative-link sweep completed 2026-09-03.** A scan of all 1,110 tracked Markdown files now finds zero unresolved relative link targets. The sweep repaired 69 paths across archived plans, issue drafts, superseded content drafts, and one active source-pack runbook. The scanner ignores fenced code, external URLs, root-relative live-site routes, fragments, and publisher pseudo-schemes (`photo:`, `media:`, `poster:`, `img:`), because those are not repository file targets.
 
