@@ -40,7 +40,7 @@ These should become defaults in `scripts/notion-to-wp/kk_notion_to_wp.py`:
 
 UpdraftPlus first full backup completed 2026-05-16 06:53 Pacific.
 - Database, Plugins, Themes, Uploads, Must-use plugins, Others — all present on server (Pagely `/wp-content/updraft/`, 13.1 GB)
-- **Downloaded 5 of 6 parts to `backup/2026-05-16/`** via Chrome MCP: db (4.7 MB) + plugins (62 MB) + themes (15 MB) + mu-plugins (52 KB) + others (1.5 MB). See [`backup/2026-05-16/manifest.md`](../../backup/2026-05-16/manifest.md) for restore procedure + SHA-256 checksums.
+- **Downloaded 5 of 6 parts to `backup/2026-05-16/`** via Chrome MCP: db (4.7 MB) + plugins (62 MB) + themes (15 MB) + mu-plugins (52 KB) + others (1.5 MB). See [`backup/2026-05-16/manifest.md`](../../../backup/2026-05-16/manifest.md) for restore procedure + SHA-256 checksums.
 - **Uploads (13 GB) intentionally skipped** — too large for browser transfer. Available on Pagely live; sourceable from KK's local archive or Wayback if needed for restore.
 
 ## Resolved second-pass enrichments (Make Culture)
@@ -52,7 +52,7 @@ UpdraftPlus first full backup completed 2026-05-16 06:53 Pacific.
 
 The "rules going forward" above are now code:
 
-- [`scripts/notion-to-wp/text_polish.py`](../../scripts/notion-to-wp/text_polish.py) — `polish_html()` runs em-dash purge + first-occurrence auto-link on every generated post. `polish_text()` runs em-dash purge on excerpt/SEO title/social message.
+- [`scripts/notion-to-wp/text_polish.py`](../../../scripts/notion-to-wp/text_polish.py) — `polish_html()` runs em-dash purge + first-occurrence auto-link on every generated post. `polish_text()` runs em-dash purge on excerpt/SEO title/social message.
 - `LINK_MAP` has 15 starter rules (KK's orgs, his own pillar posts, common external proper nouns). Add to the list as new posts get written.
 - Self-link guard prevents a post from auto-linking to itself.
 - Polish report (which terms got linked on a given run) is appended to each post's `publish.log` for audit.

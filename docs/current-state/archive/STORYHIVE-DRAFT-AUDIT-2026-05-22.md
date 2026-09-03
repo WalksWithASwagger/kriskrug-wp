@@ -56,7 +56,7 @@ Each StoryHive draft package now contains:
 
 The current review packet is:
 
-- [review-ready-drafts-2026-05-22.md](../../content/source-packs/storyhive-2026/review-ready-drafts-2026-05-22.md)
+- [review-ready-drafts-2026-05-22.md](../../../content/source-packs/storyhive-2026/review-ready-drafts-2026-05-22.md)
 
 ## Process Gate
 

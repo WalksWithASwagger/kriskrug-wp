@@ -3,7 +3,7 @@
 > STATUS: Longer-range reference from 2026-05-15. Use the 2026-05-24 handoff set (`HANDOFF`, `AURORA-V3-QA-ROADMAP`, `TRACK-A-MORNING-TRUTH`, and latest `reports/morning-truth-*.md`) for current execution truth. The strict backup/restore blocker language below was superseded on 2026-05-22 by dry-runs, exact slug/ID/status checks, rollback notes, and KK approval for risky live changes.
 
 **As of:** 2026-05-15
-**Reads from:** [`FIX_QUEUE.md`](FIX_QUEUE.md), [`SEO_AUDIT.md`](SEO_AUDIT.md), [`CONTENT_AUDIT.md`](CONTENT_AUDIT.md), [`INCIDENT-2026-05-15-overwritten-post.md`](INCIDENT-2026-05-15-overwritten-post.md)
+**Reads from:** [`FIX_QUEUE.md`](FIX_QUEUE.md), [`SEO_AUDIT.md`](SEO_AUDIT.md), [`CONTENT_AUDIT.md`](CONTENT_AUDIT.md), [`INCIDENT-2026-05-15-overwritten-post.md`](../INCIDENT-2026-05-15-overwritten-post.md)
 
 Six phases, ~2 weeks each. Each phase has a single shipping theme so progress is legible. Effort is rough; "S" ≈ half-day, "M" ≈ 1–2 days, "L" ≈ 3–5 days.
 
@@ -15,8 +15,8 @@ The 2026-05-15 incident proved we have to do this before more production changes
 
 | Item | Effort | Notes |
 |---|---|---|
-| Install UpdraftPlus + run first full backup | M | Per [`BACKUP_PLAN.md`](BACKUP_PLAN.md) Path B. Download archive to local `backup/YYYY-MM-DD/` |
-| Verify restore drill into Local by Flywheel | M | Per [`BACKUP_PLAN.md`](BACKUP_PLAN.md) "restore drill" section. The backup isn't real until it's been restored at least once |
+| Install UpdraftPlus + run first full backup | M | Per [`BACKUP_PLAN.md`](../BACKUP_PLAN.md) Path B. Download archive to local `backup/YYYY-MM-DD/` |
+| Verify restore drill into Local by Flywheel | M | Per [`BACKUP_PLAN.md`](../BACKUP_PLAN.md) "restore drill" section. The backup isn't real until it's been restored at least once |
 | Schedule recurring backups | S | UpdraftPlus daily → cloud destination (Dropbox / S3 / Drive) |
 
 **Phase 0 done when:** `backup/<date>/manifest.md` + `restore-notes.md` confirm a successful local restore.

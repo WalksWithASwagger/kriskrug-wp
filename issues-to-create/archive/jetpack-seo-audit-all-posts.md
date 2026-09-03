@@ -2,7 +2,7 @@
 
 **Labels:** `seo`, `content`, `audit`, `priority/high`
 **Estimated effort:** 6–10 hours (depends on how many posts get touched)
-**Related:** [`docs/current-state/archive/SEO_AUDIT.md`](../docs/current-state/archive/SEO_AUDIT.md), `docs/current-state/archive/CONTENT_AUDIT.md`, `archive/FIX_QUEUE.md` P1.1
+**Related:** [`docs/current-state/archive/SEO_AUDIT.md`](../../docs/current-state/archive/SEO_AUDIT.md), `docs/current-state/archive/CONTENT_AUDIT.md`, `archive/FIX_QUEUE.md` P1.1
 
 ## Why
 
@@ -29,7 +29,7 @@ This audit catches the gap and brings every post up to a baseline.
 **Out of scope (for now):**
 - Attachment SEO
 - `jetpack-testimonial` CPT
-- `transcript` CPT (recently added by [`inc/digital-composting.php`](../inc/digital-composting.php))
+- `transcript` CPT (recently added by [`inc/digital-composting.php`](../../inc/digital-composting.php))
 
 ## Approach
 
@@ -54,14 +54,14 @@ Group posts into bands so we don't try to fix all 941 at once:
 |---|---|---|
 | **A: Top 20 by traffic** | GA4 top-20 in last 12 months | Fully hand-curated SEO title + description + share message |
 | **B: Recent 2024+** | ~140 posts since 2024-01-01 | Curated where worth it, auto-derived (from article body, KK voice) elsewhere |
-| **C: Evergreen anchors** | The 10 from [CONTENT_AUDIT.md §2.5](../docs/current-state/archive/CONTENT_AUDIT.md) | Hand-curated |
+| **C: Evergreen anchors** | The 10 from [CONTENT_AUDIT.md §2.5](../../docs/current-state/archive/CONTENT_AUDIT.md) | Hand-curated |
 | **D: Long tail** | Everything else (~770 posts) | Auto-derive only; flag any that 404 or have empty body |
 
 ### 3. Fix mechanism
 
 Two paths:
 - **Manual via wp-admin** for cohort A + C (~30 posts) — KK opens each in editor, sets the Jetpack SEO box.
-- **Programmatic via REST** for cohorts B + D — adapt the excerpt-derivation logic from [`scripts/notion-to-wp/kk_notion_to_wp.py`](../scripts/notion-to-wp/kk_notion_to_wp.py) (the `derive_excerpt`, `derive_seo_title`, `derive_social_message` functions). Idempotent — only updates posts where the field is currently empty.
+- **Programmatic via REST** for cohorts B + D — adapt the excerpt-derivation logic from [`scripts/notion-to-wp/kk_notion_to_wp.py`](../../scripts/notion-to-wp/kk_notion_to_wp.py) (the `derive_excerpt`, `derive_seo_title`, `derive_social_message` functions). Idempotent — only updates posts where the field is currently empty.
 
 The REST PATCH pattern is proven (see `scripts/notion-to-wp/`): authenticate with the existing Application Password, send `meta: { jetpack_seo_html_title, advanced_seo_description, jetpack_publicize_message }` on `POST /wp-json/wp/v2/posts/{id}`. WP 6.9 + Jetpack 15.8 accept these keys without `register_post_meta()` because Jetpack registers them itself.
 
@@ -83,13 +83,13 @@ The Notion connector now does this by default — same logic applies to the audi
 - [ ] Cohort B + D have auto-derived values via the audit script; script logs every change to `content/seo-audit-YYYY-MM-DD.log`
 - [ ] Final CSV re-pulled and diff'd against the original: every post in cohorts A–C has `has_seo_title=true`, `has_meta_desc=true`, `has_social_message=true`
 - [ ] Random sample of 10 posts spot-checked via the live site: SEO title appears in `<title>`, meta description appears in `<meta name="description">`, social share message appears in the post's "Sharing" panel in wp-admin
-- [ ] [`docs/current-state/CHANGELOG.md`](../docs/current-state/) (new file) records what was changed and when, with the post ID ranges by cohort
+- [ ] [`docs/current-state/CHANGELOG.md`](../../docs/current-state/) (new file) records what was changed and when, with the post ID ranges by cohort
 
 ## Prerequisites
 
 - [ ] WP Application Password is in place (already done — used by `scripts/notion-to-wp/`)
 - [ ] GA4 access for cohort A traffic data (optional but strongly recommended; otherwise cohort A becomes "the 10 evergreen anchors only")
-- [ ] One verified backup exists in `backup/` (per [`docs/current-state/BACKUP_PLAN.md`](../docs/current-state/BACKUP_PLAN.md)) — REST PATCHes are reversible per-post but a backup gives the nuclear option
+- [ ] One verified backup exists in `backup/` (per [`docs/current-state/BACKUP_PLAN.md`](../../docs/current-state/BACKUP_PLAN.md)) — REST PATCHes are reversible per-post but a backup gives the nuclear option
 
 ## Risk + rollback
 
@@ -99,7 +99,7 @@ The Notion connector now does this by default — same logic applies to the audi
 
 ## Notes
 
-- See [`docs/current-state/archive/SEO_AUDIT.md` §2.2](../docs/current-state/archive/SEO_AUDIT.md) for the upstream finding that prompted this work.
+- See [`docs/current-state/archive/SEO_AUDIT.md` §2.2](../../docs/current-state/archive/SEO_AUDIT.md) for the upstream finding that prompted this work.
 - This issue depends on **none** of the FIX_QUEUE P0 items, so it can run in parallel with the schema + llms.txt + robots.txt work.
 - After this lands, P1.5 ("rewrite long titles to fit 60-char SERP window") becomes trivial — most of it is already captured by the SEO title overrides.
 

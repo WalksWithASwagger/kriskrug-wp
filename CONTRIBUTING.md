@@ -12,7 +12,7 @@ Thank you for your interest in contributing to the [kriskrug.co](https://kriskru
 - [Pull Request Process](#pull-request-process)
 - [Coding Standards](#coding-standards)
 - [Voice Gate](#voice-gate)
-- [Agent Automation](#agent-automation)
+- [Agent Sessions](#agent-sessions-current-model)
 
 ## Code of Conduct
 
@@ -196,7 +196,7 @@ Day-to-day work happens through Claude Code / Cursor agent sessions, not via the
 See [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) for the decision rule.
 
 **Safety rules every agent must follow** (post 2026-05-15 incident):
-- Backup before destructive operations
+- Establish a rollback path before destructive operations; use snapshots, dry-runs, and a full backup when the blast radius justifies it
 - Slug-based idempotency for the Notion → WP connector (never PATCH without verified target)
 - Theme file changes happen in focused Track B PR branches from `main`; do not mix them with Track A content publishing changes.
 

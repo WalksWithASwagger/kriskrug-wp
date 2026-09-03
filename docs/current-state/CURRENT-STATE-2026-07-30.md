@@ -38,7 +38,7 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 ## What changed since CURRENT-STATE-2026-07-16
 
 - Aurora advanced to **1.6.9** on `main` and live; the live↔repo parity check remains the authority.
-- Issue #4 completed the broad Batch 3 media pass, restored two wrong-identity writes, and stopped safely with three reviewed/corrected targets remaining.
+- Issue #4 completed the broad Batch 3 media pass, restored two wrong-identity writes, then applied and verified the final three reviewed targets on 2026-08-29. Separate body-image, archive, `/home/`, and WCAG lanes remain open.
 - The Speaking rebuild is live with two click-to-load privacy-hosted video facades. #640 closed after two same-method mobile Lighthouse runs stayed within 2.62% of the 3,032.93 ms baseline, identified the first-party hero image as LCP, and passed the live embed contract.
 - Testimonials issue #602 was reopened because its runbook-only PR closed it while the live page remained undeployed.
 - Issue #318 closed as a verified no-delete result: all three WordPress objects are drafts, so the exact removal allow-list is empty and all 13 tracked images remain in place.
