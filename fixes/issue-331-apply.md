@@ -216,13 +216,25 @@ readback below.
 | `wp_robots` | author / tag / category / date / tax | `noindex, follow` with `follow` present |
 | `wp_robots` | single post or page | unchanged, `index` preserved |
 
-`php -l` passes. The repo's `make validate` could not be used as a check here:
-it fails after a clean `composer install` because `phpcs.xml.dist` references
-five sniffs (`WordPress.Security.EscapeOutput`, `.NonceVerification`,
-`.SafeRedirect`, `.ValidatedSanitizedInput`, `WordPress.WP.Capabilities`) that
-do not exist in the pinned `wp-coding-standards/wpcs` 3.4.1, so no sniffs
-register. That is a pre-existing repository defect, unrelated to #331, and
-worth its own issue.
+`php -l` passes and `make validate` passes. An earlier revision of this section
+claimed the repo's coding-standards gate was broken. That claim was wrong and is
+corrected here on 2026-09-02.
+
+`phpcs.xml.dist` resolves all five referenced sniffs against the pinned
+`wp-coding-standards/wpcs` 3.4.1 (`phpcs --standard=phpcs.xml.dist -e` reports
+"contains 5 sniffs"), and `make validate` returns 7/7 files with zero
+violations. It also runs in CI: `test-pr.yml`'s `php-validation` job invokes
+`make validate` directly and passed on this PR's own run.
+
+The failure mode behind the original claim is environmental, not a ruleset
+defect. `dealerdirect/phpcodesniffer-composer-installer` writes phpcs's
+`installed_paths`; when that plugin is skipped, phpcs cannot locate the
+WordPress standard and reports every sniff as missing. Editing the ruleset would
+remove five working security sniffs and fix nothing.
+
+The one genuine finding from that investigation, that
+`.github/workflows/reusable-wordpress-validation.yml` has no caller and never
+fires, is tracked in #942.
 
 ## One code change made to the deploy candidate
 
