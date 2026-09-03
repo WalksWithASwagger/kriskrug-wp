@@ -31,20 +31,23 @@ events:
 - id: league-innovators-north-house-ai-show-tell-2026
   title: 'League of Innovators × North House: AI Show & Tell'
   date: '2026-09-02'
-  bucket_hint: upcoming
+  bucket_hint: past
   kind: external
   role: Guest mentor
   url: https://www.joinnorthhouse.com/impact
   image:
-    path: repo:scripts/events_page/heroes/brand/north-house-logo.webp
-    alt: North House logo in white on its deep burgundy field
-    media_id: 12741
-    url: https://kriskrug.co/wp-content/uploads/2026/08/north-house-logo.webp
-  image_layout: landscape
-  image_fit: contain
-  blurb: 'Invited by Joel Hansen for a living-room-style session with the League of Innovators and North
-    House founder cohorts: live AI workflow and agent demos, followed by open Q&A. Praveen Varshney joins
-    as the other guest.'
+    alt: Kris Krüg speaking to founders at North House in Vancouver, with the Futureproof Festival
+      speaker page on the screen behind him
+    media_id: 12742
+    url: https://kriskrug.co/wp-content/uploads/2026/09/kris-krug-north-house-show-and-tell-2026.jpg
+  image_layout: portrait
+  image_fit: cover
+  blurb: 'Joel Hansen put me and Praveen Varshney in front of the League of Innovators and North House
+    founder cohorts for an hour. I walked through the GitHub-first agent workflow I actually use, including
+    a public report I had built the day before in about 75 minutes, then we got into the parts that
+    matter: BC has no federal AI centre while Montreal, Toronto and Edmonton each got one, the province
+    capped data centre power at 300 megawatts over two years, and the room pushed hard on whether any
+    of this reaches the real economy before the robots do.'
   label: Wednesday, Sept 2 · North House · Vancouver
   tags:
   - Guest mentor
