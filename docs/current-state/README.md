@@ -20,6 +20,10 @@ Read these first:
 
 ## Durable process docs (keep at top level)
 
+Approved product transformation: [Connected portfolio of practice](CONNECTED-PORTFOLIO-PLAN.md).
+This records the north star, non-goals, roadmap and North House proof milestone.
+It authorizes a reviewable proof PR, not a live deployment.
+
 | File | What it covers |
 |---|---|
 | [SEO-INDEXING-RUNBOOK.md](SEO-INDEXING-RUNBOOK.md) | Indexing/distribution checklist (#426) |
