@@ -10,6 +10,7 @@ EXPECT_VERSION_DEFAULT := 7.0.4
 JAVASCRIPT_FILES := \
 	plugins/kk-marquee-board/assets/marquee.js \
 	scripts/marquee/render_og.cjs \
+	scripts/tests/north_house_journey_browser.cjs \
 	theme/kk-aurora/assets/js/marquee.js \
 	theme/kk-aurora/assets/js/micro-interactions.js \
 	theme/kk-aurora/assets/js/theme.js
