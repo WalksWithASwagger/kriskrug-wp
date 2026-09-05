@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test ruff-changed javascript-syntax php-syntax plugin-smoke theme-smoke verify validate health issues pr dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
+.PHONY: help test python-test ruff-changed javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
 
 PYTHON ?= python3
 VARLOCK ?= varlock
@@ -23,9 +23,8 @@ help: ## Show this help message
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
 	@echo ""
 	@echo "Examples:"
-	@echo "  make health"
+	@echo "  make doctor"
 	@echo "  make issues FILE=test-data/issues.json"
-	@echo "  make pr ISSUE=123"
 
 test: ## Run test suite
 	@echo "Running tests..."
@@ -84,14 +83,11 @@ verify: ## Run the standard local verification suite
 validate: ## Run PHP syntax gate plus WordPress coding standards check
 	@$(MAKE) php-syntax
 	@echo "Validating WordPress coding standards..."
-	@bash .agents/skills/github-workflow-automation/scripts/validate_wordpress.sh
+	@bash scripts/validate_wordpress.sh
 
 validate-fix: ## Auto-fix WordPress coding standard violations
 	@echo "Auto-fixing WordPress coding standards..."
-	@bash .agents/skills/github-workflow-automation/scripts/validate_wordpress.sh --fix
-
-health: ## Check gh CLI and system health
-	@bash .agents/skills/github-workflow-automation/scripts/gh_health_check.sh
+	@bash scripts/validate_wordpress.sh --fix
 
 issues: ## Create issues from JSON/CSV file (use FILE=path.json)
 	@if [ -z "$(FILE)" ]; then \
@@ -99,30 +95,15 @@ issues: ## Create issues from JSON/CSV file (use FILE=path.json)
 		echo "Example: make issues FILE=test-data/issues.json"; \
 		exit 1; \
 	fi
-	@python3 .agents/skills/github-workflow-automation/scripts/validate_input.py --input $(FILE)
-	@python3 .agents/skills/github-workflow-automation/scripts/batch_create_issues.py --input $(FILE)
+	@python3 scripts/batch_create_issues.py --input $(FILE) --dry-run
+	@python3 scripts/batch_create_issues.py --input $(FILE)
 
 issues-dry-run: ## Preview issues without creating (use FILE=path.json)
 	@if [ -z "$(FILE)" ]; then \
 		echo "❌ Error: Please specify FILE=path.json"; \
 		exit 1; \
 	fi
-	@python3 .agents/skills/github-workflow-automation/scripts/batch_create_issues.py --input $(FILE) --dry-run
-
-pr: ## Create PR from issue (use ISSUE=123)
-	@if [ -z "$(ISSUE)" ]; then \
-		echo "❌ Error: Please specify ISSUE=number"; \
-		echo "Example: make pr ISSUE=123"; \
-		exit 1; \
-	fi
-	@python3 .agents/skills/github-workflow-automation/scripts/create_pr_from_issue.py --issue $(ISSUE)
-
-pr-draft: ## Create draft PR from issue (use ISSUE=123)
-	@if [ -z "$(ISSUE)" ]; then \
-		echo "❌ Error: Please specify ISSUE=number"; \
-		exit 1; \
-	fi
-	@python3 .agents/skills/github-workflow-automation/scripts/create_pr_from_issue.py --issue $(ISSUE) --draft
+	@python3 scripts/batch_create_issues.py --input $(FILE) --dry-run
 
 dashboard: ## Open gh-dash monitoring dashboard
 	@gh dash
@@ -327,7 +308,7 @@ clean: ## Clean up test artifacts and temporary files
 setup: ## Initial setup for new contributors
 	@echo "Setting up kriskrug-wp development environment..."
 	@echo ""
-	@bash .agents/skills/github-workflow-automation/scripts/gh_health_check.sh
+	@$(MAKE) doctor
 	@echo ""
 	@echo "✅ Setup complete! Run 'make help' to see available commands."
 	@echo "Secrets: see docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md (do not paste secrets into chat/git)."
@@ -336,7 +317,7 @@ quick-start: ## Quick start guide for new contributors
 	@echo "Welcome to kriskrug-wp development!"
 	@echo ""
 	@echo "Quick commands to get you started:"
-	@echo "  make health       - Check system health"
+	@echo "  make doctor       - Check system health"
 	@echo "  make list-issues  - See open issues"
 	@echo "  make dashboard    - Open monitoring dashboard"
 	@echo "  make stats        - View repository statistics"

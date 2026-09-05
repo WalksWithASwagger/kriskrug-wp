@@ -167,7 +167,7 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     Path("README.md"): [
         (
             re.compile(r"(?m)^\s*skills/\s+#"),
-            "The repository-local skill path is `.agents/skills/`, not a top-level `skills/` directory.",
+            "The repository-local skill package was retired; do not add a top-level `skills/` directory.",
         ),
         (
             re.compile(r"(?m)^-\s+Active backlog:.*(?:FIX_QUEUE|SITE-AUDIT)", re.I),
@@ -177,7 +177,7 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     Path("docs/INDEX.md"): [
         (
             re.compile(r"\[\s*`?\.\./skills/`?\s*\]\(\.\./skills/\)"),
-            "The documentation index must link repository-local skills at `../.agents/skills/`.",
+            "The repository-local skill package was retired; remove this stale skills link.",
         ),
         (
             re.compile(r"WORK-PLAN-2026-08-24\.md.*(?:active|current).*runbook", re.I),
