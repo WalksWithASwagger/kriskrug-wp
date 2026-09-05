@@ -597,7 +597,7 @@ git diff          # Review changes
 ### Before Creating PR
 
 ```bash
-make health       # System check
+make doctor       # System check
 make validate     # Coding standards
 make test         # All tests
 ```
