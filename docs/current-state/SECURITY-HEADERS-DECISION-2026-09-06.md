@@ -61,11 +61,19 @@ Rollback owner is the same Pagely operator: restore the prior phase's exact rule
 
 For HSTS serve `Strict-Transport-Security: max-age=0` over working HTTPS and purge; removing the header alone does not clear client state. Clients must reconnect successfully to receive the clearing value; cached HSTS **cannot be instantly undone for all clients**, and TLS must remain working through the prior retention window. [MDN HSTS reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security). Report-only CSP monitors without enforcement; collection endpoints are additional configuration. [MDN report-only reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy-Report-Only).
 
+## Public browser rehearsal — 17:50–17:52 UTC
+
+[Sanitized results](reports/issue-709-browser-rehearsal-20260906.json) compare fresh local Chrome/Playwright contexts with unmodified responses versus `route.fetch()`/`route.fulfill()` response overrides on `https://kriskrug.co/**`. Overrides added the exact nosniff, Referrer-Policy, Permissions-Policy and report-only CSP values above. HSTS was deliberately not installed in the browser. Only the local browser saw these policies; no server configuration changed.
+
+Homepage, contact and speaking each loaded with identical titles, zero page errors, zero complete-but-broken images and zero recorded CSP violation events in both modes. Both speaking facade buttons were then activated in a separate baseline/proposed pair: both expected youtube-nocookie iframe URLs appeared with contentWindow present, with no additional failed requests or page errors. This proves facade-to-iframe creation, not successful video playback or fullscreen operation. Google Analytics collect returned ERR_ABORTED in both modes; that shared observation is not attributed to the proposed headers.
+
+The sample is bounded: one Chromium browser, short page interactions, no authenticated flows, no external framing consumer, no full video playback/fullscreen assertion, and no exhaustive font/network or CSS resource audit. No violations from this permissive report-only sample justify enforcement. The wider regression matrix above remains required for rollout.
+
 ## Acceptance and handoff
 
 - Current header inventory: captured and committed with this packet, including redirect/error cases.
 - Exact candidates, rationale, dependencies, rollout owners and rollback: above.
-- CSP starts with a report-only proposal and concrete controlled collection plan; no deployment or browser compatibility pass claimed.
+- CSP starts with a report-only proposal and concrete controlled collection plan; no deployment claimed; bounded public browser rehearsal recorded above.
 - Remaining execution gates: host capability/config readback, authoritative DNS inventory for any scope expansion, framing decision, safe authenticated browser tests, and KK approval of an exact rollout phase.
 - #767 remains open and owns username exposure; its body was refreshed read-only. No username enumeration, REST restriction, generator suppression or credential testing is part of this lane. Missing headers do not prove compromise.
 
