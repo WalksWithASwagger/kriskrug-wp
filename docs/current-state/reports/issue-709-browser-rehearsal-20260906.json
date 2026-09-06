@@ -1,0 +1,152 @@
+{
+  "page_rehearsal": {
+    "captured": "2026-09-06T17:50:45.525Z",
+    "browser": "local Google Chrome via Playwright, fresh context each route",
+    "results": [
+      {
+        "mode": "baseline",
+        "path": "/",
+        "title": "Kris Kr\u00fcg | AI Keynote Speaker & Creative Technologist",
+        "errors": [],
+        "failed": [
+          {
+            "url": "https://analytics.google.com/g/collect",
+            "error": "net::ERR_ABORTED"
+          }
+        ],
+        "violations": [],
+        "iframes": [],
+        "brokenImages": 0
+      },
+      {
+        "mode": "baseline",
+        "path": "/contact/",
+        "title": "Contact Kris Kr\u00fcg | Kris Kr\u00fcg",
+        "errors": [],
+        "failed": [
+          {
+            "url": "https://analytics.google.com/g/collect",
+            "error": "net::ERR_ABORTED"
+          }
+        ],
+        "violations": [],
+        "iframes": [],
+        "brokenImages": 0
+      },
+      {
+        "mode": "baseline",
+        "path": "/speaking/",
+        "title": "AI Keynote Speaker Kris Kr\u00fcg | Humanizing AI, Creativity & Community",
+        "errors": [],
+        "failed": [
+          {
+            "url": "https://analytics.google.com/g/collect",
+            "error": "net::ERR_ABORTED"
+          }
+        ],
+        "violations": [],
+        "iframes": [],
+        "brokenImages": 0
+      },
+      {
+        "mode": "proposed",
+        "path": "/",
+        "title": "Kris Kr\u00fcg | AI Keynote Speaker & Creative Technologist",
+        "errors": [],
+        "failed": [
+          {
+            "url": "https://analytics.google.com/g/collect",
+            "error": "net::ERR_ABORTED"
+          }
+        ],
+        "violations": [],
+        "iframes": [],
+        "brokenImages": 0
+      },
+      {
+        "mode": "proposed",
+        "path": "/contact/",
+        "title": "Contact Kris Kr\u00fcg | Kris Kr\u00fcg",
+        "errors": [],
+        "failed": [
+          {
+            "url": "https://analytics.google.com/g/collect",
+            "error": "net::ERR_ABORTED"
+          }
+        ],
+        "violations": [],
+        "iframes": [],
+        "brokenImages": 0
+      },
+      {
+        "mode": "proposed",
+        "path": "/speaking/",
+        "title": "AI Keynote Speaker Kris Kr\u00fcg | Humanizing AI, Creativity & Community",
+        "errors": [],
+        "failed": [
+          {
+            "url": "https://analytics.google.com/g/collect",
+            "error": "net::ERR_ABORTED"
+          }
+        ],
+        "violations": [],
+        "iframes": [],
+        "brokenImages": 0
+      }
+    ]
+  },
+  "embed_rehearsal": {
+    "captured": "2026-09-06T17:51:52.364Z",
+    "browser": "local Google Chrome via Playwright, fresh context each route",
+    "results": [
+      {
+        "mode": "baseline",
+        "path": "/speaking/",
+        "title": "AI Keynote Speaker Kris Kr\u00fcg | Humanizing AI, Creativity & Community",
+        "errors": [],
+        "failed": [
+          {
+            "url": "https://analytics.google.com/g/collect",
+            "error": "net::ERR_ABORTED"
+          }
+        ],
+        "violations": [],
+        "iframes": [
+          {
+            "src": "https://www.youtube-nocookie.com/embed/hYT-hsml_ds",
+            "loaded": true
+          },
+          {
+            "src": "https://www.youtube-nocookie.com/embed/-c7mgY2aSgM",
+            "loaded": true
+          }
+        ],
+        "brokenImages": 0
+      },
+      {
+        "mode": "proposed",
+        "path": "/speaking/",
+        "title": "AI Keynote Speaker Kris Kr\u00fcg | Humanizing AI, Creativity & Community",
+        "errors": [],
+        "failed": [
+          {
+            "url": "https://analytics.google.com/g/collect",
+            "error": "net::ERR_ABORTED"
+          }
+        ],
+        "violations": [],
+        "iframes": [
+          {
+            "src": "https://www.youtube-nocookie.com/embed/hYT-hsml_ds",
+            "loaded": true
+          },
+          {
+            "src": "https://www.youtube-nocookie.com/embed/-c7mgY2aSgM",
+            "loaded": true
+          }
+        ],
+        "brokenImages": 0
+      }
+    ]
+  }
+}
