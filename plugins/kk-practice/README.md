@@ -24,6 +24,7 @@ Run from this repository/worktree, with its local manifest present. Use Node 24 
 
 ```sh
 npm --prefix "$PWD" ci --ignore-scripts
+export PLAYWRIGHT_BROWSERS_PATH="$PWD/node_modules/.cache/practice-browsers"
 node node_modules/playwright/cli.js install chromium
 make practice-test
 make practice-preview
@@ -35,7 +36,7 @@ make practice-package
 
 The CLI's supported options do not expose a host binding. It initially binds its default interface, then the harness rebinds loopback before fixture content is created. Use only trusted development machines; the fixture has no private data. Stop the owned process with Ctrl-C. Do not expose the fixture as a public server. No persistent CLI `start`, shared installation, Docker or production access is needed.
 
-`PRACTICE_PORT` changes the manual preview port (default 9832). Browser tests use 9833 and close their fixture. `PRACTICE_CHROME` can select a local Chrome executable; CI installs pinned Playwright Chromium with the same job-scoped browser path for installation and execution. The first CI run found no executable in the inherited browser directory; the job now uses its own runner-temporary directory and explicit local installer, without skipping browser tests. `PRACTICE_EVIDENCE` selects screenshot/report output (default `/tmp/kk-practice-evidence`). Evidence uses synthetic answers only. Do not submit participant text in issues, logs or screenshots.
+`PRACTICE_PORT` changes the manual preview port (default 9832). Browser tests use 9833 and close their fixture. `PRACTICE_CHROME` can select a local Chrome executable; CI installs pinned Playwright Chromium with the same job-scoped browser path for installation and execution. The first CI run installed into the user cache while the existing Makefile exported `/opt/pw-browsers`; the job now uses its own runner-temporary directory and explicit local installer, without skipping browser tests. `PRACTICE_EVIDENCE` selects screenshot/report output (default `/tmp/kk-practice-evidence`). Evidence uses synthetic answers only. Do not submit participant text in issues, logs or screenshots.
 
 ## Dependency evidence
 
