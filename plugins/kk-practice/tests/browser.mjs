@@ -5,7 +5,9 @@ import {startPreview} from './preview.mjs';
 const fixture = await startPreview(9833);
 const evidence = process.env.PRACTICE_EVIDENCE || '/tmp/kk-practice-evidence';
 mkdirSync(evidence, {recursive: true});
-const browser = await chromium.launch({headless: true, ...(process.env.PRACTICE_CHROME ? {executablePath: process.env.PRACTICE_CHROME} : {})});
+let browser;
+try { browser = await chromium.launch({headless: true, ...(process.env.PRACTICE_CHROME ? {executablePath: process.env.PRACTICE_CHROME} : {})}); }
+catch (error) { await fixture.close(); throw error; }
 const report = {version: fixture.ids.version, checks: [], previewMilliseconds: []};
 try {
   const context = await browser.newContext({viewport: {width: 1280, height: 900}, reducedMotion: 'reduce'});
