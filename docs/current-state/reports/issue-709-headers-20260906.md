@@ -12,7 +12,7 @@ Connection: keep-alive
 Server: Pagely-ARES/1.22.28
 Location: https://kriskrug.co/
 X-Gateway-Skip-Cache: 1
-HTTP/2 200 
+HTTP/2 200
 date: Sun, 06 Sep 2026 17:46:25 GMT
 content-type: text/html; charset=UTF-8
 vary: Accept-Encoding
@@ -25,7 +25,7 @@ x-gateway-skip-cache: 0
 
 ## https://www.kriskrug.co/
 ```text
-HTTP/2 301 
+HTTP/2 301
 date: Sun, 06 Sep 2026 17:46:26 GMT
 content-type: text/html; charset=UTF-8
 content-length: 0
@@ -37,7 +37,7 @@ cache-control: max-age=3600
 x-redirect-by: WordPress
 x-gateway-cache-status: MISS
 x-gateway-skip-cache: 0
-HTTP/2 200 
+HTTP/2 200
 date: Sun, 06 Sep 2026 17:46:26 GMT
 content-type: text/html; charset=UTF-8
 vary: Accept-Encoding
@@ -50,7 +50,7 @@ x-gateway-skip-cache: 0
 
 ## https://kriskrug.co/
 ```text
-HTTP/2 200 
+HTTP/2 200
 date: Sun, 06 Sep 2026 17:46:27 GMT
 content-type: text/html; charset=UTF-8
 vary: Accept-Encoding
@@ -63,7 +63,7 @@ x-gateway-skip-cache: 0
 
 ## https://kriskrug.co/contact/
 ```text
-HTTP/2 200 
+HTTP/2 200
 date: Sun, 06 Sep 2026 17:46:28 GMT
 content-type: text/html; charset=UTF-8
 vary: Accept-Encoding
@@ -77,7 +77,7 @@ x-gateway-skip-cache: 0
 
 ## https://kriskrug.co/speaking/
 ```text
-HTTP/2 200 
+HTTP/2 200
 date: Sun, 06 Sep 2026 17:46:29 GMT
 content-type: text/html; charset=UTF-8
 vary: Accept-Encoding
@@ -91,7 +91,7 @@ x-gateway-skip-cache: 0
 
 ## https://kriskrug.co/wp-json/
 ```text
-HTTP/2 200 
+HTTP/2 200
 date: Sun, 06 Sep 2026 17:46:29 GMT
 content-type: application/json; charset=UTF-8
 vary: Accept-Encoding
@@ -109,7 +109,7 @@ x-gateway-skip-cache: 0
 
 ## https://kriskrug.co/issue-709-nonexistent-20260906/
 ```text
-HTTP/2 404 
+HTTP/2 404
 date: Sun, 06 Sep 2026 17:46:30 GMT
 content-type: text/html; charset=UTF-8
 vary: Accept-Encoding
@@ -122,7 +122,7 @@ link: <https://kriskrug.co/wp-json/>; rel="https://api.w.org/"
 
 ## https://kriskrug.co/wp-admin/
 ```text
-HTTP/2 302 
+HTTP/2 302
 date: Sun, 06 Sep 2026 17:46:31 GMT
 content-type: text/html; charset=UTF-8
 content-length: 0
@@ -133,7 +133,7 @@ cache-control: no-cache, must-revalidate, max-age=0, no-store, private
 x-redirect-by: WordPress
 x-gateway-cache-status: BYPASS
 x-gateway-skip-cache: 1
-HTTP/2 200 
+HTTP/2 200
 date: Sun, 06 Sep 2026 17:46:32 GMT
 content-type: text/html; charset=UTF-8
 vary: Accept-Encoding
@@ -150,7 +150,7 @@ x-gateway-skip-cache: 1
 
 ## https://kriskrug.co/wp-login.php
 ```text
-HTTP/2 200 
+HTTP/2 200
 date: Sun, 06 Sep 2026 17:46:33 GMT
 content-type: text/html; charset=UTF-8
 vary: Accept-Encoding
@@ -168,7 +168,7 @@ x-gateway-skip-cache: 1
 
 ## https://kriskrug.co/wp-content/themes/kk-aurora/style.css
 ```text
-HTTP/2 200 
+HTTP/2 200
 date: Sun, 06 Sep 2026 17:46:33 GMT
 content-type: text/css
 content-length: 111719
@@ -186,7 +186,7 @@ accept-ranges: bytes
 
 ## https://kriskrug.co/2026/09/03/what-i-showed-founders-about-ai-workflows/
 ```text
-HTTP/2 200 
+HTTP/2 200
 date: Sun, 06 Sep 2026 17:46:34 GMT
 content-type: text/html; charset=UTF-8
 vary: Accept-Encoding
