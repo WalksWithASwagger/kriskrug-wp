@@ -68,7 +68,7 @@ The walk organizer checks the route, timing, access information and image permis
 
 Could another person start from this? Check the sources and the gaps before you copy it into another tool. That tool's privacy rules will apply when you share it there.
 
-Keep the parts you know. Mark the parts you do not. You can save an unfinished draft and come back with better information.
+Keep the parts you know. Mark the parts you do not. Download a copy of an unfinished draft and add better information in your own document later.
 
 ## Interface wording for the proof
 
@@ -76,7 +76,8 @@ Keep the parts you know. Mark the parts you do not. You can save an unfinished d
 - Preview: **Preview my brief**
 - Copy: **Copy brief**
 - Download: **Download Markdown**
-- Print: **Print worksheet**
+- Print completed output: **Print brief**
+- Print blank fallback: **Print worksheet**
 - Reset: **Clear my answers**
 - Reset confirmation: **Clear all six answers? Save a copy first if you want to keep them.**
 - Empty field in output: **Not provided. Resolve before relying on this brief.**
