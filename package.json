@@ -1,0 +1,12 @@
+{
+  "name": "kriskrug-wp-practice-tests",
+  "private": true,
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@wp-playground/cli": "3.1.52"
+  },
+  "overrides": {
+    "qs": "6.16.0"
+  }
+}

@@ -8,6 +8,8 @@ VARLOCK ?= varlock
 WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-07-30.md
 EXPECT_VERSION_DEFAULT := 7.0.4
 JAVASCRIPT_FILES := \
+	plugins/kk-practice/blocks/context-brief/editor.js \
+	plugins/kk-practice/blocks/context-brief/view.js \
 	plugins/kk-marquee-board/assets/marquee.js \
 	scripts/marquee/render_og.cjs \
 	theme/kk-aurora/assets/js/marquee.js \
@@ -70,6 +72,7 @@ plugin-smoke: ## Run lightweight plugin smoke tests
 	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for plugin smoke tests."; exit 1; }
 	@php plugins/kk-sidebar-promos/tests/smoke.php
 	@php plugins/kk-marquee-board/tests/smoke.php
+	@php plugins/kk-practice/tests/smoke.php
 
 theme-smoke: ## Run lightweight theme behavior smoke tests
 	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for theme smoke tests."; exit 1; }
@@ -397,3 +400,19 @@ visual-list: ## List baseline manifests and which still have images on disk
 
 visual-prune: ## Delete old capture dirs pair-safely; set DRY_RUN=1 to preview
 	@$(VISUAL) prune $(if $(KEEP),--keep $(KEEP),) $(if $(DRY_RUN),--dry-run,)
+
+.PHONY: practice-preview practice-test practice-browser-test practice-package
+practice-preview: ## Start a disposable real WordPress 7.0.4/Aurora fixture
+	@node plugins/kk-practice/tests/preview.mjs
+
+practice-test: ## Verify practice source contracts, fallback and asset budget
+	@php plugins/kk-practice/tests/smoke.php
+	@node --check plugins/kk-practice/blocks/context-brief/editor.js
+	@node --check plugins/kk-practice/blocks/context-brief/view.js
+	@node plugins/kk-practice/tests/contracts.mjs
+
+practice-browser-test: practice-test ## Exercise real WordPress privacy, exports and fallback
+	@node plugins/kk-practice/tests/browser.mjs
+
+practice-package: practice-test ## Build a deterministic production-only plugin zip in /tmp
+	@python3 plugins/kk-practice/tests/package.py
