@@ -1,0 +1,14 @@
+# Staging images are not committed (matches 2026-06-28-context-creators).
+# Provenance is in README.md and internal-links.md; all three are already
+# published to the WordPress media library and re-stageable from source.
+images/
+# Regenerable dry-run output.
+dry-run-body.html
+
+# theBreaker.news owns this episode's audio. kriskrug-wp is a PUBLIC repo, so a
+# verbatim transcript of it does not belong here. The canonical copies live in
+# the private kk-kb repo under content/media/interviews/. Kept locally as a
+# working artifact for writing the recap only.
+transcript-clean.txt
+transcript-raw.txt
+transcript-timestamped.vtt

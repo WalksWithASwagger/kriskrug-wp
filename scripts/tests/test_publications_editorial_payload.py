@@ -114,12 +114,29 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
 
     def test_complete_reverse_chronological_inventory(self):
         self.assertEqual(3, self.payload.count('<a class="kk-press-feature'))
-        self.assertEqual(22, self.payload.count('<article class="kk-press-entry'))
+        self.assertEqual(23, self.payload.count('<article class="kk-press-entry'))
         self.assertEqual(25, self.payload.count("<li><time"))
 
         dates = re.findall(r'datetime="(\d{4}-\d{2}-\d{2})"', self.payload)
-        self.assertEqual(50, len(dates))
+        self.assertEqual(51, len(dates))
         self.assertEqual(sorted(dates, reverse=True), dates)
+
+    def test_hero_ledger_matches_actual_dated_entries(self):
+        """Hero counters are hand-written; keep them tied to the real dates."""
+        dates = re.findall(r'datetime="(\d{4}-\d{2}-\d{2})"', self.payload)
+        ledger = dict(
+            (label.strip(), int(value))
+            for value, label in re.findall(
+                r"<div><dt>(\d+)</dt><dd>([^<]+)</dd></div>", self.payload
+            )
+        )
+        self.assertEqual(len(dates), ledger["dated entries on this page"])
+        self.assertEqual(
+            sum(1 for d in dates if d >= "2023-01-01"),
+            ledger["published since 2023"],
+        )
+        span = int(max(dates)[:4]) - int(min(dates)[:4])
+        self.assertEqual(span, ledger["years on the record"])
 
     def test_structure_and_reciprocal_links(self):
         self.assertIn('class="kk-press-featured"', self.payload)
