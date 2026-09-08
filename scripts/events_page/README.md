@@ -61,7 +61,14 @@ scripts/notion-to-wp/.venv/bin/python scripts/events_page/render_events_page.py
 # → scripts/events_page/out/events-2250.generated.html
 ```
 
-5. **Apply to live** (separate phase — snapshot page 2250 first, KK approval on #635): follow [`content/drafts/2026-08-16-events-hero-backfill/APPLY-RUNBOOK.md`](../../content/drafts/2026-08-16-events-hero-backfill/APPLY-RUNBOOK.md). POST the generated HTML to WP page **2250**. Do not skip rollback snapshot. Do not treat a merged runbook PR as the live write.
+5. **Apply to live** (separate approval): snapshot and verify page **2250** first. #635's [runbook](../../content/drafts/2026-08-16-events-hero-backfill/APPLY-RUNBOOK.md) is historical deployment evidence, not reusable approval. The North House proof uses its [bounded runbook](../../content/drafts/2026-09-05-north-house-journey/README.md). Do not treat a merged PR as permission for a live write.
+
+Past records may set `recap_url` to an absolute HTTPS link to a published recap
+on `kriskrug.co`; other destinations are rejected. Compact cards then show
+"Read the recap"; otherwise they retain "Recap / details" and `url`. Keep `url`
+as the host/event source because the hero-fetch engine consumes it. Upcoming
+cards retain their registration destination. This proof configures only the
+already-past North House record; no media sync or other record change is needed.
 
 ## Harvest merge
 
@@ -75,7 +82,7 @@ Each dated card has `data-event-end`. Page-scoped JS moves cards between Upcomin
 
 - Default sync is dry-run (no uploads).
 - This folder does **not** POST page content.
-- Creds from `scripts/notion-to-wp/.env` (`WP_USER`, `WP_APP_PASSWORD`) — never commit or print them.
+- Resolve credentials through the root Varlock schema (`varlock run --inject vars -- …`); both supported WP name pairs are accepted. Never read or print value files. The old `.env` loader remains a compatibility fallback.
 - Pitch Night graphic is already WP media **12660**; leave that `media_id` alone.
 
 ## Hero fetch engine (#587)
