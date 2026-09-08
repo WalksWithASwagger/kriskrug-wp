@@ -1,9 +1,9 @@
 # `fixes/` index
 
-67 files live here and they are two very different kinds of thing mixed into one
+68 files live here and they are two very different kinds of thing mixed into one
 directory:
 
-- **Snippet PHP sources** (16 `.php`). Some are the source of truth for PHP that
+- **Snippet PHP sources** (17 `.php`). Some are the source of truth for PHP that
   is running in production via the Code Snippets plugin; others are inactive,
   superseded, or drafts. Editing any of them is prod-adjacent work until its
   current slot/provider state is proved.
@@ -61,6 +61,9 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 | `issue-767-hide-rest-users.php` | Restricts unauthenticated GET/HEAD `/wp/v2/users` | **Not live; prep only** | none | 2026-08-16 | Draft for #767. Do not enable without KK approval and the Site Kit / block-editor checks in the file header |
 | `issue-767-disable-author-probes.php` | 404s `/?author=N` query probes; leaves pretty author archives to #331 | **Not live; prep only** | none | 2026-08-16 | Draft for #767. Default does not 404 `/author/<slug>/` |
 | `issue-767-hide-user-sitemap.php` | Removes the users sitemap provider only; preserves every other provider | **Not live; prep only** | none | 2026-08-28 | Narrow #767 alternative to the broader #331 archive policy; enable one or the other, not both |
+| `issue-1002-xmlrpc-constrain.php` | Fallback `xmlrpc_enabled` disable for #1002 | **Not live; prep only** | none | 2026-09-08 | Host/WAF deny is the recommended control. This snippet does not change GET/HEAD 405. Do not enable if Jetpack core is reactivated |
+| `issue-995-events-search-snippet.php` | Page 2250 `/events/` approved title + description via `get_post_metadata` | **Not live; prep only** | none | 2026-09-08 | Diagnosis in `docs/current-state/reports/issue-995-events-search-intent-20260908.md`. Do not activate without KK approval, a page-2250 snapshot, and rollback. Do not pair with snippet 12 |
+| `issue-997-homepage-paged-canonical.php` | 301 static-front-page `/page/{n}/` (n ≥ 2) to `/`; force homepage canonical if a 200 still renders | **Not live; prep only** | none | 2026-09-08 | Diagnosis in `docs/current-state/reports/issue-997-gsc-url-errors-20260908.md`. Same-document alias only. Do not pair with a theme copy of the same filter. Do not redirect `/3/` or other 404s to `/` |
 | `kk-news-sitemap-snippet.php` | Google News style sitemap at `/news-sitemap.xml` (#425) | **Active in the 2026-07-24 capture; public route not verified working** | 13 | capture: 2026-07-24; render: 2026-08-15 | Authenticated capture records ID 13 with `active=true`, while `/news-sitemap.xml` returned 301 rather than XML. The body was not read live in this pass, so do not assume this repo copy matches the current slot or redeploy it without authenticated readback and KK approval |
 | `issue-158-shopify-embed.php` | Shopify Buy Button wiring for a Shop page | **Not live** (draft) | none | 2026-08-15 | `/shop/` returns 404; no `kk-shop` or `BuyButton` in live markup. Placeholders unfilled |
 | `issue-39-schema-markup.php` | Original Person / Organization / Article schema | **Not live**, superseded by snippet 5 | none | 2026-08-15 | Live emits exactly one `Person` block and it has snippet 5's shape. `docs/current-state/archive/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md` records #39 as superseded |

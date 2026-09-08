@@ -2,6 +2,8 @@
 
 Status: **prep complete; rollout not authorized**. Captured 6 September 2026. This packet updates the [August audit](reports/security-headers-audit-2026-08-15.md) with fresh GET evidence and supersedes its proposed policy. No host, plugin, snippet, DNS or live WordPress setting changed. The older audit's absolute statements about feasibility and origin behaviour are not deployment proof.
 
+Phase-1 apply procedure (still not authorization): [`SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md`](SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md) (#1001). Keep this packet as the values/owners source of truth.
+
 ## Current evidence and limits
 
 [Sanitized GET captures](reports/issue-709-headers-20260906.md) retain all redirect hops, HTTP status, content types and cache observations, with cookies, cache keys and request identifiers removed. Public Aurora stylesheet reads 1.6.11. `make doctor` and `make status-readonly` ran in the lane worktree; sandbox DNS and the absent lane venv degraded startup checks. Escalated public GETs and GitHub reads succeeded. No authenticated editor or host-control session was used.
@@ -76,5 +78,6 @@ The sample is bounded: one Chromium browser, short page interactions, no authent
 - CSP starts with a report-only proposal and concrete controlled collection plan; no deployment claimed; bounded public browser rehearsal recorded above.
 - Remaining execution gates: host capability/config readback, authoritative DNS inventory for any scope expansion, framing decision, safe authenticated browser tests, and KK approval of an exact rollout phase.
 - #767 remains open and owns username exposure; its body was refreshed read-only. No username enumeration, REST restriction, generator suppression or credential testing is part of this lane. Missing headers do not prove compromise.
+- XML-RPC reachability is owned by [#1002](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1002) ([packet](XML-RPC-CONSTRAIN-DECISION-2026-09-08.md)). Do not fold a live `/xmlrpc.php` deny into this header rollout.
 
 Prep acceptance is distinct from rollout verification. Keep #709 open until KK accepts the packet and decides whether a separately scoped rollout should follow.

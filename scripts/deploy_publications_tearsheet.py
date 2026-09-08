@@ -38,6 +38,8 @@ PAYLOAD_PATH = (
 ASSETS_DIR = REPO_ROOT / "content" / "source-packs" / "keynotes-2026" / "assets"
 DEFAULT_SNAPSHOT_DIR = Path("backup") / "publications-tearsheet"
 MEDIA_KEYS = [
+    "press-2026-08-09-thebreaker-460-context.jpg",
+    "press-2026-08-09-thebreaker-cover.jpg",
     "press-2023-09-07-uniqueways-cover.jpg",
     "press-2023-09-08-olio-context-v2.jpg",
     "press-2023-11-08-kurty-d-cover.jpg",
