@@ -1,0 +1,45 @@
+{
+  "fields": [
+    {
+      "title": "What are you trying to accomplish?",
+      "help": "Name the thing you want to make or the decision you need to prepare. Keep it small enough to review in one sitting."
+    },
+    {
+      "title": "Who is this for?",
+      "help": "Name the reader or user. What do they already know, and what should they be able to do with the result?"
+    },
+    {
+      "title": "What sources or context are available?",
+      "help": "List the documents, examples or facts the work needs. Say what you have permission to use, what is missing and where an answer still needs checking. Listing a source does not give this exercise or another tool access to it."
+    },
+    {
+      "title": "What would a useful result satisfy?",
+      "help": "Write a few conditions someone could check. Include the format, the essential information and how you will know it is ready. “Make it better” leaves a lot to guess."
+    },
+    {
+      "title": "What must remain private or outside the task?",
+      "help": "Name what must not be shared, assumed or done. Include any actions that need separate permission. If you have not checked a source's sharing permission, keep its contents out."
+    },
+    {
+      "title": "What decision or check must remain with a person?",
+      "help": "Name the person or role who will review the result, what they must check and what they must approve before anyone acts on it."
+    }
+  ],
+  "examples": [
+    "Draft a one-page invitation for a free neighbourhood photo walk. Prepare copy for review; do not publish or send it.",
+    "Local adults who enjoy taking pictures, including people using phones. They should be able to decide whether the walk suits them and know what to bring.",
+    "For this fictional exercise, assume I have an organizer-approved route outline and a public transport map. The meeting time and step-free route check are still missing. Mark them as unresolved; do not invent them.",
+    "Keep the invitation under 250 words. Include the purpose, what to bring, the proposed route and the unresolved time and access checks. Use plain language. Do not describe the route as accessible until it has been checked.",
+    "Do not include private phone numbers, participant names or unapproved photographs. Do not promise equipment, permissions or access arrangements that have not been confirmed. Do not contact anyone or publish the invitation.",
+    "The walk organizer checks the route, timing, access information and image permissions. They approve the final invitation before it is shared."
+  ],
+  "intro": [
+    "Pick one piece of work you actually need to do. Give it ten minutes and leave with a brief you can use with your team or your chosen AI tool.",
+    "At North House, Kris showed a habit: give each project a home and gather the context it needs. This exercise starts with the brief. You do not need a GitHub account to try it."
+  ],
+  "before": [
+    "Choose a small task with an outcome you can check. Describe your sources without pasting private material. Leave out passwords, personal information and anything you do not have permission to share.",
+    "You can write “not decided” or “not available.” A gap you can see is something you can act on."
+  ],
+  "disclosure": "This is a teaching aid inspired by the recap's habit of gathering context. It is not a recovered demonstration, participant brief, testimonial or account of an actual event."
+}

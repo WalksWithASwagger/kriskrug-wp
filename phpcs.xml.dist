@@ -10,6 +10,7 @@
 	<file>inc</file>
 	<file>plugins/kk-marquee-board</file>
 	<file>plugins/kk-sidebar-promos</file>
+	<file>plugins/kk-practice</file>
 	<file>theme/kk-aurora/functions.php</file>
 	<file>theme/kk-aurora/inc</file>
 	<file>theme/kk-aurora/patterns</file>

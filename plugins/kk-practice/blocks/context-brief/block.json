@@ -1,0 +1,14 @@
+{
+  "apiVersion": 3,
+  "name": "kk/context-brief",
+  "version": "0.1.0",
+  "title": "Context brief",
+  "category": "widgets",
+  "icon": "edit-page",
+  "description": "Six questions and a browser-only work brief. No answers are saved to WordPress.",
+  "supports": { "html": false, "multiple": false },
+  "editorScript": "kk-practice-editor",
+  "viewScript": "file:./view.js",
+  "style": "file:./style.css",
+  "render": "file:./render.php"
+}
