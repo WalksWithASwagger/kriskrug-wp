@@ -56,6 +56,34 @@ def event(**overrides):
     return base
 
 
+class RecapDestination(unittest.TestCase):
+    def test_compact_card_prefers_recap_but_retains_source_record(self):
+        ev = event(recap_url="https://kriskrug.co/a-recap/")
+        output = render.render_compact_card(ev, roots_for(ROOT))
+        self.assertIn('href="https://kriskrug.co/a-recap/">Read the recap</a>', output)
+        self.assertNotIn('href="https://example.org/stage"', output)
+        self.assertEqual("https://example.org/stage", ev["url"])
+
+    def test_empty_recap_keeps_existing_fallback(self):
+        for recap in (None, ""):
+            output = render.render_compact_card(event(recap_url=recap), roots_for(ROOT))
+            self.assertIn('href="https://example.org/stage">Recap / details</a>', output)
+
+    def test_upcoming_registration_is_unchanged(self):
+        output = render.render_rich_card(event(recap_url="https://kriskrug.co/a-recap/"), roots_for(ROOT))
+        self.assertIn('href="https://example.org/stage"', output)
+        self.assertNotIn("https://kriskrug.co/a-recap/", output)
+
+    def test_recap_url_is_escaped(self):
+        output = render.render_compact_card(event(recap_url='https://kriskrug.co/?a="&b=2'), roots_for(ROOT))
+        self.assertIn('href="https://kriskrug.co/?a=&quot;&amp;b=2"', output)
+
+    def test_recap_rejects_unsafe_or_noncanonical_destinations(self):
+        for url in ("javascript:alert(1)", "//example.org/", "/recap/", "https://kriskrug.co.evil.test/", True):
+            with self.subTest(url=url), self.assertRaises(ValueError):
+                render.render_compact_card(event(recap_url=url), roots_for(ROOT))
+
+
 class LocalPathsNeverShip(unittest.TestCase):
     """Guard: no file:// or /Users/ src ever reaches the output."""
 

@@ -102,6 +102,8 @@ My voice model has been getting trained for two and a half years and it is close
 
 That is the whole talk, really. Not a tool list. One habit, applied until it compounds.
 
+Want to work through this with your team? [See what a live workflow session can look like](/generative-ai-services/#north-house-workflow), starting with the room at North House.
+
 ---
 
 Thanks to Joel Hansen and North House for the room, and to Praveen for being a genuinely good foil. If you want the longer version of this argument with a lot more people in it, that is what [Futureproof](https://www.futureproof.website/) is for.

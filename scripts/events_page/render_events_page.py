@@ -195,11 +195,15 @@ def render_compact_card(event: dict[str, Any], roots: dict[str, Path]) -> str:
     end = html_escape(end_iso(event))
     title = html_escape(event.get("title") or "")
     label = html_escape(edition_label(event))
-    url = event.get("url") or ""
+    recap_url = event.get("recap_url")
+    if recap_url and (not isinstance(recap_url, str) or not recap_url.startswith("https://kriskrug.co/")):
+        raise ValueError("recap_url must be an absolute HTTPS link on kriskrug.co")
+    url = recap_url or event.get("url") or ""
     media = artwork_html(event, roots, base_class="aurora-event-compact-media")
     link = ""
     if url:
-        link = f'<a class="aurora-event-compact-link" href="{html_escape(url)}">Recap / details</a>'
+        label_text = "Read the recap" if recap_url else "Recap / details"
+        link = f'<a class="aurora-event-compact-link" href="{html_escape(url)}">{label_text}</a>'
     return f"""      <article class="aurora-event-card aurora-event-card--compact" data-event-end="{end}" data-event-id="{eid}">
 {media}
         <div class="aurora-event-compact-body">
