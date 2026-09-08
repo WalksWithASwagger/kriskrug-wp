@@ -32,6 +32,7 @@ Read these first:
 | [RECLAIM-LIST-2026-07-24.md](RECLAIM-LIST-2026-07-24.md) | #318/#369 reclaim proposal |
 | [reports/repo-bloat-318-next-steps-20260726.md](reports/repo-bloat-318-next-steps-20260726.md) | Executable A+D reclaim runbook |
 | [ROLLBACK_PLAYBOOK.md](ROLLBACK_PLAYBOOK.md) | Prod undo order |
+| [SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md](SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md) | #1001 phase-1 nosniff + Referrer-Policy apply (Pagely ARES). Docs only; does not authorize live apply. Parent #709 stays open |
 | [BACKUP_PLAN.md](BACKUP_PLAN.md) | Backup pieces and gaps |
 | [ACCESS_CHANNELS.md](ACCESS_CHANNELS.md) | How we reach the site |
 | [REPO-HYGIENE-AUDIT-2026-07-12.md](REPO-HYGIENE-AUDIT-2026-07-12.md) | Docs/branch/cruft audit |

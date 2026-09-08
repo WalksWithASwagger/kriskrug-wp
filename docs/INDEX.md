@@ -22,6 +22,7 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`current-state/ROLLBACK_PLAYBOOK.md`](current-state/ROLLBACK_PLAYBOOK.md) | Order of operations if a prod change breaks |
 | [`current-state/AURORA-STYLESHEET-REBUILD-PLAN.md`](current-state/AURORA-STYLESHEET-REBUILD-PLAN.md) | Path A stylesheet rebuild plan of record (#423) |
 | [`current-state/SEO-INDEXING-RUNBOOK.md`](current-state/SEO-INDEXING-RUNBOOK.md) | Indexing/distribution checklist |
+| [`current-state/SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md`](current-state/SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md) | #1001 phase-1 nosniff + Referrer-Policy apply runbook (Pagely ARES; no live change) |
 | [`current-state/reports/`](current-state/reports/) | Explicit durable `make morning-truth-checkpoint` outputs; consult the checkpoint relevant to the release, incident, decision, or handoff |
 | [`current-state/archive/`](current-state/archive/) | Superseded May–June plans and closeouts (#549) |
 | [`current-state/AURORA-MOTION-GOVERNANCE-2026-05-20.md`](current-state/archive/AURORA-MOTION-GOVERNANCE-2026-05-20.md) | Motion budget and QA rules for Aurora |
