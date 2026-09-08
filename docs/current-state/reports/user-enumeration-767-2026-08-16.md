@@ -80,7 +80,7 @@ HSTS is owned by #709. This issue only re-confirms the gap so the four-surface c
 
 ### 2.5 What was not probed
 
-- No `xmlrpc.php` method call, no `system.multicall`, no POST to xmlrpc. Reachability alone was recorded in the #709 report; whether to disable it is a KK decision on that issue.
+- No `xmlrpc.php` method call, no POST to xmlrpc. Reachability alone was recorded in the #709 report. Constrain/disable is now owned by #1002 (prep packet); this issue does not reopen it.
 - No login attempt, no password spray, no Application Password test.
 - No Code Snippets write, no user/role edit, no Pagely panel change.
 
