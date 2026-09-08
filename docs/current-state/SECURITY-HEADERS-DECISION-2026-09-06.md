@@ -78,5 +78,6 @@ The sample is bounded: one Chromium browser, short page interactions, no authent
 - CSP starts with a report-only proposal and concrete controlled collection plan; no deployment claimed; bounded public browser rehearsal recorded above.
 - Remaining execution gates: host capability/config readback, authoritative DNS inventory for any scope expansion, framing decision, safe authenticated browser tests, and KK approval of an exact rollout phase.
 - #767 remains open and owns username exposure; its body was refreshed read-only. No username enumeration, REST restriction, generator suppression or credential testing is part of this lane. Missing headers do not prove compromise.
+- XML-RPC reachability is owned by [#1002](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1002) ([packet](XML-RPC-CONSTRAIN-DECISION-2026-09-08.md)). Do not fold a live `/xmlrpc.php` deny into this header rollout.
 
 Prep acceptance is distinct from rollout verification. Keep #709 open until KK accepts the packet and decides whether a separately scoped rollout should follow.

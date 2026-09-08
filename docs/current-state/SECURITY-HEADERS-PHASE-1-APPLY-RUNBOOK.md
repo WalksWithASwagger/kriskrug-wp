@@ -33,7 +33,7 @@ This phase does **not** include:
 - **HSTS.** `Strict-Transport-Security` is phase 2 in the decision packet (`max-age=86400` first; later `max-age=15768000` is a separate approval). Do not add `includeSubDomains` or `preload`.
 - **CSP** of any kind, including report-only. That is phase 3.
 - **COOP**, Trusted Types, Permissions-Policy, public `X-Frame-Options`, or public `frame-ancestors`.
-- **XML-RPC** changes.
+- **XML-RPC** changes. Owned by [#1002](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1002); do not apply from this runbook.
 - **A live apply from the agent.** No Pagely ticket from the agent. No Code Snippet enable. No plugin/theme header patch as a silent fallback.
 - **Re-opening or re-litigating #767.** Security Desk live reconfirm 2026-09-07 (cache-busted): REST users `401`, users sitemap absent, `/?author=1` → `404`. Those surfaces are live PASS. HSTS remains absent and stays on #709 phase 2.
 
