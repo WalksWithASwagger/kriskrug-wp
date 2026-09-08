@@ -2,6 +2,8 @@
 
 Status: **prep complete; rollout not authorized**. Captured 6 September 2026. This packet updates the [August audit](reports/security-headers-audit-2026-08-15.md) with fresh GET evidence and supersedes its proposed policy. No host, plugin, snippet, DNS or live WordPress setting changed. The older audit's absolute statements about feasibility and origin behaviour are not deployment proof.
 
+Phase-1 apply procedure (still not authorization): [`SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md`](SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md) (#1001). Keep this packet as the values/owners source of truth.
+
 ## Current evidence and limits
 
 [Sanitized GET captures](reports/issue-709-headers-20260906.md) retain all redirect hops, HTTP status, content types and cache observations, with cookies, cache keys and request identifiers removed. Public Aurora stylesheet reads 1.6.11. `make doctor` and `make status-readonly` ran in the lane worktree; sandbox DNS and the absent lane venv degraded startup checks. Escalated public GETs and GitHub reads succeeded. No authenticated editor or host-control session was used.
