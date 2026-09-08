@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - develop
+      - codex/981-context-brief-teaching
 
 permissions:
   contents: read
@@ -196,6 +197,26 @@ jobs:
       - name: Check JavaScript syntax
         run: make javascript-syntax
 
+  practice-browser:
+    needs: validate
+    runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_BROWSERS_PATH: /tmp/kk-practice-browsers
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24'
+      - uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # v2
+        with:
+          php-version: '8.2'
+      - name: Install pinned preview dependencies
+        run: npm ci --ignore-scripts
+      - name: Install Chromium
+        run: node node_modules/playwright/cli.js install --with-deps chromium
+      - name: Practice application checks
+        run: make practice-browser-test
+
   # Documentation truth guardrails
   docs-truth-check:
     needs: validate
@@ -226,14 +247,14 @@ jobs:
           output: 'trivy-results.sarif'
 
       - name: Upload Trivy results to GitHub Security
-        uses: github/codeql-action/upload-sarif@db488ddef3bf6cb639b32c2e9a7c0a7ea8271d28 # v4.37.8
+        uses: github/codeql-action/upload-sarif@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4.37.9
         if: always()
         with:
           sarif_file: 'trivy-results.sarif'
 
   # Summarize all checks
   summary:
-    needs: [validate, php-validation, python-tests, css-ratchet, voice-gate, javascript-validation, docs-truth-check, security-scan]
+    needs: [validate, php-validation, python-tests, css-ratchet, voice-gate, javascript-validation, docs-truth-check, security-scan, practice-browser]
     if: always()
     runs-on: ubuntu-latest
     steps:
