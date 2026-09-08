@@ -22,6 +22,7 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`current-state/ROLLBACK_PLAYBOOK.md`](current-state/ROLLBACK_PLAYBOOK.md) | Order of operations if a prod change breaks |
 | [`current-state/AURORA-STYLESHEET-REBUILD-PLAN.md`](current-state/AURORA-STYLESHEET-REBUILD-PLAN.md) | Path A stylesheet rebuild plan of record (#423) |
 | [`current-state/SEO-INDEXING-RUNBOOK.md`](current-state/SEO-INDEXING-RUNBOOK.md) | Indexing/distribution checklist |
+| [`current-state/SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md`](current-state/SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md) | #1001 phase-1 nosniff + Referrer-Policy apply runbook (Pagely ARES; no live change) |
 | [`current-state/reports/`](current-state/reports/) | Explicit durable `make morning-truth-checkpoint` outputs; consult the checkpoint relevant to the release, incident, decision, or handoff |
 | [`current-state/archive/`](current-state/archive/) | Superseded May–June plans and closeouts (#549) |
 | [`current-state/AURORA-MOTION-GOVERNANCE-2026-05-20.md`](current-state/archive/AURORA-MOTION-GOVERNANCE-2026-05-20.md) | Motion budget and QA rules for Aurora |
@@ -60,7 +61,6 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`../.claude/agents-vibe.md`](../.claude/agents-vibe.md) | Agent philosophy & community values |
 | [`../.claude/naming-conventions.md`](../.claude/naming-conventions.md) | Code naming standards |
 | [`../.claude/common-failures.md`](../.claude/common-failures.md) | Known failure patterns to avoid |
-| [`../.agents/skills/github-workflow-automation/SKILL.md`](../.agents/skills/github-workflow-automation/SKILL.md) | Batch issue creation + PR helpers |
 
 ## 🟢 Current — entry points & contribution
 
@@ -103,9 +103,8 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 | [`../inc/`](../inc/) | Custom WordPress modules (currently: `digital-composting.php`) |
 | [`../issues-to-create/`](../issues-to-create/) | Markdown drafts of GitHub issues waiting to be filed |
 | [`../backup/`](../backup/) | Backup manifests (archives themselves are gitignored) |
-| [`../.agents/skills/`](../.agents/skills/) | Repository-local workflow skills |
 | [`../.github/`](../.github/) | Workflows, agent definitions, issue templates |
 
 ---
 
-**Last reviewed:** 2026-09-03. This index does not exhaustively list every dated file under `docs/current-state/`; use its front-door index and `make status-readonly` for current truth. Update this index whenever documentation is added, removed, or reclassified.
+**Last reviewed:** 2026-09-04. This index does not exhaustively list every dated file under `docs/current-state/`; use its front-door index and `make status-readonly` for current truth. Update this index whenever documentation is added, removed, or reclassified.

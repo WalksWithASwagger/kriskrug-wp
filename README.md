@@ -42,10 +42,13 @@ content/source-packs/            # Curated source packs for page/content overhau
 backup/                          # Manifests and page-level rollback snapshots; archives are ignored
   └── YYYYMMDD-HHMMSS/           # Small REST/HTML snapshots used for targeted rollback
 
-scripts/notion-to-wp/            # Notion → kriskrug.co publisher
-  ├── kk_notion_to_wp.py         # Single-file CLI: fetch, convert, upload, publish
-  ├── block_rules.py             # Notion block → Gutenberg block mapping
-  └── README.md                  # Setup + safety notes
+scripts/                         # Repository automation and validation
+  ├── batch_create_issues.py     # Validated JSON/CSV issue creation with dry-run
+  ├── validate_wordpress.sh      # PHP CodeSniffer + WordPress standards gate
+  └── notion-to-wp/              # Notion → kriskrug.co publisher
+      ├── kk_notion_to_wp.py     # Single-file CLI: fetch, convert, upload, publish
+      ├── block_rules.py         # Notion block → Gutenberg block mapping
+      └── README.md              # Setup + safety notes
 
 fixes/                           # Production-ready code snippets / migrations
   ├── schema-snippets.php        # JSON-LD (Person + WebSite + Article + Breadcrumb + Service)
@@ -76,7 +79,6 @@ issues-to-create/                # Markdown drafts of GitHub issues waiting to b
 
 inc/                             # Custom WordPress modules (e.g., digital-composting CPT)
 
-.agents/skills/                  # Repository-local workflow skills
 .github/                         # PR validation plus parked historical agent-swarm definitions
 ```
 

@@ -128,7 +128,7 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
             with self.subTest(path=path):
                 findings = scan_text(path, text)
                 self.assertTrue(
-                    any(".agents/skills" in finding.message for finding in findings)
+                    any("retired" in finding.message for finding in findings)
                 )
 
     def test_rejects_archived_files_as_the_active_backlog(self):
