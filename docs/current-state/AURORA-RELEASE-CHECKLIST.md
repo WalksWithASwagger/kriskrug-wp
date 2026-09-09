@@ -1,17 +1,35 @@
 # Aurora Theme Release Checklist
 
-Use this checklist for every manual `kk-aurora` production deploy on Pagely: wp-admin zip upload, no SFTP/SSH.
+Use this checklist for every `kk-aurora` production deploy on Pagely. A merge
+is not a deploy. Every live theme change still needs explicit KK approval, a
+rollback artifact or named rollback path, package or upload verification, a
+Pagely cache purge, and a logged-out public readback.
+
+Do not treat this file as a live version ledger. Confirm production with a
+public `style.css` `Version:` header and `make check-live-parity`. The deploy
+marker lives in [`theme/kk-aurora/CHANGELOG.md`](../../theme/kk-aurora/CHANGELOG.md).
+
+## Supported channels
+
+Both channels already exist in this repo. Use the one KK names for that
+release; do not invent a third path.
+
+1. **wp-admin zip** via `make aurora-package`, then Appearance → Themes → Add New → Upload.
+2. **Pagely SFTP** via [`scripts/deploy_theme_sftp.py`](../../scripts/deploy_theme_sftp.py). Authentication is `WP_SFTP_PASSWORD` in process env or the documented macOS Keychain service. See [`ACCESS_CHANNELS.md`](ACCESS_CHANNELS.md). Availability must be verified at execution time.
+
+REST `WP_APP_PASSWORD` cannot upload themes.
 
 ## Pre-release (repo)
 
+- [ ] KK approved this specific Version and named the deploy channel
 - [ ] Bump `Version:` in `theme/kk-aurora/style.css`
 - [ ] Bump `KK_AURORA_VERSION` in `theme/kk-aurora/functions.php` to match
 - [ ] Add changelog entry in `theme/kk-aurora/readme.txt` with PR/commit references
 - [ ] Add a version line to `theme/kk-aurora/CHANGELOG.md` and set its deploy-status marker (this is the deploy ledger)
 - [ ] Run `make verify` (or at minimum `make test` + `make validate`)
-- [ ] Visual spot-check on Local WP (`http://localhost:10003`) if available
+- [ ] Visual spot-check on Local WP if available
 
-## Package
+## Package (wp-admin zip path)
 
 - [ ] Build and verify the upload package:
   ```bash
@@ -20,28 +38,23 @@ Use this checklist for every manual `kk-aurora` production deploy on Pagely: wp-
 - [ ] Confirm the helper reports the expected deploy `Version:`, rollback `Version:`, and SHA256 checksums.
 - [ ] Retain the rollback zip printed by the helper.
 
-## Deploy (wp-admin)
+## Deploy
 
-- [ ] Upload zip via Appearance → Themes → Add New → Upload
-- [ ] Confirm active theme version in wp-admin matches expected
+- [ ] Use only the KK-named channel (wp-admin zip or SFTP)
+- [ ] Confirm the active live `style.css` Version after upload
 - [ ] Remove Customizer "Additional CSS" safety-net if present (masks reveal bugs)
 
 ## Post-deploy verification
 
 - [ ] Purge Pagely cache
 - [ ] Logged-out spot-check: homepage, `/blog/`, one real post
-- [ ] `make status-readonly`: confirm GSAP CDN check if version includes GSAP removal
-- [ ] Cross-post evidence to open issues (#125, #127, #189 as applicable)
+- [ ] Public `style.css` readback matches the expected Version
+- [ ] `make check-live-parity`
+- [ ] `make status-readonly` if the release claimed GSAP/CDN removal
+- [ ] Cross-post evidence to the owning issue
 
 ## Rollback
 
-- [ ] Re-upload previous version zip from retained artifact
+- [ ] Restore the retained wp-admin zip or the named SFTP rollback seat
 - [ ] Purge Pagely cache again
-- [ ] Re-verify logged-out render
-
-## Current release note (2026-08-22)
-
-- Live Aurora **1.6.9** (public `style.css` 2026-08-22; SFTP rollback `kk-aurora.bak-1787021714`). Lab webring chrome and surgical `/work/` cards are in [`reports/aurora-169-live-deploy-20260818.md`](reports/aurora-169-live-deploy-20260818.md). Homepage HTML from 1.6.8 (FSE template 12661) is still the base.
-- Pre-HTML 1.6.7 baseline: `reports/visual-baseline/manifest-20260817T044445Z.json`. Post-HTML candidate: `manifest-20260817T045150Z.json` / `diff-20260817T045150Z.json` / `report-20260817T045150Z.md`. Homepage 55–62% fail is the #411–#416 bands; 29 other pairs passed; `/blog/` tablet warn 0.49%.
-- `/marquee/` currently returns 404 and is not a valid live release gate. The visual runbook uses `/category/vancouver-ai-ecosystem/` as the live archive-template substitute until the marquee route exists.
-- Jetpack Boost critical-CSS regen (#731) still needs a wp-admin session. Bundle hash did change `d4faec73b4` → `0f9e6b2840` after the HTML write; that is not a substitute for the explicit regen.
+- [ ] Re-verify logged-out render and the public `style.css` Version

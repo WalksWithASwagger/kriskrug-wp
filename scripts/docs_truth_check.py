@@ -120,6 +120,48 @@ KNOWN_STALE_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     ),
 ]
 
+AUTHORITY_HUB_STALE_PATTERNS: list[tuple[re.Pattern[str], str]] = [
+    (
+        re.compile(r"(?<![Nn]ot )Begin #830\b"),
+        "Authority-hub issue #830 is complete; do not direct agents to begin #830.",
+    ),
+    (
+        re.compile(r"#830 is the next", re.I),
+        "Authority-hub issue #830 is complete; do not name it as the next apply.",
+    ),
+    (
+        re.compile(r"packs beginning at #830", re.I),
+        "Authority-hub issues #830-#833 are complete; do not start the sequence at #830.",
+    ),
+    (
+        re.compile(r"#834 remains blocked(?: on #833)?", re.I),
+        "Issue #833 is closed; #834 is open and needs a fresh preflight, not a blocked-on-#833 stop rule.",
+    ),
+    (
+        re.compile(r"#830-#83[34] (?:remain(?:s)? unapplied|have not been written live)", re.I),
+        "Authority-hub issues #830-#833 are complete; do not claim they remain unapplied.",
+    ),
+    (
+        re.compile(r"#830-#833 each need separate approval", re.I),
+        "Authority-hub issues #830-#833 are complete; do not treat them as pending approval.",
+    ),
+]
+
+RELEASE_CHECKLIST_STALE_PATTERNS: list[tuple[re.Pattern[str], str]] = [
+    (
+        re.compile(r"^## Current release note", re.I | re.M),
+        "The Aurora release checklist must not carry a mutable current-release section; record live version in CHANGELOG.md and `make check-live-parity`.",
+    ),
+    (
+        re.compile(r"Live Aurora \*\*1\.6\.9\*\*", re.I),
+        "The Aurora release checklist must not hard-code a current live theme version.",
+    ),
+    (
+        re.compile(r"wp-admin zip upload, no SFTP/SSH", re.I),
+        "The Aurora release checklist must not deny the documented SFTP helper.",
+    ),
+]
+
 STALE_FRONT_DOOR_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (
         re.compile(r"WORK-PLAN-2026-05-23\.md.*current (?:execution roadmap|front door)", re.I),
@@ -131,14 +173,23 @@ STALE_FRONT_DOOR_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     ),
 ]
 
+ACTIVE_WORK_PLAN = Path("docs/current-state/WORK-PLAN-2026-09-09.md")
+ARCHIVED_WORK_PLAN = Path("docs/current-state/WORK-PLAN-2026-08-25.md")
+
 ACTIVE_GUIDANCE_PATHS = {
     Path("AGENTS.md"),
     Path("README.md"),
     Path("docs/INDEX.md"),
     Path("docs/current-state/README.md"),
     Path("docs/current-state/CURRENT-STATE-2026-07-30.md"),
-    Path("docs/current-state/WORK-PLAN-2026-08-25.md"),
+    ACTIVE_WORK_PLAN,
     Path("docs/current-state/MASTER-PLAN-2026-07-30.md"),
+}
+
+FRONT_DOOR_PATHS = {
+    Path("AGENTS.md"),
+    Path("docs/INDEX.md"),
+    Path("docs/current-state/README.md"),
 }
 
 PERSONAL_SITE_IDENTITY_PATTERNS: list[tuple[re.Pattern[str], str]] = [
@@ -180,8 +231,8 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
             "The repository-local skill package was retired; remove this stale skills link.",
         ),
         (
-            re.compile(r"WORK-PLAN-2026-08-24\.md.*(?:active|current).*runbook", re.I),
-            "The active documentation index must point to `WORK-PLAN-2026-08-25.md`.",
+            re.compile(r"WORK-PLAN-2026-08-25\.md.*(?:active|current).*runbook", re.I),
+            "The active documentation index must point to `WORK-PLAN-2026-09-09.md`.",
         ),
         (
             re.compile(r"correct the remaining issue #4 media identity", re.I),
@@ -200,8 +251,8 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     ],
     Path("docs/current-state/CURRENT-STATE-2026-07-30.md"): [
         (
-            re.compile(r"(?:Latest dated runbook|front door)[^\n]*WORK-PLAN-2026-08-24\.md", re.I),
-            "The declared snapshot must point to `WORK-PLAN-2026-08-25.md`.",
+            re.compile(r"(?:Latest dated runbook|front door)[^\n]*WORK-PLAN-2026-08-25\.md", re.I),
+            "The declared snapshot must point to `WORK-PLAN-2026-09-09.md`.",
         ),
         (
             re.compile(r"Open PRs:\s*`1`[^\n]*#710", re.I),
@@ -218,8 +269,8 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     ],
     Path("docs/current-state/MASTER-PLAN-2026-07-30.md"): [
         (
-            re.compile(r"Day runbook:[^\n]*WORK-PLAN-2026-08-24\.md", re.I),
-            "The master plan must point to `WORK-PLAN-2026-08-25.md`.",
+            re.compile(r"Day runbook:[^\n]*WORK-PLAN-2026-08-25\.md", re.I),
+            "The master plan must point to `WORK-PLAN-2026-09-09.md`.",
         ),
     ],
     Path("docs/current-state/README.md"): [
@@ -231,6 +282,10 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
             re.compile(r"two wrong duplicate-media writes and five corrected targets await", re.I),
             "The issue #4 front door predates the partial identity-repair execution; use the current three-target state.",
         ),
+        (
+            re.compile(r"seek separate approval before #830", re.I),
+            "Authority-hub issues #830-#833 are complete; do not send agents to begin #830.",
+        ),
     ],
     Path("AGENTS.md"): [
         (
@@ -241,6 +296,10 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
             re.compile(r"repair two wrong duplicate-media writes and five corrected targets", re.I),
             "The issue #4 orientation predates the partial identity-repair execution; use the current three-target state.",
         ),
+        (
+            re.compile(r"#834 remains blocked on #833", re.I),
+            "Issue #833 is closed; do not tell agents that #834 is still blocked on it.",
+        ),
     ],
     Path(".claude/context/project-context.md"): PERSONAL_SITE_IDENTITY_PATTERNS,
     Path(".claude/agents-vibe.md"): PERSONAL_SITE_IDENTITY_PATTERNS,
@@ -249,6 +308,7 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     Path(".github/ISSUE_TEMPLATE/content.yml"): ISSUE_TEMPLATE_IDENTITY_PATTERNS,
     Path(".github/ISSUE_TEMPLATE/feature_request.yml"): ISSUE_TEMPLATE_IDENTITY_PATTERNS,
     Path(".github/ISSUE_TEMPLATE/performance.yml"): ISSUE_TEMPLATE_IDENTITY_PATTERNS,
+    Path("docs/current-state/AURORA-RELEASE-CHECKLIST.md"): RELEASE_CHECKLIST_STALE_PATTERNS,
 }
 
 REQUIRED_PATH_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
@@ -262,6 +322,24 @@ REQUIRED_PATH_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
         (
             re.compile(r"STATUS:\s*Historical", re.I),
             "Retired swarm documentation must carry a `STATUS: Historical` banner.",
+        ),
+    ],
+    Path("AGENTS.md"): [
+        (
+            re.compile(r"WORK-PLAN-2026-09-09\.md"),
+            "Agent orientation must point to the identical active work plan `WORK-PLAN-2026-09-09.md`.",
+        ),
+    ],
+    Path("docs/INDEX.md"): [
+        (
+            re.compile(r"WORK-PLAN-2026-09-09\.md"),
+            "The documentation index must point to the identical active work plan `WORK-PLAN-2026-09-09.md`.",
+        ),
+    ],
+    Path("docs/current-state/README.md"): [
+        (
+            re.compile(r"WORK-PLAN-2026-09-09\.md"),
+            "The current-state front door must point to the identical active work plan `WORK-PLAN-2026-09-09.md`.",
         ),
     ],
 }
@@ -429,6 +507,16 @@ def scan_file(repo_root: Path, path: Path) -> list[Finding]:
                         text.count("\n", 0, match.start()) + 1,
                         "Routine `make morning-truth` output must not be committed; use `make morning-truth-checkpoint` for durable evidence.",
                         match.group(0).replace("\n", " ").strip(),
+                    )
+                )
+        for pattern, message in AUTHORITY_HUB_STALE_PATTERNS:
+            for match in pattern.finditer(text):
+                findings.append(
+                    Finding(
+                        relative_path,
+                        text.count("\n", 0, match.start()) + 1,
+                        message,
+                        match.group(0).strip(),
                     )
                 )
 

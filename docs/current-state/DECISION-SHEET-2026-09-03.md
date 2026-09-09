@@ -1,5 +1,11 @@
 # Decision Sheet, 2026-09-03
 
+> **2026-09-09 reading note:** This sheet is dated evidence, not a current
+> apply queue. #735 is ruled in the press-kit copy deck (PR #949). #830-#833
+> are closed as applied. **Do not begin #830.** #834 remains open and still
+> needs a fresh authenticated preflight. Re-run `make status-readonly` for
+> counters; do not copy the 32-issue figure below.
+
 One page for the rulings that unblock everything else. 32 issues are open and
 **30 of them carry a human gate**: 25 `needs-human-review`, 8 `blocked`, 5
 `needs-decision`. The bottleneck is decisions, not agent throughput.
@@ -85,7 +91,8 @@ marker in place.
 
 ## 4. #830, #831, #832, #833 authority-hub links
 
-**Ask:** approve each apply separately, as the work plan requires.
+**Ask:** approve each apply separately, as the then-current work plan required.
+These four issues are now closed. **Do not begin #830.**
 
 **Evidence: all four dry-runs ran clean on 2026-09-03, no writes.**
 
@@ -100,7 +107,8 @@ marker in place.
 whose art direction is already settled, and it is pure internal linking.
 
 **Blast radius:** live post and page content. Each script snapshots and supports
-`--restore`. #834 stays parked: it depends on #833 and has no apply script yet.
+`--restore`. Dated 2026-09-03: #834 had no apply script yet. **2026-09-09:**
+#833 is closed; #834 remains open and needs a fresh authenticated preflight.
 
 ---
 

@@ -2,11 +2,11 @@
 
 Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then run `make status-readonly` for current runtime signals.
 
-## Current Front Door (verified 2026-09-03)
+## Current Front Door (verified 2026-09-09)
 
 Read these first:
 
-1. **[WORK-PLAN-2026-08-25.md](WORK-PLAN-2026-08-25.md)**, active runbook (issue #4's media identity-repair gate is complete; authority-hub issue #829 is live and verified; seek separate approval before #830 or later applies; use `make status-readonly` for live counters)
+1. **[WORK-PLAN-2026-09-09.md](WORK-PLAN-2026-09-09.md)**, active runbook (issue #4's media identity-repair gate is complete; authority-hub issues #829-#833 are live and closed; #834 remains open and needs a fresh authenticated preflight; use `make status-readonly` for live counters)
 2. **[CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md)**, declared snapshot for morning-truth drift checks (compare it with a fresh `make status-readonly` run)
 3. **[MASTER-PLAN-2026-07-30.md](MASTER-PLAN-2026-07-30.md)**, truth then reclaim then product lanes (hygiene phases complete)
 4. Run `make status-readonly` for current signals; use the newest **[reports/morning-truth-*.md](reports/)** only as durable checkpoint evidence
@@ -14,7 +14,7 @@ Read these first:
 6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
 7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
 
-**Public/repository readback 2026-09-03 04:09Z:** WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`; 0 open PRs and 34 open issues. Authenticated draft-queue counts were unavailable in this Cloud session, so the 2026-08-29 counts below remain dated evidence rather than a current claim.
+**Public/repository readback 2026-09-09:** WordPress `7.0.4`; Aurora live and repo `main` both `1.6.11` (`make check-live-parity`). Open PR and issue counts are volatile; re-run `make status-readonly` instead of copying them. Authenticated draft-queue counts remain session-dependent. The 2026-08-29 queue numbers below are dated evidence, not a current claim. #830-#833 are closed; do not begin #830.
 
 **Live readback 2026-08-29 20:22Z:** WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`; 0 open PRs before the #829 closeout, 34 open issues after it closes, 0 scheduled posts, 66 draft posts, and 4 draft pages. Issue #829 is live and verified: `/ai-ethics/` has the first-position You Can't Drink Data card and posts 12030, 6144, and 11882 have their exact inbound anchors; all four mode-0600 snapshots and restore previews are recorded in the [receipt](reports/issue-829-applied-20260829.md). Issue #602 remains open because public page 2409 still shows the undeployed 19-card Testimonials body. #706 closed after KK accepted its documented delayed-gtag PSI caveat; TBT moved from 160 ms to 10 ms, Facebook tasks disappeared, and a fresh eight-route readback found zero pixel/eager-gtag markers with one delayed loader per route ([receipt](reports/issue-706-script-diet-apply-20260817.md)). #749 closed after its exact approved pair-safe cleanup reclaimed 927,688 KiB (~906 MiB) while retaining the newest complete comparison pair; the 11-route visual preflight and storage guard passed. #318 closed as a no-delete result because authenticated status proof found all three packages still in draft; all 13 tracked images remain ([receipt](reports/issue-318-publish-status-20260828.md)). #740 closed with no file moves after its obsolete 26-file archive table was explicitly retired. #481 closed as not planned after its live-content blast radius was reconfirmed. #339 now has current raw and planned hashes for all previously stale guards; no publisher write occurred. Content applies #764 / #729 / #612 / **#826** / **#827** / **#829** are live. The Speaking rebuild is live, and #640 closed after its same-method LCP receipt and live embed contract passed. Lab webring chrome (Dark Crystal + unofficial.city) is live on the homepage footer and `/work/` (surgical card insert, not a full `work.html` replace). Historical receipts: [`reports/gate0-content-apply-20260817.md`](reports/gate0-content-apply-20260817.md), [`reports/issue-826-applied-20260818.md`](reports/issue-826-applied-20260818.md), [`reports/issue-827-applied-20260818.md`](reports/issue-827-applied-20260818.md), [`reports/aurora-168-live-deploy-20260817.md`](reports/aurora-168-live-deploy-20260817.md), [`reports/aurora-169-live-deploy-20260818.md`](reports/aurora-169-live-deploy-20260818.md). Re-run `make status-readonly`; the public `style.css` readback remains authoritative for production theme state.
 
@@ -79,6 +79,7 @@ Every file below carries a `STATUS: Historical` banner in its first lines pointi
 - [AGENTIC-CRUSH-PLAN-2026-07-31.md](archive/AGENTIC-CRUSH-PLAN-2026-07-31.md)
 - [WORK-PLAN-2026-08-23.md](archive/WORK-PLAN-2026-08-23.md)
 - [WORK-PLAN-2026-08-24.md](archive/WORK-PLAN-2026-08-24.md)
+- [WORK-PLAN-2026-08-25.md](archive/WORK-PLAN-2026-08-25.md)
 
 ## Archive (#549 close-out, verified 2026-08-02)
 
