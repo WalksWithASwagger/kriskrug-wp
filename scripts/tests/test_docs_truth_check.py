@@ -23,7 +23,7 @@ class EphemeralMorningTruthGuidanceTests(unittest.TestCase):
     def test_active_guidance_rejects_routine_report_commit_flow(self):
         with tempfile.TemporaryDirectory() as tmp:
             repo_root = Path(tmp)
-            work_plan = repo_root / "docs/current-state/WORK-PLAN-2026-08-25.md"
+            work_plan = repo_root / "docs/current-state/WORK-PLAN-2026-09-09.md"
             work_plan.parent.mkdir(parents=True)
             work_plan.write_text(
                 "1. `make morning-truth` while online.\n"
@@ -94,20 +94,28 @@ class EphemeralMorningTruthGuidanceTests(unittest.TestCase):
 class ActiveFrontDoorRegressionTests(unittest.TestCase):
     def test_current_work_plan_is_in_active_guidance_set(self):
         self.assertIn(
-            Path("docs/current-state/WORK-PLAN-2026-08-25.md"),
+            Path("docs/current-state/WORK-PLAN-2026-09-09.md"),
+            docs_truth_check.ACTIVE_GUIDANCE_PATHS,
+        )
+        self.assertNotIn(
+            docs_truth_check.ARCHIVED_WORK_PLAN,
+            docs_truth_check.ACTIVE_GUIDANCE_PATHS,
+        )
+        self.assertNotIn(
+            Path("docs/current-state/archive/WORK-PLAN-2026-08-25.md"),
             docs_truth_check.ACTIVE_GUIDANCE_PATHS,
         )
 
     def test_rejects_superseded_active_runbook_links(self):
         samples = {
             "docs/INDEX.md": (
-                "| `WORK-PLAN-2026-08-24.md` | Active two-session runbook |\n"
+                "| `WORK-PLAN-2026-08-25.md` | Active two-session runbook |\n"
             ),
             "docs/current-state/CURRENT-STATE-2026-07-30.md": (
-                "Latest dated runbook: WORK-PLAN-2026-08-24.md.\n"
+                "Latest dated runbook: WORK-PLAN-2026-08-25.md.\n"
             ),
             "docs/current-state/MASTER-PLAN-2026-07-30.md": (
-                "Day runbook: WORK-PLAN-2026-08-24.md.\n"
+                "Day runbook: WORK-PLAN-2026-08-25.md.\n"
             ),
         }
 
@@ -115,7 +123,7 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
             with self.subTest(path=path):
                 findings = scan_text(path, text)
                 self.assertTrue(
-                    any("WORK-PLAN-2026-08-25.md" in finding.message for finding in findings)
+                    any("WORK-PLAN-2026-09-09.md" in finding.message for finding in findings)
                 )
 
     def test_rejects_nonexistent_top_level_skill_links(self):
@@ -178,7 +186,9 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
 
     def test_delegates_issue_count_truth_to_live_drift_contract(self):
         samples = {
-            "docs/current-state/README.md": "0 open PRs, 43 open issues.\n",
+            "docs/current-state/README.md": (
+                "WORK-PLAN-2026-09-09.md\n0 open PRs, 43 open issues.\n"
+            ),
             "docs/current-state/CURRENT-STATE-2026-07-30.md": "Open issues: `40`.\n",
         }
 
@@ -345,6 +355,88 @@ class DiagnosticMessageTests(unittest.TestCase):
         messages = [message for _, message in docs_truth_check.KNOWN_STALE_PATTERNS]
 
         self.assertFalse(any("current normalized count" in message for message in messages))
+
+
+class AuthorityHubAndReleaseGuidanceTests(unittest.TestCase):
+    def test_rejects_stale_830_next_sequence_on_active_guidance(self):
+        samples = {
+            "AGENTS.md": (
+                "#830-#833 each need separate approval; #834 remains blocked on #833\n"
+            ),
+            "docs/INDEX.md": (
+                "continue with the separately approval-gated packs beginning at #830\n"
+            ),
+            "docs/current-state/CURRENT-STATE-2026-07-30.md": (
+                "#829 is live and verified; #830 is the next separately approval-gated child\n"
+            ),
+            "docs/current-state/WORK-PLAN-2026-09-09.md": (
+                "Begin #830 only after fresh approval naming that issue's live apply.\n"
+            ),
+        }
+
+        for path, text in samples.items():
+            with self.subTest(path=path):
+                findings = scan_text(path, text)
+                self.assertTrue(
+                    any("830" in finding.message for finding in findings),
+                    msg=f"{path} produced {findings!r}",
+                )
+
+    def test_allows_negated_do_not_begin_830(self):
+        findings = scan_text(
+            "docs/current-state/WORK-PLAN-2026-09-09.md",
+            "Do not begin #830. Recut #834 against a fresh authenticated dry run.\n",
+        )
+
+        self.assertFalse(any("begin #830" in finding.message.lower() for finding in findings))
+
+    def test_front_doors_require_the_same_active_work_plan(self):
+        for path in (
+            "AGENTS.md",
+            "docs/INDEX.md",
+            "docs/current-state/README.md",
+        ):
+            with self.subTest(path=path):
+                findings = scan_text(path, "Read CURRENT-STATE-2026-07-30.md first.\n")
+                self.assertTrue(
+                    any("WORK-PLAN-2026-09-09.md" in finding.message for finding in findings)
+                )
+
+    def test_rejects_mutable_current_release_note_in_checklist(self):
+        findings = scan_text(
+            "docs/current-state/AURORA-RELEASE-CHECKLIST.md",
+            "# Aurora Theme Release Checklist\n\n"
+            "Use this checklist for every manual `kk-aurora` production deploy "
+            "on Pagely: wp-admin zip upload, no SFTP/SSH.\n\n"
+            "## Current release note (2026-08-22)\n"
+            "- Live Aurora **1.6.9** (public style.css).\n",
+        )
+
+        self.assertTrue(
+            any("current-release" in finding.message for finding in findings)
+        )
+        self.assertTrue(
+            any("hard-code" in finding.message or "SFTP helper" in finding.message for finding in findings)
+        )
+
+    def test_archived_830_prompt_is_not_enforced_outside_active_guidance(self):
+        findings = scan_text(
+            "docs/current-state/archive/WORK-PLAN-2026-08-25.md",
+            "Begin #830 only after fresh approval naming that issue's live apply.\n",
+        )
+
+        self.assertFalse(any("begin #830" in finding.message.lower() for finding in findings))
+
+    def test_reports_are_excluded_from_830_sequence_enforcement(self):
+        self.assertIn(
+            Path("docs/current-state/reports"),
+            docs_truth_check.DEFAULT_EXCLUDES,
+        )
+        findings = scan_text(
+            "docs/current-state/reports/morning-truth-example.md",
+            "Begin #830 only after fresh approval naming that issue's live apply.\n",
+        )
+        self.assertFalse(any("begin #830" in finding.message.lower() for finding in findings))
 
 
 if __name__ == "__main__":

@@ -21,7 +21,7 @@ When you cut a new release, add a line here and follow
 ---
 
 ## 1.6.11
-**Deployed:** On main, deploy status not confirmed.
+**Deployed:** LIVE (public `style.css` readback 2026-09-09). Method not recorded in this verification; this marker is version-readback only.
 Reverts the 1.6.10 event-artboard CSS in full. It should never have shipped. The `/events/` art direction was **not** missing its styles: `scripts/events_page/render_events_page.py` emits a complete page-scoped design system in a `<style>` block with its own `--events-*` token set, and it has done since the art-direction work in PR #943. The 1.6.10 rules were added on the false premise that no CSS existed, and every one of them lost to the page-scoped rules on specificity (`.aurora-events-page .aurora-event-art` beats `.aurora-event-art`), so they were inert on the only page those classes appear. Removing 130 dead front-end lines and retiring the #943 budget waiver; budget back to 7489 / 173 exactly.
 
 ## 1.6.10
@@ -29,7 +29,7 @@ Reverts the 1.6.10 event-artboard CSS in full. It should never have shipped. The
 Events artboards and editorial marks (#943). PR #943 shipped the renderer markup for `/events/` with no CSS at all, so the generated posters and the twelve editorial marks had nothing to style them and the page could not ship. This adds it: `.aurora-event-art` and its `--image` / `--generated` / `--cover` / `--contain` variants, four `--palette-N` gradients, the date/mark/role spans, `.aurora-event-compact-media`, and `.aurora-editorial-mark`. Event photos crop at 4:3 rather than inheriting `.aurora-proof-media`'s 16:9, which guillotines a portrait frame. +130 front-end lines in `style.css`, `!important` held at 173, and zero new color literals: the four palettes use `color-mix` over existing `var(--aurora-*)` tokens, so the contrast registry needed no new entries. Budget waived 7489 to 7619 against #943.
 
 ## 1.6.9
-**Deployed:** LIVE (SFTP 2026-08-18, rollback `kk-aurora.bak-1787021714`). Public `style.css` reads 1.6.9. Projects footer links Dark Crystal and `https://unofficial.city/`. Work page 2672 got a surgical card insert (not a full `work.html` replace) so the live lab grid kept Skywhale, Gorgeous Ghost, Wedges, Ghost Radio, and Ethos. Snapshot: `backup/20260818T025650Z-work-lab-cards/`. Receipt: `docs/current-state/reports/aurora-169-live-deploy-20260818.md`.
+**Deployed:** Superseded by 1.6.11 (public `style.css` 2026-09-09). Was LIVE (SFTP 2026-08-18, rollback `kk-aurora.bak-1787021714`). Public `style.css` then read 1.6.9. Projects footer links Dark Crystal and `https://unofficial.city/`. Work page 2672 got a surgical card insert (not a full `work.html` replace) so the live lab grid kept Skywhale, Gorgeous Ghost, Wedges, Ghost Radio, and Ethos. Snapshot: `backup/20260818T025650Z-work-lab-cards/`. Receipt: `docs/current-state/reports/aurora-169-live-deploy-20260818.md`.
 
 ## 1.6.8
 **Deployed:** Superseded (was live 2026-08-17 until the 1.6.9 swap; rollback seat `kk-aurora.bak-1786942075`; prior swap `kk-aurora.bak-1786942015`). Public `style.css` reads 1.6.8. Custom FSE `front-page` (wp_id 12661) was snapshotted then POSTed from theme `front-page.html` at 2026-08-17 04:51 UTC; homepage now renders labs / logo soup / stages / What People Say. Pixel vs pre-HTML 1.6.7 (`20260817T044445Z` → `20260817T045150Z`): homepage fail 55–62% (expected height + new bands); 29 other pairs pass; `/blog/` tablet warn 0.49%. Boost CSS bundle hash moved `d4faec73b4` → `0f9e6b2840`. Explicit #731 wp-admin regen still owed.

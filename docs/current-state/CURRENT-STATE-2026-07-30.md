@@ -6,7 +6,7 @@
 
 This file is the declared snapshot for `make current-state-drift-check` / `make morning-truth` / `make status-readonly` (via `WORK_PLAN` / `WORK_PLAN_DEFAULT`).
 
-Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Latest dated runbook: [`WORK-PLAN-2026-08-25.md`](WORK-PLAN-2026-08-25.md).
+Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Latest dated runbook: [`WORK-PLAN-2026-09-09.md`](WORK-PLAN-2026-09-09.md). The Aurora `1.6.9` and issue-count figures below are the 2026-08-29 snapshot values, not a current live claim; confirm with `make status-readonly` and `make check-live-parity`.
 
 ## Verified State
 
@@ -30,7 +30,7 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 | Gate | Issue | Status |
 |---|---|---|
 | Alt-text residual correction | #4 | Media 6985, 7637, and 8871 were snapshotted, applied, and verified live on 2026-08-29; the broad authenticated media dry run is 78/78 `already-applied`, while separate body-image, archive, `/home/`, and WCAG lanes remain open |
-| Authority-hub sequence | #402 | #829 is live and verified; #830 is the next separately approval-gated child |
+| Authority-hub sequence | #402 | #829-#833 are live and closed (GitHub 2026-09-09); #834 remains open and needs a fresh authenticated preflight before any apply |
 | Measured publisher batch | #339 | All nine identities are current; exact approval is still required for two SEO overwrites and five content payloads |
 | Testimonials live deploy | #602 | Reopened 2026-08-28; live page 2409 is still the legacy 19-card body and needs its snapshot/editorial/approval gate |
 | Site redesign epic | #403 | Track B roadmap; split into lane-scoped PRs |
@@ -49,7 +49,7 @@ Master sequence: [`MASTER-PLAN-2026-07-30.md`](MASTER-PLAN-2026-07-30.md). Lates
 - Issue #339's two stale guards were refreshed from authenticated raw content; all packet tests and the full repo verification pass, with live execution still approval-gated.
 - Issue #829 added the You Can't Drink Data card to `/ai-ethics/` plus three exact inbound links; four private snapshots and rollback previews are recorded in the live receipt.
 - Open issues moved ~77 → **34** after the verified #829 closeout; open PRs were **0** before its closeout PR.
-- Competing work plans are historical; this snapshot plus `WORK-PLAN-2026-08-25.md` and a fresh `make status-readonly` run are the front door.
+- Competing work plans are historical; this snapshot plus `WORK-PLAN-2026-09-09.md` and a fresh `make status-readonly` run are the front door. #830-#833 closed after this snapshot; do not treat #830 as the next apply.
 
 ## Stash / secrets notes
 
