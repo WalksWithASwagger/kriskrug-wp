@@ -204,6 +204,11 @@ def render_compact_card(event: dict[str, Any], roots: dict[str, Path]) -> str:
     if url:
         label_text = "Read the recap" if recap_url else "Recap / details"
         link = f'<a class="aurora-event-compact-link" href="{html_escape(url)}">{label_text}</a>'
+    elif event.get("blurb"):
+        # Private and unlisted engagements will never have a public destination.
+        # Carry the blurb so the archive entry is still a record, not a bare title.
+        blurb = html_escape(str(event["blurb"]).strip())
+        link = f'<p class="aurora-event-compact-note">{blurb}</p>'
     return f"""      <article class="aurora-event-card aurora-event-card--compact" data-event-end="{end}" data-event-id="{eid}">
 {media}
         <div class="aurora-event-compact-body">
@@ -443,6 +448,12 @@ PAGE_SCOPED_CSS = """
     font-size: 0.82rem;
     font-weight: 700;
   }
+  .aurora-events-page .aurora-event-compact-note {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin: 0;
+    opacity: 0.78;
+  }
   .aurora-events-page .aurora-event-card.is-archive-hidden {
     display: none;
   }
@@ -596,17 +607,26 @@ ROLLOFF_SCRIPT = """
     var pastBucket = page.querySelector('[data-events-bucket="past"]');
     if (!upcomingGrid || !pastGrid || !upcomingBucket || !pastBucket) return;
 
-    var cards = Array.prototype.slice.call(page.querySelectorAll('[data-event-end]'));
-    cards.sort(function (a, b) {
+    var upcomingCards = [];
+    var pastCards = [];
+    Array.prototype.slice.call(page.querySelectorAll('[data-event-end]')).forEach(function (card) {
+      var end = parseEnd(card.getAttribute('data-event-end'));
+      if (!Number.isFinite(end)) return;
+      (end <= now ? pastCards : upcomingCards).push(card);
+    });
+
+    // Re-append every card, not just the ones changing grid, so a rolled-off event
+    // lands in date order instead of at the tail. Order mirrors the server render:
+    // Upcoming soonest first, Past newest first.
+    upcomingCards.sort(function (a, b) {
+      return parseEnd(a.getAttribute('data-event-end')) - parseEnd(b.getAttribute('data-event-end'));
+    });
+    pastCards.sort(function (a, b) {
       return parseEnd(b.getAttribute('data-event-end')) - parseEnd(a.getAttribute('data-event-end'));
     });
 
-    cards.forEach(function (card) {
-      var end = parseEnd(card.getAttribute('data-event-end'));
-      if (!Number.isFinite(end)) return;
-      var target = end <= now ? pastGrid : upcomingGrid;
-      if (card.parentElement !== target) target.appendChild(card);
-    });
+    upcomingCards.forEach(function (card) { upcomingGrid.appendChild(card); });
+    pastCards.forEach(function (card) { pastGrid.appendChild(card); });
 
     upcomingBucket.setAttribute('data-events-empty', upcomingGrid.children.length ? 'false' : 'true');
     pastBucket.setAttribute('data-events-empty', pastGrid.children.length ? 'false' : 'true');
