@@ -167,10 +167,7 @@ events:
   kind: external
   role: AI Keynote Speaker
   url: https://www.zeffy.com/en-CA/ticketing/world-tourism-day--2026
-  image:
-    path: repo:scripts/events_page/heroes/one-offs-2026/2026-09-25-trecsa-world-tourism-day.jpg
-    alt: TRECSA World Tourism Day 2026 panel banner picturing keynote Kris Krüg and
-      fellow panelists, AI Tourism and Human Touch
+  image: {}
   blurb: AI keynote and panel for TRECSA (Capilano University's Tourism & Outdoor Recreation
     Student Association) on World Tourism Day - how AI and the digital agenda are reshaping
     tourism in BC, with Paula Amos (Indigenous Tourism BC), Jason Williams (YVR) and Amber
