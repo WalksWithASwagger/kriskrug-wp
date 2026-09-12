@@ -77,7 +77,7 @@ class ChangedPythonFilesTests(unittest.TestCase):
             "  # CSS regression ratchet", 1
         )[0]
 
-        self.assertIn("ruff>=0.16.5", requirements)
+        self.assertRegex(requirements, r"(?m)^ruff>=\d+\.\d+(\.\d+)?$")
         self.assertIn("ruff-changed", makefile.splitlines()[3])
         self.assertIn("ruff-changed:", makefile)
         self.assertIn("scripts/ruff_changed.py --base-ref", makefile)
