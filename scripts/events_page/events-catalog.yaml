@@ -8,6 +8,64 @@ notes: 'SSOT for dated /events cards. meetup-editions.yaml (harvest #1–#31) is
   harvest wins on date/url/hero. Scaffold Past rows #10–#31 remain as fallbacks if harvest is absent.
   Do not POST to page 2250 until KK eyeball on out/events-2250.generated.html.'
 events:
+- id: 2026-11-23-ampa-magazines-webinar
+  title: AI for Magazines Without Losing the Plot
+  date: '2026-11-23'
+  end: '2026-11-23T12:00:00-08:00'
+  bucket_hint: upcoming
+  kind: external
+  role: Guest lecture
+  url: https://albertamagazines.com/events/ai-for-magazines-without-losing-the-plot/
+  image: {}
+  blurb: 'One hour in AMPA''s Strategies for Canadian Magazines series, hosted by Joyce Byrne, for
+    publishers, editors and creative leads on small teams. Where AI can buy back time in a magazine
+    workflow without handing over editorial judgment, creative voice, source relationships or reader
+    trust. Delegate the mechanics, keep the meaning.'
+  label: Monday, Nov 23 · 11am–12pm PST · Online
+  tags:
+  - Webinar
+  - Publishing
+  - Online
+  status: confirmed
+  cta_upcoming: Register with AMPA
+  cta_past: Event details
+- id: 2026-08-15-mensa-canada-ai-ethics-in-the-wild
+  title: 'Mensa Canada AG: AI Ethics in the Wild'
+  date: '2026-08-15'
+  end: '2026-08-15T11:15:00-07:00'
+  bucket_hint: past
+  kind: external
+  role: Co-presenter
+  url: https://mensavancouver.org/
+  blurb: 'Co-presented AI Ethics in the Wild with Simon Haworth of Intellomx at Mensa Canada''s 2026
+    Annual Gathering, Orchard Commons at UBC. Agentic AI as a liability shift, BC Hydro''s data-centre
+    power allocation, and the brain-drain question that took over the floor. First public airing of
+    the Wild Salmon Program and the Vancouver Macnab outside a BC + AI room.'
+  label: Saturday, Aug 15 · 10:15–11:15am · Orchard Commons, UBC
+  tags:
+  - Co-presenter
+  - AI ethics
+  - Vancouver
+  status: confirmed
+  cta_past: About the gathering
+- id: 2023-11-12-techonomy-23-ai-dilemma
+  title: 'Techonomy 23: The AI Dilemma'
+  date: '2023-11-12'
+  end: '2023-11-14T21:00:00-05:00'
+  bucket_hint: past
+  kind: external
+  role: Keynote
+  url: https://worth.com/event/techonomy-23/
+  blurb: 'Keynote on The AI Dilemma at Techonomy 23, Lake Nona Wave Hotel outside Orlando. An
+    international stage from the first year of the AI-era speaking run, on the same bill as Kerry
+    Washington and Andrew Yang.'
+  label: Nov 2023 · Lake Nona, Florida · Keynote
+  tags:
+  - Keynote
+  - AI ethics
+  - International
+  status: confirmed
+  cta_past: Event details
 - id: iida-thermador-coffee-conversations-2026
   title: 'Coffee Conversations #1: The Impact of AI'
   date: '2026-08-13'
@@ -111,12 +169,12 @@ events:
   url: https://www.zeffy.com/en-CA/ticketing/world-tourism-day--2026
   image:
     path: repo:scripts/events_page/heroes/one-offs-2026/2026-09-25-trecsa-world-tourism-day.jpg
-    alt: TRECSA World Tourism Day 2026 panel banner picturing keynote Kris Krug and
+    alt: TRECSA World Tourism Day 2026 panel banner picturing keynote Kris Krüg and
       fellow panelists, AI Tourism and Human Touch
   blurb: AI keynote and panel for TRECSA (Capilano University's Tourism & Outdoor Recreation
     Student Association) on World Tourism Day - how AI and the digital agenda are reshaping
-    tourism in BC, with Paula Amos (Indigenous Tourism BC), Jason Williams (YVR), Amber
-    Papou (Tourism Industry Association of BC) and Scott Bielby (Destination Canada).
+    tourism in BC, with Paula Amos (Indigenous Tourism BC), Jason Williams (YVR) and Amber
+    Papou (Tourism Industry Association of BC).
   label: Friday, Sept 25 · 11:30am-1:30pm · BOSA Theatre, Capilano University
   tags:
   - Keynote
@@ -1016,7 +1074,7 @@ events:
   cta_past: Watch the talk
   image:
     path: repo:scripts/events_page/heroes/one-offs-2025/2025-07-11-bass-coast-brain-stage-youtube.jpg
-    alt: Kris Krug speaking on the Bass Coast Brain Stage, Synthetic Consciousness / Dear AI talk thumbnail
+    alt: Kris Krüg speaking on the Bass Coast Brain Stage, Synthetic Consciousness / Dear AI talk thumbnail
     media_id: 12716
     url: https://kriskrug.co/wp-content/uploads/2026/08/2025-07-11-bass-coast-brain-stage-youtube.jpg
 - id: 2025-05-27-web-summit-indigenomics-ai
@@ -1188,6 +1246,7 @@ events:
   bucket_hint: past
   kind: one-off
   role: Moderator
+  url: https://www.eventbrite.ca/e/global-summit-ai-vancouver-2026-tickets-1981689678173
   blurb: 'Moderated the panel "Who Shapes the AI Future: Markets, Policy, or Culture?" at UBC Robson Square.'
   label: April 2026 · UBC Robson Square · Moderator
   tags:
@@ -1233,6 +1292,7 @@ events:
   bucket_hint: past
   kind: one-off
   role: Judge
+  url: https://firstroboticsbc.org/2026/02/04/pt-moody-ftc-qualifier-results/
   blurb: Think Award judge at a FIRST Tech Challenge robotics qualifier at Port Moody Secondary.
   label: Jan 2026 · Port Moody · Judge
   tags:
