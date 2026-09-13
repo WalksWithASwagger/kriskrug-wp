@@ -323,6 +323,15 @@ PAGE_SCOPED_CSS = """
   .aurora-events-page h2,
   .aurora-events-page h3 { color: var(--ev-ink); }
 
+  /* The theme styles bare ul/li; every list here is a custom component. */
+  .aurora-events-page ul,
+  .aurora-events-page ol,
+  .aurora-events-page li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
   .kk-ev-kicker {
     color: var(--ev-signal);
     font-size: 0.66rem;
@@ -664,6 +673,8 @@ PAGE_SCOPED_CSS = """
   .kk-ev-rec-year ul { list-style: none; margin: 0; padding: 0; }
   .kk-ev-rec {
     display: grid;
+    font-size: 0.85rem;
+    line-height: 1.35;
     gap: 0 0.6rem;
     grid-template-columns: 3.6rem 1fr;
     padding: 0.3rem 0;
@@ -771,7 +782,8 @@ ROLLOFF_SCRIPT = """
     });
     var limit = columnCount() * PREVIEW_ROWS;
     tiles.forEach(function (tile, index) {
-      tile.classList.toggle('is-sheet-hidden', !sheetExpanded && index >= limit);
+      var hide = sheetExpanded ? false : index >= limit;
+      tile.classList.toggle('is-sheet-hidden', hide);
     });
     sheetToggle.hidden = tiles.length <= limit;
     sheetToggle.setAttribute('aria-expanded', sheetExpanded ? 'true' : 'false');
@@ -787,17 +799,26 @@ ROLLOFF_SCRIPT = """
     Array.prototype.slice.call(page.querySelectorAll('.kk-ev-next[data-event-end]')).forEach(
       function (card) {
         var end = parseEnd(card.getAttribute('data-event-end'));
-        if (Number.isFinite(end) && end <= now) card.hidden = true;
+        // Deliberately nested rather than a logical-and operator. WordPress
+        // rewrites a literal ampersand pair in post content into HTML entities,
+        // which is a SyntaxError that kills this whole script silently. Keep
+        // every ampersand out of this block; the render contract enforces it.
+        if (Number.isFinite(end)) {
+          if (end <= now) card.hidden = true;
+        }
       }
     );
     Array.prototype.slice.call(
       page.querySelectorAll('.kk-ev-tile[data-tile-upcoming="true"]')
     ).forEach(function (tile) {
       var end = parseEnd(tile.getAttribute('data-event-end'));
-      if (Number.isFinite(end) && end <= now) tile.removeAttribute('data-tile-upcoming');
+      if (Number.isFinite(end)) {
+        if (end <= now) tile.removeAttribute('data-tile-upcoming');
+      }
     });
 
-    if (upcomingGrid && upcomingBucket) {
+    if (upcomingGrid) {
+      if (!upcomingBucket) return;
       var live = Array.prototype.slice.call(upcomingGrid.children).some(function (card) {
         return !card.hidden;
       });

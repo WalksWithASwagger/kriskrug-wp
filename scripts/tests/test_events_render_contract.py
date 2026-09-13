@@ -90,6 +90,27 @@ class PreviewLocalIsOff(unittest.TestCase):
         self.assertFalse(src.startswith("/"))
 
 
+class InlineScriptSurvivesWordPress(unittest.TestCase):
+    """WordPress rewrites a literal && in post content to &#038;&#038;.
+
+    That is a SyntaxError, and it takes the whole page-scoped script with it:
+    no rolloff, no sheet truncation, a dead toggle. It is silent because the
+    markup and CSS still render perfectly. Observed live on 2026-09-13.
+    """
+
+    def script(self) -> str:
+        html = block([event(id="up-1")], [event(id="past-1")])
+        start = html.rindex("<script>")
+        return html[start : html.index("</script>", start)]
+
+    def test_no_literal_double_ampersand(self):
+        self.assertNotIn("&&", self.script())
+
+    def test_no_bare_ampersand_at_all(self):
+        # Any bare & is at risk of the same entity rewrite.
+        self.assertNotIn("&", self.script())
+
+
 class RecapDestination(unittest.TestCase):
     def test_tile_prefers_recap_but_retains_source_record(self):
         ev = event(recap_url="https://kriskrug.co/a-recap/", image={"url": "https://kriskrug.co/x.jpg"})
