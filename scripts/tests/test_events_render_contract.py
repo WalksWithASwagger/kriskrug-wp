@@ -228,7 +228,7 @@ class Bucketing(unittest.TestCase):
         # Needles must be markup-unique; the class names also appear in the CSS.
         self.assertLess(
             html.index('data-events-grid="sheet">'),
-            html.index('<div class="kk-ev-record-grid">'),
+            html.index('<div class="kk-ev-record-grid kk-ev-wide">'),
         )
 
     def test_upcoming_is_held_back_from_the_sheet_until_it_rolls_off(self):

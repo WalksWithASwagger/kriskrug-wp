@@ -407,7 +407,7 @@ PAGE_SCOPED_CSS = """
   .kk-ev-next-grid {
     display: grid;
     gap: 1.5rem 1.25rem;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     margin-top: 1.4rem;
   }
   .kk-ev-next { display: flex; flex-direction: column; }
@@ -527,6 +527,13 @@ PAGE_SCOPED_CSS = """
      documentElement.clientWidth because 100vw counts the scrollbar (and, under
      browser zoom, can resolve wider than the actual viewport), which bleeds the
      band past the edge and eats its padding. 100vw is the pre-script fallback. */
+  /* Grids get a capped bleed out of the theme's ~860px text column. Prose
+     (masthead, rooms, CTA) deliberately keeps the narrow measure. */
+  .kk-ev-wide {
+    margin-inline: calc(50% - min(var(--ev-vw, 100vw) - 2 * var(--ev-gutter), 1240px) / 2);
+    width: min(calc(var(--ev-vw, 100vw) - 2 * var(--ev-gutter)), 1240px);
+  }
+
   .kk-ev-sheet {
     background: var(--ev-dark);
     color: var(--ev-paper);
@@ -639,8 +646,11 @@ PAGE_SCOPED_CSS = """
   .kk-ev-record { padding-top: 2.5rem; }
   .kk-ev-record-grid {
     display: grid;
+    /* start, not stretch: 2023 holds one event and was being handed a cell as
+       tall as the 26-row years beside it. */
+    align-items: start;
     gap: 1.75rem 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     margin-top: 1.5rem;
   }
   .kk-ev-rec-year h3 {
@@ -864,7 +874,7 @@ def render_dynamic_block(
     <ul class="kk-ev-stats">
 {stats_html}
     </ul>
-    <div class="kk-ev-next-grid" data-events-grid="upcoming">
+    <div class="kk-ev-next-grid kk-ev-wide" data-events-grid="upcoming">
 {next_cards}
     </div>
   </section>
@@ -893,7 +903,7 @@ def render_dynamic_block(
       <h2 id="aurora-events-record">Everything, by year.</h2>
       <p class="kk-ev-head-note">{len(everything)} rooms hosted, spoken at, or built.</p>
     </div>
-    <div class="kk-ev-record-grid">
+    <div class="kk-ev-record-grid kk-ev-wide">
 {render_record(everything)}
     </div>
   </section>
