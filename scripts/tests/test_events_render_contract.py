@@ -3,13 +3,18 @@
 Offline. Synthetic catalogs pin the invariants the live /events/ page (WP 2250)
 depends on: no local filesystem path ever reaches an ``src``, bucketing splits
 on an explicit reference date, every card carries ``data-event-end`` for the
-rolloff script, titles are escaped, and empty media degrades to the ``--empty``
-variant. One smoke case renders the real merged catalog through ``main()``.
+rolloff script, titles are escaped, and an event with no art is carried by the
+record index rather than by invented artwork.
 
 The local-path case guards a reachable-but-never-shipped defect: a hero existing
 only on disk used to render as ``file:///Users/kk/...``. No such src has been
 observed live, because ``sync_event_media.py`` has always run before ship and
-the 2026-08-02 audit records no ``file://`` leaks. The guard keeps it that way.
+the 2026-08-02 audit records no ``file://`` leaks. The guard keeps it that way,
+and now also covers the ``--preview-local`` escape hatch.
+
+Layout contract (2026-09-13 art direction): upcoming events render as spotlight
+cards, every event with real art renders as a contact-sheet tile, and every
+publishable event renders as a row in the complete record.
 """
 
 import contextlib
@@ -27,11 +32,13 @@ sys.path.insert(0, str(ROOT / "scripts/events_page"))
 import lib  # noqa: E402
 import render_events_page as render  # noqa: E402
 
-CARD_RE = re.compile(r'<article class="([^"]*aurora-event-card[^"]*)"')
+NEXT_RE = re.compile(r'<article class="kk-ev-next"')
+TILE_RE = re.compile(r'<article class="kk-ev-tile"')
+REC_RE = re.compile(r'<li class="kk-ev-rec"')
 CARD_ID_RE = re.compile(r'data-event-id="([^"]*)"')
 CARD_END_RE = re.compile(r'data-event-end="([^"]*)"')
-ART_RE = re.compile(r'<figure class="[^"]*\baurora-event-art(?:\s|")')
 H3_RE = re.compile(r"<h3>(.*?)</h3>", re.DOTALL)
+REC_ID_RE = re.compile(r'<li class="kk-ev-rec" data-event-end="[^"]*" data-event-id="([^"]*)"')
 
 
 def roots_for(base: Path) -> dict[str, Path]:
@@ -56,61 +63,63 @@ def event(**overrides):
     return base
 
 
+def block(upcoming, past, everything=None, roots=None):
+    return render.render_dynamic_block(
+        upcoming,
+        past,
+        everything if everything is not None else list(upcoming) + list(past),
+        roots or roots_for(Path(".")),
+    )
+
+
+class PreviewLocalIsOff(unittest.TestCase):
+    """--preview-local is a review-only mode and must never be the default."""
+
+    def test_module_default_is_off(self):
+        self.assertFalse(render.PREVIEW_LOCAL)
+
+    def tearDown(self):
+        render.PREVIEW_LOCAL = False
+
+    def test_preview_local_paths_are_relative_and_never_absolute(self):
+        render.PREVIEW_LOCAL = True
+        ev = event(image={"path": "repo:heroes/_pending/x.webp", "alt": "Night"})
+        src, _ = render.image_src(ev, roots_for(Path("/Users/someone")))
+        self.assertEqual(src, "heroes/x.webp")
+        self.assertNotIn("/Users/", src)
+        self.assertFalse(src.startswith("/"))
+
+
 class RecapDestination(unittest.TestCase):
-    def test_compact_card_prefers_recap_but_retains_source_record(self):
-        ev = event(recap_url="https://kriskrug.co/a-recap/")
-        output = render.render_compact_card(ev, roots_for(ROOT))
-        self.assertIn('href="https://kriskrug.co/a-recap/">Read the recap</a>', output)
+    def test_tile_prefers_recap_but_retains_source_record(self):
+        ev = event(recap_url="https://kriskrug.co/a-recap/", image={"url": "https://kriskrug.co/x.jpg"})
+        output = render.render_tile(ev, roots_for(ROOT), upcoming=False)
+        self.assertIn('href="https://kriskrug.co/a-recap/"', output)
         self.assertNotIn('href="https://example.org/stage"', output)
         self.assertEqual("https://example.org/stage", ev["url"])
 
     def test_empty_recap_keeps_existing_fallback(self):
         for recap in (None, ""):
-            output = render.render_compact_card(event(recap_url=recap), roots_for(ROOT))
-            self.assertIn('href="https://example.org/stage">Recap / details</a>', output)
-
-    def test_upcoming_registration_is_unchanged(self):
-        output = render.render_rich_card(event(recap_url="https://kriskrug.co/a-recap/"), roots_for(ROOT))
-        self.assertIn('href="https://example.org/stage"', output)
-        self.assertNotIn("https://kriskrug.co/a-recap/", output)
+            output = render.render_record_row(event(recap_url=recap))
+            self.assertIn('href="https://example.org/stage"', output)
 
     def test_recap_url_is_escaped(self):
-        output = render.render_compact_card(event(recap_url='https://kriskrug.co/?a="&b=2'), roots_for(ROOT))
+        output = render.render_record_row(event(recap_url='https://kriskrug.co/?a="&b=2'))
         self.assertIn('href="https://kriskrug.co/?a=&quot;&amp;b=2"', output)
 
     def test_recap_rejects_unsafe_or_noncanonical_destinations(self):
         for url in ("javascript:alert(1)", "//example.org/", "/recap/", "https://kriskrug.co.evil.test/", True):
             with self.subTest(url=url), self.assertRaises(ValueError):
-                render.render_compact_card(event(recap_url=url), roots_for(ROOT))
+                render.render_record_row(event(recap_url=url))
 
 
 class LocalPathsNeverShip(unittest.TestCase):
-    """Guard: no file:// or /Users/ src ever reaches the output."""
+    """Guard: no file:// or /Users/ src ever reaches the shipped output."""
 
     def hero_on_disk(self, tmp: str) -> Path:
         path = Path(tmp) / "hero.jpg"
         path.write_bytes(b"jpeg-bytes")
         return path
-
-    def test_prefixed_local_path_emits_no_src_on_compact_card(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            self.hero_on_disk(tmp)
-            ev = event(image={"path": "kk_kb:hero.jpg", "alt": "Night shot"})
-            html = render.render_compact_card(ev, roots_for(Path(tmp)))
-            self.assertNotIn("file://", html)
-            self.assertNotIn("/Users/", html)
-            self.assertNotIn("<img", html)
-            self.assertIn("aurora-event-art--generated", html)
-
-    def test_prefixed_local_path_emits_no_src_on_rich_card(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            self.hero_on_disk(tmp)
-            ev = event(image={"path": "repo:hero.jpg", "alt": "Night shot"})
-            html = render.render_rich_card(ev, roots_for(Path(tmp)))
-            self.assertNotIn("file://", html)
-            self.assertNotIn("/Users/", html)
-            self.assertNotIn("<img", html)
-            self.assertIn("aurora-event-art--generated", html)
 
     def test_absolute_local_path_emits_no_src(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -128,25 +137,40 @@ class LocalPathsNeverShip(unittest.TestCase):
                     self.assertFalse(src.startswith("file:"))
                     self.assertFalse(src.startswith("/"))
 
+    def test_local_only_hero_gets_no_tile_and_still_appears_in_the_record(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.hero_on_disk(tmp)
+            ev = event(id="local-1", image={"path": "kk_kb:hero.jpg", "alt": "Night shot"})
+            html = block([], [ev], roots=roots_for(Path(tmp)))
+            self.assertNotIn("file://", html)
+            self.assertNotIn("/Users/", html)
+            self.assertEqual(len(TILE_RE.findall(html)), 0)
+            self.assertIn('data-event-id="local-1"', html)
+
     def test_dynamic_block_with_local_heroes_ships_no_local_paths(self):
         with tempfile.TemporaryDirectory() as tmp:
             self.hero_on_disk(tmp)
             upcoming = [event(id="up-1", image={"path": "kk_kb:hero.jpg"})]
             past = [event(id="past-1", image={"path": "repo:hero.jpg"})]
-            html = render.render_dynamic_block(upcoming, past, roots_for(Path(tmp)))
+            html = block(upcoming, past, roots=roots_for(Path(tmp)))
             self.assertNotIn("file://", html)
             self.assertNotIn("/Users/", html)
 
     def test_public_url_still_renders_an_img(self):
         ev = event(image={"url": "https://kriskrug.co/wp-content/x.jpg", "alt": "Hero"})
-        html = render.render_compact_card(ev, roots_for(Path(".")))
+        html = render.render_tile(ev, roots_for(Path(".")), upcoming=False)
         self.assertIn('src="https://kriskrug.co/wp-content/x.jpg"', html)
-        self.assertNotIn("aurora-event-compact-media--empty", html)
 
-    def test_media_id_without_url_still_emits_the_placeholder_src(self):
+    def test_media_id_without_url_is_not_art(self):
+        """A bare media_id used to emit src="#media-NNNN", which the browser
+        resolves as a broken image and paints as an empty frame on the sheet.
+        Only a real URL counts as art now; sync_event_media.py fills in the URL."""
         ev = event(image={"media_id": 12660, "alt": "Pitch Night"})
-        html = render.render_compact_card(ev, roots_for(Path(".")))
-        self.assertIn('src="#media-12660"', html)
+        self.assertEqual(render.image_src(ev, roots_for(Path(".")))[0], "")
+        self.assertFalse(render.has_art(ev, roots_for(Path("."))))
+        html = block([], [ev])
+        self.assertNotIn("#media-12660", html)
+        self.assertEqual(len(TILE_RE.findall(html)), 0)
 
 
 class Bucketing(unittest.TestCase):
@@ -180,7 +204,6 @@ class Bucketing(unittest.TestCase):
         undated_upcoming = {"id": "u2", "bucket_hint": "upcoming"}
         self.assertTrue(render.is_past(undated_past, self.NOW))
         self.assertFalse(render.is_past(undated_upcoming, self.NOW))
-        # A real end date wins over a stale hint.
         stale = event(id="u3", bucket_hint="upcoming", end="2025-01-01T21:00:00-08:00")
         self.assertTrue(render.is_past(stale, self.NOW))
 
@@ -193,90 +216,100 @@ class Bucketing(unittest.TestCase):
         self.assertIsNone(render.parse_end({"date": "sometime in spring"}))
         self.assertEqual(render.end_iso({"date": "sometime in spring"}), "")
 
-    def test_cards_land_in_their_declared_grid(self):
-        upcoming = [event(id="up-1")]
-        past = [event(id="past-1")]
-        html = render.render_dynamic_block(upcoming, past, roots_for(Path(".")))
-        up_grid = html.index('data-events-grid="upcoming">')
-        past_grid = html.index('data-events-grid="past">')
-        self.assertLess(up_grid, html.index('data-event-id="up-1"'))
-        self.assertLess(html.index('data-event-id="up-1"'), past_grid)
-        self.assertLess(past_grid, html.index('data-event-id="past-1"'))
-
-    def test_empty_buckets_are_flagged_for_the_collapse_css(self):
-        html = render.render_dynamic_block(
-            [], [event(id="past-1")], roots_for(Path("."))
+    def test_spotlight_precedes_the_sheet_which_precedes_the_record(self):
+        art = {"url": "https://kriskrug.co/x.jpg"}
+        upcoming = [event(id="up-1", image=art)]
+        past = [event(id="past-1", image=art)]
+        html = block(upcoming, past)
+        self.assertLess(
+            html.index('data-events-grid="upcoming">'),
+            html.index('data-events-grid="sheet">'),
         )
+        # Needles must be markup-unique; the class names also appear in the CSS.
+        self.assertLess(
+            html.index('data-events-grid="sheet">'),
+            html.index('<div class="kk-ev-record-grid">'),
+        )
+
+    def test_upcoming_is_held_back_from_the_sheet_until_it_rolls_off(self):
+        art = {"url": "https://kriskrug.co/x.jpg"}
+        html = block([event(id="up-1", image=art)], [event(id="past-1", image=art)])
+        self.assertIn('data-event-id="up-1" data-tile-upcoming="true"', html)
+        self.assertNotIn('data-event-id="past-1" data-tile-upcoming="true"', html)
+
+    def test_empty_upcoming_is_flagged_for_the_collapse_css(self):
+        html = block([], [event(id="past-1")])
         self.assertIn('data-events-bucket="upcoming" data-events-empty="true"', html)
-        self.assertIn('data-events-bucket="past" data-events-empty="false"', html)
 
 
 class CardContract(unittest.TestCase):
     """Class names and data attributes the CSS and rolloff script select on."""
 
-    def test_rich_card_classes(self):
-        html = render.render_rich_card(event(), roots_for(Path(".")))
-        classes = CARD_RE.search(html).group(1).split()
-        self.assertIn("aurora-event-card", classes)
-        self.assertIn("aurora-event-card--rich", classes)
-        self.assertIn("aurora-proof-module", classes)
-        self.assertNotIn("aurora-event-card--compact", classes)
+    def test_spotlight_card_classes(self):
+        html = render.render_next_card(event(), roots_for(Path(".")))
+        self.assertIn('<article class="kk-ev-next"', html)
+        self.assertIn('data-event-id="ev-1"', html)
 
-    def test_compact_card_classes(self):
-        html = render.render_compact_card(event(), roots_for(Path(".")))
-        classes = CARD_RE.search(html).group(1).split()
-        self.assertIn("aurora-event-card", classes)
-        self.assertIn("aurora-event-card--compact", classes)
-        self.assertNotIn("aurora-event-card--rich", classes)
+    def test_tile_classes(self):
+        ev = event(image={"url": "https://kriskrug.co/x.jpg"})
+        html = render.render_tile(ev, roots_for(Path(".")), upcoming=False)
+        self.assertIn('<article class="kk-ev-tile"', html)
+        self.assertIn("kk-ev-tile-info", html)
 
-    def test_every_card_carries_data_event_end(self):
-        upcoming = [event(id="up-1"), event(id="up-2", end="2026-05-05T18:00:00-07:00")]
-        past = [event(id="past-1", end="2025-01-15T21:00:00-08:00"), {"id": "past-2"}]
-        html = render.render_dynamic_block(upcoming, past, roots_for(Path(".")))
-        self.assertEqual(len(CARD_RE.findall(html)), 4)
-        self.assertEqual(len(CARD_END_RE.findall(html)), 4)
+    def test_every_rendered_element_carries_data_event_end(self):
+        art = {"url": "https://kriskrug.co/x.jpg"}
+        upcoming = [event(id="up-1", image=art)]
+        past = [event(id="past-1", end="2025-01-15T21:00:00-08:00", image=art)]
+        html = block(upcoming, past)
+        # one spotlight + two tiles + two record rows
+        self.assertEqual(len(NEXT_RE.findall(html)), 1)
+        self.assertEqual(len(TILE_RE.findall(html)), 2)
+        self.assertEqual(len(REC_RE.findall(html)), 2)
+        self.assertEqual(len(CARD_END_RE.findall(html)), 5)
 
     def test_data_event_end_is_tz_aware_iso(self):
-        html = render.render_rich_card(
+        html = render.render_next_card(
             event(end="2026-05-05T18:00:00-07:00"), roots_for(Path("."))
         )
         value = CARD_END_RE.search(html).group(1)
         self.assertEqual(datetime.fromisoformat(value).utcoffset(), timedelta(hours=-7))
 
-    def test_undated_card_still_emits_the_attribute(self):
-        html = render.render_compact_card({"id": "u1"}, roots_for(Path(".")))
-        self.assertIn('data-event-end=""', html)
+    def test_undated_row_still_emits_the_attribute(self):
+        self.assertIn('data-event-end=""', render.render_record_row({"id": "u1"}))
 
-    def test_cta_labels_swap_between_buckets(self):
-        html = render.render_rich_card(event(), roots_for(Path(".")))
-        self.assertIn("aurora-event-cta-upcoming", html)
-        self.assertIn("aurora-event-cta-past", html)
+    def test_spotlight_carries_its_registration_cta(self):
+        html = render.render_next_card(event(), roots_for(Path(".")))
         self.assertIn(">Register<", html)
-        self.assertIn(">Event details<", html)
+        self.assertIn('href="https://example.org/stage"', html)
 
 
 class Escaping(unittest.TestCase):
     def test_title_with_markup_characters_is_escaped(self):
         ev = event(title='Rooms & <Stages> "2026"')
-        for html in (
-            render.render_rich_card(ev, roots_for(Path("."))),
-            render.render_compact_card(ev, roots_for(Path("."))),
-        ):
-            heading = H3_RE.search(html).group(1)
-            self.assertEqual(heading, "Rooms &amp; &lt;Stages&gt; &quot;2026&quot;")
+        heading = H3_RE.search(render.render_next_card(ev, roots_for(Path(".")))).group(1)
+        self.assertEqual(heading, "Rooms &amp; &lt;Stages&gt; &quot;2026&quot;")
+
+    def test_tile_title_is_escaped(self):
+        ev = event(title="Rooms & <Stages>", image={"url": "https://kriskrug.co/x.jpg"})
+        html = render.render_tile(ev, roots_for(Path(".")), upcoming=False)
+        self.assertIn("Rooms &amp; &lt;Stages&gt;", html)
+        self.assertNotIn("<Stages>", html)
+
+    def test_record_row_title_is_escaped(self):
+        html = render.render_record_row(event(title='Rooms & <Stages>'))
+        self.assertIn("Rooms &amp; &lt;Stages&gt;", html)
 
     def test_alt_text_cannot_break_out_of_the_attribute(self):
         ev = event(image={"url": "https://kriskrug.co/x.jpg", "alt": 'A "quoted" hero'})
-        html = render.render_compact_card(ev, roots_for(Path(".")))
+        html = render.render_tile(ev, roots_for(Path(".")), upcoming=False)
         self.assertIn('alt="A &quot;quoted&quot; hero"', html)
 
-    def test_url_and_tags_are_escaped(self):
-        ev = event(url='https://example.org/?a=1&b="2"', tags=["Keynote & Panel"])
-        html = render.render_rich_card(ev, roots_for(Path(".")))
+    def test_url_is_escaped(self):
+        ev = event(url='https://example.org/?a=1&b="2"')
+        html = render.render_next_card(ev, roots_for(Path(".")))
         self.assertIn('href="https://example.org/?a=1&amp;b=&quot;2&quot;"', html)
-        self.assertIn("<span>Keynote &amp; Panel</span>", html)
 
-    def test_photographer_credit_folds_into_alt(self):
+    def test_photographer_credit_folds_into_alt_and_shows_on_the_tile(self):
         ev = event(
             image={
                 "url": "https://kriskrug.co/x.jpg",
@@ -286,39 +319,42 @@ class Escaping(unittest.TestCase):
         )
         _, alt = render.image_src(ev, roots_for(Path(".")))
         self.assertEqual(alt, "Meetup floor (photo: Michelle Diamond)")
+        html = render.render_tile(ev, roots_for(Path(".")), upcoming=False)
+        self.assertIn('<span class="kk-ev-tile-credit">Michelle Diamond</span>', html)
 
 
-class ArtworkFallback(unittest.TestCase):
-    def test_compact_card_without_media_uses_a_generated_poster(self):
-        html = render.render_compact_card(event(image={}), roots_for(Path(".")))
-        self.assertIn("aurora-event-art--generated", html)
-        self.assertIn('role="img"', html)
+class ArtworkPolicy(unittest.TestCase):
+    """The sheet shows real art only. Nothing is generated to fill a gap."""
+
+    def test_no_art_means_no_tile(self):
+        html = block([], [event(id="bare-1", image={})])
+        self.assertEqual(len(TILE_RE.findall(html)), 0)
         self.assertNotIn("<img", html)
-        self.assertIn("<figure", html)
 
-    def test_rich_card_without_media_uses_a_generated_poster(self):
-        html = render.render_rich_card(event(image={}), roots_for(Path(".")))
+    def test_no_art_event_is_still_in_the_record(self):
+        html = block([], [event(id="bare-1", image={})])
+        self.assertIn('data-event-id="bare-1"', html)
+        self.assertEqual(len(REC_RE.findall(html)), 1)
+
+    def test_no_generated_poster_markup_survives_anywhere(self):
+        html = block([event(id="up-1")], [event(id="past-1")])
+        for gone in ("aurora-event-art--generated", "aurora-event-art-mark", "palette-"):
+            self.assertNotIn(gone, html)
+
+    def test_spotlight_without_art_uses_the_date_not_an_empty_frame(self):
+        html = render.render_next_card(event(image={}), roots_for(Path(".")))
         self.assertNotIn("<img", html)
-        self.assertIn("aurora-event-art--generated", html)
-        self.assertIn("<figure", html)
-        self.assertIn("aurora-proof-body", html)
+        self.assertIn("kk-ev-next-art--bare", html)
+        self.assertIn("kk-ev-next-day", html)
 
-    def test_contain_fit_is_explicit_on_real_artwork(self):
-        ev = event(
-            image={"url": "https://kriskrug.co/logo.webp", "alt": "Logo"},
-            image_fit="contain",
-        )
-        html = render.render_rich_card(ev, roots_for(Path(".")))
-        self.assertIn("aurora-event-art--contain", html)
-        self.assertIn('src="https://kriskrug.co/logo.webp"', html)
-
-    def test_compact_card_without_a_url_emits_no_link(self):
-        html = render.render_compact_card(event(url=""), roots_for(Path(".")))
-        self.assertNotIn("aurora-event-compact-link", html)
+    def test_record_row_without_a_url_emits_no_link(self):
+        html = render.render_record_row(event(url=""))
+        self.assertNotIn("<a ", html)
+        self.assertIn("Example Stage", html)
 
 
 class RealCatalogSmoke(unittest.TestCase):
-    """Real merged catalog renders one card per publishable event."""
+    """Real merged catalog renders one record row per publishable event."""
 
     def render_main(self, out: Path) -> str:
         argv = sys.argv
@@ -328,35 +364,38 @@ class RealCatalogSmoke(unittest.TestCase):
                 code = render.main()
         finally:
             sys.argv = argv
+            render.PREVIEW_LOCAL = False
         self.assertEqual(code, 0)
         return out.read_text(encoding="utf-8")
 
-    def test_real_catalog_renders_every_publishable_event_once(self):
+    def test_real_catalog_records_every_publishable_event_once(self):
         doc = lib.load_catalog()
         publishable = [e for e in doc["events"] if render.public_status(e)]
         self.assertTrue(publishable, "catalog should have publishable events")
         with tempfile.TemporaryDirectory() as tmp:
             html = self.render_main(Path(tmp) / "events-2250.generated.html")
 
-        self.assertEqual(len(CARD_RE.findall(html)), len(publishable))
         self.assertEqual(
-            sorted(CARD_ID_RE.findall(html)),
-            sorted(e["id"] for e in publishable),
+            sorted(REC_ID_RE.findall(html)), sorted(e["id"] for e in publishable)
         )
-        # Non-publishable statuses stay in the catalog but never ship.
         withheld = {e["id"] for e in doc["events"]} - {e["id"] for e in publishable}
         for eid in withheld:
             self.assertNotIn(f'data-event-id="{eid}"', html)
 
-    def test_real_render_gives_every_dated_card_an_artboard(self):
+    def test_every_sheet_tile_has_a_real_image(self):
         with tempfile.TemporaryDirectory() as tmp:
             html = self.render_main(Path(tmp) / "events-2250.generated.html")
-        self.assertEqual(len(ART_RE.findall(html)), len(CARD_RE.findall(html)))
+        tiles = re.findall(r'<article class="kk-ev-tile".*?</article>', html, re.S)
+        self.assertTrue(tiles, "catalog should have at least one event with art")
+        for tile in tiles:
+            src = re.search(r'<img src="([^"]*)"', tile)
+            self.assertIsNotNone(src, "a tile must carry an img")
+            self.assertTrue(src.group(1).startswith("http"), src.group(1))
 
-    def test_real_render_includes_the_accessible_archive_toggle(self):
+    def test_real_render_includes_the_accessible_sheet_toggle(self):
         with tempfile.TemporaryDirectory() as tmp:
             html = self.render_main(Path(tmp) / "events-2250.generated.html")
-        self.assertIn('data-events-archive-toggle', html)
+        self.assertIn("data-events-sheet-toggle", html)
         self.assertIn('aria-expanded="false"', html)
 
     def test_real_render_carries_no_local_paths(self):
@@ -365,13 +404,12 @@ class RealCatalogSmoke(unittest.TestCase):
         self.assertNotIn("file://", html)
         self.assertNotIn("/Users/", html)
         self.assertNotIn('src=""', html)
+        self.assertNotIn('src="heroes/', html)
 
-    def test_real_render_gives_every_card_a_usable_rolloff_end(self):
+    def test_real_render_gives_every_element_a_usable_rolloff_end(self):
         with tempfile.TemporaryDirectory() as tmp:
             html = self.render_main(Path(tmp) / "events-2250.generated.html")
-        ends = CARD_END_RE.findall(html)
-        self.assertEqual(len(ends), len(CARD_RE.findall(html)))
-        for value in ends:
+        for value in CARD_END_RE.findall(html):
             if not value:
                 continue
             with self.subTest(end=value):
@@ -383,7 +421,9 @@ class RealCatalogSmoke(unittest.TestCase):
         self.assertIn(lib.DYNAMIC_START, html)
         self.assertIn(lib.DYNAMIC_END, html)
         self.assertIn('data-events-grid="upcoming">', html)
-        self.assertIn('data-events-grid="past">', html)
+        self.assertIn('data-events-grid="sheet">', html)
+        self.assertIn("kk-ev-rooms", html)
+        self.assertIn("kk-ev-cta", html)
 
 
 if __name__ == "__main__":

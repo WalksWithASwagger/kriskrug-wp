@@ -25,14 +25,33 @@ def candidate_html(name: str, public: str) -> str:
         fragment = (journey.PACK / "recap-link.html").read_text().strip()
         return journey.replace_once(public, anchor, anchor + "\n\n" + fragment)
     if name == "events":
-        cards = re.findall(r'<article\b[^>]*data-event-id="' + re.escape(journey.EVENT_ID) + r'"[^>]*>.*?</article>', public, re.S)
-        if len(cards) != 1:
-            raise journey.JourneyError("Public North House card is missing or ambiguous")
-        old, new = journey.event_cards()
-        link = r'<a class="aurora-event-compact-link"[^>]*>.*?</a>'
-        old_link, new_link = re.search(link, old).group(), re.search(link, new).group()
-        card = journey.replace_once(cards[0], old_link, new_link)
-        return journey.replace_once(public, cards[0], card)
+        # A past event renders twice since the 2026-09-13 art direction: a
+        # contact-sheet tile (<article>) and a record row (<li>). Match on the
+        # event id and swap the href, so this stays correct as the surrounding
+        # markup evolves and as WP filters rewrite the public HTML.
+        pairs = journey.event_cards()
+        if not pairs:
+            raise journey.JourneyError("No North House recap change to preview")
+        element = (
+            r'<(article|li)\b[^>]*data-event-id="'
+            + re.escape(journey.EVENT_ID)
+            + r'"[^>]*>.*?</\1>'
+        )
+        found = re.findall(element, public, re.S)
+        if not found:
+            raise journey.JourneyError("Public North House card is missing")
+        def href(markup: str) -> str:
+            return re.search(r'href="([^"]*)"', markup).group(1)
+
+        old_href, new_href = href(pairs[0][0]), href(pairs[0][1])
+        for match in re.finditer(element, public, re.S):
+            block = match.group()
+            if old_href not in block:
+                continue
+            public = journey.replace_once(
+                public, block, block.replace(old_href, new_href)
+            )
+        return public
     return public
 
 
