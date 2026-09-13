@@ -14,11 +14,16 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import apply_north_house_journey as journey  # noqa: E402
 
 
+def before_cards() -> str:
+    """The pre-patch markup for every representation the events patch touches."""
+    return "\n".join(before for before, _ in journey.event_cards())
+
+
 def fixture(name="services"):
     bodies = {
         "services": '<style>.keep {color: red}</style>\n<p>Keep this.</p>\n' + journey.SERVICES_ANCHOR + "\n</section>",
         "recap": "<p>Keep this.</p>\n" + journey.RECAP_ANCHOR + "\n<footer>Keep author</footer>",
-        "events": "<p>Keep the shell.</p>\n" + journey.event_cards()[0] + "\n<script>keep()</script>",
+        "events": "<p>Keep the shell.</p>\n" + before_cards() + "\n<script>keep()</script>",
     }
     item = {k: v for k, v in journey.TARGETS[name].items() if k != "endpoint"}
     item.update(status="publish", modified_gmt="2026-09-05T00:00:00", title={"raw": "Keep title"},
@@ -71,7 +76,7 @@ class NorthHouseJourneyTests(unittest.TestCase):
         originals = {
             "services": journey.SERVICES_ANCHOR + suffix,
             "recap": f'<p class="wp-block-paragraph">{journey.TAKEAWAY}</p>' + suffix,
-            "events": journey.event_cards()[0] + suffix,
+            "events": before_cards() + suffix,
         }
         for name, public in originals.items():
             after = preview.candidate_html(name, public)
@@ -86,8 +91,10 @@ class NorthHouseJourneyTests(unittest.TestCase):
                 before, after, manifest = fixture(name)
                 self.assertEqual(("pending", after), journey.plan(before, name, manifest))
                 if name == "events":
-                    old, new = journey.event_cards()
-                    self.assertEqual(before["content"]["raw"], after.replace(new, old))
+                    undone = after
+                    for old, new in journey.event_cards():
+                        undone = undone.replace(new, old, 1)
+                    self.assertEqual(before["content"]["raw"], undone)
                 else:
                     fragment = (journey.PACK / f'{"services-insert" if name == "services" else "recap-link"}.html').read_text().rstrip()
                     separator = fragment + "\n\n" if name == "services" else "\n\n" + fragment
@@ -221,16 +228,21 @@ class NorthHouseJourneyTests(unittest.TestCase):
         events = [e for e in catalog["events"] if render.public_status(e)]
         upcoming = sorted([e for e in events if not render.is_past(e, now)], key=render.parse_end)
         past = sorted([e for e in events if render.is_past(e, now)], key=render.parse_end, reverse=True)
-        dynamic = render.render_dynamic_block(upcoming, past, journey.events_lib.resolve_path_roots(catalog))
+        everything = sorted(events, key=render.parse_end, reverse=True)
+        dynamic = render.render_dynamic_block(upcoming, past, everything, journey.events_lib.resolve_path_roots(catalog))
         after = render.inject_into_shell(journey.events_lib.SHELL_PATH.read_text(), dynamic)
         for event in events:
             if event["id"] == journey.EVENT_ID:
                 del event["recap_url"]
-        before_dynamic = render.render_dynamic_block(upcoming, past, journey.events_lib.resolve_path_roots(catalog))
+        before_dynamic = render.render_dynamic_block(upcoming, past, everything, journey.events_lib.resolve_path_roots(catalog))
         before = render.inject_into_shell(journey.events_lib.SHELL_PATH.read_text(), before_dynamic)
-        old_card, new_card = journey.event_cards()
-        self.assertEqual(1, before.count(old_card))
-        self.assertEqual(after, before.replace(old_card, new_card, 1))
+        # The recap URL moves both representations of a past event: its
+        # contact-sheet tile and its row in the complete record.
+        patched = before
+        for old_card, new_card in journey.event_cards():
+            self.assertEqual(1, patched.count(old_card))
+            patched = patched.replace(old_card, new_card, 1)
+        self.assertEqual(after, patched)
 
     def test_new_fragments_pass_voice_and_public_safety(self):
         import voice_check

@@ -2,7 +2,17 @@
 
 Catalog → (optional media sync) → HTML render. The WordPress page HTML is **generated output**; edit `events-catalog.yaml`, not the live block, when adding dated cards.
 
-Preserved evergreen sections (not regenerated from the catalog): hero, **Series I produce & host**, **Stages I speak on**, **Signature moments**, final CTA. Those live in `shell-events-2250.html`.
+Preserved evergreen sections (not regenerated from the catalog): masthead, **Series I produce & host**, final CTA. Those live in `shell-events-2250.html`. *Stages I speak on* and *Signature moments* were folded away on 2026-09-13: every event they listed already exists as a catalog row, so they were duplicate surface.
+
+## Layout (2026-09-13 art direction)
+
+Masthead → **Next up** (up to 4 spotlight cards) → rooms strip → **contact sheet** → **complete record** → CTA. Section order is CSS `order` on the flex page wrapper, so the shell and the generated block can interleave.
+
+The contact sheet is a full-bleed square photo grid on a dark ground, 6 columns at desktop down to 2 on a phone, and it shows **only events with real art**. There is no generated fallback tile: the old monogram poster (`WTD`, `VAC`, initials on a colour block) was the dominant visual on a photographer's page and is gone. An event with no art is carried by the complete record instead, so nothing is lost by the exclusion.
+
+The complete record is a year-grouped typographic index carrying **every** publishable event, art or not. It is the page's completeness guarantee; the sheet is the page's art.
+
+Upcoming events render twice: as a spotlight card, and as a sheet tile held back with `data-tile-upcoming`. When the date passes, the page-scoped script hides the spotlight and releases the tile. No DOM moves between grids.
 
 ## Layout
 
@@ -11,7 +21,7 @@ Preserved evergreen sections (not regenerated from the catalog): hero, **Series 
 | `events-catalog.yaml` | SSOT for dated Upcoming + Past cards |
 | `meetup-editions.yaml` | Optional harvest index (`#1`–`#31`); merged at render time when present |
 | `shell-events-2250.html` | Page shell with `EVENTS_DYNAMIC_*` markers |
-| `render_events_page.py` | Builds Upcoming rich cards + Past compact grid + rolloff |
+| `render_events_page.py` | Builds spotlight cards + contact sheet + complete record + rolloff |
 | `sync_event_media.py` | Uploads local heroes → WP media IDs (dry-run default) |
 | `out/events-2250.generated.html` | Dry-run artifact for KK eyeball |
 | `lib.py` | Shared load/merge/path helpers |
@@ -76,7 +86,30 @@ If `meetup-editions.yaml` exists (harvest agent output: editions `#1`–`#31` wi
 
 ## Rolloff
 
-Each dated card has `data-event-end`. Page-scoped JS moves cards between Upcoming and Past; empty Upcoming collapses via `data-events-empty`. Past uses a dense 3/2/1 grid; Upcoming keeps rich proof modules.
+Each rendered element has `data-event-end`. Page-scoped JS retires a spotlight card whose date has passed and releases its held-back sheet tile; empty Upcoming collapses via `data-events-empty`. The sheet previews 4 rows and expands via `data-events-sheet-toggle`.
+
+The same script sets `--ev-vw` from `documentElement.clientWidth` for the full-bleed band. `100vw` is only the pre-script fallback: it counts the scrollbar and, under browser zoom, can resolve wider than the viewport, which pushes the band past the edge and eats its padding.
+
+## Reviewing before upload (`--preview-local`)
+
+A hero that is downloaded but not yet in the WP media library has no public URL, so it renders as nothing. To review the layout at real density first:
+
+```bash
+scripts/notion-to-wp/.venv/bin/python scripts/events_page/render_events_page.py \
+  --preview-local --out scripts/events_page/out/events-2250.preview.html
+```
+
+That resolves `image.path` to a relative `heroes/<file>` src. **Never POST a `--preview-local` artifact**: those paths are not public URLs. The default render has the flag off, the contract test pins that default, and `test_real_render_carries_no_local_paths` fails if a local src ever reaches the shipped artifact.
+
+## Hero candidate fields
+
+Rows sourced from the `heroes/LEDGER-*.md` research carry, alongside `path` and `alt`:
+
+- `source_url` — the verified upstream candidate, so the file can be re-fetched
+- `rights_basis` — the ledger's vocabulary (`kk-own-asset`, `own-channel`, `luma-own-event`, `bcai-pipeline-credited`)
+- `photographer` — required for `bcai-pipeline-credited`; folded into alt text and shown on the tile
+
+Only `url` renders. `source_url` is a pointer for `sync_event_media.py`, never a hotlink: the ledgers are explicit that approved candidates get downloaded and uploaded to the media library rather than served from someone else's CDN.
 
 ## Safety
 

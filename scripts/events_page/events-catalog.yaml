@@ -17,10 +17,10 @@ events:
   role: Guest lecture
   url: https://albertamagazines.com/events/ai-for-magazines-without-losing-the-plot/
   image: {}
-  blurb: 'One hour in AMPA''s Strategies for Canadian Magazines series, hosted by Joyce Byrne, for
-    publishers, editors and creative leads on small teams. Where AI can buy back time in a magazine
-    workflow without handing over editorial judgment, creative voice, source relationships or reader
-    trust. Delegate the mechanics, keep the meaning.'
+  blurb: One hour in AMPA's Strategies for Canadian Magazines series, hosted by Joyce Byrne, for publishers,
+    editors and creative leads on small teams. Where AI can buy back time in a magazine workflow without
+    handing over editorial judgment, creative voice, source relationships or reader trust. Delegate the
+    mechanics, keep the meaning.
   label: Monday, Nov 23 · 11am–12pm PST · Online
   tags:
   - Webinar
@@ -37,10 +37,10 @@ events:
   kind: external
   role: Co-presenter
   url: https://mensavancouver.org/
-  blurb: 'Co-presented AI Ethics in the Wild with Simon Haworth of Intellomx at Mensa Canada''s 2026
-    Annual Gathering, Orchard Commons at UBC. Agentic AI as a liability shift, BC Hydro''s data-centre
-    power allocation, and the brain-drain question that took over the floor. First public airing of
-    the Wild Salmon Program and the Vancouver Macnab outside a BC + AI room.'
+  blurb: Co-presented AI Ethics in the Wild with Simon Haworth of Intellomx at Mensa Canada's 2026 Annual
+    Gathering, Orchard Commons at UBC. Agentic AI as a liability shift, BC Hydro's data-centre power allocation,
+    and the brain-drain question that took over the floor. First public airing of the Wild Salmon Program
+    and the Vancouver Macnab outside a BC + AI room.
   label: Saturday, Aug 15 · 10:15–11:15am · Orchard Commons, UBC
   tags:
   - Co-presenter
@@ -56,9 +56,9 @@ events:
   kind: external
   role: Keynote
   url: https://worth.com/event/techonomy-23/
-  blurb: 'Keynote on The AI Dilemma at Techonomy 23, Lake Nona Wave Hotel outside Orlando. An
-    international stage from the first year of the AI-era speaking run, on the same bill as Kerry
-    Washington and Andrew Yang.'
+  blurb: Keynote on The AI Dilemma at Techonomy 23, Lake Nona Wave Hotel outside Orlando. An international
+    stage from the first year of the AI-era speaking run, on the same bill as Kerry Washington and Andrew
+    Yang.
   label: Nov 2023 · Lake Nona, Florida · Keynote
   tags:
   - Keynote
@@ -95,18 +95,18 @@ events:
   url: https://www.joinnorthhouse.com/impact
   recap_url: https://kriskrug.co/2026/09/03/what-i-showed-founders-about-ai-workflows/
   image:
-    alt: Kris Krüg speaking to founders at North House in Vancouver, with the Futureproof Festival
-      speaker page on the screen behind him
+    alt: Kris Krüg speaking to founders at North House in Vancouver, with the Futureproof Festival speaker
+      page on the screen behind him
     media_id: 12742
     url: https://kriskrug.co/wp-content/uploads/2026/09/kris-krug-north-house-show-and-tell-2026.jpg
   image_layout: portrait
   image_fit: cover
   blurb: 'Joel Hansen put me and Praveen Varshney in front of the League of Innovators and North House
     founder cohorts for an hour. I walked through the GitHub-first agent workflow I actually use, including
-    a public report I had built the day before in about 75 minutes, then we got into the parts that
-    matter: BC has no federal AI centre while Montreal, Toronto and Edmonton each got one, the province
-    capped data centre power at 300 megawatts over two years, and the room pushed hard on whether any
-    of this reaches the real economy before the robots do.'
+    a public report I had built the day before in about 75 minutes, then we got into the parts that matter:
+    BC has no federal AI centre while Montreal, Toronto and Edmonton each got one, the province capped
+    data centre power at 300 megawatts over two years, and the room pushed hard on whether any of this
+    reaches the real economy before the robots do.'
   label: Wednesday, Sept 2 · North House · Vancouver
   tags:
   - Guest mentor
@@ -168,10 +168,9 @@ events:
   role: AI Keynote Speaker
   url: https://www.zeffy.com/en-CA/ticketing/world-tourism-day--2026
   image: {}
-  blurb: AI keynote and panel for TRECSA (Capilano University's Tourism & Outdoor Recreation
-    Student Association) on World Tourism Day - how AI and the digital agenda are reshaping
-    tourism in BC, with Paula Amos (Indigenous Tourism BC), Jason Williams (YVR) and Amber
-    Papou (Tourism Industry Association of BC).
+  blurb: AI keynote and panel for TRECSA (Capilano University's Tourism & Outdoor Recreation Student Association)
+    on World Tourism Day - how AI and the digital agenda are reshaping tourism in BC, with Paula Amos
+    (Indigenous Tourism BC), Jason Williams (YVR) and Amber Papou (Tourism Industry Association of BC).
   label: Friday, Sept 25 · 11:30am-1:30pm · BOSA Theatre, Capilano University
   tags:
   - Keynote
@@ -188,7 +187,13 @@ events:
   kind: meetup
   role: Host
   url: https://luma.com/sept-ai
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/vancouver-ai-meetup-2026-09-30.jpg
+    alt: Promo card for the September 30 Vancouver AI Community Meetup
+    source_url: https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=800,height=420/event-social/b4/895f0927-b11c-4887-b8ab-7515e2138d90.png
+    rights_basis: luma-own-event
+    media_id: 12751
+    url: https://kriskrug.co/wp-content/uploads/2026/09/vancouver-ai-meetup-2026-09-30.jpg
   blurb: Next Vancouver AI Community Meetup on Wednesday, September 30. Hosted monthly at the H.R. MacMillan
     Space Centre.
   label: Wed, Sept 30 · Space Centre
@@ -275,7 +280,14 @@ events:
   edition: 29
   role: Host & curator
   url: https://luma.com/vanai-may
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/van-ai-meetup-29.webp
+    alt: 'Vancouver AI Meetup #29, the Building the AI Commons night, May 2026'
+    photographer: Michelle Diamond
+    source_url: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2026-05/large/cdaad6d3c036.webp
+    rights_basis: bcai-pipeline-credited
+    media_id: 12752
+    url: https://kriskrug.co/wp-content/uploads/2026/09/van-ai-meetup-29.webp
   blurb: 'May 2026: Building the AI Commons'
   label: 'May 2026: Building the AI Commons'
   tags:
@@ -313,7 +325,14 @@ events:
   edition: 27
   role: Host & curator
   url: https://lu.ma/vancouver-ai
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/van-ai-meetup-27.webp
+    alt: 'Vancouver AI Meetup #27, March 2026'
+    photographer: Michelle Diamond
+    source_url: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2026-03/large/0e15e947202e.webp
+    rights_basis: bcai-pipeline-credited
+    media_id: 12753
+    url: https://kriskrug.co/wp-content/uploads/2026/09/van-ai-meetup-27.webp
   blurb: March 2026
   label: March 2026
   tags:
@@ -330,7 +349,14 @@ events:
   edition: 26
   role: Host & curator
   url: https://lu.ma/vancouver-ai
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/van-ai-meetup-26.webp
+    alt: 'Vancouver AI Meetup #26, the Mind, AI and Consciousness takeover night, February 2026'
+    photographer: Michelle Diamond
+    source_url: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2026-02/large/7c737986f4df.webp
+    rights_basis: bcai-pipeline-credited
+    media_id: 12754
+    url: https://kriskrug.co/wp-content/uploads/2026/09/van-ai-meetup-26.webp
   blurb: 'February 2026: MAC Night'
   label: 'February 2026: MAC Night'
   tags:
@@ -347,7 +373,14 @@ events:
   edition: 25
   role: Host & curator
   url: https://luma.com/liftoff
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/van-ai-meetup-25.webp
+    alt: 'Vancouver AI Meetup #25, January 2026'
+    photographer: Michelle Diamond
+    source_url: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2026-01/large/fe723e1105bf.webp
+    rights_basis: bcai-pipeline-credited
+    media_id: 12755
+    url: https://kriskrug.co/wp-content/uploads/2026/09/van-ai-meetup-25.webp
   blurb: January 2026
   label: January 2026
   tags:
@@ -381,7 +414,14 @@ events:
   edition: 23
   role: Host & curator
   url: https://luma.com/vai23
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/van-ai-meetup-23.webp
+    alt: 'Vancouver AI Meetup #23, November 2025'
+    photographer: Michelle Diamond
+    source_url: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2025-11/large/2b26b49f8f84.webp
+    rights_basis: bcai-pipeline-credited
+    media_id: 12756
+    url: https://kriskrug.co/wp-content/uploads/2026/09/van-ai-meetup-23.webp
   blurb: November 2025
   label: November 2025
   tags:
@@ -398,7 +438,14 @@ events:
   edition: 22
   role: Host & curator
   url: https://luma.com/vai22
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/van-ai-meetup-22.webp
+    alt: 'Vancouver AI Meetup #22, the first annual BC + AI Film Festival night, October 2025'
+    photographer: Michelle Diamond
+    source_url: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2025-10/large/3d97a29abad9.webp
+    rights_basis: bcai-pipeline-credited
+    media_id: 12757
+    url: https://kriskrug.co/wp-content/uploads/2026/09/van-ai-meetup-22.webp
   blurb: 'October 2025: Film Festival + Hackathon Finale'
   label: 'October 2025: Film Festival + Hackathon Finale'
   tags:
@@ -415,7 +462,14 @@ events:
   edition: 21
   role: Host & curator
   url: https://luma.com/vai21
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/van-ai-meetup-21.webp
+    alt: 'Vancouver AI Meetup #21, September 2025'
+    photographer: Michelle Diamond
+    source_url: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2025-09/large/106188794d38.webp
+    rights_basis: bcai-pipeline-credited
+    media_id: 12758
+    url: https://kriskrug.co/wp-content/uploads/2026/09/van-ai-meetup-21.webp
   blurb: September 2025
   label: September 2025
   tags:
@@ -432,7 +486,14 @@ events:
   edition: 20
   role: Host & curator
   url: https://luma.com/vai20
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/van-ai-meetup-20.webp
+    alt: 'Vancouver AI Meetup #20, August 2025'
+    photographer: Michelle Diamond
+    source_url: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2025-08/large/b2524ecc24fc.webp
+    rights_basis: bcai-pipeline-credited
+    media_id: 12759
+    url: https://kriskrug.co/wp-content/uploads/2026/09/van-ai-meetup-20.webp
   blurb: August 2025
   label: August 2025
   tags:
@@ -449,7 +510,14 @@ events:
   edition: 19
   role: Host & curator
   url: https://luma.com/julio
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/van-ai-meetup-19.webp
+    alt: 'Vancouver AI Meetup #19, July 2025'
+    photographer: Michelle Diamond
+    source_url: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2025-07/large/32a828724874.webp
+    rights_basis: bcai-pipeline-credited
+    media_id: 12760
+    url: https://kriskrug.co/wp-content/uploads/2026/09/van-ai-meetup-19.webp
   blurb: July 2025
   label: July 2025
   tags:
@@ -563,7 +631,14 @@ events:
   edition: 13
   role: Host & curator
   url: https://luma.com/VAI13
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/van-ai-meetup-13.webp
+    alt: 'Vancouver AI Meetup #13, the one-year anniversary night, January 2025'
+    photographer: Michelle Diamond
+    source_url: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2025-01/large/65f1882d2aa2.webp
+    rights_basis: bcai-pipeline-credited
+    media_id: 12761
+    url: https://kriskrug.co/wp-content/uploads/2026/09/van-ai-meetup-13.webp
   blurb: 'January 2025: One Year Anniversary'
   label: 'January 2025: One Year Anniversary'
   tags:
@@ -618,7 +693,13 @@ events:
   edition: 10
   role: Host & curator
   url: https://luma.com/letsgo
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/van-ai-meetup-10.jpg
+    alt: 'Vancouver AI Meetup #10, October 2024'
+    source_url: https://img.youtube.com/vi/bdMVM3LWmfw/maxresdefault.jpg
+    rights_basis: own-channel
+    media_id: 12762
+    url: https://kriskrug.co/wp-content/uploads/2026/09/van-ai-meetup-10.jpg
   blurb: 'October 2024: hero owned by meetup-editions.yaml harvest when available'
   label: October 2024
   tags:
@@ -754,7 +835,14 @@ events:
   - Vancouver
   status: scaffold
   cta_past: Recap / Luma
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/van-ai-meetup-02.webp
+    alt: 'Vancouver AI Meetup #2, February 2024'
+    photographer: Michelle Diamond
+    source_url: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/vancouver-ai-meetup-2024-02/large/e5972793df37.webp
+    rights_basis: bcai-pipeline-credited
+    media_id: 12763
+    url: https://kriskrug.co/wp-content/uploads/2026/09/van-ai-meetup-02.webp
 - id: van-ai-meetup-03
   title: 'Vancouver AI Meetup #3'
   date: '2024-03-27'
@@ -893,7 +981,12 @@ events:
   - Vancouver
   status: confirmed
   cta_past: Details
-  image: {}
+  image:
+    alt: Developing an AI Mindset keynote slide from Innovate West 2024 in Vancouver
+    url: https://kriskrug.co/wp-content/uploads/2024/04/Developing-an-AI-Mindset-21.jpg
+    media_id: 5360
+    source_url: https://kriskrug.co/wp-content/uploads/2024/04/Developing-an-AI-Mindset-21.jpg
+    rights_basis: kk-own-asset
 - id: yorkton-film-festival-panel-2024
   title: Yorkton Film Festival
   date: '2024-05-24'
@@ -926,7 +1019,12 @@ events:
   - Vancouver
   status: confirmed
   cta_past: Details
-  image: {}
+  image:
+    alt: AI ethics panel at the BCAMA Vision Conference, Vancouver
+    url: https://kriskrug.co/wp-content/uploads/2024/05/image-38.png
+    media_id: 5740
+    source_url: https://kriskrug.co/wp-content/uploads/2024/05/image-38.png
+    rights_basis: kk-own-asset
 - id: enya-liftoff-keynote-2024
   title: ENYA Liftoff
   date: '2024-09-11'
@@ -942,7 +1040,12 @@ events:
   - Vancouver
   status: confirmed
   cta_past: Details
-  image: {}
+  image:
+    alt: ENYA Liftoff keynote title card, The Human Algorithm at the Wosk Centre
+    url: https://kriskrug.co/wp-content/uploads/2024/09/ENYA-Learning-Keynote_-Kris-Krug.jpg
+    media_id: 6964
+    source_url: https://kriskrug.co/wp-content/uploads/2024/09/ENYA-Learning-Keynote_-Kris-Krug.jpg
+    rights_basis: kk-own-asset
 - id: adplist-fireside-2024
   title: ADPList Vancouver Fireside
   date: '2024-11-22'
@@ -1053,7 +1156,13 @@ events:
   - Vancouver
   status: confirmed
   cta_past: Details
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/2025-08-10-calm-before-storm-siggraph.jpg
+    alt: Calm Before the Storm SIGGRAPH edition cover art for the Alibi Room night
+    source_url: https://images.lumacdn.com/event-covers/92/0f2536cf-d165-4026-b0be-67eec73d6193.png
+    rights_basis: luma-own-event
+    media_id: 12764
+    url: https://kriskrug.co/wp-content/uploads/2026/09/2025-08-10-calm-before-storm-siggraph.jpg
 - id: 2025-07-11-bass-coast-brain-stage
   title: 'Bass Coast Brain Stage: Dear AI'
   date: '2025-07-11'
@@ -1105,7 +1214,13 @@ events:
   - Vancouver
   status: confirmed
   cta_past: Details
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/2025-05-25-calm-before-storm-websummit.jpg
+    alt: Calm Before the Storm cover art for the locals-only Web Summit pre-party at the Alibi Room
+    source_url: https://images.lumacdn.com/event-covers/b0/710beed3-de0a-41ad-90c8-bb558072a7e4.png
+    rights_basis: luma-own-event
+    media_id: 12765
+    url: https://kriskrug.co/wp-content/uploads/2026/09/2025-05-25-calm-before-storm-websummit.jpg
 - id: 2025-05-06-bc-ai-ecosystem-launch
   title: BC + AI Ecosystem Launch Session
   date: '2025-05-06'
@@ -1121,7 +1236,13 @@ events:
   - Virtual
   status: confirmed
   cta_past: Details
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/2025-05-06-bc-ai-ecosystem-launch.jpg
+    alt: BC + AI Ecosystem launch session cover art
+    source_url: https://images.lumacdn.com/event-covers/st/277a7cd4-bb28-455b-b435-0e09639c54d6.png
+    rights_basis: luma-own-event
+    media_id: 12766
+    url: https://kriskrug.co/wp-content/uploads/2026/09/2025-05-06-bc-ai-ecosystem-launch.jpg
 - id: 2025-04-09-ted2025-community-meetup
   title: TED2025 Community Meetup
   date: '2025-04-09'
@@ -1138,7 +1259,13 @@ events:
   - Vancouver
   status: confirmed
   cta_past: Details
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/2025-04-09-ted2025-community-meetup.jpg
+    alt: Cover art for the TED2025 Community Meetup during TED week in Vancouver
+    source_url: https://images.lumacdn.com/gallery-images/de/a12a3146-d8ca-4e7d-865b-772a559a0a14
+    rights_basis: luma-own-event
+    media_id: 12767
+    url: https://kriskrug.co/wp-content/uploads/2026/09/2025-04-09-ted2025-community-meetup.jpg
 - id: 2025-03-20-data-storytelling-hackathon
   title: Data Storytelling Hackathon
   date: '2025-03-20'
@@ -1154,7 +1281,13 @@ events:
   - Vancouver
   status: confirmed
   cta_past: Details
-  image: {}
+  image:
+    alt: Data Storytelling Hackathon title card for the Vancouver AI session with Andrew Reid of Rival
+      Technologies
+    url: https://kriskrug.co/wp-content/uploads/2025/03/Hackathon-Data-Storytelling-YouTube-Thumbnail.png
+    media_id: 8675
+    source_url: https://kriskrug.co/wp-content/uploads/2025/03/Hackathon-Data-Storytelling-YouTube-Thumbnail.png
+    rights_basis: kk-own-asset
 - id: 2025-02-05-thinking-game-premiere
   title: The Thinking Game Premiere
   date: '2025-02-05'
@@ -1203,7 +1336,15 @@ events:
   - Vancouver
   status: confirmed
   cta_past: Luma
-  image: {}
+  image:
+    path: repo:scripts/events_page/heroes/_pending/2026-07-09-bc-ai-film-club-july-idea-lab.webp
+    alt: Wide view of the Film Club room at the Multimodal Media Lab, attendees spread across the tables
+      trading ideas
+    photographer: Michelle Diamond
+    source_url: https://pub-163cd0d1569e46f48b869a9070f97d71.r2.dev/events/2026-07-10-ai-film-club-07-09/large/1c73dfc424d5.webp
+    rights_basis: bcai-pipeline-credited
+    media_id: 12768
+    url: https://kriskrug.co/wp-content/uploads/2026/09/2026-07-09-bc-ai-film-club-july-idea-lab.webp
 - id: 2026-07-08-ai-ethical-futures-lab-morten
   title: AI Ethical Futures Lab w/ Morten Rand-Hendriksen
   date: '2026-07-08'

@@ -49,7 +49,14 @@ def replace_once(raw: str, needle: str, replacement: str) -> str:
     return raw.replace(needle, replacement, 1)
 
 
-def event_cards() -> tuple[str, str]:
+def event_cards() -> list[tuple[str, str]]:
+    """Every before/after pair the recap URL changes on page 2250.
+
+    The 2026-09-13 art direction renders a past event twice: a contact-sheet
+    tile and a row in the complete record. Both link through event_url(), so
+    both move when recap_url is set. Returning one pair per representation
+    keeps the patch exact instead of silently missing the tile.
+    """
     catalog = events_lib.load_catalog()
     matches = [e for e in catalog["events"] if e["id"] == EVENT_ID]
     if len(matches) != 1 or not matches[0].get("recap_url"):
@@ -57,14 +64,19 @@ def event_cards() -> tuple[str, str]:
     event = matches[0]
     roots = events_lib.resolve_path_roots(catalog)
     before = {k: v for k, v in event.items() if k != "recap_url"}
-    return (events_render.render_compact_card(before, roots),
-            events_render.render_compact_card(event, roots))
+    pairs = [(events_render.render_record_row(before),
+              events_render.render_record_row(event))]
+    if events_render.has_art(event, roots):
+        pairs.append((events_render.render_tile(before, roots, upcoming=False),
+                      events_render.render_tile(event, roots, upcoming=False)))
+    return [(b, a) for b, a in pairs if b != a]
 
 
 def rewrite(raw: str, name: str) -> str:
     if name == "events":
-        before, after = event_cards()
-        return replace_once(raw, before, after)
+        for before, after in event_cards():
+            raw = replace_once(raw, before, after)
+        return raw
     if name == "services":
         fragment = (PACK / "services-insert.html").read_text().rstrip()
         return replace_once(raw, SERVICES_ANCHOR, fragment + "\n\n" + SERVICES_ANCHOR)
