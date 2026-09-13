@@ -551,14 +551,23 @@ PAGE_SCOPED_CSS = """
     padding: 2.5rem var(--ev-gutter) 2.75rem;
     width: var(--ev-vw, 100vw);
   }
-  .kk-ev-sheet .kk-ev-kicker { color: #d98a6f; }
+  /* Text on the dark band is wrapped in these spans rather than coloured on the
+     h2/p itself. The theme colours headings and kickers with !important from
+     rules carrying an id (body.aurora-theme #aurora-main :where(...)), so no
+     selector this stylesheet can write wins on the element. Those rules do not
+     match a span with a class of our own, so the span simply takes our colour.
+     Without this the heading computed to near-black on the near-black band and
+     was invisible while still reporting opacity 1. Verified live 2026-09-13. */
+  .kk-ev-ondark { color: var(--ev-paper); }
+  .kk-ev-ondark-kicker { color: #d98a6f; }
+  .kk-ev-ondark-soft { color: rgba(238, 230, 210, 0.6); }
+
   .kk-ev-sheet h2 {
-    color: var(--ev-paper);
     font-size: clamp(1.4rem, 2.4vw, 1.85rem);
     letter-spacing: -0.015em;
     margin: 0;
   }
-  .kk-ev-sheet .kk-ev-head-note { color: rgba(238, 230, 210, 0.6); }
+  .kk-ev-sheet-toggle { color: var(--ev-paper); }
 
   .kk-ev-sheet-grid {
     display: grid;
@@ -902,11 +911,11 @@ def render_dynamic_block(
 
   <section class="kk-ev-sheet" aria-labelledby="aurora-events-sheet">
     <div class="kk-ev-head">
-      <p class="kk-ev-kicker">The contact sheet</p>
+      <p class="kk-ev-kicker"><span class="kk-ev-ondark-kicker">The contact sheet</span></p>
     </div>
     <div class="kk-ev-head">
-      <h2 id="aurora-events-sheet">Every room I have a frame of.</h2>
-      <p class="kk-ev-head-note">Hover any frame for the night, the room, and the photographer.</p>
+      <h2 id="aurora-events-sheet"><span class="kk-ev-ondark">Every room I have a frame of.</span></h2>
+      <p class="kk-ev-head-note"><span class="kk-ev-ondark-soft">Hover any frame for the night, the room, and the photographer.</span></p>
     </div>
     <div class="kk-ev-sheet-grid" data-events-grid="sheet">
 {tiles}
