@@ -323,7 +323,9 @@ PAGE_SCOPED_CSS = """
   .aurora-events-page h2,
   .aurora-events-page h3 { color: var(--ev-ink); }
 
-  /* The theme styles bare ul/li; every list here is a custom component. */
+  /* The theme styles bare ul/li; every list here is a custom component. It also
+     hangs an absolutely positioned 6px red ::before bullet off each li, which
+     lands outside these grid rows. */
   .aurora-events-page ul,
   .aurora-events-page ol,
   .aurora-events-page li {
@@ -331,6 +333,8 @@ PAGE_SCOPED_CSS = """
     margin: 0;
     padding: 0;
   }
+  .aurora-events-page li::before,
+  .aurora-events-page li::after { content: none; }
 
   .kk-ev-kicker {
     color: var(--ev-signal);
