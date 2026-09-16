@@ -5,7 +5,8 @@ Material for Kris's second ALL IN 2026 post (airport -> end of day one). Staged 
 ## Layout
 - `photos/batch-1/P01-P20.jpg` - Sep 15 evening, ProjEx social (GaZette Bistro|Bar, Westin) + Venture Day context. EXIF 18:57-19:5x ET.
 - `photos/batch-2/P21-P38` - Sep 15 midday setup-day walk: Square-Victoria Guimard metro gate (12:16) -> WTC Montreal atrium Berlin Wall fragment (12:34-36) -> Palais des congres Lipstick Forest (12:39) -> ALL IN expo floor mid-build (12:44-53). P36 is a 15s .mov (atrium walk to the Wall; 720p re-encode, captured ~12:35). P31/P32 are near-duplicates.
-- `metadata/exif-batch-1.csv`, `metadata/exif-batch-2.csv` - time + GPS per photo (iPhone 15 Pro Max, all within ~300m downtown Montreal).
+- `photos/batch-3-protest/P39-P47.jpg` - Sep 16, 07:56-08:03 ET, streets around the Palais: WANTED-poster boards targeting Solomon, Wildberger, Sharon (DDN), Osborne (P42-P47) and SPVM deployment outside the venue (P39-P41). Day-two protest-coverage material (CLAC/COBP march 5:30 PM). P43/P44 and P46/P47 are near-duplicate pairs.
+- `metadata/exif-batch-1.csv`, `metadata/exif-batch-2.csv`, `metadata/exif-batch-3.csv` - time + GPS per photo (iPhone 15 Pro Max, all within ~300m downtown Montreal).
 
 ## Photo <-> tape map (summary)
 - Batch 2 venue shots (P21-P28, 12:44-12:53) sit inside Plaud tape "09-15 Systematizing Media Coverage" (dictated while walking the floor, booth-setup day). TEAM BC sign in P21/P22 -> his BC-coverage mandate + link-pack plan.
@@ -17,13 +18,13 @@ Material for Kris's second ALL IN 2026 post (airport -> end of day one). Staged 
 - Seatmate on the Sep 14 flight = Milton Lim (game designer; Culture Capital card game w/ Patrick Blenkarn; already public in post 1). His tape quotes still need clearance (third-party tape rule).
 - People: David Gratton (Norbot), Julie Bui + Arjun Kadaleevanam (ProjEx hosts), Cordata Intelligence (civic AI).
 
-## Still open (as of Sep 15, ~10:30 PM)
+## Still open (as of Sep 16, ~8:40 AM)
 - Arynn - spelling/outlet unresolved (Kris asked).
 - DJ name on futureproof-festival #2253: tape evidence posted; "Matty Luv" vs "Matt E Love" not adjudicated by machine transcription - needs one-line confirm from Kris before public credit.
 - Kris's voice-context pass over the photos (he may dictate referencing P-numbers).
 - Embargoed Mila/DFKI release (lifts Sep 16 10:30 AM ET): intentionally NOT committed here - public repo. In Gmail (kk@bc-ai.ca, id 1a0a6c4bf18787e4); analysis in #1023. Do-not-publish until public.
 - Raw full-text Plaud transcripts of third parties: intentionally NOT committed (public repo, third-party clearance rule). Analysis + cleared quotes live in #1023.
-- Day-one (Sep 16) material: interviews, Solomon/Bengio announcement + media scrum 11 AM ET, more photos/transcripts incoming.
+- Day-one (Sep 16) material: batch-3 protest set arrived 8:29 AM, committed (P39-P47). Interviews, Solomon/Bengio announcement + media scrum 11 AM ET, more photos/transcripts incoming.
 
 ## House rules for this material
 - Machine speaker diarization is unreliable; attribute third-party quotes only after verification.
