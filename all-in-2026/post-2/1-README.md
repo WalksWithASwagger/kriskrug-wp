@@ -4,11 +4,14 @@ Material for Kris's second ALL IN 2026 post (Sep 15 evening -> Sep 16 ~2:45 PM E
 
 ## Layout
 - `HANDOFF.md` - the whole package distilled for writing the post cold. READ THIS FIRST.
+- `LINK-PACK.md` - annotated internal/external hyperlinks + paste-ready 'Further down the rabbit hole' block for the bottom of the post.
+- (Article DRAFT on hold per Kris - a draft may exist elsewhere; nothing committed.)
 - `photos/batch-1/P01-P20` - Sep 15 evening, ProjEx social (GaZette Bistro|Bar, Westin). EXIF 18:57-19:5x ET.
 - `photos/batch-2/P21-P38` - Sep 15 midday setup-day walk: Square-Victoria Guimard metro gate (12:16) -> WTC Montreal atrium Berlin Wall fragment (12:34-36) -> Palais des congres Lipstick Forest (12:39) -> ALL IN expo floor mid-build (12:44-53). P36 is a 15s .mov. P31/P32 near-dupes.
 - `photos/batch-3-protest/P39-P47.jpg` - Sep 16, 07:56-08:03 ET: WANTED-poster boards (Solomon, Wildberger, Sharon/DDN, Osborne) + SPVM deployment. P43/P44 and P46/P47 near-dupes.
 - `photos/batch-4/P48-P67` - Sep 16, 10:27-11:14 ET: announcement podium (Bengio, Solomon, German rep; ON AIR) + media scrum on the expo floor. P62/P63 dupes.
 - `photos/batch-5/P68-P75` - Sep 16, 08:47-10:21 ET: Angelica Lim selfie/portrait (P68-P70, CLEARANCE REQUIRED), printed WANTED-poster meta-shot (P71), expo floor pre-crowds (P72-P74), ALL OUT protest graphic (P75; PNG bytes, .jpg name).
+- `photos/batch-6-chalk/P76-P80` - Sep 16: the canonical protest-chalk set, Kris's own crops (his picks; full res in iMessage). Sidewalk slogans: 'AI 4 ALL / DROUGH 4 ALL / ECOCIDE 4 ALL ...' + 'AI will take us ALL OUT'. Attribution rule: protesters' speech.
 - `metadata/66-exif-batch-1.csv`, `67-exif-batch-2.csv`, `14-exif-batch-3.csv`, `29-exif-45.csv` - time + GPS per photo (iPhone 15 Pro Max, downtown Montreal / Palais).
 
 ## Tapes (analysis in #1023; raw transcripts deliberately NOT committed - public repo, third-party clearance rule)
