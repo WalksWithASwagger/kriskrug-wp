@@ -98,13 +98,15 @@ This got uncomfortably close to home. I told her about being introduced to Midjo
 
 Lunch was with Jeff Ward, who founded [Animikii Indigenous Technology](https://animikii.com/about/jeff-ward) in 2003 - Ojibwe and Métis, based in Victoria on Lekwungen territory, Canada's first Indigenous B Corp. They wrote the book on Indigenous data sovereignty, literally, years before the country discovered the word.
 
-What has him excited now is local: local models, local agents, compute moving back onto devices people own. You will still need serious compute for some work, but the useful daily stuff might run where the person and their information already are. His team built [Niiwin](https://niiwin.app/), a platform that lets communities design, govern and host their own data, and his developer shorthand for it - offered with a warning that he was oversimplifying - translates roughly to an Indigenous-owned Firebase. The part I care about is who gets to decide. The people responsible for knowledge should be able to carry those decisions into the software.
+What has him excited now is local: local models, local agents, compute moving back onto devices people own. You will still need serious compute for some work, but the useful daily stuff might run where the person and their information already are. His team built [Niiwin](https://niiwin.app/), a platform that lets communities design, govern and host their own data, and he offered the developer shorthand "Indigenous-owned Firebase," with the warning that he was oversimplifying. The part I care about is who gets to decide. The people responsible for knowledge should be able to carry those decisions into the software.
 
 He also showed me where his practice puts boundaries around the machinery I live inside. Design meetings at Animikii can include elders and residential school survivors. Somebody begins sharing a story and the meeting changes; you stop and listen. They commonly leave the recording function off. When recording is appropriate, they get consent, transcribe locally, and explain what the notes are for. That is a concrete account of care, reaching all the way down to a software setting. I spend my life recording and transcribing. I want to learn from that.
 
 And he caught me reaching for an easy story about clean hydropower for Indigenous-owned computing. Hydro has its own difficult history with First Nations. Fair correction. Calling the electricity green does not settle what happened to the river, or who had a say.
 
-Then there are the names. Animikii. Niiwin. For twenty-three years, ministers and customers have been learning to say them, which is exactly the point. Language activism by brand name. You want the software? Start by learning the word.
+Then there are the names. Animikii. Niiwin. For twenty-three years, ministers and customers have been learning to say them, which is exactly the point. Jeff described it as his "tricky way to get everyone to speak Ojibwe." Language activism in the product meeting. You want the software? Start by learning the word.
+
+We also talked about the language rules we give our own AI tools and agreed to swap material. His line on the way out: "We de-colonize your notecard." That one is coming home with me.
 
 My favourite framing of the whole day is mine, so I can print it: hey Canada, I hear you're having a problem with your downstairs neighbour. Some of us have been having problems with the neighbours for a while. We have been solving this problem for our own selves. Turns out what we've got is what you need.
 
