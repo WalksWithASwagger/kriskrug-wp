@@ -15,8 +15,10 @@ Material for Kris's second ALL IN 2026 post (Sep 15 evening -> Sep 16 ~2:45 PM E
 - `photos/batch-7-march/P81-P93.jpg` + `P87.mov` - Sep 16, 16:48-18:43 ET: the day-one protest arc. Riot cops (P93), OpenAI/"BLOCK AI" effigy (P92), La Joute gathering (P90/P91), march (P89), red French sign (P88), crowd + speaker at the Palais (P86), chalk-wall originals of the P76-P80 crops (P81-P85), and the 106s video with the LUTTONS CONTRE L'IA banner (P87). Analysis in #1023.
 - `metadata/66-exif-batch-1.csv`, `67-exif-batch-2.csv`, `14-exif-batch-3.csv`, `29-exif-45.csv`, `NN-exif-batch-7.csv` - time + GPS per photo (iPhone 15 Pro Max, downtown Montreal / Palais).
 
-## Draft
-- `50-DRAFT-post-2.md` - DRAFT v2 (Sep 16, ~7:20 PM): Kris's 7:17 PM edits applied - quotes cleared (Jeff Ward section excepted, permanent), names resolved (Prashant = Mr. P Canada Preneur; Merrick/Martin/Loki confirmed; Graham/Chris Good + Arynn dropped), hyperlinking pass done. ~2,600 words, inline [PHOTO: ...] placements + captioned/tagged gallery. NOT FOR PUBLICATION. Awaiting his editing pass.
+## Final - PUBLISHED
+- LIVE: https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/ - "Champions, Saplings, and Chalk on the Sidewalk" (merged final, published Sep 16 ~7:30 PM via wp-admin per Kris's 7:26 PM instruction: our narrative + the best of the other agent's draft, ~3,300 words + link pack + 14 captioned/tagged images).
+- `NN-FINAL-post-2-published.md` - the exact merged text as published (markdown source).
+- `50-DRAFT-post-2.md` - superseded draft v2, kept for history.
 
 ## Tapes (analysis in #1023; raw transcripts deliberately NOT committed - public repo, third-party clearance rule)
 - Sep 14 flight/arrival: "Vancouver Arts Scene" (seatmate = Milton Lim, resolved), "Fragmented Travel".
@@ -28,10 +30,10 @@ Material for Kris's second ALL IN 2026 post (Sep 15 evening -> Sep 16 ~2:45 PM E
 - People: David Gratton (Norbot), Julie Bui + Arjun Kadaleevanam (ProjEx hosts), Cordata Intelligence (civic AI), Hanna Demoz (Amii), Jeff Ward (Animikii), Dr. Angelica Lim (SFU).
 - Verified facts + source links: HANDOFF.md section 5 (Cohere+Aleph Alpha merger, LawZero C$300M, Mila-DFKI, Amii $13M, protest coverage).
 
-## Still open (as of Sep 16, ~7:20 PM ET)
+## Still open (as of Sep 16, ~7:35 PM ET)
 - Third-party clearances: Angelica Lim (quotes + P68-P70 photos), Jeff Ward (rule 3), Hanna Demoz, Milton Lim + other flight-day voices.
 - Open names: DJ name on #2253 (keep generic); Amii "Sawhell"/"Mitchell"; "Open Claw" tool name; podium blonde woman + German rep in P48-P51. RESOLVED: Prashant (Mr. P, Canada Preneur, Team BC), Merrick (SAT), Martin Lopatka, Loki. DROPPED: Graham/"Chris Good" (no CBC co-host - Kris is independent), Arynn.
-- Day-one material complete per Kris: batches 1-7 + tapes t1-t12 all ingested. Awaiting his pass on the draft + clearances.
+- Day-one material complete per Kris: batches 1-7 + tapes t1-t12 all ingested. Post 2 is LIVE. Day two (Sep 17) coverage begins tomorrow.
 - Kris's voice-context pass over the photos (he may dictate referencing P-numbers).
 
 ## House rules for this material
