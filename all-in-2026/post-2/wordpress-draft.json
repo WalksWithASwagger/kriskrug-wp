@@ -1,0 +1,15 @@
+{
+  "id": 12788,
+  "status": "draft",
+  "slug": "all-in-montreal-robot-mirror",
+  "edit_url": "https://kriskrug.co/wp-admin/post.php?post=12788&action=edit",
+  "preview_url": "https://kriskrug.co/?p=12788&preview=true",
+  "featured_media": 12785,
+  "media_ids": [
+    12785,
+    12786,
+    12787
+  ],
+  "content_sha256": "9ea341de94dfc98d6c5a5277558c220ba5cd308bf4fb326505cf0ef03668d04c",
+  "verification": "Exact REST content equality; 3 image URLs load; all alt text matches; 23 links; status draft."
+}
