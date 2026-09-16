@@ -1,18 +1,18 @@
-# ALL IN post 2: interview-led draft and preview
+# ALL IN post 2: published article and photo edit
 
 Updated September 16, 2026. [Read the draft](post.md) · [Open the HTML preview](preview.html).
 
 ## Current authorization
 
-KK explicitly cleared all interviews in this session: “all inteviews are g2g just dont talk about jeff's private financials. the interviews are the good bits!” This supersedes the pending interview permissions in the original HANDOFF and the first editorial pass. The draft uses interview material and the supplied Lim selfie. It contains no Jeff Ward private financial details, amounts, investors, financing structures or exit discussion. No interview-clearance blockers remain. KK subsequently authorized creating a WordPress draft and committing/pushing the article package. WordPress draft 12788 now holds the article and three prepared photos; it remains unpublished.
+KK explicitly cleared all interviews in this session: “all inteviews are g2g just dont talk about jeff's private financials. the interviews are the good bits!” This supersedes the pending interview permissions in the original HANDOFF and the first editorial pass. The draft uses interview material and the supplied Lim selfie. It contains no Jeff Ward private financial details, amounts, investors, financing structures or exit discussion. No interview-clearance blockers remain. KK subsequently authorized creating a WordPress draft and committing/pushing the article package. KK subsequently said “ship it” and requested the additional recording, inline photos and a captioned gallery. Post 12788 is now published with the expanded evening account and 14 photographs.
 
-Requested scope: approximately 2,500 words, Dark Crystal KK voice, links, and a readable draft preview. Audience: kriskrug.co readers following KK at ALL IN and the BC + AI community. Period: September 15 evening through September 16 afternoon, not conference day two on September 17.
+Requested scope: approximately 2,500 words, Dark Crystal KK voice, links, and a readable draft preview. Audience: kriskrug.co readers following KK at ALL IN and the BC + AI community. Final scope: September 15 setup/evening through September 16 evening, not conference day two on September 17. Approximately 3,100 words including captions.
 
 ## Editorial direction
 
 Title: **ALL IN Montréal: a robot walks up to a mirror**
 
-The interviews carry the piece: Angelica Lim's practical world-model questions and human-interaction research; the David Gratton funding disagreement; Cordata's civic-information/accessibility work; Jeff Ward's local compute, recording practice and language activism; Hanna Demoz's event-production experience and West Coast connections. The funding announcements are one short paragraph. The evening protest outcome remains outside the available source window.
+The interviews carry the piece: Angelica Lim's practical world-model questions and human-interaction research; the David Gratton funding disagreement; Cordata's civic-information/accessibility work; Jeff Ward's local compute, recording practice and language activism; Hanna Demoz's event-production experience and West Coast connections. The funding announcements are one short paragraph. The new evening recording supplies the street/reception sequence and the “both hands full” close.
 
 Voice: Dark Crystal Host dominant, Builder for the technical explanations, Anti-Hero for the edge and close. Read VOICE.md, crystal.md, glossary.md, anti-glossary.md and the live exemplar in `/Users/kk/Code/kk-voice/`, plus the September 14 owner clarification in `/Users/kk/Code/kk-kb/content/reference/kk-voice-profile.md`. Lead with people and possibility; let critique arise from the exchanges. Humour is proposed connective copy, not an invented event or a quote attributed to someone else.
 
@@ -41,7 +41,7 @@ Short quoted phrases were checked against the raw machine transcript and punctua
 
 ## Photo decisions
 
-All three embedded originals were visually inspected and have descriptive alt text and captions. Stable filenames, not the handoff's inconsistent chronological numbers, are authoritative:
+The original three embedded originals were visually inspected and have descriptive alt text and captions. Stable filenames, not the handoff's inconsistent chronological numbers, are authoritative:
 
 | Placement | Original | Caption treatment |
 |---|---|---|
@@ -49,7 +49,7 @@ All three embedded originals were visually inspected and have descriptive alt te
 | ProjEx | `photos/batch-1/39-P12.jpg` | Room view, September 15; “Image supplied by Kris Krüg” because source analysis places KK in the frame. No guessed photographer or individual identifications. |
 | Announcements | `photos/batch-4/5-P52.jpg` | Press pen, September 16; no name assigned to the unverified podium speaker, no incorrect 10:30 timestamp. |
 
-Three photos are used in the revised article. The fourth source image previously embedded, P21 (setup), was removed to give the interviews more room. P14 (business-card flat-lay) is no longer the lead, avoiding visible personal contact information. No generated photographs, crops, or original-file edits. The local HTML loads these exact image paths. The WordPress draft uses the three 2000px web derivatives in `web-images/`, with EXIF/GPS metadata removed. The source originals are unchanged.
+The first revision used three photos; the final edit below supersedes that selection. The fourth source image previously embedded, P21 (setup), was removed to give the interviews more room. P14 (business-card flat-lay) is no longer the lead, avoiding visible personal contact information. No generated photographs, crops, or original-file edits. The initial WordPress draft used the three 2000px web derivatives in `web-images/`, with EXIF/GPS metadata removed. The source originals are unchanged.
 
 ## Metadata and preview
 
@@ -59,7 +59,7 @@ Suggested description: `At ALL IN Montréal, Kris Krüg talks robots, civic AI a
 
 `preview.html` is a local reading proof, not a deployed page or a pixel-exact Aurora preview. It uses real photographs, working source links and responsive typography. The article body contains no permission placeholders or internal notes. The preview's small Draft label describes publication status only.
 
-## Verification
+## Initial draft verification (historical)
 
 - Visible article text: 2,523 words, including title, captions and closing links.
 - Dark Crystal checker: 0 flags.
@@ -69,7 +69,7 @@ Suggested description: `At ALL IN Montréal, Kris Krüg talks robots, civic AI a
 
 Local preview: http://127.0.0.1:8766/preview.html . Localhost-only server was started for KK to review the draft, and the browser tab was left open. HTML is also directly openable from disk with its relative photo assets.
 
-## WordPress draft handoff (September 16)
+## Initial WordPress draft handoff (historical, September 16)
 
 - [Review/edit draft 12788](https://kriskrug.co/wp-admin/post.php?post=12788&action=edit). [Preview while logged in](https://kriskrug.co/?p=12788&preview=true).
 - Slug: `all-in-montreal-robot-mirror`; category: Conversations & Interviews; status: **draft**.
@@ -79,3 +79,28 @@ Local preview: http://127.0.0.1:8766/preview.html . Localhost-only server was st
 - Verification: exact REST content readback against the uploaded body, three reachable images, matching alt text, 23 links, draft status. Receipt: `wordpress-draft.json`; operation log: local gitignored `publish.log`. File-scoped voice check passed with zero violations.
 - Rollback if requested: trash draft 12788 after verifying its slug; remove media 12785–12787 only after confirming they remain exclusive to this draft. No existing post was overwritten.
 - Future edits must verify draft 12788 and its slug first; do not rerun the create-only publisher as an update.
+
+## Final expansion and publication
+
+Published at https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/ after KK’s “ship it” instruction. The final copy preserves the interview-led article and adds the late-afternoon gathering, police presence, chalk messages, movement between the street and reception, and KK’s curiosity/critique framing.
+
+Fresh Plaud readback: `of_cfb1ac2e3337cc6965ce59b9c7dc1245`, all 246 transaction segments across three pages. Useful elapsed positions: 04:45 wrong square; 09:36 gathering and KK’s approximate 200-person estimate; 12:06–14:47 police observations; 25:25–28:33 Mila/artists/curiosity-and-critique conversation; 39:53 loudspeaker warning; 67:25–68:25 return inside and Copenhagen recollection. The tape does not clearly establish an official declaration that the protest was illegal. The article reports the warning only. The SAT acquaintance’s uncertain name is omitted. Jeff’s private financial material is excluded from the new recording as well as the lunch interview. Raw transcripts remain outside the public repo.
+
+Photo edit: six inline images (P68, P12, P52, P72, P91, P76); eight-image closing gallery (P37, P33, P30, P21, P42, P79, P92, P93). Every selected original was visually inspected. The frontmatter maps each derivative to its exact original. Setup photos are explicitly dated September 15. P76/P79 preserve KK’s own chalk crops; no generated imagery or recropping. Protest allegations are attributed to their speakers/poster-makers. P81 repeats P76 and is omitted. The march video is retained in the source package but not embedded in this still-photo edit.
+
+The existing `catalog_album.make_thumbnail` prepared eleven additional 2000px JPEG derivatives. All fourteen web images have no EXIF/GPS metadata. Six native image blocks plus a two-column, uncropped native WordPress gallery use descriptive alt text, individual captions and native lightbox settings. The local reading proof presents the gallery in one column at narrow widths.
+
+Verification and operation:
+
+- `make voice-check FILES=all-in-2026/post-2/post.md`: passed, zero violations. Full Dark Crystal check: four soft matches for the proper name/path “Team BC,” retained intentionally.
+- Offline create-publisher quality gate and authenticated `update_local_wp_draft.py --wp-id 12788 --dry-run`: passed.
+- Snapshot saved before writing; target ID 12788 and slug `all-in-montreal-robot-mirror` verified. Existing three media IDs reused; eleven additional media uploaded (12789–12799).
+- Existing `update_local_wp_draft.py --execute` updated the draft. Exact authenticated REST body equality verified before publishing; a guarded status-only update published the same body. Receipt and content hash: `wordpress-draft.json` (filename retained as the original operation receipt).
+- Local preview: all 14 images load, 14 captions, eight gallery images; no horizontal overflow at 1555px desktop or 433px narrow viewport. Desktop gallery visually inspected.
+- No theme, plugin or sitewide settings changed.
+
+Rollback: [pre-expansion post snapshot](../../backup/2026-09-16-all-in-post-2/post-12788-before-expansion.json). Verify ID/slug before restoring its content, excerpt, title, featured image, taxonomy and `draft` status through the guarded WordPress client. For an immediate unpublish, a guarded status-only change to `draft` is sufficient. Leave media in place unless exclusive ownership and lack of reuse are confirmed.
+
+Final public readback: unauthenticated article HTTP 200; all 14 uploaded photo URLs return image responses. The live desktop gallery and all eight gallery images were visually checked. A mobile check found native overlaid captions covering the smaller photos, so an article-scoped `kk-all-in-gallery` style moves captions below images and stacks this gallery below 600px. The pre-layout published body is saved beside the original draft snapshot. No global CSS or theme files changed.
+
+Corrected mobile readback (433px): gallery image occupies the full 400px gallery width; caption position is static and begins immediately below the image; document width equals viewport width. Final authenticated content hash matches `post.html` after URL rewriting.

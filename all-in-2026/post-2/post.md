@@ -10,11 +10,54 @@ tags: []
 images:
 - file: web-images/all-in-montreal-angelica-lim.jpg
   alt: Kris Krüg and Dr. Angelica Lim together at ALL IN Montréal.
+  original: photos/batch-5/21-P68.jpg
 - file: web-images/all-in-montreal-projex-social.jpg
   alt: People gathered around a food table beneath a chandelier at the ProjEx social.
+  original: photos/batch-1/39-P12.jpg
 - file: web-images/all-in-montreal-press-pen.jpg
   alt: Journalists and cameras face the ALL IN announcement stage beneath ON AIR signs
     and Canadian and German flags.
+  original: photos/batch-4/5-P52.jpg
+- file: web-images/all-in-montreal-expo-floor.jpg
+  alt: Visitors talking and walking between booths on the ALL IN expo floor.
+  original: photos/batch-5/25-P72.jpg
+- file: web-images/all-in-montreal-protest-gathering.jpg
+  alt: Demonstrators gathered beside the fountain across from the multicoloured glass
+    facade of the Palais des congrès.
+  original: photos/batch-7-march/47-P91.jpg
+- file: web-images/all-in-montreal-protest-chalk.jpg
+  alt: Multicoloured protest chalk on the pavement, including AI 4 ALL and AI will
+    take us ALL OUT.
+  original: photos/batch-6-chalk/32-P76.jpg
+- file: web-images/all-in-montreal-square-victoria.jpg
+  alt: The green Guimard entrance to the Square-Victoria metro station beneath its
+    Métropolitain sign.
+  original: photos/batch-2/63-P37.jpg
+- file: web-images/all-in-montreal-berlin-wall.jpg
+  alt: A graffiti-covered Berlin Wall fragment displayed beneath the glass roof of
+    the World Trade Centre Montréal atrium.
+  original: photos/batch-2/60-P33.jpg
+- file: web-images/all-in-montreal-lipstick-forest.jpg
+  alt: Bright pink tree-like columns beside the windows inside the Palais des congrès.
+  original: photos/batch-2/57-P30.jpg
+- file: web-images/all-in-montreal-team-bc-setup.jpg
+  alt: Two workers assembling a booth beneath the Team BC sign, with a Vector Institute
+    banner behind them.
+  original: photos/batch-2/48-P21.jpg
+- file: web-images/all-in-montreal-wanted-poster.jpg
+  alt: A protest poster depicting Evan Solomon under the word WANTED and accusing
+    him of crimes against humanity.
+  original: photos/batch-3-protest/3-P42.jpg
+- file: web-images/all-in-montreal-all-out-chalk.jpg
+  alt: Green chalk letters on the pavement reading AI will take us ALL OUT.
+  original: photos/batch-6-chalk/35-P79.jpg
+- file: web-images/all-in-montreal-mock-server.jpg
+  alt: A mock server made of cardboard boxes, wires and ducting attached to a pole,
+    with OpenAI and BLOCK AI labels.
+  original: photos/batch-7-march/48-P92.jpg
+- file: web-images/all-in-montreal-police.jpg
+  alt: Two SPVM officers in protective gear crossing the street while carrying helmets.
+  original: photos/batch-7-march/49-P93.jpg
 ---
 
 # ALL IN Montréal: a robot walks up to a mirror
@@ -169,6 +212,10 @@ A person can build these tools all day and still choose where they belong. I was
 
 By the time I met [Hanna Demoz from Amii](https://www.amii.ca/people/hanna-demoz), I had followed enough cameras around the expo floor. We went looking for somewhere quieter and ended up outside.
 
+![Visitors talking and walking between booths on the ALL IN expo floor.](photos/batch-5/25-P72.jpg)
+
+*Inside the Palais on September 16. A morning frame from the expo floor, before my afternoon conversation with Hanna. Photograph: Kris Krüg.*
+
 Hanna had helped produce the Venture Track at [Upper Bound](https://www.amii.ca/events/upper-bound-2026). She talked about the events around the conference and the people who had flown all the way to Edmonton. They wanted things to do in the evening. They wanted to meet the city and each other.
 
 Immediately familiar territory. The schedule gets them there; somebody still has to think about what happens between the scheduled things.
@@ -189,17 +236,45 @@ Also, a field note: Vector had very good little pouches. At the time I recorded 
 
 I contain multitudes. Some of them want socks.
 
-## Back toward the street
+## Two hundred people, but two hundred people
 
 Before any of these Wednesday conversations, I had photographed police vehicles and protest posters near the Palais.
 
 [Canadian Press reported](https://toronto.citynews.ca/2026/09/16/offices-of-montreal-based-artificial-intelligence-institute-vandalized-one-arrested/) that police were investigating smashed windows and graffiti at Mila’s offices overnight. Separately, [march organizers called people out against ALL IN](https://www.cobp.resist.ca/en/node/25783?page=6). The reporting does not establish that the march organizers carried out the vandalism.
 
-By midafternoon I was walking back through Square Victoria to recharge before heading out again. That part of the story was still ahead.
+Late afternoon, I went looking for the gathering in Square Victoria. Wrong square. A couple of cops, a very nice park, no march. The people I was looking for were at Place Jean-Paul-Riopelle, right across from the Palais.
 
-For now, I had Angelica’s mirror, David’s argument, Cordata’s phone service, Jeff’s recording boundaries and Hanna’s attention to what happens outside the official program.
+My estimate into the recorder: about two hundred people. Only two hundred people. But two hundred people.
 
-A pretty good haul from a day of talking to people.
+![Demonstrators gathered beside the fountain across from the multicoloured glass facade of the Palais des congrès.](photos/batch-7-march/47-P91.jpg)
+
+*The gathering at Place Jean-Paul-Riopelle, across from ALL IN, September 16. Photograph: Kris Krüg.*
+
+The police presence had changed since morning. Riot gear, horses, motorcycles. I kept noticing the difference between the officers I had passed around the convention centre all day and the ones arriving for this.
+
+Somebody had built a mock server out of cardboard, cables and a length of ducting and attached it to a pole. OpenAI on one box. “BLOCK AI” on another. The street had its own demo booth.
+
+And the chalk. Pink, blue, green. “AI 4 ALL,” followed by a list of what the people writing it thought that promise would deliver: ecocide, slop, unemployment, theft. Then the big green answer to the branding upstairs: “AI will take us ALL OUT.”
+
+![Multicoloured protest chalk on the pavement, including AI 4 ALL and AI will take us ALL OUT.](photos/batch-6-chalk/32-P76.jpg)
+
+*Chalk messages left by protesters outside the Palais, September 16. The slogans and accusations are theirs. Photograph and crop: Kris Krüg.*
+
+On the recording, a loudspeaker asks people to protest peacefully and warns that behaviour contrary to laws and regulations may lead to police interventions. Hearing that with the riot gear in view put a different charge into the afternoon.
+
+I bumped into someone I knew from the Société des arts technologiques, and we started talking about the contradictions. Trying to make projects happen with institutions inside. Trying to find room for artists and difficult questions. Then walking outside and seeing people who want the whole machine stopped.
+
+I told him I was sympathetic to a lot of the fears. I also thought researchers at Mila were among the people we needed working on those problems. I wanted a conversation big enough to hold that tension. I had spent the day looking for it in the gaps between the official sessions.
+
+Back upstairs to the reception. Back toward the street. Later, into the recorder, I remembered Copenhagen and COP15: arriving for one reason, then finding myself outside documenting resistance. That sensation of moving through a door and having the entire argument change around you.
+
+## Both hands full
+
+Here is what I said outside, and what I keep trying to say in the rooms where they give me a microphone: one hand full of curiosity, one full of critique.
+
+Let go of either and you make the job too easy. “Burn it all down” does not tell a parent what to do about their kid’s education. “Onward and upward, as fast as possible” does not answer them either. The people wearing conference lanyards have families, jobs and communities tangled up in this too. We need ways to talk that reach those parts of their lives.
+
+Angelica’s mirror. Jeff’s recording boundaries. Cordata’s phone service. Hanna making room for people to meet. Those conversations gave me specific things to work with. The street gave me questions I want to carry back inside.
 
 I want more rooms where those people can find one another. That is what we are making with Futureproof, October 28–30 in Vancouver. [Have a look at the lineup](https://www.futureproof.website/speakers/). [Come join us](https://www.futureproof.website/).
 
@@ -215,3 +290,43 @@ I will be there with the recorder, asking first.
 - [Amii’s national AI literacy initiative](https://www.amii.ca/updates-insights/amii-leads-national-ai-literacy-initiative): the learning effort I want our communities connected to.
 - [Futureproof Festival of AI](https://www.futureproof.website/): the Vancouver room we are building together.
 - [Post one: Headed East for ALL IN Montréal](https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/): how I got here, including the boarding-line incident.
+
+## Through the viewfinder
+
+A few more frames from the walk in, the build and the street. September 15–16, Montréal. Photographs: Kris Krüg. Select an image to see it larger.
+
+<!-- gallery:start -->
+
+![The green Guimard entrance to the Square-Victoria metro station beneath its Métropolitain sign.](photos/batch-2/63-P37.jpg)
+
+*September 15: the Guimard metro entrance at Square Victoria, on the walk toward the Palais.*
+
+![A graffiti-covered Berlin Wall fragment displayed beneath the glass roof of the World Trade Centre Montréal atrium.](photos/batch-2/60-P33.jpg)
+
+*September 15: a fragment of the Berlin Wall in the World Trade Centre Montréal atrium.*
+
+![Bright pink tree-like columns beside the windows inside the Palais des congrès.](photos/batch-2/57-P30.jpg)
+
+*September 15: the Lipstick Forest inside the Palais. Even the columns have dressed for the occasion.*
+
+![Two workers assembling a booth beneath the Team BC sign, with a Vector Institute banner behind them.](photos/batch-2/48-P21.jpg)
+
+*September 15: Team BC during setup. Somebody has to build the room before we can have the conversations.*
+
+![A protest poster depicting Evan Solomon under the word WANTED and accusing him of crimes against humanity.](photos/batch-3-protest/3-P42.jpg)
+
+*September 16, morning: a protest poster outside the Palais. Its accusation against Evan Solomon is the poster-makers’ claim.*
+
+![Green chalk letters on the pavement reading AI will take us ALL OUT.](photos/batch-6-chalk/35-P79.jpg)
+
+*September 16: “AI will take us ALL OUT.” A detail of the protesters’ chalk message, in my own crop.*
+
+![A mock server made of cardboard boxes, wires and ducting attached to a pole, with OpenAI and BLOCK AI labels.](photos/batch-7-march/48-P92.jpg)
+
+*September 16, late afternoon: a cardboard server sculpture at the gathering, complete with cables and ducting.*
+
+![Two SPVM officers in protective gear crossing the street while carrying helmets.](photos/batch-7-march/49-P93.jpg)
+
+*September 16, late afternoon: SPVM officers near the demonstration.*
+
+<!-- gallery:end -->

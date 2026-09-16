@@ -1,3 +1,5 @@
+> Historical alternate draft. The published version is [post.md](post.md); current permissions and evidence are in [EDITORIAL-NOTES.md](EDITORIAL-NOTES.md).
+
 # DRAFT - Post 2 (working title: "Champions, Saplings, and Chalk on the Sidewalk")
 
 **STATUS: DRAFT. NOT FOR PUBLICATION.** Committed for Kris's editing pass and his writing agents.

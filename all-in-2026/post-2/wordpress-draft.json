@@ -1,15 +1,26 @@
 {
   "id": 12788,
-  "status": "draft",
+  "status": "publish",
   "slug": "all-in-montreal-robot-mirror",
+  "link": "https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/",
   "edit_url": "https://kriskrug.co/wp-admin/post.php?post=12788&action=edit",
-  "preview_url": "https://kriskrug.co/?p=12788&preview=true",
   "featured_media": 12785,
   "media_ids": [
     12785,
     12786,
-    12787
+    12787,
+    12789,
+    12790,
+    12791,
+    12792,
+    12793,
+    12794,
+    12795,
+    12796,
+    12797,
+    12798,
+    12799
   ],
-  "content_sha256": "9ea341de94dfc98d6c5a5277558c220ba5cd308bf4fb326505cf0ef03668d04c",
-  "verification": "Exact REST content equality; 3 image URLs load; all alt text matches; 23 links; status draft."
+  "content_sha256": "f032de7fd91991c936e587d6c948699c663fd532bdef9f0beaf5bd65e141f57e",
+  "verification": "Exact REST content equality; 14 captioned images, including an eight-image native gallery; Jeff private financials excluded."
 }
