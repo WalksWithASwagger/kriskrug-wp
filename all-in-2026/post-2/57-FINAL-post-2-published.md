@@ -6,15 +6,15 @@ This is day two of the dispatches. The trip out, the seatmate, and the setup-day
 
 ## The room with the chandeliers
 
-[GaZette Bistro|Bar](https://www.gazetterestaurantmontreal.com/), the night before. Julie Bui and Arjun Kadaleevanam from ProjEx had the room, and the room was good: founders, funders, the odd banker, everybody wearing the lanyard a day early like a concert wristband. People remember a useful conversation as something they stumbled into. Somebody made that room possible. Credit where it is due.
+[GaZette Bistro|Bar](https://www.gazetterestaurantmontreal.com/), the night before. [Julie Bui](https://projectexmanagement.com/about/) and [Arjun Kadaleevanam](https://www.linkedin.com/in/arjunkadaleevanam) from [ProjEx](https://projectexmanagement.com/) had the room, and the room was good: founders, funders, the odd banker, everybody wearing the lanyard a day early like a concert wristband. People remember a useful conversation as something they stumbled into. Somebody made that room possible. Credit where it is due.
 
 [FIG:projex]
 
-Maureen Ososo got up and talked about Pioneer House in Nigeria, and for a minute the whole Montreal-venture-industrial complex went quiet and listened to somebody building the thing an ocean away.
+[Maureen Ososo](https://www.linkedin.com/in/maureenosauzo) got up and talked about Pioneer House in Nigeria, and for a minute the whole Montreal-venture-industrial complex went quiet and listened to somebody building the thing an ocean away.
 
-I met Prashant - Mr. P from [Canada Preneur](https://canadapreneur.ca/), part of the Team BC crew - and a David Gratton, and if you don't know Gratton, he is one of the people who has been building technology community in Vancouver since before it was a brand. [Norbot](https://betakit.com/norbot-closes-1-million-to-establish-a-commercial-robotics-integrator/) is the current machine. There have been others.
+I met [Prashant Agrawal](https://canadapreneur.ca/team) - Mr. P from [Canada Preneur](https://canadapreneur.ca/), part of the Team BC crew - and [David Gratton](https://ca.linkedin.com/in/davidgratton), and if you don't know [Gratton](https://ca.linkedin.com/in/davidgratton), he is one of the people who has been building technology community in Vancouver since before it was a brand. [Norbot](https://betakit.com/norbot-closes-1-million-to-establish-a-commercial-robotics-integrator/) is the current machine. There have been others.
 
-Gratton and I got into it, in the friendly way, about Web Summit Vancouver. He saw a good deal for the local community. I thought we should have put that support into building something homegrown. We have enough shared history to argue without mistaking it for the end of civilization, so I came away dictating notes about the disagreement. It was the useful kind: two people who care about the place, arguing over what would help it.
+[Gratton](https://ca.linkedin.com/in/davidgratton) and I got into it, in the friendly way, about Web Summit Vancouver. He saw a good deal for the local community. I thought we should have put that support into building something homegrown. We have enough shared history to argue without mistaking it for the end of civilization, so I came away dictating notes about the disagreement. It was the useful kind: two people who care about the place, arguing over what would help it.
 
 ## Champions and saplings
 
@@ -28,7 +28,7 @@ I would like them to have a chance.
 
 ## The civic information hiding in plain sight
 
-Also in the ProjEx room: the [Cordata Intelligence](https://cordataintelligence.com) crew, building the least glamorous and most useful thing I heard about all week.
+Also in the ProjEx room: [Kate Milne](https://www.linkedin.com/in/kmilne) and the [Cordata Intelligence](https://cordataintelligence.com) crew, building the least glamorous and most useful thing I heard about all week.
 
 Two related pieces of work. One reads published municipal documents - council minutes, budget statements, the paper mountains. The other, Cordata Civic, pulls scattered bylaws, services and resources into a knowledge base people can actually ask questions of. In the language they actually speak. The example in our conversation was Tagalog. There is a phone service too, for people whose way in is not a website.
 
@@ -42,13 +42,19 @@ Setup day, I walked in through Square-Victoria, past the Guimard metro gate - a 
 
 I am not saying a fragment of the Berlin Wall inside a trade centre atrium inside an AI conference is a metaphor. I am saying I stood in front of it for a while.
 
+[FIG:g2]
+
 Then the Palais: the Lipstick Forest, the pink trunks, the expo floor mid-build, forklifts and gaffer tape and the TEAM BC sign going up. Every conference looks like a barn raising the day before. Then the doors open and it pretends it was always finished.
+
+[FIG:g4]
 
 ## The sidewalk says otherwise
 
 Wednesday morning, 8 AM. Somebody had been busy overnight.
 
-Poster boards leaned against the building outside the Palais: WANTED. Evan Solomon, Minister of Artificial Intelligence and Digital Innovation. FOR CRIMES AGAINST HUMANITY. REWARD: OUR FREEDOM. Three more boards: Germany's digital minister, [Karsten Wildberger](https://www.bundesregierung.de/breg-de/bundesregierung/bundeskabinett/lebenslauf-2342868), an executive at a data-infrastructure company, a former UK chancellor now working the OpenAI circuit, each with their own charge sheet and reward. A FUTURE. WATER FOR THE NEXT GENERATIONS.
+[FIG:g5]
+
+Poster boards leaned against the building outside the Palais: WANTED. [Evan Solomon](https://en.wikipedia.org/wiki/Evan_Solomon), Minister of Artificial Intelligence and Digital Innovation. FOR CRIMES AGAINST HUMANITY. REWARD: OUR FREEDOM. Three more boards: Germany's digital minister, [Karsten Wildberger](https://www.bundesregierung.de/breg-de/bundesregierung/bundeskabinett/lebenslauf-2342868), an executive at a data-infrastructure company, a former UK chancellor now working the OpenAI circuit, each with their own charge sheet and reward. A FUTURE. WATER FOR THE NEXT GENERATIONS.
 
 Those are the protesters' accusations, on poster board, not mine and not established fact. What is established, per the [CBC](https://www.cbc.ca/news/canada/montreal/mila-vandalism-montreal-ai-summit-9.7345851) and [Global](https://globalnews.ca/news/12061206/montreal-ai-institute-vandalism/), is that overnight somebody broke the ground-floor windows at [Mila](https://mila.quebec) and at ServiceNow's offices and left "Burn the Data Centers" behind in paint. Police say about ten suspects, one 25-year-old arrested, questioned, released without charges. The reporting does not establish that the people who organized the evening march had anything to do with it.
 
@@ -72,17 +78,17 @@ Germany is the [country of honour](https://allinevent.ai/blogs/blog/germany-stra
 
 [Cohere](https://cohere.com) and [Aleph Alpha](https://aleph-alpha.com) have signed their definitive merger agreement. Largest large-language-AI company outside the United States and China, headquartered Berlin and Toronto. That is [Reuters](https://www.reuters.com/legal/transactional/cohere-aleph-alpha-combine-target-enterprise-ai-market-2026-09-16/)' summary, and it is accurate.
 
-[LawZero](https://www.prnewswire.com/news-releases/lawzero-receives-a-commitment-of-up-to-300m-in-joint-funding-from-canada-and-germany-302880694.html), Yoshua Bengio's safety nonprofit, is getting [up to $300 million](https://thelogic.co/news/lawzero-canada-germany-funding-artificial-intelligence/) from Canada and Germany together. A friend of mine, [Justine Gauthier](https://lawzero.org/en/team/justine-gauthier), a lawyer at LawZero and before that head lawyer at Mila, got to be the one who introduced Solomon and Bengio for it. A friend at the podium on the biggest stage of the morning. That part I loved.
+[LawZero](https://www.prnewswire.com/news-releases/lawzero-receives-a-commitment-of-up-to-300m-in-joint-funding-from-canada-and-germany-302880694.html), [Yoshua Bengio](https://yoshuabengio.org/)'s safety nonprofit, is getting [up to $300 million](https://thelogic.co/news/lawzero-canada-germany-funding-artificial-intelligence/) from Canada and Germany together. A friend of mine, [Justine Gauthier](https://lawzero.org/en/team/justine-gauthier), a lawyer at LawZero and before that head lawyer at Mila, got to be the one who introduced [Solomon](https://en.wikipedia.org/wiki/Evan_Solomon) and [Bengio](https://yoshuabengio.org/) for it. A friend at the podium on the biggest stage of the morning. That part I loved.
 
 [FIG:intro]
 
-And Mila and [DFKI](https://www.dfki.de), the German research centre, formalized a partnership on trustworthy and safe AI for industry and energy. Solomon and Wildberger at the photo op, flags, the works.
+And Mila and [DFKI](https://www.dfki.de), the German research centre, formalized a partnership on trustworthy and safe AI for industry and energy. [Solomon](https://en.wikipedia.org/wiki/Evan_Solomon) and [Wildberger](https://www.bundesregierung.de/breg-de/bundesregierung/bundeskabinett/lebenslauf-2342868) at the photo op, flags, the works.
 
 [Solomon](https://en.wikipedia.org/wiki/Evan_Solomon), at the podium, not reading from anything: "These are real actions, not talk, not MOUs. Builders build it from the ground up." And on the merger: "the first sovereign technology alliance... Today, that deal closed."
 
 [FIG:scrum]
 
-The signed agreement and the funding commitment are real. The resulting technology, and who it benefits, still has to be delivered. I watched the cameras gather and kept wondering how the work on those stages would connect with the people I was meeting in the smaller rooms. That is the morning. The morning, also, is exactly what the sidewalk was answering.
+The signatures and funding are real. The technology, and who it benefits, still has to be delivered. I watched the cameras gather and kept wondering how the work on those stages would connect with the people I was meeting in the smaller rooms. That was the morning upstairs. The sidewalk was answering it downstairs.
 
 ## The roboticist brought a mirror
 
@@ -98,11 +104,11 @@ Then the mirror. A viewpoint moves through a generated world - but has the syste
 
 Her newer work is the human side of that mirror, supported by the [Canadian AI Safety Institute](https://aisafety.ca/): what is happening in our brains when we interact with language models. She is collecting the stories of people whose chatbots broke something in them. The clinicians have stopped saying AI psychosis. The term now is AI-associated delusions. There is a Quebec project, the [Human Line Project](https://thehumanlineproject.org), doing exactly that collection. It deserves your click more than anything else I link today.
 
-This got uncomfortably close to home. I told her about being introduced to Midjourney, realizing my industry was changing, and going through a stretch of sleeping about two hours a night. I was describing my experience, not diagnosing myself. But I could recognize the pull. The machine keeps answering. Another idea arrives. You follow it. I want the creative possibility. I also want people studying what sustained contact with these systems does to us. Angelica is doing that work. I am glad she is in the room.
+This got uncomfortably close to home. I told her about being introduced to Midjourney, realizing my industry was changing, and going through a stretch of sleeping about two hours a night. I was describing my experience, not diagnosing myself. But I could recognize the pull. The machine keeps answering. Another idea arrives. You follow it. I want the creative possibility. I also want people studying what sustained contact with these systems does to us. [Angelica](https://www.sfu.ca/fas/computing/people/faculty/faculty-members/angelica-lim.html) is doing that work. I am glad she is in the room.
 
 ## Sovereignty, inside your four walls
 
-Lunch was with Jeff Ward, who founded [Animikii Indigenous Technology](https://animikii.com/about/jeff-ward) in 2003 - Ojibwe and Métis, based in Victoria on Lekwungen territory, Canada's first Indigenous B Corp. They wrote the book on Indigenous data sovereignty, literally, years before the country discovered the word.
+Lunch was with [Jeff Ward](https://animikii.com/about/jeff-ward), who founded [Animikii Indigenous Technology](https://animikii.com/about/jeff-ward) in 2003 - Ojibwe and Métis, based in Victoria on Lekwungen territory, Canada's first Indigenous B Corp. They wrote the book on Indigenous data sovereignty, literally, years before the country discovered the word.
 
 What has him excited now is local: local models, local agents, compute moving back onto devices people own. You will still need serious compute for some work, but the useful daily stuff might run where the person and their information already are. His team built [Niiwin](https://niiwin.app/), a platform that lets communities design, govern and host their own data, and he offered the developer shorthand "Indigenous-owned Firebase," with the warning that he was oversimplifying. The part I care about is who gets to decide. The people responsible for knowledge should be able to carry those decisions into the software.
 
@@ -110,7 +116,7 @@ He also showed me where his practice puts boundaries around the machinery I live
 
 And he caught me reaching for an easy story about clean hydropower for Indigenous-owned computing. Hydro has its own difficult history with First Nations. Fair correction. Calling the electricity green does not settle what happened to the river, or who had a say.
 
-Then there are the names. Animikii. Niiwin. For twenty-three years, ministers and customers have been learning to say them, which is exactly the point. Jeff described it as his "tricky way to get everyone to speak Ojibwe." Language activism in the product meeting. You want the software? Start by learning the word.
+Then there are the names. Animikii. Niiwin. For twenty-three years, ministers and customers have been learning to say them, which is exactly the point. [Jeff](https://animikii.com/about/jeff-ward) described it as his "tricky way to get everyone to speak Ojibwe." Language activism in the product meeting. You want the software? Start by learning the word.
 
 We also talked about the language rules we give our own AI tools and agreed to swap material. His line on the way out: "We de-colonize your notecard." That one is coming home with me.
 
@@ -120,13 +126,13 @@ He also gave me a zipper tie carrying the Seven Sacred Teachings and told me his
 
 ## The mission, stated out loud
 
-After lunch I sat down with Hanna Demoz from [Amii](https://www.amii.ca) - the Alberta Machine Intelligence Institute, fresh off a [$13 million national AI literacy commitment](https://www.amii.ca/updates-insights/amii-leads-national-ai-literacy-initiative) - and said the quiet part into the recorder on purpose:
+After lunch I sat down with [Hanna Demoz](https://www.amii.ca/people/hanna-demoz) from [Amii](https://www.amii.ca) - the Alberta Machine Intelligence Institute, fresh off a [$13 million national AI literacy commitment](https://www.amii.ca/updates-insights/amii-leads-national-ai-literacy-initiative) - and said the quiet part into the recorder on purpose:
 
 I believe in the intrinsic power of interconnectedness. Just us knowing each other, knowing what's going on, is helpful. It's the first step towards collaboration.
 
 [FIG:expo]
 
-Hanna is an Edmonton lifer, three years at Amii, a team producer for the Venture Track at [Upper Bound](https://www.amii.ca/events/upper-bound-2026), and before any of that she worked transit procurement, which is exactly the kind of resume this industry needs more of. She knows what happens after the program ends: the people who flew all the way to Edmonton want things to do in the evening, want to meet the city and each other. The schedule gets them there. Somebody still has to think about what happens between the scheduled things.
+[Hanna](https://www.amii.ca/people/hanna-demoz) is an Edmonton lifer, three years at Amii, a team producer for the Venture Track at [Upper Bound](https://www.amii.ca/events/upper-bound-2026), and before any of that she worked transit procurement, which is exactly the kind of resume this industry needs more of. She knows what happens after the program ends: the people who flew all the way to Edmonton want things to do in the evening, want to meet the city and each other. The schedule gets them there. Somebody still has to think about what happens between the scheduled things.
 
 When I made the case for the coasts talking to each other, she was already there: "They have all this going on on the East Coast. Like, what about us on the West Coast?" And on what we're building - the monthly gatherings at the [H.R. MacMillan Space Centre](https://www.spacecentre.ca/), the regional and thematic groups, [Futureproof](https://www.futureproof.website) - she said it back to me better than I said it. Not a sales floor. "It's more so like creating the conversation."
 
@@ -144,7 +150,13 @@ My count, for what a count is worth: I'd say there's only two hundred people. Bu
 
 The police had scaled differently than the morning. We got some big-ass riot cops here in full gear. They got the horses. They got the motorcycles. And this is the thing I kept chewing on: there is a significant difference in size between the cops that were all around the convention centre all day and the cops that were here now.
 
-Somebody had taped a mock server to a pole: a cardboard box labelled OpenAI, BLOCK AI in pink tape, cables and a dryer-duct vent hanging off it. The street had its own demo booth. Somebody else had gone to work with paint and a bedsheet: Intelligence Artificielle. Degenerescence Programmee. Tech Bros. Soumission.
+[FIG:g8]
+
+Somebody had taped a mock server to a pole: a cardboard box labelled OpenAI, BLOCK AI in pink tape, cables and a dryer-duct vent hanging off it. The street had its own demo booth.
+
+[FIG:g7]
+
+Somebody else had gone to work with paint and a bedsheet: Intelligence Artificielle. Degenerescence Programmee. Tech Bros. Soumission.
 
 Then the loudspeaker, and this part is the police talking, not me: the protest was declared illegal. The announcement asked everyone to protest peacefully and respect all applicable laws and regulations, and warned that behaviour contrary to those laws and regulations may be subject to targeted or coordinated police interventions. Hearing that with the riot gear in view put a different charge into the afternoon.
 
@@ -152,7 +164,7 @@ Well, that's quite alarming.
 
 Merrick from the [SAT](https://sat.qc.ca/en/) - Montreal's art-tech institution, one of my favourite rooms anywhere - was in the crowd and called it "the first manifestation against AI in Montreal." Except it wasn't the first, strictly, because somebody had vandalized Mila overnight, and I told him so. And that is the whole problem in miniature. The fears and concerns are legitimate. Also, Mila is about the most legit instrument we have for achieving the things those fears are about. There is not a lot of space in the dialogue for that conversation. There was no panel at this conference anywhere close to it.
 
-The march filled the street. A speaker stood up on a ledge in front of the coloured glass with a mic. And then the strangest picture of the day, the one that is this whole post in a single frame: the protest line with its red LUTTONS CONTRE L'IA banner, the riot cops, and ALL IN attendees in their lanyards crossing between the two, going to dinner. I have it on video, 106 seconds, shot from across the street at 6:43 PM. It will make the cut for the day-two post.
+The march filled the street. A speaker stood up on a ledge in front of the coloured glass with a mic. And then the strangest picture of the day, the one that is this whole post in a single frame: the protest line with its red LUTTONS CONTRE L'IA banner, the riot cops, and ALL IN attendees in their lanyards crossing between the two, going to dinner. I have it on video, 106 seconds, shot from across the street at 6:43 PM. It is the whole argument in 106 seconds.
 
 I spent the day doing a gonzo insider-outsider thing, upstairs to the reception, back down to the street, press pass in one pocket and chalk dust on my shoes. The last time I moved between worlds like that was COP15 in Copenhagen, where I went for one reason and ended up spending all my time in the streets documenting the resistance. Montreal felt like that. A building full of people betting that this technology saves something, ringed by people betting it costs everything.
 
@@ -166,7 +178,7 @@ I contain multitudes. Some of them want socks.
 
 I am reporting on a world I am also trying to build. That is not a conflict I plan to resolve; it is the job. My whole message, on every stage they let me near, is both hands full. One hand full of curiosity, one full of critique. To let go of either one is to be lazy. Burn it all down is lazy, and it does not tell a parent what to do about their kid's education. Onward and upward as fast as we can is lazy too, and it does not answer them either. The people wearing conference lanyards have families, jobs and communities tangled up in this. We need ways to talk that reach those parts of their lives.
 
-Angelica's mirror. Jeff's recording boundaries. Cordata's phone service. Hanna making room for people to meet. The street's questions, carried back inside. That is the work, and it continues tomorrow.
+[Angelica](https://www.sfu.ca/fas/computing/people/faculty/faculty-members/angelica-lim.html)'s mirror. [Jeff](https://animikii.com/about/jeff-ward)'s recording boundaries. Cordata's phone service. [Hanna](https://www.amii.ca/people/hanna-demoz) making room for people to meet. The street's questions, carried back inside. That is the work, and it continues tomorrow.
 
 I went home to dump memory cards, charge batteries, and change into the nighttime fit. If you were in any of these rooms, tell me what I got wrong. And if you want the room where all of these people can find each other, that is what we are making with [Futureproof, October 28-30 in Vancouver](https://www.futureproof.website). Bring the thing you are building. Bring the awkward question. Bring the experience that makes somebody else reconsider their answer.
 
@@ -180,11 +192,11 @@ I will be there with the recorder, asking first.
 - [The Futureproof announcement](https://kriskrug.co/2026/08/11/futureproof-festival-announcement/) - the festival thread, from the source.
 - [BC + AI Ecosystem Association](https://bc-ai.ca) - the nonprofit behind the mission section. [Members get a Futureproof discount](https://bc-ai.ca/future-proof-festival).
 - [Reuters: Cohere and Aleph Alpha tie the knot](https://www.reuters.com/legal/transactional/cohere-aleph-alpha-combine-target-enterprise-ai-market-2026-09-16/) - the wire version of what I watched get announced.
-- [The Logic: LawZero lands $300M](https://thelogic.co/news/lawzero-canada-germany-funding-artificial-intelligence/) - Bengio's safety nonprofit gets real money from two governments. Champion-the-champions, exhibit A.
+- [The Logic: LawZero lands $300M](https://thelogic.co/news/lawzero-canada-germany-funding-artificial-intelligence/) - [Bengio](https://yoshuabengio.org/)'s safety nonprofit gets real money from two governments. Champion-the-champions, exhibit A.
 - [CBC: windows broken at Mila the night before the summit](https://www.cbc.ca/news/canada/montreal/mila-vandalism-montreal-ai-summit-9.7345851) - the other side of the announcement morning, police version.
 - [CLAC's callout for the march](https://www.clac-montreal.net/en/node/1104) - the organizers in their own words. Read it before you decide what you think.
 - [The Human Line Project](https://thehumanlineproject.org) - the stories of people pulled into AI-associated delusions. The most important link in this pack.
-- [Rosie Lab at SFU](https://rosielab.ca) - Dr. Angelica Lim's crew.
+- [Rosie Lab at SFU](https://rosielab.ca) - [Dr. Angelica Lim](https://www.sfu.ca/fas/computing/people/faculty/faculty-members/angelica-lim.html)'s crew.
 - [Animikii](https://animikii.com/about/jeff-ward) and [Niiwin](https://niiwin.app/) - twenty years of Indigenous data sovereignty quietly becoming the thing Canada suddenly needs.
 - [Amii's $13M AI literacy push](https://www.amii.ca/updates-insights/amii-leads-national-ai-literacy-initiative) - a million Canadians, supposedly. Hold them to it. And [Upper Bound](https://www.amii.ca/events/upper-bound-2026), their home game in Edmonton.
 - [National Observer at ALL IN](https://www.nationalobserver.com/2026/09/15/news/silicon-valley-shouldnt-self-regulate-ai-safety-cohere-ceo-says) - one of the few other independents in the building.
@@ -195,20 +207,10 @@ I will be there with the recorder, asking first.
 
 ## Through the viewfinder
 
-A few more frames from the walk in, the build, and the street. September 15-16, Montreal. Photographs: Kris Krüg. Select an image to see it larger.
+Three more frames from the walk in and the street. September 15-16, Montreal. Photographs: Kris Krüg. Select an image to see it larger.
 
 [FIG:g1]
 
-[FIG:g2]
-
 [FIG:g3]
 
-[FIG:g4]
-
-[FIG:g5]
-
 [FIG:g6]
-
-[FIG:g7]
-
-[FIG:g8]
