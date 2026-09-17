@@ -20,7 +20,7 @@ Gratton and I got into it, in the friendly way, about Web Summit Vancouver. He s
 
 Underneath the event economics was the bigger question, and it turned out to be the question of the whole week: do you place one million dollars in ten companies, or a hundred grand in a thousand companies? Champion the champions, or water the saplings?
 
-You can guess which side the federal government is on this week. You can guess which side I'm on, because I'm the guy who talked the Internet Archive into putting money into a nonprofit community association, and then talked them into doubling the builder awards so two projects instead of one got built. Fifty-one submissions. Six-week build. The winners present at [Futureproof](https://www.futureproof.website) in October, flights and beds covered.
+You can guess which side the federal government is on this week. You can guess which side I'm on, because I'm the guy who talked the Internet Archive into putting money into a nonprofit community association, and then talked them into doubling the builder awards so two projects instead of one got built. Fifty-one submissions. Six-week build. The winners present at Futureproof in October, flights and beds covered.
 
 I know the honest answer involves both. A country needs serious research institutions. It also needs ways for a strange little project to survive long enough to become useful. The people capable of surprising us do not all arrive with a grant writer and an existing relationship with the minister's office. Some arrive at a meetup carrying a laptop full of half-working shit.
 
@@ -28,7 +28,7 @@ I would like them to have a chance.
 
 ## The civic information hiding in plain sight
 
-Also in the ProjEx room: the Cordata Intelligence crew, building the least glamorous and most useful thing I heard about all week.
+Also in the ProjEx room: the [Cordata Intelligence](https://cordataintelligence.com) crew, building the least glamorous and most useful thing I heard about all week.
 
 Two related pieces of work. One reads published municipal documents - council minutes, budget statements, the paper mountains. The other, Cordata Civic, pulls scattered bylaws, services and resources into a knowledge base people can actually ask questions of. In the language they actually speak. The example in our conversation was Tagalog. There is a phone service too, for people whose way in is not a website.
 
@@ -48,9 +48,9 @@ Then the Palais: the Lipstick Forest, the pink trunks, the expo floor mid-build,
 
 Wednesday morning, 8 AM. Somebody had been busy overnight.
 
-Poster boards leaned against the building outside the Palais: WANTED. Evan Solomon, Minister of Artificial Intelligence and Digital Innovation. FOR CRIMES AGAINST HUMANITY. REWARD: OUR FREEDOM. Three more boards: the German digital minister, an executive at a data-infrastructure company, a former UK chancellor now working the OpenAI circuit, each with their own charge sheet and reward. A FUTURE. WATER FOR THE NEXT GENERATIONS.
+Poster boards leaned against the building outside the Palais: WANTED. Evan Solomon, Minister of Artificial Intelligence and Digital Innovation. FOR CRIMES AGAINST HUMANITY. REWARD: OUR FREEDOM. Three more boards: Germany's digital minister, Karsten Wildberger, an executive at a data-infrastructure company, a former UK chancellor now working the OpenAI circuit, each with their own charge sheet and reward. A FUTURE. WATER FOR THE NEXT GENERATIONS.
 
-Those are the protesters' accusations, on poster board, not mine and not established fact. What is established, per the [CBC](https://www.cbc.ca/news/canada/montreal/mila-vandalism-montreal-ai-summit-9.7345851) and [Global](https://globalnews.ca/news/12061206/montreal-ai-institute-vandalism/), is that overnight somebody broke the ground-floor windows at [Mila](https://mila.quebec) and at ServiceNow's offices and left "Burn the Data Centers" behind in paint. Police say about ten suspects, one 25-year-old arrested, questioned, released without charges. The reporting does not establish that the people who organized the evening march had anything to do with it.
+Those are the protesters' accusations, on poster board, not mine and not established fact. What is established, per the [CBC](https://www.cbc.ca/news/canada/montreal/mila-vandalism-montreal-ai-summit-9.7345851), is that overnight somebody broke the ground-floor windows at [Mila](https://mila.quebec) and at ServiceNow's offices and left "Burn the Data Centers" behind in paint. Police say about ten suspects, one 25-year-old arrested, questioned, released without charges. The reporting does not establish that the people who organized the evening march had anything to do with it.
 
 By midday the SPVM had the building ringed and the back doors were locked. By evening there was chalk on the sidewalk, a full wall of it, pink and blue and green:
 
@@ -76,7 +76,7 @@ Cohere and Aleph Alpha have signed their definitive merger agreement. Largest la
 
 [FIG:intro]
 
-And Mila and DFKI, the German research centre, formalized a partnership on trustworthy and safe AI for industry and energy. Ministers at the photo op, flags, the works.
+And Mila and DFKI, the German research centre, formalized a partnership on trustworthy and safe AI for industry and energy. Solomon and Wildberger at the photo op, flags, the works.
 
 Solomon, at the podium, not reading from anything: "These are real actions, not talk, not MOUs. Builders build it from the ground up." And on the merger: "the first sovereign technology alliance... Today, that deal closed."
 
@@ -126,9 +126,9 @@ I believe in the intrinsic power of interconnectedness. Just us knowing each oth
 
 [FIG:expo]
 
-Hanna is an Edmonton lifer, three years at Amii, a team producer for the Venture Track at [Upper Bound](https://www.amii.ca/events/upper-bound-2026), and before any of that she worked transit procurement infrastructure, which is exactly the kind of resume this industry needs more of. She knows what happens after the program ends: the people who flew all the way to Edmonton want things to do in the evening, want to meet the city and each other. The schedule gets them there. Somebody still has to think about what happens between the scheduled things.
+Hanna is an Edmonton lifer, three years at Amii, a team producer for the Venture Track at [Upper Bound](https://www.amii.ca/events/upper-bound-2026), and before any of that she worked transit procurement, which is exactly the kind of resume this industry needs more of. She knows what happens after the program ends: the people who flew all the way to Edmonton want things to do in the evening, want to meet the city and each other. The schedule gets them there. Somebody still has to think about what happens between the scheduled things.
 
-When I made the case for the coasts talking to each other, she was already there: "They have all this going on on the East Coast. Like, what about us on the West Coast?" And on what we're building - the monthly gatherings at the H.R. MacMillan Space Centre, the regional and thematic groups, [Futureproof](https://www.futureproof.website) - she said it back to me better than I said it. Not a sales floor. "It's more so like creating the conversation."
+When I made the case for the coasts talking to each other, she was already there: "They have all this going on on the East Coast. Like, what about us on the West Coast?" And on what we're building - the monthly gatherings at the H.R. MacMillan Space Centre, the regional and thematic groups, Futureproof - she said it back to me better than I said it. Not a sales floor. "It's more so like creating the conversation."
 
 The explicit goal, and I told her so: BC's community organization ends this year with formal partnerships with Mila, Amii, and Vector. Logo swaps and member discounts first. Trust after. Fruit on those trees later. I am not announcing a new institutional partnership from a patch of fresh air outside the Palais. I am glad we made the introduction, and we have a conversation to keep going.
 
@@ -150,7 +150,7 @@ Then the loudspeaker, and this part is the police talking, not me: the protest w
 
 Well, that's quite alarming.
 
-Merrick from the [SAT](https://sat.qc.ca/en/) - Montreal's art-tech institution, one of my favourite rooms anywhere - was in the crowd and called it "the first manifestation against AI in Montreal." Except it wasn't the first, strictly, because somebody had vandalized Mila overnight, and I told him so. And that is the whole problem in miniature. The fears and concerns are legitimate. Also, Mila is about the most legit instrument we have for achieving the things those fears are about. There is not a lot of space in the dialogue for that conversation. There was not a panel anywhere at this conference anywhere close to it.
+Merrick from the [SAT](https://sat.qc.ca/en/) - Montreal's art-tech institution, one of my favourite rooms anywhere - was in the crowd and called it "the first manifestation against AI in Montreal." Except it wasn't the first, strictly, because somebody had vandalized Mila overnight, and I told him so. And that is the whole problem in miniature. The fears and concerns are legitimate. Also, Mila is about the most legit instrument we have for achieving the things those fears are about. There is not a lot of space in the dialogue for that conversation. There was no panel at this conference anywhere close to it.
 
 The march filled the street. A speaker stood up on a ledge in front of the coloured glass with a mic. And then the strangest picture of the day, the one that is this whole post in a single frame: the protest line with its red LUTTONS CONTRE L'IA banner, the riot cops, and ALL IN attendees in their lanyards crossing between the two, going to dinner. I have it on video, 106 seconds, shot from across the street at 6:43 PM. It will make the cut for the day-two post.
 
@@ -176,20 +176,11 @@ I will be there with the recorder, asking first.
 
 ## Further down the rabbit hole
 
-- [Post 1: Headed East for ALL IN Montreal](https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/) - yesterday's chapter. This one picks up where it left off.
 - [The Futureproof announcement](https://kriskrug.co/2026/08/11/futureproof-festival-announcement/) - the festival thread, from the source.
 - [BC + AI Ecosystem Association](https://bc-ai.ca) - the nonprofit behind the mission section. [Members get a Futureproof discount](https://bc-ai.ca/future-proof-festival).
-- [Reuters: Cohere and Aleph Alpha tie the knot](https://www.reuters.com/legal/transactional/cohere-aleph-alpha-combine-target-enterprise-ai-market-2026-09-16/) - the wire version of what I watched get announced.
-- [The Logic: LawZero lands $300M](https://thelogic.co/news/lawzero-canada-germany-funding-artificial-intelligence/) - Bengio's safety nonprofit gets real money from two governments. Champion-the-champions, exhibit A.
-- [CBC: windows broken at Mila the night before the summit](https://www.cbc.ca/news/canada/montreal/mila-vandalism-montreal-ai-summit-9.7345851) - the other side of the announcement morning, police version.
 - [CLAC's callout for the march](https://www.clac-montreal.net/en/node/1104) - the organizers in their own words. Read it before you decide what you think.
-- [The Human Line Project](https://thehumanlineproject.org) - the stories of people pulled into AI-associated delusions. The most important link in this pack.
-- [Rosie Lab at SFU](https://rosielab.ca) - Dr. Angelica Lim's crew.
-- [Animikii](https://animikii.com/about/jeff-ward) and [Niiwin](https://niiwin.app/) - twenty years of Indigenous data sovereignty quietly becoming the thing Canada suddenly needs.
-- [Amii's $13M AI literacy push](https://www.amii.ca/updates-insights/amii-leads-national-ai-literacy-initiative) - a million Canadians, supposedly. Hold them to it. And [Upper Bound](https://www.amii.ca/events/upper-bound-2026), their home game in Edmonton.
 - [National Observer at ALL IN](https://www.nationalobserver.com/2026/09/15/news/silicon-valley-shouldnt-self-regulate-ai-safety-cohere-ceo-says) - one of the few other independents in the building.
 - [Vancouver Tech Journal: BC's AI builders plot their next move](https://vantechjournal.com/p/bc-s-ai-builders-plot-their-next-move) - the home team's read on the home team.
-- [Futureproof Festival of AI, Oct 28-30, Vancouver](https://www.futureproof.website) - my room, my rules, my shameless plug. Tickets exist.
 
 ---
 
