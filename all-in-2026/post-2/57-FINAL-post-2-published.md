@@ -68,13 +68,19 @@ Inside, meanwhile, the actual news. I got into the press pen off a media pass an
 
 Germany is the [country of honour](https://allinevent.ai/blogs/blog/germany-strategic-partnership) this year, which is why the flags were paired and why the podium said Safe and Trustworthy AI in two languages. The announcements, in order of size:
 
+[FIG:podium]
+
 Cohere and Aleph Alpha have signed their definitive merger agreement. Largest large-language-AI company outside the United States and China, headquartered Berlin and Toronto. That is [Reuters](https://www.reuters.com/legal/transactional/cohere-aleph-alpha-combine-target-enterprise-ai-market-2026-09-16/)' summary, and it is accurate.
 
-[LawZero](https://www.prnewswire.com/news-releases/lawzero-receives-a-commitment-of-up-to-300m-in-joint-funding-from-canada-and-germany-302880694.html), Yoshua Bengio's safety nonprofit, is getting [up to $300 million](https://thelogic.co/news/lawzero-canada-germany-funding-artificial-intelligence/) from Canada and Germany together. A friend of mine, Justine Gauthier, a lawyer at LawZero and before that head lawyer at Mila, got to be the one who introduced Solomon and Bengio for it.
+[LawZero](https://www.prnewswire.com/news-releases/lawzero-receives-a-commitment-of-up-to-300m-in-joint-funding-from-canada-and-germany-302880694.html), Yoshua Bengio's safety nonprofit, is getting [up to $300 million](https://thelogic.co/news/lawzero-canada-germany-funding-artificial-intelligence/) from Canada and Germany together. A friend of mine, Justine Gauthier, a lawyer at LawZero and before that head lawyer at Mila, got to be the one who introduced Solomon and Bengio for it. A friend at the podium on the biggest stage of the morning. That part I loved.
+
+[FIG:intro]
 
 And Mila and DFKI, the German research centre, formalized a partnership on trustworthy and safe AI for industry and energy. Ministers at the photo op, flags, the works.
 
 Solomon, at the podium, not reading from anything: "These are real actions, not talk, not MOUs. Builders build it from the ground up." And on the merger: "the first sovereign technology alliance... Today, that deal closed."
+
+[FIG:scrum]
 
 The signed agreement and the funding commitment are real. The resulting technology, and who it benefits, still has to be delivered. I watched the cameras gather and kept wondering how the work on those stages would connect with the people I was meeting in the smaller rooms. That is the morning. The morning, also, is exactly what the sidewalk was answering.
 
