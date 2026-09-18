@@ -3,7 +3,6 @@ import subprocess
 import unittest
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[2]
 SNIPPET = ROOT / "fixes/issue-1025-crawl-hygiene.php"
 APPLY = ROOT / "fixes/issue-1025-apply.md"
