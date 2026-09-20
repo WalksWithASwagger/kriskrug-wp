@@ -72,6 +72,16 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
         self.assertIn("mailto:feelmoreplants@gmail.com", html)
         self.assertIn("Send the note", html)
 
+    def test_work_payloads_include_the_sky_smoked_back(self):
+        paths = (
+            PAYLOADS / "work.html",
+            ROOT / "content/source-packs/keynotes-2026/wp-payloads/work.html",
+        )
+        for path in paths:
+            html = path.read_text(encoding="utf-8")
+            self.assertEqual(1, html.count('href="https://lightningstrike.org/"'), path)
+            self.assertIn("The Sky Smoked Back", html, path)
+
 
 if __name__ == "__main__":
     unittest.main()
