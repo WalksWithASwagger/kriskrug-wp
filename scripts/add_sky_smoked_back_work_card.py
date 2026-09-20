@@ -42,6 +42,13 @@ def sha256(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
+def repo_relative(path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(REPO_ROOT))
+    except ValueError:
+        return str(path.resolve())
+
+
 def fetch_page(wp: WPClient) -> dict:
     page = wp.get(
         f"pages/{PAGE_ID}",
@@ -150,12 +157,12 @@ def write_manifest(
     verified_url: str,
 ) -> Path:
     manifest_path = snapshot_dir / "rollback-manifest.json"
-    snapshot_json = str(before_json.relative_to(REPO_ROOT))
+    snapshot_json = repo_relative(before_json)
     manifest = {
         "page_id": PAGE_ID,
         "slug": PAGE_SLUG,
         "snapshot_json": snapshot_json,
-        "snapshot_html": str(before_html.relative_to(REPO_ROOT)),
+        "snapshot_html": repo_relative(before_html),
         "before_sha256": before_sha,
         "after_sha256": after_sha,
         "verified_url": verified_url,
@@ -233,7 +240,7 @@ def main() -> int:
                 sha256(current_raw),
                 verified_url,
             )
-            print(f"rollback={manifest.relative_to(REPO_ROOT)}")
+            print(f"rollback={repo_relative(manifest)}")
         print(f"[NOOP] page={PAGE_ID} already has one verified project card")
         print(f"verified={verified_url}")
         return 0
@@ -270,8 +277,8 @@ def main() -> int:
         verified_url,
     )
     print(f"[APPLIED] page={PAGE_ID} modified={readback.get('modified_gmt')}")
-    print(f"snapshot={before_json.relative_to(REPO_ROOT)}")
-    print(f"rollback={manifest.relative_to(REPO_ROOT)}")
+    print(f"snapshot={repo_relative(before_json)}")
+    print(f"rollback={repo_relative(manifest)}")
     print(f"verified={verified_url}")
     return 0
 
