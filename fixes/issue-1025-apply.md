@@ -7,6 +7,10 @@ stays gated on **SEO LGTM**. Do not merge this PR as a deploy. Do not change
 `robots.txt`. Do not Request Indexing. Do not broaden #331.
 
 PHP source: [`issue-1025-crawl-hygiene.php`](issue-1025-crawl-hygiene.php).
+Robots / sitemap / noindex recommendations (do not apply from here):
+[`issue-1025-crawl-policy.json`](issue-1025-crawl-policy.json) and
+[`../docs/current-state/CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md`](../docs/current-state/CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md).
+Do not change `robots.txt`. Do not broaden #331.
 
 ---
 

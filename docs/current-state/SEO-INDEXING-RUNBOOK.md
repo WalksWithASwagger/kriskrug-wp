@@ -81,5 +81,6 @@ submission, Pagely purge, outreach.
 - #425 — publisher/news sitemap + article-schema rule (`make seo-publisher-smoke`).
 - #402 — surprising Search Console winners → authority hubs (source of batch themes).
 - #274 / #331 / #347 — taxonomy sitemap, canonical, and metadata handoffs (do not overlap; this runbook does not touch taxonomy).
+- #1025 — crawl-waste + authority-hub policy ([CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md](CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md)). Robots/sitemap/noindex recommendations only; do not activate the hygiene snippet from this runbook.
 - #383 — queued SEO human-gate decisions.
 - Existing context: [SEO-PUBLISHER-SCHEMA-2026-07-19.md](SEO-PUBLISHER-SCHEMA-2026-07-19.md), [SEO_AUDIT.md](archive/SEO_AUDIT.md), [SEO-OVERHAUL-2026-06-14.md](archive/SEO-OVERHAUL-2026-06-14.md).

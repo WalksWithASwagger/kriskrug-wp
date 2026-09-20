@@ -5,7 +5,7 @@ Visual review done on 2026-07-26 from public CDN URLs. Confidence is high for bo
 ## S0 — media `6835`
 
 - **File:** `wp-content/uploads/2024/09/crowd-shot-vancovuer-ai.jpeg`
-- **Public empty alt:** `https://kriskrug.co/home/`
+- **Public empty alt:** `https://kriskrug.co/home/` (exact `/home/` alias; 301s to `/`. Do not treat this as a second homepage to index. See #1025.)
 - **Also appears on:** blog card for *Zero to One: From Meetup to Movement* (title used as alt fallback because media alt is empty)
 - **Current `alt_text`:** empty
 - **Proposed:**
