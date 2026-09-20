@@ -27,6 +27,7 @@ It authorizes a reviewable proof PR, not a live deployment.
 | File | What it covers |
 |---|---|
 | [SEO-INDEXING-RUNBOOK.md](SEO-INDEXING-RUNBOOK.md) | Indexing/distribution checklist (#426) |
+| [templates/owned-distribution-backlink-checklist.md](templates/owned-distribution-backlink-checklist.md) | Per-article owned-distribution + backlink launch record (#1026). Copy into the draft package; does not authorize live posts |
 | [SEO-PUBLISHER-SCHEMA-2026-07-19.md](SEO-PUBLISHER-SCHEMA-2026-07-19.md) | Schema/publisher rules (`make seo-publisher-smoke`) |
 | [SEO-STRIKING-DISTANCE-2026-08-02.md](SEO-STRIKING-DISTANCE-2026-08-02.md) | #249 re-measure. **Read before running `make seo-audit`:** Jetpack is deactivated, the theme now owns SEO titles, and that target reports a false 1016/1016 missing |
 | [AURORA-STYLESHEET-REBUILD-PLAN.md](AURORA-STYLESHEET-REBUILD-PLAN.md) | Path A rebuild plan of record (#423) |
@@ -111,7 +112,7 @@ Neither is a plan you execute from. Check with `ls docs/current-state/*.md | gre
 - `.generated/current-state/`, gitignored local `make morning-truth` output. Routine startup telemetry stays here and is not committed.
 - `reports/`, durable checkpoint and ops evidence. `make morning-truth-checkpoint` writes here only for an explicit release, incident, durable decision, or handoff. Existing morning-truth Markdown remains tracked historical evidence; screenshot binaries are reclaim targets (#369 bucket D).
 - `raw/`, unprocessed captures feeding the audits.
-- `marketing/`, `portal/`, `templates/`, scoped working sets, not startup context.
+- `marketing/`, `portal/`, `templates/`, scoped working sets, not startup context. `templates/owned-distribution-backlink-checklist.md` is the #1026 per-article launch record; copy it into a draft package rather than treating the blank as a completed post.
 - `archive/`, everything above.
 
 ## Side-worktree safety

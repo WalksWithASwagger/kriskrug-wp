@@ -13,6 +13,7 @@ Each draft folder is date-and-slug scoped:
   - `seo-meta.md`
   - `alt-text.md`
   - `internal-links.md`
+  - `owned-distribution.md` (copy from [`docs/current-state/templates/owned-distribution-backlink-checklist.md`](../../docs/current-state/templates/owned-distribution-backlink-checklist.md) for substantial essays; fill after the canonical URL exists)
   - `images/` (when media exists)
 
 This structure is created by the Notion publisher and then edited/reviewed by humans before publication.
@@ -50,9 +51,15 @@ curl -ILs https://kriskrug.co/<path>/ | sed -n '1,8p'
 - [ ] Images are approved and suitable for live upload.
 - [ ] Category mapping is intentional (not silent fallback to `Misc` unless deliberate).
 
+## After a substantial essay is public
+
+Copy [`docs/current-state/templates/owned-distribution-backlink-checklist.md`](../../docs/current-state/templates/owned-distribution-backlink-checklist.md) to `owned-distribution.md` in that draft folder. Record owned-channel posts (LinkedIn, newsletter, topic-relevant BC + AI / Futureproof), UTM URLs, partner asks, and 7 / 28 / 90 day GSC rows. Drafting the record is agent-safe. Posting, sending, outreach, and Search Console submission stay KK-gated. Do not treat a filled checklist as a live publish.
+
 ## Related docs
 
 - `scripts/notion-to-wp/README.md`
 - `scripts/notion-to-wp/create_local_wp_draft.py`
+- `docs/current-state/templates/owned-distribution-backlink-checklist.md`
+- `docs/current-state/SEO-INDEXING-RUNBOOK.md`
 - `docs/current-state/NEXT-PUBLISHING-PLAN-2026-05-18.md`
 - `docs/current-state/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md`
