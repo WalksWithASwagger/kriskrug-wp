@@ -64,7 +64,11 @@ class SpeakingEmbedContractTests(unittest.TestCase):
             poster = parser.images[0]
             self.assertIn("kk-speak-embed-poster", poster.get("class", "").split())
             self.assertEqual("lazy", poster.get("loading"))
-            self.assertEqual("", poster.get("alt"))
+            self.assertEqual(
+                "Kris Krüg raises one hand onstage while rows of attendees raise their hands "
+                "at the H.R. MacMillan Space Centre",
+                poster.get("alt"),
+            )
             self.assertTrue(poster.get("width"))
             self.assertTrue(poster.get("height"))
 
