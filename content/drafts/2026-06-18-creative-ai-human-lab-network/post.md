@@ -5,7 +5,7 @@ status: draft
 post_date: "2026-06-18"
 author: "Kris Krüg"
 author_wp_id: 1
-excerpt: "A field note on the Creative AI Human Lab: Skywhale Airways, Punk Rock AI, Gorgeous Ghost, Ghost Radio, Wedges, Too Weird to Die, Ethos Lab Block Party, Dark Crystal, and unofficial.city."
+excerpt: "A field note on the Creative AI Human Lab: Skywhale Airways, Punk Rock AI, Gorgeous Ghost, The Sky Smoked Back, Ghost Radio, Wedges, Too Weird to Die, Ethos Lab Block Party, Dark Crystal, and unofficial.city."
 categories:
   - "AI for Creatives"
 tags:
@@ -14,6 +14,7 @@ tags:
   - "Skywhale Airways"
   - "Punk Rock AI"
   - "Gorgeous Ghost"
+  - "The Sky Smoked Back"
   - "Ghost Radio"
   - "Wedges"
   - "Both Hands Full"
@@ -22,7 +23,7 @@ tags:
   - "unofficial.city"
 seo:
   meta_title: "What I’ve Been Making With Creative AI"
-  meta_description: "Kris Krüg maps the Creative AI Human Lab across Skywhale Airways, Punk Rock AI, Gorgeous Ghost, Ghost Radio, Wedges, Too Weird to Die, Ethos Lab Block Party, Dark Crystal, and unofficial.city."
+  meta_description: "Kris Krüg maps the Creative AI Human Lab across Skywhale Airways, Punk Rock AI, Gorgeous Ghost, The Sky Smoked Back, Ghost Radio, Wedges, Too Weird to Die, Ethos Lab Block Party, Dark Crystal, and unofficial.city."
 ---
 
 # What I’ve Been Making With Creative AI
@@ -60,6 +61,12 @@ That site is a maker portal: talk, recap, photos, field course, exercises, widge
 [Gorgeous Ghost](https://gorgeousghost.com/) is the glam space opera: a song-long film from Planet Andromeda with a Signal Atlas you can actually wander through.
 
 It began as an AI film prompt challenge and grew teeth when the little film wanted a whole world around it. The result is part music video, part portal, part haunted transmission. The making matters as much as the finished minute: the site keeps the door open to the process instead of pretending the artifact arrived fully formed.
+
+### The Sky Smoked Back
+
+[The Sky Smoked Back](https://lightningstrike.org/) is the storm film: 56 seconds of one rare Vancouver lightning night, extended into live browser weather and a public memory map.
+
+The site lets the finished short stay a film while the night keeps moving around it. The colophon shows the process, the press kit carries the release record, and Storm Stories gives other people somewhere to place what they remember.
 
 ### Ghost Radio
 
@@ -105,7 +112,7 @@ Everyone else made a souvenir. This one is the receipt. Stitched into the hem, n
 
 [KrisKrug.co Work](https://kriskrug.co/work/) is the hub.
 
-The standalone sites can each have their own physics. Skywhale should feel like a weird airport. Punk Rock AI should feel like zine paste and receipt paper. Gorgeous Ghost should feel like a transmission from somewhere expensive and impossible. Wedges should feel like a sharp tool left on the table. Ethos should feel like the room that made it. Dark Crystal should feel like a boundary you can hold. unofficial.city should feel like a kit with receipts in the hem. KrisKrug.co is where the threads can point back to each other without pretending they are the same project.
+The standalone sites can each have their own physics. Skywhale should feel like a weird airport. Punk Rock AI should feel like zine paste and receipt paper. Gorgeous Ghost should feel like a transmission from somewhere expensive and impossible. The Sky Smoked Back should feel like the storm never quite left. Wedges should feel like a sharp tool left on the table. Ethos should feel like the room that made it. Dark Crystal should feel like a boundary you can hold. unofficial.city should feel like a kit with receipts in the hem. KrisKrug.co is where the threads can point back to each other without pretending they are the same project.
 
 ## The Rules I Am Working By
 
@@ -145,6 +152,7 @@ Start anywhere:
 - [Skywhale Airways](https://skywhaleairways.com/)
 - [Punk Rock AI](https://www.punkrockai.com/)
 - [Gorgeous Ghost](https://gorgeousghost.com/)
+- [The Sky Smoked Back](https://lightningstrike.org/)
 - [Ghost Radio](https://ghost.radio.fm/)
 - [Wedges](https://wedges.dev/)
 - [Too Weird to Die](https://www.bothhandsfull.com/album/too-weird-to-die)

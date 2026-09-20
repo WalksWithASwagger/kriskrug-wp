@@ -1,0 +1,10 @@
+{
+  "page_id": 2672,
+  "slug": "work",
+  "snapshot_json": "backup/20260920T180523Z-sky-smoked-back-work-card/page-2672-before-project-card-20260920T180524Z.json",
+  "snapshot_html": "backup/20260920T180523Z-sky-smoked-back-work-card/page-2672-before-project-card-20260920T180524Z.html",
+  "before_sha256": "51f9bd21657612ec2a683550129ebc947c43e51a9a16802a783cb2732c3d9bfd",
+  "after_sha256": "6ebe9dc4f6b837a60b75088b4d37b274209a5a012a9324157a97ede436cce554",
+  "verified_url": "https://kriskrug.co/work/?cb=20260920180621",
+  "restore_command": "make varlock-run CMD='python3 scripts/add_sky_smoked_back_work_card.py --restore backup/20260920T180523Z-sky-smoked-back-work-card/page-2672-before-project-card-20260920T180524Z.json --apply'"
+}
