@@ -1,5 +1,12 @@
 # Issue #994: AI Second Brain search-decline diagnosis
 
+> **Closeout successor (2026-09-20):**
+> [`issue-994-second-brain-diagnosis-20260920.md`](issue-994-second-brain-diagnosis-20260920.md)
+> is the in-repo packet that closes the #994 preparation issue. The retain
+> proposal is [`content/drafts/issue-994-second-brain/proposal.md`](../../../content/drafts/issue-994-second-brain/proposal.md).
+> This file remains the last live-HTML / public-REST readback. Its
+> "Draft PR only" ownership line is superseded.
+
 **Captured:** 2026-09-08T04:50Z (UTC)
 **Mode:** Track A, read-only. Public HTML (plain + cache-busted), public REST GET, sitemap/robots. Zero WordPress writes. Zero cache purges. Zero Search Console submits / Validate Fix.
 **Refs:** #994 (this diagnosis), #339 (pending apply packet), #336 (closed prep handoff), #402 (parked growth umbrella). Do not start #996, #274, #995, or #997 from this file.
