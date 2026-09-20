@@ -5,6 +5,7 @@
 - Skywhale Airways press kit: https://skywhaleairways.com/press.html
 - Punk Rock AI: https://www.punkrockai.com/
 - Gorgeous Ghost: https://gorgeousghost.com/
+- The Sky Smoked Back: https://lightningstrike.org/
 - Ghost Radio: https://ghost.radio.fm/
 - Wedges: https://wedges.dev/
 - Too Weird to Die: https://www.bothhandsfull.com/album/too-weird-to-die
