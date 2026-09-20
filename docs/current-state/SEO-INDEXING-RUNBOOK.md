@@ -31,6 +31,7 @@ and verified without KK; everything in "KK-gated" waits for his approval.
 | Search Console | Draft the exact URL(s) to submit for indexing | Submitting in Search Console (KK account) |
 | Cache readback | Verify public HTML with cache-busted curl (`?cachebust=<ts>`) after any live change | Pagely PressCACHE purge after REST/theme edits |
 | External citation | Draft a backlink/citation ask (who, why, one line) | Sending any outreach |
+| Owned launch | Copy [`templates/owned-distribution-backlink-checklist.md`](templates/owned-distribution-backlink-checklist.md) into the draft package as `owned-distribution.md` and fill platforms / UTM / verification | Posting, newsletter send, partner outreach, GSC submit |
 
 ## Verification commands / evidence
 
@@ -76,6 +77,7 @@ submission, Pagely purge, outreach.
 
 ## Related SEO work
 
+- #1026 — per-article owned-distribution + backlink launch record: [`templates/owned-distribution-backlink-checklist.md`](templates/owned-distribution-backlink-checklist.md). Use that after a substantial essay is public. This runbook stays the batch indexing path (#426).
 - #425 — publisher/news sitemap + article-schema rule (`make seo-publisher-smoke`).
 - #402 — surprising Search Console winners → authority hubs (source of batch themes).
 - #274 / #331 / #347 — taxonomy sitemap, canonical, and metadata handoffs (do not overlap; this runbook does not touch taxonomy).
