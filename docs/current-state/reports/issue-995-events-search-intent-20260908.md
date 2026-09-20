@@ -1,5 +1,11 @@
 # Issue #995: Events search click-through diagnosis
 
+> **Closeout successor (2026-09-20):**
+> [`issue-995-events-search-intent-20260920.md`](issue-995-events-search-intent-20260920.md)
+> is the in-repo packet that closes the #995 preparation issue. This file
+> remains the last live-HTML / public-REST readback. Its "Keep #995 open"
+> line is superseded.
+
 **Captured:** 2026-09-08T06:18Z (UTC)
 **Mode:** Track A, read-only. Public HTML (plain + cache-busted), public REST GET, sitemap/robots. Zero WordPress writes. Zero cache purges. Zero Search Console submits / Validate Fix.
 **Refs:** #995 (this diagnosis), #832 (closed meetup → `/events/` routing), #331 / #767 (archive policy live 2026-09-03), #635 (exclusive events-catalog owner). Do not start #274, #339, #402, #994, #996, or #997 from this file.

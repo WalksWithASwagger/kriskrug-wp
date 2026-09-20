@@ -2,10 +2,14 @@
 /**
  * KK Events search snippet — kriskrug.co (#995)
  *
- * PREP ONLY. Not deployed as of 2026-09-08. Do not paste into Code Snippets
+ * PREP ONLY. Not deployed as of 2026-09-20. Do not paste into Code Snippets
  * without KK approval, a page-2250 snapshot, and a stated rollback path.
  *
- * Diagnosis: docs/current-state/reports/issue-995-events-search-intent-20260908.md
+ * Closeout: docs/current-state/reports/issue-995-events-search-intent-20260920.md
+ * Last live-HTML readback: issue-995-events-search-intent-20260908.md
+ *
+ * Evergreen rooms named below still match scripts/events_page/shell-events-2250.html
+ * after the 2026-09-13 layout. Do not add catalog dates.
  *
  * Page 2250 (`/events/`) currently renders the theme fallback title
  * `Events | Kris Krüg` and a 200-character content-trim description.
@@ -27,8 +31,9 @@
  * everywhere, not admin-only — search crawlers hit the front-end.
  *
  * Rollback: deactivate the snippet. Public title/description return to
- * the 2026-09-08 fallback. No database restore is required unless a
- * later session also wrote post meta.
+ * the theme fallback / content-trim path recorded on 2026-09-08. No
+ * database restore is required unless a later session also wrote post
+ * meta.
  *
  * @package KK_Fixes
  */
