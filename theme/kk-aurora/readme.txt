@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.4.9 redesigns the homepage newsletter band (#416): honest weekly-email CTA, recent-post thumbnails, zero dispatch/field-notes chrome.
+KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.6.12 adds The Sky Smoked Back to the sitewide Projects footer.
 
 Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
@@ -39,6 +39,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 * Rainbow accents: teal / cyan / cobalt / violet / magenta
 
 == Changelog ==
+
+= 1.6.12 =
+* footer: add The Sky Smoked Back to the sitewide Projects network (#1042).
 
 = 1.6.9 =
 * footer: add Dark Crystal and unofficial.city to Projects; drop the vancouver-made.vercel.app alias.

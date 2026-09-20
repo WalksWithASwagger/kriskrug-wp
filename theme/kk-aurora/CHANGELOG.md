@@ -20,6 +20,10 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.6.12
+**Deployed:** Not deployed.
+Adds The Sky Smoked Back to the sitewide Projects footer so the released film shares the same project-network path as the Work page and AI Garden (#1042).
+
 ## 1.6.11
 **Deployed:** LIVE (public `style.css` readback 2026-09-09). Method not recorded in this verification; this marker is version-readback only.
 Reverts the 1.6.10 event-artboard CSS in full. It should never have shipped. The `/events/` art direction was **not** missing its styles: `scripts/events_page/render_events_page.py` emits a complete page-scoped design system in a `<style>` block with its own `--events-*` token set, and it has done since the art-direction work in PR #943. The 1.6.10 rules were added on the false premise that no CSS existed, and every one of them lost to the page-scoped rules on specificity (`.aurora-events-page .aurora-event-art` beats `.aurora-event-art`), so they were inert on the only page those classes appear. Removing 130 dead front-end lines and retiring the #943 budget waiver; budget back to 7489 / 173 exactly.
