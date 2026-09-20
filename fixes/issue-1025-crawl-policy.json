@@ -1,0 +1,161 @@
+{
+  "issue": 1025,
+  "title": "Crawl waste and authority-hub policy",
+  "status": "in_repo_only",
+  "live_wordpress_changed": false,
+  "closes_issue_as": "in-repo robots, sitemap, and noindex recommendations plus documented crawl-waste; live WordPress stays unchanged",
+  "related": {
+    "hygiene_snippet": "fixes/issue-1025-crawl-hygiene.php",
+    "apply_note": "fixes/issue-1025-apply.md",
+    "archive_policy": "fixes/issue-331-archive-sitemap-policy-v2.php",
+    "share_canonicalize": "fixes/gsc-404-query-param-canonicalize.php",
+    "homepage_paged": "fixes/issue-997-homepage-paged-canonical.php",
+    "article_matrix": "content/drafts/issue-1030-cross-link-matrix/",
+    "authority_pack": "content/drafts/issue-1025-authority-hub/",
+    "policy_doc": "docs/current-state/CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md"
+  },
+  "robots": {
+    "provider": "physical_file",
+    "repo_source": "fixes/robots.txt",
+    "change_live": false,
+    "change_repo_source": false,
+    "keep": [
+      "Sitemap: https://kriskrug.co/sitemap.xml",
+      "User-agent: *",
+      "Disallow: /wp-admin/",
+      "Allow: /wp-admin/admin-ajax.php",
+      "Disallow: /?s=",
+      "Disallow: /search/"
+    ],
+    "do_not_add": [
+      "Disallow: /tag/",
+      "Disallow: /category/",
+      "Disallow: /author/",
+      "Disallow: /feed/",
+      "Disallow: /*/feed/",
+      "Sitemap: https://kriskrug.co/news-sitemap.xml",
+      "Sitemap: https://kriskrug.co/image-sitemap-index-1.xml",
+      "Sitemap: https://kriskrug.co/video-sitemap-1.xml"
+    ],
+    "reason": "Archives stay crawlable so Google can honor noindex,follow from #331. Blocking /tag/, /category/, /author/, or feeds in robots.txt is broader than the accepted policy and would hide followable links. The site RSS at /feed/ must stay discoverable. Jetpack-only sitemap URLs 404 and must not be advertised."
+  },
+  "sitemap": {
+    "canonical": "https://kriskrug.co/sitemap.xml",
+    "resolves_to": "https://kriskrug.co/wp-sitemap.xml",
+    "include": ["post", "page"],
+    "exclude": ["users", "category", "post_tag", "page:home"],
+    "exclude_page_slug": "home",
+    "exclude_page_id": 2315,
+    "do_not_submit": [
+      "https://kriskrug.co/news-sitemap.xml",
+      "https://kriskrug.co/image-sitemap-index-1.xml",
+      "https://kriskrug.co/video-sitemap-1.xml"
+    ],
+    "owner": {
+      "taxonomies_and_users": "fixes/issue-331-archive-sitemap-policy-v2.php",
+      "home_alias_page": "fixes/issue-1025-crawl-hygiene.php"
+    }
+  },
+  "noindex": {
+    "directive": "noindex, follow",
+    "keep_classes": [
+      "is_author",
+      "is_tag",
+      "is_category",
+      "is_date",
+      "is_tax"
+    ],
+    "do_not_noindex": [
+      "singular_posts",
+      "singular_pages_except_home_alias",
+      "https://kriskrug.co/feed/"
+    ],
+    "do_not_bulk_noindex_thin_posts": true,
+    "do_not_broaden_331": true,
+    "owner": "fixes/issue-331-archive-sitemap-policy-v2.php"
+  },
+  "redirects": {
+    "home_alias": {
+      "from": ["/home", "/home/"],
+      "to": "/",
+      "status": 301,
+      "exact_path_only": true,
+      "live_owner": "redirection_plugin",
+      "repo_fallback": "fixes/issue-1025-crawl-hygiene.php"
+    },
+    "share_params": {
+      "keys": ["share", "nb", "amp"],
+      "status": 301,
+      "live_owner": "fixes/gsc-404-query-param-canonicalize.php",
+      "stop_minting": "fixes/issue-1025-crawl-hygiene.php"
+    },
+    "archive_feeds": {
+      "from": ["tag_feed", "author_feed"],
+      "to": "parent_html_archive",
+      "preserve": "https://kriskrug.co/feed/",
+      "leave_alone": ["category_feed", "comment_feed"],
+      "repo_owner": "fixes/issue-1025-crawl-hygiene.php"
+    },
+    "author_pagination": {
+      "from": "author /page/{n}/ where n >= 2",
+      "to": "first author page",
+      "repo_owner": "fixes/issue-1025-crawl-hygiene.php"
+    }
+  },
+  "feeds": {
+    "preserve": ["https://kriskrug.co/feed/"],
+    "suppress_discovery": ["tag_feed", "author_feed"],
+    "do_not_disable_main_rss": true
+  },
+  "thin_legacy_posts": {
+    "actions": ["keep_or_improve", "merge_and_301", "noindex"],
+    "forbidden": ["bulk_delete", "bulk_request_indexing"]
+  },
+  "authority_hub": {
+    "personal_site": "https://kriskrug.co/",
+    "module_id": "organizations-and-projects",
+    "surfaces": ["/about/", "/work/", "/speaking/"],
+    "required_deep_links": [
+      {
+        "url": "https://bc-ai.ca/",
+        "anchor": "BC + AI Ecosystem Association"
+      },
+      {
+        "url": "https://bc-ai.ca/certification/responsible-ai-professional/",
+        "anchor": "Responsible AI Professional Certification"
+      },
+      {
+        "url": "https://www.futureproof.website/festival/",
+        "anchor": "Futureproof Festival of AI"
+      },
+      {
+        "url": "https://www.futureproof.website/speakers/kris-krug/",
+        "anchor": "Kris Krüg at Futureproof"
+      }
+    ],
+    "article_rule": "Each new relevant personal article gets 1-3 contextual deep links to a matching BC + AI program/report or Futureproof page, not only homepages. The first paste matrix is content/drafts/issue-1030-cross-link-matrix/.",
+    "twitter_site": "owned by #1024; do not edit from this pack"
+  },
+  "gsc_before_state_dated": {
+    "as_of": "2026-09-15",
+    "coverage_last_updated": "2026-09-03",
+    "source": "issue #1025 body; not re-exported in this in-repo session",
+    "indexed": 1371,
+    "not_indexed": 2680,
+    "crawled_currently_not_indexed": 892,
+    "server_errors": 10,
+    "not_found": 125,
+    "duplicates_without_user_canonical": 33,
+    "do_not_treat_as_live_counts": true
+  },
+  "out_of_scope": [
+    "live WordPress writes",
+    "Code Snippets activate",
+    "Search Console export or Validate Fix",
+    "bulk Request Indexing",
+    "bulk thin-post deletes",
+    "Love GSC holds #994 #995 #274",
+    "Buffer publishes",
+    "theme robots or sitemap filters"
+  ]
+}

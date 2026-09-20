@@ -23,6 +23,7 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`current-state/AURORA-STYLESHEET-REBUILD-PLAN.md`](current-state/AURORA-STYLESHEET-REBUILD-PLAN.md) | Path A stylesheet rebuild plan of record (#423) |
 | [`current-state/SEO-INDEXING-RUNBOOK.md`](current-state/SEO-INDEXING-RUNBOOK.md) | Indexing/distribution checklist |
 | [`current-state/templates/owned-distribution-backlink-checklist.md`](current-state/templates/owned-distribution-backlink-checklist.md) | Per-article owned-distribution + backlink checklist (#1026) |
+| [`current-state/CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md`](current-state/CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md) | #1025 crawl-waste + authority-hub policy (robots/sitemap/noindex; no live apply) |
 | [`current-state/SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md`](current-state/SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md) | #1001 phase-1 nosniff + Referrer-Policy apply runbook (Pagely ARES; no live change) |
 | [`current-state/reports/`](current-state/reports/) | Explicit durable `make morning-truth-checkpoint` outputs; consult the checkpoint relevant to the release, incident, decision, or handoff |
 | [`current-state/archive/`](current-state/archive/) | Superseded May–June plans and closeouts (#549) |
