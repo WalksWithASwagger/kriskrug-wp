@@ -25,7 +25,7 @@ Scope: issue #306, stacked on PR #308 (`codex/issue-302-work-visual-cards`). Thi
 | `scripts/marquee/wp_sync.py`, `scripts/marquee/sync.py` | Requests session / env credential gate for sync execution | Medium-high | Migrate after confirming execute/dry-run boundaries and existing tests. |
 | `scripts/public_image_audit.py` | Requests auth session for authenticated image/media audit | Medium | Likely safe once caller expectations around `requests.Session` are separated from auth creation. |
 | `scripts/jetpack_feedback_audit.py` | Inline Basic auth for authenticated feedback reads | Medium | Privacy-sensitive read-only audit; migrate with tests that avoid dumping feedback payloads. |
-| `scripts/wp7-admin-readiness.py`, `scripts/wordcamp-mcp-smoke.py` | Inline Basic auth for admin/readiness probes | Medium | Good future low-risk candidates, but keep separate from this queue-count fix. |
+| `scripts/wp7-admin-readiness.py` | Inline Basic auth for admin/readiness probes | Medium | Good future low-risk candidate, but keep separate from this queue-count fix. `scripts/wordcamp-mcp-smoke.py` was a WordCamp-era WordPress.com MCP smoke; deleted 2026-09-21 (#1055). |
 | `scripts/mcp-wordpress-remote.sh` | Shell env export from WP credentials into MCP vars | Medium | Leave as shell-specific unless the MCP launch path is refactored. |
 | `scripts/seo-audit/inventory.py` | Credential gate against `WP_USER` / `WP_APP_PASSWORD` | Low-medium | Review with the rest of the SEO audit tooling. |
 
@@ -41,4 +41,4 @@ Scope: issue #306, stacked on PR #308 (`codex/issue-302-work-visual-cards`). Thi
 
 ## Follow-Up Boundary
 
-The next safe slice is either the admin/readiness probes (`wp7-admin-readiness.py`, `wordcamp-mcp-smoke.py`) or a dedicated write-client design for publisher/media uploads. Do not fold write-capable publish/backfill scripts into `WPClient` casually; they need explicit dry-run, slug/ID, rollback, and media-upload tests.
+The next safe slice is either the remaining admin/readiness probe (`wp7-admin-readiness.py`) or a dedicated write-client design for publisher/media uploads. Do not fold write-capable publish/backfill scripts into `WPClient` casually; they need explicit dry-run, slug/ID, rollback, and media-upload tests.

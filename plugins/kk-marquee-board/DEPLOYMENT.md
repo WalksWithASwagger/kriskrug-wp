@@ -22,7 +22,8 @@ approval + a WP application password). Nothing here runs automatically.
    python3 scripts/marquee/sync.py --execute  # live (KK approval) — creates boards, uploads OG images
    ```
 6. **Verify**: a board page renders the LED board, `og:image` resolves to the uploaded card, and the
-   board appears in `/sitemap.xml` (Jetpack auto-includes public CPTs).
+   board appears in core `wp-sitemap-*.xml` (public CPTs are auto-included;
+   Jetpack sitemap wording is a historical leftover).
 
 ## Path A — Upload via WP admin (fastest)
 

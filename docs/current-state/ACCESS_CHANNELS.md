@@ -1,6 +1,9 @@
-# Access Channels — How We Can Reach kriskrug.co Today
+# Access Channels — How We Can Reach kriskrug.co
 
-> **Freshness:** Verified 2026-08-29. Run `make doctor` and `make status-readonly` before relying on any channel; credentials, browser sessions, and hosting access can change independently of this repo.
+> **Freshness:** Channel inventory dated 2026-08-29, not a live “today”
+> claim. Run `make doctor` and `make status-readonly` before relying on any
+> channel; credentials, browser sessions, and hosting access can change
+> independently of this repo.
 
 This document records the supported ways an agent can observe or modify kriskrug.co. The site runs on Pagely and is not file-synced with this repository.
 
@@ -71,7 +74,7 @@ The old Cloudways setup is historical and was not used as planned. Consult `docs
 | Edit a post, page, or media record | No | Guarded | Yes | No | Snapshot and readback required |
 | Change a plugin or WordPress setting | No | Endpoint-dependent | Yes | Sometimes | Requires an exact approved workflow |
 | Deploy theme files | No | No | Avoid | Yes | Separate Track B deploy approval required |
-| Export the full site or database | No | No | Plugin-dependent | No | No verified full-export channel today |
+| Export the full site or database | No | No | Plugin-dependent | No | No verified full-export channel is documented |
 | Query the database directly | No | No | No | No | Requires separately verified SSH/database access |
 
 ## Recommended order of operations
