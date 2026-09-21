@@ -13,6 +13,7 @@ Read these first:
 5. **[TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)**, Track A vs Track B
 6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
 7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
+8. **[AGENT-RUNTIME-REFERENCE.md](AGENT-RUNTIME-REFERENCE.md)**, environment-specific runtime, auth, and validation guidance
 
 **Public/repository readback 2026-09-09:** WordPress `7.0.4`; Aurora live and repo `main` both `1.6.11` (`make check-live-parity`). Open PR and issue counts are volatile; re-run `make status-readonly` instead of copying them. Authenticated draft-queue counts remain session-dependent. The 2026-08-29 queue numbers below are dated evidence, not a current claim. #830-#833 are closed; do not begin #830.
 
