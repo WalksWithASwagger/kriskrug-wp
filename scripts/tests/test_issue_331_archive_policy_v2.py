@@ -160,8 +160,12 @@ echo json_encode(
             "#767",
             "merged PR #793",
             "2026-08-16 19:28 PT",
+            "snippet 26",
+            "2026-09-03",
+            "Do not re-apply",
         ):
             self.assertIn(expected, self.apply)
+        self.assertNotIn("Nothing here has been applied.", self.apply)
 
 
 if __name__ == "__main__":

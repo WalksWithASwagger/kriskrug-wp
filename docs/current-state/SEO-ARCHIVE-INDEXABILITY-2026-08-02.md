@@ -1,7 +1,14 @@
 # Archive Indexability Policy Proposal, 2026-08-02
 
+> **2026-09-21 reading note (#1059 / audit D24):** Dated 2026-08-02
+> proposal and measurement. #331 v2 snippet 26
+> (`fixes/issue-331-archive-sitemap-policy-v2.php`) was activated
+> 2026-09-03. Receipt:
+> [`reports/DEPLOY-767-331-2026-09-03.md`](reports/DEPLOY-767-331-2026-09-03.md).
+> **Do not treat this proposal as unshipped. Do not re-apply.**
+
 **Issue:** [#331](https://github.com/WalksWithASwagger/kriskrug-wp/issues/331)
-**Status:** PROPOSAL. Nothing live was changed. No snippet was created, activated, or deactivated. No cache was purged. No Search Console action was taken.
+**Status:** 2026-08-02 proposal. The v2 snippet shipped 2026-09-03; this file is dated measurement, not an apply queue. On 2026-08-02 nothing live was changed from this document.
 **Lane:** Track A (content / SEO ops)
 **Repo state at write time:** `main` at `dd87d4a`, branch `docs/331-archive-indexability`
 **Supersedes as the current measurement:** `reports/issue-331-archive-policy-20260712.md` (2026-07-12) and `reports/taxonomy-sitemap-plan-331-20260726.md` (2026-07-26). The policy shape in those two docs still holds. The numbers in them do not.

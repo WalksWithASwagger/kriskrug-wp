@@ -238,13 +238,14 @@ class ApplyIssue833MboLinksTests(unittest.TestCase):
         self.assertEqual(1, len(snapshots))
         self.assertEqual(stat.S_IMODE(snapshots[0].stat().st_mode), 0o600)
 
-    def test_runbook_keeps_live_write_and_834_as_separate_gates(self):
+    def test_runbook_records_applied_and_keeps_834_as_separate_gate(self):
         runbook = (MODULE.PACK / "APPLY.md").read_text(encoding="utf-8")
+        self.assertIn("Applied and closed", runbook)
         self.assertIn("fresh explicit live approval", runbook)
-        self.assertIn("No live write has been made", runbook)
         self.assertIn("#834", runbook)
         self.assertIn("--restore", runbook)
         self.assertNotIn("Fixes #833", runbook)
+        self.assertNotIn("No live write has been made", runbook)
 
 
 if __name__ == "__main__":
