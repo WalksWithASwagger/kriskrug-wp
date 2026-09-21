@@ -305,9 +305,9 @@ class ApplyIssue830CyberLoveGardenTests(unittest.TestCase):
         self.assertEqual(1, len(snapshots))
         self.assertEqual(stat.S_IMODE(snapshots[0].stat().st_mode), 0o600)
 
-    def test_apply_md_does_not_claim_the_write_already_happened(self):
+    def test_apply_md_records_applied_and_closed(self):
         apply_md = (MODULE.PACK / "APPLY.md").read_text(encoding="utf-8")
-        self.assertIn("Prepared, not applied", apply_md)
+        self.assertIn("Applied and closed", apply_md)
         self.assertIn("--apply", apply_md)
         self.assertIn("#826", apply_md)
         self.assertNotIn("\u2014", apply_md)

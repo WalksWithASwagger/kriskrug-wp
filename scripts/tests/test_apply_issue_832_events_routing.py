@@ -322,9 +322,9 @@ class ApplyIssue832EventsRoutingTests(unittest.TestCase):
             run_main("--restore", str(snapshot))
         self.assertIn("2250", str(caught.exception))
 
-    def test_apply_md_does_not_claim_the_write_already_happened(self):
+    def test_apply_md_records_applied_and_closed(self):
         apply_md = (MODULE.PACK / "APPLY.md").read_text(encoding="utf-8")
-        self.assertIn("Prepared, not applied", apply_md)
+        self.assertIn("Applied and closed", apply_md)
         self.assertIn("--apply", apply_md)
         self.assertIn("2250", apply_md)
         self.assertIn("#635", apply_md)

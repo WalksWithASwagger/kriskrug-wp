@@ -1,8 +1,14 @@
 # Archive sitemap policy — apply / rollback (#331)
 
+> **2026-09-21 reading note (#1059 / audit D23):** #331 v2 snippet 26 was
+> activated 2026-09-03. Receipt:
+> [`docs/current-state/reports/DEPLOY-767-331-2026-09-03.md`](../docs/current-state/reports/DEPLOY-767-331-2026-09-03.md).
+> **Do not re-apply or re-activate this snippet.** The 2026-08-16 body below
+> is pre-deploy evidence and rollback procedure, not an apply queue.
+
 Prepared 2026-08-16. Reconfirmed the same evening (logged-out curl,
-2026-08-16 19:28 PT). **Nothing here has been applied.** Activating this
-snippet is a live write and stays KK-gated. Do not change `robots.txt`. Do
+2026-08-16 19:28 PT). **Nothing here had been applied as of that write.**
+The live write is the 2026-09-03 snippet-26 activation. Do not change `robots.txt`. Do
 not submit, resubmit, or remove anything in Search Console from this lane.
 
 REST `/wp/v2/users` and `/?author=N` probes are **not** this packet. Those
@@ -116,7 +122,10 @@ Do **not** `Disallow` these paths in `robots.txt`. Google needs to crawl the
 
 ---
 
-## Apply (human-gated; do not run from this PR)
+## Apply (historical; snippet 26 is already live)
+
+**Do not repeat activation.** Snippet 26 shipped 2026-09-03. The steps
+below are the 2026-08-16 apply record. Use Rollback if KK asks.
 
 1. Re-count live child sitemaps. Do not treat 1,668 / 1,019 as frozen.
 2. Snapshot the Code Snippets inventory outside the repo (same pattern as
@@ -250,4 +259,5 @@ into the sitemap, which is the exact regression v2 exists to prevent.
 The `unset()` is gone and the two taxonomy names are kept in a body comment, so
 the intent stays greppable. Verified above that the return is still empty.
 
-**Activation is still KK-gated and unchanged.** Nothing here has been applied.
+**Activation shipped 2026-09-03** (snippet 26). Do not re-apply.
+Rollback remains deactivate + cache purge.
