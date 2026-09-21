@@ -1,7 +1,13 @@
 # [CONTENT] Add You Can't Drink Data to the /ai-ethics/ hub
 
+> **STATUS 2026-09-21 (#1061): applied and closed as #829.** Do not re-file
+> or re-apply. Receipt:
+> [`issue-829-applied-20260829.md`](../../docs/current-state/reports/issue-829-applied-20260829.md).
+> The "Owns (write)" / "Blocked by: child 1" packet below is pre-apply
+> filing evidence.
+
 **Parent:** [#402](https://github.com/WalksWithASwagger/kriskrug-wp/issues/402)
-**Child:** 4 of 9
+**Child:** 4 of 9. Filed and applied as #829; do not file again.
 **Suggested labels:** `content`, `seo`, `needs-human-review`, `priority:medium`
 **Lane:** Track A
 **Research:** `content/drafts/2026-08-02-seo-authority-hubs/hub-plan.md` term 3, `link-matrix.csv` data rows 7-10

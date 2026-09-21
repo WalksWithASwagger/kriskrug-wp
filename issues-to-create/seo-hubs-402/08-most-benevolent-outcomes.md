@@ -1,7 +1,13 @@
 # [CONTENT] Wire Most Benevolent Outcomes inbound and outbound links
 
+> **STATUS 2026-09-21 (#1061): applied and closed as #833.** Do not re-file
+> or re-apply. Front door:
+> [`WORK-PLAN-2026-09-09.md`](../../docs/current-state/WORK-PLAN-2026-09-09.md)
+> records #833 live. Sibling apply packet:
+> [`fix-833/APPLY.md`](../../content/drafts/2026-08-02-seo-authority-hubs/fix-833/APPLY.md).
+
 **Parent:** [#402](https://github.com/WalksWithASwagger/kriskrug-wp/issues/402)
-**Child:** 8 of 9
+**Child:** 8 of 9. Filed and applied as #833; do not file again.
 **Suggested labels:** `content`, `seo`, `needs-human-review`, `priority:medium`
 **Lane:** Track A
 **Research:** `content/drafts/2026-08-02-seo-authority-hubs/hub-plan.md` terms 1 and 2, `link-matrix.csv` data rows 1-6

@@ -1,7 +1,13 @@
 # [CONTENT] Route Vancouver AI meetup recaps to /events/
 
+> **STATUS 2026-09-21 (#1061): applied and closed as #832.** Do not re-file
+> or re-apply. Front door:
+> [`WORK-PLAN-2026-09-09.md`](../../docs/current-state/WORK-PLAN-2026-09-09.md)
+> records meetup recaps routing to `/events/`. Sibling apply packet:
+> [`fix-832/APPLY.md`](../../content/drafts/2026-08-02-seo-authority-hubs/fix-832/APPLY.md).
+
 **Parent:** [#402](https://github.com/WalksWithASwagger/kriskrug-wp/issues/402)
-**Child:** 7 of 9
+**Child:** 7 of 9. Filed and applied as #832; do not file again.
 **Suggested labels:** `content`, `seo`, `needs-human-review`, `priority:medium`
 **Lane:** Track A
 **Research:** `content/drafts/2026-08-02-seo-authority-hubs/hub-plan.md` term 6, `link-matrix.csv` data rows 18-25
