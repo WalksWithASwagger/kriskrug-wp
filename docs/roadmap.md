@@ -1,8 +1,10 @@
 # Kris Krug Development Roadmap
 
 > **STATUS: Historical.** Superseded by `docs/current-state/ROADMAP.md`.
+> Era-1 copy below still says “current priorities … for kk.ca”. Canonical
+> public site is `kriskrug.co`. Do not treat this file as a current queue.
 
-Current priorities and planned improvements for kk.ca
+Historical priorities and planned improvements from the kk.ca era. Canonical public site is kriskrug.co.
 
 ---
 
@@ -314,9 +316,9 @@ Current priorities and planned improvements for kk.ca
 
 ### Infrastructure
 
-**Current:**
+**Then (era-1, historical):**
 - WordPress hosting
-- Domain (kk.ca)
+- Domain (kk.ca; now kriskrug.co)
 - GitHub repository
 
 **Needed:**

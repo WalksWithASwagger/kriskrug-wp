@@ -234,3 +234,7 @@ Pause amplification for a post or platform if:
 ## Closeout Criteria for #56
 
 Issue #56 can be treated as strategy-complete when this doc is accepted as the v1 playbook and a future execution issue owns tool selection, template implementation, calendar setup, first package approval, and metric logging.
+
+## Related per-article record
+
+The required post-publish launch log is [`../templates/owned-distribution-backlink-checklist.md`](../templates/owned-distribution-backlink-checklist.md) (#1026): one LinkedIn native post, one newsletter setup, optional BC + AI / Futureproof angles, UTM, and GSC windows. This amplification playbook stays the 10-15 derivative-asset system. Do not treat a filled #1026 record as permission to ship the full derivative calendar.

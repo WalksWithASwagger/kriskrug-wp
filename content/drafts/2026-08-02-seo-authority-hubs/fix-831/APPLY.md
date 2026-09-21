@@ -1,11 +1,15 @@
 # #831 APPLY: Matt McKenna hub links
 
-**Prepared, not applied. Do not PATCH until #826 is live and KK says go.**
-Script is dry-run by default. `--apply` is the only write switch, and it refuses unless the five #826 category fixes are already live (3330 out of `web-early-blog` / 1757 into `events-reports` / 1676).
+**Applied and closed.** The 2026-09-09 runbook records #831 live on
+`/ai-conversations/` and closed. Do not reapply or extend this pack.
+Script remains dry-run by default; `--apply` is rollback-only now.
+Restore commands below still work.
 
-Parent: #402. This is child 6 of 9. Child 1 (#826) owns the 3330 recategorization. This pack does not recategorize 3330 and does not add a second 3183 link there.
+Parent: #402. This is child 6 of 9. Child 1 (#826) already owns the 3330
+recategorization. This pack does not recategorize 3330 and does not add a
+second 3183 link there.
 
-Do not close #831 or #402 when this runbook merges.
+Issue #831 is closed. Keep parent #402 open.
 
 ## Live reconfirm (logged-out public REST + HTML GET, 2026-08-19T23:20Z)
 
@@ -23,7 +27,7 @@ Five target URLs were 200: `/ai-conversations/`, the 3183 interview, 2833, 2423,
 
 ### #826 gate readback (public categories, not a write)
 
-Public REST on 2026-08-19 already shows the five #826 category moves: 3814 in 1678, **3330 in 1676 and out of 1757**, 1067 / 1063 / 1147 in 1756. The `--apply` gate would pass on that evidence. This pack is still **not applied**. KK still has to approve the diff.
+Public REST on 2026-08-19 already showed the five #826 category moves: 3814 in 1678, **3330 in 1676 and out of 1757**, 1067 / 1063 / 1147 in 1756. That pre-apply gate evidence is dated; the pack later shipped. Do not treat the 2026-08-19 note as a current apply.
 
 ### Block recount (today's HTML, not the 2026-08-02 index)
 

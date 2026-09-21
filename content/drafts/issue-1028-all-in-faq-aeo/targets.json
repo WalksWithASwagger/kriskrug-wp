@@ -1,0 +1,41 @@
+{
+  "issue": 1028,
+  "track": "A",
+  "status": "paste_ready_not_live",
+  "live_reconfirm": "2026-09-20T22:10:00Z",
+  "related_rail": "#1030 live series rail; do not paste locked Related line",
+  "faqpage_gate": "only after visible FAQ ships unchanged",
+  "forbidden": [
+    "live_wp_publish",
+    "event_schema",
+    "buffer",
+    "email",
+    "request_indexing"
+  ],
+  "items": [
+    {
+      "id": 12783,
+      "kind": "posts",
+      "slug": "headed-east-for-all-in-montreal",
+      "url": "https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/",
+      "modified_gmt_at_reconfirm": "2026-09-18T23:09:01",
+      "insert_before": "<section id=\"owned-network-links-2026\"",
+      "faq_file": "blocks/all-in-01-faq.html",
+      "faqpage_file": "blocks/all-in-01-faqpage.html",
+      "live_faq_heading": false,
+      "live_series_rail": true
+    },
+    {
+      "id": 12788,
+      "kind": "posts",
+      "slug": "all-in-montreal-robot-mirror",
+      "url": "https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/",
+      "modified_gmt_at_reconfirm": "2026-09-18T23:09:21",
+      "insert_before": "<section id=\"owned-network-links-2026\"",
+      "faq_file": "blocks/all-in-02-faq.html",
+      "faqpage_file": "blocks/all-in-02-faqpage.html",
+      "live_faq_heading": false,
+      "live_series_rail": true
+    }
+  ]
+}

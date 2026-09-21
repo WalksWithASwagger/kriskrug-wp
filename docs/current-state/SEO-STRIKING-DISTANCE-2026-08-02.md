@@ -1,5 +1,14 @@
 # Issue #249: `you can't drink data` striking-distance re-measure
 
+> **STATUS 2026-09-21 (#1055):** Dated 2026-08-02/03 re-measure, not a current
+> apply queue. The body still says the human apply gate on merged PR `#330`
+> (About 1208 `you can't drink data` sentence) “is still open.” That sentence
+> is capture-date evidence. Local docs do not record whether that write later
+> shipped; `#829` later added other inbound anchors to post 11936. Do not
+> treat the open-gate claim as current apply work. Verify with a human before
+> any About 1208 write. Jetpack-deactivated / theme-owned titles still apply
+> before `make seo-audit`.
+
 **Captured:** 2026-08-03T01:28:01Z (UTC), session dated 2026-08-02
 **Corrected:** 2026-08-03T02:40Z after an adversarial verify pass. See "Correction log" below.
 **Mode:** read-only. Public HTML with cache bypass, public REST, and authenticated REST GET. Zero writes.
@@ -274,7 +283,7 @@ Housekeeping. Bundle it with the next snippet edit.
 
 > The 28-day evidence gate is now clear for 2026-06-12 through 2026-07-09: Page: 294 impressions, 6 clicks, 2.04% CTR, average position 7.96. Exact `you cant drink data` query variants are clustering around positions 8.4-8.7 with impressions but no clicks. **Decision: use the single contextual homepage/About backlink reserved by the original spec, with anchor text `you can't drink data`.** This is a measured striking-distance action, not a new-content bet.
 
-That was acted on in **PR #330, merged 2026-07-13** (`958984f`, "seo: add you can't drink data review handoff"), which selected About page 1208, wrote the exact sentence, and recorded the identity guards, snapshot, content-only REST boundary, rollback, and readback steps. The remaining gate on that PR is a human approving the sentence and applying the write. That gate is still open. Nothing about it is cancelled by this report.
+That was acted on in **PR #330, merged 2026-07-13** (`958984f`, "seo: add you can't drink data review handoff"), which selected About page 1208, wrote the exact sentence, and recorded the identity guards, snapshot, content-only REST boundary, rollback, and readback steps. As of this 2026-08-03 capture, the remaining gate on that PR was a human approving the sentence and applying the write. **That “still open” gate is historical evidence from this file; do not treat it as a current apply.** Nothing about it is cancelled by this report, and this file does not invent a later ship/no-ship status.
 
 **The new evidence, and why I think it is worth a second look before that write happens.**
 

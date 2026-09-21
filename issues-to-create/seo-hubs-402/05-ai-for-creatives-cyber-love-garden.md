@@ -1,7 +1,14 @@
 # [CONTENT] Add Cyber Love Garden to the /ai-for-creatives/ hub
 
+> **STATUS 2026-09-21 (#1061): applied and closed as #830.** Do not re-file
+> or re-apply. Front door:
+> [`WORK-PLAN-2026-09-09.md`](../../docs/current-state/WORK-PLAN-2026-09-09.md)
+> records #830 live on `/ai-for-creatives/`. Sibling apply packet:
+> [`fix-830/APPLY.md`](../../content/drafts/2026-08-02-seo-authority-hubs/fix-830/APPLY.md).
+> Opening this file alone must not revive #830.
+
 **Parent:** [#402](https://github.com/WalksWithASwagger/kriskrug-wp/issues/402)
-**Child:** 5 of 9
+**Child:** 5 of 9. Filed and applied as #830; do not file again.
 **Suggested labels:** `content`, `seo`, `needs-human-review`, `priority:medium`
 **Lane:** Track A
 **Research:** `content/drafts/2026-08-02-seo-authority-hubs/hub-plan.md` term 8, `link-matrix.csv` data rows 26-29

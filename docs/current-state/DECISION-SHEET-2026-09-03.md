@@ -1,26 +1,39 @@
 # Decision Sheet, 2026-09-03
 
-> **2026-09-09 reading note:** This sheet is dated evidence, not a current
-> apply queue. #735 is ruled in the press-kit copy deck (PR #949). #830-#833
-> are closed as applied. **Do not begin #830.** #834 remains open and still
-> needs a fresh authenticated preflight. Re-run `make status-readonly` for
-> counters; do not copy the 32-issue figure below.
+> **2026-09-21 reading note (#1053):** Dated 2026-09-03 evidence, not an apply
+> queue. **Do not apply anything from this sheet.**
+>
+> - #767 snippets 24–25 and #331 v2 snippet 26 were activated 2026-09-03.
+>   Receipt: [`reports/DEPLOY-767-331-2026-09-03.md`](reports/DEPLOY-767-331-2026-09-03.md).
+>   Do not re-apply. HSTS stays on #709.
+> - #735 is ruled in the press-kit copy deck (PR #949).
+> - #830–#833 are live and closed. **Do not begin #830.**
+> - #834 remains open and still needs a fresh authenticated preflight.
+>
+> Re-run `make status-readonly` for counters; do not copy the 32-issue figure
+> below. Ignore any remaining “Nothing here has been applied,” “#767 first,”
+> or “approve #832 first” wording in the 2026-09-03 body.
 
-One page for the rulings that unblock everything else. 32 issues are open and
-**30 of them carry a human gate**: 25 `needs-human-review`, 8 `blocked`, 5
-`needs-decision`. The bottleneck is decisions, not agent throughput.
+One page for the rulings that, on 2026-09-03, unblocked everything else.
+32 issues were open that day and **30 of them carried a human gate**: 25
+`needs-human-review`, 8 `blocked`, 5 `needs-decision`. The bottleneck that
+day was decisions, not agent throughput.
 
-Each item below states the ask, the evidence behind it, a recommendation, and
-what it would touch if you say yes. **Nothing here has been applied.** Every
-live lane is staged to the line before its write and stops there.
+Each item below states the ask as written on 2026-09-03. **#767 and
+#830–#833 later shipped; do not re-apply them.** Remaining items are not
+authorized by this sheet.
 
 ---
 
-## 1. #767 security, apply the username-enumeration fix
+## 1. #767 security, username-enumeration fix (applied 2026-09-03)
 
-**Priority: high. This is the one I would do first.**
+**Status: applied. Do not re-apply.** Receipt:
+[`reports/DEPLOY-767-331-2026-09-03.md`](reports/DEPLOY-767-331-2026-09-03.md).
+Snippets 24–25 are live; sitemap via #331 v2 snippet 26. HSTS stays on #709.
 
-**Ask:** approve applying the three prepared snippets.
+The 2026-09-03 ask below is kept as evidence. It is not a current apply.
+
+**Ask (2026-09-03):** approve applying the three prepared snippets.
 
 **Evidence, re-verified 2026-09-03 with `scripts/check_user_enumeration.sh`:
 4 of 4 checks still FAIL**, which is the documented pre-apply state.
@@ -103,8 +116,8 @@ These four issues are now closed. **Do not begin #830.**
 | #832 meetup recaps | 8 | 8 | Routes recap posts to `/events/` |
 | #833 Most Benevolent Outcomes | 5 | 6 | Inbound and outbound worldview links |
 
-**Recommendation:** approve #832 first. It is the largest, it routes to a page
-whose art direction is already settled, and it is pure internal linking.
+**Recommendation (2026-09-03, superseded):** the sheet asked to approve #832
+first. **2026-09-09:** all four are closed. Do not begin #830 or #832.
 
 **Blast radius:** live post and page content. Each script snapshots and supports
 `--restore`. Dated 2026-09-03: #834 had no apply script yet. **2026-09-09:**
@@ -161,7 +174,7 @@ waits only on you.
 
 ## What I would do with a yes
 
-In order of value per unit of your attention: **#767**, because it is a live
-security exposure and the fix is written and waiting. Then **#735**, because two
-one-line rulings unblock the press kit, the copy deck, and the brand canon.
-Then **#832**, the largest staged content lane. Everything else can follow.
+**Superseded 2026-09-21.** #767 and #830–#833 already shipped. Do not treat
+“#767 first” or “then #832” as the next apply. Remaining open items on this
+sheet still need their own current-state read and a fresh KK yes; this file
+does not authorize them.

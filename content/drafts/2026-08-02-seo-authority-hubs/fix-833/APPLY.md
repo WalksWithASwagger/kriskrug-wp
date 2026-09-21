@@ -1,6 +1,8 @@
 # #833 APPLY: Most Benevolent Outcomes links
 
-**Prepared, not applied. No live write has been made.** This pack needs a fresh explicit live approval before any single-item `--apply` command.
+**Applied and closed.** The 2026-09-09 runbook records #833 live and
+closed. Do not reapply. Script remains dry-run by default; `--apply` is
+rollback-only now. Restore still works.
 
 Parent: #402. This is child 8 of 9. It owns six exact links across five objects and writes content only.
 
@@ -10,7 +12,7 @@ Parent: #402. This is child 8 of 9. It owns six exact links across five objects 
 - Apply #833 before #834. Both touch post 11700, and #834 must rebase its exact selector after #833 is verified live.
 - Do not recategorize post 3814, create a spiritual hub, alter titles, schema, theme files, or the collection footer.
 - Do not touch #834's glossary link on post 11700. The script preserves the existing `/glossary/` href count.
-- Do not close #833, #402, or #339 when this repo-only pack merges.
+- Issue #833 is closed. Keep parent #402 open. Do not reopen #339 from this pack.
 
 ## Exact write set
 

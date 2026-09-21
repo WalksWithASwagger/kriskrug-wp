@@ -1,11 +1,14 @@
 # #832 APPLY: route Vancouver AI meetup recaps to /events/
 
-**Prepared, not applied. Do not PATCH until #826 is live and KK says go.**
-Script is dry-run by default. `--apply` is the only write switch, and it refuses unless the five #826 category fixes are already live.
+**Applied and closed.** Closed 2026-09-03; the 2026-09-09 runbook records
+meetup recaps routing to `/events/`. Do not reapply or extend this pack.
+Script remains dry-run by default; `--apply` is rollback-only now.
+Restore commands below still work.
 
-Parent: #402. This is child 7 of 9. It **adds** `/events/` links. It does not swap existing `/vancouver-ai/` destinations.
+Parent: #402. This is child 7 of 9. It **added** `/events/` links. It does
+not swap existing `/vancouver-ai/` destinations.
 
-Do not close #832 or #402 when this runbook merges.
+Issue #832 is closed. Keep parent #402 open.
 
 **Do not write page 2250.** #635 owns `/events/`. The apply script hard-refuses ID 2250 on `--item-id`, `--restore`, `targets.items`, and any POST URL that contains `/pages/2250`.
 

@@ -2,12 +2,14 @@
 
 **Decided 2026-05-16 with KK.** Captures how the kriskrug.co work splits so each stream can move at its own pace without blocking the other.
 
-**Branch model updated 2026-05-29:** the track split is still current, but the
-old `aurora/v2` branch instruction is historical. Canonical Aurora source is now
-on `main`; Track B theme changes should start from `main` on focused
-`codex/...` branches. `aurora/v2` remains preserved historical evidence, and
-`aurora/v3-reconcile` remains deferred reconcile evidence for specific
-theme-polish files. Do not merge either branch wholesale.
+**Branch model updated 2026-05-29; remotes gone as of the 2026-07-12 hygiene
+audit:** the track split is still current, but the old `aurora/v2` branch
+instruction is historical. Canonical Aurora source is now on `main`; Track B
+theme changes should start from `main` on focused `codex/...` branches. The
+`aurora/v2` and `aurora/v3-reconcile` remotes are **no longer on the remote**
+([`REPO-HYGIENE-AUDIT-2026-07-12.md`](REPO-HYGIENE-AUDIT-2026-07-12.md)). Do
+not fetch or merge either branch. Treat leftover mentions below as dated
+evidence, not pullable refs.
 
 ---
 
@@ -29,7 +31,7 @@ So we split them.
 | **Branch** | `main` |
 | **Cadence** | Weekly (publishing) + ad-hoc enrichment |
 | **Owner** | Publisher-mode Claude sessions |
-| **Touches** | Posts, pages, media, taxonomies, Jetpack settings, Code Snippets (PHP/CSS), schema JSON-LD, Redirection rules, alt text |
+| **Touches** | Posts, pages, media, taxonomies, Code Snippets (PHP/CSS), schema JSON-LD, Redirection rules, alt text. Jetpack SEO is deactivated; the theme owns titles. |
 | **Never touches** | Theme files (`theme/kk-aurora/` or Catch Responsive), FSE templates, theme.json |
 | **Lives in** | `content/drafts/`, `fixes/`, `scripts/notion-to-wp/`, `docs/current-state/` |
 
@@ -56,7 +58,7 @@ So we split them.
 
 | | |
 |---|---|
-| **Branch** | Current model: `main` plus focused `codex/...` PR branches. Historical model: `aurora/v2`; preserved reconcile evidence: `aurora/v3-reconcile`. |
+| **Branch** | Current model: `main` plus focused `codex/...` PR branches. Historical model (remotes gone): `aurora/v2` / `aurora/v3-reconcile`. |
 | **Cadence** | Paced sprints, not weekly |
 | **Owner** | Architect-mode Claude sessions (separate context) |
 | **Touches** | `theme/kk-aurora/` (theme.json, templates, patterns, assets), FSE Site Editor on staging, theme settings on production at cutover |
@@ -65,7 +67,7 @@ So we split them.
 
 ### What Track B does
 
-- **Start from current `main`** — the old branch (`origin/claude/setup-wordpress-rebuild-KVLxh`, last touched 2026-01-18) and the later `aurora/v2` line are historical. Pull specific evidence from `aurora/v3-reconcile` only when the dated handoff names the file or commit to salvage.
+- **Start from current `main`** — the old branch (`origin/claude/setup-wordpress-rebuild-KVLxh`, last touched 2026-01-18) and the later `aurora/v2` / `aurora/v3-reconcile` remotes are historical and gone. Do not fetch them.
 - **Stand up staging** — install on Cloudways dev (`24.144.80.107`) or Local by Flywheel
 - **Iterate** via WP Site Editor on staging; push tweaks back to the branch
 - **Smoke-test** all post types (long-form, image-heavy, embed-heavy — Make Culture and Your Taste are the stress tests)
@@ -106,7 +108,7 @@ If you're doing both in the same session, you've probably scope-crept; finish on
 
 - **Sequencing big calls between tracks.** Example: if Track A's reader audit suggests a homepage hero rewrite, should that rewrite happen on the current theme (Track A) or wait for Aurora (Track B)? Default: ship on current theme if the fix is ≤ a few hours; defer to Aurora if it's a layout-level decision. KK has final call on close ones.
 - **Coordination cadence.** No standing weekly sync between tracks because there's currently one human (KK) reviewing both. Revisit if/when that changes.
-- **Branch hygiene** for Track B. Keep theme PRs short-lived and based on `main`; treat `aurora/v2` and `aurora/v3-reconcile` as evidence branches unless a dated handoff explicitly revives them. Stale-branch risk is real — the 4-month gap on the original Aurora branch is exactly what this section is trying to prevent recurring.
+- **Branch hygiene** for Track B. Keep theme PRs short-lived and based on `main`. Do not treat `aurora/v2` or `aurora/v3-reconcile` as pullable evidence branches; those remotes are gone. Stale-branch risk is real — the 4-month gap on the original Aurora branch is exactly what this section is trying to prevent recurring.
 
 ---
 

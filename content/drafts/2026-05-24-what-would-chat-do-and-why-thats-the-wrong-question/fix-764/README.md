@@ -1,6 +1,9 @@
 # Issue #764: post 12032 dead Related link
 
-**Prepared, not applied.** Runbook, apply commands, and rollback live in
+**Applied 2026-08-17T05:03Z.** Do not re-apply. Sibling apply record:
+[`../../2026-06-16-storyhive-haus-of-owl-jordan-dack/fix-764/APPLY.md`](../../2026-06-16-storyhive-haus-of-owl-jordan-dack/fix-764/APPLY.md).
+Receipt: [`../../../../docs/current-state/reports/gate0-content-apply-20260817.md`](../../../../docs/current-state/reports/gate0-content-apply-20260817.md).
+Runbook, apply commands, and rollback live in
 [`../../2026-06-16-storyhive-haus-of-owl-jordan-dack/fix-764/RUNBOOK.md`](../../2026-06-16-storyhive-haus-of-owl-jordan-dack/fix-764/RUNBOOK.md).
 
 One line changes in the Related block:

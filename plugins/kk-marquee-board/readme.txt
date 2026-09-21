@@ -7,7 +7,7 @@ Requires PHP: 7.4
 Stable tag: 0.1.0
 License: GPLv2 or later
 
-Serves The Marquee at /marquee/ — a custom post type for the self-improving marquee boards that lead the homepage. Public, REST-enabled (synced from the repo by scripts/marquee/sync.py), and auto-included in the Jetpack sitemap.
+Serves The Marquee at /marquee/ — a custom post type for the self-improving marquee boards that lead the homepage. Public, REST-enabled (synced from the repo by scripts/marquee/sync.py), and auto-included in core WordPress sitemaps (`wp-sitemap-*.xml`). Jetpack sitemap wording is historical leftover.
 
 == Description ==
 

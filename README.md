@@ -67,7 +67,7 @@ docs/current-state/              # Dated truth snapshots plus recovery/redesign 
   ├── WORK-PLAN-*.md             # Dated day runbooks; the newest is active
   ├── MASTER-PLAN-2026-07-30.md  # Hygiene + lane sequencing plan of record
   ├── TWO-TRACK-MODEL.md         # The active operating model
-  ├── ACCESS_CHANNELS.md         # MCP / REST / Chrome / SSH — what works today
+  ├── ACCESS_CHANNELS.md         # MCP / REST / browser / SFTP — verified vs unverified channels
   ├── BACKUP_PLAN.md             # The four pieces of a real WP backup + paths to get them
   ├── ROLLBACK_PLAYBOOK.md       # If a change breaks prod, here's the order of operations
   ├── INCIDENT-2026-05-15-overwritten-post.md   # Postmortem for the connector overwrite
@@ -114,9 +114,11 @@ Notion → kriskrug.co publishing, post-publish enrichment, schema maintenance, 
 FSE theme rebuild and polish. Touches `theme/kk-aurora/`, FSE templates, theme.json. Avoid bundling theme edits with content publishing changes in the same commit.
 
 - Current branch model: start Track B work from `main` on a
-  lane-scoped `codex/...` branch. Use `aurora/v3-reconcile` only as deferred
-  evidence for specific theme-polish files, and keep `aurora/v2` references as
-  historical context unless a dated handoff says otherwise.
+  lane-scoped `codex/...` branch. The old `aurora/v2` and
+  `aurora/v3-reconcile` remotes are gone
+  ([`REPO-HYGIENE-AUDIT-2026-07-12.md`](docs/current-state/REPO-HYGIENE-AUDIT-2026-07-12.md)).
+  Do not fetch or treat them as pullable evidence unless a dated handoff
+  names a commit that is still reachable another way.
 - Worktree safety: run `git worktree list` before editing. Treat every listed
   side worktree as owned until its branch, PR, and filesystem state are
   verified; do not rely on hard-coded paths from historical handoffs.

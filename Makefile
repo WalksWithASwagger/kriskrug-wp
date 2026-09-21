@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test ruff-changed javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
+.PHONY: help test python-test ruff-changed javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
 
 PYTHON ?= python3
 VARLOCK ?= varlock
@@ -238,6 +238,9 @@ wp7-smoke: ## Run read-only public WP rollout smoke checks (BASE_URL=https://kri
 
 seo-publisher-smoke: ## Run read-only publisher/schema smoke checks (#425) (BASE_URL=https://kriskrug.co)
 	@python3 scripts/seo_publisher_smoke.py --base "$${BASE_URL:-https://kriskrug.co}" --posts "$${POSTS:-3}"
+
+sitemap-followthrough: ## Read-only #274 public sitemap follow-through (BASE_URL=https://kriskrug.co). Never talks to GSC.
+	@python3 scripts/sitemap_followthrough.py --base "$${BASE_URL:-https://kriskrug.co}"
 
 check-live-parity: ## Detect live-vs-repo Aurora theme version drift (#546) (BASE_URL=https://kriskrug.co)
 	@$(PYTHON) scripts/check_live_theme_parity.py --base "$${BASE_URL:-https://kriskrug.co}"

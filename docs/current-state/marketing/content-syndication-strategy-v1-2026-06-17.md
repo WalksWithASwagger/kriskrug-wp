@@ -131,3 +131,7 @@ Pause syndication if any of these occur:
 ## Closeout Criteria for #52
 
 Issue #52 can be treated as strategy-complete when this doc is accepted as the v1 playbook and a future execution issue or checklist owns account setup, first-package approval, and pilot measurement.
+
+## Related per-article record
+
+For the default owned-channel launch (LinkedIn, newsletter, topic-relevant BC + AI / Futureproof, partner asks, 7 / 28 / 90 day GSC), copy [`../templates/owned-distribution-backlink-checklist.md`](../templates/owned-distribution-backlink-checklist.md) into the draft package. This syndication playbook stays the full-reprint / Medium / Dev.to / Substack ruleset. Do not treat a filled #1026 record as permission to syndicate.

@@ -2,7 +2,7 @@
 
 **Status:** audit only. No label was applied by this lane.
 **Audited:** 2026-08-03T03:20Z UTC (2026-08-02 local session), against 59 open issues.
-**Apply script:** [`scripts/ops/relabel-2026-08-02.sh`](../../scripts/ops/relabel-2026-08-02.sh). It refuses to run without `CONFIRM=1`.
+**Apply script:** `scripts/ops/relabel-2026-08-02.sh` was a one-shot 2026-08-02 helper. Deleted 2026-09-21 (#1055). Do not recreate or re-run it. This file is the audit record only.
 
 Applying labels without KK approval is a HITL violation in this repo, so this lane produced the audit and the script and stopped. A human runs the script.
 

@@ -1,7 +1,13 @@
 # [CONTENT] Wire internal links on /photography/ (page 12013)
 
+> **STATUS 2026-09-21 (#1061): applied and closed as #827.** Do not re-file
+> or re-apply. Receipt:
+> [`issue-827-applied-20260818.md`](../../docs/current-state/reports/issue-827-applied-20260818.md).
+> The "Owns (write)" / "Blocked by: child 1" packet below is pre-apply
+> filing evidence.
+
 **Parent:** [#402](https://github.com/WalksWithASwagger/kriskrug-wp/issues/402)
-**Child:** 2 of 9
+**Child:** 2 of 9. Filed and applied as #827; do not file again.
 **Suggested labels:** `content`, `seo`, `needs-human-review`, `priority:high`
 **Lane:** Track A
 **Research:** `content/drafts/2026-08-02-seo-authority-hubs/hub-plan.md` terms 4, 7, 10 (structural hub only), `link-matrix.csv` data rows 11-14
