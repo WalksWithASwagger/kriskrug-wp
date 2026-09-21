@@ -17,7 +17,7 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`current-state/WORK-PLAN-2026-09-09.md`](current-state/WORK-PLAN-2026-09-09.md) | **Active runbook**: issue #4's mapped media gate and authority-hub #829-#833 are complete; #834 is the remaining approval-gated hub leftover and needs a fresh preflight |
 | [`current-state/MASTER-PLAN-2026-07-30.md`](current-state/MASTER-PLAN-2026-07-30.md) | Truth → reclaim → product lanes |
 | [`current-state/TWO-TRACK-MODEL.md`](current-state/TWO-TRACK-MODEL.md) | Active Track A / Track B decision rule |
-| [`current-state/ACCESS_CHANNELS.md`](current-state/ACCESS_CHANNELS.md) | Varlock, REST, browser, GitHub, and SFTP access — what is verified or unverified today |
+| [`current-state/ACCESS_CHANNELS.md`](current-state/ACCESS_CHANNELS.md) | Varlock, REST, browser, GitHub, and SFTP access — dated channel inventory, re-verify before use |
 | [`current-state/BACKUP_PLAN.md`](current-state/BACKUP_PLAN.md) | The four pieces of a real WP backup and how to get them |
 | [`current-state/ROLLBACK_PLAYBOOK.md`](current-state/ROLLBACK_PLAYBOOK.md) | Order of operations if a prod change breaks |
 | [`current-state/AURORA-STYLESHEET-REBUILD-PLAN.md`](current-state/AURORA-STYLESHEET-REBUILD-PLAN.md) | Path A stylesheet rebuild plan of record (#423) |

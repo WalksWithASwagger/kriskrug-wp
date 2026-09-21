@@ -69,7 +69,7 @@ consistent.
 - [`DEPLOYMENT.md`](DEPLOYMENT.md): the runbook that applies **only if** KK approves a deploy.
 - [`readme.txt`](readme.txt): WordPress-style plugin readme and changelog.
 
-Known stale reference in both of those files: they describe boards being indexed via the Jetpack
-sitemap. Live serves core WordPress sitemaps at `wp-sitemap-*.xml`. Public CPTs are auto-included
-either way, so nothing is broken, but the wording should be corrected next time those files are
-touched.
+Those files previously said boards are indexed via the Jetpack sitemap. That
+wording is historical leftover: Jetpack SEO is deactivated, and live serves
+core WordPress sitemaps at `wp-sitemap-*.xml`. Public CPTs are auto-included
+there. Corrected 2026-09-21 (#1055).

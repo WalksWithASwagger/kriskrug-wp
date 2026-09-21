@@ -1,6 +1,9 @@
 # Kris Krug Agent Swarm Architecture
 
 > **STATUS: Historical.** This describes the dormant GitHub Actions agent swarm. Current sessions use `AGENTS.md` and `docs/current-state/TWO-TRACK-MODEL.md`.
+> The era-1 diagram below still labels production `kk.ca` and a Cloudways WP 6.9
+> dev server. Canonical public site is `kriskrug.co` on Pagely. The Cloudways
+> path was not used as planned. Do not treat those labels as current.
 
 Complete system architecture and how everything connects.
 
@@ -16,7 +19,7 @@ Complete system architecture and how everything connects.
 │  Production Site          GitHub Repository          Dev Server │
 │  ┌──────────────┐        ┌────────────────┐        ┌──────────┐ │
 │  │  kk.ca    │◄──────►│ Issue Tracking │◄──────►│ Cloudways│ │
-│  │  (Live WP)   │        │  Automation    │        │ (WP 6.9) │ │
+│  │ (historical) │        │  Automation    │        │ (unused) │ │
 │  └──────────────┘        │  Agent Swarm   │        └──────────┘ │
 │                          └────────────────┘                   │
 │                                 ▲                             │

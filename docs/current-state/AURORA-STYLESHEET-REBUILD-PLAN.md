@@ -1,5 +1,11 @@
 # Aurora stylesheet rebuild — Path A implementation plan (2026-07-25)
 
+> **STATUS 2026-09-21 (#1055):** Dated 2026-07-25 plan against Aurora `1.4.3`.
+> The leftover “`AGENTS.md` is stale on versions” item (live `1.3.37` / repo
+> `1.3.40`) already landed elsewhere. Do not treat that correction as still
+> owed, and do not copy `1.4.3` forward as current production without a
+> public `style.css` readback.
+
 **Status:** Plan of record for [#423](https://github.com/WalksWithASwagger/kriskrug-wp/issues/423). **Docs only — this commit ships zero CSS, PHP, HTML, or `theme.json` changes.**
 **Lane:** Track B (Aurora theme)
 **Decision being implemented:** KK, 2026-07-24 — **Path A, ground-up token-based rebuild.** The 2026-07-19 agent memo recommended B/C (incremental); KK overrode to A. This document plans A. It does not re-argue the decision.
@@ -191,7 +197,7 @@ Worst offenders: `h3` (10×, across 3 files), `.aurora-page-title` (9×, 3 files
 
 The issue's eval criteria require the inventory to be cross-checked against what actually loads. Done:
 
-**Repo is live.** All six CSS files are **byte-identical** between `theme/kk-aurora/` at `0064b4e` and `https://kriskrug.co/wp-content/themes/kk-aurora/…` (md5 match on all six). Public `style.css` reports `Version: 1.4.3`. **This contradicts `AGENTS.md`**, which still says live 1.3.37 / repo 1.3.40. Live and repo are in sync at 1.4.3. The repo-side inventory above therefore *is* the production inventory — a rare and very useful condition for starting a rebuild.
+**Repo was live on 2026-07-25.** All six CSS files were **byte-identical** between `theme/kk-aurora/` at `0064b4e` and `https://kriskrug.co/wp-content/themes/kk-aurora/…` (md5 match on all six). Public `style.css` reported `Version: 1.4.3`. This file also said that contradicted `AGENTS.md` (live 1.3.37 / repo 1.3.40). That version-pin correction already landed; `AGENTS.md` no longer pins those numbers. The 2026-07-25 inventory was the production inventory *that day*. Do not copy `1.4.3` forward as current production.
 
 **Nothing loads as a separate theme stylesheet.** Every one of the eight key routes serves exactly **one** `<link rel=stylesheet>`: `https://s5102.pcdn.co/wp-content/boost-cache/static/78b2cf14fa.min.css` — Jetpack Boost's concatenated, minified bundle on the Pagely CDN.
 
@@ -605,7 +611,7 @@ Stated plainly, per the issue's eval criterion that the inventory be cross-check
 4. **`--aurora-lux-delay` and `--service-ribbon`** are consumed via `var()` but declared nowhere in theme CSS. Confirm whether they are set by JS, by page content, or are simply dead.
 5. **Logged-in / editor surfaces.** Everything above is logged out. The block-editor canvas (and its measured divergence, §1.2) has not been captured.
 6. **Admin-side plugin CSS.** Out of scope for the rebuild but should be confirmed as not leaking to the front end.
-7. **`AGENTS.md` is stale on versions.** It states live 1.3.37 / repo 1.3.40; measured 2026-07-25 both are **1.4.3** and byte-identical. Worth a one-line correction in a separate docs commit — deliberately **not** made here, to keep this commit single-concern.
+7. **`AGENTS.md` version pins (historical, already corrected).** This plan recorded live 1.3.37 / repo 1.3.40 vs measured 2026-07-25 **1.4.3**. That one-line correction already landed elsewhere. Not a current docs debt.
 
 ---
 
@@ -621,7 +627,7 @@ Stated plainly, per the issue's eval criterion that the inventory be cross-check
 - `revive-port.css:31–54` re-declares 24 properties `style.css` already declares — a mechanical delete, but it changes rendering order semantics and belongs in follow-up #5.
 - `--focus-ring` is declared twice with different values (`style.css:56`, `revive-port.css:54`). One-line fix; deliberately left for follow-up #5 so it lands behind the screenshot gate.
 - `functions.php` handles 1–4 declare no dependencies. Adding them is three lines; it changes cascade order and therefore rendering, so it belongs in follow-up #3.
-- `AGENTS.md`'s version line is wrong (§7 item 7). Separate commit, separate concern.
+- `AGENTS.md`'s version line was wrong on 2026-07-25 (§7 item 7). That correction already landed; not current debt.
 
 ---
 

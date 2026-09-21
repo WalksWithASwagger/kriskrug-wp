@@ -1,5 +1,11 @@
 # CSS dead-code, overlap, and snippet-emission audit (2026-07-25)
 
+> **STATUS 2026-09-21 (#1055):** Dated 2026-07-25 measurement against Aurora
+> `1.4.3`. The “as it is served today” / “`AGENTS.md` still claims live
+> `1.3.37` / repo `1.3.40`” wording below is historical. `AGENTS.md` no
+> longer pins those versions. Do not treat `1.4.3` as current production
+> without a public `style.css` readback.
+
 **Issue:** [#256 — [OPS] CSS dead-code, schema snippet, and snippets-overlap audit](https://github.com/WalksWithASwagger/kriskrug-wp/issues/256)
 **Feeds:** #423 ground-up stylesheet rebuild (Path A, KK-approved). This document is the *evidence base*; the target architecture is designed separately.
 **Lane:** Track B measurement only. **Zero code changed.** No `.css`, `.php`, `.html`, or `theme.json` was modified by this pass.
@@ -45,7 +51,7 @@ All 80 returned `200` (the 404 probe returned `404`, as intended). No live write
 | Repo `kk-aurora` version | **1.4.3** | `theme/kk-aurora/style.css` header |
 | Live vs repo `style.css` | **byte-identical** | `diff -q livestyle.css theme/kk-aurora/style.css` → no differences |
 
-This matters: it means the dead-code findings apply to production *as it is served today*, not to a repo line that has drifted ahead of live. **`AGENTS.md` is stale on this point** — it still claims live 1.3.37 / repo 1.3.40, last verified 2026-07-19. Live and repo are both 1.4.3 as of this readback. (Not corrected here; that is a docs commit, not a Track B audit commit.)
+This mattered on 2026-07-25: the dead-code findings applied to production *as it was served that day*, not to a repo line that had drifted ahead of live. The file also said **`AGENTS.md` is stale on this point** (live 1.3.37 / repo 1.3.40, last verified 2026-07-19). That correction already landed elsewhere; `AGENTS.md` no longer pins those versions. Live and repo were both 1.4.3 as of this readback. Do not copy `1.4.3` forward as current production.
 
 ---
 
