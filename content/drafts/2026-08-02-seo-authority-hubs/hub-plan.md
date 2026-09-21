@@ -3,6 +3,14 @@
 Issue [#402](https://github.com/WalksWithASwagger/kriskrug-wp/issues/402). Researched 2026-08-02.
 Plan only. Read `README.md` first for method and for what rests on inference.
 
+> **STATUS 2026-09-21 (#1070): applied and closed for #826 / #827 / #829–#833.**
+> Do not re-apply those packs from this file. Sibling
+> [`README.md`](README.md) has the 2026-09-21 execution-status table. Front door:
+> [`WORK-PLAN-2026-09-09.md`](../../../docs/current-state/WORK-PLAN-2026-09-09.md).
+> **#828** (term 10, negotiation checklist) and **#834** (term 9, `krug ai`)
+> remain valid research. Spoke tables below are the 2026-08-02 plan, not an
+> apply queue for closed issues.
+
 Insertion points reference block indexes from the live rendered body, counted by walking
 block-level tags in order (`<p>`, `<h2>`, `<h3>`, `<ul>`, `<ol>`, `<figure>`, `<blockquote>`).
 Block 1 is the first block after the featured image.
