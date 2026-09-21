@@ -5,7 +5,7 @@ Script is dry-run by default. `--apply` is the only write switch, and it refuses
 
 Parent: #402. This is child 2 of 9. Child 1 (#826) still owns 1067 / 1063 / 1147. This pack does not recategorize or retitle them.
 
-Do not close #827 or #402 when this runbook merges.
+Issue #827 is closed. Keep parent #402 open. Do not reapply.
 
 ## Live reconfirm (logged-out + authenticated GET, 2026-08-17T06:35Z)
 

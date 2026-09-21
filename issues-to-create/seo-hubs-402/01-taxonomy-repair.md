@@ -1,7 +1,14 @@
 # [CONTENT] Recategorize five miscategorized posts and repair the dead contact link
 
+> **STATUS 2026-09-21 (#1053): applied and closed as #826.** Do not re-file
+> or re-apply. Receipt:
+> [`issue-826-applied-20260818.md`](../../docs/current-state/reports/issue-826-applied-20260818.md).
+> Post 2819 contact href is `https://kriskrug.co/contact/`. The
+> `kriskrug.com/contact` defect below is pre-apply evidence from the 2026-08-16
+> filing.
+
 **Parent:** [#402](https://github.com/WalksWithASwagger/kriskrug-wp/issues/402)
-**Child:** 1 of 9. **File this one first.**
+**Child:** 1 of 9. Filed and applied first; do not file again.
 **Suggested labels:** `content`, `seo`, `needs-human-review`, `priority:high`
 **Lane:** Track A
 **Research:** `content/drafts/2026-08-02-seo-authority-hubs/hub-plan.md` (Category fixes + Dead links), `link-matrix.csv` data row 30
@@ -17,7 +24,7 @@ Worst case: post 1067 (2006 Hardcore Superstar photoshoot for a valet company) i
 
 The 2026-08-15 grooming dossier (PR #769) split #402 into nine children and put this pass first because later children edit the same posts' link surface. Recategorize before those inserts.
 
-This child also owns the one dead-link **repair** in the matrix: post 2819 still points at `http://www.kriskrug.com/contact` (wrong domain, connection failure). Repoint to `https://kriskrug.co/contact/`. That is data row 30. Child 5 later adds a Cyber Love Garden sentence on the same post; do not add that sentence here.
+This child also owned the one dead-link **repair** in the matrix: as of the 2026-08-16 filing, post 2819 still pointed at `http://www.kriskrug.com/contact` (wrong domain, connection failure). #826 repointed it to `https://kriskrug.co/contact/`. That is data row 30. Child 5 (#830, now closed) later added a Cyber Love Garden sentence on the same post; do not add that sentence here and do not redo the href.
 
 Declared term IDs (re-verify live before PATCH) from `scripts/seo-backfill/linkinject_lib.py`:
 

@@ -1,5 +1,12 @@
 # #402 SEO authority hubs: child issue drafts
 
+> **STATUS 2026-09-21 (#1053): filing packet, not an apply queue.** #826,
+> #827, and #829–#833 are live and closed. **Do not land #826 or begin #830.**
+> Only #834 remains an open hub leftover (fresh authenticated preflight
+> required). #828 is a separate writing task, not this wave. Keep parent #402
+> open. Front door:
+> [`WORK-PLAN-2026-09-09.md`](../../docs/current-state/WORK-PLAN-2026-09-09.md).
+
 **Parent:** [#402](https://github.com/WalksWithASwagger/kriskrug-wp/issues/402) (keep open; this packet does not close it)
 **Research (merged):** [PR #670](https://github.com/WalksWithASwagger/kriskrug-wp/pull/670) → `content/drafts/2026-08-02-seo-authority-hubs/`
 **Split proposal:** [`docs/current-state/reports/BACKLOG-GROOMING-DOSSIER-2026-08-15.md`](../../docs/current-state/reports/BACKLOG-GROOMING-DOSSIER-2026-08-15.md) section 3 (PR #769)
@@ -39,13 +46,13 @@ Apply on filing. Do **not** apply `agent:ready` or `swarm-ready` at create time;
 
 Parent #402 already has `enhancement`, `help wanted`. Leave those on the parent. Do not copy `help wanted` onto the children.
 
-## Land first: taxonomy prep (#826)
+## Historical apply order (complete except #834)
 
-**Land [#826](https://github.com/WalksWithASwagger/kriskrug-wp/issues/826) first.** Five posts carry a `kk-collection-footer` derived from category. Recategorizing rewrites (or, if the footer is baked into `post_content`, requires this child to rewrite) the link surface every later child edits. Today a 2006 valet photoshoot is presented as Vancouver AI ecosystem content.
+**[#826](https://github.com/WalksWithASwagger/kriskrug-wp/issues/826) already landed.** Do not re-apply it. Five posts carried a `kk-collection-footer` derived from category; recategorizing rewrote (or, if the footer was baked into `post_content`, required this child to rewrite) the link surface every later child edited. The 2006 valet photoshoot no longer belongs in this apply queue.
 
-`hub-plan.md` listed category fixes as priority 4. The auto-footer coupling wins: child 1 is prep, not cleanup.
+`hub-plan.md` listed category fixes as priority 4. The auto-footer coupling made child 1 prep, not cleanup.
 
-Children #827–#834 are already filed. Apply order:
+Children #827–#834 were filed 2026-08-16. #827 and #829–#833 are closed as applied. Historical apply order (do not replay):
 
 1. Land #827 (photography hub) after #826. Highest-leverage structural fix.
 2. Land #828 after #827. Same pages/posts (12013, 1222, 1056); #828 adds the checklist sentence after 1210 is rewritten.
@@ -87,9 +94,11 @@ Data row 1 is the first row after the header (file line 2).
 - Do not close #402. Schema guidance and `AGENTS.md` SEO guardrails stay on the parent.
 - Search Console was not available to PR #670. Ranking URL and intent claims are on-site inference. Re-check live by ID/slug before writing; skip a row if the link is already present.
 
-## Paste-ready epic block (KK only)
+## Paste-ready epic block (KK only, 2026-08-16 filing copy)
 
-Children are filed. Do not post until KK reviews. Canonical copy also lives in [`docs/current-state/reports/seo-hub-split-402-20260816.md`](../../docs/current-state/reports/seo-hub-split-402-20260816.md).
+Children were filed 2026-08-16. Do not re-post and do not treat the fenced
+"Land #826 first" / "none of the planned hub wirings have shipped" copy as
+current. Canonical filing copy also lives in [`docs/current-state/reports/seo-hub-split-402-20260816.md`](../../docs/current-state/reports/seo-hub-split-402-20260816.md).
 
 ```markdown
 ## Split into per-hub children, 2026-08-16

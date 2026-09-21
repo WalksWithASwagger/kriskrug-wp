@@ -36,8 +36,8 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`current-state/CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md`](current-state/archive/CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md) | Redacted history-scan findings and safe rewrite/force-push preflight |
 | [`current-state/CREDENTIAL-HISTORY-REWRITE-EXECUTION-2026-05-19.md`](current-state/archive/CREDENTIAL-HISTORY-REWRITE-EXECUTION-2026-05-19.md) | Execution log of the rewrite, force-updated branches, and post-rewrite recovery steps |
 | [`current-state/GITHUB-QUEUE-RECOVERY-2026-05-19.md`](current-state/archive/GITHUB-QUEUE-RECOVERY-2026-05-19.md) | Queue recovery after rewrite: replacement PRs, CI gate fix, merges, and cleanup |
-| [`current-state/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md`](current-state/archive/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) | Current agent-swarm lanes and execution order |
-| [`current-state/SWARM-STATUS-2026-05-18.md`](current-state/archive/SWARM-STATUS-2026-05-18.md) | Current command-desk status after the first bounded swarm |
+| [`current-state/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md`](current-state/archive/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) | Historical agent-swarm lanes and execution order (archived May 2026) |
+| [`current-state/SWARM-STATUS-2026-05-18.md`](current-state/archive/SWARM-STATUS-2026-05-18.md) | Historical command-desk status after the first bounded swarm (archived May 2026) |
 | [`current-state/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md`](current-state/archive/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md) | Next-batch Notion inventory and local dry-run packs |
 | [`current-state/NEXT-PUBLISHING-PLAN-2026-05-18.md`](current-state/archive/NEXT-PUBLISHING-PLAN-2026-05-18.md) | Security gate, live-post verification, and ranked next publishing plan |
 | [`current-state/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md`](current-state/archive/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md) | Read-only audit of public posts, local draft packs, and issue lanes after the overwrite incident |
@@ -109,4 +109,4 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 
 ---
 
-**Last reviewed:** 2026-09-04. This index does not exhaustively list every dated file under `docs/current-state/`; use its front-door index and `make status-readonly` for current truth. Update this index whenever documentation is added, removed, or reclassified.
+**Last reviewed:** 2026-09-21. This index does not exhaustively list every dated file under `docs/current-state/`; use its front-door index and `make status-readonly` for current truth. Update this index whenever documentation is added, removed, or reclassified. Archived May 2026 rows above are historical evidence, not current lanes.

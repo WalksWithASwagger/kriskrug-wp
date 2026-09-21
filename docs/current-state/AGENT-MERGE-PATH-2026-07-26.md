@@ -6,7 +6,7 @@
 > successes. The `agent-safe-merge` label is now inert. This file is kept as the record of
 > why, and what a real fix would require.
 >
-> Verified today:
+> Verified 2026-07-26 / 2026-08-23 (historical):
 > 1. Actions secret `AGENT_MERGE_TOKEN` was never set. Every `Agent safe merge` run
 >    fails at the first step with `Repo secret AGENT_MERGE_TOKEN is missing.`
 >    The workflow has never merged anything.
@@ -15,14 +15,14 @@
 >    GitHub refuses `Can not approve your own pull request`. The PAT must belong to a
 >    **different** write-access account, not the PR author.
 >
-> **What actually works today:** `main` has `enforce_admins: false` and KK holds admin,
-> so `gh pr merge <n> --squash --admin` goes through. Required checks are `strict: true`,
-> so branches read `BEHIND`; check file overlap against `main` before an admin merge
-> rather than assuming the stale base is safe. Dependabot PRs have a different author
-> and take a normal approve plus merge.
->
-> Fixing this properly means step 1 below on a second account. Until then the queue
-> drains by admin override only.
+> **What this file taught in July 2026 (do not copy):** it named
+> `gh pr merge <n> --squash --admin` as the daily drain. That is **not**
+> current policy. [`AGENTS.md`](../../AGENTS.md) requires
+> `gh pr merge <n> --squash --delete-branch` with **no `--admin`** unless KK
+> explicitly asks to override a red or stale check. `main` now requires
+> **0 approving reviews**, `Test PR / summary` green, and the branch up to
+> date with `main` (`strict: true`). The deleted workflow and `--admin`
+> default below are historical evidence only.
 
 ## Problem
 
