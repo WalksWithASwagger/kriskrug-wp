@@ -27,6 +27,7 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 | [`current-state/SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md`](current-state/SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md) | #1001 phase-1 nosniff + Referrer-Policy apply runbook (Pagely ARES; no live change) |
 | [`current-state/reports/`](current-state/reports/) | Explicit durable `make morning-truth-checkpoint` outputs; consult the checkpoint relevant to the release, incident, decision, or handoff |
 | [`current-state/archive/`](current-state/archive/) | Superseded May–June plans and closeouts (#549) |
+| [`audits/`](audits/) | Dated stale-docs/code scouts (Wave 1 [`stale-2026-09-21.md`](audits/stale-2026-09-21.md), Wave 3 [`stale-2026-09-22.md`](audits/stale-2026-09-22.md)). Find-only inventories, not a front door or apply queue |
 | [`current-state/AURORA-MOTION-GOVERNANCE-2026-05-20.md`](current-state/archive/AURORA-MOTION-GOVERNANCE-2026-05-20.md) | Motion budget and QA rules for Aurora |
 | [`current-state/TOMORROW-ROADMAP-2026-05-20.md`](current-state/archive/TOMORROW-ROADMAP-2026-05-20.md) | Historical next-session roadmap after rewrite recovery and branch/worktree cleanup |
 | [`current-state/WORK-PLAN-2026-05-20.md`](current-state/archive/WORK-PLAN-2026-05-20.md) | Historical execution plan after Wave 3 completion and Track B QA setup |
@@ -109,4 +110,4 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 
 ---
 
-**Last reviewed:** 2026-09-21. This index does not exhaustively list every dated file under `docs/current-state/`; use its front-door index and `make status-readonly` for current truth. Update this index whenever documentation is added, removed, or reclassified. Archived May 2026 rows above are historical evidence, not current lanes.
+**Last reviewed:** 2026-09-21 (#1061). This index does not exhaustively list every dated file under `docs/current-state/`; use its front-door index and `make status-readonly` for current truth. Stale-scout inventories live under [`audits/`](audits/). Update this index whenever documentation is added, removed, or reclassified. Archived May 2026 rows above are historical evidence, not current lanes.
