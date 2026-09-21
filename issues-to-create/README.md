@@ -13,7 +13,7 @@ Use `make issues FILE=...` only after KK approves the "still valid" list.
 - [`contact-form-implementation-stub-from-277.md`](contact-form-implementation-stub-from-277.md) → contingent stub; file only if KK picks Option B on #277
 - [`testimonials-showpiece-v2-swarm-2026-08-01.md`](testimonials-showpiece-v2-swarm-2026-08-01.md) → #593–#602; **#593 and #602 still open**
 - [`world-cup-fashion-cake-agent-tasks.md`](world-cup-fashion-cake-agent-tasks.md) → never filed; needs KK before filing
-- [`seo-hubs-402/`](seo-hubs-402/) → filed 2026-08-16 as #826–#834 (children of #402). Keep #402 open. Receipt: [`docs/current-state/reports/seo-hub-split-402-20260816.md`](../docs/current-state/reports/seo-hub-split-402-20260816.md)
+- [`seo-hubs-402/`](seo-hubs-402/) → filed 2026-08-16 as #826–#834 (children of #402). **#826, #827, and #829–#833 are closed as applied.** Only #834 remains an open hub leftover; keep #402 open. Do not re-file or re-apply the closed children. Receipt: [`docs/current-state/reports/seo-hub-split-402-20260816.md`](../docs/current-state/reports/seo-hub-split-402-20260816.md)
 
 ## Archive (every mapped issue closed)
 

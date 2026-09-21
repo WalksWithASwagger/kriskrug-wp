@@ -1,11 +1,14 @@
 # #830 APPLY: Cyber Love Garden hub links
 
-**Prepared, not applied. Do not PATCH until KK says go.**
-Script is dry-run by default. `--apply` is the only write switch, and it refuses unless #826's post 2819 contact-href repair is already live (no `kriskrug.com/contact`).
+**Applied and closed.** The 2026-09-09 runbook records #830 live on
+`/ai-for-creatives/` and closed. Do not reapply or extend this pack.
+Script remains dry-run by default; `--apply` is rollback-only now.
+Restore commands below still work.
 
-Parent: #402. This is child 5 of 9. Child 1 (#826) still owns the 2819 contact-href repair (row 30). This pack does not recategorize anything and does not retouch that href except to abort if the repair is missing.
+Parent: #402. This is child 5 of 9. Child 1 (#826) already owns the 2819
+contact-href repair (row 30). This pack does not recategorize anything.
 
-Do not close #830 or #402 when this runbook merges.
+Issue #830 is closed. Keep parent #402 open.
 
 ## Live reconfirm (logged-out public REST, 2026-08-19T23:21:16Z)
 

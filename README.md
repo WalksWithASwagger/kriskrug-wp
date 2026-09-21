@@ -67,7 +67,7 @@ docs/current-state/              # Dated truth snapshots plus recovery/redesign 
   ├── WORK-PLAN-*.md             # Dated day runbooks; the newest is active
   ├── MASTER-PLAN-2026-07-30.md  # Hygiene + lane sequencing plan of record
   ├── TWO-TRACK-MODEL.md         # The active operating model
-  ├── ACCESS_CHANNELS.md         # MCP / REST / Chrome / SSH — what works today
+  ├── ACCESS_CHANNELS.md         # MCP / REST / browser / SFTP — verified vs unverified channels
   ├── BACKUP_PLAN.md             # The four pieces of a real WP backup + paths to get them
   ├── ROLLBACK_PLAYBOOK.md       # If a change breaks prod, here's the order of operations
   ├── INCIDENT-2026-05-15-overwritten-post.md   # Postmortem for the connector overwrite
