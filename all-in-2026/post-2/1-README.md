@@ -1,4 +1,6 @@
-# ALL IN 2026 - Post 2 staging (kriskrug.co)
+# ALL IN 2026 - Post 2 (kriskrug.co)
+
+**Published September 16:** [ALL IN Montréal: a robot walks up to a mirror](https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/). Canonical copy: [post.md](post.md); Gutenberg body: [post.html](post.html); [publication evidence and source notes](EDITORIAL-NOTES.md). KK cleared all interviews, excluding Jeff’s private financials, and authorized publication. The historical staging notes below retain earlier holds that are now superseded. The final article incorporates the evening recording and batches 6–7, with six inline photos and an eight-photo captioned gallery.
 
 Material for Kris's second ALL IN 2026 post (Sep 15 evening -> Sep 16 ~2:45 PM ET). **Nothing here is published.** Start with **`HANDOFF.md`** — the complete working package (asset index, tape analyses + quotes with clearance flags, verified facts + sources, protest storyline, open names, voice notes, loose structure). Full per-photo captions and per-tape analyses live in issue #1023 (documentation/index for this directory).
 

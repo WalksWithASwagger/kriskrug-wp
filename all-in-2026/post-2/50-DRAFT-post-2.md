@@ -1,3 +1,5 @@
+> Historical alternate draft. The published version is [post.md](post.md); current permissions and evidence are in [EDITORIAL-NOTES.md](EDITORIAL-NOTES.md).
+
 # DRAFT - Post 2 (working title: "Champions, Saplings, and Chalk on the Sidewalk")
 
 **STATUS: DRAFT v2. NOT FOR PUBLICATION.** Kris's Sep 16 7:17 PM edits applied: quotes cleared (Jeff Ward section excepted, permanent house rule), resolved names unflagged, hyperlinking pass done.
