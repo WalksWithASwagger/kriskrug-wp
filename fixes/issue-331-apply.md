@@ -8,9 +8,8 @@
 
 Prepared 2026-08-16. Reconfirmed the same evening (logged-out curl,
 2026-08-16 19:28 PT). **Nothing here had been applied as of that write.**
-The live write is the 2026-09-03 snippet-26 activation. Do not change
-`robots.txt`. Do not submit, resubmit, or remove anything in Search Console
-from this lane.
+The live write is the 2026-09-03 snippet-26 activation. Do not change `robots.txt`. Do
+not submit, resubmit, or remove anything in Search Console from this lane.
 
 REST `/wp/v2/users` and `/?author=N` probes are **not** this packet. Those
 are #767 / merged PR #793. This lane does not edit those files.
