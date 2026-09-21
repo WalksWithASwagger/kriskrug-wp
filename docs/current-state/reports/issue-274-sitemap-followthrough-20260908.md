@@ -1,5 +1,7 @@
 # Issue #274: sitemap follow-through after #331 (dated verification receipt)
 
+**Current measurement:** [`issue-274-sitemap-followthrough-20260921.md`](issue-274-sitemap-followthrough-20260921.md). Keep this 2026-09-08 file as dated evidence (1,021-URL crawl). Do not treat these counts as live.
+
 **Captured:** 2026-09-08T06:03Z–06:10Z (UTC)
 **Mode:** Track A, read-only. Public HTTP/XML/HTML only. Zero WordPress writes. Zero cache purges. Zero Search Console submits, removals, resubmits, indexing requests, or Validate Fix.
 **Refs:** [#274](https://github.com/WalksWithASwagger/kriskrug-wp/issues/274) (this receipt). Cross-link only: [#331](https://github.com/WalksWithASwagger/kriskrug-wp/issues/331) deployed archive policy ([receipt](DEPLOY-767-331-2026-09-03.md), snippet 26). Do not start #994 / #995 / #996 / #997 / #402 / #339 from this file.

@@ -26,7 +26,7 @@ It authorizes a reviewable proof PR, not a live deployment.
 
 | File | What it covers |
 |---|---|
-| [SEO-INDEXING-RUNBOOK.md](SEO-INDEXING-RUNBOOK.md) | Indexing/distribution checklist (#426) |
+| [SEO-INDEXING-RUNBOOK.md](SEO-INDEXING-RUNBOOK.md) | Indexing/distribution checklist (#426). Public #274 refresh: `make sitemap-followthrough` and [reports/issue-274-sitemap-followthrough-20260921.md](reports/issue-274-sitemap-followthrough-20260921.md) |
 | [templates/owned-distribution-backlink-checklist.md](templates/owned-distribution-backlink-checklist.md) | Per-article owned-distribution + backlink launch record (#1026). Copy into the draft package; does not authorize live posts |
 | [CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md](CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md) | #1025 robots/sitemap/noindex recommendations. In-repo only; does not authorize live apply |
 | [SEO-PUBLISHER-SCHEMA-2026-07-19.md](SEO-PUBLISHER-SCHEMA-2026-07-19.md) | Schema/publisher rules (`make seo-publisher-smoke`) |
