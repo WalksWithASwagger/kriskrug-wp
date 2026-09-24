@@ -3,7 +3,7 @@ import sys
 import unittest
 from pathlib import Path
 from unittest import mock
-from urllib.error import HTTPError
+from urllib.error import HTTPError, URLError
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -245,6 +245,92 @@ class WPClientRequestTests(unittest.TestCase):
         ):
             out = self.client.get("posts")
         self.assertEqual(out, {"ok": 1})
+
+
+class WPClientWriteReplayTests(unittest.TestCase):
+    """#1036: reads retry transient failures; writes are never replayed."""
+
+    def setUp(self):
+        self.client = WPClient("https://example.com", "u", "p", retries=2)
+
+    def _run(self, method, seq):
+        calls = []
+
+        def fake_urlopen(req, timeout=0):
+            calls.append(req.get_method())
+            item = seq.pop(0)
+            if isinstance(item, Exception):
+                raise item
+            return item
+
+        with (
+            mock.patch("urllib.request.urlopen", side_effect=fake_urlopen),
+            mock.patch("time.sleep") as sleep,
+        ):
+            try:
+                out = self.client.request(method, "posts", payload=None)
+            except Exception as err:  # noqa: BLE001 - returned for assertions
+                out = err
+        return out, calls, sleep
+
+    def test_get_lost_response_is_retried(self):
+        out, calls, _ = self._run(
+            "GET", [URLError("reset"), _fake_response('{"ok": 1}')]
+        )
+        self.assertEqual(out, {"ok": 1})
+        self.assertEqual(calls, ["GET", "GET"])
+
+    def test_get_5xx_exhausts_bounded_retries(self):
+        out, calls, _ = self._run("GET", [_http_error(502)] * 3)
+        self.assertIsInstance(out, HTTPError)
+        self.assertEqual(len(calls), 3)
+
+    def test_writes_lost_response_attempted_once(self):
+        for method in ("POST", "PUT", "PATCH", "DELETE"):
+            with self.subTest(method=method):
+                out, calls, sleep = self._run(
+                    method, [URLError("reset"), _fake_response('{"id": 9}')]
+                )
+                self.assertIsInstance(out, URLError)
+                self.assertEqual(calls, [method])
+                sleep.assert_not_called()
+                self.assertTrue(
+                    any("ambiguous" in n for n in getattr(out, "__notes__", []))
+                )
+
+    def test_writes_5xx_attempted_once(self):
+        for method in ("POST", "PUT", "PATCH", "DELETE"):
+            with self.subTest(method=method):
+                out, calls, _ = self._run(
+                    method, [_http_error(503), _fake_response('{"id": 9}')]
+                )
+                self.assertIsInstance(out, HTTPError)
+                self.assertEqual(out.code, 503)
+                self.assertEqual(calls, [method])
+
+    def test_post_helper_does_not_replay(self):
+        seq = [URLError("reset"), _fake_response('{"id": 9}')]
+        calls = []
+
+        def fake_urlopen(req, timeout=0):
+            calls.append(req.get_method())
+            item = seq.pop(0)
+            if isinstance(item, Exception):
+                raise item
+            return item
+
+        with (
+            mock.patch("urllib.request.urlopen", side_effect=fake_urlopen),
+            mock.patch("time.sleep"),
+        ):
+            with self.assertRaises(URLError):
+                self.client.post("posts", {"title": "x"})
+        self.assertEqual(calls, ["POST"])
+
+    def test_write_4xx_not_retried(self):
+        out, calls, _ = self._run("POST", [_http_error(409)])
+        self.assertIsInstance(out, HTTPError)
+        self.assertEqual(calls, ["POST"])
 
 
 class WPClientPaginationTests(unittest.TestCase):

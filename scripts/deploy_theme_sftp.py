@@ -13,6 +13,18 @@ Subcommands:
             rollback = swap the names back.
 
 Deploy never deletes the previous theme; it renames it aside.
+
+Host-key trust (#1034): every host is verified against an explicitly trusted
+OpenSSH known_hosts file BEFORE the password is sent. Unknown or changed keys
+abort that host; a fallback host is only used if it is trusted in its own
+right. The file is WP_SFTP_KNOWN_HOSTS (default ~/.ssh/known_hosts). Enrol or
+rotate a key out of band only, after confirming the fingerprint with Pagely:
+
+    ssh-keyscan sftp.pressftp.com sftp.pagely.com > /tmp/scan   # all key types
+    ssh-keygen -lf /tmp/scan   # compare fingerprints with Pagely before trusting
+    cat /tmp/scan >> ~/.ssh/known_hosts
+
+Never commit the known_hosts file, passwords or private keys to this repo.
 """
 
 import argparse
@@ -28,6 +40,10 @@ HOSTS = os.environ.get("WP_SFTP_HOST", "sftp.pressftp.com,sftp.pagely.com").spli
 PORT = int(os.environ.get("WP_SFTP_PORT", "22"))
 USER = os.environ.get("WP_SFTP_USER", "ftp51ZjdGhm02eAOQe")
 KEYCHAIN_SERVICE = "pagely-sftp-kriskrug"
+KNOWN_HOSTS = os.environ.get(
+    "WP_SFTP_KNOWN_HOSTS", os.path.expanduser("~/.ssh/known_hosts")
+)
+CONNECT_TIMEOUT = 30
 LOCAL_THEME = os.path.join(os.path.dirname(__file__), "..", "theme", "kk-aurora")
 
 
@@ -49,17 +65,58 @@ def _password() -> str:
     return out.stdout.rstrip("\n")
 
 
+class HostKeyError(Exception):
+    """The server's host key is not explicitly trusted; do not authenticate."""
+
+
+def _trusted_host_keys(path: str = "") -> paramiko.HostKeys:
+    path = path or KNOWN_HOSTS
+    if not os.path.isfile(path):
+        sys.exit(
+            f"No trusted SFTP host keys at {path}. Enrol the Pagely host key out "
+            "of band (see this script's docstring) or set WP_SFTP_KNOWN_HOSTS."
+        )
+    return paramiko.HostKeys(path)
+
+
+def _known_hosts_name(host: str, port: int) -> str:
+    return host if port == 22 else f"[{host}]:{port}"
+
+
+def _verify_host_key(
+    transport: paramiko.Transport, trusted: paramiko.HostKeys, host: str, port: int
+) -> None:
+    name = _known_hosts_name(host, port)
+    if trusted.lookup(name) is None:
+        raise HostKeyError(f"{name}: host key is not in the trusted known_hosts")
+    remote = transport.get_remote_server_key()
+    if not trusted.check(name, remote):
+        raise HostKeyError(
+            f"{name}: server {remote.get_name()} key does not match the trusted "
+            "known_hosts entry (changed key or impersonation); refusing to log in"
+        )
+
+
 def _connect() -> paramiko.SFTPClient:
+    trusted = _trusted_host_keys()
     pw = _password()
     last = None
     for host in [h.strip() for h in HOSTS if h.strip()]:
+        t = None
         try:
             t = paramiko.Transport((host, PORT))
-            t.connect(username=USER, password=pw)
-            print(f"connected via {host}")
-            return paramiko.SFTPClient.from_transport(t)
+            t.start_client(timeout=CONNECT_TIMEOUT)
+            # Trust check happens before any credential leaves this machine.
+            _verify_host_key(t, trusted, host, PORT)
+            t.auth_password(USER, pw)
+            sftp = paramiko.SFTPClient.from_transport(t)
+            print(f"connected via {host} (host key verified)")
+            return sftp
         except Exception as e:
+            if t is not None:
+                t.close()
             last = f"{host}: {e}"
+            print(f"SFTP host rejected -> {last}", file=sys.stderr)
     sys.exit(f"SFTP connect failed on all hosts -> {last}")
 
 
