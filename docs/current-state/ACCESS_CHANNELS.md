@@ -43,6 +43,7 @@ This document records the supported ways an agent can observe or modify kriskrug
 
 - **Path:** `scripts/deploy_theme_sftp.py` supports the repository's bounded theme deployment workflow.
 - **Authentication:** `WP_SFTP_PASSWORD` in the injected process environment or the documented macOS Keychain service.
+- **Host-key trust:** the script refuses to send the password unless the server key matches an entry in `WP_SFTP_KNOWN_HOSTS` (default `~/.ssh/known_hosts`), checked separately for each fallback host. Enrol or rotate keys out of band after confirming fingerprints with Pagely; the steps are in the script docstring. Never commit known_hosts files, passwords or private keys.
 - **Availability:** Must be verified at execution time; a public `style.css` readback only proves the live version, not write access.
 - **Gate:** A merge is not a deployment. Theme deploys require explicit KK approval, a rollback path, and the applicable visual gate.
 
