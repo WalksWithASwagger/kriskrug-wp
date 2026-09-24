@@ -148,6 +148,10 @@ def wp_credentials(env: dict[str, str] | None = None) -> tuple[str, str, str]:
     return base_url.rstrip("/"), user, app_password
 
 
+# HTTP methods that are safe to replay after a 5xx or lost response (#1036).
+SAFE_METHODS = frozenset({"GET", "HEAD", "OPTIONS"})
+
+
 class WPClient:
     """Minimal stdlib WordPress REST client with Basic or login-cookie auth."""
 
@@ -244,8 +248,17 @@ class WPClient:
     ) -> Any:
         """Issue a REST call; returns parsed JSON (or None for an empty body).
 
-        4xx errors raise immediately (deterministic); 5xx and transient network
-        errors are retried up to ``retries`` times before re-raising.
+        4xx errors raise immediately (deterministic). For safe read methods
+        (GET/HEAD/OPTIONS), 5xx and transient network errors are retried up to
+        ``retries`` times before re-raising.
+
+        Writes (POST/PUT/PATCH/DELETE) are attempted exactly once (#1036). A 5xx
+        or lost response after a write is ambiguous: the server may already
+        have applied it, so replaying could duplicate a create or overwrite a
+        newer edit. The original error is re-raised with a note; the caller
+        must read back and reconcile before deciding to write again. There is
+        deliberately no replay opt-in here: a caller that needs one must own
+        its own idempotency/identity check around a fresh request.
         """
         url = self._url(path, params)
         data = json.dumps(payload).encode() if payload is not None else None
@@ -256,8 +269,10 @@ class WPClient:
         )
         if data is not None:
             headers["Content-Type"] = "application/json"
+        safe = method.upper() in SAFE_METHODS
+        attempts = self.retries + 1 if safe else 1
         last_err: Exception | None = None
-        for attempt in range(self.retries + 1):
+        for attempt in range(attempts):
             req = urllib.request.Request(url, data=data, headers=headers, method=method)
             try:
                 with self._open(req) as resp:
@@ -269,9 +284,15 @@ class WPClient:
                 last_err = err
             except URLError as err:
                 last_err = err
-            if attempt < self.retries:
+            if attempt < attempts - 1:
                 time.sleep(0.5 * (attempt + 1))
         assert last_err is not None
+        if not safe:
+            last_err.add_note(
+                f"WPClient: {method.upper()} {url} outcome is ambiguous and was "
+                "not replayed; read back the target and reconcile before "
+                "writing again."
+            )
         raise last_err
 
     def get(self, path: str, *, params: dict | None = None) -> Any:
