@@ -55,7 +55,9 @@ ruff-changed: ## Check only Python files changed from BASE_REF (default: origin/
 
 javascript-syntax: ## Check committed JavaScript syntax
 	@command -v node >/dev/null 2>&1 || { echo "ERROR: node is required for JavaScript syntax checks."; exit 1; }
-	@for file in $(JAVASCRIPT_FILES); do node --check "$$file"; done
+	@status=0; \
+	for file in $(JAVASCRIPT_FILES); do node --check "$$file" || status=1; done; \
+	if [ "$$status" -ne 0 ]; then echo "javascript-syntax: FAILED (see errors above)"; exit 1; fi
 	@node scripts/tests/issue_706_script_diet_harness.cjs
 
 php-syntax: ## Run php -l across all tracked PHP in inc/, plugins/, theme/, fixes/
