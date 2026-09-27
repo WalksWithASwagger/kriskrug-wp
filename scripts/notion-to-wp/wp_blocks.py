@@ -103,6 +103,45 @@ def hero_image(media_id, url, alt, caption=None, align="center") -> str:
     return image(media_id, url, alt, caption=caption, width=None, align=align)
 
 
+def video(media_id, url, *, caption=None, poster=None, autoplay=False, loop=False,
+          muted=False, playsinline=True, controls=True, preload="metadata") -> str:
+    """Core video block for a self-hosted MP4 in the prose column.
+
+    kk-aurora already styles .wp-block-video inside .aurora-prose (style.css
+    2322/2342), so this fills the 720px column like a hero image and needs no
+    theme change. media_id may be int (emits "id":N) or None.
+
+    Always pass `poster`. Without one a paused video renders as a black box on
+    first paint, which is a bad thing to put at the top of a post.
+
+    A silent process clip wants autoplay+loop+muted+playsinline; iOS only
+    honours autoplay when muted AND playsinline are both set. Anything carrying
+    audio keeps controls and stays paused until the reader asks for it.
+    """
+    flags = (("autoplay", autoplay), ("loop", loop), ("muted", muted),
+             ("playsinline", playsinline), ("controls", controls))
+    attrs = []
+    if isinstance(media_id, int):
+        attrs.append(f'"id":{media_id}')
+    if poster:
+        attrs.append(f'"poster":"{poster}"')
+    if preload:
+        attrs.append(f'"preload":"{preload}"')
+    for name, on in flags:
+        key = "playsInline" if name == "playsinline" else name
+        attrs.append(f'"{key}":{"true" if on else "false"}')
+
+    el = "".join(f" {name}" for name, on in flags if on)
+    if poster:
+        el += f' poster="{poster}"'
+    if preload:
+        el += f' preload="{preload}"'
+    cap = f'<figcaption class="wp-element-caption">{caption}</figcaption>' if caption else ""
+    return (f'<!-- wp:video {{{",".join(attrs)}}} -->\n'
+            f'<figure class="wp-block-video"><video{el} src="{url}"></video>{cap}</figure>\n'
+            '<!-- /wp:video -->')
+
+
 def gallery(items, columns: int = 3) -> str:
     """wp:gallery of click-to-zoom images. items: (id, url, alt[, caption])."""
     inner = "\n".join(
