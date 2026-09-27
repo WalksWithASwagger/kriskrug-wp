@@ -44,7 +44,9 @@ class ChangedPythonFilesTests(unittest.TestCase):
     def test_run_ruff_preserves_each_filename_as_one_argument(self):
         completed = subprocess.CompletedProcess([], 0)
 
-        with mock.patch.object(ruff_changed.subprocess, "run", return_value=completed) as run:
+        with mock.patch.object(
+            ruff_changed.subprocess, "run", return_value=completed
+        ) as run:
             with contextlib.redirect_stdout(io.StringIO()):
                 result = ruff_changed.run_ruff(
                     Path("/repo"), ["changed.py", "new file.py"], "ruff"
@@ -84,9 +86,14 @@ class ChangedPythonFilesTests(unittest.TestCase):
         self.assertIn("fetch-depth: 0", python_job)
         self.assertIn("Check changed Python files with Ruff", python_job)
         self.assertIn(
-            'python scripts/ruff_changed.py --base-ref "refs/remotes/origin/${BASE_BRANCH}"',
+            'python scripts/ruff_changed.py --base-ref "${BASE_REF}"',
             python_job,
         )
+        # The gate now runs on pull_request and on direct pushes to main, which
+        # resolve their base differently. Assert both, so dropping either path
+        # fails here instead of silently linting nothing on one event type.
+        self.assertIn('BASE_REF="refs/remotes/origin/${BASE_BRANCH}"', python_job)
+        self.assertIn("PUSH_BEFORE: ${{ github.event.before }}", python_job)
 
     @staticmethod
     def _git(repo: Path, *args: str) -> subprocess.CompletedProcess[str]:
