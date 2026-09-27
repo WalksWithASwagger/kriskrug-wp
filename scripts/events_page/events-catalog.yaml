@@ -165,15 +165,18 @@ events:
   end: '2026-09-25T13:30:00-07:00'
   bucket_hint: upcoming
   kind: external
-  role: AI Keynote Speaker
+  role: Panelist
   url: https://www.zeffy.com/en-CA/ticketing/world-tourism-day--2026
   image: {}
-  blurb: AI keynote and panel for TRECSA (Capilano University's Tourism & Outdoor Recreation Student Association)
-    on World Tourism Day - how AI and the digital agenda are reshaping tourism in BC, with Paula Amos
-    (Indigenous Tourism BC), Jason Williams (YVR) and Amber Papou (Tourism Industry Association of BC).
+  blurb: 'Panel for TRECSA, Capilano University''s Tourism and Outdoor Recreation Student Association, under
+    this year''s UN Tourism theme of AI and the digital agenda redesigning tourism. Billed as four panelists
+    and delivered as two. Jason Williams of YVR cancelled that morning and Paula Amos of Indigenous Tourism
+    BC could not make it, so it was me and Amber Papou, the new CEO of the Tourism Industry Association of
+    BC, with third-year student Samantha Caleta moderating. The question that stuck came from a kayak guide
+    whose customers keep booking tours expecting glowing jellyfish that an AI itinerary invented.'
   label: Friday, Sept 25 · 11:30am-1:30pm · BOSA Theatre, Capilano University
   tags:
-  - Keynote
+  - Panel
   - AI + Tourism
   - Vancouver
   status: confirmed
