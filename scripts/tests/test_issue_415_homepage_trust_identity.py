@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[2]
 THEME_FUNCTIONS = ROOT / "theme/kk-aurora/functions.php"
 FRONT_PAGE = ROOT / "theme/kk-aurora/templates/front-page.html"
 SCHEMA_SOURCE = ROOT / "fixes/schema-snippets-deployed.php"
-SITE_NAME = "Kris Krüg"
+SITE_NAME = "Kris Krug"
 PUBLIC_SITE_NAME = "Kris Krüg"
 STALE_IDENTITY = "Generative AI Tools & Techniques"
 HOME_DESCRIPTION = (
@@ -108,7 +108,7 @@ class Issue415HomepageTrustIdentityTests(unittest.TestCase):
         )
         self.assertIsNotNone(alternate_names)
         self.assertEqual(
-            ["Kris Krug", "kriskrug.co"],
+            ["Kris Krüg", "kriskrug.co"],
             re.findall(r"'([^']*)'", alternate_names.group(1)),
         )
         relationships = dict(

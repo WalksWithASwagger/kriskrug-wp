@@ -18,6 +18,17 @@ def scalar_constant(source: str, key: str) -> str:
     return match.group(1)
 
 
+def array_constant(source: str, key: str) -> list[str]:
+    match = re.search(
+        rf"'{re.escape(key)}'\s*=>\s*array\((.*?)\),",
+        source,
+        re.DOTALL,
+    )
+    if match is None:
+        raise AssertionError(f"missing array schema constant: {key}")
+    return re.findall(r"'([^']*)'", match.group(1))
+
+
 class Issue316SchemaIdentityTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -62,11 +73,12 @@ class Issue316SchemaIdentityTests(unittest.TestCase):
     def test_both_schema_sources_share_the_reviewed_identity(self):
         expected = self.data["proposed_identity"]
 
-        # WebSite.name / alternateName are no longer pinned to the #316
-        # manifest: the 2026-09-27 Person entity consolidation moved the
-        # deployed site name to the umlaut spelling. That decision is pinned in
-        # test_person_entity_consolidation.py.
         for source in (self.deployed, self.mu_plugin):
+            self.assertEqual(expected["website_name"], scalar_constant(source, "site_name"))
+            self.assertEqual(
+                expected["website_alternate_names"],
+                array_constant(source, "site_alternate_names"),
+            )
             self.assertEqual(expected["person_image"], scalar_constant(source, "person_image"))
             self.assertEqual(expected["person_job"], scalar_constant(source, "person_job"))
             self.assertEqual(

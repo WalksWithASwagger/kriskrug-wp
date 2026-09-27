@@ -47,9 +47,8 @@
  *
  * PREPARED, NOT LIVE: cross-site Person entity consolidation (2026-09-27).
  * Changes vs. the 2026-09-27 live readback of https://kriskrug.co/:
- *   - WebSite.name is "Kris Krüg"; the ASCII spelling moves to alternateName
- *     (supersedes the #316 site-name choice; the theme's og:site_name already
- *     uses the umlaut spelling).
+ *   - WebSite.name stays "Kris Krug" (the KK-approved #316 site name); the
+ *     umlaut spelling stays an alternateName. Person.name remains "Kris Krüg".
  *   - worksFor BC + AI uses bc-ai.ca's legalName and links its @id
  *     https://bc-ai.ca/#organization (confirmed on bc-ai.ca 2026-09-27).
  *   - Futureproof URL is https://www.futureproof.website/ (apex 308s to www).
@@ -77,9 +76,9 @@
 
 function kk_schema_constants() {
     return array(
-        'site_name'            => 'Kris Krüg',
+        'site_name'            => 'Kris Krug',
         'site_alternate_names' => array(
-            'Kris Krug',
+            'Kris Krüg',
             'kriskrug.co',
         ),
         'site_url'             => 'https://kriskrug.co',

@@ -2,7 +2,7 @@
 
 bothhandsfull.com and darkcrystal.app point their Person nodes at
 https://kriskrug.co/#person, so this snippet must keep emitting that @id with
-the umlaut name, the linked BC + AI organization, and the verified sameAs set.
+the umlaut Person name, the linked BC + AI organization, and the verified sameAs set.
 """
 
 import json
@@ -64,10 +64,10 @@ class PersonEntityConsolidationTests(unittest.TestCase):
         self.assertEqual("Kris Krug", self.person["alternateName"])
         self.assertEqual("https://kriskrug.co", self.person["url"])
 
-    def test_website_name_uses_the_umlaut_spelling(self):
+    def test_website_keeps_the_316_site_name_and_links_the_person(self):
         self.assertEqual("WebSite", self.website["@type"])
-        self.assertEqual("Kris Krüg", self.website["name"])
-        self.assertEqual(["Kris Krug", "kriskrug.co"], self.website["alternateName"])
+        self.assertEqual("Kris Krug", self.website["name"])
+        self.assertEqual(["Kris Krüg", "kriskrug.co"], self.website["alternateName"])
         self.assertEqual({"@id": PERSON_ID}, self.website["publisher"])
 
     def test_works_for_links_bc_ai_by_id_and_uses_www_futureproof(self):
