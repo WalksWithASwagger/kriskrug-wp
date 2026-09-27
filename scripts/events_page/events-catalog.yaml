@@ -92,7 +92,7 @@ events:
   title: 'Coffee Conversations #1: The Impact of AI'
   date: '2026-08-13'
   end: '2026-08-13T11:00:00-07:00'
-  bucket_hint: upcoming
+  bucket_hint: past
   kind: external
   role: Invited guest
   url: https://www.iida-northernpacific.org/vancouverbc
@@ -141,7 +141,7 @@ events:
   title: How Can We Help? Pitch Night
   date: '2026-09-08'
   end: '2026-09-08T21:00:00-07:00'
-  bucket_hint: upcoming
+  bucket_hint: past
   kind: one-off
   role: Panelist
   url: https://www.eventbrite.ca/e/how-can-we-help-pitch-night-use-your-skills-to-support-nonprofits-tickets-1992057314051
@@ -166,7 +166,7 @@ events:
   title: TruNorth AI Leadership Summit
   date: '2026-09-09'
   end: '2026-09-10T17:00:00-07:00'
-  bucket_hint: upcoming
+  bucket_hint: past
   kind: external
   role: TBD — confirm with Jimmy before claiming speaking slot
   url: https://www.trunorthai.ca/
@@ -185,7 +185,7 @@ events:
   title: 'World Tourism Day: AI, Tourism & Human Touch'
   date: '2026-09-25'
   end: '2026-09-25T13:30:00-07:00'
-  bucket_hint: upcoming
+  bucket_hint: past
   kind: external
   role: Panelist
   url: https://www.zeffy.com/en-CA/ticketing/world-tourism-day--2026
