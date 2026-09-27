@@ -113,18 +113,20 @@ class Issue415HomepageTrustIdentityTests(unittest.TestCase):
         )
         relationships = dict(
             re.findall(
-                r"array\('name'\s*=>\s*'([^']+)',\s*'url'\s*=>\s*'([^']+)'\)",
+                r"array\('name'\s*=>\s*'([^']+)',\s*'url'\s*=>\s*'([^']+)'",
                 self.schema,
             )
         )
         self.assertEqual(
             {
-                "BC + AI Ecosystem Industry Association": "https://bc-ai.ca/",
+                "BC + AI Ecosystem Association": "https://bc-ai.ca/",
                 "Vancouver AI": "https://vancouver.ai/",
-                "Futureproof Festival": "https://futureproof.website/",
+                "Futureproof Festival": "https://www.futureproof.website/",
             },
             relationships,
         )
+        self.assertNotIn("BC + AI Ecosystem Industry Association", self.schema)
+        self.assertNotIn("'https://futureproof.website/'", self.schema)
         self.assertNotIn(STALE_IDENTITY, self.schema)
 
 
