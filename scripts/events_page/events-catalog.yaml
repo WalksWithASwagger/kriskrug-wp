@@ -8,6 +8,27 @@ notes: 'SSOT for dated /events cards. meetup-editions.yaml (harvest #1–#31) is
   harvest wins on date/url/hero. Scaffold Past rows #10–#31 remain as fallbacks if harvest is absent.
   Do not POST to page 2250 until KK eyeball on out/events-2250.generated.html.'
 events:
+- id: 2026-09-26-ai-day-iiba-dama-robson-square
+  title: 'AI Day 2.0: No Slogan Gets Us Out of Doing the Governance'
+  date: '2026-09-26'
+  end: '2026-09-26T18:00:00-07:00'
+  bucket_hint: past
+  kind: external
+  role: Keynote
+  url: https://www.eventbrite.ca/e/ai-day-20-co-hosted-by-iiba-vancouver-chapter-dama-tickets-1998861540676
+  image: {}
+  blurb: 'Fifteen-minute keynote opening the second edition of AI Day, the IIBA Vancouver and DAMA joint
+    gathering at UBC Robson Square, delivered through a mic that barely worked, a Zoom handoff nobody
+    tested and one bar of wifi. Both hands full, no pom-poms and no pitchforks, carrying the week-old
+    news out of ALL IN Montreal: Bengio''s LawZero, 150 million dollars from Canada matched by Germany,
+    and a middle-power path that no slogan gets anyone out of doing the governance for.'
+  label: Saturday, Sept 26 · 9am keynote · UBC Robson Square
+  tags:
+  - Keynote
+  - AI governance
+  - Vancouver
+  status: confirmed
+  cta_past: Event details
 - id: 2026-11-23-ampa-magazines-webinar
   title: AI for Magazines Without Losing the Plot
   date: '2026-11-23'
