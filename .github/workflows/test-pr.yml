@@ -7,6 +7,13 @@ on:
       - main
       - develop
       - codex/981-context-brief-teaching
+  # main accepts direct pushes from accounts that can bypass branch protection,
+  # and those were landing with no CI at all because this workflow was
+  # pull_request-only. main only: a feature-branch push would otherwise run the
+  # whole suite twice, once here and once on its PR.
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -31,6 +38,18 @@ jobs:
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
+            // On push there is no PR to diff against, and event.before is a
+            // zero SHA on the first push or after a force push. Rather than
+            // guess a base and risk skipping a gate on main, run everything.
+            // Direct pushes to main are rare, so the extra runner minutes are
+            // cheaper than a silently skipped check on the default branch.
+            if (context.eventName !== 'pull_request') {
+              core.info(`${context.eventName} event: running every gate, no changed-file narrowing.`);
+              for (const flag of ['has_php', 'has_docs', 'has_css', 'has_deps', 'has_voice']) {
+                core.setOutput(flag, 'true');
+              }
+              return;
+            }
             const files = await github.paginate(github.rest.pulls.listFiles, {
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -64,6 +83,7 @@ jobs:
             core.setOutput('has_voice', hasVoice ? 'true' : 'false');
 
       - name: Check PR links to issue
+        if: github.event_name == 'pull_request'
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
@@ -115,10 +135,28 @@ jobs:
 
       - name: Check changed Python files with Ruff
         env:
+          EVENT_NAME: ${{ github.event_name }}
           BASE_BRANCH: ${{ github.base_ref }}
+          PUSH_BEFORE: ${{ github.event.before }}
         run: |
-          git fetch --no-tags origin "+refs/heads/${BASE_BRANCH}:refs/remotes/origin/${BASE_BRANCH}"
-          python scripts/ruff_changed.py --base-ref "refs/remotes/origin/${BASE_BRANCH}"
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            git fetch --no-tags origin "+refs/heads/${BASE_BRANCH}:refs/remotes/origin/${BASE_BRANCH}"
+            BASE_REF="refs/remotes/origin/${BASE_BRANCH}"
+          else
+            # github.base_ref is empty outside pull_request. event.before is the
+            # right base for a push, but it is the zero SHA on a first push and
+            # can name an unreachable commit after a force push, so fall back to
+            # the parent commit rather than letting the gate error out.
+            BASE_REF="${PUSH_BEFORE:-}"
+            if [ -z "$BASE_REF" ] \
+              || [ "$BASE_REF" = "0000000000000000000000000000000000000000" ] \
+              || ! git cat-file -e "${BASE_REF}^{commit}" 2>/dev/null; then
+              BASE_REF="$(git rev-parse HEAD~1)"
+            fi
+          fi
+          echo "Ruff base ref: ${BASE_REF}"
+          python scripts/ruff_changed.py --base-ref "${BASE_REF}"
 
       - name: Run complete Python gate
         run: make python-test PYTHON=python
@@ -143,9 +181,26 @@ jobs:
       - name: Resolve merge base with the PR target branch
         id: base
         env:
+          EVENT_NAME: ${{ github.event_name }}
           BASE_BRANCH: ${{ github.base_ref }}
+          PUSH_BEFORE: ${{ github.event.before }}
         run: |
           set -euo pipefail
+          if [ "$EVENT_NAME" != "pull_request" ]; then
+            # A push to main is linear, so there is no merge base to find: the
+            # commit main pointed at before this push is exactly the baseline
+            # the new CSS should be measured against. Same zero-SHA and
+            # unreachable-commit fallback as the Ruff gate.
+            PUSH_BASE="${PUSH_BEFORE:-}"
+            if [ -z "$PUSH_BASE" ] \
+              || [ "$PUSH_BASE" = "0000000000000000000000000000000000000000" ] \
+              || ! git cat-file -e "${PUSH_BASE}^{commit}" 2>/dev/null; then
+              PUSH_BASE="$(git rev-parse HEAD~1)"
+            fi
+            echo "ref=${PUSH_BASE}" >> "$GITHUB_OUTPUT"
+            echo "Push baseline: ${PUSH_BASE}"
+            exit 0
+          fi
           git fetch --no-tags origin "+refs/heads/${BASE_BRANCH}:refs/remotes/origin/${BASE_BRANCH}"
           # Merge base, not the branch tip: a PR that is simply behind main must
           # not be blamed for line counts main grew on its own.
@@ -265,28 +320,33 @@ jobs:
             const pr = context.payload.pull_request;
             const jobs = ${{ toJSON(needs) }};
 
-            const allPassed = Object.values(jobs).every(job =>
-              job.result === 'success' || job.result === 'skipped'
-            );
+            // Anything not success or skipped counts, so a cancelled job is
+            // named rather than silently producing an empty "failed" list.
+            const notPassed = Object.entries(jobs)
+              .filter(([, job]) => job.result !== 'success' && job.result !== 'skipped')
+              .map(([name, job]) => `${name} (${job.result})`);
+            const allPassed = notPassed.length === 0;
 
-            if (allPassed) {
+            const body = allPassed
+              ? `✅ **All validation checks passed!**\n\nThis ${pr ? 'PR is ready for human review' : 'push to main is clean'}.`
+              : `❌ **Some validation checks failed**\n\nFailed checks:\n${notPassed.map(j => `- ${j}`).join('\n')}\n\nPlease fix the issues and push again.`;
+
+            // A push has no PR to comment on, so write the run summary first.
+            // On push runs this is the only place the result is legible.
+            await core.summary.addRaw(body).write();
+
+            if (pr) {
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: pr.number,
-                body: `✅ **All validation checks passed!**\n\nThis PR is ready for human review.`
+                body,
               });
-            } else {
-              const failedJobs = Object.entries(jobs)
-                .filter(([_, job]) => job.result === 'failure')
-                .map(([name, _]) => name);
+            }
 
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: pr.number,
-                body: `❌ **Some validation checks failed**\n\nFailed checks:\n${failedJobs.map(j => `- ${j}`).join('\n')}\n\nPlease fix the issues and push again.`
-              });
-
-              core.setFailed('Some validation checks failed');
+            // Outside the `if (pr)` on purpose: the red signal must never
+            // depend on a comment being posted. A failing push to main has to
+            // go red even though there is nowhere to comment.
+            if (!allPassed) {
+              core.setFailed(`Validation failed: ${notPassed.join(', ')}`);
             }
