@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[2]
 THEME_FUNCTIONS = ROOT / "theme/kk-aurora/functions.php"
 FRONT_PAGE = ROOT / "theme/kk-aurora/templates/front-page.html"
 SCHEMA_SOURCE = ROOT / "fixes/schema-snippets-deployed.php"
-SITE_NAME = "Kris Krug"
+SITE_NAME = "Kris Krüg"
 PUBLIC_SITE_NAME = "Kris Krüg"
 STALE_IDENTITY = "Generative AI Tools & Techniques"
 HOME_DESCRIPTION = (
@@ -108,23 +108,25 @@ class Issue415HomepageTrustIdentityTests(unittest.TestCase):
         )
         self.assertIsNotNone(alternate_names)
         self.assertEqual(
-            ["Kris Krüg", "kriskrug.co"],
+            ["Kris Krug", "kriskrug.co"],
             re.findall(r"'([^']*)'", alternate_names.group(1)),
         )
         relationships = dict(
             re.findall(
-                r"array\('name'\s*=>\s*'([^']+)',\s*'url'\s*=>\s*'([^']+)'\)",
+                r"array\('name'\s*=>\s*'([^']+)',\s*'url'\s*=>\s*'([^']+)'",
                 self.schema,
             )
         )
         self.assertEqual(
             {
-                "BC + AI Ecosystem Industry Association": "https://bc-ai.ca/",
+                "BC + AI Ecosystem Association": "https://bc-ai.ca/",
                 "Vancouver AI": "https://vancouver.ai/",
-                "Futureproof Festival": "https://futureproof.website/",
+                "Futureproof Festival": "https://www.futureproof.website/",
             },
             relationships,
         )
+        self.assertNotIn("BC + AI Ecosystem Industry Association", self.schema)
+        self.assertNotIn("'https://futureproof.website/'", self.schema)
         self.assertNotIn(STALE_IDENTITY, self.schema)
 
 

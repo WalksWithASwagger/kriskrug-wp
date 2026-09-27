@@ -45,10 +45,25 @@
  * See fixes/issue-641-speaking-video-schema-handoff-2026-08-27.md before any
  * production action.
  *
+ * PREPARED, NOT LIVE: cross-site Person entity consolidation (2026-09-27).
+ * Changes vs. the 2026-09-27 live readback of https://kriskrug.co/:
+ *   - WebSite.name is "Kris Krüg"; the ASCII spelling moves to alternateName
+ *     (supersedes the #316 site-name choice; the theme's og:site_name already
+ *     uses the umlaut spelling).
+ *   - worksFor BC + AI uses bc-ai.ca's legalName and links its @id
+ *     https://bc-ai.ca/#organization (confirmed on bc-ai.ca 2026-09-27).
+ *   - Futureproof URL is https://www.futureproof.website/ (apex 308s to www).
+ *     No @id: futureproof.website defines no #organization node.
+ *   - sameAs adds LinkedIn, YouTube and Flickr, each already linked as Kris
+ *     Krüg's own profile by this site (Aurora footer / Photography page).
+ * Person @id stays https://kriskrug.co/#person; bothhandsfull.com and
+ * darkcrystal.app now point their Person nodes at that @id. Saving this to
+ * snippet id 5 is a separate, KK-approved WordPress step.
+ *
  * Differences from fixes/schema-snippets.php (reference / future mu-plugin):
  *   - VERIFY-ME placeholders replaced with confirmed values
  *   - Person image uses the public portrait already rendered on /about/
- *   - LinkedIn / GitHub / YouTube / Wikipedia omitted (URLs unverified or 404)
+ *   - GitHub / Wikipedia omitted (URLs unverified or 404)
  *   - kk_schema_is_ready() guard removed (values are baked in)
  *   - Conditional Person.image / Person.sameAs filtering
  *
@@ -62,9 +77,9 @@
 
 function kk_schema_constants() {
     return array(
-        'site_name'            => 'Kris Krug',
+        'site_name'            => 'Kris Krüg',
         'site_alternate_names' => array(
-            'Kris Krüg',
+            'Kris Krug',
             'kriskrug.co',
         ),
         'site_url'             => 'https://kriskrug.co',
@@ -73,16 +88,21 @@ function kk_schema_constants() {
         'person_image'         => 'https://kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg',
         'person_job'           => 'AI Keynote Speaker and Creative Technologist',
         'person_descr'         => 'Vancouver-based AI keynote speaker, creative technologist, photographer, and community builder. Executive Director of BC + AI, founder of Vancouver AI, and lead curator of Futureproof Festival.',
-        // Only verified, owned URLs. Add LinkedIn etc. when KK confirms.
+        // Only verified, owned URLs. LinkedIn + YouTube are the profiles the
+        // Aurora footer links; Flickr is the archive the Photography page links.
         'same_as' => array(
             'https://twitter.com/kriskrug',
             'https://x.com/kriskrug',
             'https://www.instagram.com/kriskrug/',
+            'https://www.linkedin.com/in/kriskrug/',
+            'https://www.youtube.com/kriskrug',
+            'https://www.flickr.com/photos/kk/',
         ),
+        // Optional 'id' links an org node another site already defines.
         'works_for' => array(
-            array('name' => 'BC + AI Ecosystem Industry Association', 'url' => 'https://bc-ai.ca/'),
-            array('name' => 'Vancouver AI',                           'url' => 'https://vancouver.ai/'),
-            array('name' => 'Futureproof Festival',                   'url' => 'https://futureproof.website/'),
+            array('name' => 'BC + AI Ecosystem Association', 'url' => 'https://bc-ai.ca/', 'id' => 'https://bc-ai.ca/#organization'),
+            array('name' => 'Vancouver AI',                  'url' => 'https://vancouver.ai/'),
+            array('name' => 'Futureproof Festival',          'url' => 'https://www.futureproof.website/'),
         ),
         'knows_about' => array(
             'Generative AI', 'AI Strategy', 'AI for Creative Professionals',
@@ -128,7 +148,13 @@ function kk_schema_person() {
     $works = array();
     foreach ($c['works_for'] as $org) {
         if (!empty($org['url'])) {
-            $works[] = array('@type' => 'Organization', 'name' => $org['name'], 'url' => $org['url']);
+            $node = array('@type' => 'Organization');
+            if (!empty($org['id'])) {
+                $node['@id'] = $org['id'];
+            }
+            $node['name'] = $org['name'];
+            $node['url']  = $org['url'];
+            $works[] = $node;
         }
     }
     $person = array(
