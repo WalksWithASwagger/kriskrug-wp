@@ -1,8 +1,8 @@
 # I Made Claude Paint My Portrait in MS Paint. No Scripts.
 
-Staged draft. **Post 12870, status `draft`.** Not published.
+**PUBLISHED 2026-09-27.** Post 12870.
 
-- Preview: https://kriskrug.co/?p=12870&preview=true
+- Live: https://kriskrug.co/2026/09/27/claude-painted-my-portrait-ms-paint/
 - Edit: https://kriskrug.co/wp-admin/post.php?post=12870&action=edit
 - Slug: `claude-painted-my-portrait-ms-paint`
 - Categories: 1665 `ai-creatives`, 1755 `creative-technology-making` (IDs pinned, see below)
@@ -49,19 +49,24 @@ banding that reads as a render glitch). Runner-up kept: `hero-a2-blurfill`.
 
 Regenerate with `python3 make-hero.py` from this folder. Reproduces byte-for-byte.
 
-## Publish gate
+## Publish record
 
-Open items before this goes live:
+KK approved and published 2026-09-27. `hero-c2-wash` shipped;
+`hero-a2-blurfill` remains the alternate.
 
-- [ ] **KK reads the copy.** It is first person in his voice about his own
-      experiment. The closing take in "What I take from this" is the draft's
-      opinion, not a quote from him. Swap it if it is not what he thinks.
-- [ ] **KK picks the hero.** `hero-c2-wash` is attached. `hero-a2-blurfill` is
-      the alternate and the swap is one line in the publish script.
-- [ ] **Publish is a separate, deliberate act.** `--publish` flips status. Do not
-      run it without an explicit yes.
-- [ ] After publish: logged-out `og:image` readback, and a Pagely purge if the
-      URL renders stale.
+Post-publish readback, logged out:
+
+- `200` on the permalink, `x-gateway-cache-status: MISS` then `HIT` on the
+  second request, so no stale-cache purge was needed.
+- `og:image` = `hero-c2-wash.png` via Photon at `fit=1024,576`, landscape,
+  resolves `200 image/png`. `twitter:card` = `summary_large_image`.
+- `<video>` present with its poster, gallery images present, no em dash in the
+  rendered article.
+- Rendered page checked in a browser: hero, pullquotes, video with controls at
+  0:00/0:40, and the two-up before/after all render as intended.
+
+Still worth a human pass: the closing take in "What I take from this" is the
+draft's opinion written in KK's voice, not a quote from him.
 
 ## Verified 2026-09-27
 

@@ -224,7 +224,7 @@ for cid, want_slug in CATEGORY_IDS.items():
             f"[ABORT] category {cid} is '{got_slug}', expected '{want_slug}'"
         )
 
-hero_id, _ = _resolve("hero")
+hero_id, _ = _resolve("hero") if not PUBLISH else (None, "")
 
 existing = find_existing_post_by_slug(wp, SLUG)
 
@@ -263,7 +263,7 @@ v = wp.get_post(pid)
 vc = v["content"]["raw"]
 vid_id, vid_url = resolved.get("timelapse", (0, ""))
 checks = {
-    "is_draft": v["status"] == "draft",
+    "status_expected": v["status"] == ("publish" if PUBLISH else "draft"),
     "one_video": vc.count("<!-- wp:video ") == 1,
     "video_self_hosted": "/wp-content/uploads/" in vid_url,
     "video_postered": 'poster="' in vc and ".png" in vc.split('poster="')[1][:200],
@@ -281,7 +281,9 @@ checks = {
     "kruug_spelled_right": "Kris Krug" not in vc,
     "no_em_dash": "—" not in vc,
     "cats_pinned": sorted(v.get("categories", [])) == sorted(CATEGORY_IDS),
-    "featured_is_hero": v.get("featured_media") == hero_id,
+    # --publish does not re-resolve media, so just assert one is attached.
+    "featured_set": (v.get("featured_media", 0) > 0 if PUBLISH
+                     else v.get("featured_media") == hero_id),
     "seo_title_meta": v.get("meta", {}).get("jetpack_seo_html_title") == SEO_TITLE,
     "seo_desc_meta": v.get("meta", {}).get("advanced_seo_description") == META_DESC,
 }
