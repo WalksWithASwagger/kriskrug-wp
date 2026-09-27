@@ -1,0 +1,7 @@
+# Staged media are not committed (matches 2026-09-07-breaker-460-ai-election-issue).
+# All four files are already in the WordPress media library (ids 12867-12869, 12871)
+# and the sources live on KK's Desktop; the hero is regenerable via make-hero.py.
+images/
+img/
+# Regenerable dry-run output.
+dry-run-body.html
