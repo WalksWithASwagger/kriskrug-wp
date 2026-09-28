@@ -30,13 +30,14 @@ By participating in this project, you agree to keep this a respectful, inclusive
 
 ### Secrets / Varlock (local + Cloud)
 
-Do **not** commit plaintext secrets. Canonical store is your vault (1Password `kk-dev`); this repo’s contract is [`.env.schema`](.env.schema).
+Do **not** commit plaintext secrets. This repo's contract is [`.env.schema`](.env.schema). Load values with Varlock (`varlock load`, `varlock run`, or `make varlock-run`). Do not use 1Password `op://` references, `op read`, or vault steps here.
 
 1. Install Varlock: `curl -sSfL https://varlock.dev/install.sh | sh -s` and put `~/.config/varlock/bin` on `PATH`
-2. Read [`docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md`](docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md)
-3. `make env-check` (soft-OK without secrets)
-4. Prefer `make varlock-run CMD='make status-readonly'` over maintaining plaintext `scripts/notion-to-wp/.env`
-5. Cursor Cloud needs the **same** values injected as Cloud secrets — laptop Varlock does not reach remote agents
+2. Read [`docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md`](docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md). The personal secrets runbook lives in kk-kb `docs/AGENT-SECRETS-VARLOCK.md` if you have that repo.
+3. Put real values only in the user-managed files imported by `.env.schema`. Never put them in git.
+4. `make env-check` (soft-OK without secrets)
+5. Prefer `make varlock-run CMD='make status-readonly'` over maintaining plaintext `scripts/notion-to-wp/.env`
+6. Cursor Cloud needs the **same** values injected as Cloud secrets. Laptop Varlock does not reach remote agents.
 
 ### Reporting Issues
 
