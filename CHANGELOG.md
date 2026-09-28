@@ -108,7 +108,7 @@ or a receipt I could read, it is marked **TODO for KK**.
 - Refreshed authority hub pack status (#939)
 - Corrected authority hub run order (#938)
 - Corrected repository identity and access truth (#935)
-- Closed out issue 4 media gate (#934)
+- Closed out the issue 4 media-gate docs (#934). Issue #4 itself was still open on 2026-09-28.
 - Corrected testimonials issue status (#933)
 
 ### CI and dependencies
@@ -126,7 +126,7 @@ or a receipt I could read, it is marked **TODO for KK**.
 ### Ops and safety
 
 - Archived the `/events/` page 2250 deploy rollback snapshot (#1084)
-- Closed the 2026-09-20 P1 deploy-safety findings (#1079, #1034, #1035, #1036, #1037)
+- Landed the 2026-09-20 P1 deploy-safety fixes named in #1034-#1037 (#1079). Those four issues were still open on 2026-09-28. **TODO for KK:** close them only if the remaining review is done.
 - Archived the Publications theBreaker deploy rollback evidence (#1020)
 - Deploy receipts for the six approved live lanes (#948)
 
