@@ -185,7 +185,7 @@ Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](do
 ## Project Links
 
 - **Live Site:** [kriskrug.co](https://kriskrug.co/)
-- **Events:** [Luma Calendar](https://lu.ma/kk)
+- **Events:** [Luma Calendar](https://luma.com/bcai)
 - **GitHub:** [WalksWithASwagger/kriskrug-wp](https://github.com/WalksWithASwagger/kriskrug-wp)
 - **Issues:** [github.com/WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
 
