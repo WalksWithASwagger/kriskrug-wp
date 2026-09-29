@@ -94,8 +94,9 @@ def load_wp_config() -> WPConfig:
     ).replace(" ", "")
     if not user or not app_password:
         raise RuntimeError(
-            f"WP credentials not found in {LOCAL_ENV_PATH} or environment "
-            "(need WP_USER/WP_APP_PASSWORD or WP_API_USERNAME/WP_API_PASSWORD)"
+            "WP credentials not found in process env "
+            "(need WP_USER/WP_APP_PASSWORD or WP_API_USERNAME/WP_API_PASSWORD; "
+            "run through varlock run --inject vars)"
         )
     return WPConfig(
         base_url=_env_get("WP_BASE_URL", WP_BASE_URL_DEFAULT) or WP_BASE_URL_DEFAULT,

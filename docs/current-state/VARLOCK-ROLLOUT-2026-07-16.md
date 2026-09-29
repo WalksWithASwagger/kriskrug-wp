@@ -9,7 +9,7 @@ environments.
 | Layer | Role |
 |---|---|
 | `~/.agents/env/values/.env.shared.local` | Human-managed reusable local values |
-| `~/.agents/env/values/.env.kriskrug-wp.local` | Optional repo-specific local overrides |
+| `~/.agents/env/values/.env.kriskrug-wp.local` | Project values file (imported whole, `allowMissing=true`) |
 | `.env.schema` | Committed variable names, sensitivity, defaults, and imports |
 | `varlock run --inject vars -- ...` | Validated process injection |
 | Cloud platform secret settings | Separate development or deployment copies |
@@ -40,8 +40,11 @@ make env-check
 make varlock-run CMD='make status-readonly'
 ```
 
-Legacy `scripts/notion-to-wp/.env` and sibling-file fallbacks remain supported,
-but process variables injected by Varlock take precedence.
+Documented notion-to-wp commands go through `varlock run --inject vars -- …`
+or `make varlock-run` / `make draft-queue-audit`. A leftover
+`scripts/notion-to-wp/.env` (often a symlink into the values directory) is
+compat only; process variables injected by Varlock take precedence. Do not
+remove that path unless `ls -l` shows it is a symlink.
 
 ## Cloud agents
 

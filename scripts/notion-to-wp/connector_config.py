@@ -58,10 +58,14 @@ def load_config() -> Config:
     notion_token = get("NOTION_TOKEN")
     if not notion_token:
         sys.exit("NOTION_TOKEN not found. Run through Varlock or configure a legacy local env file.")
+    wp_user = get("WP_USER") or get("WP_API_USERNAME")
+    wp_app_password = (
+        get("WP_APP_PASSWORD") or get("WP_API_PASSWORD") or ""
+    ).replace(" ", "") or None
     return Config(
         notion_token=notion_token,
         wp_base_url=get("WP_BASE_URL", WP_BASE_URL_DEFAULT) or WP_BASE_URL_DEFAULT,
-        wp_user=get("WP_USER"),
-        wp_app_password=(get("WP_APP_PASSWORD") or "").replace(" ", "") or None,
+        wp_user=wp_user,
+        wp_app_password=wp_app_password,
         wp_author_id=int(get("WP_DEFAULT_AUTHOR_ID", str(WP_DEFAULT_AUTHOR_ID)) or WP_DEFAULT_AUTHOR_ID),
     )
