@@ -9,7 +9,7 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 ## Read this in order (top of repo, top of context)
 
 1. [`docs/current-state/README.md`](docs/current-state/README.md) — current-state front door; run `make status-readonly` for live counters
-2. [`docs/current-state/CURRENT-STATE-2026-07-30.md`](docs/current-state/CURRENT-STATE-2026-07-30.md) — declared snapshot for drift/morning-truth (Makefile default)
+2. [`docs/current-state/CURRENT-STATE-2026-09-21.md`](docs/current-state/CURRENT-STATE-2026-09-21.md) — declared snapshot for drift/morning-truth (Makefile default)
 3. [`docs/current-state/WORK-PLAN-2026-09-09.md`](docs/current-state/WORK-PLAN-2026-09-09.md) — active day runbook
 4. [`docs/current-state/MASTER-PLAN-2026-07-30.md`](docs/current-state/MASTER-PLAN-2026-07-30.md) — hygiene + lane sequencing plan
 5. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — Track A / Track B decision rule
