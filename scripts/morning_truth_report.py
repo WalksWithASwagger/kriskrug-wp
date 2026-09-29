@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import re
 import subprocess
 import sys
@@ -51,10 +50,10 @@ def run_command(
 
 
 def run_json_command(
-    title: str, command: list[str], cwd: Path
+    title: str, command: list[str], cwd: Path, *, accepted_returncodes: tuple[int, ...] = (0,)
 ) -> tuple[CommandResult, Any | None]:
     result = run_command(title, command, cwd)
-    if result.returncode != 0 or not result.stdout:
+    if result.returncode not in accepted_returncodes or not result.stdout:
         return result, None
     try:
         parsed = json.loads(result.stdout)
@@ -153,7 +152,11 @@ def format_json_count(payload: Any) -> str:
 
 def summarize_smoke(smoke_json: Any) -> dict[str, Any]:
     """Summarize public smoke JSON; an unavailable result never reads as 0 failures."""
-    if not isinstance(smoke_json, dict):
+    checks = smoke_json.get("checks") if isinstance(smoke_json, dict) else None
+    if not isinstance(checks, list) or not checks or any(
+        not isinstance(check, dict) or check.get("status") not in {"pass", "warn", "fail"}
+        for check in checks
+    ):
         return {
             "available": False,
             "failures": None,
@@ -162,13 +165,17 @@ def summarize_smoke(smoke_json: Any) -> dict[str, Any]:
         }
     failures = 0
     warnings = 0
-    for check in smoke_json.get("checks", []):
+    failure_details = []
+    for check in checks:
         if check.get("status") == "fail":
             failures += 1
+            messages = check.get("failures") or ["check failed"]
+            failure_details.extend(f"{check.get('path', '(unknown)')}: {message}" for message in messages)
         elif check.get("status") == "warn":
             warnings += 1
     return {
         "available": True,
+        "failure_details": failure_details,
         "failures": failures,
         "warnings": warnings,
         "observed_version": smoke_json.get("observed_wordpress_version"),
@@ -268,10 +275,10 @@ def resolve_output_path(
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-url", default="https://kriskrug.co")
-    parser.add_argument("--expect-version", default="6.9.4")
+    parser.add_argument("--expect-version", default="7.0.5")
     parser.add_argument(
         "--work-plan",
-        default="docs/current-state/WORK-PLAN-2026-05-23.md",
+        default="docs/current-state/CURRENT-STATE-2026-09-21.md",
         help="Declared state doc used for drift checks.",
     )
     parser.add_argument(
@@ -306,7 +313,7 @@ def main() -> int:
     parser.add_argument(
         "--fail-on-error",
         action="store_true",
-        help="Exit non-zero when any startup truth data source is unavailable (opt-in automation gate).",
+        help="Exit non-zero when a data source is unavailable or a public smoke check fails (opt-in automation gate).",
     )
     args = parser.parse_args()
 
@@ -449,6 +456,7 @@ def main() -> int:
             "--json",
         ],
         repo_root,
+        accepted_returncodes=(0, 1),
     )
     drift_result, drift_json = run_json_command(
         "Current-State Drift Check (JSON)",
@@ -606,6 +614,7 @@ def main() -> int:
         smoke_lines = [
             f"- Failures: `{smoke['failures']}`",
             f"- Warnings: `{smoke['warnings']}`",
+            *[f"- {detail}" for detail in smoke["failure_details"]],
         ]
     else:
         smoke_lines = [
@@ -679,9 +688,10 @@ def main() -> int:
         assert out_path is not None
         out_path.write_text(report, encoding="utf-8")
         print(out_path)
-    if args.fail_on_error and truth_errors:
+    if args.fail_on_error and (truth_errors or smoke["failures"]):
         print(
-            f"morning-truth: {len(truth_errors)} data source(s) unavailable (--fail-on-error)",
+            f"morning-truth: {len(truth_errors)} data source(s) unavailable; "
+            f"{smoke['failures'] or 0} smoke check(s) failed (--fail-on-error)",
             file=sys.stderr,
         )
         return 1

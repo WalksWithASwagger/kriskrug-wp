@@ -1,4 +1,5 @@
 import io
+import json
 import os
 import subprocess
 import sys
@@ -11,6 +12,7 @@ from urllib.error import HTTPError
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import morning_truth_report  # noqa: E402
+import check_current_state_drift  # noqa: E402
 
 
 def _http_error(code: int) -> HTTPError:
@@ -145,6 +147,77 @@ class MorningTruthAvailabilityTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0)
         self.assertIsNone(payload)
 
+    def test_exit_one_smoke_preserves_version_and_failure_details(self):
+        smoke = {
+            "observed_wordpress_version": "7.0.6",
+            "checks": [{"path": "(version gate)", "status": "fail",
+                        "failures": ["expected WordPress 7.0.5, observed 7.0.6"]}],
+        }
+        completed = subprocess.CompletedProcess([], 1, json.dumps(smoke), "")
+        with mock.patch.object(morning_truth_report.subprocess, "run", return_value=completed):
+            result, payload = morning_truth_report.run_json_command(
+                "Smoke", ["smoke"], Path("."), accepted_returncodes=(0, 1)
+            )
+        self.assertEqual(result.returncode, 1)
+        self.assertEqual(payload, smoke)
+        self.assertNotIn("observed_wordpress_version\":", result.stdout)
+        summary = morning_truth_report.summarize_smoke(payload)
+        self.assertEqual(summary["observed_version"], "7.0.6")
+        self.assertEqual(summary["failures"], 1)
+        self.assertEqual(summary["failure_details"], [
+            "(version gate): expected WordPress 7.0.5, observed 7.0.6"
+        ])
+
+    def test_failed_github_query_with_valid_json_stays_unavailable(self):
+        completed = subprocess.CompletedProcess([], 1, "[]", "authentication failed")
+        with mock.patch.object(morning_truth_report.subprocess, "run", return_value=completed):
+            _, payload = morning_truth_report.run_json_command("PRs", ["gh"], Path("."))
+        self.assertIsNone(payload)
+
+    def test_smoke_empty_malformed_or_unexpected_exit_stays_unavailable(self):
+        for code, output in [(1, ""), (1, "invalid JSON"), (124, '{"checks": []}')]:
+            with self.subTest(code=code, output=output):
+                completed = subprocess.CompletedProcess([], code, output, "")
+                with mock.patch.object(morning_truth_report.subprocess, "run", return_value=completed):
+                    _, payload = morning_truth_report.run_json_command(
+                        "Smoke", ["smoke"], Path("."), accepted_returncodes=(0, 1)
+                    )
+                self.assertIsNone(payload)
+
+    def test_error_object_is_not_a_healthy_smoke_result(self):
+        for payload in [{"message": "error"}, {"checks": []}, {"checks": "error"},
+                        {"checks": ["error"]}, {"checks": [{"status": "unknown"}]}]:
+            with self.subTest(payload=payload):
+                self.assertFalse(morning_truth_report.summarize_smoke(payload)["available"])
+
+    def test_report_surfaces_smoke_failure_and_fails_opt_in_gate(self):
+        smoke = {"observed_wordpress_version": "7.0.6", "checks": [
+            {"path": "(version gate)", "status": "fail", "failures": ["version mismatch"]}
+        ]}
+        def command(title, command, cwd, **kwargs):
+            if title == "WP7 Public Smoke (JSON)":
+                self.assertEqual(command[command.index("--expect-version") + 1], "7.0.5")
+            if title == "Current-State Drift Check (JSON)":
+                self.assertEqual(command[command.index("--work-plan") + 1],
+                                 "docs/current-state/CURRENT-STATE-2026-09-21.md")
+            output = json.dumps(smoke) if title == "WP7 Public Smoke (JSON)" else (
+                "[]" if title in ("Issue JSON", "PR JSON") else '{"checks": []}'
+            )
+            return morning_truth_report.CommandResult(
+                title, command, 1 if title == "WP7 Public Smoke (JSON)" else 0, output, ""
+            )
+        output = io.StringIO()
+        with mock.patch.object(sys, "argv", ["report", "--stdout", "--skip-fetch", "--fail-on-error"]), \
+             mock.patch.object(morning_truth_report, "run_command", side_effect=command), \
+             mock.patch.object(morning_truth_report, "fetch_wp_queue_counts", return_value=(
+                 {"future_posts": 0, "draft_posts": 1, "draft_pages": 1}, None)), \
+             mock.patch("sys.stdout", output), mock.patch("sys.stderr", io.StringIO()):
+            code = morning_truth_report.main()
+        self.assertEqual(code, 1)
+        self.assertIn("WordPress version (smoke): `7.0.6`", output.getvalue())
+        self.assertIn("(version gate): version mismatch", output.getvalue())
+        self.assertNotIn("public smoke result unavailable", output.getvalue())
+
     def test_collect_truth_errors_lists_every_unavailable_source(self):
         errors = morning_truth_report.collect_truth_errors(
             prs_json=None,
@@ -170,6 +243,26 @@ class MorningTruthAvailabilityTests(unittest.TestCase):
             drift_json={"checks": []},
         )
         self.assertEqual(errors, [])
+
+
+class StartupBaselineTests(unittest.TestCase):
+    def test_make_defaults_match_declared_snapshot_and_preserve_overrides(self):
+        root = Path(__file__).resolve().parents[2]
+        for target in ("status-readonly", "morning-truth", "morning-truth-checkpoint",
+                       "current-state-drift-check"):
+            with self.subTest(target=target):
+                result = subprocess.run(["make", "-n", target], cwd=root,
+                                        capture_output=True, text=True, check=True)
+                self.assertIn("WORK_PLAN:-docs/current-state/CURRENT-STATE-2026-09-21.md",
+                              result.stdout)
+                if target != "current-state-drift-check":
+                    self.assertIn("EXPECT_VERSION:-7.0.5", result.stdout)
+        self.assertIn("CURRENT-STATE-2026-09-21.md", (root / "AGENTS.md").read_text())
+
+    def test_direct_drift_script_uses_september_snapshot(self):
+        with mock.patch.object(sys, "argv", ["drift"]):
+            args = check_current_state_drift.parse_args()
+        self.assertEqual(args.work_plan, Path("docs/current-state/CURRENT-STATE-2026-09-21.md"))
 
 
 class MorningTruthOutputPathTests(unittest.TestCase):

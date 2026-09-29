@@ -181,7 +181,7 @@ ACTIVE_GUIDANCE_PATHS = {
     Path("README.md"),
     Path("docs/INDEX.md"),
     Path("docs/current-state/README.md"),
-    Path("docs/current-state/CURRENT-STATE-2026-07-30.md"),
+    Path("docs/current-state/CURRENT-STATE-2026-09-21.md"),
     ACTIVE_WORK_PLAN,
     Path("docs/current-state/MASTER-PLAN-2026-07-30.md"),
 }
@@ -249,7 +249,7 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
             "The audited current-state access guide must use Varlock, live counts by command, and the retired-swarm status.",
         ),
     ],
-    Path("docs/current-state/CURRENT-STATE-2026-07-30.md"): [
+    Path("docs/current-state/CURRENT-STATE-2026-09-21.md"): [
         (
             re.compile(r"(?:Latest dated runbook|front door)[^\n]*WORK-PLAN-2026-08-25\.md", re.I),
             "The declared snapshot must point to `WORK-PLAN-2026-09-09.md`.",

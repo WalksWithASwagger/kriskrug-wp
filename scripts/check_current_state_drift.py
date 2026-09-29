@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import re
 import subprocess
 import sys
@@ -175,7 +174,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--work-plan",
         type=Path,
-        default=Path("docs/current-state/WORK-PLAN-2026-05-23.md"),
+        default=Path("docs/current-state/CURRENT-STATE-2026-09-21.md"),
         help="Path to the state doc containing declared snapshot values.",
     )
     parser.add_argument("--base-url", default="https://kriskrug.co", help="Site URL for smoke checks.")
