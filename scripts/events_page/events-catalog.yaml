@@ -1514,3 +1514,22 @@ events:
   status: confirmed
   cta_upcoming: Speaker page
   cta_past: Event details
+- id: 2026-09-15-all-in-montreal
+  title: ALL IN Montreal
+  date: '2026-09-15'
+  end: '2026-09-18T23:00:00-04:00'
+  bucket_hint: past
+  kind: external
+  role: Press
+  url: https://allinevent.ai/
+  recap_url: https://kriskrug.co/2026/09/18/all-in-montreal-final-day-a-heartbeat-under-my-boots/
+  image: {}
+  blurb: 'Covered ALL IN, Canada''s flagship AI conference, on a media pass as an independent journalist
+    - four gonzo dispatches from the floor: the Canada-Germany sovereign AI announcement, LawZero''s CA$300M,
+    the protest outside, and the people actually building the middle-power path.'
+  label: Sep 15-18 · Montreal
+  tags:
+  - Press
+  - Media pass
+  - Montreal
+  status: confirmed
