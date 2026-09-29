@@ -61,6 +61,21 @@ updates:
           - "minor"
           - "patch"
 
+  # Browser toolchain. Re-evaluate package.json's qs override after upstream updates.
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 3
+    labels:
+      - "ci"
+      - "tech-debt"
+    groups:
+      npm-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+
   # GitHub Actions used by .github/workflows/
   - package-ecosystem: "github-actions"
     directory: "/"
