@@ -17,9 +17,9 @@ It does NOT inject schema. The `kk-schema` mu-plugin handles that sitewide. The 
 
 ### 1. Notion token
 
-Preferred: set `NOTION_TOKEN` in the user-managed Varlock values directory and run the command through Varlock (see repo-root [`.env.schema`](../../.env.schema) and [`docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md`](../../docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md)).
+Preferred: set `NOTION_TOKEN` in `~/.agents/env/values/.env.kriskrug-wp.local` (or the pick-restricted shared profile) and run the command through Varlock. See repo-root [`.env.schema`](../../.env.schema) and [`docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md`](../../docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md).
 
-Compat: put it in `scripts/notion-to-wp/.env`, or point `NOTION_ENV_PATH` / `KKAI_ENV_PATH` at a sibling env file. The optional local fallback `~/Code/notion-local/kk-ai-ecosystem/.env` still works if present but is **deprecated as secret source-of-truth**.
+Compat: a leftover `scripts/notion-to-wp/.env` or `NOTION_ENV_PATH` / `KKAI_ENV_PATH` sibling file still works if present but is **deprecated as secret source-of-truth**. Do not copy secrets into this repo.
 
 ### 2. WordPress Application Password
 
@@ -29,16 +29,15 @@ Generate one **once**:
 2. Scroll to **Application Passwords** (near the bottom of the page).
 3. Application Name: `kk-notion-to-wp`
 4. Click **Add New Application Password**.
-5. WordPress shows the password once. Put it in the user-managed Varlock values file. Do not paste it into docs, issues, commits, or chat.
-6. Preferred: run the connector through `make varlock-run CMD='<command>'`. Compat cache:
+5. WordPress shows the password once. Put it in the user-managed Varlock values file (`~/.agents/env/values/.env.kriskrug-wp.local`). Do not paste it into docs, issues, commits, or chat.
+6. Run the connector through Varlock:
 
 ```bash
-cp scripts/notion-to-wp/.env.example scripts/notion-to-wp/.env
-$EDITOR scripts/notion-to-wp/.env
-# fill in WP_USER and WP_APP_PASSWORD
+varlock run --inject vars -- python scripts/notion-to-wp/kk_notion_to_wp.py --dry-run https://www.notion.so/<page-id>
+# equivalent: make varlock-run CMD='python scripts/notion-to-wp/kk_notion_to_wp.py --dry-run …'
 ```
 
-If you ever lose it, just revoke and regenerate — no password recovery in WP.
+If you ever lose the application password, just revoke and regenerate — no password recovery in WP.
 
 ### 3. Python deps
 
@@ -55,22 +54,22 @@ pip install -r requirements.txt
 
 ```bash
 # Dry-run: writes content/drafts/<slug>/, prints REST payload, does NOT post
-python kk_notion_to_wp.py --dry-run https://www.notion.so/<page-id>
+varlock run --inject vars -- python scripts/notion-to-wp/kk_notion_to_wp.py --dry-run https://www.notion.so/<page-id>
 
 # Dry-run with an explicit category decision
-python kk_notion_to_wp.py --dry-run --category "AI Ethics & Philosophy" https://www.notion.so/<page-id>
+varlock run --inject vars -- python scripts/notion-to-wp/kk_notion_to_wp.py --dry-run --category "AI Ethics & Philosophy" https://www.notion.so/<page-id>
 
 # Live: also uploads images, creates a DRAFT post on kriskrug.co
-python kk_notion_to_wp.py https://www.notion.so/<page-id>
+varlock run --inject vars -- python scripts/notion-to-wp/kk_notion_to_wp.py https://www.notion.so/<page-id>
 
 # Live + publish immediately
-python kk_notion_to_wp.py --publish https://www.notion.so/<page-id>
+varlock run --inject vars -- python scripts/notion-to-wp/kk_notion_to_wp.py --publish https://www.notion.so/<page-id>
 
 # Live update of an existing slug, guarded by title similarity
-python kk_notion_to_wp.py --update https://www.notion.so/<page-id>
+varlock run --inject vars -- python scripts/notion-to-wp/kk_notion_to_wp.py --update https://www.notion.so/<page-id>
 
 # No-write update review: fetches the existing slug target and prints a diff
-python kk_notion_to_wp.py --diff https://www.notion.so/<page-id>
+varlock run --inject vars -- python scripts/notion-to-wp/kk_notion_to_wp.py --diff https://www.notion.so/<page-id>
 ```
 
 ## Local draft package publisher
@@ -85,10 +84,10 @@ If a retry happens after media upload, it reuses media IDs already recorded in
 
 ```bash
 # Validate slug availability and payload shape; no WordPress writes.
-scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py content/drafts/<date-slug>/post.md
+varlock run --inject vars -- scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py content/drafts/<date-slug>/post.md
 
 # Explicit create-only WP draft run.
-scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py content/drafts/<date-slug>/post.md --execute
+varlock run --inject vars -- scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py content/drafts/<date-slug>/post.md --execute
 ```
 
 ## Draft queue audit
@@ -96,7 +95,8 @@ scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft
 Before promoting anything from the WordPress draft pile, refresh the read-only queue audit:
 
 ```bash
-scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py
+varlock run --inject vars -- scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py
+# equivalent: make draft-queue-audit
 ```
 
 The audit reports live WP draft/future/pending/private counts, local `content/drafts/` package metrics, exact slug matches across published and draft posts/pages, and draft quality signals. It does not create, update, schedule, or publish anything.
@@ -260,9 +260,9 @@ Rebuilding a live post's body from its source markdown is only safe when that so
 `backfill_lightbox.py` does exactly this across the whole published catalog: it enables the native lightbox on every core image (none/media link destinations), unwraps click-to-open `<a><img></a>` anchors, drops gallery `linkTo:media`, and normalizes the caption class — leaving `linkDestination:custom` (deliberate outbound-link) images alone. Each write is guarded so the block structure must be identical before/after, and originals are appended to a rollback manifest first.
 
 ```bash
-python backfill_lightbox.py                       # dry-run: what would change
-python backfill_lightbox.py --execute             # apply; writes backfill-rollback.jsonl
-python backfill_lightbox.py --rollback FILE.jsonl # restore originals from a manifest
+varlock run --inject vars -- python scripts/notion-to-wp/backfill_lightbox.py                       # dry-run: what would change
+varlock run --inject vars -- python scripts/notion-to-wp/backfill_lightbox.py --execute             # apply; writes backfill-rollback.jsonl
+varlock run --inject vars -- python scripts/notion-to-wp/backfill_lightbox.py --rollback FILE.jsonl # restore originals from a manifest
 ```
 
 Heads-up: REST content updates bump each post's modified date (sitemap `lastmod`). The 2026-06-28 run swept all 161 image-posts (~1,346 images); its manifest is `backfill-rollback-2026-06-28.jsonl` (gitignored).
