@@ -2,9 +2,11 @@
 
 Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then run `make status-readonly` for current runtime signals.
 
-## Current Front Door (verified 2026-09-21)
+## Current Front Door (weekly priorities refreshed 2026-09-29)
 
 Read these first:
+
+- **[WEEK-PLAN-2026-09-28.md](WEEK-PLAN-2026-09-28.md)**: September 28–October 4 priorities, September 29 maintenance receipt, safe branch cleanup, and the next focused session. The dated snapshot below remains the drift baseline; the September 9 runbook retains its specific live-lane procedures.
 
 1. **[WORK-PLAN-2026-09-09.md](WORK-PLAN-2026-09-09.md)**, active runbook (issue #4's media identity-repair gate is complete; authority-hub issues #829-#833 are live and closed; #834 remains open and needs a fresh authenticated preflight; use `make status-readonly` for live counters). No newer dated work plan exists as of 2026-09-21.
 2. **[CURRENT-STATE-2026-09-21.md](CURRENT-STATE-2026-09-21.md)**, declared snapshot for morning-truth drift checks (compare it with a fresh `make status-readonly` run). [CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md) is its historical predecessor.
