@@ -46,6 +46,21 @@ class VarlockPrecedenceTests(unittest.TestCase):
         self.assertEqual(config.wp_app_password, "injected-password")
         self.assertEqual(config.wp_author_id, 18)
 
+    def test_connector_config_accepts_wp_api_aliases(self):
+        self.local_env.write_text("NOTION_TOKEN=file-notion\n", encoding="utf-8")
+        injected = {
+            "NOTION_TOKEN": "injected-notion",
+            "WP_API_USERNAME": "api-user",
+            "WP_API_PASSWORD": "api-password",
+        }
+        with mock.patch.object(connector_config, "LOCAL_ENV_PATH", self.local_env), \
+                mock.patch.object(connector_config, "KKAI_ENV_PATH", self.fallback_env), \
+                mock.patch.dict(os.environ, injected, clear=True):
+            config = connector_config.load_config()
+
+        self.assertEqual(config.wp_user, "api-user")
+        self.assertEqual(config.wp_app_password, "api-password")
+
     def test_local_draft_config_prefers_injected_process_values(self):
         injected = {
             "WP_USER": "injected-user",

@@ -25,6 +25,10 @@ or a receipt I could read, it is marked **TODO for KK**.
 
 ## [Unreleased]
 
+### Operations
+
+- Load notion-to-wp through Varlock from `~/.agents/env/values/.env.kriskrug-wp.local` (no pick list; documented run commands wrap `varlock run`)
+
 ## [2026-08-29 to 2026-09-28]
 
 ### Content

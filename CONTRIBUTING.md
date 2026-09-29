@@ -36,7 +36,7 @@ Do **not** commit plaintext secrets. This repo's contract is [`.env.schema`](.en
 2. Read [`docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md`](docs/current-state/VARLOCK-ROLLOUT-2026-07-16.md). The personal secrets runbook lives in kk-kb `docs/AGENT-SECRETS-VARLOCK.md` if you have that repo.
 3. Put real values only in the user-managed files imported by `.env.schema`. Never put them in git.
 4. `make env-check` (soft-OK without secrets)
-5. Prefer `make varlock-run CMD='make status-readonly'` over maintaining plaintext `scripts/notion-to-wp/.env`
+5. Prefer `make varlock-run CMD='make status-readonly'` or `varlock run --inject vars -- …`. Do not copy secrets into `scripts/notion-to-wp/.env`.
 6. Cursor Cloud needs the **same** values injected as Cloud secrets. Laptop Varlock does not reach remote agents.
 
 ### Reporting Issues

@@ -194,7 +194,7 @@ draft-queue-audit: ## Run read-only draft queue audit (LOCAL_ONLY=1 FORMAT=json)
 	@if [ "$${LOCAL_ONLY:-0}" = "1" ]; then \
 		python3 scripts/notion-to-wp/draft_queue_audit.py --local-only --format "$${FORMAT:-markdown}"; \
 	else \
-		scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py --format "$${FORMAT:-markdown}"; \
+		$(VARLOCK) run --inject vars -- scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py --format "$${FORMAT:-markdown}"; \
 	fi
 
 seo-audit: ## Run read-only Jetpack SEO metadata inventory (FORMAT=markdown|json|csv)
@@ -275,7 +275,6 @@ env-check: ## Validate .env.schema via Varlock (soft-OK when secrets are absent)
 			echo "Wire WP_USER / WP_APP_PASSWORD (and optional NOTION_TOKEN) via:"; \
 			echo "  - ~/.agents/env/values/.env.shared.local or .env.kriskrug-wp.local"; \
 			echo "  - cloud-agent secrets / process env"; \
-			echo "  - temporary scripts/notion-to-wp/.env cache (compat only)"; \
 			echo "Then: $(VARLOCK) run --inject vars -- make status-readonly"; \
 			exit 0; \
 		fi; \

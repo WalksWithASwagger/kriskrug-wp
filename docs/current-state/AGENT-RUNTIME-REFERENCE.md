@@ -35,10 +35,11 @@ Do not infer that credentials are missing from an unset `WP_USER`. Run
 
 Varlock is the source of truth. Read `.env.schema` and
 `VARLOCK-ROLLOUT-2026-07-16.md`; never read, print, or commit `.env` or
-`.env.local`. Prefer `make varlock-run CMD='…'` or
-`varlock run --inject vars -- …`. If credentials are unavailable, use
-credential-free paths such as `LOCAL_ONLY=1 make draft-queue-audit` and
-`make status-readonly`.
+`.env.local`. The project values file is
+`~/.agents/env/values/.env.kriskrug-wp.local`. Prefer `make varlock-run CMD='…'`
+or `varlock run --inject vars -- …`. `make draft-queue-audit` injects through
+Varlock; if credentials are unavailable, use credential-free paths such as
+`LOCAL_ONLY=1 make draft-queue-audit` and `make status-readonly`.
 
 Use normal `gh` authentication. A scoped `GH_TOKEN` can authenticate the CLI,
 but does not bypass branch protection.
