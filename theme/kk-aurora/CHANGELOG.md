@@ -21,11 +21,11 @@ When you cut a new release, add a line here and follow
 ---
 
 ## 1.6.12
-**Deployed:** Not deployed.
+**Deployed:** LIVE (public `style.css` readback 2026-09-30 via `make check-live-parity`; same Version was already recorded 2026-09-21 in `CURRENT-STATE-2026-09-21.md`). Method not recorded in this verification; this marker is version-readback only. Current public `style.css` controls the current-version claim.
 Adds The Sky Smoked Back to the sitewide Projects footer so the released film shares the same project-network path as the Work page and AI Garden (#1042).
 
 ## 1.6.11
-**Deployed:** LIVE (public `style.css` readback 2026-09-09). Method not recorded in this verification; this marker is version-readback only.
+**Deployed:** Superseded by 1.6.12 (public `style.css` 2026-09-21 and 2026-09-30). Was LIVE (public `style.css` readback 2026-09-09). Method not recorded in that verification; that marker was version-readback only.
 Reverts the 1.6.10 event-artboard CSS in full. It should never have shipped. The `/events/` art direction was **not** missing its styles: `scripts/events_page/render_events_page.py` emits a complete page-scoped design system in a `<style>` block with its own `--events-*` token set, and it has done since the art-direction work in PR #943. The 1.6.10 rules were added on the false premise that no CSS existed, and every one of them lost to the page-scoped rules on specificity (`.aurora-events-page .aurora-event-art` beats `.aurora-event-art`), so they were inert on the only page those classes appear. Removing 130 dead front-end lines and retiring the #943 budget waiver; budget back to 7489 / 173 exactly.
 
 ## 1.6.10
@@ -36,7 +36,7 @@ Events artboards and editorial marks (#943). PR #943 shipped the renderer markup
 **Deployed:** Superseded by 1.6.11 (public `style.css` 2026-09-09). Was LIVE (SFTP 2026-08-18, rollback `kk-aurora.bak-1787021714`). Public `style.css` then read 1.6.9. Projects footer links Dark Crystal and `https://unofficial.city/`. Work page 2672 got a surgical card insert (not a full `work.html` replace) so the live lab grid kept Skywhale, Gorgeous Ghost, Wedges, Ghost Radio, and Ethos. Snapshot: `backup/20260818T025650Z-work-lab-cards/`. Receipt: `docs/current-state/reports/aurora-169-live-deploy-20260818.md`.
 
 ## 1.6.8
-**Deployed:** Superseded (was live 2026-08-17 until the 1.6.9 swap; rollback seat `kk-aurora.bak-1786942075`; prior swap `kk-aurora.bak-1786942015`). Public `style.css` reads 1.6.8. Custom FSE `front-page` (wp_id 12661) was snapshotted then POSTed from theme `front-page.html` at 2026-08-17 04:51 UTC; homepage now renders labs / logo soup / stages / What People Say. Pixel vs pre-HTML 1.6.7 (`20260817T044445Z` → `20260817T045150Z`): homepage fail 55–62% (expected height + new bands); 29 other pairs pass; `/blog/` tablet warn 0.49%. Boost CSS bundle hash moved `d4faec73b4` → `0f9e6b2840`. Explicit #731 wp-admin regen still owed.
+**Deployed:** Superseded (was live 2026-08-17 until the 1.6.9 swap; rollback seat `kk-aurora.bak-1786942075`; prior swap `kk-aurora.bak-1786942015`). Public `style.css` then read 1.6.8. Custom FSE `front-page` (wp_id 12661) was snapshotted then POSTed from theme `front-page.html` at 2026-08-17 04:51 UTC; homepage now renders labs / logo soup / stages / What People Say. Pixel vs pre-HTML 1.6.7 (`20260817T044445Z` → `20260817T045150Z`): homepage fail 55–62% (expected height + new bands); 29 other pairs pass; `/blog/` tablet warn 0.49%. Boost CSS bundle hash moved `d4faec73b4` → `0f9e6b2840`. Explicit #731 wp-admin regen still owed.
 Homepage cluster: rewrite the Join BC / Futureproof work-band copy, align the triptych, and quiet the card numerals (#411); restore a Creative Labs band with text-below-image cards (#412); bring back a monochrome interactive client logo soup (#413). Stages, What People Say, and newsletter follow in the same cut (#414–#416).
 
 ## 1.6.7
@@ -52,7 +52,7 @@ Copy and dead-file cleanup, no layout or CSS change. Strips the five user-visibl
 Add AI Garden to the project footer and ship the previously merged Creative AI Human Lab links with an explicit versioned release. Pagely page and CDN caches were purged successfully. The post-purge visual comparison confirmed live/repo CSS identity and a refreshed Jetpack Boost bundle; its threshold failures are confined to the intentional project-footer expansion documented in `report-20260814T190349Z.md`.
 
 ## 1.6.4
-**Deployed:** LIVE (public readback 2026-08-11; the 2026-08-11 window shipped 1.6.1 through 1.6.4 together, rollback `kk-aurora.bak-1786415439`)
+**Deployed:** Superseded by later 1.6.x deploys (was LIVE on public readback 2026-08-11; the 2026-08-11 window shipped 1.6.1 through 1.6.4 together, rollback `kk-aurora.bak-1786415439`). Do not treat this dated LIVE marker as current production.
 CLS/LCP fix: critical-geometry guard in the header part pins marquee + header layout during the stale-Boost-critical-CSS window; reveal hide moves from stylesheet to JS ownership with synchronous above-fold reveal (#701, PR pending). After deploying, regenerate Jetpack Boost critical CSS.
 
 ## 1.6.3

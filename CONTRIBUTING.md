@@ -135,7 +135,7 @@ Your PR should include:
 3. Content/docs-only PRs may use the normal protected merge path.
 4. Theme, plugin, `inc/`, and live-deploy work requires KK review before merge; every live WordPress deploy requires separate explicit approval.
 
-> The older GitHub Actions agent swarm is gone (`agent-pr-generator.yml` deleted 2026-08-23). `test-pr.yml` is the active PR validation.
+> The older GitHub Actions agent swarm is gone (`agent-pr-generator.yml` deleted 2026-08-23). `test-pr.yml` and `backlog-reconcile.yml` are the active repo workflows. Auto-Triage Issues and Marquee Weekly Scan still have YAML in `.github/workflows/`; the Actions API reported both `disabled_manually` on 2026-09-30. File presence is not enablement. The disable reason is unknown; do not change workflow settings.
 
 ## Coding Standards
 
@@ -207,7 +207,7 @@ See [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL
 
 There is no local app server to boot. The live site runs on Pagely and is not file-synced here. Local work means running the CLI tools and the validation gates below.
 
-CI runs the gates on PHP 8.2, Python 3.12, and Node 20 (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)). The Aurora theme declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css). You don't need exact version matches locally, but if a gate behaves differently than CI, check your runtime versions first.
+CI runs the gates on PHP 8.2 and Python 3.12. JavaScript syntax uses Node 20; the WordPress Playground browser job uses Node 24. Playground 3.1.55 requires Node >=24.18.0 and npm >=11.16.0 (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml) and [`package.json`](package.json)). The Aurora theme declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css). You don't need exact version matches locally, but if a gate behaves differently than CI, check your runtime versions first.
 
 Two requirement files, one canonical test environment. Root [`requirements-test.txt`](requirements-test.txt) **is the canonical Python test env** — CI installs it, and it is the only file that satisfies `make python-test` and `make ruff-changed` (it is the runtime deps plus `pytest` and Ruff). [`scripts/notion-to-wp/requirements.txt`](scripts/notion-to-wp/requirements.txt) is **runtime-only**: it exists so several `Makefile` targets can call `scripts/notion-to-wp/.venv/bin/python` directly, and installing only it leaves you unable to run that package's test suites. Install the root file when you want to run tests, including the `scripts/notion-to-wp/tests` suites.
 
@@ -326,24 +326,51 @@ python3 ~/Code/kk-voice/scripts/voicecheck.py <file>
 
 ## Testing
 
-This repo has focused automated tests for the Notion publisher safety guards, plus manual validation for production-adjacent WordPress changes.
+This repo has focused automated tests for the Notion publisher safety guards, PHP/theme smoke, docs-truth, and a disposable WordPress fixture for the practice plugin. Production WordPress still needs manual validation.
 
 Automated tests:
 
 - `scripts/notion-to-wp/.venv/bin/python -m unittest discover -s scripts/notion-to-wp/tests -v`
-- `make test` (runs the Notion publisher tests plus the sidebar promo smoke test)
+- `make test` (Python suites, JavaScript syntax, plugin and theme smoke)
 - `make validate` (runs the focused WordPress PHP security ruleset)
-- `make verify` (runs the standard local gate)
+- `make verify` (runs the standard local gate: `test` + `docs-truth-check` + `validate`)
 - `make ruff-changed BASE_REF=origin/main` (checks the isolated E4/E7/E9/F Ruff baseline only on Python files changed from the selected base; CI runs the same ratchet)
 - `make voice-check` (hard-rule copy gate; see [Voice Gate](#voice-gate))
+- `make docs-truth-check` (blocks known-bad current-state claims)
+
+### Practice preview, contracts, and browser fixture
+
+These targets exercise `plugins/kk-practice/` in a disposable WordPress Playground fixture. They are not production verification, not the Aurora pixel gate, and not a substitute for consented human review. See [`plugins/kk-practice/README.md`](plugins/kk-practice/README.md) for the privacy boundary and exact assertions.
+
+| Target | What it does | Needs |
+|---|---|---|
+| `make practice-test` | PHP smoke, `node --check` on the two practice scripts, and source-contract checks | PHP, Node |
+| `make practice-preview` | Starts a disposable WordPress 7.0.4 / PHP 8.2 / Aurora SQLite/WASM fixture and prints the fixture URLs | Node 24 + npm 11, `npm ci --ignore-scripts`, internet for Playground runtime files |
+| `make practice-browser-test` | Runs `practice-test`, then Playwright Chromium against that fixture | The preview stack plus a Chromium install |
+
+Setup from the repository root:
+
+```bash
+npm ci --ignore-scripts
+export PLAYWRIGHT_BROWSERS_PATH="$PWD/node_modules/.cache/practice-browsers"
+node node_modules/playwright/cli.js install chromium
+make practice-test
+make practice-preview          # optional manual fixture; Ctrl-C to stop
+make practice-browser-test
+```
+
+Runtime split (do not collapse these):
+
+- JavaScript syntax (`make javascript-syntax`) uses Node 20 in CI.
+- Playground 3.1.55, used by preview and browser tests, requires Node >=24.18.0 and npm >=11.16.0. CI's `practice-browser` job uses Node 24. A reviewed local run used Node 24.21.0 and npm 11.19.0.
+- `PRACTICE_CHROME` can point at a local Chrome executable. CI installs pinned Playwright Chromium into `PLAYWRIGHT_BROWSERS_PATH` (`/tmp/kk-practice-browsers` on the runner).
+- A failed Playground download is unavailable setup, not a passing test. Green fixture results do not prove live Pagely, production plugins, or CDN/cache behavior.
 
 Manual validation:
 
 - **Content publishing:** dry-run the connector first (`--dry-run`), eyeball the rendered post on staging or with the WP REST API, then publish for real.
 - **PHP snippets in `fixes/`:** paste into Code Snippets on prod, save as inactive, toggle on, watch Query Monitor / front-end behavior.
 - **Aurora theme (Track B):** production is Pagely-hosted; Cloudways staging was planned and never used as the default path (see AGENTS.md historical notes). Prefer Local by Flywheel / public smoke / package-then-upload when rendered proof is needed, then render every post type (Make Culture and Your Taste are the stress tests per [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md)).
-
-If broader automated coverage is added (for example PHPUnit, Playwright, or end-to-end staging checks), extend this section with exact run commands.
 
 ## Getting Help
 
