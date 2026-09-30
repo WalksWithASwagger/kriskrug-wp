@@ -4,7 +4,6 @@ import re
 import unittest
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[2]
 DEPLOYED = ROOT / "fixes/schema-snippets-deployed.php"
 PACKET = ROOT / "fixes/issue-1089-schema-save-preflight-2026-09-29.md"
@@ -98,7 +97,7 @@ class Issue1089SchemaSavePreflightTests(unittest.TestCase):
         self.assertEqual(PERSON_ID, self.manifest["identity"]["person_id"])
         self.assertEqual(ORG_ID, self.manifest["bc_ai_organization"]["id"])
         self.assertIn(f"'id' => '{ORG_ID}'", self.deployed)
-        self.assertIn(f"$c['site_url'] . '/#person'", self.deployed)
+        self.assertIn("$c['site_url'] . '/#person'", self.deployed)
         self.assertIn(ORG_ID, self.packet)
         self.assertIn(PERSON_ID, self.packet)
         person = self.manifest["review_person"]
@@ -202,7 +201,7 @@ class Issue1089SchemaSavePreflightTests(unittest.TestCase):
         self.assertIn(pointer, HANDOFF_316.read_text(encoding="utf-8"))
         self.assertIn(pointer, HANDOFF_641.read_text(encoding="utf-8"))
         self.assertIn(pointer, README.read_text(encoding="utf-8"))
-        self.assertIn("no live WordPress write", self.packet)
+        self.assertIn("No live WordPress write", self.packet)
 
 
 if __name__ == "__main__":
