@@ -3,6 +3,7 @@
 **Track:** A - Content + SEO
 **Status:** repo-side human-review handoff; no live WordPress or Code Snippets write
 **Manifest:** `fixes/issue-641-speaking-video-schema-handoff-2026-08-27.json`
+**Current Snippet 5 save preflight:** `fixes/issue-1089-schema-save-preflight-2026-09-29.md` (#1104 / #1089)
 
 ## Decision
 
