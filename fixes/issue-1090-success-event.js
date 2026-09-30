@@ -16,10 +16,9 @@
  * Click, outbound navigation, mailto, validation failure, and submit
  * error are rejected.
  *
- * Event-param allowlist (Sulu guard): gtag params are only
- * `submission_id` (opaque token) and `signal`. Email, name, and any
- * other form field value are dropped. A submission id that looks like
- * an email or a name is rejected.
+ * Only the validated signal leaves the page. Submission identifiers stay
+ * local for deduplication because their character set cannot establish
+ * that they contain no personal information.
  *
  * Dedup: the same eventName + submissionId pair fires once for the
  * lifetime of this page. A later distinct submissionId may fire again.
@@ -39,11 +38,6 @@
     thank_you_state: true,
   };
 
-  var ALLOWED_PARAM_KEYS = {
-    submission_id: true,
-    signal: true,
-  };
-
   var OPAQUE_SUBMISSION_ID = /^[A-Za-z0-9_-]+$/;
 
   if (!root.__kkVerifiedConversionState) {
@@ -54,32 +48,16 @@
     return typeof value === "string" && value !== "" && OPAQUE_SUBMISSION_ID.test(value);
   }
 
-  function buildEventParams(signal, submissionId) {
-    var source = {
-      submission_id: submissionId,
-      signal: signal,
-    };
-    var params = {};
-    var key;
-    for (key in ALLOWED_PARAM_KEYS) {
-      if (Object.prototype.hasOwnProperty.call(ALLOWED_PARAM_KEYS, key) &&
-          Object.prototype.hasOwnProperty.call(source, key)) {
-        params[key] = source[key];
-      }
-    }
-    return params;
-  }
-
   function recordVerifiedConversion(detail) {
     var payload = detail || {};
     var eventName = payload.eventName;
     var signal = payload.signal;
     var submissionId = payload.submissionId == null ? "" : String(payload.submissionId);
 
-    if (!ALLOWED_EVENTS[eventName]) {
+    if (typeof eventName !== "string" || !Object.prototype.hasOwnProperty.call(ALLOWED_EVENTS, eventName)) {
       return { fired: false, reason: "event_name" };
     }
-    if (!ALLOWED_SIGNALS[signal]) {
+    if (typeof signal !== "string" || !Object.prototype.hasOwnProperty.call(ALLOWED_SIGNALS, signal)) {
       return { fired: false, reason: "signal" };
     }
     if (!isOpaqueSubmissionId(submissionId)) {
@@ -95,7 +73,7 @@
       return { fired: false, reason: "gtag_missing" };
     }
 
-    root.gtag("event", eventName, buildEventParams(signal, submissionId));
+    root.gtag("event", eventName, { signal: signal });
     root.__kkVerifiedConversionState.fired[key] = true;
     return { fired: true, reason: "ok" };
   }
@@ -107,7 +85,6 @@
       recordVerifiedConversion: recordVerifiedConversion,
       ALLOWED_EVENTS: ALLOWED_EVENTS,
       ALLOWED_SIGNALS: ALLOWED_SIGNALS,
-      ALLOWED_PARAM_KEYS: ALLOWED_PARAM_KEYS,
     };
   }
 })(typeof globalThis !== "undefined" ? globalThis : this);

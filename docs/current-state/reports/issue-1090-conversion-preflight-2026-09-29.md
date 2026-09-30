@@ -64,7 +64,7 @@ The live `/subscribe/` embed is a **cross-origin iframe** on `embeds.beehiiv.com
 Beehiiv's current public subscribe-form help (updated 2026-07-27) names the provider-supported success routes:
 
 1. **Show a success message** inside the form (default, up to 80 characters). That message stays in the iframe. kriskrug.co cannot count it.
-2. **Redirect to an external website** after signup. If KK points that redirect at a first-party thank-you URL on kriskrug.co, the parent can treat landing on that URL as `thank_you_state`.
+2. **Redirect to an external website** after signup. A first-party thank-you redirect is only a candidate integration surface. Loading or refreshing that URL is not proof of a successful signup; the integration must independently verify provider success and supply a single-use, non-personal token before calling the helper.
 3. **Email submitted** automations and the Subscribers report, including UTMs on the embed URL. Those are Beehiiv-admin surfaces, not page-side events.
 4. An **Attribution tracking script** that forwards UTMs into Beehiiv. That is acquisition attribution, not a verified subscribe conversion.
 
@@ -133,7 +133,7 @@ A reliable page-side integration surface does **not** exist for the current Beeh
 
 | File | Role |
 |---|---|
-| `fixes/issue-1090-success-event.js` | Candidate helper. Fires `gtag('event', …)` only for `newsletter_submit` or `speaking_inquiry_submit` when `signal` is `confirmed_submit` or `thank_you_state` and `submissionId` is unique and opaque. Event params are allowlisted to `submission_id` + `signal` only. No click listener. No postMessage. **NOT LIVE.** |
+| `fixes/issue-1090-success-event.js` | Candidate helper. Fires `gtag('event', …)` only for `newsletter_submit` or `speaking_inquiry_submit` when `signal` is `confirmed_submit` or `thank_you_state` and `submissionId` is unique and opaque. Event params are allowlisted to `signal` only; submission IDs remain local. No click listener. No postMessage. **NOT LIVE.** |
 | `fixes/issue-1090-conversion-handoff-2026-09-30.md` | Deploy / snapshot / rollback / KK decisions. Pattern follows `fixes/issue-316-schema-identity-handoff-2026-07-13.md`. |
 | `scripts/tests/issue_1090_success_event_harness.cjs` | Synthetic fixture. Intercepts gtag in-process. Zero external submissions. |
 | `scripts/tests/test_issue_1090_conversion_preflight.py` | Packet / theme / helper contract. |
@@ -155,7 +155,7 @@ Contract:
 - a later distinct successful submission fires once
 - inquiry uses `speaking_inquiry_submit`, never `newsletter_submit`
 - extra keys (`email`, `name`, arbitrary form values) are dropped from gtag params
-- an email or a name used as `submissionId` is rejected
+- IDs containing email syntax or whitespace are rejected; all IDs remain local
 
 This proves the helper. It does **not** prove Beehiiv or mailbox integration.
 
@@ -165,8 +165,8 @@ Stay in Beehiiv admin or an authorized staging copy. Do not submit the productio
 
 1. Open Subscribers → Subscribe forms for the publication behind `kriskrug.beehiiv.com` and the embed id `552dc13c-76df-4a0b-9663-b7e668042177`.
 2. Read Settings: success message versus **Redirect to an external website**. Record the current value privately.
-3. If KK wants a first-party signal, set the redirect to a dedicated thank-you URL that is not a useful content page, then fixture that URL locally with the helper and a one-time `submissionId`.
-4. Confirm the thank-you page fires exactly one `en=newsletter_submit` collect hit in a host-blocked browser, and that `/subscribe/` load and Beehiiv-link clicks fire none.
+3. After separate KK approval, configure a redirect only if the provider can supply verifiable success and a single-use, non-personal token. A direct visit or refresh must emit nothing. If that evidence is unavailable, keep counting inside Beehiiv; do not turn a page view into a conversion.
+4. Confirm a verified, single-use provider success produces exactly one `en=newsletter_submit` collect hit in a host-blocked browser. Direct thank-you visits, refreshes, `/subscribe/` load and Beehiiv-link clicks must fire none. This cross-page/provider contract is not implemented by the page-local helper.
 5. If KK prefers to keep success inside Beehiiv, stop. Count subscribers in Beehiiv. Do not invent a parent-page event.
 
 ### 5.3 Event-param allowlist (Sulu guard)
@@ -177,10 +177,9 @@ Allowed params only:
 
 | Key | Allowed values |
 |---|---|
-| `submission_id` | Opaque token (`[A-Za-z0-9_-]+`). Thank-you landing token or provider subscription id. Not an email, not a name, not a form field. |
 | `signal` | `confirmed_submit` or `thank_you_state` |
 
-A `submissionId` that contains `@` or whitespace (email or name) is rejected and does not fire. The helper never copies the caller object into gtag.
+A `submissionId` that contains `@` or whitespace is rejected and does not fire. Other strings can still contain personal information, so no submission ID is sent to gtag. IDs exist only in the page-local deduplication map. The helper never copies the caller object into gtag.
 
 ---
 
@@ -190,7 +189,7 @@ A `submissionId` that contains `@` or whitespace (email or name) is rejected and
 
 **Snapshot / readback / rollback:** see `fixes/issue-1090-conversion-handoff-2026-09-30.md`. Short version: snapshot the current Code Snippet or page HTML privately before any save; activate nothing until the success URL exists; rollback is deactivate / restore the snapshot; purge only the affected cache.
 
-**Privacy:** tests use synthetic ids (`sub-1`, `page-a`, `tok-9`). No personal email, no production subscriber data, no secrets. Event params are allowlisted to `submission_id` and `signal`; email, name, and form field values are dropped.
+**Privacy:** tests use synthetic ids (`sub-1`, `page-a`, `tok-9`). No personal email, no production subscriber data, no secrets. Event params are allowlisted to `signal` only; email, name, and form field values are dropped.
 
 **KK decisions still required (do not take them here):**
 
@@ -208,6 +207,6 @@ A `submissionId` that contains `@` or whitespace (email or name) is rejected and
 - [x] Event decision table with `newsletter_submit` vs `speaking_inquiry_submit`
 - [x] Cross-origin iframe documented; no postMessage workaround
 - [x] Candidate helper tested locally with synthetic data; provider path marked not executed
-- [x] Event-param allowlist: only opaque `submission_id` and `signal`; email / name / form values dropped or rejected
+- [x] Event-param allowlist: only validated `signal`; email / name / form values dropped or rejected
 - [x] Handoff with files, owner, snapshot/rollback, privacy-safe evidence, and KK decisions
 - [x] Keep #1090 open; no key-event or production completion claim

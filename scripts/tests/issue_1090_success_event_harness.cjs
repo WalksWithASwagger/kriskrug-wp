@@ -34,8 +34,7 @@ function assertNoFire(root, events, detail, reason) {
 }
 
 function assertAllowedParamsOnly(params, detail) {
-  assert.deepEqual(Object.keys(params).sort(), ["signal", "submission_id"]);
-  assert.equal(params.submission_id, String(detail.submissionId));
+  assert.deepEqual(Object.keys(params), ["signal"]);
   assert.equal(params.signal, detail.signal);
   const serialized = JSON.stringify(params);
   assert.doesNotMatch(serialized, /@/);
@@ -261,7 +260,27 @@ function testEmailOrNameAsSubmissionIdRejected() {
   );
 }
 
+function testInheritedAllowlistKeysAreRejected() {
+  const { root, events } = loadHelper();
+  for (const value of ["constructor", "toString", "__proto__", ["newsletter_submit"]]) {
+    assertNoFire(root, events, {eventName: value, signal: "confirmed_submit", submissionId: "probe"}, "event_name");
+  }
+  for (const value of ["constructor", "toString", "__proto__", ["confirmed_submit"]]) {
+    assertNoFire(root, events, {eventName: "newsletter_submit", signal: value, submissionId: "probe"}, "signal");
+  }
+}
+
+function testDeduplicationIdNeverLeavesThePage() {
+  const { root, events } = loadHelper();
+  const detail = {eventName: "newsletter_submit", signal: "confirmed_submit", submissionId: "SamplePerson"};
+  assertFireOnce(root, events, detail, "newsletter_submit");
+  assertNoFire(root, events, detail, "duplicate");
+  assert.doesNotMatch(JSON.stringify(events), /SamplePerson|submission_id/);
+}
+
 function main() {
+  testInheritedAllowlistKeysAreRejected();
+  testDeduplicationIdNeverLeavesThePage();
   testLoadAndClickDoNotConvert();
   testValidationAndErrorDoNotConvert();
   testConfirmedSuccessFiresOnceAndDedups();

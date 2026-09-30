@@ -29,7 +29,7 @@ Until that choice and a verified success signal exist, leave this helper off the
 
 Nothing today.
 
-If KK later approves a first-party thank-you URL (Beehiiv Settings → Redirect to an external website) or a #277 form success state, the reviewed helper may be loaded on **that success surface only**. Call:
+If KK later approves a first-party thank-you URL (Beehiiv Settings → Redirect to an external website) or a #277 form success state, the reviewed helper may be loaded on **that success surface only**. Call only after independently verifying provider/server success and a single-use non-personal token. Never call on page load or mint a new token for a refresh; the helper only deduplicates within one page lifetime. Call:
 
 ```js
 kkRecordVerifiedConversion({
@@ -39,7 +39,7 @@ kkRecordVerifiedConversion({
 });
 ```
 
-Site Kit remains the gtag owner (`G-X7JE8B32L7`, delayed by snippet 22). This helper calls `gtag('event', …)` and adds no second loader. Event params are allowlisted to `submission_id` and `signal` only. Extra keys (`email`, `name`, any form field) are dropped; an email or a name used as `submissionId` is rejected.
+Site Kit remains the gtag owner (`G-X7JE8B32L7`, delayed by snippet 22). This helper calls `gtag('event', …)` and adds no second loader. Event params are allowlisted to `signal` only. Extra keys (`email`, `name`, any form field) are dropped; IDs containing email syntax or whitespace are rejected; all IDs remain local.
 
 ---
 
