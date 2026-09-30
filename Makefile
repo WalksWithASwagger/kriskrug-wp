@@ -15,7 +15,9 @@ JAVASCRIPT_FILES := \
 	scripts/tests/north_house_journey_browser.cjs \
 	theme/kk-aurora/assets/js/marquee.js \
 	theme/kk-aurora/assets/js/micro-interactions.js \
-	theme/kk-aurora/assets/js/theme.js
+	theme/kk-aurora/assets/js/theme.js \
+	fixes/issue-1090-success-event.js \
+	scripts/tests/issue_1090_success_event_harness.cjs
 
 # Default target
 .DEFAULT_GOAL := help
@@ -59,6 +61,7 @@ javascript-syntax: ## Check committed JavaScript syntax
 	for file in $(JAVASCRIPT_FILES); do node --check "$$file" || status=1; done; \
 	if [ "$$status" -ne 0 ]; then echo "javascript-syntax: FAILED (see errors above)"; exit 1; fi
 	@node scripts/tests/issue_706_script_diet_harness.cjs
+	@node scripts/tests/issue_1090_success_event_harness.cjs
 
 php-syntax: ## Run php -l across all tracked PHP in inc/, plugins/, theme/, fixes/
 	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for PHP syntax checks."; exit 1; }
