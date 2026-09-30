@@ -190,12 +190,12 @@ events:
   role: Panelist
   url: https://www.zeffy.com/en-CA/ticketing/world-tourism-day--2026
   image: {}
-  blurb: 'Panel for TRECSA, Capilano University''s Tourism and Outdoor Recreation Student Association, under
-    this year''s UN Tourism theme of AI and the digital agenda redesigning tourism. Billed as four panelists
+  blurb: Panel for TRECSA, Capilano University's Tourism and Outdoor Recreation Student Association, under
+    this year's UN Tourism theme of AI and the digital agenda redesigning tourism. Billed as four panelists
     and delivered as two. Jason Williams of YVR cancelled that morning and Paula Amos of Indigenous Tourism
-    BC could not make it, so it was me and Amber Papou, the new CEO of the Tourism Industry Association of
-    BC, with third-year student Samantha Caleta moderating. The question that stuck came from a kayak guide
-    whose customers keep booking tours expecting glowing jellyfish that an AI itinerary invented.'
+    BC could not make it, so it was me and Amber Papou, the new CEO of the Tourism Industry Association
+    of BC, with third-year student Samantha Caleta moderating. The question that stuck came from a kayak
+    guide whose customers keep booking tours expecting glowing jellyfish that an AI itinerary invented.
   label: Friday, Sept 25 · 11:30am-1:30pm · BOSA Theatre, Capilano University
   tags:
   - Panel
@@ -204,8 +204,9 @@ events:
   status: confirmed
   cta_upcoming: Register on Zeffy
   cta_past: Event details
+  recap_url: https://kriskrug.co/2026/09/29/world-tourism-day-capilano-glowing-jellyfish-problem/
 - id: vancouver-ai-meetup-2026-09-30
-  title: Vancouver AI Community Meetup
+  title: 'Vancouver AI Meetup #33'
   date: '2026-09-30'
   end: '2026-09-30T22:00:00-07:00'
   bucket_hint: upcoming
@@ -219,8 +220,8 @@ events:
     rights_basis: luma-own-event
     media_id: 12751
     url: https://kriskrug.co/wp-content/uploads/2026/09/vancouver-ai-meetup-2026-09-30.jpg
-  blurb: Next Vancouver AI Community Meetup on Wednesday, September 30. Hosted monthly at the H.R. MacMillan
-    Space Centre.
+  blurb: 'Vancouver AI Meetup #33 on Wednesday, September 30. Hosted monthly at the H.R. MacMillan Space
+    Centre.'
   label: Wed, Sept 30 · Space Centre
   tags:
   - Host
@@ -229,6 +230,7 @@ events:
   status: confirmed
   cta_upcoming: Register on Luma
   cta_past: Event details
+  edition: 33
 - id: futureproof-festival-2026
   title: Futureproof Festival
   date: '2026-10-28'
@@ -1464,3 +1466,70 @@ events:
   status: confirmed
   cta_past: Details
   image: {}
+- id: vancouver-ai-meetup-2026-08-26
+  title: 'Vancouver AI Meetup #32'
+  date: '2026-08-26'
+  end: '2026-08-26T22:00:00-07:00'
+  bucket_hint: past
+  kind: meetup
+  edition: 32
+  role: Host & curator
+  url: https://luma.com/aug-ai
+  image:
+    path: repo:scripts/events_page/heroes/_pending/vancouver-ai-meetup-2026-08-26.png
+    alt: Promo card for the August 26 Vancouver AI Community Meetup, the Data for Good anniversary night
+    source_url: https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=800,height=420/event-social/c5/799bb3a4-12e9-4d7a-898e-7083bb8429b2.png
+    rights_basis: luma-own-event
+    media_id: 12894
+    url: https://kriskrug.co/wp-content/uploads/2026/09/1-vancouver-ai-meetup-2026-08-26.jpg
+  blurb: 'One year since the BC AI nonprofit launched: 112 registered at the Space Centre, a Squamish
+    welcome from Vanessa Gonzales, MP Taleeb Noormohamed in the room, and Data for Good on stage with
+    four presenters.'
+  label: Wed, Aug 26 · Space Centre
+  tags:
+  - Host & curator
+  - Vancouver
+  status: confirmed
+- id: 2026-11-05-prompt-victoria
+  title: 'Prompt Victoria: Field Notes From the Rooms Where AI Gets Real'
+  date: '2026-11-05'
+  end: '2026-11-05T12:15:00-08:00'
+  bucket_hint: upcoming
+  kind: external
+  role: Speaker
+  url: https://promptvictoria.ca/speaker/kris-krug/
+  image:
+    path: repo:scripts/events_page/heroes/_pending/prompt-victoria-kris-krug.jpg
+    alt: Kris Krug speaker portrait on the Prompt Victoria site
+    source_url: https://promptvictoria.ca/wp-content/uploads/2026/09/Kris-Krug.jpg
+    rights_basis: portrait-of-subject-from-his-own-prompt-victoria-speaker-page
+    media_id: 12895
+    url: https://kriskrug.co/wp-content/uploads/2026/09/2-prompt-victoria-kris-krug.jpg
+  blurb: 'A field-notes talk at Prompt Victoria, Main Theatre at the Victoria Conference Centre: what
+    the rooms where AI gets real actually teach, from meetups and festivals to panels and client trainings.'
+  label: Thursday, Nov 5 · 11:15am · Main Theatre, Victoria Conference Centre
+  tags:
+  - Speaker
+  - Victoria
+  status: confirmed
+  cta_upcoming: Speaker page
+  cta_past: Event details
+- id: 2026-09-15-all-in-montreal
+  title: ALL IN Montreal
+  date: '2026-09-15'
+  end: '2026-09-18T23:00:00-04:00'
+  bucket_hint: past
+  kind: external
+  role: Press
+  url: https://allinevent.ai/
+  recap_url: https://kriskrug.co/2026/09/18/all-in-montreal-final-day-a-heartbeat-under-my-boots/
+  image: {}
+  blurb: 'Covered ALL IN, Canada''s flagship AI conference, on a media pass as an independent journalist
+    - four gonzo dispatches from the floor: the Canada-Germany sovereign AI announcement, LawZero''s CA$300M,
+    the protest outside, and the people actually building the middle-power path.'
+  label: Sep 15-18 · Montreal
+  tags:
+  - Press
+  - Media pass
+  - Montreal
+  status: confirmed

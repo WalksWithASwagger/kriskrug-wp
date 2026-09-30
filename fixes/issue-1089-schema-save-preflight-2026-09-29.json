@@ -1,0 +1,565 @@
+{
+  "schema_version": 1,
+  "issue": 1104,
+  "parent_issue": 1089,
+  "status": "repo-prepared-human-review-required",
+  "live_wordpress_write_performed": false,
+  "live_code_snippet_write_performed": false,
+  "option_a": {
+    "label": "Person + VideoObjects together",
+    "recommended": true,
+    "approved": false,
+    "awaits_approval": true,
+    "source": "Sulu comment on #1104; both changes already merged on main"
+  },
+  "option_b": {
+    "label": "Separately reviewed reduced payload without VideoObjects",
+    "recommended": false,
+    "approved": false,
+    "requires_fresh_review": true
+  },
+  "candidate": {
+    "main_sha": "6931d8ab4dcb34f579ee0d3893841c341ecad55b",
+    "schema_last_change_sha": "3807e6bcaff52009eb5e6667dc3e2a8a9fb94578",
+    "file": "fixes/schema-snippets-deployed.php",
+    "sha256": "a6037656daabafd5afacddea3885357e5d042ff204aa5ce01222bb1b8f8db0e6",
+    "byte_length": 14765,
+    "expected_snippet_id": 5,
+    "prepared_not_live": true
+  },
+  "bc_ai_organization": {
+    "fetched_from": "https://bc-ai.ca/",
+    "retrieval_pt": "2026-09-30T05:30:50.196067-07:00",
+    "id": "https://bc-ai.ca/#organization",
+    "name": "BC + AI Ecosystem Association",
+    "legalName": "BC + AI Ecosystem Association"
+  },
+  "identity": {
+    "person_id": "https://kriskrug.co/#person",
+    "website_id": "https://kriskrug.co/#website",
+    "website_name": "Kris Krug",
+    "website_alternate_names": [
+      "Kris Krüg",
+      "kriskrug.co"
+    ],
+    "person_name": "Kris Krüg"
+  },
+  "same_as": {
+    "approved": [
+      "https://www.instagram.com/kriskrug/",
+      "https://www.linkedin.com/in/kriskrug/",
+      "https://www.youtube.com/kriskrug",
+      "https://www.flickr.com/photos/kk/"
+    ],
+    "pending_x_twitter": [
+      "https://twitter.com/kriskrug",
+      "https://x.com/kriskrug"
+    ],
+    "pending_x_twitter_todo": "KK must choose the X/Twitter handle. Do not guess. Leave these URLs out of the approved set. Live footer currently links https://twitter.com/feelmoreplants, which returned 404 on 2026-09-30. Track that broken link with #1024 and this X decision, not as a snippet-5 payload change.",
+    "candidate_file_still_contains_pending_x": true,
+    "packet_changed_php_payload": false,
+    "pending_youtube": {
+      "decision": "keep, swap, or both",
+      "pending_kk": true,
+      "approved_set_unchanged": true,
+      "keep": "https://www.youtube.com/kriskrug",
+      "keep_resolves_to": "@kriskrugdotcom",
+      "swap_or_add": "https://www.youtube.com/kriskrug10000",
+      "swap_or_add_resolves_to": "@feelmoreplants",
+      "swap_or_add_hosts_speaking_video": "-c7mgY2aSgM",
+      "adding_alternate_is_new_profile": true,
+      "does_not_ride_on_issue": 1109,
+      "todo": "KK chooses keep (packet default), swap to /kriskrug10000, or list both. Adding /kriskrug10000 is a new sameAs profile. Do not change the approved set in this packet."
+    }
+  },
+  "exclusions": {
+    "event_nodes": false,
+    "futureproof_festival_id": null,
+    "futureproof_works_for_url": "https://www.futureproof.website/",
+    "futureproof_works_for_has_id": false
+  },
+  "live_readback": {
+    "retrieval_pt": "2026-09-30T05:30:50.196067-07:00",
+    "footer_scan_pt": "2026-09-30T05:32:54.054358-07:00",
+    "method": "anonymous cache-busted GET",
+    "routes": [
+      {
+        "url": "https://kriskrug.co/",
+        "http_status": 200,
+        "person_nodes": 1,
+        "person_id": "https://kriskrug.co/#person",
+        "website_nodes": 1,
+        "website_name": "Kris Krug",
+        "video_object_nodes": 0,
+        "event_nodes": 0,
+        "bc_ai_works_for_name": "BC + AI Ecosystem Industry Association",
+        "bc_ai_works_for_id": null,
+        "futureproof_url": "https://futureproof.website/",
+        "same_as": [
+          "https://twitter.com/kriskrug",
+          "https://x.com/kriskrug",
+          "https://www.instagram.com/kriskrug/"
+        ]
+      },
+      {
+        "url": "https://kriskrug.co/speaking/",
+        "http_status": 200,
+        "person_nodes": 1,
+        "person_id": "https://kriskrug.co/#person",
+        "website_nodes": 0,
+        "video_object_nodes": 0,
+        "event_nodes": 0
+      },
+      {
+        "url": "https://kriskrug.co/2026/08/10/keep-the-machine-strange/",
+        "http_status": 200,
+        "person_nodes": 1,
+        "person_id": "https://kriskrug.co/#person",
+        "website_nodes": 0,
+        "video_object_nodes": 0,
+        "event_nodes": 0,
+        "article_type": "BlogPosting",
+        "author": {
+          "@id": "https://kriskrug.co/#person"
+        },
+        "publisher": {
+          "@id": "https://kriskrug.co/#person"
+        }
+      },
+      {
+        "url": "https://kriskrug.co/about/",
+        "http_status": 200,
+        "person_nodes": 1,
+        "website_nodes": 0,
+        "video_object_nodes": 0,
+        "event_nodes": 0
+      }
+    ],
+    "footer_twitter": "https://twitter.com/feelmoreplants",
+    "footer_twitter_http_status": 404,
+    "authenticated_snippet_snapshot": "pending-kk"
+  },
+  "review_person": {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://kriskrug.co/#person",
+    "name": "Kris Krüg",
+    "alternateName": "Kris Krug",
+    "description": "Vancouver-based AI keynote speaker, creative technologist, photographer, and community builder. Executive Director of BC + AI, founder of Vancouver AI, and lead curator of Futureproof Festival.",
+    "url": "https://kriskrug.co",
+    "jobTitle": "AI Keynote Speaker and Creative Technologist",
+    "worksFor": [
+      {
+        "@type": "Organization",
+        "@id": "https://bc-ai.ca/#organization",
+        "name": "BC + AI Ecosystem Association",
+        "url": "https://bc-ai.ca/"
+      },
+      {
+        "@type": "Organization",
+        "name": "Vancouver AI",
+        "url": "https://vancouver.ai/"
+      },
+      {
+        "@type": "Organization",
+        "name": "Futureproof Festival",
+        "url": "https://www.futureproof.website/"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/kriskrug/",
+      "https://www.linkedin.com/in/kriskrug/",
+      "https://www.youtube.com/kriskrug",
+      "https://www.flickr.com/photos/kk/"
+    ],
+    "knowsAbout": [
+      "Generative AI",
+      "AI Strategy",
+      "AI for Creative Professionals",
+      "AI for Journalism",
+      "AI Ethics",
+      "Photography",
+      "Community Building",
+      "Vancouver AI Ecosystem",
+      "Indigenous Technology",
+      "Generative AI Tools"
+    ],
+    "image": "https://kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg"
+  },
+  "post_save_invariants": [
+    "one Person identity https://kriskrug.co/#person",
+    "worksFor BC + AI @id https://bc-ai.ca/#organization",
+    "sameAs approved set only; X and/or /kriskrug10000 only if KK confirmed",
+    "homepage-only WebSite named Kris Krug",
+    "Article author and publisher reference https://kriskrug.co/#person",
+    "two VideoObjects on /speaking/ only",
+    "zero Event nodes",
+    "no Futureproof festival @id",
+    "JSON-LD parses"
+  ],
+  "validator": {
+    "tool": "https://validator.schema.org/",
+    "do_not_use_for_site_name": "Google Rich Results Test",
+    "routes": [
+      "https://kriskrug.co/",
+      "https://kriskrug.co/speaking/",
+      "https://kriskrug.co/2026/08/10/keep-the-machine-strange/"
+    ],
+    "receipts": "pending"
+  },
+  "rollback": [
+    "detect concurrent snippet-5 hash drift before restore",
+    "restore captured snippet 5 body, name, active flag, and scope",
+    "purge only affected page/CDN cache",
+    "repeat authenticated and cache-busted readback"
+  ],
+  "out_of_scope": [
+    "WordPress writes",
+    "choosing or inventing an X handle",
+    "adding youtube.com/kriskrug10000 without an explicit KK YouTube decision",
+    "fixing the footer twitter.com/feelmoreplants 404 (#1024 / X decision)",
+    "changing WebSite.name",
+    "sitemap #331",
+    "theme or footer fixes",
+    "recrawl submissions",
+    "publishing private snippet snapshots",
+    "claiming an unperformed save"
+  ],
+  "review_jsonld": {
+    "sameAs_note": "X/Twitter omitted from this review payload. Pending KK. YouTube stays https://www.youtube.com/kriskrug; /kriskrug10000 is a pending keep/swap/both decision and is not in the approved set. Candidate PHP still contains twitter.com/kriskrug and x.com/kriskrug; this packet did not change those bytes.",
+    "homepage": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://kriskrug.co/#person",
+        "name": "Kris Krüg",
+        "alternateName": "Kris Krug",
+        "description": "Vancouver-based AI keynote speaker, creative technologist, photographer, and community builder. Executive Director of BC + AI, founder of Vancouver AI, and lead curator of Futureproof Festival.",
+        "url": "https://kriskrug.co",
+        "jobTitle": "AI Keynote Speaker and Creative Technologist",
+        "worksFor": [
+          {
+            "@type": "Organization",
+            "@id": "https://bc-ai.ca/#organization",
+            "name": "BC + AI Ecosystem Association",
+            "url": "https://bc-ai.ca/"
+          },
+          {
+            "@type": "Organization",
+            "name": "Vancouver AI",
+            "url": "https://vancouver.ai/"
+          },
+          {
+            "@type": "Organization",
+            "name": "Futureproof Festival",
+            "url": "https://www.futureproof.website/"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/kriskrug/",
+          "https://www.linkedin.com/in/kriskrug/",
+          "https://www.youtube.com/kriskrug",
+          "https://www.flickr.com/photos/kk/"
+        ],
+        "knowsAbout": [
+          "Generative AI",
+          "AI Strategy",
+          "AI for Creative Professionals",
+          "AI for Journalism",
+          "AI Ethics",
+          "Photography",
+          "Community Building",
+          "Vancouver AI Ecosystem",
+          "Indigenous Technology",
+          "Generative AI Tools"
+        ],
+        "image": "https://kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://kriskrug.co/#website",
+        "url": "https://kriskrug.co",
+        "name": "Kris Krug",
+        "alternateName": [
+          "Kris Krüg",
+          "kriskrug.co"
+        ],
+        "inLanguage": "en-US",
+        "publisher": {
+          "@id": "https://kriskrug.co/#person"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://kriskrug.co/?s={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ],
+    "speaking": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://kriskrug.co/#person",
+        "name": "Kris Krüg",
+        "alternateName": "Kris Krug",
+        "description": "Vancouver-based AI keynote speaker, creative technologist, photographer, and community builder. Executive Director of BC + AI, founder of Vancouver AI, and lead curator of Futureproof Festival.",
+        "url": "https://kriskrug.co",
+        "jobTitle": "AI Keynote Speaker and Creative Technologist",
+        "worksFor": [
+          {
+            "@type": "Organization",
+            "@id": "https://bc-ai.ca/#organization",
+            "name": "BC + AI Ecosystem Association",
+            "url": "https://bc-ai.ca/"
+          },
+          {
+            "@type": "Organization",
+            "name": "Vancouver AI",
+            "url": "https://vancouver.ai/"
+          },
+          {
+            "@type": "Organization",
+            "name": "Futureproof Festival",
+            "url": "https://www.futureproof.website/"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/kriskrug/",
+          "https://www.linkedin.com/in/kriskrug/",
+          "https://www.youtube.com/kriskrug",
+          "https://www.flickr.com/photos/kk/"
+        ],
+        "knowsAbout": [
+          "Generative AI",
+          "AI Strategy",
+          "AI for Creative Professionals",
+          "AI for Journalism",
+          "AI Ethics",
+          "Photography",
+          "Community Building",
+          "Vancouver AI Ecosystem",
+          "Indigenous Technology",
+          "Generative AI Tools"
+        ],
+        "image": "https://kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kriskrug.co"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "AI Keynote Speaker Kris Krüg",
+            "item": "https://kriskrug.co/speaking/"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "@id": "https://kriskrug.co/speaking/#video-creativemornings-vancouver",
+        "name": "Kris Krüg: The perils and parallels of AI's future",
+        "description": "Kris Krüg: The perils and parallels of AI's future. Official CreativeMornings HQ recording.",
+        "thumbnailUrl": "https://i.ytimg.com/vi/hYT-hsml_ds/maxresdefault.jpg",
+        "uploadDate": "2026-07-08",
+        "duration": "PT52M55S",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/hYT-hsml_ds",
+        "about": {
+          "@id": "https://kriskrug.co/#person"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "@id": "https://kriskrug.co/speaking/#video-both-hands-full",
+        "name": "Both Hands Full: What Creatives Actually Need to Know About AI",
+        "description": "What creatives actually need to know about AI. Full keynote on Kris Krüg's channel.",
+        "thumbnailUrl": "https://i.ytimg.com/vi/-c7mgY2aSgM/maxresdefault.jpg",
+        "uploadDate": "2026-03-05",
+        "duration": "PT1H19M34S",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/-c7mgY2aSgM?start=11",
+        "about": {
+          "@id": "https://kriskrug.co/#person"
+        }
+      }
+    ],
+    "about": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://kriskrug.co/#person",
+        "name": "Kris Krüg",
+        "alternateName": "Kris Krug",
+        "description": "Vancouver-based AI keynote speaker, creative technologist, photographer, and community builder. Executive Director of BC + AI, founder of Vancouver AI, and lead curator of Futureproof Festival.",
+        "url": "https://kriskrug.co",
+        "jobTitle": "AI Keynote Speaker and Creative Technologist",
+        "worksFor": [
+          {
+            "@type": "Organization",
+            "@id": "https://bc-ai.ca/#organization",
+            "name": "BC + AI Ecosystem Association",
+            "url": "https://bc-ai.ca/"
+          },
+          {
+            "@type": "Organization",
+            "name": "Vancouver AI",
+            "url": "https://vancouver.ai/"
+          },
+          {
+            "@type": "Organization",
+            "name": "Futureproof Festival",
+            "url": "https://www.futureproof.website/"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/kriskrug/",
+          "https://www.linkedin.com/in/kriskrug/",
+          "https://www.youtube.com/kriskrug",
+          "https://www.flickr.com/photos/kk/"
+        ],
+        "knowsAbout": [
+          "Generative AI",
+          "AI Strategy",
+          "AI for Creative Professionals",
+          "AI for Journalism",
+          "AI Ethics",
+          "Photography",
+          "Community Building",
+          "Vancouver AI Ecosystem",
+          "Indigenous Technology",
+          "Generative AI Tools"
+        ],
+        "image": "https://kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kriskrug.co"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://kriskrug.co/about/"
+          }
+        ]
+      }
+    ],
+    "article": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://kriskrug.co/#person",
+        "name": "Kris Krüg",
+        "alternateName": "Kris Krug",
+        "description": "Vancouver-based AI keynote speaker, creative technologist, photographer, and community builder. Executive Director of BC + AI, founder of Vancouver AI, and lead curator of Futureproof Festival.",
+        "url": "https://kriskrug.co",
+        "jobTitle": "AI Keynote Speaker and Creative Technologist",
+        "worksFor": [
+          {
+            "@type": "Organization",
+            "@id": "https://bc-ai.ca/#organization",
+            "name": "BC + AI Ecosystem Association",
+            "url": "https://bc-ai.ca/"
+          },
+          {
+            "@type": "Organization",
+            "name": "Vancouver AI",
+            "url": "https://vancouver.ai/"
+          },
+          {
+            "@type": "Organization",
+            "name": "Futureproof Festival",
+            "url": "https://www.futureproof.website/"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/kriskrug/",
+          "https://www.linkedin.com/in/kriskrug/",
+          "https://www.youtube.com/kriskrug",
+          "https://www.flickr.com/photos/kk/"
+        ],
+        "knowsAbout": [
+          "Generative AI",
+          "AI Strategy",
+          "AI for Creative Professionals",
+          "AI for Journalism",
+          "AI Ethics",
+          "Photography",
+          "Community Building",
+          "Vancouver AI Ecosystem",
+          "Indigenous Technology",
+          "Generative AI Tools"
+        ],
+        "image": "https://kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Keep the Machine Strange: Technological Resistance in the Age of AI",
+        "description": "Neil Postman did not predict AI. He left us something more useful: a discipline for refusing to treat any technology as the weather. Here is what technological resistance looks like in 2026.",
+        "datePublished": "2026-08-10T09:10:35-08:00",
+        "dateModified": "2026-08-10T09:44:25-08:00",
+        "author": {
+          "@id": "https://kriskrug.co/#person"
+        },
+        "publisher": {
+          "@id": "https://kriskrug.co/#person"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://kriskrug.co/2026/08/10/keep-the-machine-strange/"
+        },
+        "wordCount": 2502,
+        "inLanguage": "en-US",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/keep-the-machine-strange-hero-scaled.jpg?fit=2560%2C1429&ssl=1",
+          "width": 2560,
+          "height": 1429
+        },
+        "articleSection": "AI Ethics & Philosophy"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kriskrug.co"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://kriskrug.co/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Keep the Machine Strange: Technological Resistance in the Age of AI",
+            "item": "https://kriskrug.co/2026/08/10/keep-the-machine-strange/"
+          }
+        ]
+      }
+    ]
+  }
+}
