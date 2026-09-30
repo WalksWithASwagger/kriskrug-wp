@@ -3,6 +3,7 @@
 **Track:** A - Content + SEO
 **Status:** repo-side human-review handoff; no live WordPress write
 **Manifest:** `fixes/issue-316-schema-identity-handoff-2026-07-13.json`
+**Current Snippet 5 save preflight:** `fixes/issue-1089-schema-save-preflight-2026-09-29.md` (#1104 / #1089)
 
 ## Decision
 
