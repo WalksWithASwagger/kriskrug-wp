@@ -159,6 +159,16 @@ Contract:
 
 This proves the helper. It does **not** prove Beehiiv or mailbox integration.
 
+### 5.2 Provider integration protocol (not executed)
+
+Stay in Beehiiv admin or an authorized staging copy. Do not submit the production `/subscribe/` form.
+
+1. Open Subscribers → Subscribe forms for the publication behind `kriskrug.beehiiv.com` and the embed id `552dc13c-76df-4a0b-9663-b7e668042177`.
+2. Read Settings: success message versus **Redirect to an external website**. Record the current value privately.
+3. If KK wants a first-party signal, set the redirect to a dedicated thank-you URL that is not a useful content page, then fixture that URL locally with the helper and a one-time `submissionId`.
+4. Confirm the thank-you page fires exactly one `en=newsletter_submit` collect hit in a host-blocked browser, and that `/subscribe/` load and Beehiiv-link clicks fire none.
+5. If KK prefers to keep success inside Beehiiv, stop. Count subscribers in Beehiiv. Do not invent a parent-page event.
+
 ### 5.3 Event-param allowlist (Sulu guard)
 
 gtag event params **never** include an email, a name, or any form field value. The helper builds the params object from an allowlist. Any other key on the call — including `email`, `name`, `first_name`, `last_name`, `company`, `message`, `phone`, or a nested `params` bag — is dropped.
@@ -171,16 +181,6 @@ Allowed params only:
 | `signal` | `confirmed_submit` or `thank_you_state` |
 
 A `submissionId` that contains `@` or whitespace (email or name) is rejected and does not fire. The helper never copies the caller object into gtag.
-
-### 5.2 Provider integration protocol (not executed)
-
-Stay in Beehiiv admin or an authorized staging copy. Do not submit the production `/subscribe/` form.
-
-1. Open Subscribers → Subscribe forms for the publication behind `kriskrug.beehiiv.com` and the embed id `552dc13c-76df-4a0b-9663-b7e668042177`.
-2. Read Settings: success message versus **Redirect to an external website**. Record the current value privately.
-3. If KK wants a first-party signal, set the redirect to a dedicated thank-you URL that is not a useful content page, then fixture that URL locally with the helper and a one-time `submissionId`.
-4. Confirm the thank-you page fires exactly one `en=newsletter_submit` collect hit in a host-blocked browser, and that `/subscribe/` load and Beehiiv-link clicks fire none.
-5. If KK prefers to keep success inside Beehiiv, stop. Count subscribers in Beehiiv. Do not invent a parent-page event.
 
 ---
 
