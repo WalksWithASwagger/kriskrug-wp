@@ -107,7 +107,7 @@ class PersonEntityConsolidationTests(unittest.TestCase):
         )
         footer = (ROOT / "theme/kk-aurora/parts/footer.html").read_text(encoding="utf-8")
         self.assertIn('href="https://www.linkedin.com/in/kriskrug/"', footer)
-        self.assertIn('href="https://www.youtube.com/kriskrug"', footer)
+        self.assertIn('href="https://www.youtube.com/kriskrug10000"', footer)
         photography = (
             ROOT / "content/source-packs/keynotes-2026/wp-payloads/photography.html"
         ).read_text(encoding="utf-8")
