@@ -55,9 +55,22 @@
       "https://twitter.com/kriskrug",
       "https://x.com/kriskrug"
     ],
-    "pending_x_twitter_todo": "KK must choose the X/Twitter handle. Do not guess. Leave these URLs out of the approved set. Live footer currently links https://twitter.com/feelmoreplants.",
+    "pending_x_twitter_todo": "KK must choose the X/Twitter handle. Do not guess. Leave these URLs out of the approved set. Live footer currently links https://twitter.com/feelmoreplants, which returned 404 on 2026-09-30. Track that broken link with #1024 and this X decision, not as a snippet-5 payload change.",
     "candidate_file_still_contains_pending_x": true,
-    "packet_changed_php_payload": false
+    "packet_changed_php_payload": false,
+    "pending_youtube": {
+      "decision": "keep, swap, or both",
+      "pending_kk": true,
+      "approved_set_unchanged": true,
+      "keep": "https://www.youtube.com/kriskrug",
+      "keep_resolves_to": "@kriskrugdotcom",
+      "swap_or_add": "https://www.youtube.com/kriskrug10000",
+      "swap_or_add_resolves_to": "@feelmoreplants",
+      "swap_or_add_hosts_speaking_video": "-c7mgY2aSgM",
+      "adding_alternate_is_new_profile": true,
+      "does_not_ride_on_issue": 1109,
+      "todo": "KK chooses keep (packet default), swap to /kriskrug10000, or list both. Adding /kriskrug10000 is a new sameAs profile. Do not change the approved set in this packet."
+    }
   },
   "exclusions": {
     "event_nodes": false,
@@ -123,6 +136,7 @@
       }
     ],
     "footer_twitter": "https://twitter.com/feelmoreplants",
+    "footer_twitter_http_status": 404,
     "authenticated_snippet_snapshot": "pending-kk"
   },
   "review_person": {
@@ -175,7 +189,7 @@
   "post_save_invariants": [
     "one Person identity https://kriskrug.co/#person",
     "worksFor BC + AI @id https://bc-ai.ca/#organization",
-    "sameAs approved set only; X only if KK confirmed",
+    "sameAs approved set only; X and/or /kriskrug10000 only if KK confirmed",
     "homepage-only WebSite named Kris Krug",
     "Article author and publisher reference https://kriskrug.co/#person",
     "two VideoObjects on /speaking/ only",
@@ -202,6 +216,8 @@
   "out_of_scope": [
     "WordPress writes",
     "choosing or inventing an X handle",
+    "adding youtube.com/kriskrug10000 without an explicit KK YouTube decision",
+    "fixing the footer twitter.com/feelmoreplants 404 (#1024 / X decision)",
     "changing WebSite.name",
     "sitemap #331",
     "theme or footer fixes",
@@ -210,7 +226,7 @@
     "claiming an unperformed save"
   ],
   "review_jsonld": {
-    "sameAs_note": "X/Twitter omitted from this review payload. Pending KK. Candidate PHP still contains twitter.com/kriskrug and x.com/kriskrug; this packet did not change those bytes.",
+    "sameAs_note": "X/Twitter omitted from this review payload. Pending KK. YouTube stays https://www.youtube.com/kriskrug; /kriskrug10000 is a pending keep/swap/both decision and is not in the approved set. Candidate PHP still contains twitter.com/kriskrug and x.com/kriskrug; this packet did not change those bytes.",
     "homepage": [
       {
         "@context": "https://schema.org",

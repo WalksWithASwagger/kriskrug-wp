@@ -22,7 +22,7 @@ waits for KK.
 
 | Option | What KK pastes | When to use |
 |---|---|---|
-| **A (recommended default)** | The current `fixes/schema-snippets-deployed.php` body, after the X/`sameAs` decision below | Ship Person consolidation and Speaking videos in one save |
+| **A (recommended default)** | The current `fixes/schema-snippets-deployed.php` body, after the X and YouTube `sameAs` decisions below | Ship Person consolidation and Speaking videos in one save |
 | **B (separately reviewed reduced payload)** | The same file with `kk_schema_speaking_videos()` and its `add_action` removed, then re-reviewed | Only if KK wants Person-only now and videos later |
 
 Pasting the current file **includes both merged changes**. There is no
@@ -163,8 +163,8 @@ Do not strip videos in the save session without that review.
 |---|---|
 | Live Person `sameAs` | `https://twitter.com/kriskrug`, `https://x.com/kriskrug` |
 | Candidate file (merged #1082) | same two URLs still present in PHP |
-| Live Aurora footer | `https://twitter.com/feelmoreplants` |
-| Related open issue | #1024 (`twitter:site` `@feelmoreplants` → `@kriskrug`) |
+| Live Aurora footer | `https://twitter.com/feelmoreplants` (404 as of 2026-09-30; redirects toward `x.com/feelmoreplants`) |
+| Related open issue | #1024 (`twitter:site` `@feelmoreplants` → `@kriskrug`). Footer 404 rides with #1024 and this X decision, not as a third snippet change. |
 
 Approved `sameAs` for this packet (already linked as Kris Krüg profiles):
 
@@ -182,7 +182,33 @@ bytes. Before paste, KK must either:
 - strip `https://twitter.com/kriskrug` and `https://x.com/kriskrug` until that
   choice is made.
 
-Do not add any other profile in this save.
+Do not add any other profile in this save unless Decision 3 explicitly
+chooses to list both YouTube URLs.
+
+## Decision 3 — YouTube `sameAs` (TODO)
+
+**Pending KK. Keep, swap, or both. This packet does not change the approved
+`sameAs` set.**
+
+Sulu's soft LGTM on #1111 keeps `https://www.youtube.com/kriskrug` in the
+approved set. Live checks ~05:45 PT on 2026-09-30:
+
+| URL | HTTP | Resolves to | Notes |
+|---|---|---|---|
+| `https://www.youtube.com/kriskrug` | 200 | `@kriskrugdotcom` ("kris krüg") | Current approved / candidate value |
+| `https://www.youtube.com/kriskrug10000` | 200 | `@feelmoreplants` ("Kris Krüg") | Hosts Speaking video `-c7mgY2aSgM` ("Both Hands Full…") |
+
+Both channels look like KK's. Adding `/kriskrug10000` is a **new** `sameAs`
+profile. It does not ride in on the #1109 footer change, and this packet
+does not add it.
+
+KK chooses one:
+
+- **Keep** `https://www.youtube.com/kriskrug` (packet default; approved set unchanged)
+- **Swap** to `https://www.youtube.com/kriskrug10000` (new profile; requires an explicit paste-time edit)
+- **Both** (new profile added beside the current URL; requires an explicit paste-time edit)
+
+Until KK chooses, paste the approved set as recorded here.
 
 ## Snippet 5 identity, scope, and activation
 
@@ -215,17 +241,20 @@ If any box is unchecked, do not paste.
 
 ## Save-once steps
 
-Only KK, and only after both decisions.
+Only KK, and only after all three decisions.
 
 1. Snapshot as above.
 2. Open `fixes/schema-snippets-deployed.php` at the SHA recorded here (or a
    newer SHA that still hashes identically).
 3. Apply the X/`sameAs` decision. If X is still unset, delete the two
    twitter/x lines before paste.
-4. Paste into snippet 5. Strip only the opening `<?php` tag. Code Snippets
+4. Apply the YouTube `sameAs` decision. If unset, keep
+   `https://www.youtube.com/kriskrug` only. Swap or both is a paste-time
+   edit, not a change to this packet's approved set.
+5. Paste into snippet 5. Strip only the opening `<?php` tag. Code Snippets
    wraps the file.
-5. Save **once**. Do not edit another snippet, page, title, or theme.
-6. Do not add `data-jetpack-boost="ignore"`; Boost stamps it at output.
+6. Save **once**. Do not edit another snippet, page, title, or theme.
+7. Do not add `data-jetpack-boost="ignore"`; Boost stamps it at output.
 
 ## Post-save readback
 
@@ -238,7 +267,7 @@ Expected assertions:
 
 - Exactly one Person node per page, `@id` `https://kriskrug.co/#person`
 - `worksFor` BC + AI `@id` is exactly `https://bc-ai.ca/#organization`
-- `sameAs` is only the approved set, plus X only if KK confirmed it
+- `sameAs` is only the approved set, plus X and/or `/kriskrug10000` only if KK confirmed them
 - `WebSite` on the homepage only; `name` remains `Kris Krug`
 - Article `author` and `publisher` still reference `#person` (no inline Person)
 - Two `VideoObject`s on `/speaking/` only, each with `name`, `thumbnailUrl`,
@@ -283,6 +312,7 @@ count exceeds one, `WebSite.name` changes, videos leak off `/speaking/`, an
 | Candidate SHA + file hash | **Done** against `6931d8ab4dcb34f579ee0d3893841c341ecad55b` |
 | Option A recommendation recorded | **Done** — not approval |
 | X/Twitter choice | **Pending KK** — omitted from approved `sameAs` |
+| YouTube `sameAs` (keep / swap / both) | **Pending KK** — approved set still `https://www.youtube.com/kriskrug` only |
 | Authenticated snippet 5 body/scope snapshot | **Pending KK** — no WP credentials in this session |
 | WordPress save | **Pending KK under #1089** |
 | Validator receipts | **Pending** — do not invent results |

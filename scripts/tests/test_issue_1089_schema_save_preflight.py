@@ -121,6 +121,32 @@ class Issue1089SchemaSavePreflightTests(unittest.TestCase):
             self.assertIn(url, array_constant(self.deployed, "same_as"))
         self.assertIn("Pending KK. Do not guess", self.packet)
         self.assertIn("twitter.com/feelmoreplants", self.packet)
+        youtube = self.manifest["same_as"]["pending_youtube"]
+        self.assertEqual("keep, swap, or both", youtube["decision"])
+        self.assertTrue(youtube["pending_kk"])
+        self.assertTrue(youtube["approved_set_unchanged"])
+        self.assertTrue(youtube["adding_alternate_is_new_profile"])
+        self.assertEqual("https://www.youtube.com/kriskrug", youtube["keep"])
+        self.assertEqual("@kriskrugdotcom", youtube["keep_resolves_to"])
+        self.assertEqual(
+            "https://www.youtube.com/kriskrug10000",
+            youtube["swap_or_add"],
+        )
+        self.assertEqual("@feelmoreplants", youtube["swap_or_add_resolves_to"])
+        self.assertEqual("-c7mgY2aSgM", youtube["swap_or_add_hosts_speaking_video"])
+        self.assertNotIn(
+            "https://www.youtube.com/kriskrug10000",
+            self.manifest["same_as"]["approved"],
+        )
+        self.assertNotIn(
+            "https://www.youtube.com/kriskrug10000",
+            self.manifest["review_person"]["sameAs"],
+        )
+        self.assertIn("## Decision 3 — YouTube `sameAs` (TODO)", self.packet)
+        self.assertIn("Keep, swap, or both", self.packet)
+        self.assertIn("https://www.youtube.com/kriskrug10000", self.packet)
+        self.assertIn("@kriskrugdotcom", self.packet)
+        self.assertIn("is a **new** `sameAs`", self.packet)
 
     def test_website_homepage_only_and_name_preserved(self):
         self.assertEqual("Kris Krug", self.manifest["identity"]["website_name"])
@@ -195,6 +221,9 @@ class Issue1089SchemaSavePreflightTests(unittest.TestCase):
             self.manifest["live_readback"]["authenticated_snippet_snapshot"],
         )
         self.assertEqual("pending", self.manifest["validator"]["receipts"])
+        self.assertEqual(404, self.manifest["live_readback"]["footer_twitter_http_status"])
+        self.assertIn("#1024", self.packet)
+        self.assertIn("after all three decisions", self.packet)
 
     def test_existing_handoffs_and_index_point_here(self):
         pointer = "issue-1089-schema-save-preflight-2026-09-29.md"
