@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#152a38"/>
+  <rect x="80" y="80" width="1040" height="640" fill="#f0dfbf"/>
+  <text x="600" y="390" text-anchor="middle" font-family="sans-serif" font-size="48" fill="#152a38">Synthetic test image</text>
+  <text x="600" y="450" text-anchor="middle" font-family="sans-serif" font-size="28" fill="#152a38">Layout fixture only</text>
+</svg>
