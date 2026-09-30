@@ -433,6 +433,29 @@ class AuthorityHubAndReleaseGuidanceTests(unittest.TestCase):
 
         self.assertFalse(any("begin #830" in finding.message.lower() for finding in findings))
 
+    def test_rejects_may16_archive_exists_claim_in_backup_plan(self):
+        findings = scan_text(
+            "docs/current-state/BACKUP_PLAN.md",
+            "The repo still has a local UpdraftPlus archive set from 2026-05-16 "
+            "in `backup/2026-05-16/` with database, plugins, themes.\n"
+            "Partial: 2026-05-16 archive exists\n",
+        )
+
+        self.assertTrue(
+            any("must not claim local archives exist" in finding.message for finding in findings)
+        )
+
+    def test_backup_plan_requires_verified_missing_and_unverified_host(self):
+        findings = scan_text(
+            "docs/current-state/BACKUP_PLAN.md",
+            "The strict backup/restore proof gate is retired.\n",
+        )
+
+        messages = [finding.message for finding in findings]
+        self.assertTrue(any("verified local files" in message for message in messages))
+        self.assertTrue(any("missing local archives" in message for message in messages))
+        self.assertTrue(any("host retention as unverified" in message for message in messages))
+
     def test_reports_are_excluded_from_830_sequence_enforcement(self):
         self.assertIn(
             Path("docs/current-state/reports"),
