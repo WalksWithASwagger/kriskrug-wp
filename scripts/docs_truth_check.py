@@ -309,6 +309,17 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     Path(".github/ISSUE_TEMPLATE/feature_request.yml"): ISSUE_TEMPLATE_IDENTITY_PATTERNS,
     Path(".github/ISSUE_TEMPLATE/performance.yml"): ISSUE_TEMPLATE_IDENTITY_PATTERNS,
     Path("docs/current-state/AURORA-RELEASE-CHECKLIST.md"): RELEASE_CHECKLIST_STALE_PATTERNS,
+    Path("docs/current-state/BACKUP_PLAN.md"): [
+        (
+            re.compile(
+                r"(?:repo still has a local UpdraftPlus archive set|"
+                r"2026-05-16 archive exists|"
+                r"Partial:\s*2026-05-16 archive exists)",
+                re.I,
+            ),
+            "The May 16 backup plan must not claim local archives exist; distinguish verified files, missing archives, and unverified host retention.",
+        ),
+    ],
 }
 
 REQUIRED_PATH_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
@@ -340,6 +351,20 @@ REQUIRED_PATH_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
         (
             re.compile(r"WORK-PLAN-2026-09-09\.md"),
             "The current-state front door must point to the identical active work plan `WORK-PLAN-2026-09-09.md`.",
+        ),
+    ],
+    Path("docs/current-state/BACKUP_PLAN.md"): [
+        (
+            re.compile(r"verified local files", re.I),
+            "BACKUP_PLAN.md must distinguish verified local files from missing archives and host retention.",
+        ),
+        (
+            re.compile(r"missing local archives", re.I),
+            "BACKUP_PLAN.md must name missing local archives instead of treating the May 16 set as present.",
+        ),
+        (
+            re.compile(r"unverified host retention", re.I),
+            "BACKUP_PLAN.md must mark Pagely/host retention as unverified, not as a confirmed local copy.",
         ),
     ],
 }

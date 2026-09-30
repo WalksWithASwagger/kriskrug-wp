@@ -1,5 +1,7 @@
 # UpdraftPlus backup — 2026-05-16
 
+**2026-09-30 local recheck:** this directory still has the tracked `manifest.md` and `manifest-checksums.txt` only. The five named archive files are missing here. `make backup-check BACKUP_DIR=backup/2026-05-16` failed with 6 errors and 2 warnings. That is missing local archives, not proof that Pagely retention is gone. See [`docs/current-state/BACKUP_PLAN.md`](../../docs/current-state/BACKUP_PLAN.md).
+
 **Source:** kriskrug.co (Pagely production)
 **Triggered:** 2026-05-16 06:46 PT via wp-admin → UpdraftPlus → Backup Now
 **Backup ID:** 741dbfb20abd

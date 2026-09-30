@@ -6,12 +6,19 @@
 
 The strict backup/restore proof gate is retired. Do not use missing restore proof as a blanket blocker for drafts, publish work, small page edits, or other bounded Track A work.
 
-The repo still has a local UpdraftPlus archive set from 2026-05-16 in `backup/2026-05-16/` with database, plugins, themes, mu-plugins, and other `wp-content` files. That set has checksums and a tracked manifest, with two known gaps:
+For ordinary Track A work, use the smallest reliable rollback path: draft-first publishing, exact slug/ID/status checks, page/post snapshots before overwriting existing content, reversible snippets, and live readback after the change. Use a full backup when the blast radius justifies it. Targeted rollback snapshots under `backup/` are not a substitute for a complete WordPress archive.
 
-- the 13 GB uploads archive was skipped and is only accounted for in the manifest;
-- no `restore-notes.md` exists yet proving a local restore drill.
+## 2026-09-30 recheck of `backup/2026-05-16/`
 
-Use this command to inspect an archive set:
+`make backup-check BACKUP_DIR=backup/2026-05-16` failed with 6 errors and 2 warnings. That nonzero result is expected evidence, not a problem this issue is allowed to "fix" by creating archives. Missing local files do not prove Pagely backups are absent.
+
+| Class | What this checkout actually has |
+|---|---|
+| **Verified local files** | Tracked `backup/2026-05-16/manifest.md` and `manifest-checksums.txt` (the checksum list names five archives). |
+| **Missing local archives** | `*-db.gz`, `*-plugins.zip`, `*-themes.zip`, `*-mu-plugins.zip`, and `*-others.zip` are not on disk. Checksums cannot be verified. `restore-notes.md` is still absent. The 13 GB uploads archive was already recorded as skipped in the May 16 manifest. |
+| **Unverified host retention** | Pagely's product includes host-side backups. This session did not inspect Pagely retention, restore windows, or ticket SLAs. Do not treat host backups as confirmed or as absent. |
+
+Use this command to re-inspect the set. A failing run that reports missing archives is truthful:
 
 ```bash
 make backup-check BACKUP_DIR=backup/2026-05-16
@@ -23,16 +30,14 @@ Use strict mode only when a task specifically needs restore-drill proof, such as
 make backup-check BACKUP_DIR=backup/YYYY-MM-DD STRICT=1
 ```
 
-For ordinary Track A work, use the smallest reliable rollback path: draft-first publishing, exact slug/ID/status checks, page/post snapshots before overwriting existing content, reversible snippets, and live readback after the change.
-
 ## The four pieces of a real WordPress backup
 
-| Piece | What it contains | Have it locally? | How to get it |
+| Piece | What it contains | Have it locally? (2026-09-30) | How to get it |
 |---|---|---|---|
-| **Database dump** | Every post, page, comment, user, option, plugin setting | Partial: 2026-05-16 archive exists | `wp db export` (SSH) or AIO-WP-Migration / UpdraftPlus (plugin) |
-| **`wp-content/themes/`** | Active theme + child theme + any others | Partial: 2026-05-16 archive exists | rsync over SSH, or plugin archive |
-| **`wp-content/plugins/`** | All installed plugins | Partial: 2026-05-16 archive exists | rsync over SSH, or plugin archive |
-| **`wp-content/uploads/`** | All media files (likely the largest piece — could be many GB) | Missing locally; 2026-05-16 manifest accounts for the gap | rsync over SSH, Pagely backup export, or plugin archive |
+| **Database dump** | Every post, page, comment, user, option, plugin setting | Missing local archive; only the May 16 checksum name is tracked | `wp db export` (SSH) or AIO-WP-Migration / UpdraftPlus (plugin) |
+| **`wp-content/themes/`** | Active theme + child theme + any others | Missing local archive; only the May 16 checksum name is tracked | rsync over SSH, or plugin archive |
+| **`wp-content/plugins/`** | All installed plugins | Missing local archive; only the May 16 checksum name is tracked | rsync over SSH, or plugin archive |
+| **`wp-content/uploads/`** | All media files (likely the largest piece — could be many GB) | Missing locally; May 16 manifest already recorded the skip | rsync over SSH, Pagely backup export, or plugin archive |
 
 Plus, optionally: `wp-config.php` (gitignore — has secrets), mu-plugins, drop-ins, root `.htaccess`.
 
@@ -134,4 +139,4 @@ Use `failed` or omit the marker when the restore is incomplete.
 
 ## Pagely's own backups
 
-Pagely keeps server-side backups automatically. **Don't** rely on these as our only line of defense — restoring from a managed-host backup typically means filing a ticket and waiting. Our local archive exists so we can verify changes against a known-good copy without needing the host's help.
+Pagely advertises server-side backups. Host retention is **unverified** in this checkout: no current snapshot list, restore window, or ticket SLA was read back on 2026-09-30. Do not treat that product feature as a confirmed local copy, and do not treat missing local archives as proof the host has none. Restoring from a managed-host backup typically means filing a ticket and waiting. Targeted page/post snapshots under `backup/` remain the ordinary rollback path until a verified archive set exists.
