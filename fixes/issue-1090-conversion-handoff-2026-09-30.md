@@ -39,7 +39,7 @@ kkRecordVerifiedConversion({
 });
 ```
 
-Site Kit remains the gtag owner (`G-X7JE8B32L7`, delayed by snippet 22). This helper calls `gtag('event', …)` and adds no second loader.
+Site Kit remains the gtag owner (`G-X7JE8B32L7`, delayed by snippet 22). This helper calls `gtag('event', …)` and adds no second loader. Event params are allowlisted to `submission_id` and `signal` only. Extra keys (`email`, `name`, any form field) are dropped; an email or a name used as `submissionId` is rejected.
 
 ---
 
@@ -72,7 +72,7 @@ Do not apply this from the worker lane. A future production session needs explic
 
 ## Privacy-safe test evidence
 
-The committed harness uses ids `sub-1`, `page-a`, `page-b`, `inquiry-1`, `later`, `once`. It never calls Beehiiv, Gmail, or `google-analytics.com`. Production personal data must not enter the repo, the issue, or the PR.
+The committed harness uses ids `sub-1`, `page-a`, `page-b`, `inquiry-1`, `later`, `once`, `tok-9`. It never calls Beehiiv, Gmail, or `google-analytics.com`. Production personal data must not enter the repo, the issue, or the PR. PII-like harness inputs (`subscriber@example.test`, `Alex Example`) exist only to prove they are stripped or rejected.
 
 ---
 

@@ -33,6 +33,16 @@ function assertNoFire(root, events, detail, reason) {
   assert.equal(events.length, before, "rejected call must not emit gtag");
 }
 
+function assertAllowedParamsOnly(params, detail) {
+  assert.deepEqual(Object.keys(params).sort(), ["signal", "submission_id"]);
+  assert.equal(params.submission_id, String(detail.submissionId));
+  assert.equal(params.signal, detail.signal);
+  const serialized = JSON.stringify(params);
+  assert.doesNotMatch(serialized, /@/);
+  assert.doesNotMatch(serialized, /email/i);
+  assert.doesNotMatch(serialized, /"name"/i);
+}
+
 function assertFireOnce(root, events, detail, expectedName) {
   const before = events.length;
   const result = root.kkRecordVerifiedConversion(detail);
@@ -41,6 +51,7 @@ function assertFireOnce(root, events, detail, expectedName) {
   assert.equal(events.length, before + 1);
   assert.equal(events[events.length - 1].command, "event");
   assert.equal(events[events.length - 1].name, expectedName);
+  assertAllowedParamsOnly(events[events.length - 1].params, detail);
 }
 
 function testLoadAndClickDoNotConvert() {
@@ -196,6 +207,60 @@ function testInquiryMustNotUseNewsletterNameAtCallSite() {
   );
 }
 
+function testPiiAndFormFieldsAreDropped() {
+  const { root, events } = loadHelper();
+  const detail = {
+    eventName: "newsletter_submit",
+    signal: "thank_you_state",
+    submissionId: "tok-9",
+    email: "subscriber@example.test",
+    name: "Alex Example",
+    first_name: "Alex",
+    last_name: "Example",
+    company: "Example Org",
+    message: "Please book me",
+    phone: "555-0100",
+    value: "form-field-dump",
+    params: {
+      email: "nested@example.test",
+      name: "Nested Name",
+    },
+  };
+  assertFireOnce(root, events, detail, "newsletter_submit");
+  const serialized = JSON.stringify(events[0].params);
+  assert.doesNotMatch(serialized, /subscriber@example\.test/);
+  assert.doesNotMatch(serialized, /Alex Example/);
+  assert.doesNotMatch(serialized, /Example Org/);
+  assert.doesNotMatch(serialized, /Please book me/);
+  assert.doesNotMatch(serialized, /555-0100/);
+  assert.doesNotMatch(serialized, /form-field-dump/);
+  assert.doesNotMatch(serialized, /nested@example\.test/);
+}
+
+function testEmailOrNameAsSubmissionIdRejected() {
+  const { root, events } = loadHelper();
+  assertNoFire(
+    root,
+    events,
+    {
+      eventName: "newsletter_submit",
+      signal: "confirmed_submit",
+      submissionId: "subscriber@example.test",
+    },
+    "submission_id",
+  );
+  assertNoFire(
+    root,
+    events,
+    {
+      eventName: "speaking_inquiry_submit",
+      signal: "confirmed_submit",
+      submissionId: "Alex Example",
+    },
+    "submission_id",
+  );
+}
+
 function main() {
   testLoadAndClickDoNotConvert();
   testValidationAndErrorDoNotConvert();
@@ -207,6 +272,8 @@ function main() {
   testReinitializationReusesDedupMap();
   testSourceHasNoIframeOrClickWiring();
   testInquiryMustNotUseNewsletterNameAtCallSite();
+  testPiiAndFormFieldsAreDropped();
+  testEmailOrNameAsSubmissionIdRejected();
   console.log("issue_1090_success_event_harness: ok");
 }
 

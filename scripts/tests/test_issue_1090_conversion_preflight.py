@@ -71,6 +71,18 @@ class Issue1090ConversionPreflightTests(unittest.TestCase):
         self.assertNotIn("addEventListener", executable)
         self.assertNotRegex(executable, r"beehiiv")
         self.assertIn("NOT LIVE", self.helper)
+        self.assertIn("ALLOWED_PARAM_KEYS", self.helper)
+        self.assertIn("submission_id", self.helper)
+
+    def test_packet_documents_event_param_allowlist(self):
+        lowered = self.packet.lower()
+        self.assertIn("Event-param allowlist", self.packet)
+        self.assertIn("never", lowered)
+        self.assertIn("email", lowered)
+        self.assertIn("form field", lowered)
+        self.assertIn("allowlist", lowered)
+        self.assertIn("ALLOWED_PARAM_KEYS", self.helper)
+        self.assertIn("email, name, and form field values are dropped", lowered)
 
     def test_theme_chrome_matches_inventory(self):
         header = HEADER.read_text(encoding="utf-8")

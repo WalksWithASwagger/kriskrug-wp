@@ -133,7 +133,7 @@ A reliable page-side integration surface does **not** exist for the current Beeh
 
 | File | Role |
 |---|---|
-| `fixes/issue-1090-success-event.js` | Candidate helper. Fires `gtag('event', …)` only for `newsletter_submit` or `speaking_inquiry_submit` when `signal` is `confirmed_submit` or `thank_you_state` and `submissionId` is unique. No click listener. No postMessage. **NOT LIVE.** |
+| `fixes/issue-1090-success-event.js` | Candidate helper. Fires `gtag('event', …)` only for `newsletter_submit` or `speaking_inquiry_submit` when `signal` is `confirmed_submit` or `thank_you_state` and `submissionId` is unique and opaque. Event params are allowlisted to `submission_id` + `signal` only. No click listener. No postMessage. **NOT LIVE.** |
 | `fixes/issue-1090-conversion-handoff-2026-09-30.md` | Deploy / snapshot / rollback / KK decisions. Pattern follows `fixes/issue-316-schema-identity-handoff-2026-07-13.md`. |
 | `scripts/tests/issue_1090_success_event_harness.cjs` | Synthetic fixture. Intercepts gtag in-process. Zero external submissions. |
 | `scripts/tests/test_issue_1090_conversion_preflight.py` | Packet / theme / helper contract. |
@@ -154,8 +154,23 @@ Contract:
 - no duplicate for a repeated success callback or a second include of the helper
 - a later distinct successful submission fires once
 - inquiry uses `speaking_inquiry_submit`, never `newsletter_submit`
+- extra keys (`email`, `name`, arbitrary form values) are dropped from gtag params
+- an email or a name used as `submissionId` is rejected
 
 This proves the helper. It does **not** prove Beehiiv or mailbox integration.
+
+### 5.3 Event-param allowlist (Sulu guard)
+
+gtag event params **never** include an email, a name, or any form field value. The helper builds the params object from an allowlist. Any other key on the call — including `email`, `name`, `first_name`, `last_name`, `company`, `message`, `phone`, or a nested `params` bag — is dropped.
+
+Allowed params only:
+
+| Key | Allowed values |
+|---|---|
+| `submission_id` | Opaque token (`[A-Za-z0-9_-]+`). Thank-you landing token or provider subscription id. Not an email, not a name, not a form field. |
+| `signal` | `confirmed_submit` or `thank_you_state` |
+
+A `submissionId` that contains `@` or whitespace (email or name) is rejected and does not fire. The helper never copies the caller object into gtag.
 
 ### 5.2 Provider integration protocol (not executed)
 
@@ -175,7 +190,7 @@ Stay in Beehiiv admin or an authorized staging copy. Do not submit the productio
 
 **Snapshot / readback / rollback:** see `fixes/issue-1090-conversion-handoff-2026-09-30.md`. Short version: snapshot the current Code Snippet or page HTML privately before any save; activate nothing until the success URL exists; rollback is deactivate / restore the snapshot; purge only the affected cache.
 
-**Privacy:** tests use synthetic ids (`sub-1`, `page-a`). No personal email, no production subscriber data, no secrets.
+**Privacy:** tests use synthetic ids (`sub-1`, `page-a`, `tok-9`). No personal email, no production subscriber data, no secrets. Event params are allowlisted to `submission_id` and `signal`; email, name, and form field values are dropped.
 
 **KK decisions still required (do not take them here):**
 
@@ -193,5 +208,6 @@ Stay in Beehiiv admin or an authorized staging copy. Do not submit the productio
 - [x] Event decision table with `newsletter_submit` vs `speaking_inquiry_submit`
 - [x] Cross-origin iframe documented; no postMessage workaround
 - [x] Candidate helper tested locally with synthetic data; provider path marked not executed
+- [x] Event-param allowlist: only opaque `submission_id` and `signal`; email / name / form values dropped or rejected
 - [x] Handoff with files, owner, snapshot/rollback, privacy-safe evidence, and KK decisions
 - [x] Keep #1090 open; no key-event or production completion claim
