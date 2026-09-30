@@ -60,6 +60,11 @@ class FakeWorld:
         self.pull_pages: list[list[dict]] = [[]]
         self.issue_error_page = None
         self.pull_error_page = None
+        self.graphql_error = False
+        self.graphql_nodes: list[dict] = []
+        self.graphql_total = 0
+        self.issue_list_error = True
+        self.issue_list_items: list[dict] = []
         self.fetch_error = False
         self.ref_error = False
         self.ancestor_error_refs: set[str] = set()
@@ -70,8 +75,12 @@ class FakeWorld:
         self.calls.append(list(argv))
         if argv[:1] == ["git"]:
             return self._git(argv)
+        if argv[:3] == ["gh", "api", "graphql"]:
+            return self._graphql(argv)
         if argv[:2] == ["gh", "api"]:
             return self._gh(argv)
+        if argv[:3] == ["gh", "issue", "list"]:
+            return self._issue_list(argv)
         raise AssertionError(f"unexpected command: {argv!r}")
 
     def _completed(self, stdout="", stderr="", returncode=0):
@@ -137,6 +146,49 @@ class FakeWorld:
             raise AssertionError(f"unhandled gh api path: {path!r}")
         payload = pages[page - 1] if page <= len(pages) else []
         return self._completed(json.dumps(payload))
+
+    def _graphql(self, argv):
+        if self.graphql_error:
+            raise subprocess.CalledProcessError(1, argv, "", "graphql failed")
+        nodes = self.graphql_nodes
+        total = self.graphql_total if self.graphql_total is not None else len(nodes)
+        return self._completed(json.dumps({
+            "data": {
+                "repository": {
+                    "issues": {
+                        "totalCount": total,
+                        "pageInfo": {"hasNextPage": False, "endCursor": None},
+                        "nodes": nodes,
+                    }
+                }
+            }
+        }))
+
+    def _issue_list(self, argv):
+        if self.issue_list_error:
+            raise subprocess.CalledProcessError(1, argv, "", "issue list failed")
+        return self._completed(json.dumps(self.issue_list_items))
+
+
+def _rest_pr(number: int) -> dict:
+    return {
+        "number": number,
+        "title": f"PR {number}",
+        "labels": [],
+        "updated_at": "2026-09-30T00:00:00Z",
+        "created_at": "2026-09-30T00:00:00Z",
+        "pull_request": {"url": f"https://api.github.example/pulls/{number}"},
+    }
+
+
+def _gql_issue(number: int, title: str, labels: list[str] | None = None) -> dict:
+    return {
+        "number": number,
+        "title": title,
+        "updatedAt": "2026-09-30T00:00:00Z",
+        "createdAt": "2026-09-30T00:00:00Z",
+        "labels": {"nodes": [{"name": name} for name in (labels or [])]},
+    }
 
 
 def _section(report: str, heading: str) -> str:
@@ -343,7 +395,10 @@ class MergedBranchEvidenceTests(unittest.TestCase):
         self.assertTrue(result.complete)
         self.assertEqual(result.pages, 2)
         self.assertEqual(len(result.items), 3)
-        self.assertEqual([c[2] for c in world.calls if c[:2] == ["gh", "api"]], [
+        self.assertEqual([
+            c[2] for c in world.calls
+            if c[:2] == ["gh", "api"] and c[2] != "graphql"
+        ], [
             f"repos/{REPO}/pulls?state=all&per_page=2&page=1",
             f"repos/{REPO}/pulls?state=all&per_page=2&page=2",
         ])
@@ -473,11 +528,40 @@ class MergedBranchEvidenceTests(unittest.TestCase):
                 self.assertNotRegex(joined, r"\bclean\b")
             elif argv[:1] == ["gh"]:
                 self.assertTrue(rb._is_allowed_gh(argv), argv)
-                self.assertEqual(argv[1], "api")
+                self.assertIn(argv[1], ("api", "issue"))
                 self.assertNotIn("-X", argv)
                 self.assertNotIn("close", argv)
             else:
                 self.fail(f"unexpected command {argv!r}")
+
+    def test_rest_pr_only_page_is_incomplete_not_zero_none(self):
+        """Live bug: REST /issues returned 5 PRs, no Link, and the report said 0 / none."""
+        world = FakeWorld()
+        world.graphql_error = True
+        world.issue_list_error = True
+        world.issue_pages = [[_rest_pr(n) for n in (1113, 1112, 1111, 1110, 1109)]]
+        report = _report(world)
+        self.assertIn("open issues: **0** (incomplete)", report)
+        one = _section(report, "1. Open issues a merged PR said it would CLOSE")
+        four = _section(report, "4. Stale `enhancement` issues")
+        self.assertIn("incomplete", one)
+        self.assertNotIn(rb.NONE_MARK, one)
+        self.assertIn("incomplete", four)
+        self.assertNotIn(rb.NONE_MARK, four)
+        self.assertIn("only pull requests", report)
+
+    def test_graphql_issue_count_wins_over_rest_pr_only_page(self):
+        world = FakeWorld()
+        world.issue_pages = [[_rest_pr(n) for n in (1113, 1112, 1111, 1110, 1109)]]
+        world.graphql_nodes = [
+            _gql_issue(1041, "squash evidence"),
+            _gql_issue(14, "Indigenomics CTO"),
+        ]
+        world.graphql_total = 2
+        report = _report(world)
+        self.assertIn("open issues: **2**", report)
+        self.assertNotIn("open issues: **0**", report)
+        self.assertNotIn("(incomplete)", report.split("merged PRs scanned")[0])
 
 
 if __name__ == "__main__":

@@ -161,6 +161,8 @@ def _is_allowed_git(argv: list[str]) -> bool:
 def _is_allowed_gh(argv: list[str]) -> bool:
     if len(argv) < 2 or argv[0] != "gh":
         return False
+    if argv[1:3] == ["issue", "list"]:
+        return "close" not in argv and "edit" not in argv and "delete" not in argv
     if argv[1] != "api":
         return False
     if "-X" in argv or "--method" in argv:
@@ -311,19 +313,231 @@ def list_pulls() -> ApiResult:
     )
 
 
-def open_issues() -> tuple[list[dict], ApiResult]:
-    repo = repo_slug()
+OPEN_ISSUES_GQL = (
+    "query($owner: String!, $name: String!, $cursor: String) {"
+    " repository(owner: $owner, name: $name) {"
+    "  issues(states: OPEN, first: 100, after: $cursor) {"
+    "   totalCount pageInfo { hasNextPage endCursor }"
+    "   nodes { number title updatedAt createdAt labels(first: 50) { nodes { name } } }"
+    "  }"
+    " }"
+    "}"
+)
+ISSUE_LIST_LIMIT = 200
+REST_PR_ONLY_ERROR = (
+    "REST /issues returned only pull requests with no further pages; "
+    "that is not a proven empty issue list (PRs share the issues API)"
+)
+
+
+def _issue_record(number, title, labels, updated, created) -> dict:
+    return {
+        "number": number,
+        "title": title or "",
+        "labels": labels or [],
+        "updatedAt": updated or "",
+        "createdAt": created or "",
+    }
+
+
+def _issue_from_rest(raw: dict) -> dict:
+    return _issue_record(
+        raw.get("number"),
+        raw.get("title", ""),
+        raw.get("labels", []),
+        raw.get("updated_at", ""),
+        raw.get("created_at", ""),
+    )
+
+
+def _issue_from_graphql(node: dict) -> dict:
+    labels = [
+        {"name": lab.get("name", "")}
+        for lab in ((node.get("labels") or {}).get("nodes") or [])
+        if isinstance(lab, dict)
+    ]
+    return _issue_record(
+        node.get("number"),
+        node.get("title", ""),
+        labels,
+        node.get("updatedAt", ""),
+        node.get("createdAt", ""),
+    )
+
+
+def _open_issues_graphql(repo: str) -> ApiResult:
+    """GraphQL repository.issues — REST /issues can be installation-filtered and PR-only."""
+    if "/" not in repo:
+        return ApiResult(complete=False, error=f"cannot parse owner/name from {repo!r}")
+    owner, name = repo.split("/", 1)
+    items: list[dict] = []
+    cursor = None
+    total = None
+    pages = 0
+    while pages < MAX_PAGES:
+        argv = [
+            "gh", "api", "graphql",
+            "-f", f"query={OPEN_ISSUES_GQL}",
+            "-F", f"owner={owner}",
+            "-F", f"name={name}",
+        ]
+        if cursor:
+            argv.extend(["-F", f"cursor={cursor}"])
+        try:
+            proc = run_cmd(argv, timeout=90, check=True)
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
+            return ApiResult(
+                items=items,
+                complete=False,
+                error=f"gh api graphql issues failed: {e}",
+                pages=pages,
+            )
+        try:
+            payload = json.loads(proc.stdout) if proc.stdout.strip() else {}
+        except json.JSONDecodeError as e:
+            return ApiResult(
+                items=items,
+                complete=False,
+                error=f"gh api graphql issues returned invalid JSON: {e}",
+                pages=pages,
+            )
+        if not isinstance(payload, dict):
+            return ApiResult(
+                items=items,
+                complete=False,
+                error="gh api graphql issues returned a non-object payload",
+                pages=pages,
+            )
+        if payload.get("errors"):
+            return ApiResult(
+                items=items,
+                complete=False,
+                error=f"gh api graphql issues errors: {payload['errors']}",
+                pages=pages,
+            )
+        conn = ((payload.get("data") or {}).get("repository") or {}).get("issues")
+        if not isinstance(conn, dict):
+            return ApiResult(
+                items=items,
+                complete=False,
+                error="gh api graphql issues: repository.issues missing",
+                pages=pages,
+            )
+        pages += 1
+        total = conn.get("totalCount")
+        for node in conn.get("nodes") or []:
+            if isinstance(node, dict):
+                items.append(_issue_from_graphql(node))
+        page_info = conn.get("pageInfo") or {}
+        if not page_info.get("hasNextPage"):
+            if isinstance(total, int) and len(items) != total:
+                return ApiResult(
+                    items=items,
+                    complete=False,
+                    error=f"GraphQL issues totalCount={total} but retrieved {len(items)}",
+                    pages=pages,
+                )
+            return ApiResult(items=items, complete=True, pages=pages)
+        cursor = page_info.get("endCursor")
+        if not cursor:
+            return ApiResult(
+                items=items,
+                complete=False,
+                error="GraphQL issues hasNextPage without endCursor",
+                pages=pages,
+            )
+    return ApiResult(
+        items=items,
+        complete=False,
+        error=f"GraphQL issues stopped at {MAX_PAGES} pages (incomplete)",
+        pages=pages,
+    )
+
+
+def _open_issues_cli() -> ApiResult:
+    """Same catalog `gh issue list` uses. Limit hit means we did not prove completeness."""
+    argv = [
+        "gh", "issue", "list",
+        "--state", "open",
+        "--limit", str(ISSUE_LIST_LIMIT),
+        "--json", "number,title,labels,updatedAt,createdAt",
+    ]
+    try:
+        proc = run_cmd(argv, timeout=90, check=True)
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
+        return ApiResult(complete=False, error=f"gh issue list failed: {e}")
+    try:
+        raw = json.loads(proc.stdout) if proc.stdout.strip() else []
+    except json.JSONDecodeError as e:
+        return ApiResult(complete=False, error=f"gh issue list returned invalid JSON: {e}")
+    if not isinstance(raw, list):
+        return ApiResult(complete=False, error="gh issue list returned a non-list payload")
+    items = [
+        _issue_record(
+            row.get("number"),
+            row.get("title", ""),
+            row.get("labels", []),
+            row.get("updatedAt", ""),
+            row.get("createdAt", ""),
+        )
+        for row in raw
+        if isinstance(row, dict)
+    ]
+    if len(items) >= ISSUE_LIST_LIMIT:
+        return ApiResult(
+            items=items,
+            complete=False,
+            error=f"gh issue list hit --limit {ISSUE_LIST_LIMIT}",
+            pages=1,
+        )
+    return ApiResult(items=items, complete=True, pages=1)
+
+
+def _open_issues_rest(repo: str) -> ApiResult:
     raw = gh_api(f"repos/{repo}/issues?state=open")
-    out = []
-    for i in raw.items:
-        if not isinstance(i, dict) or i.get("pull_request"):
-            continue
-        out.append({
-            "number": i["number"], "title": i.get("title", ""),
-            "labels": i.get("labels", []),
-            "updatedAt": i.get("updated_at", ""), "createdAt": i.get("created_at", ""),
-        })
-    return out, raw
+    mapped = [
+        _issue_from_rest(i)
+        for i in raw.items
+        if isinstance(i, dict) and not i.get("pull_request")
+    ]
+    pr_only = bool(raw.items) and all(
+        isinstance(i, dict) and i.get("pull_request") for i in raw.items
+    )
+    if pr_only:
+        return ApiResult(
+            items=mapped,
+            complete=False,
+            error=REST_PR_ONLY_ERROR,
+            pages=raw.pages,
+        )
+    return ApiResult(
+        items=mapped,
+        complete=raw.complete,
+        error=raw.error,
+        pages=raw.pages,
+    )
+
+
+def open_issues() -> tuple[list[dict], ApiResult]:
+    """Open issues, excluding PRs. Prefer GraphQL; never treat a PR-only REST page as none."""
+    repo = repo_slug()
+    gql = _open_issues_graphql(repo)
+    if gql.complete:
+        return list(gql.items), gql
+    listed = _open_issues_cli()
+    if listed.complete:
+        return list(listed.items), listed
+    rest = _open_issues_rest(repo)
+    if rest.complete:
+        return list(rest.items), rest
+    items = gql.items or listed.items or rest.items
+    error = "; ".join(part for part in (gql.error, listed.error, rest.error) if part)
+    return list(items), ApiResult(
+        items=list(items),
+        complete=False,
+        error=error or "open-issue retrieval did not finish",
+        pages=max(gql.pages, listed.pages, rest.pages),
+    )
 
 
 def merged_prs(limit: int | None = None) -> list[dict]:
