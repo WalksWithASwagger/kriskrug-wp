@@ -62,3 +62,33 @@ explicit KK approval and an explicit rollback path.
 `make morning-truth`, `make status-readonly`, and audit targets may call
 `https://kriskrug.co`. They degrade when the network is unavailable. Never use
 the checked-in Aurora version as production proof: read public `style.css`.
+
+## GitHub Actions: files present vs enabled
+
+A workflow YAML file in `.github/workflows/` is not proof it is enabled or
+scheduled. Read the Actions API before treating a workflow as live:
+
+```bash
+gh api repos/WalksWithASwagger/kriskrug-wp/actions/workflows --jq '[.workflows[] | {name,state,path}]'
+```
+
+Dated API readback **2026-09-30**:
+
+| Name | Path | State |
+|---|---|---|
+| Test PR | `.github/workflows/test-pr.yml` | `active` |
+| backlog-reconcile | `.github/workflows/backlog-reconcile.yml` | `active` |
+| Dependabot Updates | `dynamic/dependabot/dependabot-updates` | `active` |
+| Dependency Graph | `dynamic/dependabot/update-graph` | `active` |
+| Auto-Triage Issues | `.github/workflows/auto-triage.yml` | `disabled_manually` |
+| Marquee Weekly Scan | `.github/workflows/marquee-weekly.yml` | `disabled_manually` |
+
+Auto-Triage Issues and Marquee Weekly Scan remain disabled on purpose. The
+reason is unknown. Do not re-enable them, edit repository settings, or treat
+their YAML as a running schedule. Historical swarm docs (`docs/architecture.md`,
+`docs/automation-guide.md`) describe files, not current Actions state.
+
+`practice-preview`, `practice-test`, and `practice-browser-test` are local Make
+targets. Setup, Node/npm split, and the fixture-vs-production boundary live in
+[`CONTRIBUTING.md`](../../CONTRIBUTING.md). Playground 3.1.55 still requires
+Node >=24.18.0 and npm >=11.16.0; JavaScript syntax checks still use Node 20.
