@@ -1,10 +1,155 @@
+import json
+import subprocess
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
+from urllib.parse import parse_qs, urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import reconcile_backlog as rb  # noqa: E402
+
+REPO = "WalksWithASwagger/kriskrug-wp"
+ORIGIN_URL = f"git@github.com:{REPO}.git"
+MAIN_SHA = "b" * 40
+SQUASH_SHA = "a" * 40
+MERGE_SHA = "c" * 40
+POST_SHA = "d" * 40
+OPEN_SHA = "e" * 40
+OTHER_SHA = "f" * 40
+
+
+def _pr(
+    number: int,
+    ref: str,
+    sha: str,
+    *,
+    repo: str | None = REPO,
+    merged: str | None = None,
+    state: str | None = None,
+    title: str = "t",
+    body: str = "",
+) -> dict:
+    if merged:
+        state = "closed"
+    elif state is None:
+        state = "open"
+    head_repo = None if repo is None else {"full_name": repo}
+    return {
+        "number": number,
+        "title": title,
+        "body": body,
+        "state": state,
+        "merged_at": merged,
+        "head": {"ref": ref, "sha": sha, "repo": head_repo},
+    }
+
+
+class FakeWorld:
+    """Offline git + GitHub API. Records every argv for destructive-command checks."""
+
+    def __init__(self):
+        self.calls: list[list[str]] = []
+        self.refs = {"origin/main": MAIN_SHA}
+        self.ancestors: set[str] = set()
+        self.worktrees = [
+            {"path": "/repo", "head": MAIN_SHA, "branch": "main", "dirty": False},
+        ]
+        self.issue_pages: list[list[dict]] = [[]]
+        self.pull_pages: list[list[dict]] = [[]]
+        self.issue_error_page = None
+        self.pull_error_page = None
+        self.fetch_error = False
+        self.ref_error = False
+        self.ancestor_error_refs: set[str] = set()
+        self.worktree_list_error = False
+        self.status_error_paths: set[str] = set()
+
+    def run(self, argv, **kwargs):
+        self.calls.append(list(argv))
+        if argv[:1] == ["git"]:
+            return self._git(argv)
+        if argv[:2] == ["gh", "api"]:
+            return self._gh(argv)
+        raise AssertionError(f"unexpected command: {argv!r}")
+
+    def _completed(self, stdout="", stderr="", returncode=0):
+        return subprocess.CompletedProcess(
+            args=[], returncode=returncode, stdout=stdout, stderr=stderr
+        )
+
+    def _git(self, argv):
+        args = rb._git_argv_after_global_flags(argv)
+        if args[:2] == ["remote", "get-url"]:
+            return self._completed(ORIGIN_URL + "\n")
+        if args[:1] == ["fetch"]:
+            if self.fetch_error:
+                raise subprocess.CalledProcessError(1, argv, "", "fetch failed")
+            return self._completed()
+        if args[:1] == ["for-each-ref"]:
+            if self.ref_error:
+                raise subprocess.CalledProcessError(1, argv, "", "for-each-ref failed")
+            lines = [f"{ref} {sha}" for ref, sha in self.refs.items()]
+            return self._completed("\n".join(lines) + "\n")
+        if args[:2] == ["merge-base", "--is-ancestor"]:
+            ref = args[2]
+            if ref in self.ancestor_error_refs:
+                return self._completed(stderr="not a valid object", returncode=128)
+            return self._completed(returncode=0 if ref in self.ancestors else 1)
+        if args[:2] == ["worktree", "list"]:
+            if self.worktree_list_error:
+                raise subprocess.CalledProcessError(1, argv, "", "worktree list failed")
+            chunks = []
+            for tree in self.worktrees:
+                chunks.append(
+                    f"worktree {tree['path']}\nHEAD {tree['head']}\n"
+                    f"branch refs/heads/{tree['branch']}\n"
+                )
+            return self._completed("\n".join(chunks) + "\n")
+        if args[:1] == ["status"]:
+            path = None
+            raw = argv[1:]
+            if raw[:1] == ["-C"]:
+                path = raw[1]
+            if path in self.status_error_paths:
+                raise subprocess.CalledProcessError(1, argv, "", "status failed")
+            dirty = False
+            for tree in self.worktrees:
+                if tree["path"] == path:
+                    dirty = bool(tree.get("dirty"))
+            return self._completed(" M file\n" if dirty else "")
+        raise AssertionError(f"unhandled git command: {argv!r}")
+
+    def _gh(self, argv):
+        path = argv[2]
+        parsed = urlparse("https://api.github.example/" + path)
+        page = int(parse_qs(parsed.query).get("page", ["1"])[0])
+        if "/issues" in parsed.path:
+            if self.issue_error_page == page or self.issue_error_page == "all":
+                raise subprocess.CalledProcessError(1, argv, "", "issues api failed")
+            pages = self.issue_pages
+        elif "/pulls" in parsed.path:
+            if self.pull_error_page == page or self.pull_error_page == "all":
+                raise subprocess.CalledProcessError(1, argv, "", "pulls api failed")
+            pages = self.pull_pages
+        else:
+            raise AssertionError(f"unhandled gh api path: {path!r}")
+        payload = pages[page - 1] if page <= len(pages) else []
+        return self._completed(json.dumps(payload))
+
+
+def _section(report: str, heading: str) -> str:
+    marker = f"## {heading}"
+    start = report.index(marker)
+    rest = report[start:]
+    nxt = rest.find("\n## ", 1)
+    return rest if nxt < 0 else rest[:nxt]
+
+
+def _report(world: FakeWorld) -> str:
+    with patch.object(rb, "run_cmd", side_effect=world.run):
+        return rb.build_report(stale_days=90)
 
 
 class RefMatchingTests(unittest.TestCase):
@@ -100,6 +245,239 @@ class RepoSlugTests(unittest.TestCase):
             ("https://github.com/Owner/repo", "Owner/repo"),
         ]:
             self.assertEqual(rb.parse_repo_slug(url), want)
+
+
+class MergedBranchEvidenceTests(unittest.TestCase):
+    def test_squash_merge_exact_sha_is_confirmed_without_ancestry(self):
+        world = FakeWorld()
+        world.refs["origin/codex/1041-squash-demo"] = SQUASH_SHA
+        world.pull_pages = [[
+            _pr(8801, "codex/1041-squash-demo", SQUASH_SHA, merged="2026-09-30T00:00:00Z"),
+        ]]
+        report = _report(world)
+        section = _section(report, "3. Merged remote branches not pruned")
+        self.assertIn("### Confirmed matches", section)
+        self.assertIn("`origin/codex/1041-squash-demo` @ `" + SQUASH_SHA + "`", section)
+        self.assertIn("PR #8801 head `" + SQUASH_SHA + "`", section)
+        self.assertIn(rb.METHOD_SQUASH, section)
+        self.assertNotIn(rb.METHOD_ANCESTRY, section)
+        self.assertNotIn(rb.NONE_MARK, section)
+        self.assertIn("not permission to delete", section)
+        self.assertNotIn("git push origin --delete", section)
+
+    def test_ancestry_merge_keeps_ancestry_evidence(self):
+        world = FakeWorld()
+        world.refs["origin/codex/1041-merge-demo"] = MERGE_SHA
+        world.ancestors.add("origin/codex/1041-merge-demo")
+        world.pull_pages = [[
+            _pr(8802, "codex/1041-merge-demo", MERGE_SHA, merged="2026-09-29T00:00:00Z"),
+        ]]
+        report = _report(world)
+        section = _section(report, "3. Merged remote branches not pruned")
+        self.assertIn("### Confirmed matches", section)
+        self.assertIn("`origin/codex/1041-merge-demo` @ `" + MERGE_SHA + "`", section)
+        self.assertIn("PR #8802 head `" + MERGE_SHA + "`", section)
+        self.assertIn(rb.METHOD_ANCESTRY, section)
+        self.assertIn(rb.METHOD_SQUASH, section)
+
+    def test_name_alone_is_not_confirmed_when_sha_differs(self):
+        world = FakeWorld()
+        world.refs["origin/codex/1041-post-merge"] = POST_SHA
+        world.pull_pages = [[
+            _pr(8803, "codex/1041-post-merge", SQUASH_SHA, merged="2026-09-28T00:00:00Z"),
+        ]]
+        report = _report(world)
+        section = _section(report, "3. Merged remote branches not pruned")
+        self.assertNotIn("### Confirmed matches", section)
+        self.assertIn("### Post-merge commits", section)
+        self.assertIn("`origin/codex/1041-post-merge` @ `" + POST_SHA + "`", section)
+        self.assertIn("PR #8803 head `" + SQUASH_SHA + "`", section)
+        self.assertIn(rb.METHOD_POST_MERGE, section)
+
+    def test_reused_name_with_open_pr_is_not_confirmed(self):
+        world = FakeWorld()
+        world.refs["origin/codex/1041-reused"] = OPEN_SHA
+        world.pull_pages = [[
+            _pr(8804, "codex/1041-reused", SQUASH_SHA, merged="2026-09-20T00:00:00Z"),
+            _pr(8805, "codex/1041-reused", OPEN_SHA, state="open"),
+        ]]
+        report = _report(world)
+        section = _section(report, "3. Merged remote branches not pruned")
+        self.assertNotIn("### Confirmed matches", section)
+        self.assertIn("### Reused branch names or open PRs", section)
+        self.assertIn("`origin/codex/1041-reused` @ `" + OPEN_SHA + "`", section)
+        self.assertIn("PR #8805 head `" + OPEN_SHA + "`", section)
+        self.assertIn(rb.METHOD_REUSED, section)
+        self.assertNotIn("### Post-merge commits", section)
+
+    def test_cross_repo_sha_match_is_mismatch_not_confirmed(self):
+        world = FakeWorld()
+        world.refs["origin/codex/1041-fork"] = SQUASH_SHA
+        world.pull_pages = [[
+            _pr(
+                8806,
+                "codex/1041-fork",
+                SQUASH_SHA,
+                repo="other/fork",
+                merged="2026-09-21T00:00:00Z",
+            ),
+        ]]
+        report = _report(world)
+        section = _section(report, "3. Merged remote branches not pruned")
+        self.assertNotIn("### Confirmed matches", section)
+        self.assertIn("### Repository mismatches", section)
+        self.assertIn("`origin/codex/1041-fork` @ `" + SQUASH_SHA + "`", section)
+        self.assertIn("PR #8806 head `" + SQUASH_SHA + "` from `other/fork`", section)
+        self.assertIn(rb.METHOD_REPO_MISMATCH, section)
+
+    def test_pagination_follows_full_pages_then_short_page(self):
+        world = FakeWorld()
+        page1 = [
+            _pr(9000 + i, f"codex/page1-{i}", OTHER_SHA, merged="2026-09-01T00:00:00Z")
+            for i in range(2)
+        ]
+        page2 = [_pr(9100, "codex/page2", OTHER_SHA, merged="2026-09-02T00:00:00Z")]
+        world.pull_pages = [page1, page2]
+        with patch.object(rb, "run_cmd", side_effect=world.run):
+            result = rb.gh_api(f"repos/{REPO}/pulls?state=all&per_page=2")
+        self.assertTrue(result.complete)
+        self.assertEqual(result.pages, 2)
+        self.assertEqual(len(result.items), 3)
+        self.assertEqual([c[2] for c in world.calls if c[:2] == ["gh", "api"]], [
+            f"repos/{REPO}/pulls?state=all&per_page=2&page=1",
+            f"repos/{REPO}/pulls?state=all&per_page=2&page=2",
+        ])
+
+    def test_partial_page_then_api_error_is_incomplete_not_none(self):
+        world = FakeWorld()
+        world.pull_pages = [[
+            _pr(9200 + i, f"codex/partial-{i}", OTHER_SHA, merged="2026-09-03T00:00:00Z")
+            for i in range(rb.DEFAULT_PER_PAGE)
+        ]]
+        world.pull_error_page = 2
+        report = _report(world)
+        section = _section(report, "3. Merged remote branches not pruned")
+        self.assertIn("### Incomplete / unknown API or Git state", section)
+        self.assertIn("incomplete", section.lower())
+        self.assertNotIn(rb.NONE_MARK, section)
+        one = _section(report, "1. Open issues a merged PR said it would CLOSE")
+        self.assertIn("incomplete", one)
+        self.assertNotIn(rb.NONE_MARK, one)
+
+    def test_api_failure_is_incomplete_never_none(self):
+        world = FakeWorld()
+        world.pull_error_page = 1
+        report = _report(world)
+        section = _section(report, "3. Merged remote branches not pruned")
+        self.assertIn("### Incomplete / unknown API or Git state", section)
+        self.assertIn("failed", section)
+        self.assertNotIn(rb.NONE_MARK, section)
+
+    def test_git_ref_failure_is_incomplete_never_none(self):
+        world = FakeWorld()
+        world.ref_error = True
+        report = _report(world)
+        section = _section(report, "3. Merged remote branches not pruned")
+        self.assertIn("### Incomplete / unknown API or Git state", section)
+        self.assertIn("for-each-ref failed", section)
+        self.assertNotIn(rb.NONE_MARK, section)
+
+    def test_merge_base_failure_marks_branch_unknown(self):
+        world = FakeWorld()
+        world.refs["origin/codex/1041-unknown"] = OTHER_SHA
+        world.ancestor_error_refs.add("origin/codex/1041-unknown")
+        world.pull_pages = [[
+            _pr(8807, "codex/1041-unknown", SQUASH_SHA, merged="2026-09-22T00:00:00Z"),
+        ]]
+        report = _report(world)
+        section = _section(report, "3. Merged remote branches not pruned")
+        self.assertIn("`origin/codex/1041-unknown` @ `" + OTHER_SHA + "`", section)
+        self.assertIn(rb.METHOD_UNKNOWN, section)
+        self.assertNotIn("### Confirmed matches", section)
+        self.assertNotIn(rb.NONE_MARK, section)
+
+    def test_checked_out_dirty_worktree_is_caution(self):
+        world = FakeWorld()
+        world.refs["origin/codex/1041-dirty"] = SQUASH_SHA
+        world.worktrees.append({
+            "path": "/worktrees/1041-dirty",
+            "head": SQUASH_SHA,
+            "branch": "codex/1041-dirty",
+            "dirty": True,
+        })
+        world.pull_pages = [[
+            _pr(8808, "codex/1041-dirty", SQUASH_SHA, merged="2026-09-23T00:00:00Z"),
+        ]]
+        report = _report(world)
+        section = _section(report, "3. Merged remote branches not pruned")
+        self.assertIn("### Confirmed matches", section)
+        self.assertIn("caution: checked out at /worktrees/1041-dirty", section)
+        self.assertIn("caution: dirty work at /worktrees/1041-dirty", section)
+
+    def test_unavailable_worktree_state_is_caution(self):
+        world = FakeWorld()
+        world.refs["origin/codex/1041-occupied"] = SQUASH_SHA
+        world.worktrees.append({
+            "path": "/worktrees/1041-occupied",
+            "head": SQUASH_SHA,
+            "branch": "codex/1041-occupied",
+            "dirty": False,
+        })
+        world.status_error_paths.add("/worktrees/1041-occupied")
+        world.pull_pages = [[
+            _pr(8809, "codex/1041-occupied", SQUASH_SHA, merged="2026-09-24T00:00:00Z"),
+        ]]
+        report = _report(world)
+        section = _section(report, "3. Merged remote branches not pruned")
+        self.assertIn("caution: checked out at /worktrees/1041-occupied", section)
+        self.assertIn("caution: worktree state unavailable at /worktrees/1041-occupied", section)
+        self.assertIn("### Incomplete / unknown API or Git state", section)
+
+    def test_complete_empty_scan_still_reports_none(self):
+        world = FakeWorld()
+        report = _report(world)
+        section = _section(report, "3. Merged remote branches not pruned")
+        self.assertIn(rb.NONE_MARK, section)
+        self.assertNotIn("### Confirmed matches", section)
+        self.assertNotIn("### Incomplete / unknown API or Git state", section)
+
+    def test_no_destructive_git_or_gh_commands_run(self):
+        world = FakeWorld()
+        world.refs["origin/codex/1041-squash-demo"] = SQUASH_SHA
+        world.refs["origin/codex/1041-dirty"] = POST_SHA
+        world.ancestors.add("origin/codex/1041-merge-demo")
+        world.refs["origin/codex/1041-merge-demo"] = MERGE_SHA
+        world.worktrees.append({
+            "path": "/worktrees/1041-dirty",
+            "head": POST_SHA,
+            "branch": "codex/1041-dirty",
+            "dirty": True,
+        })
+        world.pull_pages = [[
+            _pr(8801, "codex/1041-squash-demo", SQUASH_SHA, merged="2026-09-30T00:00:00Z"),
+            _pr(8802, "codex/1041-merge-demo", MERGE_SHA, merged="2026-09-29T00:00:00Z"),
+            _pr(8803, "codex/1041-dirty", SQUASH_SHA, merged="2026-09-28T00:00:00Z"),
+        ]]
+        _report(world)
+        self.assertTrue(world.calls)
+        for argv in world.calls:
+            if argv[:1] == ["git"]:
+                self.assertTrue(rb._is_allowed_git(argv), argv)
+                joined = " ".join(argv)
+                self.assertNotIn(" push ", f" {joined} ")
+                self.assertNotRegex(joined, r"branch\s+-[dD]")
+                self.assertNotIn("worktree remove", joined)
+                self.assertNotIn("worktree prune", joined)
+                self.assertNotIn("update-ref -d", joined)
+                self.assertNotRegex(joined, r"\breset\b")
+                self.assertNotRegex(joined, r"\bclean\b")
+            elif argv[:1] == ["gh"]:
+                self.assertTrue(rb._is_allowed_gh(argv), argv)
+                self.assertEqual(argv[1], "api")
+                self.assertNotIn("-X", argv)
+                self.assertNotIn("close", argv)
+            else:
+                self.fail(f"unexpected command {argv!r}")
 
 
 if __name__ == "__main__":
