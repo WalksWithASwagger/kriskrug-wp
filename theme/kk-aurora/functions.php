@@ -776,12 +776,12 @@ function work_page_open_graph_fallback(array $tags): array {
         return $tags;
     }
 
-    $image = 'https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&ssl=1';
+    $image = get_theme_file_uri('assets/img/bcai-living-ecosystem.jpg');
 
     $tags['og:image'] = $image;
     $tags['og:image:secure_url'] = $image;
     $tags['og:image:width'] = '1200';
-    $tags['og:image:height'] = '630';
+    $tags['og:image:height'] = '800';
     $tags['og:image:alt'] = 'BC + AI ecosystem graphic showing community programs and events';
     $tags['twitter:image'] = $image;
     $tags['twitter:image:alt'] = 'BC + AI ecosystem graphic showing community programs and events';
