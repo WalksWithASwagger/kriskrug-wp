@@ -209,7 +209,7 @@ events:
   title: 'Vancouver AI Meetup #33'
   date: '2026-09-30'
   end: '2026-09-30T22:00:00-07:00'
-  bucket_hint: upcoming
+  bucket_hint: past
   kind: meetup
   role: Host
   url: https://luma.com/sept-ai
