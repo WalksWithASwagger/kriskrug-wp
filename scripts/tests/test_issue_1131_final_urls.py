@@ -155,7 +155,7 @@ echo json_encode(
         self.assertIn("/home/", self.apply)
         self.assertIn("2315", self.apply)
         self.assertIn("#1114", self.apply)
-        self.assertIn("Do not activate", self.apply)
+        self.assertIn("Do **not** activate", self.apply)
         self.assertIn("issue-1025-crawl-hygiene.php", self.apply)
 
     def test_person_schema_is_untouched_by_this_packet(self):
