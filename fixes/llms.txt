@@ -39,7 +39,7 @@
 
 - [BC + AI Ecosystem](https://bc-ai.ca/): Community infrastructure for responsible, inclusive, place-rooted AI in British Columbia
 - [Indigenomics.ai](https://indigenomics.com/): Indigenous economic sovereignty and evidence-systems work Kris has supported through prior CTO work
-- [Vancouver AI Meetup](https://kriskrug.co/?s=vancouver+ai+meetup): Monthly community gathering archive and related posts
+- [Vancouver AI Meetup](https://kriskrug.co/events/): Monthly community gathering archive and related posts
 
 ## Archives and policies
 
