@@ -2,15 +2,34 @@
   "schema_version": 1,
   "issue": 1104,
   "parent_issue": 1089,
-  "status": "repo-prepared-human-review-required",
+  "status": "repo-prepared-kk-save-required",
   "live_wordpress_write_performed": false,
   "live_code_snippet_write_performed": false,
+  "approval_state": {
+    "option_a_person_plus_videoobjects": {
+      "approved": true,
+      "source": "https://github.com/WalksWithASwagger/kriskrug-wp/issues/1089#issuecomment-5877883436"
+    },
+    "prepared_x_identity": {
+      "approved": true,
+      "source": "https://github.com/WalksWithASwagger/kriskrug-wp/issues/1089#issuecomment-5877883436"
+    },
+    "youtube_same_as_keep_swap_both": {
+      "approved": false,
+      "source": "later keep/swap/both decision; not in the 2026-09-28 approval"
+    },
+    "live_wordpress_save": {
+      "approved": false,
+      "source": "KK-only under #1089; this packet does not perform the save"
+    }
+  },
   "option_a": {
     "label": "Person + VideoObjects together",
     "recommended": true,
-    "approved": false,
-    "awaits_approval": true,
-    "source": "Sulu comment on #1104; both changes already merged on main"
+    "approved": true,
+    "awaits_approval": false,
+    "approved_on": "2026-09-28",
+    "source": "https://github.com/WalksWithASwagger/kriskrug-wp/issues/1089#issuecomment-5877883436"
   },
   "option_b": {
     "label": "Separately reviewed reduced payload without VideoObjects",
@@ -46,17 +65,20 @@
   },
   "same_as": {
     "approved": [
+      "https://twitter.com/kriskrug",
+      "https://x.com/kriskrug",
       "https://www.instagram.com/kriskrug/",
       "https://www.linkedin.com/in/kriskrug/",
       "https://www.youtube.com/kriskrug",
       "https://www.flickr.com/photos/kk/"
     ],
-    "pending_x_twitter": [
+    "prepared_x": [
       "https://twitter.com/kriskrug",
       "https://x.com/kriskrug"
     ],
-    "pending_x_twitter_todo": "KK must choose the X/Twitter handle. Do not guess. Leave these URLs out of the approved set. Live footer currently links https://twitter.com/feelmoreplants, which returned 404 on 2026-09-30. Track that broken link with #1024 and this X decision, not as a snippet-5 payload change.",
-    "candidate_file_still_contains_pending_x": true,
+    "prepared_x_approved": true,
+    "prepared_x_source": "https://github.com/WalksWithASwagger/kriskrug-wp/issues/1089#issuecomment-5877883436",
+    "candidate_file_still_contains_prepared_x": true,
     "packet_changed_php_payload": false,
     "pending_youtube": {
       "decision": "keep, swap, or both",
@@ -167,6 +189,8 @@
       }
     ],
     "sameAs": [
+      "https://twitter.com/kriskrug",
+      "https://x.com/kriskrug",
       "https://www.instagram.com/kriskrug/",
       "https://www.linkedin.com/in/kriskrug/",
       "https://www.youtube.com/kriskrug",
@@ -189,7 +213,7 @@
   "post_save_invariants": [
     "one Person identity https://kriskrug.co/#person",
     "worksFor BC + AI @id https://bc-ai.ca/#organization",
-    "sameAs approved set only; X and/or /kriskrug10000 only if KK confirmed",
+    "sameAs approved set including prepared X; /kriskrug10000 only if KK confirms the later YouTube choice",
     "homepage-only WebSite named Kris Krug",
     "Article author and publisher reference https://kriskrug.co/#person",
     "two VideoObjects on /speaking/ only",
@@ -215,7 +239,7 @@
   ],
   "out_of_scope": [
     "WordPress writes",
-    "choosing or inventing an X handle",
+    "changing the approved x.com/kriskrug handle",
     "adding youtube.com/kriskrug10000 without an explicit KK YouTube decision",
     "fixing the footer twitter.com/feelmoreplants 404 (#1024 / X decision)",
     "changing WebSite.name",
@@ -226,7 +250,7 @@
     "claiming an unperformed save"
   ],
   "review_jsonld": {
-    "sameAs_note": "X/Twitter omitted from this review payload. Pending KK. YouTube stays https://www.youtube.com/kriskrug; /kriskrug10000 is a pending keep/swap/both decision and is not in the approved set. Candidate PHP still contains twitter.com/kriskrug and x.com/kriskrug; this packet did not change those bytes.",
+    "sameAs_note": "Prepared X identity approved 2026-09-28 (#1089 comment 5877883436): twitter.com/kriskrug and x.com/kriskrug. YouTube stays https://www.youtube.com/kriskrug; /kriskrug10000 is a pending keep/swap/both decision and is not in the approved set. Candidate PHP still contains those X URLs; this packet did not change those bytes.",
     "homepage": [
       {
         "@context": "https://schema.org",
@@ -256,6 +280,8 @@
           }
         ],
         "sameAs": [
+          "https://twitter.com/kriskrug",
+          "https://x.com/kriskrug",
           "https://www.instagram.com/kriskrug/",
           "https://www.linkedin.com/in/kriskrug/",
           "https://www.youtube.com/kriskrug",
@@ -328,6 +354,8 @@
           }
         ],
         "sameAs": [
+          "https://twitter.com/kriskrug",
+          "https://x.com/kriskrug",
           "https://www.instagram.com/kriskrug/",
           "https://www.linkedin.com/in/kriskrug/",
           "https://www.youtube.com/kriskrug",
@@ -423,6 +451,8 @@
           }
         ],
         "sameAs": [
+          "https://twitter.com/kriskrug",
+          "https://x.com/kriskrug",
           "https://www.instagram.com/kriskrug/",
           "https://www.linkedin.com/in/kriskrug/",
           "https://www.youtube.com/kriskrug",
@@ -490,6 +520,8 @@
           }
         ],
         "sameAs": [
+          "https://twitter.com/kriskrug",
+          "https://x.com/kriskrug",
           "https://www.instagram.com/kriskrug/",
           "https://www.linkedin.com/in/kriskrug/",
           "https://www.youtube.com/kriskrug",
