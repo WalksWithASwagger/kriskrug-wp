@@ -83,6 +83,7 @@ plugin-smoke: ## Run lightweight plugin smoke tests
 theme-smoke: ## Run lightweight theme behavior smoke tests
 	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for theme smoke tests."; exit 1; }
 	@php theme/kk-aurora/tests/seo-title-smoke.php
+	@php theme/kk-aurora/tests/final-url-smoke.php
 
 verify: ## Run the standard local verification suite
 	@$(MAKE) test
