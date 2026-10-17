@@ -1,14 +1,14 @@
 # `fixes/` index
 
-68 files live here and they are two very different kinds of thing mixed into one
+84 files live here and they are two very different kinds of thing mixed into one
 directory:
 
-- **Snippet PHP sources** (17 `.php`). Some are the source of truth for PHP that
+- **Snippet PHP sources** (23 `.php`). Some are the source of truth for PHP that
   is running in production via the Code Snippets plugin; others are inactive,
   superseded, or drafts. Editing any of them is prod-adjacent work until its
   current slot/provider state is proved.
-- **Supporting files** (51 non-PHP files). These include three served-root files,
-  this index, and 47 archival handoff/reference artifacts. Nothing in the archival
+- **Supporting files** (61 non-PHP files). These include three served-root files,
+  this index, and archival handoff/reference artifacts. Nothing in the archival
   group runs in production.
 
 Both look the same in a file listing. That is the trap this index exists to close
@@ -65,6 +65,7 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 | `issue-995-events-search-snippet.php` | Page 2250 `/events/` approved title + description via `get_post_metadata` | **Not live; prep only** | none | 2026-09-20 | Closeout in `docs/current-state/reports/issue-995-events-search-intent-20260920.md`. Last live-HTML readback: `issue-995-events-search-intent-20260908.md`. Do not activate without KK approval, a page-2250 snapshot, and rollback. Do not pair with snippet 12 |
 | `issue-997-homepage-paged-canonical.php` | 301 static-front-page `/page/{n}/` (n ≥ 2) to `/`; force homepage canonical if a 200 still renders | **Not live; prep only** | none | 2026-09-08 | Diagnosis in `docs/current-state/reports/issue-997-gsc-url-errors-20260908.md`. Same-document alias only. Do not pair with a theme copy of the same filter. Do not redirect `/3/` or other 404s to `/` |
 | `issue-1025-crawl-hygiene.php` | Track A #1025: repo-tracked `/home/` 301 + sitemap drop, stop minting `share`/`nb`/`amp`, 301 tag/author feeds and author `/page/{n}/` | **Not live; prep only** | none | 2026-09-18 | Soft-ship only. Live `/home/` 301 is already Redirection; snippet 8 already 301s share variants. Do not activate without SEO LGTM. Do not pair with a second Redirection `/home/` rule. See `issue-1025-apply.md`. Policy JSON: `issue-1025-crawl-policy.json`. |
+| `issue-1131-exclude-home-sitemap.php` | Track A #1131: drop published page slug `home` (ID 2315) from the core page sitemap | **Not live; prep only** | none | 2026-10-17 | Narrower than #1025. Does not add a `/home/` redirect or touch feeds. Do not activate without KK / #1114. See `issue-1131-apply.md`. |
 | `kk-news-sitemap-snippet.php` | Google News style sitemap at `/news-sitemap.xml` (#425) | **Active in the 2026-07-24 capture; public route not verified working** | 13 | capture: 2026-07-24; render: 2026-08-15 | Authenticated capture records ID 13 with `active=true`, while `/news-sitemap.xml` returned 301 rather than XML. The body was not read live in this pass, so do not assume this repo copy matches the current slot or redeploy it without authenticated readback and KK approval |
 | `issue-158-shopify-embed.php` | Shopify Buy Button wiring for a Shop page | **Not live** (draft) | none | 2026-08-15 | `/shop/` returns 404; no `kk-shop` or `BuyButton` in live markup. Placeholders unfilled |
 | `issue-39-schema-markup.php` | Original Person / Organization / Article schema | **Not live**, superseded by snippet 5 | none | 2026-08-15 | Live emits exactly one `Person` block and it has snippet 5's shape. `docs/current-state/archive/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md` records #39 as superseded |
