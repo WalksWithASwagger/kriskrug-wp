@@ -356,8 +356,8 @@ editions:
     June 2025 BBQ set used for July promo'
 - id: vancouver-ai-meetup-2026-09-30
   kind: meetup
-  bucket_hint: upcoming
+  bucket_hint: past
   url: https://luma.com/sept-ai
   hero_hint: luma-og
-  notes: Upcoming merge row, not a past edition; id matches the events-catalog.yaml
-    row so the hero hint merges at render time. Past edition count stays 31.
+  notes: Past merge row; id matches the events-catalog.yaml row so the hero hint
+    merges at render time. Date-based rolloff, not this hint, decides Next up.

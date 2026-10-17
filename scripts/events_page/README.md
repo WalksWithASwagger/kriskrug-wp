@@ -86,7 +86,9 @@ If `meetup-editions.yaml` exists (harvest agent output: editions `#1`–`#31` wi
 
 ## Rolloff
 
-Each rendered element has `data-event-end`. Page-scoped JS retires a spotlight card whose date has passed and releases its held-back sheet tile; empty Upcoming collapses via `data-events-empty`. The sheet previews 4 rows and expands via `data-events-sheet-toggle`.
+Each rendered element has `data-event-end` set to **America/Vancouver midnight of the calendar day after the event ends** (#1100). Date-only, timed, and multi-day events share that cutoff; the renderer does not invent a clock time on the event day. Python uses the same cutoff when splitting Next up vs past, so a fresh render and a page left open agree.
+
+Page-scoped JS retires a spotlight card once that cutoff has passed (`hidden`, with `.kk-ev-next[hidden] { display: none }` so author `display:flex` cannot keep it on screen) and releases its held-back sheet tile. It reruns on load, on `visibilitychange` (hidden-tab resume), and on a timer until the next cutoff, so roll-off does not need a new WordPress save. Empty Upcoming collapses via `data-events-empty`. The sheet previews 4 rows and expands via `data-events-sheet-toggle`.
 
 The same script sets `--ev-vw` from `documentElement.clientWidth` for the full-bleed band. `100vw` is only the pre-script fallback: it counts the scrollbar and, under browser zoom, can resolve wider than the viewport, which pushes the band past the edge and eats its padding.
 

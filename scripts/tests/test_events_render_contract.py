@@ -216,9 +216,13 @@ class Bucketing(unittest.TestCase):
         self.assertFalse(render.is_past(ev, self.NOW))
         self.assertTrue(render.is_past(ev, self.NOW + timedelta(days=90)))
 
-    def test_end_exactly_at_now_is_past(self):
+    def test_end_instant_stays_current_until_the_morning_after(self):
+        """#1100: roll off at America/Vancouver midnight the day after, not at the end instant."""
         ev = event(id="ev", end="2026-06-01T12:00:00+00:00")
-        self.assertTrue(render.is_past(ev, self.NOW))
+        self.assertFalse(render.is_past(ev, self.NOW))
+        morning_after = datetime(2026, 6, 2, tzinfo=render.PT)
+        self.assertTrue(render.is_past(ev, morning_after))
+        self.assertFalse(render.is_past(ev, morning_after - timedelta(seconds=1)))
 
     def test_bucket_hint_decides_only_when_there_is_no_date(self):
         undated_past = {"id": "u1", "bucket_hint": "past"}
@@ -228,10 +232,46 @@ class Bucketing(unittest.TestCase):
         stale = event(id="u3", bucket_hint="upcoming", end="2025-01-01T21:00:00-08:00")
         self.assertTrue(render.is_past(stale, self.NOW))
 
-    def test_date_only_event_ends_at_2100_pacific(self):
+    def test_date_only_event_display_stamp_still_uses_2100_pacific(self):
         parsed = render.parse_end({"date": "2026-03-04"})
         self.assertEqual(parsed.hour, 21)
         self.assertEqual(parsed.tzinfo, render.PT)
+
+    def test_date_only_event_rolls_off_at_next_vancouver_midnight(self):
+        # Do not invent 21:00 for rolloff. #1100 morning-after cutoff.
+        ev = {"id": "d1", "date": "2026-03-04"}
+        cutoff = render.rolloff_datetime(ev)
+        self.assertEqual(cutoff, datetime(2026, 3, 5, tzinfo=render.PT))
+        self.assertFalse(render.is_past(ev, datetime(2026, 3, 4, 23, 59, tzinfo=render.PT)))
+        self.assertTrue(render.is_past(ev, cutoff))
+
+    def test_multiday_festival_rolls_off_the_morning_after_its_end_date(self):
+        ev = event(
+            id="futureproof-festival-2026",
+            date="2026-10-28",
+            end="2026-10-30T22:00:00-07:00",
+        )
+        cutoff = render.rolloff_datetime(ev)
+        self.assertEqual(cutoff, datetime(2026, 10, 31, tzinfo=render.PT))
+        during = datetime(2026, 10, 30, 23, 0, tzinfo=render.PT)
+        self.assertFalse(render.is_past(ev, during))
+        self.assertTrue(render.is_past(ev, cutoff))
+
+    def test_dst_spring_forward_keeps_the_next_local_midnight(self):
+        # 2026-03-08 02:00 America/Vancouver springs forward. A 7 March
+        # date-only event still rolls at 8 March 00:00 PST, not an invented time.
+        ev = {"id": "dst-spring", "date": "2026-03-07"}
+        cutoff = render.rolloff_datetime(ev)
+        self.assertEqual(cutoff, datetime(2026, 3, 8, tzinfo=render.PT))
+        self.assertEqual(cutoff.utcoffset(), timedelta(hours=-8))
+
+    def test_dst_fall_back_keeps_the_next_local_midnight(self):
+        # 2026-11-01 02:00 America/Vancouver falls back. Festival-style
+        # 31 Oct evening still rolls at 1 Nov 00:00 PDT.
+        ev = event(id="dst-fall", end="2026-10-31T22:00:00-07:00")
+        cutoff = render.rolloff_datetime(ev)
+        self.assertEqual(cutoff, datetime(2026, 11, 1, tzinfo=render.PT))
+        self.assertEqual(cutoff.utcoffset(), timedelta(hours=-7))
 
     def test_unparseable_date_yields_an_empty_end(self):
         self.assertIsNone(render.parse_end({"date": "sometime in spring"}))
@@ -266,6 +306,25 @@ class Bucketing(unittest.TestCase):
 class CardContract(unittest.TestCase):
     """Class names and data attributes the CSS and rolloff script select on."""
 
+    def test_hidden_spotlight_cannot_keep_author_flex_display(self):
+        html = block([event()], [])
+        self.assertIn(".kk-ev-next[hidden] { display: none; }", html)
+
+    def test_rolloff_script_reruns_on_visibility_and_a_timer(self):
+        html = block([event()], [])
+        start = html.rindex("<script>")
+        script = html[start : html.index("</script>", start)]
+        self.assertIn("visibilitychange", script)
+        self.assertIn("setTimeout", script)
+        self.assertIn("scheduleRolloff", script)
+
+    def test_data_event_end_is_the_morning_after_cutoff(self):
+        html = render.render_next_card(
+            event(end="2026-05-05T18:00:00-07:00"), roots_for(Path("."))
+        )
+        value = CARD_END_RE.search(html).group(1)
+        self.assertEqual(value, "2026-05-06T00:00:00-07:00")
+
     def test_spotlight_card_classes(self):
         html = render.render_next_card(event(), roots_for(Path(".")))
         self.assertIn('<article class="kk-ev-next"', html)
@@ -293,7 +352,9 @@ class CardContract(unittest.TestCase):
             event(end="2026-05-05T18:00:00-07:00"), roots_for(Path("."))
         )
         value = CARD_END_RE.search(html).group(1)
-        self.assertEqual(datetime.fromisoformat(value).utcoffset(), timedelta(hours=-7))
+        parsed = datetime.fromisoformat(value)
+        self.assertIsNotNone(parsed.tzinfo)
+        self.assertEqual(parsed.utcoffset(), timedelta(hours=-7))
 
     def test_undated_row_still_emits_the_attribute(self):
         self.assertIn('data-event-end=""', render.render_record_row({"id": "u1"}))
@@ -377,9 +438,11 @@ class ArtworkPolicy(unittest.TestCase):
 class RealCatalogSmoke(unittest.TestCase):
     """Real merged catalog renders one record row per publishable event."""
 
-    def render_main(self, out: Path) -> str:
+    def render_main(self, out: Path, *, now: str | None = None) -> str:
         argv = sys.argv
         sys.argv = ["render_events_page.py", "--out", str(out)]
+        if now:
+            sys.argv.extend(["--now", now])
         try:
             with contextlib.redirect_stdout(io.StringIO()):
                 code = render.main()
@@ -445,6 +508,43 @@ class RealCatalogSmoke(unittest.TestCase):
         self.assertIn('data-events-grid="sheet">', html)
         self.assertIn("kk-ev-rooms", html)
         self.assertIn("kk-ev-cta", html)
+
+    def test_real_render_has_no_event_jsonld(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            html = self.render_main(Path(tmp) / "events-2250.generated.html")
+        self.assertNotIn("application/ld+json", html)
+        self.assertNotIn('"@type":"Event"', html)
+        self.assertNotIn('"@type": "Event"', html)
+
+    def test_audit_clock_drops_meetup_33_and_points_festival_at_tickets(self):
+        """Live 2026-10-17 gap: Sept 30 still Next up; festival still Save the date.
+
+        Clock is the SEO/AEO audit moment. Product contract is date-based
+        rolloff, not bucket_hint. Festival identity stays off this page:
+        tickets href only, no Event JSON-LD.
+        """
+        audit_now = "2026-10-17T09:57:00-07:00"
+        with tempfile.TemporaryDirectory() as tmp:
+            html = self.render_main(
+                Path(tmp) / "events-2250.generated.html", now=audit_now
+            )
+        next_ids = re.findall(
+            r'<article class="kk-ev-next"[^>]*data-event-id="([^"]*)"', html
+        )
+        self.assertNotIn("vancouver-ai-meetup-2026-09-30", next_ids)
+        self.assertIn("futureproof-festival-2026", next_ids)
+        festival = re.search(
+            r'<article class="kk-ev-next"[^>]*data-event-id="futureproof-festival-2026".*?</article>',
+            html,
+            re.DOTALL,
+        )
+        self.assertIsNotNone(festival)
+        self.assertIn("https://www.futureproof.website/tickets/", festival.group(0))
+        self.assertIn(">Get tickets<", festival.group(0))
+        self.assertNotIn("Save the date", html)
+        self.assertNotIn('href="https://futureproof.website/"', html)
+        self.assertNotIn("Register on Luma", html)
+        self.assertIn('data-event-id="vancouver-ai-meetup-2026-09-30"', html)
 
 
 if __name__ == "__main__":
