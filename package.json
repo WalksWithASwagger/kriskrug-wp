@@ -3,8 +3,8 @@
   "private": true,
   "type": "commonjs",
   "devDependencies": {
-    "@playwright/test": "1.64.0",
-    "@wp-playground/cli": "3.1.58"
+    "@playwright/test": "1.64.1",
+    "@wp-playground/cli": "3.1.60"
   },
   "overrides": {
     "qs": "6.16.0"
