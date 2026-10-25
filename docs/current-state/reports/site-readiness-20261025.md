@@ -28,7 +28,7 @@ Rollback remains `deploy_events_page.py --restore <private page-2250 snapshot>`,
 preview first, then execute only with the observed current hash. No unrelated
 catalog/status/counter implementation was included; #1100 stays open.
 
-## Approved image repair: applied, visual acceptance and cache follow-through pending
+## Approved image repair: applied and visually accepted; Work cache pending
 
 The existing image-only approval in #1114 was retained. The documented SFTP route
 authenticated with a verified host key. Before applying, exact live files and the
@@ -44,11 +44,13 @@ All other live source was preserved. PHP syntax passed, uploaded bytes and the
 database readback matched the prepared hashes. The image URL returns 200 JPEG;
 normal and uncached homepage responses use the packaged image with 1200×800
 dimensions. The uncached Work response uses it as og:image with 1200×800 metadata.
-At 18:50 UTC the normal Work URL still served the old cached og:image. That cache
+At 19:06 UTC the normal Work URL still served the old cached og:image. That cache
 state is not a verified public release of the Work metadata change.
 
 The WordPress MCP session was expired and the available admin browser sessions
-required sign-in. No replacement cache endpoint or credential path was invented.
+required sign-in. Discovery of the site's registered REST routes found Jetpack
+Boost's `page-cache/action/clear-page-cache`; the existing application credentials
+received HTTP 403 on that action. No successful cache purge is claimed.
 An authenticated Pagely/WordPress operator can purge the affected Work page and
 verify the bare URL. Homepage delivery is already current.
 
@@ -62,8 +64,10 @@ Visual baseline `20261025T184522Z` versus after `20261025T184946Z`:
   do not establish LCP/CLS improvement.
 
 The changed regions were inspected and are confined to the repaired artwork.
-Kris was asked to accept that exact visual difference before a new baseline is
-frozen, as required by the visual runbook. Do not silently label this gate green.
+Kris explicitly answered **“Accept repaired image baseline”** on October 25.
+Following that approval, full baseline `20261025T190433Z` was frozen: 33 captures,
+all expected route statuses, manifest retained in this PR. The original automatic
+FAIL remains recorded; this is explicit acceptance, not a rewritten pass result.
 The unchanged Boost CSS hash is expected for this image/PHP-only scope: no CSS
 was changed. The generated report's generic CSS-deployment warning does not
 override the exact stored bytes, public image source and observed pixel change.
@@ -71,6 +75,8 @@ The image-only rollback script checks the current file/template hashes before
 restoring the private originals and removing only the newly added image.
 
 No footer, festival wording, final-URL, full-theme or schema deployment occurred.
+Their exact current-source diffs, private snapshots and 390/1440px public-shell
+previews are prepared separately, with no overflow and correct link/focus checks.
 Aurora's public header remains 1.6.12; this is a bounded hunk apply, not 1.6.13.
 The Work page's body image is a separate old reference and was not included in
 the approved social-image fallback repair.
