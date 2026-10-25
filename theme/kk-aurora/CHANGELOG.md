@@ -20,6 +20,10 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.6.13
+**Deployed:** Not live. Repo-only until KK approves the #1114 theme deploy gate.
+Point sitewide header, footer, and homepage CTAs at `/generative-ai-services/` and `https://www.futureproof.website/` so chrome stops hopping through 301/308s (#1131). Href-only; copy unchanged.
+
 ## 1.6.12
 **Deployed:** LIVE (public `style.css` readback 2026-09-30 via `make check-live-parity`; same Version was already recorded 2026-09-21 in `CURRENT-STATE-2026-09-21.md`). Method not recorded in this verification; this marker is version-readback only. Current public `style.css` controls the current-version claim.
 Adds The Sky Smoked Back to the sitewide Projects footer so the released film shares the same project-network path as the Work page and AI Garden (#1042).

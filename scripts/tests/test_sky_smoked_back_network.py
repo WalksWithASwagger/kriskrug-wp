@@ -16,5 +16,5 @@ def test_aurora_release_version_is_consistent():
     style = (THEME / "style.css").read_text(encoding="utf-8")
     functions = (THEME / "functions.php").read_text(encoding="utf-8")
 
-    assert "Version: 1.6.12" in style
-    assert "define('KK_AURORA_VERSION', '1.6.12');" in functions
+    assert "Version: 1.6.13" in style
+    assert "define('KK_AURORA_VERSION', '1.6.13');" in functions

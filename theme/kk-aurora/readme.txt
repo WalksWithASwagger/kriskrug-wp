@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.6.12 adds The Sky Smoked Back to the sitewide Projects footer.
+KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.6.13 points sitewide chrome at final `/generative-ai-services/` and www Futureproof URLs.
 
 Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
@@ -39,6 +39,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 * Rainbow accents: teal / cyan / cobalt / violet / magenta
 
 == Changelog ==
+
+= 1.6.13 =
+* seo (#1131): header, footer, and homepage CTAs use `/generative-ai-services/` and `https://www.futureproof.website/` so chrome stops hopping through 301/308s.
 
 = 1.6.12 =
 * footer: add The Sky Smoked Back to the sitewide Projects network (#1042).

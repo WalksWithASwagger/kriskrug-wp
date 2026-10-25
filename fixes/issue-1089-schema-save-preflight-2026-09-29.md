@@ -1,29 +1,49 @@
 # Issue #1089 / #1104: Snippet 5 save preflight
 
 **Track:** A — Content + SEO
-**Status:** repo-side decision, verification, and rollback packet. No live WordPress write.
+**Status:** repo-side approval recorded for the combined Person + VideoObject payload and the prepared `x.com/kriskrug` identity. Verification and rollback packet. No live WordPress write.
 **Preparation issue:** #1104
-**Parent save issue:** #1089 (stays open; only KK may paste)
+**Parent save issue:** #1089 (KK-owned paste; this packet does not perform the save)
+**Recorded approval:** [KK, 2026-09-28](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1089#issuecomment-5877883436)
 **Manifest:** `fixes/issue-1089-schema-save-preflight-2026-09-29.json`
 **SEO brief:** [Sulu comment on #1104](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1104#issuecomment-5911308754)
 **Candidate file:** `fixes/schema-snippets-deployed.php` (Code Snippet 5 / KK Schema)
 
-This packet prepares Friday 2 October save work. It does not mark the
+This packet prepares the KK-owned Snippet 5 save. It does not mark the
 prepared Person consolidation or Speaking `VideoObject` records live. It does
-not change approved schema payload values. Pasting the current file still
-ships both merged changes (#1082 Person entity + #907/#641 Speaking videos).
+not change schema payload bytes. Pasting the current file ships both merged
+changes (#1082 Person entity + #907/#641 Speaking videos). KK approved that
+combined payload and the prepared X identity on 2026-09-28. The later YouTube
+`sameAs` keep/swap/both choice remains separate and unapproved.
 
-## Option A — recommended, not approved
+## Approval state (JSON must match)
 
-Sulu recommends **option A: Person + VideoObjects together**, because both
-changes are already merged and reviewed on `main`. That is a recommendation,
-not approval. This packet implements option A as the reviewed candidate and
-waits for KK.
+Machine-readable rows. The JSON manifest `approval_state` object must match
+this table exactly. A unit test fails if either file drifts.
+
+| key | approved | source |
+| --- | --- | --- |
+| option_a_person_plus_videoobjects | true | https://github.com/WalksWithASwagger/kriskrug-wp/issues/1089#issuecomment-5877883436 |
+| prepared_x_identity | true | https://github.com/WalksWithASwagger/kriskrug-wp/issues/1089#issuecomment-5877883436 |
+| youtube_same_as_keep_swap_both | false | later keep/swap/both decision; not in the 2026-09-28 approval |
+| live_wordpress_save | false | KK-only under #1089; this packet does not perform the save |
+
+## Option A — approved 2026-09-28
+
+KK approved **option A: Person + VideoObjects together** on 2026-09-28:
+"Ship both changes together: the Person consolidation and the Speaking
+`VideoObject` records." Source:
+https://github.com/WalksWithASwagger/kriskrug-wp/issues/1089#issuecomment-5877883436
+
+Sulu had already recommended option A because both changes are merged and
+reviewed on `main`. That recommendation is now a recorded approval. This
+packet carries option A as the approved candidate. It does not authorize an
+agent to paste.
 
 | Option | What KK pastes | When to use |
 |---|---|---|
-| **A (recommended default)** | The current `fixes/schema-snippets-deployed.php` body, after the X and YouTube `sameAs` decisions below | Ship Person consolidation and Speaking videos in one save |
-| **B (separately reviewed reduced payload)** | The same file with `kk_schema_speaking_videos()` and its `add_action` removed, then re-reviewed | Only if KK wants Person-only now and videos later |
+| **A (approved 2026-09-28)** | The current `fixes/schema-snippets-deployed.php` body, keeping the prepared X identity. Apply the later YouTube `sameAs` choice only if KK makes one at paste time | Ship Person consolidation and Speaking videos in one save |
+| **B (separately reviewed reduced payload)** | The same file with `kk_schema_speaking_videos()` and its `add_action` removed, then re-reviewed | Only if KK later wants a Person-only paste instead |
 
 Pasting the current file **includes both merged changes**. There is no
 silent video strip. Option B is a new review, not a hidden default.
@@ -107,7 +127,7 @@ Futureproof festival `@id`.
 | BC + AI `@id` | missing | `https://bc-ai.ca/#organization` | **No — prepared** |
 | Futureproof URL | `https://futureproof.website/` | `https://www.futureproof.website/` | **No — prepared** |
 | Futureproof `@id` | none | none (must stay none) | Yes |
-| `sameAs` | twitter.com/kriskrug, x.com/kriskrug, Instagram | approved set below; X left pending | See decision 2 |
+| `sameAs` | twitter.com/kriskrug, x.com/kriskrug, Instagram | approved set below, including prepared X | See decision 2 |
 | `image` | CDN `s5102.pcdn.co/.../krug-1.jpg` | Origin `kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg` | Same asset; Jetpack CDN rewrite is live-only |
 
 ### WebSite — live vs candidate
@@ -146,41 +166,43 @@ creator, or publisher on those nodes.
 
 ## Decision 1 — payload shape
 
-**Default recommendation (not approval): option A.**
+**Approved 2026-09-28: option A.**
 
 Ship Person consolidation and Speaking `VideoObject`s together. Both are on
-`main`. Sulu's #1104 comment recommends this and still calls it a
-recommendation.
+`main`. KK recorded "yes" on #1089:
+https://github.com/WalksWithASwagger/kriskrug-wp/issues/1089#issuecomment-5877883436
 
-Choose option B only if KK wants a separately reviewed Person-only paste.
-Do not strip videos in the save session without that review.
+Choose option B only if KK later wants a separately reviewed Person-only
+paste. Do not strip videos in the save session without that review.
 
-## Decision 2 — Twitter / X identity (TODO)
+## Decision 2 — Twitter / X identity (approved 2026-09-28)
 
-**Pending KK. Do not guess. Leave X out of the approved `sameAs` set.**
+**Approved as prepared: keep `https://x.com/kriskrug` and the matching
+`https://twitter.com/kriskrug` URL already in the candidate PHP.** KK
+recorded "Keep the `x.com/kriskrug` handle as prepared" on 2026-09-28:
+https://github.com/WalksWithASwagger/kriskrug-wp/issues/1089#issuecomment-5877883436
 
 | Source | X / Twitter URL |
 |---|---|
 | Live Person `sameAs` | `https://twitter.com/kriskrug`, `https://x.com/kriskrug` |
 | Candidate file (merged #1082) | same two URLs still present in PHP |
 | Live Aurora footer | `https://twitter.com/feelmoreplants` (404 as of 2026-09-30; redirects toward `x.com/feelmoreplants`) |
-| Related open issue | #1024 (`twitter:site` `@feelmoreplants` → `@kriskrug`). Footer 404 rides with #1024 and this X decision, not as a third snippet change. |
+| Related open issue | #1024 (`twitter:site` `@feelmoreplants` → `@kriskrug`). Footer 404 rides with #1024, not as a third snippet change. |
 
-Approved `sameAs` for this packet (already linked as Kris Krüg profiles):
+Approved `sameAs` for this packet (already linked as Kris Krüg profiles,
+plus the prepared X identity):
 
-1. `https://www.instagram.com/kriskrug/`
-2. `https://www.linkedin.com/in/kriskrug/`
-3. `https://www.youtube.com/kriskrug`
-4. `https://www.flickr.com/photos/kk/` (Photography page, confirmed 200)
+1. `https://twitter.com/kriskrug`
+2. `https://x.com/kriskrug`
+3. `https://www.instagram.com/kriskrug/`
+4. `https://www.linkedin.com/in/kriskrug/`
+5. `https://www.youtube.com/kriskrug`
+6. `https://www.flickr.com/photos/kk/` (Photography page, confirmed 200)
 
-The SEO-review JSON-LD below **omits** the two X/Twitter URLs. The PHP file
-still contains them because this packet does not change approved payload
-bytes. Before paste, KK must either:
-
-- confirm `kriskrug` and keep both URLs, or
-- name a different handle, or
-- strip `https://twitter.com/kriskrug` and `https://x.com/kriskrug` until that
-  choice is made.
+The SEO-review JSON-LD includes those two X/Twitter URLs because they are
+now approved. The PHP file still contains the same two URLs; this packet
+does not change schema payload bytes. Do not strip or rewrite them at
+paste time.
 
 Do not add any other profile in this save unless Decision 3 explicitly
 chooses to list both YouTube URLs.
@@ -208,7 +230,9 @@ KK chooses one:
 - **Swap** to `https://www.youtube.com/kriskrug10000` (new profile; requires an explicit paste-time edit)
 - **Both** (new profile added beside the current URL; requires an explicit paste-time edit)
 
-Until KK chooses, paste the approved set as recorded here.
+Until KK chooses, paste the approved set as recorded here, including the
+prepared X identity. Do not treat this later YouTube choice as covered by
+the 2026-09-28 approval.
 
 ## Snippet 5 identity, scope, and activation
 
@@ -241,13 +265,14 @@ If any box is unchecked, do not paste.
 
 ## Save-once steps
 
-Only KK, and only after all three decisions.
+Only KK. Decisions 1 and 2 are already approved. Decision 3 (YouTube
+keep/swap/both) is still separate and unapproved.
 
 1. Snapshot as above.
 2. Open `fixes/schema-snippets-deployed.php` at the SHA recorded here (or a
    newer SHA that still hashes identically).
-3. Apply the X/`sameAs` decision. If X is still unset, delete the two
-   twitter/x lines before paste.
+3. Keep the prepared X identity (`twitter.com/kriskrug` and `x.com/kriskrug`).
+   Do not strip or rewrite those two URLs.
 4. Apply the YouTube `sameAs` decision. If unset, keep
    `https://www.youtube.com/kriskrug` only. Swap or both is a paste-time
    edit, not a change to this packet's approved set.
@@ -267,7 +292,7 @@ Expected assertions:
 
 - Exactly one Person node per page, `@id` `https://kriskrug.co/#person`
 - `worksFor` BC + AI `@id` is exactly `https://bc-ai.ca/#organization`
-- `sameAs` is only the approved set, plus X and/or `/kriskrug10000` only if KK confirmed them
+- `sameAs` is the approved set, including the prepared X identity; add `/kriskrug10000` only if KK confirms that later YouTube choice
 - `WebSite` on the homepage only; `name` remains `Kris Krug`
 - Article `author` and `publisher` still reference `#person` (no inline Person)
 - Two `VideoObject`s on `/speaking/` only, each with `name`, `thumbnailUrl`,
@@ -310,9 +335,9 @@ count exceeds one, `WebSite.name` changes, videos leak off `/speaking/`, an
 | Public cache-busted JSON-LD readbacks | **Done** 2026-09-30, PT timestamps above |
 | bc-ai.ca Organization `@id` readback | **Done** — `https://bc-ai.ca/#organization` |
 | Candidate SHA + file hash | **Done** against `6931d8ab4dcb34f579ee0d3893841c341ecad55b` |
-| Option A recommendation recorded | **Done** — not approval |
-| X/Twitter choice | **Pending KK** — omitted from approved `sameAs` |
-| YouTube `sameAs` (keep / swap / both) | **Pending KK** — approved set still `https://www.youtube.com/kriskrug` only |
+| Option A combined payload | **Approved** 2026-09-28 — #1089 comment 5877883436 |
+| X/Twitter prepared identity | **Approved** 2026-09-28 — `x.com/kriskrug` as prepared |
+| YouTube `sameAs` (keep / swap / both) | **Pending KK** — later choice; approved set still `https://www.youtube.com/kriskrug` only |
 | Authenticated snippet 5 body/scope snapshot | **Pending KK** — no WP credentials in this session |
 | WordPress save | **Pending KK under #1089** |
 | Validator receipts | **Pending** — do not invent results |
