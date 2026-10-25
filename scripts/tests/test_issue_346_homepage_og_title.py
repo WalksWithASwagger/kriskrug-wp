@@ -115,6 +115,10 @@ echo json_encode(
 
         self.assertEqual({"empty": "", "whitespace_markup": "", "singular": ""}, rendered)
 
+    def test_social_cards_attribute_the_site_to_kriskrug_once(self):
+        for rendered in self._run_php_harness().values():
+            self.assertEqual(["@kriskrug"], self._meta_values(rendered, "twitter:site"))
+
 
 if __name__ == "__main__":
     unittest.main()
