@@ -10,11 +10,12 @@ apply is live. The approved homepage image repair has been applied separately;
 its release receipt distinguishes public readback from cache state.
 
 The September weekly plan below is historical priority context. Current remaining
-handoffs are #1114 (shared-cache follow-through after approved applies), #1089
-(KK's prepared Snippet 5 save), and #331/#1130 (archive-policy reconciliation).
+handoffs are #1089 (KK's prepared Snippet 5 save) and #331/#1130
+(archive-policy reconciliation). The #1114 shared-cache delivery check completed
+at 19:45 UTC: all six normal and uncached routes serve the approved links.
 The September 9 runbook retains its exact live-lane safety procedures.
 The homepage copy/link release passed all 33 visual comparisons; #402's bounded
-ALL IN navigation proposal remains in draft PR #1141 for editorial review.
+ALL IN navigation proposal is retained in PR #1141's unpublished review package.
 
 Read these first:
 

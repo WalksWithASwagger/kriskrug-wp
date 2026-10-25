@@ -45,8 +45,9 @@ observations. Supersedes [September 21](CURRENT-STATE-2026-09-21.md).
 5. **Homepage/footer copy and links:** separately approved and applied October 25.
    Homepage names Vancouver, October 28–30, 2026; footer YouTube and the Services/
    Futureproof destinations are corrected. Full visual comparison: 33 PASS.
-   Uncached delivery is verified; consult the receipt for shared-cache state.
-6. **Reserve:** ALL IN navigation is prepared in draft PR #1141 for editorial
+   At 19:45 UTC all six normal and uncached routes deliver the approved links.
+   The earlier stale shared caches expired naturally; no manual purge is claimed.
+6. **Reserve:** ALL IN navigation is prepared in PR #1141's package for editorial
    review, without publication. Work body artwork still uses its previous
    reference; the approved image change covered its social-image fallback.
 
