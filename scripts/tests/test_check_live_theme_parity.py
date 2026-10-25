@@ -6,7 +6,9 @@ and offline degrade (exit 0 + warning).
 """
 
 import io
+import subprocess
 import sys
+import tempfile
 import unittest
 from contextlib import redirect_stdout
 from pathlib import Path
@@ -43,6 +45,28 @@ class ParseVersionTests(unittest.TestCase):
     def test_none_when_absent(self):
         self.assertIsNone(parity.parse_version("/* no version here */"))
 
+    def test_reference_read_does_not_use_older_checked_out_version(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            def git(*args):
+                return subprocess.run(["git", *args], cwd=root, check=True, capture_output=True)
+            git("init", "-q")
+            git("config", "user.email", "test@example.invalid")
+            git("config", "user.name", "Test")
+            style = root / parity.REPO_STYLE_PATH
+            style.parent.mkdir(parents=True)
+            style.write_text(LIVE_STYLE)
+            git("add", ".")
+            git("commit", "-qm", "old checkout")
+            style.write_text(LIVE_STYLE.replace("1.5.0", "1.6.0"))
+            git("commit", "-qam", "new main")
+            git("update-ref", "refs/remotes/origin/main", "HEAD")
+            git("checkout", "--detach", "HEAD~1")
+            with mock.patch.object(parity, "REPO_ROOT", root):
+                self.assertEqual(parity.read_repo_version(), "1.6.0")
+                self.assertEqual(parity.read_repo_version("HEAD"), "1.5.0")
+                self.assertIsNone(parity.read_repo_version("missing-ref"))
+
 
 class ParityMainTests(unittest.TestCase):
     def test_match_exits_zero(self):
@@ -50,6 +74,7 @@ class ParityMainTests(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertIn("PASS", out)
         self.assertIn("1.5.0", out)
+        self.assertIn("origin/main", out)
 
     def test_mismatch_exits_nonzero(self):
         code, out = run_main("1.4.9", (200, LIVE_STYLE))

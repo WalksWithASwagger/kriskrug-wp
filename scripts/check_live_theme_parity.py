@@ -9,7 +9,8 @@ and exits non-zero on mismatch so the drift is caught the moment it opens.
 Read-only: it makes a single GET request and never writes anything.
 
 Usage:
-    python3 scripts/check_live_theme_parity.py            # check live vs repo
+    python3 scripts/check_live_theme_parity.py            # live vs fetched origin/main
+    python3 scripts/check_live_theme_parity.py --ref HEAD # explicit checkout comparison
     python3 scripts/check_live_theme_parity.py --base URL # check another host
 
 Exit codes:
@@ -22,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import re
+import subprocess
 import sys
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -29,9 +31,8 @@ from urllib.request import Request, urlopen
 
 DEFAULT_BASE = "https://kriskrug.co"
 THEME_STYLE_PATH = "/wp-content/themes/kk-aurora/style.css"
-REPO_STYLE_CSS = (
-    Path(__file__).resolve().parents[1] / "theme" / "kk-aurora" / "style.css"
-)
+REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_STYLE_PATH = "theme/kk-aurora/style.css"
 
 VERSION_RE = re.compile(r"^\s*Version:\s*(.+?)\s*$", re.MULTILINE)
 
@@ -42,11 +43,14 @@ def parse_version(style_css: str) -> str | None:
     return match.group(1) if match else None
 
 
-def read_repo_version(path: Path = REPO_STYLE_CSS) -> str | None:
-    try:
-        return parse_version(path.read_text(encoding="utf-8"))
-    except OSError:
+def read_repo_version(ref: str = "origin/main") -> str | None:
+    result = subprocess.run(
+        ["git", "show", "--end-of-options", f"{ref}:{REPO_STYLE_PATH}"],
+        cwd=REPO_ROOT, capture_output=True, text=True, check=False,
+    )
+    if result.returncode:
         return None
+    return parse_version(result.stdout)
 
 
 def fetch_live_style(base: str, timeout: int = 12) -> tuple[int, str]:
@@ -66,12 +70,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base", default=DEFAULT_BASE, help="site base URL")
     parser.add_argument("--timeout", type=int, default=12, help="HTTP timeout (s)")
+    parser.add_argument("--ref", default="origin/main", help="Git ref to compare (no fetch)")
     args = parser.parse_args()
     base = args.base.rstrip("/")
 
-    repo_version = read_repo_version()
+    repo_version = read_repo_version(args.ref)
     if repo_version is None:
-        print(f"ERROR could not read repo Version from {REPO_STYLE_CSS}")
+        print(f"ERROR could not read repo Version from {args.ref}:{REPO_STYLE_PATH}")
         return 2
 
     status, body = fetch_live_style(base, timeout=args.timeout)
@@ -79,7 +84,7 @@ def main() -> int:
     # Graceful degrade: live unreachable/offline is a soft skip, not a crash.
     if status == 0:
         print(f"WARN live theme unreachable ({base}{THEME_STYLE_PATH}): {body}")
-        print(f"SKIP parity check (repo declares Version: {repo_version})")
+        print(f"SKIP parity check ({args.ref} declares Version: {repo_version})")
         return 0
 
     if status != 200:
@@ -97,11 +102,11 @@ def main() -> int:
         print(
             "FAIL theme version drift detected:\n"
             f"  live ({base}{THEME_STYLE_PATH}): {live_version}\n"
-            f"  repo (theme/kk-aurora/style.css): {repo_version}"
+            f"  repo ({args.ref}:{REPO_STYLE_PATH}): {repo_version}"
         )
         return 1
 
-    print(f"PASS live and repo agree on Version: {live_version}")
+    print(f"PASS live and {args.ref} agree on Version: {live_version}")
     return 0
 
 

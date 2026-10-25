@@ -1,5 +1,7 @@
 # Current State Snapshot - 2026-09-21
 
+> Historical snapshot. The declared baseline is now [CURRENT-STATE-2026-10-25.md](CURRENT-STATE-2026-10-25.md). Preserve the observations below as September evidence.
+
 **Snapshot time:** 2026-09-21 truth reset; live counters and versions refreshed 2026-09-21T16:24Z via `make status-readonly`: WordPress `7.0.5`; Aurora live and repo `main` both `1.6.12`.
 **Branch:** `main` (docs PR lands from lane-scoped branch)
 **Mode:** Ops hygiene (Phases 0–3) then Track A / Track B product lanes.
