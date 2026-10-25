@@ -21,14 +21,16 @@ the hidden-card rule was present and Get tickets linked directly to
 Validation: 88 focused Events tests; JavaScript behavior/syntax; docs truth;
 Chromium at 1440, 768 and 390px. No horizontal overflow or script errors; visible
 ticket-button focus; advancing the clock and resuming the tab retired the festival
-and released its photo. This was a private public-shell browser preview; public
-post-apply delivery was additionally checked by GET and authenticated readback.
+and released its photo. The same browser checks were repeated against the actual
+post-apply public HTML at all three widths: three initial cards, two after the
+October 31 cutoff, released festival photo, no overflow or script errors and
+visible keyboard focus. Public GETs and authenticated readback confirm delivery.
 
 Rollback remains `deploy_events_page.py --restore <private page-2250 snapshot>`,
 preview first, then execute only with the observed current hash. No unrelated
 catalog/status/counter implementation was included; #1100 stays open.
 
-## Approved image repair: applied and visually accepted; Work cache pending
+## Approved image repair: applied, visually accepted and publicly delivered
 
 The existing image-only approval in #1114 was retained. The documented SFTP route
 authenticated with a verified host key. Before applying, exact live files and the
@@ -44,15 +46,16 @@ All other live source was preserved. PHP syntax passed, uploaded bytes and the
 database readback matched the prepared hashes. The image URL returns 200 JPEG;
 normal and uncached homepage responses use the packaged image with 1200×800
 dimensions. The uncached Work response uses it as og:image with 1200×800 metadata.
-At 19:06 UTC the normal Work URL still served the old cached og:image. That cache
-state is not a verified public release of the Work metadata change.
+The normal Work URL initially served the old cached og:image. At 19:16 UTC its
+cache expired and both the normal and uncached responses delivered the packaged
+image. This closes the Work social-image delivery check.
 
 The WordPress MCP session was expired and the available admin browser sessions
 required sign-in. Discovery of the site's registered REST routes found Jetpack
 Boost's `page-cache/action/clear-page-cache`; the existing application credentials
 received HTTP 403 on that action. No successful cache purge is claimed.
-An authenticated Pagely/WordPress operator can purge the affected Work page and
-verify the bare URL. Homepage delivery is already current.
+An authenticated Pagely/WordPress operator is still needed for the remaining
+shared-header/footer cache follow-through described below.
 
 Visual baseline `20261025T184522Z` versus after `20261025T184946Z`:
 
@@ -72,14 +75,53 @@ The unchanged Boost CSS hash is expected for this image/PHP-only scope: no CSS
 was changed. The generated report's generic CSS-deployment warning does not
 override the exact stored bytes, public image source and observed pixel change.
 The image-only rollback script checks the current file/template hashes before
-restoring the private originals and removing only the newly added image.
+restoring the private originals and removing only the newly added image. Since
+the later copy release also touches the homepage, restore that release first
+before using the earlier image rollback; do not bypass the hash guard.
 
-No footer, festival wording, final-URL, full-theme or schema deployment occurred.
-Their exact current-source diffs, private snapshots and 390/1440px public-shell
-previews are prepared separately, with no overflow and correct link/focus checks.
 Aurora's public header remains 1.6.12; this is a bounded hunk apply, not 1.6.13.
 The Work page's body image is a separate old reference and was not included in
 the approved social-image fallback repair.
+
+## Festival copy and shared links: approved and applied; some edge caches pending
+
+Kris separately answered **“Approve prepared copy and link update.”** Exact
+current-source diffs, private rollback snapshots and 390/1440px public-shell
+previews were prepared before approval, with no overflow and correct link/focus
+checks. At 19:16 UTC the trusted SFTP route applied only these reviewed changes:
+
+- Homepage festival copy: “come together in Vancouver, October 28–30, 2026”.
+- Footer YouTube: `https://www.youtube.com/kriskrug10000` (direct public 200).
+- Eight Services hrefs across homepage/header/footer: `/generative-ai-services/`.
+- Footer festival href: `https://www.futureproof.website/`.
+
+The three live template files and the custom front-page override were verified
+against their prepared hashes before writing; exact byte/content readbacks
+matched after writing. Header/footer remained theme-owned. Functions, CSS,
+version headers and schema were not changed by this release. Rollback restores
+these three files and this database payload only, preserving the image repair.
+
+Full live comparison `20261025T190433Z` → `20261025T191650Z`: **33 PASS, zero WARN,
+FAIL or ERROR**, with zero height changes. Homepage differences were 0.0758%
+mobile, 0.0624% tablet and 0.0134% desktop, within the automatic threshold.
+The accepted image baseline and original image FAIL report remain retained.
+
+Six public routes were checked both normally and uncached at 19:28 UTC. All
+twelve returned 200. Homepage, Events and Work normal URLs deliver the changes.
+All six uncached responses have the corrected shared links. Normal Speaking,
+Services and Contact responses still have their cached earlier header/footer.
+Events' corrected cards and direct ticket link are also present.
+
+Kris requested cache clearing through Varlock. That route authenticates as a
+WordPress administrator with `manage_options`, but the installed Boost REST
+action additionally verifies `X-Jetpack-WP-JS-Sync-Nonce`. The application
+password cannot supply that browser-session nonce, and the request returned 403.
+The alternative Boost cache-clear ability exists in installed plugin source but
+is not registered on this site (404); Pagely's installed purge form also requires
+an admin-session nonce. No purge completed, no authentication checks were changed
+and no credentials were exposed. A signed-in admin purge or natural cache expiry
+remains necessary for those three normal URLs. Source apply and uncached delivery
+are not represented as full edge convergence.
 
 ## Schema and sitemap handoffs
 
@@ -98,3 +140,18 @@ The September 3 #331 v2 deployment receipt already records the selected policy.
 Recommendation: reconcile the old checklist and narrow closure/evidence work;
 do not redeploy taxonomy policy. No new GSC access, issue closure or public
 comment was performed. Sitemap entries are not Google-indexed page counts.
+
+## Repository verification and reserve draft
+
+Full `make python-test` passed: 184 publisher, 841 operational, 12 SEO inventory
+and 68 SEO backfill/link-safety tests. CI's first Python run caught four tests
+still treating September as the active snapshot; those fixtures now exercise
+October's guidance. Ruff, docs truth and visual storage guards pass.
+
+[Draft PR #1141](https://github.com/WalksWithASwagger/kriskrug-wp/pull/1141)
+contains the bounded #402 ALL IN navigation proposal. Current inspection found
+existing series links and an extra duplicate block on Day Two. The draft
+consolidates those blocks, includes the existing final dispatch, and proposes
+relevant next steps. It preserves article media/captions/quotations and remains
+unmerged and unpublished for editorial review. Conversion instrumentation and
+the #1090 selection remain separate; no production forms were submitted.

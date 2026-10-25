@@ -31,7 +31,8 @@ observations. Supersedes [September 21](CURRENT-STATE-2026-09-21.md).
 2. **Homepage image #1114 / #1118:** the existing image-only approval was used.
    Trusted SFTP and the database homepage override were verified. Only the packaged
    artwork, source/dimension hunks and Work share-image fallback were applied.
-   Consult the release receipt for visual results and outstanding Work cache state.
+   Kris accepted the repaired artwork and the baseline was re-frozen explicitly.
+   Homepage and Work share-image changes are verified on normal public URLs.
 3. **Schema #1089:** the approved 14,765-byte candidate is unchanged. A fresh
    private source snapshot confirms active global Snippet 5, KK Schema, as the sole
    schema emitter. The prepared Person/VideoObject changes are still not live.
@@ -41,9 +42,13 @@ observations. Supersedes [September 21](CURRENT-STATE-2026-09-21.md).
    taxonomy/author children. Three existing archive samples emit noindex,follow.
    The September 3 deployment receipt already records the chosen archive policy.
    Reconcile the old checklist with that receipt; no new archive changes were made.
-5. **Held work:** homepage festival wording, footer YouTube destination and later
-   final-URL changes remain separate release scopes. Work body artwork still uses
-   its previous reference; the approved change covered its social-image fallback.
+5. **Homepage/footer copy and links:** separately approved and applied October 25.
+   Homepage names Vancouver, October 28–30, 2026; footer YouTube and the Services/
+   Futureproof destinations are corrected. Full visual comparison: 33 PASS.
+   Uncached delivery is verified; consult the receipt for shared-cache state.
+6. **Reserve:** ALL IN navigation is prepared in draft PR #1141 for editorial
+   review, without publication. Work body artwork still uses its previous
+   reference; the approved image change covered its social-image fallback.
 
 ## Operating references
 
