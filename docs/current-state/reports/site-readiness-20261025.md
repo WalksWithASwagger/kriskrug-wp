@@ -54,8 +54,8 @@ The WordPress MCP session was expired and the available admin browser sessions
 required sign-in. Discovery of the site's registered REST routes found Jetpack
 Boost's `page-cache/action/clear-page-cache`; the existing application credentials
 received HTTP 403 on that action. No successful cache purge is claimed.
-An authenticated Pagely/WordPress operator is still needed for the remaining
-shared-header/footer cache follow-through described below.
+The remaining shared-header/footer caches later expired naturally, completing
+the public-delivery check described below.
 
 Visual baseline `20261025T184522Z` versus after `20261025T184946Z`:
 
@@ -83,7 +83,7 @@ Aurora's public header remains 1.6.12; this is a bounded hunk apply, not 1.6.13.
 The Work page's body image is a separate old reference and was not included in
 the approved social-image fallback repair.
 
-## Festival copy and shared links: approved and applied; some edge caches pending
+## Festival copy and shared links: approved, applied and publicly delivered
 
 Kris separately answered **“Approve prepared copy and link update.”** Exact
 current-source diffs, private rollback snapshots and 390/1440px public-shell
@@ -119,9 +119,15 @@ password cannot supply that browser-session nonce, and the request returned 403.
 The alternative Boost cache-clear ability exists in installed plugin source but
 is not registered on this site (404); Pagely's installed purge form also requires
 an admin-session nonce. No purge completed, no authentication checks were changed
-and no credentials were exposed. A signed-in admin purge or natural cache expiry
-remains necessary for those three normal URLs. Source apply and uncached delivery
-are not represented as full edge convergence.
+and no credentials were exposed. The existing trusted SFTP gateway also rejected
+a read-only shell capability check; no production CLI route was established.
+
+**19:45 UTC closeout:** the three stale normal responses returned `EXPIRED` and
+now have the corrected YouTube, Services and Futureproof links. All six normal
+and six uncached responses return 200 with the intended shared links; homepage
+copy/artwork, Events cards/ticket link and Work social image remain correct.
+Natural cache expiry closes this public-delivery dependency. No manual purge
+or broader route coverage is claimed.
 
 ## Schema and sitemap handoffs
 
@@ -148,10 +154,10 @@ and 68 SEO backfill/link-safety tests. CI's first Python run caught four tests
 still treating September as the active snapshot; those fixtures now exercise
 October's guidance. Ruff, docs truth and visual storage guards pass.
 
-[Draft PR #1141](https://github.com/WalksWithASwagger/kriskrug-wp/pull/1141)
+[Review package #1141](https://github.com/WalksWithASwagger/kriskrug-wp/pull/1141)
 contains the bounded #402 ALL IN navigation proposal. Current inspection found
 existing series links and an extra duplicate block on Day Two. The draft
 consolidates those blocks, includes the existing final dispatch, and proposes
 relevant next steps. It preserves article media/captions/quotations and remains
-unmerged and unpublished for editorial review. Conversion instrumentation and
+unpublished for editorial review. Conversion instrumentation and
 the #1090 selection remain separate; no production forms were submitted.
