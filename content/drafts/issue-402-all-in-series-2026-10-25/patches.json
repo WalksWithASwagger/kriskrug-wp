@@ -1,0 +1,82 @@
+{
+  "status": "draft only; no live writes authorized",
+  "read_at": "2026-10-25T19:10:38.806937+00:00",
+  "targets": [
+    {
+      "id": 12783,
+      "slug": "headed-east-for-all-in-montreal",
+      "url": "https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/",
+      "modified_gmt": "2026-09-18T23:09:01",
+      "raw_sha256": "b08b378614f2c42bc5350ea658d1fedc70f2bab02433b2fd4220bba612d5c465",
+      "public": {
+        "status": 200,
+        "url": "https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/"
+      },
+      "expected_type": "post",
+      "expected_status": "publish",
+      "candidate_sha256": "0fea91274175786abf3c4a87d7335e61edbd4cfdd0dec1cffb95fb9f225d0308",
+      "patches": [
+        {
+          "before": "<section id=\"owned-network-links-2026\" aria-labelledby=\"all-in-series\"><h2 id=\"all-in-series\">ALL IN Montréal 2026</h2><ul><li><a href=\"https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/\">Day one: champions, saplings, and chalk</a></li><li><a href=\"https://kriskrug.co/2026/09/17/all-in-montreal-day-two-uncle-evan-and-the-extremely-suspicious-backpack/\">Day two: Uncle Evan and the suspicious backpack</a></li></ul><h3>From the west coast</h3><p>More on <a href=\"https://bc-ai.ca/conferences\">the rooms BC + AI is watching</a>, <a href=\"https://bc-ai.ca/ai-community-british-columbia\">British Columbia's AI community</a>, and the <a href=\"https://www.futureproof.website/festival/\">Futureproof Festival of AI in Vancouver</a>.</p></section>",
+          "after": "<section id=\"owned-network-links-2026\" aria-labelledby=\"all-in-series\"><h2 id=\"all-in-series\">ALL IN Montréal 2026</h2><ul><li><a href=\"https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/\">Day one: champions, saplings, and chalk</a></li><li><a href=\"https://kriskrug.co/2026/09/17/all-in-montreal-day-two-uncle-evan-and-the-extremely-suspicious-backpack/\">Day two: Uncle Evan and the suspicious backpack</a></li><li><a href=\"https://kriskrug.co/2026/09/18/all-in-montreal-final-day-a-heartbeat-under-my-boots/\">Final day: a heartbeat under my boots</a></li></ul><h3>From the west coast</h3><p>More on <a href=\"https://bc-ai.ca/conferences\">the rooms BC + AI is watching</a>, <a href=\"https://bc-ai.ca/ai-community-british-columbia\">British Columbia's AI community</a>, and the <a href=\"https://www.futureproof.website/festival/\">Futureproof Festival of AI in Vancouver</a>.</p><p>Want these questions in your own room? <a href=\"https://kriskrug.co/speaking/\">Bring me in for a talk</a>.</p></section>"
+        },
+        {
+          "before": "<p><strong>Continue the series:</strong> <a href=\"https://kriskrug.co/2026/09/18/all-in-montreal-final-day-a-heartbeat-under-my-boots/\">ALL IN Montreal, Final Day: A Heartbeat Under My Boots</a>.</p>",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": 12788,
+      "slug": "all-in-montreal-robot-mirror",
+      "url": "https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/",
+      "modified_gmt": "2026-09-18T23:09:21",
+      "raw_sha256": "06385fb3bd36addd3fdfa0f0828a740f9e88712d1b727663ff02c5e3cb07c2ec",
+      "public": {
+        "status": 200,
+        "url": "https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/"
+      },
+      "expected_type": "post",
+      "expected_status": "publish",
+      "candidate_sha256": "4bd4a42cc54c9e236939d25360744c790e9847db31ae965290c8650c6c4a2f93",
+      "patches": [
+        {
+          "before": "<section id=\"owned-network-links-2026\" aria-labelledby=\"all-in-series\"><h2 id=\"all-in-series\">ALL IN Montréal 2026</h2><ul><li><a href=\"https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/\">The road east to ALL IN Montréal</a></li><li><a href=\"https://kriskrug.co/2026/09/17/all-in-montreal-day-two-uncle-evan-and-the-extremely-suspicious-backpack/\">Day two at ALL IN Montréal</a></li></ul><h3>What comes home</h3><p>Follow <a href=\"https://bc-ai.ca/news/futureproof-festival-regional-story-national-invitation\">the regional story behind Futureproof</a> and <a href=\"https://www.futureproof.website/festival/\">Futureproof's Vancouver conversation</a>.</p></section>",
+          "after": "<section id=\"owned-network-links-2026\" aria-labelledby=\"all-in-series\"><h2 id=\"all-in-series\">ALL IN Montréal 2026</h2><ul><li><a href=\"https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/\">The road east to ALL IN Montréal</a></li><li><a href=\"https://kriskrug.co/2026/09/17/all-in-montreal-day-two-uncle-evan-and-the-extremely-suspicious-backpack/\">Day two at ALL IN Montréal</a></li><li><a href=\"https://kriskrug.co/2026/09/18/all-in-montreal-final-day-a-heartbeat-under-my-boots/\">Final day: a heartbeat under my boots</a></li></ul><h3>What comes home</h3><p>Follow <a href=\"https://bc-ai.ca/news/futureproof-festival-regional-story-national-invitation\">the regional story behind Futureproof</a> and <a href=\"https://www.futureproof.website/festival/\">Futureproof's Vancouver conversation</a>.</p><p>If your crew is trying to hold curiosity and critique together, <a href=\"https://kriskrug.co/generative-ai-services/\">let’s work through it in a workshop</a>.</p></section>"
+        },
+        {
+          "before": "<p><strong>Next in the series:</strong> <a href=\"https://kriskrug.co/2026/09/18/all-in-montreal-final-day-a-heartbeat-under-my-boots/\">ALL IN Montreal, Final Day: A Heartbeat Under My Boots</a>.</p>",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": 12800,
+      "slug": "all-in-montreal-day-two-uncle-evan-and-the-extremely-suspicious-backpack",
+      "url": "https://kriskrug.co/2026/09/17/all-in-montreal-day-two-uncle-evan-and-the-extremely-suspicious-backpack/",
+      "modified_gmt": "2026-09-19T04:46:51",
+      "raw_sha256": "93d7136388cbcb9bee3ff467ce94f5b7c09a78c9a754a8578665df6d04a5e0e2",
+      "public": {
+        "status": 200,
+        "url": "https://kriskrug.co/2026/09/17/all-in-montreal-day-two-uncle-evan-and-the-extremely-suspicious-backpack/"
+      },
+      "expected_type": "post",
+      "expected_status": "publish",
+      "candidate_sha256": "11002b3e38844561f57f77a8a1cad6260889c7465be6f6dd44a1d2a1903b8322",
+      "patches": [
+        {
+          "before": "<section id=\"owned-network-links-2026\" aria-labelledby=\"all-in-series\"><h2 id=\"all-in-series\">ALL IN Montréal 2026</h2><ul><li><a href=\"https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/\">Start with the road to Montréal</a></li><li><a href=\"https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/\">Day one at the Palais</a></li></ul><h3>The national-policy argument</h3><p>Read <a href=\"https://bc-ai.ca/news/bc-ai-s-platform-for-canada-s-ai-task-force\">BC + AI's platform for Canada's AI Task Force</a> and <a href=\"https://bc-ai.ca/news/bcs-response-to-the-canada-s-ai-task-force\">BC's response to the AI Task Force</a>.</p><p>Next room: <a href=\"https://www.futureproof.website/speakers/kris-krug/\">Kris Krüg at Futureproof</a>.</p></section>",
+          "after": "<section id=\"owned-network-links-2026\" aria-labelledby=\"all-in-series\"><h2 id=\"all-in-series\">ALL IN Montréal 2026</h2><ul><li><a href=\"https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/\">Start with the road to Montréal</a></li><li><a href=\"https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/\">Day one at the Palais</a></li><li><a href=\"https://kriskrug.co/2026/09/18/all-in-montreal-final-day-a-heartbeat-under-my-boots/\">Final day: a heartbeat under my boots</a></li></ul><h3>The national-policy argument</h3><p>Read <a href=\"https://bc-ai.ca/news/bc-ai-s-platform-for-canada-s-ai-task-force\">BC + AI's platform for Canada's AI Task Force</a> and <a href=\"https://bc-ai.ca/news/bcs-response-to-the-canada-s-ai-task-force\">BC's response to the AI Task Force</a>.</p><p>Working on a public-interest AI project? <a href=\"https://kriskrug.co/contact/\">Tell me what you’re building</a>.</p></section>"
+        },
+        {
+          "before": "<p><strong>The final dispatch:</strong> <a href=\"https://kriskrug.co/2026/09/18/all-in-montreal-final-day-a-heartbeat-under-my-boots/\">ALL IN Montreal, Final Day: A Heartbeat Under My Boots</a>.</p>",
+          "after": ""
+        },
+        {
+          "before": "<h2 class=\"wp-block-heading\">Continue the series</h2>\n<p>1. <a href=\"https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/\">Headed East for ALL IN Montréal</a>\n2. <a href=\"https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/\">Champions, Saplings, and Chalk on the Sidewalk</a></p>",
+          "after": ""
+        }
+      ]
+    }
+  ]
+}

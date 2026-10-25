@@ -1,0 +1,13 @@
+--- live-post-12800
++++ draft-post-12800
+@@ -181,3 +180,0 @@
+-<h2 class="wp-block-heading">Continue the series</h2>
+-<p>1. <a href="https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/">Headed East for ALL IN Montréal</a>
+-2. <a href="https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/">Champions, Saplings, and Chalk on the Sidewalk</a></p>
+@@ -185 +181,0 @@
+-<section id="owned-network-links-2026" aria-labelledby="all-in-series"><h2 id="all-in-series">ALL IN Montréal 2026</h2><ul><li><a href="https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/">Start with the road to Montréal</a></li><li><a href="https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/">Day one at the Palais</a></li></ul><h3>The national-policy argument</h3><p>Read <a href="https://bc-ai.ca/news/bc-ai-s-platform-for-canada-s-ai-task-force">BC + AI's platform for Canada's AI Task Force</a> and <a href="https://bc-ai.ca/news/bcs-response-to-the-canada-s-ai-task-force">BC's response to the AI Task Force</a>.</p><p>Next room: <a href="https://www.futureproof.website/speakers/kris-krug/">Kris Krüg at Futureproof</a>.</p></section>
+@@ -187 +183,3 @@
+-<p><strong>The final dispatch:</strong> <a href="https://kriskrug.co/2026/09/18/all-in-montreal-final-day-a-heartbeat-under-my-boots/">ALL IN Montreal, Final Day: A Heartbeat Under My Boots</a>.</p>
++<section id="owned-network-links-2026" aria-labelledby="all-in-series"><h2 id="all-in-series">ALL IN Montréal 2026</h2><ul><li><a href="https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/">Start with the road to Montréal</a></li><li><a href="https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/">Day one at the Palais</a></li><li><a href="https://kriskrug.co/2026/09/18/all-in-montreal-final-day-a-heartbeat-under-my-boots/">Final day: a heartbeat under my boots</a></li></ul><h3>The national-policy argument</h3><p>Read <a href="https://bc-ai.ca/news/bc-ai-s-platform-for-canada-s-ai-task-force">BC + AI's platform for Canada's AI Task Force</a> and <a href="https://bc-ai.ca/news/bcs-response-to-the-canada-s-ai-task-force">BC's response to the AI Task Force</a>.</p><p>Working on a public-interest AI project? <a href="https://kriskrug.co/contact/">Tell me what you’re building</a>.</p></section>
++
++

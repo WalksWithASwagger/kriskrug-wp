@@ -1,0 +1,63 @@
+{
+  "draft_invariants": [
+    {
+      "id": 12783,
+      "exact_patches": 2,
+      "media_captions_quotes_preserved": true,
+      "series_list_items": 3,
+      "final_dispatch_links": 1
+    },
+    {
+      "id": 12788,
+      "exact_patches": 2,
+      "media_captions_quotes_preserved": true,
+      "series_list_items": 3,
+      "final_dispatch_links": 1
+    },
+    {
+      "id": 12800,
+      "exact_patches": 3,
+      "media_captions_quotes_preserved": true,
+      "series_list_items": 3,
+      "final_dispatch_links": 1
+    }
+  ],
+  "destinations": [
+    {
+      "url": "https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/",
+      "status": 200,
+      "canonical": "https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/"
+    },
+    {
+      "url": "https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/",
+      "status": 200,
+      "canonical": "https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/"
+    },
+    {
+      "url": "https://kriskrug.co/2026/09/17/all-in-montreal-day-two-uncle-evan-and-the-extremely-suspicious-backpack/",
+      "status": 200,
+      "canonical": "https://kriskrug.co/2026/09/17/all-in-montreal-day-two-uncle-evan-and-the-extremely-suspicious-backpack/"
+    },
+    {
+      "url": "https://kriskrug.co/2026/09/18/all-in-montreal-final-day-a-heartbeat-under-my-boots/",
+      "status": 200,
+      "canonical": "https://kriskrug.co/2026/09/18/all-in-montreal-final-day-a-heartbeat-under-my-boots/"
+    },
+    {
+      "url": "https://kriskrug.co/contact/",
+      "status": 200,
+      "canonical": "https://kriskrug.co/contact/"
+    },
+    {
+      "url": "https://kriskrug.co/generative-ai-services/",
+      "status": 200,
+      "canonical": "https://kriskrug.co/generative-ai-services/"
+    },
+    {
+      "url": "https://kriskrug.co/speaking/",
+      "status": 200,
+      "canonical": "https://kriskrug.co/speaking/"
+    }
+  ],
+  "live_writes": 0
+}
