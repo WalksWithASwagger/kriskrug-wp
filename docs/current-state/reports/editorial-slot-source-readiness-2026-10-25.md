@@ -34,6 +34,6 @@ Downstream acceptance: **one source-grounded review packet**, no duplicate draft
 
 ## Verification and decision
 
-Paths and Git objects above were checked against current main (`c9c1b657`) and the accessible private source checkout. WordPress and public readback was captured October 25 at 22:49 UTC, with public film-source details refreshed afterward. `make docs-truth-check`, the scoped voice check and `git diff --check` are required before this brief's PR is delivered; their results do not establish rights or quote clearance.
+Paths and Git objects above were checked against main at `c9c1b657` and the accessible private source checkout. WordPress and public readback was captured October 25 at 22:49 UTC, with public film-source details refreshed afterward. `make verify`, `make docs-truth-check`, the scoped voice check and `git diff --check` passed on the report branch; their results do not establish rights or quote clearance. The branch was subsequently brought up to merged release `d654cfd1` without changing either report's source conclusions.
 
 **Decision for Kris:** use the existing Gorgeous Ghost package as the next editorial review item, with #1016 folded into that review, or leave all new editorial work parked through Futureproof. No choice is inferred from this recommendation.

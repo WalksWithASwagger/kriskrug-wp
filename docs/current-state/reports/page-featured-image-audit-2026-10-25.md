@@ -88,6 +88,6 @@ The Publications page (1895) measured 1670 px document width at a 1440 px viewpo
 - Re-enumeration: 46 unique IDs, API total 46, missing-featured count 37; exact ID sets match the report JSON.
 - Render evidence: 37 pages × 2 viewports, all capture records successful; viewport screenshots reviewed.
 - Source checks: portrait 12627 exists, and the existing site-use/press-kit rights ledgers support the candidate.
-- Repository checks are recorded with the audit PR; they do not constitute image-selection approval.
+- `make verify` passed on the report branch using the existing Python and PHPCS dependencies; docs truth, scoped voice checks and `git diff --check` also passed. These checks do not constitute image-selection approval.
 
 **Approval request for a later apply:** accept **page 3609 → existing media 12627**, with Michelle Diamond’s credit, only after reviewing the exact desktop/mobile preview. No other page/media pair is proposed for a live set.
