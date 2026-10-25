@@ -1,0 +1,2828 @@
+{
+  "checked_at": "2026-10-25T22:49:53.749879+00:00",
+  "pagination": [
+    {
+      "page": 1,
+      "total": 46,
+      "total_pages": 3
+    },
+    {
+      "page": 2,
+      "total": 46,
+      "total_pages": 3
+    },
+    {
+      "page": 3,
+      "total": 46,
+      "total_pages": 3
+    }
+  ],
+  "total_pages": 46,
+  "without_featured_media": 37,
+  "judgment_counts": {
+    "intentional absence": 17,
+    "intentionally text-only": 14,
+    "needs owner review": 5,
+    "candidate": 1
+  },
+  "method": "Public REST plus Chromium rendered DOM and viewport screenshots; third-party embeds blocked, so iframe blankness is not evidence of failure. Template field empty means default page; front/home/archive routes have their observed special renderer.",
+  "pages": [
+    {
+      "id": 1208,
+      "slug": "about",
+      "url": "https://kriskrug.co/about/",
+      "final_url": "https://kriskrug.co/about/",
+      "status": 200,
+      "featured_media": 2682,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?fit=1024%2C935&amp;ssl=1"
+      ],
+      "judgment": "existing featured media; unchanged"
+    },
+    {
+      "id": 1887,
+      "slug": "speaking",
+      "url": "https://kriskrug.co/speaking/",
+      "final_url": "https://kriskrug.co/speaking/",
+      "status": 200,
+      "featured_media": 2726,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5156893053_e4e246abb4_k.jpg?fit=1024%2C683&amp;ssl=1"
+      ],
+      "judgment": "existing featured media; unchanged"
+    },
+    {
+      "id": 1895,
+      "slug": "publications",
+      "url": "https://kriskrug.co/publications/",
+      "final_url": "https://kriskrug.co/publications/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://s5102.pcdn.co/wp-content/uploads/2026/09/press-2026-08-09-thebreaker-460-context.jpg"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Text-first press archive; desktop columns become a mobile stack; press images start below the lead. Existing OG image. No featured hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1670,
+          "h1": [
+            {
+              "text": "Publications",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 40,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/09/press-2026-08-09-thebreaker-460-context.jpg?resize=1200%2C750&ssl=1",
+              "alt": "theBreaker.news article page for thePodcast edition 460 about B.C.’s artificial intelligence ecosystem",
+              "loaded": true,
+              "naturalWidth": 1200,
+              "x": 391,
+              "y": 1102,
+              "w": 361,
+              "h": 225
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/press-2026-07-31-biv-ecosystem-context-v2.jpg?resize=1200%2C750&ssl=1",
+              "alt": "Business in Vancouver article page about building a stronger B.C. AI ecosystem",
+              "loaded": true,
+              "naturalWidth": 1200,
+              "x": 770,
+              "y": 1102,
+              "w": 361,
+              "h": 225
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "1895-desktop.png",
+          "screenshot_sha256": "0e04639a349de6d3dd8520e939c6257d3f33cdc0333d3bdc71aa68055c875cbc",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 406,
+          "h1": [
+            {
+              "text": "Publications",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 40
+            }
+          ],
+          "main_image_count": 40,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/09/press-2026-08-09-thebreaker-460-context.jpg?resize=1200%2C750&ssl=1",
+              "alt": "theBreaker.news article page for thePodcast edition 460 about B.C.’s artificial intelligence ecosystem",
+              "loaded": true,
+              "naturalWidth": 1200,
+              "x": 26,
+              "y": 1366,
+              "w": 370,
+              "h": 232
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/08/press-2026-07-31-biv-ecosystem-context-v2.jpg?resize=1200%2C750&ssl=1",
+              "alt": "Business in Vancouver article page about building a stronger B.C. AI ecosystem",
+              "loaded": true,
+              "naturalWidth": 1200,
+              "x": 26,
+              "y": 2041,
+              "w": 370,
+              "h": 232
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "1895-mobile.png",
+          "screenshot_sha256": "37ff8958b022e3bb1f589064c8e9492b650ead9f3af1ce18ae8411549dd40995",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 2250,
+      "slug": "events",
+      "url": "https://kriskrug.co/events/",
+      "final_url": "https://kriskrug.co/events/",
+      "status": 200,
+      "featured_media": 2726,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/5156893053_e4e246abb4_k.jpg?fit=1024%2C683&amp;ssl=1"
+      ],
+      "judgment": "existing featured media; unchanged"
+    },
+    {
+      "id": 2315,
+      "slug": "home",
+      "url": "https://kriskrug.co/home/",
+      "final_url": "https://kriskrug.co/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/11/kriskrug-websute.png?fit=1024%2C410&amp;ssl=1"
+      ],
+      "judgment": "intentional absence",
+      "reason": "/home/ redirects to the custom homepage with its existing full-width portrait hero. Do not assign media to the redirecting page.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "The model is the message.",
+              "x": 152,
+              "y": 369,
+              "w": 480,
+              "h": 172
+            }
+          ],
+          "main_image_count": 21,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=1600&ssl=1",
+              "alt": "Portrait of Kris Krüg",
+              "loaded": true,
+              "naturalWidth": 1440,
+              "x": -648,
+              "y": 111,
+              "w": 2088,
+              "h": 782
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-25-scaled.jpg?w=1400&ssl=1",
+              "alt": "Kris Krüg presenting on stage at LaSalle College Vancouver",
+              "loaded": true,
+              "naturalWidth": 662,
+              "x": 113,
+              "y": 1267,
+              "w": 663,
+              "h": 884
+            }
+          ],
+          "featured_blocks": 3,
+          "screenshot": "2315-desktop.png",
+          "screenshot_sha256": "9e0b2838b6aeb3b3243616c998e184b2f1fb135b5e2154d8929527cbda449df7",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "The model is the message.",
+              "x": 16,
+              "y": 370,
+              "w": 358,
+              "h": 119
+            }
+          ],
+          "main_image_count": 21,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=640&ssl=1",
+              "alt": "Portrait of Kris Krüg",
+              "loaded": true,
+              "naturalWidth": 390,
+              "x": -97,
+              "y": 152,
+              "w": 488,
+              "h": 676
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-25-scaled.jpg?w=1400&ssl=1",
+              "alt": "Kris Krüg presenting on stage at LaSalle College Vancouver",
+              "loaded": true,
+              "naturalWidth": 356,
+              "x": 17,
+              "y": 1270,
+              "w": 356,
+              "h": 286
+            }
+          ],
+          "featured_blocks": 3,
+          "screenshot": "2315-mobile.png",
+          "screenshot_sha256": "f5daa66284a7a3756438dd2d72ea40ea13f0de36ed26ee4757f28cf99ea973fc",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 2316,
+      "slug": "blog",
+      "url": "https://kriskrug.co/blog/",
+      "final_url": "https://kriskrug.co/blog/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/02/06-mycelial-action-network.png?fit=1200%2C686&amp;ssl=1"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Writing archive has article thumbnails and its own share image. A page featured image is not the archive renderer.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Writing for the age of generative AI.",
+              "x": 136,
+              "y": 212,
+              "w": 672,
+              "h": 166
+            }
+          ],
+          "main_image_count": 19,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/07-hush-now-little-supercluster.png?w=1024&ssl=1",
+              "alt": "sleep little machine",
+              "loaded": true,
+              "naturalWidth": 1024,
+              "x": 153,
+              "y": 423,
+              "w": 1134,
+              "h": 708
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/10/room-canopy-wide-full-frame.webp?resize=1536%2C1152&ssl=1",
+              "alt": "AI, Meet East Hastings",
+              "loaded": true,
+              "naturalWidth": 1439,
+              "x": 153,
+              "y": 1401,
+              "w": 1134,
+              "h": 708
+            }
+          ],
+          "featured_blocks": 19,
+          "screenshot": "2316-desktop.png",
+          "screenshot_sha256": "4855e69d75b5fa610836fb725f1d4ceec156996d6d8d4a6eb818a1ef8c651126",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Writing for the age of generative AI.",
+              "x": 16,
+              "y": 234,
+              "w": 358,
+              "h": 172
+            }
+          ],
+          "main_image_count": 19,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/07-hush-now-little-supercluster.png?resize=683%2C1024&ssl=1",
+              "alt": "sleep little machine",
+              "loaded": true,
+              "naturalWidth": 390,
+              "x": 17,
+              "y": 565,
+              "w": 356,
+              "h": 222
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/10/room-canopy-wide-full-frame.webp?resize=768%2C576&ssl=1",
+              "alt": "AI, Meet East Hastings",
+              "loaded": true,
+              "naturalWidth": 390,
+              "x": 17,
+              "y": 1030,
+              "w": 356,
+              "h": 222
+            }
+          ],
+          "featured_blocks": 19,
+          "screenshot": "2316-mobile.png",
+          "screenshot_sha256": "105dfdba4006cf365ef513c99df2d867a1df6c34708aa47f7ee25bbcb48f6979",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 2389,
+      "slug": "news",
+      "url": "https://kriskrug.co/news/",
+      "final_url": "https://kriskrug.co/news/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Short legacy press-link list on both viewports. Keep text-only; no cleared asset selected.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "News",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "2389-desktop.png",
+          "screenshot_sha256": "b9968307942ac3921901b5064a5ab6f0487033f41cfd762232507b0f23313778",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "News",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 40
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "2389-mobile.png",
+          "screenshot_sha256": "ed3263beca4c599573e963d766515560ffbfffa9db54e34db99471f9b53b4cb9",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 2409,
+      "slug": "testimonials",
+      "url": "https://kriskrug.co/testimonials/",
+      "final_url": "https://kriskrug.co/testimonials/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Typography, evidence links and metrics lead both viewports. No added portrait or testimonial photograph; no cleared page-specific asset selected.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Testimonials",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "2409-desktop.png",
+          "screenshot_sha256": "3c851b63a1e049ab74383fc755f6ffad93e8404002628964140456c563929167",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Testimonials",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 40
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "2409-mobile.png",
+          "screenshot_sha256": "38879caf5cd12bfc9252ba5034247040c3583d1331f08bcf8bd38b6ee35a8c36",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 2418,
+      "slug": "contact",
+      "url": "https://kriskrug.co/contact/",
+      "final_url": "https://kriskrug.co/contact/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-close-2026-scaled.jpg?w=1200&amp;ssl=1"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Existing Contact portrait and copy sit side by side on desktop and stack on mobile; OG already uses that portrait. Avoid duplicate hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Contact Kris Krüg",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 1,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-close-2026-scaled.jpg?w=1200&ssl=1",
+              "alt": "Portrait of Kris Krüg in a white shirt beside a brightly painted staircase",
+              "loaded": true,
+              "naturalWidth": 1200,
+              "x": 770,
+              "y": 346,
+              "w": 439,
+              "h": 549
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "2418-desktop.png",
+          "screenshot_sha256": "2d06d61d6f088b067ee60388276f2e32a1dfeaf5e950f98748dce61b5d0763f4",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Contact Kris Krüg",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 40
+            }
+          ],
+          "main_image_count": 1,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-close-2026-scaled.jpg?w=1200&ssl=1",
+              "alt": "Portrait of Kris Krüg in a white shirt beside a brightly painted staircase",
+              "loaded": true,
+              "naturalWidth": 1200,
+              "x": 17,
+              "y": 819,
+              "w": 356,
+              "h": 445
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "2418-mobile.png",
+          "screenshot_sha256": "6b355634a16ae9ebf5d9d2f58183de2fd695544daab1bbca880e1e45ec842507",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 2543,
+      "slug": "art-island-perspectives-from-a-creative-community",
+      "url": "https://kriskrug.co/art-island-perspectives-from-a-creative-community/",
+      "final_url": "https://kriskrug.co/art-island-perspectives-from-a-creative-community/",
+      "status": 200,
+      "featured_media": 2601,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/05/gordonPayne-artIsland-scaled.jpg?fit=1024%2C318&amp;ssl=1"
+      ],
+      "judgment": "existing featured media; unchanged"
+    },
+    {
+      "id": 2603,
+      "slug": "generative-ai-workshop-for-artists-creatives",
+      "url": "https://kriskrug.co/generative-ai-workshop-for-artists-creatives/",
+      "final_url": "https://kriskrug.co/generative-ai-workshop-for-artists-creatives/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "needs owner review",
+      "reason": "Legacy workshop copy and video area; no image/OG. Confirm current offer before selecting a hero; no cleared asset.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Generative AI & Creative Potential Workshops",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 146
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "2603-desktop.png",
+          "screenshot_sha256": "e6f1dc082435a21dcbaa35e1e01595356cf23b6622263fa0600f860765011309",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Generative AI & Creative Potential Workshops",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 121
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "2603-mobile.png",
+          "screenshot_sha256": "b42788ff34d2328f19e27691d87919bdd3f83c0390cdb1ed3c63378f03135394",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 2666,
+      "slug": "generative-ai-services",
+      "url": "https://kriskrug.co/generative-ai-services/",
+      "final_url": "https://kriskrug.co/generative-ai-services/",
+      "status": 200,
+      "featured_media": 3932,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/11/image-2.png?fit=1024%2C355&amp;ssl=1"
+      ],
+      "judgment": "existing featured media; unchanged"
+    },
+    {
+      "id": 2672,
+      "slug": "work",
+      "url": "https://kriskrug.co/work/",
+      "final_url": "https://kriskrug.co/work/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://s5102.pcdn.co/wp-content/themes/kk-aurora/assets/img/bcai-living-ecosystem.jpg"
+      ],
+      "judgment": "needs owner review",
+      "reason": "Text-led portfolio with project cards. Dedicated share image works. First BC + AI card image returned HTTP 403; repair that asset separately, not by setting featured_media.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Work",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 15,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&ssl=1",
+              "alt": "BC AI ecosystem network graphic",
+              "loaded": false,
+              "naturalWidth": 0,
+              "x": 323,
+              "y": 923,
+              "w": 386,
+              "h": 384
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/rap-why-we-built-cover.png?ssl=1",
+              "alt": "Responsible AI Professional certification cover",
+              "loaded": true,
+              "naturalWidth": 1536,
+              "x": 731,
+              "y": 923,
+              "w": 386,
+              "h": 384
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "2672-desktop.png",
+          "screenshot_sha256": "29fb63798ec8b8539e55d253a20af2a3eddd3f7d48cdc44ca8065f903c069963",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Work",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 40
+            }
+          ],
+          "main_image_count": 15,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&ssl=1",
+              "alt": "BC AI ecosystem network graphic",
+              "loaded": false,
+              "naturalWidth": 0,
+              "x": 33,
+              "y": 879,
+              "w": 324,
+              "h": 292
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/rap-why-we-built-cover.png?ssl=1",
+              "alt": "Responsible AI Professional certification cover",
+              "loaded": true,
+              "naturalWidth": 1536,
+              "x": 33,
+              "y": 1187,
+              "w": 324,
+              "h": 327
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "2672-mobile.png",
+          "screenshot_sha256": "ef620f7d5202e18fdb17e8ad6b5e26f66c0284903ba545bd5d293ee90f9c591f",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 2808,
+      "slug": "subscribe",
+      "url": "https://kriskrug.co/subscribe/",
+      "final_url": "https://kriskrug.co/subscribe/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "needs owner review",
+      "reason": "Legacy iframe-only subscription page. External embed is suppressed in audit captures; provider cannot identify the legacy form. No hero recommendation until signup ownership is resolved.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "2808-desktop.png",
+          "screenshot_sha256": "4f093f4c6f558279921ca1bc19a65a84b4de3488b8bf6cbd2a704b8968bafd3f",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "2808-mobile.png",
+          "screenshot_sha256": "4e7dbee073efdf96099a45af03b19769e8653b7f1edb337683ca2eb6071ee6b0",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 2828,
+      "slug": "motleykrug-podcast",
+      "url": "https://kriskrug.co/motleykrug-podcast/",
+      "final_url": "https://kriskrug.co/motleykrug-podcast/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://s5102.pcdn.co/wp-content/uploads/2023/08/PodThumbs-1-of-1.jpeg"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Existing podcast cover sits beside copy on desktop and above it on mobile; OG already uses the cover. Avoid duplicate hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Kris Krüg’s MØTLEYKRÜG Podcast",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 146
+            }
+          ],
+          "main_image_count": 10,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/08/PodThumbs-1-of-1.jpeg?w=1024&ssl=1",
+              "alt": "MØTLEYKRÜG podcast cover: an AI-generated portrait of Kris Krüg with a braided mohawk and long beard standing in neon rain, the word KRÜG in green glitch type",
+              "loaded": true,
+              "naturalWidth": 999,
+              "x": 290,
+              "y": 554,
+              "w": 430,
+              "h": 430
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/09/Copy-of-Copy-of-S1E2-MOTLEYKRUG-1600-%C3%97-900-px-1600-%C3%97-1600-px.jpg?resize=1024%2C1024&ssl=1",
+              "alt": "MØTLEYKRÜG episode 8 cover, Learning Out Loud: The Osmotic Power of Community, with Kris Krüg holding a microphone under purple stage light",
+              "loaded": true,
+              "naturalWidth": 999,
+              "x": 290,
+              "y": 1171,
+              "w": 430,
+              "h": 430
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "2828-desktop.png",
+          "screenshot_sha256": "91c15c46890d7214a8c26b62a2d1416e64c7120b86215856bfa03ceec7d8a59d",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Kris Krüg’s MØTLEYKRÜG Podcast",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 81
+            }
+          ],
+          "main_image_count": 10,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/08/PodThumbs-1-of-1.jpeg?resize=768%2C768&ssl=1",
+              "alt": "MØTLEYKRÜG podcast cover: an AI-generated portrait of Kris Krüg with a braided mohawk and long beard standing in neon rain, the word KRÜG in green glitch type",
+              "loaded": true,
+              "naturalWidth": 390,
+              "x": 16,
+              "y": 298,
+              "w": 358,
+              "h": 358
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/09/Copy-of-Copy-of-S1E2-MOTLEYKRUG-1600-%C3%97-900-px-1600-%C3%97-1600-px.jpg?resize=768%2C768&ssl=1",
+              "alt": "MØTLEYKRÜG episode 8 cover, Learning Out Loud: The Osmotic Power of Community, with Kris Krüg holding a microphone under purple stage light",
+              "loaded": true,
+              "naturalWidth": 390,
+              "x": 16,
+              "y": 1410,
+              "w": 358,
+              "h": 358
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "2828-mobile.png",
+          "screenshot_sha256": "a1e18ed28239e9090ed624e5d01324431cc516a93b955a0a727096e8de9f0023",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 2985,
+      "slug": "privacy-policy",
+      "url": "https://kriskrug.co/privacy-policy/",
+      "final_url": "https://kriskrug.co/privacy-policy/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Policy headings and text on both viewports. No image needed; no cleared asset selected.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "KK Pledge to Privacy",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "2985-desktop.png",
+          "screenshot_sha256": "604fb17461bc7462a7cdeb6e1ed467607ffb1f78a248e58937656470e03d1457",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "KK Pledge to Privacy",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 40
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "2985-mobile.png",
+          "screenshot_sha256": "323233a11ad0674e5914a4358157d426d2e8db566f1807a39b9453759d7acd28",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 3595,
+      "slug": "japanese-introduction-page-kaykaysan",
+      "url": "https://kriskrug.co/japanese-introduction-page-kaykaysan/",
+      "final_url": "https://kriskrug.co/japanese-introduction-page-kaykaysan/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Language introduction with headings and text on both viewports. Keep no added hero; no cleared page-specific asset selected.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Japanese Introduction Page – KayKaySan",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 146
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3595-desktop.png",
+          "screenshot_sha256": "5cb40797853900471cb70afabe7990b31620e95ee742848b7164d8679b643abf",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 576,
+          "h1": [
+            {
+              "text": "Japanese Introduction Page – KayKaySan",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 81
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3595-mobile.png",
+          "screenshot_sha256": "a14b7f6300c72f0882ebc26235ada70fcad28a6ecb97a34957dfb3b3d6715ef4",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 3598,
+      "slug": "chinese-introduction-kang-jia",
+      "url": "https://kriskrug.co/chinese-introduction-kang-jia/",
+      "final_url": "https://kriskrug.co/chinese-introduction-kang-jia/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Language introduction with headings and text on both viewports. Keep no added hero; no cleared page-specific asset selected.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Chinese Introduction – Kang Jia",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 146
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3598-desktop.png",
+          "screenshot_sha256": "5bce4d7a977bcacb33d32d70a2863211cdbfd61208d59c61d034e3a540d6a76a",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Chinese Introduction – Kang Jia",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 81
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3598-mobile.png",
+          "screenshot_sha256": "0b867b3c048d3280ab677df13ed7d8bc076c352720c3f4f43229675fe9c23324",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 3600,
+      "slug": "russian-introduction-kristofor-kruglov",
+      "url": "https://kriskrug.co/russian-introduction-kristofor-kruglov/",
+      "final_url": "https://kriskrug.co/russian-introduction-kristofor-kruglov/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Language introduction with headings and text on both viewports. Keep no added hero; no cleared page-specific asset selected.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Russian Introduction – Kristofor Kruglov",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 146
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3600-desktop.png",
+          "screenshot_sha256": "80c7e108946bc8b9433f9c8a49196ffb36fcdf17bfc80570acc2a353914f6851",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Russian Introduction – Kristofor Kruglov",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 81
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3600-mobile.png",
+          "screenshot_sha256": "8e35492565a1904df7dc896e682a7f90f7b20697df72e2c063430277c1126260",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 3601,
+      "slug": "farsi-introduction-khalil-khalifa",
+      "url": "https://kriskrug.co/farsi-introduction-khalil-khalifa/",
+      "final_url": "https://kriskrug.co/farsi-introduction-khalil-khalifa/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Language introduction with headings and text on both viewports. Keep no added hero; no cleared page-specific asset selected.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Farsi Introduction – Khalil Khalifa",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 146
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3601-desktop.png",
+          "screenshot_sha256": "9462860ebff258bda5410fd3ed0083f484ef71f8da1f0d415ad7bb2b3af2cf07",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 576,
+          "h1": [
+            {
+              "text": "Farsi Introduction – Khalil Khalifa",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 81
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3601-mobile.png",
+          "screenshot_sha256": "56283dd81445a4bdc08391a2636ff512fd62fdff0fa392356d31d4b460b127a2",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 3603,
+      "slug": "swahili-introduction-kintu-krowfeather-karibu-kwenye-kabila-la-kidijitali-la-dunia-la-kris-krug-kuunganisha-dunia-kupitia-lugha-na-teknolojia",
+      "url": "https://kriskrug.co/swahili-introduction-kintu-krowfeather-karibu-kwenye-kabila-la-kidijitali-la-dunia-la-kris-krug-kuunganisha-dunia-kupitia-lugha-na-teknolojia/",
+      "final_url": "https://kriskrug.co/swahili-introduction-kintu-krowfeather-karibu-kwenye-kabila-la-kidijitali-la-dunia-la-kris-krug-kuunganisha-dunia-kupitia-lugha-na-teknolojia/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Language introduction with headings and text on both viewports. Keep no added hero; no cleared page-specific asset selected.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Swahili Introduction – Kintu Krowfeather – Karibu kwenye Kabila la Kidijitali la Dunia la Kris Krüg: Kuunganisha Dunia Kupitia Lugha na Teknolojia",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 364
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3603-desktop.png",
+          "screenshot_sha256": "4d072bcc78888b1299d83e70dbb8b897838ddfeae91b4e394b4188f8e49e89c7",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 872,
+          "h1": [
+            {
+              "text": "Swahili Introduction – Kintu Krowfeather – Karibu kwenye Kabila la Kidijitali la Dunia la Kris Krüg: Kuunganisha Dunia Kupitia Lugha na Teknolojia",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 323
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3603-mobile.png",
+          "screenshot_sha256": "7b6f7ace1ae08dd135515aaa0d0d82ac9145f822d6f6462537452b32004551bc",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 3606,
+      "slug": "hindi-introduction-krishna-vishwanathapriyadhanvanshi",
+      "url": "https://kriskrug.co/hindi-introduction-krishna-vishwanathapriyadhanvanshi/",
+      "final_url": "https://kriskrug.co/hindi-introduction-krishna-vishwanathapriyadhanvanshi/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Language introduction with headings and text on both viewports. Keep no added hero; no cleared page-specific asset selected.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Hindi Introduction – Krishna Vishwanathapriyadhanvanshi",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 146
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3606-desktop.png",
+          "screenshot_sha256": "c4ba736a68b6251fc0c240f8f179f950b7af73e73d4c22eed033a0c18650fc27",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Hindi Introduction – Krishna Vishwanathapriyadhanvanshi",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 161
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3606-mobile.png",
+          "screenshot_sha256": "4937cc6a1e256c2420cf374970d5f4c1ed08fc9102ff77fbe363fea8c2364377",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 3609,
+      "slug": "podcast-guesting-page-epk",
+      "url": "https://kriskrug.co/podcast-guesting-page-epk/",
+      "final_url": "https://kriskrug.co/podcast-guesting-page-epk/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "candidate",
+      "reason": "Media/podcast landing page is text-led on both viewports and lacks og:image. Existing press-download portrait 12627 is approved for site use; preview any new template hero before setting it.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Podcast Guest, AI Commentator, Event Host",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 146
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3609-desktop.png",
+          "screenshot_sha256": "0df1e6fcf1fb02bb5e3f81330900adde884e78d469579d4ec5deb12aa4d10c0b",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Podcast Guest, AI Commentator, Event Host",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 121
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3609-mobile.png",
+          "screenshot_sha256": "f6cc3ef75c9e6be2b8ee106d9467860fdef45139c497c559f55d7c4e757903ec",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 3623,
+      "slug": "karibu-kwenye-kabila-la-kidijitali-la-dunia-la-kris-krug-kuunganisha-dunia-kupitia-lugha-na-teknolojia-swahili-welcome-page",
+      "url": "https://kriskrug.co/karibu-kwenye-kabila-la-kidijitali-la-dunia-la-kris-krug-kuunganisha-dunia-kupitia-lugha-na-teknolojia-swahili-welcome-page/",
+      "final_url": "https://kriskrug.co/karibu-kwenye-kabila-la-kidijitali-la-dunia-la-kris-krug-kuunganisha-dunia-kupitia-lugha-na-teknolojia-swahili-welcome-page/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Language introduction with headings and text on both viewports. Keep no added hero; no cleared page-specific asset selected.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Karibu kwenye Kabila la Kidijitali la Dunia la Kris Krüg: Kuunganisha Dunia Kupitia Lugha na Teknolojia – Swahili Welcome Page",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 364
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3623-desktop.png",
+          "screenshot_sha256": "a22ac042c7ce3c9a4160c80f6ef6dcd91420197e759feb4beba892ee70f5d973",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Karibu kwenye Kabila la Kidijitali la Dunia la Kris Krüg: Kuunganisha Dunia Kupitia Lugha na Teknolojia – Swahili Welcome Page",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 282
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3623-mobile.png",
+          "screenshot_sha256": "0a2c36743037b3abf26807c3faf4e48dc4e45ca6983e983e8a6b292f7ec03fbd",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 3696,
+      "slug": "urdu-language-introduction-kris-krug",
+      "url": "https://kriskrug.co/urdu-language-introduction-kris-krug/",
+      "final_url": "https://kriskrug.co/urdu-language-introduction-kris-krug/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Language introduction with headings and text on both viewports. Keep no added hero; no cleared page-specific asset selected.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Urdu Language Introduction – Kris Krüg",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 146
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3696-desktop.png",
+          "screenshot_sha256": "ec32f046d319a3c7e8ab55edf86286801cd326e237f66cfe2ff922b1e0c421f0",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Urdu Language Introduction – Kris Krüg",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 121
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3696-mobile.png",
+          "screenshot_sha256": "c04e1d6db9e498214c9a4ff13828080f6547fdef33424d00548d4346382970a6",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 3899,
+      "slug": "reconciliation-indigenous-land-acknowledgement",
+      "url": "https://kriskrug.co/reconciliation-indigenous-land-acknowledgement/",
+      "final_url": "https://kriskrug.co/reconciliation-indigenous-land-acknowledgement/",
+      "status": 200,
+      "featured_media": 3946,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/11/landback-scaled.jpg?fit=1024%2C384&amp;ssl=1"
+      ],
+      "judgment": "existing featured media; unchanged"
+    },
+    {
+      "id": 3930,
+      "slug": "empowering-events-organizations-for-the-ai-age",
+      "url": "https://kriskrug.co/",
+      "final_url": "https://kriskrug.co/",
+      "status": 200,
+      "featured_media": 7548,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/11/kriskrug-websute.png?fit=1024%2C410&amp;ssl=1"
+      ],
+      "judgment": "existing featured media; unchanged"
+    },
+    {
+      "id": 3948,
+      "slug": "the-kk-worldview",
+      "url": "https://kriskrug.co/the-kk-worldview/",
+      "final_url": "https://kriskrug.co/the-kk-worldview/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Personal principles as headings/lists on both viewports. Preserve the text-first treatment; no cleared asset selected.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "The KK Worldview",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3948-desktop.png",
+          "screenshot_sha256": "1fab76a146fe001632ff83572c829a26c70c40622097a3c3e77851f64ffebcdb",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "The KK Worldview",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 40
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3948-mobile.png",
+          "screenshot_sha256": "c423daefab3756e0eb233886602c3ab0d496ee2672307b9d091e71edb9ddbf6e",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 3969,
+      "slug": "sponsor-cyberpunk-chronicles-newsletter",
+      "url": "https://kriskrug.co/sponsor-cyberpunk-chronicles-newsletter/",
+      "final_url": "https://kriskrug.co/sponsor-cyberpunk-chronicles-newsletter/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "needs owner review",
+      "reason": "Older Cyberpunk Chronicles sponsor proposition. Confirm naming/offer before adding artwork; no cleared asset.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Cyberpunk Chronicles Newsletter Sponsor Guide",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 146
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3969-desktop.png",
+          "screenshot_sha256": "d0d740d4a10565b19f3a9f570b35ac3943e86bae27e56b7e43525f79e6205def",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Cyberpunk Chronicles Newsletter Sponsor Guide",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 121
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3969-mobile.png",
+          "screenshot_sha256": "095aacb348172ead7ba4a21e3a5fa9df2937b48ee1340315317432689b741320",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 3974,
+      "slug": "product-review-policy-instructions",
+      "url": "https://kriskrug.co/product-review-policy-instructions/",
+      "final_url": "https://kriskrug.co/product-review-policy-instructions/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Review policy and instructions; text is the content on both viewports. No cleared asset selected.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Product Review Policy & Instructions",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 146
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3974-desktop.png",
+          "screenshot_sha256": "9736e447cacc25f2d283a16bc814fd41bed03d4d366edc9d136856dae11d3228",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Product Review Policy & Instructions",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 81
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "3974-mobile.png",
+          "screenshot_sha256": "9fbb79a41f34cc5dac2c78cb0a31ec1b54b8f64cf69712a07af35829ffea3491",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 6755,
+      "slug": "ai-upgrade-community-coaching-w-kris-krug-peter-bittner",
+      "url": "https://kriskrug.co/ai-upgrade-community-coaching-w-kris-krug-peter-bittner/",
+      "final_url": "https://kriskrug.co/ai-upgrade-community-coaching-w-kris-krug-peter-bittner/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://s5102.pcdn.co/wp-content/uploads/2024/08/AI-Upgrade-7-x-7-in-2-1024x797.png"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Text lead followed by existing coaching card/testimonials. The card already supplies OG; mobile retains the same order. Avoid duplicate hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "AI Upgrade Community Coaching w/ Kris Krüg & Peter Bittner",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 219
+            }
+          ],
+          "main_image_count": 3,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/08/AI-Upgrade-7-x-7-in-2.png?resize=1024%2C797&ssl=1",
+              "alt": "AI Upgrade Community Coaching card listing personalized coaching, collaborative coworking and a strong community, with Kris Krüg and Peter Bittner laughing, above The Upgrade and Future Proof Creatives logos",
+              "loaded": true,
+              "naturalWidth": 999,
+              "x": 290,
+              "y": 965,
+              "w": 860,
+              "h": 670
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/08/image-52.png?resize=1024%2C1024&ssl=1",
+              "alt": "Five-star testimonial from Isaac Shamam, Communications Strategist: Extremely valuable. Peter and Kris gave me customized guidance on building chatbots and streamlining my workflows",
+              "loaded": true,
+              "naturalWidth": 999,
+              "x": 290,
+              "y": 1949,
+              "w": 860,
+              "h": 860
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "6755-desktop.png",
+          "screenshot_sha256": "429a74373dbfe92bb3af7bec9891a3c84dc9b2e478208ab85fa6cd1a7dacbaa3",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "AI Upgrade Community Coaching w/ Kris Krüg & Peter Bittner",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 161
+            }
+          ],
+          "main_image_count": 3,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/08/AI-Upgrade-7-x-7-in-2.png?resize=768%2C598&ssl=1",
+              "alt": "AI Upgrade Community Coaching card listing personalized coaching, collaborative coworking and a strong community, with Kris Krüg and Peter Bittner laughing, above The Upgrade and Future Proof Creatives logos",
+              "loaded": true,
+              "naturalWidth": 390,
+              "x": 16,
+              "y": 1199,
+              "w": 358,
+              "h": 279
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/08/image-52.png?resize=768%2C768&ssl=1",
+              "alt": "Five-star testimonial from Isaac Shamam, Communications Strategist: Extremely valuable. Peter and Kris gave me customized guidance on building chatbots and streamlining my workflows",
+              "loaded": true,
+              "naturalWidth": 390,
+              "x": 16,
+              "y": 1800,
+              "w": 358,
+              "h": 358
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "6755-mobile.png",
+          "screenshot_sha256": "280bc6c14e309525fc57fd08f35f8fd071540fac50837844dfb620d62d5b9a4c",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 6770,
+      "slug": "ai-upgrade-for-creative-professionals",
+      "url": "https://kriskrug.co/ai-upgrade-for-creative-professionals/",
+      "final_url": "https://kriskrug.co/ai-upgrade-for-creative-professionals/",
+      "status": 200,
+      "featured_media": 7534,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/11/krug-bittner-ai-upgrade-creativepros.png?fit=1024%2C400&amp;ssl=1"
+      ],
+      "judgment": "existing featured media; unchanged"
+    },
+    {
+      "id": 7610,
+      "slug": "ai-upgrade-for-modern-media-leaders",
+      "url": "https://kriskrug.co/ai-upgrade-for-modern-media-leaders/",
+      "final_url": "https://kriskrug.co/ai-upgrade-for-modern-media-leaders/",
+      "status": 200,
+      "featured_media": 7622,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/12/media-leaders-1.png?fit=1024%2C538&amp;ssl=1"
+      ],
+      "judgment": "existing featured media; unchanged"
+    },
+    {
+      "id": 7764,
+      "slug": "cinematic-podcasts-hollywood-grade-storytelling-meets-generative-ai",
+      "url": "https://kriskrug.co/cinematic-podcasts-hollywood-grade-storytelling-meets-generative-ai/",
+      "final_url": "https://kriskrug.co/cinematic-podcasts-hollywood-grade-storytelling-meets-generative-ai/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://s5102.pcdn.co/wp-content/uploads/2024/12/image-17-1024x303.png"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Text lead with existing cinematic-podcast imagery/video below; mobile stacks the body. Existing image supplies OG; no extra hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Cinematic Podcasts: Hollywood-Grade Storytelling Meets Generative AI",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 219
+            }
+          ],
+          "main_image_count": 2,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/12/image-17.png?resize=1024%2C303&ssl=1",
+              "alt": "Two YouTube video cards side by side: Carrie Cassel on transforming education for the age of AI, and Rajith on mastering Kubernetes at AWS Community Day",
+              "loaded": true,
+              "naturalWidth": 999,
+              "x": 290,
+              "y": 912,
+              "w": 860,
+              "h": 256
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/12/image-16.png?resize=1024%2C683&ssl=1",
+              "alt": "A speaker in a blazer and sneakers presenting under magenta and cyan LED tubes in a warehouse gallery hung with collage paintings",
+              "loaded": true,
+              "naturalWidth": 999,
+              "x": 290,
+              "y": 2586,
+              "w": 860,
+              "h": 574
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "7764-desktop.png",
+          "screenshot_sha256": "6715664d0d4dbb6135842b724a7572e990f0ace8e9e12e1f1a0d5aabdcf9f4f3",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Cinematic Podcasts: Hollywood-Grade Storytelling Meets Generative AI",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 161
+            }
+          ],
+          "main_image_count": 2,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/12/image-17.png?resize=768%2C227&ssl=1",
+              "alt": "Two YouTube video cards side by side: Carrie Cassel on transforming education for the age of AI, and Rajith on mastering Kubernetes at AWS Community Day",
+              "loaded": true,
+              "naturalWidth": 390,
+              "x": 16,
+              "y": 1146,
+              "w": 358,
+              "h": 107
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/12/image-16.png?resize=768%2C512&ssl=1",
+              "alt": "A speaker in a blazer and sneakers presenting under magenta and cyan LED tubes in a warehouse gallery hung with collage paintings",
+              "loaded": true,
+              "naturalWidth": 390,
+              "x": 16,
+              "y": 3221,
+              "w": 358,
+              "h": 239
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "7764-mobile.png",
+          "screenshot_sha256": "f6d2e35044ae14ad649fdab9b882a2b8072636ed99e2adfc242ec212347c8a21",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 11887,
+      "slug": "glossary",
+      "url": "https://kriskrug.co/glossary/",
+      "final_url": "https://kriskrug.co/glossary/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "intentionally text-only",
+      "reason": "Reference glossary with text/code-style introduction and headings on both viewports. No cleared asset selected; preserve the reference layout.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "AI Glossary",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "11887-desktop.png",
+          "screenshot_sha256": "1b057c8855293fbb08ad4fc1b7bd333aea0281ac9bdb73564b6ce2ef98f8a7a6",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "AI Glossary",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 40
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "11887-mobile.png",
+          "screenshot_sha256": "a0d5790937437dc74366d203a2a1feec05582ce37a0ac5eea1b0d6ffc943734f",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 11914,
+      "slug": "responsible-ai-professional",
+      "url": "https://kriskrug.co/responsible-ai-professional/",
+      "final_url": "https://kriskrug.co/responsible-ai-professional/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [],
+      "judgment": "needs owner review",
+      "reason": "Certification offer has a text lead and structured explanation on both viewports, without OG image. No approved page-specific asset selected; do not borrow another organization’s branding.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Responsible AI Professional Certification",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 146
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "11914-desktop.png",
+          "screenshot_sha256": "1ebe4c99306552b3bb447ff1e26d29b8d373298083fe77b254d198198f333236",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Responsible AI Professional Certification",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 121
+            }
+          ],
+          "main_image_count": 0,
+          "first_body_images": [],
+          "featured_blocks": 0,
+          "screenshot": "11914-mobile.png",
+          "screenshot_sha256": "b2a7b6e3f395523a98888b93fbb7e353bd211788751504aa361ade27e696ebbc",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 12013,
+      "slug": "photography",
+      "url": "https://kriskrug.co/photography/",
+      "final_url": "https://kriskrug.co/photography/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://s5102.pcdn.co/wp-content/uploads/2026/05/kkarchive-iggy-pop-at-south-by-southwest-2007-shot-by-kris-k.jpg"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Large in-content Iggy Pop photograph already leads the portfolio on desktop and mobile. Existing image supplies OG; no duplicate hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Photography",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 17,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-iggy-pop-at-south-by-southwest-2007-shot-by-kris-k.jpg?ssl=1",
+              "alt": "Iggy Pop performing at South by Southwest, 2007, photographed by Kris Krüg",
+              "loaded": true,
+              "naturalWidth": 1920,
+              "x": 230,
+              "y": 342,
+              "w": 980,
+              "h": 920
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-deepwater-horizon-oil-spill-gulf-of-mexico-1.jpg?ssl=1",
+              "alt": "The Deepwater Horizon oil spill in the Gulf of Mexico, shot on the TEDxOilSpill expedition by Kris Krüg",
+              "loaded": true,
+              "naturalWidth": 1920,
+              "x": 231,
+              "y": 1527,
+              "w": 314,
+              "h": 209
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12013-desktop.png",
+          "screenshot_sha256": "59a24edf14ed8c217604470a4706634c714037b17d35f27192acffd9bf2ff7d1",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Photography",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 40
+            }
+          ],
+          "main_image_count": 17,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-iggy-pop-at-south-by-southwest-2007-shot-by-kris-k.jpg?ssl=1",
+              "alt": "Iggy Pop performing at South by Southwest, 2007, photographed by Kris Krüg",
+              "loaded": true,
+              "naturalWidth": 1920,
+              "x": 16,
+              "y": 282,
+              "w": 358,
+              "h": 776
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kkarchive-deepwater-horizon-oil-spill-gulf-of-mexico-1.jpg?ssl=1",
+              "alt": "The Deepwater Horizon oil spill in the Gulf of Mexico, shot on the TEDxOilSpill expedition by Kris Krüg",
+              "loaded": true,
+              "naturalWidth": 1920,
+              "x": 17,
+              "y": 1388,
+              "w": 356,
+              "h": 237
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12013-mobile.png",
+          "screenshot_sha256": "eaf41970c221da8146340f7c92042f65afc809729608102e7e4f61a764f9c801",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 12315,
+      "slug": "vancouver-ai",
+      "url": "https://kriskrug.co/vancouver-ai/",
+      "final_url": "https://kriskrug.co/vancouver-ai/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/05/bc-ai-header.png?resize=640,400&amp;ssl=1"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Topic hub leads with text and route cards, followed by existing article imagery below the fold. Mobile stacks the same hierarchy; OG already derives from an article image. No featured hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Vancouver AI Ecosystem",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 3,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/05/bc-ai-header.png?resize=640,400&ssl=1",
+              "alt": "BC AI event graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 323,
+              "y": 2148,
+              "w": 386,
+              "h": 384
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/06/vanai21-kris-jonny-stage.png?resize=640,400&ssl=1",
+              "alt": "Kris Krüg and Jonny on stage at a Vancouver AI event",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 731,
+              "y": 2148,
+              "w": 386,
+              "h": 384
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12315-desktop.png",
+          "screenshot_sha256": "4f369ae2b583f287c01242b6a65ddca2c944466e515da6b52954a94342409703",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Vancouver AI Ecosystem",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 81
+            }
+          ],
+          "main_image_count": 3,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/05/bc-ai-header.png?resize=640,400&ssl=1",
+              "alt": "BC AI event graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2611,
+              "w": 324,
+              "h": 292
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/06/vanai21-kris-jonny-stage.png?resize=640,400&ssl=1",
+              "alt": "Kris Krüg and Jonny on stage at a Vancouver AI event",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2919,
+              "w": 324,
+              "h": 327
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12315-mobile.png",
+          "screenshot_sha256": "3098074c873e059895d19323174aa5e3a8f3e969205b304d5512b0ff4a4a9764",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 12316,
+      "slug": "ai-for-creatives",
+      "url": "https://kriskrug.co/ai-for-creatives/",
+      "final_url": "https://kriskrug.co/ai-for-creatives/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/01/MASTER-Blog-header.png?resize=640,400&amp;ssl=1"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Topic hub leads with text and route cards, followed by existing article imagery below the fold. Mobile stacks the same hierarchy; OG already derives from an article image. No featured hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "AI for Creatives",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 4,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/01/MASTER-Blog-header.png?resize=640,400&ssl=1",
+              "alt": "Both Hands Full creative AI artwork",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 323,
+              "y": 1963,
+              "w": 386,
+              "h": 384
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/01/ai-creatives-krug.jpeg?resize=640,400&ssl=1",
+              "alt": "AI for creatives visual artwork",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 731,
+              "y": 1963,
+              "w": 386,
+              "h": 384
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12316-desktop.png",
+          "screenshot_sha256": "2ad7471b9f65e14d02161329b51919be37decef77e557a59bff22d2e7b541dbf",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "AI for Creatives",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 40
+            }
+          ],
+          "main_image_count": 4,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/01/MASTER-Blog-header.png?resize=640,400&ssl=1",
+              "alt": "Both Hands Full creative AI artwork",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2617,
+              "w": 324,
+              "h": 288
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/01/ai-creatives-krug.jpeg?resize=640,400&ssl=1",
+              "alt": "AI for creatives visual artwork",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2922,
+              "w": 324,
+              "h": 327
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12316-mobile.png",
+          "screenshot_sha256": "6eea79f760e9628938b7fa6aec5dd4df2295db66880fe9336d1f07ff5f35e2a3",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 12317,
+      "slug": "ai-events",
+      "url": "https://kriskrug.co/ai-events/",
+      "final_url": "https://kriskrug.co/ai-events/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/web-summit-vancouver-2026.jpg?resize=640,400&amp;ssl=1"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Topic hub leads with text and route cards, followed by existing article imagery below the fold. Mobile stacks the same hierarchy; OG already derives from an article image. No featured hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "AI Events & Recaps",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 3,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/web-summit-vancouver-2026.jpg?resize=640,400&ssl=1",
+              "alt": "Web Summit Vancouver 2026 graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 323,
+              "y": 2015,
+              "w": 386,
+              "h": 384
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/03/cant-talk-vanAI-hackathon.png?resize=640,400&ssl=1",
+              "alt": "Vancouver AI data storytelling hackathon graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 731,
+              "y": 2015,
+              "w": 386,
+              "h": 384
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12317-desktop.png",
+          "screenshot_sha256": "ea64c4876065f041fced92c0c0ad002a09607b590484739ed6ea9b984d4f5f69",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "AI Events & Recaps",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 40
+            }
+          ],
+          "main_image_count": 3,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/web-summit-vancouver-2026.jpg?resize=640,400&ssl=1",
+              "alt": "Web Summit Vancouver 2026 graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2324,
+              "w": 324,
+              "h": 327
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/03/cant-talk-vanAI-hackathon.png?resize=640,400&ssl=1",
+              "alt": "Vancouver AI data storytelling hackathon graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2667,
+              "w": 324,
+              "h": 327
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12317-mobile.png",
+          "screenshot_sha256": "0080c81bcae416a6a60b01829e69c6ef3b6cd57c2ad2dd7560a7185d2e7d60f7",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 12318,
+      "slug": "ai-ethics",
+      "url": "https://kriskrug.co/ai-ethics/",
+      "final_url": "https://kriskrug.co/ai-ethics/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/7674-granville-march.jpg?resize=640,400&amp;ssl=1"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Topic hub leads with text and route cards, followed by existing article imagery below the fold. Mobile stacks the same hierarchy; OG already derives from an article image. No featured hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "AI Ethics & Philosophy",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 4,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/7674-granville-march.jpg?resize=640,400&ssl=1",
+              "alt": "The march fills two lanes heading down Granville Street under a grey Vancouver sky",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 323,
+              "y": 2026,
+              "w": 386,
+              "h": 384
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-cmvan-keynote-header.png?resize=640,400&ssl=1",
+              "alt": "Punk Rock AI keynote graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 731,
+              "y": 2026,
+              "w": 386,
+              "h": 384
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12318-desktop.png",
+          "screenshot_sha256": "5f1b1e047bae72115eac4afd4359333c00b3b9efa59b07a153a10142032fb168",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "AI Ethics & Philosophy",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 40
+            }
+          ],
+          "main_image_count": 4,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/7674-granville-march.jpg?resize=640,400&ssl=1",
+              "alt": "The march fills two lanes heading down Granville Street under a grey Vancouver sky",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2827,
+              "w": 324,
+              "h": 327
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-cmvan-keynote-header.png?resize=640,400&ssl=1",
+              "alt": "Punk Rock AI keynote graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 3170,
+              "w": 324,
+              "h": 292
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12318-mobile.png",
+          "screenshot_sha256": "18e21892eae54ad1187570a52a7577057a21f52edbe10e4f7cbd96c296be5d07",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 12319,
+      "slug": "ai-conversations",
+      "url": "https://kriskrug.co/ai-conversations/",
+      "final_url": "https://kriskrug.co/ai-conversations/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/03/blog-shane-bushido-ai-sales.png?resize=640,400&amp;ssl=1"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Topic hub leads with text and route cards, followed by existing article imagery below the fold. Mobile stacks the same hierarchy; OG already derives from an article image. No featured hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Conversations & Interviews",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 4,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/03/blog-shane-bushido-ai-sales.png?resize=640,400&ssl=1",
+              "alt": "AI sales conversation graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 323,
+              "y": 1994,
+              "w": 386,
+              "h": 384
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/11/sharad-khare.png?resize=640,400&ssl=1",
+              "alt": "Sharad Khare Human Biography podcast graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 731,
+              "y": 1994,
+              "w": 386,
+              "h": 384
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12319-desktop.png",
+          "screenshot_sha256": "04c4f3b1f0c25e32c9cd702b14c01ea90e0c979ac5ecea87b2ae935163749a2d",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Conversations & Interviews",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 81
+            }
+          ],
+          "main_image_count": 4,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/03/blog-shane-bushido-ai-sales.png?resize=640,400&ssl=1",
+              "alt": "AI sales conversation graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2329,
+              "w": 324,
+              "h": 327
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/11/sharad-khare.png?resize=640,400&ssl=1",
+              "alt": "Sharad Khare Human Biography podcast graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2673,
+              "w": 324,
+              "h": 327
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12319-mobile.png",
+          "screenshot_sha256": "d9f14e6b07828c6e1c3ccd164282d77fdbfe060959631429ae063dbb29c84557",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 12320,
+      "slug": "ai-for-journalists",
+      "url": "https://kriskrug.co/ai-for-journalists/",
+      "final_url": "https://kriskrug.co/ai-for-journalists/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/06/what-journalism-needs.png?resize=640,400&amp;ssl=1"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Topic hub leads with text and route cards, followed by existing article imagery below the fold. Mobile stacks the same hierarchy; OG already derives from an article image. No featured hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "AI for Journalism & Media",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 2,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/06/what-journalism-needs.png?resize=640,400&ssl=1",
+              "alt": "What journalism needs to know about AI graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 323,
+              "y": 1884,
+              "w": 386,
+              "h": 384
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/07/ai-courses-workshops-trainings.png?resize=640,400&ssl=1",
+              "alt": "AI courses workshops and trainings graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 731,
+              "y": 1884,
+              "w": 386,
+              "h": 384
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12320-desktop.png",
+          "screenshot_sha256": "cf37eb39400ca5ea311012646db0c8d91d61c9c42c91d0a9e4be36042504bcff",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "AI for Journalism & Media",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 81
+            }
+          ],
+          "main_image_count": 2,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/06/what-journalism-needs.png?resize=640,400&ssl=1",
+              "alt": "What journalism needs to know about AI graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2562,
+              "w": 324,
+              "h": 327
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/07/ai-courses-workshops-trainings.png?resize=640,400&ssl=1",
+              "alt": "AI courses workshops and trainings graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2906,
+              "w": 324,
+              "h": 296
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12320-mobile.png",
+          "screenshot_sha256": "ba30def713ee68b8fbb4072f988505aff79ecb46b54a455501e3e6bc9051e13b",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 12321,
+      "slug": "ai-tools",
+      "url": "https://kriskrug.co/ai-tools/",
+      "final_url": "https://kriskrug.co/ai-tools/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/03/image-45.png?resize=640,400&amp;ssl=1"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Topic hub leads with text and route cards, followed by existing article imagery below the fold. Mobile stacks the same hierarchy; OG already derives from an article image. No featured hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Generative AI Tools",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 73
+            }
+          ],
+          "main_image_count": 3,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/03/image-45.png?resize=640,400&ssl=1",
+              "alt": "AI second brain workflow graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 323,
+              "y": 2040,
+              "w": 386,
+              "h": 384
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/06/Copy-of-AI-Immortality-w-Guy-Kawasaki.png?resize=640,400&ssl=1",
+              "alt": "Open-source AI tools graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 731,
+              "y": 2040,
+              "w": 386,
+              "h": 384
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12321-desktop.png",
+          "screenshot_sha256": "27c59421e7b9689dcac5d310135c04c7f972c560ebfcfbf9d4e666f648116a9e",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Generative AI Tools",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 40
+            }
+          ],
+          "main_image_count": 3,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/03/image-45.png?resize=640,400&ssl=1",
+              "alt": "AI second brain workflow graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2299,
+              "w": 324,
+              "h": 327
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/06/Copy-of-AI-Immortality-w-Guy-Kawasaki.png?resize=640,400&ssl=1",
+              "alt": "Open-source AI tools graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2643,
+              "w": 324,
+              "h": 327
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12321-mobile.png",
+          "screenshot_sha256": "179940b4050f3114130125c15eb80033133986fca8ed786c87893367cd1e278d",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 12322,
+      "slug": "indigenous-ai",
+      "url": "https://kriskrug.co/indigenous-ai/",
+      "final_url": "https://kriskrug.co/indigenous-ai/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/11/MASTER-Blog-header-3500-x-1000-px.png?resize=640,400&amp;ssl=1"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Topic hub leads with text and route cards, followed by existing article imagery below the fold. Mobile stacks the same hierarchy; OG already derives from an article image. No featured hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Indigenous & Reconciliation in Tech",
+              "x": 290,
+              "y": 188,
+              "w": 860,
+              "h": 146
+            }
+          ],
+          "main_image_count": 3,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/11/MASTER-Blog-header-3500-x-1000-px.png?resize=640,400&ssl=1",
+              "alt": "Indigenomics AI economic power graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 323,
+              "y": 2272,
+              "w": 386,
+              "h": 384
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/10/MASTER-Blog-header-3500-x-1000-px-3.png?resize=640,400&ssl=1",
+              "alt": "Indigenous economic and digital sovereignty graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 731,
+              "y": 2272,
+              "w": 386,
+              "h": 384
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12322-desktop.png",
+          "screenshot_sha256": "728c80acc088344389ef93adfb102f2fdee43f5e7de06cbd630a5dd7d83d5718",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Indigenous & Reconciliation in Tech",
+              "x": 16,
+              "y": 179,
+              "w": 358,
+              "h": 81
+            }
+          ],
+          "main_image_count": 3,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/11/MASTER-Blog-header-3500-x-1000-px.png?resize=640,400&ssl=1",
+              "alt": "Indigenomics AI economic power graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2632,
+              "w": 324,
+              "h": 292
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/10/MASTER-Blog-header-3500-x-1000-px-3.png?resize=640,400&ssl=1",
+              "alt": "Indigenous economic and digital sovereignty graphic",
+              "loaded": true,
+              "naturalWidth": 640,
+              "x": 33,
+              "y": 2940,
+              "w": 324,
+              "h": 292
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12322-mobile.png",
+          "screenshot_sha256": "a3b2c73d1f43cef25608d39f764931cebb1fdac6cd3e3ecb3b04637a9e5f00c4",
+          "capture_ok": true
+        }
+      }
+    },
+    {
+      "id": 12625,
+      "slug": "sponsor-deck",
+      "url": "https://kriskrug.co/sponsor-deck/",
+      "final_url": "https://kriskrug.co/sponsor-deck/",
+      "status": 200,
+      "featured_media": 0,
+      "template": "",
+      "og_image": [
+        "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-25-scaled.jpg?w=1400&amp;ssl=1"
+      ],
+      "judgment": "intentional absence",
+      "reason": "Custom sponsor deck already pairs stage photo with copy on desktop and stacks on mobile. Existing photo supplies OG; no added template hero.",
+      "viewports": {
+        "desktop": {
+          "width": 1440,
+          "scroll_width": 1440,
+          "h1": [
+            {
+              "text": "Sponsorship Deck",
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          ],
+          "main_image_count": 7,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-25-scaled.jpg?w=1400&ssl=1",
+              "alt": "Kris Krüg speaking on stage about creativity and AI",
+              "loaded": true,
+              "naturalWidth": 1400,
+              "x": 757,
+              "y": 316,
+              "w": 452,
+              "h": 339
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/09/AI_Meetup_August2024_MichelleDiamond-184-scaled.jpg?w=1200&ssl=1",
+              "alt": "Kris Krüg speaking at a Vancouver AI community event",
+              "loaded": true,
+              "naturalWidth": 1200,
+              "x": 231,
+              "y": 1128,
+              "w": 316,
+              "h": 197
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12625-desktop.png",
+          "screenshot_sha256": "7caf8ac6a362aee4cff39252ec21341eb83c3144ed1ef588aafceb0b84e2edc2",
+          "capture_ok": true
+        },
+        "mobile": {
+          "width": 390,
+          "scroll_width": 390,
+          "h1": [
+            {
+              "text": "Sponsorship Deck",
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          ],
+          "main_image_count": 7,
+          "first_body_images": [
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-25-scaled.jpg?w=1400&ssl=1",
+              "alt": "Kris Krüg speaking on stage about creativity and AI",
+              "loaded": true,
+              "naturalWidth": 1400,
+              "x": 17,
+              "y": 912,
+              "w": 356,
+              "h": 267
+            },
+            {
+              "src": "https://i0.wp.com/kriskrug.co/wp-content/uploads/2024/09/AI_Meetup_August2024_MichelleDiamond-184-scaled.jpg?w=1200&ssl=1",
+              "alt": "Kris Krüg speaking at a Vancouver AI community event",
+              "loaded": true,
+              "naturalWidth": 1200,
+              "x": 17,
+              "y": 1887,
+              "w": 356,
+              "h": 223
+            }
+          ],
+          "featured_blocks": 0,
+          "screenshot": "12625-mobile.png",
+          "screenshot_sha256": "29dc5fd05a387fec632d9105fd796e2c53adb36009d2bda938869dd30588925c",
+          "capture_ok": true
+        }
+      }
+    }
+  ]
+}
