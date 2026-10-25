@@ -1,5 +1,11 @@
 # Issue #1090: conversion-event handoff
 
+October 25 routing update: personal signup CTAs now use the verified KRÜG
+publication at `https://vancouver.beehiiv.com/`. See the
+[release receipt](../docs/current-state/reports/social-newsletter-release-2026-10-25.md).
+The September inventory below is historical; the success-event helper remains
+undeployed and the conversion choice/GA4 setup remain open.
+
 **Track:** A — Content + SEO
 **Status:** repo-side human-review handoff; **NOT LIVE**
 **Child packet:** [`docs/current-state/reports/issue-1090-conversion-preflight-2026-09-29.md`](../docs/current-state/reports/issue-1090-conversion-preflight-2026-09-29.md)

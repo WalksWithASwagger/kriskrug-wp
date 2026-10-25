@@ -1,0 +1,332 @@
+{
+  "schema": "kk-visual-baseline/1",
+  "kind": "diff",
+  "issue": 473,
+  "created_at": "2026-10-25T22:49:23+00:00",
+  "baseline_run": "20261025T224434Z",
+  "candidate_run": "20261025T224804Z",
+  "base_url": "https://kriskrug.co",
+  "tolerance": {
+    "pixel_threshold": 0.2,
+    "pass_pct": 0.1,
+    "warn_pct": 1.0,
+    "height_delta_pct": 2.0
+  },
+  "masks": {
+    "marquee": [
+      ".aurora-woven-marquee",
+      ".aurora-woven-marquee-track",
+      ".kkm",
+      ".kkm-board",
+      "[class*='marquee']"
+    ],
+    "dates": [
+      "time",
+      ".wp-block-post-date",
+      ".aurora-article-date",
+      ".aurora-masthead-date",
+      "[class*='now-showing']",
+      "[class*='entry-date']",
+      "[class*='posted-on']"
+    ],
+    "beehiiv": [
+      "iframe[src*='beehiiv']",
+      "[class*='beehiiv']",
+      "[id*='beehiiv']",
+      "[data-beehiiv]"
+    ]
+  },
+  "verdict": "pass",
+  "counts": {
+    "pass": 8,
+    "warn": 0,
+    "fail": 0,
+    "error": 0
+  },
+  "css_identity": {
+    "baseline": {
+      "live_theme_version": "1.6.12",
+      "all_identical": false
+    },
+    "candidate": {
+      "live_theme_version": "1.6.12",
+      "repo_theme_version": "1.6.13",
+      "all_identical": false,
+      "files": [
+        {
+          "file": "style.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/style.css",
+          "live_status": 200,
+          "live_md5": "f5147e95c6f1a19394e843f0fa8c50e3",
+          "live_bytes": 111719,
+          "repo_md5": "2d1bdb12df91cc0ede6e6ad9c67a32ea",
+          "repo_bytes": 111719,
+          "identical": false
+        },
+        {
+          "file": "assets/css/02-tokens.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/02-tokens.css",
+          "live_status": 200,
+          "live_md5": "fb96a2c329156a1e8d76cbc3ceaffac8",
+          "live_bytes": 1508,
+          "repo_md5": "fb96a2c329156a1e8d76cbc3ceaffac8",
+          "repo_bytes": 1508,
+          "identical": true
+        },
+        {
+          "file": "assets/css/animations.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/animations.css",
+          "live_status": 200,
+          "live_md5": "2ad16452b3bd27634c886b74f1c72218",
+          "live_bytes": 2056,
+          "repo_md5": "2ad16452b3bd27634c886b74f1c72218",
+          "repo_bytes": 2056,
+          "identical": true
+        },
+        {
+          "file": "assets/css/bleeding-edge.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/bleeding-edge.css",
+          "live_status": 200,
+          "live_md5": "86d153dae94161ce2f529dfe97508b72",
+          "live_bytes": 10921,
+          "repo_md5": "86d153dae94161ce2f529dfe97508b72",
+          "repo_bytes": 10921,
+          "identical": true
+        },
+        {
+          "file": "assets/css/editor.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/editor.css",
+          "live_status": 200,
+          "live_md5": "4b0cb7208888492ff361e8b0ff3863aa",
+          "live_bytes": 5343,
+          "repo_md5": "4b0cb7208888492ff361e8b0ff3863aa",
+          "repo_bytes": 5343,
+          "identical": true
+        },
+        {
+          "file": "assets/css/09-late.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/09-late.css",
+          "live_status": 200,
+          "live_md5": "64080a6789f99b711affa5f534c2aef9",
+          "live_bytes": 1300,
+          "repo_md5": "64080a6789f99b711affa5f534c2aef9",
+          "repo_bytes": 1300,
+          "identical": true
+        },
+        {
+          "file": "assets/css/revive-port.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/revive-port.css",
+          "live_status": 200,
+          "live_md5": "e10e375afbfed1302e248dcf847ba1c9",
+          "live_bytes": 44858,
+          "repo_md5": "e10e375afbfed1302e248dcf847ba1c9",
+          "repo_bytes": 44858,
+          "identical": true
+        },
+        {
+          "file": "assets/css/typography-refined.css",
+          "live_url": "https://kriskrug.co/wp-content/themes/kk-aurora/assets/css/typography-refined.css",
+          "live_status": 200,
+          "live_md5": "2dfeab83238dfd9dfce5b42c6888a515",
+          "live_bytes": 15136,
+          "repo_md5": "2dfeab83238dfd9dfce5b42c6888a515",
+          "repo_bytes": 15136,
+          "identical": true
+        }
+      ]
+    }
+  },
+  "boost": {
+    "baseline_css_bundle_hash": "002ebe167f",
+    "candidate_css_bundle_hash": "002ebe167f",
+    "changed": false,
+    "candidate": {
+      "source": "https://kriskrug.co/",
+      "home_status": 200,
+      "css_bundle_url": "https://s5102.pcdn.co/wp-content/boost-cache/static/002ebe167f.min.css",
+      "css_bundle_hash": "002ebe167f",
+      "css_bundle_md5": "60b8cb65d0195960f07d07312bbcfd9f",
+      "css_bundle_bytes": 142158,
+      "js_bundle_hash": null
+    }
+  },
+  "pairs": [
+    {
+      "key": "home/mobile",
+      "route": "home",
+      "path": "/",
+      "viewport": "mobile",
+      "candidate_sha256": "51eddf56e3c4f9b0958626e4e9085d52ec9c649c91b0565ba941a1d26fd2ac8b",
+      "baseline_sha256": "51eddf56e3c4f9b0958626e4e9085d52ec9c649c91b0565ba941a1d26fd2ac8b",
+      "candidate_height": 35000,
+      "baseline_height": 35000,
+      "candidate_scroll_height": 17500,
+      "baseline_scroll_height": 17500,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 9,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "home/desktop",
+      "route": "home",
+      "path": "/",
+      "viewport": "desktop",
+      "candidate_sha256": "9d1b54e3d089a8b74b06826ad4c2fdf7dc5c1864042439c87bc425a34d978b5a",
+      "baseline_sha256": "9d1b54e3d089a8b74b06826ad4c2fdf7dc5c1864042439c87bc425a34d978b5a",
+      "candidate_height": 21676,
+      "baseline_height": 21676,
+      "candidate_scroll_height": 10838,
+      "baseline_scroll_height": 10838,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 9,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "speaking/mobile",
+      "route": "speaking",
+      "path": "/speaking/",
+      "viewport": "mobile",
+      "candidate_sha256": "231f213203eb300aaff0f0fa1c64860fc9bcf3a0e19856309bd1583531c2b8b7",
+      "baseline_sha256": "231f213203eb300aaff0f0fa1c64860fc9bcf3a0e19856309bd1583531c2b8b7",
+      "candidate_height": 23800,
+      "baseline_height": 23800,
+      "candidate_scroll_height": 11900,
+      "baseline_scroll_height": 11900,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "speaking/desktop",
+      "route": "speaking",
+      "path": "/speaking/",
+      "viewport": "desktop",
+      "candidate_sha256": "f33c92c1e047d1362ce4a84a0bbed0384b1c9d3f887027c227b98251a6879739",
+      "baseline_sha256": "f33c92c1e047d1362ce4a84a0bbed0384b1c9d3f887027c227b98251a6879739",
+      "candidate_height": 17072,
+      "baseline_height": 17072,
+      "candidate_scroll_height": 8536,
+      "baseline_scroll_height": 8536,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "blog/mobile",
+      "route": "blog",
+      "path": "/blog/",
+      "viewport": "mobile",
+      "candidate_sha256": "1cd6cdbebb7e70c5179827f76c2b6cf574193b615b88c8c1d34344f2059a8015",
+      "baseline_sha256": "1cd6cdbebb7e70c5179827f76c2b6cf574193b615b88c8c1d34344f2059a8015",
+      "candidate_height": 30184,
+      "baseline_height": 30184,
+      "candidate_scroll_height": 15092,
+      "baseline_scroll_height": 15092,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "blog/desktop",
+      "route": "blog",
+      "path": "/blog/",
+      "viewport": "desktop",
+      "candidate_sha256": "d514f15b64dd1859bc93eef03d996afc5ad4ebbf27f7549f4817b523476d2b0b",
+      "baseline_sha256": "656e194ea41ba571e6ebf3d0c3d3e6ee26fd1b5d9467a3c7419861fd04b1a332",
+      "candidate_height": 44120,
+      "baseline_height": 44120,
+      "candidate_scroll_height": 22060,
+      "baseline_scroll_height": 22060,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 38,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "method": "pixel",
+      "diff_pct": 0.02548,
+      "diff_pixels": 32376,
+      "total_pixels": 127065600,
+      "verdict": "pass"
+    },
+    {
+      "key": "contact/mobile",
+      "route": "contact",
+      "path": "/contact/",
+      "viewport": "mobile",
+      "candidate_sha256": "9593beff02ad6b010f3cdbb2d8d234f36af1ba76973161e2f2b66f9f96129906",
+      "baseline_sha256": "9593beff02ad6b010f3cdbb2d8d234f36af1ba76973161e2f2b66f9f96129906",
+      "candidate_height": 10928,
+      "baseline_height": 10928,
+      "candidate_scroll_height": 5464,
+      "baseline_scroll_height": 5464,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    },
+    {
+      "key": "contact/desktop",
+      "route": "contact",
+      "path": "/contact/",
+      "viewport": "desktop",
+      "candidate_sha256": "2dcb261696b40cd4ee5c230e3207fa40d2f47c9a3d9931fd7bef095c4497bc87",
+      "baseline_sha256": "2dcb261696b40cd4ee5c230e3207fa40d2f47c9a3d9931fd7bef095c4497bc87",
+      "candidate_height": 6910,
+      "baseline_height": 6910,
+      "candidate_scroll_height": 3455,
+      "baseline_scroll_height": 3455,
+      "mask_matches": {
+        "marquee": 4,
+        "dates": 0,
+        "beehiiv": 0
+      },
+      "height_delta_pct": 0.0,
+      "diff_pct": 0.0,
+      "diff_pixels": 0,
+      "method": "sha256-identical",
+      "verdict": "pass"
+    }
+  ]
+}
