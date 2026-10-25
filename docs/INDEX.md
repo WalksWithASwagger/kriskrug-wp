@@ -14,7 +14,7 @@ The canonical baseline snapshot and current handoffs live in [`docs/current-stat
 |---|---|
 | [`current-state/WEEK-PLAN-2026-09-28.md`](current-state/WEEK-PLAN-2026-09-28.md) | September 28–October 4 priorities, maintenance receipt, review gates and next session |
 | [`current-state/README.md`](current-state/README.md) | Index; front door pointers |
-| [`current-state/CURRENT-STATE-2026-09-21.md`](current-state/CURRENT-STATE-2026-09-21.md) | Declared snapshot for drift checks; compare its dated values with `make status-readonly` |
+| [`current-state/CURRENT-STATE-2026-10-25.md`](current-state/CURRENT-STATE-2026-10-25.md) | Declared snapshot for drift checks; compare its dated values with `make status-readonly` |
 | [`current-state/WORK-PLAN-2026-09-09.md`](current-state/WORK-PLAN-2026-09-09.md) | **Active runbook**: issue #4's mapped media gate and authority-hub #829-#833 are complete; #834 is the remaining approval-gated hub leftover and needs a fresh preflight |
 | [`current-state/MASTER-PLAN-2026-07-30.md`](current-state/MASTER-PLAN-2026-07-30.md) | Truth → reclaim → product lanes |
 | [`current-state/TWO-TRACK-MODEL.md`](current-state/TWO-TRACK-MODEL.md) | Active Track A / Track B decision rule |

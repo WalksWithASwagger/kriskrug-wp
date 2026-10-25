@@ -195,11 +195,12 @@ class MorningTruthAvailabilityTests(unittest.TestCase):
             {"path": "(version gate)", "status": "fail", "failures": ["version mismatch"]}
         ]}
         def command(title, command, cwd, **kwargs):
+            self.assertNotIn("origin/aurora/v2", " ".join(command))
             if title == "WP7 Public Smoke (JSON)":
-                self.assertEqual(command[command.index("--expect-version") + 1], "7.0.5")
+                self.assertEqual(command[command.index("--expect-version") + 1], "7.0.7")
             if title == "Current-State Drift Check (JSON)":
                 self.assertEqual(command[command.index("--work-plan") + 1],
-                                 "docs/current-state/CURRENT-STATE-2026-09-21.md")
+                                 "docs/current-state/CURRENT-STATE-2026-10-25.md")
             output = json.dumps(smoke) if title == "WP7 Public Smoke (JSON)" else (
                 "[]" if title in ("Issue JSON", "PR JSON") else '{"checks": []}'
             )
@@ -253,16 +254,16 @@ class StartupBaselineTests(unittest.TestCase):
             with self.subTest(target=target):
                 result = subprocess.run(["make", "-n", target], cwd=root,
                                         capture_output=True, text=True, check=True)
-                self.assertIn("WORK_PLAN:-docs/current-state/CURRENT-STATE-2026-09-21.md",
+                self.assertIn("WORK_PLAN:-docs/current-state/CURRENT-STATE-2026-10-25.md",
                               result.stdout)
                 if target != "current-state-drift-check":
-                    self.assertIn("EXPECT_VERSION:-7.0.5", result.stdout)
-        self.assertIn("CURRENT-STATE-2026-09-21.md", (root / "AGENTS.md").read_text())
+                    self.assertIn("EXPECT_VERSION:-7.0.7", result.stdout)
+        self.assertIn("CURRENT-STATE-2026-10-25.md", (root / "AGENTS.md").read_text())
 
-    def test_direct_drift_script_uses_september_snapshot(self):
+    def test_direct_drift_script_uses_october_snapshot(self):
         with mock.patch.object(sys, "argv", ["drift"]):
             args = check_current_state_drift.parse_args()
-        self.assertEqual(args.work_plan, Path("docs/current-state/CURRENT-STATE-2026-09-21.md"))
+        self.assertEqual(args.work_plan, Path("docs/current-state/CURRENT-STATE-2026-10-25.md"))
 
 
 class MorningTruthOutputPathTests(unittest.TestCase):

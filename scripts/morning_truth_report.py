@@ -93,23 +93,6 @@ def parse_og_image(html: str) -> str:
     return match.group(1)
 
 
-def parse_worktree_sections(porcelain: str) -> list[dict[str, str]]:
-    sections: list[dict[str, str]] = []
-    current: dict[str, str] = {}
-    for raw_line in porcelain.splitlines():
-        line = raw_line.strip()
-        if not line:
-            if current:
-                sections.append(current)
-                current = {}
-            continue
-        key, _, value = line.partition(" ")
-        current[key] = value
-    if current:
-        sections.append(current)
-    return sections
-
-
 def build_label_counts(issues_json: list[dict[str, Any]]) -> dict[str, int]:
     counts = {
         "priority:high": 0,
@@ -275,10 +258,10 @@ def resolve_output_path(
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-url", default="https://kriskrug.co")
-    parser.add_argument("--expect-version", default="7.0.5")
+    parser.add_argument("--expect-version", default="7.0.7")
     parser.add_argument(
         "--work-plan",
-        default="docs/current-state/CURRENT-STATE-2026-09-21.md",
+        default="docs/current-state/CURRENT-STATE-2026-10-25.md",
         help="Declared state doc used for drift checks.",
     )
     parser.add_argument(
@@ -379,13 +362,13 @@ def main() -> int:
                 timeout=args.command_timeout,
             ),
             run_command(
-                "Aurora vs Main Divergence",
+                "Checkout vs Origin Main Divergence",
                 [
                     "git",
                     "rev-list",
                     "--left-right",
                     "--count",
-                    "origin/aurora/v2...origin/main",
+                    "origin/main...HEAD",
                 ],
                 repo_root,
                 timeout=args.command_timeout,
@@ -483,7 +466,7 @@ def main() -> int:
         [
             "curl",
             "-sL",
-            f"{args.base_url.rstrip('/')}/recent-projects-include/?cachebust={cache_bust}",
+            f"{args.base_url.rstrip('/')}/work/?cachebust={cache_bust}",
         ],
         repo_root,
     )
@@ -502,38 +485,6 @@ def main() -> int:
         ],
         repo_root,
     )
-
-    worktrees_output = next(
-        (item.stdout for item in startup_results if item.title == "Worktrees"), ""
-    )
-    aurora_branch_section = None
-    for section in parse_worktree_sections(worktrees_output):
-        if section.get("branch") == "refs/heads/aurora/v2":
-            aurora_branch_section = section
-            break
-
-    aurora_local_divergence = None
-    aurora_local_status = None
-    if aurora_branch_section and aurora_branch_section.get("worktree"):
-        aurora_path = Path(aurora_branch_section["worktree"])
-        aurora_local_divergence = run_command(
-            "Aurora Local vs Origin Divergence",
-            [
-                "git",
-                "-C",
-                str(aurora_path),
-                "rev-list",
-                "--left-right",
-                "--count",
-                "origin/aurora/v2...aurora/v2",
-            ],
-            repo_root,
-        )
-        aurora_local_status = run_command(
-            "Aurora Local Status",
-            ["git", "-C", str(aurora_path), "status", "--short", "--branch"],
-            repo_root,
-        )
 
     if isinstance(issues_json, list):
         label_counts = build_label_counts(issues_json)
@@ -564,7 +515,7 @@ def main() -> int:
     lines: list[str] = [
         f"# Morning Truth Report - {now.strftime('%Y-%m-%d %H:%M:%S UTC')}",
         "",
-        "Scope: Track A (`main`) read-only verification and repo-state stabilization.",
+        "Scope: read-only repository and production verification. Theme parity compares the locally fetched `origin/main` ref; this report does not deploy it.",
         "",
         "## Snapshot Summary",
         "",
@@ -573,7 +524,7 @@ def main() -> int:
         f"- WordPress version (smoke): `{observed_wp_version}`",
         f"- Draft queue: {draft_queue_summary}",
         f"- `/projects/` status: `{projects_status}`",
-        f"- `/recent-projects-include/` og:image: `{work_og_image}`",
+        f"- `/work/` og:image: `{work_og_image}`",
         f"- Homepage reveal safety net detected: `{'yes' if has_reveal_safety_net else 'no'}`",
         f"- GSAP/ScrollTrigger CDN detected: `{'yes' if gsap_from_cdn else 'no'}`",
         "",
@@ -647,17 +598,6 @@ def main() -> int:
 
     lines.append(render_theme_parity_line(theme_parity))
 
-    if aurora_local_divergence:
-        lines.append(
-            f"- Local `aurora/v2` vs `origin/aurora/v2`: `{aurora_local_divergence.stdout or '(no output)'}`"
-        )
-    else:
-        lines.append("- Local `aurora/v2` worktree not detected from porcelain list.")
-    if aurora_local_status:
-        lines.append(
-            f"- Local `aurora/v2` status: `{aurora_local_status.stdout or '(clean/no output)'}`"
-        )
-
     lines.extend(["", "## Startup Command Outputs", ""])
     for result in startup_results:
         lines.append(render_command_block(result))
@@ -673,12 +613,6 @@ def main() -> int:
         projects_headers,
     ):
         lines.append(render_command_block(result))
-        lines.append("")
-    if aurora_local_divergence:
-        lines.append(render_command_block(aurora_local_divergence))
-        lines.append("")
-    if aurora_local_status:
-        lines.append(render_command_block(aurora_local_status))
         lines.append("")
 
     report = "\n".join(lines).rstrip() + "\n"
