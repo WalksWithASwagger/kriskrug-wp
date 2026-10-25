@@ -2,14 +2,24 @@
 
 Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then run `make status-readonly` for current runtime signals.
 
-## Current Front Door (weekly priorities refreshed 2026-09-29)
+## Current Front Door (refreshed 2026-10-25)
+
+Start with [CURRENT-STATE-2026-10-25.md](CURRENT-STATE-2026-10-25.md) and
+run `make status-readonly`. Events PR #1134 is merged and its bounded page-2250
+apply is live. The approved homepage image repair has been applied separately;
+its release receipt distinguishes public readback from cache state.
+
+The September weekly plan below is historical priority context. Current remaining
+handoffs are #1114 (held homepage/footer scope and cache follow-through), #1089
+(KK's prepared Snippet 5 save), and #331/#1130 (archive-policy reconciliation).
+The September 9 runbook retains its exact live-lane safety procedures.
 
 Read these first:
 
 - **[WEEK-PLAN-2026-09-28.md](WEEK-PLAN-2026-09-28.md)**: September 28–October 4 priorities, September 29 maintenance receipt, safe branch cleanup, and the next focused session. The dated snapshot below remains the drift baseline; the September 9 runbook retains its specific live-lane procedures.
 
 1. **[WORK-PLAN-2026-09-09.md](WORK-PLAN-2026-09-09.md)**, active runbook (issue #4's media identity-repair gate is complete; authority-hub issues #829-#833 are live and closed; #834 remains open and needs a fresh authenticated preflight; use `make status-readonly` for live counters). No newer dated work plan exists as of 2026-09-21.
-2. **[CURRENT-STATE-2026-09-21.md](CURRENT-STATE-2026-09-21.md)**, declared snapshot for morning-truth drift checks (compare it with a fresh `make status-readonly` run). [CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md) is its historical predecessor.
+2. **[CURRENT-STATE-2026-10-25.md](CURRENT-STATE-2026-10-25.md)**, declared snapshot for morning-truth drift checks (compare it with a fresh `make status-readonly` run). [CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md) is its historical predecessor.
 3. **[MASTER-PLAN-2026-07-30.md](MASTER-PLAN-2026-07-30.md)**, truth then reclaim then product lanes (hygiene phases complete)
 4. Run `make status-readonly` for current signals; use the newest **[reports/morning-truth-*.md](reports/)** only as durable checkpoint evidence
 5. **[TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)**, Track A vs Track B
