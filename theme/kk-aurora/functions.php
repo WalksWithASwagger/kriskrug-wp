@@ -700,7 +700,7 @@ function social_meta_tags(): array {
         'og:type'        => 'website',
         'og:url'         => home_url('/'),
         'og:description' => $description !== '' ? $description : get_bloginfo('description'),
-        'twitter:site'   => '@feelmoreplants',
+        'twitter:site'   => '@kriskrug',
     ];
 
     if ($description !== '') {
@@ -857,7 +857,7 @@ function writing_archive_open_graph_fallback(array $tags): array {
  */
 function twitter_card_tag_fallbacks(array $tags): array {
     if (empty($tags['twitter:site'])) {
-        $tags['twitter:site'] = '@feelmoreplants';
+        $tags['twitter:site'] = '@kriskrug';
     }
 
     if (empty($tags['twitter:title'])) {
