@@ -17,7 +17,7 @@ index carries every public event, so nothing is lost by that exclusion.
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
+from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
@@ -46,6 +46,12 @@ PREVIEW_LOCAL = False
 
 
 def parse_end(event: dict[str, Any]) -> datetime | None:
+    """Parse an event's end instant for display stamps.
+
+    Date-only rows still resolve to 21:00 America/Vancouver so the record
+    and sheet have a usable datetime. Rolloff does not use that invented
+    clock time; see ``rolloff_datetime``.
+    """
     raw = event.get("end") or event.get("date")
     if not raw:
         return None
@@ -64,18 +70,49 @@ def parse_end(event: dict[str, Any]) -> datetime | None:
         return None
 
 
+def event_end_date(event: dict[str, Any]) -> date | None:
+    """America/Vancouver calendar date the event ends. No invented clock time."""
+    for raw in (event.get("end"), event.get("date")):
+        if not raw:
+            continue
+        text = str(raw)
+        try:
+            if "T" in text:
+                dt = datetime.fromisoformat(text)
+                if dt.tzinfo is None:
+                    dt = dt.replace(tzinfo=PT)
+                return dt.astimezone(PT).date()
+            return date.fromisoformat(text)
+        except ValueError:
+            continue
+    return None
+
+
+def rolloff_datetime(event: dict[str, Any]) -> datetime | None:
+    """America/Vancouver midnight of the calendar day after the event ends.
+
+    Issue #1100: date-only, timed, and multi-day events share this cutoff.
+    Do not invent a clock time on the event day; the card stays current
+    until the morning after.
+    """
+    ended = event_end_date(event)
+    if ended is None:
+        return None
+    return datetime.combine(ended + timedelta(days=1), time.min, tzinfo=PT)
+
+
 def end_iso(event: dict[str, Any]) -> str:
-    dt = parse_end(event)
+    dt = rolloff_datetime(event)
     if not dt:
         return ""
     return dt.isoformat()
 
 
 def is_past(event: dict[str, Any], now: datetime) -> bool:
+    cutoff = rolloff_datetime(event)
+    if cutoff is not None:
+        return cutoff <= now
     hint = (event.get("bucket_hint") or "").lower()
-    dt = parse_end(event)
-    if dt is not None:
-        return dt <= now
     return hint == "past"
 
 
@@ -424,6 +461,10 @@ PAGE_SCOPED_CSS = """
     margin-top: 1.4rem;
   }
   .kk-ev-next { display: flex; flex-direction: column; }
+  /* Author display:flex beats the UA [hidden] { display: none } rule
+     (equal specificity, author wins). Without this, JS rolloff sets
+     hidden and a past Next-up card stays visible. Live 2026-10-17. */
+  .kk-ev-next[hidden] { display: none; }
   .kk-ev-next-art {
     aspect-ratio: 4 / 3;
     background: var(--ev-paper-2);
@@ -769,6 +810,7 @@ ROLLOFF_SCRIPT = """
   var upcomingGrid = page.querySelector('[data-events-grid="upcoming"]');
   var upcomingBucket = page.querySelector('[data-events-bucket="upcoming"]');
   var sheetExpanded = false;
+  var rolloffTimer;
 
   function parseEnd(iso) {
     var t = Date.parse(iso);
@@ -839,6 +881,32 @@ ROLLOFF_SCRIPT = """
     }
   }
 
+  function scheduleRolloff() {
+    window.clearTimeout(rolloffTimer);
+    var now = Date.now();
+    var soonest = Infinity;
+    Array.prototype.slice.call(page.querySelectorAll('[data-event-end]')).forEach(
+      function (el) {
+        var end = parseEnd(el.getAttribute('data-event-end'));
+        if (Number.isFinite(end)) {
+          if (end > now) {
+            if (end < soonest) soonest = end;
+          }
+        }
+      }
+    );
+    if (soonest < Infinity) {
+      var wait = soonest - now;
+      if (wait < 0) wait = 0;
+      if (wait > 86400000) wait = 86400000;
+      rolloffTimer = window.setTimeout(function () {
+        syncRolloff();
+        syncSheet();
+        scheduleRolloff();
+      }, wait);
+    }
+  }
+
   if (sheetToggle) {
     sheetToggle.addEventListener('click', function () {
       sheetExpanded = !sheetExpanded;
@@ -857,7 +925,14 @@ ROLLOFF_SCRIPT = """
     syncBleed();
     syncRolloff();
     syncSheet();
+    scheduleRolloff();
   }
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible') {
+      init();
+    }
+  });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
@@ -968,6 +1043,12 @@ def main() -> int:
         help="Render not-yet-uploaded heroes from heroes/_pending for local review. "
         "Produces a preview artifact only; never POST this output.",
     )
+    parser.add_argument(
+        "--now",
+        default=None,
+        help="ISO timestamp for the upcoming/past split (default: now). "
+        "Used by tests to pin the America/Vancouver morning-after cutoff.",
+    )
     args = parser.parse_args()
 
     global PREVIEW_LOCAL
@@ -975,7 +1056,12 @@ def main() -> int:
 
     catalog = load_catalog(args.catalog)
     roots = resolve_path_roots(catalog)
-    now = datetime.now(tz=timezone.utc)
+    if args.now:
+        now = datetime.fromisoformat(args.now)
+        if now.tzinfo is None:
+            now = now.replace(tzinfo=timezone.utc)
+    else:
+        now = datetime.now(tz=timezone.utc)
 
     events = [e for e in catalog["events"] if public_status(e)]
     upcoming = sorted(

@@ -238,7 +238,7 @@ events:
   bucket_hint: upcoming
   kind: festival
   role: Host / founder
-  url: https://www.futureproof.website/
+  url: https://www.futureproof.website/tickets/
   image:
     path: repo:content/drafts/2026-07-26-futureproof-festival-announcement/images/futureproof-salmon-starfield-share-20260527.jpg
     alt: Futureproof Festival salmon-starfield share graphic
@@ -253,7 +253,7 @@ events:
   - Festival
   - Vancouver
   status: confirmed
-  cta_upcoming: Save the date
+  cta_upcoming: Get tickets
   cta_past: Festival site
 - id: van-ai-meetup-31
   title: 'Vancouver AI Community Meetup #31'
