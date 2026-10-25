@@ -1,6 +1,7 @@
 # #402: consolidate the existing ALL IN series path
 
-**Draft review only. No WordPress changes, merge or publication authorized.**
+**Repository closeout approved October 25. The article changes remain an
+unpublished editorial proposal; this package records no WordPress apply.**
 
 Fresh authenticated and public inspection on October 25 found that #1030's
 series blocks already exist on all three posts. All three also link separately
@@ -51,8 +52,8 @@ the existing #1030 packet and Kris's local Voice Patterns & Style Guide.
 
 ## Future apply and rollback
 
-1. Obtain approval of this exact copy and the three live post targets. This PR
-   remains draft; the issue's preparation request does not grant publication.
+1. Obtain approval of this exact copy and the three live post targets. Shipping
+   this repository package preserves the proposal; it does not publish it.
 2. Re-read each post by ID and verify its slug, type, status and full raw-content
    hash. If the source changed, re-cut and review its diff rather than forcing
    the old patch. Snapshot the full current object privately before any write.
