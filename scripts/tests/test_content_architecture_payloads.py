@@ -42,9 +42,18 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
                 bad = [token for token in tokens if token.startswith(retired_prefixes)]
                 self.assertEqual([], bad, f"{path.name} retired classes: {bad}")
 
-    # about.html ships a scoped <style> block by design: kriskrug.co page CSS
-    # lives inline in page content (live pattern; deployed via #618).
-    STYLE_ALLOWED = {"about.html"}
+    # These approved page repairs use inline CSS; Work is restricted to one card.
+    STYLE_ALLOWED = {"about.html", "work.html"}
+
+    def test_work_inline_css_is_scoped_to_one_card(self):
+        html = (PAYLOADS / "work.html").read_text(encoding="utf-8")
+        styles = re.findall(r"<style>(.*?)</style>", html, re.DOTALL)
+        self.assertEqual(1, len(styles))
+        selectors = re.findall(r"(?:^|})\s*([^{}]+)\{", styles[0])
+        self.assertTrue(selectors)
+        for selector_list in selectors:
+            for selector in selector_list.split(","):
+                self.assertRegex(selector.strip(), r"^#kk-work-bcai-card(?:\s|$)")
 
     def test_payloads_are_body_only_and_public_safe(self):
         forbidden_fragments = (
