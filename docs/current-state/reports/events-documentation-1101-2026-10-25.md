@@ -1,6 +1,6 @@
 # Events documentation links #1101: October 25, 2026
 
-Prepared under KK's instruction to continue the kriskrug plan and ship what can be handled independently. The #1099 normalized documentation contract and #1100 renderer are already merged; page 2250 already exposes AI Day, Capilano and North House recaps. This pass adds the remaining verified meetup links and records the four-part ALL IN series in the catalog. Live apply is pending required CI.
+Prepared under KK's instruction to continue the kriskrug plan and ship what can be handled independently. The #1099 normalized documentation contract and #1100 renderer are already merged; page 2250 already exposes AI Day, Capilano and North House recaps. This pass adds the remaining verified meetup links and records the four-part ALL IN series in the catalog. Applied through Varlock at 2026-10-26 04:43 UTC (October 25 Pacific) after required CI passed. Authenticated raw readback exactly matches the candidate hash below; normal and cache-bypassed public pages both expose the six added links.
 
 ## Verified sources and bounded change
 
@@ -29,3 +29,5 @@ The exact candidate passes Chromium at 1440px, 768px and 390px: nine documentati
 - Private packet: `/Users/kk/Code/kriskrug-wp/.generated/current-state/events-docs-1101-2026-10-25/`.
 
 The packet holds source checks, fresh page snapshot, exact diff/manifest, bounded preparation and Varlock deploy adapters, responsive preview/screenshots and readback reports. The deploy adapter uses only a content payload and pins both hashes; it refuses concurrent changes. Rollback uses the pre-apply snapshot with the existing preview-first restore helper and expected-current hash. Do not replace the live page with a full catalog render while ALL IN is held.
+
+The pre-apply rollback snapshot is `snapshots/page-2250-events-20261026T044341Z.json` (mode 0600). Actual public browser navigation at all three widths passes the same link, rollover, focus, overflow and console assertions; the mobile documentation row was visually inspected. `applied-readback.json`, `public-verification.json`, `events-live-browser-report.json` and screenshots record the result. A restore preview verified the original snapshot and current hash; no restore or cache purge was needed.

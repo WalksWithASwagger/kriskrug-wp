@@ -30,7 +30,7 @@ conversion on page load; organic signup delivery remains to be observed.
 Outbound clicks are not subscriptions. The three [#834 brand-navigation links](reports/brand-navigation-834-release-2026-10-25.md) are live and verified, with prior authority links and article media preserved. Editorial and
 featured-image choices remain in the completed #1106 and #1115 review reports.
 
-The [#1099 Events catalog contract](reports/events-catalog-1099-2026-10-25.md) now fails closed on missing confirmation, validates documentation links, and preserves all current media. The [#1100 record/counter release](reports/events-record-1100-2026-10-25.md) is live: past-only record and counters, browser rollover agreement, and independent documentation links. All 74 live IDs and existing media are preserved; the prepared ALL IN record remains absent from the live page.
+The [#1099 Events catalog contract](reports/events-catalog-1099-2026-10-25.md) now fails closed on missing confirmation, validates documentation links, and preserves all current media. The [#1100 record/counter release](reports/events-record-1100-2026-10-25.md) is live: past-only record and counters, browser rollover agreement, and independent documentation links. All 74 live IDs and existing media are preserved; the prepared ALL IN record remains absent from the live page. The [#1101 documentation backfill](reports/events-documentation-1101-2026-10-25.md) adds live Recap, Photos and Video links for meetup #32 and #33 and the publisher checklist; all four ALL IN articles are recorded only in its held catalog entry.
 
 Read these first:
 
