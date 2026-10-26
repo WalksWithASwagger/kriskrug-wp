@@ -11,6 +11,7 @@ MANIFEST = ROOT / "fixes/issue-1089-schema-save-preflight-2026-09-29.json"
 HANDOFF_316 = ROOT / "fixes/issue-316-schema-identity-handoff-2026-07-13.md"
 HANDOFF_641 = ROOT / "fixes/issue-641-speaking-video-schema-handoff-2026-08-27.md"
 README = ROOT / "fixes/README.md"
+RELEASE = ROOT / "docs/current-state/reports/schema-1089-verification-2026-10-25.json"
 
 PERSON_ID = "https://kriskrug.co/#person"
 ORG_ID = "https://bc-ai.ca/#organization"
@@ -113,12 +114,18 @@ class Issue1089SchemaSavePreflightTests(unittest.TestCase):
         ):
             self.assertNotIn(marker, serialized)
 
-    def test_candidate_hash_matches_current_snippet_bytes(self):
-        digest = hashlib.sha256(DEPLOYED.read_bytes()).hexdigest()
-        self.assertEqual(self.manifest["candidate"]["sha256"], digest)
+    def test_historical_candidate_and_current_runtime_match_release(self):
+        release = json.loads(RELEASE.read_text(encoding="utf-8"))
+        self.assertEqual(
+            self.manifest["candidate"]["sha256"], release["approved_file_sha256"]
+        )
         self.assertEqual(
             self.manifest["candidate"]["byte_length"],
-            DEPLOYED.stat().st_size,
+            release["approved_file_bytes"],
+        )
+        runtime = self.deployed[self.deployed.index("function kk_schema_constants()"):]
+        self.assertEqual(
+            release["runtime_sha256"], hashlib.sha256(runtime.encode()).hexdigest()
         )
         self.assertTrue(self.manifest["candidate"]["prepared_not_live"])
         self.assertEqual(5, self.manifest["candidate"]["expected_snippet_id"])
