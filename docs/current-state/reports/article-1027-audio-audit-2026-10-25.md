@@ -1,5 +1,7 @@
 # Article 3: source-audio audit, October 25, 2026
 
+**Released:** Kris subsequently authorized shipping the reviewed copy. The [October 26 release receipt](article-1027-release-2026-10-26.md) records both applied corrections and live verification. The pending decisions below are the historical audit state.
+
 Nine spoken quotation passages in published post **12800** were checked against fresh source recordings, including the author's Justine transition and both parts of the Israel quotation. This extends the [version reconciliation](article-1027-reconciliation-2026-10-25.md). Two bounded editorial corrections are prepared; no live write has been made. Issue #1027 remains open for the exact author decisions below.
 
 ## Method and limits
