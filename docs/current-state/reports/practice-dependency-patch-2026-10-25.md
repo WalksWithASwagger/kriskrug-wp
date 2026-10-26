@@ -1,0 +1,7 @@
+# Practice test dependency patch: October 25, 2026
+
+The #1105 verification found [GHSA-27r3-jxmh-p828](https://github.com/advisories/GHSA-27r3-jxmh-p828) in the disposable WordPress Playground test server's `body-parser` 1.20.6. Update the lockfile to patched **1.20.9**, compatible with Express 4.22.2's existing `~1.20.5` requirement. The only lockfile changes are that package's version, archive URL/integrity and its declared `qs` range; the existing 6.16.0 override already satisfies the latter. No new override, direct dependency, runtime plugin or theme change is introduced.
+
+`npm ci --ignore-scripts` succeeds; the installed `npm audit` reports **zero vulnerabilities**. At candidate commit `3ee3cb6`, `make practice-browser-test` passes again on disposable WordPress 7.0.4/PHP 8.2 with synthetic data, including mobile, keyboard, exact exports, privacy/console canaries, no-JS, editor save/reopen and actual plugin deactivation. `make practice-package` passes and produces the unchanged ZIP SHA-256 `478f8a4baaabcce6938ae17bf89bc0adab16ae2877f5aa319eb32689d34ee57a`. Plugin tree remains `a167516a0125c255606db06681403835c37a162d`; npm dependencies are excluded from that production artifact.
+
+Private installed-audit/browser/package logs and synthetic evidence remain with the #1105 packet (`browser-patched/`). The fixture process exited. Documentation checks and diff checks pass. Revert the scoped lockfile commit if a test-tool regression is found; no WordPress rollback applies. This fix does not satisfy #983's human or live-release gates.
