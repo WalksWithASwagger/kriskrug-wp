@@ -27,7 +27,7 @@ The [subsequent approved November/ALL IN release](events-november-allin-release-
 
 - Unconfirmed speaking appearances still need role/source confirmation and exact inclusion approval. The November 25 meetup and ALL IN no longer need a decision. No role, edition, artwork or permission is inferred.
 - #983: exact practice/parent/CTA copy, live installation/content approval, five consented adults and genuine observations. #1105 preparation does not satisfy the 4/5 ten-minute or 3/5 seven-day outcomes. The source article and approved existing content are preserved.
-- [Article 3 version reconciliation](article-1027-reconciliation-2026-10-25.md) is complete; fresh tape/identity/consent acceptance remains. Film Club and other source-backed drafts still need editorial choice; approved page imagery/favicon assets; the remaining policy, Contact and interaction-state owner decisions. Existing [editorial](editorial-slot-source-readiness-2026-10-25.md) and [featured-image](page-featured-image-audit-2026-10-25.md) review packets remain the starting points.
+- [Article 3 source review and approved correction](article-1027-release-2026-10-26.md) are complete and verified live. Film Club and other source-backed drafts still need editorial choice; approved page imagery/favicon assets; the remaining policy, Contact and interaction-state owner decisions. Existing [editorial](editorial-slot-source-readiness-2026-10-25.md) and [featured-image](page-featured-image-audit-2026-10-25.md) review packets remain the starting points.
 - #331 remains an owner closure decision on the already-deployed sitemap policy. #767's production security-policy changes remain their own reviewed lane.
 
 ## Preservation and cleanup
