@@ -1,20 +1,21 @@
 # Current State Snapshot - 2026-10-25
 
-**Snapshot:** Sunday, October 25, 2026, after Events PR #1134 merged and its
-approved page update was verified. This is the declared drift baseline, not a
+**Snapshot:** Sunday, October 25, 2026, refreshed after the approved November
+meetup and ALL IN page update at 2026-10-26 05:15 UTC. This is the declared drift baseline, not a
 promise that counters remain unchanged. Run `make status-readonly` for current
 observations. Supersedes [September 21](CURRENT-STATE-2026-09-21.md).
 
 ## Verified state
 
-- Open PRs: `0` after #1134 merged, before this handoff PR.
-- Open issues: `41`.
+- Open PRs: `0` at the 05:10 UTC startup check, before this release-receipt PR.
+- Open issues: `28` at the same startup check.
 - Production still publicly reports WordPress `7.0.7`.
 - WordPress draft queue: `0` scheduled posts, `68` draft posts, `4` draft pages.
 - Public Aurora `style.css`: `1.6.12`. Fetched `origin/main`: `1.6.13`.
   The approved image-only repair does not deploy all of 1.6.13 or change the
   version header. Compare exact release hunks and live owners as well as versions.
-- Canonical main after #1134: `16fc6742948e1889573894820e232568bf55cc97`.
+- Canonical main before this release: `a13ec6fc754ce14ffb4bcba241f61ad25f9fdb45`.
+  Use the release PR and a fresh GitHub readback for its eventual merge SHA.
 - The original working checkout remains on `codex/local-checkpoint-2026-10-02`,
   with its local documentation commit and untracked content packages preserved.
   A match between that older checkout's header and production is not main parity.
@@ -25,19 +26,21 @@ observations. Supersedes [September 21](CURRENT-STATE-2026-09-21.md).
 
 1. **Events #1134:** merged after required CI. Page 2250 was applied with explicit
    approval, verified identity, source hash, private snapshot and exact stored
-   readback. Normal and uncached public requests show Futureproof, Prompt Victoria
-   and AMPA in Next up. September's spotlight is gone; Get tickets uses the direct
-   festival ticket URL. All 74 live event identities and evergreen content remain.
+   readback. Normal and uncached public requests show Futureproof, Prompt Victoria,
+   AMPA and the approved November 25 meetup in Next up. September's spotlight is
+   gone; Get tickets uses the direct festival ticket URL. The [November/ALL IN
+   release](reports/events-november-allin-release-2026-10-25.md) preserves all 74
+   prior identities and 43 images, and adds two entries: 76 IDs, 72 past rooms,
+   33 meetup editions, 39 frames, four upcoming cards and 13 documentation links.
 2. **Homepage image #1114 / #1118:** the existing image-only approval was used.
    Trusted SFTP and the database homepage override were verified. Only the packaged
    artwork, source/dimension hunks and Work share-image fallback were applied.
    Kris accepted the repaired artwork and the baseline was re-frozen explicitly.
    Homepage and Work share-image changes are verified on normal public URLs.
-3. **Schema #1089:** the approved 14,765-byte candidate is unchanged. A fresh
-   private source snapshot confirms active global Snippet 5, KK Schema, as the sole
-   schema emitter. The prepared Person/VideoObject changes are still not live.
-   KK's save remains the next action; do not reopen the September approval or add
-   the separate YouTube identity choice.
+3. **Schema #1089:** saved through Varlock with explicit approval. The
+   [release receipt](reports/schema-1089-release-2026-10-25.md) verifies the
+   Person and Speaking VideoObjects, authenticated readback, normal warm-cache
+   delivery and zero validator errors/warnings. No additional KK save is pending.
 4. **Sitemap #1130 / #331:** public index has 986 post and 46 page entries, no
    taxonomy/author children. Three existing archive samples emit noindex,follow.
    The September 3 deployment receipt already records the chosen archive policy.
@@ -47,9 +50,18 @@ observations. Supersedes [September 21](CURRENT-STATE-2026-09-21.md).
    Futureproof destinations are corrected. Full visual comparison: 33 PASS.
    At 19:45 UTC all six normal and uncached routes deliver the approved links.
    The earlier stale shared caches expired naturally; no manual purge is claimed.
-6. **Reserve:** ALL IN navigation is prepared in PR #1141's package for editorial
-   review, without publication. Work body artwork still uses its previous
-   reference; the approved image change covered its social-image fallback.
+6. **Work, Subscribe and Publications:** [Work card readability and KRÜG
+   subscription routing](reports/work-subscribe-release-2026-10-25.md) and
+   [Publications overflow](reports/publications-layout-release-2026-10-25.md)
+   are repaired and live. Do not repeat the earlier artwork task.
+7. **Conversions and maintenance:** completed-signup measurement is installed;
+   #1090's six-hour monitor awaits the first genuine signup plus GA4 delivery.
+   The weekly Events proposal monitor is active and recognizes the November/ALL
+   IN release. #1102's instant event-intake integration remains unimplemented.
+8. **Remaining owner inputs:** practice publication and genuine participant
+   evidence, editorial choices, approved favicon/imagery, unconfirmed event
+   roles, and the existing policy/Contact/interaction decisions. See the
+   [follow-through receipt](reports/kriskrug-futureproof-followthrough-2026-10-25.md).
 
 ## Operating references
 
