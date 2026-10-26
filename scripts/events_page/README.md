@@ -84,6 +84,8 @@ as the host/event source because the hero-fetch engine consumes it. Upcoming
 cards retain their registration destination. This proof configures only the
 already-past North House record; no media sync or other record change is needed.
 
+When event coverage publishes, follow the [publisher documentation-link checklist](../notion-to-wp/README.md#event-coverage-publish-checklist) in the same approved pass. The #1101 backfill uses public recap, gallery and official recording sources; it never overwrites event registration URLs or changes image credits.
+
 ## Harvest merge
 
 `events-catalog.yaml` is the authoritative catalog. `meetup-editions.yaml`

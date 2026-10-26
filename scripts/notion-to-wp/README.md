@@ -108,6 +108,36 @@ Use `--local-only` when WordPress credentials are unavailable:
 scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py --local-only
 ```
 
+## Event coverage publish checklist
+
+When publishing a recap or event-coverage post, complete the Events documentation
+link in the same approved publishing pass:
+
+1. Match the existing stable event ID, date and venue in
+   `scripts/events_page/events-catalog.yaml` and its merged harvest/fragments.
+   Do not add a duplicate event because a recap has a new title.
+2. Verify the published post's exact slug/ID/status and public canonical URL.
+   Append that URL to the event's `docs.recap` list. Retain earlier recaps for a
+   multi-post series. Existing `recap_url` remains the primary local recap;
+   never replace registration/source `url` with documentation.
+3. Add `docs.photos` / `docs.video` only from verified public galleries or
+   recordings. Verify the actual gallery anchor and retain photographer credits.
+   A promo-card image is not proof of who photographed the event. Missing links
+   remain empty; do not invent art, URLs, permissions or credits.
+4. Load and render through the [Events pipeline](../events_page/README.md).
+   All normalized records carry recap/photos/video lists, including empty ones.
+   Check the exact diff and preserve live IDs, media, credits and shell content.
+   Prepared catalog-only entries remain held unless their publication was
+   separately approved.
+5. With KK's approval covering the page update, snapshot and apply page **2250**
+   through the existing guarded deploy helper, then verify authenticated and
+   public link readbacks. A post approval alone is not approval to replace the
+   entire Events page. If the page update is not yet approved, leave its exact
+   patch and rollback packet ready and explicitly mark the link as pending.
+6. Record the post URL, event ID, documentation links, page snapshot/hash and
+   verification in the publishing receipt. A local render does not finish the
+   public documentation-link step.
+
 ## Live-write safety checks
 
 2026-05-22 operating stance: the strict backup/restore proof gate is retired. The connector can create drafts and publish/update intentionally, but every live run must still be boringly explicit about target, intent, and rollback path.
