@@ -1,0 +1,44 @@
+{
+  "tested_commit": "92a0e8b1475fe737550ddff1a85301a1f08a06ef",
+  "plugin_tree": "a167516a0125c255606db06681403835c37a162d",
+  "teaching_merge": "7e43d0d4c9395631bd87ad70ee46948b93146679",
+  "proof_merge": "48e63604d5724c62446ed23e56a567cef17e8930",
+  "entry_merge": "26d2ec91759d248e140f69fc874bb0e835763064",
+  "method": "0.1-draft",
+  "files": {
+    "content/drafts/open-studio-context-brief/copy.md": "2392e31023cbab2f2f41271ab54b5b36958756c6371120819cc6aed78ae6f855",
+    "content/drafts/open-studio-context-brief/worksheet.md": "a5e0581dd218ce08924d0ef05fcd066e634e3330e7f45f4ce0b29548dbb4e8f0",
+    "content/drafts/open-studio-context-brief/evaluation.md": "e1923b6a64a863c4e911e11f2941f8a705f38a5af20d5a2b1ebccb768b552e3e",
+    "plugins/kk-practice/blocks/context-brief/copy.json": "8bed22aafd0c2ad5c2f524032f41cf5c6e808b873821d96663ea5a0b59700d61"
+  },
+  "artifacts": {
+    "practice-page-content.html": "7754ab03cd835de0dc4746bc139d9d1b733d3db6c744111075e7b6300caebb79",
+    "practice-child-payload.template.json": "4c93ee485d0cd197d5891ec3f299670ba63db902ecc74bc0e127c5b04c67f846",
+    "practice-parent-payload.json": "03928a3bc4873330e43a58c918b961b9969769d7b04dc049deedebbc9cf0c872",
+    "source-cta.html": "08a2d169902811889d3cfbb88728a545f31722650724e46d2d3bb22d2c16a56f",
+    "kk-practice-0.1.0.zip": "478f8a4baaabcce6938ae17bf89bc0adab16ae2877f5aa319eb32689d34ee57a"
+  },
+  "live": {
+    "checked_at": "2026-10-26T04:41:52.371817+00:00",
+    "post": {
+      "id": 12744,
+      "slug": "what-i-showed-founders-about-ai-workflows",
+      "status": "publish",
+      "modified_gmt": "2026-09-18T13:00:22",
+      "link": "https://kriskrug.co/2026/09/03/what-i-showed-founders-about-ai-workflows/",
+      "featured_media": 12742
+    },
+    "post_raw_sha256": "529eb87020ba78606e47eea8bd9789eee004097588dc3594d472d966bee46bd1",
+    "slots": {
+      "practice": [],
+      "context-brief": []
+    },
+    "page_methods": [
+      "GET",
+      "POST"
+    ],
+    "proposed_post_raw_sha256": "ba4295d6ec0cf07f74ba6693998e9ec287e367b896612be83081347d50a1cf08",
+    "cta_sha256": "08a2d169902811889d3cfbb88728a545f31722650724e46d2d3bb22d2c16a56f"
+  },
+  "status": "preparation_only_no_live_apply_no_participants"
+}

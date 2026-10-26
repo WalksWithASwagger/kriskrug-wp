@@ -1,10 +1,11 @@
 # Open Studio context-brief teaching packet
 
-Draft for KK editorial acceptance. Issue [#981](https://github.com/WalksWithASwagger/kriskrug-wp/issues/981), transformation [#977](https://github.com/WalksWithASwagger/kriskrug-wp/issues/977). Method version: **0.1-draft**. No application code or WordPress payload is included. Drafting approval does not approve this wording or publication.
+Draft for KK editorial acceptance. Issue [#981](https://github.com/WalksWithASwagger/kriskrug-wp/issues/981), transformation [#977](https://github.com/WalksWithASwagger/kriskrug-wp/issues/977). Method version: **0.1-draft**. No application code is included. The October 25 preflight adds draft-only WordPress payload proposals; none has been applied. Drafting approval does not approve this wording or publication.
 
 - [copy.md](copy.md): invitation, six questions/help, fictional teaching example and interface wording.
 - [worksheet.md](worksheet.md): blank, printable Markdown artifact without an email gate.
-- [evaluation.md](evaluation.md): five-person comparison and follow-up protocol; not executed.
+- [evaluation.md](evaluation.md): five-person comparison and follow-up protocol with blank consent, observation, scoring and follow-up sheets; not executed.
+- [release-preflight.md](release-preflight.md): frozen source/ZIP hashes, fresh route/plugin/source readbacks, exact draft page/CTA proposals, conditional rollout and rollback, and the ready/pending matrix for #983.
 
 ## Source ledger
 
@@ -32,3 +33,7 @@ Post-draft validation: both checks passed (default voice scan: 167 files, zero n
 Manual plain-Markdown review checked heading order, six matching fields, the visible example disclosure, blank responses, and footer links. Actual desktop/mobile rendered review is pending a preview; plain-text review does not establish responsive application behavior. No visitor tests have run and no outreach is authorized by this packet.
 
 KK must accept the exact wording before it becomes approved public copy. #982 may consume it only in accordance with that issue's editorial gate. #983 owns later application/user evidence. No production rollback applies; revert or supersede the four draft files if the packet is rejected.
+
+## October 25 preparation checkpoint
+
+The [release preflight](release-preflight.md) refreshes the September source readback and distinguishes merged proof from current deployment. Exact source post 12744 remains published; the desired parent/child pages do not exist and the practice plugin is not installed. Synthetic real-WordPress browser checks pass at the frozen candidate, but no real study or live practice release occurred. The [preparation receipt](../../../docs/current-state/reports/practice-release-preparation-1105-2026-10-25.md) records verification. Copy approval, participants/consent and exact live permission remain with #983.
