@@ -11,15 +11,16 @@
  * Deployed via Code Snippets plugin on 2026-05-15 (not as a mu-plugin yet;
  * SSH access still pending).
  *
- * LAST VERIFIED AGAINST LIVE: 2026-08-16 (issue #758).
- * Method: logged-out public readback of rendered JSON-LD on
- * https://kriskrug.co/2026/08/10/keep-the-machine-strange/ (Person +
- * BlogPosting + BreadcrumbList), https://kriskrug.co/ (Person + WebSite),
- * and https://kriskrug.co/about/ (Person + BreadcrumbList). Values, block
- * set and JSON key order still match this file, including Person.image
- * appended last and the #425 BlogPosting default. The snippet body itself
- * was NOT read back: WP_USER / WP_APP_PASSWORD are unset in Cloud and
- * code-snippets/v1 returns 401 without them.
+ * LAST VERIFIED AGAINST LIVE: 2026-10-25 (issue #1089).
+ * Saved to active global snippet 5 through Varlock-authenticated REST under
+ * KK's explicit instruction. Authenticated source readback matches the
+ * approved payload after removing its opening PHP tag. Home, Speaking,
+ * About and the sample article pass fresh public JSON-LD checks. Schema
+ * Markup Validator reports zero errors and warnings on Home, Speaking and
+ * the sample article. Cache delivery and exact hashes are recorded in
+ * docs/current-state/reports/schema-1089-release-2026-10-25.md and its JSON
+ * receipt. This follow-up changes header comments only; executable bytes
+ * from kk_schema_constants() onward match the saved payload exactly.
  *
  * WRAPPER DELTA (resolved, Boost-injected — do not add by hand):
  * Live HTML wraps each block as
@@ -39,13 +40,10 @@
  * attribute here. Evidence:
  * docs/current-state/reports/schema-boost-ignore-758-2026-08-16.md
  *
- * PREPARED, NOT LIVE: issue #641 adds two Speaking-page VideoObject records
- * below. Those additions have not been saved to production snippet id 5 as of
- * 2026-08-27. The live verification above covers the pre-#641 block set only.
- * See fixes/issue-641-speaking-video-schema-handoff-2026-08-27.md before any
- * production action.
+ * LIVE 2026-10-25: issue #641's two Speaking-page VideoObject records.
+ * They appear only on Speaking page 1887 and reference the shared Person.
  *
- * PREPARED, NOT LIVE: cross-site Person entity consolidation (2026-09-27).
+ * LIVE 2026-10-25: cross-site Person entity consolidation (prepared 2026-09-27).
  * Changes vs. the 2026-09-27 live readback of https://kriskrug.co/:
  *   - WebSite.name stays "Kris Krug" (the KK-approved #316 site name); the
  *     umlaut spelling stays an alternateName. Person.name remains "Kris Krüg".
@@ -56,8 +54,9 @@
  *   - sameAs adds LinkedIn, YouTube and Flickr, each already linked as Kris
  *     Krüg's own profile by this site (Aurora footer / Photography page).
  * Person @id stays https://kriskrug.co/#person; bothhandsfull.com and
- * darkcrystal.app now point their Person nodes at that @id. Saving this to
- * snippet id 5 is a separate, KK-approved WordPress step.
+ * darkcrystal.app point their Person nodes at that @id. The approved
+ * YouTube sameAs remains /kriskrug; the separate footer choice does not
+ * add /kriskrug10000 to this identity set.
  *
  * Differences from fixes/schema-snippets.php (reference / future mu-plugin):
  *   - VERIFY-ME placeholders replaced with confirmed values

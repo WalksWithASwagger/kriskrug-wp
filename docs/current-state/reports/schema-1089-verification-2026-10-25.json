@@ -1,0 +1,276 @@
+{
+  "issue": 1089,
+  "saved_at": "2026-10-26T00:15:37+00:00",
+  "local_save_date": "2026-10-25",
+  "snippet_id": 5,
+  "name": "KK Schema",
+  "active": true,
+  "scope": "global",
+  "approved_file_sha256": "a6037656daabafd5afacddea3885357e5d042ff204aa5ce01222bb1b8f8db0e6",
+  "approved_file_bytes": 14765,
+  "deployed_code_sha256": "b205b7b3f23d8164828d88e57bbc169c2e20f579fb45f468a2d8f1b8d29e6b1f",
+  "deployed_code_bytes": 14759,
+  "runtime_sha256": "c973458a7d6d414cd4aa82e044c55a1bc1c93c7fd742225f842b596ce13461fc",
+  "runtime_boundary": "function kk_schema_constants()",
+  "before_code_sha256": "260d40b60d24c55ba0bf298e9e36d6da9ec1ec9e5b76530cc6c5c11688c3dd35",
+  "code_error": null,
+  "other_snippets_unchanged": true,
+  "public_readback": {
+    "at": "2026-10-26T00:18:46.247043+00:00",
+    "phase": "convergence",
+    "results": [
+      {
+        "route": "home",
+        "url": "https://kriskrug.co/",
+        "http_status": 200,
+        "cache": {
+          "x-jetpack-boost-cache": "hit",
+          "x-gateway-cache-status": "HIT"
+        },
+        "jsonld_blocks": 2,
+        "person_count": 1,
+        "video_count": 0,
+        "checks": {
+          "one_person": true,
+          "bcai_identity": false,
+          "approved_same_as": false,
+          "futureproof_url_only": false,
+          "website_scope_name": true,
+          "speaking_videos_only": true,
+          "no_events": true,
+          "no_festival_id": true,
+          "article_references": true
+        },
+        "pass": false,
+        "html_sha256": "f91820c2981cd4327e600a37dd758cbbe6641c2d8d99cb3770989cca0fa8d1fa"
+      },
+      {
+        "route": "home",
+        "url": "https://kriskrug.co/?schema1089=1792973924301780000",
+        "http_status": 200,
+        "cache": {
+          "x-jetpack-boost-cache": "miss",
+          "x-gateway-cache-status": "MISS"
+        },
+        "jsonld_blocks": 2,
+        "person_count": 1,
+        "video_count": 0,
+        "checks": {
+          "one_person": true,
+          "bcai_identity": true,
+          "approved_same_as": true,
+          "futureproof_url_only": true,
+          "website_scope_name": true,
+          "speaking_videos_only": true,
+          "no_events": true,
+          "no_festival_id": true,
+          "article_references": true
+        },
+        "pass": true,
+        "html_sha256": "f404afa91086d203788a3519a3343d3704202f91e314a4648414d1e0ac708c1b"
+      },
+      {
+        "route": "speaking",
+        "url": "https://kriskrug.co/speaking/",
+        "http_status": 200,
+        "cache": {
+          "x-jetpack-boost-cache": "miss",
+          "x-gateway-cache-status": "HIT"
+        },
+        "jsonld_blocks": 2,
+        "person_count": 1,
+        "video_count": 0,
+        "checks": {
+          "one_person": true,
+          "bcai_identity": false,
+          "approved_same_as": false,
+          "futureproof_url_only": false,
+          "website_scope_name": true,
+          "speaking_videos_only": false,
+          "no_events": true,
+          "no_festival_id": true,
+          "article_references": true
+        },
+        "pass": false,
+        "html_sha256": "58cfbeadfd97ba06f06fe20d3892ea509d9398dd54165c595a9dd2913bf2fbf7"
+      },
+      {
+        "route": "speaking",
+        "url": "https://kriskrug.co/speaking/?schema1089=1792973924301780000",
+        "http_status": 200,
+        "cache": {
+          "x-jetpack-boost-cache": "miss",
+          "x-gateway-cache-status": "MISS"
+        },
+        "jsonld_blocks": 4,
+        "person_count": 1,
+        "video_count": 2,
+        "checks": {
+          "one_person": true,
+          "bcai_identity": true,
+          "approved_same_as": true,
+          "futureproof_url_only": true,
+          "website_scope_name": true,
+          "speaking_videos_only": true,
+          "no_events": true,
+          "no_festival_id": true,
+          "article_references": true
+        },
+        "pass": true,
+        "html_sha256": "e7a4b22a7fef293a01651d082cbc10f42c3f8e447ab3f226aa28ec624676913f"
+      },
+      {
+        "route": "about",
+        "url": "https://kriskrug.co/about/",
+        "http_status": 200,
+        "cache": {
+          "x-jetpack-boost-cache": "miss",
+          "x-gateway-cache-status": "HIT"
+        },
+        "jsonld_blocks": 2,
+        "person_count": 1,
+        "video_count": 0,
+        "checks": {
+          "one_person": true,
+          "bcai_identity": false,
+          "approved_same_as": false,
+          "futureproof_url_only": false,
+          "website_scope_name": true,
+          "speaking_videos_only": true,
+          "no_events": true,
+          "no_festival_id": true,
+          "article_references": true
+        },
+        "pass": false,
+        "html_sha256": "5dc4c92c97269e49126230b9198c2fed9b51dedd5e1ee875eb5d607976b7e1f2"
+      },
+      {
+        "route": "about",
+        "url": "https://kriskrug.co/about/?schema1089=1792973924301780000",
+        "http_status": 200,
+        "cache": {
+          "x-jetpack-boost-cache": "miss",
+          "x-gateway-cache-status": "MISS"
+        },
+        "jsonld_blocks": 2,
+        "person_count": 1,
+        "video_count": 0,
+        "checks": {
+          "one_person": true,
+          "bcai_identity": true,
+          "approved_same_as": true,
+          "futureproof_url_only": true,
+          "website_scope_name": true,
+          "speaking_videos_only": true,
+          "no_events": true,
+          "no_festival_id": true,
+          "article_references": true
+        },
+        "pass": true,
+        "html_sha256": "1ad6c2f60f9b1862c7cf8bdc729a6b6f33bdd9f8413700c5fb567327c25faa91"
+      },
+      {
+        "route": "article",
+        "url": "https://kriskrug.co/2026/08/10/keep-the-machine-strange/",
+        "http_status": 200,
+        "cache": {
+          "x-jetpack-boost-cache": "miss",
+          "x-gateway-cache-status": "HIT"
+        },
+        "jsonld_blocks": 3,
+        "person_count": 1,
+        "video_count": 0,
+        "checks": {
+          "one_person": true,
+          "bcai_identity": false,
+          "approved_same_as": false,
+          "futureproof_url_only": false,
+          "website_scope_name": true,
+          "speaking_videos_only": true,
+          "no_events": true,
+          "no_festival_id": true,
+          "article_references": true
+        },
+        "pass": false,
+        "html_sha256": "373228eb58b0cb6ce7eb234d2051735af6e88ed452692975413aa350fde3f773"
+      },
+      {
+        "route": "article",
+        "url": "https://kriskrug.co/2026/08/10/keep-the-machine-strange/?schema1089=1792973924301780000",
+        "http_status": 200,
+        "cache": {
+          "x-jetpack-boost-cache": "miss",
+          "x-gateway-cache-status": "MISS"
+        },
+        "jsonld_blocks": 3,
+        "person_count": 1,
+        "video_count": 0,
+        "checks": {
+          "one_person": true,
+          "bcai_identity": true,
+          "approved_same_as": true,
+          "futureproof_url_only": true,
+          "website_scope_name": true,
+          "speaking_videos_only": true,
+          "no_events": true,
+          "no_festival_id": true,
+          "article_references": true
+        },
+        "pass": true,
+        "html_sha256": "a78ff5a3ec779fda0ffe1a1471bf634b5e88b484daa618c32fda9ef8a24ee6e1"
+      }
+    ],
+    "pass": false
+  },
+  "validators": [
+    {
+      "route": "home",
+      "errors": 0,
+      "warnings": 0,
+      "method": "Schema Markup Validator Fetch URL with public cache-busting query",
+      "private_receipt": "validator-home.txt"
+    },
+    {
+      "route": "speaking",
+      "errors": 0,
+      "warnings": 0,
+      "method": "Schema Markup Validator Fetch URL with public cache-busting query",
+      "private_receipt": "validator-speaking.txt"
+    },
+    {
+      "route": "article",
+      "errors": 0,
+      "warnings": 0,
+      "method": "Schema Markup Validator Fetch URL with public cache-busting query",
+      "private_receipt": "validator-article.txt"
+    }
+  ],
+  "linked_resources": {
+    "at": "2026-10-26T00:18:46.601611+00:00",
+    "results": [
+      {
+        "url": "https://bc-ai.ca/",
+        "status": 200,
+        "organization_id_present": true
+      },
+      {
+        "url": "https://i.ytimg.com/vi/hYT-hsml_ds/maxresdefault.jpg",
+        "status": 200
+      },
+      {
+        "url": "https://i.ytimg.com/vi/-c7mgY2aSgM/maxresdefault.jpg",
+        "status": 200
+      },
+      {
+        "url": "https://www.youtube-nocookie.com/embed/hYT-hsml_ds",
+        "status": 200
+      },
+      {
+        "url": "https://www.youtube-nocookie.com/embed/-c7mgY2aSgM?start=11",
+        "status": 200
+      }
+    ]
+  },
+  "manual_cache_purge": false,
+  "private_packet": ".generated/current-state/schema-1089-2026-10-25/"
+}

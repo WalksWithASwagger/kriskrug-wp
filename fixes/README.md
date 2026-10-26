@@ -50,7 +50,7 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 
 | File | Purpose | Live? | Snippet ID | Last verified | Evidence |
 |---|---|---|---|---|---|
-| `schema-snippets-deployed.php` | **Canonical** Person / WebSite / BlogPosting / Breadcrumb / Service JSON-LD plus prepared Speaking `VideoObject` records | **Live through Service; #641 additions and 2026-09-27 Person entity consolidation prepared, not live** | 5 | live 2026-08-16; prep 2026-08-27, 2026-09-27; save preflight 2026-09-30 | Rendered JSON-LD matches the pre-#641 values, block set and key order, incl. `Person.image` appended last and the #425 `BlogPosting` default. The two Speaking `VideoObject` records have not been applied. They require the separate gate in `issue-641-speaking-video-schema-handoff-2026-08-27.md`. The 2026-09-27 `worksFor` / `sameAs` changes (file header) also await a KK-approved snippet save. Current save packet: `issue-1089-schema-save-preflight-2026-09-29.md` (#1104 / #1089). Live `data-jetpack-boost="ignore"` is Boost-injected, not authored here. |
+| `schema-snippets-deployed.php` | **Canonical** Person / WebSite / BlogPosting / Breadcrumb / Service JSON-LD and Speaking `VideoObject` records | **Live, including Person consolidation and Speaking videos** | 5 | saved 2026-10-25 | KK-directed Varlock save, exact authenticated source readback, four-route public checks and zero-error Schema Markup Validator results: [release receipt](../docs/current-state/reports/schema-1089-release-2026-10-25.md). The follow-up header is documentation only; executable bytes match the saved payload. Historical approval packet: `issue-1089-schema-save-preflight-2026-09-29.md`. Live `data-jetpack-boost="ignore"` is Boost-injected. |
 | `schema-snippets.php` | Reference / future mu-plugin draft of the same schema | **Not live** | none | 2026-08-15 | Gated on `kk_schema_is_ready()`, still full of `VERIFY-ME`, so it would emit nothing. Live `worksFor` / `sameAs` contradict it. Open issue #741 retains the authenticated-body proof and deletion/pointer decision |
 | `asset-diet-snippet.php` | Drops unused Jetpack / Popup Maker / jQuery Migrate CSS+JS | **Live** | 10 | not re-checked here | `docs/current-state/archive/WORK-PLAN-2026-07-01.md`, `docs/current-state/AURORA-STYLESHEET-DECISION-2026-08-02.md`. Not modified by the separate #706 closeout. |
 | `issue-706-script-diet-snippet.php` | Delays Site Kit gtag until first interaction or three-second idle; paired with the disabled WPCode Meta Pixel | **Live** | 22 | public render 2026-08-28 | [`issue-706-script-diet.md`](issue-706-script-diet.md) and [`../docs/current-state/reports/issue-706-script-diet-apply-20260817.md`](../docs/current-state/reports/issue-706-script-diet-apply-20260817.md); #706 closed after KK accepted the PSI trace caveat |
@@ -76,8 +76,10 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 **Reading the "Live?" column.** "Live" means current production behaviour matches
 this file. "Active in the capture" means only that the committed authenticated
 2026-07-24 inventory recorded the Code Snippet slot as enabled. Neither phrase
-means the bodies are byte-identical, because no snippet body was read back live in
-this pass. The live JSON-LD wrapper
+means the bodies are byte-identical in the original inventory pass. Snippet 5's
+October 25 release is an exception: its authenticated body was read back and
+verified against the approved payload, as recorded in the linked receipt.
+The live JSON-LD wrapper
 `<script data-jetpack-boost="ignore" type="application/ld+json">` is
 **Boost-injected** (issue #758): Jetpack Boost's Defer JS pipeline stamps
 that attribute onto `application/ld+json` (also `application/json` and
