@@ -18,7 +18,9 @@ JAVASCRIPT_FILES := \
 	theme/kk-aurora/assets/js/micro-interactions.js \
 	theme/kk-aurora/assets/js/theme.js \
 	fixes/issue-1090-success-event.js \
-	scripts/tests/issue_1090_success_event_harness.cjs
+	fixes/issue-1090-krug-signup-tag.js \
+	scripts/tests/issue_1090_success_event_harness.cjs \
+	scripts/tests/issue_1090_krug_signup_harness.cjs
 
 # Default target
 .DEFAULT_GOAL := help
@@ -63,6 +65,7 @@ javascript-syntax: ## Check committed JavaScript syntax
 	if [ "$$status" -ne 0 ]; then echo "javascript-syntax: FAILED (see errors above)"; exit 1; fi
 	@node scripts/tests/issue_706_script_diet_harness.cjs
 	@node scripts/tests/issue_1090_success_event_harness.cjs
+	@node scripts/tests/issue_1090_krug_signup_harness.cjs
 	@node scripts/tests/test_events_rolloff_browser.cjs
 
 php-syntax: ## Run php -l across all tracked PHP in inc/, plugins/, theme/, fixes/

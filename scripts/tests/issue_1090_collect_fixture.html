@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'none'; style-src 'unsafe-inline';"><title>KRÜG conversion transport fixture</title><style>body{font:18px sans-serif;max-width:950px;margin:40px auto}button{padding:12px;margin:5px}pre{font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}</style>
+<h1>KRÜG conversion transport fixture</h1><p>Local synthetic data only. CSP blocks all outgoing connections, images and frames. Google's tag code is served locally.</p>
+<p><label><input id="consent" type="checkbox" checked> Both Beehiiv consent choices granted</label></p>
+<button id="click">Outbound click</button><button id="failure">Failed submit</button><button id="success">Provider signedUp</button><button id="duplicate">Repeat provider callback</button><button id="redirect">Email-bearing redirect</button>
+<p id="status">No conversion sent.</p><pre id="records">[]</pre>
+<script>
+window.dataLayer=[]; window.captured=[];
+function capture(url,body){
+  Promise.resolve(body instanceof Blob?body.text():String(body||'')).then(text=>{
+    window.captured.push({url:String(url),body:text});
+    document.getElementById('records').textContent=JSON.stringify(window.captured,null,2);
+    const count=window.captured.filter(x=>new URL(x.url).hostname==='www.google-analytics.com'&&/(?:[?&]|^)en=krug_newsletter_signup(?:&|$)/.test(x.url+'&'+x.body)).length;
+    document.getElementById('status').textContent=count+' captured signup request(s); zero sent to Google.';
+  });
+}
+Object.defineProperty(navigator,'sendBeacon',{value:(url,body)=>{capture(url,body);return true;}});
+window.fetch=(url,options={})=>{capture(url,options.body);return Promise.resolve(new Response(null,{status:204}));};
+window.Image=function(){Object.defineProperty(this,'src',{set:url=>capture(url,'')});};
+const fakeWindow={location:{hostname:'vancouver.beehiiv.com',pathname:'/subscribe'},dataLayer:window.dataLayer};
+const fakeDocument={referrer:'https://kriskrug.co/subscribe/?email=private@example.test#private',createElement:document.createElement.bind(document),head:{appendChild(script){
+  if(script.src!=='https://www.googletagmanager.com/gtag/js?id=G-ZPQP315FNS')throw Error('Unexpected script');
+  script.src='/gtag-krug.js';document.head.appendChild(script);
+}}};
+Object.defineProperty(fakeDocument,'cookie',{get:()=>document.getElementById('consent').checked?'beehiiv_honey='+encodeURIComponent(JSON.stringify({marketing:true,dataProcessing:true})):''});
+function deliver(event){window.dataLayer.push({event,eventProps:{email:'private@example.test',name:'Fixture Person'}});if(event==='signedUp')window.runTag(fakeWindow,fakeDocument);}
+document.getElementById('click').onclick=()=>deliver('click');
+document.getElementById('failure').onclick=()=>deliver('error');
+document.getElementById('success').onclick=()=>deliver('signedUp');
+document.getElementById('duplicate').onclick=()=>deliver('signedUp');
+document.getElementById('redirect').onclick=()=>history.pushState({},'', '/collect-fixture.html?email=private@example.test#private');
+</script><script src="/tag-wrapper.js"></script></html>

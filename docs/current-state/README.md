@@ -23,8 +23,10 @@ ALL IN proposal is retained in PR #1141's unpublished review package; its
 preparation issue is closed. [Work and Subscribe](reports/work-subscribe-release-2026-10-25.md)
 are repaired, personal signup routes to KRÜG, and the
 [Publications alignment repair](reports/publications-layout-release-2026-10-25.md)
-fits desktop, tablet and mobile. #1090 still needs an actual signup-success signal
-and conversion choice; outbound clicks are not subscriptions. Editorial and
+fits desktop, tablet and mobile. For [#1090](reports/krug-conversion-1090-2026-10-25.md),
+Kris chose completed KRÜG signups. The GA4 key event and isolated stream are set up;
+provider-side tag activation awaits a personal GTM account and its terms.
+Outbound clicks are not subscriptions. Editorial and
 featured-image choices remain in the completed #1106 and #1115 review reports.
 
 Read these first:
