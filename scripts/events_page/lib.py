@@ -9,6 +9,14 @@ from typing import Any
 
 import yaml
 
+from catalog_contract import (
+    index_events,
+    merge_event,
+    normalize_contract,
+    normalize_status,
+    validate_editions,
+)
+
 HERE = Path(__file__).resolve().parent
 REPO_ROOT = HERE.parents[1]
 DEFAULT_KK_KB = Path("/Users/kk/Code/kk-kb")
@@ -95,7 +103,7 @@ def dump_yaml(data: Any, path: Path) -> None:
 
 def _norm_event(raw: dict[str, Any]) -> dict[str, Any]:
     event = dict(raw)
-    event.setdefault("status", "confirmed")
+    event["status"] = normalize_status(event.get("status"))
     event.setdefault("kind", "one-off")
     event.setdefault("bucket_hint", "past")
     event.setdefault("tags", [])
@@ -109,7 +117,7 @@ def _norm_event(raw: dict[str, Any]) -> dict[str, Any]:
 def _edition_to_event(raw: dict[str, Any]) -> dict[str, Any] | None:
     """Normalize a harvest meetup-editions.yaml row (or catalog-shaped meetup)."""
     if raw.get("id") and (raw.get("kind") or raw.get("end") or raw.get("image")):
-        return _norm_event(raw)
+        return dict(raw)
 
     edition = raw.get("edition")
     if edition is None:
@@ -121,8 +129,6 @@ def _edition_to_event(raw: dict[str, Any]) -> dict[str, Any] | None:
 
     date = raw.get("date")
     end = raw.get("end")
-    if not end and date:
-        end = f"{date}T22:00:00-07:00"
 
     image: dict[str, Any] = {}
     if isinstance(raw.get("image"), dict):
@@ -142,31 +148,26 @@ def _edition_to_event(raw: dict[str, Any]) -> dict[str, Any] | None:
         image["alt"] = raw.get("title") or f"Vancouver AI Community Meetup #{edition_i}"
 
     url = raw.get("url") or raw.get("luma_url") or "https://lu.ma/vancouver-ai"
-    confidence = (raw.get("date_confidence") or "").lower()
-    status = raw.get("status") or (
-        "scaffold" if confidence in {"approximate", "soft"} else "confirmed"
-    )
-
-    return _norm_event(
-        {
-            "id": raw.get("id") or f"van-ai-meetup-{edition_i:02d}",
-            "title": raw.get("title") or f"Vancouver AI Community Meetup #{edition_i}",
-            "date": date,
-            "end": end,
-            "bucket_hint": raw.get("bucket_hint") or "past",
-            "kind": "meetup",
-            "edition": edition_i,
-            "role": raw.get("role") or "Host & curator",
-            "url": url,
-            "image": image,
-            "blurb": raw.get("blurb") or raw.get("notes") or "",
-            "label": raw.get("label") or raw.get("notes") or "",
-            "tags": raw.get("tags") or ["Meetup", "Vancouver"],
-            "status": status,
-            "cta_past": raw.get("cta_past") or "Recap / Luma",
-            "date_confidence": raw.get("date_confidence"),
-        }
-    )
+    return {
+        "id": raw.get("id") or f"van-ai-meetup-{edition_i:02d}",
+        "title": raw.get("title") or f"Vancouver AI Community Meetup #{edition_i}",
+        "date": date,
+        "end": end,
+        "bucket_hint": raw.get("bucket_hint") or "past",
+        "kind": "meetup",
+        "edition": edition_i,
+        "role": raw.get("role") or "Host & curator",
+        "url": url,
+        "image": image,
+        "blurb": raw.get("blurb") or raw.get("notes") or "",
+        "label": raw.get("label") or raw.get("notes") or "",
+        "tags": raw.get("tags") or ["Meetup", "Vancouver"],
+        "status": raw.get("status"),
+        "docs": raw.get("docs"),
+        "recap_url": raw.get("recap_url"),
+        "cta_past": raw.get("cta_past") or "Recap / Luma",
+        "date_confidence": raw.get("date_confidence"),
+    }
 
 
 def merge_meetup_editions(
@@ -177,8 +178,9 @@ def merge_meetup_editions(
         return catalog_events
 
     editions = editions_doc.get("editions") or editions_doc.get("events") or []
-    by_id = {e["id"]: _norm_event(e) for e in catalog_events if e.get("id")}
+    by_id = index_events([_norm_event(e) for e in catalog_events], "catalog")
 
+    claimed = set()
     for raw in editions:
         if not isinstance(raw, dict):
             continue
@@ -186,22 +188,13 @@ def merge_meetup_editions(
         if not event:
             continue
         eid = event["id"]
+        if eid in claimed:
+            raise SystemExit(f"Duplicate harvest id '{eid}'")
+        claimed.add(eid)
         if eid in by_id:
-            merged = dict(by_id[eid])
-            for key, value in event.items():
-                if value in (None, "", [], {}):
-                    continue
-                if key == "image":
-                    img = dict(merged.get("image") or {})
-                    for k, v in value.items():
-                        if v not in (None, ""):
-                            img[k] = v
-                    merged["image"] = img
-                else:
-                    merged[key] = value
-            by_id[eid] = merged
+            by_id[eid] = merge_event(by_id[eid], event)
         else:
-            by_id[eid] = event
+            by_id[eid] = _norm_event(event)
 
     return list(by_id.values())
 
@@ -235,7 +228,7 @@ def merge_fragments(
     New ids append in fragment-file order. The same id declared by two
     fragment rows is a hard error.
     """
-    by_id = {e["id"]: _norm_event(e) for e in catalog_events if e.get("id")}
+    by_id = index_events([_norm_event(e) for e in catalog_events], "catalog")
     claimed_by: dict[str, str] = {}
 
     for name, events in fragments:
@@ -250,19 +243,7 @@ def merge_fragments(
                 )
             claimed_by[eid] = name
             if eid in by_id:
-                merged = dict(by_id[eid])
-                for key, value in raw.items():
-                    if value in (None, "", [], {}):
-                        continue
-                    if key == "image":
-                        img = dict(merged.get("image") or {})
-                        for k, v in value.items():
-                            if v not in (None, ""):
-                                img[k] = v
-                        merged["image"] = img
-                    else:
-                        merged[key] = value
-                by_id[eid] = merged
+                by_id[eid] = merge_event(by_id[eid], raw)
             else:
                 by_id[eid] = _norm_event(raw)
 
@@ -276,6 +257,7 @@ def load_catalog(
     if not doc or not isinstance(doc, dict):
         raise SystemExit(f"Catalog missing or invalid: {path}")
     events = [_norm_event(e) for e in (doc.get("events") or [])]
+    index_events(events, "catalog")
     harvest = load_yaml(MEETUP_EDITIONS_PATH)
     if harvest:
         events = merge_meetup_editions(events, harvest)
@@ -286,7 +268,8 @@ def load_catalog(
     if fragments:
         events = merge_fragments(events, fragments)
     doc["_fragments_merged"] = [name for name, _ in fragments]
-    doc["events"] = events
+    validate_editions(events)
+    doc["events"] = [normalize_contract(event) for event in events]
     return doc
 
 

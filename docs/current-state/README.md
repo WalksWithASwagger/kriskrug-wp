@@ -30,6 +30,8 @@ conversion on page load; organic signup delivery remains to be observed.
 Outbound clicks are not subscriptions. The three [#834 brand-navigation links](reports/brand-navigation-834-release-2026-10-25.md) are live and verified, with prior authority links and article media preserved. Editorial and
 featured-image choices remain in the completed #1106 and #1115 review reports.
 
+The [#1099 Events catalog contract](reports/events-catalog-1099-2026-10-25.md) now fails closed on missing confirmation, validates documentation links, and preserves all current media. Its local render is unchanged; the prepared ALL IN record remains absent from the live page.
+
 Read these first:
 
 - **[WEEK-PLAN-2026-09-28.md](WEEK-PLAN-2026-09-28.md)**: September 28–October 4 priorities, September 29 maintenance receipt, safe branch cleanup, and the next focused session. The dated snapshot below remains the drift baseline; the September 9 runbook retains its specific live-lane procedures.

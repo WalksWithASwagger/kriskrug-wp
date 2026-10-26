@@ -46,11 +46,15 @@ Upcoming events render twice: as a spotlight card, and as a sheet tile held back
   blurb: "One or two sentences."
   label: "Nov 1 · Venue"
   tags: [Speaker, Vancouver]
-  status: confirmed                   # confirmed | proposed | unverified | placeholder | scaffold
-  edition: null                       # integer for Van AI meetups
+  status: confirmed                   # explicit; missing/unknown stays unconfirmed
+  edition: null                       # positive integer for Van AI meetups
+  docs:                               # optional, normalized to lists
+    recap: []                         # published coverage; one URL or a list
+    photos: []
+    video: []
 ```
 
-`proposed`, `unverified`, and `placeholder` are kept in the catalog for ops but **skipped** by the renderer (never land on the live page). Use `confirmed` (or `scaffold` for past archive gaps) for public cards.
+`confirmed` and `scaffold` are the only public statuses. Use `scaffold` only for historical archive gaps. Missing, malformed, or unknown status becomes `unconfirmed`; `unconfirmed`, `proposed`, `unverified`, `placeholder`, `draft`, `hidden`, and `omit` stay private. Date confidence and a publicly existing event do not establish Kris's participation.
 
 2. Put a hero on disk (prefer night photo > promo). Paths use roots from the catalog:
 
@@ -82,7 +86,56 @@ already-past North House record; no media sync or other record change is needed.
 
 ## Harvest merge
 
-If `meetup-editions.yaml` exists (harvest agent output: editions `#1`–`#31` with `hero_image_kk_kb` / `luma_url`), `load_catalog()` converts those rows into catalog events and merges them into Past (harvest wins on date/url/hero). Scaffold rows in `events-catalog.yaml` remain as fallback when harvest is absent. `sync_event_media.py --execute` materializes harvest-only rows into the catalog when writing media IDs back.
+`events-catalog.yaml` is the authoritative catalog. `meetup-editions.yaml`
+and lexically sorted `fragments/*.yaml` enrich it by stable `id`; there is no
+second `events.yaml`. Base rows load first, harvest second, fragments last.
+Non-empty later values win (including conflicting dates); `image` and `docs`
+merge by nested key. Empty values never erase an earlier value. Every ID must
+be unique within its source, and each numbered meetup has one identity after
+merging. Conflicting dates are resolved by this stated precedence and remain
+subject to final date validation; they are not silently appended as new events.
+
+Confirmation is an exception to enrichment precedence. An existing private or
+unconfirmed row cannot become public through a later source, even if that source
+says `confirmed`. Change the authoritative row only after confirmation. A patch
+without status preserves existing status. New harvest/fragment rows without an
+explicit public status remain unconfirmed. `date_confidence` never grants
+confirmation, and harvest conversion no longer invents a 22:00 end time.
+`sync_event_media.py --execute` can materialize harvest-only rows into the catalog;
+it remains a separately approved media operation.
+
+### Input contract for #1100
+
+`catalog_contract.py` validates merged records at the loader boundary. The
+renderer imports its shared status predicate so literal `unconfirmed` cannot
+slip through while #1100 is being completed.
+
+| Field | Contract |
+|---|---|
+| `id`, `title` | Stable source identity and display title; duplicate or absent IDs fail loading |
+| `date` | ISO calendar start date; optional only for a private row or explicitly past scaffold |
+| `end` | Optional ISO end date or timezone-aware timestamp, never before `date`; no synthetic time is inserted |
+| `venue`, `city`, `role` | Optional source-backed text; absence does not imply a venue or role |
+| `kind`, `edition`, `series` | Existing kind/edition are retained; optional series text; edition is a unique positive integer |
+| `status` | Explicit confirmation as above; invalid/missing values fail closed |
+| `url` | Original event/registration source, retained for registration and hero fetch |
+| `image` | Existing path, public URL, media ID, alt, photographer and rights/source fields retained unchanged |
+| `recap_url` | Compatible canonical recap on exact host `kriskrug.co`, HTTPS only |
+| `docs.recap`, `docs.photos`, `docs.video` | Optional HTTPS URL or list of URLs; normalized to three lists, with empty lists for absent slots |
+
+Documentation links reject relative paths, non-HTTPS schemes, credentials,
+nonstandard ports, local/private addresses, whitespace and markup delimiters.
+`docs.recap` may contain external coverage such as bc-ai.ca. Legacy `recap_url`
+remains the canonical primary recap and is included first in `docs.recap`, with
+exact duplicates removed. Multiple recaps support a multi-post event series.
+None of these fields replaces `url`. #1100 owns rendering the independent links.
+Missing art remains an honest record without a fabricated frame or credit.
+
+The #1108 batch (Meetup #32, #33, Prompt Victoria and Capilano recap) is already
+present and tested. Do not repeat #1018's Prompt Victoria addition. The dated
+[October 25 reconciliation](../../docs/current-state/reports/events-catalog-1099-2026-10-25.md)
+records the catalog/live difference and pending owner choices. A local render
+is a review artifact, not evidence of a WordPress save.
 
 ## Rolloff
 

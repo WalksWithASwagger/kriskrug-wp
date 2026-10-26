@@ -153,7 +153,7 @@ class MergeById(unittest.TestCase):
         )
         appended = merged[2]
         # Appended rows are normalized with the catalog defaults.
-        self.assertEqual(appended["status"], "confirmed")
+        self.assertEqual(appended["status"], "unconfirmed")
         self.assertEqual(appended["bucket_hint"], "past")
         self.assertEqual(appended["image"], {})
 
