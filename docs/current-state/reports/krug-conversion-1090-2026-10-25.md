@@ -2,8 +2,9 @@
 
 Refs #1090. Kris selected **completed personal KRÜG newsletter signups**, excluding
 link clicks, and authorized implementation and shipping. This supersedes the
-September conversion-choice and GA4-save handoff. New service terms and production
-test signups are not covered by that authorization.
+September conversion-choice and GA4-save handoff. Kris subsequently approved the
+personal GTM account and Google Tag Manager terms, then explicitly approved the
+additional Data Processing Terms. No production test signup was submitted.
 
 ## Applied and verified
 
@@ -17,12 +18,21 @@ test signups are not covered by that authorization.
   **active**, zero connected tags and no data received. The six existing streams
   were not changed. The optional Google-tag setup panel reported no permission;
   the stream configuration itself saved and was independently read back.
-- **Signup collection is not live.** GA4 is configured; the candidate tag below is
-  not installed or published. Keep #1090 open.
+- **The collection installation is live.** Personal GTM account `6399923946`,
+  container `283573969` / **`GTM-MGD93937`**, published **version 2**. The native
+  Beehiiv Cookie Banner is enabled and its GTM pixel contains this container ID.
+  Both persisted after reload. Keep #1090 open until organic delivery is observed.
+- Public `/subscribe` readback showed no GTM script before consent, then exactly
+  the new container after acceptance. The GA4 loader remained absent. Live Tag
+  Assistant connected to this container and showed **Tags Fired: None** and the
+  signup tag under **Tags Not Fired** on page load.
 
 Varlock doctor passed with warnings for preserved unrelated local files. The
-managed-worktree public status check passed WordPress smoke; its draft counts were
-unavailable because that invocation did not inherit credentials. The Beehiiv
+initial managed-worktree public status check passed WordPress smoke; its draft
+counts were unavailable because that invocation did not inherit credentials. A
+fresh original-checkout status run resolved all sources through the existing
+runtime; its only smoke failure was the stale declared WordPress version (expected
+7.0.5, observed 7.0.7). The Beehiiv
 connector supplied publication/settings readback; browser admin was needed because
 it cannot edit live legacy pixels. Existing sign-ins were used, with no credential
 values displayed or copied.
@@ -31,8 +41,9 @@ values displayed or copied.
 
 Personal publication `pub_4a933c7c-085f-4794-a0d8-6649f2e78f3a` is KRÜG at
 `vancouver.beehiiv.com`. Its live builder is legacy. Double opt-in and subscriber
-approval are off. All six legacy pixel fields were empty; Cookie Banner was off.
-No Beehiiv setting was changed during preparation.
+approval are off. Before deployment all six legacy pixel fields were empty and
+Cookie Banner was off. Deployment changed only Cookie Banner and the GTM field;
+the native GA4 and other pixel fields remain empty.
 
 [Beehiiv documents the case-sensitive `signedUp` custom event](https://www.beehiiv.com/support/article/14493016863127-how-to-set-up-subscriber-sign-up-tracking-for-ig-and-fb-for-a-legacy-website).
 The public October 22 bundles `CreateAction-BGxfy4WK.js` and `types-B-nLKI8t.js`
@@ -46,25 +57,28 @@ provider event properties, email, name, subscriber ID, form fields or monetary
 value. The isolated stream disables enhanced measurement; the tag also sets
 `send_page_view: false` and disables advertising signals.
 
-## Prepared deployment
+## Deployed tag
 
 - [Tag source](../../../fixes/issue-1090-krug-signup-tag.js) and
-  [candidate GTM import](../../../fixes/issue-1090-krug-signup-gtm.json).
+  [GTM import](../../../fixes/issue-1090-krug-signup-gtm.json).
 - Exact `signedUp` event on `vancouver.beehiiv.com`; runtime limited to current
   hosted signup routes `/` and `/subscribe[/]`.
 - Once per page load, with a second runtime guard for duplicate evaluation.
   Two different people subscribing within one loaded page would count once. This
   is conservative deduplication, not a persistent subscriber-ID deduplicator.
 - Both `marketing` and `dataProcessing` consent must explicitly be true. Missing,
-  denied or malformed consent emits nothing. Enable Beehiiv's native Cookie Banner
-  before installing GTM; leave its native GA4 pixel field empty.
+  denied or malformed consent emits nothing. Beehiiv's native Cookie Banner was
+  enabled before installing GTM; its native GA4 pixel field remains empty.
 - Offline harness is included in `make javascript-syntax`. It executes the actual
   source with network-free stubs and the exported trigger. Coverage includes page
   load, clicks, submit/error events, wrong host/path/event, consent denial,
   duplicate callbacks and PII exclusion. No production signup or synthetic
   Analytics event was sent.
-- GTM import, Preview and real delivery remain unverified. Local harness success
-  does not establish that a real Beehiiv signup reached GA4.
+- Google accepted the import with **2 additions, 0 modifications, 0 deletions**
+  using Merge into the new empty workspace. Default built-in variables were
+  preserved. Version 2 is published; the current workspace has zero changes.
+- Live Preview confirms connection and no conversion on load. An actual Beehiiv
+  signup reaching GA4 remains unverified; no synthetic event was sent to Google.
 
 The [local browser fixture](../../../scripts/tests/issue_1090_collect_fixture.html)
 also ran the actual Google tag downloaded for `G-ZPQP315FNS`, served locally.
@@ -84,21 +98,35 @@ the exact candidate source and `};`. Serve only that directory on `127.0.0.1`.
 Use the visible controls, inspecting GA4 requests separately from consent pings.
 The fixture uses synthetic provider callbacks; it does not test Beehiiv's server.
 
-## Remaining activation
+## Activation verification
 
-The signed-in `kk@bc-ai.ca` GTM account has no containers. Its pending invitation
-belongs to BC + AI and was left untouched. Proposed personal account: **KRÜG**,
-country **Canada**, container **vancouver.beehiiv.com**, platform **Web**, optional
-data sharing off. Creating it requires accepting
-[Google's Tag Manager terms](https://www.google.com/analytics/terms/tag-manager/).
-The browser action policy requires Kris's confirmation for this new agreement.
+Account **KRÜG**, country **Canada**, container **vancouver.beehiiv.com**, platform
+**Web**, optional data sharing off. The unrelated BC + AI invitation was untouched.
+The initial DPA action was rejected by automatic approval review because that
+additional agreement had not been explicitly approved. Kris then approved it;
+account creation succeeded. Both approval receipts are in the chat.
 
-After confirmation: import into an empty workspace, verify the exact tag/trigger,
-enable the native cookie banner, publish the container, then save its assigned GTM
-ID in the personal KRÜG legacy pixel field. Read back settings and the public page.
-Repeat the isolated transport check if the imported tag or provider behavior
-differs from this candidate. Do not modify WordPress Site Kit or Snippet 22.
-Verify organic success delivery without manufacturing a DebugView signup.
+Published version 2 is named **KRÜG completed signup — #1090**. Google compiled the
+same tag and exact `signedUp`/hostname trigger from PR #1147. A second isolated
+fixture exercised the **published GTM container**, including its event queue and
+compiled Custom HTML, with the real Google SDK. Only the three personal-hostname
+occurrences were replaced with `127.0.0.1` in the local test copy; production code
+was unchanged. All outgoing fetch/beacon/image traffic was captured and CSP
+blocked external connections. This addresses the command-ordering warning GTM
+shows for `gtag` in Custom HTML in the tested single-tag container; it does not
+prove future integrations will preserve that ordering.
+
+Results: no requests on load/click/error; one GA4 signup request on `signedUp`;
+repeated callbacks and an email-bearing redirect added none; denied consent
+produced zero requests. The separate consent-mode ping was present, as in the
+standalone test. Neither payload contained the fixture email, name, form fields,
+query string or fragment. No production signup or synthetic GA event was sent.
+
+Public browser readback and connected Tag Assistant confirm installation. Direct
+Python HTML retrieval returned HTTP 403; browser verification supplied the public
+evidence. WordPress Site Kit and Snippet 22 were not changed. **Remaining: observe
+an organic, consented `krug_newsletter_signup` in GA4 and verify the completed
+subscription in Beehiiv before closing #1090.**
 
 This stream does not stitch the WordPress session across domains. Reports must
 distinguish the signup stream from exact-host WordPress traffic. Beehiiv remains
@@ -108,9 +136,9 @@ the tag and use the provider's confirmed/active signal instead.
 
 ## Rollback and evidence
 
-The inert key event can be unmarked without deleting data. Retain the unused
-stream; no historical data needs deletion. After activation, clear only the
-personal publication's GTM field or pause this tag and publish a new version.
+To stop collection, clear only the personal publication's GTM field or pause this
+tag and publish a new version. GTM version 1 is the empty-container rollback.
+Retain the GA4 stream and historical data; the key event can be unmarked if needed.
 Preserve the export and prior settings. Leave Cookie Banner enabled so visitor
 privacy choices remain available.
 
