@@ -29,6 +29,7 @@ function loadScriptSource() {
   );
   return match[1]
     .replace("%(preview_rows)d", "4")
+    .replace("%(next_up_limit)d", "4")
     .replace(/^\s*<script>/, "")
     .replace(/<\/script>\s*$/, "");
 }
@@ -63,10 +64,17 @@ function el(tag, attrs, children) {
       delete node.attrs[name];
     },
   };
+  node.querySelector = (selector) => query(node, selector);
+  node.querySelectorAll = (selector) => queryAll(node, selector);
   return node;
 }
 
 function matches(node, selector) {
+  const cls = selector.match(/^\.([\w-]+)(?:\[([\w-]+)\])?$/);
+  if (cls) return (node.attrs.class || "").split(" ").includes(cls[1]) &&
+    (!cls[2] || Object.hasOwn(node.attrs, cls[2]));
+  const count = selector.match(/^\[data-events-count="([^"]+)"\]$/);
+  if (count) return node.attrs["data-events-count"] === count[1];
   if (selector === ".aurora-events-page") return node.tag === "page";
   if (selector === '[data-events-grid="sheet"]') {
     return node.attrs["data-events-grid"] === "sheet";
@@ -156,10 +164,14 @@ function makeDom(nowMs) {
     { "data-events-bucket": "upcoming", "data-events-empty": "false" },
     [upcomingGrid],
   );
+  const pastRow = el("li", {class: "kk-ev-rec", "data-event-end": "2026-10-01T00:00:00-07:00", "data-event-edition": "33"});
+  const futureRow = el("li", {class: "kk-ev-rec", "data-event-end": "2026-10-31T00:00:00-07:00"});
+  const year = el("div", {class: "kk-ev-rec-year"}, [pastRow, futureRow]);
+  const counts = Object.fromEntries(["rooms", "editions", "frames"].map(key => [key, el("b", {"data-events-count": key})]));
   const page = el("page", { class: "aurora-events-page" }, [
     upcomingBucket,
     sheetGrid,
-    sheetToggle,
+    sheetToggle, year, ...Object.values(counts),
   ]);
   page.querySelector = (sel) => query(page, sel);
   page.querySelectorAll = (sel) => queryAll(page, sel);
@@ -221,6 +233,7 @@ function makeDom(nowMs) {
   };
 
   return {
+    pastRow, futureRow, counts,
     pastCard,
     futureCard,
     pastTile,
@@ -253,6 +266,11 @@ function testPastCardHidesOnInitAndReleasesItsTile() {
   dom.run();
   assert.equal(dom.pastCard.hidden, true);
   assert.equal(dom.futureCard.hidden, false);
+  assert.equal(dom.pastRow.hidden, false);
+  assert.equal(dom.futureRow.hidden, true);
+  assert.equal(dom.counts.rooms.textContent, "1");
+  assert.equal(dom.counts.editions.textContent, "1");
+  assert.equal(dom.counts.frames.textContent, "1");
   assert.equal(dom.pastTile.getAttribute("data-tile-upcoming"), null);
   assert.equal(dom.futureTile.getAttribute("data-tile-upcoming"), "true");
   assert.equal(dom.upcomingBucket.getAttribute("data-events-empty"), "false");
@@ -267,6 +285,10 @@ function testClockAdvanceWhileOpenHidesTheFestival() {
   dom.setNow(Date.parse("2026-10-31T00:00:00-07:00"));
   dom.fireTimeouts();
   assert.equal(dom.futureCard.hidden, true);
+  assert.equal(dom.futureRow.hidden, false);
+  assert.equal(dom.counts.rooms.textContent, "2");
+  assert.equal(dom.counts.editions.textContent, "1");
+  assert.equal(dom.counts.frames.textContent, "2");
   assert.equal(dom.futureTile.getAttribute("data-tile-upcoming"), null);
 }
 

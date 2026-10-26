@@ -11,7 +11,7 @@ Layout (2026-09-13 art direction):
 
 The contact sheet only ever shows real photographs. An event with no resolvable
 image is not given generated art; it lives in the record index instead. The
-index carries every public event, so nothing is lost by that exclusion.
+visible index carries past public events; future rows wait hidden for rolloff.
 """
 
 from __future__ import annotations
@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
 
-from catalog_contract import public_status
+from catalog_contract import documentation_url, normalize_docs, normalize_status, public_status
 
 from lib import (
     CATALOG_PATH,
@@ -50,9 +50,8 @@ PREVIEW_LOCAL = False
 def parse_end(event: dict[str, Any]) -> datetime | None:
     """Parse an event's end instant for display stamps.
 
-    Date-only rows still resolve to 21:00 America/Vancouver so the record
-    and sheet have a usable datetime. Rolloff does not use that invented
-    clock time; see ``rolloff_datetime``.
+    Date-only values use midnight solely for sorting/date formatting. No
+    event time is inferred or displayed; rolloff uses ``rolloff_datetime``.
     """
     raw = event.get("end") or event.get("date")
     if not raw:
@@ -65,7 +64,7 @@ def parse_end(event: dict[str, Any]) -> datetime | None:
                 dt = dt.replace(tzinfo=PT)
             return dt
         dt = datetime.fromisoformat(text).replace(
-            hour=21, minute=0, second=0, tzinfo=PT
+            hour=0, minute=0, second=0, tzinfo=PT
         )
         return dt
     except ValueError:
@@ -169,10 +168,8 @@ def year_of(event: dict[str, Any]) -> str:
 
 def event_url(event: dict[str, Any]) -> str:
     recap_url = event.get("recap_url")
-    if recap_url and (
-        not isinstance(recap_url, str) or not recap_url.startswith("https://kriskrug.co/")
-    ):
-        raise ValueError("recap_url must be an absolute HTTPS link on kriskrug.co")
+    if recap_url:
+        documentation_url(recap_url, canonical_recap=True)
     return str(recap_url or event.get("url") or "")
 
 
@@ -189,7 +186,7 @@ def edition_label(event: dict[str, Any]) -> str:
     return event.get("label") or month or ""
 
 
-def render_next_card(event: dict[str, Any], roots: dict[str, Path]) -> str:
+def render_next_card(event: dict[str, Any], roots: dict[str, Path], *, hidden: bool = False) -> str:
     """Big spotlight card for an upcoming event."""
     eid = html_escape(event.get("id") or "")
     end = html_escape(end_iso(event))
@@ -197,7 +194,7 @@ def render_next_card(event: dict[str, Any], roots: dict[str, Path]) -> str:
     label = html_escape(event.get("label") or edition_label(event))
     blurb = html_escape(event.get("blurb") or "")
     role = html_escape(role_line(event))
-    url = event_url(event)
+    url = str(event.get("url") or "")
     cta = html_escape(event.get("cta_upcoming") or "Register")
     src, alt = image_src(event, roots)
 
@@ -220,7 +217,8 @@ def render_next_card(event: dict[str, Any], roots: dict[str, Path]) -> str:
         if url
         else ""
     )
-    return f"""    <article class="kk-ev-next" data-event-end="{end}" data-event-id="{eid}">
+    state = " hidden" if hidden else ""
+    return f"""    <article class="kk-ev-next" data-event-end="{end}" data-event-id="{eid}"{state}>
 {art}
       <div class="kk-ev-next-body">
         <p class="kk-ev-next-when">{label}</p>
@@ -264,8 +262,17 @@ def render_tile(event: dict[str, Any], roots: dict[str, Path], *, upcoming: bool
       </article>"""
 
 
-def render_record_row(event: dict[str, Any]) -> str:
-    """One line in the complete record. Every public event gets one of these."""
+def render_documentation(event: dict[str, Any]) -> str:
+    links = []
+    for kind, urls in normalize_docs(event).items():
+        for index, url in enumerate(urls, start=1):
+            label = kind.capitalize() + (f" {index}" if index > 1 else "")
+            links.append(f'<a href="{html_escape(url)}">{label}</a>')
+    return f'<span class="kk-ev-rec-docs">{" · ".join(links)}</span>' if links else ""
+
+
+def render_record_row(event: dict[str, Any], *, upcoming: bool = False) -> str:
+    """Keep a future row hidden until the same cutoff that retires its card."""
     eid = html_escape(event.get("id") or "")
     end = html_escape(end_iso(event))
     title = html_escape(event.get("title") or "")
@@ -277,15 +284,19 @@ def render_record_row(event: dict[str, Any]) -> str:
         f'<a href="{html_escape(url)}">{title}</a>' if url else f"<span>{title}</span>"
     )
     role_html = f'<span class="kk-ev-rec-role">{role}</span>' if role else ""
+    edition = event.get("edition")
+    edition_attr = f' data-event-edition="{edition}"' if edition is not None else ""
+    state = " hidden" if upcoming else ""
     return (
-        f'        <li class="kk-ev-rec" data-event-end="{end}" data-event-id="{eid}">'
+        f'        <li class="kk-ev-rec" data-event-end="{end}" data-event-id="{eid}"{edition_attr}{state}>'
         f'<span class="kk-ev-rec-date">{day}</span>'
-        f'<span class="kk-ev-rec-title">{name}</span>{role_html}</li>'
+        f'<span class="kk-ev-rec-title">{name}</span>{role_html}{render_documentation(event)}</li>'
     )
 
 
-def render_record(events: list[dict[str, Any]]) -> str:
-    """Year-grouped index of everything, newest year first."""
+def render_record(events: list[dict[str, Any]], *, upcoming_ids: set | None = None) -> str:
+    """Year-grouped past index with hidden future rows for browser rollover."""
+    upcoming_ids = upcoming_ids or set()
     groups: dict[str, list[dict[str, Any]]] = {}
     for event in events:
         groups.setdefault(year_of(event), []).append(event)
@@ -295,9 +306,12 @@ def render_record(events: list[dict[str, Any]]) -> str:
 
     blocks = []
     for year in sorted(groups, key=year_key, reverse=True):
-        rows = "\n".join(render_record_row(e) for e in groups[year])
+        rows = "\n".join(
+            render_record_row(e, upcoming=e.get("id") in upcoming_ids) for e in groups[year]
+        )
+        state = " hidden" if all(e.get("id") in upcoming_ids for e in groups[year]) else ""
         blocks.append(
-            f"""      <div class="kk-ev-rec-year">
+            f"""      <div class="kk-ev-rec-year"{state}>
         <h3>{html_escape(year)}</h3>
         <ul>
 {rows}
@@ -305,7 +319,6 @@ def render_record(events: list[dict[str, Any]]) -> str:
       </div>"""
         )
     return "\n".join(blocks)
-
 
 PAGE_SCOPED_CSS = """
 <style>
@@ -524,7 +537,7 @@ PAGE_SCOPED_CSS = """
     text-transform: uppercase;
   }
   .kk-ev-next .kk-ev-btn { align-self: flex-start; margin-top: auto; }
-  [data-events-bucket="upcoming"][data-events-empty="true"] { display: none; }
+  [data-events-bucket="upcoming"][data-events-empty="true"] > :not(.kk-ev-stats) { display: none; }
 
   /* ---- rooms strip ---------------------------------------------------- */
   .kk-ev-rooms {
@@ -726,6 +739,9 @@ PAGE_SCOPED_CSS = """
     grid-template-columns: 3.6rem 1fr;
     padding: 0.3rem 0;
   }
+  .kk-ev-rec[hidden], .kk-ev-rec-year[hidden] { display: none; }
+  .kk-ev-rec-docs { grid-column: 2; font-size: 0.72rem; padding-top: 0.3rem; }
+  .kk-ev-rec-docs a { color: var(--ev-ink); text-decoration: underline; }
   .kk-ev-rec-date {
     color: var(--ev-ink-soft);
     font-size: 0.58rem;
@@ -798,6 +814,7 @@ ROLLOFF_SCRIPT = """
   if (!page) return;
 
   var PREVIEW_ROWS = %(preview_rows)d;
+  var NEXT_UP_LIMIT = %(next_up_limit)d;
   var sheetGrid = page.querySelector('[data-events-grid="sheet"]');
   var sheetToggle = page.querySelector('[data-events-sheet-toggle]');
   var upcomingGrid = page.querySelector('[data-events-grid="upcoming"]');
@@ -840,38 +857,54 @@ ROLLOFF_SCRIPT = """
       : 'Show all ' + tiles.length + ' frames';
   }
 
+  function setCount(name, value) {
+    Array.prototype.slice.call(page.querySelectorAll('[data-events-count="' + name + '"]')).forEach(function (node) {
+      node.textContent = String(value);
+    });
+  }
+
   function syncRolloff() {
     var now = Date.now();
-    // A spotlight card whose date has passed retires, and the matching sheet
-    // tile that was held back takes its place. No DOM is moved between grids.
-    Array.prototype.slice.call(page.querySelectorAll('.kk-ev-next[data-event-end]')).forEach(
-      function (card) {
-        var end = parseEnd(card.getAttribute('data-event-end'));
-        // Deliberately nested rather than a logical-and operator. WordPress
-        // rewrites a literal ampersand pair in post content into HTML entities,
-        // which is a SyntaxError that kills this whole script silently. Keep
-        // every ampersand out of this block; the render contract enforces it.
-        if (Number.isFinite(end)) {
-          if (end <= now) card.hidden = true;
+    var liveCards = 0;
+    Array.prototype.slice.call(page.querySelectorAll('.kk-ev-next[data-event-end]')).forEach(function (card) {
+      var end = parseEnd(card.getAttribute('data-event-end'));
+      card.hidden = true;
+      if (Number.isFinite(end)) {
+        if (end > now) {
+          card.hidden = liveCards >= NEXT_UP_LIMIT;
+          liveCards += 1;
         }
       }
-    );
-    Array.prototype.slice.call(
-      page.querySelectorAll('.kk-ev-tile[data-tile-upcoming="true"]')
-    ).forEach(function (tile) {
+    });
+    var frames = 0;
+    Array.prototype.slice.call(page.querySelectorAll('.kk-ev-tile[data-event-end]')).forEach(function (tile) {
       var end = parseEnd(tile.getAttribute('data-event-end'));
-      if (Number.isFinite(end)) {
-        if (end <= now) tile.removeAttribute('data-tile-upcoming');
+      var future = Number.isFinite(end) ? end > now : false;
+      if (future) tile.setAttribute('data-tile-upcoming', 'true');
+      else {
+        tile.removeAttribute('data-tile-upcoming');
+        frames += 1;
       }
     });
-
-    if (upcomingGrid) {
-      if (!upcomingBucket) return;
-      var live = Array.prototype.slice.call(upcomingGrid.children).some(function (card) {
-        return !card.hidden;
+    var rooms = 0;
+    var editions = 0;
+    Array.prototype.slice.call(page.querySelectorAll('.kk-ev-rec[data-event-end]')).forEach(function (row) {
+      var end = parseEnd(row.getAttribute('data-event-end'));
+      row.hidden = Number.isFinite(end) ? end > now : false;
+      if (!row.hidden) {
+        rooms += 1;
+        if (row.getAttribute('data-event-edition') !== null) editions += 1;
+      }
+    });
+    Array.prototype.slice.call(page.querySelectorAll('.kk-ev-rec-year')).forEach(function (year) {
+      year.hidden = !Array.prototype.slice.call(year.querySelectorAll('.kk-ev-rec')).some(function (row) {
+        return !row.hidden;
       });
-      upcomingBucket.setAttribute('data-events-empty', live ? 'false' : 'true');
-    }
+    });
+    setCount('rooms', rooms);
+    setCount('editions', editions);
+    setCount('frames', frames);
+    if (upcomingBucket) upcomingBucket.setAttribute('data-events-empty', liveCards ? 'false' : 'true');
   }
 
   function scheduleRolloff() {
@@ -934,7 +967,7 @@ ROLLOFF_SCRIPT = """
   }
 })();
 </script>
-""" % {"preview_rows": SHEET_PREVIEW_ROWS}
+""" % {"preview_rows": SHEET_PREVIEW_ROWS, "next_up_limit": NEXT_UP_LIMIT}
 
 
 def render_dynamic_block(
@@ -943,9 +976,11 @@ def render_dynamic_block(
     everything: list[dict[str, Any]],
     roots: dict[str, Path],
 ) -> str:
-    next_up = upcoming[:NEXT_UP_LIMIT]
-    next_cards = "\n".join(render_next_card(e, roots) for e in next_up)
-    up_empty = "false" if next_up else "true"
+    next_cards = "\n".join(
+        render_next_card(e, roots, hidden=index >= NEXT_UP_LIMIT)
+        for index, e in enumerate(upcoming)
+    )
+    up_empty = "false" if upcoming else "true"
 
     # Contact sheet: photographs only, newest first, upcoming held back until
     # its spotlight card retires.
@@ -956,14 +991,14 @@ def render_dynamic_block(
     )
     sheet_count = sum(1 for e in sheet_events if e.get("id") not in upcoming_ids)
 
-    editions = sum(1 for e in everything if e.get("edition") is not None)
+    editions = sum(1 for e in past if e.get("edition") is not None)
     stats = [
-        (len(everything), "rooms on record"),
-        (editions, "meetup editions"),
-        (sheet_count, "frames on the sheet"),
+        ("rooms", len(past), "rooms on record"),
+        ("editions", editions, "meetup editions"),
+        ("frames", sheet_count, "frames on the sheet"),
     ]
     stats_html = "\n".join(
-        f"      <li><b>{value}</b><span>{label}</span></li>" for value, label in stats
+        f'      <li><b data-events-count="{key}">{value}</b><span>{label}</span></li>' for key, value, label in stats
     )
 
     return f"""{PAGE_SCOPED_CSS}
@@ -1003,13 +1038,28 @@ def render_dynamic_block(
     </div>
     <div class="kk-ev-head">
       <h2 id="aurora-events-record">Everything, by year.</h2>
-      <p class="kk-ev-head-note">{len(everything)} rooms hosted, spoken at, or built.</p>
+      <p class="kk-ev-head-note"><span data-events-count="rooms">{len(past)}</span> rooms hosted, spoken at, or built.</p>
     </div>
     <div class="kk-ev-record-grid kk-ev-wide">
-{render_record(everything)}
+{render_record(everything, upcoming_ids=upcoming_ids)}
     </div>
   </section>
 {ROLLOFF_SCRIPT}"""
+
+
+def partition_events(events: list[dict[str, Any]], now: datetime) -> tuple[list, list, list]:
+    eligible = [e for e in events if public_status(e)]
+    # Scaffold rows document past archive gaps, never tentative future appearances.
+    eligible = [e for e in eligible if normalize_status(e.get("status")) != "scaffold" or is_past(e, now)]
+    everything = sorted(
+        eligible, key=lambda e: parse_end(e) or datetime.min.replace(tzinfo=timezone.utc),
+        reverse=True,
+    )
+    past = [e for e in everything if is_past(e, now)]
+    upcoming = [e for e in everything if not is_past(e, now)]
+    upcoming.sort(key=lambda e: datetime.fromisoformat(str(e["date"])).replace(tzinfo=PT)
+                  if e.get("date") else parse_end(e))
+    return upcoming, past, everything
 
 
 def inject_into_shell(shell: str, dynamic: str) -> str:
@@ -1056,21 +1106,7 @@ def main() -> int:
     else:
         now = datetime.now(tz=timezone.utc)
 
-    events = [e for e in catalog["events"] if public_status(e)]
-    upcoming = sorted(
-        [e for e in events if not is_past(e, now)],
-        key=lambda e: parse_end(e) or datetime.max.replace(tzinfo=timezone.utc),
-    )
-    past = sorted(
-        [e for e in events if is_past(e, now)],
-        key=lambda e: parse_end(e) or datetime.min.replace(tzinfo=timezone.utc),
-        reverse=True,
-    )
-    everything = sorted(
-        events,
-        key=lambda e: parse_end(e) or datetime.min.replace(tzinfo=timezone.utc),
-        reverse=True,
-    )
+    upcoming, past, everything = partition_events(catalog["events"], now)
 
     shell = args.shell.read_text(encoding="utf-8")
     dynamic = render_dynamic_block(upcoming, past, everything, roots)
