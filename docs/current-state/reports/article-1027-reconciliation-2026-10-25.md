@@ -1,5 +1,7 @@
 # Article 3: review-ticket reconciliation, October 25, 2026
 
+**Follow-up:** the [source-audio audit](article-1027-audio-audit-2026-10-25.md) now identifies two prepared corrections and records the remaining author decisions. The comparison below remains the version-reconciliation receipt.
+
 The existing publication already incorporates the eight quote passages and all 31 unique links highlighted in the latest #1027 review copy. Do not republish the older draft or restore its six-image assumption. This comparison found no missing quote or review link to repair; source-tape and consent acceptance remain separate review work.
 
 ## Version authority
