@@ -18,9 +18,7 @@ the deployed post/page-only sitemap policy; #331 remains an owner evidence/closu
 decision. The #1114 shared-cache delivery check completed at 19:45 UTC: all six
 normal and uncached routes serve the approved links, and the issue is closed.
 The September 9 runbook retains its exact live-lane safety procedures.
-The homepage copy/link release passed all 33 visual comparisons. #402's bounded
-ALL IN proposal is retained in PR #1141's unpublished review package; its
-preparation issue is closed. [Work and Subscribe](reports/work-subscribe-release-2026-10-25.md)
+The homepage copy/link release passed all 33 visual comparisons. #402's prepared ALL IN entry has now been approved and published with the November 25 meetup; see the [release receipt](reports/events-november-allin-release-2026-10-25.md). [Work and Subscribe](reports/work-subscribe-release-2026-10-25.md)
 are repaired, personal signup routes to KRÜG, and the
 [Publications alignment repair](reports/publications-layout-release-2026-10-25.md)
 fits desktop, tablet and mobile. For [#1090](reports/krug-conversion-1090-2026-10-25.md),
@@ -30,7 +28,7 @@ conversion on page load; organic signup delivery remains to be observed.
 Outbound clicks are not subscriptions. The three [#834 brand-navigation links](reports/brand-navigation-834-release-2026-10-25.md) are live and verified, with prior authority links and article media preserved. Editorial and
 featured-image choices remain in the completed #1106 and #1115 review reports.
 
-The [#1099 Events catalog contract](reports/events-catalog-1099-2026-10-25.md) now fails closed on missing confirmation, validates documentation links, and preserves all current media. The [#1100 record/counter release](reports/events-record-1100-2026-10-25.md) is live: past-only record and counters, browser rollover agreement, and independent documentation links. All 74 live IDs and existing media are preserved; the prepared ALL IN record remains absent from the live page. The [#1101 documentation backfill](reports/events-documentation-1101-2026-10-25.md) adds live Recap, Photos and Video links for meetup #32 and #33 and the publisher checklist; all four ALL IN articles are recorded only in its held catalog entry.
+The [#1099 Events catalog contract](reports/events-catalog-1099-2026-10-25.md) now fails closed on missing confirmation, validates documentation links, and preserves all current media. The [#1100 record/counter release](reports/events-record-1100-2026-10-25.md) is live: past-only record and counters, browser rollover agreement, and independent documentation links. That release preserved all 74 prior live IDs and existing media. The subsequent [approved November/ALL IN release](reports/events-november-allin-release-2026-10-25.md) brings the live set to 76 IDs, with 72 past rooms, four upcoming cards and 13 documentation links. The [#1101 documentation backfill](reports/events-documentation-1101-2026-10-25.md) adds live Recap, Photos and Video links for meetup #32 and #33 and the publisher checklist; all four ALL IN articles now appear as live documentation links after its separate inclusion approval.
 
 The [pre-Futureproof follow-through receipt](reports/kriskrug-futureproof-followthrough-2026-10-25.md) records the shipped work, active signup monitor and weekly Events proposals, plus the remaining owner decisions. [First-practice preparation #1105](reports/practice-release-preparation-1105-2026-10-25.md) is complete; #983 still needs exact copy/live approval and genuine study evidence. The compatible [test dependency patch](reports/practice-dependency-patch-2026-10-25.md) audits clean and leaves the production plugin unchanged.
 

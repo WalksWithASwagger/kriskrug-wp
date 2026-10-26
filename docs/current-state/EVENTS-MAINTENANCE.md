@@ -20,8 +20,8 @@ When a new confirmation arrives in an active authorized session, run steps 3–7
 
 These are operating hooks, not installed webhooks. The scheduled worker is weekly; it does not promise instant inbox/iMessage monitoring or guaranteed day-after execution. #1102 remains open for a separately scoped event-driven intake integration if that stronger cadence is required. Do not expand the weekly heartbeat's access or create watchers silently.
 
-## Current baseline and first proposal
+## Current baseline and applied first proposal
 
-The September 29 first batch is already covered by merged #1108; #1099, #1100 and #1101 complete the data contract, live record/counters and documentation backfill. Do not repeat those fixes. The live page retains 74 IDs, with 71 past rooms, 33 meetup editions and 39 frames at the October 25 check.
+The September 29 first batch is already covered by merged #1108; #1099, #1100 and #1101 complete the data contract, live record/counters and documentation backfill. Do not repeat those fixes.
 
-The [October 25 sweep receipt](reports/events-maintenance-1102-2026-10-25.md) records a new November 25 meetup proposal. The [exact patch](proposals/events-1102-november-meetup.patch) is review material only. Prepared ALL IN and unconfirmed appearances remain absent from production. Reconcile all baselines at each future run; these counts are dated evidence.
+Kris approved the November 25 meetup and ALL IN entries, and both are now live. The [October 25 release receipt](reports/events-november-allin-release-2026-10-25.md) records 76 retained IDs, 72 past rooms, 33 meetup editions, 39 frames, four upcoming cards and 13 documentation links. The [original proposal patch](proposals/events-1102-november-meetup.patch) is already applied; do not apply it again. The weekly heartbeat and private maintenance state recognize this release. TruNorth and other unconfirmed appearances remain excluded. Reconcile all baselines at each future run; these counts are dated evidence.
