@@ -41,4 +41,4 @@ The private packet is `/Users/kk/Code/kriskrug-wp/.generated/current-state/brand
 
 Use `scripts/apply_issue_834_brand_links.py --id <ID> --restore <snapshot>` through Varlock for a dry-run. Add `--apply` only for an authorized rollback. It refuses to restore over newer content. The helper compares a fresh read immediately before its single POST; WordPress does not provide an atomic compare-and-swap for this operation, so do not run concurrent editors on these posts. Ambiguous writes are never replayed; inspect live state first.
 
-The exact operation and identity/hash guards are in `fixes/issue-834-brand-navigation.json`. No private snapshot is committed. Parent #402 remains open.
+The exact operation and identity/hash guards are in `fixes/issue-834-brand-navigation.json`. No private snapshot is committed. This release did not change parent #402, whose preparation issue was already closed, or publish its held ALL IN record.
