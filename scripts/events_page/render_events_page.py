@@ -22,6 +22,8 @@ from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
 
+from catalog_contract import public_status
+
 from lib import (
     CATALOG_PATH,
     DYNAMIC_END,
@@ -114,15 +116,6 @@ def is_past(event: dict[str, Any], now: datetime) -> bool:
         return cutoff <= now
     hint = (event.get("bucket_hint") or "").lower()
     return hint == "past"
-
-
-def public_status(event: dict[str, Any]) -> bool:
-    """Whether the event should appear on the public page."""
-    status = (event.get("status") or "confirmed").lower()
-    # proposed / unverified / placeholder stay in catalog for ops but never ship live
-    if status in {"draft", "hidden", "omit", "proposed", "unverified", "placeholder"}:
-        return False
-    return True
 
 
 def image_src(event: dict[str, Any], roots: dict[str, Path]) -> tuple[str, str]:
