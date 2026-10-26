@@ -1,0 +1,216 @@
+{
+  "results": [
+    {
+      "stage": "after",
+      "slug": "work",
+      "viewportName": "desktop",
+      "height": 6810,
+      "width": 1440,
+      "viewport": 1440,
+      "h1": "Work",
+      "oldEmbed": false,
+      "signup": [],
+      "card": {
+        "img": [
+          {
+            "src": "https://i0.wp.com/kriskrug.co/wp-content/themes/kk-aurora/assets/img/bcai-living-ecosystem.jpg?ssl=1",
+            "width": 1200,
+            "height": 800
+          }
+        ],
+        "texts": [
+          {
+            "text": "BC + AI Ecosystem",
+            "color": "rgb(239, 230, 210)",
+            "opacity": "1",
+            "display": "block",
+            "background": "rgb(23, 19, 16)",
+            "rect": {
+              "y": 950.984375,
+              "height": 24
+            }
+          },
+          {
+            "text": "Community infrastructure for responsible and inclusive AI across British Columbia.",
+            "color": "rgb(239, 230, 210)",
+            "opacity": "1",
+            "display": "block",
+            "background": "rgb(23, 19, 16)",
+            "rect": {
+              "y": 982.984375,
+              "height": 48
+            }
+          }
+        ],
+        "links": [
+          "https://bc-ai.ca/"
+        ]
+      },
+      "focus": {
+        "active": true,
+        "style": "solid",
+        "width": "2px"
+      }
+    },
+    {
+      "stage": "after",
+      "slug": "work",
+      "viewportName": "mobile",
+      "height": 10607,
+      "width": 390,
+      "viewport": 390,
+      "h1": "Work",
+      "oldEmbed": false,
+      "signup": [],
+      "card": {
+        "img": [
+          {
+            "src": "https://i0.wp.com/kriskrug.co/wp-content/themes/kk-aurora/assets/img/bcai-living-ecosystem.jpg?ssl=1",
+            "width": 1200,
+            "height": 800
+          }
+        ],
+        "texts": [
+          {
+            "text": "BC + AI Ecosystem",
+            "color": "rgb(239, 230, 210)",
+            "opacity": "1",
+            "display": "block",
+            "background": "rgb(23, 19, 16)",
+            "rect": {
+              "y": 442.84375,
+              "height": 24
+            }
+          },
+          {
+            "text": "Community infrastructure for responsible and inclusive AI across British Columbia.",
+            "color": "rgb(239, 230, 210)",
+            "opacity": "1",
+            "display": "block",
+            "background": "rgb(23, 19, 16)",
+            "rect": {
+              "y": 474.84375,
+              "height": 72
+            }
+          }
+        ],
+        "links": [
+          "https://bc-ai.ca/"
+        ]
+      },
+      "focus": {
+        "active": true,
+        "style": "solid",
+        "width": "2px"
+      }
+    },
+    {
+      "stage": "after",
+      "slug": "subscribe",
+      "viewportName": "desktop",
+      "height": 2089,
+      "width": 1440,
+      "viewport": 1440,
+      "h1": "Subscribe to KR\u00dcG",
+      "oldEmbed": false,
+      "signup": [
+        {
+          "text": "Subscribe to KR\u00dcG (opens in new tab)",
+          "url": "https://vancouver.beehiiv.com/subscribe",
+          "rect": {
+            "width": 235.21875,
+            "height": 52.390625
+          },
+          "color": "rgb(255, 250, 246)",
+          "background": "rgb(154, 47, 20)"
+        }
+      ],
+      "focus": {
+        "active": true,
+        "style": "solid",
+        "width": "2px"
+      }
+    },
+    {
+      "stage": "after",
+      "slug": "subscribe",
+      "viewportName": "mobile",
+      "height": 2997,
+      "width": 390,
+      "viewport": 390,
+      "h1": "Subscribe to KR\u00dcG",
+      "oldEmbed": false,
+      "signup": [
+        {
+          "text": "Subscribe to KR\u00dcG (opens in new tab)",
+          "url": "https://vancouver.beehiiv.com/subscribe",
+          "rect": {
+            "width": 218.34375,
+            "height": 49.1875
+          },
+          "color": "rgb(255, 250, 246)",
+          "background": "rgb(154, 47, 20)"
+        }
+      ],
+      "focus": {
+        "active": true,
+        "style": "solid",
+        "width": "2px"
+      }
+    }
+  ],
+  "stats": {
+    "fetched": 0,
+    "cached": 60,
+    "blocked": 4,
+    "failed": 0
+  },
+  "public_readback": {
+    "at": "2026-10-26T00:01:21.484186+00:00",
+    "results": [
+      {
+        "slug": "work",
+        "mode": "bare",
+        "status": 200,
+        "cache": "HIT",
+        "correct": true
+      },
+      {
+        "slug": "work",
+        "mode": "fresh",
+        "status": 200,
+        "cache": "MISS",
+        "correct": true
+      },
+      {
+        "slug": "subscribe",
+        "mode": "bare",
+        "status": 200,
+        "cache": "MISS",
+        "correct": true
+      },
+      {
+        "slug": "subscribe",
+        "mode": "fresh",
+        "status": 200,
+        "cache": "MISS",
+        "correct": true
+      }
+    ]
+  },
+  "browser_journey": {
+    "source": "Codex in-app browser accessibility readback",
+    "url": "https://kriskrug.co/subscribe/",
+    "clicked_link": "Subscribe to KR\u00dcG",
+    "opened_url": "https://vancouver.beehiiv.com/subscribe",
+    "opened_title": "Subscribe | KRU\u0308G",
+    "visible_fields": [
+      "KRU\u0308G heading",
+      "email text field",
+      "Subscribe button"
+    ],
+    "submission_performed": false
+  },
+  "work_text_contrast": 14.88,
+  "scope": "Two approved page repairs; no signup submission or provider configuration change."
+}
