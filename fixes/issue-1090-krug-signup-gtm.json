@@ -1,0 +1,81 @@
+{
+  "exportFormatVersion": 2,
+  "containerVersion": {
+    "container": {
+      "name": "KRÜG newsletter signups",
+      "usageContext": [
+        "WEB"
+      ]
+    },
+    "tag": [
+      {
+        "tagId": "1",
+        "name": "KRÜG completed newsletter signup",
+        "type": "html",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "html",
+            "value": "<script>\n/* Candidate for a GTM Custom HTML tag triggered only by Beehiiv's signedUp event. */\n(function () {\n  \"use strict\";\n\n  if (window.location.hostname !== \"vancouver.beehiiv.com\" ||\n      !/^\\/(subscribe\\/?)?$/.test(window.location.pathname) ||\n      window.__kkKrugSignupRecorded) return;\n\n  // Beehiiv gates GTM on data-processing consent; GA additionally needs marketing consent.\n  var match = document.cookie.match(/(?:^|;\\s*)beehiiv_honey=([^;]*)/);\n  var consent;\n  try {\n    consent = match && JSON.parse(decodeURIComponent(match[1]));\n  } catch (_) {\n    return;\n  }\n  if (!consent || consent.marketing !== true || consent.dataProcessing !== true) return;\n\n  var referrer = \"\";\n  try {\n    var source = new URL(document.referrer);\n    if (source.protocol === \"https:\" || source.protocol === \"http:\") referrer = source.origin + \"/\";\n  } catch (_) {\n    // Direct visits have no referrer.\n  }\n\n  var measurementId = \"G-ZPQP315FNS\";\n  var pageLocation = \"https://vancouver.beehiiv.com\" + window.location.pathname;\n  window.dataLayer = window.dataLayer || [];\n  function gtag() { window.dataLayer.push(arguments); }\n\n  window.__kkKrugSignupRecorded = true;\n  gtag(\"consent\", \"default\", {\n    analytics_storage: \"granted\",\n    ad_storage: \"denied\",\n    ad_user_data: \"denied\",\n    ad_personalization: \"denied\"\n  });\n  gtag(\"js\", new Date());\n  gtag(\"config\", measurementId, {\n    send_page_view: false,\n    allow_google_signals: false,\n    allow_ad_personalization_signals: false,\n    page_location: pageLocation,\n    page_referrer: referrer,\n    page_title: \"KRÜG newsletter signup\"\n  });\n  gtag(\"event\", \"krug_newsletter_signup\", {\n    send_to: measurementId,\n    signal: \"beehiiv_signed_up\",\n    publication: \"krug\",\n    page_location: pageLocation,\n    page_referrer: referrer,\n    page_title: \"KRÜG newsletter signup\"\n  });\n\n  var script = document.createElement(\"script\");\n  script.async = true;\n  script.src = \"https://www.googletagmanager.com/gtag/js?id=\" + measurementId;\n  document.head.appendChild(script);\n})();\n</script>"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "supportDocumentWrite",
+            "value": "false"
+          }
+        ],
+        "firingTriggerId": [
+          "1"
+        ],
+        "tagFiringOption": "ONCE_PER_LOAD"
+      }
+    ],
+    "trigger": [
+      {
+        "triggerId": "1",
+        "name": "Beehiiv signedUp on personal KRÜG host",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "signedUp"
+              }
+            ]
+          }
+        ],
+        "filter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{Page Hostname}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "vancouver.beehiiv.com"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "builtInVariable": [
+      {
+        "name": "Page Hostname",
+        "type": "PAGE_HOSTNAME"
+      }
+    ]
+  }
+}
