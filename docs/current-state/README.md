@@ -24,8 +24,9 @@ preparation issue is closed. [Work and Subscribe](reports/work-subscribe-release
 are repaired, personal signup routes to KRÜG, and the
 [Publications alignment repair](reports/publications-layout-release-2026-10-25.md)
 fits desktop, tablet and mobile. For [#1090](reports/krug-conversion-1090-2026-10-25.md),
-Kris chose completed KRÜG signups. The GA4 key event and isolated stream are set up;
-provider-side tag activation awaits a personal GTM account and its terms.
+Completed KRÜG signup measurement is installed: GA4 key event and isolated stream,
+personal GTM version 2, and Beehiiv consent banner. Live Preview confirms no
+conversion on page load; organic signup delivery remains to be observed.
 Outbound clicks are not subscriptions. Editorial and
 featured-image choices remain in the completed #1106 and #1115 review reports.
 
