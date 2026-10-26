@@ -6,11 +6,20 @@ publication at `https://vancouver.beehiiv.com/`. See the
 The September inventory below is historical; the success-event helper remains
 undeployed and the conversion choice/GA4 setup remain open.
 
+The later [Subscribe repair](../docs/current-state/reports/work-subscribe-release-2026-10-25.md)
+removed the unidentified legacy iframe. Page 2808 now opens
+`https://vancouver.beehiiv.com/subscribe`, verified in the browser as KRÜG's
+hosted signup form. The WordPress page has no email field or subscribe-success
+signal. Its outbound click must not fire `newsletter_submit`. Any future
+integration must first establish a verified provider success signal for KRÜG;
+the former iframe is no longer an integration target. No test subscription,
+provider configuration or GA4 event was created during the routing repairs.
+
 **Track:** A — Content + SEO
 **Status:** repo-side human-review handoff; **NOT LIVE**
 **Child packet:** [`docs/current-state/reports/issue-1090-conversion-preflight-2026-09-29.md`](../docs/current-state/reports/issue-1090-conversion-preflight-2026-09-29.md)
 **Helper:** `fixes/issue-1090-success-event.js`
-**Issues:** Refs #1103, Refs #1090. Keep both open. This file does not authorize a WordPress save or a GA4 admin change.
+**Issues:** Refs #1103 (preparation complete), Refs #1090 (keep open). This file does not authorize a WordPress save or a GA4 admin change.
 
 Pattern follows `fixes/issue-316-schema-identity-handoff-2026-07-13.md`: decision, evidence, separate deployment gate, rollback. Production snippets are prod-rendering code.
 
@@ -25,7 +34,7 @@ Pick **one** conversion later under #1090:
 | Newsletter signup | `newsletter_submit` | Beehiiv confirmed subscribe that kriskrug.co can see (first-party thank-you redirect) or KK explicitly accepts a Beehiiv-admin-only count |
 | Speaking inquiry | `speaking_inquiry_submit` | A same-origin form success state exists. #277 is still email-only. mailto is not enough |
 
-Do not label an inquiry `newsletter_submit`. Do not count a click. Do not implement postMessage against the `/subscribe/` iframe.
+Do not label an inquiry `newsletter_submit`. Do not count a click. The old `/subscribe/` iframe has been removed; do not add a postMessage integration for it.
 
 Until that choice and a verified success signal exist, leave this helper off the site.
 

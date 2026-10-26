@@ -1,0 +1,96 @@
+{
+  "checked_at": "2026-10-26T00:22:50.106785+00:00",
+  "handoff": {
+    "status": 301,
+    "url": "https://kriskrug.co/sitemap.xml",
+    "headers": {
+      "date": "Mon, 26 Oct 2026 00:22:49 GMT",
+      "content-type": "text/html; charset=UTF-8",
+      "content-length": "0",
+      "connection": "close",
+      "server": "Pagely-ARES/1.22.35",
+      "x-gateway-request-id": "00a919f7d4486726ac4f242f5016794e",
+      "x-jetpack-boost-cache": "miss",
+      "expires": "Mon, 26 Oct 2026 01:22:49 GMT",
+      "cache-control": "max-age=3600",
+      "x-redirect-by": "WordPress",
+      "location": "https://kriskrug.co/wp-sitemap.xml",
+      "x-gateway-cache-key": "1789931541.631|standard|https|kriskrug.co|||/sitemap.xml",
+      "x-gateway-cache-status": "BYPASS",
+      "x-gateway-skip-cache": "1"
+    }
+  },
+  "index": {
+    "status": 200,
+    "url": "https://kriskrug.co/wp-sitemap.xml",
+    "headers": {
+      "date": "Mon, 26 Oct 2026 00:22:50 GMT",
+      "content-type": "application/xml; charset=UTF-8",
+      "transfer-encoding": "chunked",
+      "connection": "close",
+      "vary": "Accept-Encoding",
+      "server": "Pagely-ARES/1.22.35",
+      "x-gateway-request-id": "9a197beb7ce9d0669f806c619faca486",
+      "x-jetpack-boost-cache": "miss",
+      "x-gateway-cache-key": "1789931541.631|standard|https|kriskrug.co|||/wp-sitemap.xml",
+      "x-gateway-cache-status": "EXPIRED",
+      "x-gateway-skip-cache": "0"
+    }
+  },
+  "children": [
+    {
+      "url": "https://kriskrug.co/wp-sitemap-posts-post-1.xml",
+      "status": 200,
+      "final_url": "https://kriskrug.co/wp-sitemap-posts-post-1.xml",
+      "content_type": "application/xml; charset=UTF-8",
+      "entries": 986,
+      "unique_urls": 986
+    },
+    {
+      "url": "https://kriskrug.co/wp-sitemap-posts-page-1.xml",
+      "status": 200,
+      "final_url": "https://kriskrug.co/wp-sitemap-posts-page-1.xml",
+      "content_type": "application/xml; charset=UTF-8",
+      "entries": 46,
+      "unique_urls": 46
+    }
+  ],
+  "archives": [
+    {
+      "url": "https://kriskrug.co/category/ai-ethics-philosophy/",
+      "status": 200,
+      "final_url": "https://kriskrug.co/category/ai-ethics-philosophy/",
+      "content_type": "text/html; charset=UTF-8",
+      "canonical": [],
+      "robots": [
+        "max-image-preview:large, noindex, follow"
+      ],
+      "titles": 1,
+      "h1s": 1
+    },
+    {
+      "url": "https://kriskrug.co/tag/sxsw-sxswi/",
+      "status": 200,
+      "final_url": "https://kriskrug.co/tag/sxsw-sxswi/",
+      "content_type": "text/html; charset=UTF-8",
+      "canonical": [],
+      "robots": [
+        "max-image-preview:large, noindex, follow"
+      ],
+      "titles": 1,
+      "h1s": 1
+    },
+    {
+      "url": "https://kriskrug.co/author/kk/",
+      "status": 200,
+      "final_url": "https://kriskrug.co/author/kk/",
+      "content_type": "text/html; charset=UTF-8",
+      "canonical": [],
+      "robots": [
+        "max-image-preview:large, noindex, follow"
+      ],
+      "titles": 1,
+      "h1s": 1
+    }
+  ]
+}

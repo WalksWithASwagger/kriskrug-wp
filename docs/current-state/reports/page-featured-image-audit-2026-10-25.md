@@ -2,7 +2,7 @@
 
 Refs #1115. Read-only audit: **46 published pages, 37 with featured_media = 0**. Public REST was paginated at 20 items (three requests); unique IDs and the API total agree. A second enumeration returned the same 46 IDs and 37 missing-featured IDs. No WordPress or media writes occurred for this audit.
 
-**Recommendation: preview one candidate, Media/Podcasts page 3609 with existing portrait media 12627. Do not bulk-fill the other pages.** Many already have in-content imagery or intentional text-first leads. Assigning featured media would add a template-level image above their body.
+**Recommendation: preview one candidate, Media/Podcasts page 3609 with existing portrait media 12627. Do not bulk-fill the other pages.** Many already have in-content imagery or intentional text-first leads. The later live-template readback below corrects the initial assumption that featured media would necessarily add a visible hero.
 
 ## Evidence and limits
 
@@ -15,7 +15,7 @@ Refs #1115. Read-only audit: **46 published pages, 37 with featured_media = 0**.
 
 ## Ranked shortlist
 
-1. **Page 3609, Media/Podcasts → media 12627**, close CreativeMornings portrait. The public page already offers this image in its press-download links, but has no `og:image`. [Media record](https://kriskrug.co/wp-json/wp/v2/media/12627). Credit: **Photo: Michelle Diamond.** The [site photography manifest](../../../content/source-packs/site-photography-2026/media-manifest.json) records approval for kriskrug.co; the [press-kit manifest](../../../content/source-packs/content-architecture-2026/press-kit/assets/manifest.json) records Kris’s September 2 permission attestation. This is not a new broad licence. Preview desktop/mobile first: a portrait-shaped template hero could become too tall or duplicate the existing heading. A metadata-only solution may be preferable, but requires its own scoped change.
+1. **Page 3609, Media/Podcasts → media 12627**, close CreativeMornings portrait. The public page already offers this image in its press-download links, but has no `og:image`. [Media record](https://kriskrug.co/wp-json/wp/v2/media/12627). Credit: **Photo: Michelle Diamond.** The [site photography manifest](../../../content/source-packs/site-photography-2026/media-manifest.json) records approval for kriskrug.co; the [press-kit manifest](../../../content/source-packs/content-architecture-2026/press-kit/assets/manifest.json) records Kris’s September 2 permission attestation. This is not a new broad licence. The live default page template has no featured-image block; the current theme uses featured media for social metadata. A visible portrait hero is therefore not expected from this proposed field change. Image selection and post-apply visual verification remain separate from this read-only audit.
 2. **Page 11914, Responsible AI Professional:** potentially useful share-image work, but **no cleared asset selected**. Keep unchanged until the offer/asset choice is made.
 3. **Page 2672, Work:** keep featured_media unset. The existing share image is correct; the first in-content BC + AI image still uses an external `.webp` URL that returned 403. The already-packaged site image is a plausible repair candidate, but this audit does not apply it.
 
@@ -90,4 +90,19 @@ The Publications page (1895) measured 1670 px document width at a 1440 px viewpo
 - Source checks: portrait 12627 exists, and the existing site-use/press-kit rights ledgers support the candidate.
 - `make verify` passed on the report branch using the existing Python and PHPCS dependencies; docs truth, scoped voice checks and `git diff --check` also passed. These checks do not constitute image-selection approval.
 
-**Approval request for a later apply:** accept **page 3609 → existing media 12627**, with Michelle Diamond’s credit, only after reviewing the exact desktop/mobile preview. No other page/media pair is proposed for a live set.
+## Live-template correction, October 25 evening
+
+Varlock-backed readback at `2026-10-26T01:06:56Z` confirms page 3609 remains
+published at `/podcast-guesting-page-epk/`, with an empty custom-template field
+and featured media 0. WordPress resolves `kk-aurora//page` from the theme. Both
+the effective template and the SFTP-read live `templates/page.html` have no
+`wp:post-featured-image` block. Live `functions.php` reads featured media at
+`large` size for `og:image`, falling back to an in-content image.
+
+This corrects the audit's earlier blanket hero-insertion assumption. It is
+source evidence about the current template, not an applied change or a claim
+about every custom template. The private packet retains the exact readback,
+field-only candidate and rollback value. No page or media record was changed.
+
+**Remaining selection:** page 3609 → existing media 12627, with Michelle
+Diamond's credit. No other page/media pair is proposed for a live set.
