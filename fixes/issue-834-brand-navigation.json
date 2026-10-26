@@ -1,0 +1,47 @@
+[
+  {
+    "id": 12653,
+    "slug": "ai-lands-inside-every-profession",
+    "type": "post",
+    "status": "publish",
+    "date": "2026-07-31T17:40:55",
+    "title": "AI Lands Inside Every Profession",
+    "before_sha256": "c1f8fd882636fdc25984be04238841bc369903a375aeab61127cd48be71b3f8b",
+    "after_sha256": "a65121142ee711cce65f1105cff2ff5a870a39eb8ec20df196e86165e3e90558",
+    "find": "<p>Now we keep building the rooms that make it true.</p>",
+    "replace": "<p>Now we keep building the rooms that make it true. <a href=\"https://kriskrug.co/speaking/\">I give a talk about exactly this</a>.</p>",
+    "href": "https://kriskrug.co/speaking/",
+    "anchor": "I give a talk about exactly this",
+    "dependency": null
+  },
+  {
+    "id": 12030,
+    "slug": "canada-doesnt-need-a-bigger-ai-machine-it-needs-a-better-one",
+    "type": "post",
+    "status": "publish",
+    "date": "2026-06-26T09:00:00",
+    "title": "Canada Doesn't Need a Bigger AI Machine. It Needs a Better One.",
+    "before_sha256": "c857c818be43ab42ddaa4b57d1a47e1586e5b6ecce56a13b2a9246a357c2e925",
+    "after_sha256": "459a8390e4086ba95b571742b245d5ffeb446b3d8b8a41aaba37ec525cc6efbf",
+    "find": "<p>That's the West Coast contribution: scale, yes. But stewarded. Or it's not progress, it's just a faster leak.</p>",
+    "replace": "<p>That's the West Coast contribution: scale, yes. But stewarded. Or it's not progress, it's just a faster leak. Read more about <a href=\"https://kriskrug.co/about/\">why I keep saying this out loud</a>.</p>",
+    "href": "https://kriskrug.co/about/",
+    "anchor": "why I keep saying this out loud",
+    "dependency": "what the water math looks like from street level"
+  },
+  {
+    "id": 11700,
+    "slug": "punk-rock-ai",
+    "type": "post",
+    "status": "publish",
+    "date": "2026-05-04T10:18:11",
+    "title": "Punk Rock AI",
+    "before_sha256": "b676bb1bb1b017b5a9d36f86ead677b25402b3e2edc113583e296c70eff4a7a9",
+    "after_sha256": "320acb2a886acea0e6e2d1933599302187f9d7c995ca7ce44bc2f1c7ac569efa",
+    "find": "<p>This is the recap. It's also the on-ramp. If you weren't there, pick up wherever you want.</p>",
+    "replace": "<p>This is the recap. It's also the on-ramp. If you weren't there, pick up wherever you want. The glossary has <a href=\"https://kriskrug.co/glossary/\">plain definitions for the words in here</a>.</p>",
+    "href": "https://kriskrug.co/glossary/",
+    "anchor": "plain definitions for the words in here",
+    "dependency": "the optimistic version of the same argument"
+  }
+]
