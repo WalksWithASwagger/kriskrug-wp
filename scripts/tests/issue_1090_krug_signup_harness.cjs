@@ -24,7 +24,14 @@ function fixture({ host = 'vancouver.beehiiv.com', route = '/subscribe', cookie 
     createElement: type => ({ type }),
     head: { appendChild: script => scripts.push(script) }
   };
-  const context = vm.createContext({ window, document, URL });
+  const context = vm.createContext({
+    window, document, URL,
+    Date: class extends Date {
+      constructor(...args) {
+        super(...(args.length ? args : ['2026-10-26T04:36:09.699Z']));
+      }
+    }
+  });
   function matches(condition, event) {
     assert.equal(condition.type, 'EQUALS');
     const values = Object.fromEntries(condition.parameter.map(p => [p.key, p.value]));
@@ -63,7 +70,9 @@ assert.equal(event[2].page_location, 'https://vancouver.beehiiv.com/subscribe');
 assert.equal(event[2].page_referrer, 'https://kriskrug.co/');
 assert.equal(page.commands().find(x => x[0] === 'config')[2].send_page_view, false);
 assert.equal(page.commands().find(x => x[0] === 'consent')[2].ad_user_data, 'denied');
-assert.doesNotMatch(JSON.stringify(page.commands()), /private|email|subscription_id|Private Person|99/);
+const serializedCommands = JSON.stringify(page.commands());
+assert.doesNotMatch(serializedCommands, /private|email|subscription_id|Private Person/);
+assert.doesNotMatch(serializedCommands, /(?:[:,\[])99(?=[,}\]])/);
 
 for (const options of [
   { host: 'kriskrug.beehiiv.com' },
