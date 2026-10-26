@@ -1,5 +1,14 @@
 # Issue #1089 / #1104: Snippet 5 save preflight
 
+**Historical preparation packet.** Kris explicitly directed the agent to save
+#1089 through Varlock on October 25, superseding this packet's operator-only
+save restriction. The approved combined payload was saved and authenticated
+readback verified. See the [release receipt](../docs/current-state/reports/schema-1089-release-2026-10-25.md)
+for current public/validator evidence and recovery. The dated JSON below remains
+the original approval and pre-save record; its pending flags are historical.
+The PHP file's follow-up changes header comments only. Its executable suffix
+is checked against the saved payload's digest in the release receipt.
+
 **Track:** A — Content + SEO
 **Status:** repo-side approval recorded for the combined Person + VideoObject payload and the prepared `x.com/kriskrug` identity. Verification and rollback packet. No live WordPress write.
 **Preparation issue:** #1104
