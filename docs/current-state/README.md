@@ -32,6 +32,8 @@ featured-image choices remain in the completed #1106 and #1115 review reports.
 
 The [#1099 Events catalog contract](reports/events-catalog-1099-2026-10-25.md) now fails closed on missing confirmation, validates documentation links, and preserves all current media. The [#1100 record/counter release](reports/events-record-1100-2026-10-25.md) is live: past-only record and counters, browser rollover agreement, and independent documentation links. All 74 live IDs and existing media are preserved; the prepared ALL IN record remains absent from the live page. The [#1101 documentation backfill](reports/events-documentation-1101-2026-10-25.md) adds live Recap, Photos and Video links for meetup #32 and #33 and the publisher checklist; all four ALL IN articles are recorded only in its held catalog entry.
 
+The [pre-Futureproof follow-through receipt](reports/kriskrug-futureproof-followthrough-2026-10-25.md) records the shipped work, active signup monitor and weekly Events proposals, plus the remaining owner decisions. [First-practice preparation #1105](reports/practice-release-preparation-1105-2026-10-25.md) is complete; #983 still needs exact copy/live approval and genuine study evidence. The compatible [test dependency patch](reports/practice-dependency-patch-2026-10-25.md) audits clean and leaves the production plugin unchanged.
+
 Read these first:
 
 - **[WEEK-PLAN-2026-09-28.md](WEEK-PLAN-2026-09-28.md)**: September 28–October 4 priorities, September 29 maintenance receipt, safe branch cleanup, and the next focused session. The dated snapshot below remains the drift baseline; the September 9 runbook retains its specific live-lane procedures.
