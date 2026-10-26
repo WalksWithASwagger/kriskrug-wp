@@ -9,13 +9,23 @@ run `make status-readonly`. Events PR #1134 is merged and its bounded page-2250
 apply is live. The approved homepage image repair has been applied separately;
 its release receipt distinguishes public readback from cache state.
 
-The September weekly plan below is historical priority context. Current remaining
-handoffs are #1089 (KK's prepared Snippet 5 save) and #331/#1130
-(archive-policy reconciliation). The #1114 shared-cache delivery check completed
-at 19:45 UTC: all six normal and uncached routes serve the approved links.
+The September weekly plan below is historical priority context. Snippet 5's
+approved Person and Speaking-video payload was saved through Varlock on October
+25; [the release receipt](reports/schema-1089-release-2026-10-25.md) records
+authenticated, public, cache-delivery and validator evidence. The
+[#1130 reconciliation](reports/sitemap-1130-reconciliation-2026-10-25.md) confirms
+the deployed post/page-only sitemap policy; #331 remains an owner evidence/closure
+decision. The #1114 shared-cache delivery check completed at 19:45 UTC: all six
+normal and uncached routes serve the approved links, and the issue is closed.
 The September 9 runbook retains its exact live-lane safety procedures.
-The homepage copy/link release passed all 33 visual comparisons; #402's bounded
-ALL IN navigation proposal is retained in PR #1141's unpublished review package.
+The homepage copy/link release passed all 33 visual comparisons. #402's bounded
+ALL IN proposal is retained in PR #1141's unpublished review package; its
+preparation issue is closed. [Work and Subscribe](reports/work-subscribe-release-2026-10-25.md)
+are repaired, personal signup routes to KRÜG, and the
+[Publications alignment repair](reports/publications-layout-release-2026-10-25.md)
+fits desktop, tablet and mobile. #1090 still needs an actual signup-success signal
+and conversion choice; outbound clicks are not subscriptions. Editorial and
+featured-image choices remain in the completed #1106 and #1115 review reports.
 
 Read these first:
 

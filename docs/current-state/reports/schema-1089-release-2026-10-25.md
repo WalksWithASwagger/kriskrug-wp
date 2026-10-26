@@ -37,12 +37,25 @@ VideoObject items. Its results group referenced Person nodes under their
 parent items; raw JSON-LD checks independently establish the Person count.
 This is schema validation, not proof of Google indexing or rich-result display.
 
-At the initial delivery check, fresh requests passed while normal cached
-responses retained the old output. Final cache status is recorded below before
-release closeout. No manual purge or cache settings change has occurred.
+Fresh requests initially passed while normal responses retained the old
+output in two cache layers. At `2026-10-26T00:52:26Z`, the generated Jetpack
+Boost page-cache directory was rotated through the existing host-verified
+SFTP connection, following [Jetpack's manual cache recovery guidance](https://jetpack.com/support/jetpack-boost/troubleshooting-caching-issues/#manually-deleting-the-boost-cache-directory).
+Static assets, cache configuration and `advanced-cache.php` were preserved.
+Pagely's outer cached responses were then allowed to expire. At
+`2026-10-26T01:16:05Z`, all four normal routes and all four fresh requests
+passed. Speaking, About and the sample article had expired the old outer
+response and returned the updated Boost-cached output. The repeat warm-cache
+check is recorded in the machine-readable receipt.
+
+The repeat at `2026-10-26T01:16:21Z` passed **8/8 requests**, with all four
+normal routes reporting a Pagely cache **HIT** and a Boost cache **hit**.
+Schema Markup Validator then fetched the normal Speaking URL directly and
+again reported **0 errors, 0 warnings, and two VideoObject items**.
 
 PHP syntax and the 29 focused Person, site-identity, Speaking and preflight
-tests passed before the save. The repository follow-up changes only deployment
+tests passed before the save; the full Python suite passed **1,107 tests**.
+The repository follow-up changes only deployment
 documentation and header comments. The historical preflight manifest stays
 historical; its hash test now verifies the approved original file identity and
 the current executable suffix against this authenticated release receipt.
@@ -56,6 +69,13 @@ public HTML/JSON-LD, and validator text/screenshots. `apply.py --rollback`, run
 through Varlock with the existing Python runtime, restores the original code
 only after confirming the current source is the saved candidate and metadata
 still matches. A concurrent edit stops recovery rather than being overwritten.
+
+The generated-cache recovery copy is retained as `page-cache-before.zip` in
+that private packet. All **881 files, 32,575,581 uncompressed bytes** were
+verified individually against their SHA-256 digests, and the ZIP passed its
+integrity check. Archive SHA-256:
+`7ad486e3a26d3bf5797b8f32037918c54a291add616680a80ed1604af9873945`.
+This cache archive is separate from the original Snippet 5 rollback snapshot.
 
 The sole active JSON-LD snippet was 5. Snippet 13 references its article-type
 helper for an XML news sitemap; it does not emit a second JSON-LD graph.
