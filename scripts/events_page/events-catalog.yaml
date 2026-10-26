@@ -1554,3 +1554,17 @@ events:
   - Media pass
   - Montreal
   status: confirmed
+- id: vancouver-ai-meetup-2026-11-25
+  title: 'Vancouver AI Meetup: Where Humans Go, Where AI Goes'
+  date: '2026-11-25'
+  end_date: '2026-11-25'
+  location: H.R. MacMillan Space Centre, Vancouver
+  kind: meetup
+  role: Host & MC
+  url: https://luma.com/nov-vanai
+  docs:
+    recap: []
+    photos: []
+    video: []
+  image: {}
+  status: confirmed
