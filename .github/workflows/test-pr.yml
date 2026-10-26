@@ -275,6 +275,8 @@ jobs:
         run: node node_modules/playwright/cli.js install --with-deps chromium
       - name: Practice application checks
         run: make practice-browser-test
+      - name: Events rollover and counter checks
+        run: make events-browser-test
 
   # Documentation truth guardrails
   docs-truth-check:

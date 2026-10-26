@@ -14,7 +14,7 @@ and now also covers the ``--preview-local`` escape hatch.
 
 Layout contract (2026-09-13 art direction): upcoming events render as spotlight
 cards, every event with real art renders as a contact-sheet tile, and every
-publishable event renders as a row in the complete record.
+publishable event has a record row; future rows remain hidden until rollover (#1100).
 """
 
 import contextlib
@@ -125,8 +125,8 @@ class RecapDestination(unittest.TestCase):
             self.assertIn('href="https://example.org/stage"', output)
 
     def test_recap_url_is_escaped(self):
-        output = render.render_record_row(event(recap_url='https://kriskrug.co/?a="&b=2'))
-        self.assertIn('href="https://kriskrug.co/?a=&quot;&amp;b=2"', output)
+        output = render.render_record_row(event(recap_url='https://kriskrug.co/?a=%22&b=2'))
+        self.assertIn('href="https://kriskrug.co/?a=%22&amp;b=2"', output)
 
     def test_recap_rejects_unsafe_or_noncanonical_destinations(self):
         for url in ("javascript:alert(1)", "//example.org/", "/recap/", "https://kriskrug.co.evil.test/", True):
@@ -232,9 +232,9 @@ class Bucketing(unittest.TestCase):
         stale = event(id="u3", bucket_hint="upcoming", end="2025-01-01T21:00:00-08:00")
         self.assertTrue(render.is_past(stale, self.NOW))
 
-    def test_date_only_event_display_stamp_still_uses_2100_pacific(self):
+    def test_date_only_event_sort_stamp_uses_midnight_without_inferred_time(self):
         parsed = render.parse_end({"date": "2026-03-04"})
-        self.assertEqual(parsed.hour, 21)
+        self.assertEqual(parsed.hour, 0)
         self.assertEqual(parsed.tzinfo, render.PT)
 
     def test_date_only_event_rolls_off_at_next_vancouver_midnight(self):

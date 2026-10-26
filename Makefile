@@ -14,6 +14,7 @@ JAVASCRIPT_FILES := \
 	scripts/marquee/render_og.cjs \
 	scripts/tests/north_house_journey_browser.cjs \
 	scripts/tests/test_events_rolloff_browser.cjs \
+	scripts/tests/test_events_rolloff_playwright.cjs \
 	theme/kk-aurora/assets/js/marquee.js \
 	theme/kk-aurora/assets/js/micro-interactions.js \
 	theme/kk-aurora/assets/js/theme.js \
@@ -430,3 +431,7 @@ practice-browser-test: practice-test ## Exercise real WordPress privacy, exports
 
 practice-package: practice-test ## Build a deterministic production-only plugin zip in /tmp
 	@python3 plugins/kk-practice/tests/package.py
+
+.PHONY: events-browser-test
+events-browser-test: ## Test Events rollover, counters and keyboard controls in Chromium
+	@node scripts/tests/test_events_rolloff_playwright.cjs
