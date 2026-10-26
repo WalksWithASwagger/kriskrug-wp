@@ -10,9 +10,9 @@ Masthead → **Next up** (up to 4 spotlight cards) → rooms strip → **contact
 
 The contact sheet is a full-bleed square photo grid on a dark ground, 6 columns at desktop down to 2 on a phone, and it shows **only events with real art**. There is no generated fallback tile: the old monogram poster (`WTD`, `VAC`, initials on a colour block) was the dominant visual on a photographer's page and is gone. An event with no art is carried by the complete record instead, so nothing is lost by the exclusion.
 
-The complete record is a year-grouped typographic index carrying **every** publishable event, art or not. It is the page's completeness guarantee; the sheet is the page's art.
+The complete record is a year-grouped typographic index of **past** publishable events, art or not. Future rows remain hidden until rollover; they do not count as rooms on record. Historical scaffold rows stay in the past record, while future scaffolds are omitted. The sheet shows only real art.
 
-Upcoming events render twice: as a spotlight card, and as a sheet tile held back with `data-tile-upcoming`. When the date passes, the page-scoped script hides the spotlight and releases the tile. No DOM moves between grids.
+Confirmed upcoming events are sorted by their start date. The first four spotlight cards are visible; later cards wait hidden so the browser can promote them when an earlier event retires. Art-bearing upcoming events also have a held-back sheet tile (`data-tile-upcoming`). At the cutoff, the script retires the spotlight, releases its tile and record row, and updates the counters without moving nodes between grids.
 
 ## Layout
 
@@ -128,7 +128,7 @@ nonstandard ports, local/private addresses, whitespace and markup delimiters.
 `docs.recap` may contain external coverage such as bc-ai.ca. Legacy `recap_url`
 remains the canonical primary recap and is included first in `docs.recap`, with
 exact duplicates removed. Multiple recaps support a multi-post event series.
-None of these fields replaces `url`. #1100 owns rendering the independent links.
+None of these fields replaces `url`. Past record rows render independent Recap, Photos and Video links, numbering additional links within each kind. The primary canonical recap remains the title/tile destination; upcoming registration buttons always retain `url`.
 Missing art remains an honest record without a fabricated frame or credit.
 
 The #1108 batch (Meetup #32, #33, Prompt Victoria and Capilano recap) is already
@@ -141,7 +141,11 @@ is a review artifact, not evidence of a WordPress save.
 
 Each rendered element has `data-event-end` set to **America/Vancouver midnight of the calendar day after the event ends** (#1100). Date-only, timed, and multi-day events share that cutoff; the renderer does not invent a clock time on the event day. Python uses the same cutoff when splitting Next up vs past, so a fresh render and a page left open agree.
 
-Page-scoped JS retires a spotlight card once that cutoff has passed (`hidden`, with `.kk-ev-next[hidden] { display: none }` so author `display:flex` cannot keep it on screen) and releases its held-back sheet tile. It reruns on load, on `visibilitychange` (hidden-tab resume), and on a timer until the next cutoff, so roll-off does not need a new WordPress save. Empty Upcoming collapses via `data-events-empty`. The sheet previews 4 rows and expands via `data-events-sheet-toggle`.
+Page-scoped JS retires a spotlight card once that cutoff has passed (`hidden`, with `.kk-ev-next[hidden] { display: none }` so author `display:flex` cannot keep it on screen) and releases its held-back sheet tile. It reruns on load, on `visibilitychange` (hidden-tab resume), and on a timer until the next cutoff, so roll-off does not need a new WordPress save. Empty Upcoming hides its heading/cards via `data-events-empty`, while the counters remain visible. The sheet previews 4 rows and expands via the keyboard-operable `data-events-sheet-toggle`.
+
+Counter definitions (#1100): **rooms** are past publishable records, **meetup editions** are past records with an edition number, and **frames** are past records with public art. Frames include those behind the collapsed sheet preview. No-art records still count as rooms. The record heading shares the rooms counter; empty year groups stay hidden. Initialization, cutoff timers, visibility return and a fresh render use the same eligible sets. Dates without an explicit time do not acquire a fictional event time.
+
+`make events-browser-test` runs the actual WordPress-filtered script and page CSS in Chromium at 1440px and 390px. It covers cutoff advancement, tab resume, reload, a fifth upcoming card, zero Upcoming, counters, year visibility, and Enter/Space sheet controls. CI runs it beside the existing practice browser tests. Local runs may point `PLAYWRIGHT_CHROMIUM_EXECUTABLE` at an already-installed browser; do not download a browser for this task.
 
 The same script sets `--ev-vw` from `documentElement.clientWidth` for the full-bleed band. `100vw` is only the pre-script fallback: it counts the scrollbar and, under browser zoom, can resolve wider than the viewport, which pushes the band past the edge and eats its padding.
 
