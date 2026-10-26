@@ -213,6 +213,13 @@ events:
   kind: meetup
   role: Host
   url: https://luma.com/sept-ai
+  docs:
+    recap:
+    - https://bc-ai.ca/events/2026-09-30-vancouver-ai-meetup-33-september-30-at-the-space-centre
+    photos:
+    - https://bc-ai.ca/events/2026-09-30-vancouver-ai-meetup-33-september-30-at-the-space-centre#photos
+    video:
+    - https://www.youtube.com/watch?v=sK3kNVBrYjA
   image:
     path: repo:scripts/events_page/heroes/_pending/vancouver-ai-meetup-2026-09-30.jpg
     alt: Promo card for the September 30 Vancouver AI Community Meetup
@@ -1475,6 +1482,13 @@ events:
   edition: 32
   role: Host & curator
   url: https://luma.com/aug-ai
+  docs:
+    recap:
+    - https://bc-ai.ca/news/vancouver-ai-meetup-32-data-for-good-taleeb-noormohamed-recap
+    photos:
+    - https://bc-ai.ca/events/vancouver-ai-meetup-2026-08#photos
+    video:
+    - https://www.youtube.com/watch?v=TrFhKXyJJ7M
   image:
     path: repo:scripts/events_page/heroes/_pending/vancouver-ai-meetup-2026-08-26.png
     alt: Promo card for the August 26 Vancouver AI Community Meetup, the Data for Good anniversary night
@@ -1523,6 +1537,13 @@ events:
   role: Press
   url: https://allinevent.ai/
   recap_url: https://kriskrug.co/2026/09/18/all-in-montreal-final-day-a-heartbeat-under-my-boots/
+  docs:
+    recap:
+    - https://kriskrug.co/2026/09/15/headed-east-for-all-in-montreal/
+    - https://kriskrug.co/2026/09/16/all-in-montreal-robot-mirror/
+    - https://kriskrug.co/2026/09/17/all-in-montreal-day-two-uncle-evan-and-the-extremely-suspicious-backpack/
+    photos: []
+    video: []
   image: {}
   blurb: 'Covered ALL IN, Canada''s flagship AI conference, on a media pass as an independent journalist
     - four gonzo dispatches from the floor: the Canada-Germany sovereign AI announcement, LawZero''s CA$300M,
