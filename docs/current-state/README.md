@@ -27,14 +27,14 @@ fits desktop, tablet and mobile. For [#1090](reports/krug-conversion-1090-2026-1
 Completed KRÜG signup measurement is installed: GA4 key event and isolated stream,
 personal GTM version 2, and Beehiiv consent banner. Live Preview confirms no
 conversion on page load; organic signup delivery remains to be observed.
-Outbound clicks are not subscriptions. Editorial and
+Outbound clicks are not subscriptions. The three [#834 brand-navigation links](reports/brand-navigation-834-release-2026-10-25.md) are live and verified, with prior authority links and article media preserved. Editorial and
 featured-image choices remain in the completed #1106 and #1115 review reports.
 
 Read these first:
 
 - **[WEEK-PLAN-2026-09-28.md](WEEK-PLAN-2026-09-28.md)**: September 28–October 4 priorities, September 29 maintenance receipt, safe branch cleanup, and the next focused session. The dated snapshot below remains the drift baseline; the September 9 runbook retains its specific live-lane procedures.
 
-1. **[WORK-PLAN-2026-09-09.md](WORK-PLAN-2026-09-09.md)**, active runbook (issue #4's media identity-repair gate is complete; authority-hub issues #829-#833 are live and closed; #834 remains open and needs a fresh authenticated preflight; use `make status-readonly` for live counters). No newer dated work plan exists as of 2026-09-21.
+1. **[WORK-PLAN-2026-09-09.md](WORK-PLAN-2026-09-09.md)**, active runbook (issue #4's media identity-repair gate is complete; authority-hub issues #829-#833 are live and closed; #834's three brand-navigation links are now live and verified; use `make status-readonly` for live counters). No newer dated work plan exists as of 2026-09-21.
 2. **[CURRENT-STATE-2026-10-25.md](CURRENT-STATE-2026-10-25.md)**, declared snapshot for morning-truth drift checks (compare it with a fresh `make status-readonly` run). [CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md) is its historical predecessor.
 3. **[MASTER-PLAN-2026-07-30.md](MASTER-PLAN-2026-07-30.md)**, truth then reclaim then product lanes (hygiene phases complete)
 4. Run `make status-readonly` for current signals; use the newest **[reports/morning-truth-*.md](reports/)** only as durable checkpoint evidence
