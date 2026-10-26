@@ -1,5 +1,11 @@
 # Issue #1090: conversion-event handoff
 
+**Superseded October 25:** Kris chose completed KRÜG signups and authorized shipping.
+The [new receipt](../docs/current-state/reports/krug-conversion-1090-2026-10-25.md)
+records the saved GA4 key event/stream and prepared provider-side tag. The old
+helper below remains NOT LIVE. Its previous decision and GA4-save gates are
+historical; activation now awaits the personal GTM account and new service terms.
+
 October 25 routing update: personal signup CTAs now use the verified KRÜG
 publication at `https://vancouver.beehiiv.com/`. See the
 [release receipt](../docs/current-state/reports/social-newsletter-release-2026-10-25.md).
