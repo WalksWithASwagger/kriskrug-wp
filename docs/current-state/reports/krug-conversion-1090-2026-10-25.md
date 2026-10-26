@@ -66,6 +66,24 @@ value. The isolated stream disables enhanced measurement; the tag also sets
 - GTM import, Preview and real delivery remain unverified. Local harness success
   does not establish that a real Beehiiv signup reached GA4.
 
+The [local browser fixture](../../../scripts/tests/issue_1090_collect_fixture.html)
+also ran the actual Google tag downloaded for `G-ZPQP315FNS`, served locally.
+CSP blocked external connections, images and frames; fetch, beacon and image
+transports were captured locally. Results: no requests on load/click/error; one
+GA4 `/g/collect` request with `en=krug_newsletter_signup` on provider success;
+repeated callbacks added none; denied consent loaded no tag and emitted nothing.
+Starting the fixture with an email query and fragment leaked neither into any
+captured request. The Google SDK also produced one separate cookieless
+consent-mode ping to `pagead2.googlesyndication.com`; it is not a second GA4
+conversion. Both payloads were checked for fixture PII. Nothing reached Google.
+
+To reproduce, copy the fixture into an ignored local directory as
+`collect-fixture.html`, download the public measurement-ID tag as `gtag-krug.js`,
+and write `tag-wrapper.js` as `window.runTag=function(window,document){` followed by
+the exact candidate source and `};`. Serve only that directory on `127.0.0.1`.
+Use the visible controls, inspecting GA4 requests separately from consent pings.
+The fixture uses synthetic provider callbacks; it does not test Beehiiv's server.
+
 ## Remaining activation
 
 The signed-in `kk@bc-ai.ca` GTM account has no containers. Its pending invitation
@@ -78,8 +96,8 @@ The browser action policy requires Kris's confirmation for this new agreement.
 After confirmation: import into an empty workspace, verify the exact tag/trigger,
 enable the native cookie banner, publish the container, then save its assigned GTM
 ID in the personal KRÜG legacy pixel field. Read back settings and the public page.
-Test on a disposable local fixture with outbound analytics intercepted, including
-an email-bearing redirect. Do not modify WordPress Site Kit or Snippet 22.
+Repeat the isolated transport check if the imported tag or provider behavior
+differs from this candidate. Do not modify WordPress Site Kit or Snippet 22.
 Verify organic success delivery without manufacturing a DebugView signup.
 
 This stream does not stitch the WordPress session across domains. Reports must
