@@ -1,0 +1,84 @@
+{
+  "page_id": 1895,
+  "slug": "publications",
+  "apply": {
+    "at": "2026-10-26T00:30:49.400471+00:00",
+    "mode": "apply",
+    "page_id": 1895,
+    "slug": "publications",
+    "before_sha256": "92859dd2a4bc402c4703125e3bf7d374cac37d62c03ec757d746515f599829e3",
+    "after_sha256": "8d42293b4fda08918313ef79350303c87d84f97f74e5c4f9df7d08cc5b6bf629",
+    "preserved_fields": [
+      "id",
+      "slug",
+      "status",
+      "title",
+      "date",
+      "date_gmt",
+      "author",
+      "template",
+      "featured_media",
+      "link",
+      "meta"
+    ],
+    "verified_at": "2026-10-26T00:30:51.791630+00:00",
+    "modified_gmt": "2026-10-26T00:30:50"
+  },
+  "public": {
+    "at": "2026-10-26T00:32:02.784624+00:00",
+    "source_content_preserved": true,
+    "link_count": 69,
+    "image_count": 40,
+    "figure_count": 40,
+    "iframe_count": 0,
+    "public_requests": [
+      {
+        "url": "https://kriskrug.co/publications/",
+        "status": 200,
+        "alignment_present": true,
+        "sha256": "1f23dfdfeba43b349daa6910d45ea70696683192ec88be373ffacb70cf5c7c8b"
+      },
+      {
+        "url": "https://kriskrug.co/publications/?layout-final=20261025",
+        "status": 200,
+        "alignment_present": true,
+        "sha256": "1f23dfdfeba43b349daa6910d45ea70696683192ec88be373ffacb70cf5c7c8b"
+      }
+    ]
+  },
+  "renders": [
+    {
+      "viewportName": "desktop",
+      "height": 11070,
+      "width": 1440,
+      "viewport": 1440,
+      "focus": {
+        "active": true,
+        "style": "solid",
+        "width": "2px"
+      }
+    },
+    {
+      "viewportName": "tablet",
+      "height": 14558,
+      "width": 768,
+      "viewport": 768,
+      "focus": {
+        "active": true,
+        "style": "solid",
+        "width": "2px"
+      }
+    },
+    {
+      "viewportName": "mobile",
+      "height": 19229,
+      "width": 390,
+      "viewport": 390,
+      "focus": {
+        "active": true,
+        "style": "solid",
+        "width": "2px"
+      }
+    }
+  ]
+}
