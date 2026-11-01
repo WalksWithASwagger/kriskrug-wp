@@ -197,7 +197,7 @@ class MorningTruthAvailabilityTests(unittest.TestCase):
         def command(title, command, cwd, **kwargs):
             self.assertNotIn("origin/aurora/v2", " ".join(command))
             if title == "WP7 Public Smoke (JSON)":
-                self.assertEqual(command[command.index("--expect-version") + 1], "7.0.7")
+                self.assertEqual(command[command.index("--expect-version") + 1], "7.0.8")
             if title == "Current-State Drift Check (JSON)":
                 self.assertEqual(command[command.index("--work-plan") + 1],
                                  "docs/current-state/CURRENT-STATE-2026-10-25.md")
@@ -257,7 +257,7 @@ class StartupBaselineTests(unittest.TestCase):
                 self.assertIn("WORK_PLAN:-docs/current-state/CURRENT-STATE-2026-10-25.md",
                               result.stdout)
                 if target != "current-state-drift-check":
-                    self.assertIn("EXPECT_VERSION:-7.0.7", result.stdout)
+                    self.assertIn("EXPECT_VERSION:-7.0.8", result.stdout)
         self.assertIn("CURRENT-STATE-2026-10-25.md", (root / "AGENTS.md").read_text())
 
     def test_direct_drift_script_uses_october_snapshot(self):

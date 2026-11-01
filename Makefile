@@ -6,7 +6,7 @@
 PYTHON ?= python3
 VARLOCK ?= varlock
 WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-10-25.md
-EXPECT_VERSION_DEFAULT := 7.0.7
+EXPECT_VERSION_DEFAULT := 7.0.8
 JAVASCRIPT_FILES := \
 	plugins/kk-practice/blocks/context-brief/editor.js \
 	plugins/kk-practice/blocks/context-brief/view.js \
