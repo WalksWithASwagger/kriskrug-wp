@@ -1,53 +1,43 @@
 ---
-title: "Futureproof: what happens after the applause"
-slug: futureproof-2026-what-happens-after-the-applause
+title: "Futureproof: Year One"
+slug: futureproof-2026-year-one
 status: draft
 author_wp_id: 1
 categories:
   - Vancouver AI Ecosystem
 tags: []
-excerpt: "After Futureproof’s opening night, I recorded a reflection outside the Sylvia Hotel. What stayed with me was the trust, the fellows, and the work still ahead."
+excerpt: "My reflections on our first Futureproof Festival in Vancouver: Amber Case, the AI Builders Fellowship, Brewster Kahle, Philippe Pasquier, and the people who came."
 seo:
-  meta_title: "Futureproof: what happens after the applause | Kris Krüg"
-  meta_description: "Kris Krüg reflects on Futureproof’s opening night, the AI Builders Fellowship, and what it takes to help the work continue after a festival."
+  meta_title: "Futureproof: Year One | Kris Krüg"
+  meta_description: "Kris Krüg reflects on the first Futureproof Festival in Vancouver, the AI Builders Fellowship, and the people who came together to make it happen."
 ---
 
-At about 10:30 on opening night, I was standing outside the Sylvia Hotel in a T-shirt and a jean jacket, talking into my phone. October 28. Vancouver. Stars overhead. Still green leaves on the trees.
+We held our first Futureproof Festival October 28–30 at the H.R. MacMillan Space Centre in Vancouver. Three years of Vancouver AI meetups had grown into this, with friends coming from all over to be part of it.
 
-Futureproof had begun, and I wanted to catch the feeling before it disappeared into everything that needed doing next.
+At about 10:30 on opening night, I stood outside the Sylvia Hotel and recorded a voice note. T-shirt, jean jacket, stars out. Still green leaves on the trees. Vancouver was being ridiculously good to us for the end of October.
 
-“A bunch of people trusted me.”
+I was happy. Really fucking happy.
 
-That is what I said. People had travelled to be here. Friends I had known for years were suddenly together in Vancouver. I was trying to describe the talks and the performance, but I kept coming back to the people who had shown up.
+One thing I said into my phone was, “A bunch of people trusted me.” Friends had flown in. People whose work I love had said yes. Seeing them here together felt good in a way I was having trouble explaining.
 
-I want to take that trust seriously after the festival, too.
+I've known Amber Case for about twenty years. We met at a geek gathering in Seattle and went on to organize cyborg camps together. She still amazes me. On opening night she was talking about humans, our devices, our attention, and how we might make living with all this technology a little less exhausting. She stole people's hearts and tickled their imaginations.
 
-Amber Case was one of the people I talked about in that late-night reflection. What stayed with me was her way of talking about humans, the world around us, and the devices that have become part of how we live. She made those questions feel approachable. In my very unofficial review outside the hotel, I said she had stolen people’s hearts and tickled their imaginations.
+One of her examples was the little light on a car mirror that tells you someone is in your blind spot. Such a simple thing. It gives you information when you need it, without demanding that you stop what you're doing. I love that she can bring an AI conversation back to something that ordinary and useful. We need more of that kind of judgment in what we're building.
 
-There is a useful question in that for anyone building with AI: what does the thing you are making ask of a human being? More attention? More explanation? Another account, another interruption, another thing to keep up with?
+The AI Builders Fellowship was another part of the night that felt especially good. The fellows had been working with public archives: Canada's health records, Vancouver's history, things you can actually investigate and learn from. There is nothing cooler than putting money into the hands of people doing real work and then getting to see what they make. I want us doing more of that through BC + AI.
 
-I want the human part to survive our enthusiasm for the tools.
+Brewster Kahle surprised me. During the questions, I asked if he'd come back to talk about archiving open-weight models and studying how different AI systems answer the same questions. He said no, then proposed a small stipend for people to do research with the data already being collected.
 
-The AI Builders Fellowship gave me another way to think about that. My reflection that night was pretty direct: there is nothing cooler than putting money into the hands of people doing real work. Being able to support someone while they make something matters to me. Their work gets time and a chance to become more than an idea.
+I had asked for another talk. He was offering a way for people to get involved in the research. That felt pretty damn good. We still have a proposal to work out, and I want to take him up on it.
 
-That is part of what I wanted Futureproof to make possible. People meeting one another, seeing what others are trying, and finding ways to help the work continue.
+Then Philippe Pasquier took us on a total trip with his generative live performance. It felt like a séance with dead composers.
 
-My exchange with Brewster Kahle also stayed with me. I had asked about having him come back to talk about archiving open-weight models and studying bias in their answers. He proposed supporting people to do research using data already collected. I came away feeling that the possibility was bigger than the invitation I had made.
+I loved having that alongside Amber, Brewster and the fellows. My own interests have always wandered between art, technology and the people making things. Getting to bring those people together here in Vancouver is a big part of why I do this.
 
-That suggestion deserves follow-through. The transcript describes a small research stipend. We still need to work through what the research would involve, who would do it, and how support would work. I want to get those details right.
+And this grew out of people coming back to the Space Centre, month after month, for the meetups. By the time I was introducing the next morning's program, I was talking about the education, life sciences and consciousness groups that had grown out of those gatherings. People keep finding more things they want to work on together. I feel good about what we've started here.
 
-The question it leaves me with is practical: what happens to the work after the event?
+Thank you to everyone who came, spoke, performed, showed their work or helped put our first festival together. It meant a lot to have you here.
 
-I can organize another gathering. I can invite another speaker. I can make photographs and help people find one another. But what would make it easier for the fellows to keep building? What can we document well enough that somebody who could not be there can still use it? Which conversations deserve the slower work of a follow-up?
+[Michelle Diamond's photographs are up](https://www.futureproof.website/gallery/), and the [2026 program](https://www.futureproof.website/program/) is there if you want to revisit the people and sessions. Go spend some time with the photos. I'm really glad we did this.
 
-Those are the questions I want to spend time on now. They need people, time and decisions. Putting them into a festival recap does not answer them.
-
-There is also a responsibility in making the record. A photograph shows one moment. A transcript catches some words, sometimes badly. My late-night reflection catches how opening night felt to me. Each gives us something useful, and each leaves things out. I want to preserve those differences while we put the material together.
-
-[Michelle Diamond’s festival photographs](https://www.futureproof.website/gallery/) are already there to spend time with. The [2026 program](https://www.futureproof.website/program/) gives the names and sessions. My own account starts with that voice note outside the Sylvia, trying to hold onto a feeling before I had a tidy explanation for it.
-
-People trusted me enough to show up.
-
-I want to help them keep going.
-
-*This essay was drafted with AI assistance from my opening-night voice note and supplied talk transcripts.*
+*Drafted with AI assistance from my opening-night voice note and supplied talk transcripts.*

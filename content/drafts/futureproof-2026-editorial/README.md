@@ -1,4 +1,4 @@
-# Futureproof: what happens after the applause
+# Futureproof: Year One
 
 Manuscript package for [#1165](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1165).
 `post.md` contains the manuscript and metadata; `post.html` is the equivalent
@@ -9,11 +9,12 @@ AI-assistance disclosure. This package has no media attachments.
 
 - Author: Kris Krüg, existing WordPress author ID `1`.
 - Category: existing **Vancouver AI Ecosystem** (`1662`); no new tags.
-- Slug: `futureproof-2026-what-happens-after-the-applause`.
-- Status: `draft`. No WordPress draft has been created by this preparation.
+- Slug: `futureproof-2026-year-one`.
+- Status: `draft`. Verify WordPress creation separately through authenticated
+  slug and status readback; this local package does not prove a live draft exists.
 - Title, excerpt and SEO description are in `post.md`.
 - Date and canonical URL are unset. The intended permalink shape is
-  `/YYYY/MM/DD/futureproof-2026-what-happens-after-the-applause/`, using the actual
+  `/YYYY/MM/DD/futureproof-2026-year-one/`, using the actual
   publication date returned by WordPress.
 - Reuse the site's existing Person and BlogPosting schema, sitemap and feed.
   The body adds no schema or cross-domain canonical.
