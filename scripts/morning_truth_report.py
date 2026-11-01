@@ -258,7 +258,7 @@ def resolve_output_path(
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-url", default="https://kriskrug.co")
-    parser.add_argument("--expect-version", default="7.0.7")
+    parser.add_argument("--expect-version", default="7.0.8")
     parser.add_argument(
         "--work-plan",
         default="docs/current-state/CURRENT-STATE-2026-10-25.md",

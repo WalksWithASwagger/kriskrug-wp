@@ -5,11 +5,18 @@ meetup and ALL IN page update at 2026-10-26 05:15 UTC. This is the declared drif
 promise that counters remain unchanged. Run `make status-readonly` for current
 observations. Supersedes [September 21](CURRENT-STATE-2026-09-21.md).
 
+**WordPress baseline refresh — November 1, 2026, 17:11 UTC:**
+`make varlock-run CMD='make status-readonly'` observed WordPress `7.0.8`;
+the only public smoke failure was the previous `7.0.7` expectation.
+The WordPress baseline and startup defaults now use `7.0.8`. Other dated
+release evidence below remains the October 25 snapshot.
+
 ## Verified state
 
 - Open PRs: `0` at the 05:10 UTC startup check, before this release-receipt PR.
 - Open issues: `28` at the same startup check.
-- Production still publicly reports WordPress `7.0.7`.
+- Production still publicly reports WordPress `7.0.8` (November 1 readback;
+  the October 25 observation was `7.0.7`).
 - WordPress draft queue: `0` scheduled posts, `68` draft posts, `4` draft pages.
 - Public Aurora `style.css`: `1.6.12`. Fetched `origin/main`: `1.6.13`.
   The approved image-only repair does not deploy all of 1.6.13 or change the
@@ -76,7 +83,8 @@ observations. Supersedes [September 21](CURRENT-STATE-2026-09-21.md).
 fetched `origin/main`. It performs no fetch. Use `--ref HEAD` for an explicit
 checkout comparison. Startup reports compare `origin/main...HEAD`, no longer
 query the retired `origin/aurora/v2`, and inspect the current `/work/` route.
-WordPress's expected version is 7.0.7; unrelated smoke failures remain visible.
+WordPress's expected version is 7.0.8 after the November 1 baseline refresh;
+unrelated smoke failures remain visible.
 
 Auto-Triage Issues and Marquee Weekly Scan remain disabled. This handoff does not
 enable them, publish drafts, modify analytics, or authorize another live release.
