@@ -1,44 +1,35 @@
 # Futureproof: Year One
 
-Manuscript package for [#1165](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1165).
-`post.md` contains the manuscript and metadata; `post.html` is the equivalent
-Gutenberg body for the existing local draft publisher. Both include the
-AI-assistance disclosure. This package has no media attachments.
+Published November 1, 2026: [read the feature](https://kriskrug.co/2026/11/01/futureproof-2026-year-one/).
+This package records the final published article for [#1165](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1165), replacing the earlier short recap. Kris authorized the editorial refinement, publication and indexing submissions in the publication session, then requested repository closeout.
 
-## Publication metadata
+## Source of truth
 
-- Author: Kris Krüg, existing WordPress author ID `1`.
-- Category: existing **Vancouver AI Ecosystem** (`1662`); no new tags.
-- Slug: `futureproof-2026-year-one`.
-- Status: `draft`. Verify WordPress creation separately through authenticated
-  slug and status readback; this local package does not prove a live draft exists.
-- Title, excerpt and SEO description are in `post.md`.
-- Date and canonical URL are unset. The intended permalink shape is
-  `/YYYY/MM/DD/futureproof-2026-year-one/`, using the actual
-  publication date returned by WordPress.
-- Reuse the site's existing Person and BlogPosting schema, sitemap and feed.
-  The body adds no schema or cross-domain canonical.
+- `post.html` is the exact Gutenberg body read back from WordPress post **12934**.
+- `post.md` is a Markdown rendering of that body with the publication metadata.
+- `media.json` records the twelve existing public WordPress images, credits, captions and alt text. Nine photographs are by Michelle Diamond / Diamond’s Edge Photography; three presentation images are from Amber Case and Jacob Ortiz. No image binaries or private source material are included.
+- Featured image: existing media **12935**. Author: **1**, Kris Krüg. Category: **1662**, Vancouver AI Ecosystem. No new tags.
+- Slug: `futureproof-2026-year-one`. Publication: `2026-11-01T14:52:04` local / `2026-11-01T22:52:04Z`.
+- Body SHA-256: `2e0a6ea4552d286769c0e386bb1b6940ffe5f70137043efb18026c2247bbc1f5`.
 
-The two contextual links point to the released festival gallery and program.
-They are not described as completed proceedings. Additional editorial links and
-photographs require separate selection; this text remains unchanged meanwhile.
+The exact saved body includes the AI-assistance disclosure, five contextual internal links, the released festival gallery and program, and a linked photography credit. The program and gallery are not presented as completed proceedings. The post uses its own canonical URL and the existing BlogPosting/Person schema.
 
-## Validation and later publication
+## Release verification
 
-Run the existing publisher in dry-run mode:
+November 1 provider and public readback confirmed:
 
-```sh
-python3 scripts/notion-to-wp/create_local_wp_draft.py content/drafts/futureproof-2026-editorial/post.md --dry-run
-```
+- Status `publish`, matching post ID, slug, body, author, category and featured media.
+- HTTP 200, one H1, correct canonical, SEO title and description, and social-preview image.
+- All twelve images have alt text, dimensions and responsive sources. Slides link to full-size images.
+- Article included in the WordPress post sitemap and RSS feed.
+- `make seo-publisher-smoke` passed, including the new article's required BlogPosting fields.
+- Google Search Console confirmed **Indexing requested** and a priority crawl queue entry.
+- The IndexNow global endpoint accepted the URL with **HTTP 200** after the existing ownership key was verified.
 
-That command validates the local package but reports `slug_check: skipped_offline`.
-Before any separately authorized WordPress creation, repeat authenticated
-post/page slug checks and review the exact payload. Use create-only draft mode,
-record the resulting ID and edit URL, and inspect actual WordPress rendering
-before publication. A draft can be returned to trash by its verified ID if
-creation must be reversed. Never update a pre-existing post to make this draft.
+Submission is confirmed; completed search-engine indexing is not yet confirmed. Do not repeat submissions solely because indexing is pending.
 
-Publication, media uploads and Events-page changes remain separate operations.
-Follow [the publisher runbook](../../../scripts/notion-to-wp/README.md) for
-approval, snapshots, rollback and public readback. Keep #1165 open for its
-remaining editorial and publication-preparation requirements.
+## Future maintenance
+
+This is a published snapshot, not a create-new-draft input. Do not run the create-only draft publisher against it or upload these images again. Any later authorized update must verify that the slug still resolves uniquely to post **12934**, capture a fresh private rollback snapshot, review the body diff, and verify both authenticated and public readback afterward.
+
+Private quote/source checks, before/after snapshots, screenshots and submission receipts remain in the publication session's evidence package outside this repository. The release changed content and media metadata only; it did not deploy theme, plugin or snippet code.
