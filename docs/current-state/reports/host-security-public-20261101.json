@@ -1,0 +1,172 @@
+{
+  "captured_utc": "2026-11-01T19:44:35.445782+00:00",
+  "scope": "Unauthenticated public status and allowlisted headers only; no POST, cookies or body retained",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "Pagely-ARES/1.23.0",
+        "x-powered-by": null,
+        "x-content-type-options": null,
+        "referrer-policy": null,
+        "strict-transport-security": null,
+        "content-security-policy": null,
+        "content-security-policy-report-only": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null
+      },
+      "wordpress_generator_versions": [
+        "7.0.8"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/contact/",
+      "status": 200,
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "Pagely-ARES/1.23.0",
+        "x-powered-by": null,
+        "x-content-type-options": null,
+        "referrer-policy": null,
+        "strict-transport-security": null,
+        "content-security-policy": null,
+        "content-security-policy-report-only": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/speaking/",
+      "status": 200,
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "Pagely-ARES/1.23.0",
+        "x-powered-by": null,
+        "x-content-type-options": null,
+        "referrer-policy": null,
+        "strict-transport-security": null,
+        "content-security-policy": null,
+        "content-security-policy-report-only": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/wp-json/",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=UTF-8",
+        "server": "Pagely-ARES/1.23.0",
+        "x-powered-by": null,
+        "x-content-type-options": "nosniff",
+        "referrer-policy": null,
+        "strict-transport-security": null,
+        "content-security-policy": null,
+        "content-security-policy-report-only": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/xmlrpc.php",
+      "status": 405,
+      "headers": {
+        "content-type": "text/plain",
+        "server": "Pagely-ARES/1.23.0",
+        "x-powered-by": null,
+        "x-content-type-options": null,
+        "referrer-policy": null,
+        "strict-transport-security": null,
+        "content-security-policy": null,
+        "content-security-policy-report-only": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/wp-content/themes/kk-aurora/style.css",
+      "status": 200,
+      "headers": {
+        "content-type": "text/css",
+        "server": "Pagely-ARES/1.23.0",
+        "x-powered-by": null,
+        "x-content-type-options": null,
+        "referrer-policy": null,
+        "strict-transport-security": null,
+        "content-security-policy": null,
+        "content-security-policy-report-only": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null
+      },
+      "theme_version": "1.6.12"
+    },
+    {
+      "method": "GET",
+      "path": "/wp-login.php",
+      "status": 200,
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "Pagely-ARES/1.23.0",
+        "x-powered-by": null,
+        "x-content-type-options": null,
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "strict-transport-security": null,
+        "content-security-policy": "frame-ancestors 'self';",
+        "content-security-policy-report-only": null,
+        "x-frame-options": "SAMEORIGIN",
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/host-check-20261101-not-a-page/",
+      "status": 404,
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "Pagely-ARES/1.23.0",
+        "x-powered-by": null,
+        "x-content-type-options": null,
+        "referrer-policy": null,
+        "strict-transport-security": null,
+        "content-security-policy": null,
+        "content-security-policy-report-only": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null
+      }
+    },
+    {
+      "method": "HEAD",
+      "path": "/xmlrpc.php",
+      "status": 405,
+      "headers": {
+        "content-type": "text/plain;charset=UTF-8",
+        "server": "Pagely-ARES/1.23.0",
+        "x-powered-by": null,
+        "x-content-type-options": null,
+        "referrer-policy": null,
+        "strict-transport-security": null,
+        "content-security-policy": null,
+        "content-security-policy-report-only": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null
+      }
+    }
+  ]
+}

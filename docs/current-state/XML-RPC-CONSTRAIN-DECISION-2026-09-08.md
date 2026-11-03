@@ -1,5 +1,10 @@
 # XML-RPC constrain decision packet — issue #1002
 
+**November 1 review:** the client inventory below is historical. Before any
+live restriction, use the [current host review](HOST-SECURITY-REVIEW-2026-11-01.md)
+and obtain a fresh required-client inventory. Do not infer that Jetpack remains
+inactive or activate the fallback snippet from this September record.
+
 Status: **prep complete; live disable not authorized**. Captured 8 September 2026. No host, plugin, snippet, DNS, Pagely, or live WordPress setting was changed. This packet does not authorize a Code Snippets paste or a Pagely deny rule.
 
 Related work, not reopened here:
