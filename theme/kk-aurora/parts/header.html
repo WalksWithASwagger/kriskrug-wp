@@ -9,23 +9,27 @@
        header rendered with OLD layout rules — nav flex-wrapped to ~98px, the
        marquee SVGs at ~53px — until the deferred bundle landed, then the whole
        header collapsed ~100px: the measured 0.43 CLS and the hero re-paint.
-       Rules are verbatim copies of the current style.css declarations for the
-       elements that shifted, plus explicit neutralizers (flex-wrap, grid-area,
-       grid-template-areas) for stale-snapshot declarations the current theme
-       no longer sets. Both kinds equal the current computed values, so they
-       are no-ops once the real bundle applies, but they pin header geometry
-       during the critical-CSS window regardless of how stale Boost's snapshot
-       is. Keep in sync with style.css when header layout changes, and
-       regenerate Boost critical CSS after every layout deploy. -->
+       Keep each named grid area paired with a matching template at every
+       breakpoint. Resetting only the template creates implicit named tracks
+       and moves the mobile brand and actions out of their intended row.
+       The legacy revive overrides shrink mobile links, so retain tap targets here.
+       Regenerate Boost critical CSS after every layout deploy. -->
   <style>
     .aurora-woven-marquee { height: 6px; overflow: hidden; }
-    .aurora-header-shell { align-items: center; display: grid; grid-template-areas: none; gap: 1rem; grid-template-columns: minmax(180px, auto) minmax(0, 1fr) auto; margin: 0 auto; max-width: var(--aurora-max, 1200px); padding: 0.8rem clamp(1rem, 3vw, 2rem); }
+    .aurora-header-shell { align-items: center; display: grid; grid-template-areas: "brand nav actions"; gap: 1rem; grid-template-columns: minmax(180px, auto) minmax(0, 1fr) auto; margin: 0 auto; max-width: var(--aurora-max, 1200px); padding: 0.8rem clamp(1rem, 3vw, 2rem); }
     .aurora-primary-nav, .aurora-header-actions { align-items: center; display: flex; gap: clamp(0.6rem, 1.8vw, 1.2rem); min-width: 0; }
-    .aurora-primary-nav { justify-content: center; flex-wrap: nowrap; grid-area: auto; }
+    .aurora-brand { grid-area: brand; }
+    .aurora-header-actions { grid-area: actions; }
+    .aurora-primary-nav { justify-content: center; flex-wrap: nowrap; grid-area: nav; }
+    @media (max-width: 1200px) {
+      .aurora-header-shell { grid-template-areas: "brand actions" "nav nav"; grid-template-columns: minmax(0, 1fr) auto; }
+    }
     @media (max-width: 768px) {
-      .aurora-header-shell { gap: 0.55rem 0.75rem; grid-template-areas: none; grid-template-columns: minmax(0, 1fr) auto; padding: 0.6rem 1rem 0.7rem; }
+      .aurora-header-shell { gap: 0.55rem 0.75rem; grid-template-areas: "brand actions" "nav nav"; grid-template-columns: minmax(0, 1fr) auto; padding: 0.6rem 1rem 0.7rem; }
       .aurora-brand-logo { height: 2.55rem; max-width: min(7.75rem, 36vw); }
       .aurora-primary-nav { display: flex; gap: 0.4rem; grid-column: 1 / -1; justify-content: start; overflow-x: auto; padding: 0.05rem 0 0.15rem; scrollbar-width: none; width: 100%; }
+      body.aurora-theme .aurora-primary-nav { justify-content: start; }
+      body.aurora-theme .aurora-primary-nav a { font-size: 0.76rem !important; min-height: 44px !important; padding-inline: 0.58rem !important; }
     }
   </style>
   <div class="aurora-woven-marquee" aria-hidden="true">
