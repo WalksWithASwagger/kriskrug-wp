@@ -29,7 +29,9 @@
       .aurora-brand-logo { height: 2.55rem; max-width: min(7.75rem, 36vw); }
       .aurora-primary-nav { display: flex; gap: 0.4rem; grid-column: 1 / -1; justify-content: start; overflow-x: auto; padding: 0.05rem 0 0.15rem; scrollbar-width: none; width: 100%; }
       body.aurora-theme .aurora-primary-nav { justify-content: start; }
-      body.aurora-theme .aurora-primary-nav a { font-size: 0.76rem !important; min-height: 44px !important; padding-inline: 0.58rem !important; }
+      @layer components {
+        body.aurora-theme .aurora-primary-nav a { font-size: 0.76rem !important; min-height: 44px !important; padding-inline: 0.58rem !important; }
+      }
     }
   </style>
   <div class="aurora-woven-marquee" aria-hidden="true">
