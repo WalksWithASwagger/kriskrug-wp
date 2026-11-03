@@ -2,6 +2,8 @@
 
 Aurora 1.7.0 implements the approved November 3 design proof. Latest thinking comes first: a chronological list with a thumbnail, title, short description and date, followed by native pagination. The article template uses a quiet reading column and optional contents navigation.
 
+Draft PR: https://github.com/WalksWithASwagger/kriskrug-wp/pull/1172
+
 ## Review locally
 
 - Review controls: http://127.0.0.1:8794/journal-review.html
@@ -37,6 +39,7 @@ The authenticated GET-only source snapshots and screenshots remain local in `.ge
 ## Verification
 
 - `make verify PYTHON=.venv/bin/python`: passed (184 publisher, 877 operational, 12 SEO inventory, 68 pytest checks; JavaScript/PHP syntax, behavior harnesses, plugin/theme smoke, docs truth and focused WordPress coding standards).
+- CSS inventory ratchet: reduced the front-end budget from 7,489 to 7,142 lines and from 173 to 162 `!important` declarations.
 - Nine changed template/pattern/part files passed `make voice-check` with zero violations.
 - The repository's isolated Ruff rule set (`E4,E7,E9,F`) passed for changed Python tests. The broader machine-default Ruff configuration reports pre-existing style rules; it is not this repository's gate.
 - Browser review: 1440px desktop, 390px phone, plus 320px and 767px breakpoints. No horizontal overflow after the Instagram correction; no hidden article paragraphs. Three complete index entries fit at 1440×900; two at 390×844.
@@ -69,3 +72,14 @@ After KK approves the final design, merge and deploy remain separate actions req
 5. If rollback is needed, restore the captured theme **and** the exact saved single template, then rebuild/purge the same caches and verify public rendering. A theme-only rollback would leave the new database template pointing at missing patterns/parts.
 
 No merge, production upload, template write, or cache purge is authorized by this review packet.
+
+## Prepared packages
+
+Local packages were built from committed theme source and verified by the packaging helper. They have not been uploaded:
+
+- Candidate 1.7.0: `.generated/blog-review/packages/kk-aurora-writing-review-1.7.0-20261103.zip`
+- Candidate SHA256: `28c68213f4a56bc4516cea0adf81ba0f34790a861f413840667e1b6ae2441480`
+- Reference rollback 1.6.12 from `edeac1e`: `.generated/blog-review/packages/kk-aurora-rollback-1.6.12-20261103.zip`
+- Reference rollback SHA256: `3775530ba595019bcee7d3be7749be9d1855c24abae28942dbad8f06240f9de0`
+
+The reference rollback package does not replace the fresh production theme/template snapshot required at deployment. The paired database-template rollback described above is essential.

@@ -17,7 +17,7 @@ await new Promise((resolve,reject)=>server.server.close(e=>e?reject(e):resolve()
 await new Promise(resolve=>server.server.listen(port,'127.0.0.1',resolve));
 await server.playground.mkdir('/wordpress/wp-content/uploads/journal-review');
 for (const post of source.posts) await server.playground.writeFile('/wordpress/wp-content/uploads/journal-review/'+post.id+'.jpg',readFileSync(path.join(proofAssets,'post-'+post.id+'.jpg')));
-await server.playground.writeFile('/wordpress/journal-review.html',readFileSync(path.join(repo,'scripts/tests/journal-review.html')));
+await server.playground.writeFile('/wordpress/journal-review.html',readFileSync(path.join(repo,'scripts/tests/journal-review.html'),'utf8'));
 await server.playground.writeFile('/wordpress/journal-nojs.html','<!doctype html><title>Article without JavaScript</title><style>body{margin:0}iframe{display:block;border:0;width:100vw;height:100vh}</style><iframe sandbox="allow-same-origin allow-forms" title="Article without JavaScript" src="/2026/11/02/you-cant-rent-a-social-licence/"></iframe>');
 await server.playground.writeFile('/tmp/posts.json',JSON.stringify(source.posts));
 const result=await server.playground.run({code:`<?php
@@ -53,5 +53,7 @@ $control=wp_insert_post(['post_type'=>'page','post_status'=>'publish','post_titl
 flush_rewrite_rules();
 echo wp_json_encode(['version'=>get_bloginfo('version'),'blog'=>get_permalink($blog),'posts'=>$ids,'edge'=>get_permalink($edge),'control'=>get_permalink($control)]);
 `});
+const reviewResponse = await fetch('http://127.0.0.1:'+port+'/journal-review.html');
+if (await reviewResponse.text() !== readFileSync(path.join(repo,'scripts/tests/journal-review.html'),'utf8')) throw new Error('Review page readback differs from source.');
 console.log(result.text);
 for(const signal of ['SIGINT','SIGTERM']) process.once(signal,async()=>{await server[Symbol.asyncDispose]();process.exit(0);});
