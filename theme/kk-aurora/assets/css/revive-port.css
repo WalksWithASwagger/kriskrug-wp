@@ -1472,11 +1472,7 @@ body.aurora-theme .aurora-primary-nav::-webkit-scrollbar {
   color: var(--revive-ink-muted) !important;
 }
 
-/* ========== Inner page cream bridge ========== */
-
 body.aurora-theme .aurora-page-2026,
-body.aurora-theme .aurora-single-2026,
-body.aurora-theme .aurora-writing-archive,
 body.aurora-theme main.wp-block-group {
   background: transparent;
   color: var(--revive-ink);
@@ -1555,8 +1551,7 @@ body.aurora-theme :where(
 }
 
 body.aurora-theme .aurora-page-header,
-body.aurora-theme .aurora-page-title,
-body.aurora-theme .aurora-writing-archive-title {
+body.aurora-theme .aurora-page-title {
   color: var(--revive-ink) !important;
 }
 
@@ -1619,25 +1614,7 @@ body.aurora-theme .aurora-article-title a {
   transform: none;
 }
 
-/* --------------------------------------------------------------------------
-   Undo 1.3.33 dark-theme opaque contrast hardening on cream paper.
-   Those rules used !important black panes behind type; they must not win here.
-   -------------------------------------------------------------------------- */
-
-body.aurora-theme :where(
-  .aurora-kicker,
-  .aurora-section-kicker,
-  .aurora-hero-dek,
-  .aurora-page-lead,
-  .aurora-writing-archive-dek,
-  .aurora-feed-links-copy p:not(.aurora-kicker),
-  .aurora-page-content p,
-  .aurora-prose p,
-  .aurora-hero-copy p,
-  .aurora-masthead-dek,
-  .aurora-masthead-copy h1,
-  #aurora-home-title
-) {
+body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-page-content p, .aurora-prose p, .aurora-hero-copy p, .aurora-masthead-dek, .aurora-masthead-copy h1, #aurora-home-title) {
   background: transparent !important;
   background-color: transparent !important;
   box-decoration-break: unset;
@@ -1651,45 +1628,19 @@ body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker) {
   -webkit-text-fill-color: var(--revive-accent-text) !important;
 }
 
-body.aurora-theme #aurora-main :where(
-  .aurora-page-header,
-  .aurora-writing-archive-header,
-  .aurora-feed-links-copy,
-  .aurora-proof-section,
-  .aurora-masthead,
-  .aurora-home-revive,
-  .aurora-writing-band
-) {
+body.aurora-theme #aurora-main :where(.aurora-page-header, .aurora-proof-section, .aurora-masthead, .aurora-home-revive, .aurora-writing-band) {
   background-color: transparent !important;
   background: transparent !important;
 }
 
-body.aurora-theme #aurora-main :where(
-  #aurora-home-title,
-  .aurora-page-title,
-  .aurora-writing-archive-title,
-  .aurora-display-heading,
-  .aurora-feed-links-copy h2,
-  .aurora-hero-copy h1,
-  .aurora-section-head h2,
-  .aurora-writing-title
-) {
+body.aurora-theme #aurora-main :where(#aurora-home-title, .aurora-page-title, .aurora-display-heading, .aurora-hero-copy h1, .aurora-section-head h2, .aurora-writing-title) {
   background-color: transparent !important;
   background: transparent !important;
   color: var(--revive-ink) !important;
   -webkit-text-fill-color: var(--revive-ink) !important;
 }
 
-body.aurora-theme #aurora-main :where(
-  .aurora-kicker,
-  .aurora-section-kicker,
-  .aurora-hero-dek,
-  .aurora-page-lead,
-  .aurora-writing-archive-dek,
-  .aurora-page-content p,
-  .aurora-prose p,
-  .aurora-masthead-dek
-) {
+body.aurora-theme #aurora-main :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-page-content p, .aurora-prose p, .aurora-masthead-dek) {
   background-color: transparent !important;
   background: transparent !important;
   color: var(--revive-ink-soft) !important;

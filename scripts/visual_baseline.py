@@ -252,6 +252,7 @@ THEME_CSS_FILES = (
     "assets/css/bleeding-edge.css",
     "assets/css/editor.css",
     "assets/css/09-late.css",
+    "assets/css/journal.css",
     "assets/css/revive-port.css",
     "assets/css/typography-refined.css",
 )

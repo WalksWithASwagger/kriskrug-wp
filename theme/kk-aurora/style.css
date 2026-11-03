@@ -4,7 +4,7 @@ Theme URI: https://kriskrug.co
 Author: Kris Krug
 Author URI: https://kriskrug.co
 Description: A keynote-first WordPress block theme for Kris Krug, pairing media-led authority, authored judgment, and purposeful motion.
-Version: 1.6.13
+Version: 1.7.0
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -663,9 +663,7 @@ a {
 }
 
 .aurora-home-2026,
-.aurora-writing-archive,
-.aurora-page-2026,
-.aurora-single-2026 {
+.aurora-page-2026 {
   background: transparent;
 }
 
@@ -832,12 +830,12 @@ a {
   margin: 0 auto;
   max-width: var(--aurora-max);
 }
+
 .aurora-dispatch-band .aurora-action-row,
 .aurora-feature-band,
 .aurora-speaking-band,
 .aurora-writing-band,
-.aurora-final-cta,
-.aurora-single-2026 {
+.aurora-final-cta {
   margin: 0 auto;
   padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 2rem);
 }
@@ -855,8 +853,7 @@ a {
 .aurora-speaking-copy h2,
 .aurora-final-cta h2,
 .aurora-writing-title,
-.aurora-page-title,
-.aurora-related h2 {
+.aurora-page-title {
   color: var(--aurora-ink);
   font-size: clamp(2.1rem, 5vw, 4.8rem);
   font-weight: 700;
@@ -996,14 +993,12 @@ a {
   margin: 0.45rem 0;
 }
 
-.aurora-article-title a,
-.aurora-related-row a {
+.aurora-article-title a {
   color: var(--aurora-ink);
   text-decoration: none;
 }
 
-.aurora-article-title a:hover,
-.aurora-related-row a:hover {
+.aurora-article-title a:hover {
   color: var(--wp--preset--color--signal);
 }
 
@@ -1013,356 +1008,13 @@ a {
   margin: 0;
 }
 
-.aurora-article-date,
-.aurora-article-category,
-.aurora-article-meta,
-.aurora-post-tags {
+.aurora-article-date {
   color: var(--aurora-ink-muted);
   font-size: 0.86rem;
 }
 
 .aurora-writing-actions {
   margin-top: 2rem;
-}
-
-.aurora-writing-archive {
-  margin-block-start: 0;
-  padding-top: clamp(1.5rem, 3.2vw, 3rem);
-}
-
-.aurora-writing-archive-header {
-  display: grid;
-  gap: 0.9rem 1rem;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  margin: 0 auto;
-  max-width: var(--aurora-max);
-  padding: 0 clamp(1rem, 3vw, 2rem) clamp(1.15rem, 2.7vw, 2rem);
-}
-
-.aurora-writing-archive-header .aurora-kicker {
-  grid-column: 1 / -1;
-}
-
-.aurora-writing-archive-title {
-  color: var(--aurora-ink);
-  font-size: clamp(2.55rem, 4.8vw, 4.35rem);
-  font-weight: 700;
-  grid-column: 1 / span 7;
-  letter-spacing: 0;
-  line-height: 0.96;
-  margin: 0;
-  max-width: 13ch;
-  text-wrap: balance;
-}
-
-.aurora-writing-archive-dek {
-  align-self: end;
-  color: var(--aurora-ink-soft);
-  font-size: clamp(1rem, 1.25vw, 1.14rem);
-  grid-column: 8 / -1;
-  line-height: 1.5;
-  margin: 0 0 0.25rem;
-  max-width: 42ch;
-}
-
-.aurora-writing-archive-query {
-  margin: 0 auto;
-  max-width: var(--aurora-max);
-  padding: 0 clamp(1rem, 3vw, 2rem) clamp(3rem, 6vw, 5rem);
-}
-
-.aurora-writing-archive-list.wp-block-post-template {
-  align-items: start;
-  display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  padding: 0;
-}
-
-.aurora-writing-archive-list.wp-block-post-template > li {
-  grid-column: span 4;
-  margin: 0;
-  min-width: 0;
-  width: auto !important;
-}
-
-/* Cream card. Declaration site 1 of 6 for this component — the 1.4.0 port
-   flipped .aurora-card / .aurora-media-card / .aurora-proof-grid > article and
-   missed this one, so the archive kept a #050708 surface under cream-era ink
-   (titles 1.00–1.06:1). Sites 2–6 are the .aurora-writing-archive overrides
-   below, the two breakpoint blocks, the shared category-pill rule, and the
-   reduced-motion block; all are reconciled to this surface. Issue #485. */
-.aurora-writing-card {
-  background: var(--aurora-panel-solid);
-  border: 1px solid var(--aurora-line);
-  border-radius: var(--aurora-radius-card);
-  display: grid;
-  grid-template-rows: auto 1fr;
-  height: auto;
-  min-width: 0;
-  overflow: hidden;
-  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
-}
-
-/* On the dark card the hover state was a lighten. On cream a lighten walks the
-   card into the page paper (--revive-surface, only 1.10:1 away), so the state
-   is carried by the accent border and the lift instead. */
-.aurora-writing-card:hover {
-  background: var(--aurora-panel-solid);
-  border-color: var(--aurora-line-strong);
-  transform: translateY(-2px);
-}
-
-.aurora-writing-card-media {
-  aspect-ratio: 16 / 10 !important;
-  background: var(--aurora-panel-solid);
-  border-bottom: 1px solid var(--aurora-line);
-  margin: 0;
-  max-width: 100%;
-  min-width: 0;
-  overflow: hidden;
-}
-
-.aurora-writing-card-media a,
-.aurora-writing-card-media img {
-  display: block;
-  height: 100%;
-  max-width: 100%;
-  width: 100%;
-}
-
-.aurora-writing-card-media img {
-  object-fit: cover;
-  transition: transform 500ms ease;
-}
-
-.aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
-  align-items: center;
-  aspect-ratio: 16 / 10;
-  background:
-    linear-gradient(135deg, rgba(217, 74, 31, 0.18), rgba(217, 74, 31, 0.18)),
-    var(--aurora-panel-solid);
-  border-bottom: 1px solid var(--aurora-line);
-  color: var(--aurora-ink-muted);
-  content: "";
-  display: flex;
-  font-size: clamp(1.25rem, 3vw, 2.5rem);
-  font-weight: 700;
-  justify-content: center;
-}
-
-.aurora-writing-card:hover .aurora-writing-card-media img {
-  filter: saturate(1.08);
-  transform: scale(1.025);
-}
-
-.aurora-writing-card-body {
-  align-content: start;
-  display: grid;
-  gap: 0.52rem;
-  min-width: 0;
-  padding: clamp(0.8rem, 1.4vw, 1rem);
-}
-
-.aurora-writing-card-category,
-.aurora-writing-card-meta {
-  color: var(--aurora-ink-muted);
-  font-size: 0.75rem;
-  font-weight: 780;
-  letter-spacing: 0;
-  line-height: 1.25;
-  text-transform: uppercase;
-}
-
-.aurora-writing-card-category a,
-.aurora-writing-card-meta a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.aurora-writing-card-category a:hover,
-.aurora-writing-card-meta a:hover {
-  color: var(--wp--preset--color--signal);
-}
-
-.aurora-writing-card-title {
-  font-size: var(--aurora-card-title-size);
-  line-height: 1.14;
-  margin: 0;
-}
-
-.aurora-writing-card-title a {
-  color: var(--aurora-ink);
-  text-decoration: none;
-}
-
-.aurora-writing-card-title a:hover {
-  color: var(--wp--preset--color--signal);
-}
-
-.aurora-writing-card-excerpt,
-.aurora-writing-card-excerpt p {
-  color: var(--aurora-ink-soft);
-  font-size: var(--aurora-card-body-size);
-  line-height: 1.6;
-  margin: 0;
-}
-
-.aurora-writing-card-excerpt .wp-block-post-excerpt__excerpt {
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  display: -webkit-box;
-  overflow: hidden;
-}
-
-.aurora-writing-card-excerpt .wp-block-post-excerpt__more-text {
-  display: none;
-}
-
-.aurora-writing-card-meta {
-  gap: 0.38rem;
-  margin-top: auto;
-}
-
-.aurora-writing-card-meta time,
-.aurora-writing-card-meta span {
-  color: var(--aurora-ink-muted);
-}
-
-.aurora-writing-pagination {
-  color: var(--aurora-ink-muted);
-  gap: 0.38rem;
-}
-
-.aurora-writing-pagination a,
-.aurora-writing-pagination .page-numbers,
-.aurora-writing-pagination .wp-block-query-pagination-previous,
-.aurora-writing-pagination .wp-block-query-pagination-next {
-  align-items: center;
-  /* Was rgba(9, 12, 17, 0.52) — a pre-cream dark chip. Over cream it flattens
-     to #77756e and put --aurora-ink at 4.01:1; on the card surface it is
-     13.53:1. Same blog index, same missed-port cause as the card. */
-  background: var(--aurora-panel-solid);
-  border: 1px solid var(--aurora-line);
-  border-radius: var(--aurora-radius-control);
-  color: var(--aurora-ink);
-  display: inline-flex;
-  font-size: 0.86rem;
-  font-weight: 760;
-  min-height: 36px;
-  padding: 0.45rem 0.62rem;
-  text-decoration: none;
-  -webkit-text-fill-color: currentColor;
-}
-
-.aurora-writing-pagination a:hover,
-.aurora-writing-pagination .page-numbers.current {
-  background: rgba(217, 74, 31, 0.12);
-  border-color: var(--aurora-line-strong);
-  color: var(--aurora-ink);
-}
-
-.aurora-feed-links {
-  border-top: 1px solid var(--aurora-line);
-  display: grid;
-  gap: clamp(1rem, 2vw, 1.5rem);
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  margin: 0 auto clamp(2rem, 5vw, 4rem);
-  max-width: var(--aurora-max);
-  padding: clamp(1.25rem, 3vw, 2rem) 0 0;
-  width: min(calc(100% - clamp(2rem, 6vw, 4rem)), var(--aurora-max));
-}
-
-.aurora-feed-links-copy {
-  display: grid;
-  gap: 0.55rem;
-}
-
-.aurora-feed-links-copy h2 {
-  color: var(--aurora-ink);
-  font-size: clamp(1.35rem, 2.2vw, 2rem);
-  line-height: 1.05;
-  margin: 0;
-}
-
-.aurora-feed-links-copy p:not(.aurora-kicker) {
-  color: var(--aurora-ink-soft);
-  margin: 0;
-}
-
-.aurora-feed-link-grid {
-  align-content: start;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-}
-
-.aurora-feed-link-grid a {
-  align-items: center;
-  /* Same pre-cream dark chip as the pagination above; both live on
-     templates/home.html alongside the writing cards. */
-  background: var(--aurora-panel-solid);
-  border: 1px solid var(--aurora-line);
-  border-radius: var(--aurora-radius-control);
-  color: var(--aurora-ink);
-  display: inline-flex;
-  font-size: 0.78rem;
-  font-weight: 760;
-  min-height: 36px;
-  padding: 0.42rem 0.6rem;
-  text-decoration: none;
-  -webkit-text-fill-color: currentColor;
-}
-
-.aurora-feed-link-grid a:hover,
-.aurora-feed-link-grid a:focus-visible {
-  background: rgba(217, 74, 31, 0.12);
-  border-color: var(--aurora-line-strong);
-  color: var(--aurora-ink);
-}
-
-/* Blog-index newsletter band on templates/home.html. Overrides the shared
-   homepage .aurora-newsletter-band centering with a compact card layout. */
-.aurora-writing-newsletter {
-  align-items: center;
-  background:
-    linear-gradient(135deg, rgba(217, 74, 31, 0.08), rgba(217, 74, 31, 0.14)),
-    var(--aurora-panel-solid);
-  border: 1px solid var(--aurora-line);
-  border-radius: var(--aurora-radius-card);
-  display: grid;
-  gap: 0.65rem 1rem;
-  grid-template-columns: minmax(0, 1fr) auto;
-  margin: 0 auto clamp(3rem, 6vw, 5rem);
-  max-width: var(--aurora-max);
-  padding: clamp(1rem, 2.2vw, 1.35rem) clamp(1rem, 3vw, 1.6rem);
-  text-align: left;
-  width: min(calc(100% - clamp(2rem, 6vw, 4rem)), var(--aurora-max));
-}
-
-.aurora-writing-newsletter .aurora-kicker {
-  grid-column: 1 / -1;
-  margin: 0;
-}
-
-.aurora-writing-newsletter h2 {
-  color: var(--aurora-ink);
-  font-size: clamp(1.35rem, 2vw, 1.9rem);
-  line-height: 1.04;
-  margin: 0;
-}
-
-.aurora-writing-newsletter p:not(.aurora-kicker) {
-  color: var(--aurora-ink-soft);
-  font-size: 0.95rem;
-  line-height: 1.48;
-  margin: 0;
-  max-width: 58ch;
-}
-
-.aurora-writing-newsletter .aurora-action-row {
-  justify-content: end;
-  margin: 0;
 }
 
 .aurora-final-cta {
@@ -1514,16 +1166,14 @@ a {
 .aurora-proof-module a:focus-visible,
 .aurora-topic-card:focus-within,
 .aurora-quote-card:focus-within,
-.aurora-article-row a:focus-visible,
-.aurora-writing-card a:focus-visible {
+.aurora-article-row a:focus-visible {
   outline: 2px solid var(--wp--preset--color--signal);
   outline-offset: 4px;
 }
 
 .aurora-media-card a:active,
 .aurora-proof-module a:active,
-.aurora-article-row a:active,
-.aurora-writing-card a:active {
+.aurora-article-row a:active {
   transform: translateY(1px);
 }
 
@@ -1996,10 +1646,6 @@ a {
   text-transform: uppercase;
 }
 
-.aurora-article-header {
-  padding-bottom: clamp(2rem, 5vw, 4rem);
-}
-
 .aurora-page-header {
   border-bottom: 1px solid rgba(247, 247, 242, 0.1);
   margin-bottom: clamp(1.35rem, 3vw, 2.4rem);
@@ -2014,16 +1660,6 @@ a {
   line-height: 1.02;
   margin: 0;
   max-width: 16ch;
-  text-wrap: balance;
-}
-
-.aurora-single-title {
-  color: var(--aurora-ink);
-  font-size: clamp(2.8rem, 8vw, 6.2rem);
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: 0.98;
-  margin: 0;
   text-wrap: balance;
 }
 
@@ -2085,12 +1721,12 @@ a {
 }
 
 .aurora-display-heading,
-.aurora-theme :where(.aurora-page-title, .aurora-writing-archive-title, .aurora-display-heading, .aurora-feed-links-copy h2, .aurora-hero-copy h1) {
+.aurora-theme :where(.aurora-page-title, .aurora-display-heading, .aurora-hero-copy h1) {
   color: var(--aurora-ink);
   -webkit-text-fill-color: currentColor;
 }
 
-.aurora-theme :where(.aurora-hero-dek, .aurora-page-lead, .aurora-page-content, .aurora-prose, .aurora-feed-links-copy p:not(.aurora-kicker), .aurora-writing-archive-dek) {
+.aurora-theme :where(.aurora-hero-dek, .aurora-page-lead, .aurora-page-content, .aurora-prose) {
   color: var(--aurora-ink-soft);
   -webkit-text-fill-color: currentColor;
 }
@@ -2101,11 +1737,11 @@ a {
   -webkit-text-fill-color: currentColor;
 }
 
-body.aurora-theme :where(.aurora-page-header, .aurora-page-content > section, .aurora-writing-archive-header, .aurora-feed-links-copy, .aurora-hero-copy, .aurora-writing-band) {
+body.aurora-theme :where(.aurora-page-header, .aurora-page-content > section, .aurora-hero-copy, .aurora-writing-band) {
   background-color: rgba(9, 12, 17, 0.9);
 }
 
-body.aurora-theme :where(#aurora-home-title, .aurora-page-title, .aurora-writing-archive-title, .aurora-display-heading, .aurora-feed-links-copy h2) {
+body.aurora-theme :where(#aurora-home-title, .aurora-page-title, .aurora-display-heading) {
   background-color: rgba(9, 12, 17, 0.78);
   box-decoration-break: clone;
   color: var(--aurora-ink) !important;
@@ -2113,7 +1749,7 @@ body.aurora-theme :where(#aurora-home-title, .aurora-page-title, .aurora-writing
   -webkit-text-fill-color: currentColor !important;
 }
 
-body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-writing-archive-dek, .aurora-feed-links-copy p:not(.aurora-kicker), .aurora-page-content p, .aurora-prose p) {
+body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-page-content p, .aurora-prose p) {
   background-color: transparent;
   color: var(--aurora-ink-soft) !important;
   -webkit-text-fill-color: currentColor !important;
@@ -2145,106 +1781,6 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 .aurora-page-content :where(.kk-card p, .kkp-sub, .kk-section-intro) {
   font-size: var(--aurora-card-body-size) !important;
   line-height: 1.6 !important;
-}
-
-.aurora-article-meta {
-  gap: 0.8rem;
-  margin-top: 1.4rem;
-}
-
-.aurora-article-meta p,
-.aurora-article-meta time,
-.aurora-article-meta span,
-.aurora-article-meta a {
-  color: var(--aurora-ink-muted);
-  font-size: 0.82rem;
-  font-weight: 760;
-  letter-spacing: 0;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.aurora-article-meta p,
-.aurora-article-meta .wp-block-post-author-name {
-  margin: 0;
-}
-
-.aurora-article-meta a:hover {
-  color: var(--wp--preset--color--signal);
-}
-
-.aurora-meta-divider {
-  /* Pre-cream residue: rgba(232, 224, 209, 0.28) is cream-on-cream (1.02:1).
-     It never rendered — `.aurora-article-meta span` (0,1,1) out-specifies this
-     rule and already supplies ink-muted — so this is a dead-literal cleanup
-     that makes the losing rule agree with the winner rather than a live fix.
-     3.84:1 on cream, clearing the 3:1 floor for this aria-hidden separator. */
-  color: var(--aurora-ink-muted);
-}
-
-.aurora-article-dek {
-  color: var(--aurora-ink-soft);
-  font-size: clamp(1.12rem, 1.6vw, 1.4rem);
-  line-height: 1.55;
-  margin: 1.4rem 0 0;
-  max-width: 62ch;
-  font-style: italic;
-}
-.aurora-article-dek .wp-block-post-excerpt__excerpt {
-  font-size: clamp(1.0625rem, 1rem + 0.45vw, 1.22rem);
-  line-height: 1.64;
-  margin: 0;
-}
-.aurora-article-dek .wp-block-post-excerpt__more-text { display: none; }
-
-.aurora-featured-media {
-  margin-bottom: clamp(2rem, 5vw, 4rem);
-}
-
-.aurora-featured-media img {
-  border-radius: var(--aurora-radius-card);
-  box-shadow: var(--aurora-shadow-deep);
-  width: 100%;
-}
-
-.aurora-article-map {
-  background:
-    linear-gradient(135deg, rgba(242, 180, 207, 0.04), rgba(157, 236, 242, 0.02)),
-    rgba(22, 24, 32, 0.78);
-  border: 1px solid var(--aurora-line);
-  border-radius: var(--aurora-radius-card);
-  color: var(--aurora-ink-soft);
-  margin: 0 auto clamp(2rem, 5vw, 4rem);
-  max-width: 720px;
-  padding: 1rem;
-}
-
-.aurora-article-map summary {
-  color: var(--aurora-ink);
-  cursor: pointer;
-  font-weight: 820;
-  list-style-position: outside;
-}
-
-.aurora-article-map ol {
-  display: grid;
-  gap: 0.45rem;
-  margin: 0.85rem 0 0;
-  padding-left: 1.2rem;
-}
-
-.aurora-article-map a {
-  color: var(--aurora-ink-soft);
-  text-decoration: none;
-}
-
-.aurora-article-map a:hover {
-  color: var(--wp--preset--color--signal);
-}
-
-.aurora-article-map .is-subsection {
-  color: var(--aurora-ink-muted);
-  font-size: 0.94em;
 }
 
 .aurora-prose {
@@ -2366,46 +1902,6 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   margin: 0.75rem auto 0;
   max-width: 68ch;
   text-align: left;
-}
-
-.aurora-author-panel,
-.aurora-tag-panel,
-.aurora-related-row {
-  border-top: 1px solid var(--aurora-line);
-  margin-top: clamp(2rem, 5vw, 4rem);
-  padding-top: clamp(1.4rem, 3vw, 2rem);
-}
-
-.aurora-author-panel {
-  align-items: flex-start;
-  background: rgba(247, 247, 242, 0.035);
-  border: 1px solid var(--aurora-line);
-  border-radius: var(--aurora-radius-card);
-  gap: 1rem;
-  padding: clamp(1rem, 3vw, 1.6rem);
-}
-
-.aurora-author-title {
-  font-size: 1.25rem;
-  margin: 0 0 0.5rem;
-}
-
-.aurora-tag-panel {
-  gap: 0.75rem;
-}
-
-.aurora-tag-panel p {
-  color: var(--aurora-ink-muted);
-  margin: 0;
-}
-
-.aurora-related {
-  padding-top: clamp(3rem, 7vw, 5rem);
-}
-
-.aurora-related-row {
-  margin-top: 0;
-  padding: 1rem 0;
 }
 
 .aurora-footer-2026 {
@@ -2582,13 +2078,13 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   margin: 0;
 }
 .aurora-search-form,
-.aurora-theme .wp-block-search {
+.aurora-theme:not(.aurora-journal-page) .wp-block-search {
   display: grid;
   gap: 0.45rem;
 }
 
 .aurora-search-form .wp-block-search__inside-wrapper,
-.aurora-theme .wp-block-search__inside-wrapper {
+.aurora-theme:not(.aurora-journal-page) .wp-block-search__inside-wrapper {
   background: rgba(3, 4, 5, 0.6);
   border: 1px solid var(--aurora-line);
   border-radius: var(--aurora-radius-control);
@@ -2598,7 +2094,7 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 }
 
 .aurora-search-form label,
-.aurora-theme .wp-block-search__label,
+.aurora-theme:not(.aurora-journal-page) .wp-block-search__label,
 .aurora-form label {
   color: var(--aurora-ink);
   font-size: 0.82rem;
@@ -2606,7 +2102,7 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 }
 
 .aurora-search-form input[type="search"],
-.aurora-theme .wp-block-search__input,
+.aurora-theme:not(.aurora-journal-page) .wp-block-search__input,
 .aurora-form :where(input, select, textarea),
 .aurora-theme :where(.gform_wrapper, .wp-block-jetpack-contact-form) :where(input, select, textarea) {
   background: rgba(247, 247, 242, 0.06);
@@ -2619,13 +2115,13 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 }
 
 .aurora-search-form input[type="search"]::placeholder,
-.aurora-theme .wp-block-search__input::placeholder,
+.aurora-theme:not(.aurora-journal-page) .wp-block-search__input::placeholder,
 .aurora-form :where(input, textarea)::placeholder {
   color: var(--aurora-ink-muted);
 }
 
 .aurora-search-form .wp-block-search__button,
-.aurora-theme .wp-block-search__button,
+.aurora-theme:not(.aurora-journal-page) .wp-block-search__button,
 .aurora-form button,
 .aurora-theme :where(.gform_wrapper, .wp-block-jetpack-contact-form) button {
   align-items: center;
@@ -2644,7 +2140,7 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 }
 
 .aurora-search-form .wp-block-search__button:hover,
-.aurora-theme .wp-block-search__button:hover,
+.aurora-theme:not(.aurora-journal-page) .wp-block-search__button:hover,
 .aurora-form button:hover {
   box-shadow: 0 0 28px rgba(229, 70, 46, 0.22);
 }
@@ -2718,30 +2214,6 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
 
   .aurora-work-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .aurora-writing-archive-list.wp-block-post-template {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .aurora-writing-archive-list.wp-block-post-template > li,
-  .aurora-writing-archive-list.wp-block-post-template > li:first-child {
-    grid-column: auto;
-  }
-
-  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media {
-    aspect-ratio: 16 / 10;
-  }
-
-  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card {
-    grid-template-columns: 1fr;
-    min-height: 0;
-  }
-
-  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media {
-    border-bottom: 1px solid var(--aurora-line);
-    border-right: 0;
-    height: auto;
   }
 
   .aurora-proof-grid {
@@ -2857,10 +2329,6 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
     margin-top: 1rem;
   }
 
-  .aurora-writing-archive {
-    padding-top: clamp(1.6rem, 7vw, 2.4rem);
-  }
-
   .aurora-page-2026 {
     padding-top: clamp(1.7rem, 7vw, 2.6rem);
     padding-bottom: clamp(2.6rem, 9vw, 4rem);
@@ -2876,82 +2344,16 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
     max-width: 14ch;
   }
 
-  .aurora-writing-archive-header {
-    gap: 0.75rem;
-    grid-template-columns: 1fr;
-    padding-bottom: 1rem;
-  }
-
-  .aurora-writing-archive-header .aurora-kicker,
-  .aurora-writing-archive-title,
-  .aurora-writing-archive-dek {
-    grid-column: 1;
-  }
-
-  .aurora-writing-archive-title {
-    font-size: clamp(2.35rem, 10.5vw, 3.45rem);
-    max-width: 13ch;
-  }
-
-  .aurora-writing-archive-list.wp-block-post-template {
-    gap: 10px;
-    grid-template-columns: 1fr;
-  }
-
-  .aurora-writing-archive-list.wp-block-post-template > li,
-  .aurora-writing-archive-list.wp-block-post-template > li:first-child {
-    grid-column: auto;
-  }
-
-  .aurora-writing-archive-list.wp-block-post-template > li:first-child {
-    grid-column: 1 / -1;
-  }
-
-  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card {
-    grid-template-columns: 1fr;
-    min-height: 0;
-  }
-
-  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media {
-    border-bottom: 1px solid var(--aurora-line);
-    border-right: 0;
-    height: auto;
-  }
-
-  .aurora-writing-card:hover {
-    transform: none;
-  }
-
-  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-media {
-    aspect-ratio: 16 / 10;
-  }
-
-  .aurora-writing-archive-list.wp-block-post-template > li:first-child .aurora-writing-card-title {
-    font-size: clamp(1.45rem, 7vw, 2.15rem);
-  }
-
-  .aurora-writing-newsletter {
-    grid-template-columns: 1fr;
-  }
-
-  .aurora-writing-newsletter .aurora-action-row {
-    justify-content: start;
-  }
-
-  .aurora-feed-links {
-    grid-template-columns: 1fr;
-  }
-
   .aurora-signal-strip,
   .aurora-work-grid,
   .aurora-footer-nav,
   .aurora-search-form .wp-block-search__inside-wrapper,
-  .aurora-theme .wp-block-search__inside-wrapper {
+  .aurora-theme:not(.aurora-journal-page) .wp-block-search__inside-wrapper {
     grid-template-columns: 1fr;
   }
 
   .aurora-search-form .wp-block-search__inside-wrapper,
-  .aurora-theme .wp-block-search__inside-wrapper {
+  .aurora-theme:not(.aurora-journal-page) .wp-block-search__inside-wrapper {
     display: grid;
   }
 
@@ -2973,18 +2375,6 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
     min-height: 18rem;
   }
 
-  .aurora-single-title {
-    font-size: clamp(2.45rem, 11vw, 4rem);
-  }
-
-  .aurora-article-meta {
-    gap: 0.45rem 0.6rem;
-  }
-
-  .aurora-article-map {
-    padding: 0.9rem;
-  }
-
   .aurora-prose {
     font-size: 1.0625rem;
   }
@@ -3003,8 +2393,7 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
     font-size: 0.86rem;
   }
 
-  .aurora-speaking-panel,
-  .aurora-author-panel {
+.aurora-speaking-panel {
     display: block;
   }
 }
@@ -3015,492 +2404,9 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   }
 }
 
-/* ============================================
-   ARTICLE + BLOG LUX COMPOSITION V2
-   ============================================ */
-
-.aurora-single-2026,
-.aurora-writing-archive {
-  --aurora-lux-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --aurora-lux-quick: 220ms var(--aurora-lux-ease);
-  --aurora-lux-slow: 560ms var(--aurora-lux-ease);
-  /* Consumed only by .aurora-featured-media (3 declarations). Ported to ink on
-     cream with the panel itself — the old light-on-dark values were 1.05:1
-     against the new surface. */
-  --aurora-composition-border: rgba(23, 19, 16, 0.14);
-  --aurora-composition-border-strong: rgba(217, 74, 31, 0.35);
-  --aurora-composition-shadow: 0 18px 48px rgba(23, 19, 16, 0.12);
-}
-
-.aurora-single-2026 {
-  color: var(--aurora-ink-soft);
-  padding-bottom: clamp(2rem, 5vw, 4rem);
-  padding-top: clamp(1.7rem, 4vw, 2.55rem);
-}
-
-.aurora-single-2026 .aurora-reader-pane,
-.aurora-single-2026 > .aurora-article {
-  --aurora-sheen-x: 0px;
-  --aurora-sheen-y: 0px;
-  --aurora-sheen-opacity: 0.13;
-  background:
-    linear-gradient(138deg, rgba(242, 180, 207, 0.046), transparent 34%, rgba(157, 236, 242, 0.035) 72%, transparent 100%),
-    linear-gradient(180deg, rgba(232, 224, 209, 0.055), rgba(232, 224, 209, 0.022)),
-    var(--aurora-reader-pane);
-  border: 1px solid var(--aurora-reader-border);
-  border-radius: var(--aurora-radius-card);
-  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.26);
-  isolation: isolate;
-  margin-inline: auto;
-  max-width: min(920px, calc(100vw - 2rem));
-  overflow: clip;
-  padding: clamp(1.1rem, 3vw, 2.25rem);
-  position: relative;
-}
-
-.aurora-single-2026 .aurora-reader-pane::before,
-.aurora-single-2026 .aurora-reader-pane::after,
-.aurora-single-2026 > .aurora-article::before,
-.aurora-single-2026 > .aurora-article::after {
-  border-radius: inherit;
-  content: "";
-  inset: 0;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-}
-
-.aurora-single-2026 .aurora-reader-pane > *,
-.aurora-single-2026 > .aurora-article > * {
-  position: relative;
-  z-index: 1;
-}
-
-.aurora-single-2026 .aurora-reader-pane::before,
-.aurora-single-2026 > .aurora-article::before {
-  background: linear-gradient(112deg, rgba(241, 91, 67, 0.22), rgba(217, 247, 111, 0.16), rgba(157, 236, 242, 0.18), rgba(242, 180, 207, 0.2));
-  opacity: 0.22;
-  padding: 1px;
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
-.aurora-single-2026 .aurora-reader-pane::after,
-.aurora-single-2026 > .aurora-article::after {
-  background: linear-gradient(112deg, transparent 22%, rgba(232, 224, 209, 0.1) 48%, transparent 68%);
-  opacity: var(--aurora-sheen-opacity);
-  transform: translate3d(var(--aurora-sheen-x), var(--aurora-sheen-y), 0);
-  transition: opacity 240ms var(--aurora-lux-ease), transform 420ms var(--aurora-lux-ease);
-}
-
-.aurora-single-2026 .aurora-article-header {
-  border-bottom: 1px solid rgba(232, 224, 209, 0.1);
-  margin-bottom: clamp(1.35rem, 3vw, 2.2rem);
-  padding-bottom: clamp(1.35rem, 3vw, 2.2rem);
-}
-
-.aurora-single-2026 .aurora-article-category {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1rem;
-}
-
-.aurora-single-2026 .aurora-single-title {
-  color: var(--aurora-ink);
-  font-size: clamp(3rem, 5.4vw, 4.35rem);
-  letter-spacing: 0;
-  line-height: 1.04;
-  max-width: 16.5ch;
-  overflow-wrap: anywhere;
-}
-
-.aurora-single-2026 .aurora-article-dek {
-  border-left: 2px solid rgba(242, 180, 207, 0.32);
-  /* Pre-cream residue: rgba(232, 224, 209, 0.72) is cream-on-cream (1.04:1).
-     The dek's visible text lives in an inner <p> that revive-port.css paints
-     --revive-ink-soft (8.11:1), so the old value only ever applied to direct
-     text in this <div> — of which the post-excerpt block renders none. A
-     dead-literal cleanup that also makes the rule correct if that markup ever
-     changes, not a live fix. */
-  color: var(--aurora-ink-soft);
-  font-style: normal;
-  line-height: 1.6;
-  max-width: 64ch;
-  padding-left: 1rem;
-}
-
-.aurora-single-2026 .aurora-article-meta {
-  border-left: 2px solid rgba(242, 180, 207, 0.34);
-  gap: 0.6rem 0.78rem;
-  margin-top: 1rem;
-  padding-left: 0.85rem;
-}
-
-/* Declaration site 6: the category pill, shared with the single-post header.
-   The white fill/border were sized for a dark card; on cream they vanish into
-   the surface (fill 1.02:1, border 1.03:1 against the card). Ink tints of the
-   same weight read correctly on cream and keep the pill's text at 12.28:1. */
-.aurora-writing-card-category a,
-.aurora-article-category a,
-.aurora-post-tags a {
-  background: rgba(23, 19, 16, 0.05);
-  border: 1px solid var(--aurora-line);
-  border-radius: 999px;
-  color: var(--aurora-ink);
-  display: inline-flex;
-  line-height: 1;
-  padding: 0.31rem 0.5rem;
-  text-decoration: none;
-  transition:
-    background-color var(--aurora-lux-quick),
-    border-color var(--aurora-lux-quick),
-    color var(--aurora-lux-quick);
-}
-
-.aurora-writing-card-category a:hover,
-.aurora-writing-card-category a:focus-visible,
-.aurora-article-category a:hover,
-.aurora-article-category a:focus-visible,
-.aurora-post-tags a:hover,
-.aurora-post-tags a:focus-visible {
-  background: rgba(217, 74, 31, 0.1);
-  border-color: var(--aurora-line-strong);
-  color: var(--wp--preset--color--signal);
-}
-
-.aurora-writing-card-category a:focus,
-.aurora-article-category a:focus,
-.aurora-post-tags a:focus,
 .aurora-prose a:not(.wp-block-button__link):focus {
   outline: 2px solid var(--wp--preset--color--signal, #f15b43) !important;
   outline-offset: 3px !important;
-}
-
-.aurora-single-2026 a:focus,
-.aurora-writing-archive a:focus {
-  outline: 2px solid var(--wp--preset--color--signal, #f15b43) !important;
-  outline-offset: 3px !important;
-}
-
-/* Was rgba(21, 24, 33, 0.76) over cream — flattens to ~#535253. That is the
-   surface the caption below renders on, and revive-port.css wins the caption
-   with --revive-ink-soft, giving 2.06:1. Retuning the caption cannot fix that
-   (the losing declaration is never painted); deciding this surface can. Cream
-   here matches every other ported panel (.aurora-card, .aurora-media-card,
-   .aurora-proof-grid > article, .aurora-writing-card) and puts the winning
-   caption declaration at 7.62:1. Issue #485. */
-.aurora-featured-media {
-  background: var(--aurora-panel-solid);
-  border: 1px solid var(--aurora-composition-border);
-  border-radius: var(--aurora-radius-card);
-  box-shadow: var(--aurora-composition-shadow);
-  margin-inline: auto;
-  max-width: min(100%, 780px);
-  overflow: hidden;
-  padding: 0.45rem;
-  position: relative;
-  transition:
-    border-color var(--aurora-lux-quick),
-    box-shadow var(--aurora-lux-quick);
-}
-
-.aurora-featured-media img {
-  aspect-ratio: 16 / 10;
-  border-radius: calc(var(--aurora-radius-card) - 3px);
-  box-shadow: none;
-  max-height: min(56vh, 520px);
-  object-fit: cover;
-  width: 100%;
-}
-
-/* The pre-cream `color: rgba(207, 199, 187, 0.72)` is gone rather than retuned.
-   It never painted: revive-port.css's `.aurora-theme :where(p, li, figcaption)`
-   has equal specificity (0,1,0) and loads later, so it always won. With the
-   panel above now cream, the declaration that does win (--revive-ink-soft) is
-   7.62:1 instead of 2.06:1, and this rule keeps only its typography. */
-.aurora-featured-media :where(figcaption, .wp-element-caption) {
-  font-size: 0.86rem;
-  line-height: 1.45;
-  margin: 0.6rem auto 0;
-  max-width: 68ch;
-  padding-inline: 0.2rem;
-}
-
-.aurora-featured-media:hover,
-.aurora-featured-media:focus-within {
-  border-color: var(--aurora-composition-border-strong);
-  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.26);
-}
-
-.aurora-writing-archive .aurora-writing-archive-header {
-  border-bottom: 1px solid var(--aurora-line);
-  gap: 1rem 1.4rem;
-  margin-bottom: 1.05rem;
-  padding-bottom: 1.2rem;
-}
-
-.aurora-writing-archive .aurora-writing-archive-title {
-  font-size: clamp(3rem, 5vw, 4.25rem);
-  line-height: 1.03;
-  max-width: 13.75ch;
-  overflow-wrap: anywhere;
-}
-
-.aurora-writing-archive .aurora-writing-archive-dek {
-  color: rgba(247, 247, 242, 0.72);
-  line-height: 1.55;
-}
-
-.aurora-writing-archive .aurora-writing-archive-list.wp-block-post-template {
-  gap: 14px;
-}
-
-/* Declaration site 2: the archive override. This is the rule that actually
-   wins on templates/home.html (0,2,0 beats the base 0,1,0), so fixing only the
-   base rule would have changed nothing on the live blog index. */
-.aurora-writing-archive .aurora-writing-card {
-  background: var(--aurora-panel-solid);
-  border-color: var(--aurora-line);
-  box-shadow: 0 10px 30px rgba(23, 19, 16, 0.1);
-  isolation: isolate;
-  position: relative;
-  transition:
-    background-color var(--aurora-lux-quick),
-    border-color var(--aurora-lux-quick),
-    box-shadow var(--aurora-lux-quick),
-    transform var(--aurora-lux-quick);
-}
-
-/* The wash sits at z-index 2 under the body (z-index 3), so it is part of the
-   backdrop the title and meta are measured against — it is not decoration that
-   can be ignored. On the dark card it was a white sheen (a lift); on cream the
-   equivalent depth cue is an ink wash. Measured with the wash included:
-   title 12.95:1, meta 5.48:1, excerpt 7.40:1 at the hover opacity of 0.26. */
-.aurora-writing-archive .aurora-writing-card::after {
-  background:
-    radial-gradient(circle at 18% 0%, rgba(217, 74, 31, 0.06), transparent 34%),
-    linear-gradient(118deg, rgba(23, 19, 16, 0.05), transparent 34%);
-  content: "";
-  inset: 0;
-  opacity: 0.14;
-  pointer-events: none;
-  position: absolute;
-  transition: opacity 220ms var(--aurora-lux-ease);
-  z-index: 2;
-}
-
-.aurora-writing-archive .aurora-writing-card:hover,
-.aurora-writing-archive .aurora-writing-card:focus-within {
-  border-color: var(--aurora-line-strong);
-  box-shadow: 0 16px 38px rgba(23, 19, 16, 0.16);
-  transform: translateY(-1px);
-}
-
-.aurora-writing-archive .aurora-writing-card:hover::after,
-.aurora-writing-archive .aurora-writing-card:focus-within::after {
-  opacity: 0.26;
-}
-
-/* rgba(229, 70, 46, 0.7) flattened to 2.35:1 on cream — below the 3:1 SC 1.4.11
-   floor for a focus indicator. --aurora-readable-accent is 6.06:1 on the page
-   paper and 5.51:1 on the card, and matches the theme's other focus rings. */
-.aurora-writing-card:focus-within {
-  outline: 2px solid var(--aurora-readable-accent);
-  outline-offset: 3px;
-}
-
-.aurora-writing-archive .aurora-writing-card-body {
-  gap: 0.56rem;
-  padding: clamp(1rem, 1.8vw, 1.3rem);
-  position: relative;
-  z-index: 3;
-}
-
-.aurora-writing-archive .aurora-writing-card-title {
-  font-size: var(--aurora-card-title-size);
-  line-height: 1.14;
-}
-
-/* The one rule on this card that the dark surface was still serving: near-white
-   at 7.91:1 on #050708. It has specificity (0,3,1) and so beats revive-port's
-   `.aurora-theme :where(p, li, figcaption)` at (0,1,0) — it does not inherit
-   the cream fix, it has to be converted with the surface or it inverts from
-   legible to invisible. --aurora-ink-soft is 7.40–7.62:1 on the cream card. */
-.aurora-writing-archive .aurora-writing-card-excerpt,
-.aurora-writing-archive .aurora-writing-card-excerpt p {
-  color: var(--aurora-ink-soft);
-  font-size: var(--aurora-card-body-size);
-  line-height: 1.6;
-}
-
-.aurora-writing-archive .aurora-writing-card-meta {
-  border-top: 1px solid var(--aurora-line);
-  padding-top: 0.62rem;
-}
-
-.aurora-writing-archive .aurora-writing-card-category,
-.aurora-writing-archive .aurora-writing-card-meta {
-  font-size: 0.75rem;
-  letter-spacing: 0;
-}
-
-.aurora-writing-archive .aurora-writing-card-media {
-  position: relative;
-}
-
-.aurora-writing-archive .aurora-writing-card-media::after {
-  background:
-    linear-gradient(180deg, transparent 58%, rgba(0, 0, 0, 0.26)),
-    linear-gradient(90deg, rgba(229, 70, 46, 0.035), transparent 38%, rgba(229, 70, 46, 0.08));
-  content: "";
-  inset: 0;
-  opacity: 0.4;
-  pointer-events: none;
-  position: absolute;
-  transition: opacity var(--aurora-lux-quick);
-}
-
-.aurora-writing-archive .aurora-writing-card:hover .aurora-writing-card-media::after,
-.aurora-writing-archive .aurora-writing-card:focus-within .aurora-writing-card-media::after {
-  opacity: 0.5;
-}
-
-.aurora-writing-archive .aurora-writing-card:hover .aurora-writing-card-media img,
-.aurora-writing-archive .aurora-writing-card:focus-within .aurora-writing-card-media img {
-  filter: saturate(1.05) contrast(1.02);
-  transform: scale(1.018);
-}
-
-/* Placeholder tile for posts with no featured image. Purely decorative
-   (content: ""), but it is a 16:10 block at the top of every such card, so it
-   has to be cream or the card reads as half-ported. Base moves from near-black
-   to the palette's darkest cream (theme.json `muted` #d9cdb0) so the tile still
-   separates from the #e6dcc2 card, and the white hairline grid flips to ink. */
-.aurora-writing-archive .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
-  aspect-ratio: 16 / 10;
-  background:
-    radial-gradient(circle at 18% 20%, rgba(217, 74, 31, 0.2), transparent 18%),
-    radial-gradient(circle at 78% 78%, rgba(217, 74, 31, 0.06), transparent 22%),
-    linear-gradient(135deg, rgba(23, 19, 16, 0.1) 0 1px, transparent 1px 18px),
-    linear-gradient(145deg, #ded2b8, #d9cdb0 58%, #d8c9ae);
-  background-size: auto, auto, 18px 18px, auto;
-  border-bottom-color: var(--aurora-line);
-  content: "";
-  display: block;
-}
-
-.aurora-writing-archive-list.wp-block-post-template > li:nth-child(3n + 2) .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
-  background:
-    radial-gradient(circle at 72% 22%, rgba(232, 181, 58, 0.26), transparent 18%),
-    radial-gradient(circle at 20% 82%, rgba(217, 74, 31, 0.06), transparent 22%),
-    linear-gradient(0deg, rgba(23, 19, 16, 0.09) 0 1px, transparent 1px 17px),
-    linear-gradient(150deg, #dcd3b4, #d9cdb0 62%, #d5ceb4);
-  background-size: auto, auto, 17px 17px, auto;
-}
-
-.aurora-writing-archive-list.wp-block-post-template > li:nth-child(3n + 3) .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
-  background:
-    radial-gradient(circle at 24% 74%, rgba(214, 51, 122, 0.16), transparent 20%),
-    radial-gradient(circle at 82% 26%, rgba(217, 74, 31, 0.06), transparent 22%),
-    linear-gradient(35deg, rgba(23, 19, 16, 0.1) 0 1px, transparent 1px 20px),
-    linear-gradient(140deg, #ded0ae, #d9cdb0 58%, #d5cdb8);
-  background-size: auto, auto, 20px 20px, auto;
-}
-
-.aurora-writing-archive-list.wp-block-post-template > li:nth-child(4n) .aurora-writing-card:not(:has(.aurora-writing-card-media))::before {
-  background:
-    radial-gradient(circle at 70% 72%, rgba(57, 168, 216, 0.2), transparent 20%),
-    radial-gradient(circle at 24% 20%, rgba(31, 138, 134, 0.16), transparent 22%),
-    linear-gradient(90deg, rgba(23, 19, 16, 0.08) 0 1px, transparent 1px 16px),
-    linear-gradient(145deg, #d9d0b6, #d9cdb0 58%, #d3cfb6);
-  background-size: auto, auto, 16px 16px, auto;
-}
-
-.aurora-article-map {
-  background:
-    linear-gradient(135deg, rgba(242, 180, 207, 0.05), rgba(157, 236, 242, 0.022)),
-    rgba(22, 24, 32, 0.82);
-  border-color: rgba(242, 180, 207, 0.18);
-  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.18);
-  max-width: 760px;
-  padding: clamp(1rem, 2vw, 1.25rem);
-  position: relative;
-  transition:
-    border-color var(--aurora-lux-quick),
-    box-shadow var(--aurora-lux-quick);
-}
-
-.aurora-article-map[open] {
-  border-color: rgba(242, 180, 207, 0.28);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
-}
-
-.aurora-article-map summary {
-  align-items: center;
-  display: flex;
-  gap: 0.55rem;
-}
-
-.aurora-article-map summary::after {
-  background: rgba(232, 224, 209, 0.055);
-  border: 1px solid rgba(242, 180, 207, 0.22);
-  border-radius: 999px;
-  color: var(--wp--preset--color--signal);
-  content: "guide";
-  font-size: 0.68rem;
-  font-weight: 780;
-  padding: 0.2rem 0.42rem;
-  text-transform: uppercase;
-}
-
-.aurora-article-map ol {
-  counter-reset: article-map;
-  gap: 0;
-  list-style: none;
-  padding-left: 0;
-}
-
-.aurora-article-map li {
-  border-top: 1px solid rgba(232, 224, 209, 0.09);
-  counter-increment: article-map;
-}
-
-.aurora-article-map a {
-  align-items: baseline;
-  border-radius: 6px;
-  display: grid;
-  gap: 0.65rem;
-  grid-template-columns: 2ch minmax(0, 1fr);
-  padding: 0.7rem 0;
-  transition:
-    background-color var(--aurora-lux-quick),
-    box-shadow var(--aurora-lux-quick),
-    color var(--aurora-lux-quick),
-    transform var(--aurora-lux-quick);
-}
-
-.aurora-article-map a::before {
-  color: var(--wp--preset--color--signal);
-  content: counter(article-map, decimal-leading-zero);
-  font-size: 0.72rem;
-  font-weight: 820;
-}
-
-.aurora-article-map a:hover,
-.aurora-article-map a:focus-visible {
-  background: rgba(242, 180, 207, 0.045);
-  box-shadow: inset 2px 0 0 rgba(242, 180, 207, 0.28);
-  transform: translateX(1px);
-}
-
-.aurora-article-map a.is-active,
-.aurora-article-map a[aria-current="true"] {
-  background: rgba(242, 180, 207, 0.06);
-  box-shadow: inset 2px 0 0 var(--wp--preset--color--signal);
-  color: var(--aurora-ink);
 }
 
 .aurora-prose > p:first-child:not([class]),
@@ -3789,9 +2695,6 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   padding: 0.08rem 0.28rem;
 }
 
-.aurora-featured-media::after,
-.aurora-article-map::after,
-.aurora-author-panel::after,
 .aurora-prose .wp-block-quote::after,
 .aurora-prose .is-style-bookmark::after,
 .aurora-prose .is-style-aurora-source-trail::after,
@@ -3814,12 +2717,6 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
     transform 420ms var(--aurora-lux-ease);
 }
 
-.aurora-featured-media:hover::after,
-.aurora-featured-media:focus-within::after,
-.aurora-article-map:hover::after,
-.aurora-article-map:focus-within::after,
-.aurora-author-panel:hover::after,
-.aurora-author-panel:focus-within::after,
 .aurora-prose .wp-block-quote:hover::after,
 .aurora-prose .wp-block-quote:focus-within::after,
 .aurora-prose .is-style-bookmark:hover::after,
@@ -3836,10 +2733,6 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   transform: scaleX(0.86);
 }
 
-.aurora-article-map:hover,
-.aurora-article-map:focus-within,
-.aurora-author-panel:hover,
-.aurora-author-panel:focus-within,
 .aurora-prose .wp-block-quote:hover,
 .aurora-prose .wp-block-quote:focus-within,
 .aurora-prose .is-style-bookmark:hover,
@@ -3856,186 +2749,21 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   transform: translateY(-1px);
 }
 
-.is-aurora-lux-reveal {
-  opacity: 0;
-  transform: translateY(8px);
-  transition:
-    opacity var(--aurora-lux-slow),
-    transform var(--aurora-lux-slow),
-    clip-path var(--aurora-lux-slow);
-  transition-delay: var(--aurora-lux-delay, 0ms);
-  will-change: opacity, transform;
-}
-
-.is-aurora-lux-reveal.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
-  will-change: auto;
-}
-
-.aurora-writing-archive .aurora-writing-card.is-aurora-lux-reveal {
-  transition:
-    opacity var(--aurora-lux-slow),
-    transform var(--aurora-lux-slow),
-    background-color var(--aurora-lux-quick),
-    border-color var(--aurora-lux-quick),
-    box-shadow var(--aurora-lux-quick);
-  transition-delay:
-    var(--aurora-lux-delay, 0ms),
-    var(--aurora-lux-delay, 0ms),
-    0ms,
-    0ms,
-    0ms;
-}
-
-.aurora-article-header.is-aurora-lux-reveal,
-.aurora-writing-archive-header.is-aurora-lux-reveal {
-  clip-path: inset(0 0 8% 0);
-}
-
-.aurora-article-header.is-revealed,
-.aurora-writing-archive-header.is-revealed {
-  clip-path: inset(0 0 0 0);
-}
-
-body .aurora-reading-progress {
-  background: rgba(247, 247, 242, 0.08);
-  box-shadow: none;
-  height: 2px;
-}
-
-body .aurora-reading-progress span {
-  background:
-    linear-gradient(90deg, rgba(229, 70, 46, 0.92), rgba(200, 255, 61, 0.86), rgba(229, 70, 46, 0.9)),
-    var(--wp--preset--gradient--aurora-primary);
-  box-shadow: 0 0 10px rgba(229, 70, 46, 0.22);
-}
-
-.aurora-related h2 {
-  border-top: 1px solid rgba(247, 247, 242, 0.1);
-  color: var(--aurora-ink);
-  margin: 0;
-  padding-top: clamp(1.4rem, 3vw, 2rem);
-}
-
-.aurora-related-row {
-  gap: 1rem;
-  position: relative;
-  transition:
-    background-color 180ms ease,
-    border-color 180ms ease,
-    padding-inline 180ms ease;
-}
-
-.aurora-related-row::before {
-  background: linear-gradient(180deg, var(--wp--preset--color--signal), rgba(229, 70, 46, 0.75));
-  content: "";
-  height: calc(100% - 1.35rem);
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 0.68rem;
-  transform: scaleY(0.5);
-  transform-origin: center;
-  transition: opacity var(--aurora-lux-quick), transform var(--aurora-lux-quick);
-  width: 2px;
-}
-
-.aurora-related-row:hover,
-.aurora-related-row:focus-within {
-  background: rgba(247, 247, 242, 0.026);
-  border-top-color: rgba(229, 70, 46, 0.32);
-  padding-inline: 0.38rem;
-}
-
-.aurora-related-row:hover::before,
-.aurora-related-row:focus-within::before {
-  opacity: 1;
-  transform: scaleY(1);
-}
-
-@media (min-width: 768px) {
-  .aurora-writing-archive .aurora-writing-archive-list.wp-block-post-template {
-    gap: 16px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .aurora-single-2026 .aurora-single-title {
-    font-size: clamp(3.05rem, 5.8vw, 3.75rem);
-    max-width: 14.5ch;
-  }
-
-  .aurora-writing-archive .aurora-writing-archive-title {
-    font-size: clamp(3rem, 5.5vw, 3.35rem);
-  }
-}
-
 @media (max-width: 768px) {
-  .aurora-single-2026 {
-    padding-top: 1.35rem;
-  }
 
-  .aurora-single-2026 .aurora-reader-pane,
-  .aurora-single-2026 > .aurora-article {
-    max-width: calc(100vw - 1rem);
-    padding: 1rem;
-  }
-
-  .aurora-single-2026 .aurora-single-title {
-    font-size: clamp(2.35rem, 8vw, 2.68rem);
-    line-height: 1.04;
-    max-width: 12.8ch;
-  }
-
-  .aurora-single-2026 .aurora-article-header {
-    margin-bottom: 1.35rem;
-    padding-bottom: 1.4rem;
-  }
-
-  .aurora-writing-archive .aurora-writing-archive-title {
-    font-size: clamp(2.32rem, 8vw, 2.7rem);
-    line-height: 1.05;
-    max-width: 12.5ch;
-  }
-
-  .aurora-writing-archive .aurora-writing-card-body {
-    padding: 1rem;
-  }
-
-  .aurora-writing-archive .aurora-writing-card:hover,
-  .aurora-writing-archive .aurora-writing-card:focus-within,
-  .aurora-article-map:hover,
-  .aurora-article-map:focus-within,
-  .aurora-author-panel:hover,
-  .aurora-author-panel:focus-within,
-  .aurora-prose .wp-block-quote:hover,
-  .aurora-prose .wp-block-quote:focus-within,
-  .aurora-prose .is-style-bookmark:hover,
-  .aurora-prose .is-style-bookmark:focus-within,
-  .aurora-prose .is-style-aurora-source-trail:hover,
-  .aurora-prose .is-style-aurora-source-trail:focus-within,
-  .aurora-prose .is-style-aurora-article-aside:hover,
-  .aurora-prose .is-style-aurora-article-aside:focus-within,
-  .aurora-prose pre:hover,
-  .aurora-prose pre:focus-within,
-  .aurora-prose .wp-block-code:hover,
-  .aurora-prose .wp-block-code:focus-within {
+.aurora-prose .wp-block-quote:hover,
+.aurora-prose .wp-block-quote:focus-within,
+.aurora-prose .is-style-bookmark:hover,
+.aurora-prose .is-style-bookmark:focus-within,
+.aurora-prose .is-style-aurora-source-trail:hover,
+.aurora-prose .is-style-aurora-source-trail:focus-within,
+.aurora-prose .is-style-aurora-article-aside:hover,
+.aurora-prose .is-style-aurora-article-aside:focus-within,
+.aurora-prose pre:hover,
+.aurora-prose pre:focus-within,
+.aurora-prose .wp-block-code:hover,
+.aurora-prose .wp-block-code:focus-within {
     transform: none;
-  }
-
-  .is-aurora-lux-reveal {
-    transform: translateY(6px);
-  }
-}
-
-@media (max-width: 480px) {
-  .aurora-single-2026 .aurora-single-title {
-    font-size: 2.28rem;
-  }
-
-  .aurora-writing-archive .aurora-writing-archive-title {
-    font-size: 2.24rem;
   }
 }
 
@@ -4045,84 +2773,44 @@ body .aurora-reading-progress span {
     -webkit-backdrop-filter: none;
   }
 
-  .aurora-single-2026 .aurora-reader-pane,
-  .aurora-single-2026 > .aurora-article {
-    --aurora-sheen-opacity: 0;
-  }
-
-  .aurora-single-2026 .aurora-reader-pane::after,
-  .aurora-single-2026 > .aurora-article::after {
-    opacity: 0;
-    transform: none;
-  }
-
-  .aurora-media-card img,
-  .aurora-writing-card,
-  .aurora-writing-card-media img,
-  .aurora-featured-media,
-  .aurora-article-map,
-  .aurora-author-panel,
-  .aurora-related-row,
-  .aurora-prose .wp-block-quote,
-  .aurora-prose .wp-block-pullquote,
-  .aurora-prose .is-style-bookmark,
-  .aurora-prose .is-style-aurora-source-trail,
-  .aurora-prose .is-style-aurora-article-aside,
-  .aurora-prose pre,
-  .aurora-prose .wp-block-code,
-  .is-aurora-lux-reveal,
-  .aurora-button,
-  .aurora-theme .wp-block-button__link,
-  .aurora-article-row,
-  .aurora-reading-progress span,
-  .aurora-button.is-loading::after {
+.aurora-media-card img,
+.aurora-prose .wp-block-quote,
+.aurora-prose .wp-block-pullquote,
+.aurora-prose .is-style-bookmark,
+.aurora-prose .is-style-aurora-source-trail,
+.aurora-prose .is-style-aurora-article-aside,
+.aurora-prose pre,
+.aurora-prose .wp-block-code,
+.aurora-button,
+.aurora-theme .wp-block-button__link,
+.aurora-article-row,
+.aurora-button.is-loading::after {
     animation: none;
     transition: none;
   }
 
-  .aurora-writing-card::after,
-  .aurora-writing-card-media::after,
-  .aurora-featured-media::after,
-  .aurora-article-map::after,
-  .aurora-author-panel::after,
-  .aurora-related-row::before,
-  .aurora-prose .wp-block-quote::after,
-  .aurora-prose .wp-block-pullquote::before,
-  .aurora-prose .is-style-bookmark::after,
-  .aurora-prose .is-style-aurora-source-trail::after,
-  .aurora-prose .is-style-aurora-article-aside::after,
-  .aurora-prose pre::after,
-  .aurora-prose .wp-block-code::after {
+.aurora-prose .wp-block-quote::after,
+.aurora-prose .wp-block-pullquote::before,
+.aurora-prose .is-style-bookmark::after,
+.aurora-prose .is-style-aurora-source-trail::after,
+.aurora-prose .is-style-aurora-article-aside::after,
+.aurora-prose pre::after,
+.aurora-prose .wp-block-code::after {
     animation: none;
     transition: none;
   }
 
-  .aurora-media-card:hover img,
-  .aurora-writing-card:hover,
-  .aurora-writing-card:hover .aurora-writing-card-media img,
-  .aurora-featured-media:hover,
-  .aurora-article-map:hover,
-  .aurora-related-row:hover,
-  .aurora-prose .wp-block-quote:hover,
-  .aurora-prose .wp-block-pullquote:hover,
-  .aurora-prose .is-style-bookmark:hover,
-  .aurora-prose .is-style-aurora-source-trail:hover,
-  .aurora-prose .is-style-aurora-article-aside:hover,
-  .aurora-prose pre:hover,
-  .aurora-prose .wp-block-code:hover,
-  .aurora-button:hover,
-  .aurora-theme .wp-block-button__link:hover {
+.aurora-media-card:hover img,
+.aurora-prose .wp-block-quote:hover,
+.aurora-prose .wp-block-pullquote:hover,
+.aurora-prose .is-style-bookmark:hover,
+.aurora-prose .is-style-aurora-source-trail:hover,
+.aurora-prose .is-style-aurora-article-aside:hover,
+.aurora-prose pre:hover,
+.aurora-prose .wp-block-code:hover,
+.aurora-button:hover,
+.aurora-theme .wp-block-button__link:hover {
     transform: none;
-  }
-
-  .is-aurora-lux-reveal {
-    clip-path: none;
-    opacity: 1;
-    transform: none;
-  }
-
-  .aurora-reading-progress {
-    display: none;
   }
 }
 
@@ -4150,12 +2838,11 @@ body .aurora-reading-progress span {
   }
 }
 
-/* Aurora 1.3.32 public Boost cascade accessibility hardening */
-body.aurora-theme :where(.aurora-page-header, .aurora-page-content > section, .aurora-writing-archive-header, .aurora-feed-links-copy, .aurora-hero-copy, .aurora-writing-band) {
+body.aurora-theme :where(.aurora-page-header, .aurora-page-content > section, .aurora-hero-copy, .aurora-writing-band) {
   background-color: rgba(9, 12, 17, 0.92) !important;
 }
 
-body.aurora-theme :where(#aurora-home-title, .aurora-page-title, .aurora-writing-archive-title, .aurora-display-heading, .aurora-feed-links-copy h2, .aurora-hero-copy h1) {
+body.aurora-theme :where(#aurora-home-title, .aurora-page-title, .aurora-display-heading, .aurora-hero-copy h1) {
   background-color: rgba(9, 12, 17, 0.82) !important;
   box-decoration-break: clone;
   color: var(--aurora-ink) !important;
@@ -4163,7 +2850,7 @@ body.aurora-theme :where(#aurora-home-title, .aurora-page-title, .aurora-writing
   -webkit-text-fill-color: currentColor !important;
 }
 
-body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-writing-archive-dek, .aurora-feed-links-copy p:not(.aurora-kicker), .aurora-page-content p, .aurora-prose p, .aurora-hero-copy p) {
+body.aurora-theme :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-page-content p, .aurora-prose p, .aurora-hero-copy p) {
   background-color: transparent !important;
   color: var(--aurora-ink-soft) !important;
   -webkit-text-fill-color: currentColor !important;
@@ -4180,13 +2867,6 @@ body.aurora-theme .aurora-hero-2026 :where(.aurora-hero-copy h1, .aurora-hero-co
   background-color: transparent !important;
 }
 
-body.aurora-theme :where(.aurora-writing-pagination a, .aurora-writing-pagination .page-numbers, .aurora-writing-pagination .wp-block-query-pagination-previous, .aurora-writing-pagination .wp-block-query-pagination-next, .aurora-feed-link-grid a) {
-  background-color: var(--aurora-panel-solid) !important;
-  border-color: var(--aurora-line-strong) !important;
-  color: var(--aurora-ink) !important;
-  -webkit-text-fill-color: currentColor !important;
-}
-
 body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-button__link {
   background: transparent !important;
   border-color: var(--aurora-line-strong) !important;
@@ -4194,27 +2874,19 @@ body.aurora-theme .wp-block-button:not(.is-style-aurora-primary) .wp-block-butto
   -webkit-text-fill-color: currentColor !important;
 }
 
-/* Aurora 1.4.0 cream contrast — supersedes 1.3.33/1.3.36 black opaque panes */
-body.aurora-theme #aurora-main :where(.aurora-page-header, .aurora-writing-archive-header, .aurora-feed-links-copy, .aurora-proof-section) {
+body.aurora-theme #aurora-main :where(.aurora-page-header, .aurora-proof-section) {
   background-color: transparent !important;
 }
 
-body.aurora-theme #aurora-main :where(#aurora-home-title, .aurora-page-title, .aurora-writing-archive-title, .aurora-display-heading, .aurora-feed-links-copy h2, .aurora-hero-copy h1) {
+body.aurora-theme #aurora-main :where(#aurora-home-title, .aurora-page-title, .aurora-display-heading, .aurora-hero-copy h1) {
   background-color: transparent !important;
   color: var(--aurora-ink) !important;
   -webkit-text-fill-color: currentColor !important;
 }
 
-body.aurora-theme #aurora-main :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-writing-archive-dek, .aurora-feed-links-copy p:not(.aurora-kicker), .aurora-page-content p, .aurora-prose p, .aurora-hero-copy p) {
+body.aurora-theme #aurora-main :where(.aurora-kicker, .aurora-section-kicker, .aurora-hero-dek, .aurora-page-lead, .aurora-page-content p, .aurora-prose p, .aurora-hero-copy p) {
   background-color: transparent !important;
   color: var(--aurora-ink-soft) !important;
-  -webkit-text-fill-color: currentColor !important;
-}
-
-body.aurora-theme #aurora-main :where(.aurora-writing-pagination a, .aurora-writing-pagination .page-numbers, .aurora-writing-pagination .wp-block-query-pagination-previous, .aurora-writing-pagination .wp-block-query-pagination-next, .aurora-feed-link-grid a) {
-  background-color: var(--aurora-panel-solid) !important;
-  border-color: var(--aurora-line) !important;
-  color: var(--aurora-ink) !important;
   -webkit-text-fill-color: currentColor !important;
 }
 

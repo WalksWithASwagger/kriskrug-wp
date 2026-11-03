@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.6.13');
+define('KK_AURORA_VERSION', '1.7.0');
 
 require_once get_template_directory() . '/inc/seo-title.php';
 require_once get_template_directory() . '/inc/seo-meta-rest.php';
@@ -78,6 +78,7 @@ function theme_setup(): void {
     add_editor_style('assets/css/bleeding-edge.css');
     add_editor_style('assets/css/revive-port.css');
     add_editor_style('assets/css/editor.css');
+    add_editor_style('assets/css/journal.css');
 }
 add_action('after_setup_theme', __NAMESPACE__ . '\\theme_setup');
 
@@ -157,6 +158,15 @@ function enqueue_assets(): void {
         KK_AURORA_VERSION
     );
 
+    if (is_journal()) {
+        wp_enqueue_style(
+            'kk-aurora-journal',
+            get_theme_file_uri('assets/css/journal.css'),
+            ['kk-aurora-late'],
+            KK_AURORA_VERSION
+        );
+    }
+
     // Theme JavaScript (deferred)
     wp_enqueue_script(
         'kk-aurora-theme',
@@ -170,16 +180,18 @@ function enqueue_assets(): void {
     );
 
     // Micro-interactions (no dependencies, vanilla JS)
-    wp_enqueue_script(
-        'kk-aurora-micro',
-        get_theme_file_uri('assets/js/micro-interactions.js'),
-        [],
-        KK_AURORA_VERSION,
-        [
-            'strategy' => 'defer',
-            'in_footer' => true,
-        ]
-    );
+    if (!is_journal()) {
+        wp_enqueue_script(
+            'kk-aurora-micro',
+            get_theme_file_uri('assets/js/micro-interactions.js'),
+            [],
+            KK_AURORA_VERSION,
+            [
+                'strategy' => 'defer',
+                'in_footer' => true,
+            ]
+        );
+    }
 
     // Marquee board flip animation — deferred, front page only (the board lives in the hero).
     // Cells are pre-rendered in the partial, so this is pure progressive enhancement.
@@ -359,12 +371,16 @@ function filter_document_title_separator(string $separator): string {
 }
 add_filter('document_title_separator', __NAMESPACE__ . '\\filter_document_title_separator');
 
-/**
- * Add custom body classes
- */
+function is_journal(): bool {
+    return is_home() || is_singular('post') || is_category() || is_tag() || is_date() || is_author() || is_search();
+}
+
 function body_classes(array $classes): array {
     // Add aurora class for styling hooks
     $classes[] = 'aurora-theme';
+    if (is_journal()) {
+        $classes[] = 'aurora-journal-page';
+    }
     
     // Add reduced motion class if preference detected via JS
     // This is also handled in CSS with @media query
@@ -416,7 +432,8 @@ add_action('init', __NAMESPACE__ . '\\disable_emojis');
  */
 function manual_excerpt_dek_only(string $block_content, array $block): string {
     if (($block['blockName'] ?? '') === 'core/post-excerpt'
-        && is_singular()
+        && str_contains($block['attrs']['className'] ?? '', 'aurora-journal-dek')
+        && is_singular('post')
         && ! has_excerpt(get_the_ID())) {
         return '';
     }

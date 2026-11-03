@@ -20,6 +20,12 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.7.0
+**Deployed:** No. Local implementation awaiting KK's final review and separate merge/deploy approval.
+Rebuild the Writing index, search and archives around a shared thumbnail/title/excerpt row. Add a calm article layout with a 680px reading measure, 20px desktop / 18px mobile prose, and a responsive contents list. Replace blog chrome with the approved compact header and footer. Remove superseded blog grids, panel treatments, paragraph reveals, image fades and reading-pane effects; other site sections retain their existing styles. Keep native WordPress search, pagination, taxonomy feeds, authored content and related-post exclusions.
+
+Production has a saved `kk-aurora//single` template (wp_id 12415) that must be snapshotted and synchronized during the approved release. Regenerate Jetpack Boost critical CSS and purge the page/CDN caches after the theme/template swap. The review packet documents local verification and rollback; local rendering is not a live pixel-gate pass. This release also contains main's undeployed 1.6.13 URL corrections.
+
 ## 1.6.13
 **Deployed:** Not live. Repo-only until KK approves the #1114 theme deploy gate.
 Point sitewide header, footer, and homepage CTAs at `/generative-ai-services/` and `https://www.futureproof.website/` so chrome stops hopping through 301/308s (#1131). Href-only; copy unchanged.
