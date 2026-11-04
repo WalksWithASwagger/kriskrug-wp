@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.7.0 introduces compact writing lists and a calm, responsive article layout. Not deployed; awaiting final review.
+KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.7.1 introduces compact writing lists and a calm, responsive article layout. Includes the production inline-style ordering correction.
 
 Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
@@ -39,6 +39,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 * Rainbow accents: teal / cyan / cobalt / violet / magenta
 
 == Changelog ==
+
+= 1.7.1 =
+* Scope journal components above WordPress inline global/block defaults; preserve the template back arrow through database normalization.
 
 = 1.7.0 =
 * Compact thumbnails, titles and descriptions across Writing, archives and search.
