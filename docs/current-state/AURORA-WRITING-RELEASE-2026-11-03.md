@@ -23,7 +23,7 @@ Canonical browser URLs (not local previews) were checked:
 
 These are manual live browser checks and source/readback checks, not a completed full-route frozen pixel comparison. The visual preflight passed using the installed browser cache after `/opt/pw-browsers` was absent. Browser interactions/captures used computer-use tooling. Brave was contended by concurrent interaction; responsive tests used the in-app browser.
 
-## Remaining release work
+## Cache refresh and final verification
 
 The November 3 follow-up found the current journal layout on both canonical public URLs. The unversioned `style.css` now returns 1.7.1 and matches the local file byte for byte. `make check-live-parity` passed. Both pages reference Boost bundle `733ad59d41.min.css`, which contains the scoped journal rules. Fresh logged-out browser checks passed at 1440×900 and 390×844. The archive showed 19 entries with 188px and 94px thumbnails. The long post rendered 61 visible paragraphs with 20px desktop and 18px mobile body text. Neither page overflowed horizontally.
 
