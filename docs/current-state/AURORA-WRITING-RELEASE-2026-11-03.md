@@ -1,4 +1,4 @@
-# Writing release: PressCACHE purged and public verification passed
+# Writing release: Pagely caches purged and public verification passed
 
 KK approved merging #1172, deploying it, and checking the live blog and a long article on desktop/mobile on November 3, 2026 (Vancouver time).
 
@@ -27,7 +27,9 @@ These are manual live browser checks and source/readback checks, not a completed
 
 The November 3 follow-up found the current journal layout on both canonical public URLs. The unversioned `style.css` now returns 1.7.1 and matches the local file byte for byte. `make check-live-parity` passed. Both pages reference Boost bundle `733ad59d41.min.css`, which contains the scoped journal rules. Fresh logged-out browser checks passed at 1440×900 and 390×844. The archive showed 19 entries with 188px and 94px thumbnails. The long post rendered 61 visible paragraphs with 20px desktop and 18px mobile body text. Neither page overflowed horizontally.
 
-The signed-in PressCACHE page reported “Cache Purge: Success.” Both canonical pages then returned HTTP 200 with Pagely gateway MISS and the current journal layout. The browser checks above were repeated after the purge. A separate CDN purge and Critical CSS regeneration remain unconfirmed. The signed-in Boost screen offered onboarding with terms and data sync. Follow-up evidence is in `recheck-http.json`, `post-purge-http.json`, `recheck-browser.json` and the four `recheck-*.jpg` captures.
+The signed-in PressCACHE page reported “Cache Purge: Success.” On November 4, the Pagely App Dashboard also reported “CDN Purge: Success” for the CDN-only action and indicated three to five minutes for propagation. The canonical blog and long post returned HTTP 200 with the current journal layout. The shared Boost stylesheet returned HTTP 200 on a CloudFront MISS and contained the deployed journal rules. Unversioned stylesheet parity passed. Logged-out browser checks at 1440×900 and 390×844 showed 19 archive entries, 188px and 94px thumbnails, and 61 article paragraphs with none hidden. Neither page overflowed horizontally.
+
+Boost showed its setup screen with terms and site data sync. The setup screen was left open in Brave for KK. Critical CSS regeneration remains pending. CDN and browser evidence is in `cdn-purge-success.png`, `post-cdn-purge-http.json`, `post-cdn-purge-browser.json` and the four `cdn-purge-*.jpg` captures.
 
 ## Rollback and retained evidence
 
