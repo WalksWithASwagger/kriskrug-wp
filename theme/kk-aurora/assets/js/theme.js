@@ -52,7 +52,12 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
-        const target = href && href.length > 1 ? document.querySelector(href) : null;
+        let target;
+        try {
+          target = href && href.length > 1 ? document.getElementById(decodeURIComponent(href.slice(1))) : null;
+        } catch {
+          return;
+        }
         
         if (target) {
           e.preventDefault();
@@ -63,7 +68,7 @@
           
           window.scrollTo({
             top: offsetPosition,
-            behavior: prefersReducedMotion ? 'auto' : 'smooth'
+            behavior: prefersReducedMotion || document.body.classList.contains('aurora-journal-page') ? 'auto' : 'smooth'
           });
           
           // Update focus for accessibility
@@ -143,33 +148,6 @@
   // READING PROGRESS
   // ============================================
 
-  function initReadingProgress() {
-    const progressBar = document.querySelector('.aurora-reading-progress');
-    const progressFill = progressBar?.querySelector('span') || progressBar;
-    const article = document.querySelector('.aurora-article');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (!progressBar || !progressFill || !article || prefersReducedMotion) return;
-
-    function updateProgress() {
-      const articleRect = article.getBoundingClientRect();
-      const articleTop = articleRect.top + window.pageYOffset;
-      const articleHeight = Math.max(articleRect.height - window.innerHeight, 1);
-      const windowHeight = window.innerHeight;
-      const scrollTop = window.pageYOffset;
-
-      const progress = Math.min(
-        Math.max((scrollTop - articleTop + windowHeight * 0.35) / articleHeight, 0),
-        1
-      );
-
-      progressFill.style.transform = `scaleX(${progress})`;
-    }
-
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    updateProgress();
-  }
-
   function initHeaderScrollProgress() {
     const bar = document.querySelector('.aurora-scroll-progress');
     if (!bar) return;
@@ -233,77 +211,28 @@
   }
 
   // ============================================
-  // OPAL READING PANE SHEEN
-  // ============================================
-
-  function initOpalReadingPane() {
-    const pane = document.querySelector('.aurora-reader-pane, .aurora-single-2026 > .aurora-article');
-    if (!pane) return;
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-    if (prefersReducedMotion || !hasFinePointer) return;
-
-    let frame = null;
-    let pendingEvent = null;
-
-    function updateSheen(event) {
-      const rect = pane.getBoundingClientRect();
-      const x = (event.clientX - rect.left - rect.width / 2) * 0.035;
-      const y = (event.clientY - rect.top - rect.height / 2) * 0.025;
-
-      pane.style.setProperty('--aurora-sheen-x', `${x.toFixed(1)}px`);
-      pane.style.setProperty('--aurora-sheen-y', `${y.toFixed(1)}px`);
-      pane.style.setProperty('--aurora-sheen-opacity', '0.24');
-    }
-
-    pane.addEventListener('pointermove', (event) => {
-      pendingEvent = event;
-      if (frame) return;
-
-      frame = window.requestAnimationFrame(() => {
-        frame = null;
-        if (pendingEvent) {
-          updateSheen(pendingEvent);
-          pendingEvent = null;
-        }
-      });
-    });
-
-    pane.addEventListener('pointerleave', () => {
-      pendingEvent = null;
-      pane.style.setProperty('--aurora-sheen-x', '0px');
-      pane.style.setProperty('--aurora-sheen-y', '0px');
-      pane.style.setProperty('--aurora-sheen-opacity', '0.13');
-    });
-  }
-
-  // ============================================
   // ARTICLE READING HELPERS
   // ============================================
 
   function initArticleReadingHelpers() {
-    const article = document.querySelector('.aurora-article');
-    const content = article?.querySelector('.aurora-prose');
+    const article = document.querySelector('.aurora-journal-article');
+    const content = article?.querySelector('.aurora-journal-prose');
 
     if (!article || !content) return;
 
     const readTime = article.querySelector('[data-aurora-read-time]');
-    const words = content.textContent.trim().split(/\s+/).filter(Boolean).length;
+    const words = content.innerText.trim().split(/\s+/).filter(Boolean).length;
 
     if (readTime && words > 120) {
       const minutes = Math.max(1, Math.ceil(words / 225));
       readTime.textContent = `${minutes} min read`;
       readTime.hidden = false;
-      article.querySelector('.aurora-read-time-divider')?.removeAttribute('hidden');
     }
 
     const map = article.querySelector('[data-aurora-article-map]');
     const nav = map?.querySelector('nav');
     const headings = Array.from(content.querySelectorAll('h2, h3'))
-      .filter((heading) => heading.textContent.trim().length > 0)
-      .slice(0, 12);
+      .filter((heading) => heading.textContent.trim().length > 0);
 
     if (!map || !nav || headings.length < 3) return;
 
@@ -311,13 +240,15 @@
 
     headings.forEach((heading, index) => {
       if (!heading.id) {
-        heading.id = `article-section-${index + 1}`;
+        let id = `article-section-${index + 1}`;
+        while (document.getElementById(id)) id += '-section';
+        heading.id = id;
       }
 
       const item = document.createElement('li');
       const link = document.createElement('a');
 
-      link.href = `#${heading.id}`;
+      link.href = `#${encodeURIComponent(heading.id)}`;
       link.textContent = heading.textContent.trim();
       link.className = heading.tagName === 'H3' ? 'is-subsection' : '';
       item.appendChild(link);
@@ -326,89 +257,20 @@
 
     nav.appendChild(list);
     map.hidden = false;
+    const desktop = window.matchMedia('(min-width: 1100px)');
+    const updateContents = () => { map.open = desktop.matches; };
+    updateContents();
+    desktop.addEventListener('change', updateContents);
   }
 
-  // ============================================
-  // ARTICLE + BLOG LUX MOTION
-  // ============================================
-
-  function initArticleBlogLuxMotion() {
-    const scope = document.querySelector('.aurora-single-2026, .aurora-writing-archive');
-    if (!scope) return;
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isCompactViewport = window.matchMedia('(max-width: 700px)').matches;
-    const revealStep = isCompactViewport ? 22 : 32;
-    const revealDelayCap = isCompactViewport ? 120 : 220;
-    const revealSelectors = [
-      '.aurora-writing-archive-header',
-      '.aurora-writing-card',
-      '.aurora-article-header',
-      '.aurora-featured-media',
-      '.aurora-article-map',
-      '.aurora-prose > p',
-      '.aurora-prose > h2',
-      '.aurora-prose > h3',
-      '.aurora-prose > figure',
-      '.aurora-prose > blockquote',
-      '.aurora-prose > .wp-block-quote',
-      '.aurora-prose > .wp-block-pullquote',
-      '.aurora-prose > .wp-block-group',
-      '.aurora-prose > .wp-block-table',
-      '.aurora-prose > pre',
-      '.aurora-prose > .wp-block-code',
-      '.aurora-author-panel',
-      '.aurora-tag-panel',
-      '.aurora-related h2',
-      '.aurora-related-row',
-    ];
-
-    const revealTargets = Array.from(document.querySelectorAll(revealSelectors.join(',')))
-      .filter((target) => !target.hidden);
-
-    revealTargets.forEach((target, index) => {
-      target.classList.add('is-aurora-lux-reveal');
-      target.style.setProperty('--aurora-lux-index', String(index));
-      target.style.setProperty('--aurora-lux-delay', `${Math.min(index * revealStep, revealDelayCap)}ms`);
-    });
-
-    if (prefersReducedMotion) {
-      revealTargets.forEach((target) => target.classList.add('is-revealed'));
-    } else if ('IntersectionObserver' in window) {
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          entry.target.classList.add('is-revealed');
-          revealObserver.unobserve(entry.target);
-        });
-      }, {
-        rootMargin: '0px 0px -8% 0px',
-        threshold: 0.08,
-      });
-
-      revealTargets.forEach((target) => revealObserver.observe(target));
-
-      requestAnimationFrame(() => {
-        revealTargets.forEach((target) => {
-          const rect = target.getBoundingClientRect();
-          if (rect.top < window.innerHeight && rect.bottom > 0) {
-            target.classList.add('is-revealed');
-            revealObserver.unobserve(target);
-          }
-        });
-      });
-    } else {
-      revealTargets.forEach((target) => target.classList.add('is-revealed'));
-    }
-
-    const article = document.querySelector('.aurora-article');
+  function initArticleContentsTracking() {
+    const article = document.querySelector('.aurora-journal-article');
     const map = article?.querySelector('[data-aurora-article-map]');
     const mapLinks = Array.from(map?.querySelectorAll('a[href^="#"]') || []);
     if (!article || !map || mapLinks.length === 0) return;
 
     const headingsById = new Map(
-      Array.from(article.querySelectorAll('.aurora-prose h2[id], .aurora-prose h3[id]'))
+      Array.from(article.querySelectorAll('.aurora-journal-prose h2[id], .aurora-journal-prose h3[id]'))
         .map((heading) => [heading.id, heading])
     );
 
@@ -593,18 +455,21 @@
   // ============================================
 
   function init() {
+    document.querySelector('.aurora-journal-mobile-nav')?.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      event.currentTarget.open = false;
+      event.currentTarget.querySelector('summary').focus();
+    });
     initPrimaryNavKeyboard();
-    initSmoothScroll();
     initExternalLinks();
     initCodeCopy();
-    initReadingProgress();
     initHeaderScrollProgress();
-    initRevealOnScroll();
+    if (!document.body.classList.contains('aurora-journal-page')) initRevealOnScroll();
     initLiveMastheadDate();
-    initOpalReadingPane();
     initArticleReadingHelpers();
-    initArticleBlogLuxMotion();
-    initLazyImages();
+    initSmoothScroll();
+    initArticleContentsTracking();
+    if (!document.body.classList.contains('aurora-journal-page')) initLazyImages();
     initLogoSoup();
     initForms();
     initColorScheme();

@@ -92,12 +92,12 @@ class Issue1090ConversionPreflightTests(unittest.TestCase):
         self.assertIn("Newsletter", header)
         self.assertIn("https://vancouver.beehiiv.com/", footer)
         self.assertIn("Subscribe free", footer)
-        self.assertIn('href="/speaking/"', single)
-        self.assertIn("Book Kris", single)
-        self.assertIn("aurora-author-panel", single)
+        self.assertIn('href="/speaking/"', (ROOT / 'theme/kk-aurora/parts/journal-header.html').read_text())
+        self.assertIn("aurora-journal-end", single)
+        self.assertIn('href="/about/"', single)
         self.assertNotIn("embeds.beehiiv.com", header + footer + single + front + home)
         self.assertIn("Get the weekly email", front)
-        self.assertIn("Get the weekly email", home)
+        self.assertIn("Subscribe to the newsletter", home)
 
     def test_harness_passes(self):
         result = subprocess.run(

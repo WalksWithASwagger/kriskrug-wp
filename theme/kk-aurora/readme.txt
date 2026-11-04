@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.6.13 points sitewide chrome at final `/generative-ai-services/` and www Futureproof URLs.
+KK Aurora is a WordPress FSE theme for Kris Krug. Version 1.7.0 introduces compact writing lists and a calm, responsive article layout. Not deployed; awaiting final review.
 
 Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
@@ -39,6 +39,12 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 * Rainbow accents: teal / cyan / cobalt / violet / magenta
 
 == Changelog ==
+
+= 1.7.0 =
+* Compact thumbnails, titles and descriptions across Writing, archives and search.
+* Readable article typography and responsive contents navigation without reveal animations.
+* Retire superseded blog styles; preserve published content and native WordPress navigation.
+* Not deployed. Saved single template synchronization and cache regeneration are required.
 
 = 1.6.13 =
 * seo (#1131): header, footer, and homepage CTAs use `/generative-ai-services/` and `https://www.futureproof.website/` so chrome stops hopping through 301/308s.

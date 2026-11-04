@@ -123,3 +123,6 @@ backup/**/*.html
 # #829 authenticated context=edit rollback snapshots are local-only. The repo
 # is public; commit the receipt and hashes, not the full edit-context records.
 backup/issue-829-ai-ethics-hub/
+
+# Local WordPress journal review snapshots and screenshots.
+/.generated/blog-review/

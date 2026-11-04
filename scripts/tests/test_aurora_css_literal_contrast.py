@@ -68,6 +68,7 @@ CSS_FILES = (
     "assets/css/bleeding-edge.css",
     "assets/css/animations.css",
     "assets/css/09-late.css",
+    "assets/css/journal.css",
 )
 
 AA_TEXT = 4.5
@@ -306,17 +307,6 @@ SURFACES = {
 # (file, selector, literal) -> (surface key, floor, note)
 REGISTERED_LITERALS = {
     (
-        "style.css",
-        ".aurora-writing-archive .aurora-writing-archive-dek",
-        "rgba(247, 247, 242, 0.72)",
-    ): (
-        "cream",
-        OVERRIDDEN,
-        "revive-port.css sets this dek to --revive-ink-soft !important, and it "
-        "renders in the archive header on cream, not on a card: 8.11:1 live. "
-        "The literal here is dead pre-cream residue.",
-    ),
-    (
         "assets/css/revive-port.css",
         ".aurora-work-card-num",
         "rgba(239, 230, 210, 0.72)",
@@ -451,74 +441,14 @@ RESOLVED_COMPONENT_COLORS = (
         ("ink",),
         AA_TEXT,
     ),
-    (
-        "style.css",
-        ".aurora-single-2026 .aurora-article-dek",
-        ("cream", "cream-2"),
-        AA_TEXT,
-    ),
     # #485: every foreground inside the ported writing card, measured against
     # the card surface *and* the darkest point of its ::after wash.
-    (
-        "style.css",
-        ".aurora-writing-card-title a",
-        ("writing-card", "writing-card-hover"),
-        AA_TEXT,
-    ),
-    (
-        "style.css",
-        ".aurora-writing-card-category, .aurora-writing-card-meta",
-        ("writing-card", "writing-card-hover"),
-        AA_TEXT,
-    ),
-    (
-        "style.css",
-        ".aurora-writing-card-meta time, .aurora-writing-card-meta span",
-        ("writing-card", "writing-card-hover"),
-        AA_TEXT,
-    ),
-    (
-        "style.css",
-        ".aurora-writing-archive .aurora-writing-card-excerpt, "
-        ".aurora-writing-archive .aurora-writing-card-excerpt p",
-        ("writing-card", "writing-card-hover"),
-        AA_TEXT,
-    ),
-    (
-        "style.css",
-        ".aurora-writing-card-excerpt, .aurora-writing-card-excerpt p",
-        ("writing-card", "writing-card-hover"),
-        AA_TEXT,
-    ),
     # The category pill draws its own rgba(23,19,16,.05) fill on the card.
-    (
-        "style.css",
-        ".aurora-writing-card-category a, .aurora-article-category a, .aurora-post-tags a",
-        ("writing-card", "cream", "cream-muted"),
-        AA_TEXT,
-    ),
     # Pagination and RSS chips on the same template.
     (
         "style.css",
-        ".aurora-writing-pagination a, "
-        ".aurora-writing-pagination .page-numbers, "
-        ".aurora-writing-pagination .wp-block-query-pagination-previous, "
-        ".aurora-writing-pagination .wp-block-query-pagination-next",
-        ("cream-2",),
-        AA_TEXT,
-    ),
-    ("style.css", ".aurora-feed-link-grid a", ("cream-2",), AA_TEXT),
-    (
-        "style.css",
-        ".aurora-writing-pagination",
-        ("cream", "cream-2"),
-        AA_TEXT,
-    ),
-    ("style.css", ".aurora-meta-divider", ("cream", "cream-2"), AA_NON_TEXT),
-    (
-        "style.css",
         ".aurora-search-form .wp-block-search__button, "
-        ".aurora-theme .wp-block-search__button, "
+        ".aurora-theme:not(.aurora-journal-page) .wp-block-search__button, "
         ".aurora-form button, "
         ".aurora-theme :where(.gform_wrapper, .wp-block-jetpack-contact-form) button",
         ("signal",),
@@ -695,119 +625,47 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
                 ratio, AA_TEXT, f"text-muted on {surface_key} is {ratio:.2f}:1"
             )
 
-    def test_writing_card_is_a_cream_surface(self):
-        """#485: no `.aurora-writing-card` rule may repaint a dark surface.
+    def test_retired_blog_rules_are_removed(self):
+        for name in ("style.css", "assets/css/revive-port.css"):
+            selectors = " ".join(rule[1] for rule in iter_rules((THEME_DIR / name).read_text()))
+            for retired in (".aurora-writing-card", ".aurora-writing-archive", ".aurora-single-2026", ".aurora-article-map"):
+                self.assertNotIn(retired, selectors, name)
 
-        The component is declared in six places. The archive override at
-        (0,2,0) is the one that wins on /blog/, so a fix applied only to the
-        base rule would have changed nothing live — this walks every rule whose
-        selector mentions the component and fails on any dark background,
-        whichever site it came from.
-        """
-        text = (THEME_DIR / "style.css").read_text(encoding="utf-8")
-        offenders = []
-        for context, selector, body, line in iter_rules(text):
-            if "print" in context or "aurora-writing-card" not in selector:
-                continue
-            for declaration in body.split(";"):
-                match = re.match(
-                    r"\s*(background|background-color)\s*:\s*(.+)",
-                    declaration,
-                    flags=re.S,
-                )
-                if not match:
-                    continue
-                value = " ".join(match.group(2).split())
-                for literal in re.findall(r"#[0-9a-fA-F]{3,6}\b|rgba?\([^)]*\)", value):
-                    parsed = parse_color(literal)
-                    if parsed[3] < 0.5:
-                        # A translucent tint reads as a wash over whatever is
-                        # beneath it, not as the surface itself.
-                        continue
-                    if relative_luminance(parsed[:3]) < 0.18:
-                        offenders.append(f"style.css:{line} {selector} -> {literal}")
-        self.assertEqual(
-            offenders,
-            [],
-            "dark surface(s) still painted inside the cream writing card:\n"
-            + "\n".join(f"  {entry}" for entry in offenders),
-        )
-
-    def test_blog_index_card_text_meets_aa_on_the_cream_card(self):
-        """#485 as filed: titles and meta on the blog index.
-
-        Measured against the darkest backdrop the text can get — the card
-        surface with the hover ::after wash on top of it, since that wash
-        paints below `.aurora-writing-card-body` (z-index 2 vs 3).
-        """
-        surface = SURFACES["writing-card-hover"]
+    def test_journal_text_and_controls_meet_aa(self):
         for selector in (
-            ".aurora-writing-card-title a",
-            ".aurora-writing-card-category, .aurora-writing-card-meta",
+            ".aurora-journal-entry-title a", ".aurora-journal-summary",
+            ".aurora-journal-topic", ".aurora-journal-date",
+            ".aurora-journal-dek", ".aurora-journal-prose p",
+            ".aurora-journal-prose a", ".aurora-journal-search input::placeholder",
+            ".aurora-journal-prose :where(figcaption,.wp-element-caption)",
         ):
-            declaration = declared_color("style.css", selector)
-            self.assertIsNotNone(declaration, f"no color declared for {selector}")
-            self.assertTrue(
-                declaration.startswith("var("),
-                f"{selector} must use a semantic token, got {declaration!r}",
-            )
-            literal = resolve(declaration, self.properties)
-            ratio = contrast_ratio(composite(parse_color(literal), surface), surface)
-            self.assertGreaterEqual(
-                ratio, AA_TEXT, f"{selector} ({literal}) is {ratio:.2f}:1 on the card"
-            )
+            declaration = declared_color("assets/css/journal.css", selector)
+            self.assertIsNotNone(declaration, selector)
+            foreground = parse_color(resolve(declaration, self.properties))
+            for background in ("--journal-paper", "--journal-wash"):
+                surface = parse_color(self.properties[background])[:3]
+                self.assertGreaterEqual(contrast_ratio(foreground[:3], surface), AA_TEXT, selector)
 
-    def test_blog_index_template_still_renders_the_probed_classes(self):
-        """Guard the selectors — a renamed class would silence the tests above."""
-        home = (THEME_DIR / "templates/home.html").read_text(encoding="utf-8")
-        for class_name in (
-            "aurora-writing-archive",
-            "aurora-writing-card",
-            "aurora-writing-card-title",
-            "aurora-writing-card-meta",
-            "aurora-writing-pagination",
-        ):
-            self.assertIn(class_name, home)
+    def test_journal_templates_share_the_entry_and_do_not_use_the_old_grid(self):
+        home = (THEME_DIR / "templates/home.html").read_text()
+        single = (THEME_DIR / "templates/single.html").read_text()
+        query = (THEME_DIR / "patterns/journal-query.php").read_text()
+        entry = (THEME_DIR / "patterns/journal-entry.php").read_text()
+        self.assertIn('"slug":"kk-aurora/journal-query"', home)
+        for source in (query, single):
+            self.assertIn('"slug":"kk-aurora/journal-entry"', source)
+            self.assertNotIn('"type":"grid"', source)
+        self.assertIn('wp:post-excerpt', entry)
+        self.assertIn('wp:post-featured-image', entry)
+        self.assertIn('wp:post-title', entry)
+        self.assertNotIn('aurora-writing-card', home + single + query + entry)
 
-    def test_featured_media_caption_winner_is_legible(self):
-        """#485: fix the surface, not the declaration that never paints.
-
-        `.aurora-featured-media :where(figcaption, ...)` and revive-port.css's
-        `.aurora-theme :where(p, li, figcaption)` are both (0,1,0); the later
-        file wins. So the caption's real colour is --revive-ink-soft, and the
-        only thing that can move its ratio is the panel underneath.
-        """
-        panel_rule = None
-        for _context, selector, body, _line in iter_rules(
-            (THEME_DIR / "style.css").read_text(encoding="utf-8")
-        ):
-            if " ".join(selector.split()) == ".aurora-featured-media":
-                for declaration in body.split(";"):
-                    match = re.match(
-                        r"\s*background\s*:\s*(.+)", declaration, flags=re.S
-                    )
-                    if match:
-                        panel_rule = " ".join(match.group(1).split())
-        self.assertIsNotNone(
-            panel_rule, "no background declared for .aurora-featured-media"
-        )
-        panel = parse_color(resolve(panel_rule, self.properties))
-        self.assertEqual(panel[3], 1.0, "the featured-media panel must be opaque")
-
-        # The losing pre-cream literal must be gone, not retuned in place.
-        self.assertIsNone(
-            declared_color(
-                "style.css",
-                ".aurora-featured-media :where(figcaption, .wp-element-caption)",
-            ),
-            "this rule's color never paints; it must not declare one",
-        )
-
-        winner = resolve(self.properties["--revive-ink-soft"], self.properties)
-        ratio = contrast_ratio(composite(parse_color(winner), panel[:3]), panel[:3])
-        self.assertGreaterEqual(
-            ratio, AA_TEXT, f"featured-media caption is {ratio:.2f}:1 on its panel"
-        )
+    def test_journal_removes_reveals_and_excludes_micro_interactions(self):
+        script = (THEME_DIR / "assets/js/theme.js").read_text()
+        self.assertNotIn('initArticleBlogLuxMotion', script)
+        self.assertNotIn('is-aurora-lux-reveal', script)
+        self.assertNotIn('initOpalReadingPane', script)
+        self.assertIn("if (!is_journal())", (THEME_DIR / "functions.php").read_text())
 
     # -- sanity check on the maths ----------------------------------------
 

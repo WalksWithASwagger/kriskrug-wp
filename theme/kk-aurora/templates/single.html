@@ -1,107 +1,41 @@
-<!-- wp:template-part {"slug":"header","area":"header"} /-->
-
+<!-- wp:template-part {"slug":"journal-header","tagName":"div","area":"header"} /-->
+<!-- wp:group {"tagName":"main","className":"aurora-journal aurora-journal-single","layout":{"type":"default"}} -->
+<main id="aurora-main" class="wp-block-group aurora-journal aurora-journal-single">
+<!-- wp:html --><p class="aurora-journal-back"><a href="/blog/">← All writing</a></p><!-- /wp:html -->
+<!-- wp:group {"tagName":"article","className":"aurora-journal-article","layout":{"type":"default"}} -->
+<article class="wp-block-group aurora-journal-article">
+<!-- wp:group {"tagName":"header","className":"aurora-journal-article-header","layout":{"type":"default"}} -->
+<header class="wp-block-group aurora-journal-article-header">
+<!-- wp:post-terms {"term":"category","className":"aurora-journal-topic"} /-->
+<!-- wp:post-title {"level":1,"className":"aurora-journal-title"} /-->
+<!-- wp:post-excerpt {"className":"aurora-journal-dek","moreText":""} /-->
+<!-- wp:group {"className":"aurora-journal-meta","layout":{"type":"default"}} -->
+<div class="wp-block-group aurora-journal-meta">
+<!-- wp:post-author-name /-->
+<!-- wp:post-date {"format":"F j, Y"} /-->
+<!-- wp:html --><span data-aurora-read-time hidden></span><!-- /wp:html -->
+</div><!-- /wp:group -->
+</header><!-- /wp:group -->
+<!-- wp:post-featured-image {"sizeSlug":"large","className":"aurora-journal-featured"} /-->
+<!-- wp:group {"className":"aurora-journal-reading","layout":{"type":"default"}} -->
+<div class="wp-block-group aurora-journal-reading">
 <!-- wp:html -->
-<div class="aurora-reading-progress" aria-hidden="true"><span></span></div>
+<details class="aurora-journal-contents" data-aurora-article-map hidden><summary>In this article</summary><nav aria-label="Article sections"></nav></details>
 <!-- /wp:html -->
-
-<!-- wp:group {"tagName":"main","className":"aurora-single-2026","layout":{"type":"constrained","contentSize":"920px"}} -->
-<main id="aurora-main" class="wp-block-group aurora-single-2026">
-
-  <!-- wp:group {"tagName":"article","className":"aurora-article aurora-reader-pane","layout":{"type":"constrained","contentSize":"760px"}} -->
-  <article class="wp-block-group aurora-article aurora-reader-pane">
-    <!-- wp:group {"className":"aurora-article-header","layout":{"type":"constrained","contentSize":"900px"}} -->
-    <div class="wp-block-group aurora-article-header">
-      <!-- wp:post-terms {"term":"category","className":"aurora-article-category"} /-->
-      <!-- wp:post-title {"level":1,"className":"aurora-single-title"} /-->
-
-      <!-- wp:group {"className":"aurora-article-meta","layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
-      <div class="wp-block-group aurora-article-meta">
-        <!-- wp:post-date /-->
-        <!-- wp:html -->
-        <span class="aurora-meta-divider" aria-hidden="true">/</span>
-        <!-- /wp:html -->
-        <!-- wp:post-author-name /-->
-        <!-- wp:html -->
-        <span class="aurora-meta-divider aurora-read-time-divider" aria-hidden="true" hidden>/</span>
-        <span class="aurora-read-time" data-aurora-read-time hidden></span>
-        <!-- /wp:html -->
-      </div>
-      <!-- /wp:group -->
-
-      <!-- wp:post-excerpt {"className":"aurora-article-dek","showMoreOnNewLine":false,"moreText":""} /-->
-    </div>
-    <!-- /wp:group -->
-
-    <!-- wp:post-featured-image {"className":"aurora-featured-media"} /-->
-
-    <!-- wp:html -->
-    <details class="aurora-article-map" data-aurora-article-map hidden>
-      <summary>Article map</summary>
-      <nav aria-label="Article sections"></nav>
-    </details>
-    <!-- /wp:html -->
-
-    <!-- wp:post-content {"className":"aurora-prose","layout":{"type":"constrained","contentSize":"720px"}} /-->
-
-    <!-- wp:group {"className":"aurora-author-panel","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
-    <div class="wp-block-group aurora-author-panel">
-      <!-- wp:post-author-biography {"avatarSize":72,"showBio":false,"byline":""} /-->
-      <!-- wp:group {"layout":{"type":"constrained"}} -->
-      <div class="wp-block-group">
-        <!-- wp:heading {"level":2,"className":"aurora-author-title"} -->
-        <h2 class="wp-block-heading aurora-author-title">About Kris</h2>
-        <!-- /wp:heading -->
-        <!-- wp:paragraph -->
-        <p>Kris Krüg is an AI keynote speaker, creative technologist, photographer, and community builder working across BC + AI, Vancouver AI, and Futureproof Festival, and a living network of AI-era projects.</p>
-        <!-- /wp:paragraph -->
-        <!-- wp:buttons {"layout":{"type":"flex","flexWrap":"wrap"}} -->
-        <div class="wp-block-buttons">
-          <!-- wp:button {"className":"is-style-aurora-primary"} -->
-          <div class="wp-block-button is-style-aurora-primary"><a class="wp-block-button__link wp-element-button" href="/speaking/">Book Kris</a></div>
-          <!-- /wp:button -->
-          <!-- wp:button {"className":"is-style-aurora-ghost"} -->
-          <div class="wp-block-button is-style-aurora-ghost"><a class="wp-block-button__link wp-element-button" href="/work/">Explore work</a></div>
-          <!-- /wp:button -->
-        </div>
-        <!-- /wp:buttons -->
-      </div>
-      <!-- /wp:group -->
-    </div>
-    <!-- /wp:group -->
-
-    <!-- wp:group {"className":"aurora-tag-panel","layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
-    <div class="wp-block-group aurora-tag-panel">
-      <!-- wp:paragraph -->
-      <p>Tagged</p>
-      <!-- /wp:paragraph -->
-      <!-- wp:post-terms {"term":"post_tag","className":"aurora-post-tags"} /-->
-    </div>
-    <!-- /wp:group -->
-  </article>
-  <!-- /wp:group -->
-
-  <!-- wp:group {"className":"aurora-related","layout":{"type":"constrained","contentSize":"920px"}} -->
-  <div class="wp-block-group aurora-related">
-    <!-- wp:heading {"level":2} -->
-    <h2 class="wp-block-heading">Keep reading</h2>
-    <!-- /wp:heading -->
-
-    <!-- wp:query {"queryId":3,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"className":"aurora-related-query"} -->
-    <div class="wp-block-query aurora-related-query">
-      <!-- wp:post-template {"className":"aurora-related-list","layout":{"type":"default"}} -->
-        <!-- wp:group {"className":"aurora-related-row","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
-        <div class="wp-block-group aurora-related-row">
-          <!-- wp:post-title {"level":3,"isLink":true} /-->
-          <!-- wp:post-date /-->
-        </div>
-        <!-- /wp:group -->
-      <!-- /wp:post-template -->
-    </div>
-    <!-- /wp:query -->
-  </div>
-  <!-- /wp:group -->
-
-</main>
-<!-- /wp:group -->
-
-<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
+<!-- wp:post-content {"className":"aurora-journal-prose","layout":{"type":"default"},"metadata":{"ignoredHookedBlocks":["jetpack/subscriptions"]}} /-->
+</div><!-- /wp:group -->
+<!-- wp:group {"className":"aurora-journal-end","layout":{"type":"default"}} -->
+<div class="wp-block-group aurora-journal-end">
+<!-- wp:post-terms {"term":"post_tag","prefix":"Filed under: ","className":"aurora-journal-tags"} /-->
+<!-- wp:paragraph --><p>I'm Kris Krüg: photographer, creative technologist, and community builder in Vancouver. <a href="/about/">More about me</a>.</p><!-- /wp:paragraph -->
+</div><!-- /wp:group -->
+</article><!-- /wp:group -->
+<!-- wp:heading {"className":"aurora-journal-related-title"} --><h2 class="wp-block-heading aurora-journal-related-title">Keep reading</h2><!-- /wp:heading -->
+<!-- wp:query {"queryId":3,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"className":"aurora-related-query aurora-journal-query"} -->
+<div class="wp-block-query aurora-related-query aurora-journal-query">
+<!-- wp:post-template {"className":"aurora-journal-list","layout":{"type":"default"}} -->
+<!-- wp:pattern {"slug":"kk-aurora/journal-entry"} /-->
+<!-- /wp:post-template -->
+</div><!-- /wp:query -->
+</main><!-- /wp:group -->
+<!-- wp:template-part {"slug":"journal-footer","tagName":"div","area":"footer"} /-->

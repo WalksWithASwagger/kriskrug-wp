@@ -793,6 +793,9 @@
     }
   },
   "templateParts": [
+    { "name": "journal-header", "title": "Writing header", "area": "header" },
+    { "name": "journal-footer", "title": "Writing footer", "area": "footer" },
+    { "name": "journal-tools", "title": "Writing search", "area": "uncategorized" },
     {
       "name": "header",
       "title": "Header",

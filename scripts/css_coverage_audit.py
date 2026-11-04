@@ -62,6 +62,7 @@ CSS_FILES = [
     THEME_DIR / "assets" / "css" / "bleeding-edge.css",
     THEME_DIR / "assets" / "css" / "revive-port.css",
     THEME_DIR / "assets" / "css" / "09-late.css",
+    THEME_DIR / "assets" / "css" / "journal.css",
     THEME_DIR / "assets" / "css" / "editor.css",
 ]
 
