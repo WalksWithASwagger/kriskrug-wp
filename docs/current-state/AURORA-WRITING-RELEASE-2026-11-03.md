@@ -35,13 +35,18 @@ Evidence includes `cdn-purge-success.png`, `post-cdn-purge-http.json`, `boost-cr
 
 ## Rollback and retained evidence
 
-Private local evidence: `/private/tmp/kriskrug-blog-redesign-20261103/.generated/blog-review/release/` (ignored, not published).
+The private evidence archive on KK’s Mac is
+`~/.codex/visualizations/2026/11/03/01a1a25b-0f78-73e3-af0b-b5be1557c62e/aurora-writing-release-2026-11-03/`.
+All 84 evidence files were verified by SHA-256 before the temporary worktree was
+removed. `RECOVERY.md` and `SHA256SUMS.json` are at the archive root. The files
+below are relative to `blog-review/release/` inside that archive.
 
 - Exact pre-release theme: `live-theme-before.zip` and `live-theme-manifest.json`.
 - Pre-release live theme retained remotely at `./wp-content/themes/kk-aurora.bak-1793751411` (1.6.12); this is the rollback seat for the entire design release.
 - Intermediate 1.7.0 retained remotely at `./wp-content/themes/kk-aurora.bak-1793751958`.
 - Saved template rollback: `single-before.json` / `single-before.html`; original raw SHA256 `b9b4f73f7fc2026b16433a0b91dbc13b13ad63ed741eb490b62760446b85c0a6`.
-- `single-after.json`, `deployed-file-manifest.json`, `final-swap.json`, browser screenshots and `browser-checks.json` preserve readback.
+- Final screenshots after Critical CSS regeneration: `critical-css-blog-desktop.jpg`, `critical-css-blog-mobile.jpg`, `critical-css-post-desktop.jpg`, and `critical-css-post-mobile.jpg`.
+- `single-after.json`, `deployed-file-manifest.json`, `final-swap.json`, and `browser-checks.json` preserve readback. Earlier verification screenshots are in the same directory.
 
 A full rollback must restore both the 1.6.12 theme and saved template 12415, then refresh the same caches. Do not restore only the theme while leaving the new database template referring to journal patterns/parts. Preserve the unrelated saved front-page template.
 
