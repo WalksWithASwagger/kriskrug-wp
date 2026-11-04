@@ -2,6 +2,8 @@
 
 Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then run `make status-readonly` for current runtime signals.
 
+For the current queue, start with the [November 4 work plan](WORK-PLAN-2026-11-04.md). The [September repository audit closeout](REPO-HEALTH-REMEDIATION-2026-09-21.md) records the completed remediation and the remaining external checks.
+
 ## Current Front Door (refreshed 2026-10-25)
 
 Start with [CURRENT-STATE-2026-10-25.md](CURRENT-STATE-2026-10-25.md) and
