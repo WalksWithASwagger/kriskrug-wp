@@ -1,4 +1,6 @@
-# Writing redesign: final review, not deployed
+# Writing redesign: original final-review record
+
+KK approved the merge and deployment. Aurora 1.7.1 is live with the changes from #1172 and the style-order correction from #1173. Pagely caches were purged, Boost regenerated Critical CSS, and the public blog and long post passed desktop and mobile checks. The rest of this document records the earlier review. [Release receipt](AURORA-WRITING-RELEASE-2026-11-03.md)
 
 Aurora 1.7.0 implements the approved November 3 design proof. Latest thinking comes first: a chronological list with a thumbnail, title, short description and date, followed by native pagination. The article template uses a quiet reading column and optional contents navigation.
 
