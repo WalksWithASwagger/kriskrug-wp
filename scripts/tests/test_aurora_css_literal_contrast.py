@@ -639,7 +639,7 @@ class AuroraCssLiteralContrastTests(unittest.TestCase):
             ".aurora-journal-prose a", ".aurora-journal-search input::placeholder",
             ".aurora-journal-prose :where(figcaption,.wp-element-caption)",
         ):
-            declaration = declared_color("assets/css/journal.css", selector)
+            declaration = declared_color("assets/css/journal.css", ".aurora-journal-page " + selector)
             self.assertIsNotNone(declaration, selector)
             foreground = parse_color(resolve(declaration, self.properties))
             for background in ("--journal-paper", "--journal-wash"):
