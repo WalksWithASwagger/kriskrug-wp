@@ -1,4 +1,4 @@
-# Writing release: deployed; cache completion pending
+# Writing release: public verification passed, manual purge pending
 
 KK approved merging #1172, deploying it, and checking the live blog and a long article on desktop/mobile on November 3, 2026 (Vancouver time).
 
@@ -25,9 +25,9 @@ These are manual live browser checks and source/readback checks, not a completed
 
 ## Remaining release work
 
-The full release is **not yet verified across caches**. The canonical browser blog loads the new Boost bundle `733ad59d41.min.css` and renders the approved layout. However a separate canonical HTTP read still returned the old blog HTML and the unversioned `style.css` reports 1.6.12 with a Pagely HIT and a 30-day cache lifetime. `style.css?ver=1.7.1` returns the deployed 1.7.1 source. `make check-live-parity` therefore still fails; do not mark it passed.
+The November 3 follow-up found the current journal layout on both canonical public URLs. The unversioned `style.css` now returns 1.7.1 and matches the local file byte for byte. `make check-live-parity` passed. Both pages reference Boost bundle `733ad59d41.min.css`, which contains the scoped journal rules. Fresh logged-out browser checks passed at 1440×900 and 390×844. The archive showed 19 entries with 188px and 94px thumbnails. The long post rendered 61 visible paragraphs with 20px desktop and 18px mobile body text. Neither page overflowed horizontally.
 
-Boost's Data Sync API requires a per-endpoint signed-in nonce in addition to manage_options. Application-password requests return HTTP 403; no permission checks were bypassed. Awaiting a free Brave window to use the existing signed-in WordPress admin session. Refresh Boost critical CSS/page caches, purge Pagely/CDN caches, then repeat canonical parity and public route/browser checks. No purge or completed critical-CSS regeneration is claimed here.
+Manual cache actions remain pending. The signed-in Boost screen offered onboarding with terms and data sync, and Brave switched away before the PressCACHE control could be reached. The public checks show that the previously stale responses are now current. They establish delivery of the release, while the provider purge and Critical CSS regeneration are unconfirmed. Follow-up evidence is in `recheck-http.json`, `recheck-browser.json` and the four `recheck-*.jpg` captures.
 
 ## Rollback and retained evidence
 

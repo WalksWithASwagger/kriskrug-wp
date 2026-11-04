@@ -21,7 +21,7 @@ When you cut a new release, add a line here and follow
 ---
 
 ## 1.7.1
-**Deployed:** SFTP 2026-11-03 after KK's #1172 release approval; 65 files verified before swap. Versioned public source reads 1.7.1 and desktop/mobile journal rendering is verified. Pagely's unversioned stylesheet cache still reads 1.6.12; cache purge, Boost regeneration and final canonical parity remain pending. See `docs/current-state/AURORA-WRITING-RELEASE-2026-11-03.md`.
+**Deployed:** LIVE via SFTP on 2026-11-03 after KK's #1172 release approval. All 65 files were verified before the swap. Canonical public stylesheet parity and desktop/mobile journal checks passed. Manual cache purge and Boost regeneration remain unconfirmed. See `docs/current-state/AURORA-WRITING-RELEASE-2026-11-03.md`.
 Scope journal component rules beneath the journal page class so WordPress inline block/global styles cannot override the approved typography and spacing. Store the saved-template back arrow as an HTML entity to preserve it through production database normalization.
 
 ## 1.7.0
