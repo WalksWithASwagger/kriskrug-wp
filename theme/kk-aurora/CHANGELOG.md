@@ -21,7 +21,7 @@ When you cut a new release, add a line here and follow
 ---
 
 ## 1.7.1
-**Deployed:** LIVE via SFTP on 2026-11-03 after KK's #1172 release approval. All 65 files were verified before the swap. PressCACHE and CDN purges succeeded, followed by passing canonical stylesheet parity and desktop/mobile journal checks. Boost setup awaits KK's review of the terms and data sync. See `docs/current-state/AURORA-WRITING-RELEASE-2026-11-03.md`.
+**Deployed:** LIVE via SFTP on 2026-11-03 after KK's #1172 release approval. All 65 files were verified before the swap. PressCACHE and CDN purges succeeded. Boost generated six Critical CSS files, and the canonical blog and long post served the regenerated styles after the page cache refresh. Stylesheet parity and desktop/mobile journal checks passed. See `docs/current-state/AURORA-WRITING-RELEASE-2026-11-03.md`.
 Scope journal component rules beneath the journal page class so WordPress inline block/global styles cannot override the approved typography and spacing. Store the saved-template back arrow as an HTML entity to preserve it through production database normalization.
 
 ## 1.7.0

@@ -29,7 +29,9 @@ The November 3 follow-up found the current journal layout on both canonical publ
 
 The signed-in PressCACHE page reported “Cache Purge: Success.” On November 4, the Pagely App Dashboard also reported “CDN Purge: Success” for the CDN-only action and indicated three to five minutes for propagation. The canonical blog and long post returned HTTP 200 with the current journal layout. The shared Boost stylesheet returned HTTP 200 on a CloudFront MISS and contained the deployed journal rules. Unversioned stylesheet parity passed. Logged-out browser checks at 1440×900 and 390×844 showed 19 archive entries, 188px and 94px thumbnails, and 61 article paragraphs with none hidden. Neither page overflowed horizontally.
 
-Boost showed its setup screen with terms and site data sync. The setup screen was left open in Brave for KK. Critical CSS regeneration remains pending. CDN and browser evidence is in `cdn-purge-success.png`, `post-cdn-purge-http.json`, `post-cdn-purge-browser.json` and the four `cdn-purge-*.jpg` captures.
+After KK accepted the Boost terms, Boost reported six newly generated Critical CSS files. The canonical HTML initially served cached copies. After refreshing the Boost and Pagely page caches, the canonical blog and long post served the regenerated inline styles, with SHA-256 prefixes `1fb481a502d1` and `22772a5a43f0` respectively. Both returned HTTP 200, and `make check-live-parity` passed for Aurora 1.7.1. Logged-out browser checks at 1440×900 and 390×844 showed the expected archive thumbnails, all 61 article paragraphs visible and no horizontal overflow.
+
+Evidence includes `cdn-purge-success.png`, `post-cdn-purge-http.json`, `boost-critical-css-generated.jpg`, `post-critical-css-http.json`, `post-critical-css-browser.json` and the four `critical-css-*.jpg` captures.
 
 ## Rollback and retained evidence
 
