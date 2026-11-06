@@ -8,6 +8,22 @@ notes: 'SSOT for dated /events cards. meetup-editions.yaml (harvest #1–#31) is
   harvest wins on date/url/hero. Scaffold Past rows #10–#31 remain as fallbacks if harvest is absent.
   Do not POST to page 2250 until KK eyeball on out/events-2250.generated.html.'
 events:
+- id: 2026-10-05-iia-canadian-national-conference
+  title: 'IIA Canadian National Conference: Change My Mind!'
+  date: '2026-10-05'
+  bucket_hint: past
+  kind: external
+  role: Panelist
+  url: https://www.theiia.org/en/events/conference/hybrid-conferences/canadian-national-conference/
+  image: {}
+  blurb: 'An interactive main-stage debate with Charles King and Jin Chang about AI, risk and professional judgment.'
+  label: October 5 · Hyatt Regency Vancouver
+  tags:
+  - Panelist
+  - AI governance
+  - Vancouver
+  status: confirmed
+  cta_past: Conference details
 - id: 2026-09-26-ai-day-iiba-dama-robson-square
   title: 'AI Day 2.0: No Slogan Gets Us Out of Doing the Governance'
   date: '2026-09-26'
