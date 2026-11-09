@@ -44,6 +44,7 @@ class FetchResult:
     content_type: str
     body: str
     error: str | None = None
+    body_error: str | None = None
 
 
 def build_url(base_url: str, path: str) -> str:
@@ -75,7 +76,18 @@ def fetch(url: str, timeout: int) -> FetchResult:
                 body=raw.decode(charset, errors="replace"),
             )
     except HTTPError as exc:
-        raw = exc.read(200_000)
+        try:
+            raw = exc.read(200_000)
+        except (URLError, OSError, HTTPException) as body_exc:
+            return FetchResult(
+                url=url,
+                status=exc.code,
+                final_url=exc.geturl(),
+                content_type=exc.headers.get("content-type", ""),
+                body="",
+                error=str(exc),
+                body_error=f"response body read failed: {body_exc}",
+            )
         charset = exc.headers.get_content_charset() or "utf-8"
         return FetchResult(
             url=url,
@@ -137,6 +149,8 @@ def check_rest_root(result: FetchResult) -> tuple[list[str], list[str], dict[str
     details: dict[str, Any] = {}
     if result.status is None:
         return [result.error or "request failed"], warnings, details
+    if result.body_error:
+        return [result.body_error], warnings, details
     try:
         payload = json.loads(result.body)
     except json.JSONDecodeError as exc:
@@ -164,6 +178,8 @@ def check_page(path: str, result: FetchResult) -> tuple[list[str], list[str], di
         return failures, warnings, details
     if result.status >= 400:
         failures.append(f"HTTP {result.status}")
+    if result.body_error:
+        failures.append(result.body_error)
     for pattern in FATAL_PATTERNS:
         if pattern.lower() in result.body.lower():
             failures.append(f"found fatal marker: {pattern}")

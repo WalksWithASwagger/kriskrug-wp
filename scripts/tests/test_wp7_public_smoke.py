@@ -34,3 +34,15 @@ def test_http_error_preserves_status_and_body():
     assert result.status == 503
     assert result.body == "maintenance"
     assert smoke.check_page("/", result)[0] == ["HTTP 503"]
+
+
+def test_disconnected_http_error_body_reports_status_and_transport_failure():
+    headers = Message()
+    error = HTTPError("https://example.com/", 503, "unavailable", headers, io.BytesIO())
+    with patch.object(error, "read", side_effect=RemoteDisconnected("body interrupted")):
+        with patch.object(smoke, "urlopen", side_effect=error):
+            result = smoke.fetch("https://example.com/", 1)
+
+    assert result.status == 503
+    assert smoke.check_page("/", result)[0] == ["HTTP 503", "response body read failed: body interrupted"]
+    assert smoke.check_rest_root(result)[0] == ["response body read failed: body interrupted"]
