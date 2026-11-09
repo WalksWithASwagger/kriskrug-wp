@@ -10,9 +10,9 @@ This package records the final published article for [#1165](https://github.com/
 - `media.json` records the twelve existing public WordPress images, credits, captions and alt text. Nine photographs are by Michelle Diamond / Diamond’s Edge Photography; three presentation images are from Amber Case and Jacob Ortiz. No image binaries or private source material are included.
 - Featured image: existing media **12935**. Author: **1**, Kris Krüg. Category: **1662**, Vancouver AI Ecosystem. No new tags.
 - Slug: `futureproof-2026-year-one`. Publication: `2026-11-01T14:52:04` local / `2026-11-01T22:52:04Z`.
-- Body SHA-256: `2e0a6ea4552d286769c0e386bb1b6940ffe5f70137043efb18026c2247bbc1f5`.
+- Body SHA-256: `a972362c4c0a22e74edf70dfe73cefb1e60f72da800f9de37701652c42ac9fc3`.
 
-The exact saved body includes the AI-assistance disclosure, five contextual internal links, the released festival gallery and program, and a linked photography credit. The program and gallery are not presented as completed proceedings. The post uses its own canonical URL and the existing BlogPosting/Person schema.
+The exact saved body includes the AI-assistance disclosure, five contextual internal links, the released festival gallery and program, and a linked photography credit. The current body links separately to the 2026 proceedings. The post uses its own canonical URL and the existing BlogPosting/Person schema.
 
 ## Release verification
 

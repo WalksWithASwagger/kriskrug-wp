@@ -215,6 +215,6 @@ If you were there, tell me what you’re still thinking about. That’s where I 
 
 “You Hold Your Future.” A festival keepsake, photographed on October 30. Photo: Michelle Diamond / Diamond’s Edge Photography.
 
-Explore the [festival photographs](https://www.futureproof.website/gallery/) and [2026 program](https://www.futureproof.website/program/), or revisit [the original Futureproof announcement](https://kriskrug.co/2026/08/11/futureproof-festival-announcement/). Photography throughout: [Michelle Diamond / Diamond’s Edge Photography](https://diamondsedgephotography.pixieset.com/futureprooffestival2026/). Presentation images: Amber Case and Jacob Ortiz, from their festival decks in Canva. Select a slide to open it at full size.
+Explore the [festival photographs](https://www.futureproof.website/gallery/), [2026 program](https://www.futureproof.website/program/) and [2026 Futureproof proceedings](https://www.futureproof.website/2026/proceedings/), or revisit [the original Futureproof announcement](https://kriskrug.co/2026/08/11/futureproof-festival-announcement/). Photography throughout: [Michelle Diamond / Diamond’s Edge Photography](https://diamondsedgephotography.pixieset.com/futureprooffestival2026/). Presentation images: Amber Case and Jacob Ortiz, from their festival decks in Canva. Select a slide to open it at full size.
 
 *Written with AI assistance using my recorded remarks, opening-night voice note, festival curatorial statement and presentation materials. Direct quotations were checked against those sources.*
