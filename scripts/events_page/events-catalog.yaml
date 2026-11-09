@@ -258,10 +258,16 @@ events:
   title: Futureproof Festival
   date: '2026-10-28'
   end: '2026-10-30T22:00:00-07:00'
-  bucket_hint: upcoming
+  bucket_hint: past
   kind: festival
   role: Host / founder
   url: https://www.futureproof.website/tickets/
+  docs:
+    recap:
+    - https://kriskrug.co/2026/11/01/futureproof-2026-year-one/
+    - https://bc-ai.ca/news/the-robots-in-the-lobby
+    photos:
+    - https://www.futureproof.website/gallery/
   image:
     path: repo:content/drafts/2026-07-26-futureproof-festival-announcement/images/futureproof-salmon-starfield-share-20260527.jpg
     alt: Futureproof Festival salmon-starfield share graphic
