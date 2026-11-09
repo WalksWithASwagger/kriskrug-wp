@@ -6,10 +6,10 @@ from __future__ import annotations
 import argparse
 import json
 import re
-import sys
 import time
 from dataclasses import dataclass
 from html import unescape
+from http.client import HTTPException
 from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.parse import urljoin
@@ -85,7 +85,7 @@ def fetch(url: str, timeout: int) -> FetchResult:
             body=raw.decode(charset, errors="replace"),
             error=str(exc),
         )
-    except URLError as exc:
+    except (URLError, OSError, HTTPException) as exc:
         return FetchResult(url=url, status=None, final_url=None, content_type="", body="", error=str(exc))
 
 
@@ -135,6 +135,8 @@ def check_rest_root(result: FetchResult) -> tuple[list[str], list[str], dict[str
     failures: list[str] = []
     warnings: list[str] = []
     details: dict[str, Any] = {}
+    if result.status is None:
+        return [result.error or "request failed"], warnings, details
     try:
         payload = json.loads(result.body)
     except json.JSONDecodeError as exc:
