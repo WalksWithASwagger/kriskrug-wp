@@ -18,7 +18,7 @@ This folder is source material for page copy, future post drafts, clips, and tra
 
 ## Files
 
-- [`metadata/canada-now-episode-23-source-record.md`](metadata/canada-now-episode-23-source-record.md) - partial public-source intake; recording, transcript, and video verification remain open.
+- [`metadata/canada-now-episode-23-source-record.md`](metadata/canada-now-episode-23-source-record.md) - publisher recording and transcript, verified official video, and short excerpts cross-checked with local audio transcription.
 - `metadata/*.json` - `yt-dlp --dump-json` metadata snapshots.
 - `transcripts/*.txt` - cleaned text exports from public YouTube captions.
 - `transcripts/*.vtt` - timestamped caption files preserved for quote extraction.
