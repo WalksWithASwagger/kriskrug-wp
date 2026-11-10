@@ -1,0 +1,110 @@
+schema_version: 1
+fragment: archive-2023
+events:
+- id: 2023-10-20-vanas-painting-a-future-with-ai
+  title: 'VANAS Digital Entertainment Conference: Painting a Future With AI'
+  date: '2023-10-20'
+  bucket_hint: past
+  kind: external
+  role: Panelist
+  url: https://www.vanas.ca/global/vanas-conference-2023
+  recap_url: https://kriskrug.co/2023/10/21/ai-art-changes-in-animation-special-effects-film-games-the-creative-industries/
+  image: {}
+  blurb: A panel on the opportunities and risks of generative AI in animation, film, games, and visual effects, moderated by Jennifer Jue-Steuck.
+  label: Oct 20 · VANAS Digital Entertainment Conference
+  status: confirmed
+
+- id: 2023-10-04-frontier-summit-vancouver
+  title: Frontier Summit
+  date: '2023-10-04'
+  end: '2023-10-05'
+  bucket_hint: past
+  kind: external
+  role: Event coverage
+  city: Vancouver
+  url: https://kriskrug.co/2023/10/04/balancing-artificial-intelligences-existential-dilemmas-and-societal-enhancements-reflections-on-the-frontier-summit-ai-panel/
+  docs:
+    recap:
+    - https://kriskrug.co/2023/10/05/the-future-of-immersive-storytelling-perspectives-from-the-frontier-summit/
+  image: {}
+  blurb: Field notes on AI governance and the future of immersive storytelling from the Frontier Collective summit.
+  label: Oct 4–5 · Vancouver
+  status: confirmed
+
+- id: 2023-09-15-hackct-transportation-hackathon
+  title: HackCT Transportation Hackathon
+  date: '2023-09-15'
+  end: '2023-09-17'
+  bucket_hint: past
+  kind: external
+  role: Mentor, photographer & builder
+  venue: EASTCONN Conference Center
+  url: https://accessagency.org/2024/01/16/hack-ct-a-highlight-of-2023/
+  recap_url: https://kriskrug.co/2023/09/18/building-an-nlp-powered-ai-transit-assistant-at-hackct-for-national-day-of-civic-hacking/
+  docs:
+    recap:
+    - https://kriskrug.co/2023/09/16/hackct-an-exploration-into-open-source-solutions-for-rural-mobility/
+    photos:
+    - https://flickr.com/photos/kk/albums/72177720311237032
+  image: {}
+  blurb: Mentored and photographed the civic hackathon and built a prototype AI transit assistant for rural eastern Connecticut.
+  label: Sep 15–17 · EASTCONN Conference Center
+  status: confirmed
+
+- id: 2023-09-10-dent-the-future-santa-fe
+  title: Dent the Future
+  date: '2023-09-10'
+  end: '2023-09-13'
+  bucket_hint: past
+  kind: external
+  role: Event coverage
+  city: Santa Fe, New Mexico
+  url: https://dent.squarespace.com/upcomingevents
+  recap_url: https://kriskrug.co/2023/09/22/master-prompts-developing-an-ai-mindset-chatgpt-workshop-recap-dent2023/
+  docs:
+    recap:
+    - https://kriskrug.co/2023/09/23/the-magic-of-asa-mathat-portraiture-and-photography-at-dent-the-future/
+  image: {}
+  blurb: Reported from the Santa Fe conference on Kyle Kesterson’s prompt engineering workshop and Asa Mathat’s portrait studio.
+  label: Sep 10–13 · Santa Fe
+  status: confirmed
+
+- id: 2023-09-06-impact-relations-ai-panel
+  title: 'Impact Relations Institute: AI for Impact Communicators'
+  date: '2023-09-06'
+  bucket_hint: past
+  kind: external
+  role: Co-moderator
+  url: https://kriskrug.co/2023/09/05/trends-in-impact-communications-corporate-esg-with-dr-lisa-costa-robert-scales-and-melissa-orozco/
+  recap_url: https://kriskrug.co/2023/09/09/the-promise-and-peril-of-ai-my-key-takeaways-from-the-impact-relations-institute-panel/
+  image: {}
+  blurb: Co-moderated a panel with Melissa Orozco on AI ethics and communications, with Dr. Lisa Costa and Robert Scales.
+  label: Sep 6 · Online
+  status: confirmed
+
+- id: 2023-06-21-csmps-agm-keynote
+  title: 'CSMPS Annual General Meeting: Empowering Marketing Strategies Through AI'
+  date: '2023-06-21'
+  bucket_hint: past
+  kind: external
+  role: Keynote
+  city: Vancouver
+  url: https://kriskrug.co/2023/06/07/ai-as-a-creative-partner-upcoming-keynote-at-canadian-society-for-marketing-professional-services-csmps-annual-general-meeting/
+  recap_url: https://kriskrug.co/2023/09/05/ai-as-your-creative-co-pilot-a-down-to-earth-guide-for-the-architecture-engineering-construction-industries/
+  image: {}
+  blurb: Keynote for the Canadian Society for Marketing Professional Services on practical AI uses in architecture, engineering, and construction.
+  label: Jun 21 · Vancouver
+  status: confirmed
+
+- id: 2023-06-09-otherworld-cyber-love-garden
+  title: 'Otherworld: Cyber Love Garden'
+  date: '2023-06-09'
+  end: '2023-06-10'
+  bucket_hint: past
+  kind: festival
+  role: Discussion host & panelist
+  url: https://otherworld.ca/wp-content/uploads/2023/06/Otherworld-2023-What-Where-When-Web.pdf
+  image: {}
+  blurb: Two Cyber Love Garden sessions on the Otherworld program, a discussion on generative art and a panel with Meta_Funk and Brad Necyk.
+  label: Jun 9–10 · Cyber Love Garden
+  status: confirmed

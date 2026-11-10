@@ -1,0 +1,16 @@
+schema_version: 1
+fragment: archive-2022
+events:
+- id: 2022-08-04-bridges-short-film-festival-mathematical-labyrinths
+  title: 'Bridges Short Film Festival: Mathematical Labyrinths Workshop, Hornby Island'
+  date: '2022-08-04'
+  bucket_hint: past
+  kind: festival
+  role: Camera assistant (screened film)
+  venue: National Museum of Finland
+  city: Helsinki
+  url: https://gallery.bridgesmathart.org/exhibitions/2022-bridges-conference-short-film-festival/susan-gerofsky
+  image: {}
+  blurb: Camera assistant on Zsofin Sheehy’s short about an intergenerational math and art workshop on Hornby Island, selected for the Bridges festival in Helsinki.
+  label: Aug 4 · National Museum of Finland, Helsinki
+  status: confirmed
