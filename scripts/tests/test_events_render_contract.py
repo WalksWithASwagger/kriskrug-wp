@@ -289,7 +289,7 @@ class Bucketing(unittest.TestCase):
         # Needles must be markup-unique; the class names also appear in the CSS.
         self.assertLess(
             html.index('data-events-grid="sheet">'),
-            html.index('<div class="kk-ev-record-grid kk-ev-wide">'),
+            html.index('<div class="kk-ev-record-grid">'),
         )
 
     def test_upcoming_is_held_back_from_the_sheet_until_it_rolls_off(self):
@@ -426,8 +426,8 @@ class ArtworkPolicy(unittest.TestCase):
     def test_spotlight_without_art_uses_the_date_not_an_empty_frame(self):
         html = render.render_next_card(event(image={}), roots_for(Path(".")))
         self.assertNotIn("<img", html)
-        self.assertIn("kk-ev-next-art--bare", html)
-        self.assertIn("kk-ev-next-day", html)
+        self.assertIn('<time class="kk-ev-next-date" datetime="2026-03-04">', html)
+        self.assertIn("<b>4</b>", html)
 
     def test_record_row_without_a_url_emits_no_link(self):
         html = render.render_record_row(event(url=""))

@@ -19,8 +19,8 @@ const attrs = row => `data-event-id="${row.id}" data-event-end="${row.end}"`;
 const record = (row, hidden = false) => `<li class="kk-ev-rec" ${attrs(row)}${row.edition ? ' data-event-edition="1"' : ''}${hidden ? ' hidden' : ''}><span class="kk-ev-rec-date">Date</span><span class="kk-ev-rec-title">Event ${row.id}</span></li>`;
 const tile = (row, upcoming = false) => `<article class="kk-ev-tile" ${attrs(row)}${upcoming ? ' data-tile-upcoming="true"' : ''}><span>Frame ${row.id}</span></article>`;
 const fixture = `<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1">${css}</head><body><main class="aurora-events-page">
-<section class="kk-ev-upcoming" data-events-bucket="upcoming" data-events-empty="false"><h2>Next up</h2><ul class="kk-ev-stats">${['rooms','editions','frames'].map(key => `<li><b data-events-count="${key}">0</b><span>${key}</span></li>`).join('')}</ul><div data-events-grid="upcoming">${future.map((row, index) => `<article class="kk-ev-next" ${attrs(row)}${index >= 4 ? ' hidden' : ''}>Future ${row.id}</article>`).join('')}</div></section>
-<section class="kk-ev-sheet"><div class="kk-ev-sheet-grid" data-events-grid="sheet">${past.map(row => tile(row)).join('')}${future.map(row => tile(row, true)).join('')}</div><button class="kk-ev-sheet-toggle" data-events-sheet-toggle aria-expanded="false">Show all frames</button></section>
+<section class="kk-ev-upcoming" data-events-bucket="upcoming" data-events-empty="false"><h2>Next up</h2><div class="kk-ev-next-grid" data-events-grid="upcoming">${future.map((row, index) => `<article class="kk-ev-next" ${attrs(row)}${index >= 4 ? ' hidden' : ''}>Future ${row.id}</article>`).join('')}</div><p class="kk-ev-empty">No upcoming dates</p></section>
+<section class="kk-ev-sheet"><ul class="kk-ev-stats">${['rooms','editions','frames'].map(key => `<li><b data-events-count="${key}">0</b><span>${key}</span></li>`).join('')}</ul><div class="kk-ev-sheet-grid" data-events-grid="sheet">${past.map(row => tile(row)).join('')}${future.map(row => tile(row, true)).join('')}</div><button class="kk-ev-sheet-toggle" data-events-sheet-toggle aria-expanded="false">Show all frames</button></section>
 <section class="kk-ev-record"><div class="kk-ev-rec-year"><h3>2026</h3><ul>${past.map(row => record(row)).join('')}${record({id:'bare',end:'2026-09-01T00:00:00-07:00'})}${future.slice(0,4).map(row => record(row,true)).join('')}</ul></div><div class="kk-ev-rec-year" hidden><h3>2027</h3><ul>${future.slice(4).map(row => record(row,true)).join('')}</ul></div><span data-events-count="rooms">0</span> rooms</section>
 ${script}</main></body></html>`;
 
@@ -80,6 +80,7 @@ async function resume(page, time) {
       assert.equal(await page.locator('.kk-ev-next:visible').count(),0);
       assert.equal(await page.locator('.kk-ev-rec-year:visible').count(),2);
       assert.equal(await page.locator('.kk-ev-stats').isVisible(),true);
+      assert.equal(await page.locator('.kk-ev-empty').isVisible(),true);
       assert.equal(errors.length,0,errors.join('\n'));
       report.push({width,clockRollover:true,reload:true,visibilityResume:true,promotionBeyondFour:true,keyboardSheetToggle:true,zeroUpcomingCounters:true,errors});
       await context.close();

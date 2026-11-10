@@ -42,7 +42,7 @@ class EventsRecordTests(unittest.TestCase):
             self.assertIn(f'<b data-events-count="{key}">0</b>', html)
         empty = block([], [])
         self.assertIn('data-events-empty="true"', empty)
-        self.assertIn(":not(.kk-ev-stats)", empty)
+        self.assertIn('class="kk-ev-empty"', empty)
 
     def test_more_than_four_upcoming_cards_are_retained_hidden_for_later(self):
         html = block([event(id=f"future-{i}") for i in range(6)], [])

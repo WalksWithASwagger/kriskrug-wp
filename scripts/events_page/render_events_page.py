@@ -4,14 +4,9 @@
 Dry-run default: writes scripts/events_page/out/events-2250.generated.html
 Does NOT POST to WordPress.
 
-Layout (2026-09-13 art direction):
-  masthead -> Next up (big photo cards) -> rooms strip -> contact sheet
-  (full-bleed square photo grid, dark ground) -> complete record (typographic
-  index) -> CTA.
-
-The contact sheet only ever shows real photographs. An event with no resolvable
-image is not given generated art; it lives in the record index instead. The
-visible index carries past public events; future rows wait hidden for rolloff.
+The masthead uses an existing catalog photograph. Upcoming dates lead into
+the contact sheet and year-by-year archive. Future rows and frames wait hidden
+until rollover.
 """
 
 from __future__ import annotations
@@ -37,6 +32,7 @@ from lib import (
 
 PT = ZoneInfo("America/Vancouver")
 
+FEATURED_FRAME_ID = "2026-07-09-bc-ai-film-club-july-idea-lab"
 NEXT_UP_LIMIT = 4
 SHEET_PREVIEW_ROWS = 4
 
@@ -187,7 +183,7 @@ def edition_label(event: dict[str, Any]) -> str:
 
 
 def render_next_card(event: dict[str, Any], roots: dict[str, Path], *, hidden: bool = False) -> str:
-    """Big spotlight card for an upcoming event."""
+    """Compact calendar entry for an upcoming event."""
     eid = html_escape(event.get("id") or "")
     end = html_escape(end_iso(event))
     title = html_escape(event.get("title") or "")
@@ -198,40 +194,38 @@ def render_next_card(event: dict[str, Any], roots: dict[str, Path], *, hidden: b
     cta = html_escape(event.get("cta_upcoming") or "Register")
     src, alt = image_src(event, roots)
 
-    if src:
-        art = f"""      <figure class="kk-ev-next-art">
-        <img src="{html_escape(src)}" alt="{html_escape(alt)}" loading="lazy" decoding="async" />
-      </figure>"""
-    else:
-        # No hero yet. The card carries its own weight typographically rather
-        # than inventing art for it.
-        dt = parse_end(event)
-        art = f"""      <div class="kk-ev-next-art kk-ev-next-art--bare" aria-hidden="true">
-        <span class="kk-ev-next-month">{html_escape(dt.strftime("%b").upper() if dt else "TBA")}</span>
-        <span class="kk-ev-next-day">{html_escape(dt.strftime("%-d") if dt else "")}</span>
-      </div>"""
+    start_date = date.fromisoformat(str(event["date"]))
+    art = (
+        f'<img src="{html_escape(src)}" alt="{html_escape(alt)}" loading="lazy" decoding="async" />'
+        if src else ""
+    )
+    blurb_html = f'<p class="kk-ev-next-blurb">{blurb}</p>' if blurb else ""
 
     role_html = f'<p class="kk-ev-next-role">{role}</p>' if role else ""
     action = (
-        f'<a class="kk-ev-btn kk-ev-btn--primary" href="{html_escape(url)}">{cta}</a>'
+        f'<a class="kk-ev-next-link" href="{html_escape(url)}">{cta}</a>'
         if url
         else ""
     )
     state = " hidden" if hidden else ""
     return f"""    <article class="kk-ev-next" data-event-end="{end}" data-event-id="{eid}"{state}>
-{art}
+      <time class="kk-ev-next-date" datetime="{start_date.isoformat()}">
+        <span>{start_date:%b}</span>
+        <b>{start_date:%-d}</b>
+      </time>
       <div class="kk-ev-next-body">
         <p class="kk-ev-next-when">{label}</p>
         <h3>{title}</h3>
-        <p class="kk-ev-next-blurb">{blurb}</p>
         {role_html}
         {action}
+        {blurb_html}
       </div>
+      {art}
     </article>"""
 
 
 def render_tile(event: dict[str, Any], roots: dict[str, Path], *, upcoming: bool) -> str:
-    """One frame on the contact sheet. Photograph only, never generated art."""
+    """One frame with existing catalog artwork."""
     eid = html_escape(event.get("id") or "")
     end = html_escape(end_iso(event))
     title = html_escape(event.get("title") or "")
@@ -320,32 +314,61 @@ def render_record(events: list[dict[str, Any]], *, upcoming_ids: set | None = No
         )
     return "\n".join(blocks)
 
+def render_masthead(past: list[dict[str, Any]], roots: dict[str, Path]) -> str:
+    frame = next((event for event in past if event["id"] == FEATURED_FRAME_ID), {})
+    src, alt = image_src(frame, roots)
+    caption = " · ".join(part for part in (frame.get("title"), credit_line(frame)) if part)
+    photo = (
+        f"""    <figure class="kk-ev-feature">
+      <img src="{html_escape(src)}" alt="{html_escape(alt)}" fetchpriority="high" decoding="async" />
+      <figcaption>{html_escape(caption)}</figcaption>
+    </figure>"""
+        if src else ""
+    )
+    return f"""  <section class="kk-ev-masthead kk-ev-wide" aria-labelledby="aurora-events-title">
+    <div class="kk-ev-intro">
+      <div class="kk-ev-kicker">Kris Krüg / Events</div>
+      <h2 id="aurora-events-title"><span>Come through.</span></h2>
+      <p class="kk-ev-lede"><span>I host AI meetups in Vancouver, screen films with BC + AI, and take the work on the road. Bring a demo, a question, or just yourself.</span></p>
+      <div class="kk-ev-actions">
+        <a class="kk-ev-btn kk-ev-btn--primary" href="#aurora-events-upcoming">Next events</a>
+        <a class="kk-ev-btn kk-ev-btn--ghost" href="#aurora-events-sheet">Photos &amp; recaps</a>
+      </div>
+    </div>
+{photo}
+  </section>"""
+
+
 PAGE_SCOPED_CSS = """
 <style>
-  body.page-id-2250 .aurora-page-header { padding-bottom: 0; }
-  body.page-id-2250 .wp-block-post-title {
-    color: var(--wp--preset--color--signal, #c84b2f);
-    font-family: "DM Sans", system-ui, sans-serif;
-    font-size: 0.72rem !important;
-    font-weight: 700;
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
+  body.page-id-2250 #aurora-main {
+    margin-block-start: 0;
+    padding-top: clamp(0.75rem, 2vw, 1.65rem);
   }
+  body.page-id-2250 #aurora-main > .aurora-page-header {
+    clip-path: inset(50%);
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+  }
+  body.page-id-2250 #aurora-main > .aurora-page-content { margin-block-start: 0; }
 
   .aurora-events-page {
     --ev-paper: #eee6d2;
-    --ev-paper-2: #e5dcc4;
     --ev-ink: #18140f;
     --ev-ink-soft: rgba(24, 20, 15, 0.66);
-    --ev-signal: #c84b2f;
+    --ev-signal: #a23820;
+    --ev-green: #153d35;
+    --ev-lime: #e0e9a8;
     --ev-dark: #14110d;
     --ev-line: rgba(24, 20, 15, 0.16);
     --ev-serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
     --ev-sans: "DM Sans", system-ui, sans-serif;
     --ev-gutter: clamp(1rem, 4vw, 2.5rem);
 
-    display: flex;
-    flex-direction: column;
     color: var(--ev-ink);
     font-family: var(--ev-sans);
   }
@@ -356,15 +379,13 @@ PAGE_SCOPED_CSS = """
   .aurora-events-page *::before,
   .aurora-events-page *::after { box-sizing: border-box; }
 
-  .aurora-events-page > .kk-ev-masthead { order: 1; }
-  .aurora-events-page > [data-events-bucket="upcoming"] { order: 2; }
-  .aurora-events-page > .kk-ev-rooms { order: 3; }
-  .aurora-events-page > .kk-ev-sheet { order: 4; }
-  .aurora-events-page > .kk-ev-record { order: 5; }
-  .aurora-events-page > .kk-ev-cta { order: 6; }
-
-  .aurora-events-page h2,
-  .aurora-events-page h3 { color: var(--ev-ink); }
+  .aurora-events-page :is(h2, h3) { color: var(--ev-ink); }
+  .aurora-events-page :is(h2, h3)::before { content: none !important; }
+  .aurora-events-page :is(h2, #events-series) { scroll-margin-top: 6rem; }
+  .aurora-events-page :is(a, button):focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
 
   /* The theme styles bare ul/li; every list here is a custom component. It also
      hangs an absolutely positioned 6px red ::before bullet off each li, which
@@ -406,138 +427,173 @@ PAGE_SCOPED_CSS = """
   .kk-ev-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
   /* ---- masthead ------------------------------------------------------- */
-  .kk-ev-masthead { padding: 0.5rem 0 2.25rem; max-width: 46ch; }
-  .kk-ev-masthead h2 {
-    font-size: clamp(2rem, 4.4vw, 3.1rem);
-    letter-spacing: -0.02em;
-    line-height: 1.04;
-    margin: 0 0 1rem;
+  .kk-ev-masthead {
+    align-items: stretch;
+    background: var(--ev-green);
+    color: var(--ev-paper);
+    display: grid;
+    gap: clamp(1.3rem, 4vw, 3.5rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: clamp(1.25rem, 3vw, 2.4rem);
   }
+  .kk-ev-intro { align-self: center; }
+  .kk-ev-intro:only-child { grid-column: 1 / -1; }
+  .kk-ev-masthead .kk-ev-kicker { color: var(--ev-lime); }
+  #aurora-main .kk-ev-masthead h2,
+  .kk-ev-masthead h2 {
+    border: 0;
+    font-family: var(--ev-serif);
+    font-size: clamp(2.55rem, 5.4vw, 5.25rem);
+    font-weight: 400;
+    letter-spacing: -0.055em;
+    line-height: 0.96;
+    margin: 0 0 0.9rem;
+    max-width: none;
+    padding: 0;
+  }
+  .kk-ev-masthead h2 span,
+  .kk-ev-lede span,
+  .kk-ev-ondark {
+    color: var(--ev-paper);
+    -webkit-text-fill-color: currentColor;
+  }
+  #aurora-main .kk-ev-masthead .kk-ev-lede,
   .kk-ev-lede {
-    color: var(--ev-ink-soft);
-    font-size: 1rem;
-    line-height: 1.6;
-    margin: 0 0 1.4rem;
+    font-size: clamp(0.95rem, 1.5vw, 1.12rem);
+    line-height: 1.5;
+    margin: 0 0 1.25rem;
+    max-width: 39ch;
+  }
+  #aurora-main .kk-ev-masthead a.kk-ev-btn,
+  .kk-ev-masthead a.kk-ev-btn {
+    border-color: var(--ev-lime);
+    color: var(--ev-lime) !important;
+    text-decoration: none;
+  }
+  #aurora-main .kk-ev-masthead a.kk-ev-btn--primary,
+  #aurora-main .kk-ev-masthead a.kk-ev-btn:hover,
+  .kk-ev-masthead a.kk-ev-btn--primary,
+  .kk-ev-masthead a.kk-ev-btn:hover {
+    background: var(--ev-lime);
+    color: var(--ev-green) !important;
+  }
+  .kk-ev-feature {
+    align-self: center;
+    background: var(--ev-dark);
+    margin: 0;
+    min-width: 0;
+    padding: 0.45rem;
+  }
+  .kk-ev-feature img {
+    aspect-ratio: 16 / 9;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+  }
+  .kk-ev-feature figcaption {
+    color: var(--ev-paper);
+    font-size: 0.72rem;
+    line-height: 1.35;
+    padding: 0.5rem 0.15rem 0.15rem;
   }
 
-  /* ---- next up -------------------------------------------------------- */
-  .kk-ev-head { align-items: baseline; display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
-  .kk-ev-head h2 {
-    font-size: clamp(1.4rem, 2.4vw, 1.85rem);
-    letter-spacing: -0.015em;
+  /* ---- upcoming dates ------------------------------------------------ */
+  .kk-ev-head { align-items: baseline; display: flex; flex-wrap: wrap; gap: 0.35rem 1.5rem; }
+  #aurora-main .aurora-events-page .kk-ev-head h2,
+  .aurora-events-page .kk-ev-head h2 {
+    font-size: clamp(1.6rem, 3vw, 2.45rem);
+    letter-spacing: -0.035em;
+    line-height: 1.12;
     margin: 0;
+    padding: 0;
   }
   .kk-ev-head-note {
     color: var(--ev-ink-soft);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     margin: 0;
   }
-
-  .kk-ev-upcoming {
-    border-top: 1px solid var(--ev-line);
-    padding-top: 1.6rem;
-  }
-  .kk-ev-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 2.4rem;
-    list-style: none;
-    margin: 0 0 1.8rem;
-    padding: 0;
-  }
-  .kk-ev-stats li { margin: 0; }
-  .kk-ev-stats b {
-    display: block;
-    font-family: var(--ev-serif);
-    font-size: 1.9rem;
-    font-weight: 400;
-    line-height: 1;
-  }
-  .kk-ev-stats span {
-    color: var(--ev-ink-soft);
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
-
+  .kk-ev-upcoming { padding-top: clamp(1.15rem, 2.5vw, 1.85rem); }
+  .kk-ev-upcoming .kk-ev-head { justify-content: space-between; }
+  .kk-ev-upcoming .kk-ev-head a { text-underline-offset: 0.2em; }
   .kk-ev-next-grid {
     display: grid;
-    gap: 1.5rem 1.25rem;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    margin-top: 1.4rem;
+    gap: 0.85rem 1.35rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 0.7rem;
   }
-  .kk-ev-next { display: flex; flex-direction: column; }
-  /* Author display:flex beats the UA [hidden] { display: none } rule
-     (equal specificity, author wins). Without this, JS rolloff sets
-     hidden and a past Next-up card stays visible. Live 2026-10-17. */
+  .kk-ev-next {
+    align-content: start;
+    border-top: 1px solid var(--ev-line);
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: 3.5rem minmax(0, 1fr) auto;
+    padding-top: 0.8rem;
+  }
   .kk-ev-next[hidden] { display: none; }
-  .kk-ev-next-art {
-    aspect-ratio: 4 / 3;
-    background: var(--ev-paper-2);
-    margin: 0 0 0.9rem;
-    overflow: hidden;
-  }
-  .kk-ev-next-art img {
-    display: block;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-    width: 100%;
-  }
-  .kk-ev-next:hover .kk-ev-next-art img { transform: scale(1.03); }
-  /* No hero yet, so the date becomes the art rather than an empty frame. */
-  .kk-ev-next-art--bare {
-    align-items: center;
-    background: var(--ev-paper-2);
-    border-top: 3px solid var(--ev-signal);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .kk-ev-next-date {
+    align-self: start;
+    background: var(--ev-green);
+    color: var(--ev-paper);
+    display: grid;
+    justify-items: center;
     line-height: 1;
+    padding: 0.5rem 0.25rem;
   }
-  .kk-ev-next-month {
-    color: var(--ev-signal);
-    font-size: 0.68rem;
+  .kk-ev-next-date span {
+    color: var(--ev-lime);
+    font-size: 0.65rem;
     font-weight: 700;
-    letter-spacing: 0.3em;
-    text-indent: 0.3em;
-  }
-  .kk-ev-next-day {
-    font-family: var(--ev-serif);
-    font-size: 3.4rem;
-    margin-top: 0.2rem;
-  }
-  .kk-ev-next-when {
-    color: var(--ev-signal);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    margin: 0 0 0.4rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
   }
+  .kk-ev-next-date b {
+    font-family: var(--ev-serif);
+    font-size: 1.95rem;
+    font-weight: 400;
+    margin-top: 0.15rem;
+  }
+  .kk-ev-next > img {
+    aspect-ratio: 1;
+    object-fit: cover;
+    width: clamp(2.75rem, 6vw, 4.5rem);
+  }
+  #aurora-main .aurora-events-page .kk-ev-next h3,
   .kk-ev-next h3 {
     font-family: var(--ev-serif);
-    font-size: 1.3rem;
+    font-size: clamp(1.2rem, 2.15vw, 1.7rem);
     font-weight: 400;
-    letter-spacing: -0.01em;
-    line-height: 1.15;
-    margin: 0 0 0.5rem;
+    line-height: 1.1;
+    margin: 0.2rem 0 0.3rem;
   }
-  .kk-ev-next-blurb {
+  .kk-ev-next .kk-ev-next-when,
+  .kk-ev-next .kk-ev-next-role {
     color: var(--ev-ink-soft);
-    font-size: 0.86rem;
-    line-height: 1.5;
-    margin: 0 0 0.7rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0;
   }
-  .kk-ev-next-role {
+  .kk-ev-next .kk-ev-next-blurb {
     color: var(--ev-ink-soft);
-    font-size: 0.6rem;
-    letter-spacing: 0.18em;
-    margin: 0 0 0.9rem;
-    text-transform: uppercase;
+    font-size: 0.88rem;
+    line-height: 1.48;
+    margin: 0.6rem 0 0;
   }
-  .kk-ev-next .kk-ev-btn { align-self: flex-start; margin-top: auto; }
-  [data-events-bucket="upcoming"][data-events-empty="true"] > :not(.kk-ev-stats) { display: none; }
+  #aurora-main .aurora-events-page .kk-ev-next-link,
+  .kk-ev-next-link {
+    color: var(--ev-signal) !important;
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-top: 0.4rem;
+    padding-block: 0.35rem;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .kk-ev-next-link:hover { text-decoration-thickness: 2px; }
+  .kk-ev-empty,
+  [data-events-empty="true"] .kk-ev-next-grid { display: none; }
+  [data-events-empty="true"] .kk-ev-empty { display: block; }
 
   /* ---- rooms strip ---------------------------------------------------- */
   .kk-ev-rooms {
@@ -587,8 +643,7 @@ PAGE_SCOPED_CSS = """
      documentElement.clientWidth because 100vw counts the scrollbar (and, under
      browser zoom, can resolve wider than the actual viewport), which bleeds the
      band past the edge and eats its padding. 100vw is the pre-script fallback. */
-  /* Grids get a capped bleed out of the theme's ~860px text column. Prose
-     (masthead, rooms, CTA) deliberately keeps the narrow measure. */
+  /* The theme constrains the page body to a text column. */
   .kk-ev-wide {
     margin-inline: calc(50% - min(var(--ev-vw, 100vw) - 2 * var(--ev-gutter), 1240px) / 2);
     width: min(calc(var(--ev-vw, 100vw) - 2 * var(--ev-gutter)), 1240px);
@@ -597,7 +652,7 @@ PAGE_SCOPED_CSS = """
   .kk-ev-sheet {
     background: var(--ev-dark);
     color: var(--ev-paper);
-    margin-block: 3rem 0;
+    margin-block: clamp(1.7rem, 4vw, 3rem) 0;
     margin-inline: calc(50% - var(--ev-vw, 100vw) / 2);
     padding: 2.5rem var(--ev-gutter) 2.75rem;
     width: var(--ev-vw, 100vw);
@@ -609,16 +664,19 @@ PAGE_SCOPED_CSS = """
      match a span with a class of our own, so the span simply takes our colour.
      Without this the heading computed to near-black on the near-black band and
      was invisible while still reporting opacity 1. Verified live 2026-09-13. */
-  .kk-ev-ondark { color: var(--ev-paper); }
-  .kk-ev-ondark-kicker { color: #d98a6f; }
-  .kk-ev-ondark-soft { color: rgba(238, 230, 210, 0.6); }
 
-  .kk-ev-sheet h2 {
-    font-size: clamp(1.4rem, 2.4vw, 1.85rem);
-    letter-spacing: -0.015em;
-    margin: 0;
+  .kk-ev-sheet-inner { margin-inline: auto; max-width: 1240px; }
+  .kk-ev-sheet .kk-ev-head { justify-content: space-between; }
+  .kk-ev-sheet .kk-ev-head a { text-underline-offset: 0.2em; }
+  .aurora-events-page .kk-ev-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.15rem;
+    margin: 0.75rem 0 0;
   }
-  .kk-ev-sheet-toggle { color: var(--ev-paper); }
+  .kk-ev-stats li { font-size: 0.78rem; }
+  .kk-ev-stats span { color: var(--ev-paper); }
+  .kk-ev-stats b { color: var(--ev-lime); margin-right: 0.25rem; }
 
   .kk-ev-sheet-grid {
     display: grid;
@@ -679,7 +737,7 @@ PAGE_SCOPED_CSS = """
     text-transform: uppercase;
   }
   .kk-ev-tile-credit {
-    color: rgba(238, 230, 210, 0.45);
+    color: var(--ev-paper);
     font-size: 0.54rem;
     font-style: italic;
   }
@@ -719,7 +777,7 @@ PAGE_SCOPED_CSS = """
        tall as the 26-row years beside it. */
     align-items: start;
     gap: 1.75rem 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
     margin-top: 1.5rem;
   }
   .kk-ev-rec-year h3 {
@@ -777,17 +835,20 @@ PAGE_SCOPED_CSS = """
     .kk-ev-sheet-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   }
   @media (max-width: 720px) {
+    /* Keep the offscreen link labels inside the scrolling navigation. */
+    body.page-id-2250 .aurora-primary-nav { position: relative; }
     .kk-ev-sheet-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    /* Flex wrapping drops the third stat onto a ragged second row. */
-    .kk-ev-stats {
-      display: grid;
-      gap: 0 1rem;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    .kk-ev-stats b { font-size: 1.5rem; }
+    .kk-ev-masthead,
+    .kk-ev-next-grid { grid-template-columns: minmax(0, 1fr); }
+    .kk-ev-masthead { gap: 0.95rem; }
+    .kk-ev-feature img { aspect-ratio: 2.25 / 1; }
   }
   @media (max-width: 420px) {
     .kk-ev-sheet-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .kk-ev-masthead { padding: 1rem; }
+    #aurora-main .kk-ev-masthead h2,
+    .kk-ev-masthead h2 { font-size: clamp(2.1rem, 10.45vw, 2.55rem); }
+    .kk-ev-masthead .kk-ev-btn { font-size: 0.63rem; padding-inline: 0.65rem; }
   }
   /* Touch: there is no hover, so the caption has to be standing information. */
   @media (hover: none) {
@@ -993,9 +1054,9 @@ def render_dynamic_block(
 
     editions = sum(1 for e in past if e.get("edition") is not None)
     stats = [
-        ("rooms", len(past), "rooms on record"),
+        ("rooms", len(past), "past events"),
         ("editions", editions, "meetup editions"),
-        ("frames", sheet_count, "frames on the sheet"),
+        ("frames", sheet_count, "frames"),
     ]
     stats_html = "\n".join(
         f'      <li><b data-events-count="{key}">{value}</b><span>{label}</span></li>' for key, value, label in stats
@@ -1003,44 +1064,43 @@ def render_dynamic_block(
 
     return f"""{PAGE_SCOPED_CSS}
 
-  <section class="kk-ev-upcoming" aria-labelledby="aurora-events-upcoming" data-events-bucket="upcoming" data-events-empty="{up_empty}">
+{render_masthead(past, roots)}
+
+  <section class="kk-ev-upcoming kk-ev-wide" aria-labelledby="aurora-events-upcoming" data-events-bucket="upcoming" data-events-empty="{up_empty}">
     <div class="kk-ev-head">
-      <p class="kk-ev-kicker">Next up</p>
+      <h2 id="aurora-events-upcoming">Where I’ll be next</h2>
+      <a class="kk-ev-head-note" href="#events-series">Meetups, screenings &amp; office hours</a>
     </div>
-    <h2 id="aurora-events-upcoming">On the calendar.</h2>
-    <ul class="kk-ev-stats">
-{stats_html}
-    </ul>
-    <div class="kk-ev-next-grid kk-ev-wide" data-events-grid="upcoming">
+    <div class="kk-ev-next-grid" data-events-grid="upcoming">
 {next_cards}
     </div>
+    <p class="kk-ev-empty">I’m between dates. <a href="https://lu.ma/vancouver-ai">Follow Vancouver AI on Luma</a> for the next meetup.</p>
   </section>
 
   <section class="kk-ev-sheet" aria-labelledby="aurora-events-sheet">
-    <div class="kk-ev-head">
-      <p class="kk-ev-kicker"><span class="kk-ev-ondark-kicker">The contact sheet</span></p>
-    </div>
-    <div class="kk-ev-head">
-      <h2 id="aurora-events-sheet"><span class="kk-ev-ondark">Every room I have a frame of.</span></h2>
-      <p class="kk-ev-head-note"><span class="kk-ev-ondark-soft">Hover any frame for the night, the room, and the photographer.</span></p>
-    </div>
-    <div class="kk-ev-sheet-grid" data-events-grid="sheet">
+    <div class="kk-ev-sheet-inner">
+      <div class="kk-ev-head">
+        <h2 id="aurora-events-sheet"><span class="kk-ev-ondark">The contact sheet</span></h2>
+        <a class="kk-ev-head-note" href="#aurora-events-record"><span class="kk-ev-ondark">Find recaps, photos &amp; recordings</span></a>
+      </div>
+      <ul class="kk-ev-stats">
+{stats_html}
+      </ul>
+      <div id="events-contact-sheet-grid" class="kk-ev-sheet-grid" data-events-grid="sheet">
 {tiles}
-    </div>
-    <div class="kk-ev-sheet-actions">
-      <button class="kk-ev-sheet-toggle" type="button" data-events-sheet-toggle aria-expanded="false">Show all {sheet_count} frames</button>
+      </div>
+      <div class="kk-ev-sheet-actions">
+        <button class="kk-ev-sheet-toggle" type="button" data-events-sheet-toggle aria-expanded="false" aria-controls="events-contact-sheet-grid" hidden>Show all {sheet_count} frames</button>
+      </div>
     </div>
   </section>
 
-  <section class="kk-ev-record" aria-labelledby="aurora-events-record">
+  <section class="kk-ev-record kk-ev-wide" aria-labelledby="aurora-events-record">
     <div class="kk-ev-head">
-      <p class="kk-ev-kicker">The complete record</p>
+      <h2 id="aurora-events-record">Past events by year</h2>
+      <p class="kk-ev-head-note"><span data-events-count="rooms">{len(past)}</span> rooms so far. Recaps, photos and recordings where I have them.</p>
     </div>
-    <div class="kk-ev-head">
-      <h2 id="aurora-events-record">Everything, by year.</h2>
-      <p class="kk-ev-head-note"><span data-events-count="rooms">{len(past)}</span> rooms hosted, spoken at, or built.</p>
-    </div>
-    <div class="kk-ev-record-grid kk-ev-wide">
+    <div class="kk-ev-record-grid">
 {render_record(everything, upcoming_ids=upcoming_ids)}
     </div>
   </section>
