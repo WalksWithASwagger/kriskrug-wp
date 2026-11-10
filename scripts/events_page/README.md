@@ -2,11 +2,17 @@
 
 Catalog → (optional media sync) → HTML render. The WordPress page HTML is **generated output**; edit `events-catalog.yaml`, not the live block, when adding dated cards.
 
-Preserved evergreen sections (not regenerated from the catalog): masthead, **Series I produce & host**, final CTA. Those live in `shell-events-2250.html`. *Stages I speak on* and *Signature moments* were folded away on 2026-09-13: every event they listed already exists as a catalog row, so they were duplicate surface.
+The recurring series and booking section live in `shell-events-2250.html`.
+The renderer builds the masthead and calendar from the same catalog as the archive.
 
-## Layout (2026-09-13 art direction)
+## Layout
 
-Masthead → **Next up** (up to 4 spotlight cards) → rooms strip → **contact sheet** → **complete record** → CTA. Section order is CSS `order` on the flex page wrapper, so the shell and the generated block can interleave.
+A credited Film Club photo and jump links lead into compact upcoming dates, the
+contact sheet, the year-by-year archive, recurring series, and booking. The
+masthead reuses the credited image from the past catalog entry named by
+`FEATURED_FRAME_ID`. If the entry or its artwork is missing, the masthead uses
+the full width for copy. Archive counters live with the contact sheet. When the
+last upcoming event rolls off, the calendar links visitors to Vancouver AI on Luma.
 
 The contact sheet is a full-bleed square photo grid on a dark ground, 6 columns at desktop down to 2 on a phone, and it shows **only events with real art**. There is no generated fallback tile: the old monogram poster (`WTD`, `VAC`, initials on a colour block) was the dominant visual on a photographer's page and is gone. An event with no art is carried by the complete record instead, so nothing is lost by the exclusion.
 
