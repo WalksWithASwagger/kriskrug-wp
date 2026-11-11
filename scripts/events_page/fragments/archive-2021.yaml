@@ -1,0 +1,20 @@
+schema_version: 1
+fragment: archive-2021
+events:
+- id: 2021-07-05-galiano-activity-centre-summer-program
+  title: Galiano Activity Centre Summer Program (July 5–August 26)
+  date: '2021-07-05'
+  end: '2021-08-26'
+  bucket_hint: past
+  kind: external
+  role: Led school garden visits
+  venue: Galiano Activity Centre
+  city: Galiano Island
+  url: https://drive.google.com/file/d/1w3U9ohnG2_1cLbLNN8XxDxuvI42hFIbf/view
+  docs:
+    recap:
+    - https://galianoclub.org/wp-content/uploads/2024/06/Galiano-Club-Annual-Report-2021.pdf#page=18
+  image: {}
+  blurb: Led visits to the Galiano Community School Garden for children in the summer program. The visits ended with a party featuring fries and ketchup made from garden-grown potatoes and tomatoes.
+  label: July 5–August 26 · Galiano Island
+  status: confirmed
