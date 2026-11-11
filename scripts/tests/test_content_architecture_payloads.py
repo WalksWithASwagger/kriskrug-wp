@@ -56,7 +56,7 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
         )
 
     # These approved page repairs use inline CSS; Work is restricted to one card.
-    STYLE_ALLOWED = {"about.html", "testimonials.html", "work.html"}
+    STYLE_ALLOWED = {"about.html", "speaking.html", "testimonials.html", "work.html"}
 
     def test_work_inline_css_is_scoped_to_one_card(self):
         html = (PAYLOADS / "work.html").read_text(encoding="utf-8")
@@ -67,6 +67,14 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
         for selector_list in selectors:
             for selector in selector_list.split(","):
                 self.assertRegex(selector.strip(), r"^#kk-work-bcai-card(?:\s|$)")
+
+    def test_speaking_preserves_direct_recordings_without_eager_player(self):
+        html = (PAYLOADS / "speaking.html").read_text(encoding="utf-8")
+        self.assertNotIn("<iframe", html)
+        self.assertIn('href="https://www.youtube.com/watch?v=hYT-hsml_ds"', html)
+        self.assertIn('href="https://www.youtube.com/watch?v=-c7mgY2aSgM&amp;t=11s"', html)
+        self.assertIn('href="/contact/#inquiries"', html)
+        self.assertEqual(6, html.count('<article class="speaking-talk"'))
 
     def test_payloads_are_body_only_and_public_safe(self):
         forbidden_fragments = (
