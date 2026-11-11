@@ -56,7 +56,7 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
         )
 
     # These page payloads use inline CSS scoped to their own markup.
-    STYLE_ALLOWED = {"about.html", "testimonials.html", "work.html"}
+    STYLE_ALLOWED = {"about.html", "speaking.html", "testimonials.html", "work.html"}
 
     def test_work_inline_css_is_scoped_to_work_page(self):
         html = (PAYLOADS / "work.html").read_text(encoding="utf-8")
@@ -70,6 +70,14 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
                     selector.strip(),
                     r"^(?:\.work-editorial|body\.aurora-theme\.page-id-2672 #aurora-main)(?:\s|:|$)",
                 )
+
+    def test_speaking_preserves_direct_recordings_without_eager_player(self):
+        html = (PAYLOADS / "speaking.html").read_text(encoding="utf-8")
+        self.assertNotIn("<iframe", html)
+        self.assertIn('href="https://www.youtube.com/watch?v=hYT-hsml_ds"', html)
+        self.assertIn('href="https://www.youtube.com/watch?v=-c7mgY2aSgM&amp;t=11s"', html)
+        self.assertIn('href="/contact/#inquiries"', html)
+        self.assertEqual(6, html.count('<article class="speaking-talk"'))
 
     def test_payloads_are_body_only_and_public_safe(self):
         forbidden_fragments = (
