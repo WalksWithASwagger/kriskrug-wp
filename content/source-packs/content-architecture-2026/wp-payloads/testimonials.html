@@ -1,320 +1,1343 @@
 <!-- wp:html -->
 <!-- content-architecture-2026:testimonials-v2 (#599, TSTM-6) -->
-<div class="aurora-testimonials-page aurora-tstm">
+<style>
+html:has(body.page-id-2409 .kk-testimonials) { overflow-x: clip; }
+body.page-id-2409 #aurora-main.aurora-page-2026 {
+  --test-paper: #eff0e7;
+  --revive-surface: var(--test-paper);
+  margin-block-start: 0;
+  padding-top: .75rem;
+}
+body.page-id-2409 #aurora-main .aurora-page-header {
+  width: min(1160px, 100%);
+  max-width: none;
+  margin: 0 auto;
+  padding: .55rem 0 .65rem;
+  border: 0;
+}
+body.page-id-2409 #aurora-main .aurora-page-title {
+  max-width: none;
+  margin: 0;
+  font-size: clamp(2.35rem, 5vw, 4.45rem);
+  line-height: 1;
+}
+body.page-id-2409 #aurora-main .aurora-page-content:has(.kk-testimonials) { margin-block-start: 0; }
+.kk-testimonials.alignfull {
+  --test-ink: var(--aurora-ink, #142c36);
+  --test-muted: #41565a;
+  --test-line: #a9bdb4;
+  --test-blue: #153643;
+  --test-cream: #f9f1dc;
+  --test-gold: #f4ca65;
+  --test-wash: #dbe7de;
+  --test-accent: #246253;
+  --test-serif: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+  --test-sans: var(--wp--preset--font-family--body, "DM Sans", system-ui, sans-serif);
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0 calc(50% - 50vw);
+  padding: 0 1.2rem 3rem;
+  font-family: var(--test-sans);
+  background: var(--test-paper);
+  color: var(--test-ink);
+}
+.kk-testimonials *, .kk-testimonials *::before { box-sizing: border-box; }
+.kk-testimonials .kk-test-shell { max-width: 1160px; margin-inline: auto; }
+.kk-testimonials a:focus-visible,
+.kk-testimonials summary:focus-visible {
+  outline: 3px solid var(--test-accent);
+  outline-offset: 4px;
+}
+.kk-testimonials .kk-test-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .15rem clamp(.75rem, 2.5vw, 1.65rem);
+  padding: .45rem 0 .65rem;
+  border-top: 1px solid var(--test-line);
+}
+.kk-testimonials .kk-test-nav a {
+  padding: .25rem .1rem;
+  color: var(--test-ink);
+  font-size: .86rem;
+  font-weight: 700;
+  line-height: 1.15;
+  text-decoration: underline;
+  text-decoration-color: var(--test-line);
+  text-underline-offset: .24em;
+  transition: color .16s ease, text-decoration-color .16s ease;
+}
+.kk-testimonials .kk-test-nav a:hover { color: var(--test-accent); text-decoration-color: currentColor; }
+.kk-testimonials .kk-test-front {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: .85rem;
+}
+.kk-testimonials .kk-test-card { min-width: 0; margin: 0; }
+.kk-testimonials .kk-test-card blockquote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.kk-testimonials .kk-test-card blockquote p {
+  margin: 0;
+  font: 500 clamp(1.1rem, 1.6vw, 1.36rem)/1.37 var(--test-serif);
+}
+.kk-testimonials .kk-test-card figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .12rem .55rem;
+  margin: .65rem 0 0;
+  color: var(--test-muted);
+  font: 600 .8rem/1.32 var(--test-sans);
+  text-align: left;
+}
+.kk-testimonials .kk-test-card figcaption strong { color: var(--test-ink); }
+.kk-testimonials .kk-test-card figcaption a { color: inherit; text-underline-offset: .18em; }
+.kk-testimonials .kk-test-context { display: block; flex-basis: 100%; }
+.kk-testimonials .kk-test-label {
+  display: block;
+  margin-bottom: .5rem;
+  color: var(--test-accent);
+  font-size: .68rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: .115em;
+  text-transform: uppercase;
+}
+.kk-testimonials .kk-test-lead {
+  --revive-ink: var(--test-cream);
+  --revive-ink-soft: var(--test-cream);
+  --aurora-ink-soft: var(--test-cream);
+  --revive-accent-text: var(--test-cream);
+  display: grid;
+  align-content: space-between;
+  gap: 1.1rem;
+  padding: clamp(1.05rem, 3.1vw, 2.5rem);
+  background: var(--test-blue);
+  color: var(--test-cream);
+  border-top: 4px solid var(--test-gold);
+}
+.kk-testimonials .kk-test-lead .kk-test-label { color: var(--test-gold); }
+.kk-testimonials .kk-test-lead blockquote p {
+  font-size: clamp(1.6rem, 2.85vw, 2.65rem);
+  letter-spacing: -.038em;
+  line-height: 1.08;
+}
+.kk-testimonials .kk-test-lead figcaption,
+.kk-testimonials .kk-test-lead figcaption strong { color: var(--test-cream); }
+.kk-testimonials .kk-test-lead a:focus-visible { outline-color: var(--test-gold); }
+.kk-testimonials .kk-test-side {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: .85rem;
+}
+.kk-testimonials .kk-test-side .kk-test-card {
+  display: grid;
+  align-content: space-between;
+  padding: clamp(.85rem, 2.2vw, 1.65rem);
+  border-top: 3px solid var(--test-accent);
+  background: var(--test-wash);
+}
+.kk-testimonials .kk-test-side blockquote p {
+  font-size: clamp(1.2rem, 2.14vw, 1.95rem);
+  line-height: 1.15;
+  letter-spacing: -.025em;
+}
+.kk-testimonials .kk-test-section,
+.kk-testimonials .kk-test-end { border-top: 1px solid var(--test-line); }
+.kk-testimonials .kk-test-section {
+  display: grid;
+  grid-template-columns: minmax(165px, .55fr) minmax(0, 1.45fr);
+  gap: .85rem 2.3rem;
+  padding: 1.6rem 0 1.9rem;
+  scroll-margin-top: 7rem;
+}
+.kk-testimonials .kk-test-front + .kk-test-section { margin-top: 1.75rem; }
+body.page-id-2409 #aurora-main .kk-testimonials h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: 700 clamp(1.6rem, 3.15vw, 2.85rem)/1.03 var(--test-serif);
+  letter-spacing: -.035em;
+}
+body.page-id-2409 #aurora-main .kk-testimonials h2::before { content: none; }
+.kk-testimonials .kk-test-quote-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem 1.4rem;
+}
+.kk-testimonials .kk-test-section .kk-test-card {
+  border-left: 2px solid var(--test-line);
+  padding-left: .8rem;
+}
+.kk-testimonials .kk-test-details { margin-top: 1rem; }
+.kk-testimonials .kk-test-details summary {
+  width: fit-content;
+  padding: .34rem .15rem;
+  color: var(--test-accent);
+  font-size: .87rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.kk-testimonials .kk-test-details[open] .kk-test-quote-grid { margin-top: .85rem; }
+.kk-testimonials .kk-test-end {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.3rem;
+  padding-top: 1.2rem;
+}
+.kk-testimonials .kk-test-recognition { margin: .65rem 0 0; padding-left: 1.15rem; }
+.kk-testimonials .kk-test-recognition li { margin: .33rem 0; }
+.kk-testimonials .kk-test-booking { padding: 1.15rem; background: var(--test-wash); }
+.kk-testimonials .kk-test-booking p { margin: .55rem 0 .75rem; }
+.kk-testimonials .kk-test-actions { display: flex; flex-wrap: wrap; gap: .65rem .85rem; align-items: center; }
+body.page-id-2409 #aurora-main .kk-testimonials a.kk-test-book {
+  padding: .65rem .8rem;
+  background: var(--test-blue);
+  color: var(--test-cream);
+  font-weight: 750;
+  text-decoration: none;
+}
+body.page-id-2409 #aurora-main .kk-testimonials a.kk-test-book:hover { background: var(--test-accent); }
+@media (max-width: 740px) {
+  body.page-id-2409 #aurora-main.aurora-page-2026 { padding-top: .2rem; }
+  body.page-id-2409 #aurora-main .aurora-page-header { padding-block: .35rem .45rem; }
+  .kk-testimonials.alignfull { padding-inline: .75rem; }
+  .kk-testimonials .kk-test-nav { gap: .1rem .65rem; padding-block: .34rem .45rem; }
+  .kk-testimonials .kk-test-nav a { font-size: .77rem; }
+  .kk-testimonials .kk-test-front { grid-template-columns: minmax(0, 1fr); gap: .45rem; }
+  .kk-testimonials .kk-test-side {
+    grid-template: auto / repeat(2, minmax(0, 1fr));
+    gap: .45rem;
+  }
+  .kk-testimonials .kk-test-side .kk-test-card { padding: .68rem; }
+  .kk-testimonials .kk-test-lead blockquote p { font-size: clamp(1.48rem, 6.2vw, 1.95rem); }
+  .kk-testimonials .kk-test-side blockquote p { font-size: clamp(1rem, 4.3vw, 1.33rem); }
+  .kk-testimonials .kk-test-card figcaption { margin-top: .48rem; font-size: .73rem; }
+  .kk-testimonials .kk-test-front + .kk-test-section { margin-top: 1.1rem; }
+  .kk-testimonials .kk-test-section, .kk-testimonials .kk-test-end { grid-template-columns: minmax(0, 1fr); }
+  .kk-testimonials .kk-test-section { padding-block: 1.05rem 1.25rem; }
+}
+@media (max-width: 480px) {
+  .kk-testimonials .kk-test-section .kk-test-quote-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 360px) {
+  .kk-testimonials .kk-test-lead { gap: .6rem; padding: .8rem; }
+  .kk-testimonials .kk-test-lead blockquote p { font-size: 1.36rem; }
+  .kk-testimonials .kk-test-side .kk-test-card { padding: .58rem; }
+  .kk-testimonials .kk-test-side blockquote p { font-size: .99rem; }
+  .kk-testimonials .kk-test-card figcaption { font-size: .68rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kk-testimonials .kk-test-nav a { transition: none; }
+}
+.kk-testimonials .kk-test-credit {
+  display: grid;
+  gap: .12rem;
+  min-width: 0;
+}
+.kk-testimonials .kk-test-card figcaption {
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.kk-testimonials .kk-test-portrait {
+  display: block;
+  position: relative;
+  flex: none;
+  width: 2.65rem;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--test-wash);
+}
+.kk-testimonials .kk-test-portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  object-fit: cover;
+  object-position: var(--portrait-position, center 35%);
+}
+.kk-testimonials .kk-test-portrait[data-portrait="carly-steiman"] { --portrait-position: 46% 40%; }
+.kk-testimonials .kk-test-search {
+  margin-top: 1.45rem;
+  padding: .85rem 0 1rem;
+  border-top: 1px solid var(--test-line);
+}
+.kk-testimonials .kk-test-search form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .55rem 1.2rem;
+  margin: 0;
+}
+.kk-testimonials .kk-test-search label {
+  color: var(--test-ink);
+  font: 700 1.2rem/1.2 var(--test-serif);
+}
+.kk-testimonials .kk-test-search-control { display: flex; flex: 1 1 290px; gap: .45rem; min-width: 0; }
+.kk-testimonials .kk-test-search input,
+.kk-testimonials .kk-test-search button {
+  min-height: 2.65rem;
+  padding: .45rem .75rem;
+  border: 1px solid var(--test-line);
+  border-radius: 0;
+  font: 650 .88rem/1.3 var(--test-sans);
+}
+.kk-testimonials .kk-test-search input {
+  flex: 1;
+  min-width: 0;
+  color: var(--test-ink);
+  background: var(--test-paper);
+}
+.kk-testimonials .kk-test-search button {
+  flex: none;
+  color: var(--test-accent);
+  background: var(--test-wash);
+  cursor: pointer;
+}
+.kk-testimonials .kk-test-search button:disabled { opacity: .55; cursor: default; }
+.kk-testimonials .kk-test-search :is(input,button):focus-visible {
+  outline: 3px solid var(--test-accent);
+  outline-offset: 2px;
+}
+.kk-testimonials .kk-test-search-status:empty { margin: 0; }
+.kk-testimonials .kk-test-search-status {
+  margin: .75rem 0;
+  font-size: .86rem;
+  font-weight: 700;
+}
+.kk-testimonials .kk-test-search-results .kk-test-card {
+  padding: .9rem 1rem;
+  border-top: 2px solid var(--test-accent);
+  background: var(--test-wash);
+}
+.kk-testimonials .kk-test-credits { margin-top: .8rem; }
+.kk-testimonials .kk-test-credits summary { cursor: pointer; font-weight: 700; }
+.kk-testimonials [hidden] { display: none; }
+@media (min-width: 741px) {
+  .kk-testimonials .kk-test-front .kk-test-card:has(.kk-test-portrait) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--portrait-width);
+    grid-template-rows: auto 1fr auto;
+    align-content: stretch;
+    gap: .55rem var(--portrait-gap);
+  }
+  .kk-testimonials .kk-test-lead { --portrait-width: 34%; --portrait-gap: 1.1rem; }
+  .kk-testimonials .kk-test-side .kk-test-card { --portrait-width: 27%; --portrait-gap: .8rem; }
+  .kk-testimonials .kk-test-front .kk-test-card:has(.kk-test-portrait) figcaption { display: contents; }
+  .kk-testimonials .kk-test-front .kk-test-portrait {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    min-height: 0;
+  }
+  .kk-testimonials .kk-test-front :is(.kk-test-label, blockquote, .kk-test-credit) { grid-column: 1; }
+  .kk-testimonials .kk-test-front .kk-test-credit { font: 650 .8rem/1.3 var(--test-sans); }
+  .kk-testimonials .kk-test-front .kk-test-label { margin-bottom: 0; }
+  .kk-testimonials .kk-test-front blockquote { align-self: center; }
+  .kk-testimonials .kk-test-lead blockquote p { font-size: clamp(1.55rem, 2.45vw, 2.4rem); }
+  .kk-testimonials .kk-test-side blockquote p { font-size: clamp(1.05rem, 1.87vw, 1.72rem); }
+}
+@media (max-width: 740px) {
+  .kk-testimonials .kk-test-front .kk-test-portrait { width: 2.25rem; }
+  .kk-testimonials .kk-test-lead { gap: .62rem; }
+  .kk-testimonials .kk-test-lead figcaption { margin-top: .18rem; }
+  .kk-testimonials .kk-test-side .kk-test-card figcaption { gap: .4rem; }
+  .kk-testimonials .kk-test-side .kk-test-portrait { width: 2rem; }
+  .kk-testimonials .kk-test-search { margin-top: 1.1rem; }
+}
+@media (max-width: 360px) {
+  .kk-testimonials .kk-test-lead blockquote p { font-size: 1.27rem; }
+  .kk-testimonials .kk-test-front .kk-test-portrait { width: 1.8rem; }
+  .kk-testimonials .kk-test-side .kk-test-credit { font-size: .62rem; }
+}
+.kk-testimonials button.kk-test-portrait {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+.kk-testimonials button.kk-test-portrait:enabled { cursor: zoom-in; }
+.kk-testimonials button.kk-test-portrait:focus-visible {
+  outline: 3px solid var(--test-accent);
+  outline-offset: 3px;
+}
+.kk-testimonials .kk-test-lead button.kk-test-portrait:focus-visible { outline-color: var(--test-gold); }
+.kk-testimonials .kk-test-photo-dialog {
+  width: min(45rem, calc(100% - 1.5rem));
+  max-width: none;
+  max-height: calc(100dvh - 1.5rem);
+  padding: 0;
+  border: 1px solid var(--test-line);
+  color: var(--test-ink);
+  background: var(--test-paper);
+  box-shadow: 0 12px 42px rgb(12 28 32 / .24);
+}
+.kk-testimonials .kk-test-photo-dialog:not([open]) { display: none; }
+.kk-testimonials .kk-test-photo-dialog::backdrop { background: rgb(16 34 38 / .75); }
+.kk-testimonials .kk-test-photo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  padding: .6rem .8rem;
+  border-bottom: 1px solid var(--test-line);
+}
+.kk-testimonials .kk-test-photo-header strong { font: 700 1.25rem/1.15 var(--test-serif); }
+.kk-testimonials .kk-test-photo-close {
+  min-height: 2.6rem;
+  padding: .35rem .75rem;
+  border: 1px solid var(--test-line);
+  border-radius: 0;
+  color: var(--test-accent);
+  background: var(--test-wash);
+  font: 750 .8rem/1.2 var(--test-sans);
+  cursor: pointer;
+}
+.kk-testimonials .kk-test-photo-close:focus-visible {
+  outline: 3px solid var(--test-accent);
+  outline-offset: 2px;
+}
+.kk-testimonials .kk-test-photo-dialog img {
+  display: block;
+  width: 100%;
+  max-height: 64dvh;
+  padding: .65rem;
+  border-radius: 0;
+  object-fit: contain;
+}
+.kk-testimonials .kk-test-photo-source {
+  display: inline-block;
+  margin: 0 .8rem .8rem;
+  font-size: .83rem;
+  font-weight: 750;
+}
+@media (max-width: 740px) {
+  .kk-testimonials .kk-test-front .kk-test-portrait { width: 3.35rem; }
+  .kk-testimonials .kk-test-side .kk-test-portrait { width: 2.65rem; }
+  .kk-testimonials .kk-test-front [data-portrait="carly-steiman"] img {
+    transform: scale(1.42);
+    transform-origin: 45% 16%;
+  }
+}
+@media (max-width: 360px) {
+  .kk-testimonials .kk-test-front .kk-test-portrait { width: 2.3rem; }
+}
+.kk-testimonials .kk-test-front button.kk-test-portrait:enabled::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  color: var(--test-blue);
+  background: var(--test-paper);
+  font: 750 .93rem/1 var(--test-sans);
+}
+@media (max-width: 740px) {
+  .kk-testimonials .kk-test-front button.kk-test-portrait:enabled::after {
+    width: .85rem;
+    height: .85rem;
+    font-size: .7rem;
+  }
+}
 
-  <section class="aurora-tstm-hero aurora-speaking-hero" aria-labelledby="aurora-testimonials-title">
-    <div class="aurora-speaking-hero-copy">
-      <p class="aurora-kicker">What people say</p>
-      <h2 id="aurora-testimonials-title">Proof with names attached.</h2>
-      <p>What people say after the meetups, the cohorts, and the keynotes, plus the photography years that got me here. Real names, linked sources, nothing invented.</p>
-      <div class="aurora-action-row">
-        <a class="aurora-button aurora-button-primary" href="/contact/">Book a conversation</a>
-        <a class="aurora-button aurora-button-secondary" href="/speaking/">Speaking</a>
+.kk-testimonials .kk-test-search { scroll-margin-top: 7rem; }
+.kk-testimonials .kk-test-nav a.kk-test-search-jump { color: var(--test-accent); }
+@media (min-width: 741px) {
+  .kk-testimonials .kk-test-search-jump { margin-inline-start: auto; }
+}
+.kk-testimonials .kk-test-explore,
+.kk-testimonials .kk-test-read {
+  padding: .25rem .1rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--test-accent);
+  font: 750 .78rem/1.15 var(--test-sans);
+  text-decoration: underline;
+  text-underline-offset: .24em;
+  cursor: pointer;
+}
+.kk-testimonials .kk-test-explore { margin-left: auto; font-size: .86rem; }
+.kk-testimonials .kk-test-read { margin-left: .65rem; font-size: .68rem; white-space: nowrap; }
+.kk-testimonials .kk-test-lead .kk-test-read { color: var(--test-gold); }
+.kk-testimonials :is(.kk-test-read,.kk-test-explore):focus-visible {
+  outline: 3px solid var(--test-accent);
+  outline-offset: 3px;
+}
+.kk-testimonials .kk-test-lead .kk-test-read:focus-visible { outline-color: var(--test-gold); }
+.kk-testimonials .kk-test-new-recommendations { margin-bottom: 1.2rem; }
+.kk-testimonials .kk-test-reader {
+  --revive-ink: var(--test-cream);
+  --revive-ink-soft: var(--test-cream);
+  --aurora-ink: var(--test-cream);
+  --aurora-ink-soft: var(--test-cream);
+  --revive-accent-text: var(--test-gold);
+  --reader-edge: clamp(1.1rem, 3.5vw, 3.6rem);
+  width: min(70rem, calc(100% - 2rem));
+  max-width: none;
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  border: 1px solid var(--test-line);
+  background: var(--test-blue);
+  color: var(--test-cream);
+  box-shadow: 0 20px 70px rgb(12 28 32 / .3);
+  overscroll-behavior: contain;
+}
+.kk-testimonials .kk-test-reader:not([open]) { display: none; }
+.kk-testimonials .kk-test-reader::backdrop { background: rgb(10 27 34 / .85); backdrop-filter: blur(6px); }
+.kk-testimonials .kk-test-reader[open] { animation: kk-test-reader-enter .25s ease-out; }
+.kk-testimonials .kk-test-reader-top,
+.kk-testimonials .kk-test-reader-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  padding: .7rem 1rem;
+  font: 650 .8rem/1.3 var(--test-sans);
+}
+.kk-testimonials .kk-test-reader-top { border-bottom: 1px solid rgb(249 241 220 / .25); }
+.kk-testimonials .kk-test-reader-bottom { border-top: 1px solid rgb(249 241 220 / .25); }
+.kk-testimonials .kk-test-reader form { margin: 0; }
+.kk-testimonials .kk-test-reader label { display: flex; align-items: center; gap: .65rem; }
+.kk-testimonials .kk-test-reader :is(select,button) {
+  min-height: 2.55rem;
+  padding: .4rem .65rem;
+  border: 1px solid rgb(249 241 220 / .45);
+  border-radius: 0;
+  color: var(--test-cream);
+  background: var(--test-blue);
+  font: inherit;
+  cursor: pointer;
+}
+.kk-testimonials .kk-test-reader select { max-width: 42vw; }
+.kk-testimonials .kk-test-reader :is(select,button,a):focus-visible {
+  outline: 3px solid var(--test-gold);
+  outline-offset: 3px;
+}
+.kk-testimonials .kk-test-reader button:hover:enabled { color: var(--test-gold); border-color: var(--test-gold); }
+.kk-testimonials .kk-test-reader button:disabled { opacity: .38; cursor: default; }
+.kk-testimonials .kk-test-reader-scene { display: grid; min-height: 28rem; }
+.kk-testimonials .kk-test-reader-has-photo .kk-test-reader-scene { grid-template-columns: minmax(0, .85fr) minmax(0, 1.4fr); }
+.kk-testimonials .kk-test-reader-photo { position: relative; min-width: 0; min-height: 22rem; overflow: hidden; }
+.kk-testimonials .kk-test-reader-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.kk-testimonials .kk-test-reader-photo img[data-portrait="carly-steiman"] { object-position: 45% center; }
+.kk-testimonials .kk-test-reader-photo a {
+  position: absolute;
+  bottom: .65rem;
+  left: .65rem;
+  right: .65rem;
+  width: fit-content;
+  padding: .4rem .55rem;
+  color: var(--test-cream);
+  background: rgb(10 27 34 / .88);
+  font: 600 .65rem/1.4 var(--test-sans);
+}
+.kk-testimonials .kk-test-reader-copy {
+  min-width: 0;
+  align-self: center;
+  padding: var(--reader-edge);
+}
+.kk-testimonials .kk-test-reader-eyebrow {
+  margin: 0 0 1.1rem;
+  color: var(--test-gold);
+  font: 750 .7rem/1.3 var(--test-sans);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.kk-testimonials .kk-test-reader blockquote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--test-cream);
+  box-shadow: none;
+}
+.kk-testimonials .kk-test-reader blockquote p {
+  margin: 0;
+  color: inherit;
+  font: 500 clamp(1.5rem, 2.7vw, 2.55rem)/1.23 var(--test-serif);
+  text-wrap: pretty;
+}
+.kk-testimonials .kk-test-reader h2 {
+  margin: 1.65rem 0 .2rem;
+  color: var(--test-cream);
+  font: 750 .98rem/1.3 var(--test-sans);
+}
+.kk-testimonials .kk-test-reader-context {
+  margin: 0;
+  font: 500 .78rem/1.5 var(--test-sans);
+}
+.kk-testimonials .kk-test-reader-source {
+  display: inline-block;
+  margin-top: .7rem;
+  color: var(--test-gold);
+  font: 650 .75rem/1.3 var(--test-sans);
+  text-underline-offset: .2em;
+}
+@keyframes kk-test-reader-enter {
+  from { opacity: 0; transform: translateY(.7rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 740px) {
+  .kk-testimonials .kk-test-nav { column-gap: .7rem; }
+  .kk-testimonials .kk-test-nav :is(a,button) { font-size: .78rem; }
+  .kk-testimonials .kk-test-explore { margin-left: 0; }
+  .kk-testimonials .kk-test-read { min-height: 1.7rem; font-size: .64rem; margin-left: .45rem; }
+  .kk-testimonials .kk-test-reader { width: calc(100% - 1rem); max-height: calc(100dvh - 1rem); }
+  .kk-testimonials .kk-test-reader-has-photo .kk-test-reader-scene { grid-template-columns: 1fr; }
+  .kk-testimonials .kk-test-reader-scene { min-height: 0; }
+  .kk-testimonials .kk-test-reader-photo { min-height: 0; height: 12rem; }
+  .kk-testimonials .kk-test-reader-photo img { object-position: center 32%; }
+  .kk-testimonials .kk-test-reader-photo img[data-portrait="carly-steiman"] { object-position: 45% 20%; }
+  .kk-testimonials .kk-test-reader blockquote p { font-size: clamp(1.3rem, 6.1vw, 1.7rem); line-height: 1.25; }
+  .kk-testimonials .kk-test-reader :is(.kk-test-reader-top,.kk-test-reader-bottom) { padding: .5rem .65rem; font-size: .72rem; }
+  .kk-testimonials .kk-test-reader h2 { margin-top: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kk-testimonials .kk-test-reader[open] { animation: none; }
+}
+.kk-testimonials .kk-test-explore { min-height: 0; }
+.kk-testimonials .kk-test-reader-top {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--test-blue);
+}
+.kk-testimonials .kk-test-reader-bottom {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background: var(--test-blue);
+}
+body:has(.kk-test-reader[open], .kk-test-photo-dialog[open]) { overflow: hidden; }
+@media (max-width: 740px) {
+  .kk-testimonials .kk-test-front .kk-test-side .kk-test-read { display: none; }
+}
+body.page-id-2409 #aurora-main .kk-testimonials .kk-test-reader h2 {
+  margin: 1.65rem 0 .2rem;
+  color: var(--test-cream);
+  font: 750 .98rem/1.3 var(--test-sans);
+  letter-spacing: normal;
+}
+.kk-testimonials [hidden] { display: none; }
+@media (max-width: 740px) {
+  body.page-id-2409 #aurora-main .kk-testimonials .kk-test-reader h2 { margin-top: 1rem; }
+}
+
+.kk-testimonials .kk-test-reader-eyebrow {
+  --aurora-ink-soft: var(--test-gold);
+  --revive-ink-soft: var(--test-gold);
+}
+</style>
+<div class="kk-testimonials alignfull"><div class="kk-test-shell">
+    <nav class="kk-test-nav" aria-label="Browse testimonials">
+      <a href="#aurora-testimonials-festival">Festival</a>
+      <a href="#aurora-testimonials-talks">Speaking</a>
+      <a href="#aurora-testimonials-rooms">Community</a>
+      <a href="#aurora-testimonials-programs">Courses</a>
+      <a href="#aurora-testimonials-training">Workshops</a>
+      <a href="#aurora-testimonials-film">Film</a>
+      <a href="#aurora-testimonials-threads">Threads</a>
+      <a href="#aurora-testimonials-archive">Photography</a>
+      <a class="kk-test-search-jump" href="#testimonials-search" hidden>Search</a>
+      <button type="button" class="kk-test-explore" hidden>Explore quotes &#8594;</button>
+    </nav>
+
+    <section class="kk-test-front" id="aurora-testimonials-title" aria-label="Featured testimonials">
+      <figure class="kk-test-card kk-test-lead">
+        <span class="kk-test-label">Speaking &amp; classrooms</span>
+        <blockquote>
+          <p>“Kris helped shift how my design students see their future. In one hour, he demo’d building client prototypes in real-time, turned lectures into podcasts, and showed them how to be design orchestrators, not pixel pushers.”</p>
+        </blockquote>
+        <figcaption>
+          <button type="button" class="kk-test-portrait" data-portrait="jai-djwa" data-person="Jai Djwa" aria-label="View photo of Jai Djwa" disabled><img src="https://kriskrug.co/wp-content/uploads/2026/11/kk-testimonials-jai-djwa.webp" alt="" width="540" height="810"/></button>
+          <span class="kk-test-credit"><strong><a href="https://www.linkedin.com/in/djwa/" target="_blank" rel="noopener noreferrer">Jai Djwa</a></strong></span>
+        </figcaption>
+      </figure>
+      <div class="kk-test-side" id="aurora-testimonials-featured">
+        <figure class="kk-test-card">
+          <span class="kk-test-label">Community</span>
+          <blockquote>
+            <p>“Kris Krüg has built something important for our community.”</p>
+          </blockquote>
+          <figcaption>
+            <button type="button" class="kk-test-portrait" data-portrait="carly-steiman" data-person="Carly Steiman" aria-label="View photo of Carly Steiman" disabled><img src="https://kriskrug.co/wp-content/uploads/2026/11/kk-testimonials-carly-steiman.webp" alt="" width="560" height="370" loading="lazy"/></button>
+            <span class="kk-test-credit"><strong><a href="https://www.linkedin.com/in/carlysteiman/" target="_blank" rel="noopener noreferrer">Carly Steiman</a></strong><span class="kk-test-context">Founder, Workbee Home Services</span></span>
+          </figcaption>
+        </figure>
+        <figure class="kk-test-card">
+          <span class="kk-test-label">Responsible AI Professional</span>
+          <blockquote>
+            <p>“It changed how I think about my work, and I left feeling proud of how I show up with AI.”</p>
+          </blockquote>
+          <figcaption>
+            <button type="button" class="kk-test-portrait" data-portrait="brittney-ashley" data-person="Brittney Ashley" aria-label="View photo of Brittney Ashley" disabled><img src="https://kriskrug.co/wp-content/uploads/2026/11/kk-testimonials-brittney-ashley.webp" alt="" width="370" height="304" loading="lazy"/></button>
+            <span class="kk-test-credit"><strong><a href="https://www.linkedin.com/in/brittneyashley" target="_blank" rel="noopener noreferrer">Brittney Ashley</a></strong><span class="kk-test-context">RAP Cohort 1, Creative Dynamics</span></span>
+          </figcaption>
+        </figure>
       </div>
-    </div>
-    <div class="aurora-tstm-stats" aria-label="BC + AI Ecosystem, by the numbers">
-      <div class="aurora-tstm-stat aurora-card">
-        <p class="aurora-tstm-stat-number">300</p>
-        <p class="aurora-tstm-stat-label">paid members, BC + AI Ecosystem Association</p>
+    </section>
+    <section aria-labelledby="aurora-testimonials-festival" class="kk-test-section" id="testimonials-festival"><h2 id="aurora-testimonials-festival">Futureproof Festival · 2026</h2><div class="kk-test-quote-grid"><figure class="kk-test-card" data-quote-source="https://www.futureproof.website/press/clippings/#what-people-are-saying" data-source-label="Futureproof Festival · 2026">
+<blockquote><p>“I left with more questions than I arrived with, which is the right way to leave a conference.”</p></blockquote>
+<figcaption>
+  <button type="button" class="kk-test-portrait" data-portrait="kerris-hougardy" data-person="Kerris Hougardy" aria-label="View photo of Kerris Hougardy" disabled><img src="https://kriskrug.co/wp-content/uploads/2026/11/kk-testimonials-kerris-hougardy.webp" alt="" width="452" height="452" loading="lazy"/></button>
+  <span class="kk-test-credit"><strong><a href="https://www.futureproof.website/press/clippings/#what-people-are-saying" rel="noopener noreferrer" target="_blank">Kerris Hougardy</a></strong><span class="kk-test-context">Futureproof Festival of AI · 2026</span></span>
+</figcaption>
+</figure><figure class="kk-test-card" data-quote-source="https://www.futureproof.website/press/clippings/#what-people-are-saying" data-source-label="Futureproof Festival · 2026">
+<blockquote><p>“A fantastic opportunity to connect with some fascinating people and capture some great conversations.”</p></blockquote>
+<figcaption><strong><a href="https://www.futureproof.website/press/clippings/#what-people-are-saying" rel="noopener noreferrer" target="_blank">Philippe Duprey</a></strong><span class="kk-test-context">Futureproof Festival of AI · 2026</span></figcaption>
+</figure><figure class="kk-test-card" data-quote-source="https://www.futureproof.website/press/clippings/#what-people-are-saying" data-source-label="Futureproof Festival · 2026">
+<blockquote><p>“I believe that this event was an important step towards fostering the kind of future we want to create.”</p></blockquote>
+<figcaption><strong><a href="https://www.futureproof.website/press/clippings/#what-people-are-saying" rel="noopener noreferrer" target="_blank">Rnold Smith</a></strong><span class="kk-test-context">Futureproof Festival of AI · 2026</span></figcaption>
+</figure></div></section>
+    <section class="kk-test-search" id="testimonials-search" aria-label="Search testimonials" hidden>
+      <form role="search" aria-label="Testimonials">
+        <label for="kk-test-search-input">Find a testimonial</label>
+        <div class="kk-test-search-control">
+          <input id="kk-test-search-input" type="search" placeholder="Name, topic or phrase" autocomplete="off"/>
+          <button type="button" disabled>Clear</button>
+        </div>
+      </form>
+      <p class="kk-test-search-status" role="status" aria-live="polite"></p>
+      <div class="kk-test-search-results kk-test-quote-grid" hidden></div>
+    </section>
+
+    <section class="kk-test-section" aria-labelledby="aurora-testimonials-talks" id="testimonials-talks">
+      <h2 id="aurora-testimonials-talks">Keynotes &amp; guest sessions</h2>
+      <div>
+        <div class="kk-test-quote-grid">
+          <figure class="kk-test-card">
+            <blockquote>
+              <p>“Kris’s talk and event design felt like a masterclass in community organizing.”</p>
+            </blockquote>
+            <figcaption><strong><a href="https://www.linkedin.com/in/kennedy-ed/" target="_blank" rel="noopener noreferrer">Ed Kennedy</a></strong></figcaption>
+          </figure>
+          <figure class="kk-test-card">
+            <blockquote>
+              <p>“Kris is one of Vancouver’s brightest lights at the intersection of culture and online technology. Visionary, creative, fearless and articulate, he electrifies audiences with the sense of humour, curiosity and possibility that he brings to his breathtaking range of creative endeavours.”</p>
+            </blockquote>
+            <figcaption>
+              <button type="button" class="kk-test-portrait" data-portrait="rob-cottingham" data-person="Rob Cottingham" aria-label="View photo of Rob Cottingham" disabled><img src="https://kriskrug.co/wp-content/uploads/2026/11/kk-testimonials-rob-cottingham.webp" alt="" width="560" height="560" loading="lazy"/></button>
+              <span class="kk-test-credit"><strong><a href="https://www.linkedin.com/in/robcottingham" target="_blank" rel="noopener noreferrer">Rob Cottingham</a></strong><span class="kk-test-context">2009</span></span>
+            </figcaption>
+          </figure>
+        </div>
+        <details class="kk-test-details">
+          <summary>Read 3 more testimonials<span class="screen-reader-text"> about Keynotes &amp; guest sessions</span></summary>
+          <div class="kk-test-quote-grid">
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“Kris is an adept speaker, facilitator and prophet who helps you to step into a future that is already here waiting for you–but you couldn’t quite reach on your own. … Any community, any individual, any business will be better off once they’ve involved Kris. He’s a force of nature.”</p>
+              </blockquote>
+              <figcaption><strong><a href="https://www.linkedin.com/in/martyavery" target="_blank" rel="noopener noreferrer">Marty Avery, P.C.C.</a></strong><span class="kk-test-context">Executive and leadership coach</span></figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“He embraced the whole community. He brought his big heart, his boundless energy, his amazing mind and his unflagging generosity. … He has been asked back to PopTech for years now.”</p>
+              </blockquote>
+              <figcaption><strong><a href="https://www.linkedin.com/in/kristen-hughes-b403705" target="_blank" rel="noopener noreferrer">Kristen Hughes</a></strong><span class="kk-test-context">PopTech</span></figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“Kris is an exceptional translator, facilitator, and activator, for the democratic power of social media and related technologies and community impact.”</p>
+              </blockquote>
+              <figcaption><strong><a href="https://www.linkedin.com/in/joel-solomon-a5a4b5" target="_blank" rel="noopener noreferrer">Joel Solomon</a></strong><span class="kk-test-context">Renewal Funds</span></figcaption>
+            </figure>
+          </div>
+        </details>
       </div>
-      <div class="aurora-tstm-stat aurora-card">
-        <p class="aurora-tstm-stat-number">3,000+</p>
-        <p class="aurora-tstm-stat-label">participants across the ecosystem</p>
+    </section>
+    <section class="kk-test-section" aria-labelledby="aurora-testimonials-rooms" id="testimonials-rooms">
+      <h2 id="aurora-testimonials-rooms">Vancouver AI Meetup</h2>
+      <div>
+        <div class="kk-test-quote-grid">
+          <figure class="kk-test-card">
+            <blockquote>
+              <p>“I am stumped. I arrive in Vancouver and stumble upon this strange and colourful community that has done more for my BC network than any conference. Am baffled to think: is there ANY other event where I can let my hair down, bring my music-loving wife, my media manic elder daughter, my business buddies innovating biotech and deep, deep science plus my youngest, the TikTok addict? I can’t think of anything quite like it. Come and find out for yourself.”</p>
+            </blockquote>
+            <figcaption>
+              <button type="button" class="kk-test-portrait" data-portrait="simon-haworth" data-person="Simon Haworth" aria-label="View photo of Simon Haworth" disabled><img src="https://kriskrug.co/wp-content/uploads/2026/11/kk-testimonials-simon-haworth.webp" alt="" width="560" height="560" loading="lazy"/></button>
+              <span class="kk-test-credit"><strong><a href="https://ca.linkedin.com/in/simon-haworth-uk-us-prc" target="_blank" rel="noopener noreferrer">Simon Haworth</a></strong><span class="kk-test-context">Vancouver AI Meetup #10</span></span>
+            </figcaption>
+          </figure>
+          <figure class="kk-test-card">
+              <blockquote>
+                <p>“FWIW, the BC + AI Ecosystem, of which I’m a member, is different than any other AI group I’m aware of — full of artists and creatives, filmmakers and indigenous voices, as well as deep tech experts and entrepreneurs. It holds space for both wonder and scepticism around AI without veering too far one way or the other.”</p>
+              </blockquote>
+              <figcaption>
+                <button type="button" class="kk-test-portrait" data-portrait="landon-steele" data-person="Landon Steele" aria-label="View photo of Landon Steele" disabled><img src="https://kriskrug.co/wp-content/uploads/2026/11/kk-testimonials-landon-steele.webp" alt="" width="200" height="197" loading="lazy"/></button>
+                <span class="kk-test-credit"><strong><a href="https://www.linkedin.com/in/landonsteele" target="_blank" rel="noopener noreferrer">Landon Steele</a></strong><span class="kk-test-context">Steele Consulting Group</span></span>
+              </figcaption>
+            </figure>
+        </div>
+        <details class="kk-test-details">
+          <summary>Read 6 more testimonials<span class="screen-reader-text"> about Vancouver AI Meetup</span></summary>
+          <div class="kk-test-quote-grid">
+            <figure class="kk-test-card">
+            <blockquote>
+              <p>“Something is happening here. The energetic dialogue at these events is hard to describe. It feels like we are witnessing the creation of something special, here in Vancouver, as the whole world figures out how to embrace AI.”</p>
+            </blockquote>
+            <figcaption><strong>Arno Apeldoorn</strong><span class="kk-test-context">Vancouver AI Meetup #25</span></figcaption>
+          </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“The opening grounding … made the rest of the night feel that before anyone says ‘agentic workflow,’ remember whose land, whose water, whose stories, whose labour, and whose data we are standing on. … Rock on, Mr KK!”</p>
+              </blockquote>
+              <figcaption>
+                <button type="button" class="kk-test-portrait" data-portrait="suzy-easton" data-person="Suzy Easton" aria-label="View photo of Suzy Easton" disabled><img src="https://kriskrug.co/wp-content/uploads/2026/11/kk-testimonials-suzy-easton.webp" alt="" width="314" height="560" loading="lazy"/></button>
+                <span class="kk-test-credit"><strong><a href="https://www.linkedin.com/in/suzyeaston" target="_blank" rel="noopener noreferrer">Suzy Easton</a></strong><span class="kk-test-context">Vancouver AI Meetup #30</span></span>
+              </figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“Kris Krüg, thank you for an outstanding event! Your clear, energetic hosting made it one of the most engaging, community-focused AI meetups I’ve ever attended. The interactive format and tight-knit atmosphere fostered real connections—and I even lucked into meeting the perfect collaborator for my AI project.”</p>
+              </blockquote>
+              <figcaption><strong><a href="https://www.linkedin.com/in/jesse-robert-benson/" target="_blank" rel="noopener noreferrer">Jesse Benson</a></strong><span class="kk-test-context">Vancouver AI Meetup #19</span></figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“Kris! This was my first time at the meet up and I had such a great time. I loved the community vibe and I love your energy …so fun to watch you in action! I will definitely be back and I’m looking into a membership”</p>
+              </blockquote>
+              <figcaption><strong><a href="https://www.linkedin.com/in/alexandrasamur" target="_blank" rel="noopener noreferrer">Alex Samur</a></strong><span class="kk-test-context">Vancouver AI Meetup #25</span></figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“This must be the most enticing event I’ve been to in a long time. I was probably more impressed by the speakers who disturbed me than the ones I agreed with. This conversation is so important, and yet too limited in our everyday lives. I will be attending every single event I can.”</p>
+              </blockquote>
+              <figcaption><strong>Gus Santos</strong><span class="kk-test-context">Vancouver AI Meetup #10</span></figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“I went to my first Vancouver AI community meetup event last month and it was buzzing with energy… Truly inspired.”</p>
+              </blockquote>
+              <figcaption><strong><a href="https://www.linkedin.com/in/pete-young-8a7a89a5" target="_blank" rel="noopener noreferrer">Pete Young</a></strong><span class="kk-test-context">Educator, Ed + AI thread</span></figcaption>
+            </figure>
+          </div>
+        </details>
       </div>
-      <div class="aurora-tstm-stat aurora-card">
-        <p class="aurora-tstm-stat-number">94+</p>
-        <p class="aurora-tstm-stat-label">documented events</p>
+    </section>
+    <section class="kk-test-section" aria-labelledby="aurora-testimonials-programs" id="testimonials-programs">
+      <h2 id="aurora-testimonials-programs">Responsible AI Professional</h2>
+      <div>
+        <div class="kk-test-quote-grid">
+          <figure class="kk-test-card">
+            <blockquote>
+              <p>“Two things can be true at once. AI is here and I’m going to keep enabling it across our teams. And it can be done responsibly, with humans first, by people who treat that as the actual job rather than a disclaimer at the bottom of a deck.”</p>
+            </blockquote>
+            <figcaption>
+              <button type="button" class="kk-test-portrait" data-portrait="kerris-hougardy" data-person="Kerris Hougardy, MBA" aria-label="View photo of Kerris Hougardy, MBA" disabled><img src="https://kriskrug.co/wp-content/uploads/2026/11/kk-testimonials-kerris-hougardy.webp" alt="" width="452" height="452" loading="lazy"/></button>
+              <span class="kk-test-credit"><strong><a href="https://www.linkedin.com/in/kerrishougardy/" target="_blank" rel="noopener noreferrer">Kerris Hougardy, MBA</a></strong><span class="kk-test-context">Responsible AI Professional, Cohort 1</span></span>
+            </figcaption>
+          </figure>
+          <figure class="kk-test-card">
+            <blockquote>
+              <p>“So pleased to have completed this course, the guidance was amazing, and the final capstone was a chance to explore responsible AI. If you want to round out your understanding of ethics, and responsible AI, this is well worth the time.”</p>
+            </blockquote>
+            <figcaption><strong><a href="https://www.linkedin.com/in/dreffed" target="_blank" rel="noopener noreferrer">David Gloyn-Cox</a></strong><span class="kk-test-context">Enterprise Architect</span></figcaption>
+          </figure>
+        </div>
+        <details class="kk-test-details">
+          <summary>Read 4 more testimonials<span class="screen-reader-text"> about Responsible AI Professional</span></summary>
+          <div class="kk-test-quote-grid">
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“The course delivers very important insights into risks of large scale AI deployments. … Highly recommended for anyone who has a stake in the responsible use of PII data, environmental impact, and good governance of AI projects.”</p>
+              </blockquote>
+              <figcaption>
+                <button type="button" class="kk-test-portrait" data-portrait="fiann-ohagan" data-person="Fiann O’Hagan" aria-label="View photo of Fiann O’Hagan" disabled><img src="https://kriskrug.co/wp-content/uploads/2026/11/kk-testimonials-fiann-ohagan.webp" alt="" width="448" height="560" loading="lazy"/></button>
+                <span class="kk-test-credit"><strong><a href="https://www.linkedin.com/in/fiann/" target="_blank" rel="noopener noreferrer">Fiann O’Hagan</a></strong><span class="kk-test-context">Web analytics and performance</span></span>
+              </figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“Four weeks of asking the hard questions about deploying AI responsibly, applying real frameworks to real systems. Moving fast with AI without being reckless.”</p>
+              </blockquote>
+              <figcaption><strong><a href="https://www.linkedin.com/in/tavisyeung/" target="_blank" rel="noopener noreferrer">Tavis Yeung</a></strong><span class="kk-test-context">Digital Marketing Innovation</span></figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“RAP gives you a zoomable drone’s-eye view of the entire AI ethics and governance landscape.”</p>
+              </blockquote>
+              <figcaption><strong><a href="https://www.linkedin.com/in/danbashaw" target="_blank" rel="noopener noreferrer">Daniel Bashaw</a></strong><span class="kk-test-context">RAP Cohort 1</span></figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“This course revealed all of the critical elements of responsible AI use that are nowhere to be found in regular AI content.”</p>
+              </blockquote>
+              <figcaption><strong><a href="https://www.linkedin.com/in/rachel-krayenhoff" target="_blank" rel="noopener noreferrer">Rachel Krayenhoff</a></strong><span class="kk-test-context">RAP Cohort 1, AI practitioner</span></figcaption>
+            </figure>
+          </div>
+        </details>
       </div>
-      <div class="aurora-tstm-stat aurora-card">
-        <p class="aurora-tstm-stat-number">31</p>
-        <p class="aurora-tstm-stat-label">monthly Vancouver AI meetups and counting</p>
+    </section>
+    <section class="kk-test-section" aria-labelledby="aurora-testimonials-training" id="testimonials-training">
+      <h2 id="aurora-testimonials-training">Hands-on AI workshops</h2>
+      <div>
+        <div class="kk-test-quote-grid">
+          <figure class="kk-test-card">
+            <blockquote>
+              <p>“This course was a game changer for me. I learned how to use multiple AI tools for content creation, PR, and marketing in a thoughtful, ethical, and practical way… If you are a busy professional who feels left behind by AI because you don’t have time to understand it, this class is for you.”</p>
+            </blockquote>
+            <figcaption><strong><a href="https://www.linkedin.com/in/jillannmanuel/" target="_blank" rel="noopener noreferrer">Jill Manuel</a></strong><span class="kk-test-context">JCat Group</span></figcaption>
+          </figure>
+          <figure class="kk-test-card">
+            <blockquote>
+              <p>“Peter and Kris are the dynamic duo that everyone dreams about collaborating with… My mind has been blown away at what I’ve been able to takeaway from this course and it’s empowered me to go full time as my own boss for my own company.”</p>
+            </blockquote>
+            <figcaption><strong>Harrison Reed</strong><span class="kk-test-context">Digital Marketing Specialist</span></figcaption>
+          </figure>
+        </div>
+        <details class="kk-test-details">
+          <summary>Read 1 more testimonial<span class="screen-reader-text"> about Hands-on AI workshops</span></summary>
+          <div class="kk-test-quote-grid">
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“Coaching calls were good. … Coach Kris was enthusiastic about my idea and helpful with showing me some next steps and pre-made tools.”</p>
+              </blockquote>
+              <figcaption><strong>Becky Pallack</strong><span class="kk-test-context">AI for Creative Pros student</span></figcaption>
+            </figure>
+          </div>
+        </details>
       </div>
-      <div class="aurora-tstm-stat aurora-card">
-        <p class="aurora-tstm-stat-number">9.5/10</p>
-        <p class="aurora-tstm-stat-label">Responsible AI Professional course rating, Cohort 1</p>
+    </section>
+    <section class="kk-test-section" aria-labelledby="aurora-testimonials-film" id="testimonials-film">
+      <h2 id="aurora-testimonials-film">BC + AI Film Club</h2>
+      <div>
+        <div class="kk-test-quote-grid">
+          <figure class="kk-test-card">
+            <blockquote>
+              <p>“The room was packed and the program was a blend of entertaining films, short technical tutorials, and thoughtful discussion about where the industry is heading. … The room last night was full of people re-inventing themselves and their industries and looking for ways to rebuild better.”</p>
+            </blockquote>
+            <figcaption><strong><a href="https://www.linkedin.com/in/jonessteven" target="_blank" rel="noopener noreferrer">Steve Jones, CFA</a></strong><span class="kk-test-context">BC + AI Film Club</span></figcaption>
+          </figure>
+          <figure class="kk-test-card">
+            <blockquote>
+              <p>“This was our first event and really enjoyed the film and the speakers. We will be back, thank you!”</p>
+            </blockquote>
+            <figcaption><strong>Tanya Slingsby</strong><span class="kk-test-context">The Thinking Game premiere</span></figcaption>
+          </figure>
+        </div>
+        <details class="kk-test-details">
+          <summary>Read 2 more testimonials<span class="screen-reader-text"> about BC + AI Film Club</span></summary>
+          <div class="kk-test-quote-grid">
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“Really good. Great documentary. So glad I came. The panel afterwards was also amazing. Such a good conversation, great questions and fantastic answers. Would love to see more of these film sessions.”</p>
+              </blockquote>
+              <figcaption><strong>Yin Lau</strong><span class="kk-test-context">The Thinking Game premiere</span></figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“Such an inspiring event! Can’t wait to team up… The best is yet to come!”</p>
+              </blockquote>
+              <figcaption><strong><a href="https://jp.linkedin.com/in/kaoruyoshihira" target="_blank" rel="noopener noreferrer">Kaoru Yoshihira</a></strong><span class="kk-test-context">BC + AI Film Club</span></figcaption>
+            </figure>
+          </div>
+        </details>
       </div>
-      <div class="aurora-tstm-stat aurora-card">
-        <p class="aurora-tstm-stat-number">~2,400</p>
-        <p class="aurora-tstm-stat-label">attendees across 2024 events</p>
+    </section>
+    <section class="kk-test-section" aria-labelledby="aurora-testimonials-threads" id="testimonials-threads">
+      <h2 id="aurora-testimonials-threads">From the community threads</h2>
+      <div>
+        <div class="kk-test-quote-grid">
+          <figure class="kk-test-card">
+            <blockquote>
+              <p>“Co Founders including James McKenzie who I only met thanks to Kris Krüg’s amazing VanAI meetup almost a year ago!!!”</p>
+            </blockquote>
+            <figcaption><strong><a href="https://www.linkedin.com/in/darren-nicholls" target="_blank" rel="noopener noreferrer">Darren Nicholls</a></strong><span class="kk-test-context">BC + AI Members</span></figcaption>
+          </figure>
+          <figure class="kk-test-card">
+            <blockquote>
+              <p>“Authentically demonstrating what it means to be human, nothing more, nothing less.”</p>
+            </blockquote>
+            <figcaption><strong>Sev Geraskin</strong><span class="kk-test-context">BC + AI Members</span></figcaption>
+          </figure>
+        </div>
+        <details class="kk-test-details">
+          <summary>Read 1 more testimonial<span class="screen-reader-text"> about From the community threads</span></summary>
+          <div class="kk-test-quote-grid">
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“So please keep this up everyone! Don’t fucking stop, this work is so necessary and I’m so inspired by you all.”</p>
+              </blockquote>
+              <figcaption><strong>Peter Bowles</strong><span class="kk-test-context">UpSpiral founder</span></figcaption>
+            </figure>
+          </div>
+        </details>
       </div>
-    </div>
-  </section>
-
-  <section class="aurora-tstm-press aurora-proof-section" aria-label="On the record">
-    <div class="aurora-section-heading">
-      <p class="aurora-kicker">On the record</p>
-      <p>Not every receipt is a pull quote. Some of it is recognition, a stage, or peer review.</p>
-    </div>
-    <ul class="aurora-tstm-press-list">
-      <li class="aurora-tstm-press-item aurora-card">
-        <p><strong>Vancouver Magazine Power 50</strong></p>
-        <p>Named to Vancouver Magazine's 2026 Power 50 list.</p>
-        <p><a href="https://vanmag.com/city/power-50/introducing-vancouver-magazines-2026-power-50-list/" target="_blank" rel="noopener noreferrer">Read the list</a></p>
-      </li>
-      <li class="aurora-tstm-press-item aurora-card">
-        <p><strong>CreativeMornings</strong></p>
-        <p>Delivered the Punk Rock AI keynote at CreativeMornings Vancouver, Vancouver Art Gallery, May 2026. Official recording published by CreativeMornings HQ.</p>
-        <p><a href="https://creativemornings.com/talks/kris-krug" target="_blank" rel="noopener noreferrer">Watch the talk</a></p>
-      </li>
-      <li class="aurora-tstm-press-item aurora-card">
-        <p><strong>BC Studies</strong></p>
-        <p>Co-authored the peer-reviewed article "Building a Grass Roots AI Community of Practice: A Vancouver-Centered Use Case," BC Studies No. 224, Winter 2024/25.</p>
-        <p><a href="https://ojs.library.ubc.ca/index.php/bcstudies/article/view/199875" target="_blank" rel="noopener noreferrer">Read the article</a></p>
-      </li>
-    </ul>
-  </section>
-
-  <section class="aurora-tstm-featured aurora-proof-section" aria-labelledby="aurora-testimonials-featured">
-    <div class="aurora-section-heading">
-      <p class="aurora-kicker">Featured</p>
-      <h2 id="aurora-testimonials-featured">Start with three.</h2>
-      <p>Three voices from the current era, quoted at full strength. The rest of the page backs them up.</p>
-    </div>
-    <div class="aurora-tstm-wall aurora-quote-grid aurora-quote-grid-three" aria-label="Featured testimonials">
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Two things can be true at once. AI is here and I'm going to keep enabling it across our teams. And it can be done responsibly, with humans first, by people who treat that as the actual job rather than a disclaimer at the bottom of a deck.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/kerrishougardy/" target="_blank" rel="noopener noreferrer">Kerris Hougardy, MBA</a> · <span class="aurora-tstm-chip">Responsible AI Professional, Cohort 1</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“I am stumped. I arrive in Vancouver and stumble upon this strange and colourful community that has done more for my BC network than any conference. Am baffled to think: is there ANY other event where I can let my hair down, bring my music-loving wife, my media manic elder daughter, my business buddies innovating biotech and deep, deep science plus my youngest, the TikTok addict? I can't think of anything quite like it. Come and find out for yourself.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://ca.linkedin.com/in/simon-haworth-uk-us-prc" target="_blank" rel="noopener noreferrer">Simon Haworth</a> · <span class="aurora-tstm-chip">Vancouver AI Meetup #10</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Something is happening here. The energetic dialogue at these events is hard to describe. It feels like we are witnessing the creation of something special, here in Vancouver, as the whole world figures out how to embrace AI.”</p>
-        <cite class="aurora-tstm-cite">Arno Apeldoorn · <span class="aurora-tstm-chip">Vancouver AI Meetup #25</span></cite>
-      </blockquote>
-    </div>
-  </section>
-
-  <section class="aurora-tstm-section aurora-proof-section" aria-labelledby="aurora-testimonials-rooms">
-    <div class="aurora-section-heading">
-      <p class="aurora-kicker">Community and rooms</p>
-      <h2 id="aurora-testimonials-rooms">The monthly rooms.</h2>
-      <p>Vancouver AI at the Space Centre, office hours, and the regulars who keep showing up. Written by people who were in the seats, not by me.</p>
-    </div>
-    <div class="aurora-tstm-wall aurora-quote-grid" aria-label="Rooms testimonials">
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“FWIW, the BC + AI Ecosystem, of which I'm a member, is different than any other AI group I'm aware of — full of artists and creatives, filmmakers and indigenous voices, as well as deep tech experts and entrepreneurs. It holds space for both wonder and scepticism around AI without veering too far one way or the other.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/landonsteele" target="_blank" rel="noopener noreferrer">Landon Steele</a> · <span class="aurora-tstm-chip">Steele Consulting Group</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Kris Krüg has built something important for our community.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/carlysteiman/" target="_blank" rel="noopener noreferrer">Carly Steiman</a> · <span class="aurora-tstm-chip">Founder, Workbee Home Services</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“The opening grounding … made the rest of the night feel that before anyone says 'agentic workflow,' remember whose land, whose water, whose stories, whose labour, and whose data we are standing on. … Rock on, Mr KK!”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/suzyeaston" target="_blank" rel="noopener noreferrer">Suzy Easton</a> · <span class="aurora-tstm-chip">Vancouver AI Meetup #30</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Kris Krüg, thank you for an outstanding event! Your clear, energetic hosting made it one of the most engaging, community-focused AI meetups I've ever attended. The interactive format and tight-knit atmosphere fostered real connections—and I even lucked into meeting the perfect collaborator for my AI project.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/jesse-robert-benson/" target="_blank" rel="noopener noreferrer">Jesse Benson</a> · <span class="aurora-tstm-chip">Vancouver AI Meetup #19</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Kris! This was my first time at the meet up and I had such a great time. I loved the community vibe and I love your energy …so fun to watch you in action! I will definitely be back and I'm looking into a membership”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/alexandrasamur" target="_blank" rel="noopener noreferrer">Alex Samur</a> · <span class="aurora-tstm-chip">Vancouver AI Meetup #25</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“This must be the most enticing event I've been to in a long time. I was probably more impressed by the speakers who disturbed me than the ones I agreed with. This conversation is so important, and yet too limited in our everyday lives. I will be attending every single event I can.”</p>
-        <cite class="aurora-tstm-cite">Gus Santos · <span class="aurora-tstm-chip">Vancouver AI Meetup #10</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“I went to my first Vancouver AI community meetup event last month and it was buzzing with energy… Truly inspired.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/pete-young-8a7a89a5" target="_blank" rel="noopener noreferrer">Pete Young</a> · <span class="aurora-tstm-chip">Educator, Ed + AI thread</span></cite>
-      </blockquote>
-    </div>
-  </section>
-
-  <section class="aurora-tstm-section aurora-proof-section" aria-labelledby="aurora-testimonials-programs">
-    <div class="aurora-section-heading">
-      <p class="aurora-kicker">Programs</p>
-      <h2 id="aurora-testimonials-programs">Responsible AI Professional, Cohort 1.</h2>
-      <p>Four weeks of frameworks, hard questions, and a capstone with your name on it. Graduates on what actually stuck.</p>
-    </div>
-    <div class="aurora-tstm-wall aurora-quote-grid" aria-label="Programs testimonials">
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“So pleased to have completed this course, the guidance was amazing, and the final capstone was a chance to explore responsible AI. If you want to round out your understanding of ethics, and responsible AI, this is well worth the time.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/dreffed" target="_blank" rel="noopener noreferrer">David Gloyn-Cox</a> · <span class="aurora-tstm-chip">Enterprise Architect</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“The course delivers very important insights into risks of large scale AI deployments. … Highly recommended for anyone who has a stake in the responsible use of PII data, environmental impact, and good governance of AI projects.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/fiann/" target="_blank" rel="noopener noreferrer">Fiann O'Hagan</a> · <span class="aurora-tstm-chip">Web analytics and performance</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Four weeks of asking the hard questions about deploying AI responsibly, applying real frameworks to real systems. Moving fast with AI without being reckless.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/tavisyeung/" target="_blank" rel="noopener noreferrer">Tavis Yeung</a> · <span class="aurora-tstm-chip">Digital Marketing Innovation</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“It changed how I think about my work, and I left feeling proud of how I show up with AI.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/brittneyashley" target="_blank" rel="noopener noreferrer">Brittney Ashley</a> · <span class="aurora-tstm-chip">RAP Cohort 1, Creative Dynamics</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“RAP gives you a zoomable drone's-eye view of the entire AI ethics and governance landscape.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/danbashaw" target="_blank" rel="noopener noreferrer">Daniel Bashaw</a> · <span class="aurora-tstm-chip">RAP Cohort 1</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“This course revealed all of the critical elements of responsible AI use that are nowhere to be found in regular AI content.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/rachel-krayenhoff" target="_blank" rel="noopener noreferrer">Rachel Krayenhoff</a> · <span class="aurora-tstm-chip">RAP Cohort 1, AI practitioner</span></cite>
-      </blockquote>
-    </div>
-  </section>
-
-  <section class="aurora-tstm-section aurora-proof-section" aria-labelledby="aurora-testimonials-talks">
-    <div class="aurora-section-heading">
-      <p class="aurora-kicker">Talks</p>
-      <h2 id="aurora-testimonials-talks">Keynotes and guest sessions.</h2>
-      <p>What hosts and audiences say when a talk lands: language they can reuse and moves they can make the next day.</p>
-    </div>
-    <div class="aurora-tstm-wall aurora-quote-grid" aria-label="Talks testimonials">
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Kris helped shift how my design students see their future. In one hour, he demo'd building client prototypes in real-time, turned lectures into podcasts, and showed them how to be design orchestrators, not pixel pushers.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/djwa/" target="_blank" rel="noopener noreferrer">Jai Djwa</a></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Kris's talk and event design felt like a masterclass in community organizing.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/kennedy-ed/" target="_blank" rel="noopener noreferrer">Ed Kennedy</a></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Kris is one of Vancouver's brightest lights at the intersection of culture and online technology. Visionary, creative, fearless and articulate, he electrifies audiences with the sense of humour, curiosity and possibility that he brings to his breathtaking range of creative endeavours.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/robcottingham" target="_blank" rel="noopener noreferrer">Rob Cottingham</a> · <span class="aurora-tstm-chip">2009</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Kris is an adept speaker, facilitator and prophet who helps you to step into a future that is already here waiting for you--but you couldn't quite reach on your own. … Any community, any individual, any business will be better off once they've involved Kris. He's a force of nature.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/martyavery" target="_blank" rel="noopener noreferrer">Marty Avery, P.C.C.</a> · <span class="aurora-tstm-chip">Executive and leadership coach</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“He embraced the whole community. He brought his big heart, his boundless energy, his amazing mind and his unflagging generosity. … He has been asked back to PopTech for years now.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/kristen-hughes-b403705" target="_blank" rel="noopener noreferrer">Kristen Hughes</a> · <span class="aurora-tstm-chip">PopTech</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Kris is an exceptional translator, facilitator, and activator, for the democratic power of social media and related technologies and community impact.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/joel-solomon-a5a4b5" target="_blank" rel="noopener noreferrer">Joel Solomon</a> · <span class="aurora-tstm-chip">Renewal Funds</span></cite>
-      </blockquote>
-    </div>
-  </section>
-
-  <section class="aurora-tstm-section aurora-proof-section" aria-labelledby="aurora-testimonials-training">
-    <div class="aurora-section-heading">
-      <p class="aurora-kicker">Training</p>
-      <h2 id="aurora-testimonials-training">Workshops that use your real work.</h2>
-      <p>Sessions built on the crew's own tools, data, and deadlines. Less inspiration, more reps.</p>
-    </div>
-    <div class="aurora-tstm-wall aurora-quote-grid" aria-label="Training testimonials">
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“This course was a game changer for me. I learned how to use multiple AI tools for content creation, PR, and marketing in a thoughtful, ethical, and practical way… If you are a busy professional who feels left behind by AI because you don't have time to understand it, this class is for you.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/jillannmanuel/" target="_blank" rel="noopener noreferrer">Jill Manuel</a> · <span class="aurora-tstm-chip">JCat Group</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Peter and Kris are the dynamic duo that everyone dreams about collaborating with… My mind has been blown away at what I've been able to takeaway from this course and it's empowered me to go full time as my own boss for my own company.”</p>
-        <cite class="aurora-tstm-cite">Harrison Reed · <span class="aurora-tstm-chip">Digital Marketing Specialist</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Coaching calls were good. … Coach Kris was enthusiastic about my idea and helpful with showing me some next steps and pre-made tools.”</p>
-        <cite class="aurora-tstm-cite">Becky Pallack · <span class="aurora-tstm-chip">AI for Creative Pros student</span></cite>
-      </blockquote>
-    </div>
-  </section>
-
-  <section class="aurora-tstm-section aurora-proof-section" aria-labelledby="aurora-testimonials-threads">
-    <div class="aurora-section-heading">
-      <p class="aurora-kicker">From the threads</p>
-      <h2 id="aurora-testimonials-threads">Said in the group chat.</h2>
-      <p>Some of the best lines never hit LinkedIn. These came from message threads and DMs, published with permission from the people who wrote them.</p>
-    </div>
-    <div class="aurora-tstm-wall aurora-quote-grid" aria-label="Threads testimonials">
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Co Founders including James McKenzie who I only met thanks to Kris Krüg's amazing VanAI meetup almost a year ago!!!”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/darren-nicholls" target="_blank" rel="noopener noreferrer">Darren Nicholls</a> · <span class="aurora-tstm-chip">BC + AI Members</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Authentically demonstrating what it means to be human, nothing more, nothing less.”</p>
-        <cite class="aurora-tstm-cite">Sev Geraskin · <span class="aurora-tstm-chip">BC + AI Members</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“So please keep this up everyone! Don't fucking stop, this work is so necessary and I'm so inspired by you all.”</p>
-        <cite class="aurora-tstm-cite">Peter Bowles · <span class="aurora-tstm-chip">UpSpiral founder</span></cite>
-      </blockquote>
-    </div>
-  </section>
-
-  <section class="aurora-tstm-section aurora-proof-section" aria-labelledby="aurora-testimonials-film">
-    <div class="aurora-section-heading">
-      <p class="aurora-kicker">Film</p>
-      <h2 id="aurora-testimonials-film">Film Club nights.</h2>
-      <p>Screenings, short technical breakdowns, and a packed room arguing about where the industry goes next.</p>
-    </div>
-    <div class="aurora-tstm-wall aurora-quote-grid" aria-label="Film testimonials">
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“The room was packed and the program was a blend of entertaining films, short technical tutorials, and thoughtful discussion about where the industry is heading. … The room last night was full of people re-inventing themselves and their industries and looking for ways to rebuild better.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/jonessteven" target="_blank" rel="noopener noreferrer">Steve Jones, CFA</a> · <span class="aurora-tstm-chip">BC + AI Film Club</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“This was our first event and really enjoyed the film and the speakers. We will be back, thank you!”</p>
-        <cite class="aurora-tstm-cite">Tanya Slingsby · <span class="aurora-tstm-chip">The Thinking Game premiere</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Really good. Great documentary. So glad I came. The panel afterwards was also amazing. Such a good conversation, great questions and fantastic answers. Would love to see more of these film sessions.”</p>
-        <cite class="aurora-tstm-cite">Yin Lau · <span class="aurora-tstm-chip">The Thinking Game premiere</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Such an inspiring event! Can't wait to team up… The best is yet to come!”</p>
-        <cite class="aurora-tstm-cite"><a href="https://jp.linkedin.com/in/kaoruyoshihira" target="_blank" rel="noopener noreferrer">Kaoru Yoshihira</a> · <span class="aurora-tstm-chip">BC + AI Film Club</span></cite>
-      </blockquote>
-    </div>
-  </section>
-
-  <section class="aurora-tstm-section aurora-proof-section" aria-labelledby="aurora-testimonials-archive">
-    <div class="aurora-section-heading">
-      <p class="aurora-kicker">Archive</p>
-      <h2 id="aurora-testimonials-archive">The photography and connector years.</h2>
-      <p>Older public lines from the conference-camera era. Kept because the path matters, not as the lead proof for the AI work.</p>
-    </div>
-    <div class="aurora-tstm-wall aurora-quote-grid" aria-label="Archive testimonials">
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Anytime I see Kris at a conference, camera in hand, my heart lifts a little… Seeing the event through Kris' eyes is like doing it all over again… only better.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/robcottingham" target="_blank" rel="noopener noreferrer">Rob Cottingham</a></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“A lesson in 'getting stuff done', kris is one of those people who seems to make the impossible possible – and manages to keep a few cards up his sleeve in the process.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/joshdunford" target="_blank" rel="noopener noreferrer">Joshua Dunford</a> · <span class="aurora-tstm-chip">BURNKIT</span></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Not pretentious but genuinely connected. Kris brings out the best in others and connects those around him.”</p>
-        <cite class="aurora-tstm-cite">Benjamin Random</cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Kris is many things to many people. He gives good friend. He gives good birthday. He gives good debate, good gnomedex, good podcast, good video, good advice, good vancouver, good sxsw, and good revolution. Some say Canada is the new black. I say it's Kris.”</p>
-        <cite class="aurora-tstm-cite">Corey Dennis</cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Kris takes breathtaking, lyrical and gorgeous pictures.”</p>
-        <cite class="aurora-tstm-cite">Claudine Co</cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“Kris is unstoppable, except by large objects too heavy to move.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/stephanievacher" target="_blank" rel="noopener noreferrer">Stephanie Vacher</a></cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“A search for 'Flaming Lips' brought me to KK, his friends and one of the best ever photos of the band. … Continue to live big Kris… the next generation is watching.”</p>
-        <cite class="aurora-tstm-cite">Danie Peace</cite>
-      </blockquote>
-      <blockquote class="aurora-tstm-card aurora-quote-card">
-        <p>“This kid can take photos - wow! - he's really good, and also a great person to be around. Thumbs up for Kris.”</p>
-        <cite class="aurora-tstm-cite"><a href="https://www.linkedin.com/in/butterfield/" target="_blank" rel="noopener noreferrer">Stewart Butterfield</a> · <span class="aurora-tstm-chip">Co-founder, Flickr / Slack · 2006 LinkedIn rec</span></cite>
-      </blockquote>
-    </div>
-  </section>
-
-  <section class="aurora-tstm-cta aurora-proof-section" aria-labelledby="aurora-testimonials-cta">
-    <div class="aurora-card">
-      <h2 id="aurora-testimonials-cta">Want a room like these?</h2>
-      <p>Keynotes, workshops, briefings, and community design. Tell me the audience, the date, and the question the room is trying to answer.</p>
-      <div class="aurora-action-row">
-        <a class="aurora-button aurora-button-primary" href="/contact/">Start a booking conversation</a>
-        <a class="aurora-button aurora-button-secondary" href="/speaking/">See speaking topics</a>
-        <a class="aurora-button aurora-button-tertiary" href="https://bc-ai.ca/" target="_blank" rel="noopener noreferrer">BC + AI</a>
+    </section>
+    <section class="kk-test-section" aria-labelledby="aurora-testimonials-archive" id="testimonials-archive">
+      <h2 id="aurora-testimonials-archive">Photography &amp; early work</h2>
+<div class="kk-test-quote-grid kk-test-new-recommendations"><figure class="kk-test-card" data-quote-source="https://www.linkedin.com/in/markbusse" data-source-label="Author profile">
+<blockquote><p>“Kris is the king of getting shit done. His creative industry and community leadership is amazing. And his photography is wonderful. In fact, he's taken some of the best portraits of me over the years. KK is the real deal.”</p></blockquote>
+<figcaption>
+  <button type="button" class="kk-test-portrait" data-portrait="mark-busse" data-person="Mark Busse" aria-label="View photo of Mark Busse" disabled><img src="https://kriskrug.co/wp-content/uploads/2026/11/kk-testimonials-mark-busse.webp" alt="" width="560" height="560" loading="lazy"/></button>
+  <span class="kk-test-credit"><strong><a href="https://www.linkedin.com/in/markbusse" rel="noopener noreferrer" target="_blank">Mark Busse</a></strong><span class="kk-test-context">LinkedIn recommendation · November 2014</span></span>
+</figcaption>
+</figure><figure class="kk-test-card" data-quote-source="https://www.linkedin.com/in/brianleroux" data-source-label="Author profile">
+<blockquote><p>“Kris is a super inspirational character. He lights up any room by just being there. He brings a depth of knowledge that can only be wrought of first hand, hard won, real world experience. Passionate, fun and pragmatic: he comes with my highest recommendation.”</p></blockquote>
+<figcaption><strong><a href="https://www.linkedin.com/in/brianleroux" rel="noopener noreferrer" target="_blank">Brian LeRoux</a></strong><span class="kk-test-context">LinkedIn recommendation · March 2010</span></figcaption>
+</figure><figure class="kk-test-card" data-quote-source="https://www.linkedin.com/in/brepettis" data-source-label="Author profile">
+<blockquote><p>“He takes pictures that catch moments of authenticity. If you need someone to capture a feeling, intention, an experience, or just a beautiful photo, I recommend Kris Krug.”</p></blockquote>
+<figcaption>
+  <button type="button" class="kk-test-portrait" data-portrait="bre-pettis" data-person="Bre Pettis" aria-label="View photo of Bre Pettis" disabled><img src="https://kriskrug.co/wp-content/uploads/2026/11/kk-testimonials-bre-pettis.webp" alt="" width="560" height="374" loading="lazy"/></button>
+  <span class="kk-test-credit"><strong><a href="https://www.linkedin.com/in/brepettis" rel="noopener noreferrer" target="_blank">Bre Pettis</a></strong><span class="kk-test-context">LinkedIn recommendation · August 2007 · excerpt</span></span>
+</figcaption>
+</figure></div>
+      <div>
+        <div class="kk-test-quote-grid">
+          <figure class="kk-test-card">
+            <blockquote>
+              <p>“Anytime I see Kris at a conference, camera in hand, my heart lifts a little… Seeing the event through Kris’ eyes is like doing it all over again… only better.”</p>
+            </blockquote>
+            <figcaption>
+              <button type="button" class="kk-test-portrait" data-portrait="rob-cottingham" data-person="Rob Cottingham" aria-label="View photo of Rob Cottingham" disabled><img src="https://kriskrug.co/wp-content/uploads/2026/11/kk-testimonials-rob-cottingham.webp" alt="" width="560" height="560" loading="lazy"/></button>
+              <span class="kk-test-credit"><strong><a href="https://www.linkedin.com/in/robcottingham" target="_blank" rel="noopener noreferrer">Rob Cottingham</a></strong></span>
+            </figcaption>
+          </figure>
+          <figure class="kk-test-card">
+            <blockquote>
+              <p>“A lesson in ‘getting stuff done’, kris is one of those people who seems to make the impossible possible – and manages to keep a few cards up his sleeve in the process.”</p>
+            </blockquote>
+            <figcaption><strong><a href="https://www.linkedin.com/in/joshdunford" target="_blank" rel="noopener noreferrer">Joshua Dunford</a></strong><span class="kk-test-context">BURNKIT</span></figcaption>
+          </figure>
+        </div>
+        <details class="kk-test-details">
+          <summary>Read 6 more testimonials<span class="screen-reader-text"> about Photography &amp; early work</span></summary>
+          <div class="kk-test-quote-grid">
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“Not pretentious but genuinely connected. Kris brings out the best in others and connects those around him.”</p>
+              </blockquote>
+              <figcaption><strong>Benjamin Random</strong></figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“Kris is many things to many people. He gives good friend. He gives good birthday. He gives good debate, good gnomedex, good podcast, good video, good advice, good vancouver, good sxsw, and good revolution. Some say Canada is the new black. I say it’s Kris.”</p>
+              </blockquote>
+              <figcaption><strong>Corey Dennis</strong></figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“Kris takes breathtaking, lyrical and gorgeous pictures.”</p>
+              </blockquote>
+              <figcaption><strong>Claudine Co</strong></figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“Kris is unstoppable, except by large objects too heavy to move.”</p>
+              </blockquote>
+              <figcaption><strong><a href="https://www.linkedin.com/in/stephanievacher" target="_blank" rel="noopener noreferrer">Stephanie Vacher</a></strong></figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“A search for ‘Flaming Lips’ brought me to KK, his friends and one of the best ever photos of the band. … Continue to live big Kris… the next generation is watching.”</p>
+              </blockquote>
+              <figcaption><strong>Danie Peace</strong></figcaption>
+            </figure>
+            <figure class="kk-test-card">
+              <blockquote>
+                <p>“This kid can take photos – wow! – he’s really good, and also a great person to be around. Thumbs up for Kris.”</p>
+              </blockquote>
+              <figcaption><strong><a href="https://www.linkedin.com/in/butterfield/" target="_blank" rel="noopener noreferrer">Stewart Butterfield</a></strong><span class="kk-test-context">Co-founder, Flickr / Slack · 2006 LinkedIn rec</span></figcaption>
+            </figure>
+          </div>
+        </details>
       </div>
-    </div>
-  </section>
-
+    </section>
+    <section class="kk-test-end" aria-label="Recognition and booking">
+      <div>
+        <h2>On the record</h2>
+        <ul class="kk-test-recognition">
+          <li><a href="https://vanmag.com/city/power-50/introducing-vancouver-magazines-2026-power-50-list/" target="_blank" rel="noopener noreferrer">Vancouver Magazine Power 50</a></li>
+          <li><a href="https://creativemornings.com/talks/kris-krug" target="_blank" rel="noopener noreferrer">CreativeMornings</a></li>
+          <li><a href="https://ojs.library.ubc.ca/index.php/bcstudies/article/view/199875" target="_blank" rel="noopener noreferrer">BC Studies</a></li>
+        </ul>
+        <details class="kk-test-credits">
+          <summary>Photo sources</summary>
+          <ul>
+          <li data-credit="jai-djwa">Jai Djwa &middot; <a href="https://djwa.ca/about-jai-djwa/" target="_blank" rel="noopener noreferrer">Jai Djwa’s biography</a></li>
+          <li data-credit="carly-steiman">Carly Steiman &middot; <a href="https://carlysteiman.co/" target="_blank" rel="noopener noreferrer">Carly Steiman’s website</a></li>
+          <li data-credit="brittney-ashley">Brittney Ashley &middot; <a href="https://www.viwconnect.com/leadershipteam" target="_blank" rel="noopener noreferrer">Vancouver Island Women Connect</a></li>
+          <li data-credit="kerris-hougardy">Kerris Hougardy &middot; <a href="https://www.tucows.com/leadership/kerris-hougardy" target="_blank" rel="noopener noreferrer">Tucows leadership profile</a></li>
+          <li data-credit="landon-steele">Landon Steele &middot; <a href="https://lifesciencesbc.ca/staff-member/landon-steele/" target="_blank" rel="noopener noreferrer">Life Sciences BC</a></li>
+          <li data-credit="rob-cottingham">Rob Cottingham &middot; <a href="https://www.robcottingham.ca/media/" target="_blank" rel="noopener noreferrer">Rob Cottingham’s media page</a></li>
+          <li data-credit="simon-haworth">Simon Haworth &middot; <a href="https://www.intellomx.com/corporate" target="_blank" rel="noopener noreferrer">Intellomx corporate biography</a></li>
+          <li data-credit="suzy-easton">Suzy Easton &middot; <a href="https://www.futureproof.website/speakers/suzy-easton/" target="_blank" rel="noopener noreferrer">Futureproof speaker portrait</a></li>
+          <li data-credit="fiann-ohagan">Fiann O’Hagan &middot; <a href="https://www.futureproof.website/staff/" target="_blank" rel="noopener noreferrer">Futureproof staff profile</a></li>
+          <li data-credit="mark-busse">Mark Busse &middot; <a href="https://hollyhock.ca/people/mark-busse/" target="_blank" rel="noopener noreferrer">Hollyhock profile</a></li>
+          <li data-credit="bre-pettis">Bre Pettis &middot; <a href="https://hvmfg.org/hvmfg/article/leader-profile/" target="_blank" rel="noopener noreferrer">HV Mfg leader profile</a></li>
+          </ul>
+        </details>
+      </div>
+      <div class="kk-test-booking">
+        <h2 id="aurora-testimonials-cta">Book Kris</h2>
+        <p>Keynotes, workshops and facilitation. Tell me who&rsquo;s in the room and what you want them to leave with.</p>
+        <div class="kk-test-actions">
+          <a class="kk-test-book" href="/contact/">Get in touch</a>
+          <a href="/speaking/">Speaking topics</a>
+          <a href="https://bc-ai.ca/" target="_blank" rel="noopener noreferrer">BC + AI</a>
+        </div>
+      </div>
+    </section>
+    <dialog class="kk-test-reader" aria-labelledby="kk-test-reader-name">
+      <div class="kk-test-reader-top">
+        <label for="kk-test-reader-topic">Explore <select id="kk-test-reader-topic"><option value="all">All quotes</option></select></label>
+        <form method="dialog"><button autofocus>Close <span aria-hidden="true">&#215;</span></button></form>
+      </div>
+      <div class="kk-test-reader-scene">
+        <div class="kk-test-reader-photo" hidden><img alt=""/><a target="_blank" rel="noopener noreferrer"></a></div>
+        <div class="kk-test-reader-copy">
+          <p class="kk-test-reader-eyebrow"></p>
+          <blockquote></blockquote>
+          <h2 id="kk-test-reader-name"></h2>
+          <p class="kk-test-reader-context"></p>
+          <a class="kk-test-reader-source" target="_blank" rel="noopener noreferrer" hidden></a>
+        </div>
+      </div>
+      <div class="kk-test-reader-bottom">
+        <button type="button" class="kk-test-reader-prev"><span aria-hidden="true">&#8592;</span> Previous</button>
+        <span class="kk-test-reader-count" role="status" aria-live="polite"></span>
+        <button type="button" class="kk-test-reader-next">Next <span aria-hidden="true">&#8594;</span></button>
+      </div>
+    </dialog>
+    <dialog class="kk-test-photo-dialog" aria-labelledby="kk-test-photo-title">
+      <div class="kk-test-photo-header">
+        <strong id="kk-test-photo-title"></strong>
+        <form method="dialog"><button class="kk-test-photo-close" autofocus>Close</button></form>
+      </div>
+      <img alt=""/>
+      <a class="kk-test-photo-source" target="_blank" rel="noopener noreferrer"></a>
+    </dialog>
+  </div>
 </div>
+<script>
+(() => {
+  const page = document.querySelector('.kk-testimonials');
+  const dialog = page.querySelector('.kk-test-reader');
+  if (typeof dialog.showModal !== 'function') return;
+
+  const topics = new Map([
+    ['testimonials-festival', 'Festival'], ['testimonials-talks', 'Speaking'],
+    ['testimonials-rooms', 'Community'], ['testimonials-programs', 'Courses'],
+    ['testimonials-training', 'Workshops'], ['testimonials-film', 'Film'],
+    ['testimonials-threads', 'Threads'], ['testimonials-archive', 'Photography'],
+  ]);
+  const select = dialog.querySelector('select');
+  const quote = dialog.querySelector('blockquote');
+  const name = dialog.querySelector('h2');
+  const context = dialog.querySelector('.kk-test-reader-context');
+  const eyebrow = dialog.querySelector('.kk-test-reader-eyebrow');
+  const source = dialog.querySelector('.kk-test-reader-source');
+  const photo = dialog.querySelector('.kk-test-reader-photo');
+  const image = photo.querySelector('img');
+  const photoSource = photo.querySelector('a');
+  const count = dialog.querySelector('[role="status"]');
+  const previous = dialog.querySelector('.kk-test-reader-prev');
+  const next = dialog.querySelector('.kk-test-reader-next');
+  const cards = Array.from(page.querySelectorAll('.kk-test-card'));
+  const records = cards.map((card, index) => {
+    const section = card.closest('.kk-test-section');
+    const topic = topics.get(section?.id) || (index === 0 ? 'Speaking' : index === 1 ? 'Community' : 'Courses');
+    const speaker = card.querySelector('figcaption strong');
+    const personName = (speaker.querySelector('a') || speaker).firstChild.textContent.trim();
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'kk-test-read';
+    button.dataset.quoteIndex = index;
+    button.textContent = 'Read quote';
+    button.setAttribute('aria-label', 'Read quote by ' + personName);
+    card.querySelector('figcaption strong').append(button);
+    return { card, topic, personName };
+  });
+  for (const topic of new Set(records.map(record => record.topic))) select.add(new Option(topic, topic));
+  const credits = new Map(Array.from(page.querySelectorAll('.kk-test-credits li'), item => [item.dataset.credit, item.querySelector('a')]));
+  let selection = records;
+  let position = 0;
+  let trigger;
+
+  const render = () => {
+    const { card, topic, personName } = selection[position];
+    const caption = card.querySelector('figcaption');
+    name.textContent = personName;
+    eyebrow.textContent = topic;
+    context.textContent = caption.querySelector('.kk-test-context')?.textContent || '';
+    quote.replaceChildren(...Array.from(card.querySelector('blockquote').children, child => child.cloneNode(true)));
+    source.hidden = true;
+    const author = caption.querySelector('strong a');
+    if (card.dataset.quoteSource || author) {
+      source.href = card.dataset.quoteSource || author.href;
+      source.textContent = card.dataset.sourceLabel || 'Author profile';
+      source.hidden = false;
+    }
+    const portrait = card.querySelector('.kk-test-portrait');
+    photo.hidden = !portrait;
+    dialog.classList.toggle('kk-test-reader-has-photo', Boolean(portrait));
+    if (portrait) {
+      image.src = portrait.querySelector('img').src;
+      image.alt = personName;
+      image.dataset.portrait = portrait.dataset.portrait;
+      const credit = credits.get(portrait.dataset.portrait);
+      photoSource.href = credit.href;
+      photoSource.textContent = 'Photo · ' + credit.firstChild.textContent.trim();
+    } else {
+      image.removeAttribute('src');
+    }
+    count.textContent = (position + 1) + ' of ' + selection.length;
+    previous.disabled = position === 0;
+    next.disabled = position === selection.length - 1;
+    dialog.scrollTop = 0;
+  };
+  const move = step => {
+    const target = position + step;
+    if (target < 0 || target >= selection.length) return;
+    position = target;
+    render();
+  };
+  const open = (button, index) => {
+    trigger = button;
+    select.value = 'all';
+    selection = records;
+    position = index;
+    render();
+    dialog.showModal();
+  };
+  page.addEventListener('click', event => {
+    const button = event.target.closest('.kk-test-read');
+    if (button) open(button, Number(button.dataset.quoteIndex));
+  });
+  const explore = page.querySelector('.kk-test-explore');
+  explore.hidden = false;
+  explore.addEventListener('click', () => open(explore, 0));
+  previous.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+  select.addEventListener('change', () => {
+    selection = select.value === 'all' ? records : records.filter(record => record.topic === select.value);
+    position = 0;
+    render();
+  });
+  dialog.addEventListener('keydown', event => {
+    if (event.target.matches('select, input, textarea')) return;
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      move(event.key === 'ArrowLeft' ? -1 : 1);
+    }
+  });
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener('close', () => {
+    quote.replaceChildren();
+    image.removeAttribute('src');
+    trigger.focus({ preventScroll: true });
+  });
+})();
+(() => {
+  const page = document.querySelector('.kk-testimonials');
+  const search = page.querySelector('.kk-test-search');
+  const form = search.querySelector('form');
+  const input = form.querySelector('input');
+  const clear = form.querySelector('button');
+  const status = search.querySelector('[role="status"]');
+  const results = search.querySelector('.kk-test-search-results');
+  const archive = Array.from(page.querySelectorAll('.kk-test-section'));
+  const normalize = (value) => value.normalize('NFD').replace(/\p{Mark}/gu, '').toLocaleLowerCase();
+  const records = Array.from(page.querySelectorAll('.kk-test-card'), (card) => {
+    const topic = card.closest('.kk-test-section')?.querySelector('h2').textContent || '';
+    return { card, text: normalize(card.textContent + ' ' + topic) };
+  });
+
+  const update = () => {
+    const query = normalize(input.value.trim());
+    const terms = query ? query.split(/\s+/) : [];
+    const matches = query ? records.filter((record) => terms.every((term) => record.text.includes(term))) : [];
+    archive.forEach((section) => { section.hidden = Boolean(query); });
+    clear.disabled = !query;
+    results.hidden = !matches.length;
+    status.textContent = query
+      ? (matches.length ? matches.length + (matches.length === 1 ? ' testimonial found' : ' testimonials found') : 'No testimonials match. Try a different name or phrase.')
+      : '';
+    results.replaceChildren(...matches.map(({ card }) => {
+      const match = card.cloneNode(true);
+      match.classList.remove('kk-test-lead');
+      return match;
+    }));
+  };
+
+  const reset = () => {
+    input.value = '';
+    update();
+  };
+
+  form.addEventListener('submit', (event) => event.preventDefault());
+  input.addEventListener('input', update);
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && input.value) reset();
+  });
+  clear.addEventListener('click', () => {
+    reset();
+    input.focus();
+  });
+  page.querySelectorAll('.kk-test-nav a:not(.kk-test-search-jump)').forEach((link) => {
+    link.addEventListener('click', reset);
+  });
+  search.hidden = false;
+  page.querySelector('.kk-test-search-jump').hidden = false;
+})();
+(() => {
+  const page = document.querySelector('.kk-testimonials');
+  const dialog = page.querySelector('.kk-test-photo-dialog');
+  if (typeof dialog.showModal !== 'function') return;
+
+  const title = dialog.querySelector('strong');
+  const image = dialog.querySelector('img');
+  const source = dialog.querySelector('a');
+  const credits = new Map(Array.from(page.querySelectorAll('.kk-test-credits li'), (item) => [
+    item.dataset.credit, item.querySelector('a'),
+  ]));
+  let trigger;
+
+  page.querySelectorAll('button.kk-test-portrait').forEach((button) => {
+    button.disabled = false;
+  });
+
+  page.addEventListener('click', (event) => {
+    const button = event.target.closest('button.kk-test-portrait');
+    if (!button) return;
+    const credit = credits.get(button.dataset.portrait);
+    trigger = button;
+    title.textContent = button.dataset.person;
+    image.src = button.querySelector('img').src;
+    source.href = credit.href;
+    source.textContent = 'Photo source · ' + credit.firstChild.textContent.trim();
+    dialog.showModal();
+  });
+
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener('close', () => {
+    image.removeAttribute('src');
+    trigger.focus({ preventScroll: true });
+  });
+})();
+</script>
 <!-- /wp:html -->

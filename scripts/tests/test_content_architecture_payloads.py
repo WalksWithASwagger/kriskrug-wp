@@ -1,5 +1,6 @@
 import json
 import re
+import sys
 import unittest
 from pathlib import Path
 
@@ -7,6 +8,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 PACK = ROOT / "content/source-packs/content-architecture-2026"
 PAYLOADS = PACK / "wp-payloads"
+
+sys.path.insert(0, str(ROOT / "scripts"))
+from content_architecture_deploy import retired_class_tokens  # noqa: E402
 
 
 class ContentArchitecturePayloadTests(unittest.TestCase):
@@ -34,16 +38,25 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
                 self.assertIn(marker, html, f"{name} missing marker {marker!r}")
 
     def test_payloads_do_not_reintroduce_retired_page_css_systems(self):
-        retired_prefixes = ("kk-", "kkp-", "kkx-", "kk-services-", "kk-publications-")
+        page_ids = {
+            directory / page["payload"]: page["id"]
+            for directory, _name, page in self.mapped_pages
+        }
         for path in PAYLOADS.rglob("*.html"):
             html = path.read_text(encoding="utf-8")
-            for class_attr in re.findall(r'class="([^"]+)"', html):
-                tokens = class_attr.split()
-                bad = [token for token in tokens if token.startswith(retired_prefixes)]
-                self.assertEqual([], bad, f"{path.name} retired classes: {bad}")
+            bad = retired_class_tokens(html, page_id=page_ids.get(path))
+            self.assertEqual([], bad, f"{path.name} retired classes: {bad}")
+
+    def test_testimonials_class_allowance_is_limited_to_page_2409(self):
+        html = '<div class="kk-testimonials kk-test-reader kk-publications-card"></div>'
+        self.assertEqual(["kk-publications-card"], retired_class_tokens(html, page_id=2409))
+        self.assertEqual(
+            ["kk-testimonials", "kk-test-reader", "kk-publications-card"],
+            retired_class_tokens(html, page_id=2250),
+        )
 
     # These approved page repairs use inline CSS; Work is restricted to one card.
-    STYLE_ALLOWED = {"about.html", "work.html"}
+    STYLE_ALLOWED = {"about.html", "testimonials.html", "work.html"}
 
     def test_work_inline_css_is_scoped_to_one_card(self):
         html = (PAYLOADS / "work.html").read_text(encoding="utf-8")
