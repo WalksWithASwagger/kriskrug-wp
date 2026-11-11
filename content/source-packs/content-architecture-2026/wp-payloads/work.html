@@ -1,143 +1,389 @@
 <!-- wp:html -->
 <!-- content-architecture-2026:work -->
 <style>
-#kk-work-bcai-card {
-  --revive-ink: #efe6d2;
-  --revive-ink-soft: #efe6d2;
+body.aurora-theme.page-id-2672 #aurora-main:has(.work-editorial) {
+  padding-block: 0;
+  margin-block-start: 0;
 }
-#kk-work-bcai-card > a > div {
-  background: #171310;
+body.aurora-theme.page-id-2672 #aurora-main:has(.work-editorial) .aurora-page-header {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  margin: -1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
-#kk-work-bcai-card h3 {
-  font-size: 1.25rem;
-  line-height: 1.2;
-  margin: 0 0 0.5rem;
+body.aurora-theme.page-id-2672 #aurora-main .wp-block-post-content:has(.work-editorial) {
+  margin-block: 0;
 }
-#kk-work-bcai-card p {
-  font-size: 1rem;
-  line-height: 1.5;
+.work-editorial {
+  --work-paper: #f1ebd9;
+  --work-ink: #24231c;
+  --work-forest: #143d35;
+  --work-lime: #e0e9a7;
+  --work-line: #c6bea9;
+  --work-muted: #565043;
+  --work-gutter: clamp(16px, 4vw, 48px);
+  --work-serif: Georgia, "Times New Roman", serif;
+  --work-sans: var(--wp--preset--font-family--body, "DM Sans", system-ui, sans-serif);
+  --revive-ink: var(--work-ink);
+  --aurora-ink: var(--work-ink);
+  max-width: none !important;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw) !important;
+  color: var(--work-ink);
+  background: var(--work-paper);
+  font: 1rem/1.55 var(--work-sans);
+}
+.work-editorial * {
+  box-sizing: border-box;
+}
+.work-editorial .work-wrap {
+  max-width: 1336px;
+  margin-inline: auto;
+  padding-inline: var(--work-gutter);
+}
+.work-editorial h2,
+.work-editorial h3 {
+  color: var(--work-heading, var(--work-ink)) !important;
+  -webkit-text-fill-color: currentColor !important;
+  border: 0;
+  padding: 0;
+  font: 400 clamp(2rem, 4vw, 3.65rem)/1.02 var(--work-serif);
+  letter-spacing: -.045em;
+}
+.work-editorial h2::before,
+.work-editorial h2::after,
+.work-editorial h3::before,
+.work-editorial h3::after {
+  content: none;
+}
+.work-editorial p::first-letter,
+.work-editorial li::first-letter {
+  initial-letter: normal !important;
+  font: inherit !important;
+  float: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+  background: transparent !important;
+}
+.work-editorial figure,
+.work-editorial p,
+.work-editorial h2,
+.work-editorial h3 {
   margin: 0;
 }
+.work-editorial a {
+  color: var(--work-link, var(--work-forest));
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .22em;
+  transition: text-underline-offset .18s ease;
+}
+.work-editorial a:hover {
+  color: var(--work-link, var(--work-forest));
+  text-underline-offset: .36em;
+}
+.work-editorial a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+.work-editorial [id] {
+  scroll-margin-block-start: 100px;
+}
+.work-editorial .work-opening {
+  --work-heading: var(--work-paper);
+  --work-link: var(--work-lime);
+  --revive-ink: var(--work-paper);
+  --revive-ink-soft: var(--work-paper);
+  --aurora-ink: var(--work-paper);
+  --aurora-ink-soft: var(--work-paper);
+  color: var(--work-paper);
+  background: var(--work-forest);
+  padding-block: clamp(26px, 5vw, 68px);
+}
+.work-editorial .work-feature {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(22px, 5vw, 72px);
+}
+.work-editorial .work-opening h2 {
+  margin-block: .2em .3em;
+  font-size: clamp(3rem, 6.4vw, 6.5rem);
+  text-wrap: balance;
+}
+.work-editorial .work-kicker {
+  font: 700 .75rem/1.35 var(--work-sans);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.work-editorial .work-opening .work-kicker {
+  --revive-ink-soft: var(--work-lime);
+  --aurora-ink-soft: var(--work-lime);
+  color: var(--work-lime);
+}
+.work-editorial .work-lead {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  max-width: 41ch;
+}
+.work-editorial .work-feature-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin-block: 18px 0;
+}
+.work-editorial .work-feature-links a,
+.work-editorial .work-case-links a,
+.work-editorial .work-paths a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.work-editorial .work-feature-links .work-button {
+  padding: 8px 14px;
+  color: var(--work-forest) !important;
+  background: var(--work-lime);
+  text-decoration: none;
+}
+.work-editorial .work-feature-links .work-button:hover {
+  text-decoration: underline;
+}
+.work-editorial .work-feature-links .work-button:focus-visible {
+  outline-color: var(--work-lime);
+}
+.work-editorial img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.work-editorial .work-opening img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.work-editorial figcaption {
+  color: var(--work-muted) !important;
+  -webkit-text-fill-color: currentColor !important;
+  margin: .65rem 0 0;
+  text-align: left;
+  font: 400 .78rem/1.45 var(--work-sans);
+}
+.work-editorial .work-opening figcaption {
+  color: var(--work-paper) !important;
+}
+.work-editorial .work-studies {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(30px, 5vw, 72px);
+  padding-block: clamp(35px, 6vw, 82px);
+}
+.work-editorial .work-study .work-kicker {
+  color: var(--work-muted);
+  margin: 1rem 0 .55rem;
+}
+.work-editorial .work-study h2 {
+  margin-block-end: .4em;
+  font-size: clamp(2.2rem, 3.8vw, 3.5rem);
+}
+.work-editorial .work-study figure img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.work-editorial .work-study-storm figure img {
+  object-fit: contain;
+  background: #1a151f;
+}
+.work-editorial .work-case-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 14px;
+  margin-block: .6rem 0;
+}
+.work-editorial .work-index {
+  padding-block: clamp(32px, 5vw, 64px);
+  border-block: 1px solid var(--work-line);
+}
+.work-editorial .work-index-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: 12px 2rem;
+  margin-block-end: 1.5rem;
+}
+.work-editorial .work-index-header p {
+  max-width: 49ch;
+}
+.work-editorial .work-project-groups {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px clamp(30px, 5vw, 72px);
+}
+.work-editorial .work-project-groups h3 {
+  margin-block: 0 .45rem;
+  font: 700 .85rem/1.4 var(--work-sans);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.work-editorial .work-projects {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.work-editorial .work-projects li {
+  margin: 0;
+  padding: 0;
+  border-block-start: 1px solid var(--work-line);
+}
+.work-editorial .work-projects a {
+  display: grid;
+  gap: 2px;
+  padding: 12px 3px;
+  min-height: 44px;
+  text-decoration: none;
+}
+.work-editorial .work-projects strong {
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: .21em;
+}
+.work-editorial .work-projects a:hover strong {
+  text-underline-offset: .35em;
+}
+.work-editorial .work-projects span {
+  color: var(--work-muted);
+  line-height: 1.42;
+}
+.work-editorial .work-next {
+  padding-block: clamp(32px, 5vw, 64px);
+}
+.work-editorial .work-next p {
+  margin-block: .7rem 0;
+  max-width: 60ch;
+}
+.work-editorial .work-paths {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
+  margin-block: 12px 0;
+}
+@media (max-width: 720px) {
+  .work-editorial .work-feature,
+  .work-editorial .work-studies,
+  .work-editorial .work-index-header,
+  .work-editorial .work-project-groups {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .work-editorial .work-opening h2 {
+    font-size: clamp(2.85rem, 12vw, 4.8rem);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-editorial a {
+    transition: none;
+  }
+}
 </style>
-<section class="aurora-proof-section">
-  <p class="aurora-section-kicker">Work</p>
-  <h2 class="aurora-display-heading">Systems, rooms, stories, and strange machines.</h2>
-  <p class="aurora-page-lead">My work lives where creative technology meets public culture: AI community infrastructure, keynote systems, responsible training, visual storytelling, and experimental internet projects that help people make sense of what is coming.</p>
-</section>
+<div class="work-editorial alignfull">
+  <section class="work-opening" aria-labelledby="work-futureproof">
+    <article class="work-wrap work-feature">
+      <div>
+        <p class="work-kicker">Selected work · Festival and public archive</p>
+        <h2 id="work-futureproof">Futureproof Festival of AI</h2>
+        <p class="work-lead">I founded Futureproof to bring artists, builders and skeptics into one room. I directed three days at Vancouver’s Space Centre and wrote the public proceedings.</p>
+        <div class="work-feature-links">
+          <a class="work-button" href="https://www.futureproof.website/2026/proceedings/">Read the proceedings</a>
+          <a href="#project-index">Browse all projects</a>
+        </div>
+      </div>
+      <figure>
+        <img src="https://bc-ai.ca/images/futureproof/day-three/FPD3-576.webp" width="1800" height="1200" alt="The festival crew gathers onstage beneath a projected thank-you message." fetchpriority="high" decoding="async">
+        <figcaption>Futureproof closing night, October 30, 2026. Photo by Michelle Diamond / Diamond’s Edge Photography. <a href="https://bc-ai.ca/news/the-robots-in-the-lobby">Festival recap</a></figcaption>
+      </figure>
+    </article>
+  </section>
 
-<section class="aurora-proof-section">
-  <p class="aurora-section-kicker">Featured systems</p>
-  <div class="aurora-proof-grid">
-    <article id="kk-work-bcai-card" class="aurora-media-card">
-      <a href="https://bc-ai.ca/" style="text-decoration: none;">
-        <img src="https://kriskrug.co/wp-content/themes/kk-aurora/assets/img/bcai-living-ecosystem.jpg" alt="BC AI ecosystem network graphic" loading="lazy">
-        <div>
-          <h3>BC + AI Ecosystem</h3>
-          <p>Community infrastructure for responsible and inclusive AI across British Columbia.</p>
-        </div>
-      </a>
+  <section class="work-wrap work-studies" aria-label="More case studies">
+    <article class="work-study" aria-labelledby="work-meetup">
+      <figure>
+        <img src="https://www.futureproof.website/photos/community/futureproof-photo-library/web/fph-087-nov2025-bcai-michellediamond-171.webp" width="1800" height="1200" alt="People watch a panel from the seats of the Space Centre auditorium." loading="lazy" decoding="async">
+        <figcaption>Vancouver AI Meetup, November 2025. Photo by Michelle Diamond. <a href="https://www.futureproof.website/press/assets/">Image source</a></figcaption>
+      </figure>
+      <p class="work-kicker">Community · Monthly since 2024</p>
+      <h2 id="work-meetup">Vancouver AI Meetup</h2>
+      <p>I started a monthly gathering in my studio for people who wanted to show their work and talk about what AI was doing to it. I still host and curate the program. The public archive keeps the talks, recordings and photo recaps reachable after the room empties.</p>
+      <div class="work-case-links">
+        <a href="https://bc-ai.ca/events/series/vancouver-ai-meetup">Explore the meetup archive</a>
+        <a href="https://bc-ai.ca/news/vancouver-ai-meetup-32-data-for-good-taleeb-noormohamed-recap">Read a night’s recap</a>
+      </div>
     </article>
-    <article class="aurora-media-card">
-      <a href="/responsible-ai-professional/" style="text-decoration: none;">
-        <img src="https://kriskrug.co/wp-content/uploads/2026/05/rap-why-we-built-cover.png" alt="Responsible AI Professional certification cover" loading="lazy">
-        <div>
-          <h3>Responsible AI Professional</h3>
-          <p>A cohort-based certification for teams who need practical ethics while shipping real systems.</p>
-        </div>
-      </a>
-    </article>
-    <article class="aurora-media-card">
-      <a href="/speaking/" style="text-decoration: none;">
-        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-25-scaled.jpg?w=1200&amp;ssl=1" alt="Kris Krug speaking on stage at LaSalle College Vancouver" loading="lazy">
-        <div>
-          <h3>AI keynotes</h3>
-          <p>Talks and workshops about AI, taste, creativity, community, responsibility, and what we refuse to automate.</p>
-        </div>
-      </a>
-    </article>
-    <article class="aurora-media-card">
-      <a href="https://indigenomics.ai/" style="text-decoration: none;">
-        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2025/04/image-19.png?w=1200&amp;ssl=1" alt="Indigenomics AI visual from Kris Krug's public writing" loading="lazy">
-        <div>
-          <h3>Indigenomics AI</h3>
-          <p>Support for Indigenous-led conversations about technology, sovereignty, economics, and future-building.</p>
-        </div>
-      </a>
-    </article>
-  </div>
-</section>
 
-<section class="aurora-proof-section">
-  <p class="aurora-section-kicker">Creative AI Human Lab</p>
-  <div class="aurora-proof-grid">
-    <article class="aurora-media-card">
-      <a href="https://www.bothhandsfull.com/" style="text-decoration: none;" aria-label="Explore Both Hands Full">
-        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-25-scaled.jpg?w=1200&amp;ssl=1" width="1200" height="800" alt="Kris Krug presenting Both Hands Full at LaSalle College Vancouver" loading="lazy" decoding="async">
-        <span class="aurora-card-label">Keynote portal</span>
-        <div>
-          <h3>Both Hands Full</h3>
-          <p>A keynote, album, and operating metaphor for staying human while the tools get faster.</p>
-        </div>
-      </a>
+    <article class="work-study work-study-storm" aria-labelledby="work-storm">
+      <figure>
+        <img src="https://lightningstrike.org/__l5e/assets-v1/a6927ff4-8d22-4103-a21e-5a136ae28ef0/the-sky-smoked-back-social-v1.jpg" width="1200" height="630" alt="The Sky Smoked Back title over purple lightning above a Vancouver porch." loading="lazy" decoding="async">
+        <figcaption>Key art from The Sky Smoked Back.</figcaption>
+      </figure>
+      <p class="work-kicker">Film · Interactive web</p>
+      <h2 id="work-storm">The Sky Smoked Back</h2>
+      <p>I made a 56-second film with Suzy Easton about one rare Vancouver lightning night. The site pairs it with a storm you can run in your browser and a map for people to share their own memories of that night.</p>
+      <div class="work-case-links">
+        <a href="https://lightningstrike.org/">Watch the film and explore the map</a>
+      </div>
     </article>
-    <article class="aurora-media-card">
-      <a href="https://www.punkrockai.com/" style="text-decoration: none;" aria-label="Explore Punk Rock AI">
-        <img src="https://i0.wp.com/www.punkrockai.com/public/photos/michelle-diamond/195.webp?w=1200&amp;ssl=1" width="1200" height="800" alt="Kris Krug speaking at CreativeMornings Vancouver for Punk Rock AI" loading="lazy" decoding="async">
-        <span class="aurora-card-label">Creative rebellion</span>
-        <div>
-          <h3>Punk Rock AI</h3>
-          <p>Writing, talks, and experiments for people who want the technology without the obedience training.</p>
-        </div>
-      </a>
-    </article>
-    <article class="aurora-media-card">
-      <a href="https://unofficial.city/" style="text-decoration: none;" aria-label="Explore unofficial.city">
-        <img src="https://unofficial.city/og.jpg" width="1200" height="630" alt="MADE ON double silver graphic with the Nardwuar FC kit" loading="lazy" decoding="async">
-        <span class="aurora-card-label">Local artifacts</span>
-        <div>
-          <h3>unofficial.city</h3>
-          <p>MADE ON: a protest kit collection that cites its sources, shows its process, and names the numbers.</p>
-        </div>
-      </a>
-    </article>
-    <article class="aurora-media-card">
-      <a href="https://darkcrystal.app/" style="text-decoration: none;" aria-label="Explore Dark Crystal">
-        <img src="https://darkcrystal.app/lab/opengraph-image" width="1200" height="630" alt="Dark Crystal wordmark and anti-slop machine" loading="lazy" decoding="async">
-        <span class="aurora-card-label">Anti-slop machine</span>
-        <div>
-          <h3>Dark Crystal</h3>
-          <p>A live facet that eats slop, refuses at the edge, and hands back one clean human sentence.</p>
-        </div>
-      </a>
-    </article>
-    <article class="aurora-media-card">
-      <a href="https://lightningstrike.org/" style="text-decoration: none;" aria-label="Explore The Sky Smoked Back">
-        <img src="https://lightningstrike.org/__l5e/assets-v1/a6927ff4-8d22-4103-a21e-5a136ae28ef0/the-sky-smoked-back-social-v1.jpg" width="1200" height="630" alt="The Sky Smoked Back title over purple lightning above a Vancouver porch" loading="lazy" decoding="async">
-        <span class="aurora-card-label">Storm film</span>
-        <div>
-          <h3>The Sky Smoked Back</h3>
-          <p>A 56-second film, live browser storm, and public memory map made from one rare Vancouver lightning night.</p>
-        </div>
-      </a>
-    </article>
-    <article class="aurora-media-card">
-      <a href="/photography/" style="text-decoration: none;" aria-label="Explore the photography archive">
-        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/20067931301_e7a16b6f2c_k-1.jpg?w=1200&amp;ssl=1" width="1200" height="772" alt="Kris Krug backstage with Malcolm Gladwell from the photography archive" loading="lazy" decoding="async">
-        <span class="aurora-card-label">Visual archive</span>
-        <div>
-          <h3>Photography archive</h3>
-          <p>Two decades of visual storytelling from conferences, movements, expeditions, music, and the people inside the machine.</p>
-        </div>
-      </a>
-    </article>
-  </div>
-</section>
+  </section>
 
-<section class="aurora-proof-section">
-  <div class="aurora-card">
-    <h2>Bring this work into your room</h2>
-    <p>If you need a keynote, training program, ecosystem partner, or creative AI collaborator, start with the shape of the room and the people it needs to serve.</p>
-    <p><a class="aurora-button" href="/contact/">Talk about a project</a></p>
-  </div>
-</section>
+  <section id="project-index" class="work-index" aria-labelledby="work-projects-title" tabindex="-1">
+    <div class="work-wrap">
+      <div class="work-index-header">
+        <h2 id="work-projects-title">Project index</h2>
+        <p>Systems, rooms, stories, and strange machines. The rest of the work, from community infrastructure to small corners of the internet.</p>
+      </div>
+      <div class="work-project-groups">
+        <div>
+          <h3>Community and practice</h3>
+          <ul class="work-projects">
+            <li><a href="https://bc-ai.ca/"><strong>BC + AI Ecosystem</strong><span>Community infrastructure for responsible AI in British Columbia.</span></a></li>
+            <li><a href="/responsible-ai-professional/"><strong>Responsible AI Professional</strong><span>Practical ethics training for teams shipping real systems.</span></a></li>
+            <li><a href="/speaking/"><strong>AI keynotes</strong><span>Talks and workshops about creativity, taste and responsibility.</span></a></li>
+            <li><a href="https://indigenomics.ai/"><strong>Indigenomics Institute</strong><span>Past work as CTO at the intersection of technology, sovereignty and Indigenous economic futures.</span></a></li>
+            <li><a href="https://ethosblockparty.com/the-day"><strong>Ethos Lab Block Party</strong><span>Eleven songs from conversations in one afternoon, made with consent.</span></a></li>
+            <li><a href="/photography/"><strong>Photography archive</strong><span>Two decades of people, movements, music and expeditions.</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Creative AI Human Lab</h3>
+          <ul class="work-projects">
+            <li><a href="https://www.bothhandsfull.com/"><strong>Both Hands Full</strong><span>A keynote portal about staying human as the tools get faster.</span></a></li>
+            <li><a href="https://www.bothhandsfull.com/album/too-weird-to-die"><strong>Too Weird to Die</strong><span>A concept album about consent, defiance and survival.</span></a></li>
+            <li><a href="https://www.punkrockai.com/"><strong>Punk Rock AI</strong><span>Writing, talks and experiments for people who like their tools with a little friction.</span></a></li>
+            <li><a href="https://skywhaleairways.com/"><strong>Skywhale Airways</strong><span>A short film and an airport for time travelers, made with Suzy Easton.</span></a></li>
+            <li><a href="https://gorgeousghost.com/"><strong>Gorgeous Ghost</strong><span>A film, song and Signal Atlas from Planet Andromeda.</span></a></li>
+            <li><a href="https://wedges.dev/"><strong>Wedges</strong><span>A remote MCP server that gives agents your taste before they touch your work.</span></a></li>
+            <li><a href="https://ghost.radio.fm/"><strong>Ghost Radio</strong><span>A broadcast for the haunted, song-shaped side of the lab.</span></a></li>
+            <li><a href="https://darkcrystal.app/"><strong>Dark Crystal</strong><span>A tool for cutting through slop to one clean sentence.</span></a></li>
+            <li><a href="https://unofficial.city/"><strong>unofficial.city</strong><span>MADE ON, a protest kit collection with its sources and process in view.</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="work-wrap work-next" aria-labelledby="work-next-title">
+    <h2 id="work-next-title">What are you building?</h2>
+    <p>Tell me about the people, the room and what you want to make together.</p>
+    <nav class="work-paths" aria-label="Explore related work">
+      <a href="/contact/#inquiries">Talk about a project</a>
+      <a href="/generative-ai-services/">Explore services</a>
+      <a href="/speaking/">See talks and workshops</a>
+      <a href="/photography/">Explore the photo archive</a>
+    </nav>
+  </section>
+</div>
 <!-- /wp:html -->
