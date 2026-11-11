@@ -55,18 +55,29 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
             retired_class_tokens(html, page_id=2250),
         )
 
-    # These approved page repairs use inline CSS; Work is restricted to one card.
-    STYLE_ALLOWED = {"about.html", "testimonials.html", "work.html"}
+    # These page payloads use inline CSS scoped to their own markup.
+    STYLE_ALLOWED = {"about.html", "speaking.html", "testimonials.html", "work.html"}
 
-    def test_work_inline_css_is_scoped_to_one_card(self):
+    def test_work_inline_css_is_scoped_to_work_page(self):
         html = (PAYLOADS / "work.html").read_text(encoding="utf-8")
         styles = re.findall(r"<style>(.*?)</style>", html, re.DOTALL)
         self.assertEqual(1, len(styles))
-        selectors = re.findall(r"(?:^|})\s*([^{}]+)\{", styles[0])
+        selectors = re.findall(r"([^{}]+)\{[^{}]*\}", styles[0])
         self.assertTrue(selectors)
         for selector_list in selectors:
             for selector in selector_list.split(","):
-                self.assertRegex(selector.strip(), r"^#kk-work-bcai-card(?:\s|$)")
+                self.assertRegex(
+                    selector.strip(),
+                    r"^(?:\.work-editorial|body\.aurora-theme\.page-id-2672 #aurora-main)(?:\s|:|$)",
+                )
+
+    def test_speaking_preserves_direct_recordings_without_eager_player(self):
+        html = (PAYLOADS / "speaking.html").read_text(encoding="utf-8")
+        self.assertNotIn("<iframe", html)
+        self.assertIn('href="https://www.youtube.com/watch?v=hYT-hsml_ds"', html)
+        self.assertIn('href="https://www.youtube.com/watch?v=-c7mgY2aSgM&amp;t=11s"', html)
+        self.assertIn('href="/contact/#inquiries"', html)
+        self.assertEqual(6, html.count('<article class="speaking-talk"'))
 
     def test_payloads_are_body_only_and_public_safe(self):
         forbidden_fragments = (
