@@ -4,14 +4,14 @@
     "slug": "generative-ai-services",
     "url": "https://kriskrug.co/generative-ai-services/",
     "payload": "services.html",
-    "markers": ["AI strategy for people who still care about culture", "Community systems", "Book an AI strategy session"]
+    "markers": ["AI for the work you actually do.", "Community systems", "/contact/#strategy-training-inquiry"]
   },
   "contact": {
     "id": 2418,
     "slug": "contact",
     "url": "https://kriskrug.co/contact/",
     "payload": "contact.html",
-    "markers": ["Tell me what kind of room you are building", "feelmoreplants@gmail.com", "The fastest path"]
+    "markers": ["showpiece-page", "mailto:feelmoreplants@gmail.com", "What to include", "id=\"strategy-training-inquiry\""]
   },
   "work": {
     "id": 2672,

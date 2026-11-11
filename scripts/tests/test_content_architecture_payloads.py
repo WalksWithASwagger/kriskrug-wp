@@ -85,14 +85,41 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
             html = path.read_text(encoding="utf-8")
             lowered = html.lower()
             for fragment in forbidden_fragments:
-                if fragment == "<style" and path.name in self.STYLE_ALLOWED:
+                if fragment == "<style" and (
+                    path.name in self.STYLE_ALLOWED
+                    or path.parent == PAYLOADS and path.name in self.SCOPED_PAGE_STYLES
+                ):
                     continue
                 self.assertNotIn(fragment, lowered, f"{path.name} contains {fragment}")
+
+    SCOPED_PAGE_STYLES = {"services.html": 2666, "contact.html": 2418}
+
+    def test_inline_styles_are_scoped_to_their_wordpress_pages(self):
+        page_ids = {
+            directory / page["payload"]: page["id"]
+            for directory, _name, page in self.mapped_pages
+        }
+        for filename, page_id in self.SCOPED_PAGE_STYLES.items():
+            path = PAYLOADS / filename
+            self.assertEqual(page_id, page_ids[path])
+            html = path.read_text(encoding="utf-8")
+            styles = re.findall(r"<style>(.*?)</style>", html, re.DOTALL)
+            self.assertEqual(1, len(styles), filename)
+            css = re.sub(r"/\*.*?\*/", "", styles[0], flags=re.DOTALL)
+            self.assertNotIn("@import", css)
+            selectors = re.findall(r"(?:^|(?<=[{}]))\s*([^{}]+?)\s*\{", css)
+            self.assertTrue(selectors, filename)
+            scope = f"body.aurora-theme.page-id-{page_id} #aurora-main"
+            for selector_list in selectors:
+                if selector_list.startswith("@media "):
+                    continue
+                for selector in re.split(r",\s*(?![^()]*\))", selector_list):
+                    self.assertRegex(selector.strip(), rf"^{re.escape(scope)}(?:[\s.:]|$)", filename)
 
     def test_contact_preserves_existing_email_path(self):
         html = (PAYLOADS / "contact.html").read_text(encoding="utf-8")
         self.assertIn("mailto:feelmoreplants@gmail.com", html)
-        self.assertIn("Send the note", html)
+        self.assertIn('href="mailto:feelmoreplants@gmail.com">Email Kris</a>', html)
 
     def test_work_payloads_include_the_sky_smoked_back(self):
         paths = (
