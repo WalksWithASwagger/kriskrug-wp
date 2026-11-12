@@ -69,6 +69,8 @@ Skip a row if that exact `href` + anchor already exists.
 
 Page 12013 is also an #480 write surface. `content/source-packs/content-architecture-2026/issue-480-retire-inline-css/photography.html` is a full-page replacement **without** these two links. If that payload is applied after these links land, it will wipe them unless it is re-cut.
 
+Update 2026-11: the #480 pack is superseded and must not be applied (#1223). #480 closed on 2026-10-10 and the November redesigns (#1201 to #1205) replaced the Photography body; the canonical payload is `content/source-packs/content-architecture-2026/wp-payloads/photography.html`.
+
 Sequencing: **#826 live first, then #827, then re-cut the #480 photography payload if needed.** Do not apply #480 photography.html as it stands after this pack.
 
 ## Commands
