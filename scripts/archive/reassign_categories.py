@@ -3,7 +3,13 @@
 categories, drop Misc, add the mapped primary; preserve any other categories).
 Records prior categories for rollback. Default dry-run; --execute writes."""
 from __future__ import annotations
-import argparse, base64, html, json, re, sys, urllib.request, urllib.error, datetime
+import argparse
+import base64
+import json
+import re
+import urllib.request
+import urllib.error
+import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -30,7 +36,8 @@ def load_env():
     for line in open(ENV):
         line=line.strip()
         if "=" in line and not line.startswith("#"):
-            k,v=line.split("=",1); e[k]=v.strip()
+            k,v=line.split("=",1)
+            e[k]=v.strip()
     return e
 
 def main():
@@ -49,8 +56,10 @@ def main():
         r=urllib.request.Request(base+path,
             data=json.dumps(payload).encode() if payload else None,
             headers={"Authorization":f"Basic {auth}","Content-Type":"application/json"},method=method)
-        try: return json.load(urllib.request.urlopen(r,timeout=40))
-        except urllib.error.HTTPError as ex: return {"_err":ex.code}
+        try:
+            return json.load(urllib.request.urlopen(r,timeout=40))
+        except urllib.error.HTTPError as ex:
+            return {"_err":ex.code}
 
     def strip(h): return re.sub(r"\s+"," ",re.sub(r"<[^>]+>"," ",h or "")).strip()
 
@@ -59,8 +68,10 @@ def main():
     page=1
     while True:
         b=req("GET",f"/posts?categories={MISC_ID}&per_page=100&page={page}&status=publish&_fields=id,slug,title,excerpt,categories")
-        if not isinstance(b,list) or not b: break
-        posts+=b; page+=1
+        if not isinstance(b,list) or not b:
+            break
+        posts+=b
+        page+=1
     print(f"{len(posts)} Misc posts", flush=True)
 
     PHOTO_SIGNALS=["photo","flickr","portrait","camera","shoot","gallery","exhibit"," lens","instagram","film festival","documentary"]
@@ -69,7 +80,8 @@ def main():
         tx=(strip(post['title'].get('rendered') if isinstance(post['title'],dict) else '')+" "+
             strip(post['excerpt'].get('rendered') if isinstance(post['excerpt'],dict) else '')).lower()
         for name,kws in RULES:
-            if any(k in tx for k in kws): return name,"high"
+            if any(k in tx for k in kws):
+                return name,"high"
         # legacy era fallback (only used when --legacy): photo-signal -> Photography, else early blog
         if any(k in tx for k in PHOTO_SIGNALS):
             return "Photography & Visual Storytelling","legacy"
@@ -81,22 +93,29 @@ def main():
     for post in posts:
         name,conf=classify(post)
         if conf=="legacy" and not args.legacy:
-            out["skipped_lowconf"]+=1; continue
+            out["skipped_lowconf"]+=1
+            continue
         target=NAMEMAP.get(name)
         if not target:
-            out["failed"]+=1; print(f"  no id for {name}",flush=True); continue
+            out["failed"]+=1
+            print(f"  no id for {name}",flush=True)
+            continue
         cur=post.get("categories") or []
         new=[c for c in cur if c!=MISC_ID]
-        if target not in new: new.append(target)
+        if target not in new:
+            new.append(target)
         if new==cur:
             continue  # nothing changes
         if not args.execute:
-            out["written"]+=1; continue
+            out["written"]+=1
+            continue
         r=req("POST",f"/posts/{post['id']}",{"categories":new})
         if isinstance(r,dict) and r.get("categories") and target in r["categories"] and MISC_ID not in r["categories"]:
-            out["written"]+=1; rollback.append({"id":post['id'],"old":cur,"new":new})
+            out["written"]+=1
+            rollback.append({"id":post['id'],"old":cur,"new":new})
         else:
-            out["failed"]+=1; print(f"  FAIL {post['id']} -> {r if isinstance(r,dict) and '_err' in r else 'verify'}",flush=True)
+            out["failed"]+=1
+            print(f"  FAIL {post['id']} -> {r if isinstance(r,dict) and '_err' in r else 'verify'}",flush=True)
         if out["written"]%50==0 and out["written"]:
             print(f"  ...{out['written']} reassigned",flush=True)
 
@@ -109,7 +128,8 @@ def main():
            f"- held in Misc (low-confidence, for content-read pass): {out['skipped_lowconf']}",
            f"- failed: {out['failed']}","",
            "## Rollback (id: old categories)",""]
-    for rb in rollback: lines.append(f"- {rb['id']}: {rb['old']} -> {rb['new']}")
+    for rb in rollback:
+        lines.append(f"- {rb['id']}: {rb['old']} -> {rb['new']}")
     rep.write_text("\n".join(lines)+"\n",encoding="utf-8")
     print(f"\nSUMMARY [{mode}]: reassigned={out['written']} held_lowconf={out['skipped_lowconf']} failed={out['failed']}",flush=True)
     print(f"report: {rep.relative_to(ROOT)}",flush=True)

@@ -29,7 +29,7 @@
 | Shortlink namespace | `wp.me/PaMVFO-*` |
 | Server IP | unknown (fronted by Pagely gateway) |
 
-> ⚠️ The repo's `docs/cloudways-setup.md` describes a *different* server — a Cloudways dev/staging instance at `24.144.80.107`. That is **not** production. Production lives on Pagely.
+> ⚠️ The repo's `docs/cloudways-setup.md` describes a *different* server — a Cloudways dev/staging instance at `<legacy-host>`. That is **not** production. Production lives on Pagely.
 
 ## Theme
 

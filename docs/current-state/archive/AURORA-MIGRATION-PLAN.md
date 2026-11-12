@@ -45,11 +45,11 @@ Staging-first gives us a safe surface to validate the migration without putting 
 
 ---
 
-## Staging server: Cloudways dev (24.144.80.107)
+## Staging server: Cloudways dev (<legacy-host>)
 
 Per [`docs/cloudways-setup.md`](../../cloudways-setup.md):
-- Server IP: `24.144.80.107`
-- SSH user: `master_qcteaefabe` (per the setup doc)
+- Server IP: `<legacy-host>`
+- SSH user: `<legacy-ssh-user>` (per the setup doc)
 - Password OR SSH key auth (KK to confirm which is set up)
 - The doc indicates this server already has WordPress installed and is intended as a dev/staging environment
 
@@ -62,7 +62,7 @@ If the server is reachable and KK has SSH credentials, the migration steps below
 ### Step 1: Verify the dev server is alive
 
 ```bash
-ssh master_qcteaefabe@24.144.80.107
+ssh <legacy-ssh-user>@<legacy-host>
 # OR via Cloudways web terminal at https://platform.cloudways.com
 hostname
 ls -la
@@ -95,7 +95,7 @@ git checkout claude/setup-wordpress-rebuild-KVLxh
 cp theme/kk-aurora.zip /tmp/
 
 # (b) scp from local:
-# (run from local) scp /Users/kk/Code/kriskrug-wp-aurora/theme/kk-aurora.zip master_qcteaefabe@24.144.80.107:/tmp/
+# (run from local) scp /Users/kk/Code/kriskrug-wp-aurora/theme/kk-aurora.zip <legacy-ssh-user>@<legacy-host>:/tmp/
 
 # (c) Upload via wp-admin → Appearance → Themes → Add New → Upload Theme
 ```
