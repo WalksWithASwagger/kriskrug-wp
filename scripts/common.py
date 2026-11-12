@@ -18,6 +18,7 @@ import re
 import time
 import urllib.parse
 import urllib.request
+from email.message import Message
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -246,7 +247,18 @@ class WPClient:
         *,
         params: dict | None = None,
     ) -> Any:
-        """Issue a REST call; returns parsed JSON (or None for an empty body).
+        """Issue a REST call; returns parsed JSON (or None for an empty body)."""
+        return self._exchange(method, path, payload, params=params)[0]
+
+    def _exchange(
+        self,
+        method: str,
+        path: str,
+        payload: Any | None = None,
+        *,
+        params: dict | None = None,
+    ) -> tuple[Any, Message]:
+        """Issue a REST call; returns (parsed JSON or None, response headers).
 
         4xx errors raise immediately (deterministic). For safe read methods
         (GET/HEAD/OPTIONS), 5xx and transient network errors are retried up to
@@ -277,7 +289,7 @@ class WPClient:
             try:
                 with self._open(req) as resp:
                     body = resp.read().decode()
-                    return json.loads(body) if body else None
+                    return (json.loads(body) if body else None), resp.headers
             except HTTPError as err:
                 if err.code < 500:
                     raise
@@ -314,19 +326,47 @@ class WPClient:
         per_page: int = 100,
         max_pages: int = 100,
     ) -> list:
-        """Paginate a list endpoint, returning all items concatenated."""
+        """Paginate a list endpoint, returning all items concatenated.
+
+        Stops on WordPress's X-WP-TotalPages header, so a collection holding an
+        exact multiple of ``per_page`` never asks for the page past the end
+        (#1224). Without the header, the 400 *_invalid_page_number that core
+        returns for that page ends the list, but only from page 2 on.
+        """
         merged = dict(params or {})
         merged["per_page"] = per_page
         items: list = []
         for page in range(1, max_pages + 1):
             merged["page"] = page
-            batch = self.request("GET", path, params=merged)
+            try:
+                batch, headers = self._exchange("GET", path, params=merged)
+            except HTTPError as err:
+                if page > 1 and _is_past_last_page(err):
+                    err.close()
+                    break
+                raise
             if not isinstance(batch, list) or not batch:
                 break
             items.extend(batch)
+            total_pages = headers.get("X-WP-TotalPages", "")
+            if total_pages.isdigit() and page >= int(total_pages):
+                break
             if len(batch) < per_page:
                 break
         return items
+
+
+def _is_past_last_page(err: HTTPError) -> bool:
+    """WordPress core answers a page past the end with 400 *_invalid_page_number."""
+    if err.code != 400:
+        return False
+    try:
+        body = json.loads(err.read() or b"{}")
+    except ValueError:
+        return False
+    return isinstance(body, dict) and str(body.get("code", "")).endswith(
+        "_invalid_page_number"
+    )
 
 
 def wp_queue_counts(client: WPClient | None = None) -> dict[str, int]:
