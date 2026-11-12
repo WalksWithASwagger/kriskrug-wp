@@ -41,11 +41,6 @@ indent_style = tab
 indent_size = 4
 # WordPress uses tabs, not spaces
 
-# Agent definition files
-[*.agent.md]
-indent_style = space
-indent_size = 2
-
 # Markdown (GitHub-flavored)
 [*.md]
 trim_trailing_whitespace = false

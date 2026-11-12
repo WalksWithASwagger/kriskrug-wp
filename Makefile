@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test ruff-changed javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
+.PHONY: help test python-test ruff-changed javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
 
 PYTHON ?= python3
 VARLOCK ?= varlock
@@ -155,21 +155,6 @@ stats: ## Show repository statistics
 	@echo ""
 	@echo "Recent Activity:"
 	@gh run list --limit 5
-
-agent-status: ## Show parked agent automation state records
-	@echo "🤖 Agent Automation Status"
-	@echo ""
-	@echo "  Agent PR Generator is parked; auto-implement labels do not start automation."
-	@echo "  Historical state records:"
-	@if [ -d ".github/agent-state" ]; then \
-		find .github/agent-state -name "state.json" -exec sh -c 'jq -r "select(.status == \"in_progress\") | \"Issue #\" + (.issue_number | tostring) + \": \" + .current_stage" {} 2>/dev/null || true' \; | \
-		while read line; do \
-			if [ -n "$$line" ]; then \
-				echo "  ⏳ $$line"; \
-			fi; \
-		done; \
-	fi
-	@echo "  (These records are not proof of active automation.)" 2>/dev/null || true
 
 backup-check: ## Verify a backup set (use BACKUP_DIR=backup/YYYY-MM-DD; STRICT=1 requires restore proof)
 	@if [ -z "$(BACKUP_DIR)" ]; then \
