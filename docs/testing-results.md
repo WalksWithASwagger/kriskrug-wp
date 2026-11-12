@@ -1,6 +1,7 @@
 # Testing Results - Agent Swarm System
 
 > **STATUS: Historical.** These results validate the dormant era-1 agent swarm, not the current two-track operating model.
+> The swarm's state records and its Auto-Triage workflow were deleted on 2026-11-12 (#1220).
 
 Date: 2026-01-01
 Status: ✅ All Core Systems Validated

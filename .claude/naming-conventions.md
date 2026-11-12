@@ -1,5 +1,7 @@
 # Kris Krug Naming Conventions
 
+> **STATUS: Historical.** Era-1 naming guide written for the retired GitHub Actions agent swarm, whose agent definitions were deleted on 2026-11-12 (#1220). Current coding standards, branch names and commit format live in [`CONTRIBUTING.md`](../CONTRIBUTING.md) and [`AGENTS.md`](../AGENTS.md).
+
 Consistent naming across all code (human-written and agent-generated).
 
 ## PHP Naming (WordPress Standards)

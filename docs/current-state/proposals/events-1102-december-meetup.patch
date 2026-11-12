@@ -1,0 +1,20 @@
+--- a/scripts/events_page/events-catalog.yaml
++++ b/scripts/events_page/events-catalog.yaml
+@@ -1590,3 +1590,17 @@
+     video: []
+   image: {}
+   status: confirmed
++- id: vancouver-ai-meetup-2026-12-16
++  title: 'Vancouver AI Community Meetup: December 2026'
++  date: '2026-12-16'
++  end_date: '2026-12-16'
++  location: H.R. MacMillan Space Centre, Vancouver
++  kind: meetup
++  role: Host & MC
++  url: https://luma.com/dec-vanai
++  docs:
++    recap: []
++    photos: []
++    video: []
++  image: {}
++  status: confirmed

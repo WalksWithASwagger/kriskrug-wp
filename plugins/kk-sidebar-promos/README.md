@@ -39,7 +39,7 @@ A daily WP-Cron job runs the expiry; a second one reads a Luma iCal feed and fil
 upcoming event as a Featured promo. Renders via the `kk/sidebar-promos` block, a classic widget, or
 `[kk_sidebar_promos limit="4"]`.
 
-Version 0.1.2. First built 2026-05-15.
+Version 0.1.3. First built 2026-05-15.
 
 ## Local checks (safe, no live writes)
 
