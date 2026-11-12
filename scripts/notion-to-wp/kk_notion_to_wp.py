@@ -67,31 +67,25 @@ import yaml
 sys.path.insert(0, str(Path(__file__).parent))
 import block_rules  # noqa: E402
 import text_polish  # noqa: E402
+# Names marked F401 are re-exported: other scripts and tests import them from here.
 from category_routing import (  # noqa: E402
-    CATEGORY_REVIEW_REQUIRED,
-    FEATURE_CATEGORY_TAG_HINTS,
-    TYPE_TO_CATEGORY,
+    CATEGORY_REVIEW_REQUIRED,  # noqa: F401
     category_requires_review,
     resolve_category,
 )
 from connector_config import (  # noqa: E402
     DRAFTS_DIR,
-    KKAI_ENV_PATH,
-    LOCAL_ENV_PATH,
+    KKAI_ENV_PATH,  # noqa: F401
+    LOCAL_ENV_PATH,  # noqa: F401
     REPO_ROOT,
-    SCRIPT_DIR,
-    WP_BASE_URL_DEFAULT,
-    WP_DEFAULT_AUTHOR_ID,
-    Config,
+    WP_BASE_URL_DEFAULT,  # noqa: F401
+    WP_DEFAULT_AUTHOR_ID,  # noqa: F401
     load_config,
 )
 from connector_payload import build_wp_payload  # noqa: E402
 from content_derivation import (  # noqa: E402
-    _block_plain_text_deep,
-    _plain_text,
     derive_excerpt,
     derive_seo_title,
-    derive_social_message,
 )
 from draft_writers import (  # noqa: E402
     html_to_md_preview as _html_to_md_preview,
@@ -115,10 +109,9 @@ from notion_client import (  # noqa: E402
 )
 from update_safety import (  # noqa: E402
     TITLE_SIMILARITY_UPDATE_THRESHOLD,
-    _wp_text_field,
     emit_update_diff_review,
-    title_similarity,
-    update_diff,
+    title_similarity,  # noqa: F401
+    update_diff,  # noqa: F401
     update_title_guard,
 )
 from wp_client import WordPress  # noqa: E402
@@ -267,7 +260,7 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
     _write_alt_text(draft_dir, image_map, local_image_paths)
     _write_internal_links(draft_dir, body_html)
 
-    log(f"wrote post.md, post.html, seo-meta.md, alt-text.md, internal-links.md")
+    log("wrote post.md, post.html, seo-meta.md, alt-text.md, internal-links.md")
 
     # 5. REST payload (always built; only sent if not dry-run)
     payload = build_wp_payload(
