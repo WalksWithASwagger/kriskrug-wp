@@ -44,7 +44,8 @@ Deploy status for every version lives in `CHANGELOG.md`, the deploy ledger.
 
 = 1.7.2 =
 * perf (#1237): load `marquee.js` only when the rendered front page contains a marquee board.
-* seo (#1228): archive, taxonomy, date, author and search routes emit their own `og:url`; routes without a description fall back to the Writing or homepage description instead of the retired site tagline.
+* seo (#1228): archive, taxonomy, date, author, post type and search routes emit their canonical URL as `og:url`, built from the query rather than the request path.
+* seo (#1228): routes without a description fall back to the Writing archive description on journal routes and to the theme's `homepage_meta_description()` text (the RSS channel description, not the live homepage meta description) elsewhere, instead of the retired site tagline.
 * test (#1228, #1237): `tests/functions-smoke.php` covers the marquee enqueue, route social metadata, and the `/writing` and `/projects` redirects.
 * docs (#1243): reconcile readme and changelog deploy markers; Tested up to 7.0.
 

@@ -26,12 +26,30 @@ final class WP_Post {
     }
 }
 
+final class WP_Term {
+    public function __construct(public int $term_id, public string $taxonomy) {
+    }
+}
+
+final class WP_Error {
+}
+
 final class SmokeRedirect extends RuntimeException {
     public function __construct(public string $location, public int $status) {
         parent::__construct($location);
     }
 }
 
+$GLOBALS['wp_rewrite'] = new class {
+    public string $pagination_base = 'page';
+};
+$GLOBALS['smoke_term_links'] = [
+    12 => SMOKE_HOME . '/category/ai-ethics-philosophy/',
+    34 => SMOKE_HOME . '/tag/sxsw-sxswi/',
+    56 => SMOKE_HOME . '/topic/creative-ai/',
+];
+$GLOBALS['smoke_author_links'] = [1 => SMOKE_HOME . '/author/kriskrug/'];
+$GLOBALS['smoke_post_type_links'] = ['marquee_board' => SMOKE_HOME . '/marquee/'];
 $GLOBALS['smoke_filters'] = [];
 $GLOBALS['smoke_scripts'] = [];
 $GLOBALS['smoke_route'] = [];
@@ -124,11 +142,27 @@ function is_tag(): bool {
 }
 
 function is_tax(): bool {
-    return false;
+    return smoke_flag('tax');
+}
+
+function is_post_type_archive(): bool {
+    return smoke_flag('post_type_archive');
+}
+
+function is_day(): bool {
+    return smoke_flag('day');
+}
+
+function is_month(): bool {
+    return smoke_flag('month');
+}
+
+function is_year(): bool {
+    return smoke_flag('year');
 }
 
 function is_date(): bool {
-    return smoke_flag('date');
+    return is_day() || is_month() || is_year();
 }
 
 function is_author(): bool {
@@ -164,7 +198,7 @@ function wp_parse_url(string $url, int $component = -1): mixed {
 }
 
 function get_query_var(string $name, mixed $default = ''): mixed {
-    return $name === 'paged' ? smoke_route_value('paged', 0) : $default;
+    return $GLOBALS['smoke_route']['query_vars'][$name] ?? $default;
 }
 
 /**
@@ -183,8 +217,50 @@ function get_pagenum_link(int $pagenum = 1, bool $escape = true): string {
     return SMOKE_HOME . $path . (is_string($query) ? '?' . $query : '');
 }
 
-function get_search_link(): string {
-    return SMOKE_HOME . '/search/' . rawurlencode((string) smoke_route_value('search_query')) . '/';
+function trailingslashit(string $value): string {
+    return rtrim($value, '/\\') . '/';
+}
+
+function user_trailingslashit(string $url, string $type_of_url = ''): string {
+    return trailingslashit($url);
+}
+
+/**
+ * Mirror core: unslash an explicit query, urlencode it, keep slashes literal.
+ */
+function get_search_link(string $query = ''): string {
+    $search = $query === '' ? (string) get_query_var('s') : stripslashes($query);
+    $search = str_replace('%2F', '/', urlencode($search));
+
+    return home_url(user_trailingslashit('search/' . $search, 'search'));
+}
+
+function get_term_link(mixed $term, string $taxonomy = ''): string|WP_Error {
+    return $term instanceof WP_Term ? ($GLOBALS['smoke_term_links'][$term->term_id] ?? new WP_Error()) : new WP_Error();
+}
+
+function get_queried_object_id(): int {
+    return (int) smoke_route_value('object_id', 0);
+}
+
+function get_author_posts_url(int $author_id, string $author_nicename = ''): string {
+    return $GLOBALS['smoke_author_links'][$author_id];
+}
+
+function get_post_type_archive_link(string $post_type): string|false {
+    return $GLOBALS['smoke_post_type_links'][$post_type] ?? false;
+}
+
+function get_year_link(int|string $year): string {
+    return home_url(sprintf('/%04d/', $year));
+}
+
+function get_month_link(int|string $year, int|string $month): string {
+    return home_url(sprintf('/%04d/%02d/', $year, $month));
+}
+
+function get_day_link(int|string $year, int|string $month, int|string $day): string {
+    return home_url(sprintf('/%04d/%02d/%02d/', $year, $month, $day));
 }
 
 function get_option(string $name, mixed $default = false): mixed {
@@ -288,6 +364,7 @@ function smoke_social_meta(array $route): array {
     ob_start();
     KK_Aurora\render_social_meta_tags();
     $html = (string) ob_get_clean();
+    $GLOBALS['smoke_last_html'] = $html;
 
     expect_same(
         false,
@@ -370,6 +447,12 @@ expect_same(false, isset($GLOBALS['smoke_scripts']['kk-aurora-marquee']), 'Marqu
 $GLOBALS['smoke_permalinks'][3930] = SMOKE_HOME . '/';
 $GLOBALS['smoke_permalinks'][12801] = SMOKE_HOME . '/2026/11/02/you-cant-rent-a-social-licence/';
 
+$category = ['archive' => true, 'category' => true, 'object' => new WP_Term(12, 'category')];
+$hostile_query = "\"><script>alert('x')</script> a&b/c";
+$hostile_title = 'Search Results for ' . $hostile_query . ' | Kris Krüg';
+$hostile_url = SMOKE_HOME . '/search/%22%3E%3Cscript%3Ealert%28%27x%27%29%3C/script%3E+a%26b/c/';
+
+// request_url is the path the visitor used; og:url must not echo it for archives.
 $social_cases = [
     'singular post' => [
         'route' => [
@@ -383,20 +466,26 @@ $social_cases = [
         'og:description' => 'Why community trust cannot be bought.',
     ],
     'category with a description' => [
-        'route' => [
-            'archive'          => true,
-            'category'         => true,
+        'route' => $category + [
             'request_url'      => SMOKE_HOME . '/category/ai-ethics-philosophy/?utm_source=share',
             'term_description' => "<p>Essays on AI ethics and philosophy.</p>\n",
         ],
         'og:url'         => SMOKE_HOME . '/category/ai-ethics-philosophy/',
         'og:description' => 'Essays on AI ethics and philosophy.',
     ],
-    'category page two without a description' => [
-        'route' => [
-            'archive'     => true,
-            'category'    => true,
-            'paged'       => 2,
+    'category under a wrong parent path' => [
+        'route'          => $category + ['request_url' => SMOKE_HOME . '/category/zzz/ai-ethics-philosophy/'],
+        'og:url'         => SMOKE_HOME . '/category/ai-ethics-philosophy/',
+        'og:description' => SMOKE_WRITING_DESCRIPTION,
+    ],
+    'category with a mixed-case path' => [
+        'route'          => $category + ['request_url' => SMOKE_HOME . '/category/AI-Ethics-Philosophy/'],
+        'og:url'         => SMOKE_HOME . '/category/ai-ethics-philosophy/',
+        'og:description' => SMOKE_WRITING_DESCRIPTION,
+    ],
+    'category page two' => [
+        'route' => $category + [
+            'query_vars'  => ['paged' => 2],
             'request_url' => SMOKE_HOME . '/category/ai-ethics-philosophy/page/2/',
         ],
         'og:url'         => SMOKE_HOME . '/category/ai-ethics-philosophy/page/2/',
@@ -406,36 +495,138 @@ $social_cases = [
         'route' => [
             'archive'     => true,
             'tag'         => true,
+            'object'      => new WP_Term(34, 'post_tag'),
             'request_url' => SMOKE_HOME . '/tag/sxsw-sxswi/',
         ],
         'og:url'         => SMOKE_HOME . '/tag/sxsw-sxswi/',
         'og:description' => SMOKE_WRITING_DESCRIPTION,
     ],
-    'date' => [
+    'custom taxonomy' => [
+        'route' => [
+            'archive'          => true,
+            'tax'              => true,
+            'object'           => new WP_Term(56, 'topic'),
+            'request_url'      => SMOKE_HOME . '/topic/creative-ai/',
+            'term_description' => 'Creative AI field work.',
+        ],
+        'og:url'         => SMOKE_HOME . '/topic/creative-ai/',
+        'og:description' => 'Creative AI field work.',
+    ],
+    'month with an unpadded path' => [
         'route' => [
             'archive'     => true,
-            'date'        => true,
-            'request_url' => SMOKE_HOME . '/2026/08/',
+            'month'       => true,
+            'query_vars'  => ['year' => '2026', 'monthnum' => '8'],
+            'request_url' => SMOKE_HOME . '/2026/8/',
         ],
         'og:url'         => SMOKE_HOME . '/2026/08/',
+        'og:description' => SMOKE_WRITING_DESCRIPTION,
+    ],
+    'day' => [
+        'route' => [
+            'archive'     => true,
+            'day'         => true,
+            'query_vars'  => ['year' => '2026', 'monthnum' => '11', 'day' => '2'],
+            'request_url' => SMOKE_HOME . '/2026/11/02/',
+        ],
+        'og:url'         => SMOKE_HOME . '/2026/11/02/',
+        'og:description' => SMOKE_WRITING_DESCRIPTION,
+    ],
+    'year page two' => [
+        'route' => [
+            'archive'     => true,
+            'year'        => true,
+            'query_vars'  => ['year' => '2026', 'paged' => 2],
+            'request_url' => SMOKE_HOME . '/2026/page/2/',
+        ],
+        'og:url'         => SMOKE_HOME . '/2026/page/2/',
         'og:description' => SMOKE_WRITING_DESCRIPTION,
     ],
     'author' => [
         'route' => [
             'archive'     => true,
             'author'      => true,
+            'object_id'   => 1,
             'request_url' => SMOKE_HOME . '/author/kriskrug/',
         ],
         'og:url'         => SMOKE_HOME . '/author/kriskrug/',
         'og:description' => SMOKE_WRITING_DESCRIPTION,
     ],
+    'author via query var' => [
+        'route' => [
+            'archive'     => true,
+            'author'      => true,
+            'object_id'   => 1,
+            'request_url' => SMOKE_HOME . '/?author_name=kriskrug',
+        ],
+        'og:url'         => SMOKE_HOME . '/author/kriskrug/',
+        'og:description' => SMOKE_WRITING_DESCRIPTION,
+    ],
+    'post type archive' => [
+        'route' => [
+            'archive'           => true,
+            'post_type_archive' => true,
+            'query_vars'        => ['post_type' => 'marquee_board'],
+            'request_url'       => SMOKE_HOME . '/?post_type=marquee_board',
+        ],
+        'og:url'         => SMOKE_HOME . '/marquee/',
+        'og:description' => KK_Aurora\homepage_meta_description(),
+    ],
+    'post type archive with an array query var' => [
+        'route' => [
+            'archive'           => true,
+            'post_type_archive' => true,
+            'query_vars'        => ['post_type' => ['marquee_board']],
+            'request_url'       => SMOKE_HOME . '/marquee/',
+        ],
+        'og:url'         => SMOKE_HOME . '/marquee/',
+        'og:description' => KK_Aurora\homepage_meta_description(),
+    ],
     'search' => [
         'route' => [
-            'search'       => true,
-            'search_query' => 'vancouver',
-            'request_url'  => SMOKE_HOME . '/?s=vancouver',
+            'search'      => true,
+            'query_vars'  => ['s' => 'vancouver'],
+            'request_url' => SMOKE_HOME . '/?s=vancouver',
         ],
         'og:url'         => SMOKE_HOME . '/search/vancouver/',
+        'og:description' => SMOKE_WRITING_DESCRIPTION,
+    ],
+    'empty search' => [
+        'route' => [
+            'search'      => true,
+            'query_vars'  => ['s' => ''],
+            'request_url' => SMOKE_HOME . '/?s=',
+        ],
+        'og:url'         => SMOKE_HOME . '/',
+        'og:description' => SMOKE_WRITING_DESCRIPTION,
+    ],
+    'array search' => [
+        'route' => [
+            'search'      => true,
+            'query_vars'  => ['s' => ['x']],
+            'request_url' => SMOKE_HOME . '/?s[]=x',
+        ],
+        'og:url'         => SMOKE_HOME . '/',
+        'og:description' => SMOKE_WRITING_DESCRIPTION,
+    ],
+    'search page two' => [
+        'route' => [
+            'search'      => true,
+            'query_vars'  => ['s' => 'ai', 'paged' => 2],
+            'request_url' => SMOKE_HOME . '/page/2/?s=ai',
+        ],
+        'og:url'         => SMOKE_HOME . '/search/ai/page/2/',
+        'og:description' => SMOKE_WRITING_DESCRIPTION,
+    ],
+    'hostile search' => [
+        'route' => [
+            'search'      => true,
+            'title'       => $hostile_title,
+            // Core hands the theme a slashed query var.
+            'query_vars'  => ['s' => addslashes($hostile_query)],
+            'request_url' => SMOKE_HOME . '/?s=' . urlencode($hostile_query),
+        ],
+        'og:url'         => $hostile_url,
         'og:description' => SMOKE_WRITING_DESCRIPTION,
     ],
     'Writing archive' => [
@@ -469,6 +660,20 @@ foreach ($social_cases as $label => $case) {
     expect_same($case['og:description'], $tags['og:description'] ?? null, "{$label}: og:description must fit the route.");
     expect_same($case['og:description'], $tags['twitter:description'] ?? null, "{$label}: twitter:description must mirror og:description.");
 }
+
+smoke_social_meta($social_cases['hostile search']['route']);
+$hostile_html = $GLOBALS['smoke_last_html'];
+expect_same(
+    true,
+    str_contains($hostile_html, '<meta property="og:url" content="' . $hostile_url . '" />'),
+    'A hostile search must render a URL-encoded og:url.'
+);
+expect_same(
+    true,
+    str_contains($hostile_html, 'content="Search Results for &quot;&gt;&lt;script&gt;alert(&#039;x&#039;)&lt;/script&gt; a&amp;b/c | Kris Krüg"'),
+    'A hostile search title must be attribute-escaped.'
+);
+expect_same(false, str_contains($hostile_html, '<script'), 'A hostile search must not inject markup.');
 
 // Legacy path redirects: GET and HEAD only.
 

@@ -690,20 +690,6 @@ function writing_archive_canonical_url(): string {
         return '';
     }
 
-    return paged_request_url();
-}
-
-/**
- * Resolve the canonical URL for taxonomy, date, author and search routes.
- */
-function archive_canonical_url(): string {
-    return is_search() ? get_search_link() : paged_request_url();
-}
-
-/**
- * Resolve the current request's page URL without query arguments.
- */
-function paged_request_url(): string {
     $paged = max(1, (int) get_query_var('paged'));
     $page_url = get_pagenum_link($paged, false);
     $path = wp_parse_url($page_url, PHP_URL_PATH);
@@ -713,6 +699,48 @@ function paged_request_url(): string {
     }
 
     return home_url($path);
+}
+
+/**
+ * Resolve the canonical URL for archive and search routes from the query, not
+ * the request path: non-canonical paths such as a wrong category parent, a
+ * mixed-case slug or an unpadded month still return 200 without a redirect.
+ */
+function archive_canonical_url(): string {
+    $url = '';
+
+    if (is_search()) {
+        $query = get_query_var('s');
+        if (is_string($query) && trim($query) !== '') {
+            $url = get_search_link($query);
+        }
+    } elseif (is_category() || is_tag() || is_tax()) {
+        $url = get_term_link(get_queried_object());
+    } elseif (is_author()) {
+        $url = get_author_posts_url(get_queried_object_id());
+    } elseif (is_post_type_archive()) {
+        $post_type = get_query_var('post_type');
+        $url = get_post_type_archive_link(is_array($post_type) ? (string) reset($post_type) : (string) $post_type);
+    } elseif (is_day()) {
+        $url = get_day_link(get_query_var('year'), get_query_var('monthnum'), get_query_var('day'));
+    } elseif (is_month()) {
+        $url = get_month_link(get_query_var('year'), get_query_var('monthnum'));
+    } elseif (is_year()) {
+        $url = get_year_link(get_query_var('year'));
+    }
+
+    if (!is_string($url) || $url === '') {
+        return home_url('/');
+    }
+
+    $paged = (int) get_query_var('paged');
+    if ($paged < 2) {
+        return $url;
+    }
+
+    global $wp_rewrite;
+
+    return user_trailingslashit(trailingslashit($url) . $wp_rewrite->pagination_base . '/' . $paged, 'paged');
 }
 
 /**
@@ -849,8 +877,9 @@ function writing_archive_meta_description(): string {
 }
 
 /**
- * Share-card description for routes without their own. Both sources are
- * existing approved copy, so the retired site tagline never reaches a card.
+ * Share-card description for routes without their own, so the retired site
+ * tagline never reaches a card. Non-journal routes take the theme's hard-coded
+ * homepage text (the RSS description), not the live front-page SEO option.
  */
 function fallback_social_description(): string {
     return is_journal() ? writing_archive_meta_description() : homepage_meta_description();
