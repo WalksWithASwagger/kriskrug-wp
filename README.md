@@ -10,6 +10,10 @@ This repository is the **operations + content hub** for [kriskrug.co](https://kr
 
 **If you're an AI agent landing in this repo cold, start at [`AGENTS.md`](AGENTS.md).**
 
+Current priorities: [November 11 roadmap](docs/current-state/ROADMAP-2026-11-11.md).
+The [maintenance report](docs/current-state/reports/repo-maintenance-2026-11-11.md)
+records verification, issue reconciliation, and branch recovery.
+
 ## About Kris Krug
 
 Kris Krug is a person, not an organization: a Vancouver-based photographer, AI community builder, and keynote speaker. [kriskrug.co](https://kriskrug.co/) is his personal site, covering his photography, writing, speaking, and community work.
@@ -63,9 +67,10 @@ plugins/
 
 docs/current-state/              # Dated truth snapshots plus recovery/redesign handoffs
   ├── README.md                  # Index of the snapshot
-  ├── CURRENT-STATE-*.md         # Dated truth snapshots; the newest is the declared one
-  ├── WORK-PLAN-*.md             # Dated day runbooks; the newest is active
-  ├── MASTER-PLAN-2026-07-30.md  # Hygiene + lane sequencing plan of record
+  ├── CURRENT-STATE-*.md         # Dated snapshots; Makefile names the drift baseline
+  ├── ROADMAP-2026-11-11.md      # Current priorities and acceptance gates
+  ├── WORK-PLAN-*.md             # Dated runbooks; read their status before acting
+  ├── MASTER-PLAN-2026-07-30.md  # Historical hygiene plan
   ├── TWO-TRACK-MODEL.md         # The active operating model
   ├── ACCESS_CHANNELS.md         # MCP / REST / browser / SFTP — verified vs unverified channels
   ├── BACKUP_PLAN.md             # The four pieces of a real WP backup + paths to get them
@@ -168,7 +173,7 @@ Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](do
 - **Custom code:** PHP snippets (Code Snippets plugin on prod), `inc/digital-composting.php`, and packaged helper plugins such as `plugins/kk-sidebar-promos/`
 - **CLI Tools:** GitHub CLI (`gh`), Claude Code / Cursor agents
 - **Languages:** PHP, JavaScript, Python, Bash
-- **CI runtimes:** PHP 8.2, Python 3.12, Node 20 for JavaScript syntax, and Node 24 for the WordPress Playground browser job (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)); Playground 3.1.55 requires Node >=24.18.0 and npm >=11.16.0. The Aurora theme itself declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css)
+- **CI runtimes:** PHP 8.2, Python 3.12, Node 20 for JavaScript syntax, and Node 24 for the WordPress Playground browser job (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)); Playground 3.1.62 requires Node >=24.18.0 and npm >=11.16.0. The Aurora theme itself declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css)
 
 ## Issue Labels
 

@@ -1,10 +1,10 @@
 # Master Plan: Truth, Reclaim, Then Lanes — 2026-07-30
 
-**Status:** active plan of record for ops hygiene + sequenced product lanes.
+**Status:** historical hygiene plan. Phases 0–3 are completed context, not a cleanup authorization or today's queue. Use the [November 11 roadmap](ROADMAP-2026-11-11.md) for remaining work.
 **Lane:** Docs / ops first; then Track A or Track B — never interleaved in one commit.
 **Does not authorize** live WordPress writes, theme deploys, or history rewrite.
 
-Day runbook: [`WORK-PLAN-2026-09-09.md`](WORK-PLAN-2026-09-09.md). Declared snapshot: [`CURRENT-STATE-2026-09-21.md`](CURRENT-STATE-2026-09-21.md).
+Retained procedures: [`WORK-PLAN-2026-09-09.md`](WORK-PLAN-2026-09-09.md). Declared drift snapshot: [`CURRENT-STATE-2026-10-25.md`](CURRENT-STATE-2026-10-25.md).
 
 **2026-08-28 reading note:** Phases 0–3 below record the July hygiene reset; do not execute their old branch or issue lists as a current queue. Use the dated runbook, the open GitHub issue list, and `make status-readonly` for current work.
 

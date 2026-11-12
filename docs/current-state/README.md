@@ -1,55 +1,49 @@
 # Current State of kriskrug.co
 
-Ops truth for [kriskrug.co](https://kriskrug.co/). Every May and June 2026 plan now lives under [`archive/`](archive/) (#549, see the close-out section at the bottom). Read the front door below, then run `make status-readonly` for current runtime signals.
+Start with the [November 11 roadmap](ROADMAP-2026-11-11.md), then run
+`make doctor` and `make status-readonly`. The [maintenance report](reports/repo-maintenance-2026-11-11.md)
+records the current issue reconciliation, source drift fix, verification and
+branch recovery. The October 25 snapshot remains the declared drift baseline;
+its old counts and theme version are dated evidence.
 
-For the current queue, start with the [November 4 work plan](WORK-PLAN-2026-11-04.md). The [September repository audit closeout](REPO-HEALTH-REMEDIATION-2026-09-21.md) records the completed remediation and the remaining external checks.
+## Current front door — 2026-11-11
 
-## Current Front Door (refreshed 2026-10-25)
+1. [ROADMAP-2026-11-11.md](ROADMAP-2026-11-11.md): remaining work, owners and completion gates.
+2. [CURRENT-STATE-2026-10-25.md](CURRENT-STATE-2026-10-25.md): Makefile drift baseline, to compare with a fresh readback.
+3. [WORK-PLAN-2026-09-09.md](WORK-PLAN-2026-09-09.md): retained identity, snapshot and approval procedures. Its September queue is historical; #834 is complete.
+4. [TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md): content versus theme boundaries.
+5. [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md): standing slug/idempotency rules, with later approval policy in AGENTS.md.
+6. [AGENT-RUNTIME-REFERENCE.md](AGENT-RUNTIME-REFERENCE.md), [environment schema](../../.env.schema) and [Varlock rollout](VARLOCK-ROLLOUT-2026-07-16.md): runtime, auth and validation.
 
-Start with [CURRENT-STATE-2026-10-25.md](CURRENT-STATE-2026-10-25.md) and
-run `make status-readonly`. Events PR #1134 is merged and its bounded page-2250
-apply is live. The approved homepage image repair has been applied separately;
-its release receipt distinguishes public readback from cache state.
+November 11 startup observed WordPress 7.0.8 and public Aurora 1.7.1 matching
+`origin/main`. About, Photography, MØTLEYKRÜG and Contact source matches the
+approved live bodies. Publications' approved redesign is reconciled separately
+from its later private polish preview. Current priorities are the remaining
+Canada Now knowledge work, Events cadence verification, HSTS decision and
+Futureproof's conditional BC + AI link. Do not repeat completed page redesigns,
+#331's archive policy, or the dependency security patches.
 
-The September weekly plan below is historical priority context. Snippet 5's
-approved Person and Speaking-video payload was saved through Varlock on October
-25; [the release receipt](reports/schema-1089-release-2026-10-25.md) records
-authenticated, public, cache-delivery and validator evidence. The
-[#1130 reconciliation](reports/sitemap-1130-reconciliation-2026-10-25.md) confirms
-the deployed post/page-only sitemap policy; #331 remains an owner evidence/closure
-decision. The #1114 shared-cache delivery check completed at 19:45 UTC: all six
-normal and uncached routes serve the approved links, and the issue is closed.
-The September 9 runbook retains its exact live-lane safety procedures.
-The homepage copy/link release passed all 33 visual comparisons. #402's prepared ALL IN entry has now been approved and published with the November 25 meetup; see the [release receipt](reports/events-november-allin-release-2026-10-25.md). [Work and Subscribe](reports/work-subscribe-release-2026-10-25.md)
-are repaired, personal signup routes to KRÜG, and the
-[Publications alignment repair](reports/publications-layout-release-2026-10-25.md)
-fits desktop, tablet and mobile. For [#1090](reports/krug-conversion-1090-2026-10-25.md),
-Completed KRÜG signup measurement is installed: GA4 key event and isolated stream,
-personal GTM version 2, and Beehiiv consent banner. Live Preview confirms no
-conversion on page load; organic signup delivery remains to be observed.
-Outbound clicks are not subscriptions. The three [#834 brand-navigation links](reports/brand-navigation-834-release-2026-10-25.md) are live and verified, with prior authority links and article media preserved. Editorial and
-featured-image choices remain in the completed #1106 and #1115 review reports.
+## Earlier release evidence
 
-The [#1099 Events catalog contract](reports/events-catalog-1099-2026-10-25.md) now fails closed on missing confirmation, validates documentation links, and preserves all current media. The [#1100 record/counter release](reports/events-record-1100-2026-10-25.md) is live: past-only record and counters, browser rollover agreement, and independent documentation links. That release preserved all 74 prior live IDs and existing media. The subsequent [approved November/ALL IN release](reports/events-november-allin-release-2026-10-25.md) brings the live set to 76 IDs, with 72 past rooms, four upcoming cards and 13 documentation links. The [#1101 documentation backfill](reports/events-documentation-1101-2026-10-25.md) adds live Recap, Photos and Video links for meetup #32 and #33 and the publisher checklist; all four ALL IN articles now appear as live documentation links after its separate inclusion approval.
+These receipts explain shipped changes; their counts and automation status are
+not current promises. Re-run the owning check before relying on them.
 
-The [pre-Futureproof follow-through receipt](reports/kriskrug-futureproof-followthrough-2026-10-25.md) records the shipped work, active signup monitor and weekly Events proposals, plus the remaining owner decisions. [First-practice preparation #1105](reports/practice-release-preparation-1105-2026-10-25.md) is complete; #983 still needs exact copy/live approval and genuine study evidence. The compatible [test dependency patch](reports/practice-dependency-patch-2026-10-25.md) audits clean and leaves the production plugin unchanged.
+| Evidence | What it records |
+|---|---|
+| [October 25 readiness](reports/site-readiness-20261025.md) | The earlier site readiness checkpoint |
+| [Schema #1089](reports/schema-1089-release-2026-10-25.md) | Person/Speaking schema saved and validated |
+| [Sitemap reconciliation](reports/sitemap-1130-reconciliation-2026-10-25.md) | Post/page-only sitemap and archive policy; #331 has since closed |
+| [November/ALL IN Events release](reports/events-november-allin-release-2026-10-25.md) | Approved event additions and media preservation |
+| [Events catalog](reports/events-catalog-1099-2026-10-25.md), [record/counters](reports/events-record-1100-2026-10-25.md), [documentation](reports/events-documentation-1101-2026-10-25.md) | Completed system work; follow #1102 for maintenance |
+| [Work/Subscribe](reports/work-subscribe-release-2026-10-25.md), [Publications layout](reports/publications-layout-release-2026-10-25.md) | Earlier page repairs, before the November redesigns |
+| [KRÜG measurement](reports/krug-conversion-1090-2026-10-25.md) | Installed measurement; organic signup delivery still needs current evidence |
+| [Brand navigation](reports/brand-navigation-834-release-2026-10-25.md) | Completed #834 links; no new apply remains |
+| [First-practice preparation](reports/practice-release-preparation-1105-2026-10-25.md) | Prepared #983 packet, not participant evidence or publication approval |
+| [September audit closeout](REPO-HEALTH-REMEDIATION-2026-09-21.md) | Completed repo remediation and remaining external checks |
 
-Read these first:
-
-- **[WEEK-PLAN-2026-09-28.md](WEEK-PLAN-2026-09-28.md)**: September 28–October 4 priorities, September 29 maintenance receipt, safe branch cleanup, and the next focused session. The dated snapshot below remains the drift baseline; the September 9 runbook retains its specific live-lane procedures.
-
-1. **[WORK-PLAN-2026-09-09.md](WORK-PLAN-2026-09-09.md)**, active runbook (issue #4's media identity-repair gate is complete; authority-hub issues #829-#833 are live and closed; #834's three brand-navigation links are now live and verified; use `make status-readonly` for live counters). No newer dated work plan exists as of 2026-09-21.
-2. **[CURRENT-STATE-2026-10-25.md](CURRENT-STATE-2026-10-25.md)**, declared snapshot for morning-truth drift checks (compare it with a fresh `make status-readonly` run). [CURRENT-STATE-2026-07-30.md](CURRENT-STATE-2026-07-30.md) is its historical predecessor.
-3. **[MASTER-PLAN-2026-07-30.md](MASTER-PLAN-2026-07-30.md)**, truth then reclaim then product lanes (hygiene phases complete)
-4. Run `make status-readonly` for current signals; use the newest **[reports/morning-truth-*.md](reports/)** only as durable checkpoint evidence
-5. **[TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md)**, Track A vs Track B
-6. **[INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md)**, slug/idempotency safety rules. Dated May, deliberately kept at top level: it is a standing safety rule, not a plan.
-7. **[../../.env.schema](../../.env.schema)** plus **[VARLOCK-ROLLOUT-2026-07-16.md](VARLOCK-ROLLOUT-2026-07-16.md)**, env contract (never read plaintext `.env`)
-8. **[AGENT-RUNTIME-REFERENCE.md](AGENT-RUNTIME-REFERENCE.md)**, environment-specific runtime, auth, and validation guidance
-
-**Public/repository readback 2026-09-09:** WordPress `7.0.4`; Aurora live and repo `main` both `1.6.11` (`make check-live-parity`). Open PR and issue counts are volatile; re-run `make status-readonly` instead of copying them. Authenticated draft-queue counts remain session-dependent. The 2026-08-29 queue numbers below are dated evidence, not a current claim. #830-#833 are closed; do not begin #830.
-
-**Live readback 2026-08-29 20:22Z:** WordPress `7.0.4`; Aurora live and repo `main` both `1.6.9`; 0 open PRs before the #829 closeout, 34 open issues after it closes, 0 scheduled posts, 66 draft posts, and 4 draft pages. Issue #829 is live and verified: `/ai-ethics/` has the first-position You Can't Drink Data card and posts 12030, 6144, and 11882 have their exact inbound anchors; all four mode-0600 snapshots and restore previews are recorded in the [receipt](reports/issue-829-applied-20260829.md). Issue #602 remains open because public page 2409 still shows the undeployed 19-card Testimonials body. #706 closed after KK accepted its documented delayed-gtag PSI caveat; TBT moved from 160 ms to 10 ms, Facebook tasks disappeared, and a fresh eight-route readback found zero pixel/eager-gtag markers with one delayed loader per route ([receipt](reports/issue-706-script-diet-apply-20260817.md)). #749 closed after its exact approved pair-safe cleanup reclaimed 927,688 KiB (~906 MiB) while retaining the newest complete comparison pair; the 11-route visual preflight and storage guard passed. #318 closed as a no-delete result because authenticated status proof found all three packages still in draft; all 13 tracked images remain ([receipt](reports/issue-318-publish-status-20260828.md)). #740 closed with no file moves after its obsolete 26-file archive table was explicitly retired. #481 closed as not planned after its live-content blast radius was reconfirmed. #339 now has current raw and planned hashes for all previously stale guards; no publisher write occurred. Content applies #764 / #729 / #612 / **#826** / **#827** / **#829** are live. The Speaking rebuild is live, and #640 closed after its same-method LCP receipt and live embed contract passed. Lab webring chrome (Dark Crystal + unofficial.city) is live on the homepage footer and `/work/` (surgical card insert, not a full `work.html` replace). Historical receipts: [`reports/gate0-content-apply-20260817.md`](reports/gate0-content-apply-20260817.md), [`reports/issue-826-applied-20260818.md`](reports/issue-826-applied-20260818.md), [`reports/issue-827-applied-20260818.md`](reports/issue-827-applied-20260818.md), [`reports/aurora-168-live-deploy-20260817.md`](reports/aurora-168-live-deploy-20260817.md), [`reports/aurora-169-live-deploy-20260818.md`](reports/aurora-169-live-deploy-20260818.md). Re-run `make status-readonly`; the public `style.css` readback remains authoritative for production theme state.
+The [November 4 plan](WORK-PLAN-2026-11-04.md), [September weekly plan](WEEK-PLAN-2026-09-28.md)
+and [July master plan](MASTER-PLAN-2026-07-30.md) are historical planning context.
+May–June plans live under [archive/](archive/).
 
 ## Durable process docs (keep at top level)
 

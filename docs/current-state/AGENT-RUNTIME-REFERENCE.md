@@ -12,7 +12,7 @@ Python CLIs and PHP validation gates. Live WordPress runs on Pagely and is not
 file-synced with this checkout.
 
 CI pins PHP 8.2 and Python 3.12. JavaScript syntax checks use Node 20;
-the WordPress Playground browser job uses Node 24. Playground 3.1.55
+the WordPress Playground browser job uses Node 24. Playground 3.1.62
 requires Node >=24.18.0 and npm >=11.16.0. Local versions may differ. Check
 `php --version` before explaining a local PHP result; `phpcs.xml.dist` targets
 PHP 8.1 and later independently of the local minor version.
@@ -90,5 +90,5 @@ their YAML as a running schedule. Historical swarm docs (`docs/architecture.md`,
 
 `practice-preview`, `practice-test`, and `practice-browser-test` are local Make
 targets. Setup, Node/npm split, and the fixture-vs-production boundary live in
-[`CONTRIBUTING.md`](../../CONTRIBUTING.md). Playground 3.1.55 still requires
+[`CONTRIBUTING.md`](../../CONTRIBUTING.md). Playground 3.1.62 still requires
 Node >=24.18.0 and npm >=11.16.0; JavaScript syntax checks still use Node 20.

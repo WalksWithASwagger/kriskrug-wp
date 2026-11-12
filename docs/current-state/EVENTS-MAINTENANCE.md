@@ -1,6 +1,6 @@
 # Events maintenance: proposal and verification workflow
 
-Owner: Kris Krüg. Implementation issue: [#1102](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1102). The weekly Codex heartbeat **Kriskrug Events weekly proposals** runs Monday at 09:00 America/Vancouver in the originating chat. It prepares local review material; it does not publish or change the source catalog.
+Owner: Kris Krüg. Implementation issue: [#1102](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1102). The September setup recorded a weekly Codex heartbeat named **Kriskrug Events weekly proposals**, scheduled Monday at 09:00 America/Vancouver in the originating chat. Its current scheduler state and latest successful run were not reverified in the November 11 maintenance pass; check the owning automation before relying on that cadence. Its contract is local review material, with no publication or source-catalog changes.
 
 ## Weekly sweep
 
@@ -24,4 +24,4 @@ These are operating hooks, not installed webhooks. The scheduled worker is weekl
 
 The September 29 first batch is already covered by merged #1108; #1099, #1100 and #1101 complete the data contract, live record/counters and documentation backfill. Do not repeat those fixes.
 
-Kris approved the November 25 meetup and ALL IN entries, and both are now live. The [October 25 release receipt](reports/events-november-allin-release-2026-10-25.md) records 76 retained IDs, 72 past rooms, 33 meetup editions, 39 frames, four upcoming cards and 13 documentation links. The [original proposal patch](proposals/events-1102-november-meetup.patch) is already applied; do not apply it again. The weekly heartbeat and private maintenance state recognize this release. TruNorth and other unconfirmed appearances remain excluded. Reconcile all baselines at each future run; these counts are dated evidence.
+Kris approved the November 25 meetup and ALL IN entries, and both are now live. The [October 25 release receipt](reports/events-november-allin-release-2026-10-25.md) records 76 retained IDs, 72 past rooms, 33 meetup editions, 39 frames, four upcoming cards and 13 documentation links. The [original proposal patch](proposals/events-1102-november-meetup.patch) is already applied; do not apply it again. The October 25 record says the weekly heartbeat and private maintenance state recognized this release. TruNorth and other unconfirmed appearances remain excluded. Reconcile all baselines at each future run; these counts are dated evidence.
