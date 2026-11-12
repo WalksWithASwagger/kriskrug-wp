@@ -68,7 +68,7 @@ So we split them.
 ### What Track B does
 
 - **Start from current `main`** — the old branch (`origin/claude/setup-wordpress-rebuild-KVLxh`, last touched 2026-01-18) and the later `aurora/v2` / `aurora/v3-reconcile` remotes are historical and gone. Do not fetch them.
-- **Stand up staging** — install on Cloudways dev (`24.144.80.107`) or Local by Flywheel
+- **Stand up staging** — install on Cloudways dev (`<legacy-host>`) or Local by Flywheel
 - **Iterate** via WP Site Editor on staging; push tweaks back to the branch
 - **Smoke-test** all post types (long-form, image-heavy, embed-heavy — Make Culture and Your Taste are the stress tests)
 - **Cutover** during a low-traffic window (Sunday morning Pacific) with rollback ready (Catch Responsive stays installed-but-inactive)

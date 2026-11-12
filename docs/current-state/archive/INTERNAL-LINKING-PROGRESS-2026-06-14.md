@@ -5,7 +5,7 @@ Branch: `codex/internal-linking-38`. Builds on the merged SEO overhaul (PR #224)
 ## Done
 
 - **8 topic-cluster pillar pages live**, art-directed v2 design (image card grid, scoped `.kkp` style, tight type, KK voice, zero em dashes, Jetpack Photon CDN thumbnails). See `PILLAR-PAGES-2026-06-14.md` for IDs/URLs. Source drafts: `content/drafts/pillars/*.v2.html`. Rollback: `reports/pillar-v2-rollback-2026-06-14.json`.
-- **Em dashes purged site-wide** from all SEO meta (97 fixed, 0 remain). Tool: `scripts/seo-backfill/purge_meta_emdashes.py`. Rollback: `reports/emdash-purge-rollback-*.json`. Per [[kk-no-em-dashes-no-ai-voice]].
+- **Em dashes purged site-wide** from all SEO meta (97 fixed, 0 remain). Tool: `scripts/archive/purge_meta_emdashes.py` (archived there 2026-11-12, #1226). Rollback: `reports/emdash-purge-rollback-*.json`. Per [[kk-no-em-dashes-no-ai-voice]].
 
 ## Next — Phase 3 spoke-injection engine (plan: ~/.claude/plans)
 
