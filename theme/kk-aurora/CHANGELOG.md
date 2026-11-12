@@ -20,6 +20,10 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.7.2
+**Deployed:** Not deployed. Repo-only release candidate; production stays on 1.7.1 until KK approves the merge and a deploy.
+Load `marquee.js` only when the rendered front page contains a marquee board (#1237). The check runs on rendered blocks, so it also holds under the saved `kk-aurora//front-page` template. Archive, taxonomy, date, author and search routes emit their own `og:url`, and routes without a description fall back to the Writing archive or homepage description instead of the retired site tagline (#1228; fallback copy awaits KK approval). New `tests/functions-smoke.php` covers both, plus the `/writing` and `/projects` redirects. Reconciles the readme and changelog deploy markers and sets Tested up to 7.0 (#1243). PHP, tests and metadata only; no CSS, template, part or pattern file changed.
+
 ## 1.7.1
 **Deployed:** LIVE via SFTP on 2026-11-03 after KK's #1172 release approval. All 65 files were verified before the swap. PressCACHE and CDN purges succeeded. Boost generated six Critical CSS files, and the canonical blog and long post served the regenerated styles after the page cache refresh. Stylesheet parity and desktop/mobile journal checks passed. See `docs/current-state/AURORA-WRITING-RELEASE-2026-11-03.md`.
 Scope journal component rules beneath the journal page class so WordPress inline block/global styles cannot override the approved typography and spacing. Store the saved-template back arrow as an HTML entity to preserve it through production database normalization.

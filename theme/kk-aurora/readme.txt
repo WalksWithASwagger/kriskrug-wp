@@ -42,6 +42,12 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 Deploy status for every version lives in `CHANGELOG.md`, the deploy ledger.
 
+= 1.7.2 =
+* perf (#1237): load `marquee.js` only when the rendered front page contains a marquee board.
+* seo (#1228): archive, taxonomy, date, author and search routes emit their own `og:url`; routes without a description fall back to the Writing or homepage description instead of the retired site tagline.
+* test (#1228, #1237): `tests/functions-smoke.php` covers the marquee enqueue, route social metadata, and the `/writing` and `/projects` redirects.
+* docs (#1243): reconcile readme and changelog deploy markers; Tested up to 7.0.
+
 = 1.7.1 =
 * Scope journal components above WordPress inline global/block defaults; preserve the template back arrow through database normalization.
 
