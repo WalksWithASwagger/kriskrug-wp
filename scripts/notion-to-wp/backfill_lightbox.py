@@ -21,7 +21,9 @@ write, so a mid-run stop still leaves an accurate manifest.
 
 NOTE: updating content via REST bumps each post's modified date (sitemap lastmod).
 """
-import sys, re, json, argparse
+import re
+import json
+import argparse
 from collections import Counter
 
 from kk_notion_to_wp import WordPress, load_config

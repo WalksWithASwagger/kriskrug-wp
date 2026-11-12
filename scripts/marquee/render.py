@@ -11,7 +11,6 @@ Consumers:
 """
 from __future__ import annotations
 import html
-import json
 
 SKINS = ("led", "splitflap", "letterpress", "teletype")
 
