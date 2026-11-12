@@ -83,9 +83,11 @@ Dated API readback **2026-09-30**:
 | Auto-Triage Issues | `.github/workflows/auto-triage.yml` | `disabled_manually` |
 | Marquee Weekly Scan | `.github/workflows/marquee-weekly.yml` | `disabled_manually` |
 
-Auto-Triage Issues and Marquee Weekly Scan remain disabled on purpose. The
-reason is unknown. Do not re-enable them, edit repository settings, or treat
-their YAML as a running schedule. Historical swarm docs (`docs/architecture.md`,
+Auto-Triage Issues and Marquee Weekly Scan sat disabled for an unknown reason
+until KK ruled on 2026-11-12 (#1220) to delete both YAML files. Without a file
+on `main` neither can run, though the Actions API may keep listing them by name.
+Do not recreate them or edit repository settings to restore them. Historical
+swarm docs (`docs/architecture.md`,
 `docs/automation-guide.md`) describe files, not current Actions state.
 
 `practice-preview` is a local-only Make target. CI's `practice-browser` job

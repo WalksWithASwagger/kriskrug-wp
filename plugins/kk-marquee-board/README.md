@@ -34,8 +34,8 @@ sequence under the post-2026-05-15 rules, and rolling it back after crawl means 
 ## Unpark or archive trigger
 
 If KK accepts #406 Option B (keep the visual, kill the automation) or Option A (kill it entirely),
-this plugin should be **archived with a tombstone** in that same pass, together with
-`.github/workflows/marquee-weekly.yml`, which is still on a Monday cron. If the marquee instead gets
+this plugin should be **archived with a tombstone** in that same pass. The Monday workflow
+`marquee-weekly.yml` is already gone: it was deleted on 2026-11-12 (#1220). If the marquee instead gets
 a product owner and a reason to have a public archive, open a fresh deploy issue with the rollback
 path spelled out.
 
