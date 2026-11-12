@@ -173,7 +173,10 @@ STALE_FRONT_DOOR_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     ),
 ]
 
-ACTIVE_WORK_PLAN = Path("docs/current-state/WORK-PLAN-2026-09-09.md")
+# Cutting a new roadmap: change this one path and repoint the links in
+# AGENTS.md, docs/INDEX.md and docs/current-state/README.md in the same PR.
+CURRENT_ROADMAP = Path("docs/current-state/ROADMAP-2026-11-11.md")
+RETAINED_PROCEDURES_PLAN = Path("docs/current-state/WORK-PLAN-2026-09-09.md")
 ARCHIVED_WORK_PLAN = Path("docs/current-state/WORK-PLAN-2026-08-25.md")
 
 ACTIVE_GUIDANCE_PATHS = {
@@ -182,7 +185,8 @@ ACTIVE_GUIDANCE_PATHS = {
     Path("docs/INDEX.md"),
     Path("docs/current-state/README.md"),
     Path("docs/current-state/CURRENT-STATE-2026-10-25.md"),
-    ACTIVE_WORK_PLAN,
+    CURRENT_ROADMAP,
+    RETAINED_PROCEDURES_PLAN,
     Path("docs/current-state/MASTER-PLAN-2026-07-30.md"),
 }
 
@@ -232,7 +236,7 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
         ),
         (
             re.compile(r"WORK-PLAN-2026-08-25\.md.*(?:active|current).*runbook", re.I),
-            "The active documentation index must point to `WORK-PLAN-2026-09-09.md`.",
+            "WORK-PLAN-2026-08-25.md is archived; the index must link the current roadmap and treat `WORK-PLAN-2026-09-09.md` as retained procedures.",
         ),
         (
             re.compile(r"correct the remaining issue #4 media identity", re.I),
@@ -252,7 +256,7 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     Path("docs/current-state/CURRENT-STATE-2026-10-25.md"): [
         (
             re.compile(r"(?:Latest dated runbook|front door)[^\n]*WORK-PLAN-2026-08-25\.md", re.I),
-            "The declared snapshot must point to `WORK-PLAN-2026-09-09.md`.",
+            "WORK-PLAN-2026-08-25.md is archived; the declared snapshot must not call it a runbook or front door (retained procedures live in `WORK-PLAN-2026-09-09.md`).",
         ),
         (
             re.compile(r"Open PRs:\s*`1`[^\n]*#710", re.I),
@@ -270,7 +274,7 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     Path("docs/current-state/MASTER-PLAN-2026-07-30.md"): [
         (
             re.compile(r"Day runbook:[^\n]*WORK-PLAN-2026-08-25\.md", re.I),
-            "The master plan must point to `WORK-PLAN-2026-09-09.md`.",
+            "WORK-PLAN-2026-08-25.md is archived; the master plan must not name it as the day runbook (retained procedures live in `WORK-PLAN-2026-09-09.md`).",
         ),
     ],
     Path("docs/current-state/README.md"): [
@@ -322,6 +326,11 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     ],
 }
 
+ROADMAP_LINK_REQUIREMENT = (
+    re.compile(re.escape(CURRENT_ROADMAP.name)),
+    f"Front doors must link the current roadmap `{CURRENT_ROADMAP.name}`.",
+)
+
 REQUIRED_PATH_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     Path(".github/agent-state/README.md"): [
         (
@@ -335,24 +344,9 @@ REQUIRED_PATH_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
             "Retired swarm documentation must carry a `STATUS: Historical` banner.",
         ),
     ],
-    Path("AGENTS.md"): [
-        (
-            re.compile(r"WORK-PLAN-2026-09-09\.md"),
-            "Agent orientation must point to the identical active work plan `WORK-PLAN-2026-09-09.md`.",
-        ),
-    ],
-    Path("docs/INDEX.md"): [
-        (
-            re.compile(r"WORK-PLAN-2026-09-09\.md"),
-            "The documentation index must point to the identical active work plan `WORK-PLAN-2026-09-09.md`.",
-        ),
-    ],
-    Path("docs/current-state/README.md"): [
-        (
-            re.compile(r"WORK-PLAN-2026-09-09\.md"),
-            "The current-state front door must point to the identical active work plan `WORK-PLAN-2026-09-09.md`.",
-        ),
-    ],
+    Path("AGENTS.md"): [ROADMAP_LINK_REQUIREMENT],
+    Path("docs/INDEX.md"): [ROADMAP_LINK_REQUIREMENT],
+    Path("docs/current-state/README.md"): [ROADMAP_LINK_REQUIREMENT],
     Path("docs/current-state/BACKUP_PLAN.md"): [
         (
             re.compile(r"verified local files", re.I),
