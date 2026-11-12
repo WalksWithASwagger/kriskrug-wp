@@ -7,6 +7,7 @@ SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPT_DIR))
 
 import connector_payload  # noqa: E402
+from latin1_text import NonLatin1Text  # noqa: E402
 
 
 class ConnectorPayloadTests(unittest.TestCase):
@@ -45,37 +46,48 @@ class ConnectorPayloadTests(unittest.TestCase):
             },
         )
 
-    def test_seo_meta_strips_combining_diacritics_but_keeps_visible_title(self):
-        # "Ethọ́s" = E t h o + U+0323 (combining dot below) + U+0301 (combining acute) + s
-        combining_title = "Ethọ́s Lab Block Party | Kris Krüg"
+    def test_seo_meta_with_combining_marks_is_refused(self):
+        combining_title = "Ethọ́s Lab Block Party | Kris Krüg"
+        with self.assertRaisesRegex(NonLatin1Text, "SEO title .*Combining marks"):
+            connector_payload.build_wp_payload(
+                title=combining_title,
+                slug="ethos-lab-block-party",
+                force_publish=False,
+                pub_datetime="2026-06-23T12:00:00",
+                author_id=1,
+                excerpt="An excerpt.",
+                body_html="<p>Body</p>",
+                page_id="12345678-1234-1234-1234-123456789abc",
+                featured=False,
+                seo_title=combining_title,
+                meta_desc="A description.",
+            )
+
+    def test_plain_text_meta_keeps_latin1_and_folds_typographic_punctuation(self):
+        long_excerpt = "Kris Krüg’s café notes. " + "x" * 260
         payload = connector_payload.build_wp_payload(
-            title=combining_title,
-            slug="ethos-lab-block-party",
+            title="KK’s Field Notes",
+            slug="kks-field-notes",
             force_publish=False,
             pub_datetime="2026-06-23T12:00:00",
             author_id=1,
-            excerpt="An excerpt.",
+            excerpt=long_excerpt,
             body_html="<p>Body</p>",
             page_id="12345678-1234-1234-1234-123456789abc",
             featured=False,
-            seo_title=combining_title,
-            meta_desc="A description about Ethọ́s Lab.",
+            seo_title="KK’s Field Notes | Kris Krüg",
+            meta_desc="“Café Krüg” – the notes…",
         )
 
-        seo_title = payload["meta"]["jetpack_seo_html_title"]
-        seo_desc = payload["meta"]["advanced_seo_description"]
-
-        # The REST-breaking combining marks (category Mn) are gone from SEO meta.
-        self.assertFalse(any(__import__("unicodedata").combining(c) for c in seo_title))
-        self.assertFalse(any(__import__("unicodedata").combining(c) for c in seo_desc))
-        # Precomposed accents survive (ü is a single NFC codepoint, not combining).
-        self.assertIn("Kris Krüg", seo_title)
-        # The visible post title keeps its original diacritics untouched.
-        self.assertEqual(payload["title"], combining_title)
-
-    def test_normalize_seo_meta_leaves_plain_and_precomposed_text_unchanged(self):
-        self.assertEqual(connector_payload.normalize_seo_meta("Kris Krüg"), "Kris Krüg")
-        self.assertEqual(connector_payload.normalize_seo_meta("Plain ASCII"), "Plain ASCII")
+        meta = payload["meta"]
+        self.assertEqual(meta["jetpack_seo_html_title"], "KK's Field Notes | Kris Krüg")
+        self.assertEqual(meta["advanced_seo_description"], '"Café Krüg" - the notes...')
+        # derive_social_message ends a cut message with an ellipsis of its own.
+        self.assertTrue(meta["jetpack_publicize_message"].endswith("..."))
+        self.assertTrue(all(ord(ch) <= 0xFF for value in meta.values() for ch in value))
+        # Post fields stay as written; the client encodes them on the way out.
+        self.assertEqual(payload["title"], "KK’s Field Notes")
+        self.assertEqual(payload["excerpt"], long_excerpt)
 
 
 if __name__ == "__main__":

@@ -56,6 +56,11 @@ Safety:
          lookup that refuses to answer (SlugVerificationFailed) exits 8.
       5. After the write, the readback slug, status, title and date must match
          the payload or the run exits 7.
+      6. The database is latin1, so WordPress stores raw text above U+00FF as
+         "?". The client sends title, content, excerpt, alt text and term
+         names with those characters as numeric references. SEO meta and the
+         Publicize message must be latin1 plain text; when they cannot be, the
+         run exits 9 before any WordPress request (#1225).
 """
 from __future__ import annotations
 
@@ -97,6 +102,7 @@ from draft_writers import (  # noqa: E402
     write_internal_links as _write_internal_links,
     write_seo_meta as _write_seo_meta,
 )
+from latin1_text import NonLatin1Text  # noqa: E402
 from media_pipeline import (  # noqa: E402
     auto_alt,
     collect_image_blocks,
@@ -267,19 +273,24 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
     log("wrote post.md, post.html, seo-meta.md, alt-text.md, internal-links.md")
 
     # 5. REST payload (always built; only sent if not dry-run)
-    payload = build_wp_payload(
-        title=title,
-        slug=slug,
-        force_publish=force_publish,
-        pub_datetime=pub_datetime,
-        author_id=cfg.wp_author_id,
-        excerpt=excerpt,
-        body_html=body_html,
-        page_id=page_id,
-        featured=featured,
-        seo_title=seo_title,
-        meta_desc=meta_desc,
-    )
+    try:
+        payload = build_wp_payload(
+            title=title,
+            slug=slug,
+            force_publish=force_publish,
+            pub_datetime=pub_datetime,
+            author_id=cfg.wp_author_id,
+            excerpt=excerpt,
+            body_html=body_html,
+            page_id=page_id,
+            featured=featured,
+            seo_title=seo_title,
+            meta_desc=meta_desc,
+        )
+    except NonLatin1Text as e:
+        log(f"ABORTING: {e}")
+        log("No WP write was attempted.")
+        return 9
 
     if (dry_run and not diff_update) or not cfg.has_wp_credentials:
         if diff_update and not cfg.has_wp_credentials:

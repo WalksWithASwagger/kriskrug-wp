@@ -15,8 +15,8 @@ import sys
 from dataclasses import dataclass
 from typing import Any, Callable, Sequence
 
-from connector_payload import normalize_seo_meta
 from kk_notion_to_wp import slugify
+from latin1_text import latin1_payload, plain_meta_text
 from wp_blocks import heading, inline, separator
 from wp_client import lookup_slug
 
@@ -408,7 +408,7 @@ def ensure_term_id(wp: Any, taxonomy: str, name: str) -> int:
             return int(term["id"])
     create = wp.s.post(
         f"{wp.base}/wp-json/wp/v2/{taxonomy}",
-        json={"name": name, "slug": slug},
+        json=latin1_payload({"name": name, "slug": slug}),
         timeout=30,
     )
     if create.status_code == 400:
@@ -485,10 +485,10 @@ def resolve_featured_media(
 
 
 def build_seo_meta(meta_title: str, meta_description: str) -> dict[str, str]:
-    """Return Jetpack SEO meta dict with normalize_seo_meta applied to both fields."""
+    """Jetpack SEO meta as latin1 plain text; raises NonLatin1Text when it cannot be."""
     return {
-        "jetpack_seo_html_title": normalize_seo_meta(meta_title),
-        "advanced_seo_description": normalize_seo_meta(meta_description),
+        "jetpack_seo_html_title": plain_meta_text(meta_title, "SEO title"),
+        "advanced_seo_description": plain_meta_text(meta_description, "SEO description"),
     }
 
 

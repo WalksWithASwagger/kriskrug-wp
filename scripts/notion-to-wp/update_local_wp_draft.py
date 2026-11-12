@@ -13,10 +13,11 @@ slug is never changed on update. Dry-run by default; pass --execute to write.
 Usage:
   python update_local_wp_draft.py <post_md> --wp-id <ID> [--execute]
 
-Note: Jetpack SEO post-meta (jetpack_seo_html_title / advanced_seo_description)
-500s when the value contains a combining-diacritic sequence (e.g. "Ethọ́s").
-Keep SEO meta in the package frontmatter precomposed/ASCII; the visible title
-and body can keep the diacritics.
+Note: SEO meta in the package frontmatter must be latin1 plain text. Jetpack's
+SEO post-meta write 500s on a combining-diacritic sequence (e.g. "Ethọ́s"), and
+the latin1 database stores other characters above U+00FF as "?", so the quality
+gate refuses such SEO meta before any write. The visible title and body keep
+their diacritics; the client sends them as numeric character references.
 """
 from __future__ import annotations
 

@@ -19,6 +19,7 @@ from render import post_content
 
 # Reuse the pure title-similarity guard from the Notion connector (difflib only, no heavy deps).
 sys.path.insert(0, str(ROOT / "scripts" / "notion-to-wp"))
+from latin1_text import latin1_payload  # noqa: E402
 from update_safety import title_similarity, TITLE_SIMILARITY_UPDATE_THRESHOLD  # noqa: E402
 
 POST_TYPE = "marquee_board"
@@ -73,12 +74,13 @@ class MarqueeWP:
         return r.json()
 
     def create(self, payload: dict) -> dict:
-        r = self.s.post(f"{self.base}/wp-json/wp/v2/{POST_TYPE}", json=payload, timeout=60)
+        r = self.s.post(f"{self.base}/wp-json/wp/v2/{POST_TYPE}", json=latin1_payload(payload), timeout=60)
         r.raise_for_status()
         return r.json()
 
     def update(self, post_id: int, payload: dict) -> dict:
-        r = self.s.post(f"{self.base}/wp-json/wp/v2/{POST_TYPE}/{post_id}", json=payload, timeout=60)
+        r = self.s.post(f"{self.base}/wp-json/wp/v2/{POST_TYPE}/{post_id}", json=latin1_payload(payload),
+                        timeout=60)
         r.raise_for_status()
         return r.json()
 
@@ -91,7 +93,7 @@ class MarqueeWP:
         media = r.json()
         if alt:
             self.s.post(f"{self.base}/wp-json/wp/v2/media/{media['id']}",
-                        json={"alt_text": alt}, timeout=30).raise_for_status()
+                        json=latin1_payload({"alt_text": alt}), timeout=30).raise_for_status()
         return media
 
 
@@ -105,12 +107,14 @@ def build_payload(board: dict) -> dict:
         "status": "publish" if board.get("status") == "live" else "publish",
         "excerpt": board.get("dek", ""),
         "content": post_content(board),
+        # JSON meta keeps json.dumps' ASCII escapes: the latin1 database would
+        # store a raw em dash as "?", and any JSON reader decodes the escape back.
         "meta": {
-            META["lines"]: json.dumps(board["board"], ensure_ascii=False),
+            META["lines"]: json.dumps(board["board"]),
             META["week"]: board.get("week", ""),
             META["skin"]: board.get("skin", "led"),
             META["after"]: board.get("after", ""),
-            META["source"]: json.dumps(board.get("source", {}), ensure_ascii=False),
+            META["source"]: json.dumps(board.get("source", {})),
             META["tags"]: ", ".join(board.get("tags", [])),
         },
     }
@@ -118,7 +122,8 @@ def build_payload(board: dict) -> dict:
 
 def sync_board(wp, board: dict, og_png: Path | None, *, execute: bool, allow_update: bool, log=print) -> dict:
     """Create (default) or update one board. Returns an outcome dict. No writes unless execute."""
-    payload = build_payload(board)
+    # Encoded and checked up front so a refusal lands before the featured image upload.
+    payload = latin1_payload(build_payload(board))
     slug = payload["slug"]
     out = {"slug": slug, "status": "planned"}
 

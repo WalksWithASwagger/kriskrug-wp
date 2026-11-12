@@ -9,11 +9,15 @@ SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPT_DIR))
 
 import create_local_wp_draft  # noqa: E402
-import publish_common  # noqa: E402
 
 
 class CreateLocalWPDraftTests(unittest.TestCase):
-    def write_package(self, root: Path, seo_title: str = "SEO title") -> Path:
+    def write_package(
+        self,
+        root: Path,
+        seo_title: str = "SEO title",
+        seo_description: str = "About Café Krüg",
+    ) -> Path:
         draft_dir = root / "draft"
         draft_dir.mkdir()
         post_md = draft_dir / "post.md"
@@ -25,7 +29,7 @@ class CreateLocalWPDraftTests(unittest.TestCase):
             "excerpt: A guarded draft.\n"
             "seo:\n"
             f"  meta_title: {seo_title}\n"
-            "  meta_description: About Ethọ́s Lab\n"
+            f"  meta_description: {seo_description}\n"
             "---\n"
             "Body\n",
             encoding="utf-8",
@@ -289,9 +293,9 @@ class CreateLocalWPDraftTests(unittest.TestCase):
         wp.create_post.assert_called_once()
         wp.get_post.assert_called_once_with(99)
 
-    def test_payload_uses_canonical_seo_normalization(self):
+    def test_payload_seo_meta_is_latin1_plain_text(self):
         with tempfile.TemporaryDirectory() as tmp:
-            post_md = self.write_package(Path(tmp), seo_title="Ethọ́s Lab")
+            post_md = self.write_package(Path(tmp), seo_title="KK’s Lab")
             pkg = create_local_wp_draft.load_package(post_md)
             cfg = create_local_wp_draft.WPConfig(
                 "https://example.test", "user", "pass", 1
@@ -300,15 +304,20 @@ class CreateLocalWPDraftTests(unittest.TestCase):
 
         self.assertEqual(
             payload["meta"],
-            publish_common.build_seo_meta("Ethọ́s Lab", "About Ethọ́s Lab"),
+            {
+                "jetpack_seo_html_title": "KK's Lab",
+                "advanced_seo_description": "About Café Krüg",
+            },
         )
-        self.assertFalse(
-            any(
-                __import__("unicodedata").combining(char)
-                for value in payload["meta"].values()
-                for char in value
-            )
-        )
+
+    def test_quality_gate_refuses_seo_meta_before_any_write(self):
+        for field in ("seo_title", "seo_description"):
+            with self.subTest(field=field), tempfile.TemporaryDirectory() as tmp:
+                post_md = self.write_package(Path(tmp), **{field: "Ethọ́s Lab"})
+                with mock.patch.object(create_local_wp_draft, "WordPress") as wordpress:
+                    with self.assertRaisesRegex(RuntimeError, "quality gate failed: SEO"):
+                        create_local_wp_draft.create_local_draft(post_md, dry_run=False)
+                wordpress.assert_not_called()
 
 
 if __name__ == "__main__":
