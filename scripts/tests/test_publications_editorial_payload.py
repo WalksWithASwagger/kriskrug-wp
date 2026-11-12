@@ -174,6 +174,7 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
         self.assertIn("--aurora-signal", self.payload)
 
     def test_images_have_dimensions_and_alt_text(self):
+        published_urls = load_manifest(PRESS_MEDIA_MANIFEST_JSON)["published_urls"]
         keys = [img.get("data-media-key") for img in self.parser.images]
         self.assertGreaterEqual(len(self.parser.images), 24)
         self.assertGreaterEqual(len(set(keys)), 20)
@@ -181,9 +182,34 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
             self.assertTrue(image.get("alt"))
             self.assertTrue(image.get("width"))
             self.assertTrue(image.get("height"))
-            self.assertTrue(image.get("src", "").startswith("../assets/"))
-            self.assertEqual(Path(image["src"]).name, image.get("data-media-key"))
-            self.assertTrue((PAYLOAD_PATH.parent / image["src"]).resolve().exists())
+            media_key = image["data-media-key"]
+            self.assertEqual(published_urls.get(media_key), image["src"])
+            self.assertRegex(
+                image["src"],
+                rf"\Ahttps://kriskrug\.co/wp-content/uploads/\d{{4}}/"
+                rf"(?:0[1-9]|1[0-2])/{re.escape(media_key)}\Z",
+            )
+
+    def test_featured_interview_uses_the_verified_publisher_video(self):
+        posters = [
+            link
+            for link in self.parser.external_links
+            if "kk-press-poster" in link.get("class", "").split()
+        ]
+        self.assertEqual(1, len(posters))
+        self.assertEqual(
+            "https://www.youtube.com/watch?v=2vC-zpjQM3E", posters[0]["href"]
+        )
+        self.assertEqual(
+            "press-2026-10-27-canada-now.jpg",
+            self.parser.images[0]["data-media-key"],
+        )
+        manifest = load_manifest(PRESS_MEDIA_MANIFEST_JSON)
+        by_key, _ = manifest_lookups(manifest)
+        self.assertEqual(
+            posters[0]["href"],
+            by_key["press-2026-10-27-canada-now.jpg"]["source_url"],
+        )
 
     def test_external_links_open_safely(self):
         self.assertGreaterEqual(len(self.parser.external_links), 47)

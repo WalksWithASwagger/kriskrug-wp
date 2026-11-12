@@ -44,31 +44,6 @@
   color: var(--press-signal);
   margin: 0 0 0.85rem;
 }
-.kk-press-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.65fr) minmax(220px, 0.65fr);
-  gap: 2rem;
-  align-items: end;
-  padding: 0.35rem 0 2.75rem;
-  border-bottom: 1px solid var(--press-line);
-}
-.kk-press-display {
-  max-width: 760px;
-  margin: 0;
-  color: var(--press-ink);
-  font-family: var(--press-display);
-  font-size: clamp(2.6rem, 6.4vw, 5.4rem);
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 0.92;
-}
-.kk-press-lead {
-  max-width: 720px;
-  margin: 1.35rem 0 0;
-  color: var(--press-muted);
-  font-size: 1.08rem;
-  line-height: 1.65;
-}
 .kk-press-ledger {
   margin: 0;
   padding: 0;
@@ -147,6 +122,8 @@
 .kk-press-feature:hover img { transform: scale(1.02); }
 .kk-press-feature.is-lead { grid-row: auto; }
 .kk-press-feature figure {
+  width: 100%;
+  min-width: 0;
   aspect-ratio: 16 / 10;
   margin: 0;
   overflow: hidden;
@@ -522,7 +499,6 @@
   to { opacity: 1; transform: translateY(0); }
 }
 @media (max-width: 820px) {
-  .kk-press-hero,
   .kk-press-section-head,
   .kk-press-cta { grid-template-columns: 1fr; }
   .kk-press-ledger {
@@ -543,7 +519,6 @@
 }
 @media (max-width: 620px) {
   .kk-press { padding: 0.75rem 0.55rem 2rem; }
-  .kk-press-display { font-size: clamp(2.4rem, 13vw, 3.8rem); }
   .kk-press-ledger { grid-template-columns: 1fr; }
   .kk-press-ledger div {
     display: grid;
@@ -552,13 +527,8 @@
   }
   .kk-press-feature,
   .kk-press-feature.is-lead {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto;
-  }
-  .kk-press-feature figure,
-  .kk-press-feature.is-lead figure {
-    min-height: 220px;
-    aspect-ratio: 16 / 10;
   }
   .kk-press-feed::before { left: 6px; }
   .kk-press-entry,
@@ -590,42 +560,306 @@
   .kk-press-feature img,
   .kk-press-cta a.kk-press-button { transition: none; }
 }
+html:has(body.page-id-1895 .kk-press-front) { overflow-x: clip; }
+body.page-id-1895 #aurora-main.aurora-page-2026 {
+  margin-block-start: 0;
+  padding-top: .75rem;
+}
+body.page-id-1895 #aurora-main .aurora-page-header {
+  width: min(1240px, calc(100% - 2.5rem));
+  max-width: none;
+  margin: 0 auto;
+  border: 0;
+  padding: .55rem 0 .55rem;
+}
+body.page-id-1895 .aurora-page-header .aurora-page-title {
+  max-width: none;
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4.9rem);
+  line-height: .98;
+}
+body.page-id-1895 .aurora-page-content:has(.kk-press-front) { margin-top: 0; }
+.kk-press.alignfull {
+  margin-block-start: 0;
+  --press-forest: #153d35;
+  --press-cream: #f8efd9;
+  --press-tape: #f4cc68;
+  --press-serif: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+  padding-top: .4rem;
+}
+.kk-press-shell { max-width: 1240px; }
+.kk-press-front { margin: 0 0 1.1rem; }
+.kk-press-front-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .25rem .85rem;
+  border-top: 1px solid var(--press-line);
+  padding: .5rem 0 .65rem;
+}
+.kk-press-front-heading .kk-press-kicker { margin: 0; }
+.kk-press-front-heading .kk-press-kicker span { color: var(--press-muted); }
+.kk-press-front-heading nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem clamp(.7rem, 2vw, 1.5rem);
+}
+.kk-press-front-heading nav a {
+  font-size: .84rem;
+  font-weight: 700;
+  text-underline-offset: .21em;
+}
+.kk-press-front-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.34fr) minmax(0, 1fr);
+  gap: clamp(.75rem, 2vw, 1.65rem);
+  align-items: start;
+}
+.kk-press-screen {
+  --revive-ink: var(--press-cream);
+  --revive-ink-soft: var(--press-cream);
+  --aurora-ink-soft: var(--press-cream);
+  min-width: 0;
+  background: var(--press-forest);
+  color: var(--press-cream);
+  padding: clamp(.65rem, 2.1vw, 1.65rem);
+}
+body.page-id-1895 #aurora-main .kk-press-screen-copy .kk-press-label {
+  --revive-ink-soft: var(--press-tape);
+  --aurora-ink-soft: var(--press-tape);
+  margin: 0 0 .4rem;
+}
+body.page-id-1895 #aurora-main .kk-press-screen-copy .kk-press-display {
+  color: var(--press-cream);
+  padding: 0;
+  border: 0;
+  font-family: var(--press-serif);
+  font-size: clamp(2rem, 3.65vw, 3.6rem);
+  font-weight: 700;
+  line-height: .99;
+  letter-spacing: -.037em;
+  margin: 0;
+}
+body.page-id-1895 #aurora-main .kk-press-screen-copy .kk-press-display::before { content: none; }
+body.page-id-1895 #aurora-main .kk-press-screen-note {
+  color: var(--press-cream);
+  font-size: .82rem;
+  line-height: 1.35;
+  margin: .48rem 0 .78rem;
+}
+.kk-press a.kk-press-poster {
+  display: block;
+  position: relative;
+  color: var(--press-forest);
+  text-decoration: none;
+}
+.kk-press-poster img { aspect-ratio: 16 / 9; height: auto; object-fit: cover; }
+.kk-press-poster > span {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  position: absolute;
+  inset: auto auto .65rem .65rem;
+  padding: .58rem .72rem;
+  background: var(--press-tape);
+  color: var(--press-forest);
+  font-size: .84rem;
+  line-height: 1.2;
+  font-weight: 800;
+  transition: transform .15s ease;
+}
+.kk-press-poster:hover > span { transform: translateY(-3px); }
+.kk-press .kk-press-poster:focus-visible { outline-color: var(--press-tape); }
+.kk-press-desk { display: grid; min-width: 0; gap: .75rem; }
+.kk-press-tears { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+.kk-press-tears a,
+.kk-press-watch-grid a {
+  display: block;
+  min-width: 0;
+  color: inherit;
+  border: 1px solid var(--press-line);
+  text-decoration: none;
+  background: var(--press-cream);
+}
+.kk-press-tears img { height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+.kk-press-tears a > span,
+.kk-press-watch-grid a > span { display: block; padding: .44rem .6rem; font-size: .86rem; line-height: 1.25; }
+.kk-press-tears a b,
+.kk-press-watch-grid a b { display: block; color: var(--press-signal); font-size: .69rem; line-height: 1.25; }
+.kk-press-tears a:hover > span,
+.kk-press-watch-grid a:hover > span { text-decoration: underline; text-underline-offset: .2em; }
+.kk-press-quote-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: .5rem;
+}
+.kk-press-desk-quote {
+  margin: 0;
+  padding: .55rem .75rem .68rem;
+  border-left: 4px solid var(--press-signal);
+  background: var(--press-panel);
+}
+.kk-press .kk-press-desk-quote blockquote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--press-ink);
+  font: 700 clamp(1.15rem, 2.15vw, 1.95rem)/1.08 var(--press-serif);
+  letter-spacing: -.035em;
+}
+.kk-press-desk-quote.is-press { border-left-color: var(--press-forest); }
+.kk-press .kk-press-desk-quote.is-press blockquote { font-size: clamp(1rem, 1.5vw, 1.4rem); }
+.kk-press-desk-quote figcaption {
+  margin: .3rem 0 0;
+  font-size: .72rem;
+  font-style: normal;
+  font-weight: 700;
+  text-align: left;
+}
+.kk-press-dispatch { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .5rem; }
+.kk-press-dispatch a {
+  display: block;
+  border-top: 1px solid var(--press-line);
+  padding: .3rem 0;
+  text-decoration: none;
+  line-height: 1.2;
+  font-size: .8rem;
+}
+.kk-press-dispatch a b { display: block; color: var(--press-signal); font-size: .72rem; }
+.kk-press-dispatch a:hover span { text-decoration: underline; }
+.kk-press-dispatch img {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: .4rem;
+}
+.kk-press-watch-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; }
+.kk-press-watch-grid img { aspect-ratio: 16 / 9; height: auto; object-fit: cover; }
+.kk-press .kk-press-pull { background: var(--press-panel); box-shadow: none; }
+.kk-press-archive-meta { margin: 1.5rem 0; }
+.kk-press [id] { scroll-margin-top: 6rem; }
+@media (max-width: 760px) {
+  body.page-id-1895 #aurora-main.aurora-page-2026 { padding-top: .2rem; }
+  body.page-id-1895 #aurora-main .aurora-page-header { width: 100%; padding-block: .35rem .15rem; }
+  .kk-press.alignfull { padding-inline: .75rem; }
+  .kk-press-front-grid { grid-template-columns: minmax(0, 1fr); gap: .45rem; }
+  .kk-press-front-heading { padding-block: .35rem .48rem; }
+  .kk-press-front-heading .kk-press-kicker { font-size: .65rem; }
+  .kk-press-front-heading nav a { font-size: .72rem; }
+  body.page-id-1895 #aurora-main .kk-press-screen-copy .kk-press-display { font-size: clamp(1.75rem, 7.6vw, 2.65rem); }
+  body.page-id-1895 #aurora-main .kk-press-screen-note { margin: .3rem 0 .55rem; font-size: .73rem; }
+  .kk-press-desk { gap: .4rem; }
+  .kk-press-tears img { aspect-ratio: 2.15 / 1; object-position: center 35%; }
+  .kk-press-tears a > span { font-size: .73rem; padding: .3rem .4rem; }
+  .kk-press-tears a b { font-size: .65rem; }
+  .kk-press-desk-quote { padding: .4rem .5rem; }
+  .kk-press-desk-quote figcaption { margin-top: .15rem; font-size: .65rem; line-height: 1.2; }
+  .kk-press-dispatch img { display: none; }
+  .kk-press-watch-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 360px) {
+  .kk-press-dispatch a { font-size: .75rem; }
+  .kk-press-desk-quote figcaption { font-size: .61rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kk-press-poster > span { transition: none; }
+}
 </style>
 
 <div class="kk-press alignfull">
   <div class="kk-press-shell">
-    <section class="kk-press-hero">
-      <div>
-        <p class="kk-press-kicker">Press clippings / 2006 to now</p>
-        <h2 class="kk-press-display">A drumbeat, not a trophy shelf.</h2>
-        <p class="kk-press-lead">Outlet screenshots and dated clips, newest first. Independent reporting, long conversations, business coverage, public-interest debate, and the occasional gloriously strange corner of the internet. The older web is still here. It just does not get the first screen.</p>
-        <ul class="kk-press-outlets" aria-label="Selected outlets">
-          <li>Business in Vancouver</li>
-          <li>The Tyee</li>
-          <li>CBC</li>
-          <li>Vancouver Magazine</li>
-          <li>Portfolio.YVR</li>
-          <li>TELUS STORYHIVE</li>
-          <li>BC Studies</li>
-          <li>TechCrunch</li>
-        </ul>
+    <section class="kk-press-front" aria-label="Featured work">
+      <div class="kk-press-front-heading">
+        <p class="kk-press-kicker">Kris Krüg <span> / </span> On the record</p>
+        <nav aria-label="Browse publications">
+          <a href="#press-videos">Videos</a>
+          <a href="#press-interviews">Interviews</a>
+          <a href="#press-quotes">Quotes</a>
+          <a href="#press-clippings">Clippings</a>
+        </nav>
       </div>
-      <dl class="kk-press-ledger">
-        <div><dt>51</dt><dd>dated entries on this page</dd></div>
-        <div><dt>26</dt><dd>published since 2023</dd></div>
-        <div><dt>20</dt><dd>years on the record</dd></div>
-      </dl>
+      <div class="kk-press-front-grid">
+        <article class="kk-press-screen">
+          <div class="kk-press-screen-copy">
+            <p class="kk-press-label">Featured interview · Canada Now</p>
+            <h2 class="kk-press-display">Who gets a say in Canada’s AI future?</h2>
+            <p class="kk-press-screen-note">Ashley Smith with Kris Krüg · 54 min</p>
+          </div>
+          <a class="kk-press-poster" href="https://www.youtube.com/watch?v=2vC-zpjQM3E" target="_blank" rel="noopener noreferrer" aria-label="Watch the Canada Now interview on YouTube">
+            <img src="https://kriskrug.co/wp-content/uploads/2026/11/press-2026-10-27-canada-now.jpg" data-media-key="press-2026-10-27-canada-now.jpg" alt="Canada Now’s episode art with host Ashley Smith and guest Kris Krüg at the microphones" width="1280" height="720" fetchpriority="high"/>
+            <span><span aria-hidden="true">&#9654;</span> Watch interview</span>
+          </a>
+        </article>
+        <div class="kk-press-desk">
+          <div class="kk-press-tears">
+            <a href="https://vanmag.com/city/power-50/introducing-vancouver-magazines-2026-power-50-list/" target="_blank" rel="noopener noreferrer">
+              <img src="https://kriskrug.co/wp-content/uploads/2026/11/press-2026-02-05-vanmag-power50-entry.jpg" data-media-key="press-2026-02-05-vanmag-power50-entry.jpg" alt="Vancouver Magazine’s Power 50 profile of Kris Krüg, ranked number 46" width="1200" height="750"/>
+              <span><b>Vancouver Magazine</b><span>Power 50 · No. 46 &#8599;</span></span>
+            </a>
+            <a href="https://thetyee.ca/News/2026/07/24/Who-Gets-Say-AI-Adoption/" target="_blank" rel="noopener noreferrer">
+              <img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2026-07-24-the-tyee-context-v2.jpg" data-media-key="press-2026-07-24-the-tyee-context-v2.jpg" alt="The Tyee’s article clipping for Who Gets a Say in AI Adoption?" width="1200" height="750"/>
+              <span><b>The Tyee</b><span>Who gets a say in AI? &#8599;</span></span>
+            </a>
+          </div>
+          <div class="kk-press-quote-pair" id="press-quotes" aria-label="Selected quotes">
+            <figure class="kk-press-desk-quote">
+              <blockquote>“I’m walking with both hands full.”</blockquote>
+              <figcaption><a href="https://www.youtube.com/watch?v=2vC-zpjQM3E&amp;t=2497s" target="_blank" rel="noopener noreferrer">Kris Krüg · Canada Now · 41:37 &#8599;</a></figcaption>
+            </figure>
+            <figure class="kk-press-desk-quote is-press">
+              <blockquote>“the city’s buzziest conversation”</blockquote>
+              <figcaption><a href="https://vanmag.com/city/power-50/introducing-vancouver-magazines-2026-power-50-list/" target="_blank" rel="noopener noreferrer">Vancouver Magazine &#8599;</a></figcaption>
+            </figure>
+          </div>
+          <div class="kk-press-dispatch" aria-label="More to watch">
+            <a href="https://www.youtube.com/watch?v=owtSPcpRinI" target="_blank" rel="noopener noreferrer">
+              <img src="https://kriskrug.co/wp-content/uploads/2026/11/press-2025-07-26-bass-coast.jpg" data-media-key="press-2025-07-26-bass-coast.jpg" alt="Kris Krüg speaking at the Bass Coast Brain Stage" width="1280" height="720" loading="lazy"/>
+              <b>Bass Coast</b><span>We need to talk about your soul <span aria-hidden="true">&#8599;</span></span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=sxDwQRTZfCA" target="_blank" rel="noopener noreferrer">
+              <img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2026-05-20-storyhive-v2.jpg" data-media-key="press-2026-05-20-storyhive-v2.jpg" alt="TELUS STORYHIVE On Location portrait and title card" width="1280" height="720" loading="lazy"/>
+              <b>TELUS STORYHIVE</b><span>On Location <span aria-hidden="true">&#8599;</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="kk-press-section">
+    <section class="kk-press-section" id="press-videos">
       <div class="kk-press-section-head">
-        <h2>Right now</h2>
-        <p class="kk-press-section-intro">The newest three stories show where the work is landing right now: AI as a live municipal election issue, building B.C.&rsquo;s AI ecosystem across professions, and public AI infrastructure as heavy industry.</p>
+        <h2>On camera</h2>
+        <p class="kk-press-section-intro">Keynotes, on-location interviews and experiments in public.</p>
+      </div>
+      <div class="kk-press-watch-grid">
+        <a href="https://www.youtube.com/watch?v=owtSPcpRinI" target="_blank" rel="noopener noreferrer">
+          <img src="https://kriskrug.co/wp-content/uploads/2026/11/press-2025-07-26-bass-coast.jpg" data-media-key="press-2025-07-26-bass-coast.jpg" alt="Kris Krüg speaking to a seated audience at the Bass Coast Brain Stage" width="1280" height="720" loading="lazy"/>
+          <span><b>Bass Coast · Brain Stage</b>Dear AI, we need to talk about your soul &#8599;</span>
+        </a>
+        <a href="https://www.youtube.com/watch?v=sxDwQRTZfCA" target="_blank" rel="noopener noreferrer">
+          <img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2026-05-20-storyhive-v2.jpg" data-media-key="press-2026-05-20-storyhive-v2.jpg" alt="TELUS STORYHIVE On Location interview thumbnail featuring Kris Krüg" width="1280" height="720" loading="lazy"/>
+          <span><b>TELUS STORYHIVE · Interview</b>On Location: Victoria &#8599;</span>
+        </a>
+        <a href="https://www.youtube.com/watch?v=0R7Re-EnPwA" target="_blank" rel="noopener noreferrer">
+          <img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2024-07-03-cbc-sandboxing-ai-series.jpg" data-media-key="press-2024-07-03-cbc-sandboxing-ai-series.jpg" alt="CBC Early Edition Sandboxing AI series thumbnail" width="1280" height="720" loading="lazy"/>
+          <span><b>CBC Early Edition · Broadcast series</b>Sandboxing AI &#8599;</span>
+        </a>
+      </div>
+    </section>
+
+
+    <section class="kk-press-section" id="press-clippings">
+      <div class="kk-press-section-head">
+        <h2>Press clippings</h2>
+        <p class="kk-press-section-intro">The stories behind B.C.’s AI community, from the rooms where people meet to the infrastructure they’ll live with.</p>
       </div>
       <div class="kk-press-featured">
         <a class="kk-press-feature is-lead" href="https://thebreaker.news/opinion/podcast-460/" target="_blank" rel="noopener noreferrer">
           <figure>
-            <img src="../assets/press-2026-08-09-thebreaker-460-context.jpg" data-media-key="press-2026-08-09-thebreaker-460-context.jpg" alt="theBreaker.news article page for thePodcast edition 460 about B.C.&rsquo;s artificial intelligence ecosystem" width="1200" height="750">
+            <img src="https://kriskrug.co/wp-content/uploads/2026/09/press-2026-08-09-thebreaker-460-context.jpg" data-media-key="press-2026-08-09-thebreaker-460-context.jpg" alt="theBreaker.news article page for thePodcast edition 460 about B.C.&rsquo;s artificial intelligence ecosystem" width="1200" height="750"/>
           </figure>
           <div class="kk-press-feature-body">
             <span class="kk-press-label">theBreaker.news / <time datetime="2026-08-09">August 9, 2026</time></span>
@@ -638,7 +872,7 @@
 
         <a class="kk-press-feature" href="https://www.biv.com/news/technology/bc-groups-push-to-build-a-stronger-ai-ecosystem-12601298" target="_blank" rel="noopener noreferrer">
           <figure>
-            <img src="../assets/press-2026-07-31-biv-ecosystem-context-v2.jpg" data-media-key="press-2026-07-31-biv-ecosystem-context-v2.jpg" alt="Business in Vancouver article page about building a stronger B.C. AI ecosystem" width="1200" height="750">
+            <img src="https://kriskrug.co/wp-content/uploads/2026/11/press-2026-07-31-biv-ecosystem-article.jpg" data-media-key="press-2026-07-31-biv-ecosystem-article.jpg" alt="Business in Vancouver article page about building a stronger B.C. AI ecosystem" width="1200" height="750"/>
           </figure>
           <div class="kk-press-feature-body">
             <span class="kk-press-label">Business in Vancouver / <time datetime="2026-07-31">July 31, 2026</time></span>
@@ -651,7 +885,7 @@
 
         <a class="kk-press-feature" href="https://thetyee.ca/News/2026/07/24/Who-Gets-Say-AI-Adoption/" target="_blank" rel="noopener noreferrer">
           <figure>
-            <img src="../assets/press-2026-07-24-the-tyee-context-v2.jpg" data-media-key="press-2026-07-24-the-tyee-context-v2.jpg" alt="The Tyee article page for Who Gets a Say in AI Adoption" width="1200" height="750">
+            <img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2026-07-24-the-tyee-context-v2.jpg" data-media-key="press-2026-07-24-the-tyee-context-v2.jpg" alt="The Tyee article page for Who Gets a Say in AI Adoption" width="1200" height="750"/>
           </figure>
           <div class="kk-press-feature-body">
             <span class="kk-press-label">The Tyee / <time datetime="2026-07-24">July 24, 2026</time></span>
@@ -662,77 +896,77 @@
         </a>
       </div>
       <blockquote class="kk-press-pull">
-        <p>AI data centres are heavy industry. Public bargaining and consultation can still change the outcome.</p>
-        <cite>The Tyee / July 2026</cite>
+        <p>“The future does need places to sit and think.”</p>
+        <cite><a href="https://www.youtube.com/watch?v=2vC-zpjQM3E&amp;t=1226s" target="_blank" rel="noopener noreferrer">Kris Krüg · Canada Now · 20:26</a></cite>
       </blockquote>
       <div class="kk-press-wall" aria-label="Press wall">
         <a href="https://www.youtube.com/watch?v=sxDwQRTZfCA" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2026-05-20-storyhive-v2.jpg" data-media-key="press-2026-05-20-storyhive-v2.jpg" alt="TELUS STORYHIVE On Location interview thumbnail" width="1280" height="720" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2026-05-20-storyhive-v2.jpg" data-media-key="press-2026-05-20-storyhive-v2.jpg" alt="TELUS STORYHIVE On Location interview thumbnail" width="1280" height="720" loading="lazy"/></figure>
           <span>STORYHIVE · 2026</span>
         </a>
         <a href="https://www.biv.com/news/technology/bc-groups-push-to-build-a-stronger-ai-ecosystem-12601298" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2026-07-31-biv-ecosystem-context-v2.jpg" data-media-key="press-2026-07-31-biv-ecosystem-context-v2.jpg" alt="Business in Vancouver AI ecosystem coverage clip" width="1200" height="750" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/11/press-2026-07-31-biv-ecosystem-article.jpg" data-media-key="press-2026-07-31-biv-ecosystem-article.jpg" alt="Business in Vancouver AI ecosystem coverage clip" width="1200" height="750" loading="lazy"/></figure>
           <span>BIV · 2026</span>
         </a>
         <a href="https://thetyee.ca/News/2026/07/24/Who-Gets-Say-AI-Adoption/" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2026-07-24-the-tyee-context-v2.jpg" data-media-key="press-2026-07-24-the-tyee-context-v2.jpg" alt="The Tyee AI adoption coverage clip" width="1200" height="750" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2026-07-24-the-tyee-context-v2.jpg" data-media-key="press-2026-07-24-the-tyee-context-v2.jpg" alt="The Tyee AI adoption coverage clip" width="1200" height="750" loading="lazy"/></figure>
           <span>The Tyee · 2026</span>
         </a>
         <a href="https://vanmag.com/city/power-50/introducing-vancouver-magazines-2026-power-50-list/" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2026-02-05-vanmag-power50-context-v2.jpg" data-media-key="press-2026-02-05-vanmag-power50-context-v2.jpg" alt="Vancouver Magazine Power 50 2026 clip" width="1200" height="750" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/11/press-2026-02-05-vanmag-power50-entry.jpg" data-media-key="press-2026-02-05-vanmag-power50-entry.jpg" alt="Vancouver Magazine’s Power 50 profile of Kris Krüg, ranked number 46" width="1200" height="750" loading="lazy"/></figure>
           <span>VanMag Power 50 · 2026</span>
         </a>
         <a href="https://www.youtube.com/watch?v=uMTBoHIdhdA" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2024-11-21-byte-club-v2.jpg" data-media-key="press-2024-11-21-byte-club-v2.jpg" alt="Byte Club interview thumbnail" width="1280" height="720" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2024-11-21-byte-club-v2.jpg" data-media-key="press-2024-11-21-byte-club-v2.jpg" alt="Byte Club interview thumbnail" width="1280" height="720" loading="lazy"/></figure>
           <span>Byte Club · 2024</span>
         </a>
         <a href="https://www.youtube.com/watch?v=0R7Re-EnPwA" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2024-07-03-cbc-sandboxing-ai-series.jpg" data-media-key="press-2024-07-03-cbc-sandboxing-ai-series.jpg" alt="CBC Early Edition Sandboxing AI episode thumbnail" width="1280" height="720" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2024-07-03-cbc-sandboxing-ai-series.jpg" data-media-key="press-2024-07-03-cbc-sandboxing-ai-series.jpg" alt="CBC Early Edition Sandboxing AI episode thumbnail" width="1280" height="720" loading="lazy"/></figure>
           <span>CBC Sandboxing AI · 2024</span>
         </a>
         <a href="https://ojs.library.ubc.ca/index.php/bcstudies/article/view/199875" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2025-04-14-bc-studies-context-v2.jpg" data-media-key="press-2025-04-14-bc-studies-context-v2.jpg" alt="BC Studies journal coverage clip" width="1200" height="750" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2025-04-14-bc-studies-context-v2.jpg" data-media-key="press-2025-04-14-bc-studies-context-v2.jpg" alt="BC Studies journal coverage clip" width="1200" height="750" loading="lazy"/></figure>
           <span>BC Studies · 2025</span>
         </a>
         <a href="https://medium.com/@topbosstalk/kris-krug-technology-game-changer-172059b9b28c" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2026-02-09-top-boss-bossier-v2.jpg" data-media-key="press-2026-02-09-top-boss-bossier-v2.jpg" alt="Top Boss interview coverage clip" width="1200" height="750" loading="lazy"></figure>
           <span>Top Boss · 2026</span>
         </a>
       </div>
 </section>
 
-    <section class="kk-press-section">
+    <section class="kk-press-section" id="press-interviews">
       <div class="kk-press-section-head">
-        <h2>Heard on</h2>
-        <p class="kk-press-section-intro">Long conversations, not sound bites. Cover art for the shows that sat with the work.</p>
+        <h2>Interviews</h2>
+        <p class="kk-press-section-intro">Guest conversations on creativity, community and who gets to shape the tech.</p>
       </div>
+      <p><a href="https://podcasts.apple.com/ca/podcast/who-gets-a-say-in-canadas-ai-future-with-kris-kr%C3%BCg/id1842774054?i=1000798456814" target="_blank" rel="noopener noreferrer"><strong>Listen to Canada Now with Ashley Smith &#8599;</strong></a></p>
       <div class="kk-press-heard" aria-label="Podcast appearances">
         <a href="https://thebreaker.news/opinion/podcast-460/" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2026-08-09-thebreaker-cover.jpg" data-media-key="press-2026-08-09-thebreaker-cover.jpg" alt="theBreaker.news Podcast cover art" width="600" height="600" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/09/press-2026-08-09-thebreaker-cover.jpg" data-media-key="press-2026-08-09-thebreaker-cover.jpg" alt="theBreaker.news Podcast cover art" width="600" height="600" loading="lazy"/></figure>
           <span>theBreaker.news</span>
         </a>
         <a href="https://podcasts.apple.com/us/podcast/id1663438596?i=1000687318552" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2025-01-31-rachel-thexton-cover.jpg" data-media-key="press-2025-01-31-rachel-thexton-cover.jpg" alt="Rachel Thexton Connects podcast cover" width="600" height="600" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2025-01-31-rachel-thexton-cover.jpg" data-media-key="press-2025-01-31-rachel-thexton-cover.jpg" alt="Rachel Thexton Connects podcast cover" width="600" height="600" loading="lazy"/></figure>
           <span>Rachel Thexton</span>
         </a>
         <a href="https://podcasts.apple.com/us/podcast/id1668006539?i=1000683484337" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2025-01-10-human-biography-cover.jpg" data-media-key="press-2025-01-10-human-biography-cover.jpg" alt="Human Biography podcast cover" width="600" height="600" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2025-01-10-human-biography-cover.jpg" data-media-key="press-2025-01-10-human-biography-cover.jpg" alt="Human Biography podcast cover" width="600" height="600" loading="lazy"/></figure>
           <span>Human Biography</span>
         </a>
         <a href="https://www.youtube.com/watch?v=pss7CfiiBxg" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2024-01-08-ai-volution-v2.jpg" data-media-key="press-2024-01-08-ai-volution-v2.jpg" alt="AI-Volution episode artwork" width="1280" height="720" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2024-01-08-ai-volution-v2.jpg" data-media-key="press-2024-01-08-ai-volution-v2.jpg" alt="AI-Volution episode artwork" width="1280" height="720" loading="lazy"/></figure>
           <span>AI-Volution</span>
         </a>
         <a href="https://podcasts.apple.com/us/podcast/id1666427209?i=1000654718269" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2024-05-06-teen2life-cover.jpg" data-media-key="press-2024-05-06-teen2life-cover.jpg" alt="Teen2Life Experience podcast cover" width="600" height="600" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2024-05-06-teen2life-cover.jpg" data-media-key="press-2024-05-06-teen2life-cover.jpg" alt="Teen2Life Experience podcast cover" width="600" height="600" loading="lazy"/></figure>
           <span>Teen2Life</span>
         </a>
         <a href="https://podcasts.apple.com/us/podcast/id1575595225?i=1000634160006" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2023-11-08-kurty-d-cover.jpg" data-media-key="press-2023-11-08-kurty-d-cover.jpg" alt="Kurty D Show podcast cover" width="600" height="600" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2023-11-08-kurty-d-cover.jpg" data-media-key="press-2023-11-08-kurty-d-cover.jpg" alt="Kurty D Show podcast cover" width="600" height="600" loading="lazy"/></figure>
           <span>Kurty D</span>
         </a>
         <a href="https://podcasts.apple.com/us/podcast/id1632267449?i=1000627111776" target="_blank" rel="noopener noreferrer">
-          <figure><img src="../assets/press-2023-09-07-uniqueways-cover.jpg" data-media-key="press-2023-09-07-uniqueways-cover.jpg" alt="UNIQUEWAYS podcast cover" width="600" height="600" loading="lazy"></figure>
+          <figure><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2023-09-07-uniqueways-cover.jpg" data-media-key="press-2023-09-07-uniqueways-cover.jpg" alt="UNIQUEWAYS podcast cover" width="600" height="600" loading="lazy"/></figure>
           <span>UNIQUEWAYS</span>
         </a>
       </div>
@@ -751,7 +985,7 @@
             <span class="kk-press-type">Quoted expert / Business in Vancouver</span>
             <h3><a href="https://www.biv.com/news/economy-law-politics/bc-lawyers-face-ai-driven-shakeups-in-legal-work-12415161" target="_blank" rel="noopener noreferrer">B.C. lawyers face AI-driven shakeups in legal work</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2026-06-15-biv-context-v2.jpg" data-media-key="press-2026-06-15-biv-context-v2.jpg" alt="Business in Vancouver article page about AI-driven changes to legal work" width="1200" height="750" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2026-06-15-biv-context.jpg" data-media-key="press-2026-06-15-biv-context.jpg" alt="Business in Vancouver article page about AI-driven changes to legal work" width="960" height="720" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -760,7 +994,7 @@
             <span class="kk-press-type">Broadcast interview / TELUS STORYHIVE</span>
             <h3><a href="https://www.youtube.com/watch?v=sxDwQRTZfCA" target="_blank" rel="noopener noreferrer">On Location: Victoria</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2026-05-20-storyhive-v2.jpg" data-media-key="press-2026-05-20-storyhive-v2.jpg" alt="TELUS STORYHIVE interview thumbnail naming Kris Kr&uuml;g a techartist, cyber-punk, and AI anti-hero" width="1280" height="720" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2026-05-20-storyhive-v2.jpg" data-media-key="press-2026-05-20-storyhive-v2.jpg" alt="TELUS STORYHIVE interview thumbnail naming Kris Kr&uuml;g a techartist, cyber-punk, and AI anti-hero" width="1280" height="720" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -769,7 +1003,7 @@
             <span class="kk-press-type">International press / Tela Viva News</span>
             <h3><a href="https://telaviva.com.br/09/02/2026/festival-waiff-aborda-o-uso-da-inteligencia-artificial-no-mercado-audiovisual/" target="_blank" rel="noopener noreferrer">WAIFF examines artificial intelligence in the audiovisual market</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2026-02-09-tela-viva-context-v2.jpg" data-media-key="press-2026-02-09-tela-viva-context-v2.jpg" alt="Tela Viva News article page covering WAIFF 2026" width="1200" height="750" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2026-02-09-tela-viva-context-v2.jpg" data-media-key="press-2026-02-09-tela-viva-context-v2.jpg" alt="Tela Viva News article page covering WAIFF 2026" width="1200" height="750" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -778,7 +1012,6 @@
             <span class="kk-press-type">Profile / Top Boss (Bossier Brand)</span>
             <h3><a href="https://medium.com/@topbosstalk/kris-krug-technology-game-changer-172059b9b28c" target="_blank" rel="noopener noreferrer">Kris Krug: Technology Game Changer</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2026-02-09-top-boss-bossier-v2.jpg" data-media-key="press-2026-02-09-top-boss-bossier-v2.jpg" alt="Top Boss interview with Kris Krug on Medium" width="1200" height="750" loading="lazy"></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -787,7 +1020,7 @@
             <span class="kk-press-type">Recognition / Vancouver Magazine</span>
             <h3><a href="https://vanmag.com/city/power-50/introducing-vancouver-magazines-2026-power-50-list/" target="_blank" rel="noopener noreferrer">Power 50 (2026)</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2026-02-05-vanmag-power50-context-v2.jpg" data-media-key="press-2026-02-05-vanmag-power50-context-v2.jpg" alt="Vancouver Magazine Power 50 2026 feature page" width="1200" height="750" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/11/press-2026-02-05-vanmag-power50-entry.jpg" data-media-key="press-2026-02-05-vanmag-power50-entry.jpg" alt="Vancouver Magazine’s Power 50 profile of Kris Krüg, ranked number 46" width="1200" height="750" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -796,7 +1029,7 @@
             <span class="kk-press-type">Video interview / E-ChannelNews</span>
             <h3><a href="https://www.e-channelnews.com/interview-with-kris-krug-at-channelnext-central-2025/" target="_blank" rel="noopener noreferrer">Interview with AI Expert Kris Kr&uuml;g at ChannelNext Central 2025</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2025-07-09-e-channelnews-context-v2.jpg" data-media-key="press-2025-07-09-e-channelnews-context-v2.jpg" alt="E-ChannelNews article page for its ChannelNext interview with Kris Kr&uuml;g" width="1200" height="750" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2025-07-09-e-channelnews-context-v2.jpg" data-media-key="press-2025-07-09-e-channelnews-context-v2.jpg" alt="E-ChannelNews article page for its ChannelNext interview with Kris Kr&uuml;g" width="1200" height="750" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -805,7 +1038,7 @@
             <span class="kk-press-type">Profile / Portfolio.YVR</span>
             <h3><a href="https://portfolioyvr.com/2025/05/kris-krug-taking-ai-and-art-to-new-heights-with-future-proof-creatives/" target="_blank" rel="noopener noreferrer">Taking AI and Art to New Heights with Future Proof Creatives</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2025-05-01-portfolio-yvr-context-v2.jpg" data-media-key="press-2025-05-01-portfolio-yvr-context-v2.jpg" alt="Portfolio YVR profile page about Kris Kr&uuml;g and Future Proof Creatives" width="1200" height="750" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2025-05-01-portfolio-yvr-context-v2.jpg" data-media-key="press-2025-05-01-portfolio-yvr-context-v2.jpg" alt="Portfolio YVR profile page about Kris Kr&uuml;g and Future Proof Creatives" width="1200" height="750" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -814,7 +1047,7 @@
             <span class="kk-press-type">Scholarship / BC Studies</span>
             <h3><a href="https://ojs.library.ubc.ca/index.php/bcstudies/article/view/199875" target="_blank" rel="noopener noreferrer">Building a Grass Roots AI Community of Practice: A Vancouver-Centered Use Case</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2025-04-14-bc-studies-context-v2.jpg" data-media-key="press-2025-04-14-bc-studies-context-v2.jpg" alt="BC Studies journal page for the Vancouver AI community of practice article" width="1200" height="750" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2025-04-14-bc-studies-context-v2.jpg" data-media-key="press-2025-04-14-bc-studies-context-v2.jpg" alt="BC Studies journal page for the Vancouver AI community of practice article" width="1200" height="750" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -823,7 +1056,6 @@
             <span class="kk-press-type">Expert series / Compass Horizons</span>
             <h3><a href="https://horizons.compassdatacenters.com/series/exploring-ai-models-the-future-of-machine-learning/" target="_blank" rel="noopener noreferrer">Exploring AI Models: The Future of Machine Learning</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2025-02-11-compass-horizons-context-v2.jpg" data-media-key="press-2025-02-11-compass-horizons-context-v2.jpg" alt="Compass Horizons series page on exploring AI models" width="1200" height="750" loading="lazy"></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -832,7 +1064,7 @@
             <span class="kk-press-type">Podcast / Rachel Thexton Connects</span>
             <h3><a href="https://podcasts.apple.com/us/podcast/id1663438596?i=1000687318552" target="_blank" rel="noopener noreferrer">One of Canada&rsquo;s Leading AI Voices Talks Tech and Tells His Story</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2025-01-31-rachel-thexton-cover.jpg" data-media-key="press-2025-01-31-rachel-thexton-cover.jpg" alt="Rachel Thexton Connects podcast cover" width="600" height="600" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2025-01-31-rachel-thexton-cover.jpg" data-media-key="press-2025-01-31-rachel-thexton-cover.jpg" alt="Rachel Thexton Connects podcast cover" width="600" height="600" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -841,7 +1073,6 @@
             <span class="kk-press-type">Quoted expert / Pique Newsmagazine</span>
             <h3><a href="https://www.piquenewsmagazine.com/local-news/we-cant-abdicate-this-future-to-governments-or-tech-bros-says-ai-expert-10076883" target="_blank" rel="noopener noreferrer">We can&rsquo;t abdicate this future to governments or tech bros</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2025-01-28-pique-context-v2.jpg" data-media-key="press-2025-01-28-pique-context-v2.jpg" alt="Pique Newsmagazine article clip" width="1200" height="750" loading="lazy"></figure>
         </article>
 
         <article class="kk-press-entry no-image">
@@ -858,7 +1089,7 @@
             <span class="kk-press-type">Podcast / Human Biography</span>
             <h3><a href="https://podcasts.apple.com/us/podcast/id1668006539?i=1000683484337" target="_blank" rel="noopener noreferrer">Kris Kr&uuml;g: Live With Curiosity</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2025-01-10-human-biography-cover.jpg" data-media-key="press-2025-01-10-human-biography-cover.jpg" alt="Human Biography podcast cover" width="600" height="600" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2025-01-10-human-biography-cover.jpg" data-media-key="press-2025-01-10-human-biography-cover.jpg" alt="Human Biography podcast cover" width="600" height="600" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -867,7 +1098,7 @@
             <span class="kk-press-type">Video interview / Byte Club</span>
             <h3><a href="https://www.youtube.com/watch?v=uMTBoHIdhdA" target="_blank" rel="noopener noreferrer">What Is Generative AI? A Visionary Interview with Tech Artist Kris Krug</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2024-11-21-byte-club-v2.jpg" data-media-key="press-2024-11-21-byte-club-v2.jpg" alt="Byte Club YouTube interview thumbnail with Kris Krug" width="1280" height="720" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2024-11-21-byte-club-v2.jpg" data-media-key="press-2024-11-21-byte-club-v2.jpg" alt="Byte Club YouTube interview thumbnail with Kris Krug" width="1280" height="720" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -876,7 +1107,7 @@
             <span class="kk-press-type">Mention / Techcouver</span>
             <h3><a href="https://techcouver.com/2024/08/22/aws-vancouver-canada-community-day-september/" target="_blank" rel="noopener noreferrer">AWS Invites Vancouver to Hold Canada&rsquo;s First-Ever Community Day</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2024-08-22-techcouver-context-v2.jpg" data-media-key="press-2024-08-22-techcouver-context-v2.jpg" alt="Techcouver article page about AWS Vancouver Community Day" width="1200" height="750" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2024-08-22-techcouver-context.jpg" data-media-key="press-2024-08-22-techcouver-context.jpg" alt="Techcouver article page about AWS Vancouver Community Day" width="1280" height="820" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -885,7 +1116,7 @@
             <span class="kk-press-type">Broadcast series / CBC Early Edition</span>
             <h3><a href="https://kriskrug.co/2024/07/03/new-segment-on-cbc-radio-early-edition-ai-sandbox-with-kris-krug/" target="_blank" rel="noopener noreferrer">Sandboxing AI with Kris Krug</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2024-07-03-cbc-sandboxing-ai-series.jpg" data-media-key="press-2024-07-03-cbc-sandboxing-ai-series.jpg" alt="CBC Early Edition Sandboxing AI series thumbnail" width="1280" height="720" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2024-07-03-cbc-sandboxing-ai-series.jpg" data-media-key="press-2024-07-03-cbc-sandboxing-ai-series.jpg" alt="CBC Early Edition Sandboxing AI series thumbnail" width="1280" height="720" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -894,7 +1125,7 @@
             <span class="kk-press-type">Profile / FOLIO.YVR</span>
             <h3><a href="https://folioyvr.com/2024/06/portfolio-yvr-kris-krug-future-proof-creatives/" target="_blank" rel="noopener noreferrer">Kris Krug and Future Proof Creatives Seek to Prove Human and AI Compatibility</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2024-06-01-folio-yvr-context-v2.jpg" data-media-key="press-2024-06-01-folio-yvr-context-v2.jpg" alt="FOLIO.YVR profile page about Kris Krug and Future Proof Creatives" width="1200" height="750" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2024-06-01-folio-yvr-context-v2.jpg" data-media-key="press-2024-06-01-folio-yvr-context-v2.jpg" alt="FOLIO.YVR profile page about Kris Krug and Future Proof Creatives" width="1200" height="750" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -903,7 +1134,7 @@
             <span class="kk-press-type">Podcast / Teen2Life Experience</span>
             <h3><a href="https://podcasts.apple.com/us/podcast/id1666427209?i=1000654718269" target="_blank" rel="noopener noreferrer">CEO of Future Proof Creatives, Artist: Kris Kr&uuml;g</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2024-05-06-teen2life-cover.jpg" data-media-key="press-2024-05-06-teen2life-cover.jpg" alt="Teen2Life Experience podcast cover" width="600" height="600" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2024-05-06-teen2life-cover.jpg" data-media-key="press-2024-05-06-teen2life-cover.jpg" alt="Teen2Life Experience podcast cover" width="600" height="600" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -912,7 +1143,7 @@
             <span class="kk-press-type">Workshop recap / Jessica Grey</span>
             <h3><a href="https://jessicagrey.com/2024/02/12/my-recap-of-kris-krugs-first-future-proof-creatives-ai-workshop/" target="_blank" rel="noopener noreferrer">My Recap of Kris Kr&uuml;g&rsquo;s First Future Proof Creatives AI Workshop</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2024-02-12-jessica-grey-context-v2.jpg" data-media-key="press-2024-02-12-jessica-grey-context-v2.jpg" alt="Jessica Grey workshop recap page for Future Proof Creatives" width="1200" height="750" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2024-02-12-jessica-grey-context-v2.jpg" data-media-key="press-2024-02-12-jessica-grey-context-v2.jpg" alt="Jessica Grey workshop recap page for Future Proof Creatives" width="1200" height="750" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -921,7 +1152,7 @@
             <span class="kk-press-type">Podcast / AI-Volution</span>
             <h3><a href="https://www.youtube.com/watch?v=pss7CfiiBxg" target="_blank" rel="noopener noreferrer">Are We Done Yet? Kris Krug on AI-Volution</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2024-01-08-ai-volution-v2.jpg" data-media-key="press-2024-01-08-ai-volution-v2.jpg" alt="AI-Volution YouTube episode thumbnail with Kris Krug" width="1280" height="720" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2024-01-08-ai-volution-v2.jpg" data-media-key="press-2024-01-08-ai-volution-v2.jpg" alt="AI-Volution YouTube episode thumbnail with Kris Krug" width="1280" height="720" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -930,7 +1161,7 @@
             <span class="kk-press-type">Podcast / The Kurty D Show</span>
             <h3><a href="https://podcasts.apple.com/us/podcast/id1575595225?i=1000634160006" target="_blank" rel="noopener noreferrer">Widen the Lens with Kris Krug</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2023-11-08-kurty-d-cover.jpg" data-media-key="press-2023-11-08-kurty-d-cover.jpg" alt="Kurty D Show podcast cover" width="600" height="600" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2023-11-08-kurty-d-cover.jpg" data-media-key="press-2023-11-08-kurty-d-cover.jpg" alt="Kurty D Show podcast cover" width="600" height="600" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -939,7 +1170,7 @@
             <span class="kk-press-type">Interview / Olio by Marilyn</span>
             <h3><a href="https://www.oliobymarilyn.com/2023/09/interview-kriskrug-photographer-videographer-techartist-educator-consultant-ai-podcast.html" target="_blank" rel="noopener noreferrer">Photographer, Videographer, Techartist, Educator, and Community Consultant</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2023-09-08-olio-context-v2.jpg" data-media-key="press-2023-09-08-olio-context-v2.jpg" alt="Olio by Marilyn interview page with Kris Krug" width="1200" height="750" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2023-09-08-olio-context-v2.jpg" data-media-key="press-2023-09-08-olio-context-v2.jpg" alt="Olio by Marilyn interview page with Kris Krug" width="1200" height="750" loading="lazy"/></figure>
         </article>
 
         <article class="kk-press-entry">
@@ -948,7 +1179,7 @@
             <span class="kk-press-type">Podcast / UNIQUEWAYS</span>
             <h3><a href="https://podcasts.apple.com/us/podcast/id1632267449?i=1000627111776" target="_blank" rel="noopener noreferrer">Kris Kr&uuml;g, Storyteller</a></h3>
           </div>
-          <figure class="kk-press-thumb"><img src="../assets/press-2023-09-07-uniqueways-cover.jpg" data-media-key="press-2023-09-07-uniqueways-cover.jpg" alt="UNIQUEWAYS podcast cover" width="600" height="600" loading="lazy"></figure>
+          <figure class="kk-press-thumb"><img src="https://kriskrug.co/wp-content/uploads/2026/08/press-2023-09-07-uniqueways-cover.jpg" data-media-key="press-2023-09-07-uniqueways-cover.jpg" alt="UNIQUEWAYS podcast cover" width="600" height="600" loading="lazy"/></figure>
         </article>
       </div>
     </section>
@@ -957,9 +1188,11 @@
     <section class="kk-press-section">
       <div class="kk-press-section-head">
         <h2>In print</h2>
-        <p class="kk-press-section-intro">Photography credits where the byline was the picture. Own photos, placed in the magazines and institutions that ran them. Cover scans and archive pulls continue in a later wave.</p>
+        <p class="kk-press-section-intro">Bylines and photography credits from magazines, journals and community publications.</p>
       </div>
       <ul class="kk-press-print">
+        <li><strong>The Active Page</strong><span><a href="https://drive.google.com/file/d/15ULIlxL7DFyWJteFfvyIFbIW2kE35so2/view" target="_blank" rel="noopener noreferrer">School Garden column</a> · byline</span><em>2021</em></li>
+        <li><strong>The Active Page</strong><span><a href="https://drive.google.com/file/d/1aWivfAg81PIlbEXieoH-PJlurqJ5GNKN/view" target="_blank" rel="noopener noreferrer">Giving Thanks</a> · photography</span><em>2021</em></li>
         <li><strong>Rolling Stone</strong><span>The Raconteurs at the Commodore &mdash; event photography credit.</span><em>2008</em></li>
         <li><strong>New York Press</strong><span>Front cover: R.E.M. / Michael Stipe at SXSW Music.</span><em>2008</em></li>
         <li><strong>Beijing Olympics / LA Times</strong><span>Static Photography coverage and essays from the Games.</span><em>2008</em></li>
@@ -1011,6 +1244,23 @@
     </section>
 
     <section class="kk-press-section">
+      <div class="kk-press-archive-meta">
+        <ul class="kk-press-outlets" aria-label="Selected outlets">
+          <li>Business in Vancouver</li>
+          <li>The Tyee</li>
+          <li>CBC</li>
+          <li>Vancouver Magazine</li>
+          <li>Portfolio.YVR</li>
+          <li>TELUS STORYHIVE</li>
+          <li>BC Studies</li>
+          <li>TechCrunch</li>
+        </ul>
+        <dl class="kk-press-ledger">
+          <div><dt>51</dt><dd>dated entries on this page</dd></div>
+          <div><dt>26</dt><dd>published since 2023</dd></div>
+          <div><dt>20</dt><dd>years on the record</dd></div>
+        </dl>
+      </div>
       <div class="kk-press-cta">
         <div>
           <h2>Working on a story?</h2>
