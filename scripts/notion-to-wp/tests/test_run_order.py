@@ -30,6 +30,32 @@ SLUG = "calling-us-all-in"
 IMAGE_URL = "https://files.example.test/calling.jpg?X-Amz-Signature=abc"
 WRITE_CALLS = {"upload_media", "ensure_term", "create_post", "update_post"}
 
+# sent title -> (raw values WordPress may store for it faithfully,
+#                texturized title.rendered, a raw value that is real drift)
+TITLE_ROUND_TRIPS = {
+    "Art & Code": (
+        ["Art & Code", "Art &amp; Code"],
+        "Art &#038; Code",
+        "Art &amp;amp; Code",
+    ),
+    "KK's Field Notes": (
+        ["KK's Field Notes", "KK&#039;s Field Notes"],
+        "KK&#8217;s Field Notes",
+        "KK\\'s Field Notes",
+    ),
+    "Café Krüg": (
+        ["Café Krüg", "Caf&#233; Kr&#252;g"],
+        "Café Krüg",
+        "CafÃ© KrÃ¼g",
+    ),
+    # Non-latin1 text as the writers will send it once #1225 lands.
+    "Eth&#7885;&#769;s": (
+        ["Eth&#7885;&#769;s", "Ethọ́s"],
+        "Eth&#7885;&#769;s",
+        "Eth??s",
+    ),
+}
+
 
 def notion_page() -> dict:
     return {
@@ -204,6 +230,17 @@ class RunOrderTests(unittest.TestCase):
 
         self.assertEqual(wp.writes(), [])
 
+    def test_diff_lookup_refusal_exits_8_without_a_traceback(self):
+        message = f"slug {SLUG!r} matches 2 records (ids [123, 456])"
+        wp = FakeWordPress(lookup_error=SlugVerificationFailed(message))
+
+        code, logs = self.run_connector(wp, diff_update=True)
+
+        self.assertEqual(code, 8)
+        self.assertEqual(wp.writes(), [])
+        self.assertIn(message, logs)
+        self.assertIn("No diff was emitted", logs)
+
     def test_title_guard_abort_makes_zero_writes(self):
         wp = FakeWordPress(existing=existing_post("Web Summit Vancouver 2026"))
 
@@ -221,6 +258,27 @@ class RunOrderTests(unittest.TestCase):
         self.assertEqual(code, 7)
         self.assertEqual(wp.writes()[-1], "create_post")
         self.assertIn(f"slug: sent {SLUG!r}, WordPress stored '{SLUG}-2'", logs)
+
+    def test_title_round_trip_exits_0_and_title_drift_exits_7(self):
+        for sent, (faithful, rendered, drifted) in TITLE_ROUND_TRIPS.items():
+            for stored, expected_code in [
+                *((raw, 0) for raw in faithful),
+                (drifted, 7),
+            ]:
+                with self.subTest(sent=sent, stored=stored):
+                    wp = FakeWordPress(
+                        readback_overrides={
+                            "title": {"raw": stored, "rendered": rendered}
+                        }
+                    )
+
+                    code, logs = self.run_connector(
+                        wp, title_override=sent, slug_override=SLUG
+                    )
+
+                    self.assertEqual(code, expected_code)
+                    self.assertEqual(wp.writes()[-1], "create_post")
+                    self.assertEqual("title: sent" in logs, expected_code == 7, logs)
 
     def test_readback_mismatch_is_a_non_zero_process_exit(self):
         wp = FakeWordPress(readback_overrides={"status": "publish"})
@@ -290,6 +348,13 @@ def readback(**overrides) -> dict:
 class ReadbackMismatchTests(unittest.TestCase):
     def test_exact_readback_matches(self):
         self.assertEqual(readback_mismatches(sent_payload(), readback()), {})
+
+    def test_rendered_title_is_never_the_stored_value(self):
+        mismatches = readback_mismatches(
+            sent_payload(), readback(title={"rendered": TITLE})
+        )
+
+        self.assertEqual(mismatches, {"title": (TITLE, None)})
 
     def test_each_identity_field_is_compared(self):
         mismatches = readback_mismatches(
