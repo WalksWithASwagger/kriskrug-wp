@@ -24,7 +24,7 @@ help: ## Show this help message
 	@echo ""
 	@echo "Examples:"
 	@echo "  make doctor"
-	@echo "  make issues FILE=test-data/issues.json"
+	@echo "  make issues FILE=path/to/issues.json"
 
 test: ## Run test suite
 	@echo "Running tests..."
@@ -98,14 +98,18 @@ validate-fix: ## Auto-fix WordPress coding standard violations
 	@echo "Auto-fixing WordPress coding standards..."
 	@bash scripts/validate_wordpress.sh --fix
 
-issues: ## Create issues from JSON/CSV file (use FILE=path.json)
+issues: ## Preview issues from JSON/CSV file; create only with CONFIRM=1 (use FILE=path.json)
 	@if [ -z "$(FILE)" ]; then \
 		echo "❌ Error: Please specify FILE=path.json"; \
-		echo "Example: make issues FILE=test-data/issues.json"; \
+		echo "Example: make issues FILE=path/to/issues.json"; \
 		exit 1; \
 	fi
 	@python3 scripts/batch_create_issues.py --input $(FILE) --dry-run
-	@python3 scripts/batch_create_issues.py --input $(FILE)
+	@if [ "$(CONFIRM)" = "1" ]; then \
+		python3 scripts/batch_create_issues.py --input $(FILE); \
+	else \
+		echo "Dry run only. Re-run with CONFIRM=1 to create these issues on GitHub."; \
+	fi
 
 issues-dry-run: ## Preview issues without creating (use FILE=path.json)
 	@if [ -z "$(FILE)" ]; then \
@@ -200,7 +204,7 @@ draft-queue-audit: ## Run read-only draft queue audit (LOCAL_ONLY=1 FORMAT=json)
 		$(VARLOCK) run --inject vars -- scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py --format "$${FORMAT:-markdown}"; \
 	fi
 
-seo-audit: ## Run read-only Jetpack SEO metadata inventory (FORMAT=markdown|json|csv)
+seo-audit: ## Read-only SEO inventory: theme-registered meta on posts; exit 2 if unregistered; see scripts/seo-audit/README.md (FORMAT=markdown|json|csv)
 	@if [ "$${FORMAT:-markdown}" = "csv" ]; then \
 		scripts/notion-to-wp/.venv/bin/python scripts/seo-audit/inventory.py --format csv --output "$${OUTPUT:-content/seo-audit-inventory.csv}"; \
 	elif [ "$${FORMAT:-markdown}" = "json" ]; then \
@@ -231,14 +235,14 @@ performance-audit: ## Run read-only public performance baseline. Args: ROUTES SA
 		$${LONGFORM_URL:+--longform-url "$${LONGFORM_URL}"} \
 		--format "$${FORMAT:-markdown}" $${OUTPUT:+--output "$${OUTPUT}"}
 
-jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/routing audit (FORMAT=json)
+jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/routing audit (FORMAT=json, optional ENV_FILE)
 	@if [ "$${FORMAT:-human}" = "json" ]; then \
-		python3 scripts/jetpack_feedback_audit.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}" --json; \
+		python3 scripts/jetpack_feedback_audit.py $${ENV_FILE:+--env-file "$$ENV_FILE"} --json; \
 	else \
-		python3 scripts/jetpack_feedback_audit.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"; \
+		python3 scripts/jetpack_feedback_audit.py $${ENV_FILE:+--env-file "$$ENV_FILE"}; \
 	fi
 
-wp7-smoke: ## Run read-only public WP rollout smoke checks (BASE_URL=https://kriskrug.co EXPECT_VERSION=7.0.4)
+wp7-smoke: ## Run read-only public WP rollout smoke checks (BASE_URL=https://kriskrug.co EXPECT_VERSION=7.0.8)
 	@python3 scripts/wp7-public-smoke.py --base-url "$${BASE_URL:-https://kriskrug.co}" --timeout "$${REQUEST_TIMEOUT:-20}" $${EXPECT_VERSION:+--expect-version "$$EXPECT_VERSION"}
 
 seo-publisher-smoke: ## Run read-only publisher/schema smoke checks (#425) (BASE_URL=https://kriskrug.co)
@@ -250,8 +254,8 @@ sitemap-followthrough: ## Read-only #274 public sitemap follow-through (BASE_URL
 check-live-parity: ## Detect live-vs-repo Aurora theme version drift (#546) (BASE_URL=https://kriskrug.co)
 	@$(PYTHON) scripts/check_live_theme_parity.py --base "$${BASE_URL:-https://kriskrug.co}"
 
-wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (ENV_FILE=scripts/notion-to-wp/.env)
-	@python3 scripts/wp7-admin-readiness.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"
+wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (optional ENV_FILE)
+	@python3 scripts/wp7-admin-readiness.py $${ENV_FILE:+--env-file "$$ENV_FILE"}
 
 current-state-drift-check: ## Compare declared current-state snapshot values vs live read-only checks
 	@python3 scripts/check_current_state_drift.py --work-plan "$${WORK_PLAN:-$(WORK_PLAN_DEFAULT)}" --base-url "$${BASE_URL:-https://kriskrug.co}"
@@ -275,7 +279,7 @@ env-check: ## Validate .env.schema via Varlock (soft-OK when secrets are absent)
 		else \
 			echo "env-check: schema is readable; one or more values are missing/unresolved."; \
 			echo "This is expected in Cursor Cloud without secrets, or before local vault wiring."; \
-			echo "Wire WP_USER / WP_APP_PASSWORD (and optional NOTION_TOKEN) via:"; \
+			echo "Wire WP_USER + WP_APP_PASSWORD, or WP_API_USERNAME + WP_API_PASSWORD (and optional NOTION_TOKEN) via:"; \
 			echo "  - ~/.agents/env/values/.env.shared.local or .env.kriskrug-wp.local"; \
 			echo "  - cloud-agent secrets / process env"; \
 			echo "Then: $(VARLOCK) run --inject vars -- make status-readonly"; \
@@ -410,7 +414,7 @@ visual-prune: ## Delete old capture dirs pair-safely; set DRY_RUN=1 to preview
 	@$(VISUAL) prune $(if $(KEEP),--keep $(KEEP),) $(if $(DRY_RUN),--dry-run,)
 
 .PHONY: practice-preview practice-test practice-browser-test practice-package
-practice-preview: ## Start a disposable real WordPress 7.0.4/Aurora fixture
+practice-preview: ## Start a disposable real WordPress 7.0.4/Aurora fixture (a Playground pin, not the production version)
 	@node plugins/kk-practice/tests/preview.mjs
 
 practice-test: ## Verify practice source contracts, fallback and asset budget

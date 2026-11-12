@@ -61,12 +61,11 @@ class MarqueeWP:
         self.s.headers.update({"Authorization": f"Basic {token}"})
 
     def find_by_slug(self, slug: str):
-        r = self.s.get(f"{self.base}/wp-json/wp/v2/{POST_TYPE}",
-                       params={"slug": slug, "status": "any", "per_page": 5, "context": "edit"}, timeout=30)
-        if r.status_code != 200:
-            return None
-        hits = r.json()
-        return hits[0]["id"] if isinstance(hits, list) and len(hits) == 1 else None
+        """Board ID for a unique slug match, None when absent; raises SlugVerificationFailed otherwise."""
+        # Lazy: wp_client pulls in requests and python-dotenv, which the dry-run path never needs.
+        from wp_client import lookup_slug
+        record = lookup_slug(self, slug, POST_TYPE).unique_or_none()
+        return record["id"] if record else None
 
     def get(self, post_id: int) -> dict:
         r = self.s.get(f"{self.base}/wp-json/wp/v2/{POST_TYPE}/{post_id}?context=edit", timeout=30)
