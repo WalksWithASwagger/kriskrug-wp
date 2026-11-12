@@ -264,6 +264,11 @@ resolution, the slug guard, SEO meta, and declared IDs.
   Dry-run returns `(0, "DRYRUN/<file>")` and never calls WordPress.
 - `find_existing_post_by_slug(wp, slug)` — the create/update guard. Confirm the
   returned record is the intended target before any PATCH (2026-05-15 incident rule).
+  It returns the one post whose slug is exactly `slug`, or `None` when there is
+  none. A failed lookup or two posts sharing the slug raise `SlugVerificationFailed`.
+  It wraps `wp_client.lookup_slug`, the single slug lookup that
+  `WordPress.find_post_by_slug` and `create_local_wp_draft.assert_slug_available`
+  also use.
 
 ### Declared IDs (`publisher-ids.json`)
 
