@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import base64
 import os
+from dataclasses import dataclass
 from pathlib import Path
 
 import requests
@@ -20,6 +21,61 @@ class DryRunWriteBlocked(RuntimeError):
 
 class SlugVerificationFailed(RuntimeError):
     pass
+
+
+@dataclass(frozen=True)
+class SlugMatch:
+    """Records whose slug is exactly `slug`; `state` is absent, unique or ambiguous."""
+
+    slug: str
+    records: tuple[dict, ...]
+
+    @property
+    def state(self) -> str:
+        if not self.records:
+            return "absent"
+        return "unique" if len(self.records) == 1 else "ambiguous"
+
+    @property
+    def ids(self) -> tuple:
+        return tuple(record.get("id") for record in self.records)
+
+    def unique_or_none(self) -> dict | None:
+        if self.state == "ambiguous":
+            raise SlugVerificationFailed(
+                f"slug {self.slug!r} matches {len(self.records)} records "
+                f"(ids {list(self.ids)}). Refusing to pick one; resolve the "
+                f"duplicates in WordPress first."
+            )
+        return self.records[0] if self.records else None
+
+
+def lookup_slug(wp, slug: str, kind: str = "posts") -> SlugMatch:
+    """The one slug lookup every publisher uses (2026-05-15 incident rule).
+
+    Any non-200 or non-list body raises, because callers read "absent" as
+    permission to CREATE. Hits whose slug differs are dropped, so they can never
+    become an update target.
+    """
+    endpoint = f"{wp.base}/wp-json/wp/v2/{kind}"
+    response = wp.s.get(
+        endpoint,
+        params={"slug": slug, "status": "any", "per_page": 100, "context": "edit"},
+        timeout=30,
+    )
+    if response.status_code != 200:
+        raise SlugVerificationFailed(
+            f"slug lookup for {slug!r} got HTTP {response.status_code} from {endpoint}"
+        )
+    try:
+        hits = response.json()
+    except ValueError:
+        hits = None
+    if not isinstance(hits, list) or not all(isinstance(hit, dict) for hit in hits):
+        raise SlugVerificationFailed(
+            f"slug lookup for {slug!r} got an unexpected body from {endpoint}"
+        )
+    return SlugMatch(slug, tuple(hit for hit in hits if hit.get("slug") == slug))
 
 
 def dry_run_active() -> bool:
@@ -131,20 +187,9 @@ class WordPress:
         return r2.json()["id"]
 
     def find_post_by_slug(self, slug: str) -> int | None:
-        """Idempotency by slug; returns an ID only for exactly one post match."""
-        r = self.s.get(
-            f"{self.base}/wp-json/wp/v2/posts",
-            params={"slug": slug, "status": "any", "per_page": 5, "context": "edit"},
-            timeout=30,
-        )
-        if r.status_code != 200:
-            return None
-        hits = r.json()
-        if isinstance(hits, list) and len(hits) == 1:
-            hit = hits[0]
-            if isinstance(hit, dict) and hit.get("slug") == slug:
-                return hit.get("id")
-        return None
+        """Post ID for a unique slug match, None when absent; raises otherwise."""
+        record = lookup_slug(self, slug).unique_or_none()
+        return record["id"] if record else None
 
     def get_post(self, post_id: int) -> dict:
         r = self.s.get(

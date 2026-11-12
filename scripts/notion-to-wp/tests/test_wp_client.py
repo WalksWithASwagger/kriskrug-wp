@@ -224,25 +224,29 @@ class WordPressSlugLookupTests(unittest.TestCase):
             {
                 "slug": "web-summit-vancouver-2026",
                 "status": "any",
-                "per_page": 5,
+                "per_page": 100,
                 "context": "edit",
             },
         )
 
     def test_multiple_slug_matches_refuse_to_pick_the_first(self):
-        _, post_id = self.lookup(200, [{"id": 11765}, {"id": 11766}])
-
-        self.assertIsNone(post_id)
+        hits = [
+            {"id": 11765, "slug": "web-summit-vancouver-2026"},
+            {"id": 11766, "slug": "web-summit-vancouver-2026"},
+        ]
+        with self.assertRaisesRegex(SlugVerificationFailed, "11765, 11766"):
+            self.lookup(200, hits)
 
     def test_no_slug_match_returns_none(self):
         _, post_id = self.lookup(200, [])
 
         self.assertIsNone(post_id)
 
-    def test_failed_lookup_returns_none_rather_than_a_guess(self):
-        _, post_id = self.lookup(500, [{"id": 11765}])
-
-        self.assertIsNone(post_id)
+    def test_failed_lookup_raises_rather_than_reading_as_absent(self):
+        for status in (429, 500):
+            with self.subTest(status=status):
+                with self.assertRaisesRegex(SlugVerificationFailed, f"HTTP {status}"):
+                    self.lookup(status, [{"id": 11765}])
 
     def test_singleton_with_different_slug_is_rejected(self):
         _, post_id = self.lookup(
@@ -300,6 +304,37 @@ class WordPressSlugLookupTests(unittest.TestCase):
                     "title": "Web Summit Vancouver 2026",
                     "slug": "web-summit-vancouver-2026",
                 },
+                expected_slug="web-summit-vancouver-2026",
+            )
+
+        wp.s.post.assert_not_called()
+
+    def test_update_refuses_ambiguous_slug_without_posting(self):
+        found = mock.Mock(status_code=200)
+        found.json.return_value = [
+            {"id": 11765, "slug": "web-summit-vancouver-2026"},
+            {"id": 11766, "slug": "web-summit-vancouver-2026"},
+        ]
+        wp = offline_client()
+        wp.s.get.return_value = found
+
+        with self.assertRaises(SlugVerificationFailed):
+            wp.update_post(
+                11765,
+                {"title": "Web Summit Vancouver 2026"},
+                expected_slug="web-summit-vancouver-2026",
+            )
+
+        wp.s.post.assert_not_called()
+
+    def test_update_refuses_when_lookup_fails_without_posting(self):
+        wp = offline_client()
+        wp.s.get.return_value = mock.Mock(status_code=503)
+
+        with self.assertRaisesRegex(SlugVerificationFailed, "HTTP 503"):
+            wp.update_post(
+                11765,
+                {"title": "Web Summit Vancouver 2026"},
                 expected_slug="web-summit-vancouver-2026",
             )
 
