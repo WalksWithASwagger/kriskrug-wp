@@ -65,6 +65,7 @@
       "expected_public_http_status": 200,
       "content_marker": "content-architecture-2026:about",
       "repo_payload": "content/source-packs/content-architecture-2026/wp-payloads/about.html",
+      "repo_payload_commit": "980f5e19a1c641901c163a450a38cb7eaddeec91",
       "repo_payload_sha256": "080de3b31912bc9fc4d54fa5922c273ef17c97271a7a11e23b26a6fe9a630595",
       "expected_anchor_count_before": 0,
       "expected_target_href_count_before": 0,

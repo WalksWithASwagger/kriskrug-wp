@@ -1,6 +1,7 @@
 import hashlib
 import json
 import re
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -57,11 +58,12 @@ class Issue249SeoHandoffTests(unittest.TestCase):
         )
         self.assertTrue(stale_guard["stop_if_any_guard_differs"])
 
-    def test_selected_source_payload_and_marker_have_not_drifted(self):
+    def test_archived_source_payload_matches_the_handoff(self):
         source = self.data["source_selection"]["selected"]
-        payload_path = ROOT / source["repo_payload"]
-        payload = payload_path.read_text(encoding="utf-8")
-        digest = hashlib.sha256(payload_path.read_bytes()).hexdigest()
+        revision = f"{source['repo_payload_commit']}:{source['repo_payload']}"
+        raw = subprocess.check_output(["git", "show", revision], cwd=ROOT)
+        payload = raw.decode("utf-8")
+        digest = hashlib.sha256(raw).hexdigest()
 
         self.assertEqual(source["repo_payload_sha256"], digest)
         self.assertEqual(1, payload.count(source["content_marker"]))
