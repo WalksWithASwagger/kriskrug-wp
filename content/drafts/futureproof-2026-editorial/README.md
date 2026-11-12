@@ -10,9 +10,9 @@ This package records the final published article for [#1165](https://github.com/
 - `media.json` records the twelve existing public WordPress images, credits, captions and alt text. Nine photographs are by Michelle Diamond / Diamond’s Edge Photography; three presentation images are from Amber Case and Jacob Ortiz. No image binaries or private source material are included.
 - Featured image: existing media **12935**. Author: **1**, Kris Krüg. Category: **1662**, Vancouver AI Ecosystem. No new tags.
 - Slug: `futureproof-2026-year-one`. Publication: `2026-11-01T14:52:04` local / `2026-11-01T22:52:04Z`.
-- Body SHA-256: `a972362c4c0a22e74edf70dfe73cefb1e60f72da800f9de37701652c42ac9fc3`.
+- Body SHA-256: `f93a859e4ce457e99d1699db7c99b05c34cb2500eacd684c49d87a34d615cf59`.
 
-The exact saved body includes the AI-assistance disclosure, five contextual internal links, the released festival gallery and program, and a linked photography credit. The current body links separately to the 2026 proceedings. The post uses its own canonical URL and the existing BlogPosting/Person schema.
+The exact saved body includes the AI-assistance disclosure, five contextual internal links, the released festival gallery and program, and a linked photography credit. The current body links separately to the 2026 proceedings and the approved BC + AI community recap. The post uses its own canonical URL and the existing BlogPosting/Person schema.
 
 ## Release verification
 
@@ -27,6 +27,28 @@ November 1 provider and public readback confirmed:
 - The IndexNow global endpoint accepted the URL with **HTTP 200** after the existing ownership key was verified.
 
 Submission is confirmed; completed search-engine indexing is not yet confirmed. Do not repeat submissions solely because indexing is pending.
+
+## Reciprocal link release — 2026-11-11
+
+Kris approved the [November 4 BC + AI recap](https://bc-ai.ca/news/the-robots-in-the-lobby)
+as #1165's community synthesis and approved its exact closing-paragraph link.
+The content-only update to existing post **12934** was verified November 12 at
+05:58 UTC (November 11 in Vancouver). The new clause reads “read BC + AI's
+recap of what we built together,” and preserves the surrounding links and credits.
+
+- Fresh dry-run and unique slug/ID lookup matched the approved before body.
+- One update request changed only `content`; authenticated readback matches
+  `post.html` and the body hash above.
+- Both the canonical URL and a fresh public request returned 200 with exactly
+  one new target link, one H1 and the original self-canonical.
+- ID, slug, status, publication date, title, excerpt, author, featured image,
+  taxonomy, metadata and comment settings remained unchanged.
+
+The private snapshot, exact diff and verification receipt are in
+`.generated/current-state/futureproof-1165-link-release-2026-11-11/`.
+Rollback requires a fresh identity/current-body check before restoring the
+saved previous body; preserve any subsequent edits. This completes #1165's
+remaining link dependency. The optional second essay remains a separate choice.
 
 ## Future maintenance
 
