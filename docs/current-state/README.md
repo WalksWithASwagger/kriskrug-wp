@@ -2,8 +2,10 @@
 
 Start with the [November 11 roadmap](ROADMAP-2026-11-11.md), then run
 `make doctor` and `make status-readonly`. The [maintenance report](reports/repo-maintenance-2026-11-11.md)
-records the current issue reconciliation, source drift fix, verification and
-branch recovery. The October 25 snapshot remains the declared drift baseline;
+records the issue reconciliation, source drift fix, verification and initial
+branch recovery. The [same-day follow-through](reports/morning-followthrough-2026-11-11.md)
+adds the remaining branch cleanup and the HSTS, Events and BC + AI decisions.
+The October 25 snapshot remains the declared drift baseline;
 its old counts and theme version are dated evidence.
 
 ## Current front door — 2026-11-11
@@ -19,7 +21,7 @@ November 11 startup observed WordPress 7.0.8 and public Aurora 1.7.1 matching
 `origin/main`. About, Photography, MØTLEYKRÜG and Contact source matches the
 approved live bodies. Publications' approved redesign is reconciled separately
 from its later private polish preview. Current priorities are the remaining
-Canada Now knowledge work, Events cadence verification, HSTS decision and
+Canada Now knowledge work, the missing Events cadence, HSTS decision and
 Futureproof's conditional BC + AI link. Do not repeat completed page redesigns,
 #331's archive policy, or the dependency security patches.
 

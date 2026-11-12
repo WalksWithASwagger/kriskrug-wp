@@ -5,7 +5,10 @@ Prepared for [kk-kb #4819](https://github.com/WalksWithASwagger/kk-kb/issues/481
 [evidence and rollback package](HOST-SECURITY-REVIEW-2026-11-01.md). Account
 identifiers and any existing private ticket reference must be supplied through
 the authenticated support portal, not added to Git. No secret attachment is
-needed. Owner: KK; next review November 2, 2026.
+needed. Owner: KK. These are the November 1 drafts; the
+[November 11 follow-through](reports/morning-followthrough-2026-11-11.md)
+adds an unsent, standalone HSTS proposal for #767. Its separate sequencing is
+recommended for review, not approved or deployed.
 
 ## Pagely: patch attestation and staging change proposal
 

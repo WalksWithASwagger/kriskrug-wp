@@ -1,6 +1,22 @@
 # Events maintenance: proposal and verification workflow
 
-Owner: Kris Krüg. Implementation issue: [#1102](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1102). The September setup recorded a weekly Codex heartbeat named **Kriskrug Events weekly proposals**, scheduled Monday at 09:00 America/Vancouver in the originating chat. Its current scheduler state and latest successful run were not reverified in the November 11 maintenance pass; check the owning automation before relying on that cadence. Its contract is local review material, with no publication or source-catalog changes.
+Owner: Kris Krüg. Implementation issue: [#1102](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1102). The September setup recorded a weekly Codex heartbeat named **Kriskrug Events weekly proposals**, scheduled Monday at 09:00 America/Vancouver in the originating chat. The November 11 parallel read-only audit found no Events heartbeat in Codex automations, Claude scheduled tasks or launchd. Treat that cadence as **not running**; the historical setup is not current delivery proof. Reinstating a schedule or selecting a replacement cadence needs a recorded decision. No automation was created during this maintenance pass.
+
+The contract below remains local review material, with no publication or source-catalog changes. Its scheduled-run rules apply if a recurring worker is authorized and installed.
+
+## Latest manual sweep — 2026-11-11
+
+The public-source sweep found no confirmed change to apply. The shared catalog
+has 87 entries; the public page showed 84 past rooms, 33 meetup editions and
+41 frames. November 23 AMPA and November 25 Vancouver AI remain upcoming;
+November 5 Prompt Victoria is past. These are dated observations.
+
+The [December 16 Vancouver AI listing](https://bc-ai.ca/events/2026-12-16-vancouver-ai-community-meetup)
+confirms the event and venue but does not name Kris as host or speaker. Hold it
+outside the catalog until his role is confirmed. Both Google Calendar
+connectors were unavailable in the parallel audit, so the result is limited to
+public sources. No private-message sweep, catalog edit or live write occurred.
+See the [follow-through receipt](reports/morning-followthrough-2026-11-11.md).
 
 ## Weekly sweep
 
@@ -18,7 +34,7 @@ Kris approves the concrete event/page proposal before application. Approval can 
 
 When a new confirmation arrives in an active authorized session, run steps 3–7 that day. When publishing event coverage, run the linked publisher checklist in the same approved pass. On the day after an event, verify the automatic transition and propose any newly available documentation links.
 
-These are operating hooks, not installed webhooks. The scheduled worker is weekly; it does not promise instant inbox/iMessage monitoring or guaranteed day-after execution. #1102 remains open for a separately scoped event-driven intake integration if that stronger cadence is required. Do not expand the weekly heartbeat's access or create watchers silently.
+These are operating hooks, not installed webhooks. The proposed recurring worker is weekly and currently absent; it does not promise instant inbox/iMessage monitoring or guaranteed day-after execution. #1102 remains open for the cadence decision and, if required, a separately scoped event-driven intake integration. Do not expand access or create watchers silently.
 
 ## Current baseline and applied first proposal
 
