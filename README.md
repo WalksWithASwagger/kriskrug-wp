@@ -90,12 +90,11 @@ inc/                             # Custom WordPress modules (e.g., digital-compo
 ### Where to start
 
 - **Reading the site state:** `docs/current-state/README.md`
-- **Planning next work:** the newest dated `docs/current-state/CURRENT-STATE-*.md` and `docs/current-state/WORK-PLAN-*.md` (the index in `docs/current-state/README.md` names the current ones)
+- **Planning next work:** `docs/current-state/README.md` and the [November 11 roadmap](docs/current-state/ROADMAP-2026-11-11.md). Dated `WORK-PLAN-*.md` files are retained procedures or history; read their status banner first
 - **Current startup truth:** `make status-readonly` prints current repo/site signals without writing a file
 - **Local generated report:** `make morning-truth` writes to the gitignored `.generated/current-state/` directory
 - **Durable checkpoint:** `make morning-truth-checkpoint` writes to `docs/current-state/reports/` only for an explicit release, incident, durable decision, or handoff
-- **Latest diagnostic truth:** `docs/current-state/archive/DIAGNOSTIC-POLISH-2026-05-20.md` (May 2026, archived)
-- **Longer roadmap references:** `docs/current-state/archive/ROADMAP.md` and `docs/current-state/archive/FIX_QUEUE.md` (archived; the live backlog is the GitHub issue list)
+- **Backlog:** the open GitHub issue list. `docs/current-state/archive/ROADMAP.md` and `archive/FIX_QUEUE.md` are archived evidence, not guidance
 - **Publishing a Notion post:** `scripts/notion-to-wp/README.md`
 - **Reviewing staged drafts:** `content/drafts/README.md`
 - **Filing an issue:** `issues-to-create/` is historical (write new issues directly on GitHub); existing ones at [WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
@@ -127,7 +126,7 @@ FSE theme rebuild and polish. Touches `theme/kk-aurora/`, FSE templates, theme.j
 - Worktree safety: run `git worktree list` before editing. Treat every listed
   side worktree as owned until its branch, PR, and filesystem state are
   verified; do not rely on hard-coded paths from historical handoffs.
-- Migration plan: [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/archive/AURORA-MIGRATION-PLAN.md)
+- Archived migration plan (historical, retired Cloudways and `aurora/v2` steps; do not follow): [`docs/current-state/archive/AURORA-MIGRATION-PLAN.md`](docs/current-state/archive/AURORA-MIGRATION-PLAN.md)
 
 ### Which track am I in?
 
