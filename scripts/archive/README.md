@@ -38,3 +38,16 @@ from the repo root after KK approved. Recover from git history if needed:
   `scripts/update_both_hands_power_cord.py`, and
   `scripts/update_publications_media_link.py` — imported by
   `scripts/tests/test_*.py` siblings. Moving them would break those imports.
+
+## SEO backfill one-offs (archived 2026-11-12, #1226)
+
+KK ruled on 2026-11-12 to archive these rather than port them to
+`common.WPClient`. Both ran once in June 2026 against live posts and read
+credentials straight from `scripts/notion-to-wp/.env`. Do not re-run them.
+
+- `purge_meta_emdashes.py`: site-wide em dash purge of Jetpack SEO meta.
+- `reassign_categories.py`: the #223 Misc category classifier.
+
+The changed-file Ruff ratchet lints moved files, so the move also split their
+one-line imports and statements and dropped two unused imports. The rest of
+the AST is unchanged.

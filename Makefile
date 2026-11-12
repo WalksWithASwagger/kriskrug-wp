@@ -242,11 +242,11 @@ performance-audit: ## Run read-only public performance baseline. Args: ROUTES SA
 		$${LONGFORM_URL:+--longform-url "$${LONGFORM_URL}"} \
 		--format "$${FORMAT:-markdown}" $${OUTPUT:+--output "$${OUTPUT}"}
 
-jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/routing audit (FORMAT=json)
+jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/routing audit (FORMAT=json, optional ENV_FILE)
 	@if [ "$${FORMAT:-human}" = "json" ]; then \
-		python3 scripts/jetpack_feedback_audit.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}" --json; \
+		python3 scripts/jetpack_feedback_audit.py $${ENV_FILE:+--env-file "$$ENV_FILE"} --json; \
 	else \
-		python3 scripts/jetpack_feedback_audit.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"; \
+		python3 scripts/jetpack_feedback_audit.py $${ENV_FILE:+--env-file "$$ENV_FILE"}; \
 	fi
 
 wp7-smoke: ## Run read-only public WP rollout smoke checks (BASE_URL=https://kriskrug.co EXPECT_VERSION=7.0.8)
@@ -261,8 +261,8 @@ sitemap-followthrough: ## Read-only #274 public sitemap follow-through (BASE_URL
 check-live-parity: ## Detect live-vs-repo Aurora theme version drift (#546) (BASE_URL=https://kriskrug.co)
 	@$(PYTHON) scripts/check_live_theme_parity.py --base "$${BASE_URL:-https://kriskrug.co}"
 
-wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (ENV_FILE=scripts/notion-to-wp/.env)
-	@python3 scripts/wp7-admin-readiness.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"
+wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (optional ENV_FILE)
+	@python3 scripts/wp7-admin-readiness.py $${ENV_FILE:+--env-file "$$ENV_FILE"}
 
 current-state-drift-check: ## Compare declared current-state snapshot values vs live read-only checks
 	@python3 scripts/check_current_state_drift.py --work-plan "$${WORK_PLAN:-$(WORK_PLAN_DEFAULT)}" --base-url "$${BASE_URL:-https://kriskrug.co}"
