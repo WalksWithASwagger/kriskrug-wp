@@ -42,11 +42,13 @@ Legacy branch split context is in [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-
 
 Use `docs/current-state/README.md`, the active operating docs, and fresh
 GitHub readback for current operating state. A workflow YAML file is not an
-enabled workflow: Auto-Triage Issues and Marquee Weekly Scan were
-`disabled_manually` on the 2026-09-30 Actions API readback, reason unknown.
-Bannered historical documents, the retired GitHub Actions swarm, old Cloudways
-setup, and `aurora/v2` branch references are evidence only. Do not revive
-their commands or workflows, and do not re-enable those two workflows.
+enabled workflow; read the Actions API before claiming one runs. Auto-Triage
+Issues and Marquee Weekly Scan sat `disabled_manually` and were deleted on
+2026-11-12 by KK's ruling (#1220), together with the swarm's agent
+definitions, state records and config. Do not recreate those two workflows or
+the swarm files. Bannered historical documents, the retired GitHub Actions
+swarm, old Cloudways setup, and `aurora/v2` branch references are evidence
+only. Do not revive their commands or workflows.
 
 ## How to publish a post (Track A)
 

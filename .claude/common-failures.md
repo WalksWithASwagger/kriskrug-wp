@@ -1,5 +1,7 @@
 # Common Failure Patterns & Solutions
 
+> **STATUS: Historical.** Written for the retired GitHub Actions agent swarm. The `.github/agents/`, `.github/agent-state/` and `.github/agent-config/` paths it cites were deleted on 2026-11-12 (#1220), `.github/agent-learnings.md` never existed, and this repo runs no PHPUnit suite. Do not follow the swarm procedures below. Current rules live in [`AGENTS.md`](../AGENTS.md) and [`CONTRIBUTING.md`](../CONTRIBUTING.md).
+
 Documented patterns to help agents learn from common mistakes and avoid repeating them.
 
 ---
