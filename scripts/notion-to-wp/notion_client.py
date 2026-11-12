@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 import sys
 import time
+import unicodedata
 
 import requests
 
@@ -100,7 +101,23 @@ def read_prop(page: dict, name: str, default=None):
     return default
 
 
+# Latin letters NFKD cannot split into base letter plus accent. WordPress's
+# remove_accents() folds them the same way.
+_UNDECOMPOSABLE_LATIN = str.maketrans({
+    "Ø": "O", "ø": "o", "Æ": "AE", "æ": "ae", "ß": "ss", "Đ": "D", "đ": "d",
+    "Ð": "D", "ð": "d", "Ł": "L", "ł": "l", "Þ": "TH", "þ": "th", "Œ": "OE",
+    "œ": "oe",
+})
+
+
 def slugify(s: str) -> str:
+    """Fold to the ASCII slug WordPress's sanitize_title() stores for Latin text.
+
+    Without the fold, "Kris Krüg Live" became "kris-krüg-live", a slug WordPress
+    never stores, so the exact-match slug lookup could never find the post.
+    """
+    s = unicodedata.normalize("NFKD", s.translate(_UNDECOMPOSABLE_LATIN))
+    s = "".join(ch for ch in s if not unicodedata.combining(ch))
     s = s.lower().strip()
     s = re.sub(r"[^\w\s-]", "", s)
     s = re.sub(r"\s+", "-", s)

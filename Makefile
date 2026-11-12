@@ -7,21 +7,12 @@ PYTHON ?= python3
 VARLOCK ?= varlock
 WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-10-25.md
 EXPECT_VERSION_DEFAULT := 7.0.8
-JAVASCRIPT_FILES := \
-	plugins/kk-practice/blocks/context-brief/editor.js \
-	plugins/kk-practice/blocks/context-brief/view.js \
-	plugins/kk-marquee-board/assets/marquee.js \
-	scripts/marquee/render_og.cjs \
-	scripts/tests/north_house_journey_browser.cjs \
-	scripts/tests/test_events_rolloff_browser.cjs \
-	scripts/tests/test_events_rolloff_playwright.cjs \
-	theme/kk-aurora/assets/js/marquee.js \
-	theme/kk-aurora/assets/js/micro-interactions.js \
-	theme/kk-aurora/assets/js/theme.js \
-	fixes/issue-1090-success-event.js \
-	fixes/issue-1090-krug-signup-tag.js \
-	scripts/tests/issue_1090_success_event_harness.cjs \
-	scripts/tests/issue_1090_krug_signup_harness.cjs
+# Every tracked script, so a new file is checked without editing this list.
+# Dated reports under docs/current-state/reports/ are frozen evidence.
+JAVASCRIPT_FILES = $(shell git ls-files -- '*.js' '*.cjs' '*.mjs' \
+	':(exclude,glob)**/node_modules/**' \
+	':(exclude,glob)**/vendor/**' \
+	':(exclude,glob)docs/current-state/reports/**')
 
 # Default target
 .DEFAULT_GOAL := help
@@ -48,11 +39,11 @@ python-test: ## Run all declared Python test suites
 		exit 1; \
 	}
 	@echo "Publisher unit tests"
-	@$(PYTHON) -m unittest discover -s scripts/notion-to-wp/tests -v
-	@echo "Operational unit tests"
-	@$(PYTHON) -m unittest discover -s scripts/tests -v
+	@$(PYTHON) -m pytest scripts/notion-to-wp/tests -v
+	@echo "Operational and photo-library tests"
+	@$(PYTHON) -m pytest scripts/tests scripts/photo-library/tests -v
 	@echo "SEO inventory unit tests"
-	@$(PYTHON) -m unittest discover -s scripts/seo-audit/tests -v
+	@$(PYTHON) -m pytest scripts/seo-audit/tests -v
 	@echo "SEO backfill and link-safety tests"
 	@$(PYTHON) -m pytest scripts/seo-backfill/tests -q
 
@@ -61,9 +52,11 @@ ruff-changed: ## Check only Python files changed from BASE_REF (default: origin/
 
 javascript-syntax: ## Check committed JavaScript syntax
 	@command -v node >/dev/null 2>&1 || { echo "ERROR: node is required for JavaScript syntax checks."; exit 1; }
-	@status=0; \
-	for file in $(JAVASCRIPT_FILES); do node --check "$$file" || status=1; done; \
-	if [ "$$status" -ne 0 ]; then echo "javascript-syntax: FAILED (see errors above)"; exit 1; fi
+	@status=0; count=0; \
+	for file in $(JAVASCRIPT_FILES); do count=$$((count + 1)); node --check "$$file" || status=1; done; \
+	if [ "$$count" -eq 0 ]; then echo "ERROR: javascript-syntax found no tracked JavaScript files."; exit 1; fi; \
+	if [ "$$status" -ne 0 ]; then echo "javascript-syntax: FAILED (see errors above)"; exit 1; fi; \
+	echo "javascript-syntax: $$count files passed node --check"
 	@node scripts/tests/issue_706_script_diet_harness.cjs
 	@node scripts/tests/issue_1090_success_event_harness.cjs
 	@node scripts/tests/issue_1090_krug_signup_harness.cjs
@@ -244,11 +237,11 @@ performance-audit: ## Run read-only public performance baseline. Args: ROUTES SA
 		$${LONGFORM_URL:+--longform-url "$${LONGFORM_URL}"} \
 		--format "$${FORMAT:-markdown}" $${OUTPUT:+--output "$${OUTPUT}"}
 
-jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/routing audit (FORMAT=json)
+jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/routing audit (FORMAT=json, optional ENV_FILE)
 	@if [ "$${FORMAT:-human}" = "json" ]; then \
-		python3 scripts/jetpack_feedback_audit.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}" --json; \
+		python3 scripts/jetpack_feedback_audit.py $${ENV_FILE:+--env-file "$$ENV_FILE"} --json; \
 	else \
-		python3 scripts/jetpack_feedback_audit.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"; \
+		python3 scripts/jetpack_feedback_audit.py $${ENV_FILE:+--env-file "$$ENV_FILE"}; \
 	fi
 
 wp7-smoke: ## Run read-only public WP rollout smoke checks (BASE_URL=https://kriskrug.co EXPECT_VERSION=7.0.8)
@@ -263,8 +256,8 @@ sitemap-followthrough: ## Read-only #274 public sitemap follow-through (BASE_URL
 check-live-parity: ## Detect live-vs-repo Aurora theme version drift (#546) (BASE_URL=https://kriskrug.co)
 	@$(PYTHON) scripts/check_live_theme_parity.py --base "$${BASE_URL:-https://kriskrug.co}"
 
-wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (ENV_FILE=scripts/notion-to-wp/.env)
-	@python3 scripts/wp7-admin-readiness.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"
+wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (optional ENV_FILE)
+	@python3 scripts/wp7-admin-readiness.py $${ENV_FILE:+--env-file "$$ENV_FILE"}
 
 current-state-drift-check: ## Compare declared current-state snapshot values vs live read-only checks
 	@python3 scripts/check_current_state_drift.py --work-plan "$${WORK_PLAN:-$(WORK_PLAN_DEFAULT)}" --base-url "$${BASE_URL:-https://kriskrug.co}"
