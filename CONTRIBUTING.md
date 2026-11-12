@@ -250,13 +250,13 @@ Keep one issue per branch and don't mix Track A content changes with Track B the
 
 ### Commit Messages
 
-Use clear, descriptive commit messages:
+Use `<area>: <short imperative>`, one concern per commit (see [`AGENTS.md`](AGENTS.md)):
 
 ```
 Good:
-- "Fix contact form validation on mobile devices"
-- "Add caching for API responses using transients"
-- "Improve accessibility of navigation menu"
+- "fix: validate the contact form on mobile devices"
+- "feat: cache API responses using transients"
+- "docs: update the navigation accessibility notes"
 
 Bad:
 - "fix bug"
@@ -380,9 +380,7 @@ Manual validation:
 
 ## Recognition
 
-Contributors will be:
-- Listed in release notes
-- Credited in PR descriptions
+Contributors are credited in PR descriptions.
 
 Thanks for helping keep kriskrug.co healthy.
 

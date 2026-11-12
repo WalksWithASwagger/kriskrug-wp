@@ -26,6 +26,7 @@ DEFAULT_BASES = [
     Path(".github/ISSUE_TEMPLATE/content.yml"),
     Path(".github/ISSUE_TEMPLATE/feature_request.yml"),
     Path(".github/ISSUE_TEMPLATE/performance.yml"),
+    Path(".github/pull_request_template.md"),
     Path(".github/agent-state/README.md"),
     Path(".github/agents/doc-swarm/README.md"),
     Path("docs"),
@@ -299,6 +300,12 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
         (
             re.compile(r"#834 remains blocked on #833", re.I),
             "Issue #833 is closed; do not tell agents that #834 is still blocked on it.",
+        ),
+    ],
+    Path(".github/pull_request_template.md"): [
+        (
+            re.compile(r"PHPUnit|agent-task|Agent Task ID|WordPress-Extra", re.I),
+            "The PR template must describe this repo's real gates; PHPUnit, agent-task and WordPress-Extra belong to the retired swarm.",
         ),
     ],
     Path(".claude/context/project-context.md"): PERSONAL_SITE_IDENTITY_PATTERNS,
