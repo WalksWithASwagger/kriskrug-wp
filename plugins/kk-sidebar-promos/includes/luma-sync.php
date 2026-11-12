@@ -24,7 +24,7 @@ function kk_sp_run_luma_sync() {
 		return new WP_Error( 'kk_sp_no_url', 'No Luma iCal URL configured.' );
 	}
 
-	$response = wp_remote_get( $ical_url, [ 'timeout' => 15 ] );
+	$response = wp_safe_remote_get( $ical_url, [ 'timeout' => 15 ] );
 	if ( is_wp_error( $response ) ) {
 		return $response;
 	}
@@ -39,13 +39,7 @@ function kk_sp_run_luma_sync() {
 		return new WP_Error( 'kk_sp_no_events', 'No events parsed from Luma feed.' );
 	}
 
-	$now  = current_time( 'timestamp' );
-	$next = null;
-	foreach ( $events as $ev ) {
-		if ( $ev['start_ts'] >= $now && ( $next === null || $ev['start_ts'] < $next['start_ts'] ) ) {
-			$next = $ev;
-		}
-	}
+	$next = kk_sp_pick_next_event( $events, time() );
 	if ( ! $next ) {
 		return new WP_Error( 'kk_sp_no_upcoming', 'No upcoming events.' );
 	}
@@ -105,6 +99,24 @@ function kk_sp_run_luma_sync() {
 	update_post_meta( $post_id, KK_SP_META_SOURCE_ID, $next['uid'] );
 
 	return $post_id;
+}
+
+/**
+ * Returns the earliest event starting at or after $now, or null.
+ *
+ * $now must be real Unix time, matching the parser's start_ts. Passing
+ * current_time( 'timestamp' ) here shifts it by the site's UTC offset, so in
+ * America/Vancouver an event that started hours ago would still count as upcoming.
+ */
+function kk_sp_pick_next_event( array $events, $now ) {
+	$next = null;
+	foreach ( $events as $ev ) {
+		if ( $ev['start_ts'] >= $now && ( $next === null || $ev['start_ts'] < $next['start_ts'] ) ) {
+			$next = $ev;
+		}
+	}
+
+	return $next;
 }
 
 /**
