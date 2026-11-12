@@ -364,7 +364,7 @@ CI does not run `make practice-preview`, the `visual-*` pixel gate, or any targe
 `large-file-check` fails a pull request, or a push to `main`, that adds:
 
 - any file over 5 MB (5,242,880 bytes), wherever it lives, or
-- any image, video or audio file outside the allowlist: `theme/kk-aurora/assets/` (images the theme ships) and `plugins/kk-practice/tests/` (the practice fixture image).
+- any image, video or audio file outside the allowlist: `theme/kk-aurora/assets/` (images the theme ships), `plugins/kk-practice/tests/` (the practice fixture image) and `scripts/events_page/heroes/` (Events heroes the catalog and renderer read).
 
 Only blobs new to the repository count. Files already on `main`, deletions, and moves or copies of existing files pass. Replacing an existing file with new content counts as new. The threshold, the media extensions and the allowlist live in [`scripts/check_large_files.py`](scripts/check_large_files.py).
 

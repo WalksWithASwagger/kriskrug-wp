@@ -69,6 +69,30 @@ class LargeFileCheckTests(unittest.TestCase):
 
         self.assertEqual(self._violations(), [])
 
+    def test_small_events_hero_passes(self):
+        self._write(
+            "scripts/events_page/heroes/one-offs-2026/meetup.jpg", b"\xff" * HUNDRED_KB
+        )
+        self._commit("add events hero")
+
+        self.assertEqual(self._violations(), [])
+
+    def test_six_mb_events_hero_still_fails_on_size(self):
+        self._write(
+            "scripts/events_page/heroes/one-offs-2026/huge.jpg", b"\xff" * SIX_MB
+        )
+        self._commit("add huge events hero")
+
+        self.assertEqual(
+            [(v.path, v.reason) for v in self._violations()],
+            [
+                (
+                    "scripts/events_page/heroes/one-offs-2026/huge.jpg",
+                    "over the 5 MB limit",
+                )
+            ],
+        )
+
     def test_small_media_outside_the_allowlist_fails(self):
         self._write("content/drafts/post/diagram.SVG", b"<svg/>" * (HUNDRED_KB // 6))
         self._commit("add draft diagram")

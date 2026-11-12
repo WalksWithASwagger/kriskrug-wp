@@ -22,6 +22,9 @@ MAX_BYTES = 5 * 1024 * 1024
 ALLOWED_MEDIA_PREFIXES = (
     "theme/kk-aurora/assets/",
     "plugins/kk-practice/tests/",
+    # Events catalog rows point at repo:scripts/events_page/heroes/... and
+    # the renderer reads them from there.
+    "scripts/events_page/heroes/",
 )
 
 MEDIA_EXTENSIONS = frozenset(
