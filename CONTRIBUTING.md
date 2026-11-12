@@ -207,7 +207,7 @@ See [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL
 
 There is no local app server to boot. The live site runs on Pagely and is not file-synced here. Local work means running the CLI tools and the validation gates below.
 
-CI runs the gates on PHP 8.2 and Python 3.12. JavaScript syntax uses Node 20; the WordPress Playground browser job uses Node 24. Playground 3.1.55 requires Node >=24.18.0 and npm >=11.16.0 (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml) and [`package.json`](package.json)). The Aurora theme declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css). You don't need exact version matches locally, but if a gate behaves differently than CI, check your runtime versions first.
+CI runs the gates on PHP 8.2 and Python 3.12. JavaScript syntax uses Node 20; the WordPress Playground browser job uses Node 24. Playground 3.1.62 requires Node >=24.18.0 and npm >=11.16.0 (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml) and [`package.json`](package.json)). The Aurora theme declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css). You don't need exact version matches locally, but if a gate behaves differently than CI, check your runtime versions first.
 
 Two requirement files, one canonical test environment. Root [`requirements-test.txt`](requirements-test.txt) **is the canonical Python test env** — CI installs it, and it is the only file that satisfies `make python-test` and `make ruff-changed` (it is the runtime deps plus `pytest` and Ruff). [`scripts/notion-to-wp/requirements.txt`](scripts/notion-to-wp/requirements.txt) is **runtime-only**: it exists so several `Makefile` targets can call `scripts/notion-to-wp/.venv/bin/python` directly, and installing only it leaves you unable to run that package's test suites. Install the root file when you want to run tests, including the `scripts/notion-to-wp/tests` suites.
 
@@ -362,7 +362,7 @@ make practice-browser-test
 Runtime split (do not collapse these):
 
 - JavaScript syntax (`make javascript-syntax`) uses Node 20 in CI.
-- Playground 3.1.55, used by preview and browser tests, requires Node >=24.18.0 and npm >=11.16.0. CI's `practice-browser` job uses Node 24. A reviewed local run used Node 24.21.0 and npm 11.19.0.
+- Playground 3.1.62, used by preview and browser tests, requires Node >=24.18.0 and npm >=11.16.0. CI's `practice-browser` job uses Node 24. A reviewed local run used Node 24.21.0 and npm 11.19.0.
 - `PRACTICE_CHROME` can point at a local Chrome executable. CI installs pinned Playwright Chromium into `PLAYWRIGHT_BROWSERS_PATH` (`/tmp/kk-practice-browsers` on the runner).
 - A failed Playground download is unavailable setup, not a passing test. Green fixture results do not prove live Pagely, production plugins, or CDN/cache behavior.
 
