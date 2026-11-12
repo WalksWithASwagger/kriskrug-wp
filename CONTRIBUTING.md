@@ -135,7 +135,7 @@ Your PR should include:
 3. Content/docs-only PRs may use the normal protected merge path.
 4. Theme, plugin, `inc/`, and live-deploy work requires KK review before merge; every live WordPress deploy requires separate explicit approval.
 
-> The older GitHub Actions agent swarm is gone (`agent-pr-generator.yml` deleted 2026-08-23). `test-pr.yml` and `backlog-reconcile.yml` are the active repo workflows. Auto-Triage Issues and Marquee Weekly Scan still have YAML in `.github/workflows/`; the Actions API reported both `disabled_manually` on 2026-09-30. File presence is not enablement. The disable reason is unknown; do not change workflow settings.
+> The older GitHub Actions agent swarm is gone (`agent-pr-generator.yml` deleted 2026-08-23). `test-pr.yml` and `backlog-reconcile.yml` are the active repo workflows. Auto-Triage Issues and Marquee Weekly Scan, both manually disabled, were deleted on 2026-11-12 with the swarm's agent definitions and state records (#1220); do not recreate them or change workflow settings.
 
 ## Coding Standards
 

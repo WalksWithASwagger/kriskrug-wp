@@ -162,8 +162,8 @@ Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](do
 3. Use issue templates when filing new issues
 4. Run `composer install` once, then `make verify` before submitting code changes
 
-### Historical / parked: GitHub Actions agent swarm
-`.github/agents/` defines an older issue-to-PR pipeline (orchestrator → analyzer → test-writer → implementer → QA → reviewer → PR creator). It produced PRs #71 and #72 in May 2026 and is not used by current sessions. `agent-pr-generator.yml` was deleted 2026-08-23. `test-pr.yml` remains active PR validation. Auto-Triage Issues and Marquee Weekly Scan still have workflow files; the Actions API reported both `disabled_manually` on 2026-09-30, and the disable reason is unknown. File presence is not enablement. See [`docs/current-state/AGENT-RUNTIME-REFERENCE.md`](docs/current-state/AGENT-RUNTIME-REFERENCE.md). Historical swarm write-ups live in [`docs/architecture.md`](docs/architecture.md) and [`docs/automation-guide.md`](docs/automation-guide.md).
+### Historical: GitHub Actions agent swarm (retired)
+An older issue-to-PR pipeline (orchestrator → analyzer → test-writer → implementer → QA → reviewer → PR creator) produced PRs #71 and #72 in May 2026 and is not used by current sessions. `agent-pr-generator.yml` was deleted 2026-08-23. On 2026-11-12 (#1220, KK's ruling) the swarm's agent definitions (`.github/agents/`), state records (`.github/agent-state/`), config (`.github/agent-config/`) and the two manually disabled workflows, Auto-Triage Issues and Marquee Weekly Scan, were deleted; git history keeps them. `test-pr.yml` and `backlog-reconcile.yml` remain the active repo workflows. See [`docs/current-state/AGENT-RUNTIME-REFERENCE.md`](docs/current-state/AGENT-RUNTIME-REFERENCE.md). Historical swarm write-ups live in [`docs/architecture.md`](docs/architecture.md) and [`docs/automation-guide.md`](docs/automation-guide.md).
 
 ## Technology Stack
 
