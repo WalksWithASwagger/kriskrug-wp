@@ -10,6 +10,16 @@ Shared publisher code stays in `scripts/notion-to-wp/`: `publish_common.py`,
 `wp_blocks.py`, `wp_client.py`, `create_local_wp_draft.py`,
 `prepare_review_draft.py`, and the other tested generic entry points.
 
+## Archived 2026-11-12 (#1219)
+
+KK ruled on 2026-11-12 to archive these rather than harden them. Both could
+overwrite their live post without `--update`, so they must not be re-run.
+
+- `publish_breaker_460_recap.py`: post 12747,
+  https://kriskrug.co/2026/09/07/ai-already-campaign-issue-vancouver/
+- `publish_jspaint_portrait.py`: post 12870,
+  https://kriskrug.co/2026/09/27/claude-painted-my-portrait-ms-paint/
+
 ## Root fossils (deleted 2026-08-22)
 
 `customize-for-kriskrug.sh` (spent bc-ai → kk tree rewrite) and
