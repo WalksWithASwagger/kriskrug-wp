@@ -65,7 +65,8 @@ jobs:
             const hasDocs = names.some((name) =>
               name.endsWith('.md') ||
               name.startsWith('docs/') ||
-              ['AGENTS.md', 'README.md', 'CONTRIBUTING.md', 'Makefile', 'scripts/docs_truth_check.py'].includes(name)
+              name.startsWith('.github/ISSUE_TEMPLATE/') ||
+              ['AGENTS.md', 'README.md', 'CONTRIBUTING.md', 'Makefile', 'scripts/docs_truth_check.py', '.env.schema'].includes(name)
             );
             const hasCss = names.some((name) => name.endsWith('.css'));
             const hasDeps = names.some((name) =>
