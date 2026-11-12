@@ -59,7 +59,7 @@ It authorizes a reviewable proof PR, not a live deployment.
 | [templates/owned-distribution-backlink-checklist.md](templates/owned-distribution-backlink-checklist.md) | Per-article owned-distribution + backlink launch record (#1026). Copy into the draft package; does not authorize live posts |
 | [CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md](CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md) | #1025 robots/sitemap/noindex recommendations. In-repo only; does not authorize live apply |
 | [SEO-PUBLISHER-SCHEMA-2026-07-19.md](SEO-PUBLISHER-SCHEMA-2026-07-19.md) | Schema/publisher rules (`make seo-publisher-smoke`) |
-| [SEO-STRIKING-DISTANCE-2026-08-02.md](SEO-STRIKING-DISTANCE-2026-08-02.md) | #249 re-measure. **Read before running `make seo-audit`:** Jetpack is deactivated, the theme now owns SEO titles, and that target reports a false 1016/1016 missing |
+| [SEO-STRIKING-DISTANCE-2026-08-02.md](SEO-STRIKING-DISTANCE-2026-08-02.md) | #249 re-measure. **Read `scripts/seo-audit/README.md` before running `make seo-audit`:** Jetpack is deactivated and the theme owns SEO titles; the target now covers posts only and exits 2 instead of reporting a false 1016/1016 missing |
 | [AURORA-STYLESHEET-REBUILD-PLAN.md](AURORA-STYLESHEET-REBUILD-PLAN.md) | Path A rebuild plan of record (#423) |
 | [AURORA-VISUAL-BASELINE-RUNBOOK.md](AURORA-VISUAL-BASELINE-RUNBOOK.md) | Pixel gate harness (#473) |
 | [AURORA-RELEASE-CHECKLIST.md](AURORA-RELEASE-CHECKLIST.md) | Theme release checklist |
