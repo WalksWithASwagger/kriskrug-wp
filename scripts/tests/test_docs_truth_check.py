@@ -283,24 +283,9 @@ class PersonalSiteIdentityRegressionTests(unittest.TestCase):
             Path(".github/ISSUE_TEMPLATE/content.yml"),
             Path(".github/ISSUE_TEMPLATE/feature_request.yml"),
             Path(".github/ISSUE_TEMPLATE/performance.yml"),
-            Path(".github/agent-state/README.md"),
-            Path(".github/agents/doc-swarm/README.md"),
         }
 
         self.assertTrue(expected.issubset(set(docs_truth_check.DEFAULT_BASES)))
-
-    def test_dormant_agent_guides_require_historical_banner(self):
-        samples = {
-            ".github/agent-state/README.md": "# Agent State Directory\n\nUsage instructions.\n",
-            ".github/agents/doc-swarm/README.md": "# Documentation Swarm\n\nComing soon.\n",
-        }
-
-        for path, text in samples.items():
-            with self.subTest(path=path):
-                findings = scan_text(path, text)
-                self.assertTrue(
-                    any("STATUS: Historical" in finding.message for finding in findings)
-                )
 
     def test_rejects_audited_access_and_work_plan_drift(self):
         samples = {
@@ -318,6 +303,79 @@ class PersonalSiteIdentityRegressionTests(unittest.TestCase):
                 self.assertTrue(
                     any("audited current-state" in finding.message for finding in findings)
                 )
+
+
+class RetiredSwarmSurfaceTests(unittest.TestCase):
+    SWARM_GUIDES = (".claude/common-failures.md", ".claude/naming-conventions.md")
+
+    def test_default_scan_covers_retained_guides_and_agent_directory(self):
+        expected = {Path(path) for path in self.SWARM_GUIDES} | {Path(".github/agents")}
+
+        self.assertTrue(expected.issubset(set(docs_truth_check.DEFAULT_BASES)))
+
+    def test_deleted_swarm_records_are_no_longer_required(self):
+        for path in (".github/agent-state/README.md", ".github/agents/doc-swarm/README.md"):
+            with self.subTest(path=path):
+                self.assertNotIn(Path(path), docs_truth_check.DEFAULT_BASES)
+                self.assertNotIn(Path(path), docs_truth_check.REQUIRED_PATH_PATTERNS)
+
+    def test_retained_guides_fail_without_banner(self):
+        for path in self.SWARM_GUIDES:
+            with self.subTest(path=path):
+                findings = scan_text(path, "# Guide\n\nCheck the agent state file.\n")
+                self.assertTrue(
+                    any("STATUS: Historical" in finding.message for finding in findings)
+                )
+
+    def test_retained_guides_pass_with_banner(self):
+        for path in self.SWARM_GUIDES:
+            with self.subTest(path=path):
+                findings = scan_text(path, "# Guide\n\n> **STATUS: Historical.** Retired.\n")
+                self.assertFalse(
+                    any("STATUS: Historical" in finding.message for finding in findings)
+                )
+
+    def test_committed_guides_carry_the_banner(self):
+        repo_root = Path(__file__).resolve().parents[2]
+
+        for path in self.SWARM_GUIDES:
+            with self.subTest(path=path):
+                self.assertEqual(docs_truth_check.scan_file(repo_root, repo_root / path), [])
+
+    def test_recreated_agent_definition_without_banner_fails_default_scan(self):
+        for relative in (
+            ".github/agents/orchestrator.agent.md",
+            ".github/agents/doc-swarm/readme-writer.agent.md",
+        ):
+            with self.subTest(path=relative), tempfile.TemporaryDirectory() as tmp:
+                repo_root = Path(tmp).resolve()
+                agent = repo_root / relative
+                agent.parent.mkdir(parents=True)
+                agent.write_text("# Orchestrator\n\nRun gh agent-task create.\n", encoding="utf-8")
+
+                files = docs_truth_check.iter_markdown_files(
+                    repo_root, docs_truth_check.DEFAULT_BASES, []
+                )
+                findings = [
+                    finding
+                    for file in files
+                    for finding in docs_truth_check.scan_file(repo_root, file)
+                ]
+
+                self.assertEqual(files, [agent.resolve()])
+                self.assertTrue(
+                    any("deleted on 2026-11-12" in finding.message for finding in findings)
+                )
+
+    def test_bannered_agent_definition_passes(self):
+        findings = scan_text(
+            ".github/agents/orchestrator.agent.md",
+            "# Orchestrator\n\n> **STATUS: Historical.** Retired swarm.\n",
+        )
+
+        self.assertFalse(
+            any("deleted on 2026-11-12" in finding.message for finding in findings)
+        )
 
 
 class MergePolicyGuidanceTests(unittest.TestCase):

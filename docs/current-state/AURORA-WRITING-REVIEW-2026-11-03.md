@@ -17,13 +17,15 @@ Draft PR: https://github.com/WalksWithASwagger/kriskrug-wp/pull/1172
 
 The disposable WordPress 7.0.8 / PHP 8.2 fixture runs the actual theme. It imports eight published post snapshots and asserts that their stored content is unchanged. Featured photos are local copies of the public photos used in the proof; inline media and embeds retain their authored URLs. The fixture uses five posts per page to exercise pagination; production's setting remains 19. Its ninth post is explicitly labelled synthetic and has no image or manual excerpt. No production posts, settings, templates or caches were changed.
 
-The preview process must remain running. Reproduce from this worktree after `npm ci`:
+The preview process had to remain running. It was started from the review worktree after `npm ci`:
 
 ```sh
 node scripts/tests/journal-preview.mjs \
   .generated/blog-review/wordpress-readback.json \
-  /Users/kk/Code/kriskrug-wp/design-proofs/writing-2026-11-03/assets
+  design-proofs/writing-2026-11-03/assets
 ```
+
+This no longer runs as written. Both inputs were local files that were never committed. The proof folder `design-proofs/writing-2026-11-03/` was removed on 2026-11-12 after the proof shipped as Aurora 1.7.0 and 1.7.1 (#1172), and `.generated/blog-review/wordpress-readback.json` no longer exists.
 
 The authenticated GET-only source snapshots and screenshots remain local in `.generated/blog-review/` and are ignored. They are not shipped in the theme. The fixture imports a provided snapshot and never authenticates to or writes to the live site. Auto-updates and cron are disabled only inside this disposable fixture.
 
