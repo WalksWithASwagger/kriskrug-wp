@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts/marquee"))
 
 import wp_sync  # noqa: E402
-from latin1_text import NonLatin1Text  # noqa: E402
+from cp1252_text import UnstorableText  # noqa: E402
 from wp_client import SlugVerificationFailed  # noqa: E402
 
 BOARD = {
@@ -86,10 +86,10 @@ class MarqueeSlugLookupTests(unittest.TestCase):
         self.assertEqual(wp.s.post.call_args.args[0], ENDPOINT)
 
 
-class MarqueeLatin1Tests(unittest.TestCase):
-    """The database is latin1; raw text above U+00FF would be stored as "?" (#1225)."""
+class MarqueeStorableTextTests(unittest.TestCase):
+    """The database is cp1252; text outside it would be stored as "?" (#1225)."""
 
-    def test_board_text_goes_out_as_references_and_json_meta_as_ascii(self):
+    def test_board_text_outside_cp1252_goes_out_as_references(self):
         board = {
             **BOARD,
             "dek": "Medium → message — McLuhan",
@@ -105,11 +105,9 @@ class MarqueeLatin1Tests(unittest.TestCase):
         wp_sync.sync_board(wp, board, None, execute=True, allow_update=False, log=lambda _: None)
 
         body = wp.s.post.call_args.kwargs["json"]
-        self.assertEqual(body["excerpt"], "Medium &#8594; message &#8212; McLuhan")
-        self.assertEqual(
-            [ch for ch in json.dumps(body, ensure_ascii=False) if ord(ch) > 0xFF], []
-        )
+        self.assertEqual(body["excerpt"], "Medium &#8594; message — McLuhan")
         self.assertEqual(json.loads(body["meta"]["_kk_mb_source"]), board["source"])
+        self.assertIn("—", body["meta"]["_kk_mb_source"])
 
     def test_plain_meta_it_cannot_store_is_refused_before_the_image_upload(self):
         board = {**BOARD, "after": "Marshall McLuhan →"}
@@ -118,7 +116,7 @@ class MarqueeLatin1Tests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             og_png = Path(tmp) / "og.png"
             og_png.write_bytes(b"png fixture")
-            with self.assertRaisesRegex(NonLatin1Text, "_kk_mb_after"):
+            with self.assertRaisesRegex(UnstorableText, "_kk_mb_after"):
                 wp_sync.sync_board(wp, board, og_png, execute=True, allow_update=False, log=lambda _: None)
 
         wp.s.get.assert_not_called()

@@ -293,7 +293,7 @@ class CreateLocalWPDraftTests(unittest.TestCase):
         wp.create_post.assert_called_once()
         wp.get_post.assert_called_once_with(99)
 
-    def test_payload_seo_meta_is_latin1_plain_text(self):
+    def test_payload_seo_meta_keeps_cp1252_text(self):
         with tempfile.TemporaryDirectory() as tmp:
             post_md = self.write_package(Path(tmp), seo_title="KK’s Lab")
             pkg = create_local_wp_draft.load_package(post_md)
@@ -305,7 +305,7 @@ class CreateLocalWPDraftTests(unittest.TestCase):
         self.assertEqual(
             payload["meta"],
             {
-                "jetpack_seo_html_title": "KK's Lab",
+                "jetpack_seo_html_title": "KK’s Lab",
                 "advanced_seo_description": "About Café Krüg",
             },
         )

@@ -36,7 +36,7 @@ from kk_notion_to_wp import (  # noqa: E402
     WordPress,
     slugify,
 )
-from latin1_text import NonLatin1Text, latin1_payload  # noqa: E402
+from cp1252_text import UnstorableText, storable_payload  # noqa: E402
 from publish_common import build_seo_meta  # noqa: E402
 from wp_client import lookup_slug  # noqa: E402
 
@@ -168,7 +168,7 @@ def quality_issues(pkg: DraftPackage) -> list[str]:
             str(seo.get("meta_title", "")).strip(),
             str(seo.get("meta_description", "")).strip(),
         )
-    except NonLatin1Text as exc:
+    except UnstorableText as exc:
         issues.append(str(exc))
     return issues
 
@@ -268,7 +268,7 @@ def ensure_term(wp: WordPress, taxonomy: str, name: str) -> int:
 
     response = wp.s.post(
         f"{wp.base}/wp-json/wp/v2/{taxonomy}",
-        json=latin1_payload({"name": name, "slug": slug}),
+        json=storable_payload({"name": name, "slug": slug}),
         timeout=30,
     )
     if response.status_code == 400:

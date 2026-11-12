@@ -186,13 +186,15 @@ Default behavior is CREATE-only:
 
 This makes reruns safe by default. If you need a new version rather than an update, pass `--slug` with a new slug.
 
-## Characters above U+00FF
+## Characters outside cp1252
 
-kriskrug.co's database is latin1, so WordPress stores any character above U+00FF that arrives raw as `?` (#606). The connector, `create_local_wp_draft.py`, `update_local_wp_draft.py`, the marquee sync and the event media sync all send text through `latin1_text.py` (#1225):
+kriskrug.co's posts and postmeta tables use MySQL's `latin1`, which is really Windows-1252 (cp1252). Curly quotes, en and em dashes, the ellipsis, the bullet, `€` and `™` are stored as sent, and the edit-context snapshots under `backup/` hold them raw. Any other character above U+00FF sent raw is stored as `?` (#606). The connector, `create_local_wp_draft.py`, `update_local_wp_draft.py`, `prepare_review_draft.py`, the marquee sync and the event media sync all send text through `cp1252_text.py` (#1225):
 
-- Title, content, excerpt, media alt text, caption and description, and term names go out with those characters as numeric references: `Ethọ́s` is sent as `Eth&#7885;&#769;s`. Latin1 text such as `Krüg` and existing entities are left alone. The readback still matches, because it compares titles after `html.unescape`.
-- The SEO title, SEO description and Publicize message are plain text, so they must be latin1. Curly quotes, the en dash and the ellipsis fold to ASCII. Anything else above U+00FF, combining marks included (they make Jetpack's meta write fail with HTTP 500), stops the connector with exit 9 before any WordPress request, and fails the local-draft quality gate. The connector derives these fields from the title and the first paragraph, so a post whose title or opening carries such a character needs a latin1 spelling there first.
-- Any other raw character above U+00FF left in a request body raises `NonLatin1Text` before the request is sent.
+- Title, content, excerpt, media alt text, caption and description, and term names go out with characters outside cp1252 as numeric references: `Ethọ́s` is sent as `Eth&#7885;&#769;s` and `→` as `&#8594;`. cp1252 text such as `Krüg` or `KK’s` and existing entities are left alone. The readback and the `--update` title guard compare titles after `html.unescape`, so a stored reference still matches.
+- `<style>` and `<script>` bodies are never encoded, because browsers do not decode references there. A character outside cp1252 inside one is refused; write it as a CSS escape (`\2192`) or a JavaScript escape (`\u2192`).
+- The SEO title, SEO description and Publicize message are plain text, so they must fit cp1252 (accents are composed with NFC first). Anything else, combining marks included (they make Jetpack's meta write fail with HTTP 500), stops the connector with exit 9 before any WordPress request, fails the local-draft quality gate, and stops `prepare_review_draft.py --wp-id` before any term or post write. The connector derives these fields from the title and the first paragraph, so a post whose title or opening carries such a character needs a cp1252 spelling there first.
+- C1 control characters (U+0080 to U+009F) are refused everywhere; they usually mean text was decoded with the wrong charset.
+- Any other raw character outside cp1252 left in a request body raises `UnstorableText` before the request is sent.
 
 ## Category routing
 

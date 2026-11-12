@@ -7,7 +7,7 @@ SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPT_DIR))
 
 import connector_payload  # noqa: E402
-from latin1_text import NonLatin1Text  # noqa: E402
+from cp1252_text import UnstorableText  # noqa: E402
 
 
 class ConnectorPayloadTests(unittest.TestCase):
@@ -48,7 +48,7 @@ class ConnectorPayloadTests(unittest.TestCase):
 
     def test_seo_meta_with_combining_marks_is_refused(self):
         combining_title = "Ethọ́s Lab Block Party | Kris Krüg"
-        with self.assertRaisesRegex(NonLatin1Text, "SEO title .*Combining marks"):
+        with self.assertRaisesRegex(UnstorableText, "SEO title .*Combining marks"):
             connector_payload.build_wp_payload(
                 title=combining_title,
                 slug="ethos-lab-block-party",
@@ -63,7 +63,7 @@ class ConnectorPayloadTests(unittest.TestCase):
                 meta_desc="A description.",
             )
 
-    def test_plain_text_meta_keeps_latin1_and_folds_typographic_punctuation(self):
+    def test_plain_text_meta_keeps_cp1252_punctuation_as_written(self):
         long_excerpt = "Kris Krüg’s café notes. " + "x" * 260
         payload = connector_payload.build_wp_payload(
             title="KK’s Field Notes",
@@ -80,12 +80,10 @@ class ConnectorPayloadTests(unittest.TestCase):
         )
 
         meta = payload["meta"]
-        self.assertEqual(meta["jetpack_seo_html_title"], "KK's Field Notes | Kris Krüg")
-        self.assertEqual(meta["advanced_seo_description"], '"Café Krüg" - the notes...')
+        self.assertEqual(meta["jetpack_seo_html_title"], "KK’s Field Notes | Kris Krüg")
+        self.assertEqual(meta["advanced_seo_description"], "“Café Krüg” – the notes…")
         # derive_social_message ends a cut message with an ellipsis of its own.
-        self.assertTrue(meta["jetpack_publicize_message"].endswith("..."))
-        self.assertTrue(all(ord(ch) <= 0xFF for value in meta.values() for ch in value))
-        # Post fields stay as written; the client encodes them on the way out.
+        self.assertTrue(meta["jetpack_publicize_message"].endswith("…"))
         self.assertEqual(payload["title"], "KK’s Field Notes")
         self.assertEqual(payload["excerpt"], long_excerpt)
 

@@ -13,9 +13,13 @@ TITLE_SIMILARITY_UPDATE_THRESHOLD = 0.5
 
 
 def title_similarity(a: str, b: str) -> float:
-    """Detect wild title mismatches before updating an existing slug target."""
-    a = (a or "").strip().lower()
-    b = (b or "").strip().lower()
+    """Detect wild title mismatches before updating an existing slug target.
+
+    Stored titles can hold character references for text the database cannot
+    store raw, so both sides are compared unescaped.
+    """
+    a = html.unescape(a or "").strip().lower()
+    b = html.unescape(b or "").strip().lower()
     if not a or not b:
         return 0.0
     return difflib.SequenceMatcher(None, a, b).ratio()
@@ -116,7 +120,7 @@ def _same_post_date(sent: str, readback: dict) -> bool:
 
 def _comparable_title(title: str) -> str:
     # The raw title can hold the same text as character references (kses turns
-    # & into &amp;, and the latin1 database keeps non-latin1 characters only as
+    # & into &amp;, and the cp1252 database keeps other characters only as
     # numeric references), and WordPress trims titles on save (title_save_pre).
     return html.unescape(title).strip()
 

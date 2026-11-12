@@ -1,4 +1,4 @@
-"""Event hero alt text reaches the latin1 database as numeric references (#1225).
+"""Event hero alt text outside cp1252 reaches the database as numeric references (#1225).
 
 Offline: a mock session stands in for WordPress.
 """

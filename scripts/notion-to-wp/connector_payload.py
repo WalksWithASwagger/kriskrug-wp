@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from content_derivation import derive_social_message
-from latin1_text import plain_meta_text
+from cp1252_text import plain_meta_text
 
 
 def build_wp_payload(

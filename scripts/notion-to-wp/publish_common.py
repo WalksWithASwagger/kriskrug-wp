@@ -16,7 +16,7 @@ from dataclasses import dataclass
 from typing import Any, Callable, Sequence
 
 from kk_notion_to_wp import slugify
-from latin1_text import latin1_payload, plain_meta_text
+from cp1252_text import plain_meta_text, storable_payload
 from wp_blocks import heading, inline, separator
 from wp_client import lookup_slug
 
@@ -408,7 +408,7 @@ def ensure_term_id(wp: Any, taxonomy: str, name: str) -> int:
             return int(term["id"])
     create = wp.s.post(
         f"{wp.base}/wp-json/wp/v2/{taxonomy}",
-        json=latin1_payload({"name": name, "slug": slug}),
+        json=storable_payload({"name": name, "slug": slug}),
         timeout=30,
     )
     if create.status_code == 400:
@@ -485,7 +485,7 @@ def resolve_featured_media(
 
 
 def build_seo_meta(meta_title: str, meta_description: str) -> dict[str, str]:
-    """Jetpack SEO meta as latin1 plain text; raises NonLatin1Text when it cannot be."""
+    """Jetpack SEO meta as storable plain text; raises UnstorableText when it cannot be."""
     return {
         "jetpack_seo_html_title": plain_meta_text(meta_title, "SEO title"),
         "advanced_seo_description": plain_meta_text(meta_description, "SEO description"),

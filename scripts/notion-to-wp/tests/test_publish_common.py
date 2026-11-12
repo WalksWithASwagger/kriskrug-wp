@@ -11,7 +11,7 @@ SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPT_DIR))
 
 import publish_common  # noqa: E402
-from latin1_text import NonLatin1Text  # noqa: E402
+from cp1252_text import UnstorableText  # noqa: E402
 from wp_client import SlugVerificationFailed  # noqa: E402
 
 
@@ -81,7 +81,7 @@ class PublishCommonTests(unittest.TestCase):
             publish_common.validate_media_id(wp, 11976)
 
     def test_build_seo_meta_refuses_combining_marks(self):
-        with self.assertRaisesRegex(NonLatin1Text, "SEO title .*Combining marks"):
+        with self.assertRaisesRegex(UnstorableText, "SEO title .*Combining marks"):
             publish_common.build_seo_meta("Ethọ́s Lab", "desc")
 
     def test_verify_seo_meta_landed_all_present(self):

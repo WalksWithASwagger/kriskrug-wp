@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import base64
+import html
 import os
 from dataclasses import dataclass
 from pathlib import Path
 
 import requests
 
-from latin1_text import latin1_payload
+from cp1252_text import storable_payload
 from notion_client import slugify
 
 
@@ -137,7 +138,7 @@ class WordPress:
         _refuse_write_under_dry_run("update_media")
         r = self.s.post(
             f"{self.base}/wp-json/wp/v2/media/{media_id}",
-            json=latin1_payload(payload),
+            json=storable_payload(payload),
             timeout=30,
         )
         r.raise_for_status()
@@ -179,18 +180,18 @@ class WordPress:
 
     def ensure_term(self, taxonomy: str, name: str) -> int:
         _refuse_write_under_dry_run("ensure_term")
-        r = self.s.get(
-            f"{self.base}/wp-json/wp/v2/{taxonomy}",
-            params={"search": name, "per_page": 50},
-            timeout=30,
-        )
-        r.raise_for_status()
-        for t in r.json():
-            if t.get("name", "").lower() == name.lower() or t.get("slug", "") == slugify(name):
-                return t["id"]
+        slug = slugify(name)
+        # Slug first: a name stored with character references never matches a
+        # search for the raw name, and the create would then fail as term_exists.
+        for params in ({"slug": slug, "per_page": 50}, {"search": name, "per_page": 50}):
+            r = self.s.get(f"{self.base}/wp-json/wp/v2/{taxonomy}", params=params, timeout=30)
+            r.raise_for_status()
+            for t in r.json():
+                if t.get("slug", "") == slug or html.unescape(t.get("name", "")).lower() == name.lower():
+                    return t["id"]
         r2 = self.s.post(
             f"{self.base}/wp-json/wp/v2/{taxonomy}",
-            json=latin1_payload({"name": name, "slug": slugify(name)}),
+            json=storable_payload({"name": name, "slug": slug}),
             timeout=30,
         )
         r2.raise_for_status()
@@ -211,7 +212,7 @@ class WordPress:
 
     def create_post(self, payload: dict) -> dict:
         _refuse_write_under_dry_run("create_post")
-        body = latin1_payload(payload)
+        body = storable_payload(payload)
         r = self.s.post(f"{self.base}/wp-json/wp/v2/posts", json=body, timeout=60)
         r.raise_for_status()
         return r.json()
@@ -220,7 +221,7 @@ class WordPress:
         self, post_id: int, payload: dict, *, expected_slug: str
     ) -> dict:
         _refuse_write_under_dry_run("update_post")
-        body = latin1_payload(payload)
+        body = storable_payload(payload)
         if self.find_post_by_slug(expected_slug) != post_id:
             raise SlugVerificationFailed(
                 f"WordPress.update_post refused: slug {expected_slug!r} did not "

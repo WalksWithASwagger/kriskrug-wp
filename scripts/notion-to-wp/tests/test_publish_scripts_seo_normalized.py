@@ -7,25 +7,25 @@ SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPT_DIR))
 
 import publish_common  # noqa: E402
-from latin1_text import NonLatin1Text  # noqa: E402
+from cp1252_text import UnstorableText  # noqa: E402
 
 
 class PublishScriptsSeoNormalizedTests(unittest.TestCase):
-    def test_shared_seo_meta_contract_sends_latin1_in_both_write_fields(self):
-        meta = publish_common.build_seo_meta("KK’s Café Krüg", "About “Café Krüg”")
+    def test_shared_seo_meta_contract_keeps_cp1252_text_in_both_write_fields(self):
+        meta = publish_common.build_seo_meta("KK’s Café Krüg", "About “Café Krüg” – more…")
 
         self.assertEqual(
             meta,
             {
-                "jetpack_seo_html_title": "KK's Café Krüg",
-                "advanced_seo_description": 'About "Café Krüg"',
+                "jetpack_seo_html_title": "KK’s Café Krüg",
+                "advanced_seo_description": "About “Café Krüg” – more…",
             },
         )
 
     def test_shared_seo_meta_contract_refuses_either_field(self):
         for title, description in (("Ethọ́s Lab", "About"), ("About", "Ethọ́s Lab")):
             with self.subTest(title=title, description=description):
-                with self.assertRaises(NonLatin1Text):
+                with self.assertRaises(UnstorableText):
                     publish_common.build_seo_meta(title, description)
 
 

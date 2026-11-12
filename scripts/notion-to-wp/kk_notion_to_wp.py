@@ -56,11 +56,12 @@ Safety:
          lookup that refuses to answer (SlugVerificationFailed) exits 8.
       5. After the write, the readback slug, status, title and date must match
          the payload or the run exits 7.
-      6. The database is latin1, so WordPress stores raw text above U+00FF as
-         "?". The client sends title, content, excerpt, alt text and term
-         names with those characters as numeric references. SEO meta and the
-         Publicize message must be latin1 plain text; when they cannot be, the
-         run exits 9 before any WordPress request (#1225).
+      6. The database stores text as cp1252 (MySQL "latin1"), so anything
+         outside cp1252 sent raw comes back as "?". The client sends title,
+         content, excerpt, alt text and term names with those characters as
+         numeric references. SEO meta and the Publicize message must fit
+         cp1252; when they do not, the run exits 9 before any WordPress
+         request (#1225).
 """
 from __future__ import annotations
 
@@ -102,7 +103,7 @@ from draft_writers import (  # noqa: E402
     write_internal_links as _write_internal_links,
     write_seo_meta as _write_seo_meta,
 )
-from latin1_text import NonLatin1Text  # noqa: E402
+from cp1252_text import UnstorableText  # noqa: E402
 from media_pipeline import (  # noqa: E402
     auto_alt,
     collect_image_blocks,
@@ -287,7 +288,7 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
             seo_title=seo_title,
             meta_desc=meta_desc,
         )
-    except NonLatin1Text as e:
+    except UnstorableText as e:
         log(f"ABORTING: {e}")
         log("No WP write was attempted.")
         return 9
