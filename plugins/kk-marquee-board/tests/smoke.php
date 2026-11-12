@@ -20,7 +20,8 @@ function current_user_can( $c ) { return true; }
 function is_singular( $t ) { return true; }
 function home_url( $p = '' ) { return 'https://kriskrug.co' . $p; }
 function get_permalink() { return 'https://kriskrug.co/marquee/the-model-is-the-message/'; }
-function get_the_title() { return 'The Model Is the Message'; }
+$GLOBALS['kk_mb_test_title'] = 'The Model Is the Message';
+function get_the_title() { return $GLOBALS['kk_mb_test_title']; }
 function get_the_excerpt() { return 'A marquee board.'; }
 function get_the_date( $f = '' ) { return '2026-06-26T00:00:00+00:00'; }
 function get_the_modified_date( $f = '' ) { return '2026-06-26T00:00:00+00:00'; }
@@ -66,5 +67,19 @@ kk_mb_assert( strpos( $out, '"@type":"Article"' ) !== false, 'schema should emit
 kk_mb_assert( strpos( $out, 'https://kriskrug.co/#person' ) !== false, 'Article must link to the Person @id' );
 kk_mb_assert( strpos( $out, '"@type":"BreadcrumbList"' ) !== false, 'schema should emit a BreadcrumbList' );
 kk_mb_assert( strpos( $out, 'Marquee' ) !== false, 'breadcrumb should include Marquee' );
+
+// --- schema output cannot break out of its script element (#1238) ---
+$GLOBALS['kk_mb_test_title'] = '</script><b>x</b>';
+ob_start();
+kk_mb_emit_schema();
+$out = ob_get_clean();
+kk_mb_assert( substr_count( $out, '</script>' ) === 2, 'only the two real closing tags may appear' );
+kk_mb_assert( strpos( $out, '<b>' ) === false, 'title markup must not reach the page as HTML' );
+preg_match_all( '#<script type="application/ld\+json">(.*?)</script>#s', $out, $blocks );
+kk_mb_assert( count( $blocks[1] ) === 2, 'both JSON-LD blocks should parse out' );
+$article    = json_decode( $blocks[1][0], true );
+$breadcrumb = json_decode( $blocks[1][1], true );
+kk_mb_assert( $article['headline'] === '</script><b>x</b>', 'headline should round-trip inside the Article block' );
+kk_mb_assert( $breadcrumb['itemListElement'][2]['name'] === '</script><b>x</b>', 'title should round-trip inside the breadcrumb block' );
 
 echo 'KK Marquee Board smoke tests passed.' . PHP_EOL;
