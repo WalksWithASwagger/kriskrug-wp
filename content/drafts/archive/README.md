@@ -5,3 +5,4 @@ Packages moved out of the active `content/drafts/` queue. **Publishing scripts r
 | Package | Archived | Why |
 |---|---|---|
 | `2026-05-24-nik-badminton-a-sassy-critique-setting-the-ai-record-straight` | 2026-08-16 | Unedited AI-generated critique of a real, named colleague. Still contains the model's sign-off addressed to KK and ends on the literal token `4o`. Reputational hazard; archived by KK ruling (#745). Not for publication in any form. |
+| `2026-10-04-work-cards-tidepool-supercluster` | 2026-11-12 | Shipped as Work index entries in PR #1281; card version superseded by the 2026-11-11 layout (#1212). |

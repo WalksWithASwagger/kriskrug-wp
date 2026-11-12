@@ -1,6 +1,7 @@
 # Kris Krug Automation Guide
 
 > **STATUS: Historical.** This describes the dormant GitHub Actions agent swarm. Current sessions use `AGENTS.md` and `docs/current-state/TWO-TRACK-MODEL.md`.
+> The agent definitions, state records and workflows named below were deleted on 2026-11-12 (#1220). Do not run the commands in this guide.
 
 Complete guide to the AI-powered automation workflows for the Kris Krug WordPress site.
 

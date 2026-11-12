@@ -205,10 +205,12 @@ class PublicNamesAgreeTests(unittest.TestCase):
 
     def test_diff_review_aborts_on_ambiguous_slug_before_reading_a_post(self):
         wp = offline_client(response(200, TWO))
+        logs = []
 
-        with self.assertRaises(SlugVerificationFailed):
-            emit_update_diff_review(wp, SLUG, "Web Summit", {}, log=lambda _: None)
+        code = emit_update_diff_review(wp, SLUG, "Web Summit", {}, log=logs.append)
 
+        self.assertEqual(code, 8)
+        self.assertTrue(any("Refusing to pick one" in line for line in logs), logs)
         wp.s.get.assert_called_once()
 
 
