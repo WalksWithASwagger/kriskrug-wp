@@ -7,21 +7,12 @@ PYTHON ?= python3
 VARLOCK ?= varlock
 WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-10-25.md
 EXPECT_VERSION_DEFAULT := 7.0.8
-JAVASCRIPT_FILES := \
-	plugins/kk-practice/blocks/context-brief/editor.js \
-	plugins/kk-practice/blocks/context-brief/view.js \
-	plugins/kk-marquee-board/assets/marquee.js \
-	scripts/marquee/render_og.cjs \
-	scripts/tests/north_house_journey_browser.cjs \
-	scripts/tests/test_events_rolloff_browser.cjs \
-	scripts/tests/test_events_rolloff_playwright.cjs \
-	theme/kk-aurora/assets/js/marquee.js \
-	theme/kk-aurora/assets/js/micro-interactions.js \
-	theme/kk-aurora/assets/js/theme.js \
-	fixes/issue-1090-success-event.js \
-	fixes/issue-1090-krug-signup-tag.js \
-	scripts/tests/issue_1090_success_event_harness.cjs \
-	scripts/tests/issue_1090_krug_signup_harness.cjs
+# Every tracked script, so a new file is checked without editing this list.
+# Dated reports under docs/current-state/reports/ are frozen evidence.
+JAVASCRIPT_FILES = $(shell git ls-files -- '*.js' '*.cjs' '*.mjs' \
+	':(exclude,glob)**/node_modules/**' \
+	':(exclude,glob)**/vendor/**' \
+	':(exclude,glob)docs/current-state/reports/**')
 
 # Default target
 .DEFAULT_GOAL := help
@@ -61,9 +52,11 @@ ruff-changed: ## Check only Python files changed from BASE_REF (default: origin/
 
 javascript-syntax: ## Check committed JavaScript syntax
 	@command -v node >/dev/null 2>&1 || { echo "ERROR: node is required for JavaScript syntax checks."; exit 1; }
-	@status=0; \
-	for file in $(JAVASCRIPT_FILES); do node --check "$$file" || status=1; done; \
-	if [ "$$status" -ne 0 ]; then echo "javascript-syntax: FAILED (see errors above)"; exit 1; fi
+	@status=0; count=0; \
+	for file in $(JAVASCRIPT_FILES); do count=$$((count + 1)); node --check "$$file" || status=1; done; \
+	if [ "$$count" -eq 0 ]; then echo "ERROR: javascript-syntax found no tracked JavaScript files."; exit 1; fi; \
+	if [ "$$status" -ne 0 ]; then echo "javascript-syntax: FAILED (see errors above)"; exit 1; fi; \
+	echo "javascript-syntax: $$count files passed node --check"
 	@node scripts/tests/issue_706_script_diet_harness.cjs
 	@node scripts/tests/issue_1090_success_event_harness.cjs
 	@node scripts/tests/issue_1090_krug_signup_harness.cjs
