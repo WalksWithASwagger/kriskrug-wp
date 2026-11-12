@@ -90,7 +90,9 @@ Do not recreate them or edit repository settings to restore them. Historical
 swarm docs (`docs/architecture.md`,
 `docs/automation-guide.md`) describe files, not current Actions state.
 
-`practice-preview`, `practice-test`, and `practice-browser-test` are local Make
-targets. Setup, Node/npm split, and the fixture-vs-production boundary live in
+`practice-preview` is a local-only Make target. CI's `practice-browser` job
+runs `make practice-browser-test` (which runs `practice-test` first) and
+`make events-browser-test` on every pull request. Setup, Node/npm split, and
+the fixture-vs-production boundary live in
 [`CONTRIBUTING.md`](../../CONTRIBUTING.md). Playground 3.1.62 still requires
 Node >=24.18.0 and npm >=11.16.0; JavaScript syntax checks still use Node 20.

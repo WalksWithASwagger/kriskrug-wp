@@ -106,10 +106,12 @@ function kk_schema_is_ready() {
 // ----------------------------------------------------------------------
 // Output a JSON-LD <script> block.
 // ----------------------------------------------------------------------
+// JSON_UNESCAPED_SLASHES leaves "</script>" literal, so HEX_TAG keeps a title
+// or excerpt from closing the block early (#1238).
 function kk_schema_emit($schema) {
     if (empty($schema)) return;
     echo "\n<script type=\"application/ld+json\">"
-        . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+        . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP)
         . "</script>\n";
 }
 

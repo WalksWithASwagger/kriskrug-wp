@@ -139,7 +139,7 @@ If you're editing a post, page, schema, redirect, or category → Track A. If yo
 There is no local app server. The live WordPress site runs on Pagely and is not file-synced with this repo. "Running" this repo means the CLI and validation surfaces:
 
 - `make status-readonly` for startup truth; use `make morning-truth` only when a local generated copy is useful
-- `make test` for the local test suite (Python, JavaScript syntax, plugin and theme smoke)
+- `make test` for the local test suite (Python, JavaScript syntax, plugin and theme smoke). CI runs these as separate jobs with their own triggers; see [What CI runs](CONTRIBUTING.md#what-ci-runs)
 - `make ruff-changed BASE_REF=origin/main` for the E4/E7/E9/F Ruff baseline on Python files changed by the current branch; the existing repo-wide backlog is not part of this ratchet
 - `make validate` for the WordPress PHP security ruleset (run `composer install` first)
 - `make verify` for the standard local gate (test + docs-truth-check + validate)

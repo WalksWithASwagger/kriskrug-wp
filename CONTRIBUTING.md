@@ -326,17 +326,37 @@ python3 ~/Code/kk-voice/scripts/voicecheck.py <file>
 
 ## Testing
 
-This repo has focused automated tests for the Notion publisher safety guards, PHP/theme smoke, docs-truth, and a disposable WordPress fixture for the practice plugin. Production WordPress still needs manual validation.
+This repo has focused automated tests for the Notion publisher safety guards, operational scripts, plugin and theme smoke, docs-truth, and a disposable WordPress fixture for the practice plugin. [What CI runs](#what-ci-runs) says which of them run on a pull request and when. Production WordPress still needs manual validation.
 
 Automated tests:
 
 - `scripts/notion-to-wp/.venv/bin/python -m unittest discover -s scripts/notion-to-wp/tests -v`
-- `make test` (Python suites, JavaScript syntax, plugin and theme smoke)
+- `make test` (local: Python suites, JavaScript syntax, plugin and theme smoke. CI splits these into separate jobs and runs plugin smoke only when a `.php` file changes)
 - `make validate` (runs the focused WordPress PHP security ruleset)
 - `make verify` (runs the standard local gate: `test` + `docs-truth-check` + `validate`)
 - `make ruff-changed BASE_REF=origin/main` (checks the isolated E4/E7/E9/F Ruff baseline only on Python files changed from the selected base; CI runs the same ratchet)
 - `make voice-check` (hard-rule copy gate; see [Voice Gate](#voice-gate))
 - `make docs-truth-check` (blocks known-bad current-state claims)
+
+### What CI runs
+
+[`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml) runs on pull requests and on pushes to `main`. A push to `main` runs every job; on a pull request the conditional jobs run only when their trigger matches a changed file.
+
+| Job | Runs when | What it runs |
+|---|---|---|
+| `validate` | Always | Sorts changed files into the triggers below; warns when the PR body links no issue |
+| `python-tests` | Always | `scripts/ruff_changed.py` on changed Python files (same as `make ruff-changed`), then `make python-test` |
+| `javascript-validation` | Always | `make javascript-syntax` |
+| `theme-smoke` | Always | `make theme-smoke` |
+| `practice-browser` | Always | `make practice-browser-test`, then `make events-browser-test` |
+| `php-validation` | A `.php` file changed | `make validate`, then `make plugin-smoke` |
+| `css-ratchet` | A `.css` file changed | `scripts/css_inventory.py --check` against the merge base (same as `make css-inventory-check`) |
+| `voice-gate` | Payload copy, theme templates/parts/patterns, `theme/kk-aurora/functions.php`, `Makefile`, or the gate's own files changed | `make voice-check` |
+| `docs-truth-check` | Markdown, `docs/`, `Makefile`, `.env.schema`, `.github/ISSUE_TEMPLATE/`, or `scripts/docs_truth_check.py` changed | `python3 scripts/docs_truth_check.py` |
+| `security-scan` | A Composer, npm, or `requirements*.txt` manifest changed | Trivy filesystem scan; advisory, SARIF upload may fail without failing the job |
+| `summary` | Always | Fails when any job above failed or was cancelled. This is the required `Test PR / summary` check |
+
+CI does not run `make practice-preview`, the `visual-*` pixel gate, or any target that reads the live site (`make status-readonly`, `make wp7-smoke`, `make check-live-parity` and the other audits). Run those locally when a change needs them.
 
 ### Practice preview, contracts, and browser fixture
 

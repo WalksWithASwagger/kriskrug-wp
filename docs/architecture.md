@@ -204,7 +204,7 @@ Features: gh CLI, auth, permissions check
 **Purpose:** Safe WordPress testing environment
 
 **Specifications:**
-- **Server:** Cloudways VPS (24.144.80.107)
+- **Server:** Cloudways VPS (<legacy-host>)
 - **WordPress:** 6.9 (latest)
 - **PHP:** 8.2.29
 - **Tools:** WP-CLI 2.12.0, Git 2.39.5
@@ -217,13 +217,13 @@ Features: gh CLI, auth, permissions check
 ssh cloudways-bcai-dev
 
 # WordPress
-URL: https://wordpress-1569695-6109303.cloudwaysapps.com
+URL: https://<legacy-app-host>.cloudwaysapps.com
 Admin: {credentials in Cloudways dashboard}
 
 # File paths
-WordPress root: ~/applications/fkgwevabgu/public_html
-Custom plugin: ~/applications/fkgwevabgu/public_html/wp-content/plugins/kk-custom
-Custom theme: ~/applications/fkgwevabgu/public_html/wp-content/themes/kk-theme
+WordPress root: ~/applications/<legacy-app-id>/public_html
+Custom plugin: ~/applications/<legacy-app-id>/public_html/wp-content/plugins/kk-custom
+Custom theme: ~/applications/<legacy-app-id>/public_html/wp-content/themes/kk-theme
 ```
 
 ---
