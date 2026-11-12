@@ -155,6 +155,20 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
             self.assertEqual(1, html.count('href="https://lightningstrike.org/"'), path)
             self.assertIn("The Sky Smoked Back", html, path)
 
+    def test_work_index_lists_tidepool_and_supercluster_after_unofficial_city(self):
+        # Only the content-architecture payload deploys to page 2672; the
+        # keynotes-2026 copy diverges on purpose (#1212).
+        html = (PAYLOADS / "work.html").read_text(encoding="utf-8")
+        hrefs = (
+            'href="https://unofficial.city/"',
+            'href="https://tidepool.ing/"',
+            'href="https://littlesupercluster.com/"',
+        )
+        for href in hrefs:
+            self.assertEqual(1, html.count(href), href)
+        positions = [html.index(href) for href in hrefs]
+        self.assertEqual(sorted(positions), positions)
+
 
 if __name__ == "__main__":
     unittest.main()
