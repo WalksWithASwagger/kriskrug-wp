@@ -10,7 +10,7 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 
 1. [`docs/current-state/README.md`](docs/current-state/README.md) — current-state front door; run `make status-readonly` for live counters
 2. [`docs/current-state/CURRENT-STATE-2026-10-25.md`](docs/current-state/CURRENT-STATE-2026-10-25.md) — declared snapshot for drift/morning-truth (Makefile default)
-3. [`docs/current-state/ROADMAP-2026-11-11.md`](docs/current-state/ROADMAP-2026-11-11.md) — prioritized remaining work and completion gates
+3. [`docs/current-state/ROADMAP-2026-11-12.md`](docs/current-state/ROADMAP-2026-11-12.md) — direction, priority themes, agent lane and Kris's decision queue through March 2027
 4. [`docs/current-state/WORK-PLAN-2026-09-09.md`](docs/current-state/WORK-PLAN-2026-09-09.md) — retained live-lane procedures; its September issue queue is historical
 5. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — Track A / Track B decision rule
 6. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — standing publisher safety rules

@@ -177,7 +177,7 @@ STALE_FRONT_DOOR_PATTERNS: list[tuple[re.Pattern[str], str]] = [
 
 # Cutting a new roadmap: change this one path and repoint the links in
 # AGENTS.md, docs/INDEX.md and docs/current-state/README.md in the same PR.
-CURRENT_ROADMAP = Path("docs/current-state/ROADMAP-2026-11-11.md")
+CURRENT_ROADMAP = Path("docs/current-state/ROADMAP-2026-11-12.md")
 RETAINED_PROCEDURES_PLAN = Path("docs/current-state/WORK-PLAN-2026-09-09.md")
 ARCHIVED_WORK_PLAN = Path("docs/current-state/WORK-PLAN-2026-08-25.md")
 

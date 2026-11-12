@@ -200,7 +200,7 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
     def test_delegates_issue_count_truth_to_live_drift_contract(self):
         samples = {
             "docs/current-state/README.md": (
-                "ROADMAP-2026-11-11.md\n0 open PRs, 43 open issues.\n"
+                "ROADMAP-2026-11-12.md\n0 open PRs, 43 open issues.\n"
             ),
             "docs/current-state/CURRENT-STATE-2026-10-25.md": "Open issues: `40`.\n",
         }
