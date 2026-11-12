@@ -1,7 +1,7 @@
 === KK Aurora ===
 Contributors: kriskrug
 Requires at least: 6.4
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -40,6 +40,8 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 == Changelog ==
 
+Deploy status for every version lives in `CHANGELOG.md`, the deploy ledger.
+
 = 1.7.1 =
 * Scope journal components above WordPress inline global/block defaults; preserve the template back arrow through database normalization.
 
@@ -47,13 +49,19 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 * Compact thumbnails, titles and descriptions across Writing, archives and search.
 * Readable article typography and responsive contents navigation without reveal animations.
 * Retire superseded blog styles; preserve published content and native WordPress navigation.
-* Not deployed. Saved single template synchronization and cache regeneration are required.
+* Deployed via SFTP on 2026-11-03 with the saved single template synchronized, then superseded the same day by 1.7.1.
 
 = 1.6.13 =
 * seo (#1131): header, footer, and homepage CTAs use `/generative-ai-services/` and `https://www.futureproof.website/` so chrome stops hopping through 301/308s.
 
 = 1.6.12 =
 * footer: add The Sky Smoked Back to the sitewide Projects network (#1042).
+
+= 1.6.11 =
+* revert (PR #970): remove the 1.6.10 event-artboard CSS; `/events/` already ships page-scoped styles from its renderer.
+
+= 1.6.10 =
+* events (#943, PR #958): event artboard and editorial-mark CSS. Reverted in 1.6.11.
 
 = 1.6.9 =
 * footer: add Dark Crystal and unofficial.city to Projects; drop the vancouver-made.vercel.app alias.
@@ -72,9 +80,54 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 * content (#733, PR #751): rewrite the five listed user-visible em dashes in the homepage, marquee archive, and photo-gallery pattern copy.
 * cleanup (#743, PR #751): remove the unplaced speaking proof-grid template part and its theme.json registration.
 
+= 1.6.5 =
+* footer: add AI Garden to the Projects network and release the merged Creative AI Human Lab links.
+
+= 1.6.4 =
+* perf (#701, PR #717): critical-geometry header guard and JS-owned reveal hide during the stale Boost critical CSS window.
+
+= 1.6.3 =
+* perf (PRs #711 to #715): right-sized WebP assets, display-sized Photon variants, self-hosted Futureproof key art, composited-only transitions, and five homepage contrast fixes.
+
+= 1.6.2 =
+* css (#479, PR #703): collapse 12 width breakpoints to the 480/768/1200 token scale.
+
+= 1.6.1 =
+* css (#698, PR #699): detach form error/success selectors from the footer rule and restore their colors.
+
+= 1.6.0 =
+* css (#478, PR #681): delete 97 dead CSS classes and 9 dead `@keyframes`.
+
+= 1.5.11 =
+* css (#476, PR #680): primitives layer and block-editor parity so the editor canvas renders cream/ink.
+
+= 1.5.10 =
+* a11y (PR #676): focus-visible states on work and service cards; `KK_AURORA_VERSION` catch-up missed in 1.5.9.
+
+= 1.5.9 =
+* typography (#475, PR #672): retire the drop cap.
+
+= 1.5.8 =
+* css (#596, PR #629): `aurora-tstm` testimonials showpiece styles.
+
+= 1.5.7 =
+* homepage (PR #618): full-bleed `krug-1` portrait hero on Home and About.
+
+= 1.5.1 to 1.5.6 =
+* Never released. Numbers reserved by the stylesheet rebuild plan and skipped when the hero shipped as 1.5.7.
+
+= 1.5.0 =
+* css (#474, PR #493): cascade `@layer` scaffold and `--kk-*` tokens.
+
 = 1.4.9 =
 * content/ux (#416): homepage newsletter band rewritten in Dark Crystal voice; one honest email CTA; three recent-post thumbnails via query loop.
 * content (#416): blog-index newsletter band drops dispatch/field-notes chrome; class renamed to `.aurora-writing-newsletter`.
+
+= 1.4.8 =
+* content (#410): replace the "authored judgment" copy on the homepage.
+
+= 1.4.7 =
+* perf (#407): responsive `srcset` for the homepage hero image.
 
 = 1.4.6 =
 * a11y (#485): `.aurora-writing-card` — the blog index card — still painted the pre-cream `#050708` under cream-era ink. Titles measured 1.00–1.06:1 and meta 1.00–1.03:1, i.e. the archive listing for every post on the site was effectively blank. The card is declared in six places; all six are reconciled to `--aurora-panel-solid`. Titles are now 12.95–13.53:1 and meta 5.48–5.73:1.

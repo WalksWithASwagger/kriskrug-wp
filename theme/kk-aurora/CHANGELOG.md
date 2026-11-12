@@ -25,17 +25,17 @@ When you cut a new release, add a line here and follow
 Scope journal component rules beneath the journal page class so WordPress inline block/global styles cannot override the approved typography and spacing. Store the saved-template back arrow as an HTML entity to preserve it through production database normalization.
 
 ## 1.7.0
-**Deployed:** SFTP release 2026-11-03 after KK approval; superseded by the 1.7.1 production style-order correction. PR #1172 merged as 964ebcb0.
+**Deployed:** Superseded by 1.7.1 the same day. Was deployed via SFTP on 2026-11-03 after KK approval, then replaced by the 1.7.1 production style-order correction. PR #1172 merged as 964ebcb0.
 Rebuild the Writing index, search and archives around a shared thumbnail/title/excerpt row. Add a calm article layout with a 680px reading measure, 20px desktop / 18px mobile prose, and a responsive contents list. Replace blog chrome with the approved compact header and footer. Remove superseded blog grids, panel treatments, paragraph reveals, image fades and reading-pane effects; other site sections retain their existing styles. Keep native WordPress search, pagination, taxonomy feeds, authored content and related-post exclusions.
 
 Production has a saved `kk-aurora//single` template (wp_id 12415) that must be snapshotted and synchronized during the approved release. Regenerate Jetpack Boost critical CSS and purge the page/CDN caches after the theme/template swap. The review packet documents local verification and rollback; local rendering is not a live pixel-gate pass. This release also contains main's undeployed 1.6.13 URL corrections.
 
 ## 1.6.13
-**Deployed:** Not live. Repo-only until KK approves the #1114 theme deploy gate.
+**Deployed:** Superseded (never live standalone; first reached production inside the 2026-11-03 1.7.0/1.7.1 SFTP release, whose pre-release rollback seat held 1.6.12). See `docs/current-state/AURORA-WRITING-RELEASE-2026-11-03.md`.
 Point sitewide header, footer, and homepage CTAs at `/generative-ai-services/` and `https://www.futureproof.website/` so chrome stops hopping through 301/308s (#1131). Href-only; copy unchanged.
 
 ## 1.6.12
-**Deployed:** LIVE (public `style.css` readback 2026-09-30 via `make check-live-parity`; same Version was already recorded 2026-09-21 in `CURRENT-STATE-2026-09-21.md`). Method not recorded in this verification; this marker is version-readback only. Current public `style.css` controls the current-version claim.
+**Deployed:** Superseded by the 2026-11-03 1.7.0/1.7.1 SFTP release, which records 1.6.12 as the pre-release live theme. Was LIVE (public `style.css` readback 2026-09-30 via `make check-live-parity`; same Version was already recorded 2026-09-21 in `CURRENT-STATE-2026-09-21.md`). Method not recorded in that verification; that marker was version-readback only.
 Adds The Sky Smoked Back to the sitewide Projects footer so the released film shares the same project-network path as the Work page and AI Garden (#1042).
 
 ## 1.6.11
