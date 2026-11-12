@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme version for cache busting
  */
-define('KK_AURORA_VERSION', '1.7.1');
+define('KK_AURORA_VERSION', '1.7.2');
 
 require_once get_template_directory() . '/inc/seo-title.php';
 require_once get_template_directory() . '/inc/seo-meta-rest.php';
@@ -192,10 +192,20 @@ function enqueue_assets(): void {
             ]
         );
     }
+}
+add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_assets');
 
-    // Marquee board flip animation — deferred, front page only (the board lives in the hero).
-    // Cells are pre-rendered in the partial, so this is pure progressive enhancement.
-    if (is_front_page()) {
+/**
+ * Load the marquee board flip animation only on a front page that renders a board.
+ *
+ * Block themes render the template before wp_head(), so a script enqueued here
+ * still prints. Matching rendered markup rather than a template file keeps this
+ * correct when a saved front-page template overrides the theme file. Board
+ * cells are pre-rendered, so the script is progressive enhancement; single and
+ * archive marquee_board views take their assets from the kk-marquee-board plugin.
+ */
+function enqueue_marquee_for_rendered_board(string $block_content): string {
+    if (is_front_page() && str_contains($block_content, 'kkm-board')) {
         wp_enqueue_script(
             'kk-aurora-marquee',
             get_theme_file_uri('assets/js/marquee.js'),
@@ -208,8 +218,9 @@ function enqueue_assets(): void {
         );
     }
 
+    return $block_content;
 }
-add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_assets');
+add_filter('render_block', __NAMESPACE__ . '\\enqueue_marquee_for_rendered_board');
 
 /**
  * Enqueue editor assets
@@ -691,6 +702,48 @@ function writing_archive_canonical_url(): string {
 }
 
 /**
+ * Resolve the canonical URL for archive and search routes from the query, not
+ * the request path: non-canonical paths such as a wrong category parent, a
+ * mixed-case slug or an unpadded month still return 200 without a redirect.
+ */
+function archive_canonical_url(): string {
+    $url = '';
+
+    if (is_search()) {
+        $query = get_query_var('s');
+        if (is_string($query) && trim($query) !== '') {
+            $url = get_search_link($query);
+        }
+    } elseif (is_category() || is_tag() || is_tax()) {
+        $url = get_term_link(get_queried_object());
+    } elseif (is_author()) {
+        $url = get_author_posts_url(get_queried_object_id());
+    } elseif (is_post_type_archive()) {
+        $post_type = get_query_var('post_type');
+        $url = get_post_type_archive_link(is_array($post_type) ? (string) reset($post_type) : (string) $post_type);
+    } elseif (is_day()) {
+        $url = get_day_link(get_query_var('year'), get_query_var('monthnum'), get_query_var('day'));
+    } elseif (is_month()) {
+        $url = get_month_link(get_query_var('year'), get_query_var('monthnum'));
+    } elseif (is_year()) {
+        $url = get_year_link(get_query_var('year'));
+    }
+
+    if (!is_string($url) || $url === '') {
+        return home_url('/');
+    }
+
+    $paged = (int) get_query_var('paged');
+    if ($paged < 2) {
+        return $url;
+    }
+
+    global $wp_rewrite;
+
+    return user_trailingslashit(trailingslashit($url) . $wp_rewrite->pagination_base . '/' . $paged, 'paged');
+}
+
+/**
  * Give the posts archive the canonical that WordPress core omits.
  */
 function render_writing_archive_canonical(): void {
@@ -716,7 +769,7 @@ function social_meta_tags(): array {
         'og:title'       => wp_get_document_title(),
         'og:type'        => 'website',
         'og:url'         => home_url('/'),
-        'og:description' => $description !== '' ? $description : get_bloginfo('description'),
+        'og:description' => $description !== '' ? $description : fallback_social_description(),
         'twitter:site'   => '@kriskrug',
     ];
 
@@ -743,6 +796,8 @@ function social_meta_tags(): array {
                 $tags['og:image:secure_url'] = $image;
             }
         }
+    } elseif (is_archive() || is_search()) {
+        $tags['og:url'] = archive_canonical_url();
     }
 
     if (empty($tags['og:image']) && has_site_icon()) {
@@ -819,6 +874,15 @@ function writing_archive_meta_description(): string {
     }
 
     return wp_strip_all_tags($description);
+}
+
+/**
+ * Share-card description for routes without their own, so the retired site
+ * tagline never reaches a card. Non-journal routes take the theme's hard-coded
+ * homepage text (the RSS description), not the live front-page SEO option.
+ */
+function fallback_social_description(): string {
+    return is_journal() ? writing_archive_meta_description() : homepage_meta_description();
 }
 
 function suppress_jetpack_meta_description(array $tags): array {
