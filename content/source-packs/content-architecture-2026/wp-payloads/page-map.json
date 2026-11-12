@@ -25,7 +25,7 @@
     "slug": "about",
     "url": "https://kriskrug.co/about/",
     "payload": "about.html",
-    "markers": ["I build culture around emerging technology", "The rooms I am in now", "A two-decade public trail", "aurora-hero-2026", "2023/07/krug-1.jpg"]
+    "markers": ["showpiece-page", "How I got here", "Galiano", "about-ecosystem"]
   },
   "speaking": {
     "id": 1887,
@@ -63,5 +63,19 @@
       "Brian LeRoux",
       "Bre Pettis"
     ]
+  },
+  "photography": {
+    "id": 12013,
+    "slug": "photography",
+    "url": "https://kriskrug.co/photography/",
+    "payload": "photography.html",
+    "markers": ["showpiece-page", "Deepwater Horizon", "White tern in flight", "photo-dialog"]
+  },
+  "motleykrug-podcast": {
+    "id": 2828,
+    "slug": "motleykrug-podcast",
+    "url": "https://kriskrug.co/motleykrug-podcast/",
+    "payload": "motleykrug-podcast.html",
+    "markers": ["showpiece-page", "MØTLEYKRÜG", "episode-1071691", "podcast-guesting-page-epk"]
   }
 }

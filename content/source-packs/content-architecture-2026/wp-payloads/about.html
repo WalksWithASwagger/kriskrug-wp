@@ -1,206 +1,584 @@
 <!-- wp:html -->
-<!-- content-architecture-2026:about -->
 <style>
-.aurora-page-2026:has(.aurora-about-page) .aurora-page-header { display: none; }
-/* Break the hero out of the prose column so About owns a true first viewport. */
-.aurora-about-page > .aurora-hero-2026 {
+body.aurora-theme.page-id-1208 #aurora-main:has(.showpiece-page) {
+  padding-block: 0;
+  margin-block-start: 0;
+}
+body.aurora-theme.page-id-1208 #aurora-main:has(.showpiece-page) .aurora-page-header {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  margin: -1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+body.aurora-theme.page-id-1208 #aurora-main .wp-block-post-content:has(.showpiece-page) {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page {
+  --paper: #f1ebd9;
+  --ink: #202018;
+  --forest: #143d35;
+  --lime: #e0e9a7;
+  --line: #c6bea9;
+  --rust: #913916;
+  --showpiece-heading-ink: var(--ink);
+  --revive-ink: var(--ink);
+  --aurora-ink: var(--ink);
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: var(--wp--preset--font-family--body, "DM Sans", system-ui, sans-serif);
+  --gutter: clamp(16px, 4vw, 44px);
+  --measure: 1240px;
+  --revive-ink-soft: currentColor;
+  --revive-accent-text: currentColor;
   width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  max-width: none !important;
+  margin: 0 calc(50% - 50vw);
+  min-width: 0;
+  font: 1rem/1.55 var(--sans);
+}
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page *, body.aurora-theme.page-id-1208 #aurora-main .showpiece-page *::before, body.aurora-theme.page-id-1208 #aurora-main .showpiece-page *::after { box-sizing: border-box; }
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page [hidden] { display: none !important; }
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page :target { scroll-margin-block-start: 100px; }
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page img { display: block; max-width: 100%; height: auto; }
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page :where(figure, p, h2, h3, h4) { margin: 0; }
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page.photo-page,
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page :is(.about-current,.contact-opening,.podcast-opening) {
+  --showpiece-heading-ink: var(--paper);
+  --revive-ink: var(--paper);
+  --aurora-ink: var(--paper);
+}
+body.aurora-theme.page-id-1208 #aurora-main .aurora-prose .showpiece-page :is(h2,h3,h4) {
+  color: var(--showpiece-heading-ink) !important;
+  -webkit-text-fill-color: currentColor !important;
+  border: 0;
+  padding: 0;
+}
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page :is(h2,h3,h4)::before,body.aurora-theme.page-id-1208 #aurora-main .showpiece-page :is(h2,h3,h4)::after {
+  content: none;
+}
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page :where(a) {
+  color: inherit;
+  text-decoration-color: currentColor;
+}
+body.aurora-theme.page-id-1208 #aurora-main .aurora-prose .showpiece-page figcaption {
+  color: var(--showpiece-heading-ink);
+  text-align: start;
+  font-style: normal;
+}
+body.aurora-theme.page-id-1208 #aurora-main .aurora-prose .photo-page figcaption {
+  margin: 0;
+  max-width: none;
+}
+body.aurora-theme.page-id-1208 #aurora-main .aurora-prose .photo-page figcaption small {
+  margin: 0;
+  text-align: start;
+  font-style: normal;
+}
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page :where(a,button,summary):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page .wrap {
+  width: min(var(--measure), calc(100% - 2 * var(--gutter)));
+  margin-inline: auto;
+}
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page .eyebrow {
+  font: 700 .71rem/1.4 var(--sans);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page .button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: .72rem 1.05rem;
+  border: 1px solid var(--forest);
+  background: var(--forest);
+  color: var(--paper);
+  font: 750 .84rem/1.25 var(--sans);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 150ms, color 150ms, border-color 150ms;
+}
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page .button:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page .button.secondary {
+  background: transparent;
+  color: currentColor;
+  border-color: currentColor;
+}
+body.aurora-theme.page-id-1208 #aurora-main .showpiece-page .button.secondary:hover {
+  background: var(--lime);
+  color: var(--ink);
+  border-color: var(--lime);
+}
+@media (prefers-reduced-motion: reduce) {
+  body.aurora-theme.page-id-1208 #aurora-main .showpiece-page *, body.aurora-theme.page-id-1208 #aurora-main .showpiece-page *::before, body.aurora-theme.page-id-1208 #aurora-main .showpiece-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+  }
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page {
+  --about-muted: #555344;
+  --about-bright: #f9f4e4;
+  --about-rule-on-dark: #577467;
+  background: var(--paper);
+  color: var(--ink);
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page :where(section, details)[id] {
+  scroll-margin-top: 6.5rem;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page :where(.showpiece-title,h2,h3,p,figure) {
+  margin: 0;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page :where(.showpiece-title,h2,h3) {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page :where(p,figcaption) {
+  line-height: 1.55;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-byline {
+  color: var(--forest);
+  margin-bottom: .9rem;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-hero {
+  align-items: center;
+  display: grid;
+  gap: clamp(2rem, 5.2vw, 5rem);
+  grid-template-columns: minmax(0,1.15fr) minmax(0,.92fr);
+  padding-block: clamp(2.5rem,5.5vw,5.4rem) clamp(2.25rem,5.2vw,5rem);
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-hero .showpiece-title {
+  font-size: clamp(3.65rem,7.25vw,7.35rem);
+  letter-spacing: -.044em;
+  line-height: .88;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-lede {
+  font-size: clamp(1.02rem,1.65vw,1.27rem);
+  margin-top: 1.35rem;
+  max-width: 35rem;
+  text-wrap: pretty;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem 1.3rem;
+  margin-top: 1.5rem;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-text-link {
+  align-content: center;
+  color: inherit;
+  display: inline-block;
+  font-weight: 650;
+  min-height: 44px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .21em;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-text-link:hover {
+  text-decoration-thickness: 2px;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-portrait {
+  align-self: center;
   position: relative;
 }
-.aurora-about-page > .aurora-hero-2026 .aurora-hero-media img {
-  /* Match home: zoom + right-anchor so left scrim/copy clears the face. */
-  bottom: 0;
-  left: auto;
-  max-width: none;
-  object-position: 68% 26%;
-  right: 0;
-  top: 0;
-  width: 145%;
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-portrait-frame {
+  background: var(--forest);
+  border-bottom: .5rem solid var(--forest);
+  border-right: .5rem solid var(--forest);
 }
-@media (max-width: 900px) {
-  .aurora-about-page > .aurora-hero-2026 .aurora-hero-media img {
-    object-position: 70% 24%;
-    width: 125%;
-  }
+body.aurora-theme.page-id-1208 #aurora-main .about-page img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: 100%;
 }
-.aurora-about-page > .aurora-hero-2026 .aurora-hero-copy {
-  margin: 0 auto 0 max(0px, calc((100% - 1200px) / 2));
-  max-width: min(34rem, 1200px);
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-portrait img {
+  aspect-ratio: 1.08;
+  object-fit: cover;
+  object-position: center 39%;
 }
-.aurora-about-page > .aurora-hero-2026 .aurora-hero-dek {
-  max-width: 42ch;
+body.aurora-theme.page-id-1208 #aurora-main .about-page figcaption {
+  color: var(--about-muted);
+  font-size: .78rem;
+  margin-top: .55rem;
 }
-.aurora-about-page :where(p, li)::first-letter {
-  initial-letter: normal !important;
-  font-size: inherit !important;
-  font-weight: inherit !important;
-  float: none !important;
-  margin: 0 !important;
-  line-height: inherit !important;
-  color: inherit !important;
-  background: transparent !important;
+body.aurora-theme.page-id-1208 #aurora-main .about-page figcaption a {
+  color: inherit;
+  text-underline-offset: .16em;
 }
-
-/* Light ink over dark portrait hero — cream-paper forces dark !important on h2/p. */
-.aurora-about-page .aurora-hero-2026 :where(#aurora-about-title, .aurora-hero-copy h2) {
-  color: #f7f7f2 !important;
-  -webkit-text-fill-color: #f7f7f2 !important;
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-current {
+  background: var(--forest);
+  color: var(--about-bright);
+  padding-block: clamp(2.5rem,5vw,4.8rem);
 }
-.aurora-about-page .aurora-hero-2026 :where(.aurora-hero-dek, .aurora-hero-copy p:not(.aurora-kicker)) {
-  color: #c8cac8 !important;
-  -webkit-text-fill-color: #c8cac8 !important;
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-current a {
+  color: inherit;
 }
-.aurora-about-page .aurora-hero-2026 .aurora-kicker {
-  color: #e8b53a !important;
-  -webkit-text-fill-color: #e8b53a !important;
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-current h2,
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-story h2,
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-invitation h2 {
+  font-size: clamp(2.55rem,5.25vw,5.25rem);
+  letter-spacing: -.03em;
+  line-height: .96;
 }
-.aurora-about-page .aurora-hero-2026 .aurora-button-secondary {
-  background: rgba(247, 247, 242, 0.08) !important;
-  border-color: rgba(247, 247, 242, 0.35) !important;
-  color: #f7f7f2 !important;
-  -webkit-text-fill-color: #f7f7f2 !important;
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-work-grid {
+  align-items: start;
+  display: grid;
+  gap: clamp(1.6rem,5vw,5rem);
+  grid-template-columns: minmax(0,1.1fr) minmax(0,.95fr);
+  margin-top: clamp(1.4rem,3vw,2.65rem);
 }
-.aurora-about-page .aurora-hero-copy h2 {
-  font-size: clamp(3rem, 6.4vw, 6rem);
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-ecosystem img {
+  background: #234138;
+  border: 1px solid var(--about-rule-on-dark);
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-ecosystem figcaption {
+  color: #d1d8c3;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-work-links article {
+  border-top: 1px solid var(--about-rule-on-dark);
+  padding-block: 1.1rem;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-work-links h3 {
+  font-size: clamp(1.6rem,2.75vw,2.3rem);
+  line-height: 1.02;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-work-links h3 a {
+  text-decoration: none;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-work-links h3 a:hover {
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-work-links h3 span {
+  color: var(--lime);
+  font-family: var(--sans);
+  font-size: .55em;
+  margin-inline-start: .3em;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-work-links p {
+  margin-top: .55rem;
+  max-width: 38ch;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-story {
+  padding-block: clamp(2.6rem,6vw,5.7rem);
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-story-intro {
+  align-items: end;
+  display: grid;
+  gap: .85rem 3.5rem;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  margin-bottom: clamp(1.35rem,3.5vw,2.7rem);
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-story-intro p {
+  font-size: 1.06rem;
+  max-width: 40ch;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapters {
+  border-bottom: 1px solid var(--line);
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter {
+  border-top: 1px solid var(--line);
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter summary {
+  align-items: center;
+  cursor: pointer;
+  display: grid;
+  gap: .55rem 1.25rem;
+  grid-template-columns: minmax(8rem,.42fr) minmax(0,1fr) 2.75rem;
+  list-style: none;
+  padding-block: 1.05rem;
+  transition: color .16s ease;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter summary::-webkit-details-marker {
+  display: none;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter summary:hover,
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter[open] summary {
+  color: var(--forest);
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-era {
+  color: var(--about-muted);
+  font-family: var(--sans);
+  font-size: .76rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 0.98;
-  margin: 0;
-  max-width: 13.5ch;
-  text-wrap: balance;
-}
-@media (max-width: 700px) {
-  .aurora-about-page .aurora-hero-copy h2 {
-    font-size: clamp(2.35rem, 10.5vw, 3.45rem);
-    line-height: 1;
-    max-width: 13ch;
-  }
-}
-.aurora-about-page .aurora-proof-section .aurora-button,
-.aurora-about-page .aurora-proof-section a.aurora-button {
-  display: inline-block;
-  padding: 0.7rem 1.1rem;
-  border: 1px solid #171310;
-  border-radius: 2px;
-  background: #171310;
-  color: #efe6d2 !important;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: .07em;
   text-transform: uppercase;
-  text-decoration: none !important;
 }
-.aurora-about-page .aurora-proof-section .aurora-button:hover,
-.aurora-about-page .aurora-proof-section a.aurora-button:hover {
-  background: #d94a1f;
-  border-color: #d94a1f;
-  color: #efe6d2 !important;
-  text-decoration: none !important;
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-name {
+  font-family: var(--serif);
+  font-size: clamp(1.65rem,3.4vw,3.1rem);
+  letter-spacing: -.02em;
+  line-height: 1.02;
 }
-.aurora-about-page .aurora-card,
-.aurora-about-page .aurora-media-card {
-  border-radius: 2px !important;
-  box-shadow: none !important;
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-sign {
+  border: 1px solid var(--line);
+  display: grid;
+  font: 1.3rem var(--sans);
+  min-height: 2.75rem;
+  place-items: center;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-sign::before {
+  content: "+";
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter[open] .about-chapter-sign {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--about-bright);
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter[open] .about-chapter-sign::before {
+  content: "\002212";
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-body {
+  display: grid;
+  gap: clamp(.9rem,3.5vw,3rem);
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  padding: .35rem 3.75rem 1.75rem 0;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-body-text {
+  grid-template-columns: minmax(0,42rem);
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-body p + p {
+  margin-top: .75rem;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-body img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-invitation {
+  align-items: center;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.15rem 3rem;
+  justify-content: space-between;
+  padding-block: clamp(2.2rem,5vw,4.25rem);
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page .about-invitation p {
+  margin-top: .85rem;
+}
+body.aurora-theme.page-id-1208 #aurora-main .about-page :focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+@media (max-width: 740px) {
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-hero,
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-work-grid,
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-story-intro,
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-body {
+    grid-template-columns: minmax(0,1fr);
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-hero {
+    gap: 1.1rem;
+    padding-block: 1.7rem 2rem;
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-byline {
+    margin-bottom: .65rem;
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-hero .showpiece-title {
+    font-size: clamp(2.66rem,9.25vw,4.9rem);
+    line-height: .93;
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-lede {
+    margin-top: .9rem;
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-actions {
+    gap: .15rem .95rem;
+    margin-top: .85rem;
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-portrait img {
+    aspect-ratio: 4 / 3;
+    object-position: 50% 32%;
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter summary {
+    gap: .35rem .75rem;
+    grid-template-columns: minmax(0,1fr) 2.75rem;
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-era,
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-name {
+    grid-column: 1;
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-sign {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter-body {
+    padding-right: 0;
+  }
+}
+@media (max-width: 365px) {
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-hero .showpiece-title {
+    font-size: clamp(2.35rem,9vw,2.7rem);
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-lede {
+    font-size: 1rem;
+    line-height: 1.46;
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-actions {
+    gap: .15rem .65rem;
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-actions :is(.button,.about-text-link) {
+    font-size: .8rem;
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-actions .button {
+    padding-inline: .68rem;
+  }
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-portrait img {
+    aspect-ratio: 3 / 2;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.aurora-theme.page-id-1208 #aurora-main .about-page .about-chapter summary {
+    transition: none;
+  }
 }
 </style>
-<div class="aurora-about-page">
-<section class="aurora-hero-2026" aria-labelledby="aurora-about-title">
-  <figure class="aurora-hero-media" aria-label="Portrait of Kris Krüg">
-    <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=2000&amp;ssl=1"
-      srcset="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=640&amp;ssl=1 640w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=960&amp;ssl=1 960w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=1280&amp;ssl=1 1280w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=1600&amp;ssl=1 1600w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=2000&amp;ssl=1 2000w"
-      sizes="100vw"
-      alt="Portrait of Kris Krüg"
-      width="2000"
-      height="1827"
-      fetchpriority="high"
-      decoding="async"/>
-  </figure>
-  <div class="aurora-hero-scrim" aria-hidden="true"></div>
-  <div class="aurora-hero-copy">
-    <p class="aurora-kicker">About</p>
-    <h2 id="aurora-about-title">I build culture around emerging technology.</h2>
-    <p class="aurora-hero-dek">I am Kris Krug: photographer, creative technologist, community builder, speaker, and field-note person for the weird edge where humans meet the machines they keep inventing.</p>
-    <p>I have spent two decades documenting technology, art, activism, conferences, communities, and the back rooms where culture actually changes. These days, most of that work points at one question: how do we use AI to increase human capacity instead of flattening human judgment?</p>
-    <div class="aurora-action-row">
-      <a class="aurora-button aurora-button-primary" href="/contact/">Contact Kris</a>
-      <a class="aurora-button aurora-button-secondary" href="/work/">See the work</a>
-    </div>
-  </div>
+<div class="about-page showpiece-page alignfull">
+<section aria-labelledby="about-title" class="wrap about-hero">
+<div class="about-hero-copy">
+<p class="eyebrow about-byline">About Kris Krüg</p>
+<h2 class="showpiece-title" id="about-title">I make things.<br />I bring people together.</h2>
+<p class="about-lede">I’m a photographer and creative technologist. I lead the BC + AI Ecosystem Association and started Futureproof Festival in Vancouver. I still make films and build software. It keeps the opinions honest.</p>
+<div class="about-actions">
+<a class="button" href="#about-work">See what I’m building</a>
+<a class="about-text-link" href="#about-story">How I got here <span aria-hidden="true">&#x2193;</span></a>
+</div>
+</div>
+<figure class="about-portrait">
+<div class="about-portrait-frame">
+<img alt="Kris Krüg in a black knit cap, lit in amber and blue" decoding="async" fetchpriority="high" height="1169" sizes="(max-width: 740px) calc(100vw - 40px), (max-width: 1150px) 40vw, 480px" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=680&amp;ssl=1" srcset="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=680&amp;ssl=1 680w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg?w=1280&amp;ssl=1 1280w" width="1280"/>
+</div>
+<figcaption><a href="https://kriskrug.co/wp-content/uploads/2023/07/krug-1.jpg">Portrait from my archive</a></figcaption>
+</figure>
 </section>
-
-<section class="aurora-proof-section">
-  <p class="aurora-section-kicker">The rooms I am in now</p>
-  <div class="aurora-proof-grid">
-    <article class="aurora-media-card">
-      <a href="https://bc-ai.ca/">
-        <img src="https://i0.wp.com/bc-ai.ca/wp-content/uploads/2026/05/bcai-living-ecosystem.webp?w=1200&amp;ssl=1" alt="BC plus AI ecosystem graphic" loading="lazy"/>
-        <div>
-          <h3>BC + AI Ecosystem</h3>
-          <p>Building grassroots AI literacy, events, and community infrastructure across British Columbia.</p>
-        </div>
-      </a>
-    </article>
-    <article class="aurora-media-card">
-      <a href="/speaking/">
-        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/05/kk-cmvan-keynote-header.png?w=1280&amp;ssl=1" alt="Punk Rock AI CreativeMornings Vancouver keynote banner" loading="lazy"/>
-        <div>
-          <h3>AI keynotes and workshops</h3>
-          <p>Helping audiences understand AI through taste, courage, responsibility, and useful live demos.</p>
-        </div>
-      </a>
-    </article>
-    <article class="aurora-media-card">
-      <a href="/photography/">
-        <img src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/07/20067931301_e7a16b6f2c_k-1.jpg?w=1200&amp;ssl=1" alt="Archive photograph from Kris Krug photography practice" loading="lazy"/>
-        <div>
-          <h3>Visual storytelling</h3>
-          <p>A long public archive of people, movements, music, technology, and the strange theatre of modern life.</p>
-        </div>
-      </a>
-    </article>
-    <article class="aurora-media-card">
-      <a href="/work/">
-        <img src="https://www.bothhandsfull.com/opengraph-image?46af5f0ff830fe03" alt="Both Hands Full keynote graphic" loading="lazy"/>
-        <div>
-          <h3>Creative AI systems</h3>
-          <p>Projects, publishing loops, and experiments for staying distinct in the synthetic age.</p>
-        </div>
-      </a>
-    </article>
-  </div>
+<section aria-labelledby="about-work-title" class="about-current" id="about-work">
+<div class="wrap about-current-inner">
+<h2 id="about-work-title">What I’m working on</h2>
+<div class="about-work-grid">
+<figure class="about-ecosystem">
+<img alt="A glowing seedling at the centre of an interconnected network, illustrating BC + AI’s ecosystem" decoding="async" height="800" loading="lazy" src="https://s5102.pcdn.co/wp-content/themes/kk-aurora/assets/img/bcai-living-ecosystem.jpg" width="1200"/>
+<figcaption>Ecosystem illustration · BC + AI</figcaption>
+</figure>
+<div class="about-work-links">
+<article>
+<h3><a href="https://bc-ai.ca/about">BC + AI Ecosystem Association <span aria-hidden="true">&#x2197;</span></a></h3>
+<p>We bring artists, researchers, educators, builders and skeptics together to learn in public and put their work in front of each other.</p>
+</article>
+<article>
+<h3><a href="https://www.futureproof.website/">Futureproof Festival of AI <span aria-hidden="true">&#x2197;</span></a></h3>
+<p>A Vancouver festival for people working through what AI changes in art, research and public life.</p>
+</article>
+<article>
+<h3><a href="https://kriskrug.co/speaking/">Keynotes &amp; workshops <span aria-hidden="true">&#x2197;</span></a></h3>
+<p>Live demos, hard questions and room to try the tools yourself.</p>
+</article>
+<a class="about-text-link" href="https://kriskrug.co/work/">More of my work <span aria-hidden="true">&#x2197;</span></a>
+</div>
+</div>
+</div>
 </section>
-
-<section class="aurora-proof-section">
-  <p class="aurora-section-kicker">Public trail</p>
-  <div class="aurora-proof-grid">
-    <article class="aurora-card">
-      <h3>A two-decade public trail</h3>
-      <p>National Geographic, CBC, Rolling Stone-adjacent rooms, TEDxOilSpill, Midway Journey, SXSW, the Olympics, and many smaller rooms that mattered just as much.</p>
-    </article>
-    <article class="aurora-card">
-      <h3>Community before platform</h3>
-      <p>The durable work is not the tool. It is the people, rituals, trust, and shared language that let people build together.</p>
-    </article>
-    <article class="aurora-card">
-      <h3>Receipts over adjectives</h3>
-      <p>I would rather show the work, name the collaborators, and leave a trail than inflate a bio until it floats away.</p>
-    </article>
-    <article class="aurora-card">
-      <h3>Human capacity</h3>
-      <p>The point of AI is not to become less human faster. The point is to make more room for judgment, care, imagination, and courage.</p>
-    </article>
-  </div>
+<section aria-labelledby="about-story-title" class="wrap about-story" id="about-story">
+<header class="about-story-intro">
+<h2 id="about-story-title">How I got here</h2>
+<p>I’ve spent a lot of my life moving between people who don’t usually find themselves in the same room. Here are some of the places that shaped the work.</p>
+</header>
+<div class="about-chapters">
+<details class="about-chapter" id="early-web" name="about-chapters">
+<summary>
+<span class="about-chapter-era">From 1995</span>
+<span class="about-chapter-name">The open web</span>
+<span aria-hidden="true" class="about-chapter-sign"></span>
+</summary>
+<div class="about-chapter-body about-chapter-body-text">
+<div>
+<p>I started building websites and communities in 1995. I worked on the Grateful Dead’s site and on open-source publishing with Bryght and Drupal. I fell in love with a web that people could make together, and I’ve been chasing that feeling ever since.</p>
+<a class="about-text-link" href="https://kriskrug.co/work/">Explore the work <span aria-hidden="true">&#x2197;</span></a>
+</div>
+</div>
+</details>
+<details class="about-chapter" id="documentary" name="about-chapters" open="">
+<summary>
+<span class="about-chapter-era">Documentary years</span>
+<span class="about-chapter-name">Learning to pay attention</span>
+<span aria-hidden="true" class="about-chapter-sign"></span>
+</summary>
+<div class="about-chapter-body">
+<div>
+<p>In 2010 I went to the Gulf of Mexico with the TEDxOilSpill expedition. I photographed the Vancouver Olympics that year, and the next year I joined the Midway Journey. Each assignment meant walking into a place with a story already in motion.</p>
+<p>Photography taught me to listen when I get there. A camera can get you into a room. You still have to earn the picture.</p>
+<a class="about-text-link" href="/photography/">Explore my photography <span aria-hidden="true">&#x2192;</span></a>
+</div>
+<figure>
+<a href="https://www.flickr.com/photos/kk/4711839477/">
+<img alt="Cameras lined up on the floor before a flight over the Deepwater Horizon oil well" decoding="async" height="683" loading="lazy" src="https://live.staticflickr.com/4016/4711839477_044e01480c_b.jpg" width="1024"/>
+</a>
+<figcaption>Gear before the TEDxOilSpill flight, June 2010. Photo by Kris Krüg. <a href="https://www.flickr.com/photos/kk/4711839477/">Original</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC BY-NC-SA 2.0</a></figcaption>
+</figure>
+</div>
+</details>
+<details class="about-chapter" id="galiano" name="about-chapters">
+<summary>
+<span class="about-chapter-era">Galiano Island · 2021</span>
+<span class="about-chapter-name">The school garden</span>
+<span aria-hidden="true" class="about-chapter-sign"></span>
+</summary>
+<div class="about-chapter-body about-chapter-body-text">
+<div>
+<p>On Galiano Island I coordinated the school garden for the Food Program. I brought children from the Activity Centre summer program into the garden. We ended the summer with fries and ketchup made from the potatoes and tomatoes we’d grown there.</p>
+<a class="about-text-link" href="https://galianoclub.org/wp-content/uploads/2024/06/Galiano-Club-Annual-Report-2021.pdf#page=18">Read the Galiano Club’s account <span aria-hidden="true">&#x2197;</span></a>
+</div>
+</div>
+</details>
+<details class="about-chapter" id="building-rooms" name="about-chapters">
+<summary>
+<span class="about-chapter-era">Vancouver, now</span>
+<span class="about-chapter-name">Building rooms for AI</span>
+<span aria-hidden="true" class="about-chapter-sign"></span>
+</summary>
+<div class="about-chapter-body">
+<div>
+<p>I started Vancouver AI because I wanted a room where artists and engineers could show each other what they were making and argue about what it meant. The meetups grew into BC + AI and helped make Futureproof possible.</p>
+<p>Today I co-teach <a href="https://bc-ai.ca/certification/responsible-ai-professional">Responsible AI Professional</a> with Martin Lopatka and Sarah Downey. I’ve written about the Vancouver AI community with Patrick Pennefather and David Gaertner, and helped bring <a href="https://bc-ai.ca/communities/futures-lab/ai-transparency">community recommendations</a> to a federal consultation.</p>
+<p>Through our <a href="https://bc-ai.ca/fellowship">fellowship with Internet Archive Canada</a>, we’re supporting builders working with Canada’s public record.</p>
+<div class="about-chapter-links">
+<a class="about-text-link" href="https://ojs.library.ubc.ca/index.php/bcstudies/article/view/199875">Read the BC Studies paper <span aria-hidden="true">&#x2197;</span></a>
+<a class="about-text-link" href="/motleykrug-podcast/">Hear the MØTLEYKRÜG conversations <span aria-hidden="true">&#x2192;</span></a>
+</div>
+</div>
+<figure>
+<a href="https://kriskrug.co/events/">
+<img alt="Three Vancouver AI meetup attendees talking outside in the sun" decoding="async" height="639" loading="lazy" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2026/09/van-ai-meetup-29.webp?w=960&amp;ssl=1" width="960"/>
+</a>
+<figcaption>Vancouver AI Meetup #29, May 2026. Photo by Michelle Diamond.</figcaption>
+</figure>
+</div>
+</details>
+</div>
 </section>
-
-<section class="aurora-proof-section">
-  <div class="aurora-card">
-    <h2>Start with the work</h2>
-    <p>For projects, talks, workshops, interviews, and collaborations, the best next step is to tell me what kind of room you want to build.</p>
-    <p><a class="aurora-button" href="/contact/">Contact Kris</a></p>
-  </div>
+<section aria-labelledby="about-contact-title" class="wrap about-invitation">
+<div>
+<h2 id="about-contact-title">What are you making?</h2>
+<p>I like working with people who ask hard questions and care what happens after the applause.</p>
+</div>
+<a class="button" href="/contact/">Tell me what you’re working on</a>
 </section>
 </div>
 <!-- /wp:html -->
