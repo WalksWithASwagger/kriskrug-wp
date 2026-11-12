@@ -27,8 +27,9 @@ DEFAULT_BASES = [
     Path(".github/ISSUE_TEMPLATE/feature_request.yml"),
     Path(".github/ISSUE_TEMPLATE/performance.yml"),
     Path(".github/pull_request_template.md"),
-    Path(".github/agent-state/README.md"),
-    Path(".github/agents/doc-swarm/README.md"),
+    Path(".claude/common-failures.md"),
+    Path(".claude/naming-conventions.md"),
+    Path(".github/agents"),
     Path("docs"),
 ]
 
@@ -338,19 +339,21 @@ ROADMAP_LINK_REQUIREMENT = (
     f"Front doors must link the current roadmap `{CURRENT_ROADMAP.name}`.",
 )
 
+HISTORICAL_BANNER = re.compile(r"STATUS:\s*Historical", re.I)
+
+SWARM_GUIDE_BANNER_REQUIREMENT = (
+    HISTORICAL_BANNER,
+    "Retired swarm guides must carry a `STATUS: Historical` banner.",
+)
+
+# The swarm's agent definitions were deleted on 2026-11-12 (#1220). GitHub
+# Copilot and VS Code load custom agents from this directory, so anything that
+# reappears here would surface as a selectable agent.
+RETIRED_SWARM_AGENT_DIR = Path(".github/agents")
+
 REQUIRED_PATH_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
-    Path(".github/agent-state/README.md"): [
-        (
-            re.compile(r"STATUS:\s*Historical", re.I),
-            "Retired swarm documentation must carry a `STATUS: Historical` banner.",
-        ),
-    ],
-    Path(".github/agents/doc-swarm/README.md"): [
-        (
-            re.compile(r"STATUS:\s*Historical", re.I),
-            "Retired swarm documentation must carry a `STATUS: Historical` banner.",
-        ),
-    ],
+    Path(".claude/common-failures.md"): [SWARM_GUIDE_BANNER_REQUIREMENT],
+    Path(".claude/naming-conventions.md"): [SWARM_GUIDE_BANNER_REQUIREMENT],
     Path("AGENTS.md"): [ROADMAP_LINK_REQUIREMENT],
     Path("docs/INDEX.md"): [ROADMAP_LINK_REQUIREMENT],
     Path("docs/current-state/README.md"): [ROADMAP_LINK_REQUIREMENT],
@@ -523,6 +526,17 @@ def scan_file(repo_root: Path, path: Path) -> list[Finding]:
     for pattern, message in REQUIRED_PATH_PATTERNS.get(relative_path, []):
         if not pattern.search(text):
             findings.append(Finding(relative_path, 1, message, ""))
+
+    if is_relative_to(relative_path, RETIRED_SWARM_AGENT_DIR) and not HISTORICAL_BANNER.search(text):
+        findings.append(
+            Finding(
+                relative_path,
+                1,
+                "The retired swarm agent definitions under `.github/agents/` were deleted on "
+                "2026-11-12 (#1220); remove this file or open it with a `STATUS: Historical` banner.",
+                "",
+            )
+        )
 
     if relative_path in ACTIVE_GUIDANCE_PATHS:
         for pattern in STALE_MORNING_TRUTH_FLOW_PATTERNS:

@@ -47,9 +47,10 @@ Cadence: **weekly, or whenever there's interesting shit to say.** Not a fixed cr
 
 ## Pick-flow — **GitHub draft PR** (chosen)
 
-Every Monday (`.github/workflows/marquee-weekly.yml`) the loop scans drafts, rebuilds the
-archive, and opens a **draft PR** listing the week's candidates. Kris picks one in the PR,
-runs `promote.py`, and merges. Nothing goes live until promoted.
+Nothing runs on a schedule. The Monday workflow (`marquee-weekly.yml`) sat manually disabled
+and was deleted on 2026-11-12 (#1220, KK's ruling); do not recreate it. To propose boards, run
+the scan locally (below) and open a **draft PR** listing the candidates. Kris picks one in the
+PR, runs `promote.py`, and merges. Nothing goes live until promoted.
 
 ## Run it locally
 
@@ -107,7 +108,7 @@ switch via `meta.default_skin` / a board's `skin`.
 **v1 (merged):**
 - [x] Data model + McLuhan seed board ("The Model Is the Message")
 - [x] Standalone visual preview with 4 skins + 3 candidates
-- [x] Pick-flow chosen (**GitHub draft PR**) + weekly Action wired
+- [x] Pick-flow chosen (**GitHub draft PR**) + weekly Action wired (Action deleted 2026-11-12, #1220)
 - [x] SCAN step — reads `content/drafts/` → ranked proposals (proven on 55 real drafts)
 - [x] `/marquee/` archive builder — SEO pages (OG, Twitter, JSON-LD) + index wall
 - [x] Promote step — applies the pick, archives the previous board
