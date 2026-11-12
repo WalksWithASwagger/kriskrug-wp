@@ -1,3 +1,4 @@
+import re
 import sys
 import tempfile
 import unittest
@@ -92,7 +93,11 @@ class EphemeralMorningTruthGuidanceTests(unittest.TestCase):
 
 
 class ActiveFrontDoorRegressionTests(unittest.TestCase):
-    def test_current_work_plan_is_in_active_guidance_set(self):
+    def test_roadmap_and_retained_procedures_are_in_active_guidance_set(self):
+        self.assertIn(
+            docs_truth_check.CURRENT_ROADMAP,
+            docs_truth_check.ACTIVE_GUIDANCE_PATHS,
+        )
         self.assertIn(
             Path("docs/current-state/WORK-PLAN-2026-09-09.md"),
             docs_truth_check.ACTIVE_GUIDANCE_PATHS,
@@ -195,7 +200,7 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
     def test_delegates_issue_count_truth_to_live_drift_contract(self):
         samples = {
             "docs/current-state/README.md": (
-                "WORK-PLAN-2026-09-09.md\n0 open PRs, 43 open issues.\n"
+                "ROADMAP-2026-11-11.md\n0 open PRs, 43 open issues.\n"
             ),
             "docs/current-state/CURRENT-STATE-2026-10-25.md": "Open issues: `40`.\n",
         }
@@ -426,7 +431,13 @@ class AuthorityHubAndReleaseGuidanceTests(unittest.TestCase):
 
         self.assertFalse(any("begin #830" in finding.message.lower() for finding in findings))
 
-    def test_front_doors_require_the_same_active_work_plan(self):
+    def test_no_checker_message_calls_the_september_plan_active(self):
+        source = Path(docs_truth_check.__file__).read_text(encoding="utf-8")
+
+        self.assertIsNone(re.search(r"active\s+work\s+plan", source))
+
+    def test_front_doors_require_the_current_roadmap_link(self):
+        roadmap = docs_truth_check.CURRENT_ROADMAP.name
         for path in (
             "AGENTS.md",
             "docs/INDEX.md",
@@ -435,7 +446,11 @@ class AuthorityHubAndReleaseGuidanceTests(unittest.TestCase):
             with self.subTest(path=path):
                 findings = scan_text(path, "Read CURRENT-STATE-2026-09-21.md first.\n")
                 self.assertTrue(
-                    any("WORK-PLAN-2026-09-09.md" in finding.message for finding in findings)
+                    any(roadmap in finding.message for finding in findings)
+                )
+                linked = scan_text(path, f"Start with [roadmap]({roadmap}).\n")
+                self.assertFalse(
+                    any(roadmap in finding.message for finding in linked)
                 )
 
     def test_rejects_mutable_current_release_note_in_checklist(self):

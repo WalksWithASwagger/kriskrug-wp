@@ -192,7 +192,7 @@ The default ruleset is intentionally focused on high-signal WordPress security c
 Day-to-day work happens through Claude Code / Cursor agent sessions, not via the dormant GitHub Actions agent swarm. Two modes:
 
 - **Publisher mode (Track A):** Notion → kriskrug.co publishing, content enrichment, schema/SEO tweaks. Operates on `main`.
-- **Architect mode (Track B):** Aurora theme maintenance. Start from `main` on a lane-scoped `codex/...` branch; use `aurora/v3-reconcile` and `aurora/v2` only as historical/evidence branches unless a dated handoff explicitly revives one.
+- **Architect mode (Track B):** Aurora theme maintenance. Start from `main` on a lane-scoped `codex/...` branch.
 
 See [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) for the decision rule.
 
