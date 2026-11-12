@@ -18,7 +18,7 @@ make seo-audit
 scripts/notion-to-wp/.venv/bin/python scripts/seo-audit/inventory.py --format csv --output content/seo-audit-$(date +%Y%m%d).csv
 ```
 
-Requires `WP_USER` and `WP_APP_PASSWORD` in `scripts/notion-to-wp/.env` (same as the Notion connector).
+Requires WordPress credentials in the process environment: `WP_USER` and `WP_APP_PASSWORD`, or the `WP_API_USERNAME` and `WP_API_PASSWORD` names Varlock injects. Run it as `make varlock-run CMD='make seo-audit'`. A gitignored `scripts/notion-to-wp/.env` still works as a compat fallback, but process env wins and secrets should not be copied into it.
 
 ### Scope
 
