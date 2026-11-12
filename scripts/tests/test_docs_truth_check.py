@@ -211,6 +211,34 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
                 self.assertFalse(findings)
 
 
+class PullRequestTemplateTests(unittest.TestCase):
+    def test_template_is_scanned_by_default(self):
+        self.assertIn(
+            Path(".github/pull_request_template.md"),
+            docs_truth_check.DEFAULT_BASES,
+        )
+
+    def test_rejects_retired_swarm_fields(self):
+        samples = [
+            "**PHPUnit Results**:\n",
+            "**Agent Task ID**: <!-- gh agent-task ID -->\n",
+            "- Standard: WordPress-Extra\n",
+        ]
+
+        for sample in samples:
+            with self.subTest(sample=sample):
+                findings = scan_text(".github/pull_request_template.md", sample)
+                self.assertTrue(
+                    any("retired swarm" in finding.message for finding in findings)
+                )
+
+    def test_accepts_the_committed_template(self):
+        repo_root = Path(__file__).resolve().parents[2]
+        template = repo_root / ".github/pull_request_template.md"
+
+        self.assertEqual(docs_truth_check.scan_file(repo_root, template), [])
+
+
 class PersonalSiteIdentityRegressionTests(unittest.TestCase):
     def test_rejects_bc_ai_personification_in_agent_context(self):
         samples = {
