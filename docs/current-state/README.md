@@ -59,7 +59,7 @@ It authorizes a reviewable proof PR, not a live deployment.
 | [templates/owned-distribution-backlink-checklist.md](templates/owned-distribution-backlink-checklist.md) | Per-article owned-distribution + backlink launch record (#1026). Copy into the draft package; does not authorize live posts |
 | [CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md](CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md) | #1025 robots/sitemap/noindex recommendations. In-repo only; does not authorize live apply |
 | [SEO-PUBLISHER-SCHEMA-2026-07-19.md](SEO-PUBLISHER-SCHEMA-2026-07-19.md) | Schema/publisher rules (`make seo-publisher-smoke`) |
-| [SEO-STRIKING-DISTANCE-2026-08-02.md](SEO-STRIKING-DISTANCE-2026-08-02.md) | #249 re-measure. **Read before running `make seo-audit`:** Jetpack is deactivated, the theme now owns SEO titles, and that target reports a false 1016/1016 missing |
+| [SEO-STRIKING-DISTANCE-2026-08-02.md](SEO-STRIKING-DISTANCE-2026-08-02.md) | #249 re-measure. **Read `scripts/seo-audit/README.md` before running `make seo-audit`:** Jetpack is deactivated and the theme owns SEO titles; the target now covers posts only and exits 2 instead of reporting a false 1016/1016 missing |
 | [AURORA-STYLESHEET-REBUILD-PLAN.md](AURORA-STYLESHEET-REBUILD-PLAN.md) | Path A rebuild plan of record (#423) |
 | [AURORA-VISUAL-BASELINE-RUNBOOK.md](AURORA-VISUAL-BASELINE-RUNBOOK.md) | Pixel gate harness (#473) |
 | [AURORA-RELEASE-CHECKLIST.md](AURORA-RELEASE-CHECKLIST.md) | Theme release checklist |
@@ -67,7 +67,7 @@ It authorizes a reviewable proof PR, not a live deployment.
 | [RECLAIM-LIST-2026-07-24.md](RECLAIM-LIST-2026-07-24.md) | #318/#369 reclaim proposal |
 | [reports/repo-bloat-318-next-steps-20260726.md](reports/repo-bloat-318-next-steps-20260726.md) | Executable A+D reclaim runbook |
 | [ROLLBACK_PLAYBOOK.md](ROLLBACK_PLAYBOOK.md) | Prod undo order |
-| [SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md](SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md) | #1001 phase-1 nosniff + Referrer-Policy apply (Pagely ARES). Docs only; does not authorize live apply. Parent #709 stays open |
+| [SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md](SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md) | #1001 phase-1 nosniff + Referrer-Policy apply (Pagely ARES). Docs only; does not authorize live apply |
 | [XML-RPC-CONSTRAIN-DECISION-2026-09-08.md](XML-RPC-CONSTRAIN-DECISION-2026-09-08.md) | #1002 XML-RPC constrain packet. Prep only; host/WAF deny preferred. Do not apply live. Related #767 / #709 |
 | [BACKUP_PLAN.md](BACKUP_PLAN.md) | Backup pieces and gaps |
 | [ACCESS_CHANNELS.md](ACCESS_CHANNELS.md) | How we reach the site |
@@ -114,7 +114,7 @@ Every file below carries a `STATUS: Historical` banner in its first lines pointi
 
 ## Archive (#549 close-out, verified 2026-08-02)
 
-At the #549 close-out, [`archive/`](archive/) held **89 markdown files**: 4 that were already there plus **84 moved in commit `c369eef`** (PR #557, merged 2026-07-31). It holds 105 as of 2026-09-03 after later plan archivals. Every #549 move was a `git mv` rename, so history is preserved and the moves are reversible. The diff for that commit against `docs/current-state/` is 84 `R`, 9 `M`, 6 `A`, and **zero `D`**. Verify with:
+At the #549 close-out, [`archive/`](archive/) held **89 markdown files**: 4 that were already there plus **84 moved in commit `c369eef`** (PR #557, merged 2026-07-31). Later plan archivals grew it; count with `ls archive | wc -l`. Every #549 move was a `git mv` rename, so history is preserved and the moves are reversible. The diff for that commit against `docs/current-state/` is 84 `R`, 9 `M`, 6 `A`, and **zero `D`**. Verify with:
 
 ```
 git diff --name-status --find-renames c369eef^1 c369eef -- docs/current-state | cut -c1-1 | sort | uniq -c
@@ -129,11 +129,11 @@ Neither is a plan you execute from. Check with `ls docs/current-state/*.md | gre
 
 **Inbound link debt from the move: fixed 2026-08-02 (#566).** Five markdown links in three files outside `docs/current-state/` still pointed at pre-`c369eef` top-level paths. All five now point into `archive/` and resolve on disk:
 
-- `issues-to-create/jetpack-seo-audit-all-posts.md` lines 5, 57, 102, to `archive/SEO_AUDIT.md` (twice) and `archive/CONTENT_AUDIT.md`
+- `issues-to-create/archive/jetpack-seo-audit-all-posts.md` lines 5, 57, 102, to `archive/SEO_AUDIT.md` (twice) and `archive/CONTENT_AUDIT.md`
 - `issues-to-create/README.md` line 5, to `archive/ISSUES-TO-CREATE-RECONCILIATION-2026-06-09.md`
 - `backup/2026-05-16/manifest.md` line 47, to `archive/FIX_QUEUE.md`
 
-**Top-level surface:** 40 `docs/current-state/*.md` files as of 2026-09-03. The #549 close-out scan found 0 broken relative links across the then-current top-level surface plus `AGENTS.md`, `README.md`, `CONTRIBUTING.md`, and `docs/INDEX.md`; re-run the link check before making a new current claim.
+**Top-level surface:** count with `ls docs/current-state/*.md | wc -l`. The #549 close-out scan found 0 broken relative links across the then-current top-level surface plus `AGENTS.md`, `README.md`, `CONTRIBUTING.md`, and `docs/INDEX.md`; re-run the link check before making a new current claim.
 
 **Repo-wide relative-link sweep completed 2026-09-03.** A scan of all 1,110 tracked Markdown files now finds zero unresolved relative link targets. The sweep repaired 69 paths across archived plans, issue drafts, superseded content drafts, and one active source-pack runbook. The scanner ignores fenced code, external URLs, root-relative live-site routes, fragments, and publisher pseudo-schemes (`photo:`, `media:`, `poster:`, `img:`), because those are not repository file targets.
 

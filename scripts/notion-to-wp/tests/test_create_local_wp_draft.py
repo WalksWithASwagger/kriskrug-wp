@@ -199,6 +199,71 @@ class CreateLocalWPDraftTests(unittest.TestCase):
         wp.create_post.assert_not_called()
         wp.update_post.assert_not_called()
 
+    def test_ambiguous_slug_lookup_aborts_before_uploads_or_writes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            post_md = self.write_package(Path(tmp))
+            wp = mock.Mock()
+            wp.base = "https://example.test"
+            wp.s.get.return_value.status_code = 200
+            wp.s.get.return_value.json.return_value = [
+                {"id": 11, "slug": "guarded-draft", "status": "draft"},
+                {"id": 12, "slug": "guarded-draft", "status": "draft"},
+            ]
+            cfg = create_local_wp_draft.WPConfig(
+                "https://example.test", "user", "pass", 1
+            )
+            with (
+                mock.patch.object(
+                    create_local_wp_draft, "load_wp_config", return_value=cfg
+                ),
+                mock.patch.object(create_local_wp_draft, "WordPress", return_value=wp),
+                mock.patch.object(
+                    create_local_wp_draft, "upload_images"
+                ) as upload_images,
+            ):
+                with self.assertRaisesRegex(RuntimeError, "post 11 .*post 12"):
+                    create_local_wp_draft.create_local_draft(post_md, dry_run=False)
+
+        upload_images.assert_not_called()
+        wp.create_post.assert_not_called()
+        wp.update_post.assert_not_called()
+
+    def test_non_canonical_slug_owned_by_another_post_aborts_before_writes(self):
+        # WordPress sanitize_title()s the slug query, so "Guarded-Dräft" finds the
+        # existing "guarded-draft" post. That must abort, not read as absent.
+        with tempfile.TemporaryDirectory() as tmp:
+            post_md = self.write_package(Path(tmp))
+            post_md.write_text(
+                post_md.read_text(encoding="utf-8").replace(
+                    "slug: guarded-draft", "slug: Guarded-Dräft"
+                ),
+                encoding="utf-8",
+            )
+            wp = mock.Mock()
+            wp.base = "https://example.test"
+            wp.s.get.return_value.status_code = 200
+            wp.s.get.return_value.json.return_value = [
+                {"id": 77, "slug": "guarded-draft", "status": "publish"}
+            ]
+            cfg = create_local_wp_draft.WPConfig(
+                "https://example.test", "user", "pass", 1
+            )
+            with (
+                mock.patch.object(
+                    create_local_wp_draft, "load_wp_config", return_value=cfg
+                ),
+                mock.patch.object(create_local_wp_draft, "WordPress", return_value=wp),
+                mock.patch.object(
+                    create_local_wp_draft, "upload_images"
+                ) as upload_images,
+            ):
+                with self.assertRaisesRegex(RuntimeError, "guarded-draft"):
+                    create_local_wp_draft.create_local_draft(post_md, dry_run=False)
+
+        upload_images.assert_not_called()
+        wp.create_post.assert_not_called()
+        wp.update_post.assert_not_called()
+
     def test_bad_readback_fails_visibly_after_create(self):
         with tempfile.TemporaryDirectory() as tmp:
             post_md = self.write_package(Path(tmp))

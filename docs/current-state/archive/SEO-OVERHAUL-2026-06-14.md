@@ -16,7 +16,7 @@ A one-day, end-to-end SEO overhaul of kriskrug.co (Pagely WordPress, all writes 
 ## Tooling built
 
 - `scripts/seo-backfill/` — additive backfill (`backfill_meta.py`, default dry-run) + `--from-file` **overwrite mode** for KK-approved crafted values (slug-guarded, records prior values), pure `backfill_lib.py`, 24 unit tests. `make seo-backfill` / `make seo-audit`.
-- `scripts/seo-backfill/reassign_categories.py` — read-modify-write category reassignment (drops Misc, preserves other categories, records old).
+- `scripts/archive/reassign_categories.py` (archived there 2026-11-12, #1226) — read-modify-write category reassignment (drops Misc, preserves other categories, records old).
 
 **Safety property:** every metadata write is `{"meta": {<=3 allowlisted keys>}}` — it cannot touch title/slug/content, so the 2026-05-15 overwrite incident class is structurally unreachable. Post-write verification is entity-normalization tolerant.
 

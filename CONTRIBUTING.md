@@ -192,7 +192,7 @@ The default ruleset is intentionally focused on high-signal WordPress security c
 Day-to-day work happens through Claude Code / Cursor agent sessions, not via the dormant GitHub Actions agent swarm. Two modes:
 
 - **Publisher mode (Track A):** Notion → kriskrug.co publishing, content enrichment, schema/SEO tweaks. Operates on `main`.
-- **Architect mode (Track B):** Aurora theme maintenance. Start from `main` on a lane-scoped `codex/...` branch; use `aurora/v3-reconcile` and `aurora/v2` only as historical/evidence branches unless a dated handoff explicitly revives one.
+- **Architect mode (Track B):** Aurora theme maintenance. Start from `main` on a lane-scoped `codex/...` branch.
 
 See [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) for the decision rule.
 
@@ -250,13 +250,13 @@ Keep one issue per branch and don't mix Track A content changes with Track B the
 
 ### Commit Messages
 
-Use clear, descriptive commit messages:
+Use `<area>: <short imperative>`, one concern per commit (see [`AGENTS.md`](AGENTS.md)):
 
 ```
 Good:
-- "Fix contact form validation on mobile devices"
-- "Add caching for API responses using transients"
-- "Improve accessibility of navigation menu"
+- "fix: validate the contact form on mobile devices"
+- "feat: cache API responses using transients"
+- "docs: update the navigation accessibility notes"
 
 Bad:
 - "fix bug"
@@ -326,17 +326,37 @@ python3 ~/Code/kk-voice/scripts/voicecheck.py <file>
 
 ## Testing
 
-This repo has focused automated tests for the Notion publisher safety guards, PHP/theme smoke, docs-truth, and a disposable WordPress fixture for the practice plugin. Production WordPress still needs manual validation.
+This repo has focused automated tests for the Notion publisher safety guards, operational scripts, plugin and theme smoke, docs-truth, and a disposable WordPress fixture for the practice plugin. [What CI runs](#what-ci-runs) says which of them run on a pull request and when. Production WordPress still needs manual validation.
 
 Automated tests:
 
 - `scripts/notion-to-wp/.venv/bin/python -m unittest discover -s scripts/notion-to-wp/tests -v`
-- `make test` (Python suites, JavaScript syntax, plugin and theme smoke)
+- `make test` (local: Python suites, JavaScript syntax, plugin and theme smoke. CI splits these into separate jobs and runs plugin smoke only when a `.php` file changes)
 - `make validate` (runs the focused WordPress PHP security ruleset)
 - `make verify` (runs the standard local gate: `test` + `docs-truth-check` + `validate`)
 - `make ruff-changed BASE_REF=origin/main` (checks the isolated E4/E7/E9/F Ruff baseline only on Python files changed from the selected base; CI runs the same ratchet)
 - `make voice-check` (hard-rule copy gate; see [Voice Gate](#voice-gate))
 - `make docs-truth-check` (blocks known-bad current-state claims)
+
+### What CI runs
+
+[`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml) runs on pull requests and on pushes to `main`. A push to `main` runs every job; on a pull request the conditional jobs run only when their trigger matches a changed file.
+
+| Job | Runs when | What it runs |
+|---|---|---|
+| `validate` | Always | Sorts changed files into the triggers below; warns when the PR body links no issue |
+| `python-tests` | Always | `scripts/ruff_changed.py` on changed Python files (same as `make ruff-changed`), then `make python-test` |
+| `javascript-validation` | Always | `make javascript-syntax` |
+| `theme-smoke` | Always | `make theme-smoke` |
+| `practice-browser` | Always | `make practice-browser-test`, then `make events-browser-test` |
+| `php-validation` | A `.php` file changed | `make validate`, then `make plugin-smoke` |
+| `css-ratchet` | A `.css` file changed | `scripts/css_inventory.py --check` against the merge base (same as `make css-inventory-check`) |
+| `voice-gate` | Payload copy, theme templates/parts/patterns, `theme/kk-aurora/functions.php`, `Makefile`, or the gate's own files changed | `make voice-check` |
+| `docs-truth-check` | Markdown, `docs/`, `Makefile`, `.env.schema`, `.github/ISSUE_TEMPLATE/`, or `scripts/docs_truth_check.py` changed | `python3 scripts/docs_truth_check.py` |
+| `security-scan` | A Composer, npm, or `requirements*.txt` manifest changed | Trivy filesystem scan; advisory, SARIF upload may fail without failing the job |
+| `summary` | Always | Fails when any job above failed or was cancelled. This is the required `Test PR / summary` check |
+
+CI does not run `make practice-preview`, the `visual-*` pixel gate, or any target that reads the live site (`make status-readonly`, `make wp7-smoke`, `make check-live-parity` and the other audits). Run those locally when a change needs them.
 
 ### Practice preview, contracts, and browser fixture
 
@@ -380,9 +400,7 @@ Manual validation:
 
 ## Recognition
 
-Contributors will be:
-- Listed in release notes
-- Credited in PR descriptions
+Contributors are credited in PR descriptions.
 
 Thanks for helping keep kriskrug.co healthy.
 

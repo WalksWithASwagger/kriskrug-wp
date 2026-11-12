@@ -15,8 +15,7 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
-
-DEFAULT_ENV_FILE = Path("scripts/notion-to-wp/.env")
+from common import load_env
 
 
 @dataclass
@@ -26,27 +25,15 @@ class Config:
     app_password: str
 
 
-def load_env(path: Path) -> dict[str, str]:
-    values: dict[str, str] = {}
-    for line in path.read_text().splitlines():
-        line = line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        key, value = line.split("=", 1)
-        values[key.strip()] = value.strip().strip('"').strip("'")
-    return values
-
-
-def load_config(env_file: Path, base_url: str | None) -> Config:
+def load_config(env_file: Path | None, base_url: str | None) -> Config:
     values = load_env(env_file)
     resolved_base_url = (base_url or values.get("WP_BASE_URL") or "https://kriskrug.co").rstrip("/")
-    user = values.get("WP_USER") or values.get("WP_API_USERNAME")
-    app_password = (
-        values.get("WP_APP_PASSWORD") or values.get("WP_API_PASSWORD") or ""
-    ).replace(" ", "")
+    user = values.get("WP_USER")
+    app_password = (values.get("WP_APP_PASSWORD") or "").replace(" ", "")
     if not user or not app_password:
         raise SystemExit(
-            f"Missing WP_USER/WP_APP_PASSWORD (or WP_API_USERNAME/WP_API_PASSWORD) in {env_file}"
+            "Missing WP_USER/WP_APP_PASSWORD (or WP_API_USERNAME/WP_API_PASSWORD). "
+            "Run through `make varlock-run CMD='...'` or pass --env-file."
         )
     return Config(base_url=resolved_base_url, user=user, app_password=app_password)
 
@@ -240,7 +227,7 @@ def print_human(report: dict[str, Any]) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run a PII-safe, read-only Jetpack Forms feedback audit.")
-    parser.add_argument("--env-file", default=str(DEFAULT_ENV_FILE), help="Path to gitignored WordPress connector .env.")
+    parser.add_argument("--env-file", type=Path, help="Optional .env override. Process env (Varlock) wins over it; default is the shared common.load_env() search.")
     parser.add_argument("--base-url", help="Override WP_BASE_URL from the env file.")
     parser.add_argument("--timeout", type=int, default=30, help="Request timeout in seconds.")
     parser.add_argument("--json", action="store_true", help="Print JSON instead of human-readable output.")
@@ -249,7 +236,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    config = load_config(Path(args.env_file), args.base_url)
+    config = load_config(args.env_file, args.base_url)
     report = collect(config, args.timeout)
     if args.json:
         print(json.dumps(report, indent=2, sort_keys=True))
