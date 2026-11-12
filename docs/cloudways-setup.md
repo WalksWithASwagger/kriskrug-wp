@@ -334,11 +334,11 @@ jobs:
 ```bash
 # Generate SSH key if you don't have one
 ssh-keygen -t ed25519 -C "kk-cloudways-dev"
-# Save to: ~/.ssh/id_cloudways_bcai
+# Save to: ~/.ssh/<legacy-key-file>
 # Add passphrase for security
 
 # View public key
-cat ~/.ssh/id_cloudways_bcai.pub
+cat ~/.ssh/<legacy-key-file>.pub
 ```
 
 **In Cloudways Dashboard:**
@@ -352,7 +352,7 @@ cat ~/.ssh/id_cloudways_bcai.pub
 **Test connection:**
 
 ```bash
-ssh -i ~/.ssh/id_cloudways_bcai <legacy-ssh-user>@<legacy-host>
+ssh -i ~/.ssh/<legacy-key-file> <legacy-ssh-user>@<legacy-host>
 # Should connect without password!
 ```
 
@@ -365,7 +365,7 @@ cat >> ~/.ssh/config <<'EOF'
 Host cloudways-bcai-dev
     HostName <legacy-host>
     User <legacy-ssh-user>
-    IdentityFile ~/.ssh/id_cloudways_bcai
+    IdentityFile ~/.ssh/<legacy-key-file>
     ServerAliveInterval 60
     ServerAliveCountMax 3
 EOF
@@ -493,7 +493,7 @@ cat > .cloudways-credentials <<'EOF'
 Host: <legacy-host>
 Username: <legacy-ssh-user>
 Password: [stored in password manager]
-SSH Key: ~/.ssh/id_cloudways_bcai
+SSH Key: ~/.ssh/<legacy-key-file>
 
 # WordPress Admin (on dev server)
 WP Admin URL: http://[cloudways-url]/wp-admin
