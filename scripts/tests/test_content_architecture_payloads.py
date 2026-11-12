@@ -56,7 +56,7 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
         )
 
     # These page payloads use inline CSS scoped to their own markup.
-    STYLE_ALLOWED = {"about.html", "speaking.html", "testimonials.html", "work.html"}
+    STYLE_ALLOWED = {"speaking.html", "testimonials.html", "work.html"}
 
     def test_work_inline_css_is_scoped_to_work_page(self):
         html = (PAYLOADS / "work.html").read_text(encoding="utf-8")
@@ -103,7 +103,13 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
                     continue
                 self.assertNotIn(fragment, lowered, f"{path.name} contains {fragment}")
 
-    SCOPED_PAGE_STYLES = {"services.html": 2666, "contact.html": 2418}
+    SCOPED_PAGE_STYLES = {
+        "about.html": 1208,
+        "contact.html": 2418,
+        "motleykrug-podcast.html": 2828,
+        "photography.html": 12013,
+        "services.html": 2666,
+    }
 
     def test_inline_styles_are_scoped_to_their_wordpress_pages(self):
         page_ids = {
@@ -116,7 +122,14 @@ class ContentArchitecturePayloadTests(unittest.TestCase):
             html = path.read_text(encoding="utf-8")
             styles = re.findall(r"<style>(.*?)</style>", html, re.DOTALL)
             self.assertEqual(1, len(styles), filename)
+            self.assertNotIn("/wp-content/uploads/showpiece-review/", html)
             css = re.sub(r"/\*.*?\*/", "", styles[0], flags=re.DOTALL)
+            if filename == "photography.html":
+                css = re.sub(
+                    r"@keyframes photo-enter\s*\{\s*from\s*\{[^{}]+\}\s*to\s*\{[^{}]+\}\s*\}",
+                    "",
+                    css,
+                )
             self.assertNotIn("@import", css)
             selectors = re.findall(r"(?:^|(?<=[{}]))\s*([^{}]+?)\s*\{", css)
             self.assertTrue(selectors, filename)

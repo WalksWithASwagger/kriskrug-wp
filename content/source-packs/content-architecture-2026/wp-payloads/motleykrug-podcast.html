@@ -1,0 +1,699 @@
+<!-- wp:html -->
+<style>
+body.aurora-theme.page-id-2828 #aurora-main:has(.showpiece-page) {
+  padding-block: 0;
+  margin-block-start: 0;
+}
+body.aurora-theme.page-id-2828 #aurora-main:has(.showpiece-page) .aurora-page-header {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  margin: -1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+body.aurora-theme.page-id-2828 #aurora-main .wp-block-post-content:has(.showpiece-page) {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page {
+  --paper: #f1ebd9;
+  --ink: #202018;
+  --forest: #143d35;
+  --lime: #e0e9a7;
+  --line: #c6bea9;
+  --rust: #913916;
+  --showpiece-heading-ink: var(--ink);
+  --revive-ink: var(--ink);
+  --aurora-ink: var(--ink);
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: var(--wp--preset--font-family--body, "DM Sans", system-ui, sans-serif);
+  --gutter: clamp(16px, 4vw, 44px);
+  --measure: 1240px;
+  --revive-ink-soft: currentColor;
+  --revive-accent-text: currentColor;
+  width: 100vw;
+  max-width: none !important;
+  margin: 0 calc(50% - 50vw);
+  min-width: 0;
+  font: 1rem/1.55 var(--sans);
+}
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page *, body.aurora-theme.page-id-2828 #aurora-main .showpiece-page *::before, body.aurora-theme.page-id-2828 #aurora-main .showpiece-page *::after { box-sizing: border-box; }
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page [hidden] { display: none !important; }
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page :target { scroll-margin-block-start: 100px; }
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page img { display: block; max-width: 100%; height: auto; }
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page :where(figure, p, h2, h3, h4) { margin: 0; }
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page.photo-page,
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page :is(.about-current,.contact-opening,.podcast-opening) {
+  --showpiece-heading-ink: var(--paper);
+  --revive-ink: var(--paper);
+  --aurora-ink: var(--paper);
+}
+body.aurora-theme.page-id-2828 #aurora-main .aurora-prose .showpiece-page :is(h2,h3,h4) {
+  color: var(--showpiece-heading-ink) !important;
+  -webkit-text-fill-color: currentColor !important;
+  border: 0;
+  padding: 0;
+}
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page :is(h2,h3,h4)::before,body.aurora-theme.page-id-2828 #aurora-main .showpiece-page :is(h2,h3,h4)::after {
+  content: none;
+}
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page :where(a) {
+  color: inherit;
+  text-decoration-color: currentColor;
+}
+body.aurora-theme.page-id-2828 #aurora-main .aurora-prose .showpiece-page figcaption {
+  color: var(--showpiece-heading-ink);
+  text-align: start;
+  font-style: normal;
+}
+body.aurora-theme.page-id-2828 #aurora-main .aurora-prose .photo-page figcaption {
+  margin: 0;
+  max-width: none;
+}
+body.aurora-theme.page-id-2828 #aurora-main .aurora-prose .photo-page figcaption small {
+  margin: 0;
+  text-align: start;
+  font-style: normal;
+}
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page :where(a,button,summary):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page .wrap {
+  width: min(var(--measure), calc(100% - 2 * var(--gutter)));
+  margin-inline: auto;
+}
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page .eyebrow {
+  font: 700 .71rem/1.4 var(--sans);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page .button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: .72rem 1.05rem;
+  border: 1px solid var(--forest);
+  background: var(--forest);
+  color: var(--paper);
+  font: 750 .84rem/1.25 var(--sans);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 150ms, color 150ms, border-color 150ms;
+}
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page .button:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page .button.secondary {
+  background: transparent;
+  color: currentColor;
+  border-color: currentColor;
+}
+body.aurora-theme.page-id-2828 #aurora-main .showpiece-page .button.secondary:hover {
+  background: var(--lime);
+  color: var(--ink);
+  border-color: var(--lime);
+}
+@media (prefers-reduced-motion: reduce) {
+  body.aurora-theme.page-id-2828 #aurora-main .showpiece-page *, body.aurora-theme.page-id-2828 #aurora-main .showpiece-page *::before, body.aurora-theme.page-id-2828 #aurora-main .showpiece-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+  }
+}
+body.aurora-theme.page-id-2828 #aurora-main .podcast-page {
+  --podcast-panel: #0e3029;
+  --podcast-warm: #d9e3d1;
+  --podcast-muted: #4a5345;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-page [hidden] { display: none !important; }
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-page .showpiece-title,
+body.aurora-theme.page-id-2828 #aurora-main .podcast-page h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.04;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-opening {
+  padding-block: clamp(2rem, 4.6vw, 4.25rem);
+  background: var(--forest);
+  color: var(--paper);
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-opening-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr);
+  grid-template-rows: auto auto;
+  column-gap: clamp(1.75rem, 5vw, 6rem);
+  row-gap: 1.5rem;
+  align-items: start;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-intro .showpiece-title {
+  font-size: clamp(2.25rem, 6.2vw, 5.75rem);
+  letter-spacing: -.05em;
+  overflow-wrap: anywhere;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-opening .eyebrow { color: var(--lime); margin: 0 0 .65rem; }
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-lede {
+  margin: .85rem 0 .55rem;
+  max-width: 43ch;
+  color: var(--podcast-warm);
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  line-height: 1.55;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-browse {
+  display: inline-flex;
+  gap: .5rem;
+  align-items: center;
+  min-height: 44px;
+  font-size: .91rem;
+  color: var(--lime);
+  text-underline-offset: .22em;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-browse span { transition: transform .18s ease; }
+body.aurora-theme.page-id-2828 #aurora-main .podcast-browse:hover span { transform: translateY(3px); }
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-feature {
+  padding: clamp(.85rem, 2.35vw, 1.5rem);
+  border-block-start: 2px solid var(--lime);
+  background: var(--podcast-panel);
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-feature h2 { font-size: clamp(1.55rem, 2.95vw, 2.65rem); }
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-feature-meta,
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode-date {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .35rem .48rem;
+  font-size: .82rem;
+  line-height: 1.45;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-feature-meta {
+  margin: .48rem 0 .7rem;
+  color: var(--podcast-warm);
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-page audio {
+  display: block;
+  width: min(100%, 38rem);
+  height: 44px;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-player-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.1rem;
+  align-items: center;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-player-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: inherit;
+  font-size: .86rem;
+  text-underline-offset: .2em;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-feature .podcast-player-links a { color: var(--lime); }
+body.aurora-theme.page-id-2828 #aurora-main .podcast-error { margin: .55rem 0 0; font-size: .85rem; }
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-cover {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+  width: min(100%, 410px);
+  margin: 0;
+  padding: .55rem;
+  background: var(--podcast-panel);
+  box-sizing: border-box;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-cover figcaption {
+  padding: .5rem .22rem .12rem;
+  color: var(--podcast-warm);
+  font-size: .76rem;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-index {
+  padding-block: clamp(2rem, 4vw, 3.5rem) 1.6rem;
+  scroll-margin-top: 5rem;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-index-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: .8rem 1.25rem;
+  flex-wrap: wrap;
+  margin: 0 0 1rem;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-index h2 { font-size: clamp(2rem, 4.45vw, 3.9rem); }
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-index-header p {
+  margin: .45rem 0 0;
+  color: var(--podcast-muted);
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-filters button {
+  min-height: 44px;
+  padding: .3rem .64rem;
+  border: 1px solid var(--forest);
+  border-radius: 0;
+  background: transparent;
+  color: var(--forest);
+  font: inherit;
+  font-size: .82rem;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-filters button:hover,
+body.aurora-theme.page-id-2828 #aurora-main .podcast-filters button[aria-pressed="true"] {
+  background: var(--forest);
+  color: var(--paper);
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode { border-top: 1px solid var(--line); }
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode:last-child { border-bottom: 1px solid var(--line); }
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(9rem, auto) 1.5rem;
+  gap: .35rem 1.25rem;
+  align-items: center;
+  padding: .85rem .25rem;
+  cursor: pointer;
+  list-style: none;
+  transition: color .18s ease;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode summary::-webkit-details-marker { display: none; }
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode summary:hover { color: var(--forest); }
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode-name {
+  display: grid;
+  gap: .22rem;
+  min-width: 0;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode-name strong {
+  font: 400 clamp(1.2rem, 2.3vw, 1.65rem)/1.12 var(--serif);
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode-name > span {
+  color: var(--podcast-muted);
+  font-size: .85rem;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode-date { color: var(--podcast-muted); }
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode-toggle {
+  position: relative;
+  width: 1.45rem;
+  height: 1.45rem;
+  border: 1px solid currentColor;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode-toggle::before,
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode-toggle::after {
+  position: absolute;
+  content: "";
+  inset: 50% auto auto 50%;
+  width: .65rem;
+  height: 1px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode-toggle::after { transform: translate(-50%, -50%) rotate(90deg); }
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode[open] .podcast-episode-toggle::after { display: none; }
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode-body {
+  padding: 0 .25rem .75rem;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-episode-body p:first-child {
+  margin: 0 0 .65rem;
+  max-width: 58ch;
+  line-height: 1.55;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-complete { margin: .75rem 0 0; }
+body.aurora-theme.page-id-2828 #aurora-main .podcast-complete a { color: var(--forest); text-underline-offset: .2em; }
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-elsewhere {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2rem;
+  padding-bottom: clamp(2.25rem, 5vw, 4.25rem);
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-continuation {
+  border-top: 2px solid var(--forest);
+  padding-block: 1rem .45rem;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-continuation h2 { font-size: clamp(1.45rem, 2.4vw, 2.1rem); }
+body.aurora-theme.page-id-2828 #aurora-main .podcast-continuation p { margin: .55rem 0 .25rem; max-width: 45ch; line-height: 1.55; }
+body.aurora-theme.page-id-2828 #aurora-main .podcast-continuation a { color: var(--forest); }
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-page :focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 4px;
+}
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-opening :focus-visible { outline-color: var(--lime); }
+
+body.aurora-theme.page-id-2828 #aurora-main .podcast-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  body.aurora-theme.page-id-2828 #aurora-main .podcast-opening { padding-block: 1.5rem; }
+  body.aurora-theme.page-id-2828 #aurora-main .podcast-opening-grid { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; row-gap: .9rem; }
+  body.aurora-theme.page-id-2828 #aurora-main .podcast-intro .showpiece-title { font-size: clamp(2.35rem, 10.8vw, 5rem); }
+  body.aurora-theme.page-id-2828 #aurora-main .podcast-cover { grid-area: auto; align-self: start; max-width: 23rem; }
+  body.aurora-theme.page-id-2828 #aurora-main .podcast-episode summary { grid-template-columns: minmax(0, 1fr) 1.5rem; gap: .35rem .65rem; }
+  body.aurora-theme.page-id-2828 #aurora-main .podcast-episode-date { grid-row: 2; grid-column: 1; }
+  body.aurora-theme.page-id-2828 #aurora-main .podcast-episode-toggle { grid-column: 2; grid-row: 1 / 3; }
+  body.aurora-theme.page-id-2828 #aurora-main .podcast-elsewhere { grid-template-columns: 1fr; row-gap: .75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.aurora-theme.page-id-2828 #aurora-main .podcast-page * { transition: none; }
+}
+</style>
+<div class="podcast-page showpiece-page alignfull">
+<section aria-labelledby="podcast-title" class="podcast-opening">
+<div class="wrap podcast-opening-grid">
+<div class="podcast-intro">
+<p class="eyebrow">Kris Krüg / Podcast archive</p>
+<h2 class="showpiece-title" id="podcast-title">MØTLEYKRÜG</h2>
+<p class="podcast-lede">I started this show in 2023 to talk with artists and record what I was learning about AI, making things, and getting people together.</p>
+<a class="podcast-browse" href="#episodes">Browse the recordings <span aria-hidden="true">&#x2193;</span></a>
+</div>
+<article aria-labelledby="podcast-feature-title" class="podcast-feature" id="episode-1071691">
+<p class="eyebrow">Start here</p>
+<h2 id="podcast-feature-title">AI in the artist’s studio</h2>
+<p class="podcast-feature-meta">Kris Krüg with Kevin W. Kelley<span aria-hidden="true">·</span><time datetime="2023-08-11">Aug 11, 2023</time><span aria-hidden="true">·</span><span>29:01</span></p>
+<audio aria-label="Play AI in the artist’s studio with Kevin W. Kelley" controls="" preload="none">
+<source src="https://content.rss.com/episodes/221721/1071691/motleykrug/2023_08_11_15_22_31_770a3804-01c8-4168-a98d-984dff9ee9a0.mp3" type="audio/mpeg"/>
+<a href="https://content.rss.com/episodes/221721/1071691/motleykrug/2023_08_11_15_22_31_770a3804-01c8-4168-a98d-984dff9ee9a0.mp3">Open MP3</a>
+</audio>
+<p class="podcast-error" hidden="" role="status">Audio is unavailable here. Try the episode on RSS.com.</p>
+<div class="podcast-player-links">
+<a href="https://rss.com/podcasts/motleykrug/1071691/">Episode on RSS.com</a>
+<a href="https://transcripts.rss.com/221721/1071691/transcript">Transcript file</a>
+</div>
+</article>
+<figure class="podcast-cover">
+<img alt="Original MØTLEYKRÜG cover, an AI-generated portrait of Kris with a braided mohawk in neon rain" height="839" sizes="(max-width: 760px) calc(100vw - 36px), 410px" src="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/08/PodThumbs-1-of-1.jpeg?w=480&amp;ssl=1" srcset="https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/08/PodThumbs-1-of-1.jpeg?w=480&amp;ssl=1 480w, https://i0.wp.com/kriskrug.co/wp-content/uploads/2023/08/PodThumbs-1-of-1.jpeg?w=840&amp;ssl=1 839w" width="839"/>
+<figcaption>Original MØTLEYKRÜG cover · 2023</figcaption>
+</figure>
+</div>
+</section>
+<section aria-labelledby="podcast-episode-heading" class="wrap podcast-index" id="episodes" tabindex="-1">
+<div class="podcast-index-header">
+<div>
+<h2 id="podcast-episode-heading">From the archive</h2>
+<p>Conversations and field notes from the original show.</p>
+</div>
+<div aria-label="Filter episodes" class="podcast-filters" hidden="" role="group">
+<button aria-pressed="true" data-podcast-filter="all" type="button">All</button>
+<button aria-pressed="false" data-podcast-filter="conversations" type="button">Conversations</button>
+<button aria-pressed="false" data-podcast-filter="field-notes" type="button">Field notes</button>
+</div>
+</div>
+<p class="podcast-visually-hidden" data-podcast-result="" role="status"></p>
+<div class="podcast-episodes">
+<details class="podcast-episode" data-podcast-category="field-notes" id="episode-1267024">
+<summary>
+<span class="podcast-episode-name">
+<strong>47 &amp; Unfiltered</strong>
+<span>Kris Krüg · Solo</span>
+</span>
+<span class="podcast-episode-date"><time datetime="2023-12-15">Dec 15, 2023</time><span aria-hidden="true">·</span><span>33:21</span></span>
+<span aria-hidden="true" class="podcast-episode-toggle"></span>
+</summary>
+<div class="podcast-episode-body">
+<p>A birthday dispatch from my bathtub on DENT, community work in Maui, and what I was building next.</p>
+<audio aria-label="Play 47 &amp; Unfiltered" controls="" preload="none">
+<source src="https://content.rss.com/episodes/221721/1267024/motleykrug/2023_12_15_13_54_24_55987188-b99e-4d8a-85c5-c9026e650510.mp3" type="audio/mpeg"/>
+<a href="https://content.rss.com/episodes/221721/1267024/motleykrug/2023_12_15_13_54_24_55987188-b99e-4d8a-85c5-c9026e650510.mp3">Open MP3</a>
+</audio>
+<p class="podcast-error" hidden="" role="status">Audio is unavailable here. Try the episode on RSS.com.</p>
+<div class="podcast-player-links">
+<a href="https://rss.com/podcasts/motleykrug/1267024/">Episode on RSS.com</a>
+<a href="https://transcripts.rss.com/221721/1267024/transcript">Transcript file</a>
+</div>
+</div>
+</details>
+<details class="podcast-episode" data-podcast-category="conversations" id="episode-1184665">
+<summary>
+<span class="podcast-episode-name">
+<strong>Hacking the digital ecosystem</strong>
+<span>Kris Krüg with Jordan Behan</span>
+</span>
+<span class="podcast-episode-date"><time datetime="2023-10-23">Oct 23, 2023</time><span aria-hidden="true">·</span><span>51:19</span></span>
+<span aria-hidden="true" class="podcast-episode-toggle"></span>
+</summary>
+<div class="podcast-episode-body">
+<p>Jordan and I talk podcast discovery, audience engagement, and which numbers actually tell you something.</p>
+<audio aria-label="Play Hacking the digital ecosystem" controls="" preload="none">
+<source src="https://content.rss.com/episodes/221721/1184665/motleykrug/2023_10_23_00_55_58_797fb5be-e2b4-4132-88bb-1cc4d602ea8d.mp3" type="audio/mpeg"/>
+<a href="https://content.rss.com/episodes/221721/1184665/motleykrug/2023_10_23_00_55_58_797fb5be-e2b4-4132-88bb-1cc4d602ea8d.mp3">Open MP3</a>
+</audio>
+<p class="podcast-error" hidden="" role="status">Audio is unavailable here. Try the episode on RSS.com.</p>
+<div class="podcast-player-links">
+<a href="https://rss.com/podcasts/motleykrug/1184665/">Episode on RSS.com</a>
+<a href="https://transcripts.rss.com/221721/1184665/transcript">Transcript file</a>
+</div>
+</div>
+</details>
+<details class="podcast-episode" data-podcast-category="field-notes" id="episode-1096598">
+<summary>
+<span class="podcast-episode-name">
+<strong>Rural roads &amp; ripple effects</strong>
+<span>Kris Krüg · Solo</span>
+</span>
+<span class="podcast-episode-date"><time datetime="2023-09-01">Sep 1, 2023</time><span aria-hidden="true">·</span><span>9:10</span></span>
+<span aria-hidden="true" class="podcast-episode-toggle"></span>
+</summary>
+<div class="podcast-episode-body">
+<p>Recorded in my truck on Hornby Island. A short note about how small acts of sharing hold a community together.</p>
+<audio aria-label="Play Rural roads &amp; ripple effects" controls="" preload="none">
+<source src="https://content.rss.com/episodes/221721/1096598/motleykrug/2023_08_31_05_09_40_ebadeb63-ccfc-44b8-891f-1336a7e12c35.mp3" type="audio/mpeg"/>
+<a href="https://content.rss.com/episodes/221721/1096598/motleykrug/2023_08_31_05_09_40_ebadeb63-ccfc-44b8-891f-1336a7e12c35.mp3">Open MP3</a>
+</audio>
+<p class="podcast-error" hidden="" role="status">Audio is unavailable here. Try the episode on RSS.com.</p>
+<div class="podcast-player-links">
+<a href="https://rss.com/podcasts/motleykrug/1096598/">Episode on RSS.com</a>
+<a href="https://transcripts.rss.com/221721/1096598/transcript">Transcript file</a>
+</div>
+</div>
+</details>
+<details class="podcast-episode" data-podcast-category="conversations" id="episode-1089321">
+<summary>
+<span class="podcast-episode-name">
+<strong>The mythology of the now</strong>
+<span>Kris Krüg with Blackcat Charlie Smith</span>
+</span>
+<span class="podcast-episode-date"><time datetime="2023-08-29">Aug 29, 2023</time><span aria-hidden="true">·</span><span>38:43</span></span>
+<span aria-hidden="true" class="podcast-episode-toggle"></span>
+</summary>
+<div class="podcast-episode-body">
+<p>Charlie talks about metal sculpture, sobriety, and the people and projects that bring him back to Burning Man.</p>
+<audio aria-label="Play The mythology of the now" controls="" preload="none">
+<source src="https://content.rss.com/episodes/221721/1089321/motleykrug/2023_08_25_01_51_29_e033e145-925f-41cb-adae-63368dc87991.mp3" type="audio/mpeg"/>
+<a href="https://content.rss.com/episodes/221721/1089321/motleykrug/2023_08_25_01_51_29_e033e145-925f-41cb-adae-63368dc87991.mp3">Open MP3</a>
+</audio>
+<p class="podcast-error" hidden="" role="status">Audio is unavailable here. Try the episode on RSS.com.</p>
+<div class="podcast-player-links">
+<a href="https://rss.com/podcasts/motleykrug/1089321/">Episode on RSS.com</a>
+<a href="https://transcripts.rss.com/221721/1089321/transcript">Transcript file</a>
+</div>
+</div>
+</details>
+<details class="podcast-episode" data-podcast-category="field-notes" id="episode-1084674">
+<summary>
+<span class="podcast-episode-name">
+<strong>Burning Man art projects</strong>
+<span>Kris Krüg · Solo</span>
+</span>
+<span class="podcast-episode-date"><time datetime="2023-08-23">Aug 23, 2023</time><span aria-hidden="true">·</span><span>13:36</span></span>
+<span aria-hidden="true" class="podcast-episode-toggle"></span>
+</summary>
+<div class="podcast-episode-body">
+<p>Two stories from the playa, including Tyson Ayer’s shrine built with piano harps and grand pianos.</p>
+<audio aria-label="Play Burning Man art projects" controls="" preload="none">
+<source src="https://content.rss.com/episodes/221721/1084674/motleykrug/2023_08_21_21_55_34_23408f27-85ad-4b71-8ba0-3066db3b2bac.mp3" type="audio/mpeg"/>
+<a href="https://content.rss.com/episodes/221721/1084674/motleykrug/2023_08_21_21_55_34_23408f27-85ad-4b71-8ba0-3066db3b2bac.mp3">Open MP3</a>
+</audio>
+<p class="podcast-error" hidden="" role="status">Audio is unavailable here. Try the episode on RSS.com.</p>
+<div class="podcast-player-links">
+<a href="https://rss.com/podcasts/motleykrug/1084674/">Episode on RSS.com</a>
+<a href="https://transcripts.rss.com/221721/1084674/transcript">Transcript file</a>
+</div>
+</div>
+</details>
+<details class="podcast-episode" data-podcast-category="conversations" id="episode-1072401">
+<summary>
+<span class="podcast-episode-name">
+<strong>AI in the artist’s studio, part two</strong>
+<span>Kris Krüg with Kevin W. Kelley</span>
+</span>
+<span class="podcast-episode-date"><time datetime="2023-08-17">Aug 17, 2023</time><span aria-hidden="true">·</span><span>33:46</span></span>
+<span aria-hidden="true" class="podcast-episode-toggle"></span>
+</summary>
+<div class="podcast-episode-body">
+<p>Kevin and I continue the conversation about the possibilities and pitfalls of making art with AI.</p>
+<audio aria-label="Play AI in the artist’s studio, part two" controls="" preload="none">
+<source src="https://content.rss.com/episodes/221721/1072401/motleykrug/2023_08_11_15_34_16_19c12729-8e95-471e-87d7-6b9ae9014a71.mp3" type="audio/mpeg"/>
+<a href="https://content.rss.com/episodes/221721/1072401/motleykrug/2023_08_11_15_34_16_19c12729-8e95-471e-87d7-6b9ae9014a71.mp3">Open MP3</a>
+</audio>
+<p class="podcast-error" hidden="" role="status">Audio is unavailable here. Try the episode on RSS.com.</p>
+<div class="podcast-player-links">
+<a href="https://rss.com/podcasts/motleykrug/1072401/">Episode on RSS.com</a>
+<a href="https://transcripts.rss.com/221721/1072401/transcript">Transcript file</a>
+</div>
+</div>
+</details>
+<details class="podcast-episode" data-podcast-category="field-notes" id="episode-1057298">
+<summary>
+<span class="podcast-episode-name">
+<strong>GO FISH</strong>
+<span>Kris Krüg and KayKay-Bot</span>
+</span>
+<span class="podcast-episode-date"><time datetime="2023-07-30">Jul 30, 2023</time><span aria-hidden="true">·</span><span>5:52</span></span>
+<span aria-hidden="true" class="podcast-episode-toggle"></span>
+</summary>
+<div class="podcast-episode-body">
+<p>A short review of a triptych film about the Pacific herring spawn in the Salish Sea.</p>
+<audio aria-label="Play GO FISH" controls="" preload="none">
+<source src="https://content.rss.com/episodes/221721/1057298/motleykrug/2023_07_30_03_26_21_733527a5-79be-4ad8-9d6c-ce61b3e30b05.mp3" type="audio/mpeg"/>
+<a href="https://content.rss.com/episodes/221721/1057298/motleykrug/2023_07_30_03_26_21_733527a5-79be-4ad8-9d6c-ce61b3e30b05.mp3">Open MP3</a>
+</audio>
+<p class="podcast-error" hidden="" role="status">Audio is unavailable here. Try the episode on RSS.com.</p>
+<div class="podcast-player-links">
+<a href="https://rss.com/podcasts/motleykrug/1057298/">Episode on RSS.com</a>
+<a href="https://transcripts.rss.com/221721/1057298/transcript">Transcript file</a>
+</div>
+</div>
+</details>
+</div>
+<p class="podcast-complete"><a href="https://rss.com/podcasts/motleykrug/">Find the complete feed on RSS.com</a></p>
+</section>
+<section aria-label="Other ways to listen" class="wrap podcast-elsewhere">
+<div class="podcast-continuation">
+<h2>Vancouver AI Pods</h2>
+<p>The same feed now carries recordings from Vancouver AI meetups, BC + AI Film Club, and other community events.</p>
+<div class="podcast-player-links">
+<a href="https://rss.com/podcasts/motleykrug/">Listen on RSS.com</a>
+<a href="https://podcasts.apple.com/us/podcast/vancouver-ai-pods/id1700115918">Apple Podcasts</a>
+<a href="https://open.spotify.com/show/7g6UPLBrr0LatRgtX3MIMQ">Spotify</a>
+</div>
+</div>
+<div class="podcast-continuation">
+<h2>Interviews &amp; guest spots</h2>
+<p>Find conversations where I’m the guest, or get the producer kit for your show.</p>
+<div class="podcast-player-links">
+<a href="https://kriskrug.co/publications/">Explore Publications</a>
+<a href="https://kriskrug.co/podcast-guesting-page-epk/">Podcast guesting kit</a>
+</div>
+</div>
+</section>
+</div>
+<script>
+(() => {
+  const archive = document.querySelector('.podcast-page');
+  if (!archive) return;
+
+  const filters = archive.querySelector('.podcast-filters');
+  const choices = [...filters.querySelectorAll('[data-podcast-filter]')];
+  const episodes = [...archive.querySelectorAll('[data-podcast-category]')];
+  const status = archive.querySelector('[data-podcast-result]');
+  const players = [...archive.querySelectorAll('audio')];
+
+  filters.hidden = false;
+  choices.forEach(choice => {
+    choice.addEventListener('click', () => {
+      const category = choice.dataset.podcastFilter;
+      let count = 0;
+      episodes.forEach(episode => {
+        const visible = category === 'all' || episode.dataset.podcastCategory === category;
+        episode.hidden = !visible;
+        if (visible) count += 1;
+        else episode.querySelector('audio').pause();
+      });
+      choices.forEach(button => button.setAttribute('aria-pressed', String(button === choice)));
+      status.textContent = `${count} ${count === 1 ? 'recording' : 'recordings'}`;
+    });
+  });
+
+  players.forEach(player => {
+    player.addEventListener('play', () => {
+      players.filter(other => other !== player).forEach(other => other.pause());
+    });
+    const showFallback = () => { player.nextElementSibling.hidden = false; };
+    player.addEventListener('error', showFallback);
+    player.querySelector('source').addEventListener('error', showFallback);
+    player.closest('details')?.addEventListener('toggle', ({ currentTarget }) => {
+      if (!currentTarget.open) player.pause();
+    });
+  });
+
+  const openLinkedEpisode = () => {
+    const episode = episodes.find(item => '#' + item.id === location.hash);
+    if (episode) {
+      if (episode.hidden) choices[0].click();
+      episode.open = true;
+    }
+  };
+  window.addEventListener('hashchange', openLinkedEpisode);
+  openLinkedEpisode();
+})();
+</script>
+<!-- /wp:html -->
