@@ -381,6 +381,31 @@ class DeployDryRunParityTests(ParityTestBase):
             out.index("parity: about"), out.index("[dry-run] planned pages=1")
         )
 
+    def test_deploy_refuses_issue_480_map_under_either_name(self):
+        for name in ("page-map.json", "page-map.superseded.json"):
+            for extra in ([], ["--execute"], ["--restore", "--snapshot-dir", "x"]):
+                with self.subTest(name=name, extra=extra):
+                    argv = [
+                        "content_architecture_deploy.py",
+                        "--map",
+                        str(cad.SUPERSEDED_PACK / name),
+                        *extra,
+                    ]
+                    with (
+                        mock.patch.object(cad.WPClient, "from_env") as from_env,
+                        mock.patch.object(sys, "argv", argv),
+                        self.assertRaisesRegex(SystemExit, "superseded"),
+                    ):
+                        cad.main()
+                    from_env.assert_not_called()
+
+    def test_deploy_and_parity_share_one_superseded_rule(self):
+        self.assertIs(parity.is_superseded, cad.is_superseded)
+        self.assertTrue(
+            cad.is_superseded(cad.SUPERSEDED_PACK / "page-map.superseded.json")
+        )
+        self.assertFalse(cad.is_superseded(cad.PAGE_MAP_PATH))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -30,9 +30,10 @@ from urllib.error import HTTPError
 
 from common import REPO_ROOT, WPClient
 from content_architecture_deploy import (
-    PACK_DIR,
     PAYLOAD_DIR,
+    SUPERSEDED_PACK,
     describe_verdict,
+    is_superseded,
     load_page_map,
     parity_verdict,
     read_payload,
@@ -44,7 +45,6 @@ DEFAULT_MAPS = (
     PAYLOAD_DIR / "page-map.json",
     PAYLOAD_DIR / "topic-hubs" / "page-map.json",
 )
-SUPERSEDED_PACK = PACK_DIR / "issue-480-retire-inline-css"
 PAGE_FIELDS = "id,slug,status,modified,content"
 VARLOCK_HINT = "make varlock-run CMD='make payload-parity'"
 NOT_COVERED = (
@@ -64,10 +64,6 @@ EXCLUDED_NOTE = (
     f"{rel(SUPERSEDED_PACK)}/ (superseded #480 pack; never checked under "
     "page-map.json or page-map.superseded.json, see #1223)"
 )
-
-
-def is_superseded(map_path: Path) -> bool:
-    return SUPERSEDED_PACK.resolve() in map_path.resolve().parents
 
 
 def payload_commit_date(path: Path) -> str:

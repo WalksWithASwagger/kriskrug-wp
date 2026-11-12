@@ -18,6 +18,7 @@ from common import REPO_ROOT, WPClient
 PACK_DIR = REPO_ROOT / "content/source-packs/content-architecture-2026"
 PAYLOAD_DIR = PACK_DIR / "wp-payloads"
 PAGE_MAP_PATH = PAYLOAD_DIR / "page-map.json"
+SUPERSEDED_PACK = PACK_DIR / "issue-480-retire-inline-css"
 SNAPSHOT_FIELDS = "id,slug,status,title,content,excerpt,meta,modified,link"
 RETIRED_CLASS_PREFIXES = ("kk-", "kkp-", "kkx-", "kk-services-", "kk-publications-")
 
@@ -25,6 +26,10 @@ RETIRED_CLASS_PREFIXES = ("kk-", "kkp-", "kkx-", "kk-services-", "kk-publication
 def repo_path(value: str) -> Path:
     path = Path(value)
     return path if path.is_absolute() else REPO_ROOT / path
+
+
+def is_superseded(map_path: Path) -> bool:
+    return SUPERSEDED_PACK.resolve() in map_path.resolve().parents
 
 
 def load_page_map(path: Path) -> dict[str, dict[str, Any]]:
@@ -216,6 +221,8 @@ def main() -> None:
     args = parser.parse_args()
 
     map_path = repo_path(args.map)
+    if is_superseded(map_path):
+        raise SystemExit(f"refusing --map {args.map}: the issue-480 pack is superseded, do not apply (#1223)")
     payload_dir = map_path.parent
     page_map = load_page_map(map_path)
     items = selected_page_items(page_map, args.page)
