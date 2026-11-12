@@ -70,7 +70,8 @@ deploy's own normalization and SHA-256. It sends authenticated GETs only and
 prints IDs, slugs, dates, hashes and `match` or `DRIFT`, never page content.
 It needs credentials, so run it as `make varlock-run CMD='make payload-parity'`.
 Exit 0 means every page matches, 1 means drift, 2 means it could not verify.
-It never checks the superseded `issue-480-retire-inline-css/` pack, and it does
+It never checks the superseded `issue-480-retire-inline-css/` pack, which
+`content_architecture_deploy.py` also refuses as a `--map`, and it does
 not cover Publications (1895) or Events (2250). A dry run of
 `scripts/content_architecture_deploy.py` prints the same per-page verdict
 before its `[dry-run]` line. File any drift it finds as its own issue; the
