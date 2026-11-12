@@ -5,8 +5,6 @@ on:
     types: [opened, synchronize, reopened]
     branches:
       - main
-      - develop
-      - codex/981-context-brief-teaching
   # main accepts direct pushes from accounts that can bypass branch protection,
   # and those were landing with no CI at all because this workflow was
   # pull_request-only. main only: a feature-branch push would otherwise run the
@@ -15,19 +13,18 @@ on:
     branches:
       - main
 
+# Read-only by default. Jobs install floating dependencies (npm, pip,
+# Composer), so a write scope is granted only to the one job that uses it.
 permissions:
   contents: read
-  pull-requests: write
-  checks: write
-  # upload-sarif writes code-scanning alerts. Never granted, but it only
-  # surfaced once security-scan started running on push: the same upload had
-  # succeeded on five pull_request runs without it.
-  security-events: write
 
 jobs:
   # Basic validation checks
   validate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
     outputs:
       has_php: ${{ steps.changed-files.outputs.has_php }}
       has_docs: ${{ steps.changed-files.outputs.has_docs }}
@@ -35,7 +32,7 @@ jobs:
       has_deps: ${{ steps.changed-files.outputs.has_deps }}
       has_voice: ${{ steps.changed-files.outputs.has_voice }}
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Detect changed file types
         id: changed-files
@@ -104,10 +101,10 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.validate.outputs.has_php == 'true'
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # v2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: '8.2'
           tools: composer
@@ -126,7 +123,7 @@ jobs:
     needs: validate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
 
@@ -174,7 +171,7 @@ jobs:
     if: needs.validate.outputs.has_css == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
 
@@ -232,7 +229,7 @@ jobs:
     if: needs.validate.outputs.has_voice == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Python
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
@@ -247,12 +244,12 @@ jobs:
     needs: validate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Check JavaScript syntax
         run: make javascript-syntax
@@ -263,11 +260,11 @@ jobs:
     env:
       PLAYWRIGHT_BROWSERS_PATH: /tmp/kk-practice-browsers
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
-      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # v2
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: '8.2'
       - name: Install pinned preview dependencies
@@ -285,7 +282,7 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.validate.outputs.has_docs == 'true'
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Check docs for stale current-state claims
         run: python3 scripts/docs_truth_check.py
@@ -297,10 +294,10 @@ jobs:
     needs: validate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # v2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: '8.2'
 
@@ -314,8 +311,14 @@ jobs:
     needs: validate
     if: needs.validate.outputs.has_deps == 'true'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # upload-sarif writes code-scanning alerts. Missing it only surfaced once
+      # security-scan started running on push: the same upload had succeeded
+      # on five pull_request runs without it.
+      security-events: write
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
@@ -342,6 +345,9 @@ jobs:
     needs: [validate, php-validation, python-tests, css-ratchet, voice-gate, javascript-validation, docs-truth-check, theme-smoke, security-scan, practice-browser]
     if: always()
     runs-on: ubuntu-latest
+    permissions:
+      # Posts the result comment on the PR. No checkout, so no contents scope.
+      pull-requests: write
     steps:
       - name: Check all validations passed
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0

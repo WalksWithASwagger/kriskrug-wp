@@ -414,7 +414,7 @@ visual-prune: ## Delete old capture dirs pair-safely; set DRY_RUN=1 to preview
 	@$(VISUAL) prune $(if $(KEEP),--keep $(KEEP),) $(if $(DRY_RUN),--dry-run,)
 
 .PHONY: practice-preview practice-test practice-browser-test practice-package
-practice-preview: ## Start a disposable real WordPress 7.0.4/Aurora fixture (a Playground pin, not the production version)
+practice-preview: ## Start a disposable real WordPress/Aurora Playground fixture (version pinned in scripts/tests/playground-wordpress.mjs)
 	@node plugins/kk-practice/tests/preview.mjs
 
 practice-test: ## Verify practice source contracts, fallback and asset budget
