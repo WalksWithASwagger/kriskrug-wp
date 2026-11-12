@@ -690,6 +690,20 @@ function writing_archive_canonical_url(): string {
         return '';
     }
 
+    return paged_request_url();
+}
+
+/**
+ * Resolve the canonical URL for taxonomy, date, author and search routes.
+ */
+function archive_canonical_url(): string {
+    return is_search() ? get_search_link() : paged_request_url();
+}
+
+/**
+ * Resolve the current request's page URL without query arguments.
+ */
+function paged_request_url(): string {
     $paged = max(1, (int) get_query_var('paged'));
     $page_url = get_pagenum_link($paged, false);
     $path = wp_parse_url($page_url, PHP_URL_PATH);
@@ -727,7 +741,7 @@ function social_meta_tags(): array {
         'og:title'       => wp_get_document_title(),
         'og:type'        => 'website',
         'og:url'         => home_url('/'),
-        'og:description' => $description !== '' ? $description : get_bloginfo('description'),
+        'og:description' => $description !== '' ? $description : fallback_social_description(),
         'twitter:site'   => '@kriskrug',
     ];
 
@@ -754,6 +768,8 @@ function social_meta_tags(): array {
                 $tags['og:image:secure_url'] = $image;
             }
         }
+    } elseif (is_archive() || is_search()) {
+        $tags['og:url'] = archive_canonical_url();
     }
 
     if (empty($tags['og:image']) && has_site_icon()) {
@@ -830,6 +846,14 @@ function writing_archive_meta_description(): string {
     }
 
     return wp_strip_all_tags($description);
+}
+
+/**
+ * Share-card description for routes without their own. Both sources are
+ * existing approved copy, so the retired site tagline never reaches a card.
+ */
+function fallback_social_description(): string {
+    return is_journal() ? writing_archive_meta_description() : homepage_meta_description();
 }
 
 function suppress_jetpack_meta_description(array $tags): array {
