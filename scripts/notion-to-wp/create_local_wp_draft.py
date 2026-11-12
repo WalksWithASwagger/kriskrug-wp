@@ -37,6 +37,7 @@ from kk_notion_to_wp import (  # noqa: E402
     slugify,
 )
 from publish_common import build_seo_meta  # noqa: E402
+from wp_client import lookup_slug  # noqa: E402
 
 
 @dataclass(frozen=True)
@@ -170,21 +171,10 @@ def log_line(pkg: DraftPackage, message: str) -> None:
         handle.write(line + "\n")
 
 
-def wp_hits_by_slug(wp: WordPress, slug: str, kind: str) -> list[dict]:
-    response = wp.s.get(
-        f"{wp.base}/wp-json/wp/v2/{kind}",
-        params={"slug": slug, "status": "any", "per_page": 100, "context": "edit"},
-        timeout=30,
-    )
-    response.raise_for_status()
-    return response.json()
-
-
 def assert_slug_available(wp: WordPress, slug: str) -> None:
     collisions: list[str] = []
     for kind in ("posts", "pages"):
-        hits = wp_hits_by_slug(wp, slug, kind)
-        for hit in hits:
+        for hit in lookup_slug(wp, slug, kind).records:
             collisions.append(f"{kind[:-1]} {hit.get('id')} ({hit.get('status')})")
     if collisions:
         raise RuntimeError(
