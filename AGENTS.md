@@ -54,7 +54,7 @@ See [`scripts/notion-to-wp/README.md`](scripts/notion-to-wp/README.md). Short ve
 
 ## How to file an issue
 
-`issues-to-create/` holds markdown drafts. Filed issues live at [github.com/WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues).
+`issues-to-create/` holds historical payloads plus a few contingent stubs; write new issues directly on GitHub. Filed issues live at [github.com/WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues).
 
 ## How to commit
 

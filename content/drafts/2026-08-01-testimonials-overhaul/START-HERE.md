@@ -2,7 +2,7 @@
 
 **Status:** Waves 1–3 and #601 are done. Page body is **not** live. Snapshot-gate apply is [`APPLY-RUNBOOK.md`](./APPLY-RUNBOOK.md) (#602). Do not PATCH without KK's comment.  
 **Epic:** [#593](https://github.com/WalksWithASwagger/kriskrug-wp/issues/593)  
-**Board:** [`issues-to-create/testimonials-showpiece-v2-swarm-2026-08-01.md`](../../../issues-to-create/testimonials-showpiece-v2-swarm-2026-08-01.md)
+**Board:** [`issues-to-create/archive/testimonials-showpiece-v2-swarm-2026-08-01.md`](../../../issues-to-create/archive/testimonials-showpiece-v2-swarm-2026-08-01.md)
 
 This packet already has **v1** artifacts (live enrichment shipped via #582/#584). Showpiece v2 **extends** them — do not delete v1 files; add `*-v2` / `consent-log` / expand inventory per exclusive ownership.
 
