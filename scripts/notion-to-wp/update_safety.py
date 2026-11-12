@@ -1,8 +1,12 @@
 from __future__ import annotations
 
 import difflib
+import html
 import json
 import re
+from datetime import datetime, timezone
+
+from wp_client import SlugVerificationFailed
 
 
 TITLE_SIMILARITY_UPDATE_THRESHOLD = 0.5
@@ -62,7 +66,12 @@ def update_diff(existing_post: dict, proposed_payload: dict) -> str:
 
 
 def emit_update_diff_review(wp, slug: str, title: str, payload: dict, log, emit=print) -> int:
-    existing_id = wp.find_post_by_slug(slug)
+    try:
+        existing_id = wp.find_post_by_slug(slug)
+    except SlugVerificationFailed as e:
+        log(f"ABORTING: {e}")
+        log("No diff was emitted and no WP write was attempted.")
+        return 8
     log(f"existing post with slug {slug!r}? {existing_id}")
     if existing_id is None:
         log("ABORTING: --diff needs an existing post with this slug; no WP write was attempted.")
@@ -88,3 +97,43 @@ def emit_update_diff_review(wp, slug: str, title: str, payload: dict, log, emit=
     log("Diff-only run complete; no WP create, update, taxonomy, or media write request was sent.")
     log("Review the diff, then re-run with --update only after explicit operator approval.")
     return 0
+
+
+# WordPress turns a publish request whose date is in the future into a scheduled post.
+_READBACK_STATUS_ALIASES = {"publish": {"publish", "future"}}
+
+
+def _same_post_date(sent: str, readback: dict) -> bool:
+    sent_dt = datetime.fromisoformat(sent)
+    if sent_dt.tzinfo is None:
+        stored = readback.get("date")
+    else:
+        # WordPress converts an offset date to site time, so compare in UTC.
+        stored = readback.get("date_gmt")
+        sent_dt = sent_dt.astimezone(timezone.utc).replace(tzinfo=None)
+    return bool(stored) and datetime.fromisoformat(stored) == sent_dt
+
+
+def _comparable_title(title: str) -> str:
+    # The raw title can hold the same text as character references (kses turns
+    # & into &amp;, and the latin1 database keeps non-latin1 characters only as
+    # numeric references), and WordPress trims titles on save (title_save_pre).
+    return html.unescape(title).strip()
+
+
+def readback_mismatches(payload: dict, readback: dict) -> dict[str, tuple]:
+    """Return {field: (sent, stored)} for identity fields WordPress did not store as sent."""
+    mismatches: dict[str, tuple] = {}
+    # Only title.raw (context=edit) is the stored value; title.rendered is texturized.
+    sent_title = payload.get("title") or ""
+    stored_title = (readback.get("title") or {}).get("raw")
+    if stored_title is None or _comparable_title(stored_title) != _comparable_title(sent_title):
+        mismatches["title"] = (sent_title, stored_title)
+    if readback.get("slug") != payload.get("slug"):
+        mismatches["slug"] = (payload.get("slug"), readback.get("slug"))
+    sent_status = payload.get("status")
+    if readback.get("status") not in _READBACK_STATUS_ALIASES.get(sent_status, {sent_status}):
+        mismatches["status"] = (sent_status, readback.get("status"))
+    if not _same_post_date(payload["date"], readback):
+        mismatches["date"] = (payload["date"], readback.get("date"))
+    return mismatches
