@@ -64,8 +64,6 @@ Start with the [November 11 roadmap](current-state/ROADMAP-2026-11-11.md), the d
 | [`archive-content-mine.md`](archive-content-mine.md) | 20-year blog-archive content mine (2003–2026): bio/credential threads + "from the archives" content backlog, with source links |
 | [`../.claude/context/project-context.md`](../.claude/context/project-context.md) | Mission, values, audience, voice |
 | [`../.claude/agents-vibe.md`](../.claude/agents-vibe.md) | Agent philosophy & community values |
-| [`../.claude/naming-conventions.md`](../.claude/naming-conventions.md) | Code naming standards |
-| [`../.claude/common-failures.md`](../.claude/common-failures.md) | Known failure patterns to avoid |
 
 ## 🟢 Current — entry points & contribution
 
@@ -91,11 +89,12 @@ These were written in the era-1 push (Jan–early May 2026) when the plan was "G
 | [`roadmap.md`](roadmap.md) | Superseded by [`current-state/archive/ROADMAP.md`](current-state/archive/ROADMAP.md) |
 | [`cloudways-setup.md`](cloudways-setup.md) | Historical: retired Cloudways dev-server setup; do not revive (see `AGENTS.md` "Current versus historical") |
 | [`local-development-setup.md`](local-development-setup.md) | Local WordPress with Flywheel/Docker. Relevant if/when Track B needs local |
-| [`../.claude/context/wordpress-setup.md`](../.claude/context/wordpress-setup.md) | Cloudways WP config; **not** the prod config |
+| [`../.claude/context/wordpress-setup.md`](../.claude/context/wordpress-setup.md) | Historical Cloudways note (details redacted); **not** the prod config |
 | [`../fixes/README-FIXES-BATCH-1.md`](../fixes/README-FIXES-BATCH-1.md) | Index of the original Batch 1 fixes |
-| [`../.github/agents/`](../.github/agents/) | 10 agent definitions (orchestrator + workflow + doc-swarm) for the dormant pipeline |
+| [`../.claude/naming-conventions.md`](../.claude/naming-conventions.md) | Era-1 code naming guide written for the retired swarm |
+| [`../.claude/common-failures.md`](../.claude/common-failures.md) | Era-1 failure patterns, including retired swarm operations |
 
-Each historical doc carries a `STATUS: Historical` banner at the top pointing at its current replacement (if one exists).
+Every file in this table opens with a `STATUS: Historical` banner pointing at its current replacement, if one exists. The swarm's agent definitions (`.github/agents/`), state records, config and its two disabled workflows were deleted on 2026-11-12 (#1220); git history keeps them.
 
 ---
 
@@ -108,7 +107,7 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 | [`../inc/`](../inc/) | Custom WordPress modules (currently: `digital-composting.php`) |
 | [`../issues-to-create/`](../issues-to-create/) | Historical issue payloads and a few contingent stubs; new issues are written directly on GitHub |
 | [`../backup/`](../backup/) | Backup manifests (archives themselves are gitignored) |
-| [`../.github/`](../.github/) | Workflows, agent definitions, issue templates |
+| [`../.github/`](../.github/) | Workflows, issue templates, PR template, Dependabot config |
 
 ---
 

@@ -3,7 +3,7 @@
 ## What shipped
 
 **Category data half (#23 / #223) — closed out, live.**
-- Verified the Misc → taxonomy migration was already applied live (Misc count = 0; 839 posts distributed across 14 active categories). The "build an apply script" task from the morning recap was stale — the script existed (`scripts/seo-backfill/reassign_categories.py`) and had already run under closed issue #223.
+- Verified the Misc → taxonomy migration was already applied live (Misc count = 0; 839 posts distributed across 14 active categories). The "build an apply script" task from the morning recap was stale — the script existed (now `scripts/archive/reassign_categories.py`, archived 2026-11-12 under #1226) and had already run under closed issue #223.
 - Deleted two empty, redundant taxonomy terms live: `AI Tools & Training` (1691), `Media & Interviews` (1692). Snapshot recorded for rollback. Kept `Misc` (WP `default_category`) and `Web Summit Vancouver` (placeholder). Taxonomy now 14 active + 2 intentional.
 - Receipts committed to `main`: `category-delete-20260626-202819Z.md`, `branch-cleanup-20260626.md` (commit `489cdb5`).
 

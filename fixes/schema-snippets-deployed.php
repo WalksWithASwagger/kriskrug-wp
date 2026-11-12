@@ -20,7 +20,15 @@
  * the sample article. Cache delivery and exact hashes are recorded in
  * docs/current-state/reports/schema-1089-release-2026-10-25.md and its JSON
  * receipt. This follow-up changes header comments only; executable bytes
- * from kk_schema_constants() onward match the saved payload exactly.
+ * from kk_schema_constants() onward match the saved payload exactly, apart
+ * from the #1238 flags below.
+ *
+ * PENDING LIVE UPDATE (#1238): kk_schema_emit() now adds JSON_HEX_TAG and
+ * JSON_HEX_AMP. JSON_UNESCAPED_SLASHES leaves "</script>" literal, so without
+ * them a title or excerpt containing it would close the JSON-LD block early.
+ * The parsed JSON is unchanged. Live snippet 5 keeps the 2026-10-25 flags
+ * until a separate KK-approved save with a before/after snapshot and a Rich
+ * Results check.
  *
  * WRAPPER DELTA (resolved, Boost-injected — do not add by hand):
  * Live HTML wraps each block as
@@ -115,7 +123,7 @@ function kk_schema_constants() {
 function kk_schema_emit($schema) {
     if (empty($schema)) return;
     echo "\n<script type=\"application/ld+json\">"
-        . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+        . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP)
         . "</script>\n";
 }
 
