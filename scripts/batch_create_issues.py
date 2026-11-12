@@ -76,6 +76,31 @@ def validate_issue(issue: Any) -> List[str]:
     return errors
 
 
+def find_existing_titles(title: str, repo: str = None) -> List[str]:
+    """Return titles of existing issues (any state) that match the title search."""
+    cmd = [
+        "gh",
+        "issue",
+        "list",
+        "--state",
+        "all",
+        "--limit",
+        "100",
+        "--search",
+        f"{title} in:title",
+        "--json",
+        "title",
+    ]
+    if repo:
+        cmd.extend(["--repo", repo])
+    result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+    return [item["title"] for item in json.loads(result.stdout)]
+
+
+def issue_exists(title: str, repo: str = None) -> bool:
+    return title in find_existing_titles(title, repo)
+
+
 def create_issue(
     issue: Dict[str, Any], repo: str = None, dry_run: bool = False
 ) -> Dict[str, Any]:
@@ -200,9 +225,15 @@ def main():
     results = []
     successful = 0
     failed = 0
+    skipped = 0
 
     for i, issue in enumerate(issues, 1):
         print(f"\n[{i}/{len(issues)}] Creating issue: {issue['title']}")
+        if not args.dry_run and issue_exists(issue["title"], args.repo):
+            print("  - Skipped: an issue with this exact title already exists")
+            results.append({"title": issue["title"], "skipped": True})
+            skipped += 1
+            continue
         result = create_issue(issue, args.repo, args.dry_run)
         results.append(result)
 
@@ -221,6 +252,7 @@ def main():
     print("Summary:")
     print(f"  Total: {len(issues)}")
     print(f"  Successful: {successful}")
+    print(f"  Skipped (already exist): {skipped}")
     print(f"  Failed: {failed}")
 
     # Save results to file if requested
@@ -229,6 +261,7 @@ def main():
             "total": len(issues),
             "successful": successful,
             "failed": failed,
+            "skipped": skipped,
             "results": results,
         }
         with open(args.output, "w") as f:

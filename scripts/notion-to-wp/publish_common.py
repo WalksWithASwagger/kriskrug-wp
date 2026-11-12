@@ -18,6 +18,7 @@ from typing import Any, Callable, Sequence
 from connector_payload import normalize_seo_meta
 from kk_notion_to_wp import slugify
 from wp_blocks import heading, inline, separator
+from wp_client import lookup_slug
 
 MARKDOWN_IMG_IMAGES_RE = re.compile(r"^!\[(.+?)\]\(images/(.+?)\)$")
 PUBLISHER_IDS_PATH = pathlib.Path(__file__).resolve().parent / "publisher-ids.json"
@@ -323,18 +324,14 @@ def find_or_upload_media(
 
 
 def find_existing_post_by_slug(wp: Any, slug: str) -> dict[str, Any] | None:
-    """Return the first post record matching `slug` in any status, else None.
+    """Return the one post record whose slug is exactly `slug`, else None.
 
-    The create/update guard every one-off script runs before it writes. Keeping it
-    in one place keeps the 2026-05-15 slug-idempotency rule in one place too:
-    callers must confirm the returned record is the intended target before PATCH.
+    The create/update guard every one-off script runs before it writes. It
+    delegates to wp_client.lookup_slug, so a failed lookup or two posts sharing
+    the slug raise SlugVerificationFailed instead of reading as "absent" or
+    handing back the first hit (2026-05-15 incident rule).
     """
-    hits = wp.s.get(
-        f"{wp.base}/wp-json/wp/v2/posts",
-        params={"slug": slug, "status": "any", "context": "edit"},
-        timeout=30,
-    ).json()
-    return hits[0] if isinstance(hits, list) and hits else None
+    return lookup_slug(wp, slug).unique_or_none()
 
 
 def upload_image_manifest(

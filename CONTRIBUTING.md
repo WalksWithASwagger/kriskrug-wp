@@ -192,7 +192,7 @@ The default ruleset is intentionally focused on high-signal WordPress security c
 Day-to-day work happens through Claude Code / Cursor agent sessions, not via the dormant GitHub Actions agent swarm. Two modes:
 
 - **Publisher mode (Track A):** Notion → kriskrug.co publishing, content enrichment, schema/SEO tweaks. Operates on `main`.
-- **Architect mode (Track B):** Aurora theme maintenance. Start from `main` on a lane-scoped `codex/...` branch; use `aurora/v3-reconcile` and `aurora/v2` only as historical/evidence branches unless a dated handoff explicitly revives one.
+- **Architect mode (Track B):** Aurora theme maintenance. Start from `main` on a lane-scoped `codex/...` branch.
 
 See [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) for the decision rule.
 
@@ -250,13 +250,13 @@ Keep one issue per branch and don't mix Track A content changes with Track B the
 
 ### Commit Messages
 
-Use clear, descriptive commit messages:
+Use `<area>: <short imperative>`, one concern per commit (see [`AGENTS.md`](AGENTS.md)):
 
 ```
 Good:
-- "Fix contact form validation on mobile devices"
-- "Add caching for API responses using transients"
-- "Improve accessibility of navigation menu"
+- "fix: validate the contact form on mobile devices"
+- "feat: cache API responses using transients"
+- "docs: update the navigation accessibility notes"
 
 Bad:
 - "fix bug"
@@ -380,9 +380,7 @@ Manual validation:
 
 ## Recognition
 
-Contributors will be:
-- Listed in release notes
-- Credited in PR descriptions
+Contributors are credited in PR descriptions.
 
 Thanks for helping keep kriskrug.co healthy.
 

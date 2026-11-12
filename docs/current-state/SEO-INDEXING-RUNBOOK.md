@@ -21,7 +21,7 @@ and verified without KK; everything in "KK-gated" waits for his approval.
 
 | Step | Agent-safe (do + collect evidence) | KK-gated (draft only) |
 |---|---|---|
-| Title / meta | Draft an improved `<title>` + meta description in KK voice (no em dashes, no AI tropes). Cross-check gaps with `make seo-audit` (read-only inventory). | Publishing the change live |
+| Title / meta | Draft an improved `<title>` + meta description in KK voice (no em dashes, no AI tropes). Cross-check gaps with `make seo-audit` (read-only; posts only, see `scripts/seo-audit/README.md`). | Publishing the change live |
 | Answer-first intro | Draft a 1–2 sentence answer-first opening for the target query | Publishing the rewrite |
 | Internal links | List 3–5 relevant internal links (other posts + a hub) with anchor text | Editing live post body |
 | Hub links | Identify the authority hub the post belongs to (AI community, ethics, photography, personal voice) | Building/renaming a hub page |
@@ -39,7 +39,7 @@ Collect this evidence per batch and paste it into the batch issue:
 
 ```bash
 make seo-publisher-smoke                          # sitemap/feed/schema health (#425)
-make seo-audit                                    # read-only Jetpack meta inventory
+make seo-audit                                    # read-only SEO meta inventory (posts only)
 curl -s "https://kriskrug.co/feed/" | grep -c "<item>"
 curl -s "https://kriskrug.co/<post-url>?cachebust=$(date +%s)" | grep -oE '"@type":"[^"]+"'
 ```

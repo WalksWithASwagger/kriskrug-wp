@@ -28,30 +28,30 @@ Start with the [November 11 roadmap](current-state/ROADMAP-2026-11-11.md), the d
 | [`current-state/CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md`](current-state/CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md) | #1025 crawl-waste + authority-hub policy (robots/sitemap/noindex; no live apply) |
 | [`current-state/SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md`](current-state/SECURITY-HEADERS-PHASE-1-APPLY-RUNBOOK.md) | #1001 phase-1 nosniff + Referrer-Policy apply runbook (Pagely ARES; no live change) |
 | [`current-state/reports/`](current-state/reports/) | Explicit durable `make morning-truth-checkpoint` outputs; consult the checkpoint relevant to the release, incident, decision, or handoff |
-| [`current-state/archive/`](current-state/archive/) | Superseded May–June plans and closeouts (#549) |
+| [`current-state/archive/`](current-state/archive/) | Superseded plans and closeouts from May through August 2026 (#549); historical evidence, not guidance |
 | [`audits/`](audits/) | Dated stale-docs/code scouts (Wave 1 [`stale-2026-09-21.md`](audits/stale-2026-09-21.md), Wave 3 [`stale-2026-09-22.md`](audits/stale-2026-09-22.md), Wave 5 [`stale-2026-09-23.md`](audits/stale-2026-09-23.md)). Find-only inventories, not a front door or apply queue |
-| [`current-state/archive/AURORA-MOTION-GOVERNANCE-2026-05-20.md`](current-state/archive/AURORA-MOTION-GOVERNANCE-2026-05-20.md) | Motion budget and QA rules for Aurora |
+| [`current-state/archive/AURORA-MOTION-GOVERNANCE-2026-05-20.md`](current-state/archive/AURORA-MOTION-GOVERNANCE-2026-05-20.md) | Historical: May 2026 motion budget and QA rules; its "do not edit `theme/kk-aurora/` from main" rule is superseded by `AGENTS.md` |
 | [`current-state/archive/TOMORROW-ROADMAP-2026-05-20.md`](current-state/archive/TOMORROW-ROADMAP-2026-05-20.md) | Historical next-session roadmap after rewrite recovery and branch/worktree cleanup |
 | [`current-state/archive/WORK-PLAN-2026-05-20.md`](current-state/archive/WORK-PLAN-2026-05-20.md) | Historical execution plan after Wave 3 completion and Track B QA setup |
 | [`current-state/archive/NEXT-ROUND-WORK-2026-05-19.md`](current-state/archive/NEXT-ROUND-WORK-2026-05-19.md) | Historical command sheet from 2026-05-19 (superseded by 2026-05-20 roadmap/work-plan docs) |
-| [`current-state/archive/ISSUE-SWARM-ROADMAP-2026-05-19.md`](current-state/archive/ISSUE-SWARM-ROADMAP-2026-05-19.md) | 72-hour swarm roadmap with bounded parallel lanes, wave labels, and stop rules |
-| [`current-state/archive/AURORA-ISSUE-SWARM-2026-05-19.md`](current-state/archive/AURORA-ISSUE-SWARM-2026-05-19.md) | Filed Aurora epics and routed stale design issues into the Track B lane |
-| [`current-state/archive/CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md`](current-state/archive/CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md) | Redacted history-scan findings and safe rewrite/force-push preflight |
-| [`current-state/archive/CREDENTIAL-HISTORY-REWRITE-EXECUTION-2026-05-19.md`](current-state/archive/CREDENTIAL-HISTORY-REWRITE-EXECUTION-2026-05-19.md) | Execution log of the rewrite, force-updated branches, and post-rewrite recovery steps |
-| [`current-state/archive/GITHUB-QUEUE-RECOVERY-2026-05-19.md`](current-state/archive/GITHUB-QUEUE-RECOVERY-2026-05-19.md) | Queue recovery after rewrite: replacement PRs, CI gate fix, merges, and cleanup |
+| [`current-state/archive/ISSUE-SWARM-ROADMAP-2026-05-19.md`](current-state/archive/ISSUE-SWARM-ROADMAP-2026-05-19.md) | Historical: 72-hour swarm roadmap with bounded parallel lanes, wave labels, and stop rules |
+| [`current-state/archive/AURORA-ISSUE-SWARM-2026-05-19.md`](current-state/archive/AURORA-ISSUE-SWARM-2026-05-19.md) | Historical: Filed Aurora epics and routed stale design issues into the Track B lane |
+| [`current-state/archive/CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md`](current-state/archive/CREDENTIAL-HISTORY-REWRITE-PREFLIGHT-2026-05-19.md) | Historical: Redacted history-scan findings and safe rewrite/force-push preflight |
+| [`current-state/archive/CREDENTIAL-HISTORY-REWRITE-EXECUTION-2026-05-19.md`](current-state/archive/CREDENTIAL-HISTORY-REWRITE-EXECUTION-2026-05-19.md) | Historical: Execution log of the rewrite, force-updated branches, and post-rewrite recovery steps |
+| [`current-state/archive/GITHUB-QUEUE-RECOVERY-2026-05-19.md`](current-state/archive/GITHUB-QUEUE-RECOVERY-2026-05-19.md) | Historical: Queue recovery after rewrite: replacement PRs, CI gate fix, merges, and cleanup |
 | [`current-state/archive/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md`](current-state/archive/AGENT-SWARM-OPERATING-PLAN-2026-05-18.md) | Historical agent-swarm lanes and execution order (archived May 2026) |
 | [`current-state/archive/SWARM-STATUS-2026-05-18.md`](current-state/archive/SWARM-STATUS-2026-05-18.md) | Historical command-desk status after the first bounded swarm (archived May 2026) |
-| [`current-state/archive/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md`](current-state/archive/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md) | Next-batch Notion inventory and local dry-run packs |
-| [`current-state/archive/NEXT-PUBLISHING-PLAN-2026-05-18.md`](current-state/archive/NEXT-PUBLISHING-PLAN-2026-05-18.md) | Security gate, live-post verification, and ranked next publishing plan |
-| [`current-state/archive/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md`](current-state/archive/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md) | Read-only audit of public posts, local draft packs, and issue lanes after the overwrite incident |
-| [`current-state/archive/TRACK-A-QUICK-FIX-PACK-2026-05-18.md`](current-state/archive/TRACK-A-QUICK-FIX-PACK-2026-05-18.md) | Production-safe current-site quick-fix pack |
-| [`current-state/archive/NAV-IA-DECISION-PACK-2026-05-18.md`](current-state/archive/NAV-IA-DECISION-PACK-2026-05-18.md) | Navigation and IA decision pack |
-| [`current-state/archive/AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md`](current-state/archive/AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md) | Aurora visual redesign audit, benchmark frame, and Track B issue rollout map |
-| [`current-state/archive/AURORA-STAGING-REPORT-2026-05-18.md`](current-state/archive/AURORA-STAGING-REPORT-2026-05-18.md) | Local Aurora smoke results and current redesign blocker |
-| [`current-state/archive/SITE-AUDIT-2026-05-16.md`](current-state/archive/SITE-AUDIT-2026-05-16.md) | Reader-facing site audit (Track A punch-list) |
-| [`current-state/archive/POST-ENRICHMENT-2026-05-16.md`](current-state/archive/POST-ENRICHMENT-2026-05-16.md) | Post-enrichment pass + connector rules |
-| [`current-state/archive/TRAFFIC-DIAGNOSTIC-2026-05-15.md`](current-state/archive/TRAFFIC-DIAGNOSTIC-2026-05-15.md) | GSC / traffic dive |
-| [`current-state/archive/AURORA-MIGRATION-PLAN.md`](current-state/archive/AURORA-MIGRATION-PLAN.md) | Track B migration plan |
+| [`current-state/archive/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md`](current-state/archive/DRAFT-PUBLISHING-DISCOVERY-2026-05-18.md) | Historical: Next-batch Notion inventory and local dry-run packs |
+| [`current-state/archive/NEXT-PUBLISHING-PLAN-2026-05-18.md`](current-state/archive/NEXT-PUBLISHING-PLAN-2026-05-18.md) | Historical: Security gate, live-post verification, and ranked next publishing plan |
+| [`current-state/archive/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md`](current-state/archive/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md) | Historical: Read-only audit of public posts, local draft packs, and issue lanes after the overwrite incident |
+| [`current-state/archive/TRACK-A-QUICK-FIX-PACK-2026-05-18.md`](current-state/archive/TRACK-A-QUICK-FIX-PACK-2026-05-18.md) | Historical: Production-safe current-site quick-fix pack |
+| [`current-state/archive/NAV-IA-DECISION-PACK-2026-05-18.md`](current-state/archive/NAV-IA-DECISION-PACK-2026-05-18.md) | Historical: Navigation and IA decision pack |
+| [`current-state/archive/AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md`](current-state/archive/AURORA-VISUAL-REDESIGN-AUDIT-2026-05-18.md) | Historical: Aurora visual redesign audit, benchmark frame, and Track B issue rollout map |
+| [`current-state/archive/AURORA-STAGING-REPORT-2026-05-18.md`](current-state/archive/AURORA-STAGING-REPORT-2026-05-18.md) | Historical: Local Aurora smoke results and current redesign blocker |
+| [`current-state/archive/SITE-AUDIT-2026-05-16.md`](current-state/archive/SITE-AUDIT-2026-05-16.md) | Historical: Reader-facing site audit (Track A punch-list) |
+| [`current-state/archive/POST-ENRICHMENT-2026-05-16.md`](current-state/archive/POST-ENRICHMENT-2026-05-16.md) | Historical: Post-enrichment pass + connector rules |
+| [`current-state/archive/TRAFFIC-DIAGNOSTIC-2026-05-15.md`](current-state/archive/TRAFFIC-DIAGNOSTIC-2026-05-15.md) | Historical: GSC / traffic dive |
+| [`current-state/archive/AURORA-MIGRATION-PLAN.md`](current-state/archive/AURORA-MIGRATION-PLAN.md) | Historical: archived Track B migration plan; its Cloudways and `aurora/v2` steps are retired |
 | [`current-state/INCIDENT-2026-05-15-overwritten-post.md`](current-state/INCIDENT-2026-05-15-overwritten-post.md) | Postmortem + safety rules every agent follows |
 
 ## 🟢 Current — content & code references
@@ -89,7 +89,7 @@ These were written in the era-1 push (Jan–early May 2026) when the plan was "G
 | [`testing-results.md`](testing-results.md) | Era-1 test results and now-retired automation follow-ups |
 | [`vision.md`](vision.md) | Long-term vision (3–5 years) from era 1 |
 | [`roadmap.md`](roadmap.md) | Superseded by [`current-state/archive/ROADMAP.md`](current-state/archive/ROADMAP.md) |
-| [`cloudways-setup.md`](cloudways-setup.md) | Cloudways dev-server setup. Relevant if/when Track B needs staging |
+| [`cloudways-setup.md`](cloudways-setup.md) | Historical: retired Cloudways dev-server setup; do not revive (see `AGENTS.md` "Current versus historical") |
 | [`local-development-setup.md`](local-development-setup.md) | Local WordPress with Flywheel/Docker. Relevant if/when Track B needs local |
 | [`../.claude/context/wordpress-setup.md`](../.claude/context/wordpress-setup.md) | Cloudways WP config; **not** the prod config |
 | [`../fixes/README-FIXES-BATCH-1.md`](../fixes/README-FIXES-BATCH-1.md) | Index of the original Batch 1 fixes |
@@ -106,7 +106,7 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 | [`../content/drafts/`](../content/drafts/) | Notion-derived post drafts before publication |
 | [`../fixes/`](../fixes/) | Production-ready code snippets + per-issue fix proposals |
 | [`../inc/`](../inc/) | Custom WordPress modules (currently: `digital-composting.php`) |
-| [`../issues-to-create/`](../issues-to-create/) | Markdown drafts of GitHub issues waiting to be filed |
+| [`../issues-to-create/`](../issues-to-create/) | Historical issue payloads and a few contingent stubs; new issues are written directly on GitHub |
 | [`../backup/`](../backup/) | Backup manifests (archives themselves are gitignored) |
 | [`../.github/`](../.github/) | Workflows, agent definitions, issue templates |
 
