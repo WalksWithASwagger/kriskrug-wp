@@ -396,9 +396,10 @@ class FindExistingPostBySlugTests(unittest.TestCase):
         with self.assertRaises(SlugVerificationFailed):
             publish_common.find_existing_post_by_slug(wp, "a-slug")
 
-    def test_hit_with_a_different_slug_is_ignored(self):
+    def test_hit_with_a_different_slug_raises(self):
         wp = self.client([{"id": 999, "slug": "another-slug"}])
-        self.assertIsNone(publish_common.find_existing_post_by_slug(wp, "a-slug"))
+        with self.assertRaisesRegex(SlugVerificationFailed, "another-slug"):
+            publish_common.find_existing_post_by_slug(wp, "a-slug")
 
 
 class RawParagraphTests(unittest.TestCase):

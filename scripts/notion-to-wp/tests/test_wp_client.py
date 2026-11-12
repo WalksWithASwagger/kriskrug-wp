@@ -248,12 +248,9 @@ class WordPressSlugLookupTests(unittest.TestCase):
                 with self.assertRaisesRegex(SlugVerificationFailed, f"HTTP {status}"):
                     self.lookup(status, [{"id": 11765}])
 
-    def test_singleton_with_different_slug_is_rejected(self):
-        _, post_id = self.lookup(
-            200, [{"id": 999, "slug": "calling-us-all-in"}]
-        )
-
-        self.assertIsNone(post_id)
+    def test_singleton_with_different_slug_raises(self):
+        with self.assertRaisesRegex(SlugVerificationFailed, "calling-us-all-in"):
+            self.lookup(200, [{"id": 999, "slug": "calling-us-all-in"}])
 
     def test_update_verifies_expected_slug_when_payload_omits_slug(self):
         found = mock.Mock(status_code=200)

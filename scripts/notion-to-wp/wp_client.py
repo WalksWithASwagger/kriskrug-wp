@@ -54,8 +54,9 @@ def lookup_slug(wp, slug: str, kind: str = "posts") -> SlugMatch:
     """The one slug lookup every publisher uses (2026-05-15 incident rule).
 
     Any non-200 or non-list body raises, because callers read "absent" as
-    permission to CREATE. Hits whose slug differs are dropped, so they can never
-    become an update target.
+    permission to CREATE. So does any hit whose slug differs from `slug`:
+    WordPress sanitize_title()s the queried slug, so such a hit means `slug` is
+    not the slug WordPress would store, and a create would land as a duplicate.
     """
     endpoint = f"{wp.base}/wp-json/wp/v2/{kind}"
     response = wp.s.get(
@@ -75,7 +76,15 @@ def lookup_slug(wp, slug: str, kind: str = "posts") -> SlugMatch:
         raise SlugVerificationFailed(
             f"slug lookup for {slug!r} got an unexpected body from {endpoint}"
         )
-    return SlugMatch(slug, tuple(hit for hit in hits if hit.get("slug") == slug))
+    others = [hit for hit in hits if hit.get("slug") != slug]
+    if others:
+        listed = ", ".join(f"{hit.get('id')} ({hit.get('slug')!r})" for hit in others)
+        raise SlugVerificationFailed(
+            f"slug lookup for {slug!r} returned records with a different slug: "
+            f"{listed}. WordPress normalized the query, so {slug!r} is not a "
+            f"canonical slug. Refusing to read that as absent."
+        )
+    return SlugMatch(slug, tuple(hits))
 
 
 def dry_run_active() -> bool:
