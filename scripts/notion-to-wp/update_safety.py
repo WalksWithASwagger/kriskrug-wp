@@ -26,6 +26,15 @@ def update_title_guard(new_title: str, existing_title: str) -> tuple[bool, float
     return sim >= TITLE_SIMILARITY_UPDATE_THRESHOLD, sim
 
 
+def update_payload(payload: dict, force_publish: bool) -> dict:
+    """The body an update sends. Without --publish it carries no status, so
+    WordPress keeps whatever the post has: publish, future, private or draft.
+    The connector used to send "draft" here, which unpublished live posts."""
+    if force_publish:
+        return payload
+    return {key: value for key, value in payload.items() if key != "status"}
+
+
 def _wp_text_field(value) -> str:
     if isinstance(value, dict):
         raw = value.get("raw")
@@ -49,7 +58,7 @@ def update_diff(existing_post: dict, proposed_payload: dict) -> str:
     proposed = {
         "title": proposed_payload.get("title") or "",
         "slug": proposed_payload.get("slug") or "",
-        "status": proposed_payload.get("status") or "",
+        "status": proposed_payload.get("status", existing["status"]),
         "date": proposed_payload.get("date") or "",
         "excerpt": proposed_payload.get("excerpt") or "",
         "content": proposed_payload.get("content") or "",
@@ -121,8 +130,14 @@ def _comparable_title(title: str) -> str:
     return html.unescape(title).strip()
 
 
-def readback_mismatches(payload: dict, readback: dict) -> dict[str, tuple]:
-    """Return {field: (sent, stored)} for identity fields WordPress did not store as sent."""
+def readback_mismatches(
+    payload: dict, readback: dict, *, kept_status: str | None = None
+) -> dict[str, tuple]:
+    """Return {field: (sent, stored)} for identity fields WordPress did not store as sent.
+
+    An update that sends no status must find `kept_status`, the post's status
+    before the write, exactly; even publish to future would take a live post down.
+    """
     mismatches: dict[str, tuple] = {}
     # Only title.raw (context=edit) is the stored value; title.rendered is texturized.
     sent_title = payload.get("title") or ""
@@ -131,8 +146,13 @@ def readback_mismatches(payload: dict, readback: dict) -> dict[str, tuple]:
         mismatches["title"] = (sent_title, stored_title)
     if readback.get("slug") != payload.get("slug"):
         mismatches["slug"] = (payload.get("slug"), readback.get("slug"))
-    sent_status = payload.get("status")
-    if readback.get("status") not in _READBACK_STATUS_ALIASES.get(sent_status, {sent_status}):
+    if "status" in payload:
+        sent_status = payload["status"]
+        allowed = _READBACK_STATUS_ALIASES.get(sent_status, {sent_status})
+    else:
+        sent_status = kept_status
+        allowed = {kept_status}
+    if readback.get("status") not in allowed:
         mismatches["status"] = (sent_status, readback.get("status"))
     if not _same_post_date(payload["date"], readback):
         mismatches["date"] = (payload["date"], readback.get("date"))

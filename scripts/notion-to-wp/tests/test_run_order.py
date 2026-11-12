@@ -150,7 +150,10 @@ class FakeWordPress:
 
     def update_post(self, post_id, payload, *, expected_slug):
         self.calls.append(("update_post", post_id, expected_slug))
-        self.stored[post_id] = stored_post(post_id, payload)
+        # Like WordPress, an update that sends no status keeps the stored one.
+        self.stored[post_id] = stored_post(
+            post_id, {"status": self.existing["status"], **payload}
+        )
         return self.stored[post_id]
 
 
