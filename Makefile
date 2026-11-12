@@ -91,6 +91,7 @@ theme-smoke: ## Run lightweight theme behavior smoke tests
 	@php theme/kk-aurora/tests/seo-title-smoke.php
 	@php theme/kk-aurora/tests/final-url-smoke.php
 	@php theme/kk-aurora/tests/functions-smoke.php
+	@php theme/kk-aurora/tests/theme-json-smoke.php
 
 verify: ## Run the standard local verification suite
 	@$(MAKE) test
