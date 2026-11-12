@@ -105,14 +105,18 @@ validate-fix: ## Auto-fix WordPress coding standard violations
 	@echo "Auto-fixing WordPress coding standards..."
 	@bash scripts/validate_wordpress.sh --fix
 
-issues: ## Create issues from JSON/CSV file (use FILE=path.json)
+issues: ## Preview issues from JSON/CSV file; create only with CONFIRM=1 (use FILE=path.json)
 	@if [ -z "$(FILE)" ]; then \
 		echo "❌ Error: Please specify FILE=path.json"; \
 		echo "Example: make issues FILE=path/to/issues.json"; \
 		exit 1; \
 	fi
 	@python3 scripts/batch_create_issues.py --input $(FILE) --dry-run
-	@python3 scripts/batch_create_issues.py --input $(FILE)
+	@if [ "$(CONFIRM)" = "1" ]; then \
+		python3 scripts/batch_create_issues.py --input $(FILE); \
+	else \
+		echo "Dry run only. Re-run with CONFIRM=1 to create these issues on GitHub."; \
+	fi
 
 issues-dry-run: ## Preview issues without creating (use FILE=path.json)
 	@if [ -z "$(FILE)" ]; then \

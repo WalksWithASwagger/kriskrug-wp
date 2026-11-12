@@ -106,7 +106,7 @@ Each historical doc carries a `STATUS: Historical` banner at the top pointing at
 | [`../content/drafts/`](../content/drafts/) | Notion-derived post drafts before publication |
 | [`../fixes/`](../fixes/) | Production-ready code snippets + per-issue fix proposals |
 | [`../inc/`](../inc/) | Custom WordPress modules (currently: `digital-composting.php`) |
-| [`../issues-to-create/`](../issues-to-create/) | Markdown drafts of GitHub issues waiting to be filed |
+| [`../issues-to-create/`](../issues-to-create/) | Historical issue payloads and a few contingent stubs; new issues are written directly on GitHub |
 | [`../backup/`](../backup/) | Backup manifests (archives themselves are gitignored) |
 | [`../.github/`](../.github/) | Workflows, agent definitions, issue templates |
 

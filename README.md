@@ -80,7 +80,7 @@ docs/current-state/              # Dated truth snapshots plus recovery/redesign 
   ├── archive/                   # Superseded May–June audits (SITE_INVENTORY, REPO_STATE, SEO_AUDIT, CONTENT_AUDIT, FIX_QUEUE, ROADMAP, FULL-AUDIT-ROADMAP-2026-05-18)
   └── raw/                       # Underlying API/HTML evidence behind the audit
 
-issues-to-create/                # Markdown drafts of GitHub issues waiting to be filed
+issues-to-create/                # Historical issue payloads and a few contingent stubs (new issues go straight to GitHub)
 
 inc/                             # Custom WordPress modules (e.g., digital-composting CPT)
 
@@ -97,7 +97,7 @@ inc/                             # Custom WordPress modules (e.g., digital-compo
 - **Backlog:** the open GitHub issue list. `docs/current-state/archive/ROADMAP.md` and `archive/FIX_QUEUE.md` are archived evidence, not guidance
 - **Publishing a Notion post:** `scripts/notion-to-wp/README.md`
 - **Reviewing staged drafts:** `content/drafts/README.md`
-- **Filing an issue:** `issues-to-create/` for drafts; existing ones at [WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
+- **Filing an issue:** `issues-to-create/` is historical (write new issues directly on GitHub); existing ones at [WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
 
 ## How work happens here
 
