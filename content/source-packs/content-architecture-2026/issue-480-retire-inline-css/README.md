@@ -1,3 +1,5 @@
+> **STATUS: Superseded 2026-11 (do not apply).** #480 closed on 2026-10-10 and the November redesigns (#1201 to #1205) replaced the About, Contact, Photography, Services, Speaking and Work bodies these payloads were cut from, so applying any file here would revert approved live work. The canonical, live-reconciled bodies live in [`../wp-payloads/`](../wp-payloads/). The map was renamed to `page-map.superseded.json` so `--map .../page-map.json` no longer resolves. Everything below is dated August evidence.
+
 # Issue #480 — apply-ready inline-CSS retirement pack
 
 **Lane:** Track A. **No live WordPress writes in this pack.** Bodies only.
