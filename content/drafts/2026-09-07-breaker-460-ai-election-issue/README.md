@@ -33,7 +33,7 @@ The transcript is ingested canonically at:
 **PUBLISHED** 2026-09-07 as post **12747**:
 https://kriskrug.co/2026/09/07/ai-already-campaign-issue-vancouver/
 
-Published and verified with `scripts/notion-to-wp/publish_breaker_460_recap.py`, 21 automated checks green. Carries the episode audio, the YouTube preview, four images, five pull quotes, and 23 article links across kriskrug.co and bc-ai.ca.
+Published and verified with `scripts/archive/publish_breaker_460_recap.py` (archived 2026-11-12, #1219; do not re-run), 21 automated checks green. Carries the episode audio, the YouTube preview, four images, five pull quotes, and 23 article links across kriskrug.co and bc-ai.ca.
 
 The article deliberately carries no meetup number, because the recording and every written record disagree. See flag 1 in `source-manifest.md`.
 
