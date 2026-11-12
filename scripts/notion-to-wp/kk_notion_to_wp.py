@@ -26,7 +26,9 @@ Usage:
         Will refuse to update if the existing post's title is wildly different
         from the new title (likely wrong-post collision).
         Never changes the post's status: a published, scheduled, private or
-        draft post stays that way. Add --publish to set it to publish.
+        draft post stays that way. Add --publish to set it to publish. Sends
+        no date either unless --date is given, so a scheduled post is never
+        published early by an older Notion date.
 
     python kk_notion_to_wp.py --diff <notion-url>
         Fetch the existing post matched by slug, enforce the same title guard,
@@ -309,7 +311,9 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
 
     if diff_update:
         return emit_update_diff_review(
-            wp, slug, title, update_payload(payload, force_publish), log
+            wp, slug, title,
+            update_payload(payload, force_publish=force_publish, send_date=date_override is not None),
+            log,
         )
 
     # SAFETY: CREATE vs UPDATE decision, made before any media, term or post
@@ -325,10 +329,9 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
         return 8
     log(f"existing post with slug {slug!r}? {existing_id}")
 
-    existing_status = None
+    existing = None
     if existing_id is not None:
         existing = wp.get_post(existing_id)
-        existing_status = existing.get("status")
         existing_title = (existing.get("title") or {}).get("raw", "")
         title_match, sim = update_title_guard(title, existing_title)
         log(f"  existing post title: {existing_title!r}")
@@ -344,9 +347,13 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
             log("This is the 2026-05-15 incident's safety net. If you're SURE you want to overwrite, "
                 "stop and verify the slug, WP ID, and intended target before changing the connector.")
             return 3
-        payload = update_payload(payload, force_publish)
-        log(f"  existing status:     {existing_status!r} "
+        payload = update_payload(
+            payload, force_publish=force_publish, send_date=date_override is not None
+        )
+        log(f"  existing status:     {existing.get('status')!r} "
             f"({'set to publish by --publish' if force_publish else 'left unchanged'})")
+        log(f"  existing date:       {existing.get('date')!r} "
+            f"({'replaced by --date' if date_override is not None else 'left unchanged'})")
 
     for nurl, meta in list(image_map.items()):
         if nurl != meta.get("_notion_url"):  # skip alias entries
@@ -393,7 +400,7 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
         f"status={verified.get('status')!r} "
         f"slug={verified.get('slug')!r} "
         f"link={verified.get('link')!r}")
-    mismatches = readback_mismatches(payload, verified, kept_status=existing_status)
+    mismatches = readback_mismatches(payload, verified, before=existing)
     if mismatches:
         for field, (sent, stored) in mismatches.items():
             log(f"  {field}: sent {sent!r}, WordPress stored {stored!r}")
@@ -447,7 +454,8 @@ def main():
     p.add_argument("--slug", default=None,
                    help="Override the post slug (otherwise slugified from title).")
     p.add_argument("--date", default=None,
-                   help="Override the post date, ISO format e.g. 2026-05-07T11:37:33.")
+                   help="Override the post date, ISO format e.g. 2026-05-07T11:37:33. "
+                        "On an update this is the only way the date is sent.")
     p.add_argument(
         "--category",
         default=None,

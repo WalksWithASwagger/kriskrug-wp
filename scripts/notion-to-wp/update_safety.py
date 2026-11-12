@@ -26,13 +26,20 @@ def update_title_guard(new_title: str, existing_title: str) -> tuple[bool, float
     return sim >= TITLE_SIMILARITY_UPDATE_THRESHOLD, sim
 
 
-def update_payload(payload: dict, force_publish: bool) -> dict:
-    """The body an update sends. Without --publish it carries no status, so
-    WordPress keeps whatever the post has: publish, future, private or draft.
-    The connector used to send "draft" here, which unpublished live posts."""
-    if force_publish:
-        return payload
-    return {key: value for key, value in payload.items() if key != "status"}
+def update_payload(payload: dict, *, force_publish: bool, send_date: bool) -> dict:
+    """The body an update sends, as a new dict.
+
+    Without --publish it carries no status and without --date no date, so
+    WordPress keeps the post's own. The connector used to send "draft" and the
+    Notion date here. The first unpublished live posts. The second let
+    wp_insert_post publish a scheduled post once the sent date had passed.
+    """
+    dropped = set()
+    if not force_publish:
+        dropped.add("status")
+    if not send_date:
+        dropped.add("date")
+    return {key: value for key, value in payload.items() if key not in dropped}
 
 
 def _wp_text_field(value) -> str:
@@ -59,7 +66,7 @@ def update_diff(existing_post: dict, proposed_payload: dict) -> str:
         "title": proposed_payload.get("title") or "",
         "slug": proposed_payload.get("slug") or "",
         "status": proposed_payload.get("status", existing["status"]),
-        "date": proposed_payload.get("date") or "",
+        "date": proposed_payload.get("date", existing["date"]),
         "excerpt": proposed_payload.get("excerpt") or "",
         "content": proposed_payload.get("content") or "",
         "meta": proposed_payload.get("meta") or {},
@@ -131,12 +138,14 @@ def _comparable_title(title: str) -> str:
 
 
 def readback_mismatches(
-    payload: dict, readback: dict, *, kept_status: str | None = None
+    payload: dict, readback: dict, *, before: dict | None = None
 ) -> dict[str, tuple]:
     """Return {field: (sent, stored)} for identity fields WordPress did not store as sent.
 
-    An update that sends no status must find `kept_status`, the post's status
-    before the write, exactly; even publish to future would take a live post down.
+    `before` is the post as an update found it. An update that sends no status
+    must find that status exactly. A sent publish may read back as future only
+    when the post was not already live, because scheduling a live post takes it
+    down until the date.
     """
     mismatches: dict[str, tuple] = {}
     # Only title.raw (context=edit) is the stored value; title.rendered is texturized.
@@ -146,14 +155,20 @@ def readback_mismatches(
         mismatches["title"] = (sent_title, stored_title)
     if readback.get("slug") != payload.get("slug"):
         mismatches["slug"] = (payload.get("slug"), readback.get("slug"))
-    if "status" in payload:
+    before_status = (before or {}).get("status")
+    if "status" not in payload:
+        sent_status = before_status
+        allowed = {before_status}
+    elif before_status == "publish":
+        sent_status = payload["status"]
+        allowed = {sent_status}
+    else:
         sent_status = payload["status"]
         allowed = _READBACK_STATUS_ALIASES.get(sent_status, {sent_status})
-    else:
-        sent_status = kept_status
-        allowed = {kept_status}
     if readback.get("status") not in allowed:
         mismatches["status"] = (sent_status, readback.get("status"))
-    if not _same_post_date(payload["date"], readback):
+    # An update without --date sends none, and WordPress may still move a draft's
+    # floating date, so there is nothing of ours to compare.
+    if "date" in payload and not _same_post_date(payload["date"], readback):
         mismatches["date"] = (payload["date"], readback.get("date"))
     return mismatches
