@@ -92,10 +92,12 @@ verify: ## Run the standard local verification suite
 	@$(MAKE) docs-truth-check
 	@$(MAKE) validate
 
-validate: ## Run PHP syntax gate plus WordPress coding standards check
+validate: ## Run PHP syntax gate, WordPress coding standards and PHP compatibility checks
 	@$(MAKE) php-syntax
 	@echo "Validating WordPress coding standards..."
 	@bash scripts/validate_wordpress.sh
+	@echo "Checking each theme and plugin against its Requires PHP header..."
+	@$(PYTHON) scripts/check_php_compat.py
 
 validate-fix: ## Auto-fix WordPress coding standard violations
 	@echo "Auto-fixing WordPress coding standards..."

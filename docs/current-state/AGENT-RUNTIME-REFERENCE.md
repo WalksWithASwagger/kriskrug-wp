@@ -14,8 +14,11 @@ file-synced with this checkout.
 CI pins PHP 8.2 and Python 3.12. JavaScript syntax checks and the
 WordPress Playground browser job both use Node 24. Playground 3.1.62
 requires Node >=24.18.0 and npm >=11.16.0. Local versions may differ. Check
-`php --version` before explaining a local PHP result; `phpcs.xml.dist` targets
-PHP 8.1 and later independently of the local minor version.
+`php --version` before explaining a local PHP result. PHPCompatibilityWP
+checks versions independently of the local interpreter: `phpcs.xml.dist`
+holds `fixes/` and `inc/` to PHP 8.1 and later, and
+`scripts/check_php_compat.py` holds the theme and each plugin to its own
+`Requires PHP` header.
 
 ## Python environments
 

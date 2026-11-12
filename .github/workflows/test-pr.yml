@@ -58,7 +58,14 @@ jobs:
               per_page: 100,
             });
             const names = files.map((f) => f.filename);
-            const hasPhp = names.some((name) => name.endsWith('.php'));
+            // The PHP gate's own inputs count too: the ruleset, the Composer
+            // lock that pins the sniffs, and the theme stylesheet that carries
+            // Aurora's Requires PHP header.
+            const hasPhp = names.some((name) =>
+              name.endsWith('.php') ||
+              ['phpcs.xml.dist', 'composer.json', 'composer.lock', 'scripts/validate_wordpress.sh', 'scripts/check_php_compat.py'].includes(name) ||
+              /^theme\/[^/]+\/style\.css$/.test(name)
+            );
             const hasDocs = names.some((name) =>
               name.endsWith('.md') ||
               name.startsWith('docs/') ||

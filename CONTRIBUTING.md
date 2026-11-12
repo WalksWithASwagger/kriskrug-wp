@@ -350,7 +350,7 @@ Automated tests:
 | `javascript-validation` | Always | `make javascript-syntax` |
 | `theme-smoke` | Always | `make theme-smoke` |
 | `practice-browser` | Always | `make practice-browser-test`, then `make events-browser-test` |
-| `php-validation` | A `.php` file changed | `make validate`, then `make plugin-smoke` |
+| `php-validation` | A `.php` file, a theme `style.css`, `phpcs.xml.dist`, `composer.json`/`composer.lock`, or the PHP gate scripts changed | `make validate` (PHP lint, the WordPress security sniffs, and PHPCompatibilityWP: 8.1+ for code without a header, and each theme and plugin at its own `Requires PHP`), then `make plugin-smoke` |
 | `css-ratchet` | A `.css` file changed | `scripts/css_inventory.py --check` against the merge base (same as `make css-inventory-check`) |
 | `voice-gate` | Payload copy, theme templates/parts/patterns, `theme/kk-aurora/functions.php`, `Makefile`, or the gate's own files changed | `make voice-check` |
 | `docs-truth-check` | Markdown, `docs/`, `Makefile`, `.env.schema`, `.github/ISSUE_TEMPLATE/`, or `scripts/docs_truth_check.py` changed | `python3 scripts/docs_truth_check.py` |
