@@ -32,6 +32,10 @@ APPROVAL_COMMENT = (
     "#issuecomment-5877883436"
 )
 APPROVAL_TABLE_HEADING = "## Approval state (JSON must match)"
+RELEASED_FLAGS = "JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)"
+PENDING_1238_FLAGS = (
+    "JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP)"
+)
 FORBIDDEN_WHEN_RECORDED_APPROVALS = (
     r"recommended, not approved",
     r"Default recommendation \(not approval\)",
@@ -124,8 +128,13 @@ class Issue1089SchemaSavePreflightTests(unittest.TestCase):
             release["approved_file_bytes"],
         )
         runtime = self.deployed[self.deployed.index("function kk_schema_constants()"):]
+        # #1238 added two JSON flags in the repo only. Live snippet 5 still runs
+        # the saved bytes, so allow exactly that delta and nothing else.
+        self.assertEqual(1, runtime.count(PENDING_1238_FLAGS))
+        released_runtime = runtime.replace(PENDING_1238_FLAGS, RELEASED_FLAGS)
         self.assertEqual(
-            release["runtime_sha256"], hashlib.sha256(runtime.encode()).hexdigest()
+            release["runtime_sha256"],
+            hashlib.sha256(released_runtime.encode()).hexdigest(),
         )
         self.assertTrue(self.manifest["candidate"]["prepared_not_live"])
         self.assertEqual(5, self.manifest["candidate"]["expected_snippet_id"])
