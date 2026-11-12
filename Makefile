@@ -48,11 +48,11 @@ python-test: ## Run all declared Python test suites
 		exit 1; \
 	}
 	@echo "Publisher unit tests"
-	@$(PYTHON) -m unittest discover -s scripts/notion-to-wp/tests -v
-	@echo "Operational unit tests"
-	@$(PYTHON) -m unittest discover -s scripts/tests -v
+	@$(PYTHON) -m pytest scripts/notion-to-wp/tests -v
+	@echo "Operational and photo-library tests"
+	@$(PYTHON) -m pytest scripts/tests scripts/photo-library/tests -v
 	@echo "SEO inventory unit tests"
-	@$(PYTHON) -m unittest discover -s scripts/seo-audit/tests -v
+	@$(PYTHON) -m pytest scripts/seo-audit/tests -v
 	@echo "SEO backfill and link-safety tests"
 	@$(PYTHON) -m pytest scripts/seo-backfill/tests -q
 
