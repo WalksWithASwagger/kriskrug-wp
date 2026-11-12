@@ -261,6 +261,10 @@ sitemap-followthrough: ## Read-only #274 public sitemap follow-through (BASE_URL
 check-live-parity: ## Detect live-vs-repo Aurora theme version drift (#546) (BASE_URL=https://kriskrug.co)
 	@$(PYTHON) scripts/check_live_theme_parity.py --base "$${BASE_URL:-https://kriskrug.co}"
 
+# Needs WordPress credentials: make varlock-run CMD='make payload-parity'
+payload-parity: ## Read-only live content.raw vs tracked page payload check (#1222); exit 0 match, 1 drift, 2 unverified
+	@$(PYTHON) scripts/check_page_payload_parity.py --fail-on-drift
+
 wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (ENV_FILE=scripts/notion-to-wp/.env)
 	@python3 scripts/wp7-admin-readiness.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"
 

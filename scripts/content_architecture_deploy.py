@@ -31,8 +31,12 @@ def load_page_map(path: Path) -> dict[str, dict[str, Any]]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def normalize_body(value: str) -> str:
+    return value.strip() + "\n"
+
+
 def read_payload(page: dict[str, Any], payload_dir: Path) -> str:
-    return (payload_dir / page["payload"]).read_text(encoding="utf-8").strip() + "\n"
+    return normalize_body((payload_dir / page["payload"]).read_text(encoding="utf-8"))
 
 
 def safe_name(value: str) -> str:
@@ -47,6 +51,44 @@ def fetch_public_html(url: str) -> str:
 
 def sha256_text(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+def parity_verdict(live_raw: str, payload: str) -> dict[str, Any]:
+    """Compare live content.raw with a payload after the deploy's own normalization.
+
+    Deltas are payload minus live: what a deploy of this payload would change.
+    """
+    live = normalize_body(live_raw)
+    verdict: dict[str, Any] = {
+        "verdict": "match" if live == payload else "DRIFT",
+        "live_sha256": sha256_text(live),
+        "payload_sha256": sha256_text(payload),
+        "live_bytes": len(live.encode("utf-8")),
+        "payload_bytes": len(payload.encode("utf-8")),
+    }
+    if verdict["verdict"] == "DRIFT":
+        live_lines = live.splitlines()
+        payload_lines = payload.splitlines()
+        first_diff = next(
+            (n for n, (a, b) in enumerate(zip(live_lines, payload_lines), start=1) if a != b),
+            min(len(live_lines), len(payload_lines)) + 1,
+        )
+        verdict.update(
+            byte_delta=verdict["payload_bytes"] - verdict["live_bytes"],
+            line_delta=len(payload_lines) - len(live_lines),
+            first_diff_line=first_diff,
+        )
+    return verdict
+
+
+def describe_verdict(verdict: dict[str, Any]) -> str:
+    if verdict["verdict"] == "match":
+        return f"match sha256={verdict['live_sha256'][:12]}"
+    return (
+        f"DRIFT bytes={verdict['byte_delta']:+d} lines={verdict['line_delta']:+d} "
+        f"first_diff_line={verdict['first_diff_line']} "
+        f"live_sha256={verdict['live_sha256'][:12]} payload_sha256={verdict['payload_sha256'][:12]}"
+    )
 
 
 def write_text(path: Path, value: str) -> None:
@@ -210,8 +252,12 @@ def main() -> None:
             raise SystemExit(f"{page_key} payload unsafe: {'; '.join(payload_failures)}")
 
         print(f"target ok: {page_key} id={page['id']} slug={page['slug']} payload={page['payload']}")
+        parity = parity_verdict(current["content"]["raw"], payload)
+        print(f"parity: {page_key} id={page['id']} {describe_verdict(parity)}")
         if not args.execute:
-            report["pages"].append({"page": page_key, "id": page["id"], "action": "dry-run"})
+            report["pages"].append(
+                {"page": page_key, "id": page["id"], "action": "dry-run", "parity": parity["verdict"]}
+            )
             continue
 
         before = snapshot_page(wp, page_key, page, snapshot_dir, "before")
