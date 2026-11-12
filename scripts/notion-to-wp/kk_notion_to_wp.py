@@ -51,7 +51,11 @@ Safety:
       2. CREATE is the default. UPDATE requires explicit --update.
       3. Even with --update, the existing post's title must be similar to the
          new title (title_similarity >= 0.5) or the run aborts.
-    These guards are tested before any POST to WP.
+      4. The lookup and both guards run before any media upload, term creation
+         or post write, so an abort leaves nothing behind on WordPress. A
+         lookup that refuses to answer (SlugVerificationFailed) exits 8.
+      5. After the write, the readback slug, status, title and date must match
+         the payload or the run exits 7.
 """
 from __future__ import annotations
 
@@ -110,11 +114,12 @@ from notion_client import (  # noqa: E402
 from update_safety import (  # noqa: E402
     TITLE_SIMILARITY_UPDATE_THRESHOLD,
     emit_update_diff_review,
+    readback_mismatches,
     title_similarity,  # noqa: F401
     update_diff,  # noqa: F401
     update_title_guard,
 )
-from wp_client import WordPress  # noqa: E402
+from wp_client import SlugVerificationFailed, WordPress  # noqa: E402
 
 
 # ---------------------------------------------------------------------------
@@ -296,11 +301,42 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
         )
         return 4
 
-    # 6. Live mode — upload images, then create/update post
+    # 6. Live mode: decide create, update or abort, then upload images and write
     wp = WordPress(cfg.wp_base_url, cfg.wp_user, cfg.wp_app_password)
 
     if diff_update:
         return emit_update_diff_review(wp, slug, title, payload, log)
+
+    # SAFETY: CREATE vs UPDATE decision, made before any media, term or post
+    # write so an abort leaves nothing behind (media trash is off on the site).
+    # See docs/current-state/INCIDENT-2026-05-15-overwritten-post.md for why
+    # this is so cautious. Default is CREATE. UPDATE requires --update, and
+    # even then we abort if the existing post's title is wildly different.
+    try:
+        existing_id = wp.find_post_by_slug(slug)
+    except SlugVerificationFailed as e:
+        log(f"ABORTING: {e}")
+        log("No WP write was attempted.")
+        return 8
+    log(f"existing post with slug {slug!r}? {existing_id}")
+
+    if existing_id is not None:
+        existing = wp.get_post(existing_id)
+        existing_title = (existing.get("title") or {}).get("raw", "")
+        title_match, sim = update_title_guard(title, existing_title)
+        log(f"  existing post title: {existing_title!r}")
+        log(f"  new post title:      {title!r}")
+        log(f"  title similarity:    {sim:.2f}")
+        if not allow_update:
+            log("ABORTING: an existing post with this slug was found and --update was not passed.")
+            log("If you intended to overwrite it, re-run with --update. Otherwise pick a different --slug.")
+            return 2
+        if not title_match:
+            log(f"ABORTING: existing title is too different from new title "
+                f"(similarity {sim:.2f} < {TITLE_SIMILARITY_UPDATE_THRESHOLD}).")
+            log("This is the 2026-05-15 incident's safety net. If you're SURE you want to overwrite, "
+                "stop and verify the slug, WP ID, and intended target before changing the connector.")
+            return 3
 
     for nurl, meta in list(image_map.items()):
         if nurl != meta.get("_notion_url"):  # skip alias entries
@@ -334,51 +370,31 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
     if tag_ids:
         payload["tags"] = tag_ids
 
-    # SAFETY: CREATE vs UPDATE decision.
-    # See docs/current-state/INCIDENT-2026-05-15-overwritten-post.md for why
-    # this is so cautious. Default is CREATE. UPDATE requires --update, and
-    # even then we abort if the existing post's title is wildly different.
-    existing_id = wp.find_post_by_slug(slug)
-    log(f"existing post with slug {slug!r}? {existing_id}")
-
     if existing_id is None:
         result = wp.create_post(payload)
         log(f"CREATEd new WP post {result['id']} — {result['link']}")
     else:
-        existing = wp.get_post(existing_id)
-        existing_title = (existing.get("title") or {}).get("raw", "")
-        title_match, sim = update_title_guard(title, existing_title)
-        log(f"  existing post title: {existing_title!r}")
-        log(f"  new post title:      {title!r}")
-        log(f"  title similarity:    {sim:.2f}")
-        if not allow_update:
-            log("ABORTING: an existing post with this slug was found and --update was not passed.")
-            log("If you intended to overwrite it, re-run with --update. Otherwise pick a different --slug.")
-            return 2
-        if not title_match:
-            log(f"ABORTING: existing title is too different from new title "
-                f"(similarity {sim:.2f} < {TITLE_SIMILARITY_UPDATE_THRESHOLD}).")
-            log("This is the 2026-05-15 incident's safety net. If you're SURE you want to overwrite, "
-                "stop and verify the slug, WP ID, and intended target before changing the connector.")
-            return 3
         result = wp.update_post(existing_id, payload, expected_slug=slug)
         log(f"UPDATEd existing WP post {result['id']} — {result['link']}")
     log(f"edit URL: {cfg.wp_base_url}/wp-admin/post.php?post={result['id']}&action=edit")
-    try:
-        verified = wp.get_post(result["id"])
-        log("verified WP readback: "
-            f"id={verified.get('id')} "
-            f"status={verified.get('status')!r} "
-            f"slug={verified.get('slug')!r} "
-            f"link={verified.get('link')!r}")
-    except Exception as e:
-        log(f"WARNING: post-write verification GET failed: {e}")
-        verified = None
+    verified = wp.get_post(result["id"])
+    log("WP readback: "
+        f"id={verified.get('id')} "
+        f"status={verified.get('status')!r} "
+        f"slug={verified.get('slug')!r} "
+        f"link={verified.get('link')!r}")
+    mismatches = readback_mismatches(payload, verified)
+    if mismatches:
+        for field, (sent, stored) in mismatches.items():
+            log(f"  {field}: sent {sent!r}, WordPress stored {stored!r}")
+        log(f"[ABORT] WP post {result['id']} does not match what was sent. "
+            "Check it in wp-admin before any re-run.")
+        return 7
 
     seo_expected = (payload.get("meta") or {})
     from publish_common import verify_seo_meta_landed  # lazy: avoids circular import
     seo_dropped = verify_seo_meta_landed(
-        (verified or result).get("meta"), seo_expected
+        verified.get("meta"), seo_expected
     )
     if seo_dropped:
         msg = (

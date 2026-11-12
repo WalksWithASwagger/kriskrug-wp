@@ -3,6 +3,7 @@ from __future__ import annotations
 import difflib
 import json
 import re
+from datetime import datetime, timezone
 
 
 TITLE_SIMILARITY_UPDATE_THRESHOLD = 0.5
@@ -88,3 +89,36 @@ def emit_update_diff_review(wp, slug: str, title: str, payload: dict, log, emit=
     log("Diff-only run complete; no WP create, update, taxonomy, or media write request was sent.")
     log("Review the diff, then re-run with --update only after explicit operator approval.")
     return 0
+
+
+# WordPress turns a publish request whose date is in the future into a scheduled post.
+_READBACK_STATUS_ALIASES = {"publish": {"publish", "future"}}
+
+
+def _same_post_date(sent: str, readback: dict) -> bool:
+    sent_dt = datetime.fromisoformat(sent)
+    if sent_dt.tzinfo is None:
+        stored = readback.get("date")
+    else:
+        # WordPress converts an offset date to site time, so compare in UTC.
+        stored = readback.get("date_gmt")
+        sent_dt = sent_dt.astimezone(timezone.utc).replace(tzinfo=None)
+    return bool(stored) and datetime.fromisoformat(stored) == sent_dt
+
+
+def readback_mismatches(payload: dict, readback: dict) -> dict[str, tuple]:
+    """Return {field: (sent, stored)} for identity fields WordPress did not store as sent."""
+    mismatches: dict[str, tuple] = {}
+    # WordPress trims titles on save (title_save_pre), so surrounding whitespace is not drift.
+    sent_title = (payload.get("title") or "").strip()
+    stored_title = _wp_text_field(readback.get("title")).strip()
+    if stored_title != sent_title:
+        mismatches["title"] = (sent_title, stored_title)
+    if readback.get("slug") != payload.get("slug"):
+        mismatches["slug"] = (payload.get("slug"), readback.get("slug"))
+    sent_status = payload.get("status")
+    if readback.get("status") not in _READBACK_STATUS_ALIASES.get(sent_status, {sent_status}):
+        mismatches["status"] = (sent_status, readback.get("status"))
+    if not _same_post_date(payload["date"], readback):
+        mismatches["date"] = (payload["date"], readback.get("date"))
+    return mismatches
