@@ -1,5 +1,10 @@
 # Repo Status
 
+This is the initial maintenance receipt. The later
+[November 11 follow-through](morning-followthrough-2026-11-11.md) records three
+more local branch removals, one remote removal, the missing Events schedule,
+the verified BC + AI target and the standalone HSTS review packet.
+
 Observed on November 11, 2026, America/Vancouver (tool timestamps cross into
 November 12 UTC). Startup was `main` at `936f29c`, eight commits behind
 `origin/main`, with zero local-only commits and no stashes. The primary checkout
