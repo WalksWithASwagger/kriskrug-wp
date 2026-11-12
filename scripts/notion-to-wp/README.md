@@ -167,7 +167,7 @@ KK's "News & Content Database" has these properties; the connector reads them:
 | Tags | tags | auto-created if missing |
 | Type | category routing | Known types map directly; `Feature` uses tag hints or requires `--category`; unknown types fall back to "Misc" only for non-Feature content. |
 | Featured | post meta `kk_featured` | "YES" sets it |
-| Status | publish context | recorded from Notion, but not a publish gate |
+| Status | none | not read; only `--publish` sets WP status to publish |
 | Publication Date | post date | if absent, uses today |
 | Author / Owner | post author | mapped to WP user ID 1 (kk) for now |
 

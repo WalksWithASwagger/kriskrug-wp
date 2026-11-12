@@ -147,7 +147,6 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
     # Normalize date: keep date-part for folder naming, full ISO for the WP payload.
     pub_date = raw_date.split("T")[0]
     pub_datetime = raw_date if "T" in raw_date else raw_date + "T12:00:00"
-    status_notion = read_prop(page, "Status") or ""
     tags_notion = read_prop(page, "Tags") or []
     type_notion = read_prop(page, "Type") or ""
     featured = read_prop(page, "Featured") == "YES" or read_prop(page, "Featured") is True
@@ -407,7 +406,8 @@ def main():
     p.add_argument("--dry-run", action="store_true",
                    help="Write content/drafts/<slug>/ but do not touch WordPress")
     p.add_argument("--publish", action="store_true",
-                   help="Set WP status=publish if Notion Status is 'Ready'. Default is draft.")
+                   help="Send WP status=publish instead of draft. Notion Status is not checked; "
+                        "WordPress schedules the post if its date is in the future.")
     p.add_argument("--update", action="store_true",
                    help="Allow updating an existing post (matched by slug). Default is CREATE-only. "
                         "Required since the 2026-05-15 incident.")
