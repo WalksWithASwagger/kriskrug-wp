@@ -4,7 +4,7 @@
 
 This package stays in `content/drafts/` as a keeper. The current text is unpublishable (outline wearing a prose costume, slop lexicon, overclaim on the Foldit credit). **Discard 100% of the current prose.** Rewrite from scratch in a later scoped issue; this file is the marker, not the rewrite.
 
-**Keep (premise + receipts), per** [`docs/current-state/reports/draft-triage-2026-05-24-batch-20260815.md`](../../../docs/current-state/reports/draft-triage-2026-05-24-batch-20260815.md) **A3:**
+**Keep (premise + receipts), per** [`docs/current-state/reports/draft-triage-2026-05-24-batch-20260815.md`](../../../../docs/current-state/reports/draft-triage-2026-05-24-batch-20260815.md) **A3:**
 
 - Foldit player participation that led to a collective "Foldit players" author credit in a Nature protein-folding paper
 - The line from that citizen-science work to David Baker's 2024 Nobel in Chemistry
