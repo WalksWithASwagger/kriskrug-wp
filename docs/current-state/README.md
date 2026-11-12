@@ -21,9 +21,9 @@ November 11 startup observed WordPress 7.0.8 and public Aurora 1.7.1 matching
 `origin/main`. About, Photography, MØTLEYKRÜG and Contact source matches the
 approved live bodies. Publications' approved redesign is reconciled separately
 from its later private polish preview. Current priorities are the remaining
-Canada Now knowledge work, the missing Events cadence, HSTS decision and
-Futureproof's conditional BC + AI link. Do not repeat completed page redesigns,
-#331's archive policy, or the dependency security patches.
+Canada Now knowledge work, the missing Events cadence and the HSTS decision.
+Futureproof's approved BC + AI reciprocal link is now live. Do not repeat
+completed page redesigns, #331's archive policy, or the dependency security patches.
 
 ## Earlier release evidence
 

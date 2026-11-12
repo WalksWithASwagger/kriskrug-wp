@@ -6,6 +6,11 @@ November 11 in America/Vancouver; the independent transport and WordPress
 readbacks below ran at approximately 05:30 UTC on November 12. The earlier
 source reconciliation and roadmap shipped in PRs #1207 and #1208.
 
+Subsequent release: Kris approved the BC + AI target and exact link. The
+[publication receipt](../../../content/drafts/futureproof-2026-editorial/README.md)
+records successful authenticated/public verification at 05:58 UTC on November
+12. The pending-link discussion below is the earlier review checkpoint.
+
 ## Remaining branch cleanup
 
 There were zero open PRs before this follow-through. The primary checkout was
