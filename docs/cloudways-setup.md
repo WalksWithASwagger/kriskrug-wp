@@ -3,7 +3,7 @@
 > **STATUS: Historical.** This Cloudways dev-server path was not the active production workflow. Use `docs/current-state/TWO-TRACK-MODEL.md` and `docs/current-state/AURORA-MIGRATION-PLAN.md` for current staging decisions.
 
 **Server:** Development/Staging for Kris Krug WordPress
-**IP:** 24.144.80.107
+**IP:** <legacy-host>
 **Status:** NEW server (not production - safe to experiment)
 
 ---
@@ -31,7 +31,7 @@
 ### Option 2: SSH with Password (Manual)
 
 ```bash
-ssh master_qcteaefabe@24.144.80.107
+ssh <legacy-ssh-user>@<legacy-host>
 # Enter password when prompted
 ```
 
@@ -56,7 +56,7 @@ cat ~/.ssh/id_ed25519.pub
 # Paste your public key → Save
 
 # Test connection
-ssh master_qcteaefabe@24.144.80.107
+ssh <legacy-ssh-user>@<legacy-host>
 # Should connect without password!
 ```
 
@@ -81,7 +81,7 @@ mysql --version
 
 # Find WordPress
 ls -la
-cd /home/master_qcteaefabe
+cd /home/<legacy-ssh-user>
 ls -la
 find . -name "wp-config.php" -type f 2>/dev/null | head -5
 
@@ -124,7 +124,7 @@ free -h  # Memory
 
 ```bash
 # SSH into server
-ssh master_qcteaefabe@24.144.80.107
+ssh <legacy-ssh-user>@<legacy-host>
 
 # Find WordPress directory
 cd ~/applications/
@@ -207,7 +207,7 @@ wp option update blog_public 0
 
 ```bash
 # SSH into server
-ssh master_qcteaefabe@24.144.80.107
+ssh <legacy-ssh-user>@<legacy-host>
 
 # Navigate to WordPress wp-content
 cd ~/applications/{app-name}/public_html/wp-content
@@ -278,9 +278,9 @@ git pull origin main
 #!/bin/bash
 # Deploy custom code to Cloudways via SFTP
 
-HOST="24.144.80.107"
-USER="master_qcteaefabe"
-REMOTE_PATH="/home/master_qcteaefabe/applications/{app-name}/public_html/wp-content"
+HOST="<legacy-host>"
+USER="<legacy-ssh-user>"
+REMOTE_PATH="/home/<legacy-ssh-user>/applications/{app-name}/public_html/wp-content"
 
 echo "🚀 Deploying to Cloudways Dev Server..."
 
@@ -318,10 +318,10 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.CLOUDWAYS_SSH_KEY }}
-          REMOTE_HOST: 24.144.80.107
-          REMOTE_USER: master_qcteaefabe
+          REMOTE_HOST: <legacy-host>
+          REMOTE_USER: <legacy-ssh-user>
           SOURCE: "wp-content/"
-          TARGET: "/home/master_qcteaefabe/applications/{app}/public_html/wp-content/"
+          TARGET: "/home/<legacy-ssh-user>/applications/{app}/public_html/wp-content/"
           EXCLUDE: "/wp-content/uploads/, /wp-content/cache/"
 ```
 
@@ -352,7 +352,7 @@ cat ~/.ssh/id_cloudways_bcai.pub
 **Test connection:**
 
 ```bash
-ssh -i ~/.ssh/id_cloudways_bcai master_qcteaefabe@24.144.80.107
+ssh -i ~/.ssh/id_cloudways_bcai <legacy-ssh-user>@<legacy-host>
 # Should connect without password!
 ```
 
@@ -363,8 +363,8 @@ ssh -i ~/.ssh/id_cloudways_bcai master_qcteaefabe@24.144.80.107
 cat >> ~/.ssh/config <<'EOF'
 
 Host cloudways-bcai-dev
-    HostName 24.144.80.107
-    User master_qcteaefabe
+    HostName <legacy-host>
+    User <legacy-ssh-user>
     IdentityFile ~/.ssh/id_cloudways_bcai
     ServerAliveInterval 60
     ServerAliveCountMax 3
@@ -490,8 +490,8 @@ cat > .cloudways-credentials <<'EOF'
 # Kris Krug Cloudways Development Server
 # NEVER COMMIT THIS FILE
 
-Host: 24.144.80.107
-Username: master_qcteaefabe
+Host: <legacy-host>
+Username: <legacy-ssh-user>
 Password: [stored in password manager]
 SSH Key: ~/.ssh/id_cloudways_bcai
 
@@ -507,7 +507,7 @@ DB User: [from Cloudways]
 DB Password: [from Cloudways]
 
 # Application Path
-App Path: /home/master_qcteaefabe/applications/[app-name]/public_html
+App Path: /home/<legacy-ssh-user>/applications/[app-name]/public_html
 EOF
 
 # Encrypt it

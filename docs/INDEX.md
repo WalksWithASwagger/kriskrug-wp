@@ -91,7 +91,7 @@ These were written in the era-1 push (Jan–early May 2026) when the plan was "G
 | [`roadmap.md`](roadmap.md) | Superseded by [`current-state/archive/ROADMAP.md`](current-state/archive/ROADMAP.md) |
 | [`cloudways-setup.md`](cloudways-setup.md) | Cloudways dev-server setup. Relevant if/when Track B needs staging |
 | [`local-development-setup.md`](local-development-setup.md) | Local WordPress with Flywheel/Docker. Relevant if/when Track B needs local |
-| [`../.claude/context/wordpress-setup.md`](../.claude/context/wordpress-setup.md) | Cloudways WP config; **not** the prod config |
+| [`../.claude/context/wordpress-setup.md`](../.claude/context/wordpress-setup.md) | Historical Cloudways note (details redacted); **not** the prod config |
 | [`../fixes/README-FIXES-BATCH-1.md`](../fixes/README-FIXES-BATCH-1.md) | Index of the original Batch 1 fixes |
 | [`../.github/agents/`](../.github/agents/) | 10 agent definitions (orchestrator + workflow + doc-swarm) for the dormant pipeline |
 
