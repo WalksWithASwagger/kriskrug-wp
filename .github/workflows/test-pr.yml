@@ -290,6 +290,23 @@ jobs:
       - name: Check docs for stale current-state claims
         run: python3 scripts/docs_truth_check.py
 
+  # Theme smoke runs on every PR. final-url-smoke guards header, footer and
+  # front-page HTML, which never trip has_php, and the whole run is under a
+  # second.
+  theme-smoke:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # v2
+        with:
+          php-version: '8.2'
+
+      - name: Theme smoke tests
+        run: make theme-smoke
+
   # Security scanning — only when dependency manifests change (Trivy fs scan).
   # Already non-blocking (SARIF output, no exit-code); this stops it running on
   # every docs/CSS/content PR that changes no dependencies.
@@ -322,7 +339,7 @@ jobs:
 
   # Summarize all checks
   summary:
-    needs: [validate, php-validation, python-tests, css-ratchet, voice-gate, javascript-validation, docs-truth-check, security-scan, practice-browser]
+    needs: [validate, php-validation, python-tests, css-ratchet, voice-gate, javascript-validation, docs-truth-check, theme-smoke, security-scan, practice-browser]
     if: always()
     runs-on: ubuntu-latest
     steps:
