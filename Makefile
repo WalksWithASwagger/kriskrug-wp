@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test ruff-changed javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
+.PHONY: help test python-test ruff-changed large-file-check javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
 
 PYTHON ?= python3
 VARLOCK ?= varlock
@@ -49,6 +49,9 @@ python-test: ## Run all declared Python test suites
 
 ruff-changed: ## Check only Python files changed from BASE_REF (default: origin/main)
 	@$(PYTHON) scripts/ruff_changed.py --base-ref "$${BASE_REF:-origin/main}" --ruff "$${RUFF:-ruff}"
+
+large-file-check: ## Fail on new files over 5 MB or media outside the allowlist since BASE_REF (default: origin/main)
+	@$(PYTHON) scripts/check_large_files.py --base-ref "$${BASE_REF:-origin/main}"
 
 javascript-syntax: ## Check committed JavaScript syntax
 	@command -v node >/dev/null 2>&1 || { echo "ERROR: node is required for JavaScript syntax checks."; exit 1; }

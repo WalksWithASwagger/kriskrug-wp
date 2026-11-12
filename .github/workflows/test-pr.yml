@@ -163,6 +163,39 @@ jobs:
       - name: Run complete Python gate
         run: make python-test PYTHON=python
 
+  # Blocks new files over 5 MB and new media outside the allowlist (#1235).
+  # Runs on every PR and push: most of the repo's media arrived through
+  # web-UI uploads pushed straight to main, which no PR check ever saw.
+  large-file-check:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Check for new large files and media
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_BRANCH: ${{ github.base_ref }}
+          PUSH_BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            git fetch --no-tags origin "+refs/heads/${BASE_BRANCH}:refs/remotes/origin/${BASE_BRANCH}"
+            BASE_REF="refs/remotes/origin/${BASE_BRANCH}"
+          else
+            # Same zero-SHA and unreachable-commit fallback as the Ruff gate.
+            BASE_REF="${PUSH_BEFORE:-}"
+            if [ -z "$BASE_REF" ] \
+              || [ "$BASE_REF" = "0000000000000000000000000000000000000000" ] \
+              || ! git cat-file -e "${BASE_REF}^{commit}" 2>/dev/null; then
+              BASE_REF="$(git rev-parse HEAD~1)"
+            fi
+          fi
+          echo "Large-file base ref: ${BASE_REF}"
+          python3 scripts/check_large_files.py --base-ref "${BASE_REF}"
+
   # CSS regression ratchet (issue #472, AURORA-STYLESHEET-REBUILD-PLAN §3 step 0).
   # Fails any PR that increases front-end CSS line count or code-only !important
   # count. Raising the ceiling requires a waiver recorded in .css-budget.json.
@@ -342,7 +375,7 @@ jobs:
 
   # Summarize all checks
   summary:
-    needs: [validate, php-validation, python-tests, css-ratchet, voice-gate, javascript-validation, docs-truth-check, theme-smoke, security-scan, practice-browser]
+    needs: [validate, php-validation, python-tests, large-file-check, css-ratchet, voice-gate, javascript-validation, docs-truth-check, theme-smoke, security-scan, practice-browser]
     if: always()
     runs-on: ubuntu-latest
     permissions:

@@ -346,6 +346,7 @@ Automated tests:
 |---|---|---|
 | `validate` | Always | Sorts changed files into the triggers below; warns when the PR body links no issue |
 | `python-tests` | Always | `scripts/ruff_changed.py` on changed Python files (same as `make ruff-changed`), then `make python-test` |
+| `large-file-check` | Always | `scripts/check_large_files.py` against the merge base on a PR, or the previous `main` commit on a push (same as `make large-file-check`); see [Large files and media](#large-files-and-media) |
 | `javascript-validation` | Always | `make javascript-syntax` |
 | `theme-smoke` | Always | `make theme-smoke` |
 | `practice-browser` | Always | `make practice-browser-test`, then `make events-browser-test` |
@@ -357,6 +358,23 @@ Automated tests:
 | `summary` | Always | Fails when any job above failed or was cancelled. This is the required `Test PR / summary` check |
 
 CI does not run `make practice-preview`, the `visual-*` pixel gate, or any target that reads the live site (`make status-readonly`, `make wp7-smoke`, `make check-live-parity` and the other audits). Run those locally when a change needs them.
+
+### Large files and media
+
+`large-file-check` fails a pull request, or a push to `main`, that adds:
+
+- any file over 5 MB (5,242,880 bytes), wherever it lives, or
+- any image, video or audio file outside the allowlist: `theme/kk-aurora/assets/` (images the theme ships) and `plugins/kk-practice/tests/` (the practice fixture image).
+
+Only blobs new to the repository count. Files already on `main`, deletions, and moves or copies of existing files pass. Replacing an existing file with new content counts as new. The threshold, the media extensions and the allowlist live in [`scripts/check_large_files.py`](scripts/check_large_files.py).
+
+Photos, video, audio and other large media belong in the WordPress media library, or in the private knowledge-base repo when they are source material. Widening the allowlist means adding a directory to `ALLOWED_MEDIA_PREFIXES` in a reviewed PR that says why. Untracking a file later does not shrink history; only keeping new media out does.
+
+Check a branch before pushing:
+
+```bash
+make large-file-check BASE_REF=origin/main
+```
 
 ### Practice preview, contracts, and browser fixture
 
