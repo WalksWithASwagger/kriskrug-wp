@@ -167,7 +167,7 @@ KK's "News & Content Database" has these properties; the connector reads them:
 | Tags | tags | auto-created if missing |
 | Type | category routing | Known types map directly; `Feature` uses tag hints or requires `--category`; unknown types fall back to "Misc" only for non-Feature content. |
 | Featured | post meta `kk_featured` | "YES" sets it |
-| Status | publish context | recorded from Notion, but not a publish gate |
+| Status | none | not read; only `--publish` sets WP status to publish |
 | Publication Date | post date | if absent, uses today |
 | Author / Owner | post author | mapped to WP user ID 1 (kk) for now |
 
@@ -181,6 +181,8 @@ Default behavior is CREATE-only:
 - If a post with the slug already exists, the connector aborts instead of silently updating.
 - To update an existing post, pass `--update`. The update path also checks that the existing title is similar to the new title before it sends a REST update. The current threshold lives in `TITLE_SIMILARITY_UPDATE_THRESHOLD` and is covered by tests.
 - Before using `--update`, run `--diff` to print a no-write comparison between the existing WP slug target and the proposed Notion payload. Treat the diff as evidence for human review, not approval to update.
+- The slug lookup and both guards run before any media upload or term creation, so an abort leaves nothing behind on WordPress. A lookup that refuses to answer (`SlugVerificationFailed`, for example an ambiguous match) exits 8.
+- After a create or update, the connector reads the post back. If the stored slug, status, title or date differs from what it sent, it logs each difference and exits 7.
 
 This makes reruns safe by default. If you need a new version rather than an update, pass `--slug` with a new slug.
 

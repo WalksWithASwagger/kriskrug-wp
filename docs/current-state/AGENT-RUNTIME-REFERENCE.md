@@ -63,6 +63,20 @@ explicit KK approval and an explicit rollback path.
 `https://kriskrug.co`. They degrade when the network is unavailable. Never use
 the checked-in Aurora version as production proof: read public `style.css`.
 
+`make payload-parity` (`scripts/check_page_payload_parity.py`, #1222) compares
+live `content.raw` for every page in `wp-payloads/page-map.json` and
+`wp-payloads/topic-hubs/page-map.json` with its tracked payload, using the
+deploy's own normalization and SHA-256. It sends authenticated GETs only and
+prints IDs, slugs, dates, hashes and `match` or `DRIFT`, never page content.
+It needs credentials, so run it as `make varlock-run CMD='make payload-parity'`.
+Exit 0 means every page matches, 1 means drift, 2 means it could not verify.
+It never checks the superseded `issue-480-retire-inline-css/` pack, which
+`content_architecture_deploy.py` also refuses as a `--map`, and it does
+not cover Publications (1895) or Events (2250). A dry run of
+`scripts/content_architecture_deploy.py` prints the same per-page verdict
+before its `[dry-run]` line. File any drift it finds as its own issue; the
+check does not fix it.
+
 ## GitHub Actions: files present vs enabled
 
 A workflow YAML file in `.github/workflows/` is not proof it is enabled or
@@ -83,9 +97,11 @@ Dated API readback **2026-09-30**:
 | Auto-Triage Issues | `.github/workflows/auto-triage.yml` | `disabled_manually` |
 | Marquee Weekly Scan | `.github/workflows/marquee-weekly.yml` | `disabled_manually` |
 
-Auto-Triage Issues and Marquee Weekly Scan remain disabled on purpose. The
-reason is unknown. Do not re-enable them, edit repository settings, or treat
-their YAML as a running schedule. Historical swarm docs (`docs/architecture.md`,
+Auto-Triage Issues and Marquee Weekly Scan sat disabled for an unknown reason
+until KK ruled on 2026-11-12 (#1220) to delete both YAML files. Without a file
+on `main` neither can run, though the Actions API may keep listing them by name.
+Do not recreate them or edit repository settings to restore them. Historical
+swarm docs (`docs/architecture.md`,
 `docs/automation-guide.md`) describe files, not current Actions state.
 
 `practice-preview` is a local-only Make target. CI's `practice-browser` job
