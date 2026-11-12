@@ -1,10 +1,29 @@
 # Publications press media
 
-Status: **Aurora paper tear-sheet media checklist** (2026-08-01).
-The July 2026 dark neon draft skin is **superseded**. Local relative paths keep
-the branch self-contained; they must be rewritten to WordPress Media Library
-URLs before any live paste/PATCH. Not ready to paste into WordPress until KK
-approves the media set and the dry-run diff.
+Status: **Published source reconciled November 11, 2026.** The approved November
+10 Publications release is live. The canonical payload now matches the verified
+WordPress body for page `1895`, slug `publications`; its 25 distinct media keys
+use the exact WordPress upload URLs recorded in `press-media-manifest.json`.
+The separate interaction-polish preview is not part of this source sync.
+
+The four additions below were uploaded in the approved release. Their attachment
+IDs come from its media receipts. These are published assets, not a claim that
+the original files exist in this checkout. The [Canada Now source record](../video-research/metadata/canada-now-episode-23-source-record.md)
+establishes the episode identity and local October 27 release date; the
+[Bass Coast metadata](../video-research/metadata/bass-coast-brain-stage.json)
+records its July 26, 2025 video upload.
+
+| Media key | Attachment | Source and credit |
+|---|---:|---|
+| `press-2026-10-27-canada-now.jpg` | 12991 | [Canada Now official video](https://www.youtube.com/watch?v=2vC-zpjQM3E), published interview thumbnail, Ashley Smith with Kris Krüg |
+| `press-2025-07-26-bass-coast.jpg` | 12988 | [Bass Coast Brain Stage](https://www.youtube.com/watch?v=owtSPcpRinI), published talk thumbnail, Kris Krüg / YouTube |
+| `press-2026-02-05-vanmag-power50-entry.jpg` | 12989 | [Vancouver Magazine Power 50](https://vanmag.com/city/power-50/introducing-vancouver-magazines-2026-power-50-list/), profile-page clipping |
+| `press-2026-07-31-biv-ecosystem-article.jpg` | 12990 | [Business in Vancouver](https://www.biv.com/news/technology/bc-groups-push-to-build-a-stronger-ai-ecosystem-12601298), article-page clipping; article photo Rob Kruyt / BIV |
+
+The August checklist below is dated preparation evidence. Its local-path and
+upload instructions do not describe the current payload. The July dark neon
+draft skin remains **superseded**. Future media changes still need explicit
+media approval and a reviewed dry-run diff.
 
 ## Local asset confirmation (2026-08-01 depth wave)
 

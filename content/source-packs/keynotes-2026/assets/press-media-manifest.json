@@ -44,9 +44,75 @@
       "width": null,
       "height": null,
       "min_tier": 1
+    },
+    "feature-video": {
+      "ratio": "16:9",
+      "width": 1280,
+      "height": 720,
+      "min_tier": 1
     }
   },
   "entries": [
+    {
+      "key": "press-2026-10-27-canada-now.jpg",
+      "tier": 1,
+      "slot": "feature-video",
+      "ratio": "16:9",
+      "width": 1280,
+      "height": 720,
+      "capture_method": "youtube_thumbnail",
+      "source_url": "https://www.youtube.com/watch?v=2vC-zpjQM3E",
+      "outlet": "Canada Now",
+      "credit": "Published interview thumbnail: Canada Now / YouTube. Host Ashley Smith with guest Kris Krüg.",
+      "published_date": "2026-10-27",
+      "status": "published",
+      "attachment_id": 12991
+    },
+    {
+      "key": "press-2026-07-31-biv-ecosystem-article.jpg",
+      "tier": 2,
+      "slot": "feature",
+      "ratio": "16:10",
+      "width": 1200,
+      "height": 750,
+      "capture_method": "article_clip",
+      "source_url": "https://www.biv.com/news/technology/bc-groups-push-to-build-a-stronger-ai-ecosystem-12601298",
+      "outlet": "Business in Vancouver",
+      "credit": "Coverage screenshot: BIV. Article photo: Rob Kruyt / BIV.",
+      "published_date": "2026-07-31",
+      "status": "published",
+      "attachment_id": 12990
+    },
+    {
+      "key": "press-2026-02-05-vanmag-power50-entry.jpg",
+      "tier": 2,
+      "slot": "wall",
+      "ratio": "16:10",
+      "width": 1200,
+      "height": 750,
+      "capture_method": "article_clip",
+      "source_url": "https://vanmag.com/city/power-50/introducing-vancouver-magazines-2026-power-50-list/",
+      "outlet": "Vancouver Magazine",
+      "credit": "Coverage screenshot: Vancouver Magazine Power 50 profile.",
+      "published_date": "2026-02-05",
+      "status": "published",
+      "attachment_id": 12989
+    },
+    {
+      "key": "press-2025-07-26-bass-coast.jpg",
+      "tier": 1,
+      "slot": "feed-thumb-video",
+      "ratio": "16:9",
+      "width": 1280,
+      "height": 720,
+      "capture_method": "youtube_thumbnail",
+      "source_url": "https://www.youtube.com/watch?v=owtSPcpRinI",
+      "outlet": "Kris Krüg / Bass Coast Brain Stage",
+      "credit": "Published talk thumbnail: Kris Krüg / YouTube.",
+      "published_date": "2025-07-26",
+      "status": "published",
+      "attachment_id": 12988
+    },
     {
       "key": "press-2026-08-09-thebreaker-cover.jpg",
       "tier": 1,
@@ -447,5 +513,33 @@
       "published_date": "2025-01-28",
       "status": "ready"
     }
-  ]
+  ],
+  "reconciled": "2026-11-11",
+  "published_urls": {
+    "press-2023-09-07-uniqueways-cover.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2023-09-07-uniqueways-cover.jpg",
+    "press-2023-09-08-olio-context-v2.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2023-09-08-olio-context-v2.jpg",
+    "press-2023-11-08-kurty-d-cover.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2023-11-08-kurty-d-cover.jpg",
+    "press-2024-01-08-ai-volution-v2.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2024-01-08-ai-volution-v2.jpg",
+    "press-2024-02-12-jessica-grey-context-v2.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2024-02-12-jessica-grey-context-v2.jpg",
+    "press-2024-05-06-teen2life-cover.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2024-05-06-teen2life-cover.jpg",
+    "press-2024-06-01-folio-yvr-context-v2.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2024-06-01-folio-yvr-context-v2.jpg",
+    "press-2024-07-03-cbc-sandboxing-ai-series.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2024-07-03-cbc-sandboxing-ai-series.jpg",
+    "press-2024-08-22-techcouver-context.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2024-08-22-techcouver-context.jpg",
+    "press-2024-11-21-byte-club-v2.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2024-11-21-byte-club-v2.jpg",
+    "press-2025-01-10-human-biography-cover.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2025-01-10-human-biography-cover.jpg",
+    "press-2025-01-31-rachel-thexton-cover.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2025-01-31-rachel-thexton-cover.jpg",
+    "press-2025-04-14-bc-studies-context-v2.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2025-04-14-bc-studies-context-v2.jpg",
+    "press-2025-05-01-portfolio-yvr-context-v2.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2025-05-01-portfolio-yvr-context-v2.jpg",
+    "press-2025-07-09-e-channelnews-context-v2.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2025-07-09-e-channelnews-context-v2.jpg",
+    "press-2025-07-26-bass-coast.jpg": "https://kriskrug.co/wp-content/uploads/2026/11/press-2025-07-26-bass-coast.jpg",
+    "press-2026-02-05-vanmag-power50-entry.jpg": "https://kriskrug.co/wp-content/uploads/2026/11/press-2026-02-05-vanmag-power50-entry.jpg",
+    "press-2026-02-09-tela-viva-context-v2.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2026-02-09-tela-viva-context-v2.jpg",
+    "press-2026-05-20-storyhive-v2.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2026-05-20-storyhive-v2.jpg",
+    "press-2026-06-15-biv-context.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2026-06-15-biv-context.jpg",
+    "press-2026-07-24-the-tyee-context-v2.jpg": "https://kriskrug.co/wp-content/uploads/2026/08/press-2026-07-24-the-tyee-context-v2.jpg",
+    "press-2026-07-31-biv-ecosystem-article.jpg": "https://kriskrug.co/wp-content/uploads/2026/11/press-2026-07-31-biv-ecosystem-article.jpg",
+    "press-2026-08-09-thebreaker-460-context.jpg": "https://kriskrug.co/wp-content/uploads/2026/09/press-2026-08-09-thebreaker-460-context.jpg",
+    "press-2026-08-09-thebreaker-cover.jpg": "https://kriskrug.co/wp-content/uploads/2026/09/press-2026-08-09-thebreaker-cover.jpg",
+    "press-2026-10-27-canada-now.jpg": "https://kriskrug.co/wp-content/uploads/2026/11/press-2026-10-27-canada-now.jpg"
+  }
 }
