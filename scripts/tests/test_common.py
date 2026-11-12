@@ -1,6 +1,10 @@
 import io
+import json
+import math
 import sys
 import unittest
+import urllib.parse
+from email.message import Message
 from pathlib import Path
 from unittest import mock
 from urllib.error import HTTPError, URLError
@@ -333,21 +337,94 @@ class WPClientWriteReplayTests(unittest.TestCase):
         self.assertEqual(calls, ["POST"])
 
 
+def _page_error(url: str, code: str) -> HTTPError:
+    body = json.dumps({"code": code, "data": {"status": 400}}).encode()
+    return HTTPError(url, 400, "Bad Request", hdrs=Message(), fp=io.BytesIO(body))
+
+
+class _FakeWordPressCollection:
+    """Serves `total` items the way WordPress core paginates a REST collection.
+
+    A page past the last one is HTTP 400 rest_post_invalid_page_number whenever
+    the collection is non-empty (class-wp-rest-posts-controller.php).
+    """
+
+    def __init__(self, total: int, *, total_pages_header: bool = True):
+        self.total = total
+        self.total_pages_header = total_pages_header
+        self.pages: list[int] = []
+
+    def __call__(self, req, timeout=0):
+        query = urllib.parse.parse_qs(urllib.parse.urlsplit(req.full_url).query)
+        page, per_page = int(query["page"][0]), int(query["per_page"][0])
+        self.pages.append(page)
+        max_pages = math.ceil(self.total / per_page)
+        if page > max_pages and self.total > 0:
+            raise _page_error(req.full_url, "rest_post_invalid_page_number")
+        start = (page - 1) * per_page
+        items = [{"id": i} for i in range(start, min(start + per_page, self.total))]
+        resp = _fake_response(json.dumps(items))
+        resp.headers = Message()
+        if self.total_pages_header:
+            resp.headers["X-WP-Total"] = str(self.total)
+            resp.headers["X-WP-TotalPages"] = str(max_pages)
+        return resp
+
+
 class WPClientPaginationTests(unittest.TestCase):
-    def test_get_all_stops_on_short_page(self):
-        client = WPClient("https://example.com", "u", "p")
-        pages = [[{"id": i} for i in range(100)], [{"id": 100}, {"id": 101}]]
+    # collection size -> pages requested when X-WP-TotalPages is present
+    PAGES_REQUESTED = {0: [1], 99: [1], 100: [1], 101: [1, 2], 200: [1, 2]}
 
-        with mock.patch.object(
-            client, "request", side_effect=lambda *a, **k: pages.pop(0)
-        ):
-            items = client.get_all("posts", per_page=100)
-        self.assertEqual(len(items), 102)
-
-    def test_get_all_stops_on_empty(self):
+    def get_all(self, fake: _FakeWordPressCollection) -> list:
         client = WPClient("https://example.com", "u", "p")
-        with mock.patch.object(client, "request", return_value=[]):
-            self.assertEqual(client.get_all("posts"), [])
+        with mock.patch("urllib.request.urlopen", side_effect=fake):
+            return client.get_all("posts", params={"status": "draft"}, per_page=100)
+
+    def test_returns_every_item_for_any_collection_size(self):
+        for total, pages in self.PAGES_REQUESTED.items():
+            with self.subTest(total=total):
+                fake = _FakeWordPressCollection(total)
+                items = self.get_all(fake)
+                self.assertEqual([item["id"] for item in items], list(range(total)))
+                self.assertEqual(fake.pages, pages)
+
+    def test_total_pages_header_stops_before_the_page_past_the_end(self):
+        fake = _FakeWordPressCollection(100)
+
+        self.assertEqual(len(self.get_all(fake)), 100)
+        self.assertEqual(fake.pages, [1])
+
+    def test_invalid_page_number_ends_the_list_without_the_header(self):
+        for total in self.PAGES_REQUESTED:
+            with self.subTest(total=total):
+                fake = _FakeWordPressCollection(total, total_pages_header=False)
+                self.assertEqual(len(self.get_all(fake)), total)
+
+    def test_page_one_400_still_raises(self):
+        for code in ("rest_post_invalid_page_number", "rest_invalid_param"):
+            with self.subTest(code=code):
+                client = WPClient("https://example.com", "u", "p")
+                error = _page_error("https://example.com/wp-json/wp/v2/posts", code)
+                self.addCleanup(error.close)
+                with mock.patch("urllib.request.urlopen", side_effect=error):
+                    with self.assertRaises(HTTPError) as caught:
+                        client.get_all("posts")
+                self.assertEqual(caught.exception.code, 400)
+
+    def test_other_400_after_page_one_still_raises(self):
+        fake = _FakeWordPressCollection(100, total_pages_header=False)
+        client = WPClient("https://example.com", "u", "p")
+
+        def serve(req, timeout=0):
+            if "page=2" in req.full_url:
+                raise _page_error(req.full_url, "rest_invalid_param")
+            return fake(req, timeout)
+
+        with mock.patch("urllib.request.urlopen", side_effect=serve):
+            with self.assertRaises(HTTPError) as caught:
+                client.get_all("posts", per_page=100)
+        caught.exception.close()
+        self.assertEqual(fake.pages, [1])
 
 
 class WPQueueCountsTests(unittest.TestCase):
