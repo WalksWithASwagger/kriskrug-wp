@@ -192,10 +192,20 @@ function enqueue_assets(): void {
             ]
         );
     }
+}
+add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_assets');
 
-    // Marquee board flip animation — deferred, front page only (the board lives in the hero).
-    // Cells are pre-rendered in the partial, so this is pure progressive enhancement.
-    if (is_front_page()) {
+/**
+ * Load the marquee board flip animation only on a front page that renders a board.
+ *
+ * Block themes render the template before wp_head(), so a script enqueued here
+ * still prints. Matching rendered markup rather than a template file keeps this
+ * correct when a saved front-page template overrides the theme file. Board
+ * cells are pre-rendered, so the script is progressive enhancement; single and
+ * archive marquee_board views take their assets from the kk-marquee-board plugin.
+ */
+function enqueue_marquee_for_rendered_board(string $block_content): string {
+    if (is_front_page() && str_contains($block_content, 'kkm-board')) {
         wp_enqueue_script(
             'kk-aurora-marquee',
             get_theme_file_uri('assets/js/marquee.js'),
@@ -208,8 +218,9 @@ function enqueue_assets(): void {
         );
     }
 
+    return $block_content;
 }
-add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_assets');
+add_filter('render_block', __NAMESPACE__ . '\\enqueue_marquee_for_rendered_board');
 
 /**
  * Enqueue editor assets
