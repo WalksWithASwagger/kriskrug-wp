@@ -108,8 +108,9 @@ def classify(pr: dict) -> str:
 
 def clean_title(title: str) -> str:
     _, text = split_title(title)
-    text = re.sub(r"\s+[—–]\s+", " - ", text)
-    text = text.replace("—", "-").replace("–", "-")
+    dashes = "\N{EM DASH}\N{EN DASH}"
+    text = re.sub(rf"\s+[{dashes}]\s+", " - ", text)
+    text = text.translate({ord(d): "-" for d in dashes})
     return text[:1].upper() + text[1:]
 
 

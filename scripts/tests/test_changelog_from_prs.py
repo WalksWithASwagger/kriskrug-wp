@@ -14,6 +14,9 @@ assert SPEC.loader
 SPEC.loader.exec_module(MODULE)
 
 
+DASH = "\N{EM DASH}"
+
+
 def pr(number, title, merged, *paths):
     return {
         "number": number,
@@ -63,7 +66,7 @@ FIXTURE = [
         "2026-10-08T10:00:00Z",
         "scripts/events_page/a.py",
     ),
-    pr(9, "Keep it — and tidy", "2026-10-09T10:00:00Z"),
+    pr(9, "Keep it " + DASH + " and tidy", "2026-10-09T10:00:00Z"),
     pr(10, "Old one", "2026-09-01T10:00:00Z", "docs/a.md"),
 ]
 
@@ -83,7 +86,7 @@ def test_prefix_and_path_classification():
 
 def test_clean_title_strips_prefix_and_dashes():
     assert MODULE.clean_title("fix: guard the lookup") == "Guard the lookup"
-    assert MODULE.clean_title("Keep it — and tidy") == "Keep it - and tidy"
+    assert MODULE.clean_title("Keep it " + DASH + " and tidy") == "Keep it - and tidy"
     assert MODULE.clean_title("Unknown: stays") == "Unknown: stays"
 
 
