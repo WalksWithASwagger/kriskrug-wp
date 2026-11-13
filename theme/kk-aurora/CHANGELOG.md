@@ -21,7 +21,7 @@ When you cut a new release, add a line here and follow
 ---
 
 ## 1.7.3
-**Deployed:** Not deployed. Repo-only release candidate; production stays on 1.7.2 until KK approves the merge and a deploy. The live `kk-aurora//front-page` template is a database override that beats the theme file, so the homepage band needs a separate check and approved update at deploy time.
+**Deployed:** LIVE via SFTP on 2026-11-12 at 18:29 America/Vancouver (2026-11-13 01:29 UTC) after KK's in-chat approval; 1.7.2 rollback seat `kk-aurora.bak-1794533392`. The saved `kk-aurora//front-page` template (a database override that beats the theme file) got the same four wording swaps in a separate KK-approved, hash-guarded write. Public `style.css` reads 1.7.3 and no page promises a weekly email. See `docs/current-state/reports/aurora-173-monthly-letter-release-2026-11-12.md`.
 The footer newsletter tile, the homepage newsletter band and the /blog/ eyebrow promise a monthly letter instead of a weekly email, following KK's 2026-11-12 ruling (#1278). Wording only; no links, classes or block markup changed.
 
 ## 1.7.2
