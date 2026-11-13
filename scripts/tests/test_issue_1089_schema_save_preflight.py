@@ -144,6 +144,15 @@ class Issue1089SchemaSavePreflightTests(unittest.TestCase):
             release["runtime_sha256"],
             hashlib.sha256(runtime.encode()).hexdigest(),
         )
+        # Swapping the recorded flags back must give the #1089 runtime, so the
+        # receipt's one-line change is the only difference between the two.
+        before = release["change"]["before"] + ")"
+        after = release["change"]["after"] + ")"
+        self.assertEqual(release["change"]["lines_changed"], runtime.count(after))
+        self.assertEqual(
+            release["before_runtime_sha256"],
+            hashlib.sha256(runtime.replace(after, before).encode()).hexdigest(),
+        )
         self.assertTrue(self.manifest["candidate"]["prepared_not_live"])
         self.assertEqual(5, self.manifest["candidate"]["expected_snippet_id"])
 
