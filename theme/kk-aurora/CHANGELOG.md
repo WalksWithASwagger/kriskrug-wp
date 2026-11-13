@@ -20,8 +20,12 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.7.3
+**Deployed:** Not deployed. Repo-only release candidate; production stays on 1.7.2 until KK approves the merge and a deploy. The live `kk-aurora//front-page` template is a database override that beats the theme file, so the homepage band needs a separate check and approved update at deploy time.
+The footer newsletter tile, the homepage newsletter band and the /blog/ eyebrow promise a monthly letter instead of a weekly email, following KK's 2026-11-12 ruling (#1278). Wording only; no links, classes or block markup changed.
+
 ## 1.7.2
-**Deployed:** Not deployed. Repo-only release candidate; production stays on 1.7.1 until KK approves the merge and a deploy.
+**Deployed:** LIVE via SFTP on 2026-11-12 at 17:52 America/Vancouver (2026-11-13 00:52 UTC) after KK's in-chat approval. 67 files staged, then atomically swapped; the 1.7.1 rollback seat is `kk-aurora.bak-1794531136`. Before the swap, an authenticated all-status read found no page (50) or post (1,060) using the removed `blank` or `no-title` templates. Public `style.css` reads 1.7.2, `make check-live-parity`, `make wp7-smoke` (8/8) and `make seo-publisher-smoke` pass, the homepage no longer loads `marquee.js`, and category archives emit their own `og:url`. The pixel gate did not run (cached Chromium build no longer matches the installed Playwright). See `docs/current-state/reports/aurora-172-deploy-2026-11-12.md`.
 Load `marquee.js` only when the rendered front page contains a marquee board (#1237). The check runs on rendered blocks, so it also holds under the saved `kk-aurora//front-page` template. Archive, taxonomy, date, author, post type and search routes emit their canonical URL as `og:url`, built from the query rather than the request path (#1228). Routes without a description stop showing the retired site tagline and fall back to existing copy: the Writing archive description (the posts page SEO description) on journal routes, and elsewhere the theme's hard-coded `homepage_meta_description()` text, which is the RSS channel description and not the live homepage meta description. The fallback copy awaits KK approval. New `tests/functions-smoke.php` covers both, plus the `/writing` and `/projects` redirects. Reconciles the readme and changelog deploy markers and sets Tested up to 7.0 (#1243). Removes the `blank` and `no-title` custom templates from `theme.json`: neither template file ever existed, and no published page or post uses them; a new `tests/theme-json-smoke.php` requires a template file for every declared custom template (#1239, KK ruling 2026-11-12). PHP, `theme.json`, tests and metadata only; no CSS, template, part or pattern file changed.
 
 ## 1.7.1

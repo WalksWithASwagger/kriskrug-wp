@@ -25,9 +25,9 @@ class Issue416HomepageNewsletterTests(unittest.TestCase):
         cls.band = _newsletter_block(cls.front)
 
     def test_one_clear_cta_and_kept_thumbnails(self):
-        self.assertIn("Weekly email", self.band)
+        self.assertIn("Monthly letter", self.band)
         self.assertIn("Give me your email. I'll earn every open.", self.band)
-        self.assertIn("Get the weekly email", self.band)
+        self.assertIn("Get the monthly letter", self.band)
         self.assertEqual(1, self.band.count("vancouver.beehiiv.com"))
         self.assertEqual(1, self.band.count("aurora-button-primary"))
         self.assertIn("aurora-newsletter-thumbs-query", self.band)
