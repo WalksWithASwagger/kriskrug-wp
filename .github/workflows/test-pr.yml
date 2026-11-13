@@ -122,9 +122,6 @@ jobs:
       - name: WordPress PHP validation
         run: make validate
 
-      - name: Plugin smoke tests
-        run: make plugin-smoke
-
       - name: Snippet smoke tests
         run: make snippet-smoke
 
@@ -347,6 +344,23 @@ jobs:
       - name: Theme smoke tests
         run: make theme-smoke
 
+  # Plugin smoke runs on every PR. It checks rendered plugin markup in a few
+  # seconds, and a shared helper or theme change can break it without a
+  # plugin .php file changing.
+  plugin-smoke:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: '8.2'
+
+      - name: Plugin smoke tests
+        run: make plugin-smoke
+
   # Security scanning — only when dependency manifests change (Trivy fs scan).
   # Already non-blocking (SARIF output, no exit-code); this stops it running on
   # every docs/CSS/content PR that changes no dependencies.
@@ -385,7 +399,7 @@ jobs:
 
   # Summarize all checks
   summary:
-    needs: [validate, php-validation, python-tests, large-file-check, css-ratchet, voice-gate, javascript-validation, docs-truth-check, theme-smoke, security-scan, practice-browser]
+    needs: [validate, php-validation, python-tests, large-file-check, css-ratchet, voice-gate, javascript-validation, docs-truth-check, theme-smoke, plugin-smoke, security-scan, practice-browser]
     if: always()
     runs-on: ubuntu-latest
     permissions:
