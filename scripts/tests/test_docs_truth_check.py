@@ -378,6 +378,26 @@ class RetiredSwarmSurfaceTests(unittest.TestCase):
         )
 
 
+CURRENT_MERGE_CONTRACT = "\n".join(
+    [
+        "- **No direct pushes to `main`.** Every change goes through a branch and a PR.",
+        "",
+        "### Merge lanes",
+        "",
+        "| Lane | Paths | Who merges |",
+        "|---|---|---|",
+        "| Content and docs | `content/`, `docs/` | Agent merge |",
+        "| Scripts, tests, `Makefile`, CI and dependencies | `scripts/`, `Makefile` | Agent merge after review |",
+        "| Theme / plugins / `inc/` / `fixes/` snippet sources | `theme/kk-aurora/` | KK go-ahead: ask KK before merging |",
+        "",
+        "- **Agent merge:** `main` requires 0 approving reviews, `Test PR / summary` green,",
+        "  and the branch up to date with `main`.",
+        "- Merge with `gh pr merge <n> --squash --delete-branch`, no `--admin`.",
+        "- **A merge never authorizes a deploy.**",
+    ]
+)
+
+
 class MergePolicyGuidanceTests(unittest.TestCase):
     def test_active_guidance_rejects_routine_admin_override(self):
         findings = scan_text(
@@ -420,19 +440,91 @@ class MergePolicyGuidanceTests(unittest.TestCase):
         self.assertTrue(any("0 approving reviews" in finding.message for finding in findings))
 
     def test_agents_accepts_the_current_merge_contract(self):
-        findings = scan_text(
-            "AGENTS.md",
-            "\n".join(
-                [
-                    "Theme / plugins / `inc/` / live deploy PRs: ask KK before merging.",
-                    "Content/docs-only PRs: `main` requires 0 approving reviews.",
-                    "Require `Test PR / summary` green and the branch up to date with `main`.",
-                    "Merge with `gh pr merge <n> --squash --delete-branch`; no `--admin`.",
-                ]
-            ),
+        findings = scan_text("AGENTS.md", CURRENT_MERGE_CONTRACT)
+
+        self.assertFalse(
+            any(
+                "Merge policy" in finding.message or "Merge lanes" in finding.message
+                for finding in findings
+            )
         )
 
-        self.assertFalse(any("Merge policy" in finding.message for finding in findings))
+    def test_agents_requires_the_merge_lane_table(self):
+        old_two_lane_contract = "\n".join(
+            [
+                "- **Theme / plugins / `inc/` / live deploy PRs:** ask KK before merging.",
+                "- **Content/docs-only PRs:** `main` requires 0 approving reviews,",
+                "  `Test PR / summary` green, and the branch up to date with `main`.",
+                "  Merge with `gh pr merge <n> --squash --delete-branch`, no `--admin`.",
+            ]
+        )
+
+        messages = [finding.message for finding in scan_text("AGENTS.md", old_two_lane_contract)]
+
+        for expected in (
+            "`Merge lanes` heading",
+            "agent merge-after-review lane",
+            "`fixes/` snippet sources",
+            "through a branch and PR",
+            "live deploys separate",
+        ):
+            with self.subTest(expected=expected):
+                self.assertTrue(any(expected in message for message in messages))
+
+    def test_scripts_lane_must_be_agent_merge_after_review(self):
+        misfiled = CURRENT_MERGE_CONTRACT.replace(
+            "| `scripts/`, `Makefile` | Agent merge after review |",
+            "| `scripts/`, `Makefile` | KK go-ahead |",
+        )
+
+        findings = scan_text("AGENTS.md", misfiled)
+
+        self.assertTrue(
+            any("agent merge-after-review lane" in finding.message for finding in findings)
+        )
+
+    def test_rejects_conditional_direct_push_wording(self):
+        sample = (
+            "- Don't push to `main` without KK's go-ahead if the change touches "
+            "prod-rendering code.\n"
+        )
+
+        for path in ("AGENTS.md", "CONTRIBUTING.md"):
+            with self.subTest(path=path):
+                findings = scan_text(path, sample)
+                self.assertTrue(
+                    any("pushed directly to `main`" in finding.message for finding in findings)
+                )
+
+    def test_contributing_and_template_must_point_to_the_lane_table(self):
+        for path in ("CONTRIBUTING.md", ".github/pull_request_template.md"):
+            with self.subTest(path=path):
+                missing = scan_text(path, "Content/docs-only PRs may use the normal merge path.\n")
+                self.assertTrue(
+                    any("AGENTS.md#merge-lanes" in finding.message for finding in missing)
+                )
+                pointed = scan_text(
+                    path,
+                    "No direct pushes to `main`. See the [lane table](AGENTS.md#merge-lanes).\n",
+                )
+                self.assertFalse(
+                    any("Merge lanes" in finding.message for finding in pointed)
+                )
+
+    def test_contributing_must_state_the_direct_push_rule(self):
+        findings = scan_text(
+            "CONTRIBUTING.md",
+            "See the [lane table](AGENTS.md#merge-lanes).\n",
+        )
+
+        self.assertTrue(any("no-direct-push rule" in finding.message for finding in findings))
+
+    def test_committed_merge_docs_pass(self):
+        repo_root = Path(__file__).resolve().parents[2]
+
+        for path in ("AGENTS.md", "CONTRIBUTING.md", ".github/pull_request_template.md"):
+            with self.subTest(path=path):
+                self.assertEqual(docs_truth_check.scan_file(repo_root, repo_root / path), [])
 
     def test_default_scan_can_include_the_environment_schema(self):
         with tempfile.TemporaryDirectory() as tmp:

@@ -61,6 +61,8 @@ Do **not** commit plaintext secrets. This repo's contract is [`.env.schema`](.en
 4. **Test thoroughly** - all tests must pass
 5. **Submit a pull request** using our PR template
 
+No direct pushes to `main`: every change goes through a branch and a PR, including content, docs and GitHub web uploads. Which PRs an agent may merge and which need KK's go-ahead is set once, in the [merge-lane table in `AGENTS.md`](AGENTS.md#merge-lanes).
+
 ## Issue Guidelines
 
 ### Creating Quality Issues
@@ -132,8 +134,8 @@ Your PR should include:
 
 1. Confirm **`Test PR / summary` is green**.
 2. Confirm the branch is **up to date with `main`**.
-3. Content/docs-only PRs may use the normal protected merge path.
-4. Theme, plugin, `inc/`, and live-deploy work requires KK review before merge; every live WordPress deploy requires separate explicit approval.
+3. Find the PR's lane in the [merge-lane table](AGENTS.md#merge-lanes); it decides whether an agent may merge or KK must give the go-ahead.
+4. A merge never authorizes a deploy. Every live WordPress write or deploy needs KK's explicit approval, separately.
 
 > The older GitHub Actions agent swarm is gone (`agent-pr-generator.yml` deleted 2026-08-23). `test-pr.yml` and `backlog-reconcile.yml` are the active repo workflows. Auto-Triage Issues and Marquee Weekly Scan, both manually disabled, were deleted on 2026-11-12 with the swarm's agent definitions and state records (#1220); do not recreate them or change workflow settings.
 
@@ -191,7 +193,7 @@ The default ruleset is intentionally focused on high-signal WordPress security c
 
 Day-to-day work happens through Claude Code / Cursor agent sessions, not via the dormant GitHub Actions agent swarm. Two modes:
 
-- **Publisher mode (Track A):** Notion → kriskrug.co publishing, content enrichment, schema/SEO tweaks. Operates on `main`.
+- **Publisher mode (Track A):** Notion → kriskrug.co publishing, content enrichment, schema/SEO tweaks. Branches from `main`.
 - **Architect mode (Track B):** Aurora theme maintenance. Start from `main` on a lane-scoped `codex/...` branch.
 
 See [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) for the decision rule.
