@@ -43,7 +43,7 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 Deploy status for every version lives in `CHANGELOG.md`, the deploy ledger.
 
 = 1.7.3 =
-* copy (#1278): the footer newsletter tile, the homepage newsletter band and the /blog/ eyebrow promise a monthly letter instead of a weekly email. Wording only; no links, classes or block markup changed. 1.7.2 is also not deployed yet, so both ship in the next approved deploy.
+* copy (#1278): the footer newsletter tile, the homepage newsletter band and the /blog/ eyebrow promise a monthly letter instead of a weekly email. Wording only; no links, classes or block markup changed. 1.7.2 went live on 2026-11-12.
 
 = 1.7.2 =
 * perf (#1237): load `marquee.js` only when the rendered front page contains a marquee board.
