@@ -15,7 +15,7 @@ Both channels already exist in this repo. Use the one KK names for that
 release; do not invent a third path.
 
 1. **wp-admin zip** via `make aurora-package`, then Appearance → Themes → Add New → Upload.
-2. **Pagely SFTP** via [`scripts/deploy_theme_sftp.py`](../../scripts/deploy_theme_sftp.py). Authentication is `WP_SFTP_PASSWORD` in process env or the documented macOS Keychain service. See [`ACCESS_CHANNELS.md`](ACCESS_CHANNELS.md). Availability must be verified at execution time.
+2. **Pagely SFTP** via [`scripts/deploy_theme_sftp.py`](../../scripts/deploy_theme_sftp.py). Authentication is `WP_SFTP_USER` plus `WP_SFTP_PASSWORD` in process env, or the single macOS Keychain item for the documented service, which supplies both. `WP_SFTP_PASSWORD` alone is refused. See [`ACCESS_CHANNELS.md`](ACCESS_CHANNELS.md). Availability must be verified at execution time.
 
 REST `WP_APP_PASSWORD` cannot upload themes.
 
