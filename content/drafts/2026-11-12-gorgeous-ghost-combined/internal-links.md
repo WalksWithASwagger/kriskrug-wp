@@ -27,10 +27,10 @@ Every URL in `post.html`, with its logged-out status on 2026-11-12 between 21:15
 
 ## Intended canonical
 
-Open until Kris rules on the date and slug (open-facts questions 1 and 2). With the recommended answers it is `https://kriskrug.co/<publish yyyy>/<mm>/<dd>/gorgeous-ghost/`. Both old routes still returned 404 on 2026-11-12: `https://kriskrug.co/gorgeous-ghost/` and `https://kriskrug.co/2026/08/12/gorgeous-ghost/`.
+Kris ruled on 2026-11-12 (open-facts questions 1 and 2): `https://kriskrug.co/<publish yyyy>/<mm>/<dd>/gorgeous-ghost/`, dated the real publish day. Both old routes still returned 404 on 2026-11-12: `https://kriskrug.co/gorgeous-ghost/` and `https://kriskrug.co/2026/08/12/gorgeous-ghost/`.
 
 ## Not linked, on purpose
 
-- Personal pages for Magenta Rune, Mayumi Rawlings, Kevin Friel and Kaoru Yoshihira: none verified. Kris can supply them (question 6).
-- `https://gorgeousghost.com/og/share.jpg`: not hotlinked (question 7).
-- Any tool vendor beyond the special-thanks credit (question 5).
+- Personal pages for Magenta Rune, Mayumi Rawlings, Kevin Friel and Kaoru Yoshihira: none verified, and the credit ruling (question 6) sent none.
+- `https://gorgeousghost.com/og/share.jpg`: not hotlinked. Question 7 ruled for a hosted featured image instead.
+- Any tool vendor beyond the special-thanks credit. Question 5 ruled for no tool names.

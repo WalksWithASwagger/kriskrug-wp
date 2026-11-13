@@ -33,10 +33,10 @@ The base package `content/drafts/2026-08-12-gorgeous-ghost-art-project/` was rea
 
 ## Changes from the sources, and why
 
-- `https://kriskrug.ai/network`, linked by the #771 package as "AI Garden's Signal Atlas", now returns 404. The combined draft links `https://kriskrug.ai/` instead. Open fact for Kris.
-- The #771 package hotlinked `https://gorgeousghost.com/og/share.jpg` as the first body image. The combined draft does not, per the lane rule against hotlinking or copying images. The public YouTube embed is the lead visual. The image plan is an open fact.
-- The share image's `Last-Modified` header reads `Thu, 12 Nov 2026 16:32:25 GMT`, so the file served today may not be the one reviewed in August.
-- #1016 quotes several spoken and sung lines from the film. The combined draft quotes none of them and points readers at the transcript on the film site instead. Whether to add one line back is an open fact.
+- `https://kriskrug.ai/network`, linked by the #771 package as "AI Garden's Signal Atlas", now returns 404. The combined draft links `https://kriskrug.ai/` instead. Resolved 2026-11-12: open-facts question 13 took its default.
+- The #771 package hotlinked `https://gorgeousghost.com/og/share.jpg` as the first body image. The combined draft does not, per the lane rule against hotlinking or copying images. The public YouTube embed is the lead visual. Resolved 2026-11-12 (open-facts question 7): a hosted 16:9 featured image from Kris's own film art, crop-checked and shown to him before any upload.
+- The share image's `Last-Modified` header read `Thu, 12 Nov 2026 16:32:25 GMT` on the first check. A second check on 2026-11-13 at 02:50 UTC returned `Fri, 13 Nov 2026 02:50:01 GMT`, the request time, so the header tracks the request and says nothing about the file. The file's SHA-256 still matches the site's asset manifest (see the image check below).
+- #1016 quotes several spoken and sung lines from the film. The combined draft quotes none of them and points readers at the transcript on the film site instead. Resolved 2026-11-12: open-facts question 9 took its default, no lyrics.
 - #1016 says "about 69 seconds". The site manifest says 69420 ms and YouTube rounds to 69. The draft uses 69.42 seconds.
 - #1016 says "Seven phases" and then names six beats. The bundle has seven phases including credits, and six named edit beats in the making notes. The draft keeps both, each in its own place.
 - All copy uses straight apostrophes and latin1-safe characters, so a REST write cannot turn a curly quote into `?` (see the latin1 note on the kriskrug.co database).
@@ -47,7 +47,7 @@ The base package `content/drafts/2026-08-12-gorgeous-ghost-art-project/` was rea
 |---|---|---|---|---|
 | Runtime | 69.42 seconds | "about 69 seconds" | Site manifest 69420 ms; YouTube 69 s | 69.42 seconds (better sourced) |
 | Film date | `post_date: 2026-08-12`, dated canonical | "July 2026" from the site release identifier | Site `release.id` is `andromeda-signal-machine-2026-07` (a site build identifier, not a stated film date); YouTube published 2026-09-09; a Film Club meetup ran 2026-09-10 | No month named in the copy; post date left to Kris |
-| Credit line | "The Scallywags: Kris Krüg, Magenta Rune, Mayumi Rawlings, and Kevin Friel" | "created by Kris Krüg, with The Scallywags. That is Magenta Rune, Mayumi Rawlings, and Kevin Friel" | Site Credits section: four names including Kris. In-film credits card in the transcript: "The Scallywags. Kevin Friel, Magenta Rune, Mayumi Rawlings. Created by Kris Krüg." | Site Credits section wording, four names, pending Kris's approval |
+| Credit line | "The Scallywags: Kris Krüg, Magenta Rune, Mayumi Rawlings, and Kevin Friel" | "created by Kris Krüg, with The Scallywags. That is Magenta Rune, Mayumi Rawlings, and Kevin Friel" | Site Credits section: four names including Kris. In-film credits card in the transcript: "The Scallywags. Kevin Friel, Magenta Rune, Mayumi Rawlings. Created by Kris Krüg." | In-film credits card form, per Kris's 2026-11-12 ruling: "Created by Kris Krüg" on its own, then the Scallywags as Kevin Friel, Magenta Rune and Mayumi Rawlings, then the special thanks |
 | Floyo.ai | Special thanks; old `research.md` says the source package named Floyo as part of the video-generation workflow | Special thanks only, no tool claims | Special thanks only | Special thanks only, no tool claim |
 | Network map URL | `https://kriskrug.ai/network` | not linked | `/network` is 404; `https://kriskrug.ai/` is 200 | `https://kriskrug.ai/` |
 | Prompt word | not named | not named, flagged | Not on gorgeousghost.com or the bc-ai.ca Film Club page | Not named |
@@ -68,6 +68,20 @@ The base package `content/drafts/2026-08-12-gorgeous-ghost-art-project/` was rea
 | Field notes | | Whole section, lightly edited | |
 | Project manifest | | Whole section, credits aligned to the site | YouTube watch link |
 | Closing invitation | Closing lines | "Push to watch, tune the channels, read the atlas, stay for the wink" | AI Film Club tag link |
+
+## Featured image check (2026-11-13 02:50 to 02:56 UTC, logged-out GETs)
+
+Kris ruled on 2026-11-12 that his film art is his to reuse for a hosted featured image. Every candidate below is his own public film art. Nothing was uploaded and no image file is in this repo.
+
+| Candidate | Source | Size | SHA-256 (served file) | Matches the site manifest |
+|---|---|---|---|---|
+| Reveal art, lightning-painted eye in a jeweled star field | https://gorgeousghost.com/experience/reveal-hero-1600.webp | 1600x893 | `3a4f8fc7b5e4f063d712771cdbbef8b42ff889112e1731d61c95b3dc8ea70831` | yes |
+| Title card frame from the public YouTube cut | https://i.ytimg.com/vi/9TPcollGnjo/maxresdefault.jpg | 1280x720 | `6623246d77a8eccfbabda03b9974a0bf82cb6eeb88d36500aa1a18fc3b34926b` | not in the manifest; same frame as the site's `title-card.webp` (1280x720, mean pixel difference under 6 of 255) |
+| Share image | https://gorgeousghost.com/og/share.jpg | 1200x630 | `62db74d2244e3f6b75f36cecf6d9aae41e1398b511cf51e6b437fb3b80dbf2bc` | yes |
+
+The manifest is the `assets` list in the public bundle `https://gorgeousghost.com/assets/index-CLVTWTKC.js`. The site's own alt text for the reveal art is "A lightning-painted eye floating in a jeweled star field". The largest film art the site serves is 1600 pixels wide, so the 1600x900 master comes from the reveal art with 7 mirrored edge rows and no resampling. The crop QC result is in `publish-gate.md`.
+
+Credits re-check, same window: the transcript's Credits segment in the bundle reads "The Scallywags. Kevin Friel, Magenta Rune, Mayumi Rawlings. Created by Kris Krüg. Special thanks to Kaoru Yoshihira and Floyo.ai." That is the form Kris ruled for. The captions file `https://gorgeousghost.com/film/gorgeous-ghost.vtt` (200) shortens the card to "The Scallywags. Created by Kris Krüg."
 
 ## Left out on purpose
 
