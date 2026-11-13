@@ -96,7 +96,7 @@ class Issue1090ConversionPreflightTests(unittest.TestCase):
         self.assertIn("aurora-journal-end", single)
         self.assertIn('href="/about/"', single)
         self.assertNotIn("embeds.beehiiv.com", header + footer + single + front + home)
-        self.assertIn("Get the weekly email", front)
+        self.assertIn("Get the monthly letter", front)
         self.assertIn("Subscribe to the newsletter", home)
 
     def test_harness_passes(self):

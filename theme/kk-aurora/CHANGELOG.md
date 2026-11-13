@@ -20,6 +20,10 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.7.3
+**Deployed:** Not deployed. Repo-only release candidate; production stays on 1.7.1 until KK approves the merge and a deploy. 1.7.2 is also not deployed, so both ship in the next approved deploy. The live `kk-aurora//front-page` template is a database override that beats the theme file, so the homepage band needs a separate check and approved update at deploy time.
+The footer newsletter tile, the homepage newsletter band and the /blog/ eyebrow promise a monthly letter instead of a weekly email, following KK's 2026-11-12 ruling (#1278). Wording only; no links, classes or block markup changed.
+
 ## 1.7.2
 **Deployed:** Not deployed. Repo-only release candidate; production stays on 1.7.1 until KK approves the merge and a deploy.
 Load `marquee.js` only when the rendered front page contains a marquee board (#1237). The check runs on rendered blocks, so it also holds under the saved `kk-aurora//front-page` template. Archive, taxonomy, date, author, post type and search routes emit their canonical URL as `og:url`, built from the query rather than the request path (#1228). Routes without a description stop showing the retired site tagline and fall back to existing copy: the Writing archive description (the posts page SEO description) on journal routes, and elsewhere the theme's hard-coded `homepage_meta_description()` text, which is the RSS channel description and not the live homepage meta description. The fallback copy awaits KK approval. New `tests/functions-smoke.php` covers both, plus the `/writing` and `/projects` redirects. Reconciles the readme and changelog deploy markers and sets Tested up to 7.0 (#1243). Removes the `blank` and `no-title` custom templates from `theme.json`: neither template file ever existed, and no published page or post uses them; a new `tests/theme-json-smoke.php` requires a template file for every declared custom template (#1239, KK ruling 2026-11-12). PHP, `theme.json`, tests and metadata only; no CSS, template, part or pattern file changed.
