@@ -1,6 +1,6 @@
 # Master Plan: Truth, Reclaim, Then Lanes — 2026-07-30
 
-**Status:** historical hygiene plan. Phases 0–3 are completed context, not a cleanup authorization or today's queue. Use the [November 11 roadmap](ROADMAP-2026-11-11.md) for remaining work.
+**Status:** historical hygiene plan. Phases 0–3 are completed context, not a cleanup authorization or today's queue. Use the [November 12 roadmap](ROADMAP-2026-11-12.md) for remaining work.
 **Lane:** Docs / ops first; then Track A or Track B — never interleaved in one commit.
 **Does not authorize** live WordPress writes, theme deploys, or history rewrite.
 

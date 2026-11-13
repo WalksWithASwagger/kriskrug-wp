@@ -2,12 +2,13 @@ import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import {savedWorksheet} from './worksheet.mjs';
+import {PLAYGROUND_WP_VERSION} from '../../../scripts/tests/playground-wordpress.mjs';
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const localCLI = path.join(repo, 'node_modules/@wp-playground/cli/index.js');
 if (!existsSync(localCLI)) throw new Error('Run npm ci in the repository first; shared parent dependencies are not used.');
 const {runCLI} = await import(localCLI);
 export async function startPreview(port = 9832, {syntheticImage = false} = {}) {
-  const server = await runCLI({ command: 'server', wp: '7.0.4', php: '8.2', port, workers: 6,
+  const server = await runCLI({ command: 'server', wp: PLAYGROUND_WP_VERSION, php: '8.2', port, workers: 6,
     mount: [
       {hostPath: path.join(repo, 'plugins/kk-practice'), vfsPath: '/wordpress/wp-content/plugins/kk-practice'},
       {hostPath: path.join(repo, 'theme/kk-aurora'), vfsPath: '/wordpress/wp-content/themes/kk-aurora'}
@@ -47,7 +48,7 @@ $nested = wp_insert_post(['post_type'=>'page','post_status'=>'publish','post_tit
 echo wp_json_encode(['nested'=>$nested,'version'=>get_bloginfo('version'),'practice'=>$practice,'control'=>$control]);
 `});
   const ids = JSON.parse(fixture.text);
-  if (ids.version !== '7.0.4') throw new Error('Unexpected actual WordPress version: ' + ids.version);
+  if (ids.version !== PLAYGROUND_WP_VERSION) throw new Error('Unexpected actual WordPress version: ' + ids.version);
   return {server, ids, imagePath, url: 'http://127.0.0.1:' + port, close: () => server[Symbol.asyncDispose]()};
 }
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
