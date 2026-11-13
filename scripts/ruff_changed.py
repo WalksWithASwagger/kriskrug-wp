@@ -10,6 +10,7 @@ from pathlib import Path
 
 
 RUFF_SELECT = "E4,E7,E9,F"
+ARCHIVE_DIR = "scripts/archive"  # spent one-off scripts are kept as they ran, not linted
 
 
 def changed_python_files(
@@ -49,6 +50,9 @@ def run_ruff(repo_root: Path, files: list[str], ruff: str = "ruff") -> int:
             "--isolated",
             "--select",
             RUFF_SELECT,
+            "--force-exclude",
+            "--exclude",
+            ARCHIVE_DIR,
             "--",
             *files,
         ],

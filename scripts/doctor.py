@@ -8,7 +8,6 @@ working tree safe to commit into. Read-only. Never prints a secret value.
 
 from __future__ import annotations
 
-import os
 import re
 import shutil
 import subprocess
@@ -83,7 +82,7 @@ def check_git_tree() -> tuple[str, str]:
     if code != 0:
         return FAIL, "not a git repo"
     branch_code, branch = run(["git", "branch", "--show-current"])
-    dirty = len([l for l in out.splitlines() if l.strip()])
+    dirty = len([line for line in out.splitlines() if line.strip()])
     label = f"on {branch or 'DETACHED'}"
     if dirty:
         return WARN, f"{label}; {dirty} uncommitted change(s)"
@@ -94,7 +93,7 @@ def check_worktrees() -> tuple[str, str]:
     code, out = run(["git", "worktree", "list"])
     if code != 0:
         return WARN, "could not list worktrees"
-    extra = [l for l in out.splitlines() if "/.worktrees/" in l]
+    extra = [line for line in out.splitlines() if "/.worktrees/" in line]
     if not extra:
         return OK, "no extra worktrees"
     return WARN, f"{len(extra)} extra worktree(s); other sessions may be live here"
