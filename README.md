@@ -172,7 +172,7 @@ An older issue-to-PR pipeline (orchestrator → analyzer → test-writer → imp
 - **Custom code:** PHP snippets (Code Snippets plugin on prod), `inc/digital-composting.php`, and packaged helper plugins such as `plugins/kk-sidebar-promos/`
 - **CLI Tools:** GitHub CLI (`gh`), Claude Code / Cursor agents
 - **Languages:** PHP, JavaScript, Python, Bash
-- **CI runtimes:** PHP 8.2, Python 3.12, Node 20 for JavaScript syntax, and Node 24 for the WordPress Playground browser job (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)); Playground 3.1.62 requires Node >=24.18.0 and npm >=11.16.0. The Aurora theme itself declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css)
+- **CI runtimes:** PHP 8.2, Python 3.12, and Node 24 for both JavaScript syntax and the WordPress Playground browser job (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)); Playground 3.1.62 requires Node >=24.18.0 and npm >=11.16.0. The Aurora theme itself declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css)
 
 ## Issue Labels
 

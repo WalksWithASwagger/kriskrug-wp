@@ -209,7 +209,7 @@ See [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL
 
 There is no local app server to boot. The live site runs on Pagely and is not file-synced here. Local work means running the CLI tools and the validation gates below.
 
-CI runs the gates on PHP 8.2 and Python 3.12. JavaScript syntax uses Node 20; the WordPress Playground browser job uses Node 24. Playground 3.1.62 requires Node >=24.18.0 and npm >=11.16.0 (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml) and [`package.json`](package.json)). The Aurora theme declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css). You don't need exact version matches locally, but if a gate behaves differently than CI, check your runtime versions first.
+CI runs the gates on PHP 8.2 and Python 3.12. JavaScript syntax and the WordPress Playground browser job both use Node 24. Playground 3.1.62 requires Node >=24.18.0 and npm >=11.16.0 (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml) and [`package.json`](package.json)). The Aurora theme declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css). You don't need exact version matches locally, but if a gate behaves differently than CI, check your runtime versions first.
 
 Two requirement files, one canonical test environment. Root [`requirements-test.txt`](requirements-test.txt) **is the canonical Python test env** — CI installs it, and it is the only file that satisfies `make python-test` and `make ruff-changed` (it is the runtime deps plus `pytest` and Ruff). [`scripts/notion-to-wp/requirements.txt`](scripts/notion-to-wp/requirements.txt) is **runtime-only**: it exists so several `Makefile` targets can call `scripts/notion-to-wp/.venv/bin/python` directly, and installing only it leaves you unable to run that package's test suites. Install the root file when you want to run tests, including the `scripts/notion-to-wp/tests` suites.
 
@@ -348,10 +348,11 @@ Automated tests:
 |---|---|---|
 | `validate` | Always | Sorts changed files into the triggers below; warns when the PR body links no issue |
 | `python-tests` | Always | `scripts/ruff_changed.py` on changed Python files (same as `make ruff-changed`), then `make python-test` |
+| `large-file-check` | Always | `scripts/check_large_files.py` against the merge base on a PR, or the previous `main` commit on a push (same as `make large-file-check`); see [Large files and media](#large-files-and-media) |
 | `javascript-validation` | Always | `make javascript-syntax` |
 | `theme-smoke` | Always | `make theme-smoke` |
 | `practice-browser` | Always | `make practice-browser-test`, then `make events-browser-test` |
-| `php-validation` | A `.php` file changed | `make validate`, then `make plugin-smoke` |
+| `php-validation` | A `.php` file, a theme `style.css`, `phpcs.xml.dist`, `composer.json`/`composer.lock`, or the PHP gate scripts changed | `make validate` (PHP lint, the WordPress security sniffs, and PHPCompatibilityWP: 8.1+ for code without a header, and each theme and plugin at its own `Requires PHP`), then `make plugin-smoke` |
 | `css-ratchet` | A `.css` file changed | `scripts/css_inventory.py --check` against the merge base (same as `make css-inventory-check`) |
 | `voice-gate` | Payload copy, theme templates/parts/patterns, `theme/kk-aurora/functions.php`, `Makefile`, or the gate's own files changed | `make voice-check` |
 | `docs-truth-check` | Markdown, `docs/`, `Makefile`, `.env.schema`, `.github/ISSUE_TEMPLATE/`, or `scripts/docs_truth_check.py` changed | `python3 scripts/docs_truth_check.py` |
@@ -360,6 +361,23 @@ Automated tests:
 
 CI does not run `make practice-preview`, the `visual-*` pixel gate, or any target that reads the live site (`make status-readonly`, `make wp7-smoke`, `make check-live-parity` and the other audits). Run those locally when a change needs them.
 
+### Large files and media
+
+`large-file-check` fails a pull request, or a push to `main`, that adds:
+
+- any file over 5 MB (5,242,880 bytes), wherever it lives, or
+- any image, video or audio file outside the allowlist: `theme/kk-aurora/assets/` (images the theme ships), `plugins/kk-practice/tests/` (the practice fixture image) and `scripts/events_page/heroes/` (Events heroes the catalog and renderer read).
+
+Only blobs new to the repository count. Files already on `main`, deletions, and moves or copies of existing files pass. Replacing an existing file with new content counts as new. The threshold, the media extensions and the allowlist live in [`scripts/check_large_files.py`](scripts/check_large_files.py).
+
+Photos, video, audio and other large media belong in the WordPress media library, or in the private knowledge-base repo when they are source material. Widening the allowlist means adding a directory to `ALLOWED_MEDIA_PREFIXES` in a reviewed PR that says why. Untracking a file later does not shrink history; only keeping new media out does.
+
+Check a branch before pushing:
+
+```bash
+make large-file-check BASE_REF=origin/main
+```
+
 ### Practice preview, contracts, and browser fixture
 
 These targets exercise `plugins/kk-practice/` in a disposable WordPress Playground fixture. They are not production verification, not the Aurora pixel gate, and not a substitute for consented human review. See [`plugins/kk-practice/README.md`](plugins/kk-practice/README.md) for the privacy boundary and exact assertions.
@@ -367,7 +385,7 @@ These targets exercise `plugins/kk-practice/` in a disposable WordPress Playgrou
 | Target | What it does | Needs |
 |---|---|---|
 | `make practice-test` | PHP smoke, `node --check` on the two practice scripts, and source-contract checks | PHP, Node |
-| `make practice-preview` | Starts a disposable WordPress 7.0.4 / PHP 8.2 / Aurora SQLite/WASM fixture and prints the fixture URLs | Node 24 + npm 11, `npm ci --ignore-scripts`, internet for Playground runtime files |
+| `make practice-preview` | Starts a disposable WordPress / PHP 8.2 / Aurora SQLite/WASM fixture and prints the fixture URLs. The WordPress version is pinned once, in `scripts/tests/playground-wordpress.mjs` | Node 24 + npm 11, `npm ci --ignore-scripts`, internet for Playground runtime files |
 | `make practice-browser-test` | Runs `practice-test`, then Playwright Chromium against that fixture | The preview stack plus a Chromium install |
 
 Setup from the repository root:
@@ -383,7 +401,7 @@ make practice-browser-test
 
 Runtime split (do not collapse these):
 
-- JavaScript syntax (`make javascript-syntax`) uses Node 20 in CI.
+- JavaScript syntax (`make javascript-syntax`) uses Node 24 in CI.
 - Playground 3.1.62, used by preview and browser tests, requires Node >=24.18.0 and npm >=11.16.0. CI's `practice-browser` job uses Node 24. A reviewed local run used Node 24.21.0 and npm 11.19.0.
 - `PRACTICE_CHROME` can point at a local Chrome executable. CI installs pinned Playwright Chromium into `PLAYWRIGHT_BROWSERS_PATH` (`/tmp/kk-practice-browsers` on the runner).
 - A failed Playground download is unavailable setup, not a passing test. Green fixture results do not prove live Pagely, production plugins, or CDN/cache behavior.
