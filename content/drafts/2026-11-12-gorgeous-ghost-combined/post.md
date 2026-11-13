@@ -2,9 +2,10 @@
 title: "I Made a Gorgeous Ghost"
 slug: "gorgeous-ghost"
 status: draft
-# post_date and canonical are left out on purpose. They wait on Kris's date
-# ruling (open-facts-for-kk.md, questions 1 and 2). With no post_date, a staged
-# WordPress draft floats its date until it is published.
+# post_date and canonical are left out on purpose. Kris ruled on 2026-11-12
+# for the real publish day, no backdating (open-facts-for-kk.md, questions 1
+# and 2). With no post_date, a staged WordPress draft floats its date until it
+# is published, and the canonical follows that date.
 author: "Kris Krüg"
 author_wp_id: 1
 excerpt: "Gorgeous Ghost is a 69.42-second glam space opera I made with The Scallywags for the BC + AI Film Club. The band, the locked song, the colour move and the signal machine."
@@ -38,7 +39,7 @@ https://www.youtube.com/watch?v=9TPcollGnjo
 
 ## The ghost is a band
 
-The credits call us The Scallywags: **Kris Krüg, Magenta Rune, Mayumi Rawlings and Kevin Friel**. I made the film and assembled the signal, but it reads better as a band than as a solo demo. That's the useful part of making things in public. The strange little object picks up fingerprints from the people around it.
+The credits card keeps it simple. Created by Kris Krüg. The Scallywags: **Kevin Friel, Magenta Rune and Mayumi Rawlings**. I made the film and assembled the signal, but it reads better as a band than as a solo demo. That's the useful part of making things in public. The strange little object picks up fingerprints from the people around it.
 
 The film runs on four characters, four frequencies, one transmission:
 
@@ -127,7 +128,7 @@ For anyone cutting their next short for the club:
 
 - **Film:** Gorgeous Ghost, 69.42 seconds, one song, seven phases from signal forming to credits
 - **Created by:** Kris Krüg
-- **The Scallywags:** Kris Krüg, Magenta Rune, Mayumi Rawlings, Kevin Friel
+- **The Scallywags:** Kevin Friel, Magenta Rune, Mayumi Rawlings
 - **Special thanks:** Kaoru Yoshihira and Floyo.ai
 - **Made for:** The BC + AI Film Club Prompt Challenge
 - **Structure:** the locked song as the edit map
