@@ -8,11 +8,12 @@ Navigation for everything in this repo. Entries are grouped by what they're for,
 
 ## 🟢 Current State And Dated Evidence
 
-Start with the [November 11 roadmap](current-state/ROADMAP-2026-11-11.md), the declared baseline and a fresh `make status-readonly` run. The [maintenance report](current-state/reports/repo-maintenance-2026-11-11.md) records this reset. Use `make morning-truth` only for an ignored local copy.
+Start with the [November 12 roadmap](current-state/ROADMAP-2026-11-12.md), the declared baseline and a fresh `make status-readonly` run. The [maintenance report](current-state/reports/repo-maintenance-2026-11-11.md) records this reset. Use `make morning-truth` only for an ignored local copy.
 
 | File | What it covers |
 |---|---|
-| [`current-state/ROADMAP-2026-11-11.md`](current-state/ROADMAP-2026-11-11.md) | Current priorities, owners, dependencies and completion gates |
+| [`current-state/ROADMAP-2026-11-12.md`](current-state/ROADMAP-2026-11-12.md) | Current direction, priority themes, owners and completion gates through March 2027 |
+| [`current-state/ROADMAP-2026-11-11.md`](current-state/ROADMAP-2026-11-11.md) | Historical November 11 queue, superseded on 2026-11-12 |
 | [`current-state/WEEK-PLAN-2026-09-28.md`](current-state/WEEK-PLAN-2026-09-28.md) | Historical September 28–October 4 priorities and maintenance receipt |
 | [`current-state/README.md`](current-state/README.md) | Index; front door pointers |
 | [`current-state/CURRENT-STATE-2026-10-25.md`](current-state/CURRENT-STATE-2026-10-25.md) | Declared snapshot for drift checks; compare its dated values with `make status-readonly` |
