@@ -1,6 +1,6 @@
 # SEO metadata
 
-Status: draft. Every field below is settled by Kris's 2026-11-12 rulings (`open-facts-for-kk.md`). The featured image still waits on his crop approval.
+Status: scheduled as WordPress post 13004 for 2026-11-24 16:00 UTC (see `publish-gate.md`). Every field below is settled by Kris's 2026-11-12 rulings (`open-facts-for-kk.md`), and the readback matched each one.
 
 - Title: `Both Things Are True` (question 7, default taken)
 - Slug: `both-things-are-true` (question 4, ruled). `https://kriskrug.co/both-things-are-true/` returned 404 on 2026-11-13 00:47 UTC. That is not a slug check; the all-status authenticated check runs on the day of any write.
@@ -11,7 +11,7 @@ Status: draft. Every field below is settled by Kris's 2026-11-12 rulings (`open-
 - Excerpt (160 characters): `Four minutes into my LaSalle keynote I said the sentence the whole talk hangs on. This is Both Hands Full in writing: the theft, the power, and why I hold both.`
 - Category: `AI for Creatives`
 - Tags: `Both Hands Full`, `Keynotes`, `speaking`, `taste`
-- OG image: the featured image (question 5, ruled). The theme writes `og:image` from the featured image's `large` size, 1024x576 for these 16:9 frames. The pick is LaSalle frame 10, media 11831, **awaiting Kris's crop approval** (see `publish-gate.md`).
+- OG image: the featured image (question 5, ruled). The theme writes `og:image` from the featured image's `large` size, 1024x576 for these 16:9 frames. Kris approved LaSalle frame 10, media 11831, and it is set as the featured image on post 13004.
 
 ## Notes for the write
 

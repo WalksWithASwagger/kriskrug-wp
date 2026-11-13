@@ -2,7 +2,7 @@
 
 **All 14 questions are resolved.** Kris answered the blocking questions 1 to 7 in chat on 2026-11-12, recorded on #771. Questions 8 to 14 took the recommended defaults. Each ruling sits under its question below, and the copy in `post.md` and `post.html` follows them. Evidence and check times are in `research.md`.
 
-The one thing still waiting on Kris is his approval of the featured image crop (question 7). That approval is a staging gate in `publish-gate.md`, not an open fact.
+Kris approved the featured image crop on 2026-11-12 too. The post is scheduled as WordPress post 13003 for 2026-11-19, with the approved image as media 13006 (`publish-gate.md`).
 
 ## Blocking (ruled 2026-11-12)
 
@@ -69,7 +69,7 @@ Approve this line, which matches the Credits section on gorgeousghost.com: "Crea
 
 Rights (yes/no): gorgeousghost.com says "Created by Kris Krüg" and has no separate image credit or licence line. Is the share image, and any film still you pick, yours to reuse on kriskrug.co? No other permission is documented in the repo.
 
-**Ruling: a, and rights yes.** The film art is Kris's to reuse. A hosted 16:9 featured image from his own film art, crop-checked and shown to him before any upload. The YouTube embed leads the body, as the draft already has it. The crop QC picked the film site's reveal art, the lightning-painted eye in a jeweled star field, as a 1600x900 master. It is **awaiting Kris's crop approval**. Details, the rejected candidates and the media plan are in `publish-gate.md`. (The `Last-Modified` worry in option b turned out to be noise. On 2026-11-13 at 02:50 UTC the site returned a `Last-Modified` equal to the request time, and the share image's bytes still match the SHA-256 in the site's own asset manifest.)
+**Ruling: a, and rights yes.** The film art is Kris's to reuse. A hosted 16:9 featured image from his own film art, crop-checked and shown to him before any upload. The YouTube embed leads the body, as the draft already has it. The crop QC picked the film site's reveal art, the lightning-painted eye in a jeweled star field, as a 1600x900 master. Kris approved that crop on 2026-11-12 after seeing the QC sheet. It was uploaded as media 13006 and the post scheduled for 2026-11-19 (`publish-gate.md`). (The `Last-Modified` worry in option b turned out to be noise. On 2026-11-13 at 02:50 UTC the site returned a `Last-Modified` equal to the request time, and the share image's bytes still match the SHA-256 in the site's own asset manifest.)
 
 ## Defaults (taken 2026-11-12)
 
@@ -117,4 +117,4 @@ The #771 package linked `https://kriskrug.ai/network` as "AI Garden's Signal Atl
 
 Once this combined package is approved, mark `content/drafts/2026-08-12-gorgeous-ghost-art-project/` as retired in a separate content PR, so two local packages stop claiming the same slug. **Recommended: yes, after approval.** This PR does not touch it, and its #925 pins stay valid until then.
 
-**Resolved: yes, after approval, in its own content PR.** The PR that pinned this package's hashes did not touch the old package. Retiring it is a follow-up, and until then only this package may be staged under `gorgeous-ghost`.
+**Resolved: yes.** The PR that pinned this package's hashes did not touch the old package. Kris then ruled on 2026-11-12 to archive it, and it now lives at `content/drafts/archive/2026-08-12-gorgeous-ghost-art-project/` with a row in that folder's README. This package is the only one that claims `gorgeous-ghost`.

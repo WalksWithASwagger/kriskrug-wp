@@ -2,7 +2,7 @@
 
 **All 14 questions are resolved.** Kris answered the blocking questions 1 to 6 in chat on 2026-11-12, recorded on #959. Questions 7 to 14 took the recommended defaults. Every ruling matched the draft's recommendation, so the body copy did not change. Each ruling sits under its question below. Evidence and check times are in `research.md`.
 
-The one thing still waiting on Kris is his approval of the featured image crop (question 5). That approval is a staging gate in `publish-gate.md`, not an open fact.
+Kris approved the featured image crop on 2026-11-12 too, and the post is scheduled (`publish-gate.md`).
 
 ## Blocking (ruled 2026-11-12)
 
@@ -54,7 +54,7 @@ The draft says you took the talk to "the World AI Film Festival Brasil in Februa
 
 Rights (yes/no): the LaSalle frames on Your Taste Is Your Moat carry no photographer credit. Are they yours to reuse, and is there a credit line you want?
 
-**Ruling: a, and rights yes.** A LaSalle keynote frame already in the media library, Kris's to reuse, crop-checked and shown to him first. He gave no credit line, so none is added. The crop QC compared frame 10 (media 11831) and frame 20 (media 11833) and picked **frame 10, media 11831**. It is **awaiting Kris's crop approval**. Details and the media plan are in `publish-gate.md`.
+**Ruling: a, and rights yes.** A LaSalle keynote frame already in the media library, Kris's to reuse, crop-checked and shown to him first. He gave no credit line, so none is added. The crop QC compared frame 10 (media 11831) and frame 20 (media 11833) and picked **frame 10, media 11831**. Kris approved that crop on 2026-11-12, and its alt text was rewritten without the em dash, same meaning, per his ruling. It is the featured image of scheduled post 13004 (`publish-gate.md`).
 
 ### 6. WordPress draft 11881 (pick one)
 
