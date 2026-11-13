@@ -291,12 +291,16 @@ class ApplyIssue828NegotiationChecklistTests(unittest.TestCase):
         self.assertEqual(1, len(snapshots))
         self.assertEqual(stat.S_IMODE(snapshots[0].stat().st_mode), 0o600)
 
-    def test_runbook_keeps_review_and_live_approval_as_separate_gates(self):
+    def test_runbook_records_the_apply_and_keeps_live_writes_gated(self):
         runbook = (MODULE.PACK / "APPLY.md").read_text(encoding="utf-8")
+        self.assertIn("Applied 2026-11-12 to posts 1210, 1222 and 1056", runbook)
+        self.assertIn("page 12013 skipped", runbook)
+        self.assertIn("issue-828-applied-2026-11-12.md", runbook)
+        self.assertIn(TARGETS["reviewed_body_sha256"], runbook)
         self.assertIn("reviewed_body_sha256", runbook)
         self.assertIn("fresh explicit live approval", runbook)
         self.assertIn("--restore", runbook)
-        self.assertIn("No live write has been made", runbook)
+        self.assertNotIn("\u2014", runbook)
         self.assertNotIn("Fixes #828", runbook)
 
 
