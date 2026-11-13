@@ -1,11 +1,11 @@
 # #339 publisher batch, re-cut against the live site on 2026-11-12
 
-**Status:** APPROVED, NOT YET APPLIED. Kris approved all five changes in chat on 2026-11-12 (relayed by the orchestrating session), with new wording for #249 (below). The first live write, the About deploy, was stopped by the session's permission check before it ran. No WordPress write has happened, and no theme work or cache purge.
+**Status:** APPLIED on 2026-11-12 (2026-11-13T03:19Z to 03:24Z). Kris approved all five changes in chat, with new wording for #249 (below), and approved the orchestrating session running the ten writes. All ten read back as `applied`; see the [receipt](../../../docs/current-state/reports/issue-339-applied-2026-11-12.md). No theme work or cache purge.
 **Issue:** [#339](https://github.com/WalksWithASwagger/kriskrug-wp/issues/339), reopened 2026-11-12 (re-verification in #1221).
 **Captured:** authenticated `context=edit` GETs at `2026-11-13T02:30:50Z` (evening of 2026-11-12, Pacific). Rechecked at `2026-11-13T02:50:14Z`: every `modified`, content hash and SEO value unchanged.
 **Replaces:** the guards and the planned About body in [`../339-july-publisher-batch-2026-08-16/`](../339-july-publisher-batch-2026-08-16/README.md). Apply nothing from that folder. Its About FIND paragraph no longer exists after the November redesign (#1205), and the guards for posts 2950, 8802, 11171 and 12327 have moved since August.
 
-All five updates are still needed. None is live today. Every source phrase still occurs exactly once, unlinked, and every link target returned 200 with a self-canonical on a logged-out GET.
+At capture time all five updates were still needed and none was live. Every source phrase occurred exactly once, unlinked, and every link target returned 200 with a self-canonical on a logged-out GET.
 
 ## The five changes Kris approves
 
