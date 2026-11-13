@@ -1,0 +1,27 @@
+{
+  "snapshot_dir": "backup/20261113T013238Z-content-architecture/page-snapshots",
+  "pages": [
+    {
+      "page": "work",
+      "id": 2672,
+      "slug": "work",
+      "url": "https://kriskrug.co/work/",
+      "payload": "work.html",
+      "before": {
+        "page": "work",
+        "json": "backup/20261113T013238Z-content-architecture/page-snapshots/page-2672-work-before.json",
+        "html": "backup/20261113T013238Z-content-architecture/page-snapshots/page-2672-work-before.html",
+        "json_sha256": "54b86565414c729d4f6328b279238b12dd62c28846ccd1e7ec34f08a7fbf6dcc",
+        "html_sha256": "7d2220a1c2e3b93818ef661302c92502a6bf31aa936203ce941626418234a6d9"
+      },
+      "after": {
+        "page": "work",
+        "json": "backup/20261113T013238Z-content-architecture/page-snapshots/page-2672-work-after.json",
+        "html": "backup/20261113T013238Z-content-architecture/page-snapshots/page-2672-work-after.html",
+        "json_sha256": "e4e2a9bb55a6049076da265fd6bf909ff8476d808c7c31c53db925a0d6310ced",
+        "html_sha256": "25bdb583401dc13a6ca6baec98e8dd058bf32f0ab1b2c2a22381111830cbec0e"
+      },
+      "modified": "2026-11-12T17:32:42"
+    }
+  ]
+}
