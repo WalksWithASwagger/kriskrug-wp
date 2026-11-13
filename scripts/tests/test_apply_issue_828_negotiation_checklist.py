@@ -210,20 +210,40 @@ class ApplyIssue828NegotiationChecklistTests(unittest.TestCase):
         self.assertEqual(len(calls), 4)
         self.assertTrue(all(payload is None for _, payload in calls))
 
-    def test_apply_refuses_until_reviewed_body_hash_is_committed(self):
+    def test_committed_review_hash_is_the_body_kris_read(self):
+        self.assertEqual(
+            TARGETS["reviewed_body_sha256"],
+            "ffb363eef9e4e46d8dd26d9a9e9794b71fa6dbb405a886961ac032bdfe48df98",
+        )
+        self.assertEqual(
+            hashlib.sha256(MODULE.DRAFT_BODY_PATH.read_bytes()).hexdigest(),
+            TARGETS["reviewed_body_sha256"],
+        )
+        MODULE.assert_review_gate(TARGETS)
+
+    def _assert_apply_refused(self, reviewed_hash, message):
         calls = []
         snapshot_dir = self.tmp_path / "snapshots"
+        gated = json.loads(json.dumps(TARGETS))
+        gated["reviewed_body_sha256"] = reviewed_hash
         with (
             mock.patch.object(MODULE, "SNAPSHOT_DIR", snapshot_dir),
+            mock.patch.object(MODULE, "load_targets", return_value=gated),
             mock.patch.object(
                 MODULE, "request", side_effect=self._patch_request(calls)
             ),
         ):
             with self.assertRaises(SystemExit) as caught:
                 run_main("--apply", "--item-id", "1210")
-        self.assertIn("reviewed_body_sha256", str(caught.exception))
+        self.assertIn(message, str(caught.exception))
         self.assertEqual(calls, [])
         self.assertFalse(snapshot_dir.exists())
+
+    def test_apply_refuses_without_a_reviewed_body_hash(self):
+        self._assert_apply_refused(None, "reviewed_body_sha256 is unset")
+
+    def test_apply_refuses_when_the_body_differs_from_the_reviewed_hash(self):
+        self._assert_apply_refused("0" * 64, "reviewed_body_sha256 mismatch")
 
     def test_slug_mismatch_aborts_before_any_write(self):
         self.lives[1056]["slug"] = "wrong-slug"
@@ -252,7 +272,7 @@ class ApplyIssue828NegotiationChecklistTests(unittest.TestCase):
         snapshot_dir = self.tmp_path / "snapshots"
         approved = json.loads(json.dumps(TARGETS))
         approved["reviewed_body_sha256"] = hashlib.sha256(
-            MODULE.load_draft_body().encode("utf-8")
+            MODULE.DRAFT_BODY_PATH.read_bytes()
         ).hexdigest()
         with (
             mock.patch.object(MODULE, "SNAPSHOT_DIR", snapshot_dir),
