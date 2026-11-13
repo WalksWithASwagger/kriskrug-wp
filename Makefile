@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test ruff-changed large-file-check javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check changelog env-check varlock-run clean
+.PHONY: help test python-test ruff-changed ruff-all large-file-check javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check changelog env-check varlock-run clean
 
 PYTHON ?= python3
 VARLOCK ?= varlock
@@ -49,6 +49,9 @@ python-test: ## Run all declared Python test suites
 
 ruff-changed: ## Check only Python files changed from BASE_REF (default: origin/main)
 	@$(PYTHON) scripts/ruff_changed.py --base-ref "$${BASE_REF:-origin/main}" --ruff "$${RUFF:-ruff}"
+
+ruff-all: ## Local only: CI's Ruff rule set over all of scripts/ except scripts/archive/
+	@$${RUFF:-ruff} check --isolated --select E4,E7,E9,F --exclude scripts/archive scripts
 
 large-file-check: ## Fail on new files over 5 MB or media outside the allowlist since BASE_REF (default: origin/main)
 	@$(PYTHON) scripts/check_large_files.py --base-ref "$${BASE_REF:-origin/main}"
