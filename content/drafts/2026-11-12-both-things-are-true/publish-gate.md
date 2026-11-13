@@ -1,50 +1,65 @@
 # Both Things Are True: publish gate
 
-**Status: NOT READY.** Do not stage, schedule or publish from this package.
+**Status: SCHEDULED.** WordPress post **13004**, status `future`, publishes **Tue 2026-11-24 at 09:00 Vancouver time (16:00 UTC)**. Featured image: media **11831**. Receipt: `docs/current-state/reports/scheduled-posts-2026-11-19-24.md`.
 
 This package stages #959, step 1 of the Q1 2027 keynote pipeline (#1277): the Both Hands Full keynote in writing, for 2027 bookers. The folder date is the day the package was built, not a post date.
 
-- No WordPress object exists for this package. No WordPress call of any kind was made while building it, and no `.env` file was read.
-- **No hash pins yet.** Pins are added only after Kris answers the blocking questions in `open-facts-for-kk.md` and approves the final copy. Any edit to `post.md` or `post.html` after that makes the pins stale again.
-- WordPress draft 11881 covers older, thinner ground (open-facts question 6). Nothing here touches it.
+- Kris ruled on all 14 open facts on 2026-11-12. Every ruling matched the draft's recommendation, so the body copy did not change (`open-facts-for-kk.md`).
+- After seeing the crop QC sheet, Kris approved in chat on 2026-11-12: media 11831 as the featured image, its alt text rewritten without the em dash with the same meaning, and scheduling for 2026-11-24 at 09:00 Vancouver time. The orchestrator session relayed those approvals to the lane that did the writes.
+- WordPress draft 11881 stays untouched until this post is live (open-facts question 6).
 
-## Blocking before any pin
+## Pinned source hashes (2026-11-12, after Kris's rulings)
 
-- [ ] Kris answers open-facts questions 1 to 6: the LaSalle line by ear, the photo count, São Paulo, date and slug, the image and its rights, and draft 11881.
-- [ ] Any copy change from those answers goes into `post.md`, then `post.html` is regenerated from it and both are re-checked.
-- [ ] Kris approves the final copy, and the two source hashes are pinned here in a content PR that merges.
+| File | SHA-256 |
+|---|---|
+| `post.md` | `15be26d451a1eed4b523a8d5ee9d788b303fbc5bf061007b63f6cfa45279c666` |
+| `post.html` | `06bf1ce8ffabe8eb7e294b6fe19385c91fc5b0caa8006f7ee2d2a66210fa0945` |
 
-## Preflight to rerun on the day of any write
+The scheduled post was built from these exact files. Its stored `content.raw` hashes to the same `06bf1ce8...0945`. Any later edit to either file is not on WordPress until a reviewed update pushes it.
 
-Every item is dated evidence. A pass on another day does not count.
+## What was written (2026-11-13 UTC)
 
-1. **Source hashes.** `shasum -a 256 post.md post.html` match the pins above. If not, stop.
-2. **Quote.** The pull quote in `post.md` and `post.html` matches the wording Kris confirmed in question 1, character for character.
-3. **Slug collision.** Authenticated, read-only, all statuses, posts and pages: `FORMAT=json make draft-queue-audit`, then read `slug_matches["both-things-are-true"]` (or the slug Kris picked). Required result: 0 posts and 0 pages. Record the UTC time. Never print credentials. The offline publisher dry-run does **not** check the slug; it reports `"slug_check": "skipped_offline"`.
-4. **Taxonomy.** Read-only REST lookups for the category and the four tags in `seo-meta.md`. Every name must resolve to an existing term by the `ensure_term()` rule. `AI for Creatives` can only resolve by name, because its live slug is `ai-creatives`. If any name matches nothing, stop, because `--execute` would create a new term.
-5. **Image.** Kris's ruling on question 5 is recorded, with rights and credit. A chosen frame has passed featured-image-forge multi-ratio crop QC and Kris has approved it. If the image is an existing media item (the recommended option), the publisher will not attach it: setting `featured_media` is a second write that needs its own approval and readback. If the package declares no local images, the publisher uploads nothing and leaves `featured_media` unset.
-6. **Links.** Every URL in `internal-links.md` still returns 200, and the chosen canonical still returns 404.
-7. **Voice check.** `make voice-check FILES="content/drafts/2026-11-12-both-things-are-true/post.md content/drafts/2026-11-12-both-things-are-true/post.html"` reports 0 violations.
-8. **Dry-run.** `scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py content/drafts/2026-11-12-both-things-are-true/post.md` exits 0 and shows the expected title, slug, category, four tags and an empty image list.
-9. **Repo gates.** `make verify` and `git diff --check` pass.
+| Time (UTC) | Write | Readback |
+|---|---|---|
+| 03:18:13 | `create_local_wp_draft.py --execute` created post 13004 | `status: draft`, `slug: both-things-are-true`, content equal to `post.html` |
+| 03:18:54 | `alt_text` on media 11831 rewritten without the em dash, after a context=edit snapshot | new alt text stored; source URL, parent, slug, sizes, title and caption unchanged |
+| 03:19:10 | one guarded update on 13004: `status: future`, `date_gmt: 2026-11-24T16:00:00`, `featured_media: 11831` | `status: future`, `date_gmt` as sent, `featured_media: 11831` |
 
-## Staging gate (after the preflight, never before)
+Final context=edit readback: `status: future`, `date_gmt: 2026-11-24T16:00:00`, slug `both-things-are-true`, featured media 11831, category 1665, tags 1683, 1696, 89 and 1667, title, excerpt and both SEO meta fields as in the package, and `content.raw` byte-identical to the pinned `post.html`. Logged out, the dated URL, the bare slug and `?p=13004` all return 404, and REST refuses to show the post.
 
-- [ ] Kris approves one new unpublished WordPress post with status `draft`, built from the pinned hashes. The write set is that one post. No existing post, page, media item or term changes.
-- [ ] Run the publisher with `--execute` through Varlock. Record the post ID and the readback `status` and `slug` here.
-- [ ] Compare the admin preview with `post.html`: body, single H1 from the title field, the YouTube embed and its caption link, both pull quotes, category, tags, canonical, OG metadata, image and every link.
+**Clock note.** WordPress shows the date as 08:00 because the site's timezone setting is a fixed UTC-8 offset. Vancouver is on UTC-7 on 2026-11-24 (tz database 2026f), so `date_gmt` 16:00 UTC is 09:00 in Vancouver. Changing the site setting is Kris's call and was not done.
+
+## Featured image
+
+- Media 11831, `kk-laSalle-both-hands-full-10-scaled.jpg`, 2560x1440, already in the library. Nothing was uploaded.
+- Alt text now: `Kris Krüg presenting Both Hands Full keynote at LaSalle College Vancouver, frame 10`. The old value is in the receipt for rollback.
+- Crop QC (2026-11-13 UTC): featured-image-forge gates pass, and frame 10 passed the visual check at every crop the theme and social cards use: 16:9, 1.91:1, the 760x390 desktop hero, 3:2, 1:1, 300 px and the 94x80 phone thumbnail. Frame 20 (media 11833) failed at 300 px and below.
+
+## Before 2026-11-24
+
+- Nothing else is needed for the post to go live on time. WordPress publishes it at 16:00 UTC.
+- After it is live: read back the public canonical URL (200), `og:image`, the featured image crop, category, tags and every link, and record the result in the receipt.
+- After it is live: draft 11881 can go to trash only with Kris's explicit approval for that ID, never `force=true`.
+- Optional follow-ups from `internal-links.md`, each needing its own approval: link this post from the Both Hands Full card on `/speaking/` and from the two related posts.
+
+## Admin preview
+
+The staging checklist on `main` asked for a comparison of the wp-admin preview with `post.html`. It was not done: agents cannot see the signed-in preview. In its place, the context=edit readback showed `content.raw` byte-identical to the pinned `post.html`, and a read-only logged-out readback (HTTP 200, title, `og:image`, canonical) is scheduled for 10:00 on 2026-11-24. Kris can still open the preview before then.
 
 ## Rollback
 
-This is a new object, so there is no earlier version to restore. Before the write, the rollback proof is the empty same-day slug check. After it, the default is to leave the post as an unpublished draft and report its ID and the problem. Moving it to trash needs Kris's explicit approval for that post ID, with a readback of ID and status before and after. Never `force=true`.
+Never delete. To stop the publish, move post 13004 back to `draft` with a guarded update (slug `both-things-are-true` must resolve to 13004) and read back `status: draft`. To undo the alt text, write the old value from the receipt back to media 11831 and read it back. Moving 13004 to trash needs Kris's explicit approval for that ID, with a readback of ID and status before and after.
 
-## Checks run while building this package (2026-11-12 Pacific, 2026-11-13 UTC)
+## Preflight run before the writes (2026-11-13 UTC)
 
-- `make voice-check` on `post.md` and `post.html`: 2 files scanned, 0 violations, 0 baseline-waived.
-- Offline publisher dry-run: exit 0, `slug: both-things-are-true`, `slug_check: skipped_offline`, `images: []`, category `AI for Creatives`, tags `Both Hands Full`, `Keynotes`, `speaking`, `taste`. Neither legacy env file the publisher can fall back to exists on this machine, so the dry-run read no `.env`.
-- `LOCAL_ONLY=1 FORMAT=json make draft-queue-audit`: exit 0. 104 local packages. This one reads 1,177 words, 21 markdown links, 21 html links, 60 blocks, 0 images, 0 TODO markers.
-- No em dashes, en dashes or curly quotes in any file of this package, and every file encodes to cp1252.
-- `make verify`: the Python suites (274, 993, 12 and 68 passed), JavaScript syntax, plugin and theme smokes, docs truth check and `php -l` on 58 files all passed. It then stopped at PHPCS because this worktree has no `vendor/` (`phpcs not found`). That gate does not read content drafts; CI runs the required check.
-- No authenticated slug check and no REST term check were run. Both wait for the day of any write.
+1. **Source hashes:** `post.md` and `post.html` matched the pins above.
+2. **Quote:** the pull quote matches the caption wording Kris confirmed, word for word.
+3. **Slug collision (authenticated, 03:14 UTC):** `draft_queue_audit.py --format json` under Varlock, `slug_matches["both-things-are-true"]` was empty: 0 posts and 0 pages in any status.
+4. **Taxonomy (02:59 UTC, public REST):** category 1665 by name, tags 1683, 1696, 89 and 1667 by slug. No new term was created.
+5. **Image:** Kris's crop approval recorded above. Media 11831 served 2560x1440 at its public URL.
+6. **Links (03:15 UTC):** all 21 URLs in `post.html` returned 200. The dated canonical and the bare slug returned 404.
+7. **Voice check:** 0 violations on `post.md` and `post.html`.
+8. **Dry-run:** exit 0, slug `both-things-are-true`, `images: []`, category `AI for Creatives`, four tags.
+9. **Repo gates:** `git diff --check` clean; CI on the PR runs the full suite. `make verify` was not run in this worktree, which has no Python venv or PHPCS install.
 
-Until every box above is ticked, this package stays a local `status: draft` and nothing may claim it is published.
+Nothing here claims the post is published. It is scheduled, and it is not public until 2026-11-24 16:00 UTC.

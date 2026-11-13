@@ -1,8 +1,12 @@
 # Issue #828: negotiation checklist draft and guarded apply path
 
-Status: **draft for Kris review; not approved for WordPress**
+Status: **Applied 2026-11-12 to posts 1210, 1222 and 1056; page 12013 skipped**
 
-No live write has been made. This package replaces the dead 2007 ModelMayhem stub with a substantive checklist and prepares link-matrix rows 34 through 37. It preserves post 1210's title, slug, date, taxonomy, tags, and generated collection footer.
+Kris approved the exact body in chat on 2026-11-12. Receipt: `docs/current-state/reports/issue-828-applied-2026-11-12.md`.
+
+Page 12013 was not written. The November redesign (#1205) removed the #827 ModelMayhem sentence that the row-34 sentence follows, so its `targets.json` spec no longer matches live and the tool aborts on it by design. Placing row 34 on the redesigned page needs Kris's call.
+
+This package replaced the dead 2007 ModelMayhem stub with a substantive checklist and prepared link-matrix rows 34 through 37. It preserves post 1210's title, slug, date, taxonomy, tags, and generated collection footer.
 
 ## Evidence and limits
 
@@ -19,7 +23,7 @@ No live write has been made. This package replaces the dead 2007 ModelMayhem stu
 3. Record the SHA-256 of the approved `post-body.html` as `reviewed_body_sha256` in `targets.json`.
 4. Re-run the offline and live dry-run checks below.
 
-Until `reviewed_body_sha256` is committed and matches the draft, `--apply` aborts before authentication or network access.
+Until `reviewed_body_sha256` is committed and matches the draft, `--apply` aborts before authentication or network access. The gate hashes `post-body.html` as stored, so it matches `shasum -a 256`. The approved hash is `ffb363eef9e4e46d8dd26d9a9e9794b71fa6dbb405a886961ac032bdfe48df98`.
 
 ## Offline verification
 
@@ -35,7 +39,7 @@ python3 scripts/voice_check.py content/drafts/2026-08-02-seo-authority-hubs/fix-
 make varlock-run CMD='python3 scripts/apply_issue_828_negotiation_checklist.py'
 ```
 
-Expected: four exact identities and four plans, with no snapshots and no POST requests.
+Before the apply this printed four exact identities and four plans, with no snapshots and no POST requests. Since 2026-11-12, `--item-id` runs for 1210, 1222 and 1056 print `[SKIP]` and `[OK] nothing pending`, and the aggregate run aborts on 12013's stale needle.
 
 ## Future application gate
 

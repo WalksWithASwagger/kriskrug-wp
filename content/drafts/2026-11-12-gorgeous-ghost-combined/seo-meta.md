@@ -1,18 +1,18 @@
 # SEO metadata
 
-Status: draft. Fields marked "open" wait on `open-facts-for-kk.md`.
+Status: scheduled as WordPress post 13003 for 2026-11-19 at 09:00 Vancouver time, with media 13006 as the featured image (see `publish-gate.md`). Every field below is settled by Kris's 2026-11-12 rulings (`open-facts-for-kk.md`), and the draft's readback matched each one.
 
-- Title: `I Made a Gorgeous Ghost` (question 10)
-- Slug: `gorgeous-ghost` (question 2)
-- Post date: open (question 1). Recommended: the real publish day, no backdating. `post_date` is left out of `post.md` on purpose.
-- Canonical: open. With the recommended slug it becomes `https://kriskrug.co/<yyyy>/<mm>/<dd>/gorgeous-ghost/`, using the publish date.
+- Title: `I Made a Gorgeous Ghost` (question 10, default taken)
+- Slug: `gorgeous-ghost` (question 2, ruled)
+- Post date: the real publish day in the Nov 19 to 30 window, no backdating (question 1, ruled). `post_date` is left out of `post.md` on purpose, so the staged draft floats its date until it is published.
+- Canonical: `https://kriskrug.co/<yyyy>/<mm>/<dd>/gorgeous-ghost/`, using the publish date (question 2, ruled).
 - Meta title (35 characters): `I Made a Gorgeous Ghost | Kris Krüg`
 - Meta description (155 characters): `Gorgeous Ghost is a 69.42-second glam space opera made with The Scallywags for the BC + AI Film Club: one locked song, one colour move, one signal machine.`
 - Excerpt (170 characters): `Gorgeous Ghost is a 69.42-second glam space opera I made with The Scallywags for the BC + AI Film Club. The band, the locked song, the colour move and the signal machine.`
 - Category: `Creative Technology & Making` (ID 1755)
 - Tags: `Gorgeous Ghost` (1804), `Creative AI` (1682), `AI Film Club` (1785), `AI Music` (1395, live name `ai music`)
 - Featured flag: `true`, carried over from the #771 package
-- OG image: open (question 7). Recommended: a hosted 16:9 featured image from Kris's own film master, through featured-image-forge crop QC and his approval. If he keeps the external share image instead, its source is `https://gorgeousghost.com/og/share.jpg` and its alt text is in `alt-text.md`.
+- OG image: the featured image (question 7, ruled). The theme writes `og:image` from the featured image's `large` size, 1024x576 for a 16:9 master. Kris approved the film's reveal art as a 1600x900 master; it is not uploaded yet (see `publish-gate.md`). Alt text is in `alt-text.md`.
 
 ## Notes for the write
 
@@ -33,3 +33,5 @@ Rule from `ensure_term()` in `scripts/notion-to-wp/create_local_wp_draft.py` (li
 | AI Music | `ai-music` | 1395 `ai music` | yes, by slug and case-insensitive name |
 
 No new term would be created. This is dated evidence and has to be rerun on the day of any write.
+
+Rerun 2026-11-13 02:59 UTC, logged-out public REST (`categories?slug=...` and `tags?slug=...`): the same five IDs came back with the same slugs, and `slugify()` from `scripts/notion-to-wp/notion_client.py` gives the slugs in the table. All five still resolve by slug.

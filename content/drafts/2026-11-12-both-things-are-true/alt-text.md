@@ -1,12 +1,14 @@
 # Alt text
 
-The draft has no image files and no `<img>` in `post.html`. Its only visual is the YouTube embed, which WordPress renders as an iframe titled from oEmbed: `Both Hands Full: What Creatives Actually Need to Know About AI`.
+`post.html` has no `<img>`. The body's only visual is the YouTube embed, which WordPress renders as an iframe titled from oEmbed: `Both Hands Full: What Creatives Actually Need to Know About AI`.
 
-## Pending, by image decision (open-facts question 5)
+## Featured image: media 11831 (done 2026-11-13 UTC)
 
-- **Recommended option a, an existing LaSalle keynote frame.** The frames on Your Taste Is Your Moat carry placeholder alt text such as `Kris Krüg presenting Both Hands Full keynote, frame 10`. Write new alt text from the frame Kris picks, after featured-image-forge QC. Describe what is in the frame (who, where, what he is doing), not the talk's argument.
-- **Option b, the Events page stage photo.** Its live alt text reads `Kris Krüg on stage at LaSalle College Vancouver asking what you would never give up to AI`. Reuse it if the crop QC passes.
-- **Option c, the bothhandsfull.com share image.** Write alt text from the image itself before any upload.
-- **Option d, no image.** Nothing to write.
+Kris approved LaSalle frame 10, media 11831, as the featured image on 2026-11-12, and ruled that its alt text be rewritten without the em dash, keeping the same meaning. The featured image block renders the media item's own alt text, so the change was made on the media item.
 
-Any alt text written to WordPress stays cp1252-safe: straight apostrophes, no characters outside cp1252.
+- Alt text now on media 11831: `Kris Krüg presenting Both Hands Full keynote at LaSalle College Vancouver, frame 10`
+- The old value differed only by an em dash where the comma is. It is recorded in `docs/current-state/reports/scheduled-posts-2026-11-19-24.md` for rollback, together with the hash of the snapshot taken before the change.
+- cp1252-safe: the only character outside ASCII is the precomposed `ü`.
+- Your Taste Is Your Moat is not affected. Its gallery keeps the alt text saved in that post, `Kris Krüg presenting Both Hands Full keynote, frame 10` for this frame (checked 2026-11-13).
+
+A more descriptive line was proposed before the ruling (Kris on stage, mic in hand, slide behind him). Kris chose the same meaning instead, so it was not used.

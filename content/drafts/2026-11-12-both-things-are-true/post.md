@@ -2,9 +2,10 @@
 title: "Both Things Are True"
 slug: "both-things-are-true"
 status: draft
-# post_date and canonical are left out on purpose. They wait on Kris's date
-# ruling (open-facts-for-kk.md, question 4). With no post_date, a staged
-# WordPress draft floats its date until it is published.
+# post_date and canonical are left out on purpose. Kris ruled on 2026-11-12
+# for the real publish day, no backdating (open-facts-for-kk.md, question 4).
+# With no post_date, a staged WordPress draft floats its date until it is
+# published, and the canonical follows that date.
 author: "Kris Krüg"
 author_wp_id: 1
 excerpt: "Four minutes into my LaSalle keynote I said the sentence the whole talk hangs on. This is Both Hands Full in writing: the theft, the power, and why I hold both."
