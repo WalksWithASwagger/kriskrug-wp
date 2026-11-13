@@ -63,10 +63,12 @@ Safety:
       6. The database stores text as cp1252 (MySQL "latin1"), so anything
          outside cp1252 sent raw comes back as "?". The client sends title,
          content, excerpt, alt text and term names with those characters as
-         numeric references. SEO meta and the Publicize message must fit
-         cp1252. Text that cannot be sent at all (such meta, a C1 control,
-         or a character outside cp1252 inside <style> or <script>) exits 9
-         before any WordPress request (#1225).
+         numeric references. SEO meta and the Publicize message are plain
+         text the connector derives from the title and excerpt, so such
+         characters there are folded to plain letters ("Ethọ́s" becomes
+         "Ethos"), with one warning line per folded field. Text that cannot
+         be sent at all (a C1 control, or a character outside cp1252 inside
+         <style> or <script>) exits 9 before any WordPress request (#1225).
 """
 from __future__ import annotations
 
@@ -108,7 +110,7 @@ from draft_writers import (  # noqa: E402
     write_internal_links as _write_internal_links,
     write_seo_meta as _write_seo_meta,
 )
-from cp1252_text import UnstorableText, assert_sendable  # noqa: E402
+from cp1252_text import UnstorableText, assert_sendable, derived_meta_text  # noqa: E402
 from media_pipeline import (  # noqa: E402
     auto_alt,
     collect_image_blocks,
@@ -233,8 +235,15 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
     if not excerpt and ai_summary:
         excerpt = ai_summary.strip()  # last-ditch fallback, flagged in log
         log("WARNING: no body-derived excerpt — fell back to Notion AI summary (third-person voice).")
-    meta_desc = excerpt  # Jetpack accepts up to ~300 chars; same source as excerpt for consistency
-    seo_title = text_polish.polish_text(derive_seo_title(title, max_chars=60))
+    # Folded before the package is written, so post.md and seo-meta.md hold
+    # what WordPress will store and the local-draft scripts accept them.
+    # Jetpack accepts up to ~300 chars of description; same source as the excerpt.
+    meta_desc = derived_meta_text(excerpt, "advanced_seo_description", log)
+    seo_title = derived_meta_text(
+        text_polish.polish_text(derive_seo_title(title, max_chars=60)),
+        "jetpack_seo_html_title",
+        log,
+    )
 
     category_name, category_route = resolve_category(type_notion, tags_notion, category_override)
     log(
@@ -293,6 +302,7 @@ def run(notion_url: str, dry_run: bool, force_publish: bool,
             featured=featured,
             seo_title=seo_title,
             meta_desc=meta_desc,
+            warn=log,
         )
         assert_sendable(
             payload,
