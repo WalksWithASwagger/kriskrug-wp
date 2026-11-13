@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test ruff-changed javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
+.PHONY: help test python-test ruff-changed javascript-syntax php-syntax plugin-smoke theme-smoke snippet-smoke verify validate issues dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
 
 PYTHON ?= python3
 VARLOCK ?= varlock
@@ -41,6 +41,7 @@ test: ## Run test suite
 	@$(MAKE) javascript-syntax
 	@$(MAKE) plugin-smoke
 	@$(MAKE) theme-smoke
+	@$(MAKE) snippet-smoke
 
 python-test: ## Run all declared Python test suites
 	@$(PYTHON) -c 'import dotenv, pytest, requests, yaml' || { \
@@ -90,6 +91,10 @@ theme-smoke: ## Run lightweight theme behavior smoke tests
 	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for theme smoke tests."; exit 1; }
 	@php theme/kk-aurora/tests/seo-title-smoke.php
 	@php theme/kk-aurora/tests/final-url-smoke.php
+
+snippet-smoke: ## Run smoke tests for live Code Snippets sources in fixes/
+	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for snippet smoke tests."; exit 1; }
+	@php fixes/tests/issue-767-rest-users-smoke.php
 
 verify: ## Run the standard local verification suite
 	@$(MAKE) test

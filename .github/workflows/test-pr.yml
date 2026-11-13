@@ -120,6 +120,9 @@ jobs:
       - name: Plugin smoke tests
         run: make plugin-smoke
 
+      - name: Snippet smoke tests
+        run: make snippet-smoke
+
   # Complete Python gate: publisher, operational, SEO inventory, SEO backfill/link safety
   python-tests:
     needs: validate
