@@ -42,6 +42,10 @@ Final context=edit readback: `status: future`, `date_gmt: 2026-11-24T16:00:00`, 
 - After it is live: draft 11881 can go to trash only with Kris's explicit approval for that ID, never `force=true`.
 - Optional follow-ups from `internal-links.md`, each needing its own approval: link this post from the Both Hands Full card on `/speaking/` and from the two related posts.
 
+## Admin preview
+
+The staging checklist on `main` asked for a comparison of the wp-admin preview with `post.html`. It was not done: agents cannot see the signed-in preview. In its place, the context=edit readback showed `content.raw` byte-identical to the pinned `post.html`, and a read-only logged-out readback (HTTP 200, title, `og:image`, canonical) is scheduled for 10:00 on 2026-11-24. Kris can still open the preview before then.
+
 ## Rollback
 
 Never delete. To stop the publish, move post 13004 back to `draft` with a guarded update (slug `both-things-are-true` must resolve to 13004) and read back `status: draft`. To undo the alt text, write the old value from the receipt back to media 11831 and read it back. Moving 13004 to trash needs Kris's explicit approval for that ID, with a readback of ID and status before and after.

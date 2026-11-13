@@ -1,6 +1,6 @@
 # SEO metadata
 
-Status: staged as WordPress draft 13003, not scheduled yet (see `publish-gate.md`). Every field below is settled by Kris's 2026-11-12 rulings (`open-facts-for-kk.md`), and the draft's readback matched each one.
+Status: scheduled as WordPress post 13003 for 2026-11-19 at 09:00 Vancouver time, with media 13006 as the featured image (see `publish-gate.md`). Every field below is settled by Kris's 2026-11-12 rulings (`open-facts-for-kk.md`), and the draft's readback matched each one.
 
 - Title: `I Made a Gorgeous Ghost` (question 10, default taken)
 - Slug: `gorgeous-ghost` (question 2, ruled)

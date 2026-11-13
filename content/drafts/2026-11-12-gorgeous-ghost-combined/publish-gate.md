@@ -46,6 +46,10 @@ Run in this order, each step passing before the next: the media search found not
 
 If any step fails, stop and leave 13003 as a draft.
 
+## Admin preview
+
+The staging checklist on `main` asked for a comparison of the wp-admin preview with `post.html`. It was not done: agents cannot see the signed-in preview. In its place, the context=edit readback showed `content.raw` byte-identical to the pinned `post.html`, and a read-only logged-out readback (HTTP 200, title, `og:image`, canonical) is scheduled for 10:00 on 2026-11-19. Kris can still open the preview before then.
+
 ## Rollback
 
 Never delete. Draft 13003 can stay a draft indefinitely. Once scheduled, move it back to `draft` with a guarded update and read back `status: draft`. Moving it to trash needs Kris's explicit approval for that post ID, with a readback before and after. If the featured image is wrong, unset `featured_media`. Media trash is off on kriskrug.co, so deleting an uploaded media item is permanent; leave that to Kris.
