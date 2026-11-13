@@ -1,12 +1,15 @@
 # Alt text
 
-The draft has no image files and no `<img>` in `post.html`. Its only visual is the YouTube embed, which WordPress renders as an iframe titled from oEmbed: `Both Hands Full: What Creatives Actually Need to Know About AI`.
+`post.html` has no `<img>`. The body's only visual is the YouTube embed, which WordPress renders as an iframe titled from oEmbed: `Both Hands Full: What Creatives Actually Need to Know About AI`.
 
-## Pending, by image decision (open-facts question 5)
+## Featured image (open-facts question 5, ruled 2026-11-12)
 
-- **Recommended option a, an existing LaSalle keynote frame.** The frames on Your Taste Is Your Moat carry placeholder alt text such as `Kris Krüg presenting Both Hands Full keynote, frame 10`. Write new alt text from the frame Kris picks, after featured-image-forge QC. Describe what is in the frame (who, where, what he is doing), not the talk's argument.
-- **Option b, the Events page stage photo.** Its live alt text reads `Kris Krüg on stage at LaSalle College Vancouver asking what you would never give up to AI`. Reuse it if the crop QC passes.
-- **Option c, the bothhandsfull.com share image.** Write alt text from the image itself before any upload.
-- **Option d, no image.** Nothing to write.
+The crop QC pick is LaSalle frame 10, media 11831, still **awaiting Kris's crop approval**. It is an existing media item, so the featured image block renders that item's own alt text.
 
-Any alt text written to WordPress stays cp1252-safe: straight apostrophes, no characters outside cp1252.
+- Live alt text on media 11831 (public REST, 2026-11-13 02:51 UTC): `Kris Krüg presenting Both Hands Full keynote at LaSalle College Vancouver`, then an em dash, then `frame 10`. It carries an em dash and a frame number, and it does not describe the picture.
+- Proposed alt text: `Kris Krüg on stage at LaSalle College Vancouver, grinning with a mic in hand, a keynote slide glowing on the screen behind him`
+- The proposed line describes what is in the frame, uses no em dash, and stays cp1252-safe (the only character outside ASCII is the precomposed `ü`).
+
+Changing the alt text is a write to an existing media item, so it needs Kris's approval on its own (see `publish-gate.md`). Your Taste Is Your Moat is not affected: an image block keeps the alt text it was inserted with.
+
+If Kris picks frame 20 (media 11833) instead, write alt text from that frame: the wide room shot of the audience facing the stage and the reflection slide.
