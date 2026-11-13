@@ -20,8 +20,14 @@
 	<exclude-pattern>*/.venv/*</exclude-pattern>
 	<exclude-pattern>*/tests/smoke.php</exclude-pattern>
 
+	<!--
+	PHP floor for code with no Requires PHP header of its own (fixes/, inc/).
+	scripts/check_php_compat.py re-checks the theme and each plugin against
+	the version its own header declares.
+	-->
 	<config name="testVersion" value="8.1-"/>
 
+	<rule ref="PHPCompatibilityWP"/>
 	<rule ref="WordPress.Security.EscapeOutput"/>
 	<rule ref="WordPress.Security.NonceVerification"/>
 	<rule ref="WordPress.Security.SafeRedirect"/>

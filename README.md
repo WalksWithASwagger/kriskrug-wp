@@ -10,7 +10,7 @@ This repository is the **operations + content hub** for [kriskrug.co](https://kr
 
 **If you're an AI agent landing in this repo cold, start at [`AGENTS.md`](AGENTS.md).**
 
-Current priorities: [November 11 roadmap](docs/current-state/ROADMAP-2026-11-11.md).
+Current priorities: [November 12 roadmap](docs/current-state/ROADMAP-2026-11-12.md).
 The [maintenance report](docs/current-state/reports/repo-maintenance-2026-11-11.md)
 records verification, issue reconciliation, and branch recovery.
 
@@ -68,7 +68,7 @@ plugins/
 docs/current-state/              # Dated truth snapshots plus recovery/redesign handoffs
   ├── README.md                  # Index of the snapshot
   ├── CURRENT-STATE-*.md         # Dated snapshots; Makefile names the drift baseline
-  ├── ROADMAP-2026-11-11.md      # Current priorities and acceptance gates
+  ├── ROADMAP-2026-11-12.md      # Current priorities and acceptance gates
   ├── WORK-PLAN-*.md             # Dated runbooks; read their status before acting
   ├── MASTER-PLAN-2026-07-30.md  # Historical hygiene plan
   ├── TWO-TRACK-MODEL.md         # The active operating model
@@ -90,7 +90,7 @@ inc/                             # Custom WordPress modules (e.g., digital-compo
 ### Where to start
 
 - **Reading the site state:** `docs/current-state/README.md`
-- **Planning next work:** `docs/current-state/README.md` and the [November 11 roadmap](docs/current-state/ROADMAP-2026-11-11.md). Dated `WORK-PLAN-*.md` files are retained procedures or history; read their status banner first
+- **Planning next work:** `docs/current-state/README.md` and the [November 12 roadmap](docs/current-state/ROADMAP-2026-11-12.md). Dated `WORK-PLAN-*.md` files are retained procedures or history; read their status banner first
 - **Current startup truth:** `make status-readonly` prints current repo/site signals without writing a file
 - **Local generated report:** `make morning-truth` writes to the gitignored `.generated/current-state/` directory
 - **Durable checkpoint:** `make morning-truth-checkpoint` writes to `docs/current-state/reports/` only for an explicit release, incident, durable decision, or handoff
@@ -172,7 +172,7 @@ An older issue-to-PR pipeline (orchestrator → analyzer → test-writer → imp
 - **Custom code:** PHP snippets (Code Snippets plugin on prod), `inc/digital-composting.php`, and packaged helper plugins such as `plugins/kk-sidebar-promos/`
 - **CLI Tools:** GitHub CLI (`gh`), Claude Code / Cursor agents
 - **Languages:** PHP, JavaScript, Python, Bash
-- **CI runtimes:** PHP 8.2, Python 3.12, Node 20 for JavaScript syntax, and Node 24 for the WordPress Playground browser job (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)); Playground 3.1.62 requires Node >=24.18.0 and npm >=11.16.0. The Aurora theme itself declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css)
+- **CI runtimes:** PHP 8.2, Python 3.12, and Node 24 for both JavaScript syntax and the WordPress Playground browser job (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)); Playground 3.1.62 requires Node >=24.18.0 and npm >=11.16.0. The Aurora theme itself declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css)
 
 ## Issue Labels
 

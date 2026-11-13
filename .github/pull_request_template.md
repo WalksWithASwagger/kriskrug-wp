@@ -33,9 +33,9 @@ Skip if nothing touches the live site.
 
 ## Approvals and merge
 
-Merge rules and which PRs need KK first live in [`AGENTS.md`](../AGENTS.md) under "How to commit". Do not restate them here.
+Merge rules and which PRs need KK first live in the [merge-lane table](../AGENTS.md#merge-lanes). Do not restate them here.
 
-- [ ] This PR needs KK's approval before merge (theme, `plugins/`, `inc/`, deploy or anything else `AGENTS.md` lists)
+- [ ] This PR needs KK's approval before merge (theme, `plugins/`, `inc/`, `fixes/` snippet sources, or a deploy)
 - [ ] `Test PR / summary` is green and the branch is up to date with `main`
 
 Merging is not deploying. A live deploy is a separate act and needs explicit KK approval every time.
