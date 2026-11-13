@@ -5,29 +5,164 @@ markers stay in [`theme/kk-aurora/CHANGELOG.md`](theme/kk-aurora/CHANGELOG.md).
 This file is the repo-wide log.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
-Newest window first. Sections below are grouped by work theme because this
-repo ships content, theme, docs, and CI in the same tree.
+Newest window first. Sections below are grouped by area because this repo
+ships content, theme, tooling, CI, and docs in the same tree.
 
-This cut lists **merged pull requests only**. Built 2026-09-28 from:
+This log lists **merged pull requests only**, one line per PR, using the PR
+title. Direct pushes to `main` are not listed.
 
-```
-gh pr list --repo WalksWithASwagger/kriskrug-wp --state merged --limit 200 --search "merged:>=2026-08-29"
-```
+## How this file is kept
 
-`gh` returned **85** merged PRs (earliest `2026-08-29T17:15:43Z`, latest
-`2026-09-28T05:34:55Z`). A Sep 27 audit counted 111 using a window that
-started 2026-08-28. Repeating that older start date on 2026-09-28 returns
-112, because #1085 and #1086 landed after the audit. This file uses the
-last-30-days window from today.
-
-Direct pushes to `main` are not listed. If a fact is not on the PR title
-or a receipt I could read, it is marked **TODO for KK**.
+Each weekly roadmap reset runs `make changelog SINCE=YYYY-MM-DD` (the day after
+the end date of the newest section below; check for PRs merged late on that day) and the output becomes a new dated section. The script
+is `scripts/changelog_from_prs.py`. It groups by title prefix, then by changed
+paths, and does not add descriptions beyond the PR title.
 
 ## [Unreleased]
 
-### Operations
+Nothing yet. Merges after the newest dated section below land here until the
+next weekly refresh.
 
-- Load notion-to-wp through Varlock from `~/.agents/env/values/.env.kriskrug-wp.local` (no pick list; documented run commands wrap `varlock run`)
+## [2026-09-29 to 2026-11-12]
+
+Generated 2026-11-12 with `make changelog SINCE=2026-09-29`: **120** merged PRs
+(earliest `2026-09-29T15:35:38Z`). Anything merged after that run is picked up
+by the next weekly refresh.
+
+### Content
+
+- Add combined Gorgeous Ghost draft package (#771, #1016) (#1270)
+- Owned-distribution record for the Canada Now article (#1176) (#1271)
+- Add TIDEPOOL.ING and Little Supercluster to the Work index (#1281)
+- Commit the public Downtown Eastside package files (#1276)
+- Add the Dec 16 Vancouver AI meetup to the events catalog (#1266)
+- Mark the superseded #480 payload pack do-not-apply (#1252)
+- Mark Prompt Victoria past in the Events catalog (#1262)
+- Publish the approved Futureproof reciprocal link (#1210)
+- Reconcile the approved Publications redesign (#1207)
+- Reconcile live About, Photography, and MØTLEYKRÜG (#1205)
+- Preserve Speaking and Services icons in WordPress (#1204)
+- Connect Services offers to Contact prompts (#1203)
+- Lead Work with three sourced case studies (#1202)
+- Bring stage proof and booking to Speaking (#1201)
+- Add the 2021 Galiano summer program to Events (#1193)
+- Sync the live Testimonials redesign (#1192)
+- Add the first 2023 and 2022 Events archive entries (#1190)
+- Keep the live Events redesign in the catalog renderer (#1189)
+- Record Canada Now episode source (#1184)
+- Link Futureproof: Year One to the proceedings (#1186)
+- Add Futureproof recap and gallery links (#1185)
+- Add IIA debate to the events archive (#1183)
+- Sync published Futureproof feature and release receipt (#1170)
+- Revise Futureproof recap as Year One (#1169)
+- Prepare Futureproof 2026 personal essay (#1167)
+- Connect Events records to recaps, photos and video (#1153)
+- Keep Events confirmation explicit during catalog enrichment (#1150)
+- Ship three brand-navigation links from AI articles (#1149)
+- Repair Work card readability and route Subscribe to KRÜG (#1144)
+- Land ALL IN review package and readiness closeout (#1141)
+- Date-based Next up roll-off and Futureproof tickets link (#1134)
+- Point llms.txt meetup link at /events/ (#1133)
+- Mark the September 30 meetup as past to restore the catalog gate (#1122)
+- Meetup #32, #33 label, Prompt Victoria, Capilano recap (#1099) (#1108)
+
+### Theme
+
+- Aurora 1.7.2 release candidate (archive social meta, conditional marquee.js, changelog markers) (#1261)
+- Preserve approved blog layout above inline WordPress defaults (#1173)
+- Redesign Writing for scannable posts and quieter reading (#1172)
+- Pair responsive header grid areas and restore mobile tap targets (#1171)
+- Fix social attribution and personal newsletter destinations (#1142)
+- Point sitewide chrome and the page sitemap at final URLs (#1132)
+- Restore the broken BC+AI card and Work social image (#1118)
+- Refresh approved festival copy and footer YouTube link (#1109)
+
+### Publisher and tooling
+
+- Clear whole-tree Ruff findings and exclude scripts/archive from the changed-file gate (#1280)
+- Add read-only page payload parity check (#1267)
+- Run the Notion connector's guards before any upload and fail on readback mismatch (#1259)
+- Compare Luma events against real Unix time in sidebar-promos sync (#1251)
+- Add JSON_HEX_TAG and JSON_HEX_AMP to the JSON-LD emitters (#1256)
+- Route the audit credential readers through common.load_env (#1264)
+- Archive two spent publishers and fail Context Creators on a failed check (#1263)
+- Route every publisher slug lookup through one fail-closed helper (#1257)
+- Declare env vars the scripts read in .env.schema (#1255)
+- Make the docs gate require the current roadmap (#1249)
+- Stop WPClient.get_all at the last page instead of one past it (#1260)
+- Report transport failures in the public smoke check (#1188)
+- Refresh WordPress startup baseline to 7.0.8 (#1166)
+- Report squash-merged branches with exact PR/SHA evidence (#1113)
+- Retain startup smoke failures and align snapshot defaults (#1092)
+- Load notion-to-wp through Varlock (#1091)
+
+### CI and tests
+
+- Retire the swarm-era agent definitions, state records and disabled workflows (#1265)
+- Make every existing test run in CI (#1258)
+- Patch Playground isomorphic-git development dependency (#1206)
+- Update qs security override to 6.16.1 (#1187)
+- Bump @wp-playground/cli from 3.1.61 to 3.1.62 in the npm-minor-patch group (#1180)
+- Update pytest requirement from >=9.1.1 to >=9.2.0 (#1179)
+- Bump github/codeql-action/upload-sarif from 4.39.1 to 4.39.2 in the actions-minor-patch group (#1178)
+- Bump the actions-minor-patch group with 2 updates (#1164)
+- Bump @wp-playground/cli from 3.1.60 to 3.1.61 in the npm-minor-patch group (#1163)
+- Update ruff requirement from >=0.17.1 to >=0.17.3 (#1162)
+- Make KRÜG signup privacy fixture deterministic (#1152)
+- Synchronize Events record, counters and documentation links (#1151)
+- Bump the npm-minor-patch group with 2 updates (#1138)
+- Bump github/codeql-action/upload-sarif from 4.38.3 to 4.39.0 in the actions-minor-patch group (#1139)
+- Update ruff requirement from >=0.17.0 to >=0.17.1 (#1137)
+- Bump the actions-minor-patch group with 4 updates (#1128)
+- Bump the npm-minor-patch group with 2 updates (#1127)
+- Update ruff requirement from >=0.16.10 to >=0.17.0 (#1126)
+- Bump proxy-addr from 2.0.7 to 2.0.8 (#1124)
+- Update python-dotenv requirement from >=1.2.3 to >=1.2.4 in /scripts/notion-to-wp (#1119)
+- Bump @wp-playground/cli from 3.1.56 to 3.1.57 in the npm-minor-patch group (#1123)
+- Update ruff requirement from >=0.16.9 to >=0.16.10 (#1120)
+- Update python-dotenv requirement from >=1.2.3 to >=1.2.4 (#1121)
+- Bump @wp-playground/cli from 3.1.55 to 3.1.56 in the npm-minor-patch group (#1116)
+- Bump @wp-playground/cli from 3.1.52 to 3.1.55 in the npm-minor-patch group (#1095)
+- Bump github/codeql-action/upload-sarif from 4.38.1 to 4.38.2 in the actions-minor-patch group (#1097)
+- Update ruff requirement from >=0.16.8 to >=0.16.9 (#1096)
+- Add weekly npm browser-toolchain updates (#1093)
+
+### Docs and ops
+
+- Define merge lanes for scripts, tests, Makefile, CI and dependency PRs (#1269)
+- Drop the local design-proofs path from the Writing review (#1282)
+- Record the Events cadence decision and the Dec 16 ruling (#1268)
+- Redact legacy Cloudways host details (#1247)
+- Guard make issues against unconfirmed and duplicate creation (#1250)
+- Reconcile make seo-audit guidance and Makefile help text (#1248)
+- Replace the swarm-era PR template with the repo's real gates (#1254)
+- Repoint front doors away from archived and retired guidance (#1253)
+- Record remaining maintenance decisions and cleanup (#1209)
+- Reconcile November roadmap and repository state (#1208)
+- Record the Aurora rollback archive location (#1177)
+- Record November work plan and September audit closeout (#1175)
+- Record the completed Aurora 1.7.1 Writing release (#1174)
+- Prepare host hardening and revoked-history review (#1168)
+- Close Article 3 correction release (#1161)
+- Record Article 3 source audio audit (#1160)
+- Reconcile Article 3 review with the current publication (#1159)
+- Publish the approved November meetup and ALL IN Events entries (#1158)
+- Record the pre-Futureproof shipping and remaining decisions (#1157)
+- Patch the practice test server body-parser dependency (#1156)
+- Prepare the first-practice release and five-person study packet (#1155)
+- Establish the propose-only Events maintenance loop (#1154)
+- Record live KRÜG completed-signup measurement (#1148)
+- Prepare completed KRÜG signup measurement and record GA4 setup (#1147)
+- Fix Publications overflow and close site-readiness checks (#1146)
+- Record live Person and Speaking schema release (#1145)
+- Reconcile page imagery and editorial readiness before Futureproof (#1143)
+- Align startup checks with current main and record site readiness (#1140)
+- Close out Brands for Better photo update (#1136)
+- Reconcile Snippet 5 preflight with KK's Sep 28 approval (#1135)
+- Conversion-path inventory and success-only event packet (#1110)
+- Reconcile workflow, backup and practice-test guidance (#1112)
+- Snippet 5 save preflight for Person + Speaking videos (#1111)
+- Add the September 28 weekly workplan and maintenance receipt (#1094)
 
 ## [2026-08-29 to 2026-09-28]
 
@@ -112,7 +247,7 @@ or a receipt I could read, it is marked **TODO for KK**.
 - Refreshed authority hub pack status (#939)
 - Corrected authority hub run order (#938)
 - Corrected repository identity and access truth (#935)
-- Closed out the issue 4 media-gate docs (#934). Issue #4 itself was still open on 2026-09-28.
+- Closed out the issue 4 media-gate docs (#934). Issue #4 was open when this window was cut and is closed now.
 - Corrected testimonials issue status (#933)
 
 ### CI and dependencies
@@ -130,13 +265,11 @@ or a receipt I could read, it is marked **TODO for KK**.
 ### Ops and safety
 
 - Archived the `/events/` page 2250 deploy rollback snapshot (#1084)
-- Landed the 2026-09-20 P1 deploy-safety fixes named in #1034-#1037 (#1079). Those four issues were still open on 2026-09-28. **TODO for KK:** close them only if the remaining review is done.
+- Landed the 2026-09-20 P1 deploy-safety fixes named in #1034-#1037 (#1079). Those four issues were open when this window was cut and are closed now.
 - Archived the Publications theBreaker deploy rollback evidence (#1020)
 - Deploy receipts for the six approved live lanes (#948)
 
-### Known gaps (TODO for KK)
+### Known gaps
 
-- Direct-to-`main` commits in this window have no merged PR and are omitted on purpose. **TODO for KK:** say whether those should be backfilled by commit SHA.
-- Authenticated draft-queue counts were unavailable in the 2026-09-28 `make status-readonly` session (no WordPress credentials). Last dated authenticated read on file is still 2026-08-29. **TODO for KK:** refresh those numbers before treating them as current.
-- Public smoke on 2026-09-28 observed WordPress `7.0.6`. That is not a merged PR. **TODO for KK:** confirm whether the declared snapshot should move off `7.0.5` / `7.0.4`.
-- No GitHub Releases exist for this window. This changelog is not a release.
+- Direct-to-`main` commits have no merged PR and are omitted on purpose.
+- No GitHub Releases exist. This changelog is not a release.
