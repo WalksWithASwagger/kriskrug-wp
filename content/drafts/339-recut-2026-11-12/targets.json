@@ -18,10 +18,10 @@
     "modified_gmt": "2026-11-11T17:25:47",
     "before_chars": 24383,
     "before_sha256": "b11435ba9c60c06235adc0d1fdb4f824defa0b30aaa80d20bfd4ac529f6c376a",
-    "after_chars": 24575,
-    "after_sha256": "91415fb9349fab8ea9a8c55731617d325a9c9d06056f41f1b698413ccf325f25",
+    "after_chars": 24566,
+    "after_sha256": "f826de25e0c9447524a351108b1b5d06e2d2adb8d0cdd5a40e0946ef980ad4f6",
     "find": " to a federal consultation.</p>",
-    "replace": " to a federal consultation. In May 2026 I marched in Vancouver\u2019s first anti-AI protest and wrote about what that crowd got right in <a href=\"https://kriskrug.co/2026/05/23/you-cant-drink-data/\">You Can\u2019t Drink Data</a>.</p>",
+    "replace": " to a federal consultation. In May 2026 I went to my first anti-AI protest and wrote about what both sides keep missing in <a href=\"https://kriskrug.co/2026/05/23/you-cant-drink-data/\">You Can\u2019t Drink Data</a>.</p>",
     "href": "https://kriskrug.co/2026/05/23/you-cant-drink-data/",
     "anchor": "You Can\u2019t Drink Data"
   },

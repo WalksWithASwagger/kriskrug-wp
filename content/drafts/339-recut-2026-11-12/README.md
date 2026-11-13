@@ -1,6 +1,6 @@
 # #339 publisher batch, re-cut against the live site on 2026-11-12
 
-**Status:** PREP ONLY. No WordPress write, no theme work, no cache purge.
+**Status:** APPROVED, NOT YET APPLIED. Kris approved all five changes in chat on 2026-11-12 (relayed by the orchestrating session), with new wording for #249 (below). The first live write, the About deploy, was stopped by the session's permission check before it ran. No WordPress write has happened, and no theme work or cache purge.
 **Issue:** [#339](https://github.com/WalksWithASwagger/kriskrug-wp/issues/339), reopened 2026-11-12 (re-verification in #1221).
 **Captured:** authenticated `context=edit` GETs at `2026-11-13T02:30:50Z` (evening of 2026-11-12, Pacific). Rechecked at `2026-11-13T02:50:14Z`: every `modified`, content hash and SEO value unchanged.
 **Replaces:** the guards and the planned About body in [`../339-july-publisher-batch-2026-08-16/`](../339-july-publisher-batch-2026-08-16/README.md). Apply nothing from that folder. Its About FIND paragraph no longer exists after the November redesign (#1205), and the guards for posts 2950, 8802, 11171 and 12327 have moved since August.
@@ -11,7 +11,7 @@ All five updates are still needed. None is live today. Every source phrase still
 
 | Issue | Change |
 |---|---|
-| #249 | About page, "Vancouver, now" chapter: add one sentence to the end of the second paragraph: *In May 2026 I marched in Vancouver’s first anti-AI protest and wrote about what that crowd got right in [You Can’t Drink Data](https://kriskrug.co/2026/05/23/you-cant-drink-data/).* |
+| #249 | About page, "Vancouver, now" chapter: add one sentence to the end of the second paragraph: *In May 2026 I went to my first anti-AI protest and wrote about what both sides keep missing in [You Can’t Drink Data](https://kriskrug.co/2026/05/23/you-cant-drink-data/).* (Kris's wording, 2026-11-12.) |
 | #328 | Link existing words to the [Most Benevolent Outcomes prayer](https://kriskrug.co/2023/11/04/the-power-of-most-benevolent-outcomes-a-prayer-for-blessings-for-all-living-things/) (post 3814): "Most Benevolent Outcomes" on post 2950 and "cultivating the most benevolent outcomes" on post 2665. No new words. |
 | #335 | Post 35 search title `The Lord of the Rings Drinking Game: 4 Original Rules` and description `Four original Lord of the Rings drinking game rules for Frodo, Sam, Legolas, and cliff falls, plus a trilogy marathon option. Play responsibly.` The footer "See also" on posts 35 and 58 points at each other instead of the 2023 AI companions post. |
 | #336 | Post 8802 search title `Build an AI Second Brain That Actually Works for You` and description `Build an AI second brain that works with your thought patterns, captures creative chaos, and turns scattered notes and voice memos into finished work.` Link existing words to post 8802: "AI as a second brain" on post 9774 and "knowledge bases and named assistants" on post 12327. |
@@ -25,7 +25,7 @@ Hashes are SHA-256 of `content.raw`. The exact FIND and REPLACE fragments, ident
 
 | Issue | Object | Slug | `modified` guard | Current content SHA-256 | Proposed content SHA-256 |
 |---|---|---|---|---|---|
-| #249 | page 1208 | `about` | `2026-11-11T09:25:47` | `b11435ba9c60c06235adc0d1fdb4f824defa0b30aaa80d20bfd4ac529f6c376a` | `91415fb9349fab8ea9a8c55731617d325a9c9d06056f41f1b698413ccf325f25` |
+| #249 | page 1208 | `about` | `2026-11-11T09:25:47` | `b11435ba9c60c06235adc0d1fdb4f824defa0b30aaa80d20bfd4ac529f6c376a` | `f826de25e0c9447524a351108b1b5d06e2d2adb8d0cdd5a40e0946ef980ad4f6` |
 | #328 | post 2950 | `community-weaving-how-digital-interactions-shape-our-physical-world` | `2026-10-25T14:47:19` | `b56c4532fc5998b8711662a65b0310563893268afabaa3810089eb0d3d2f42fe` | `bd8781ad6b346ffd705ad864029b75423451fec64f90a472c7c4ba7cb6e9c2fa` |
 | #328 | post 2665 | `embracing-the-future-my-journey-with-generative-ai-and-building-a-learning-community-on-discord` | `2026-06-28T20:39:43` | `0f252f0b234e09eb71766ed575f2d3541eb3376bb0c65d7508797989c22a8580` | `01785b0cb0b0db79185d542ed67adb3c3ed043bf22f4324b74ae0ecb95c47c5c` |
 | #335 | post 35 | `the-lord-of-the-rings-drinking-game` | `2026-06-14T22:30:33` | `0cef531f2f03a2fe4c52c42a52aea44564d81b165c4b08334098e69251ba48a0` | `99a6d2566482863722589a7a955c6df39187bab645adf634977bcc6d4fb701e4` |
@@ -55,7 +55,7 @@ The theme prints `jetpack_seo_html_title` as the whole `<title>` (today's live t
 
 ## Apply, after Kris approves
 
-One object at a time, in this order: page 1208, posts 2950, 2665, 35, 58, 9774, 12327, 11171, then the two SEO overwrites. The SEO writes go last because a meta write bumps post 35's `modified`, which would trip the `modified` guard on its footer edit. Keep snapshots in a gitignored folder such as `.generated/current-state/339-recut-apply/` until public readback passes. Run every command from the repo root.
+One object at a time, in this order: page 1208, posts 2950, 2665, 35, 58, 9774, 12327, 11171, then the two SEO overwrites. The SEO writes go last because a meta write bumps post 35's `modified`, which would trip the `modified` guard on its footer edit. Keep snapshots in the gitignored `.generated/current-state/339-recut-2026-11-12/` folder until public readback passes. Run every command from the repo root.
 
 No repo CLI takes an outside find/replace spec with a `modified` guard. The two snippets below reuse existing tooling (`WPClient` from `scripts/common.py` and `update()` from `scripts/apply_issue_834_brand_links.py`). Save each one to a scratch file outside the repo and run it with `make varlock-run CMD='python3 <file>'`. Both were dry-run against the live site on 2026-11-12 with the results noted.
 
@@ -117,11 +117,11 @@ sys.exit(1 if drift else 0)
 
 About is repo-owned. Live `content.raw` is byte-identical to `content/source-packs/content-architecture-2026/wp-payloads/about.html` today, so apply it through that payload and keep the repo matching live.
 
-1. On the apply branch, make the `about_page` FIND/REPLACE from `targets.json` in `about.html`. `shasum -a 256` of the file must then be `91415fb9349fab8ea9a8c55731617d325a9c9d06056f41f1b698413ccf325f25`. Commit that edit in the apply PR.
-2. Dry-run: `make varlock-run CMD='python3 scripts/content_architecture_deploy.py --page about'`. It must print exactly:
-   `parity: about id=1208 DRIFT bytes=+196 lines=+0 first_diff_line=559 live_sha256=b11435ba9c60 payload_sha256=91415fb9349f`
-   (Confirmed on 2026-11-12 with the proposed payload staged outside the repo.) A different `live_sha256` means the page changed: stop.
-3. Write: the same command with `--execute --snapshot-dir .generated/current-state/339-recut-apply/about`. The tool checks ID, slug and status, snapshots before writing, and restores the snapshot itself if the readback loses a page marker. It does not check `modified`, so run the guard check (step 1) right before it.
+1. `about.html` in this PR already carries the `about_page` FIND/REPLACE from `targets.json` and nothing else. `shasum -a 256` of the file is `f826de25e0c9447524a351108b1b5d06e2d2adb8d0cdd5a40e0946ef980ad4f6`. Do not merge that payload change before the live write lands, or payload parity will show drift.
+2. Dry-run: `make varlock-run CMD='python3 scripts/content_architecture_deploy.py --page about'` (the script is stdlib-only, so `python3` works where the venv is missing). It printed this on 2026-11-12, and must print it again:
+   `parity: about id=1208 DRIFT bytes=+185 lines=+0 first_diff_line=559 live_sha256=b11435ba9c60 payload_sha256=f826de25e0c9`
+   A different `live_sha256` means the page changed: stop.
+3. Write: the same command with `--execute --snapshot-dir .generated/current-state/339-recut-2026-11-12/about`. The tool checks ID, slug and status, snapshots before writing, and restores the snapshot itself if the readback loses a page marker. It does not check `modified`, so run the guard check (step 1) right before it.
 
 ### 3. Body edits on posts 2950, 2665, 35, 58, 9774, 12327, 11171
 
@@ -152,7 +152,7 @@ live = client.get(
 )
 if restore is None and live["modified"] != spec["modified"]:
     sys.exit(f"modified guard: live {live['modified']} != packet {spec['modified']}")
-folder = Path(".generated/current-state/339-recut-apply")
+folder = Path(".generated/current-state/339-recut-2026-11-12/apply")
 print(
     update(client, spec, folder, apply=os.environ.get("APPLY") == "1", restore=restore)
 )
@@ -176,7 +176,7 @@ Run the guard check again (all `applied`), then check each public marker above w
 
 ## Rollback
 
-- Page 1208: `make varlock-run CMD='python3 scripts/content_architecture_deploy.py --page about --restore --snapshot-dir .generated/current-state/339-recut-apply/about'`, then revert the `about.html` commit.
+- Page 1208: `make varlock-run CMD='python3 scripts/content_architecture_deploy.py --page about --restore --snapshot-dir .generated/current-state/339-recut-2026-11-12/about'`, then revert the `about.html` commit.
 - Posts: run the snippet with `ID=<id> APPLY=1 RESTORE=<that post's before snapshot>`. `update()` refuses unless live still holds the reviewed `after_sha256`.
 - SEO: re-run the backfill `--from-file` with the `live_before` values as `meta`. The prior values are also in the write report.
 
