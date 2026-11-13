@@ -27,7 +27,7 @@ node scripts/tests/journal-preview.mjs \
 
 This no longer runs as written. Both inputs were local files that were never committed. The proof folder `design-proofs/writing-2026-11-03/` was removed on 2026-11-12 after the proof shipped as Aurora 1.7.0 and 1.7.1 (#1172), and `.generated/blog-review/wordpress-readback.json` no longer exists.
 
-The authenticated GET-only source snapshots and screenshots remain local in `.generated/blog-review/` and are ignored. They are not shipped in the theme. The fixture imports a provided snapshot and never authenticates to or writes to the live site. Auto-updates and cron are disabled only inside this disposable fixture.
+The authenticated GET-only source snapshots and screenshots were kept local and ignored in `.generated/blog-review/` and were never shipped in the theme. That folder no longer exists as of 2026-11-12. The fixture imports a provided snapshot and never authenticates to or writes to the live site. Auto-updates and cron are disabled only inside this disposable fixture.
 
 ## Implementation
 

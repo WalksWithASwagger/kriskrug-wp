@@ -63,10 +63,10 @@ The #959 quote turned out to have a public source: Kris's own public YouTube rec
 
 | Topic | Source A | Source B | Used in the draft |
 |---|---|---|---|
-| Quote wording | Public LaSalle captions: "more creative, productive, and more powerful ... Both of these things are true." | #959 (from the private Plaud transcript): "more creative, more productive, and more powerful ... Both of these things are true." Published script and site: "AI is trained on stolen work without consent. And I'm more creative, more productive, and more powerful ... Both statements are true." YouTube description: "And I've never been more creative, productive, or powerful." | Caption wording, pending Kris's ear (question 1) |
-| Photo count and dataset | Jan 24 post, script and YouTube description: roughly 1,800, "a major training corpus" | The LaSalle recording itself and #959: about 1,900 in "the main Nvidia data set", then a garbled self-correction to 1,700 or 1,800 | Roughly 1,800, no dataset named, with the evidence-not-certainty caveat (question 2) |
+| Quote wording | Public LaSalle captions: "more creative, productive, and more powerful ... Both of these things are true." | #959 (from the private Plaud transcript): "more creative, more productive, and more powerful ... Both of these things are true." Published script and site: "AI is trained on stolen work without consent. And I'm more creative, more productive, and more powerful ... Both statements are true." YouTube description: "And I've never been more creative, productive, or powerful." | Caption wording. Kris ruled for it on 2026-11-12 (question 1), "mankind" included |
+| Photo count and dataset | Jan 24 post, script and YouTube description: roughly 1,800, "a major training corpus" | The LaSalle recording itself and #959: about 1,900 in "the main Nvidia data set", then a garbled self-correction to 1,700 or 1,800 | Roughly 1,800, no dataset named, with the evidence-not-certainty caveat. Kris ruled for it on 2026-11-12 (question 2) |
 | LaSalle audience | Script: "200 art and design students" | YouTube description: "~100 LaSalle College Vancouver alumni" | No number and no student/alumni label |
-| São Paulo delivery | Events page lists a Feb 26 keynote | The talk page's recording is labelled "Dress rehearsal"; the script is "Draft for review", version 1.1 | Named as a room the talk went to; runtime given as the script's (question 3) |
+| São Paulo delivery | Events page lists a Feb 26 keynote | The talk page's recording is labelled "Dress rehearsal"; the script is "Draft for review", version 1.1 | Named as a room the talk went to; runtime given as the script's. Kris confirmed on 2026-11-12 that he delivered it in person (question 3) |
 | Ars Electronica | YouTube description: "an Ars Electronica honorable mention" | Script Q&A prep: model "presented at Ars Electronica"; About page does not mention it | Left out |
 
 ## Existing coverage of the same stance
@@ -77,7 +77,21 @@ This piece is the booker-facing, readable form of the talk, and a hub for the pi
 - https://kriskrug.co/2026/05/19/we-trained-ai-on-stolen-work/ (live): Vancouver AI March recap.
 - https://kriskrug.co/2026/05/15/your-taste-is-your-moat/ and https://kriskrug.co/2026/05/16/make-culture-not-content/ (live): companion essays.
 - https://kriskrug.co/2026/08/03/both-hands-on-the-power-cord/ (live): the stance applied to energy and policy.
-- WordPress post 11881, slug `both-hands-full-ai-creatives-lasalle-college`: a thin LaSalle recap recorded as a WP draft in `docs/current-state/archive/PUBLISHING-INVENTORY-2026-06-14.md` and marked CULL in `docs/current-state/DRAFT-QUEUE-TRIAGE-2026-09-03.md`. Its current state was not checked (no WordPress call). Its local package is archived at `content/drafts/archive/2026-05-19-both-hands-full-ai-creatives-lasalle-college/`. See open-facts question 6.
+- WordPress post 11881, slug `both-hands-full-ai-creatives-lasalle-college`: a thin LaSalle recap recorded as a WP draft in `docs/current-state/archive/PUBLISHING-INVENTORY-2026-06-14.md` and marked CULL in `docs/current-state/DRAFT-QUEUE-TRIAGE-2026-09-03.md`. Its current state was not checked (no WordPress call). Its local package is archived at `content/drafts/archive/2026-05-19-both-hands-full-ai-creatives-lasalle-college/`. Kris ruled on 2026-11-12 to leave it alone until this post is live (open-facts question 6).
+
+## Featured image check (2026-11-13 02:51 to 02:52 UTC, logged-out public REST and GETs)
+
+Kris ruled on 2026-11-12 for a LaSalle keynote frame already in the media library, his to reuse. Both named frames were read without logging in and nothing was uploaded or changed.
+
+| Frame | Media ID | Public URL | Size | SHA-256 (served file) | Attached to a post |
+|---|---|---|---|---|---|
+| 10 | 11831 | https://kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-10-scaled.jpg | 2560x1440 | `33fe33a3f2d241feea41695f822046cdf2ee7a0558d040465878903015ce436d` | no (`post: null`) |
+| 20 | 11833 | https://kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-20-scaled.jpg | 2560x1440 | `2227af4308fc2ccdec621ab1063219277fde0fc831cc4fe9a612b71485814c62` | no (`post: null`) |
+
+- The same media search lists three more LaSalle frames: 11830 (frame 2), 11832 (frame 15) and 11834 (frame 25). They were not part of this QC.
+- Neither frame is the featured image of a sibling post. The featured images of Your Taste Is Your Moat and the Jan 24 Both Hands Full post are both media 11205; We Trained AI on Stolen Work uses 12370, Make Culture, Not Content 11264 and Both Hands on the Power Cord 12721.
+- Your Taste Is Your Moat shows both frames in a gallery with their own alt text saved in the post, so changing the alt text on the media item does not change that post.
+- No photographer credit or caption exists on either media item, and Kris gave no credit line.
 
 ## Left out on purpose
 

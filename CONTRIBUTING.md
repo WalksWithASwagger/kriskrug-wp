@@ -334,8 +334,8 @@ This repo has focused automated tests for the Notion publisher safety guards, op
 
 Automated tests:
 
-- `scripts/notion-to-wp/.venv/bin/python -m unittest discover -s scripts/notion-to-wp/tests -v`
-- `make test` (local: Python suites, JavaScript syntax, plugin and theme smoke. CI splits these into separate jobs and runs plugin smoke only when a `.php` file changes)
+- `make python-test` (every Python suite through pytest; for one suite, `python3 -m pytest scripts/notion-to-wp/tests -v`)
+- `make test` (local: Python suites, JavaScript syntax, plugin and theme smoke. CI splits these into separate jobs, and plugin and theme smoke both run on every pull request)
 - `make validate` (runs the focused WordPress PHP security ruleset)
 - `make verify` (runs the standard local gate: `test` + `docs-truth-check` + `validate`)
 - `make ruff-changed BASE_REF=origin/main` (checks the isolated E4/E7/E9/F Ruff baseline only on Python files changed from the selected base; CI runs the same ratchet)
@@ -353,8 +353,9 @@ Automated tests:
 | `large-file-check` | Always | `scripts/check_large_files.py` against the merge base on a PR, or the previous `main` commit on a push (same as `make large-file-check`); see [Large files and media](#large-files-and-media) |
 | `javascript-validation` | Always | `make javascript-syntax` |
 | `theme-smoke` | Always | `make theme-smoke` |
+| `plugin-smoke` | Always | `make plugin-smoke` |
 | `practice-browser` | Always | `make practice-browser-test`, then `make events-browser-test` |
-| `php-validation` | A `.php` file, a theme `style.css`, `phpcs.xml.dist`, `composer.json`/`composer.lock`, or the PHP gate scripts changed | `make validate` (PHP lint, the WordPress security sniffs, and PHPCompatibilityWP: 8.1+ for code without a header, and each theme and plugin at its own `Requires PHP`), then `make plugin-smoke` |
+| `php-validation` | A `.php` file, a theme `style.css`, `phpcs.xml.dist`, `composer.json`/`composer.lock`, or the PHP gate scripts changed | `make validate` (PHP lint, the WordPress security sniffs, and PHPCompatibilityWP: 8.1+ for code without a header, and each theme and plugin at its own `Requires PHP`), then `make snippet-smoke` |
 | `css-ratchet` | A `.css` file changed | `scripts/css_inventory.py --check` against the merge base (same as `make css-inventory-check`) |
 | `voice-gate` | Payload copy, theme templates/parts/patterns, `theme/kk-aurora/functions.php`, `Makefile`, or the gate's own files changed | `make voice-check` |
 | `docs-truth-check` | Markdown, `docs/`, `Makefile`, `.env.schema`, `.github/ISSUE_TEMPLATE/`, or `scripts/docs_truth_check.py` changed | `python3 scripts/docs_truth_check.py` |
