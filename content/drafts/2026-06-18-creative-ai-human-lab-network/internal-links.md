@@ -13,7 +13,7 @@
 - Ethos Lab Block Party: https://ethosblockparty.com/the-day
 - Both Hands Full on KrisKrug.co: https://kriskrug.co/2026/01/24/both-hands-full/
 - Punk Rock AI on KrisKrug.co: https://kriskrug.co/2026/05/04/punk-rock-ai/
-- Gorgeous Ghost on KrisKrug.co: draft package in `content/drafts/2026-08-12-gorgeous-ghost-art-project.md`
+- Gorgeous Ghost on KrisKrug.co: scheduled for 2026-11-19 at https://kriskrug.co/2026/11/19/gorgeous-ghost/ (package `content/drafts/2026-11-12-gorgeous-ghost-combined/`)
 
 ## Notes
 

@@ -15,6 +15,7 @@ import http.cookiejar
 import json
 import os
 import re
+import sys
 import time
 import urllib.parse
 import urllib.request
@@ -155,8 +156,34 @@ def wp_credentials(env: dict[str, str] | None = None) -> tuple[str, str, str]:
     return base_url.rstrip("/"), user, app_password
 
 
+# cp1252_text lives in the publisher's directory. Appended, not inserted, so
+# no module there can shadow one an importer of this file expects.
+_PUBLISHER_DIR = str(REPO_ROOT / "scripts" / "notion-to-wp")
+if _PUBLISHER_DIR not in sys.path:
+    sys.path.append(_PUBLISHER_DIR)
+from cp1252_text import UnstorableText, assert_storable  # noqa: E402
+
 # HTTP methods that are safe to replay after a 5xx or lost response (#1036).
 SAFE_METHODS = frozenset({"GET", "HEAD", "OPTIONS"})
+# Methods whose body and query params WordPress can store as text (#1225).
+STORING_METHODS = frozenset({"POST", "PUT", "PATCH"})
+
+
+def _refuse_unstorable(request: str, payload: Any, params: dict | None) -> None:
+    """Raise UnstorableText if a write holds text kriskrug.co would store as "?".
+
+    The database is cp1252 (#1225). This refuses rather than sending numeric
+    references, because the deploy tools compare their readback with the
+    payload file exactly.
+    """
+    try:
+        assert_storable(payload)
+        assert_storable(params, "params")
+    except UnstorableText as exc:
+        raise UnstorableText(
+            f"WPClient refused to send {request}: {exc}. Fix the source text; see "
+            "'Characters outside cp1252' in scripts/notion-to-wp/README.md."
+        ) from None
 
 
 class WPClient:
@@ -277,8 +304,14 @@ class WPClient:
         must read back and reconcile before deciding to write again. There is
         deliberately no replay opt-in here: a caller that needs one must own
         its own idempotency/identity check around a fresh request.
+
+        A POST, PUT or PATCH whose body or params hold text the cp1252
+        database cannot store raises UnstorableText before anything is sent,
+        the cookie login included (#1225).
         """
         url = self._url(path, params)
+        if method.upper() in STORING_METHODS:
+            _refuse_unstorable(f"{method.upper()} {url}", payload, params)
         data = json.dumps(payload).encode() if payload is not None else None
         headers = (
             {"X-WP-Nonce": self._ensure_cookie_auth()}

@@ -1,0 +1,345 @@
+{
+  "issue": 1238,
+  "approval": "Kris approved this one live write in chat on 2026-11-12",
+  "saved_at": "2026-11-13T02:51:42+00:00",
+  "local_save_date": "2026-11-12",
+  "snippet_id": 5,
+  "name": "KK Schema",
+  "active": true,
+  "scope": "global",
+  "priority": 10,
+  "change": {
+    "line": "kk_schema_emit() wp_json_encode() flags",
+    "before": "JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE",
+    "after": "JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP",
+    "lines_changed": 1
+  },
+  "runtime_boundary": "function kk_schema_constants()",
+  "before_code_sha256": "b205b7b3f23d8164828d88e57bbc169c2e20f579fb45f468a2d8f1b8d29e6b1f",
+  "before_code_bytes": 14759,
+  "before_runtime_sha256": "c973458a7d6d414cd4aa82e044c55a1bc1c93c7fd742225f842b596ce13461fc",
+  "before_modified": "2026-10-26T00:15:37+00:00",
+  "after_code_sha256": "37ac8d9e1939abcdd652c8cc01d6e32f9c730ec767f7fa0148ed9d54c2ac7c92",
+  "after_code_bytes": 14789,
+  "runtime_sha256": "b184a513afba2bb8ab21403ff9d62d49c4513018356023a400652cadddeacce7",
+  "header_note": "The saved code keeps the #1082 header comments (commit 3807e6b) that the 2026-10-25 save stored. The repo header differs in comments only.",
+  "metadata_preserved": [
+    "id",
+    "name",
+    "scope",
+    "active",
+    "desc",
+    "tags",
+    "condition_id",
+    "priority",
+    "network",
+    "shared_network",
+    "locked"
+  ],
+  "other_snippets_unchanged": true,
+  "snippet_count": 26,
+  "jsonld_snippet_owners": [
+    5
+  ],
+  "code_error": null,
+  "authenticated_readback": {
+    "at": "2026-11-13T02:51:52.239927+00:00",
+    "code_sha256": "37ac8d9e1939abcdd652c8cc01d6e32f9c730ec767f7fa0148ed9d54c2ac7c92",
+    "matches_sent": true,
+    "metadata_preserved": true,
+    "active": true,
+    "scope": "global",
+    "priority": 10,
+    "code_error": null
+  },
+  "public_before": {
+    "at": "2026-11-13T02:51:18.263347+00:00",
+    "results": [
+      {
+        "route": "home",
+        "variant": "fresh",
+        "url": "https://kriskrug.co/?cb=<epoch ms>",
+        "http_status": 200,
+        "cache": {
+          "x-gateway-cache-status": "MISS",
+          "x-jetpack-boost-cache": "miss"
+        },
+        "jsonld_blocks": 2,
+        "all_blocks_parse": true,
+        "block_types": [
+          "Person",
+          "WebSite"
+        ],
+        "raw_lt_gt_amp_in_blocks": 0,
+        "hex_escapes_in_blocks": 0,
+        "raw_blocks_sha256": "3efc81c03c5694d361a433e9b01048eeae291c94c9031acd444e50a41035a698"
+      },
+      {
+        "route": "home",
+        "variant": "normal",
+        "url": "https://kriskrug.co/",
+        "http_status": 200,
+        "cache": {
+          "x-gateway-cache-status": "HIT"
+        },
+        "jsonld_blocks": 2,
+        "all_blocks_parse": true,
+        "block_types": [
+          "Person",
+          "WebSite"
+        ],
+        "raw_lt_gt_amp_in_blocks": 0,
+        "hex_escapes_in_blocks": 0,
+        "raw_blocks_sha256": "3efc81c03c5694d361a433e9b01048eeae291c94c9031acd444e50a41035a698"
+      },
+      {
+        "route": "speaking",
+        "variant": "fresh",
+        "url": "https://kriskrug.co/speaking/?cb=<epoch ms>",
+        "http_status": 200,
+        "cache": {
+          "x-gateway-cache-status": "MISS",
+          "x-jetpack-boost-cache": "miss"
+        },
+        "jsonld_blocks": 4,
+        "all_blocks_parse": true,
+        "block_types": [
+          "Person",
+          "BreadcrumbList",
+          "VideoObject",
+          "VideoObject"
+        ],
+        "raw_lt_gt_amp_in_blocks": 0,
+        "hex_escapes_in_blocks": 0,
+        "raw_blocks_sha256": "1fab013ae88efe0c266b14c39b9acf6a2eda81a93689becf8f0a7467b2d4d322"
+      },
+      {
+        "route": "speaking",
+        "variant": "normal",
+        "url": "https://kriskrug.co/speaking/",
+        "http_status": 200,
+        "cache": {
+          "x-gateway-cache-status": "HIT"
+        },
+        "jsonld_blocks": 4,
+        "all_blocks_parse": true,
+        "block_types": [
+          "Person",
+          "BreadcrumbList",
+          "VideoObject",
+          "VideoObject"
+        ],
+        "raw_lt_gt_amp_in_blocks": 0,
+        "hex_escapes_in_blocks": 0,
+        "raw_blocks_sha256": "1fab013ae88efe0c266b14c39b9acf6a2eda81a93689becf8f0a7467b2d4d322"
+      },
+      {
+        "route": "post",
+        "variant": "fresh",
+        "url": "https://kriskrug.co/2026/11/09/who-gets-a-say-canada-ai-future-canada-now/?cb=<epoch ms>",
+        "http_status": 200,
+        "cache": {
+          "x-gateway-cache-status": "MISS",
+          "x-jetpack-boost-cache": "miss"
+        },
+        "jsonld_blocks": 3,
+        "all_blocks_parse": true,
+        "block_types": [
+          "Person",
+          "BlogPosting",
+          "BreadcrumbList"
+        ],
+        "raw_lt_gt_amp_in_blocks": 2,
+        "hex_escapes_in_blocks": 0,
+        "raw_blocks_sha256": "0fba5a93e808cb227a8bc27be2069dfa39de8a5c4341b04ad6a48b0d456edbc0"
+      },
+      {
+        "route": "post",
+        "variant": "normal",
+        "url": "https://kriskrug.co/2026/11/09/who-gets-a-say-canada-ai-future-canada-now/",
+        "http_status": 200,
+        "cache": {
+          "x-gateway-cache-status": "MISS",
+          "x-jetpack-boost-cache": "miss"
+        },
+        "jsonld_blocks": 3,
+        "all_blocks_parse": true,
+        "block_types": [
+          "Person",
+          "BlogPosting",
+          "BreadcrumbList"
+        ],
+        "raw_lt_gt_amp_in_blocks": 2,
+        "hex_escapes_in_blocks": 0,
+        "raw_blocks_sha256": "0fba5a93e808cb227a8bc27be2069dfa39de8a5c4341b04ad6a48b0d456edbc0"
+      }
+    ]
+  },
+  "public_after": {
+    "at": "2026-11-13T02:51:56.869777+00:00",
+    "results": [
+      {
+        "route": "home",
+        "variant": "fresh",
+        "url": "https://kriskrug.co/?cb=<epoch ms>",
+        "http_status": 200,
+        "cache": {
+          "x-gateway-cache-status": "MISS",
+          "x-jetpack-boost-cache": "miss"
+        },
+        "jsonld_blocks": 2,
+        "all_blocks_parse": true,
+        "block_types": [
+          "Person",
+          "WebSite"
+        ],
+        "raw_lt_gt_amp_in_blocks": 0,
+        "hex_escapes_in_blocks": 0,
+        "raw_blocks_sha256": "3efc81c03c5694d361a433e9b01048eeae291c94c9031acd444e50a41035a698",
+        "types_match_before": true,
+        "parsed_equal_before": true,
+        "raw_identical_before": true
+      },
+      {
+        "route": "home",
+        "variant": "normal",
+        "url": "https://kriskrug.co/",
+        "http_status": 200,
+        "cache": {
+          "x-gateway-cache-status": "HIT"
+        },
+        "jsonld_blocks": 2,
+        "all_blocks_parse": true,
+        "block_types": [
+          "Person",
+          "WebSite"
+        ],
+        "raw_lt_gt_amp_in_blocks": 0,
+        "hex_escapes_in_blocks": 0,
+        "raw_blocks_sha256": "3efc81c03c5694d361a433e9b01048eeae291c94c9031acd444e50a41035a698",
+        "types_match_before": true,
+        "parsed_equal_before": true,
+        "raw_identical_before": true
+      },
+      {
+        "route": "speaking",
+        "variant": "fresh",
+        "url": "https://kriskrug.co/speaking/?cb=<epoch ms>",
+        "http_status": 200,
+        "cache": {
+          "x-gateway-cache-status": "MISS",
+          "x-jetpack-boost-cache": "miss"
+        },
+        "jsonld_blocks": 4,
+        "all_blocks_parse": true,
+        "block_types": [
+          "Person",
+          "BreadcrumbList",
+          "VideoObject",
+          "VideoObject"
+        ],
+        "raw_lt_gt_amp_in_blocks": 0,
+        "hex_escapes_in_blocks": 0,
+        "raw_blocks_sha256": "1fab013ae88efe0c266b14c39b9acf6a2eda81a93689becf8f0a7467b2d4d322",
+        "types_match_before": true,
+        "parsed_equal_before": true,
+        "raw_identical_before": true
+      },
+      {
+        "route": "speaking",
+        "variant": "normal",
+        "url": "https://kriskrug.co/speaking/",
+        "http_status": 200,
+        "cache": {
+          "x-gateway-cache-status": "HIT"
+        },
+        "jsonld_blocks": 4,
+        "all_blocks_parse": true,
+        "block_types": [
+          "Person",
+          "BreadcrumbList",
+          "VideoObject",
+          "VideoObject"
+        ],
+        "raw_lt_gt_amp_in_blocks": 0,
+        "hex_escapes_in_blocks": 0,
+        "raw_blocks_sha256": "1fab013ae88efe0c266b14c39b9acf6a2eda81a93689becf8f0a7467b2d4d322",
+        "types_match_before": true,
+        "parsed_equal_before": true,
+        "raw_identical_before": true
+      },
+      {
+        "route": "post",
+        "variant": "fresh",
+        "url": "https://kriskrug.co/2026/11/09/who-gets-a-say-canada-ai-future-canada-now/?cb=<epoch ms>",
+        "http_status": 200,
+        "cache": {
+          "x-gateway-cache-status": "MISS",
+          "x-jetpack-boost-cache": "miss"
+        },
+        "jsonld_blocks": 3,
+        "all_blocks_parse": true,
+        "block_types": [
+          "Person",
+          "BlogPosting",
+          "BreadcrumbList"
+        ],
+        "raw_lt_gt_amp_in_blocks": 0,
+        "hex_escapes_in_blocks": 2,
+        "raw_blocks_sha256": "127c1855260c395bf4286ce15e3cb9b923d01443a3d9bf41f40b740fe0712955",
+        "types_match_before": true,
+        "parsed_equal_before": true,
+        "raw_identical_before": false
+      },
+      {
+        "route": "post",
+        "variant": "normal",
+        "url": "https://kriskrug.co/2026/11/09/who-gets-a-say-canada-ai-future-canada-now/",
+        "http_status": 200,
+        "cache": {
+          "x-gateway-cache-status": "HIT",
+          "x-jetpack-boost-cache": "miss"
+        },
+        "jsonld_blocks": 3,
+        "all_blocks_parse": true,
+        "block_types": [
+          "Person",
+          "BlogPosting",
+          "BreadcrumbList"
+        ],
+        "raw_lt_gt_amp_in_blocks": 2,
+        "hex_escapes_in_blocks": 0,
+        "raw_blocks_sha256": "0fba5a93e808cb227a8bc27be2069dfa39de8a5c4341b04ad6a48b0d456edbc0",
+        "types_match_before": true,
+        "parsed_equal_before": true,
+        "raw_identical_before": true
+      }
+    ]
+  },
+  "validators": [
+    {
+      "route": "home",
+      "method": "Schema Markup Validator /validate with a cache-busting query",
+      "num_objects": 4,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "route": "speaking",
+      "method": "Schema Markup Validator /validate with a cache-busting query",
+      "num_objects": 3,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "route": "post",
+      "method": "Schema Markup Validator /validate with a cache-busting query",
+      "num_objects": 5,
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "rich_results_test": "not run",
+  "cache_refresh_write": false,
+  "rollback": "Save the snapshot code (before_code_sha256) back to snippet 5, only if live still equals after_code_sha256. The packet's snippet5.py also compares the repo runtime with live, so run it against a checkout of commit 25aa5e9."
+}

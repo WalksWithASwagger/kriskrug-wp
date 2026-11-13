@@ -56,7 +56,7 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 
 | File | Purpose | Live? | Snippet ID | Last verified | Evidence |
 |---|---|---|---|---|---|
-| `schema-snippets-deployed.php` | **Canonical** Person / WebSite / BlogPosting / Breadcrumb / Service JSON-LD and Speaking `VideoObject` records | **Live, including Person consolidation and Speaking videos** | 5 | saved 2026-10-25 | KK-directed Varlock save, exact authenticated source readback, four-route public checks and zero-error Schema Markup Validator results: [release receipt](../docs/current-state/reports/schema-1089-release-2026-10-25.md). The follow-up header is documentation only. **Pending live update (#1238):** the repo `kk_schema_emit()` adds `JSON_HEX_TAG` and `JSON_HEX_AMP`; live snippet 5 keeps the saved flags until a separate KK-approved save. Otherwise executable bytes match the saved payload. Historical approval packet: `issue-1089-schema-save-preflight-2026-09-29.md`. Live `data-jetpack-boost="ignore"` is Boost-injected. |
+| `schema-snippets-deployed.php` | **Canonical** Person / WebSite / BlogPosting / Breadcrumb / Service JSON-LD and Speaking `VideoObject` records | **Live, including Person consolidation, Speaking videos and the #1238 `JSON_HEX_TAG` / `JSON_HEX_AMP` flags** | 5 | saved 2026-11-12 | Person and Speaking schema went live in the KK-directed 2026-10-25 save: [release receipt](../docs/current-state/reports/schema-1089-release-2026-10-25.md). Since 2026-11-12 live snippet 5 also runs `JSON_HEX_TAG` and `JSON_HEX_AMP` in `kk_schema_emit()`. That KK-approved save changed only the flags line, with exact authenticated readback, logged-out JSON-LD checks and zero-error Schema Markup Validator results: [#1238 release receipt](../docs/current-state/reports/snippet-5-hextag-release-2026-11-12.md). Executable bytes from `kk_schema_constants()` onward match live exactly. The live header is still the #1082 header (commit `3807e6b`) that the 2026-10-25 save stored, so the repo header is documentation only. Historical approval packet: `issue-1089-schema-save-preflight-2026-09-29.md`. Live `data-jetpack-boost="ignore"` is Boost-injected. |
 | `schema-snippets.php` | Reference / future mu-plugin draft of the same schema | **Not live** | none | 2026-08-15 | Gated on `kk_schema_is_ready()`, still full of `VERIFY-ME`, so it would emit nothing. Live `worksFor` / `sameAs` contradict it. Open issue #741 retains the authenticated-body proof and deletion/pointer decision |
 | `asset-diet-snippet.php` | Drops unused Jetpack / Popup Maker / jQuery Migrate CSS+JS | **Live** | 10 | not re-checked here | `docs/current-state/archive/WORK-PLAN-2026-07-01.md`, `docs/current-state/AURORA-STYLESHEET-DECISION-2026-08-02.md`. Not modified by the separate #706 closeout. |
 | `issue-706-script-diet-snippet.php` | Delays Site Kit gtag until first interaction or three-second idle; paired with the disabled WPCode Meta Pixel | **Live** | 22 | public render 2026-08-28 | [`issue-706-script-diet.md`](issue-706-script-diet.md) and [`../docs/current-state/reports/issue-706-script-diet-apply-20260817.md`](../docs/current-state/reports/issue-706-script-diet-apply-20260817.md); #706 closed after KK accepted the PSI trace caveat |
@@ -86,8 +86,9 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 this file. "Active in the capture" means only that the committed authenticated
 2026-07-24 inventory recorded the Code Snippet slot as enabled. Neither phrase
 means the bodies are byte-identical in the original inventory pass. Snippet 5's
-October 25 release is an exception: its authenticated body was read back and
-verified against the approved payload, as recorded in the linked receipt.
+October 25 and November 12 releases are an exception: each authenticated body
+was read back and verified against the approved payload, as recorded in the
+linked receipts.
 The live JSON-LD wrapper
 `<script data-jetpack-boost="ignore" type="application/ld+json">` is
 **Boost-injected** (issue #758): Jetpack Boost's Defer JS pipeline stamps
