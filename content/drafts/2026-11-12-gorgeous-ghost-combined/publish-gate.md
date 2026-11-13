@@ -1,12 +1,12 @@
 # Gorgeous Ghost combined package: publish gate
 
-**Status: READY TO STAGE, pending only two things:** Kris's approval of the featured image crop, and the same-day preflight below (authenticated all-status slug check, taxonomy IDs and the rest of the list). Do not stage before both. Never schedule or publish from this package.
+**Status: STAGED AS WORDPRESS DRAFT 13003, NOT SCHEDULED YET.** Kris approved the featured image and the schedule (Thu 2026-11-19 at 09:00 Vancouver time, 16:00 UTC), but the featured image upload did not run in the lane that staged the draft, so the post was left as a draft. Do not schedule it without its featured image. Receipt: `docs/current-state/reports/scheduled-posts-2026-11-19-24.md`.
 
-This package combines the #771 art-project package and the #1016 making-of draft, per Kris's 2026-11-12 combine ruling on #771. Staging moved to the Nov 19 to 30 window. The folder date is the day the package was built, not a post date.
+This package combines the #771 art-project package and the #1016 making-of draft, per Kris's 2026-11-12 combine ruling on #771. The folder date is the day the package was built, not a post date.
 
 - Kris ruled on all 14 open facts on 2026-11-12, and the copy follows every ruling (`open-facts-for-kk.md`).
-- No WordPress object exists for this package. No WordPress write and no authenticated call was made while building it or applying the rulings, and no `.env` file was read.
-- The old package `content/drafts/2026-08-12-gorgeous-ghost-art-project/` is untouched. Kris's combine ruling makes this package the one to stage under `gorgeous-ghost`. Retiring the old package follows in its own content PR (open-facts question 14).
+- After seeing the crop QC sheet, Kris approved in chat on 2026-11-12: the reveal-eye master as the featured image, and scheduling for 2026-11-19 at 09:00 Vancouver time. The orchestrator session relayed those approvals.
+- The old package was archived to `content/drafts/archive/2026-08-12-gorgeous-ghost-art-project/` by Kris's ruling (open-facts question 14).
 
 ## Pinned source hashes (2026-11-12, after Kris's rulings)
 
@@ -15,70 +15,48 @@ This package combines the #771 art-project package and the #1016 making-of draft
 | `post.md` | `da46ab33b2578dd1d11be55d29e509790109a75ef98d9d7d28eed4857e9210bd` |
 | `post.html` | `45e2462bef9b7def4e6d1fddb01c6c73c71f9729d171eccde02e2ca5bfee1e57` |
 
-Any edit to either file makes these pins stale. Then stop, rerun the preflight and pin again in a content PR that merges before any write.
+Draft 13003 was built from these exact files. Its stored `content.raw` hashes to the same `45e2462b...1e57`. `post.md` still names the old package's pre-archive path under `sources.base_package`; it was left alone so the pin stays valid.
 
-## Featured image: awaiting Kris's crop approval
+## What was written (2026-11-13 UTC)
 
-- **Pick:** the film's reveal art, a lightning-painted eye in a jeweled star field, from Kris's own film site. Source `https://gorgeousghost.com/experience/reveal-hero-1600.webp`, 1600x893, SHA-256 `3a4f8fc7b5e4f063d712771cdbbef8b42ff889112e1731d61c95b3dc8ea70831`, which matches the site's asset manifest. Kris ruled on 2026-11-12 that his film art is his to reuse.
-- **Master:** a 1600x900 JPEG, made by mirroring 4 rows at the top and 3 at the bottom of the source. No resampling, so every source pixel is kept. The mirrored rows are star field and the seam does not show at 8x zoom. This build's master hashes to `83de184cb2ffe9ced7fd0ad53e55b129171ab16879a0e2bb284cc0b976aa6b14`. Upload name: `gorgeous-ghost-reveal-eye-1600x900.jpg`. Alt text: `alt-text.md`.
-- **Status: awaiting Kris's crop approval.** He gets the QC contact sheet with the approval ask. The master and the sheet are kept outside this public repo, and nothing has been uploaded.
-- **Crop QC, 2026-11-13 UTC.** featured-image-forge `hero_qc.py` mechanical gates pass: landscape, at least 1200x630, aspect 1.778. Then a visual pass on every crop the theme and the social cards use:
-
-| Crop | Where it shows | Verdict |
+| Time (UTC) | Write | Readback |
 |---|---|---|
-| 16:9 | embeds, proof cards, the master itself | pass |
-| 1.91:1 | `og:image` in social cards | pass |
-| 1.95:1, 760x390 | single post hero on desktop (`.aurora-journal-featured`, max-height 390, cover) | pass |
-| 3:2 | single post hero on phones, journal thumbnails, front-page Recent writing | pass |
-| 1:1 | square thumbnails | pass |
-| 300 px wide | legibility floor | pass, the eye and the bolt still read |
-| 94x80 (1.18:1) | journal thumbnail on phones | pass, small but recognizable |
+| 03:17:17 | `create_local_wp_draft.py --execute` created post **13003** | `status: draft`, `slug: gorgeous-ghost`, category 1755, tags 1804, 1682, 1785 and 1395, title, excerpt and both SEO meta fields as in the package, `content.raw` byte-identical to the pinned `post.html` |
+| not run | upload of the approved featured image | nothing uploaded; an authenticated media search just before the draft was created found no earlier copy |
+| not run | scheduling update | post stays `draft`, `featured_media: 0` |
 
-- **Rejected:** the title-card frame from the public YouTube cut (`maxresdefault.jpg`, 1280x720, the same frame as the site's `title-card.webp`) and the share image (`og/share.jpg`, 1200x630). Both sit under the 1600x900 master size and would need upscaling. Both lose letters of GORGEOUS at 3:2 and 1:1. Both slice the BC + AI Film Club Prompt Challenge line at 1.91:1 and in the 760x390 hero, and the share image already cuts that line in its own frame.
+Logged out, `https://kriskrug.co/gorgeous-ghost/` and `?p=13003` return 404.
 
-## Media plan (nothing uploaded yet)
+## Featured image: approved, not uploaded
 
-The publisher sets `featured_media` only from images it uploads out of the package folder. This package declares none, because no image goes into the public repo. So the featured image is its own step after staging, and each write needs Kris's approval:
+- **Approved by Kris on 2026-11-12:** the film's reveal art, a lightning-painted eye in a jeweled star field. Source `https://gorgeousghost.com/experience/reveal-hero-1600.webp`, 1600x893, SHA-256 `3a4f8fc7b5e4f063d712771cdbbef8b42ff889112e1731d61c95b3dc8ea70831`. His film art is his to reuse.
+- **Master:** 1600x900 JPEG (quality 92, no chroma subsampling), made by mirroring 4 rows at the top and 3 at the bottom of the source, with no resampling. The approved build hashes to `83de184cb2ffe9ced7fd0ad53e55b129171ab16879a0e2bb284cc0b976aa6b14`. Upload name: `gorgeous-ghost-reveal-eye-1600x900.jpg`. Alt text: `A lightning-painted eye floating in a jeweled star field` (`alt-text.md`). The file is kept outside this public repo.
+- **Crop QC (2026-11-13 UTC):** featured-image-forge gates pass, and the master passed the visual check at every crop the theme and social cards use: 16:9, 1.91:1, the 760x390 desktop hero, 3:2, 1:1, 300 px and the 94x80 phone thumbnail. The YouTube title-card frame and the share image failed (letters of GORGEOUS clipped at 3:2 and 1:1, credit line sliced at 1.91:1, both under the master size).
 
-1. The staging write (`--execute`) creates the draft with `featured_media` unset.
-2. After Kris approves the crop, upload the approved master once, with the alt text from `alt-text.md`, through the repo's WordPress client under Varlock. Before uploading, confirm the file still hashes to the approved master and that no media item already carries its file name. Record the new media ID.
-3. Read back the new draft's ID, slug `gorgeous-ghost` and status `draft`, then PATCH `featured_media` on that draft only. Read `featured_media` back.
+## To finish (all approved by Kris; run in this order)
 
-The whole write set is one new post and one new media item. No existing post, page, media item or term changes.
+1. Authenticated media search for `gorgeous-ghost-reveal-eye`: expect nothing. Check the master still hashes to `83de184c...6b14`.
+2. Upload the master once, with the alt text above, through the repo's WordPress client under Varlock. Read back the media ID, 1600x900 and the alt text.
+3. One guarded update on post 13003 (slug `gorgeous-ghost` must resolve to 13003, status must still be `draft`): `status: future`, `date_gmt: 2026-11-19T16:00:00`, `featured_media: <new media ID>`. Do not send `date`: the site's timezone setting is a fixed UTC-8 offset, so a local `date` of 09:00 would land at 10:00 Vancouver time.
+4. Context=edit readback: `status: future`, `date_gmt` as sent, featured media, category, tags, and `content.raw` still equal to the pinned `post.html`. Logged out, the dated URL `https://kriskrug.co/2026/11/19/gorgeous-ghost/` must still return 404.
+5. Record the media ID and the readback in the receipt, and switch this gate to SCHEDULED.
 
-## Preflight to rerun on the day of any write
-
-Every item is dated evidence. A pass on another day does not count.
-
-1. **Source hashes.** `shasum -a 256 post.md post.html` match the pins above. If not, stop.
-2. **Slug collision.** Authenticated, read-only, all statuses, posts and pages: `FORMAT=json make draft-queue-audit`, then read `slug_matches["gorgeous-ghost"]`. Required result: 0 posts and 0 pages. Record the UTC time. Never print credentials. The offline publisher dry-run does **not** check the slug; it reports `"slug_check": "skipped_offline"`.
-3. **Taxonomy IDs.** Rerun the term check in `seo-meta.md` against public REST. Every name must resolve to an existing ID (1755, 1804, 1682, 1785, 1395) by the `ensure_term()` rule. If any name matches nothing, stop, because `--execute` would create a new term.
-4. **Image.** Kris's crop approval is recorded here with its date, and the file to upload hashes to the master he approved.
-5. **Credits.** Re-read the transcript Credits segment on https://gorgeousghost.com/ and confirm it still names the Scallywags as Kevin Friel, Magenta Rune and Mayumi Rawlings, "Created by Kris Krüg", and special thanks to Kaoru Yoshihira and Floyo.ai, as the post does.
-6. **Links.** Every URL in `internal-links.md` still returns 200, and the dated canonical still returns 404.
-7. **Voice check.** `make voice-check FILES="content/drafts/2026-11-12-gorgeous-ghost-combined/post.md content/drafts/2026-11-12-gorgeous-ghost-combined/post.html"` reports 0 violations.
-8. **Dry-run.** `scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/create_local_wp_draft.py content/drafts/2026-11-12-gorgeous-ghost-combined/post.md` exits 0 and shows the expected title, slug, category, four tags and an empty image list.
-9. **Repo gates.** `make verify` and `git diff --check` pass.
-
-## Staging gate (after the preflight, never before)
-
-- [ ] Kris approves the featured image crop. Record the date and the approved master's SHA-256 here.
-- [ ] Kris approves one new unpublished WordPress post with status `draft`, built from the pinned hashes.
-- [ ] Run the publisher with `--execute` through Varlock. Record the post ID and the readback `status` and `slug` here.
-- [ ] Run media plan steps 2 and 3, each with its readback, and record the media ID here.
-- [ ] Compare the admin preview with `post.html`: body, single H1 from the title field, the YouTube embed, credits, date, category, tags, canonical, OG metadata, featured image and every link.
+If any step fails, stop and leave 13003 as a draft.
 
 ## Rollback
 
-This is a new post, so there is no earlier version to restore. Before the write, the rollback proof is the empty same-day slug check. After it, the default is to leave the post as an unpublished draft and report its ID and the problem. Moving it to trash needs Kris's explicit approval for that post ID, with a readback of ID and status before and after. Never `force=true`. If the featured image step goes wrong, unset `featured_media` on the draft. Media trash is off on kriskrug.co, so deleting the uploaded media item would be permanent; leave that to Kris.
+Never delete. Draft 13003 can stay a draft indefinitely. Once scheduled, move it back to `draft` with a guarded update and read back `status: draft`. Moving it to trash needs Kris's explicit approval for that post ID, with a readback before and after. If the featured image is wrong, unset `featured_media`. Media trash is off on kriskrug.co, so deleting an uploaded media item is permanent; leave that to Kris.
 
-## Checks run for this PR (2026-11-12 Pacific, 2026-11-13 UTC)
+## Preflight run before the writes (2026-11-13 UTC)
 
-- `make voice-check` on `post.md` and `post.html`: 2 files scanned, 0 violations, 0 baseline-waived.
-- Offline publisher dry-run: exit 0, title `I Made a Gorgeous Ghost`, `slug: gorgeous-ghost`, `slug_check: skipped_offline`, `images: []`, category `Creative Technology & Making`, tags `Gorgeous Ghost`, `Creative AI`, `AI Film Club`, `AI Music`. Neither legacy env file the publisher can fall back to exists on this machine, so the dry-run read no `.env`.
-- `LOCAL_ONLY=1 FORMAT=json make draft-queue-audit`: exit 0, 104 local packages. This one reads 1,355 words, 18 markdown links, 18 html links, 75 blocks, 0 images, 0 TODO markers and all six expected files.
-- Public term check rerun at 02:59 UTC: all five names resolve (see `seo-meta.md`).
-- Image fetch and crop QC as above.
-- No authenticated slug check was run. That waits for the day of any write.
+1. **Source hashes:** `post.md` and `post.html` matched the pins above.
+2. **Slug collision (authenticated, 03:14 UTC):** `draft_queue_audit.py --format json` under Varlock, `slug_matches["gorgeous-ghost"]` was empty: 0 posts and 0 pages in any status.
+3. **Taxonomy (02:59 UTC, public REST):** 1755, 1804, 1682, 1785 and 1395 all resolve by slug. No new term was created.
+4. **Image:** Kris's approval recorded above.
+5. **Credits (02:56 UTC):** the film site's transcript credits still match the post.
+6. **Links (03:15 UTC):** all 14 URLs in `post.html` returned 200. The dated canonical and the bare slug returned 404.
+7. **Voice check:** 0 violations on `post.md` and `post.html`.
+8. **Dry-run:** exit 0, slug `gorgeous-ghost`, `images: []`, category `Creative Technology & Making`, four tags.
+9. **Repo gates:** `git diff --check` clean; CI on the PR runs the full suite. `make verify` was not run in this worktree, which has no Python venv or PHPCS install.
 
-Until every box above is ticked, this package stays a local `status: draft` and nothing may claim it is published.
+Nothing here claims the post is scheduled or published. It is an unpublished draft.
