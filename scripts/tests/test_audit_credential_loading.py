@@ -133,7 +133,52 @@ class AuditCredentialLoadingTests(unittest.TestCase):
                 self.assertEqual(
                     (config.user, config.app_password), ("env-user", "env-pass")
                 )
-                self.assertEqual(config.base_url, "https://file.example.test")
+                # The file's URL belongs to the file's pair, not to this one.
+                self.assertEqual(config.base_url, "https://kriskrug.co")
+
+    def test_base_url_and_pair_come_from_one_source(self):
+        env_file = self.tmp / "connector.env"
+        env_file.write_text(
+            "WP_USER=file-user\nWP_APP_PASSWORD=file-pass\nWP_BASE_URL=http://localhost:10003\n",
+            encoding="utf-8",
+        )
+        cases = (
+            (
+                {
+                    "WP_API_USERNAME": "env-user",
+                    "WP_API_PASSWORD": "env-pass",
+                    "WP_BASE_URL": "https://process.example.test",
+                },
+                ("env-user", "env-pass", "https://process.example.test"),
+            ),
+            (
+                {"WP_USER": "env-user", "WP_BASE_URL": "https://process.example.test"},
+                ("file-user", "file-pass", "http://localhost:10003"),
+            ),
+        )
+        for target, module in TARGETS:
+            for process, expected in cases:
+                with (
+                    self.subTest(target=target, process=sorted(process)),
+                    process_env(**process),
+                ):
+                    config = self.resolve(target, module, "--env-file", str(env_file))
+                    self.assertEqual(
+                        (config.user, config.app_password, config.base_url), expected
+                    )
+
+    def test_half_pairs_across_sources_exit_instead_of_combining(self):
+        env_file = self.tmp / "connector.env"
+        env_file.write_text("WP_APP_PASSWORD=file-pass\n", encoding="utf-8")
+        for target, module in TARGETS:
+            with (
+                self.subTest(target=target),
+                process_env(WP_USER="env-user"),
+                mock.patch.object(sys, "argv", [target, "--env-file", str(env_file)]),
+                self.assertRaises(SystemExit) as caught,
+            ):
+                module.main()
+            self.assertIn("make varlock-run", str(caught.exception.code))
 
     def test_missing_credentials_exit_with_varlock_hint(self):
         for target, module in TARGETS:

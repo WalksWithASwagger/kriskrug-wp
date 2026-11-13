@@ -57,10 +57,11 @@ The pixel gate uses `make visual-preflight`, `make visual-baseline`, and
 not deploy proof: the official comparison is post-deploy live against
 pre-deploy live.
 
-`scripts/deploy_theme_sftp.py` uses `WP_SFTP_PASSWORD` from the process or the
-macOS Keychain service `pagely-sftp-kriskrug`, and requires `paramiko`. REST
-application passwords cannot upload themes. A live theme deploy always needs
-explicit KK approval and an explicit rollback path.
+`scripts/deploy_theme_sftp.py` takes `WP_SFTP_USER` and `WP_SFTP_PASSWORD`
+together from the process, or both from the single macOS Keychain item for
+service `pagely-sftp-kriskrug`. `WP_SFTP_PASSWORD` alone is refused. It requires
+`paramiko`. REST application passwords cannot upload themes. A live theme deploy
+always needs explicit KK approval and an explicit rollback path.
 
 `make morning-truth`, `make status-readonly`, and audit targets may call
 `https://kriskrug.co`. They degrade when the network is unavailable. Never use

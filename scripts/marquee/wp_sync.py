@@ -4,9 +4,11 @@ Pushes boards from marquee.json into the `marquee_board` CPT. Mirrors the proven
 from scripts/notion-to-wp (post-2026-05-15 incident): app-password Basic auth, slug-based
 idempotency, CREATE-by-default, a title-similarity guard on --update, and post-write readback.
 
-Auth comes from scripts/notion-to-wp/.env (WP_BASE_URL / WP_USER / WP_APP_PASSWORD) or the
-environment — no Notion token required. Live writes need credentials AND the caller passing
-execute=True; everything else is a dry run.
+Auth resolves through scripts/common.py load_env(): the process env (Varlock) first, then
+scripts/notion-to-wp/.env, under either the WP_API_* or the WP_USER / WP_APP_PASSWORD names.
+User, password and base URL come from one source as a unit; halves are never mixed.
+No Notion token required. Live writes need credentials AND the caller passing execute=True;
+everything else is a dry run.
 """
 from __future__ import annotations
 import base64
@@ -22,9 +24,11 @@ sys.path.insert(0, str(ROOT / "scripts" / "notion-to-wp"))
 from cp1252_text import storable_payload  # noqa: E402
 from update_safety import title_similarity, TITLE_SIMILARITY_UPDATE_THRESHOLD  # noqa: E402
 
+sys.path.insert(0, str(ROOT / "scripts"))
+from common import DEFAULT_BASE_URL, load_env  # noqa: E402
+
 POST_TYPE = "marquee_board"
 ENV_PATH = ROOT / "scripts" / "notion-to-wp" / ".env"
-DEFAULT_BASE = "https://kriskrug.co"
 
 META = {
     "lines": "_kk_mb_lines", "week": "_kk_mb_week", "skin": "_kk_mb_skin",
@@ -33,21 +37,15 @@ META = {
 
 
 def load_wp_credentials() -> dict:
-    """WP creds from .env (simple parser, no python-dotenv dependency) with os.environ fallback."""
-    import os
-    vals = {}
-    if ENV_PATH.exists():
-        for line in ENV_PATH.read_text(encoding="utf-8").splitlines():
-            line = line.strip()
-            if not line or line.startswith("#") or "=" not in line:
-                continue
-            k, v = line.split("=", 1)
-            vals[k.strip()] = v.strip().strip('"').strip("'")
-    get = lambda k, d=None: vals.get(k) or os.environ.get(k) or d  # noqa: E731
+    """WP creds from common.load_env(ENV_PATH): the process env (Varlock) beats the file as a whole.
+
+    The base URL belongs to the source that supplied the pair, else the default.
+    """
+    env = load_env(ENV_PATH)
     return {
-        "base": (get("WP_BASE_URL", DEFAULT_BASE) or DEFAULT_BASE).rstrip("/"),
-        "user": get("WP_USER"),
-        "app_password": (get("WP_APP_PASSWORD") or "").replace(" ", "") or None,
+        "base": (env.get("WP_BASE_URL") or DEFAULT_BASE_URL).rstrip("/"),
+        "user": env.get("WP_USER") or None,
+        "app_password": (env.get("WP_APP_PASSWORD") or "").replace(" ", "") or None,
     }
 
 

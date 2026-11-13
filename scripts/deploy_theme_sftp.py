@@ -1,10 +1,23 @@
 #!/usr/bin/env python3
 """Hands-off kk-aurora theme deploy to Pagely over SFTP (PressFTP gateway).
 
-Password source (never argv/chat logs):
-    1. Env WP_SFTP_PASSWORD (Cloud / non-macOS agents)
-    2. Else macOS Keychain:
-       security add-generic-password -a wpadmin5102 -s pagely-sftp-kriskrug -w "$(pbpaste)" -U
+Credential sources (never argv/chat logs). The user and the password always
+come from the same place:
+    Env:      WP_SFTP_USER and WP_SFTP_PASSWORD together (Cloud / non-macOS
+              agents). A password with no user is refused.
+    Keychain: with no WP_SFTP_PASSWORD, the one macOS Keychain item for the
+              service pagely-sftp-kriskrug supplies both. Store it with:
+       security add-generic-password -a <sftp-user> -s pagely-sftp-kriskrug -U -w
+              The trailing -w makes `security` prompt for the password, so
+              it never reaches argv or shell history.
+    <sftp-user> is the Pagely SFTP username, not the WordPress login. To see
+    which account the item holds (attributes only, no password):
+       security find-generic-password -s pagely-sftp-kriskrug
+    Rotation: -U only updates an item with the same account, so a new
+    username adds a second item. Delete the old one, or the deploy refuses
+    to choose between them:
+       security delete-generic-password -a <old-sftp-user> -s pagely-sftp-kriskrug
+    While two items exist, WP_SFTP_USER on its own names the one to use.
 
 Subcommands:
     probe   Connect, print the working dir, and locate wp-content/themes.
@@ -30,6 +43,7 @@ Never commit the known_hosts file, passwords or private keys to this repo.
 import argparse
 import os
 import posixpath
+import re
 import subprocess
 import sys
 import time
@@ -38,7 +52,6 @@ import paramiko
 
 HOSTS = os.environ.get("WP_SFTP_HOST", "sftp.pressftp.com,sftp.pagely.com").split(",")
 PORT = int(os.environ.get("WP_SFTP_PORT", "22"))
-USER = os.environ.get("WP_SFTP_USER", "ftp51ZjdGhm02eAOQe")
 KEYCHAIN_SERVICE = "pagely-sftp-kriskrug"
 KNOWN_HOSTS = os.environ.get(
     "WP_SFTP_KNOWN_HOSTS", os.path.expanduser("~/.ssh/known_hosts")
@@ -47,22 +60,72 @@ CONNECT_TIMEOUT = 30
 LOCAL_THEME = os.path.join(os.path.dirname(__file__), "..", "theme", "kk-aurora")
 
 
-def _password() -> str:
+def _security(*args: str) -> str:
+    """stdout of a `security` call, "" when the tool or the item is missing."""
+    try:
+        out = subprocess.run(["security", *args], capture_output=True, text=True)
+    except FileNotFoundError:  # no `security` tool off macOS
+        return ""
+    return out.stdout if out.returncode == 0 else ""
+
+
+def _keychain(*args: str) -> str:
+    return _security("find-generic-password", "-s", KEYCHAIN_SERVICE, *args)
+
+
+def _keychain_item_count() -> int:
+    # Attributes only: dump-keychain -d would decrypt every secret it lists.
+    service_line = rf'^\s*"svce"<blob>="{re.escape(KEYCHAIN_SERVICE)}"\s*$'
+    return len(re.findall(service_line, _security("dump-keychain"), re.M))
+
+
+def _keychain_account() -> str:
+    """The account of the one Keychain item for the service; exits otherwise.
+
+    Without -a, `security find-generic-password` returns only the first match,
+    so a stale item left by a username rotation could win. Count first.
+    """
+    count = _keychain_item_count()
+    if count > 1:
+        sys.exit(
+            f"More than one Keychain item exists for service '{KEYCHAIN_SERVICE}', "
+            "so the SFTP account cannot be chosen safely. Delete the old item "
+            "(see this script's docstring), or set WP_SFTP_USER to the account "
+            "to use."
+        )
+    if count == 1:
+        # Attributes only: -w or -g would print the password as well.
+        match = re.search(r'^\s*"acct"<blob>="(.+)"\s*$', _keychain(), re.M)
+        if match:
+            return match.group(1)
+    sys.exit(
+        "No SFTP credentials. Set WP_SFTP_USER and WP_SFTP_PASSWORD together, "
+        f"or store one Keychain item for service '{KEYCHAIN_SERVICE}' under "
+        "the SFTP user's account."
+    )
+
+
+def _credentials() -> tuple[str, str]:
+    """(user, password) from one source: the env pair, else one Keychain item."""
+    env_user = os.environ.get("WP_SFTP_USER", "").strip()
     # Cloud / CI: prefer explicit env (never log it). Laptop: macOS Keychain.
     env_pw = os.environ.get("WP_SFTP_PASSWORD", "").strip()
     if env_pw:
-        return env_pw
-    out = subprocess.run(
-        ["security", "find-generic-password", "-s", KEYCHAIN_SERVICE, "-a", USER, "-w"],
-        capture_output=True,
-        text=True,
-    )
-    if out.returncode != 0 or not out.stdout.strip():
+        if not env_user:
+            sys.exit(
+                "WP_SFTP_PASSWORD is set without WP_SFTP_USER. Set both, or unset "
+                "WP_SFTP_PASSWORD to use the Keychain item for service "
+                f"'{KEYCHAIN_SERVICE}'."
+            )
+        return env_user, env_pw
+    user = env_user or _keychain_account()
+    pw = _keychain("-a", user, "-w").rstrip("\n")
+    if not pw.strip():
         sys.exit(
-            "No SFTP password. Set WP_SFTP_PASSWORD, or store Keychain "
-            f"service '{KEYCHAIN_SERVICE}' account '{USER}'."
+            "No SFTP password. Set WP_SFTP_PASSWORD with WP_SFTP_USER, or store it "
+            f"in Keychain service '{KEYCHAIN_SERVICE}' under the SFTP user's account."
         )
-    return out.stdout.rstrip("\n")
+    return user, pw
 
 
 class HostKeyError(Exception):
@@ -99,7 +162,7 @@ def _verify_host_key(
 
 def _connect() -> paramiko.SFTPClient:
     trusted = _trusted_host_keys()
-    pw = _password()
+    user, pw = _credentials()
     last = None
     for host in [h.strip() for h in HOSTS if h.strip()]:
         t = None
@@ -108,7 +171,7 @@ def _connect() -> paramiko.SFTPClient:
             t.start_client(timeout=CONNECT_TIMEOUT)
             # Trust check happens before any credential leaves this machine.
             _verify_host_key(t, trusted, host, PORT)
-            t.auth_password(USER, pw)
+            t.auth_password(user, pw)
             sftp = paramiko.SFTPClient.from_transport(t)
             print(f"connected via {host} (host key verified)")
             return sftp

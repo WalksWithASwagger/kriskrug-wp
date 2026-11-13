@@ -58,10 +58,11 @@ _OVERRIDE_KEYS = (
     "WP_BASE_URL",
     "WP_AUTH_MODE",
 )
+# (user key, password key) per name family, in resolution order.
 # ~/.agents/env/wordpress uses MCP names; REST scripts historically use WP_USER.
-_WP_CREDENTIAL_ALIASES = (
-    ("WP_API_USERNAME", "WP_USER"),
-    ("WP_API_PASSWORD", "WP_APP_PASSWORD"),
+_WP_CREDENTIAL_PAIRS = (
+    ("WP_USER", "WP_APP_PASSWORD"),
+    ("WP_API_USERNAME", "WP_API_PASSWORD"),
 )
 
 
@@ -85,51 +86,110 @@ def load_env(
     """Load .env values, preferring python-dotenv when installed.
 
     With no path, searches DEFAULT_ENV_PATHS and uses the first that exists.
-    When overlay_os is True, matching process env vars win over file values
-    (so `varlock run --inject vars -- …` / Cursor Cloud secrets work without
-    rewriting gitignored `.env` files).
+    The WordPress settings in _OVERRIDE_KEYS are resolved as one unit by
+    _resolve_wp_settings and returned under WP_USER / WP_APP_PASSWORD /
+    WP_BASE_URL / WP_AUTH_MODE; every other key is returned as the file holds it.
+    When overlay_os is True the process env is the first source and the file the
+    second (so `varlock run --inject vars -- …` / Cursor Cloud secrets work
+    without rewriting gitignored `.env` files). The pair resolves in this order:
+    process WP_USER pair, process WP_API_* pair, file WP_USER pair, file
+    WP_API_* pair, then nothing.
     """
     candidates = [Path(path)] if path else list(DEFAULT_ENV_PATHS)
-    values: dict[str, str] = {}
+    file_values: dict[str, str] = {}
     for candidate in candidates:
         if not candidate.exists():
             continue
         if dotenv_values is not None:
-            values = {
+            file_values = {
                 str(k): str(v)
                 for k, v in dotenv_values(candidate).items()
                 if k and v is not None
             }
         else:
-            values = parse_simple_env(candidate)
+            file_values = parse_simple_env(candidate)
         break
+    sources = [file_values]
     if overlay_os:
-        for key in _OVERRIDE_KEYS:
-            if os.environ.get(key):
-                values[key] = os.environ[key]
-    return apply_wp_credential_aliases(values)
+        sources.insert(
+            0, {key: os.environ[key] for key in _OVERRIDE_KEYS if key in os.environ}
+        )
+    values = {k: v for k, v in file_values.items() if k not in _OVERRIDE_KEYS}
+    values.update(_resolve_wp_settings(sources))
+    return values
+
+
+def _setting(source: dict[str, str], key: str) -> str:
+    """The stripped value of key; "" when it is missing or whitespace-only."""
+    return (source.get(key) or "").strip()
+
+
+def _wp_pair(source: dict[str, str]) -> tuple[str, str] | None:
+    """(user, password) from the first name family holding both, else None."""
+    for user_key, password_key in _WP_CREDENTIAL_PAIRS:
+        user, password = _setting(source, user_key), _setting(source, password_key)
+        if user and password:
+            return user, password
+    return None
+
+
+def _resolve_wp_settings(sources: list[dict[str, str]]) -> dict[str, str]:
+    """Resolve the WordPress credential as one unit from ordered sources.
+
+    The first source and name family holding both a user and a password wins,
+    and WP_BASE_URL comes from that same source or is left to the default.
+    Halves are never combined across sources or families: a spliced pair can
+    send one site's password to another site's URL. To aim a process pair at
+    another site, set WP_BASE_URL in the process env too.
+
+    WP_AUTH_MODE is the first one set. When it is "login", only the source that
+    set it may supply the pair, because a wp-admin pair and an application
+    password are not interchangeable.
+    """
+    resolved: dict[str, str] = {}
+    candidates = sources
+    for source in sources:
+        auth_mode = _setting(source, "WP_AUTH_MODE")
+        if auth_mode:
+            resolved["WP_AUTH_MODE"] = auth_mode
+            if auth_mode.lower() == "login":
+                candidates = [source]
+            break
+    for source in candidates:
+        pair = _wp_pair(source)
+        if pair is None:
+            continue
+        resolved["WP_USER"], resolved["WP_APP_PASSWORD"] = pair
+        base_url = _setting(source, "WP_BASE_URL")
+        if base_url:
+            resolved["WP_BASE_URL"] = base_url
+        break
+    return resolved
 
 
 def apply_wp_credential_aliases(env: dict[str, str]) -> dict[str, str]:
-    """Fill WP_USER / WP_APP_PASSWORD from WP_API_* when the legacy names are empty."""
+    """Set WP_USER / WP_APP_PASSWORD from the first name family that holds both.
+
+    A half pair is dropped, never completed from the other family.
+    """
     values = dict(env)
-    for src, dest in _WP_CREDENTIAL_ALIASES:
-        if not (values.get(dest) or "").strip() and (values.get(src) or "").strip():
-            values[dest] = values[src]
+    pair = _wp_pair(values)
+    values.pop("WP_USER", None)
+    values.pop("WP_APP_PASSWORD", None)
+    if pair is not None:
+        values["WP_USER"], values["WP_APP_PASSWORD"] = pair
     return values
 
 
 def wp_process_credentials() -> tuple[str, str]:
     """Return (user, app_password) from process env, honouring the WP_API_* aliases.
 
-    Returns ("", "") when neither name pair is populated. Callers that only gate on
+    Returns ("", "") when neither name pair is complete. Callers that only gate on
     WP_USER miss credentials supplied under the MCP names, which is the common case
     for Varlock-resolved sessions.
     """
-    resolved = apply_wp_credential_aliases(dict(os.environ))
-    user = (resolved.get("WP_USER") or "").strip()
-    app_password = (resolved.get("WP_APP_PASSWORD") or "").replace(" ", "").strip()
-    return user, app_password
+    user, app_password = _wp_pair(dict(os.environ)) or ("", "")
+    return user, app_password.replace(" ", "")
 
 
 def has_wp_process_credentials() -> bool:
@@ -138,16 +198,26 @@ def has_wp_process_credentials() -> bool:
 
 
 def wp_credentials(env: dict[str, str] | None = None) -> tuple[str, str, str]:
-    """Return (base_url, user, normalized app_password). Raises if missing."""
-    env = apply_wp_credential_aliases(env if env is not None else load_env())
-    user = env.get("WP_USER", "")
-    app_password = (env.get("WP_APP_PASSWORD", "") or "").replace(" ", "")
-    base_url = env.get("WP_BASE_URL", DEFAULT_BASE_URL)
-    if not user or not app_password:
-        raise RuntimeError(
-            "WP_USER/WP_APP_PASSWORD (or WP_API_USERNAME/WP_API_PASSWORD) required"
+    """Return (base_url, user, normalized app_password). Raises if missing.
+
+    env is treated as one source: the pair must be complete within one name family.
+    """
+    env = env if env is not None else load_env()
+    pair = _wp_pair(env)
+    if pair is None:
+        message = (
+            "WP_USER/WP_APP_PASSWORD (or WP_API_USERNAME/WP_API_PASSWORD) required, "
+            "both halves from one source and one name pair"
         )
-    return base_url.rstrip("/"), user, app_password
+        if _setting(env, "WP_AUTH_MODE").lower() == "login":
+            message += (
+                "; with WP_AUTH_MODE=login they must be set in the same place "
+                "as WP_AUTH_MODE (process env or the .env file)"
+            )
+        raise RuntimeError(message)
+    user, app_password = pair
+    base_url = _setting(env, "WP_BASE_URL") or DEFAULT_BASE_URL
+    return base_url.rstrip("/"), user, app_password.replace(" ", "")
 
 
 # cp1252_text lives in the publisher's directory. Appended, not inserted, so

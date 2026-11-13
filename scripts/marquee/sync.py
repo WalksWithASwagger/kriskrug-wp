@@ -2,8 +2,9 @@
 """SYNC — push marquee boards from marquee.json into the WordPress `marquee_board` CPT.
 
 Dry-run by default (prints payloads, writes nothing). Live writes require BOTH `--execute`
-and WP credentials in scripts/notion-to-wp/.env. CREATE-by-default; `--update` is guarded by a
-title-similarity check. The OG card (dist/<slug>/og.png) is uploaded as the featured image.
+and WP credentials, from the process env (`make varlock-run CMD='...'`) or else
+scripts/notion-to-wp/.env. CREATE-by-default; `--update` is guarded by a title-similarity
+check. The OG card (dist/<slug>/og.png) is uploaded as the featured image.
 
 Usage:
   python3 scripts/marquee/sync.py                 # dry-run all boards
@@ -35,7 +36,8 @@ def main() -> int:
     if args.execute:
         creds = wp_sync.load_wp_credentials()
         if not (creds["user"] and creds["app_password"]):
-            print("ERROR: WP_USER and WP_APP_PASSWORD required in scripts/notion-to-wp/.env for --execute")
+            print("ERROR: --execute needs WP_API_USERNAME/WP_API_PASSWORD (or WP_USER/WP_APP_PASSWORD). "
+                  "Run through `make varlock-run CMD='...'`.")
             return 1
         try:
             wp = wp_sync.MarqueeWP(creds["base"], creds["user"], creds["app_password"])
