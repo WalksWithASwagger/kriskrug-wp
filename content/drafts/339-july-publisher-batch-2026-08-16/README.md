@@ -1,5 +1,7 @@
 # #339 July publisher batch, refreshed 2026-08-28
 
+> **Superseded on 2026-11-12.** The guards and the planned About body below are stale. Use the re-cut packet at [`../339-recut-2026-11-12/`](../339-recut-2026-11-12/README.md) and apply nothing from this folder.
+
 **Status:** PREP ONLY. Authenticated read-only guards refreshed; no live WordPress write.
 **Issue:** [#339](https://github.com/WalksWithASwagger/kriskrug-wp/issues/339)
 **Evidence report:** [`docs/current-state/reports/publisher-batch-refresh-339-20260816.md`](../../../docs/current-state/reports/publisher-batch-refresh-339-20260816.md)
