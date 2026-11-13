@@ -11,7 +11,12 @@ MANIFEST = ROOT / "fixes/issue-1089-schema-save-preflight-2026-09-29.json"
 HANDOFF_316 = ROOT / "fixes/issue-316-schema-identity-handoff-2026-07-13.md"
 HANDOFF_641 = ROOT / "fixes/issue-641-speaking-video-schema-handoff-2026-08-27.md"
 README = ROOT / "fixes/README.md"
-RELEASE = ROOT / "docs/current-state/reports/schema-1089-verification-2026-10-25.json"
+RELEASE_1089 = (
+    ROOT / "docs/current-state/reports/schema-1089-verification-2026-10-25.json"
+)
+RELEASE = (
+    ROOT / "docs/current-state/reports/snippet-5-hextag-verification-2026-11-12.json"
+)
 
 PERSON_ID = "https://kriskrug.co/#person"
 ORG_ID = "https://bc-ai.ca/#organization"
@@ -32,10 +37,6 @@ APPROVAL_COMMENT = (
     "#issuecomment-5877883436"
 )
 APPROVAL_TABLE_HEADING = "## Approval state (JSON must match)"
-RELEASED_FLAGS = "JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)"
-PENDING_1238_FLAGS = (
-    "JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP)"
-)
 FORBIDDEN_WHEN_RECORDED_APPROVALS = (
     r"recommended, not approved",
     r"Default recommendation \(not approval\)",
@@ -63,7 +64,9 @@ def parse_markdown_approval_state(packet: str) -> dict[str, dict[str, object]]:
             continue
         key, approved, source = cells
         if approved not in {"true", "false"}:
-            raise AssertionError(f"approval table approved cell must be true/false: {line}")
+            raise AssertionError(
+                f"approval table approved cell must be true/false: {line}"
+            )
         rows[key] = {"approved": approved == "true", "source": source}
     if not rows:
         raise AssertionError("Markdown Approval state table has no data rows")
@@ -119,22 +122,36 @@ class Issue1089SchemaSavePreflightTests(unittest.TestCase):
             self.assertNotIn(marker, serialized)
 
     def test_historical_candidate_and_current_runtime_match_release(self):
+        release_1089 = json.loads(RELEASE_1089.read_text(encoding="utf-8"))
         release = json.loads(RELEASE.read_text(encoding="utf-8"))
         self.assertEqual(
-            self.manifest["candidate"]["sha256"], release["approved_file_sha256"]
+            self.manifest["candidate"]["sha256"], release_1089["approved_file_sha256"]
         )
         self.assertEqual(
             self.manifest["candidate"]["byte_length"],
-            release["approved_file_bytes"],
+            release_1089["approved_file_bytes"],
         )
-        runtime = self.deployed[self.deployed.index("function kk_schema_constants()"):]
-        # #1238 added two JSON flags in the repo only. Live snippet 5 still runs
-        # the saved bytes, so allow exactly that delta and nothing else.
-        self.assertEqual(1, runtime.count(PENDING_1238_FLAGS))
-        released_runtime = runtime.replace(PENDING_1238_FLAGS, RELEASED_FLAGS)
+        # The #1238 save started from the exact bytes the #1089 release saved.
+        self.assertEqual(
+            release_1089["deployed_code_sha256"], release["before_code_sha256"]
+        )
+        self.assertEqual(
+            release_1089["runtime_sha256"], release["before_runtime_sha256"]
+        )
+        self.assertEqual(release_1089["runtime_boundary"], release["runtime_boundary"])
+        runtime = self.deployed[self.deployed.index(release["runtime_boundary"]) :]
         self.assertEqual(
             release["runtime_sha256"],
-            hashlib.sha256(released_runtime.encode()).hexdigest(),
+            hashlib.sha256(runtime.encode()).hexdigest(),
+        )
+        # Swapping the recorded flags back must give the #1089 runtime, so the
+        # receipt's one-line change is the only difference between the two.
+        before = release["change"]["before"] + ")"
+        after = release["change"]["after"] + ")"
+        self.assertEqual(release["change"]["lines_changed"], runtime.count(after))
+        self.assertEqual(
+            release["before_runtime_sha256"],
+            hashlib.sha256(runtime.replace(after, before).encode()).hexdigest(),
         )
         self.assertTrue(self.manifest["candidate"]["prepared_not_live"])
         self.assertEqual(5, self.manifest["candidate"]["expected_snippet_id"])
@@ -169,8 +186,12 @@ class Issue1089SchemaSavePreflightTests(unittest.TestCase):
         self.assertEqual(APPROVED_SAME_AS, self.manifest["same_as"]["approved"])
         self.assertEqual(PREPARED_X, self.manifest["same_as"]["prepared_x"])
         self.assertTrue(self.manifest["same_as"]["prepared_x_approved"])
-        self.assertEqual(APPROVAL_COMMENT, self.manifest["same_as"]["prepared_x_source"])
-        self.assertTrue(self.manifest["same_as"]["candidate_file_still_contains_prepared_x"])
+        self.assertEqual(
+            APPROVAL_COMMENT, self.manifest["same_as"]["prepared_x_source"]
+        )
+        self.assertTrue(
+            self.manifest["same_as"]["candidate_file_still_contains_prepared_x"]
+        )
         self.assertFalse(self.manifest["same_as"]["packet_changed_php_payload"])
         self.assertEqual(APPROVED_SAME_AS, self.manifest["review_person"]["sameAs"])
         for page in ("homepage", "speaking", "about", "article"):
@@ -185,7 +206,9 @@ class Issue1089SchemaSavePreflightTests(unittest.TestCase):
             self.assertIn(url, array_constant(self.deployed, "same_as"))
         for url in APPROVED_SAME_AS:
             self.assertIn(url, array_constant(self.deployed, "same_as"))
-        self.assertIn("Approved as prepared: keep `https://x.com/kriskrug`", self.packet)
+        self.assertIn(
+            "Approved as prepared: keep `https://x.com/kriskrug`", self.packet
+        )
         self.assertIn("twitter.com/feelmoreplants", self.packet)
         youtube = self.manifest["same_as"]["pending_youtube"]
         self.assertEqual("keep, swap, or both", youtube["decision"])
@@ -260,7 +283,9 @@ class Issue1089SchemaSavePreflightTests(unittest.TestCase):
         self.assertEqual("Kris Krug", self.manifest["identity"]["website_name"])
         self.assertIn("'site_name'            => 'Kris Krug'", self.deployed)
         self.assertIn("if (!is_front_page() && !is_home()) return;", self.deployed)
-        homepage_types = [node["@type"] for node in self.manifest["review_jsonld"]["homepage"]]
+        homepage_types = [
+            node["@type"] for node in self.manifest["review_jsonld"]["homepage"]
+        ]
         self.assertEqual(["Person", "WebSite"], homepage_types)
         self.assertEqual(
             "Kris Krug",
@@ -323,13 +348,17 @@ class Issue1089SchemaSavePreflightTests(unittest.TestCase):
         self.assertIn("https://validator.schema.org/", self.packet)
         self.assertIn("Do **not** treat Google Rich Results Test", self.packet)
         self.assertIn("Detect unexpected concurrent snippet 5 edits", self.packet)
-        self.assertIn("concurrent snippet-5 hash drift", " ".join(self.manifest["rollback"]))
+        self.assertIn(
+            "concurrent snippet-5 hash drift", " ".join(self.manifest["rollback"])
+        )
         self.assertEqual(
             "pending-kk",
             self.manifest["live_readback"]["authenticated_snippet_snapshot"],
         )
         self.assertEqual("pending", self.manifest["validator"]["receipts"])
-        self.assertEqual(404, self.manifest["live_readback"]["footer_twitter_http_status"])
+        self.assertEqual(
+            404, self.manifest["live_readback"]["footer_twitter_http_status"]
+        )
         self.assertIn("#1024", self.packet)
         self.assertIn("Decisions 1 and 2 are already approved", self.packet)
 
