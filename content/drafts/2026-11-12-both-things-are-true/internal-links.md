@@ -34,7 +34,7 @@ Every URL in `post.html` (21 unique), with its logged-out status on 2026-11-13 b
 
 ## Intended canonical
 
-Open until Kris rules on date and slug (open-facts question 4). With the recommended answers it is `https://kriskrug.co/<publish yyyy>/<mm>/<dd>/both-things-are-true/`. `https://kriskrug.co/both-things-are-true/` returned 404 on 2026-11-13 00:47 UTC.
+Kris ruled on 2026-11-12 (open-facts question 4): `https://kriskrug.co/<publish yyyy>/<mm>/<dd>/both-things-are-true/`, dated the real publish day. `https://kriskrug.co/both-things-are-true/` returned 404 on 2026-11-13 00:47 UTC.
 
 ## Inbound links to add after publish (separate, approved edits)
 
@@ -45,7 +45,7 @@ Not part of this package and not to be done without Kris's approval for each pag
 
 ## Not linked, on purpose
 
-- The World AI Film Festival Brasil: no festival URL was verified (question 3).
+- The World AI Film Festival Brasil: no festival URL was verified, and the São Paulo ruling (question 3) sent none.
 - LaSalle College Vancouver: its site returned HTTP 429 on this check.
 - `kriskrug.notion.site/keynote-both-hands-full`: renders client-side, content not verifiable logged-out.
 - Personal pages for anyone on the Stories page: nobody is named in the draft.
