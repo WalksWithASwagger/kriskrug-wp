@@ -17,8 +17,9 @@ from typing import Iterable
 
 import yaml
 
+from cp1252_text import UnstorableText, assert_sendable
 from kk_notion_to_wp import WordPress, load_config, update_title_guard
-from publish_common import verify_seo_meta_landed
+from publish_common import build_seo_meta, verify_seo_meta_landed
 
 
 MIN_WORDS = 900
@@ -278,6 +279,11 @@ def ensure_terms(wp: WordPress, taxonomy: str, values: Iterable[str]) -> list[in
 
 
 def update_wp_draft(pkg: DraftPackage, html_body: str, wp_id: int, *, fail_on_warning: bool = False) -> dict:
+    seo = pkg.frontmatter.get("seo") or {}
+    # Built before any request: ensure_terms below creates terms.
+    seo_meta = build_seo_meta(
+        str(seo.get("meta_title", "")), str(seo.get("meta_description", ""))
+    ) if seo else None
     cfg = load_config()
     wp = WordPress(cfg.wp_base_url, cfg.wp_user, cfg.wp_app_password)
     existing = wp.get_post(wp_id)
@@ -303,18 +309,15 @@ def update_wp_draft(pkg: DraftPackage, html_body: str, wp_id: int, *, fail_on_wa
     }
     categories = pkg.frontmatter.get("categories") or []
     tags = pkg.frontmatter.get("tags") or []
+    assert_sendable(payload, term_names=[str(value) for value in (*categories, *tags)])
     if categories:
         payload["categories"] = ensure_terms(wp, "categories", categories)
     if tags:
         payload["tags"] = ensure_terms(wp, "tags", tags)
     if pkg.frontmatter.get("featured_media_id"):
         payload["featured_media"] = int(pkg.frontmatter["featured_media_id"])
-    seo = pkg.frontmatter.get("seo") or {}
-    if seo:
-        payload["meta"] = {
-            "jetpack_seo_html_title": str(seo.get("meta_title", "")),
-            "advanced_seo_description": str(seo.get("meta_description", "")),
-        }
+    if seo_meta:
+        payload["meta"] = seo_meta
 
     result = wp.update_post(wp_id, payload, expected_slug=pkg.slug)
     seo_dropped = verify_seo_meta_landed(result.get("meta"), payload.get("meta"))
@@ -356,7 +359,7 @@ def main() -> int:
             result = update_wp_draft(
                 pkg, html_body, args.wp_id, fail_on_warning=args.fail_on_warning
             )
-        except RuntimeError as e:
+        except (RuntimeError, UnstorableText) as e:
             print(f"ERROR: {e}")
             return 4
         print(f"UPDATED: WP draft {result['id']} {result.get('link')}")

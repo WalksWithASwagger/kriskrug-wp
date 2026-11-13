@@ -27,6 +27,9 @@ from lib import (
     resolve_path_roots,
 )
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "notion-to-wp"))
+from cp1252_text import storable_payload  # noqa: E402
+
 
 class WPMedia:
     def __init__(self, base: str, user: str, app_password: str):
@@ -56,7 +59,7 @@ class WPMedia:
         if alt:
             self.s.post(
                 f"{self.base}/wp-json/wp/v2/media/{media['id']}",
-                json={"alt_text": alt},
+                json=storable_payload({"alt_text": alt}),
                 timeout=30,
             ).raise_for_status()
         return media

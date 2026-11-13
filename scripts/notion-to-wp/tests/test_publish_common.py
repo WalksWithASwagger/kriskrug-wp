@@ -11,6 +11,7 @@ SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPT_DIR))
 
 import publish_common  # noqa: E402
+from cp1252_text import UnstorableText  # noqa: E402
 from wp_client import SlugVerificationFailed  # noqa: E402
 
 
@@ -79,11 +80,9 @@ class PublishCommonTests(unittest.TestCase):
         with self.assertRaises(SystemExit):
             publish_common.validate_media_id(wp, 11976)
 
-    def test_build_seo_meta_strips_combining_marks(self):
-        meta = publish_common.build_seo_meta("Ethọ́s Lab", "desc")
-        self.assertFalse(
-            any(__import__("unicodedata").combining(c) for c in meta["jetpack_seo_html_title"])
-        )
+    def test_build_seo_meta_refuses_combining_marks(self):
+        with self.assertRaisesRegex(UnstorableText, "SEO title .*Combining marks"):
+            publish_common.build_seo_meta("Ethọ́s Lab", "desc")
 
     def test_verify_seo_meta_landed_all_present(self):
         dropped = publish_common.verify_seo_meta_landed(
