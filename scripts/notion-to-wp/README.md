@@ -201,6 +201,8 @@ kriskrug.co's posts and postmeta tables use MySQL's `latin1`, which is really Wi
 - Any other raw character outside cp1252 left in a request body raises `UnstorableText` before the request is sent.
 - The connector, the local-draft quality gate and `prepare_review_draft.py` check every request a run will make (title, content, excerpt, alt text and term names as well as meta) before the first upload or term write, because media trash is off on this site and an orphaned upload is permanent. The connector exits 9 before any WordPress request when something cannot be sent. Its meta is always folded, so that now means the body, an alt text or a term name.
 
+`scripts/common.py`'s `WPClient`, which `deploy_events_page.py`, `content_architecture_deploy.py` and several one-off writers in `scripts/` use, does not encode. The deploy tools compare the readback with their payload file exactly, and a reference added on the way out would fail that comparison. A POST, PUT or PATCH whose body or query params hold a character outside cp1252 raises `UnstorableText` before anything is sent, naming the field and the character, for example `payload.content has raw characters outside cp1252 that WordPress would store as '?': U+2192 RIGHTWARDS ARROW`. Fix the payload source: write `&#8594;` in HTML, or a CSS or JavaScript escape inside `<style>` or `<script>`.
+
 ## Category routing
 
 Known Notion types map directly:

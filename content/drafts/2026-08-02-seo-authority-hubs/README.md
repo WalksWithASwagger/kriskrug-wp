@@ -24,7 +24,7 @@ Three files:
 |---|---:|---|
 | `fix-826/` | #826 | Applied and verified 2026-08-18; closed. See `docs/current-state/reports/issue-826-applied-20260818.md` |
 | `fix-827/` | #827 | Applied and verified 2026-08-18; closed. See `docs/current-state/reports/issue-827-applied-20260818.md` |
-| `fix-828/` | #828 | Drafted and dry-run verified; Kris voice review and a fresh live approval remain |
+| `fix-828/` | #828 | Applied and verified 2026-11-12 on posts 1210, 1222 and 1056. Page 12013 skipped: the #1205 redesign removed the sentence row 34 follows. See `docs/current-state/reports/issue-828-applied-2026-11-12.md` |
 | `fix-829/` | #829 | Applied and verified 2026-08-29; closed. See `docs/current-state/reports/issue-829-applied-20260829.md` |
 | `fix-830/` | #830 | Applied and closed (2026-09-09 runbook): Cyber Love Garden is on `/ai-for-creatives/` |
 | `fix-831/` | #831 | Applied and closed (2026-09-09 runbook): Matt McKenna is on `/ai-conversations/` |
@@ -116,7 +116,8 @@ agent docs encoding SEO guardrails. Both touch files outside this lane's ownersh
 
 Do not apply the research files directly. Use the matching `fix-*` pack and its runbook.
 Issues #826, #827, and #829–#833 are historical applied receipts; do not
-re-apply them. #828 still needs voice review and a fresh live approval.
+re-apply them. #828 was applied on 2026-11-12 except page 12013, which
+needs Kris's call on where row 34 belongs on the redesigned page.
 #834 remains open and needs a fresh authenticated preflight. Any remaining
 write happens post by post through the normal Track A path, dry-run then
 slug-match then write, per

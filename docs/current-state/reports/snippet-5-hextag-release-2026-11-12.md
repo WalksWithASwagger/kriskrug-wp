@@ -16,16 +16,18 @@ One line in `kk_schema_emit()`:
 + . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP)
 ```
 
-`<`, `>` and `&` inside JSON-LD values now print as `<`, `>` and
-`&`, so a title or excerpt containing `</script>` can no longer close the
+`<`, `>` and `&` inside JSON-LD values now print as `\u003C`, `\u003E` and
+`\u0026`, so a title or excerpt containing `</script>` can no longer close the
 block early. Parsed JSON is unchanged, and URLs and names stay readable
 because the slash and unicode flags stay.
 
 The saved code is the live code with that one line swapped. Everything from
 `function kk_schema_constants()` onward is byte-identical to
-`fixes/schema-snippets-deployed.php` on `main`. The live header keeps its
-2026-10-25 comments. The repo header differs in comments only, so it was not
-saved.
+`fixes/schema-snippets-deployed.php` on `main`. The live header is the #1082
+header (commit `3807e6b`) as the 2026-10-25 save stored it, so its comments
+still say `LAST VERIFIED AGAINST LIVE: 2026-08-16` and `PREPARED, NOT LIVE`.
+That header plus the repo runtime rebuilds the after hash below exactly. The
+repo header differs in comments only, so it was not saved.
 
 ## Hashes
 
@@ -59,7 +61,7 @@ records these hashes and every check below.
   BreadcrumbList. Parsed JSON is identical before and after on every route.
 - Home and Speaking have no `<`, `>` or `&` in their JSON-LD, so their bytes
   did not change. The post's two `&` characters (a Photon image query string
-  and the "Conversations &amp; Interviews" section name) print as `&` on
+  and the "Conversations &amp; Interviews" section name) print as `\u0026` on
   the cache-busted request, which shows the new flags running.
 - Schema Markup Validator, fetching cache-busted URLs: **0 errors and 0
   warnings** on all three routes. Home has 4 objects, Speaking 3 including
@@ -70,11 +72,12 @@ records these hashes and every check below.
 ## Cache
 
 No purge write was made. Home and Speaking serve the same JSON-LD bytes
-either way. Right after the save, the post's normal URL still came from the
-Jetpack Boost page cache with the pre-save bytes: the same parsed JSON, with
-the two `&` unescaped. A no-op save of another page would not have cleared
-it, because Boost's post-save hook rebuilds only the saved post, its terms,
-the front page and the author page. Boost's page-cache lifetime is one hour.
+either way. Right after the save, the post's normal URL still returned the
+pre-save bytes: the same parsed JSON, with the two `&` unescaped. Its headers
+show `x-gateway-cache-status: HIT` and `x-jetpack-boost-cache: miss`, so that
+copy came from the Pagely gateway cache, not from Jetpack Boost. Saving a code
+snippet does not purge it. The parsed JSON is the same either way, so no purge
+was needed.
 
 ## Rollback
 
@@ -84,4 +87,7 @@ write and needs Kris's go-ahead. The private packet in the ignored
 `snippet-5-before.php` (SHA-256 `b205b7b3...6b1f`), the saved candidate, the
 JSON readbacks and the public HTML. Its `snippet5.py rollback` mode, run
 through Varlock, restores the before code only while live still equals the
-after hash and the metadata still matches the snapshot.
+after hash and the metadata still matches the snapshot. It also compares the
+repo runtime with live, so point its `--repo` at a checkout of the #1305 merge
+commit (`25aa5e9`), whose runtime hashes to `b184a513...ce7`. A checkout with a
+later runtime edit makes it refuse.

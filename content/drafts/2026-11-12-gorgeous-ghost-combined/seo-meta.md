@@ -1,6 +1,6 @@
 # SEO metadata
 
-Status: draft. Every field below is settled by Kris's 2026-11-12 rulings (`open-facts-for-kk.md`). The featured image still waits on his crop approval.
+Status: scheduled as WordPress post 13003 for 2026-11-19 at 09:00 Vancouver time, with media 13006 as the featured image (see `publish-gate.md`). Every field below is settled by Kris's 2026-11-12 rulings (`open-facts-for-kk.md`), and the draft's readback matched each one.
 
 - Title: `I Made a Gorgeous Ghost` (question 10, default taken)
 - Slug: `gorgeous-ghost` (question 2, ruled)
@@ -12,7 +12,7 @@ Status: draft. Every field below is settled by Kris's 2026-11-12 rulings (`open-
 - Category: `Creative Technology & Making` (ID 1755)
 - Tags: `Gorgeous Ghost` (1804), `Creative AI` (1682), `AI Film Club` (1785), `AI Music` (1395, live name `ai music`)
 - Featured flag: `true`, carried over from the #771 package
-- OG image: the featured image (question 7, ruled). The theme writes `og:image` from the featured image's `large` size, 1024x576 for a 16:9 master. The pick is the film's reveal art as a 1600x900 master, **awaiting Kris's crop approval** (see `publish-gate.md`). Alt text is in `alt-text.md`.
+- OG image: the featured image (question 7, ruled). The theme writes `og:image` from the featured image's `large` size, 1024x576 for a 16:9 master. Kris approved the film's reveal art as a 1600x900 master; it is not uploaded yet (see `publish-gate.md`). Alt text is in `alt-text.md`.
 
 ## Notes for the write
 
