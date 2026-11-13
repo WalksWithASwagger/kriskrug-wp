@@ -12,6 +12,8 @@ caption and description, term names) carry such characters as numeric character
 references, which render identically. Plain-text meta (Jetpack's SEO title and
 description, the Publicize message) cannot: a reference would show literally,
 and combining marks in the SEO fields make the REST write fail with HTTP 500.
+Meta a writer derives itself is folded to plain letters (derived_meta_text);
+meta the operator wrote is refused (plain_meta_text).
 
 No dependencies beyond the standard library, so the marquee and events writers
 can import this without pulling in requests.
@@ -20,8 +22,17 @@ from __future__ import annotations
 
 import re
 import unicodedata
+from typing import Callable
 
 DB_CODEC = "cp1252"
+
+# Latin letters NFKD cannot split into base letter plus accent. WordPress's
+# remove_accents() folds them the same way.
+UNDECOMPOSABLE_LATIN = str.maketrans({
+    "Ø": "O", "ø": "o", "Æ": "AE", "æ": "ae", "ß": "ss", "Đ": "D", "đ": "d",
+    "Ð": "D", "ð": "d", "Ł": "L", "ł": "l", "Þ": "TH", "þ": "th", "Œ": "OE",
+    "œ": "oe",
+})
 
 HTML_TEXT_FIELDS = frozenset(
     {"title", "content", "excerpt", "alt_text", "caption", "description", "name"}
@@ -117,6 +128,30 @@ def plain_meta_text(text: str, field: str) -> str:
             f"(for example 'Ethos' rather than 'Eth\u1ecd\u0301s')."
         )
     return composed
+
+
+def _plain_letters(ch: str) -> str:
+    base = unicodedata.normalize("NFKD", ch.translate(UNDECOMPOSABLE_LATIN))
+    base = "".join(c for c in base if not unicodedata.combining(c))
+    return "" if _unstorable(base) else base
+
+
+def derived_meta_text(text: str, field: str, warn: Callable[[str], None]) -> str:
+    """plain_meta_text for meta a writer derives itself: folds instead of refusing.
+
+    KK's ruling of 2026-11-12. Each character cp1252 cannot store becomes its
+    base letter when it has one cp1252 can store ("Ethọ́s" becomes "Ethos", "Ł"
+    becomes "L") and is dropped otherwise (arrows, emoji), then doubled spaces
+    collapse. cp1252 text is never touched. `warn` gets one line when anything
+    is folded, so the operator sees what WordPress will store.
+    """
+    composed = unicodedata.normalize("NFC", text)
+    if not _unstorable(composed):
+        return composed
+    folded = "".join(ch if is_storable(ch) else _plain_letters(ch) for ch in composed)
+    folded = re.sub(r" {2,}", " ", folded).strip()
+    warn(f'seo: folded {field}: "{text}" -> "{folded}"')
+    return folded
 
 
 def assert_storable(value, path: str = "payload") -> None:
