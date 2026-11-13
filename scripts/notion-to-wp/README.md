@@ -167,7 +167,7 @@ KK's "News & Content Database" has these properties; the connector reads them:
 | Tags | tags | auto-created if missing |
 | Type | category routing | Known types map directly; `Feature` uses tag hints or requires `--category`; unknown types fall back to "Misc" only for non-Feature content. |
 | Featured | post meta `kk_featured` | "YES" sets it |
-| Status | publish context | recorded from Notion, but not a publish gate |
+| Status | none | not read; only `--publish` sets WP status to publish |
 | Publication Date | post date | if absent, uses today |
 | Author / Owner | post author | mapped to WP user ID 1 (kk) for now |
 
@@ -180,9 +180,24 @@ Default behavior is CREATE-only:
 - If no post with the slug exists, the connector creates a new WP post.
 - If a post with the slug already exists, the connector aborts instead of silently updating.
 - To update an existing post, pass `--update`. The update path also checks that the existing title is similar to the new title before it sends a REST update. The current threshold lives in `TITLE_SIMILARITY_UPDATE_THRESHOLD` and is covered by tests.
+- `--update` never changes the post's status. It sends no status, so a published, scheduled, private or draft post stays that way. Only `--update --publish` sets the status, to publish. Before this rule, `--update` alone sent `draft` and unpublished live posts.
+- `--update` sends no date unless `--date` is given. WordPress publishes a scheduled post whose date has passed and schedules a published post whose date is in the future, so sending the Notion date (or today) could publish a scheduled post early. An explicit `--date` can still trigger either rule; the readback below then exits 7.
 - Before using `--update`, run `--diff` to print a no-write comparison between the existing WP slug target and the proposed Notion payload. Treat the diff as evidence for human review, not approval to update.
+- The slug lookup and both guards run before any media upload or term creation, so an abort leaves nothing behind on WordPress. A lookup that refuses to answer (`SlugVerificationFailed`, for example an ambiguous match) exits 8.
+- After a create or update, the connector reads the post back. If the stored slug, status, title or date differs from what it sent, it logs each difference and exits 7. An update without `--publish` must find the post's status exactly as it was before the write, and `--update --publish` on a live post fails if WordPress scheduled it instead.
 
 This makes reruns safe by default. If you need a new version rather than an update, pass `--slug` with a new slug.
+
+## Characters outside cp1252
+
+kriskrug.co's posts and postmeta tables use MySQL's `latin1`, which is really Windows-1252 (cp1252). Curly quotes, en and em dashes, the ellipsis, the bullet, `€` and `™` are stored as sent, and the edit-context snapshots under `backup/` hold them raw. Any other character above U+00FF sent raw is stored as `?` (#606). The connector, `create_local_wp_draft.py`, `update_local_wp_draft.py`, `prepare_review_draft.py`, the marquee sync and the event media sync all send text through `cp1252_text.py` (#1225):
+
+- Title, content, excerpt, media alt text, caption and description, and term names go out with characters outside cp1252 as numeric references: `Ethọ́s` is sent as `Eth&#7885;&#769;s` and `→` as `&#8594;`. cp1252 text such as `Krüg` or `KK’s` and existing entities are left alone. The readback and the `--update` title guard compare titles after `html.unescape`, so a stored reference still matches.
+- `<style>` and `<script>` bodies are never encoded, because browsers do not decode references there. A character outside cp1252 inside one is refused; write it as a CSS escape (`\2192`) or a JavaScript escape (`\u2192`).
+- The SEO title, SEO description and Publicize message are plain text, so they must fit cp1252 (accents are composed with NFC first). Anything else, combining marks included (they make Jetpack's meta write fail with HTTP 500), stops the connector with exit 9 before any WordPress request, fails the local-draft quality gate, and stops `prepare_review_draft.py --wp-id` before any term or post write. The connector derives these fields from the title and the first paragraph, so a post whose title or opening carries such a character needs a cp1252 spelling there first.
+- C1 control characters (U+0080 to U+009F) are refused everywhere; they usually mean text was decoded with the wrong charset.
+- Any other raw character outside cp1252 left in a request body raises `UnstorableText` before the request is sent.
+- The connector, the local-draft quality gate and `prepare_review_draft.py` check every request a run will make (title, content, excerpt, alt text and term names as well as meta) before the first upload or term write, because media trash is off on this site and an orphaned upload is permanent. The connector exits 9.
 
 ## Category routing
 
@@ -264,6 +279,14 @@ resolution, the slug guard, SEO meta, and declared IDs.
   Dry-run returns `(0, "DRYRUN/<file>")` and never calls WordPress.
 - `find_existing_post_by_slug(wp, slug)` — the create/update guard. Confirm the
   returned record is the intended target before any PATCH (2026-05-15 incident rule).
+  It returns the one post whose slug is exactly `slug`, or `None` when there is
+  none. A failed lookup, two posts sharing the slug, or any hit whose slug is not
+  exactly `slug` raise `SlugVerificationFailed`. WordPress normalizes the slug it
+  queries, so that last case means `slug` is not canonical. `slugify` folds Latin
+  accents to ASCII so the connector asks for the slug WordPress stores. It wraps
+  `wp_client.lookup_slug`, the single slug lookup that
+  `WordPress.find_post_by_slug`, `create_local_wp_draft.assert_slug_available`
+  and `scripts/marquee/wp_sync.py` also use.
 
 ### Declared IDs (`publisher-ids.json`)
 

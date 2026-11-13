@@ -11,6 +11,8 @@ SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPT_DIR))
 
 import publish_common  # noqa: E402
+from cp1252_text import UnstorableText  # noqa: E402
+from wp_client import SlugVerificationFailed  # noqa: E402
 
 
 class PublishCommonTests(unittest.TestCase):
@@ -78,11 +80,9 @@ class PublishCommonTests(unittest.TestCase):
         with self.assertRaises(SystemExit):
             publish_common.validate_media_id(wp, 11976)
 
-    def test_build_seo_meta_strips_combining_marks(self):
-        meta = publish_common.build_seo_meta("Ethọ́s Lab", "desc")
-        self.assertFalse(
-            any(__import__("unicodedata").combining(c) for c in meta["jetpack_seo_html_title"])
-        )
+    def test_build_seo_meta_refuses_combining_marks(self):
+        with self.assertRaisesRegex(UnstorableText, "SEO title .*Combining marks"):
+            publish_common.build_seo_meta("Ethọ́s Lab", "desc")
 
     def test_verify_seo_meta_landed_all_present(self):
         dropped = publish_common.verify_seo_meta_landed(
@@ -358,29 +358,47 @@ class LoadPhotosFromDirTests(unittest.TestCase):
 
 
 class FindExistingPostBySlugTests(unittest.TestCase):
-    def test_returns_first_hit(self):
+    @staticmethod
+    def client(payload, status_code=200):
         wp = mock.Mock()
         wp.base = "https://example.test"
-        wp.s.get.return_value.json.return_value = [{"id": 11}, {"id": 12}]
-        self.assertEqual(publish_common.find_existing_post_by_slug(wp, "a-slug"), {"id": 11})
+        wp.s.get.return_value.status_code = status_code
+        wp.s.get.return_value.json.return_value = payload
+        return wp
+
+    def test_multiple_hits_are_ambiguous_and_raise(self):
+        wp = self.client([{"id": 11, "slug": "a-slug"}, {"id": 12, "slug": "a-slug"}])
+        with self.assertRaisesRegex(SlugVerificationFailed, "11, 12"):
+            publish_common.find_existing_post_by_slug(wp, "a-slug")
 
     def test_queries_any_status_in_edit_context(self):
-        wp = mock.Mock()
-        wp.base = "https://example.test"
-        wp.s.get.return_value.json.return_value = []
+        wp = self.client([])
         publish_common.find_existing_post_by_slug(wp, "a-slug")
         _, kwargs = wp.s.get.call_args
         self.assertEqual(
-            kwargs["params"], {"slug": "a-slug", "status": "any", "context": "edit"}
+            kwargs["params"],
+            {"slug": "a-slug", "status": "any", "per_page": 100, "context": "edit"},
         )
 
-    def test_returns_none_when_absent_or_malformed(self):
-        wp = mock.Mock()
-        wp.base = "https://example.test"
-        wp.s.get.return_value.json.return_value = []
-        self.assertIsNone(publish_common.find_existing_post_by_slug(wp, "a-slug"))
-        wp.s.get.return_value.json.return_value = {"code": "rest_no_route"}
-        self.assertIsNone(publish_common.find_existing_post_by_slug(wp, "a-slug"))
+    def test_returns_the_one_exact_match(self):
+        wp = self.client([{"id": 11, "slug": "a-slug"}])
+        self.assertEqual(
+            publish_common.find_existing_post_by_slug(wp, "a-slug"),
+            {"id": 11, "slug": "a-slug"},
+        )
+
+    def test_returns_none_when_absent(self):
+        self.assertIsNone(publish_common.find_existing_post_by_slug(self.client([]), "a-slug"))
+
+    def test_error_body_raises(self):
+        wp = self.client({"code": "rest_no_route"})
+        with self.assertRaises(SlugVerificationFailed):
+            publish_common.find_existing_post_by_slug(wp, "a-slug")
+
+    def test_hit_with_a_different_slug_raises(self):
+        wp = self.client([{"id": 999, "slug": "another-slug"}])
+        with self.assertRaisesRegex(SlugVerificationFailed, "another-slug"):
+            publish_common.find_existing_post_by_slug(wp, "a-slug")
 
 
 class RawParagraphTests(unittest.TestCase):

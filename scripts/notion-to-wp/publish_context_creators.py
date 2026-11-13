@@ -15,7 +15,10 @@ Marker syntax in post.md:
   ![alt](poster:N)  -> full-width in-body hero, N in 1..5 (staged poster file)
   everything else   -> wp:paragraph
 """
-import re, sys, json, pathlib
+import json
+import pathlib
+import re
+import sys
 from kk_notion_to_wp import WordPress, load_config
 from wp_blocks import inline_image, hero_image
 from publish_common import (
@@ -120,8 +123,8 @@ for key, (fn, alt, caption) in SCREENSHOTS.items():
     shot_media[key] = (mid, url, alt, caption)
 
 print(f"[media] {'wrote' if WRITE else 'DRY'} {len(poster_media)} posters + {len(shot_media)} screenshots")
-for l in media_log:
-    print("   " + l)
+for line in media_log:
+    print("   " + line)
 
 FEATURED_ID = poster_media[1][0]
 
@@ -224,4 +227,9 @@ edit = f"{wp.base}/wp-admin/post.php?post={pid}&action=edit"
 print("\n=== VERIFY ===")
 for k, val in checks.items():
     print(f"  {'OK ' if val else 'FAIL'} {k}")
-print(f"\nPREVIEW: {preview}\nEDIT:    {edit}\nDONE - left as DRAFT.")
+print(f"\nPREVIEW: {preview}\nEDIT:    {edit}")
+failed = [k for k, val in checks.items() if not val]
+if failed:
+    print(f"[FAIL] {len(failed)} verification check(s) failed: {', '.join(failed)}", file=sys.stderr)
+    sys.exit(1)
+print("DONE - left as DRAFT.")

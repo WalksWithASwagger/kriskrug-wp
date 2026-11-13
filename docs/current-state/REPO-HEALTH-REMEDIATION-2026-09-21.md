@@ -70,6 +70,9 @@ smoke result as unavailable.
   named archive payloads are absent. Pagely retention and full restore
   readiness remain unverified; [`BACKUP_PLAN.md`](BACKUP_PLAN.md) is the
   current source of truth.
+- The attached weekly-maintenance worktree and the untracked `.generated/`
+  evidence directory are owned state. This plan does not authorize removing
+  either.
 
 ## Repeatable audit checks
 

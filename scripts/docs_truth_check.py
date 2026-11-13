@@ -26,8 +26,10 @@ DEFAULT_BASES = [
     Path(".github/ISSUE_TEMPLATE/content.yml"),
     Path(".github/ISSUE_TEMPLATE/feature_request.yml"),
     Path(".github/ISSUE_TEMPLATE/performance.yml"),
-    Path(".github/agent-state/README.md"),
-    Path(".github/agents/doc-swarm/README.md"),
+    Path(".github/pull_request_template.md"),
+    Path(".claude/common-failures.md"),
+    Path(".claude/naming-conventions.md"),
+    Path(".github/agents"),
     Path("docs"),
 ]
 
@@ -173,7 +175,10 @@ STALE_FRONT_DOOR_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     ),
 ]
 
-ACTIVE_WORK_PLAN = Path("docs/current-state/WORK-PLAN-2026-09-09.md")
+# Cutting a new roadmap: change this one path and repoint the links in
+# AGENTS.md, docs/INDEX.md and docs/current-state/README.md in the same PR.
+CURRENT_ROADMAP = Path("docs/current-state/ROADMAP-2026-11-12.md")
+RETAINED_PROCEDURES_PLAN = Path("docs/current-state/WORK-PLAN-2026-09-09.md")
 ARCHIVED_WORK_PLAN = Path("docs/current-state/WORK-PLAN-2026-08-25.md")
 
 ACTIVE_GUIDANCE_PATHS = {
@@ -182,7 +187,8 @@ ACTIVE_GUIDANCE_PATHS = {
     Path("docs/INDEX.md"),
     Path("docs/current-state/README.md"),
     Path("docs/current-state/CURRENT-STATE-2026-10-25.md"),
-    ACTIVE_WORK_PLAN,
+    CURRENT_ROADMAP,
+    RETAINED_PROCEDURES_PLAN,
     Path("docs/current-state/MASTER-PLAN-2026-07-30.md"),
 }
 
@@ -232,7 +238,7 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
         ),
         (
             re.compile(r"WORK-PLAN-2026-08-25\.md.*(?:active|current).*runbook", re.I),
-            "The active documentation index must point to `WORK-PLAN-2026-09-09.md`.",
+            "WORK-PLAN-2026-08-25.md is archived; the index must link the current roadmap and treat `WORK-PLAN-2026-09-09.md` as retained procedures.",
         ),
         (
             re.compile(r"correct the remaining issue #4 media identity", re.I),
@@ -252,7 +258,7 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     Path("docs/current-state/CURRENT-STATE-2026-10-25.md"): [
         (
             re.compile(r"(?:Latest dated runbook|front door)[^\n]*WORK-PLAN-2026-08-25\.md", re.I),
-            "The declared snapshot must point to `WORK-PLAN-2026-09-09.md`.",
+            "WORK-PLAN-2026-08-25.md is archived; the declared snapshot must not call it a runbook or front door (retained procedures live in `WORK-PLAN-2026-09-09.md`).",
         ),
         (
             re.compile(r"Open PRs:\s*`1`[^\n]*#710", re.I),
@@ -270,7 +276,7 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     Path("docs/current-state/MASTER-PLAN-2026-07-30.md"): [
         (
             re.compile(r"Day runbook:[^\n]*WORK-PLAN-2026-08-25\.md", re.I),
-            "The master plan must point to `WORK-PLAN-2026-09-09.md`.",
+            "WORK-PLAN-2026-08-25.md is archived; the master plan must not name it as the day runbook (retained procedures live in `WORK-PLAN-2026-09-09.md`).",
         ),
     ],
     Path("docs/current-state/README.md"): [
@@ -301,6 +307,12 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
             "Issue #833 is closed; do not tell agents that #834 is still blocked on it.",
         ),
     ],
+    Path(".github/pull_request_template.md"): [
+        (
+            re.compile(r"PHPUnit|agent-task|Agent Task ID|WordPress-Extra", re.I),
+            "The PR template must describe this repo's real gates; PHPUnit, agent-task and WordPress-Extra belong to the retired swarm.",
+        ),
+    ],
     Path(".claude/context/project-context.md"): PERSONAL_SITE_IDENTITY_PATTERNS,
     Path(".claude/agents-vibe.md"): PERSONAL_SITE_IDENTITY_PATTERNS,
     Path(".github/ISSUE_TEMPLATE/accessibility.yml"): ISSUE_TEMPLATE_IDENTITY_PATTERNS,
@@ -322,37 +334,44 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     ],
 }
 
+ROADMAP_LINK_REQUIREMENT = (
+    re.compile(re.escape(CURRENT_ROADMAP.name)),
+    f"Front doors must link the current roadmap `{CURRENT_ROADMAP.name}`.",
+)
+
+HISTORICAL_BANNER = re.compile(r"STATUS:\s*Historical", re.I)
+
+SWARM_GUIDE_BANNER_REQUIREMENT = (
+    HISTORICAL_BANNER,
+    "Retired swarm guides must carry a `STATUS: Historical` banner.",
+)
+
+NO_DIRECT_PUSH = re.compile(r"No direct pushes to\s+`?main`?", re.I)
+
+MERGE_LANE_POINTER_REQUIREMENT = (
+    re.compile(r"AGENTS\.md#merge-lanes"),
+    "Merge lanes: point to the table at `AGENTS.md#merge-lanes` instead of restating merge rules.",
+)
+
+# The swarm's agent definitions were deleted on 2026-11-12 (#1220). GitHub
+# Copilot and VS Code load custom agents from this directory, so anything that
+# reappears here would surface as a selectable agent.
+RETIRED_SWARM_AGENT_DIR = Path(".github/agents")
+
 REQUIRED_PATH_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
-    Path(".github/agent-state/README.md"): [
+    Path(".claude/common-failures.md"): [SWARM_GUIDE_BANNER_REQUIREMENT],
+    Path(".claude/naming-conventions.md"): [SWARM_GUIDE_BANNER_REQUIREMENT],
+    Path("AGENTS.md"): [ROADMAP_LINK_REQUIREMENT],
+    Path("CONTRIBUTING.md"): [
+        MERGE_LANE_POINTER_REQUIREMENT,
         (
-            re.compile(r"STATUS:\s*Historical", re.I),
-            "Retired swarm documentation must carry a `STATUS: Historical` banner.",
+            NO_DIRECT_PUSH,
+            "Merge lanes: CONTRIBUTING.md must state the same no-direct-push rule as AGENTS.md.",
         ),
     ],
-    Path(".github/agents/doc-swarm/README.md"): [
-        (
-            re.compile(r"STATUS:\s*Historical", re.I),
-            "Retired swarm documentation must carry a `STATUS: Historical` banner.",
-        ),
-    ],
-    Path("AGENTS.md"): [
-        (
-            re.compile(r"WORK-PLAN-2026-09-09\.md"),
-            "Agent orientation must point to the identical active work plan `WORK-PLAN-2026-09-09.md`.",
-        ),
-    ],
-    Path("docs/INDEX.md"): [
-        (
-            re.compile(r"WORK-PLAN-2026-09-09\.md"),
-            "The documentation index must point to the identical active work plan `WORK-PLAN-2026-09-09.md`.",
-        ),
-    ],
-    Path("docs/current-state/README.md"): [
-        (
-            re.compile(r"WORK-PLAN-2026-09-09\.md"),
-            "The current-state front door must point to the identical active work plan `WORK-PLAN-2026-09-09.md`.",
-        ),
-    ],
+    Path(".github/pull_request_template.md"): [MERGE_LANE_POINTER_REQUIREMENT],
+    Path("docs/INDEX.md"): [ROADMAP_LINK_REQUIREMENT],
+    Path("docs/current-state/README.md"): [ROADMAP_LINK_REQUIREMENT],
     Path("docs/current-state/BACKUP_PLAN.md"): [
         (
             re.compile(r"verified local files", re.I),
@@ -404,6 +423,10 @@ STALE_MERGE_POLICY_PATTERNS: list[tuple[re.Pattern[str], str]] = [
         ),
         "Merge policy incorrectly makes human approval universal.",
     ),
+    (
+        re.compile(r"(?:Don't|Do not)\s+push\s+to\s+`?main`?\s+without", re.I),
+        "Merge policy: no change may be pushed directly to `main`; do not imply a go-ahead allows it.",
+    ),
 ]
 
 REQUIRED_AGENT_MERGE_POLICY_PATTERNS: list[tuple[re.Pattern[str], str]] = [
@@ -430,6 +453,32 @@ REQUIRED_AGENT_MERGE_POLICY_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (
         re.compile(r"Theme\s*/\s*plugins[^\n]*inc[^\n]*ask KK before merging", re.I),
         "Merge policy must preserve KK approval for theme, plugin, and `inc/` merges.",
+    ),
+    (
+        re.compile(r"^#+\s*Merge lanes\s*$", re.M),
+        "Merge lanes: AGENTS.md must keep the single lane table under a `Merge lanes` heading.",
+    ),
+    (
+        re.compile(
+            r"^\|\s*Scripts, tests, `?Makefile`?, CI and dependencies\s*\|[^\n]*\|\s*Agent merge after review\s*\|",
+            re.I | re.M,
+        ),
+        "Merge lanes: scripts, tests, Makefile, CI and dependency PRs belong in the agent merge-after-review lane.",
+    ),
+    (
+        re.compile(
+            r"Theme\s*/\s*plugins[^\n]*inc[^\n]*fixes/`?\s*snippet sources[^\n]*ask KK before merging",
+            re.I,
+        ),
+        "Merge lanes: `fixes/` snippet sources stay with theme, plugins and `inc/` in the KK go-ahead lane.",
+    ),
+    (
+        NO_DIRECT_PUSH,
+        "Merge lanes: AGENTS.md must say every change reaches `main` through a branch and PR.",
+    ),
+    (
+        re.compile(r"merge never authorizes a deploy", re.I),
+        "Merge lanes: AGENTS.md must keep live deploys separate from merges.",
     ),
 ]
 
@@ -522,6 +571,17 @@ def scan_file(repo_root: Path, path: Path) -> list[Finding]:
     for pattern, message in REQUIRED_PATH_PATTERNS.get(relative_path, []):
         if not pattern.search(text):
             findings.append(Finding(relative_path, 1, message, ""))
+
+    if is_relative_to(relative_path, RETIRED_SWARM_AGENT_DIR) and not HISTORICAL_BANNER.search(text):
+        findings.append(
+            Finding(
+                relative_path,
+                1,
+                "The retired swarm agent definitions under `.github/agents/` were deleted on "
+                "2026-11-12 (#1220); remove this file or open it with a `STATUS: Historical` banner.",
+                "",
+            )
+        )
 
     if relative_path in ACTIVE_GUIDANCE_PATHS:
         for pattern in STALE_MORNING_TRUTH_FLOW_PATTERNS:

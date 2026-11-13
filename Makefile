@@ -1,27 +1,18 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test ruff-changed javascript-syntax php-syntax plugin-smoke theme-smoke snippet-smoke verify validate issues dashboard stats agent-status backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
+.PHONY: help test python-test ruff-changed ruff-all large-file-check javascript-syntax php-syntax plugin-smoke theme-smoke snippet-smoke verify validate issues dashboard stats backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check changelog env-check varlock-run clean
 
 PYTHON ?= python3
 VARLOCK ?= varlock
 WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-10-25.md
 EXPECT_VERSION_DEFAULT := 7.0.8
-JAVASCRIPT_FILES := \
-	plugins/kk-practice/blocks/context-brief/editor.js \
-	plugins/kk-practice/blocks/context-brief/view.js \
-	plugins/kk-marquee-board/assets/marquee.js \
-	scripts/marquee/render_og.cjs \
-	scripts/tests/north_house_journey_browser.cjs \
-	scripts/tests/test_events_rolloff_browser.cjs \
-	scripts/tests/test_events_rolloff_playwright.cjs \
-	theme/kk-aurora/assets/js/marquee.js \
-	theme/kk-aurora/assets/js/micro-interactions.js \
-	theme/kk-aurora/assets/js/theme.js \
-	fixes/issue-1090-success-event.js \
-	fixes/issue-1090-krug-signup-tag.js \
-	scripts/tests/issue_1090_success_event_harness.cjs \
-	scripts/tests/issue_1090_krug_signup_harness.cjs
+# Every tracked script, so a new file is checked without editing this list.
+# Dated reports under docs/current-state/reports/ are frozen evidence.
+JAVASCRIPT_FILES = $(shell git ls-files -- '*.js' '*.cjs' '*.mjs' \
+	':(exclude,glob)**/node_modules/**' \
+	':(exclude,glob)**/vendor/**' \
+	':(exclude,glob)docs/current-state/reports/**')
 
 # Default target
 .DEFAULT_GOAL := help
@@ -33,7 +24,7 @@ help: ## Show this help message
 	@echo ""
 	@echo "Examples:"
 	@echo "  make doctor"
-	@echo "  make issues FILE=test-data/issues.json"
+	@echo "  make issues FILE=path/to/issues.json"
 
 test: ## Run test suite
 	@echo "Running tests..."
@@ -49,22 +40,30 @@ python-test: ## Run all declared Python test suites
 		exit 1; \
 	}
 	@echo "Publisher unit tests"
-	@$(PYTHON) -m unittest discover -s scripts/notion-to-wp/tests -v
-	@echo "Operational unit tests"
-	@$(PYTHON) -m unittest discover -s scripts/tests -v
+	@$(PYTHON) -m pytest scripts/notion-to-wp/tests -v
+	@echo "Operational and photo-library tests"
+	@$(PYTHON) -m pytest scripts/tests scripts/photo-library/tests -v
 	@echo "SEO inventory unit tests"
-	@$(PYTHON) -m unittest discover -s scripts/seo-audit/tests -v
+	@$(PYTHON) -m pytest scripts/seo-audit/tests -v
 	@echo "SEO backfill and link-safety tests"
 	@$(PYTHON) -m pytest scripts/seo-backfill/tests -q
 
 ruff-changed: ## Check only Python files changed from BASE_REF (default: origin/main)
 	@$(PYTHON) scripts/ruff_changed.py --base-ref "$${BASE_REF:-origin/main}" --ruff "$${RUFF:-ruff}"
 
+ruff-all: ## Local only: CI's Ruff rule set over all of scripts/ except scripts/archive/
+	@$${RUFF:-ruff} check --isolated --select E4,E7,E9,F --exclude scripts/archive scripts
+
+large-file-check: ## Fail on new files over 5 MB or media outside the allowlist since BASE_REF (default: origin/main)
+	@$(PYTHON) scripts/check_large_files.py --base-ref "$${BASE_REF:-origin/main}"
+
 javascript-syntax: ## Check committed JavaScript syntax
 	@command -v node >/dev/null 2>&1 || { echo "ERROR: node is required for JavaScript syntax checks."; exit 1; }
-	@status=0; \
-	for file in $(JAVASCRIPT_FILES); do node --check "$$file" || status=1; done; \
-	if [ "$$status" -ne 0 ]; then echo "javascript-syntax: FAILED (see errors above)"; exit 1; fi
+	@status=0; count=0; \
+	for file in $(JAVASCRIPT_FILES); do count=$$((count + 1)); node --check "$$file" || status=1; done; \
+	if [ "$$count" -eq 0 ]; then echo "ERROR: javascript-syntax found no tracked JavaScript files."; exit 1; fi; \
+	if [ "$$status" -ne 0 ]; then echo "javascript-syntax: FAILED (see errors above)"; exit 1; fi; \
+	echo "javascript-syntax: $$count files passed node --check"
 	@node scripts/tests/issue_706_script_diet_harness.cjs
 	@node scripts/tests/issue_1090_success_event_harness.cjs
 	@node scripts/tests/issue_1090_krug_signup_harness.cjs
@@ -91,6 +90,8 @@ theme-smoke: ## Run lightweight theme behavior smoke tests
 	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for theme smoke tests."; exit 1; }
 	@php theme/kk-aurora/tests/seo-title-smoke.php
 	@php theme/kk-aurora/tests/final-url-smoke.php
+	@php theme/kk-aurora/tests/functions-smoke.php
+	@php theme/kk-aurora/tests/theme-json-smoke.php
 
 snippet-smoke: ## Run smoke tests for live Code Snippets sources in fixes/
 	@command -v php >/dev/null 2>&1 || { echo "ERROR: php is required for snippet smoke tests."; exit 1; }
@@ -101,23 +102,29 @@ verify: ## Run the standard local verification suite
 	@$(MAKE) docs-truth-check
 	@$(MAKE) validate
 
-validate: ## Run PHP syntax gate plus WordPress coding standards check
+validate: ## Run PHP syntax gate, WordPress coding standards and PHP compatibility checks
 	@$(MAKE) php-syntax
 	@echo "Validating WordPress coding standards..."
 	@bash scripts/validate_wordpress.sh
+	@echo "Checking each theme and plugin against its Requires PHP header..."
+	@$(PYTHON) scripts/check_php_compat.py
 
 validate-fix: ## Auto-fix WordPress coding standard violations
 	@echo "Auto-fixing WordPress coding standards..."
 	@bash scripts/validate_wordpress.sh --fix
 
-issues: ## Create issues from JSON/CSV file (use FILE=path.json)
+issues: ## Preview issues from JSON/CSV file; create only with CONFIRM=1 (use FILE=path.json)
 	@if [ -z "$(FILE)" ]; then \
 		echo "❌ Error: Please specify FILE=path.json"; \
-		echo "Example: make issues FILE=test-data/issues.json"; \
+		echo "Example: make issues FILE=path/to/issues.json"; \
 		exit 1; \
 	fi
 	@python3 scripts/batch_create_issues.py --input $(FILE) --dry-run
-	@python3 scripts/batch_create_issues.py --input $(FILE)
+	@if [ "$(CONFIRM)" = "1" ]; then \
+		python3 scripts/batch_create_issues.py --input $(FILE); \
+	else \
+		echo "Dry run only. Re-run with CONFIRM=1 to create these issues on GitHub."; \
+	fi
 
 issues-dry-run: ## Preview issues without creating (use FILE=path.json)
 	@if [ -z "$(FILE)" ]; then \
@@ -156,21 +163,6 @@ stats: ## Show repository statistics
 	@echo ""
 	@echo "Recent Activity:"
 	@gh run list --limit 5
-
-agent-status: ## Show parked agent automation state records
-	@echo "🤖 Agent Automation Status"
-	@echo ""
-	@echo "  Agent PR Generator is parked; auto-implement labels do not start automation."
-	@echo "  Historical state records:"
-	@if [ -d ".github/agent-state" ]; then \
-		find .github/agent-state -name "state.json" -exec sh -c 'jq -r "select(.status == \"in_progress\") | \"Issue #\" + (.issue_number | tostring) + \": \" + .current_stage" {} 2>/dev/null || true' \; | \
-		while read line; do \
-			if [ -n "$$line" ]; then \
-				echo "  ⏳ $$line"; \
-			fi; \
-		done; \
-	fi
-	@echo "  (These records are not proof of active automation.)" 2>/dev/null || true
 
 backup-check: ## Verify a backup set (use BACKUP_DIR=backup/YYYY-MM-DD; STRICT=1 requires restore proof)
 	@if [ -z "$(BACKUP_DIR)" ]; then \
@@ -212,7 +204,7 @@ draft-queue-audit: ## Run read-only draft queue audit (LOCAL_ONLY=1 FORMAT=json)
 		$(VARLOCK) run --inject vars -- scripts/notion-to-wp/.venv/bin/python scripts/notion-to-wp/draft_queue_audit.py --format "$${FORMAT:-markdown}"; \
 	fi
 
-seo-audit: ## Run read-only Jetpack SEO metadata inventory (FORMAT=markdown|json|csv)
+seo-audit: ## Read-only SEO inventory: theme-registered meta on posts; exit 2 if unregistered; see scripts/seo-audit/README.md (FORMAT=markdown|json|csv)
 	@if [ "$${FORMAT:-markdown}" = "csv" ]; then \
 		scripts/notion-to-wp/.venv/bin/python scripts/seo-audit/inventory.py --format csv --output "$${OUTPUT:-content/seo-audit-inventory.csv}"; \
 	elif [ "$${FORMAT:-markdown}" = "json" ]; then \
@@ -243,14 +235,14 @@ performance-audit: ## Run read-only public performance baseline. Args: ROUTES SA
 		$${LONGFORM_URL:+--longform-url "$${LONGFORM_URL}"} \
 		--format "$${FORMAT:-markdown}" $${OUTPUT:+--output "$${OUTPUT}"}
 
-jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/routing audit (FORMAT=json)
+jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/routing audit (FORMAT=json, optional ENV_FILE)
 	@if [ "$${FORMAT:-human}" = "json" ]; then \
-		python3 scripts/jetpack_feedback_audit.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}" --json; \
+		python3 scripts/jetpack_feedback_audit.py $${ENV_FILE:+--env-file "$$ENV_FILE"} --json; \
 	else \
-		python3 scripts/jetpack_feedback_audit.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"; \
+		python3 scripts/jetpack_feedback_audit.py $${ENV_FILE:+--env-file "$$ENV_FILE"}; \
 	fi
 
-wp7-smoke: ## Run read-only public WP rollout smoke checks (BASE_URL=https://kriskrug.co EXPECT_VERSION=7.0.4)
+wp7-smoke: ## Run read-only public WP rollout smoke checks (BASE_URL=https://kriskrug.co EXPECT_VERSION=7.0.8)
 	@python3 scripts/wp7-public-smoke.py --base-url "$${BASE_URL:-https://kriskrug.co}" --timeout "$${REQUEST_TIMEOUT:-20}" $${EXPECT_VERSION:+--expect-version "$$EXPECT_VERSION"}
 
 seo-publisher-smoke: ## Run read-only publisher/schema smoke checks (#425) (BASE_URL=https://kriskrug.co)
@@ -262,8 +254,12 @@ sitemap-followthrough: ## Read-only #274 public sitemap follow-through (BASE_URL
 check-live-parity: ## Detect live-vs-repo Aurora theme version drift (#546) (BASE_URL=https://kriskrug.co)
 	@$(PYTHON) scripts/check_live_theme_parity.py --base "$${BASE_URL:-https://kriskrug.co}"
 
-wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (ENV_FILE=scripts/notion-to-wp/.env)
-	@python3 scripts/wp7-admin-readiness.py --env-file "$${ENV_FILE:-scripts/notion-to-wp/.env}"
+# Needs WordPress credentials: make varlock-run CMD='make payload-parity'
+payload-parity: ## Read-only live content.raw vs tracked page payload check (#1222); exit 0 match, 1 drift, 2 unverified
+	@$(PYTHON) scripts/check_page_payload_parity.py --fail-on-drift
+
+wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (optional ENV_FILE)
+	@python3 scripts/wp7-admin-readiness.py $${ENV_FILE:+--env-file "$$ENV_FILE"}
 
 current-state-drift-check: ## Compare declared current-state snapshot values vs live read-only checks
 	@python3 scripts/check_current_state_drift.py --work-plan "$${WORK_PLAN:-$(WORK_PLAN_DEFAULT)}" --base-url "$${BASE_URL:-https://kriskrug.co}"
@@ -287,7 +283,7 @@ env-check: ## Validate .env.schema via Varlock (soft-OK when secrets are absent)
 		else \
 			echo "env-check: schema is readable; one or more values are missing/unresolved."; \
 			echo "This is expected in Cursor Cloud without secrets, or before local vault wiring."; \
-			echo "Wire WP_USER / WP_APP_PASSWORD (and optional NOTION_TOKEN) via:"; \
+			echo "Wire WP_USER + WP_APP_PASSWORD, or WP_API_USERNAME + WP_API_PASSWORD (and optional NOTION_TOKEN) via:"; \
 			echo "  - ~/.agents/env/values/.env.shared.local or .env.kriskrug-wp.local"; \
 			echo "  - cloud-agent secrets / process env"; \
 			echo "Then: $(VARLOCK) run --inject vars -- make status-readonly"; \
@@ -317,6 +313,9 @@ varlock-run: ## Run CMD with Varlock-injected env (requires varlock + resolved s
 
 docs-truth-check: ## Scan non-evidence docs for known stale current-state claims
 	@python3 scripts/docs_truth_check.py --exclude docs/current-state/reports --exclude docs/current-state/raw
+
+changelog: ## Print merged PRs grouped by area since SINCE=YYYY-MM-DD for CHANGELOG.md
+	@$(PYTHON) scripts/changelog_from_prs.py --since "$(SINCE)" $(if $(UNTIL),--until "$(UNTIL)")
 
 voice-check: ## Hard-rule voice gate: em dashes + slop lexicon in payload copy and theme strings (#747)
 	@$(PYTHON) scripts/voice_check.py $(FILES)
@@ -422,7 +421,7 @@ visual-prune: ## Delete old capture dirs pair-safely; set DRY_RUN=1 to preview
 	@$(VISUAL) prune $(if $(KEEP),--keep $(KEEP),) $(if $(DRY_RUN),--dry-run,)
 
 .PHONY: practice-preview practice-test practice-browser-test practice-package
-practice-preview: ## Start a disposable real WordPress 7.0.4/Aurora fixture
+practice-preview: ## Start a disposable real WordPress/Aurora Playground fixture (version pinned in scripts/tests/playground-wordpress.mjs)
 	@node plugins/kk-practice/tests/preview.mjs
 
 practice-test: ## Verify practice source contracts, fallback and asset budget

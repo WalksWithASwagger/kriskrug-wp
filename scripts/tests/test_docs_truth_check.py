@@ -1,3 +1,4 @@
+import re
 import sys
 import tempfile
 import unittest
@@ -92,7 +93,11 @@ class EphemeralMorningTruthGuidanceTests(unittest.TestCase):
 
 
 class ActiveFrontDoorRegressionTests(unittest.TestCase):
-    def test_current_work_plan_is_in_active_guidance_set(self):
+    def test_roadmap_and_retained_procedures_are_in_active_guidance_set(self):
+        self.assertIn(
+            docs_truth_check.CURRENT_ROADMAP,
+            docs_truth_check.ACTIVE_GUIDANCE_PATHS,
+        )
         self.assertIn(
             Path("docs/current-state/WORK-PLAN-2026-09-09.md"),
             docs_truth_check.ACTIVE_GUIDANCE_PATHS,
@@ -195,7 +200,7 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
     def test_delegates_issue_count_truth_to_live_drift_contract(self):
         samples = {
             "docs/current-state/README.md": (
-                "WORK-PLAN-2026-09-09.md\n0 open PRs, 43 open issues.\n"
+                "ROADMAP-2026-11-12.md\n0 open PRs, 43 open issues.\n"
             ),
             "docs/current-state/CURRENT-STATE-2026-10-25.md": "Open issues: `40`.\n",
         }
@@ -204,6 +209,34 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
             with self.subTest(path=path):
                 findings = scan_text(path, text)
                 self.assertFalse(findings)
+
+
+class PullRequestTemplateTests(unittest.TestCase):
+    def test_template_is_scanned_by_default(self):
+        self.assertIn(
+            Path(".github/pull_request_template.md"),
+            docs_truth_check.DEFAULT_BASES,
+        )
+
+    def test_rejects_retired_swarm_fields(self):
+        samples = [
+            "**PHPUnit Results**:\n",
+            "**Agent Task ID**: <!-- gh agent-task ID -->\n",
+            "- Standard: WordPress-Extra\n",
+        ]
+
+        for sample in samples:
+            with self.subTest(sample=sample):
+                findings = scan_text(".github/pull_request_template.md", sample)
+                self.assertTrue(
+                    any("retired swarm" in finding.message for finding in findings)
+                )
+
+    def test_accepts_the_committed_template(self):
+        repo_root = Path(__file__).resolve().parents[2]
+        template = repo_root / ".github/pull_request_template.md"
+
+        self.assertEqual(docs_truth_check.scan_file(repo_root, template), [])
 
 
 class PersonalSiteIdentityRegressionTests(unittest.TestCase):
@@ -250,24 +283,9 @@ class PersonalSiteIdentityRegressionTests(unittest.TestCase):
             Path(".github/ISSUE_TEMPLATE/content.yml"),
             Path(".github/ISSUE_TEMPLATE/feature_request.yml"),
             Path(".github/ISSUE_TEMPLATE/performance.yml"),
-            Path(".github/agent-state/README.md"),
-            Path(".github/agents/doc-swarm/README.md"),
         }
 
         self.assertTrue(expected.issubset(set(docs_truth_check.DEFAULT_BASES)))
-
-    def test_dormant_agent_guides_require_historical_banner(self):
-        samples = {
-            ".github/agent-state/README.md": "# Agent State Directory\n\nUsage instructions.\n",
-            ".github/agents/doc-swarm/README.md": "# Documentation Swarm\n\nComing soon.\n",
-        }
-
-        for path, text in samples.items():
-            with self.subTest(path=path):
-                findings = scan_text(path, text)
-                self.assertTrue(
-                    any("STATUS: Historical" in finding.message for finding in findings)
-                )
 
     def test_rejects_audited_access_and_work_plan_drift(self):
         samples = {
@@ -285,6 +303,99 @@ class PersonalSiteIdentityRegressionTests(unittest.TestCase):
                 self.assertTrue(
                     any("audited current-state" in finding.message for finding in findings)
                 )
+
+
+class RetiredSwarmSurfaceTests(unittest.TestCase):
+    SWARM_GUIDES = (".claude/common-failures.md", ".claude/naming-conventions.md")
+
+    def test_default_scan_covers_retained_guides_and_agent_directory(self):
+        expected = {Path(path) for path in self.SWARM_GUIDES} | {Path(".github/agents")}
+
+        self.assertTrue(expected.issubset(set(docs_truth_check.DEFAULT_BASES)))
+
+    def test_deleted_swarm_records_are_no_longer_required(self):
+        for path in (".github/agent-state/README.md", ".github/agents/doc-swarm/README.md"):
+            with self.subTest(path=path):
+                self.assertNotIn(Path(path), docs_truth_check.DEFAULT_BASES)
+                self.assertNotIn(Path(path), docs_truth_check.REQUIRED_PATH_PATTERNS)
+
+    def test_retained_guides_fail_without_banner(self):
+        for path in self.SWARM_GUIDES:
+            with self.subTest(path=path):
+                findings = scan_text(path, "# Guide\n\nCheck the agent state file.\n")
+                self.assertTrue(
+                    any("STATUS: Historical" in finding.message for finding in findings)
+                )
+
+    def test_retained_guides_pass_with_banner(self):
+        for path in self.SWARM_GUIDES:
+            with self.subTest(path=path):
+                findings = scan_text(path, "# Guide\n\n> **STATUS: Historical.** Retired.\n")
+                self.assertFalse(
+                    any("STATUS: Historical" in finding.message for finding in findings)
+                )
+
+    def test_committed_guides_carry_the_banner(self):
+        repo_root = Path(__file__).resolve().parents[2]
+
+        for path in self.SWARM_GUIDES:
+            with self.subTest(path=path):
+                self.assertEqual(docs_truth_check.scan_file(repo_root, repo_root / path), [])
+
+    def test_recreated_agent_definition_without_banner_fails_default_scan(self):
+        for relative in (
+            ".github/agents/orchestrator.agent.md",
+            ".github/agents/doc-swarm/readme-writer.agent.md",
+        ):
+            with self.subTest(path=relative), tempfile.TemporaryDirectory() as tmp:
+                repo_root = Path(tmp).resolve()
+                agent = repo_root / relative
+                agent.parent.mkdir(parents=True)
+                agent.write_text("# Orchestrator\n\nRun gh agent-task create.\n", encoding="utf-8")
+
+                files = docs_truth_check.iter_markdown_files(
+                    repo_root, docs_truth_check.DEFAULT_BASES, []
+                )
+                findings = [
+                    finding
+                    for file in files
+                    for finding in docs_truth_check.scan_file(repo_root, file)
+                ]
+
+                self.assertEqual(files, [agent.resolve()])
+                self.assertTrue(
+                    any("deleted on 2026-11-12" in finding.message for finding in findings)
+                )
+
+    def test_bannered_agent_definition_passes(self):
+        findings = scan_text(
+            ".github/agents/orchestrator.agent.md",
+            "# Orchestrator\n\n> **STATUS: Historical.** Retired swarm.\n",
+        )
+
+        self.assertFalse(
+            any("deleted on 2026-11-12" in finding.message for finding in findings)
+        )
+
+
+CURRENT_MERGE_CONTRACT = "\n".join(
+    [
+        "- **No direct pushes to `main`.** Every change goes through a branch and a PR.",
+        "",
+        "### Merge lanes",
+        "",
+        "| Lane | Paths | Who merges |",
+        "|---|---|---|",
+        "| Content and docs | `content/`, `docs/` | Agent merge |",
+        "| Scripts, tests, `Makefile`, CI and dependencies | `scripts/`, `Makefile` | Agent merge after review |",
+        "| Theme / plugins / `inc/` / `fixes/` snippet sources | `theme/kk-aurora/` | KK go-ahead: ask KK before merging |",
+        "",
+        "- **Agent merge:** `main` requires 0 approving reviews, `Test PR / summary` green,",
+        "  and the branch up to date with `main`.",
+        "- Merge with `gh pr merge <n> --squash --delete-branch`, no `--admin`.",
+        "- **A merge never authorizes a deploy.**",
+    ]
+)
 
 
 class MergePolicyGuidanceTests(unittest.TestCase):
@@ -329,19 +440,91 @@ class MergePolicyGuidanceTests(unittest.TestCase):
         self.assertTrue(any("0 approving reviews" in finding.message for finding in findings))
 
     def test_agents_accepts_the_current_merge_contract(self):
-        findings = scan_text(
-            "AGENTS.md",
-            "\n".join(
-                [
-                    "Theme / plugins / `inc/` / live deploy PRs: ask KK before merging.",
-                    "Content/docs-only PRs: `main` requires 0 approving reviews.",
-                    "Require `Test PR / summary` green and the branch up to date with `main`.",
-                    "Merge with `gh pr merge <n> --squash --delete-branch`; no `--admin`.",
-                ]
-            ),
+        findings = scan_text("AGENTS.md", CURRENT_MERGE_CONTRACT)
+
+        self.assertFalse(
+            any(
+                "Merge policy" in finding.message or "Merge lanes" in finding.message
+                for finding in findings
+            )
         )
 
-        self.assertFalse(any("Merge policy" in finding.message for finding in findings))
+    def test_agents_requires_the_merge_lane_table(self):
+        old_two_lane_contract = "\n".join(
+            [
+                "- **Theme / plugins / `inc/` / live deploy PRs:** ask KK before merging.",
+                "- **Content/docs-only PRs:** `main` requires 0 approving reviews,",
+                "  `Test PR / summary` green, and the branch up to date with `main`.",
+                "  Merge with `gh pr merge <n> --squash --delete-branch`, no `--admin`.",
+            ]
+        )
+
+        messages = [finding.message for finding in scan_text("AGENTS.md", old_two_lane_contract)]
+
+        for expected in (
+            "`Merge lanes` heading",
+            "agent merge-after-review lane",
+            "`fixes/` snippet sources",
+            "through a branch and PR",
+            "live deploys separate",
+        ):
+            with self.subTest(expected=expected):
+                self.assertTrue(any(expected in message for message in messages))
+
+    def test_scripts_lane_must_be_agent_merge_after_review(self):
+        misfiled = CURRENT_MERGE_CONTRACT.replace(
+            "| `scripts/`, `Makefile` | Agent merge after review |",
+            "| `scripts/`, `Makefile` | KK go-ahead |",
+        )
+
+        findings = scan_text("AGENTS.md", misfiled)
+
+        self.assertTrue(
+            any("agent merge-after-review lane" in finding.message for finding in findings)
+        )
+
+    def test_rejects_conditional_direct_push_wording(self):
+        sample = (
+            "- Don't push to `main` without KK's go-ahead if the change touches "
+            "prod-rendering code.\n"
+        )
+
+        for path in ("AGENTS.md", "CONTRIBUTING.md"):
+            with self.subTest(path=path):
+                findings = scan_text(path, sample)
+                self.assertTrue(
+                    any("pushed directly to `main`" in finding.message for finding in findings)
+                )
+
+    def test_contributing_and_template_must_point_to_the_lane_table(self):
+        for path in ("CONTRIBUTING.md", ".github/pull_request_template.md"):
+            with self.subTest(path=path):
+                missing = scan_text(path, "Content/docs-only PRs may use the normal merge path.\n")
+                self.assertTrue(
+                    any("AGENTS.md#merge-lanes" in finding.message for finding in missing)
+                )
+                pointed = scan_text(
+                    path,
+                    "No direct pushes to `main`. See the [lane table](AGENTS.md#merge-lanes).\n",
+                )
+                self.assertFalse(
+                    any("Merge lanes" in finding.message for finding in pointed)
+                )
+
+    def test_contributing_must_state_the_direct_push_rule(self):
+        findings = scan_text(
+            "CONTRIBUTING.md",
+            "See the [lane table](AGENTS.md#merge-lanes).\n",
+        )
+
+        self.assertTrue(any("no-direct-push rule" in finding.message for finding in findings))
+
+    def test_committed_merge_docs_pass(self):
+        repo_root = Path(__file__).resolve().parents[2]
+
+        for path in ("AGENTS.md", "CONTRIBUTING.md", ".github/pull_request_template.md"):
+            with self.subTest(path=path):
+                self.assertEqual(docs_truth_check.scan_file(repo_root, repo_root / path), [])
 
     def test_default_scan_can_include_the_environment_schema(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -398,7 +581,13 @@ class AuthorityHubAndReleaseGuidanceTests(unittest.TestCase):
 
         self.assertFalse(any("begin #830" in finding.message.lower() for finding in findings))
 
-    def test_front_doors_require_the_same_active_work_plan(self):
+    def test_no_checker_message_calls_the_september_plan_active(self):
+        source = Path(docs_truth_check.__file__).read_text(encoding="utf-8")
+
+        self.assertIsNone(re.search(r"active\s+work\s+plan", source))
+
+    def test_front_doors_require_the_current_roadmap_link(self):
+        roadmap = docs_truth_check.CURRENT_ROADMAP.name
         for path in (
             "AGENTS.md",
             "docs/INDEX.md",
@@ -407,7 +596,11 @@ class AuthorityHubAndReleaseGuidanceTests(unittest.TestCase):
             with self.subTest(path=path):
                 findings = scan_text(path, "Read CURRENT-STATE-2026-09-21.md first.\n")
                 self.assertTrue(
-                    any("WORK-PLAN-2026-09-09.md" in finding.message for finding in findings)
+                    any(roadmap in finding.message for finding in findings)
+                )
+                linked = scan_text(path, f"Start with [roadmap]({roadmap}).\n")
+                self.assertFalse(
+                    any(roadmap in finding.message for finding in linked)
                 )
 
     def test_rejects_mutable_current_release_note_in_checklist(self):

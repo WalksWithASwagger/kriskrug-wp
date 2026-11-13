@@ -10,7 +10,7 @@ This repository is the **operations + content hub** for [kriskrug.co](https://kr
 
 **If you're an AI agent landing in this repo cold, start at [`AGENTS.md`](AGENTS.md).**
 
-Current priorities: [November 11 roadmap](docs/current-state/ROADMAP-2026-11-11.md).
+Current priorities: [November 12 roadmap](docs/current-state/ROADMAP-2026-11-12.md).
 The [maintenance report](docs/current-state/reports/repo-maintenance-2026-11-11.md)
 records verification, issue reconciliation, and branch recovery.
 
@@ -68,7 +68,7 @@ plugins/
 docs/current-state/              # Dated truth snapshots plus recovery/redesign handoffs
   ├── README.md                  # Index of the snapshot
   ├── CURRENT-STATE-*.md         # Dated snapshots; Makefile names the drift baseline
-  ├── ROADMAP-2026-11-11.md      # Current priorities and acceptance gates
+  ├── ROADMAP-2026-11-12.md      # Current priorities and acceptance gates
   ├── WORK-PLAN-*.md             # Dated runbooks; read their status before acting
   ├── MASTER-PLAN-2026-07-30.md  # Historical hygiene plan
   ├── TWO-TRACK-MODEL.md         # The active operating model
@@ -80,7 +80,7 @@ docs/current-state/              # Dated truth snapshots plus recovery/redesign 
   ├── archive/                   # Superseded May–June audits (SITE_INVENTORY, REPO_STATE, SEO_AUDIT, CONTENT_AUDIT, FIX_QUEUE, ROADMAP, FULL-AUDIT-ROADMAP-2026-05-18)
   └── raw/                       # Underlying API/HTML evidence behind the audit
 
-issues-to-create/                # Markdown drafts of GitHub issues waiting to be filed
+issues-to-create/                # Historical issue payloads and a few contingent stubs (new issues go straight to GitHub)
 
 inc/                             # Custom WordPress modules (e.g., digital-composting CPT)
 
@@ -90,15 +90,14 @@ inc/                             # Custom WordPress modules (e.g., digital-compo
 ### Where to start
 
 - **Reading the site state:** `docs/current-state/README.md`
-- **Planning next work:** the newest dated `docs/current-state/CURRENT-STATE-*.md` and `docs/current-state/WORK-PLAN-*.md` (the index in `docs/current-state/README.md` names the current ones)
+- **Planning next work:** `docs/current-state/README.md` and the [November 12 roadmap](docs/current-state/ROADMAP-2026-11-12.md). Dated `WORK-PLAN-*.md` files are retained procedures or history; read their status banner first
 - **Current startup truth:** `make status-readonly` prints current repo/site signals without writing a file
 - **Local generated report:** `make morning-truth` writes to the gitignored `.generated/current-state/` directory
 - **Durable checkpoint:** `make morning-truth-checkpoint` writes to `docs/current-state/reports/` only for an explicit release, incident, durable decision, or handoff
-- **Latest diagnostic truth:** `docs/current-state/archive/DIAGNOSTIC-POLISH-2026-05-20.md` (May 2026, archived)
-- **Longer roadmap references:** `docs/current-state/archive/ROADMAP.md` and `docs/current-state/archive/FIX_QUEUE.md` (archived; the live backlog is the GitHub issue list)
+- **Backlog:** the open GitHub issue list. `docs/current-state/archive/ROADMAP.md` and `archive/FIX_QUEUE.md` are archived evidence, not guidance
 - **Publishing a Notion post:** `scripts/notion-to-wp/README.md`
 - **Reviewing staged drafts:** `content/drafts/README.md`
-- **Filing an issue:** `issues-to-create/` for drafts; existing ones at [WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
+- **Filing an issue:** `issues-to-create/` is historical (write new issues directly on GitHub); existing ones at [WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues)
 
 ## How work happens here
 
@@ -127,7 +126,7 @@ FSE theme rebuild and polish. Touches `theme/kk-aurora/`, FSE templates, theme.j
 - Worktree safety: run `git worktree list` before editing. Treat every listed
   side worktree as owned until its branch, PR, and filesystem state are
   verified; do not rely on hard-coded paths from historical handoffs.
-- Migration plan: [`docs/current-state/AURORA-MIGRATION-PLAN.md`](docs/current-state/archive/AURORA-MIGRATION-PLAN.md)
+- Archived migration plan (historical, retired Cloudways and `aurora/v2` steps; do not follow): [`docs/current-state/archive/AURORA-MIGRATION-PLAN.md`](docs/current-state/archive/AURORA-MIGRATION-PLAN.md)
 
 ### Which track am I in?
 
@@ -140,7 +139,7 @@ If you're editing a post, page, schema, redirect, or category → Track A. If yo
 There is no local app server. The live WordPress site runs on Pagely and is not file-synced with this repo. "Running" this repo means the CLI and validation surfaces:
 
 - `make status-readonly` for startup truth; use `make morning-truth` only when a local generated copy is useful
-- `make test` for the local test suite (Python, JavaScript syntax, plugin and theme smoke)
+- `make test` for the local test suite (Python, JavaScript syntax, plugin and theme smoke). CI runs these as separate jobs with their own triggers; see [What CI runs](CONTRIBUTING.md#what-ci-runs)
 - `make ruff-changed BASE_REF=origin/main` for the E4/E7/E9/F Ruff baseline on Python files changed by the current branch; the existing repo-wide backlog is not part of this ratchet
 - `make validate` for the WordPress PHP security ruleset (run `composer install` first)
 - `make verify` for the standard local gate (test + docs-truth-check + validate)
@@ -163,8 +162,8 @@ Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](do
 3. Use issue templates when filing new issues
 4. Run `composer install` once, then `make verify` before submitting code changes
 
-### Historical / parked: GitHub Actions agent swarm
-`.github/agents/` defines an older issue-to-PR pipeline (orchestrator → analyzer → test-writer → implementer → QA → reviewer → PR creator). It produced PRs #71 and #72 in May 2026 and is not used by current sessions. `agent-pr-generator.yml` was deleted 2026-08-23. `test-pr.yml` remains active PR validation. Auto-Triage Issues and Marquee Weekly Scan still have workflow files; the Actions API reported both `disabled_manually` on 2026-09-30, and the disable reason is unknown. File presence is not enablement. See [`docs/current-state/AGENT-RUNTIME-REFERENCE.md`](docs/current-state/AGENT-RUNTIME-REFERENCE.md). Historical swarm write-ups live in [`docs/architecture.md`](docs/architecture.md) and [`docs/automation-guide.md`](docs/automation-guide.md).
+### Historical: GitHub Actions agent swarm (retired)
+An older issue-to-PR pipeline (orchestrator → analyzer → test-writer → implementer → QA → reviewer → PR creator) produced PRs #71 and #72 in May 2026 and is not used by current sessions. `agent-pr-generator.yml` was deleted 2026-08-23. On 2026-11-12 (#1220, KK's ruling) the swarm's agent definitions (`.github/agents/`), state records (`.github/agent-state/`), config (`.github/agent-config/`) and the two manually disabled workflows, Auto-Triage Issues and Marquee Weekly Scan, were deleted; git history keeps them. `test-pr.yml` and `backlog-reconcile.yml` remain the active repo workflows. See [`docs/current-state/AGENT-RUNTIME-REFERENCE.md`](docs/current-state/AGENT-RUNTIME-REFERENCE.md). Historical swarm write-ups live in [`docs/architecture.md`](docs/architecture.md) and [`docs/automation-guide.md`](docs/automation-guide.md).
 
 ## Technology Stack
 
@@ -173,7 +172,7 @@ Start at [`AGENTS.md`](AGENTS.md), then read [`docs/current-state/README.md`](do
 - **Custom code:** PHP snippets (Code Snippets plugin on prod), `inc/digital-composting.php`, and packaged helper plugins such as `plugins/kk-sidebar-promos/`
 - **CLI Tools:** GitHub CLI (`gh`), Claude Code / Cursor agents
 - **Languages:** PHP, JavaScript, Python, Bash
-- **CI runtimes:** PHP 8.2, Python 3.12, Node 20 for JavaScript syntax, and Node 24 for the WordPress Playground browser job (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)); Playground 3.1.62 requires Node >=24.18.0 and npm >=11.16.0. The Aurora theme itself declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css)
+- **CI runtimes:** PHP 8.2, Python 3.12, and Node 24 for both JavaScript syntax and the WordPress Playground browser job (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)); Playground 3.1.62 requires Node >=24.18.0 and npm >=11.16.0. The Aurora theme itself declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css)
 
 ## Issue Labels
 

@@ -239,4 +239,23 @@ kk_sp_assert_same( 'event-1', $events[0]['uid'], 'VEVENT UID should parse.' );
 kk_sp_assert_same( 'Vancouver AI, Community Night', $events[0]['summary'], 'Escaped commas should be unescaped.' );
 kk_sp_assert_same( 'https://lu.ma/example', $events[0]['url'], 'VEVENT URL should parse.' );
 
+$fixed_now = strtotime( '2026-05-20 12:00:00 UTC' );
+$ical      = "BEGIN:VCALENDAR\r\n"
+	. "BEGIN:VEVENT\r\nUID:started-2h-ago\r\nDTSTART:20260520T100000Z\r\nSUMMARY:Already started\r\nEND:VEVENT\r\n"
+	. "BEGIN:VEVENT\r\nUID:starts-in-2h\r\nDTSTART:20260520T140000Z\r\nSUMMARY:Starting soon\r\nEND:VEVENT\r\n"
+	. "BEGIN:VEVENT\r\nUID:starts-in-2d\r\nDTSTART:20260522T120000Z\r\nSUMMARY:Later\r\nEND:VEVENT\r\n"
+	. "END:VCALENDAR\r\n";
+$events    = kk_sp_parse_ical( $ical );
+kk_sp_assert_same( $fixed_now - 2 * HOUR_IN_SECONDS, $events[0]['start_ts'], 'UTC DTSTART should parse to real Unix time.' );
+kk_sp_assert_same(
+	'starts-in-2h',
+	kk_sp_pick_next_event( $events, $fixed_now )['uid'],
+	'The event starting in 2 hours should be picked, not the one that started 2 hours ago.'
+);
+kk_sp_assert_same(
+	null,
+	kk_sp_pick_next_event( [ $events[0] ], $fixed_now ),
+	'An event that started 2 hours ago should not be picked as upcoming.'
+);
+
 echo "KK Sidebar Promos smoke tests passed." . PHP_EOL;

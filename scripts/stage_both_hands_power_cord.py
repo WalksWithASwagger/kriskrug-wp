@@ -11,7 +11,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
 WP_HELPERS = REPO_ROOT / "scripts" / "notion-to-wp"
 
-import sys
+import sys  # noqa: E402 (sys.path must be set before the sibling import below)
 
 sys.path.insert(0, str(WP_HELPERS))
 from wp_blocks import heading, inline, separator  # noqa: E402

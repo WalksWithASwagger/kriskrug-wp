@@ -1530,7 +1530,7 @@ events:
   title: 'Prompt Victoria: Field Notes From the Rooms Where AI Gets Real'
   date: '2026-11-05'
   end: '2026-11-05T12:00:00-07:00'
-  bucket_hint: upcoming
+  bucket_hint: past
   kind: external
   role: Speaker
   url: https://promptvictoria.ca/speaker/kris-krug/
@@ -1584,6 +1584,20 @@ events:
   kind: meetup
   role: Host & MC
   url: https://luma.com/nov-vanai
+  docs:
+    recap: []
+    photos: []
+    video: []
+  image: {}
+  status: confirmed
+- id: vancouver-ai-meetup-2026-12-16
+  title: 'Vancouver AI Community Meetup: December 2026'
+  date: '2026-12-16'
+  end_date: '2026-12-16'
+  location: H.R. MacMillan Space Centre, Vancouver
+  kind: meetup
+  role: Host & MC
+  url: https://luma.com/dec-vanai
   docs:
     recap: []
     photos: []

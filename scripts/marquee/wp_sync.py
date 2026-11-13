@@ -19,6 +19,7 @@ from render import post_content
 
 # Reuse the pure title-similarity guard from the Notion connector (difflib only, no heavy deps).
 sys.path.insert(0, str(ROOT / "scripts" / "notion-to-wp"))
+from cp1252_text import storable_payload  # noqa: E402
 from update_safety import title_similarity, TITLE_SIMILARITY_UPDATE_THRESHOLD  # noqa: E402
 
 POST_TYPE = "marquee_board"
@@ -61,12 +62,11 @@ class MarqueeWP:
         self.s.headers.update({"Authorization": f"Basic {token}"})
 
     def find_by_slug(self, slug: str):
-        r = self.s.get(f"{self.base}/wp-json/wp/v2/{POST_TYPE}",
-                       params={"slug": slug, "status": "any", "per_page": 5, "context": "edit"}, timeout=30)
-        if r.status_code != 200:
-            return None
-        hits = r.json()
-        return hits[0]["id"] if isinstance(hits, list) and len(hits) == 1 else None
+        """Board ID for a unique slug match, None when absent; raises SlugVerificationFailed otherwise."""
+        # Lazy: wp_client pulls in requests and python-dotenv, which the dry-run path never needs.
+        from wp_client import lookup_slug
+        record = lookup_slug(self, slug, POST_TYPE).unique_or_none()
+        return record["id"] if record else None
 
     def get(self, post_id: int) -> dict:
         r = self.s.get(f"{self.base}/wp-json/wp/v2/{POST_TYPE}/{post_id}?context=edit", timeout=30)
@@ -74,12 +74,13 @@ class MarqueeWP:
         return r.json()
 
     def create(self, payload: dict) -> dict:
-        r = self.s.post(f"{self.base}/wp-json/wp/v2/{POST_TYPE}", json=payload, timeout=60)
+        r = self.s.post(f"{self.base}/wp-json/wp/v2/{POST_TYPE}", json=storable_payload(payload), timeout=60)
         r.raise_for_status()
         return r.json()
 
     def update(self, post_id: int, payload: dict) -> dict:
-        r = self.s.post(f"{self.base}/wp-json/wp/v2/{POST_TYPE}/{post_id}", json=payload, timeout=60)
+        r = self.s.post(f"{self.base}/wp-json/wp/v2/{POST_TYPE}/{post_id}", json=storable_payload(payload),
+                        timeout=60)
         r.raise_for_status()
         return r.json()
 
@@ -92,7 +93,7 @@ class MarqueeWP:
         media = r.json()
         if alt:
             self.s.post(f"{self.base}/wp-json/wp/v2/media/{media['id']}",
-                        json={"alt_text": alt}, timeout=30).raise_for_status()
+                        json=storable_payload({"alt_text": alt}), timeout=30).raise_for_status()
         return media
 
 
@@ -119,7 +120,8 @@ def build_payload(board: dict) -> dict:
 
 def sync_board(wp, board: dict, og_png: Path | None, *, execute: bool, allow_update: bool, log=print) -> dict:
     """Create (default) or update one board. Returns an outcome dict. No writes unless execute."""
-    payload = build_payload(board)
+    # Encoded and checked up front so a refusal lands before the featured image upload.
+    payload = storable_payload(build_payload(board))
     slug = payload["slug"]
     out = {"slug": slug, "status": "planned"}
 

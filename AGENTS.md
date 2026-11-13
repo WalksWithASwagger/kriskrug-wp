@@ -10,7 +10,7 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 
 1. [`docs/current-state/README.md`](docs/current-state/README.md) — current-state front door; run `make status-readonly` for live counters
 2. [`docs/current-state/CURRENT-STATE-2026-10-25.md`](docs/current-state/CURRENT-STATE-2026-10-25.md) — declared snapshot for drift/morning-truth (Makefile default)
-3. [`docs/current-state/ROADMAP-2026-11-11.md`](docs/current-state/ROADMAP-2026-11-11.md) — prioritized remaining work and completion gates
+3. [`docs/current-state/ROADMAP-2026-11-12.md`](docs/current-state/ROADMAP-2026-11-12.md) — direction, priority themes, agent lane and Kris's decision queue through March 2027
 4. [`docs/current-state/WORK-PLAN-2026-09-09.md`](docs/current-state/WORK-PLAN-2026-09-09.md) — retained live-lane procedures; its September issue queue is historical
 5. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — Track A / Track B decision rule
 6. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — standing publisher safety rules
@@ -22,7 +22,7 @@ Older May–June plans live under [`docs/current-state/archive/`](docs/current-s
 
 | | Track A — Content + SEO | Track B — Aurora theme |
 |---|---|---|
-| Branch | `main` (or feature branch from `main`) | `main` (or feature branch from `main`) |
+| Branch | Feature branch from `main`, merged by PR | Feature branch from `main`, merged by PR |
 | Touches | Posts, pages, media, taxonomies, Code Snippets (PHP/CSS), schema JSON-LD, redirects, alt text | `theme/kk-aurora/`, FSE templates, theme.json |
 | Lives in | `content/drafts/`, `fixes/`, `scripts/notion-to-wp/`, `docs/current-state/` | `theme/kk-aurora/`, `docs/current-state/AURORA-*` |
 | Owner | Publisher-mode session | Architect-mode session |
@@ -42,11 +42,13 @@ Legacy branch split context is in [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-
 
 Use `docs/current-state/README.md`, the active operating docs, and fresh
 GitHub readback for current operating state. A workflow YAML file is not an
-enabled workflow: Auto-Triage Issues and Marquee Weekly Scan were
-`disabled_manually` on the 2026-09-30 Actions API readback, reason unknown.
-Bannered historical documents, the retired GitHub Actions swarm, old Cloudways
-setup, and `aurora/v2` branch references are evidence only. Do not revive
-their commands or workflows, and do not re-enable those two workflows.
+enabled workflow; read the Actions API before claiming one runs. Auto-Triage
+Issues and Marquee Weekly Scan sat `disabled_manually` and were deleted on
+2026-11-12 by KK's ruling (#1220), together with the swarm's agent
+definitions, state records and config. Do not recreate those two workflows or
+the swarm files. Bannered historical documents, the retired GitHub Actions
+swarm, old Cloudways setup, and `aurora/v2` branch references are evidence
+only. Do not revive their commands or workflows.
 
 ## How to publish a post (Track A)
 
@@ -54,16 +56,30 @@ See [`scripts/notion-to-wp/README.md`](scripts/notion-to-wp/README.md). Short ve
 
 ## How to file an issue
 
-`issues-to-create/` holds markdown drafts. Filed issues live at [github.com/WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues).
+`issues-to-create/` holds historical payloads plus a few contingent stubs; write new issues directly on GitHub. Filed issues live at [github.com/WalksWithASwagger/kriskrug-wp/issues](https://github.com/WalksWithASwagger/kriskrug-wp/issues).
 
 ## How to commit
 
 - Commit messages: `<area>: <short imperative>` — e.g. `content: ...`, `docs: ...`, `feat: ...`, `fix: ...`.
 - One concern per commit. Don't bundle content edits with doc edits with theme edits.
-- Don't push to `main` without KK's go-ahead if the change touches prod-rendering code (schema, redirects, custom snippets).
+- **No direct pushes to `main`.** Every change goes through a branch and a PR, including content, docs and GitHub web uploads, so `Test PR / summary` runs before it lands. Branch protection does not enforce this for admins (`enforce_admins` is off), so it rests on you.
 - PRs start as drafts unless the lane is tiny and fully verified. Repo `allow_auto_merge` is `false`, so nothing merges itself; an agent still has to run the merge.
-- **Theme / plugins / `inc/` / live deploy PRs:** ask KK before merging, and run the pixel gate when required. As of 2026-08-23 this is a **convention, not an enforced gate** - no CI job blocks those paths, so it rests on you following it. Deploying to live WordPress is a separate act from merging and still needs explicit KK approval every time.
-- **Content/docs-only PRs:** agents may merge these directly. `main` requires **0 approving reviews**, **`Test PR / summary` green**, and the branch **up to date with `main`** (`strict: true`). Merge with `gh pr merge <n> --squash --delete-branch` — **no `--admin`**. Use `--admin` only when KK explicitly asks to override a red or stale check. Force pushes and branch deletion on `main` stay blocked.
+
+### Merge lanes
+
+KK set these lanes on 2026-11-12 (#1233). Every changed path falls in exactly one lane, and a PR takes the strictest lane of any file it touches. A path the table does not name takes the KK go-ahead lane until the table names it. This table is the only copy; `CONTRIBUTING.md` and the PR template point here.
+
+| Lane | Paths | Who merges |
+|---|---|---|
+| Content and docs | `content/`, `docs/`, `all-in-2026/`, `backup/`, `issues-to-create/`, `.claude/`, `.github/ISSUE_TEMPLATE/`, `.github/pull_request_template.md`, Markdown files at the repo root, and `fixes/` runbooks and payloads (`.md`, `.json`, `.txt`) | Agent merge |
+| Scripts, tests, `Makefile`, CI and dependencies | `scripts/` (including its tests), `fixes/tests/`, `Makefile`, `.github/workflows/`, `.github/dependabot.yml`, `package.json`, `package-lock.json`, `composer.json`, `composer.lock`, `requirements*.txt`, `.env.schema`, `phpcs.xml.dist` and repo dotfiles | Agent merge after review |
+| Theme / plugins / `inc/` / `fixes/` snippet sources | `theme/kk-aurora/`, `plugins/`, `inc/`, and `fixes/*.php`, `fixes/*.css`, `fixes/*.js` | KK go-ahead: ask KK before merging, and run the pixel gate when required |
+| Live WordPress writes and deploys | Any REST write, snippet save, theme or plugin upload, cache purge or connector run against kriskrug.co | KK's explicit approval every time, separate from any merge |
+
+- **Agent merge:** `main` requires **0 approving reviews**, **`Test PR / summary` green**, and the branch **up to date with `main`** (`strict: true`). Merge with `gh pr merge <n> --squash --delete-branch`, **no `--admin`**. Use `--admin` only when KK explicitly asks to override a red or stale check. Force pushes and branch deletion on `main` stay blocked.
+- **Agent merge after review:** the same conditions, once the diff has been reviewed against its issue. A green check is not a review.
+- **KK go-ahead:** since 2026-08-23 this is a **convention, not an enforced gate**. No CI job blocks those paths, so it rests on you following it.
+- **A merge never authorizes a deploy.** Deploying to live WordPress is a separate act and needs explicit KK approval every time.
 
 ## When in doubt
 

@@ -36,7 +36,9 @@ from kk_notion_to_wp import (  # noqa: E402
     WordPress,
     slugify,
 )
+from cp1252_text import UnstorableText, assert_sendable, storable_payload  # noqa: E402
 from publish_common import build_seo_meta  # noqa: E402
+from wp_client import lookup_slug  # noqa: E402
 
 
 @dataclass(frozen=True)
@@ -160,6 +162,26 @@ def quality_issues(pkg: DraftPackage) -> list[str]:
     for path, _alt in image_entries(pkg):
         if not path.exists():
             issues.append(f"missing image file: {path}")
+    seo = pkg.frontmatter.get("seo") or {}
+    try:
+        build_seo_meta(
+            str(seo.get("meta_title", "")).strip(),
+            str(seo.get("meta_description", "")).strip(),
+        )
+    except UnstorableText as exc:
+        issues.append(str(exc))
+    try:
+        assert_sendable(
+            {"title": pkg.title, "excerpt": pkg.excerpt, "content": pkg.body_html},
+            alt_texts=[alt for _path, alt in image_entries(pkg)],
+            term_names=[
+                str(value).strip()
+                for key in ("categories", "tags")
+                for value in pkg.frontmatter.get(key) or []
+            ],
+        )
+    except UnstorableText as exc:
+        issues.append(str(exc))
     return issues
 
 
@@ -170,21 +192,10 @@ def log_line(pkg: DraftPackage, message: str) -> None:
         handle.write(line + "\n")
 
 
-def wp_hits_by_slug(wp: WordPress, slug: str, kind: str) -> list[dict]:
-    response = wp.s.get(
-        f"{wp.base}/wp-json/wp/v2/{kind}",
-        params={"slug": slug, "status": "any", "per_page": 100, "context": "edit"},
-        timeout=30,
-    )
-    response.raise_for_status()
-    return response.json()
-
-
 def assert_slug_available(wp: WordPress, slug: str) -> None:
     collisions: list[str] = []
     for kind in ("posts", "pages"):
-        hits = wp_hits_by_slug(wp, slug, kind)
-        for hit in hits:
+        for hit in lookup_slug(wp, slug, kind).records:
             collisions.append(f"{kind[:-1]} {hit.get('id')} ({hit.get('status')})")
     if collisions:
         raise RuntimeError(
@@ -269,7 +280,7 @@ def ensure_term(wp: WordPress, taxonomy: str, name: str) -> int:
 
     response = wp.s.post(
         f"{wp.base}/wp-json/wp/v2/{taxonomy}",
-        json={"name": name, "slug": slug},
+        json=storable_payload({"name": name, "slug": slug}),
         timeout=30,
     )
     if response.status_code == 400:

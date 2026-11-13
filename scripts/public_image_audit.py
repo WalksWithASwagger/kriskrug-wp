@@ -15,7 +15,6 @@ import html
 import json
 import os
 import re
-import sys
 import time
 from html.parser import HTMLParser
 from pathlib import Path

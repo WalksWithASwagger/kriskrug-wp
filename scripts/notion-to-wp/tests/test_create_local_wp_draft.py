@@ -9,11 +9,15 @@ SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPT_DIR))
 
 import create_local_wp_draft  # noqa: E402
-import publish_common  # noqa: E402
 
 
 class CreateLocalWPDraftTests(unittest.TestCase):
-    def write_package(self, root: Path, seo_title: str = "SEO title") -> Path:
+    def write_package(
+        self,
+        root: Path,
+        seo_title: str = "SEO title",
+        seo_description: str = "About Café Krüg",
+    ) -> Path:
         draft_dir = root / "draft"
         draft_dir.mkdir()
         post_md = draft_dir / "post.md"
@@ -25,7 +29,7 @@ class CreateLocalWPDraftTests(unittest.TestCase):
             "excerpt: A guarded draft.\n"
             "seo:\n"
             f"  meta_title: {seo_title}\n"
-            "  meta_description: About Ethọ́s Lab\n"
+            f"  meta_description: {seo_description}\n"
             "---\n"
             "Body\n",
             encoding="utf-8",
@@ -199,6 +203,71 @@ class CreateLocalWPDraftTests(unittest.TestCase):
         wp.create_post.assert_not_called()
         wp.update_post.assert_not_called()
 
+    def test_ambiguous_slug_lookup_aborts_before_uploads_or_writes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            post_md = self.write_package(Path(tmp))
+            wp = mock.Mock()
+            wp.base = "https://example.test"
+            wp.s.get.return_value.status_code = 200
+            wp.s.get.return_value.json.return_value = [
+                {"id": 11, "slug": "guarded-draft", "status": "draft"},
+                {"id": 12, "slug": "guarded-draft", "status": "draft"},
+            ]
+            cfg = create_local_wp_draft.WPConfig(
+                "https://example.test", "user", "pass", 1
+            )
+            with (
+                mock.patch.object(
+                    create_local_wp_draft, "load_wp_config", return_value=cfg
+                ),
+                mock.patch.object(create_local_wp_draft, "WordPress", return_value=wp),
+                mock.patch.object(
+                    create_local_wp_draft, "upload_images"
+                ) as upload_images,
+            ):
+                with self.assertRaisesRegex(RuntimeError, "post 11 .*post 12"):
+                    create_local_wp_draft.create_local_draft(post_md, dry_run=False)
+
+        upload_images.assert_not_called()
+        wp.create_post.assert_not_called()
+        wp.update_post.assert_not_called()
+
+    def test_non_canonical_slug_owned_by_another_post_aborts_before_writes(self):
+        # WordPress sanitize_title()s the slug query, so "Guarded-Dräft" finds the
+        # existing "guarded-draft" post. That must abort, not read as absent.
+        with tempfile.TemporaryDirectory() as tmp:
+            post_md = self.write_package(Path(tmp))
+            post_md.write_text(
+                post_md.read_text(encoding="utf-8").replace(
+                    "slug: guarded-draft", "slug: Guarded-Dräft"
+                ),
+                encoding="utf-8",
+            )
+            wp = mock.Mock()
+            wp.base = "https://example.test"
+            wp.s.get.return_value.status_code = 200
+            wp.s.get.return_value.json.return_value = [
+                {"id": 77, "slug": "guarded-draft", "status": "publish"}
+            ]
+            cfg = create_local_wp_draft.WPConfig(
+                "https://example.test", "user", "pass", 1
+            )
+            with (
+                mock.patch.object(
+                    create_local_wp_draft, "load_wp_config", return_value=cfg
+                ),
+                mock.patch.object(create_local_wp_draft, "WordPress", return_value=wp),
+                mock.patch.object(
+                    create_local_wp_draft, "upload_images"
+                ) as upload_images,
+            ):
+                with self.assertRaisesRegex(RuntimeError, "guarded-draft"):
+                    create_local_wp_draft.create_local_draft(post_md, dry_run=False)
+
+        upload_images.assert_not_called()
+        wp.create_post.assert_not_called()
+        wp.update_post.assert_not_called()
+
     def test_bad_readback_fails_visibly_after_create(self):
         with tempfile.TemporaryDirectory() as tmp:
             post_md = self.write_package(Path(tmp))
@@ -224,9 +293,9 @@ class CreateLocalWPDraftTests(unittest.TestCase):
         wp.create_post.assert_called_once()
         wp.get_post.assert_called_once_with(99)
 
-    def test_payload_uses_canonical_seo_normalization(self):
+    def test_payload_seo_meta_keeps_cp1252_text(self):
         with tempfile.TemporaryDirectory() as tmp:
-            post_md = self.write_package(Path(tmp), seo_title="Ethọ́s Lab")
+            post_md = self.write_package(Path(tmp), seo_title="KK’s Lab")
             pkg = create_local_wp_draft.load_package(post_md)
             cfg = create_local_wp_draft.WPConfig(
                 "https://example.test", "user", "pass", 1
@@ -235,15 +304,34 @@ class CreateLocalWPDraftTests(unittest.TestCase):
 
         self.assertEqual(
             payload["meta"],
-            publish_common.build_seo_meta("Ethọ́s Lab", "About Ethọ́s Lab"),
+            {
+                "jetpack_seo_html_title": "KK’s Lab",
+                "advanced_seo_description": "About Café Krüg",
+            },
         )
-        self.assertFalse(
-            any(
-                __import__("unicodedata").combining(char)
-                for value in payload["meta"].values()
-                for char in value
-            )
-        )
+
+    def test_quality_gate_refuses_seo_meta_before_any_write(self):
+        for field in ("seo_title", "seo_description"):
+            with self.subTest(field=field), tempfile.TemporaryDirectory() as tmp:
+                post_md = self.write_package(Path(tmp), **{field: "Ethọ́s Lab"})
+                with mock.patch.object(create_local_wp_draft, "WordPress") as wordpress:
+                    with self.assertRaisesRegex(RuntimeError, "quality gate failed: SEO"):
+                        create_local_wp_draft.create_local_draft(post_md, dry_run=False)
+                wordpress.assert_not_called()
+
+    def test_quality_gate_refuses_a_body_it_cannot_send_before_any_write(self):
+        bodies = {
+            "C1 control": "<!-- wp:paragraph --><p>it\x92s</p><!-- /wp:paragraph -->",
+            "style": '<!-- wp:html --><style>.a::after{content:"→"}</style><!-- /wp:html -->',
+        }
+        for label, body in bodies.items():
+            with self.subTest(label), tempfile.TemporaryDirectory() as tmp:
+                post_md = self.write_package(Path(tmp))
+                (post_md.parent / "post.html").write_text(body, encoding="utf-8")
+                with mock.patch.object(create_local_wp_draft, "WordPress") as wordpress:
+                    with self.assertRaisesRegex(RuntimeError, "quality gate failed: content: "):
+                        create_local_wp_draft.create_local_draft(post_md, dry_run=False)
+                wordpress.assert_not_called()
 
 
 if __name__ == "__main__":
