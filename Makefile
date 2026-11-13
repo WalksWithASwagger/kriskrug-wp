@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test ruff-changed large-file-check javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
+.PHONY: help test python-test ruff-changed large-file-check javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check changelog env-check varlock-run clean
 
 PYTHON ?= python3
 VARLOCK ?= varlock
@@ -305,6 +305,9 @@ varlock-run: ## Run CMD with Varlock-injected env (requires varlock + resolved s
 
 docs-truth-check: ## Scan non-evidence docs for known stale current-state claims
 	@python3 scripts/docs_truth_check.py --exclude docs/current-state/reports --exclude docs/current-state/raw
+
+changelog: ## Print merged PRs grouped by area since SINCE=YYYY-MM-DD for CHANGELOG.md
+	@$(PYTHON) scripts/changelog_from_prs.py --since "$(SINCE)" $(if $(UNTIL),--until "$(UNTIL)")
 
 voice-check: ## Hard-rule voice gate: em dashes + slop lexicon in payload copy and theme strings (#747)
 	@$(PYTHON) scripts/voice_check.py $(FILES)

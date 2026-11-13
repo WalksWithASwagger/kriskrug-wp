@@ -137,6 +137,8 @@ Your PR should include:
 3. Find the PR's lane in the [merge-lane table](AGENTS.md#merge-lanes); it decides whether an agent may merge or KK must give the go-ahead.
 4. A merge never authorizes a deploy. Every live WordPress write or deploy needs KK's explicit approval, separately.
 
+The root [`CHANGELOG.md`](CHANGELOG.md) is maintained from merged PR titles. Do not edit it per PR; the weekly roadmap reset refreshes it with `make changelog SINCE=YYYY-MM-DD`, so write PR titles you would want to read there.
+
 > The older GitHub Actions agent swarm is gone (`agent-pr-generator.yml` deleted 2026-08-23). `test-pr.yml` and `backlog-reconcile.yml` are the active repo workflows. Auto-Triage Issues and Marquee Weekly Scan, both manually disabled, were deleted on 2026-11-12 with the swarm's agent definitions and state records (#1220); do not recreate them or change workflow settings.
 
 ## Coding Standards
