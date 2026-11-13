@@ -4,7 +4,7 @@
 
 ## Featured image (open-facts question 7, ruled 2026-11-12)
 
-Kris ruled for a hosted 16:9 featured image from his own film art. The crop QC pick is the film's reveal art, still **awaiting Kris's crop approval**.
+Kris ruled for a hosted 16:9 featured image from his own film art. Kris approved the crop QC pick, the film's reveal art, on 2026-11-12. This alt text goes on the upload.
 
 - Alt text for the upload: `A lightning-painted eye floating in a jeweled star field`
 - Source: the film site's own alt text for this art, in its public asset manifest. It describes what is in the frame, not the plot, and it matches the image.
