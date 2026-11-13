@@ -25,11 +25,16 @@ private-message sweep, catalog edit or live write. See the
 
 **December 16 ruling, 2026-11-12.** Kris ruled to add the meetup with the role
 "Host & MC", the same wording as November 25. He gave no edition number, so
-none is recorded. The agent proposed the display title "Vancouver AI Community
-Meetup: December 2026" from the public bc-ai.ca listing, and Kris confirms it
-before the catalog row merges (draft PR
-[#1266](https://github.com/WalksWithASwagger/kriskrug-wp/pull/1266)). The live
-write to page 2250 is a separate approval and has not happened.
+none is recorded. The display title "Vancouver AI Community Meetup: December
+2026" comes from the public bc-ai.ca listing, and the catalog row merged in
+[#1266](https://github.com/WalksWithASwagger/kriskrug-wp/pull/1266).
+
+**December 16 is live, 2026-11-12.** With Kris's separate approval, page 2250
+got one content-only write at 18:34 Vancouver. It added only the Upcoming card
+and the hidden record row; counters stayed at 84 rooms, 33 editions and 41
+frames. Normal and cache-busted public responses show the card with the Luma
+link. Hashes, readbacks and the rollback steps are in the
+[December 16 release receipt](reports/events-dec16-release-2026-11-12.md).
 
 ## Weekly sweep
 
