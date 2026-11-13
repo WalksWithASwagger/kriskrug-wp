@@ -11,6 +11,7 @@ import shutil
 import sys
 import tempfile
 import unittest
+from datetime import datetime, timezone
 from pathlib import Path
 from types import SimpleNamespace
 from unittest import mock
@@ -98,14 +99,26 @@ class FakeNotion:
         return notion_blocks()
 
 
+def wordpress_status(status: str, date: str) -> str:
+    """wp_insert_post's date rule: a publish dated in the future is scheduled,
+    and a scheduled post whose date has passed is published."""
+    when = datetime.fromisoformat(date)
+    now = datetime.now(timezone.utc) if when.tzinfo else datetime.now()
+    if status == "publish" and when > now:
+        return "future"
+    if status == "future" and when <= now:
+        return "publish"
+    return status
+
+
 def stored_post(post_id: int, payload: dict) -> dict:
-    """What WordPress hands back for a post it stored exactly as sent."""
+    """What WordPress hands back for a post it stored as sent, after its date rule."""
     return {
         "id": post_id,
         "link": f"https://wp.example.test/?p={post_id}",
         "title": {"raw": payload["title"]},
         "slug": payload["slug"],
-        "status": payload["status"],
+        "status": wordpress_status(payload["status"], payload["date"]),
         "date": payload["date"],
         "date_gmt": payload["date"],
         "meta": dict(payload["meta"]),
@@ -150,12 +163,20 @@ class FakeWordPress:
 
     def update_post(self, post_id, payload, *, expected_slug):
         self.calls.append(("update_post", post_id, expected_slug))
-        self.stored[post_id] = stored_post(post_id, payload)
+        # Like WordPress, an update keeps the stored status and date it was not sent.
+        kept = {"status": self.existing["status"], "date": self.existing["date"]}
+        self.stored[post_id] = stored_post(post_id, {**kept, **payload})
         return self.stored[post_id]
 
 
 def existing_post(title: str) -> dict:
-    return {"id": 123, "title": {"raw": title}, "slug": SLUG, "status": "publish"}
+    return {
+        "id": 123,
+        "title": {"raw": title},
+        "slug": SLUG,
+        "status": "publish",
+        "date": "2026-05-07T11:37:33",
+    }
 
 
 class RunOrderTests(unittest.TestCase):

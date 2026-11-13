@@ -180,9 +180,11 @@ Default behavior is CREATE-only:
 - If no post with the slug exists, the connector creates a new WP post.
 - If a post with the slug already exists, the connector aborts instead of silently updating.
 - To update an existing post, pass `--update`. The update path also checks that the existing title is similar to the new title before it sends a REST update. The current threshold lives in `TITLE_SIMILARITY_UPDATE_THRESHOLD` and is covered by tests.
+- `--update` never changes the post's status. It sends no status, so a published, scheduled, private or draft post stays that way. Only `--update --publish` sets the status, to publish. Before this rule, `--update` alone sent `draft` and unpublished live posts.
+- `--update` sends no date unless `--date` is given. WordPress publishes a scheduled post whose date has passed and schedules a published post whose date is in the future, so sending the Notion date (or today) could publish a scheduled post early. An explicit `--date` can still trigger either rule; the readback below then exits 7.
 - Before using `--update`, run `--diff` to print a no-write comparison between the existing WP slug target and the proposed Notion payload. Treat the diff as evidence for human review, not approval to update.
 - The slug lookup and both guards run before any media upload or term creation, so an abort leaves nothing behind on WordPress. A lookup that refuses to answer (`SlugVerificationFailed`, for example an ambiguous match) exits 8.
-- After a create or update, the connector reads the post back. If the stored slug, status, title or date differs from what it sent, it logs each difference and exits 7.
+- After a create or update, the connector reads the post back. If the stored slug, status, title or date differs from what it sent, it logs each difference and exits 7. An update without `--publish` must find the post's status exactly as it was before the write, and `--update --publish` on a live post fails if WordPress scheduled it instead.
 
 This makes reruns safe by default. If you need a new version rather than an update, pass `--slug` with a new slug.
 
