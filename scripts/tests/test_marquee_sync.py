@@ -28,20 +28,24 @@ class FakeWP:
         self.calls = []
 
     def find_by_slug(self, slug):
-        self.calls.append(("find", slug)); return self.existing_id
+        self.calls.append(("find", slug))
+        return self.existing_id
 
     def get(self, pid):
         self.calls.append(("get", pid))
         return {"id": pid, "slug": BOARD["seo"]["slug"], "title": {"raw": self.existing_title}}
 
     def create(self, payload):
-        self.calls.append(("create", payload)); return {"id": 999, "slug": payload["slug"]}
+        self.calls.append(("create", payload))
+        return {"id": 999, "slug": payload["slug"]}
 
     def update(self, pid, payload):
-        self.calls.append(("update", pid)); return {"id": pid, "slug": payload["slug"]}
+        self.calls.append(("update", pid))
+        return {"id": pid, "slug": payload["slug"]}
 
     def upload_media(self, path, alt, mime="image/png"):
-        self.calls.append(("upload", str(path))); return {"id": 42}
+        self.calls.append(("upload", str(path)))
+        return {"id": 42}
 
 
 class PayloadTests(unittest.TestCase):

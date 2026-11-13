@@ -587,7 +587,6 @@ def test_plan_links_contextual_drop_falls_back_to_footer():
     if _polish_path not in sys.path:
         sys.path.insert(0, _polish_path)
     import text_polish as _tp
-    import linkinject_lib as _lib
 
     original_fn = _tp.auto_link_first_occurrence
 
@@ -654,7 +653,6 @@ def test_plan_links_previously_failed_post_now_yields_footer_only():
         import text_polish as _tp2
         # Restore: reimport so other tests get the real function
         importlib.reload(_tp2)
-        import linkinject_lib
         # plan_links_for_post imports auto_link_first_occurrence inside the function
         # so no module-level reference needs patching back
 

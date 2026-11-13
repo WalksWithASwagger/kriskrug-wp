@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test ruff-changed javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
+.PHONY: help test python-test ruff-changed large-file-check javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
 
 PYTHON ?= python3
 VARLOCK ?= varlock
@@ -50,6 +50,9 @@ python-test: ## Run all declared Python test suites
 ruff-changed: ## Check only Python files changed from BASE_REF (default: origin/main)
 	@$(PYTHON) scripts/ruff_changed.py --base-ref "$${BASE_REF:-origin/main}" --ruff "$${RUFF:-ruff}"
 
+large-file-check: ## Fail on new files over 5 MB or media outside the allowlist since BASE_REF (default: origin/main)
+	@$(PYTHON) scripts/check_large_files.py --base-ref "$${BASE_REF:-origin/main}"
+
 javascript-syntax: ## Check committed JavaScript syntax
 	@command -v node >/dev/null 2>&1 || { echo "ERROR: node is required for JavaScript syntax checks."; exit 1; }
 	@status=0; count=0; \
@@ -91,10 +94,12 @@ verify: ## Run the standard local verification suite
 	@$(MAKE) docs-truth-check
 	@$(MAKE) validate
 
-validate: ## Run PHP syntax gate plus WordPress coding standards check
+validate: ## Run PHP syntax gate, WordPress coding standards and PHP compatibility checks
 	@$(MAKE) php-syntax
 	@echo "Validating WordPress coding standards..."
 	@bash scripts/validate_wordpress.sh
+	@echo "Checking each theme and plugin against its Requires PHP header..."
+	@$(PYTHON) scripts/check_php_compat.py
 
 validate-fix: ## Auto-fix WordPress coding standard violations
 	@echo "Auto-fixing WordPress coding standards..."
@@ -240,6 +245,10 @@ sitemap-followthrough: ## Read-only #274 public sitemap follow-through (BASE_URL
 
 check-live-parity: ## Detect live-vs-repo Aurora theme version drift (#546) (BASE_URL=https://kriskrug.co)
 	@$(PYTHON) scripts/check_live_theme_parity.py --base "$${BASE_URL:-https://kriskrug.co}"
+
+# Needs WordPress credentials: make varlock-run CMD='make payload-parity'
+payload-parity: ## Read-only live content.raw vs tracked page payload check (#1222); exit 0 match, 1 drift, 2 unverified
+	@$(PYTHON) scripts/check_page_payload_parity.py --fail-on-drift
 
 wp7-admin-readiness: ## Run authenticated read-only WP 7 readiness snapshot (optional ENV_FILE)
 	@python3 scripts/wp7-admin-readiness.py $${ENV_FILE:+--env-file "$$ENV_FILE"}
@@ -401,7 +410,7 @@ visual-prune: ## Delete old capture dirs pair-safely; set DRY_RUN=1 to preview
 	@$(VISUAL) prune $(if $(KEEP),--keep $(KEEP),) $(if $(DRY_RUN),--dry-run,)
 
 .PHONY: practice-preview practice-test practice-browser-test practice-package
-practice-preview: ## Start a disposable real WordPress 7.0.4/Aurora fixture (a Playground pin, not the production version)
+practice-preview: ## Start a disposable real WordPress/Aurora Playground fixture (version pinned in scripts/tests/playground-wordpress.mjs)
 	@node plugins/kk-practice/tests/preview.mjs
 
 practice-test: ## Verify practice source contracts, fallback and asset budget

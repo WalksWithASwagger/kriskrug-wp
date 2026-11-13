@@ -11,11 +11,14 @@ no local web application to boot. Local work means running the documented
 Python CLIs and PHP validation gates. Live WordPress runs on Pagely and is not
 file-synced with this checkout.
 
-CI pins PHP 8.2 and Python 3.12. JavaScript syntax checks use Node 20;
-the WordPress Playground browser job uses Node 24. Playground 3.1.62
+CI pins PHP 8.2 and Python 3.12. JavaScript syntax checks and the
+WordPress Playground browser job both use Node 24. Playground 3.1.62
 requires Node >=24.18.0 and npm >=11.16.0. Local versions may differ. Check
-`php --version` before explaining a local PHP result; `phpcs.xml.dist` targets
-PHP 8.1 and later independently of the local minor version.
+`php --version` before explaining a local PHP result. PHPCompatibilityWP
+checks versions independently of the local interpreter: `phpcs.xml.dist`
+holds `fixes/` and `inc/` to PHP 8.1 and later, and
+`scripts/check_php_compat.py` holds the theme and each plugin to its own
+`Requires PHP` header.
 
 ## Python environments
 
@@ -63,6 +66,20 @@ explicit KK approval and an explicit rollback path.
 `https://kriskrug.co`. They degrade when the network is unavailable. Never use
 the checked-in Aurora version as production proof: read public `style.css`.
 
+`make payload-parity` (`scripts/check_page_payload_parity.py`, #1222) compares
+live `content.raw` for every page in `wp-payloads/page-map.json` and
+`wp-payloads/topic-hubs/page-map.json` with its tracked payload, using the
+deploy's own normalization and SHA-256. It sends authenticated GETs only and
+prints IDs, slugs, dates, hashes and `match` or `DRIFT`, never page content.
+It needs credentials, so run it as `make varlock-run CMD='make payload-parity'`.
+Exit 0 means every page matches, 1 means drift, 2 means it could not verify.
+It never checks the superseded `issue-480-retire-inline-css/` pack, which
+`content_architecture_deploy.py` also refuses as a `--map`, and it does
+not cover Publications (1895) or Events (2250). A dry run of
+`scripts/content_architecture_deploy.py` prints the same per-page verdict
+before its `[dry-run]` line. File any drift it finds as its own issue; the
+check does not fix it.
+
 ## GitHub Actions: files present vs enabled
 
 A workflow YAML file in `.github/workflows/` is not proof it is enabled or
@@ -95,4 +112,4 @@ runs `make practice-browser-test` (which runs `practice-test` first) and
 `make events-browser-test` on every pull request. Setup, Node/npm split, and
 the fixture-vs-production boundary live in
 [`CONTRIBUTING.md`](../../CONTRIBUTING.md). Playground 3.1.62 still requires
-Node >=24.18.0 and npm >=11.16.0; JavaScript syntax checks still use Node 20.
+Node >=24.18.0 and npm >=11.16.0; JavaScript syntax checks use Node 24 too.

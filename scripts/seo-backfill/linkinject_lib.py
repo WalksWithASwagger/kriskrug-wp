@@ -18,9 +18,7 @@ from __future__ import annotations
 
 import difflib
 import html as _html_mod
-import random
 import re
-from dataclasses import dataclass, field
 
 # ---------------------------------------------------------------------------
 # Pillar page map

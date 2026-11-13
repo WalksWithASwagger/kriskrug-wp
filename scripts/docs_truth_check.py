@@ -346,6 +346,13 @@ SWARM_GUIDE_BANNER_REQUIREMENT = (
     "Retired swarm guides must carry a `STATUS: Historical` banner.",
 )
 
+NO_DIRECT_PUSH = re.compile(r"No direct pushes to\s+`?main`?", re.I)
+
+MERGE_LANE_POINTER_REQUIREMENT = (
+    re.compile(r"AGENTS\.md#merge-lanes"),
+    "Merge lanes: point to the table at `AGENTS.md#merge-lanes` instead of restating merge rules.",
+)
+
 # The swarm's agent definitions were deleted on 2026-11-12 (#1220). GitHub
 # Copilot and VS Code load custom agents from this directory, so anything that
 # reappears here would surface as a selectable agent.
@@ -355,6 +362,14 @@ REQUIRED_PATH_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
     Path(".claude/common-failures.md"): [SWARM_GUIDE_BANNER_REQUIREMENT],
     Path(".claude/naming-conventions.md"): [SWARM_GUIDE_BANNER_REQUIREMENT],
     Path("AGENTS.md"): [ROADMAP_LINK_REQUIREMENT],
+    Path("CONTRIBUTING.md"): [
+        MERGE_LANE_POINTER_REQUIREMENT,
+        (
+            NO_DIRECT_PUSH,
+            "Merge lanes: CONTRIBUTING.md must state the same no-direct-push rule as AGENTS.md.",
+        ),
+    ],
+    Path(".github/pull_request_template.md"): [MERGE_LANE_POINTER_REQUIREMENT],
     Path("docs/INDEX.md"): [ROADMAP_LINK_REQUIREMENT],
     Path("docs/current-state/README.md"): [ROADMAP_LINK_REQUIREMENT],
     Path("docs/current-state/BACKUP_PLAN.md"): [
@@ -408,6 +423,10 @@ STALE_MERGE_POLICY_PATTERNS: list[tuple[re.Pattern[str], str]] = [
         ),
         "Merge policy incorrectly makes human approval universal.",
     ),
+    (
+        re.compile(r"(?:Don't|Do not)\s+push\s+to\s+`?main`?\s+without", re.I),
+        "Merge policy: no change may be pushed directly to `main`; do not imply a go-ahead allows it.",
+    ),
 ]
 
 REQUIRED_AGENT_MERGE_POLICY_PATTERNS: list[tuple[re.Pattern[str], str]] = [
@@ -434,6 +453,32 @@ REQUIRED_AGENT_MERGE_POLICY_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (
         re.compile(r"Theme\s*/\s*plugins[^\n]*inc[^\n]*ask KK before merging", re.I),
         "Merge policy must preserve KK approval for theme, plugin, and `inc/` merges.",
+    ),
+    (
+        re.compile(r"^#+\s*Merge lanes\s*$", re.M),
+        "Merge lanes: AGENTS.md must keep the single lane table under a `Merge lanes` heading.",
+    ),
+    (
+        re.compile(
+            r"^\|\s*Scripts, tests, `?Makefile`?, CI and dependencies\s*\|[^\n]*\|\s*Agent merge after review\s*\|",
+            re.I | re.M,
+        ),
+        "Merge lanes: scripts, tests, Makefile, CI and dependency PRs belong in the agent merge-after-review lane.",
+    ),
+    (
+        re.compile(
+            r"Theme\s*/\s*plugins[^\n]*inc[^\n]*fixes/`?\s*snippet sources[^\n]*ask KK before merging",
+            re.I,
+        ),
+        "Merge lanes: `fixes/` snippet sources stay with theme, plugins and `inc/` in the KK go-ahead lane.",
+    ),
+    (
+        NO_DIRECT_PUSH,
+        "Merge lanes: AGENTS.md must say every change reaches `main` through a branch and PR.",
+    ),
+    (
+        re.compile(r"merge never authorizes a deploy", re.I),
+        "Merge lanes: AGENTS.md must keep live deploys separate from merges.",
     ),
 ]
 

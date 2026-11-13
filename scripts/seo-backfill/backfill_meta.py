@@ -25,7 +25,6 @@ from backfill_lib import (  # noqa: E402
     ALLOWED_META_KEYS,
     FIELD_TO_KEY,
     build_meta_payload,
-    meta_value,
     meta_values_match,
     parse_approved_entry,
     plan_meta_for_item,
@@ -140,12 +139,16 @@ def apply_one(wp: WordPress, item: dict, kind: str, fields, *, live: bool) -> di
     # --- live path: re-verify identity on a fresh GET before writing ---
     fresh = readback(wp, pid, kind)
     if int(fresh.get("id", -1)) != pid:
-        out["status"] = "failed"; out["reason"] = "id mismatch on readback"; return out
+        out["status"] = "failed"
+        out["reason"] = "id mismatch on readback"
+        return out
     list_title = title_text(item)
     fresh_title = title_text(fresh)
     sim = title_similarity(list_title, fresh_title)
     if sim < TITLE_DRIFT_THRESHOLD:
-        out["status"] = "failed"; out["reason"] = f"title drift sim={sim:.2f} (<{TITLE_DRIFT_THRESHOLD})"; return out
+        out["status"] = "failed"
+        out["reason"] = f"title drift sim={sim:.2f} (<{TITLE_DRIFT_THRESHOLD})"
+        return out
 
     # Re-gate emptiness against the FRESH meta (closes TOCTOU), but keep the
     # values derived from the ORIGINAL item — the readback omits excerpt/content,
@@ -154,7 +157,8 @@ def apply_one(wp: WordPress, item: dict, kind: str, fields, *, live: bool) -> di
     fresh_meta = fresh.get("meta") or {}
     planned = reconcile_with_fresh_meta(plan.planned, fresh_meta)
     if not planned:
-        out["reason"] = "fields filled since enumeration"; return out
+        out["reason"] = "fields filled since enumeration"
+        return out
 
     payload = build_meta_payload(planned)  # raises if any key not allowlisted
     endpoint = endpoint_for_kind(kind)
@@ -186,15 +190,22 @@ def apply_from_file_one(wp: WordPress, entry: dict, kind: str, *, live: bool) ->
 
     fresh = readback(wp, pid, kind)
     if int(fresh.get("id", -1)) != pid:
-        out["status"] = "failed"; out["reason"] = "id mismatch on readback"; return out
+        out["status"] = "failed"
+        out["reason"] = "id mismatch on readback"
+        return out
     if fresh.get("slug") != slug:
-        out["status"] = "failed"; out["reason"] = f"slug guard: file={slug!r} live={fresh.get('slug')!r}"; return out
+        out["status"] = "failed"
+        out["reason"] = f"slug guard: file={slug!r} live={fresh.get('slug')!r}"
+        return out
 
     fresh_meta = fresh.get("meta") or {}
     out["old"] = {k: fresh_meta.get(k, "") for k in meta}  # capture prior values for rollback
 
     if not live:
-        out["status"] = "planned"; out["written"] = sorted(meta); out["preview"] = meta; return out
+        out["status"] = "planned"
+        out["written"] = sorted(meta)
+        out["preview"] = meta
+        return out
 
     payload = build_meta_payload(meta)  # allowlist assert
     endpoint = endpoint_for_kind(kind)
@@ -204,8 +215,12 @@ def apply_from_file_one(wp: WordPress, entry: dict, kind: str, *, live: bool) ->
     vmeta = verify.get("meta") or {}
     mismatched = [k for k, v in meta.items() if not meta_values_match(v, vmeta.get(k))]
     if mismatched or verify.get("slug") != slug or title_text(verify) != title_text(fresh):
-        out["status"] = "failed"; out["reason"] = f"readback mismatch keys={mismatched}"; return out
-    out["status"] = "written"; out["written"] = sorted(meta); out["preview"] = meta
+        out["status"] = "failed"
+        out["reason"] = f"readback mismatch keys={mismatched}"
+        return out
+    out["status"] = "written"
+    out["written"] = sorted(meta)
+    out["preview"] = meta
     return out
 
 
@@ -295,12 +310,14 @@ def main() -> int:
 
     fields = tuple(f.strip() for f in args.fields.split(",") if f.strip() in FIELD_TO_KEY)
     if not fields:
-        log("no valid --fields"); return 2
+        log("no valid --fields")
+        return 2
     mode = "live" if args.execute else "dry-run"
 
     cfg = load_config()
     if not cfg.has_wp_credentials:
-        log("WP_USER and WP_APP_PASSWORD required in scripts/notion-to-wp/.env"); return 1
+        log("WP_USER and WP_APP_PASSWORD required in scripts/notion-to-wp/.env")
+        return 1
     wp = WordPress(cfg.wp_base_url, cfg.wp_user, cfg.wp_app_password)
 
     # --- OVERWRITE mode: apply KK-approved values from a reviewed file ---
@@ -351,9 +368,11 @@ def main() -> int:
                            "revert (set field back to empty). KK acknowledged pilot-without-backup.")
         pid = args.probe_id or auto_probe_id(candidates) or auto_probe_id(fetch_candidates(wp, "post", None))
         if not pid:
-            log("ABORT: could not find a probe post with all 3 keys set."); return 3
+            log("ABORT: could not find a probe post with all 3 keys set.")
+            return 3
         if not probe(wp, pid):
-            log("ABORT: writability probe failed — keys not accepted. No batch writes attempted."); return 3
+            log("ABORT: writability probe failed — keys not accepted. No batch writes attempted.")
+            return 3
         probe_result = f"PASS on post {pid}"
 
     # Process.

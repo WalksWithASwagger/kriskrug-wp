@@ -1,6 +1,7 @@
 import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {PLAYGROUND_WP_VERSION} from './playground-wordpress.mjs';
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const {runCLI} = await import(path.join(repo, 'node_modules/@wp-playground/cli/index.js'));
 const sourceFile = process.argv[2];
@@ -9,7 +10,7 @@ const source = JSON.parse(readFileSync(sourceFile));
 const proofAssets = process.argv[3];
 if (!proofAssets) throw new Error('Pass the previously captured public photo directory.');
 const port = Number(process.env.JOURNAL_PORT || 8794);
-const server = await runCLI({command:'server',wp:'7.0.8',php:'8.2',port,workers:6,
+const server = await runCLI({command:'server',wp:PLAYGROUND_WP_VERSION,php:'8.2',port,workers:6,
   mount:[{hostPath:path.join(repo,'theme/kk-aurora'),vfsPath:'/wordpress/wp-content/themes/kk-aurora'}],
   blueprint:{steps:[{step:'defineWpConfigConsts',consts:{WP_AUTO_UPDATE_CORE:false,AUTOMATIC_UPDATER_DISABLED:true,DISABLE_WP_CRON:true}},{step:'activateTheme',themeFolderName:'kk-aurora'},{step:'setSiteOptions',options:{blogname:'Kris Krüg · Writing review',permalink_structure:'/%year%/%monthnum%/%day%/%postname%/',posts_per_page:5}}]}
 });
