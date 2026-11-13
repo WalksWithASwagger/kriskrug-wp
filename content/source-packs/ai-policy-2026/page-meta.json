@@ -1,0 +1,52 @@
+{
+  "slug": "ai-policy",
+  "title": "How I Use AI (And Where I Draw the Line)",
+  "canonical_url": "https://kriskrug.co/ai-policy/",
+  "payload": "wp-payloads/ai-policy.html",
+  "status_target": "draft",
+  "wordpress_id": null,
+  "comment_status": "closed",
+  "ping_status": "closed",
+  "excerpt": "I use AI a lot. Here is what I use it for, what has to be real first, what I will not fake, and how I own whatever ships.",
+  "meta": {
+    "jetpack_seo_html_title": "How I Use AI (And Where I Draw the Line) | Kris Krüg",
+    "advanced_seo_description": "I use AI a lot. This is what I use it for, what I check before anything ships, and where I draw the line: fake people, fake evidence, stolen voice."
+  },
+  "meta_note": "Excerpt and SEO meta are proposals for Kris to approve with the publish step. They are not written to WordPress while the page is a draft.",
+  "readback_markers": [
+    "<!-- ai-policy-2026:page -->",
+    "The short version: Both Hands Full",
+    "What I will not fake",
+    "I own what ships",
+    "AI-assistance disclosure",
+    "Last updated:",
+    "https://kriskrug.co/contact/"
+  ],
+  "source": {
+    "policy": "policy.md",
+    "policy_sha256": "8dc5c70576f420a677140fcc1f7ebfc0d46b437d7de13d7de6b74a2f13d7ebf5",
+    "source_matrix": "SOURCE-MATRIX.md",
+    "source_matrix_sha256": "a937366a8699157b2c6d0a2248de0aca669581a731245458ff6e5359bf231101"
+  },
+  "copy_approval": {
+    "date": "2026-11-12",
+    "record": "Kris approved the policy.md draft in chat after reading it: \"Approve the draft, build it\". Scope: build this payload and create the page in WordPress as an unpublished draft.",
+    "issues": [883, 885]
+  },
+  "publish_approval": null,
+  "publish_edits": [
+    {
+      "find": "Last updated: YYYY-MM-DD",
+      "replace": "Last updated: {publish_date}"
+    },
+    {
+      "find": "Proposed AI-assistance disclosure",
+      "replace": "AI-assistance disclosure"
+    },
+    {
+      "find": "<strong>Pending Kris Krüg's review and approval:</strong> ",
+      "replace": ""
+    }
+  ],
+  "publish_edits_note": "Applied only after Kris approves publication (#886). Record publish_approval, set status_target to publish, apply these edits, then write the body and flip the status of wordpress_id."
+}
