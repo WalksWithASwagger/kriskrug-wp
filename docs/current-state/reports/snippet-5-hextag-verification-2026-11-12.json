@@ -22,7 +22,7 @@
   "after_code_sha256": "37ac8d9e1939abcdd652c8cc01d6e32f9c730ec767f7fa0148ed9d54c2ac7c92",
   "after_code_bytes": 14789,
   "runtime_sha256": "b184a513afba2bb8ab21403ff9d62d49c4513018356023a400652cadddeacce7",
-  "header_note": "The saved code keeps the 2026-10-25 header comments. The repo header differs in comments only.",
+  "header_note": "The saved code keeps the #1082 header comments (commit 3807e6b) that the 2026-10-25 save stored. The repo header differs in comments only.",
   "metadata_preserved": [
     "id",
     "name",
@@ -341,5 +341,5 @@
   ],
   "rich_results_test": "not run",
   "cache_refresh_write": false,
-  "rollback": "Save the snapshot code (before_code_sha256) back to snippet 5, only if live still equals after_code_sha256."
+  "rollback": "Save the snapshot code (before_code_sha256) back to snippet 5, only if live still equals after_code_sha256. The packet's snippet5.py also compares the repo runtime with live, so run it against a checkout of commit 25aa5e9."
 }
