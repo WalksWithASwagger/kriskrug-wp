@@ -3,12 +3,11 @@ from __future__ import annotations
 import re
 import sys
 import time
-import unicodedata
 
 import requests
 
 from connector_config import NOTION_API, NOTION_VERSION
-from cp1252_text import UNDECOMPOSABLE_LATIN
+from cp1252_text import fold_latin
 
 
 class Notion:
@@ -108,9 +107,7 @@ def slugify(s: str) -> str:
     Without the fold, "Kris Krüg Live" became "kris-krüg-live", a slug WordPress
     never stores, so the exact-match slug lookup could never find the post.
     """
-    s = unicodedata.normalize("NFKD", s.translate(UNDECOMPOSABLE_LATIN))
-    s = "".join(ch for ch in s if not unicodedata.combining(ch))
-    s = s.lower().strip()
+    s = fold_latin(s).lower().strip()
     s = re.sub(r"[^\w\s-]", "", s)
     s = re.sub(r"\s+", "-", s)
     s = re.sub(r"-+", "-", s)

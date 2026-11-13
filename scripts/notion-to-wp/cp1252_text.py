@@ -63,6 +63,16 @@ def is_storable(ch: str) -> bool:
     return True
 
 
+def fold_latin(text: str) -> str:
+    """Latin letters folded to their base letters, as WordPress's remove_accents() does.
+
+    "Krüg" becomes "Krug" and "Łódź" becomes "Lodz". Slugs go through this so
+    they match the slug WordPress stores (#1257).
+    """
+    text = unicodedata.normalize("NFKD", text.translate(UNDECOMPOSABLE_LATIN))
+    return "".join(ch for ch in text if not unicodedata.combining(ch))
+
+
 def _unstorable(text: str) -> list[str]:
     return [ch for ch in dict.fromkeys(text) if not is_storable(ch)]
 
@@ -131,8 +141,7 @@ def plain_meta_text(text: str, field: str) -> str:
 
 
 def _plain_letters(ch: str) -> str:
-    base = unicodedata.normalize("NFKD", ch.translate(UNDECOMPOSABLE_LATIN))
-    base = "".join(c for c in base if not unicodedata.combining(c))
+    base = fold_latin(ch)
     return "" if _unstorable(base) else base
 
 
