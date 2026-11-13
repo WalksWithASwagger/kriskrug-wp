@@ -11,24 +11,22 @@
  * Deployed via Code Snippets plugin on 2026-05-15 (not as a mu-plugin yet;
  * SSH access still pending).
  *
- * LAST VERIFIED AGAINST LIVE: 2026-10-25 (issue #1089).
- * Saved to active global snippet 5 through Varlock-authenticated REST under
- * KK's explicit instruction. Authenticated source readback matches the
- * approved payload after removing its opening PHP tag. Home, Speaking,
- * About and the sample article pass fresh public JSON-LD checks. Schema
- * Markup Validator reports zero errors and warnings on Home, Speaking and
- * the sample article. Cache delivery and exact hashes are recorded in
- * docs/current-state/reports/schema-1089-release-2026-10-25.md and its JSON
- * receipt. This follow-up changes header comments only; executable bytes
- * from kk_schema_constants() onward match the saved payload exactly, apart
- * from the #1238 flags below.
- *
- * PENDING LIVE UPDATE (#1238): kk_schema_emit() now adds JSON_HEX_TAG and
+ * LAST VERIFIED AGAINST LIVE: 2026-11-12 (issue #1238).
+ * Executable bytes from kk_schema_constants() onward match live snippet 5
+ * exactly. The last save (KK-approved, 2026-11-12, Varlock-authenticated
+ * REST) changed one line: kk_schema_emit() now adds JSON_HEX_TAG and
  * JSON_HEX_AMP. JSON_UNESCAPED_SLASHES leaves "</script>" literal, so without
  * them a title or excerpt containing it would close the JSON-LD block early.
- * The parsed JSON is unchanged. Live snippet 5 keeps the 2026-10-25 flags
- * until a separate KK-approved save with a before/after snapshot and a Rich
- * Results check.
+ * The parsed JSON is unchanged. That save had a before/after snapshot, an
+ * exact authenticated readback, logged-out JSON-LD checks on Home, Speaking
+ * and a sample post, and zero errors and warnings in Schema Markup Validator
+ * (the Rich Results Test was not run). Receipt:
+ * docs/current-state/reports/snippet-5-hextag-release-2026-11-12.md.
+ *
+ * The live header is older than this one: it is the #1082 header that the
+ * 2026-10-25 save (#1089) stored. This header is documentation only and is
+ * not saved to wp-admin. The 2026-10-25 release is recorded in
+ * docs/current-state/reports/schema-1089-release-2026-10-25.md.
  *
  * WRAPPER DELTA (resolved, Boost-injected — do not add by hand):
  * Live HTML wraps each block as
