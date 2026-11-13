@@ -91,7 +91,80 @@ class LoadWpCredentialsTests(_TempEnvPath):
                 self.assertEqual(
                     (creds["user"], creds["app_password"]), ("env-user", "env-pass")
                 )
-                self.assertEqual(creds["base"], "https://file.example.test")
+                # The file's URL belongs to the file's pair, not to this one.
+                self.assertEqual(creds["base"], "https://kriskrug.co")
+
+    def test_base_url_comes_from_the_source_that_supplied_the_pair(self):
+        self.env_file.write_text(
+            "WP_USER=file-user\nWP_APP_PASSWORD=file-pass\n"
+            "WP_BASE_URL=http://localhost:10003\n",
+            encoding="utf-8",
+        )
+        with process_env(
+            WP_API_USERNAME="env-user",
+            WP_API_PASSWORD="env-pass",
+            WP_BASE_URL="https://process.example.test/",
+        ):
+            self.assertEqual(
+                wp_sync.load_wp_credentials(),
+                {
+                    "base": "https://process.example.test",
+                    "user": "env-user",
+                    "app_password": "env-pass",
+                },
+            )
+        with process_env(WP_BASE_URL="https://process.example.test/"):
+            self.assertEqual(
+                wp_sync.load_wp_credentials(),
+                {
+                    "base": "http://localhost:10003",
+                    "user": "file-user",
+                    "app_password": "file-pass",
+                },
+            )
+
+    def test_half_pairs_are_never_completed_from_the_other_source(self):
+        self.env_file.write_text("WP_APP_PASSWORD=file-pass\n", encoding="utf-8")
+        for half in (
+            {"WP_USER": "env-user"},
+            {"WP_API_USERNAME": "env-user"},
+            {"WP_USER": "env-user", "WP_APP_PASSWORD": "   "},
+        ):
+            with self.subTest(half=sorted(half)), process_env(**half):
+                creds = wp_sync.load_wp_credentials()
+                self.assertEqual((creds["user"], creds["app_password"]), (None, None))
+
+    def test_process_half_pair_leaves_the_file_pair_and_url_whole(self):
+        self.env_file.write_text(
+            "WP_USER=file-user\nWP_APP_PASSWORD=file-pass\n"
+            "WP_BASE_URL=https://file.example.test\n",
+            encoding="utf-8",
+        )
+        with process_env(WP_API_PASSWORD="env-pass"):
+            self.assertEqual(
+                wp_sync.load_wp_credentials(),
+                {
+                    "base": "https://file.example.test",
+                    "user": "file-user",
+                    "app_password": "file-pass",
+                },
+            )
+
+    def test_login_mode_in_the_file_keeps_the_file_pair(self):
+        self.env_file.write_text(
+            "WP_USER=file-user\nWP_APP_PASSWORD=file-pass\nWP_AUTH_MODE=login\n"
+            "WP_BASE_URL=https://file.example.test\n",
+            encoding="utf-8",
+        )
+        with process_env(WP_API_USERNAME="env-user", WP_API_PASSWORD="env-pass"):
+            self.assertEqual(
+                wp_sync.load_wp_credentials(),
+                {
+                    "base": "https://file.example.test",
+                    "user": "file-user",
+                    "app_password": "file-pass",
+                },
+            )
 
     def test_env_file_alone_still_works(self):
         self.env_file.write_text(

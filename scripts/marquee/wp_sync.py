@@ -6,6 +6,7 @@ idempotency, CREATE-by-default, a title-similarity guard on --update, and post-w
 
 Auth resolves through scripts/common.py load_env(): the process env (Varlock) first, then
 scripts/notion-to-wp/.env, under either the WP_API_* or the WP_USER / WP_APP_PASSWORD names.
+User, password and base URL come from one source as a unit; halves are never mixed.
 No Notion token required. Live writes need credentials AND the caller passing execute=True;
 everything else is a dry run.
 """
@@ -36,7 +37,10 @@ META = {
 
 
 def load_wp_credentials() -> dict:
-    """WP creds from common.load_env(ENV_PATH), so the process env (Varlock) wins over the file."""
+    """WP creds from common.load_env(ENV_PATH): the process env (Varlock) beats the file as a whole.
+
+    The base URL belongs to the source that supplied the pair, else the default.
+    """
     env = load_env(ENV_PATH)
     return {
         "base": (env.get("WP_BASE_URL") or DEFAULT_BASE_URL).rstrip("/"),

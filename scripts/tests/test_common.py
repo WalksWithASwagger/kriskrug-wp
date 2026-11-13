@@ -1,6 +1,7 @@
 import io
 import json
 import math
+import os
 import sys
 import unittest
 import urllib.parse
@@ -37,9 +38,14 @@ def _http_error(code: int) -> HTTPError:
     return err
 
 
+def _process_env(**values: str):
+    """The process env with every WP override key dropped, then values added."""
+    isolated = {k: v for k, v in os.environ.items() if k not in common._OVERRIDE_KEYS}
+    return mock.patch.dict(os.environ, {**isolated, **values}, clear=True)
+
+
 class _EnvFileMixin:
     def write_env(self, text: str) -> str:
-        import os
         import tempfile
 
         fd = tempfile.NamedTemporaryFile(
@@ -66,33 +72,84 @@ class ParseSimpleEnvTests(_EnvFileMixin, unittest.TestCase):
 
 
 class LoadEnvTests(_EnvFileMixin, unittest.TestCase):
-    def test_explicit_path_loads_and_os_overlay_wins(self):
-        path = self.write_env("WP_USER=fileuser\nWP_APP_PASSWORD=filepass\n")
-        with mock.patch.dict("os.environ", {"WP_USER": "envuser"}, clear=False):
+    """Every case runs under _process_env, so WP_* values in the caller's shell
+    (a Varlock run, for one) can neither change a result nor reach the output."""
+
+    FILE_PAIR = "WP_USER=fileuser\nWP_APP_PASSWORD=filepass\n"
+
+    def test_explicit_path_loads_and_process_pair_wins(self):
+        path = self.write_env(self.FILE_PAIR)
+        with _process_env():
             values = load_env(path)
-        self.assertEqual(values["WP_USER"], "envuser")  # os overrides file
-        self.assertEqual(values["WP_APP_PASSWORD"], "filepass")
+        self.assertEqual(
+            (values["WP_USER"], values["WP_APP_PASSWORD"]), ("fileuser", "filepass")
+        )
+        with _process_env(WP_USER="envuser", WP_APP_PASSWORD="envpass"):
+            values = load_env(path)
+        self.assertEqual(
+            (values["WP_USER"], values["WP_APP_PASSWORD"]), ("envuser", "envpass")
+        )
+
+    def test_process_half_pair_never_mixes_with_the_file_pair(self):
+        path = self.write_env(self.FILE_PAIR)
+        for half in (
+            {"WP_USER": "envuser"},
+            {"WP_APP_PASSWORD": "envpass"},
+            {"WP_API_USERNAME": "envuser"},
+            {"WP_API_PASSWORD": "envpass"},
+        ):
+            with self.subTest(half=sorted(half)), _process_env(**half):
+                values = load_env(path)
+                self.assertEqual(
+                    (values["WP_USER"], values["WP_APP_PASSWORD"]),
+                    ("fileuser", "filepass"),
+                )
 
     def test_overlay_disabled_keeps_file_value(self):
-        path = self.write_env("WP_USER=fileuser\nWP_APP_PASSWORD=filepass\n")
-        with mock.patch.dict("os.environ", {"WP_USER": "envuser"}, clear=False):
+        path = self.write_env(self.FILE_PAIR)
+        with _process_env(WP_USER="envuser", WP_APP_PASSWORD="envpass"):
             values = load_env(path, overlay_os=False)
         self.assertEqual(values["WP_USER"], "fileuser")
 
     def test_auth_mode_os_overlay_wins(self):
-        path = self.write_env(
-            "WP_USER=fileuser\nWP_APP_PASSWORD=filepass\nWP_AUTH_MODE=basic\n"
-        )
-        with mock.patch.dict("os.environ", {"WP_AUTH_MODE": "login"}, clear=False):
+        path = self.write_env(self.FILE_PAIR + "WP_AUTH_MODE=basic\n")
+        with _process_env(WP_AUTH_MODE="login"):
             values = load_env(path)
         self.assertEqual(values["WP_AUTH_MODE"], "login")
+        # Login mode set in the process may not borrow the file's pair.
+        self.assertNotIn("WP_USER", values)
+        self.assertNotIn("WP_APP_PASSWORD", values)
+        with self.assertRaisesRegex(RuntimeError, "WP_AUTH_MODE=login"):
+            wp_credentials(values)
 
     def test_from_env_uses_auth_mode(self):
-        path = self.write_env(
-            "WP_USER=fileuser\nWP_APP_PASSWORD=filepass\nWP_AUTH_MODE=login\n"
-        )
-        client = WPClient.from_env(path)
+        path = self.write_env(self.FILE_PAIR + "WP_AUTH_MODE=login\n")
+        with _process_env():
+            client = WPClient.from_env(path)
         self.assertEqual(client.auth_mode, "login")
+        self.assertEqual((client.user, client.app_password), ("fileuser", "filepass"))
+
+    def test_login_mode_in_the_file_keeps_the_file_pair_over_a_process_pair(self):
+        """A Varlock app password must not be posted to wp-login.php."""
+        path = self.write_env(
+            self.FILE_PAIR
+            + "WP_AUTH_MODE=login\nWP_BASE_URL=https://file.example.test\n"
+        )
+        with _process_env(
+            WP_API_USERNAME="envuser",
+            WP_API_PASSWORD="envpass",
+            WP_BASE_URL="https://process.example.test",
+        ):
+            client = WPClient.from_env(path)
+        self.assertEqual(client.auth_mode, "login")
+        self.assertEqual((client.user, client.app_password), ("fileuser", "filepass"))
+        self.assertEqual(client.base, "https://file.example.test")
+
+    def test_blank_auth_mode_falls_back_to_basic(self):
+        path = self.write_env(self.FILE_PAIR + "WP_AUTH_MODE=\n")
+        with _process_env(WP_AUTH_MODE="  "):
+            client = WPClient.from_env(path)
+        self.assertEqual(client.auth_mode, "basic")
 
 
 class WpCredentialsTests(unittest.TestCase):
@@ -111,6 +168,28 @@ class WpCredentialsTests(unittest.TestCase):
     def test_raises_when_missing(self):
         with self.assertRaises(RuntimeError):
             wp_credentials({"WP_USER": "u"})
+
+    def test_raises_on_a_pair_split_across_name_families(self):
+        for env in (
+            {"WP_USER": "u", "WP_API_PASSWORD": "p"},
+            {"WP_API_USERNAME": "u", "WP_APP_PASSWORD": "p"},
+            {"WP_USER": "u", "WP_APP_PASSWORD": "  "},
+            {"WP_USER": " ", "WP_APP_PASSWORD": "p"},
+        ):
+            with self.subTest(env=sorted(env)), self.assertRaises(RuntimeError):
+                wp_credentials(env)
+
+    def test_complete_alias_pair_beats_a_legacy_half(self):
+        env = {
+            "WP_USER": "legacy-half",
+            "WP_API_USERNAME": "mcp-user",
+            "WP_API_PASSWORD": "mcp-pass",
+        }
+        self.assertEqual(wp_credentials(env)[1:], ("mcp-user", "mcp-pass"))
+
+    def test_blank_base_url_falls_back_to_the_default(self):
+        env = {"WP_USER": "u", "WP_APP_PASSWORD": "p", "WP_BASE_URL": "  "}
+        self.assertEqual(wp_credentials(env)[0], common.DEFAULT_BASE_URL)
 
     def test_accepts_wp_api_aliases(self):
         env = {
@@ -138,6 +217,13 @@ class WpCredentialsTests(unittest.TestCase):
         )
         self.assertEqual(env["WP_USER"], "u")
         self.assertEqual(apply_wp_credential_aliases(env)["WP_USER"], "u")
+
+    def test_apply_aliases_drops_a_half_pair(self):
+        env = apply_wp_credential_aliases(
+            {"WP_USER": "legacy-half", "WP_API_PASSWORD": "alias-half"}
+        )
+        self.assertNotIn("WP_USER", env)
+        self.assertNotIn("WP_APP_PASSWORD", env)
 
 
 class WPClientRequestTests(unittest.TestCase):
