@@ -103,3 +103,19 @@ Category `Vancouver AI Ecosystem`, the same as Zero to One and Futureproof: Year
 ### 14. Two personal details (yes/no)
 
 "My parents were in the audience" on launch night, and telling Taleeb Noormohamed he has a 300-member AI think tank in his riding. Both come from your September 2 recap on bc-ai.ca. **Recommended: yes.**
+
+## Review flags (2026-11-13)
+
+An independent review of the draft found three things to settle before the copy is final. The first two were rechecked logged out on 2026-11-13.
+
+### 15. "We're member-funded" (fix or confirm)
+
+`post.md` says "We're member-funded." The [bc-ai.ca FAQ](https://bc-ai.ca/faq) answers "How are you funded?" with "Through memberships, corporate sponsorships, program partnerships, and grants", and says member support keeps the organization accountable. As written, the draft contradicts BC + AI's own page. **Recommended:** say what is true in your words, for example that members are the base and nobody buys the agenda, and keep the "I don't sell you to sponsors" line from the stage.
+
+### 16. FV+AI room lead (add a name or confirm)
+
+The room-lead list names Matthew Schwartzman as FV+AI co-organizer. The linked [FV+AI page](https://bc-ai.ca/communities/fraser-valley-ai) lists **Darren Coleman** as the local lead, and its September 9 story says thirty people filled his office in Langley for the first gathering. **Recommended:** name Darren Coleman as the local lead, with Matthew alongside if he co-organizes.
+
+### 17. The second pull quote (keep, rewrite or cut)
+
+"If you change the deal on the people who showed up first, call them yourself. Then make the new deal one you can keep." has no source. It also pre-writes the lesson that question 2 asks you for. **Recommended:** replace it with your own line once you answer question 2, or cut it.

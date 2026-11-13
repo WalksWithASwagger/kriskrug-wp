@@ -11,6 +11,7 @@ This package stages #967, third in the editorial order of `docs/current-state/RO
 ## Blocking before any pin
 
 - [ ] Kris answers open-facts questions 1 to 7: launch-night signups, the renewal story, the founding price rule, the price lines and the founding individual price, "300 to 600", the AGM details and date, and the image and its rights.
+- [ ] Kris settles the review flags, open-facts questions 15 to 17: the "member-funded" line, the FV+AI room lead and the unsourced second pull quote.
 - [ ] Every `[KK: ...]` placeholder is replaced with Kris's words or removed, in `post.md` first. `post.html` is then regenerated from it with the shared `wp_blocks` helpers and both are re-checked.
 - [ ] Kris approves the final copy, and the two source hashes are pinned here in a content PR that merges.
 
