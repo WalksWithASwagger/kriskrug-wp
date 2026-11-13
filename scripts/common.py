@@ -84,9 +84,11 @@ def load_env(
     """Load .env values, preferring python-dotenv when installed.
 
     With no path, searches DEFAULT_ENV_PATHS and uses the first that exists.
-    When overlay_os is True, matching process env vars win over file values
-    (so `varlock run --inject vars -- …` / Cursor Cloud secrets work without
-    rewriting gitignored `.env` files).
+    When overlay_os is True, process env values for _OVERRIDE_KEYS win over
+    file values (so `varlock run --inject vars -- …` / Cursor Cloud secrets
+    work without rewriting gitignored `.env` files). Credentials resolve in
+    this order: process WP_USER, process WP_API_USERNAME, file WP_USER, file
+    WP_API_USERNAME, then nothing; the password pair follows the same order.
     """
     candidates = [Path(path)] if path else list(DEFAULT_ENV_PATHS)
     values: dict[str, str] = {}
@@ -102,11 +104,15 @@ def load_env(
         else:
             values = parse_simple_env(candidate)
         break
+    values = apply_wp_credential_aliases(values)
     if overlay_os:
-        for key in _OVERRIDE_KEYS:
-            if os.environ.get(key):
-                values[key] = os.environ[key]
-    return apply_wp_credential_aliases(values)
+        # Alias each source before merging; aliasing after the merge let a file
+        # WP_USER beat a process WP_API_USERNAME.
+        process = {
+            key: os.environ[key] for key in _OVERRIDE_KEYS if os.environ.get(key)
+        }
+        values.update(apply_wp_credential_aliases(process))
+    return values
 
 
 def apply_wp_credential_aliases(env: dict[str, str]) -> dict[str, str]:

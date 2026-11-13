@@ -7,8 +7,10 @@ unauthenticated. That broke `make status-readonly` and `make morning-truth`.
 
 from __future__ import annotations
 
+import itertools
 import os
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from unittest import mock
@@ -83,6 +85,106 @@ class CredentialAliasTests(unittest.TestCase):
         self.assertEqual(
             offenders, [], f"these gate on the unresolvable names only: {offenders}"
         )
+
+
+class LoadEnvPrecedenceTests(unittest.TestCase):
+    """load_env: process env beats the file across both name families, then the file, then nothing.
+
+    Every value is a fake label naming its own source, family and field, so a
+    failure shows which source won and nothing real is loaded or printed.
+    """
+
+    FAMILIES = ("legacy", "alias")
+    NAMES = {
+        "user": {"legacy": "WP_USER", "alias": "WP_API_USERNAME"},
+        "password": {"legacy": "WP_APP_PASSWORD", "alias": "WP_API_PASSWORD"},
+    }
+    FAMILY_SETS = ((), ("legacy",), ("alias",), ("legacy", "alias"))
+
+    def setUp(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.env_file = Path(tmp.name) / "connector.env"
+
+    def layer(self, source: str, families) -> dict[str, str]:
+        return {
+            names[family]: f"{source}-{family}-{field}"
+            for field, names in self.NAMES.items()
+            for family in families
+        }
+
+    def process_env(self, process: dict[str, str]):
+        isolated = {
+            k: v for k, v in os.environ.items() if k not in common._OVERRIDE_KEYS
+        }
+        return mock.patch.dict(os.environ, {**isolated, **process}, clear=True)
+
+    def load(self, process: dict[str, str], file_values: dict[str, str], **kwargs):
+        lines = [f"{key}={value}" for key, value in file_values.items()]
+        # Every case reads a real file, even one that holds no credentials.
+        lines.append("WP_BASE_URL=https://file.example.test")
+        self.env_file.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        with self.process_env(process):
+            return common.load_env(self.env_file, **kwargs)
+
+    def winner(self, process_families, file_families) -> str | None:
+        ranked = [("process", f) for f in self.FAMILIES if f in process_families]
+        ranked += [("file", f) for f in self.FAMILIES if f in file_families]
+        return "-".join(ranked[0]) if ranked else None
+
+    def test_every_source_and_name_family_combination(self):
+        for process_families, file_families in itertools.product(
+            self.FAMILY_SETS, repeat=2
+        ):
+            with self.subTest(process=process_families, file=file_families):
+                values = self.load(
+                    self.layer("process", process_families),
+                    self.layer("file", file_families),
+                )
+                winner = self.winner(process_families, file_families)
+                if winner is None:
+                    self.assertNotIn("WP_USER", values)
+                    self.assertNotIn("WP_APP_PASSWORD", values)
+                    with self.assertRaises(RuntimeError):
+                        common.wp_credentials(values)
+                    continue
+                self.assertEqual(values["WP_USER"], f"{winner}-user")
+                self.assertEqual(values["WP_APP_PASSWORD"], f"{winner}-password")
+                self.assertEqual(
+                    common.wp_credentials(values)[1:],
+                    (f"{winner}-user", f"{winner}-password"),
+                )
+
+    def test_process_alias_pair_beats_file_legacy_pair_through_from_env(self):
+        """The reported bug: a file WP_USER used to beat a Varlock WP_API_USERNAME."""
+        self.env_file.write_text(
+            "WP_USER=file-legacy-user\nWP_APP_PASSWORD=file-legacy-password\n",
+            encoding="utf-8",
+        )
+        with self.process_env(self.layer("process", ("alias",))):
+            client = common.WPClient.from_env(self.env_file)
+        self.assertEqual(
+            (client.user, client.app_password),
+            ("process-alias-user", "process-alias-password"),
+        )
+
+    def test_empty_process_values_do_not_shadow_the_file(self):
+        empty = {name: "" for names in self.NAMES.values() for name in names.values()}
+        values = self.load(empty, self.layer("file", ("alias",)))
+        self.assertEqual(values["WP_USER"], "file-alias-user")
+        self.assertEqual(values["WP_APP_PASSWORD"], "file-alias-password")
+
+    def test_overlay_disabled_ignores_the_process_env(self):
+        for file_families in self.FAMILY_SETS:
+            with self.subTest(file=file_families):
+                values = self.load(
+                    self.layer("process", self.FAMILIES),
+                    self.layer("file", file_families),
+                    overlay_os=False,
+                )
+                winner = self.winner((), file_families)
+                expected = f"{winner}-user" if winner else None
+                self.assertEqual(values.get("WP_USER"), expected)
 
 
 if __name__ == "__main__":
