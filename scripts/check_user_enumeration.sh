@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # Repeatable logged-out check for issue #767 user-enumeration surfaces.
 #
-# Asserts the four verification curls from #767 against the desired
-# post-apply state and prints PASS/FAIL. Never prints usernames, slugs,
-# Location URLs, or response bodies.
+# Asserts the #767 verification curls against the desired post-apply state
+# and prints PASS/FAIL: five spellings of the REST users route (core matches
+# routes case-insensitively), the sitemap index, /?author=1 and HSTS. Never
+# prints usernames, slugs, Location URLs, or response bodies.
 #
 # Safe by construction: GET/HEAD only. No POST, no xmlrpc.php, no login,
 # no credential test.
@@ -12,8 +13,7 @@
 #   scripts/check_user_enumeration.sh
 #   KK_SITE_URL=https://kriskrug.co scripts/check_user_enumeration.sh
 #
-# Exit 0 only when all four checks PASS. Before the KK-approved apply,
-# expect FAIL on every row.
+# Exit 0 only when every check PASSes.
 
 set -euo pipefail
 
@@ -49,27 +49,30 @@ fail() {
 }
 
 # --- 1. REST users: no public user list ------------------------------------
-# Desired: curl -s "$BASE/wp-json/wp/v2/users" returns no user list.
-users_body="$tmpdir/users.json"
-users_meta="$tmpdir/users.meta"
-curl -sS --max-time 30 \
-  -D "$tmpdir/users.hdr" \
-  -o "$users_body" \
-  -w "http_code=%{http_code}\n" \
-  -A "kk-check-user-enumeration/1.0" \
-  "$BASE/wp-json/wp/v2/users" >"$users_meta"
+# Desired: no spelling of the users route returns user data. WordPress core
+# matches REST routes case-insensitively, so mixed-case paths and the
+# ?rest_route= form are probed as well as the canonical lowercase path.
+check_users_route() {
+  local label="$1" url="$2" slot="$3"
+  local body="$tmpdir/users-$slot.json" meta="$tmpdir/users-$slot.meta" hdr="$tmpdir/users-$slot.hdr"
+  curl -sS --max-time 30 \
+    -D "$hdr" \
+    -o "$body" \
+    -w "http_code=%{http_code}\n" \
+    -A "kk-check-user-enumeration/1.0" \
+    "$url" >"$meta"
 
-users_code="$(sed -n 's/^http_code=//p' "$users_meta")"
-users_total="$(awk 'BEGIN{IGNORECASE=1} /^x-wp-total:/{gsub(/\r/,""); print $2; exit}' "$tmpdir/users.hdr")"
-users_total="${users_total:-absent}"
+  local code total eval_out result detail
+  code="$(sed -n 's/^http_code=//p' "$meta")"
+  total="$(awk 'BEGIN{IGNORECASE=1} /^x-wp-total:/{gsub(/\r/,""); print $2; exit}' "$hdr")"
+  total="${total:-absent}"
 
-users_eval="$(
-  USERS_CODE="$users_code" USERS_TOTAL="$users_total" USERS_BODY="$users_body" python3 - <<'PY'
-import json, os, sys
+  eval_out="$(
+    USERS_CODE="$code" USERS_TOTAL="$total" USERS_BODY="$body" python3 - <<'PY'
+import json, os
 code = os.environ["USERS_CODE"]
 total = os.environ["USERS_TOTAL"]
-path = os.environ["USERS_BODY"]
-body = open(path, "rb").read()
+body = open(os.environ["USERS_BODY"], "rb").read()
 kind = "unparsed"
 length = -1
 try:
@@ -82,31 +85,43 @@ if isinstance(data, list):
 elif isinstance(data, dict):
     kind = "object"
     length = 0
-leaks_list = kind == "array" and length > 0
-total_n = None
-if total.isdigit():
-    total_n = int(total)
+leaks = kind == "array" and length > 0
+# A single-user route returns one user object; an error object has "code".
+if kind == "object" and ("slug" in data or "id" in data) and "code" not in data:
+    leaks = True
+total_n = int(total) if total.isdigit() else None
 if total_n is not None and total_n > 0:
-    leaks_list = True
-if code in {"401", "403", "404"} and not leaks_list:
+    leaks = True
+if code in {"401", "403", "404"} and not leaks:
     result = "pass"
 elif code == "200" and kind == "array" and length == 0 and (total_n is None or total_n == 0):
     result = "pass"
-elif code == "200" and kind == "object" and not leaks_list:
+elif code == "200" and kind == "object" and not leaks:
     result = "pass"
 else:
     result = "fail"
 print(f"{result} status={code} x-wp-total={total} json={kind} array_length={length if length >= 0 else 'n/a'}")
 PY
-)"
+  )"
 
-users_result="${users_eval%% *}"
-users_detail="${users_eval#* }"
-if [[ "$users_result" == "pass" ]]; then
-  pass "REST /wp-json/wp/v2/users  ($users_detail)"
-else
-  fail "REST /wp-json/wp/v2/users  ($users_detail; expected 401/403/404 or empty list, no x-wp-total>0)"
-fi
+  result="${eval_out%% *}"
+  detail="${eval_out#* }"
+  if [[ "$result" == "pass" ]]; then
+    pass "REST ${label}  ($detail)"
+  else
+    fail "REST ${label}  ($detail; expected 401/403/404 or empty list, no x-wp-total>0, no user object)"
+  fi
+}
+
+# Pagely's ARES edge caches anonymous GET REST responses, including 200s. A
+# unique query parameter bypasses the edge so each probe measures the origin,
+# and keeps this check from seeding cache entries of its own.
+nonce="kk_enum_check=$(date +%s)$RANDOM"
+check_users_route "/wp-json/wp/v2/users" "$BASE/wp-json/wp/v2/users?$nonce" 1
+check_users_route "/wp-json/wp/v2/Users" "$BASE/wp-json/wp/v2/Users?$nonce" 2
+check_users_route "/wp-json/WP/V2/USERS" "$BASE/wp-json/WP/V2/USERS?$nonce" 3
+check_users_route "/wp-json/wp/v2/Users/1" "$BASE/wp-json/wp/v2/Users/1?$nonce" 4
+check_users_route "/?rest_route=/wp/v2/Users" "$BASE/?rest_route=/wp/v2/Users&$nonce" 5
 
 # --- 2. Sitemap index: no users child --------------------------------------
 # Desired: curl -s "$BASE/wp-sitemap.xml" | grep -c users  →  0

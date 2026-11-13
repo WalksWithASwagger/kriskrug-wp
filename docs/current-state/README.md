@@ -58,6 +58,7 @@ It authorizes a reviewable proof PR, not a live deployment.
 |---|---|
 | [SEO-INDEXING-RUNBOOK.md](SEO-INDEXING-RUNBOOK.md) | Indexing/distribution checklist (#426). Public #274 refresh: `make sitemap-followthrough` and [reports/issue-274-sitemap-followthrough-20260921.md](reports/issue-274-sitemap-followthrough-20260921.md) |
 | [templates/owned-distribution-backlink-checklist.md](templates/owned-distribution-backlink-checklist.md) | Per-article owned-distribution + backlink launch record (#1026). Copy into the draft package; does not authorize live posts |
+| [templates/monthly-measurement-readout.md](templates/monthly-measurement-readout.md) | Blank monthly readout (#1279): inquiries, KRÜG, Search Console, field Web Vitals, post counts. Each row has a source and a "not measured because" field; numbers go public only if Kris approves |
 | [CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md](CRAWL-WASTE-AUTHORITY-HUB-2026-09-20.md) | #1025 robots/sitemap/noindex recommendations. In-repo only; does not authorize live apply |
 | [SEO-PUBLISHER-SCHEMA-2026-07-19.md](SEO-PUBLISHER-SCHEMA-2026-07-19.md) | Schema/publisher rules (`make seo-publisher-smoke`) |
 | [SEO-STRIKING-DISTANCE-2026-08-02.md](SEO-STRIKING-DISTANCE-2026-08-02.md) | #249 re-measure. **Read `scripts/seo-audit/README.md` before running `make seo-audit`:** Jetpack is deactivated and the theme owns SEO titles; the target now covers posts only and exits 2 instead of reporting a false 1016/1016 missing |
