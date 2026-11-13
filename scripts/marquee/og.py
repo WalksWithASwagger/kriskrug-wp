@@ -46,7 +46,7 @@ def card_html(board):
     e = html.escape
     after = board.get("after")
     section = board_section(board["board"], "", board.get("skin", "led"))
-    foot_left = f'kriskrug.co<span style="opacity:.5"> · the marquee</span>'
+    foot_left = 'kriskrug.co<span style="opacity:.5"> · the marquee</span>'
     foot_right = f'after {e(after)}' if after else ""
     return (
         "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\">"

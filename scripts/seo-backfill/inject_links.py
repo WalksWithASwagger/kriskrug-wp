@@ -32,7 +32,6 @@ from linkinject_lib import (  # noqa: E402
     PILLAR_BY_CATEGORY,
     assert_minimal_diff,
     build_content_payload,
-    has_footer,
     plan_links_for_post,
     rank_siblings,
 )
@@ -340,7 +339,7 @@ def apply_one(
     if verify_slug != fresh.get("slug"):
         issues.append(f"slug-changed:{verify_slug}")
     if title_similarity(verify_title, fresh_title) < TITLE_DRIFT_THRESHOLD:
-        issues.append(f"title-drifted")
+        issues.append("title-drifted")
 
     if issues:
         out["status"] = "failed"

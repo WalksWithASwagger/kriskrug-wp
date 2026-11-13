@@ -579,7 +579,6 @@ def main() -> None:
 
     media_updates: list[dict[str, Any]] = []
     excerpt_updates: list[dict[str, Any]] = []
-    manual_featured = [a for a in audits_before if a.missing_featured]
 
     # Build the write plan from reads only; this runs in BOTH dry-run and execute
     # so dry-run can preview exactly what --execute would change.

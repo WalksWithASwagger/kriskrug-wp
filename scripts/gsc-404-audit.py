@@ -11,7 +11,6 @@ import sys
 from collections import Counter
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any
 from urllib.parse import parse_qs, urlparse
 
 
