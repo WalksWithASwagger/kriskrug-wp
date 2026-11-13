@@ -1,11 +1,13 @@
 """Offline host-key trust tests for scripts/deploy_theme_sftp.py (#1034).
 
 No network, no credentials: paramiko's Transport is mocked, and paramiko
-itself is stubbed when it is not installed (CI does not install it).
+itself is stubbed when it is not installed (CI does not install it). The
+Keychain is faked at subprocess.run, so no test reads a real Keychain item.
 """
 
 import importlib
 import os
+import subprocess
 import sys
 import tempfile
 import types
@@ -92,6 +94,7 @@ class ConnectTrustTests(unittest.TestCase):
             mock.patch.object(dts, "HOSTS", hosts),
             mock.patch.object(dts, "PORT", port),
             mock.patch.object(dts, "_trusted_host_keys", return_value=trusted),
+            mock.patch.object(dts, "_sftp_user", return_value="synthetic-user"),
             mock.patch.object(dts, "_password", return_value="synthetic-pw"),
             mock.patch("builtins.print"),
         ):
@@ -105,7 +108,9 @@ class ConnectTrustTests(unittest.TestCase):
         trusted = FakeHostKeys({"a.example": [TRUSTED]})
         result, ts = self._connect(["a.example"], trusted, {"a.example": TRUSTED})
         self.assertEqual(result, ("sftp", ts["a.example"]))
-        ts["a.example"].auth_password.assert_called_once_with(dts.USER, "synthetic-pw")
+        ts["a.example"].auth_password.assert_called_once_with(
+            "synthetic-user", "synthetic-pw"
+        )
         ts["a.example"].connect.assert_not_called()  # hostkey=None path is gone
         ts["a.example"].close.assert_not_called()
 
@@ -188,6 +193,7 @@ class ConnectTrustTests(unittest.TestCase):
             mock.patch.object(dts, "paramiko", fake_paramiko),
             mock.patch.object(dts, "HOSTS", ["a.example"]),
             mock.patch.object(dts, "_trusted_host_keys", return_value=trusted),
+            mock.patch.object(dts, "_sftp_user", return_value="synthetic-user"),
             mock.patch.object(dts, "_password", return_value="synthetic-pw"),
             mock.patch("builtins.print"),
         ):
@@ -197,15 +203,140 @@ class ConnectTrustTests(unittest.TestCase):
 
 
 class TrustedHostKeysFileTests(unittest.TestCase):
-    def test_missing_known_hosts_exits_before_password(self):
+    def test_missing_known_hosts_exits_before_any_credential_lookup(self):
         with tempfile.TemporaryDirectory() as tmp:
             missing = os.path.join(tmp, "nope")
-            with mock.patch.object(dts, "_password") as pw:
-                with mock.patch.object(dts, "KNOWN_HOSTS", missing):
-                    with self.assertRaises(SystemExit) as ctx:
-                        dts._connect()
+            with (
+                mock.patch.object(dts, "_sftp_user") as user,
+                mock.patch.object(dts, "_password") as pw,
+                mock.patch.object(dts, "KNOWN_HOSTS", missing),
+            ):
+                with self.assertRaises(SystemExit) as ctx:
+                    dts._connect()
+            user.assert_not_called()
             pw.assert_not_called()
         self.assertIn("No trusted SFTP host keys", str(ctx.exception.code))
+
+
+SECURITY = ["security", "find-generic-password", "-s", "pagely-sftp-kriskrug"]
+KEYCHAIN_ATTRIBUTES = (
+    'keychain: "/fake/login.keychain-db"\n'
+    'class: "genp"\n'
+    "attributes:\n"
+    '    0x00000007 <blob>="pagely-sftp-kriskrug"\n'
+    '    "acct"<blob>="synthetic-sftp-user"\n'
+    '    "svce"<blob>="pagely-sftp-kriskrug"\n'
+)
+
+
+def sftp_env(**values):
+    env = {
+        k: v
+        for k, v in os.environ.items()
+        if k not in ("WP_SFTP_USER", "WP_SFTP_PASSWORD")
+    }
+    env.update(values)
+    return mock.patch.dict(os.environ, env, clear=True)
+
+
+def keychain_returns(*results):
+    """Fake subprocess.run: each result is (returncode, stdout) or an exception."""
+    outcomes = [
+        r if isinstance(r, Exception) else subprocess.CompletedProcess([], *r, "")
+        for r in results
+    ]
+    return mock.patch.object(dts.subprocess, "run", side_effect=outcomes)
+
+
+class SftpUserResolutionTests(unittest.TestCase):
+    """User: WP_SFTP_USER, else the Keychain item's account. There is no default."""
+
+    def test_env_user_wins_without_touching_the_keychain(self):
+        with sftp_env(WP_SFTP_USER="env-user"), keychain_returns() as run:
+            self.assertEqual(dts._sftp_user(), "env-user")
+        run.assert_not_called()
+
+    def test_unset_or_blank_env_user_reads_the_keychain_account(self):
+        for env in ({}, {"WP_SFTP_USER": ""}, {"WP_SFTP_USER": "  "}):
+            with (
+                self.subTest(env=env),
+                sftp_env(**env),
+                keychain_returns((0, KEYCHAIN_ATTRIBUTES)) as run,
+            ):
+                self.assertEqual(dts._sftp_user(), "synthetic-sftp-user")
+                argv = run.call_args.args[0]
+                self.assertEqual(argv, SECURITY)
+                self.assertNotIn("-w", argv)
+                self.assertNotIn("-g", argv)
+
+    def test_no_env_user_and_no_keychain_account_exits(self):
+        cases = {
+            "item missing": (44, ""),
+            "account empty": (
+                0,
+                KEYCHAIN_ATTRIBUTES.replace('="synthetic-sftp-user"', "=<NULL>"),
+            ),
+            "not macOS": FileNotFoundError("security"),
+        }
+        for name, result in cases.items():
+            with self.subTest(name), sftp_env(), keychain_returns(result):
+                with self.assertRaises(SystemExit) as ctx:
+                    dts._sftp_user()
+                self.assertIn("WP_SFTP_USER", str(ctx.exception.code))
+
+
+class SftpPasswordResolutionTests(unittest.TestCase):
+    def test_env_password_wins_without_touching_the_keychain(self):
+        with sftp_env(WP_SFTP_PASSWORD="env-pw"), keychain_returns() as run:
+            self.assertEqual(dts._password("synthetic-sftp-user"), "env-pw")
+        run.assert_not_called()
+
+    def test_keychain_password_is_read_for_the_resolved_account(self):
+        with sftp_env(), keychain_returns((0, "synthetic-pw\n")) as run:
+            self.assertEqual(dts._password("synthetic-sftp-user"), "synthetic-pw")
+        self.assertEqual(
+            run.call_args.args[0], [*SECURITY, "-a", "synthetic-sftp-user", "-w"]
+        )
+
+    def test_missing_password_exits_without_echoing_the_account(self):
+        with (
+            sftp_env(),
+            keychain_returns((44, "")),
+            self.assertRaises(SystemExit) as ctx,
+        ):
+            dts._password("synthetic-sftp-user")
+        message = str(ctx.exception.code)
+        self.assertIn("WP_SFTP_PASSWORD", message)
+        self.assertNotIn("synthetic-sftp-user", message)
+
+
+class ConnectResolutionOrderTests(unittest.TestCase):
+    def test_keychain_account_feeds_the_password_lookup_and_login(self):
+        transport = mock.MagicMock(name="Transport")
+        transport.get_remote_server_key.return_value = TRUSTED
+        fake_paramiko = mock.MagicMock()
+        fake_paramiko.Transport.return_value = transport
+        with (
+            sftp_env(),
+            keychain_returns((0, KEYCHAIN_ATTRIBUTES), (0, "synthetic-pw\n")) as run,
+            mock.patch.object(dts, "paramiko", fake_paramiko),
+            mock.patch.object(dts, "HOSTS", ["a.example"]),
+            mock.patch.object(dts, "PORT", 22),
+            mock.patch.object(
+                dts,
+                "_trusted_host_keys",
+                return_value=FakeHostKeys({"a.example": [TRUSTED]}),
+            ),
+            mock.patch("builtins.print"),
+        ):
+            dts._connect()
+        self.assertEqual(
+            [c.args[0] for c in run.call_args_list],
+            [SECURITY, [*SECURITY, "-a", "synthetic-sftp-user", "-w"]],
+        )
+        transport.auth_password.assert_called_once_with(
+            "synthetic-sftp-user", "synthetic-pw"
+        )
 
 
 if __name__ == "__main__":
