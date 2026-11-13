@@ -1,6 +1,6 @@
 # Gorgeous Ghost combined package: publish gate
 
-**Status: STAGED AS WORDPRESS DRAFT 13003, NOT SCHEDULED YET.** Kris approved the featured image and the schedule (Thu 2026-11-19 at 09:00 Vancouver time, 16:00 UTC), but the featured image upload did not run in the lane that staged the draft, so the post was left as a draft. Do not schedule it without its featured image. Receipt: `docs/current-state/reports/scheduled-posts-2026-11-19-24.md`.
+**Status: SCHEDULED.** WordPress post 13003 publishes Thu 2026-11-19 at 09:00 Vancouver time (16:00 UTC), with media 13006 as its featured image. The lane that staged the draft could not upload the image. Kris had approved the orchestrating session running these writes itself if that happened, and it finished them at 03:31 UTC on 2026-11-13. Receipt: `docs/current-state/reports/scheduled-posts-2026-11-19-24.md`.
 
 This package combines the #771 art-project package and the #1016 making-of draft, per Kris's 2026-11-12 combine ruling on #771. The folder date is the day the package was built, not a post date.
 
@@ -22,18 +22,21 @@ Draft 13003 was built from these exact files. Its stored `content.raw` hashes to
 | Time (UTC) | Write | Readback |
 |---|---|---|
 | 03:17:17 | `create_local_wp_draft.py --execute` created post **13003** | `status: draft`, `slug: gorgeous-ghost`, category 1755, tags 1804, 1682, 1785 and 1395, title, excerpt and both SEO meta fields as in the package, `content.raw` byte-identical to the pinned `post.html` |
-| not run | upload of the approved featured image | nothing uploaded; an authenticated media search just before the draft was created found no earlier copy |
-| not run | scheduling update | post stays `draft`, `featured_media: 0` |
+| 03:31:15 | upload of the approved master as media **13006**, then its alt text | 1600x900, `image/jpeg`, alt text as approved, stored as `gorgeous-ghost-reveal-eye-1600x900-1.jpg` |
+| 03:31:17 | post 13003: `status: future`, `date_gmt: 2026-11-19T16:00:00`, `featured_media: 13006` | `future`, `date_gmt` as sent, `date` 2026-11-19T08:00:00 (the site's fixed UTC-8 clock), featured 13006, category and tags unchanged, `content.raw` still the pinned `post.html` |
 
-Logged out, `https://kriskrug.co/gorgeous-ghost/` and `?p=13003` return 404.
+Logged out after scheduling, the dated URL `https://kriskrug.co/2026/11/19/gorgeous-ghost/` and `?p=13003` return 404.
 
-## Featured image: approved, not uploaded
+## Featured image: media 13006
 
 - **Approved by Kris on 2026-11-12:** the film's reveal art, a lightning-painted eye in a jeweled star field. Source `https://gorgeousghost.com/experience/reveal-hero-1600.webp`, 1600x893, SHA-256 `3a4f8fc7b5e4f063d712771cdbbef8b42ff889112e1731d61c95b3dc8ea70831`. His film art is his to reuse.
 - **Master:** 1600x900 JPEG (quality 92, no chroma subsampling), made by mirroring 4 rows at the top and 3 at the bottom of the source, with no resampling. The approved build hashes to `83de184cb2ffe9ced7fd0ad53e55b129171ab16879a0e2bb284cc0b976aa6b14`. Upload name: `gorgeous-ghost-reveal-eye-1600x900.jpg`. Alt text: `A lightning-painted eye floating in a jeweled star field` (`alt-text.md`). The file is kept outside this public repo.
+- **Uploaded** 2026-11-13T03:31:15Z as media 13006. WordPress added `-1` to the file name. No file with the plain name existed (that URL returns 404); WordPress does this for file names that end in a size such as `-1600x900`.
 - **Crop QC (2026-11-13 UTC):** featured-image-forge gates pass, and the master passed the visual check at every crop the theme and social cards use: 16:9, 1.91:1, the 760x390 desktop hero, 3:2, 1:1, 300 px and the 94x80 phone thumbnail. The YouTube title-card frame and the share image failed (letters of GORGEOUS clipped at 3:2 and 1:1, credit line sliced at 1.91:1, both under the master size).
 
-## To finish (all approved by Kris; run in this order)
+## Finishing steps (all approved by Kris; done 2026-11-13 UTC)
+
+Run in this order, each step passing before the next: the media search found nothing, the master hash matched, the slug resolved only to 13003, and 13003 was still an unchanged draft when the schedule was sent.
 
 1. Authenticated media search for `gorgeous-ghost-reveal-eye`: expect nothing. Check the master still hashes to `83de184c...6b14`.
 2. Upload the master once, with the alt text above, through the repo's WordPress client under Varlock. Read back the media ID, 1600x900 and the alt text.
@@ -59,4 +62,4 @@ Never delete. Draft 13003 can stay a draft indefinitely. Once scheduled, move it
 8. **Dry-run:** exit 0, slug `gorgeous-ghost`, `images: []`, category `Creative Technology & Making`, four tags.
 9. **Repo gates:** `git diff --check` clean; CI on the PR runs the full suite. `make verify` was not run in this worktree, which has no Python venv or PHPCS install.
 
-Nothing here claims the post is scheduled or published. It is an unpublished draft.
+The post is scheduled, not published. It goes live at 2026-11-19 16:00 UTC unless someone moves it back to draft first.
