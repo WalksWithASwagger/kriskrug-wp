@@ -13,18 +13,18 @@ The public REST query `https://kriskrug.co/wp-json/wp/v2/posts?after=2026-10-25T
 | 12978 | 2026-11-08 | [Grimes Asked Where the Artists Are. They're in QA.](https://kriskrug.co/2026/11/08/who-in-the-room-can-hear-the-music/) |
 | 12979 | 2026-11-09 | [Who gets a say in Canada's AI future?](https://kriskrug.co/2026/11/09/who-gets-a-say-canada-ai-future-canada-now/) (the Canada Now interview) |
 
-Re-run the query before sending. A post published after November 12 is not in this letter.
+Re-run the query before sending. A post published after November 12 is not in this letter. Two more November posts are already scheduled ([#1315](https://github.com/WalksWithASwagger/kriskrug-wp/pull/1315)): I Made a Gorgeous Ghost (13003) on November 19 and Both Things Are True (13004) on November 24, both at 09:00 Vancouver time.
 
 ## Claims, line by line
 
 | Letter section | Claim | Source | Checked |
 |---|---|---|---|
-| Opening | This is the first KRÜG letter | [KRÜG archive](https://vancouver.beehiiv.com/archive) shows "No posts found" (total 0); roadmap evidence table says KRÜG "never sent an issue" ([ROADMAP-2026-11-12](https://github.com/WalksWithASwagger/kriskrug-wp/blob/main/docs/current-state/ROADMAP-2026-11-12.md)) | 2026-11-12 |
-| Opening | The site used to promise a weekly note | [#1278](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1278): Contact promised "a weekly note"; the monthly wording went live on 2026-11-12 ([#1300](https://github.com/WalksWithASwagger/kriskrug-wp/pull/1300)) | 2026-11-12 |
-| Opening | One letter a month on AI, creativity and the rooms where it happens; "I'll earn every open" | [Homepage](https://kriskrug.co/) newsletter band: "Give me your email. I'll earn every open." and "Once a month on AI, creativity, and the rooms where this work actually happens." | 2026-11-12 |
+| Opening | This is the first letter KRÜG has ever sent | [KRÜG archive](https://vancouver.beehiiv.com/archive) shows "No posts found" (total 0); roadmap evidence table says KRÜG "never sent an issue" ([ROADMAP-2026-11-12](https://github.com/WalksWithASwagger/kriskrug-wp/blob/main/docs/current-state/ROADMAP-2026-11-12.md)) | 2026-11-12 |
+| Opening | "Somewhere along the way you got on this list" (no mention of the old weekly promise) | History: until 2026-10-25 every newsletter button on kriskrug.co, including "Get the weekly email", linked to `kriskrug.beehiiv.com`, which is the BC + AI Ecosystem publication, not KRÜG ([routing report](https://github.com/WalksWithASwagger/kriskrug-wp/blob/main/docs/current-state/reports/social-newsletter-release-2026-10-25.md), [#1142](https://github.com/WalksWithASwagger/kriskrug-wp/pull/1142)). The weekly wording pointed at KRÜG only from October 25 until the monthly wording went live on November 12 ([#1300](https://github.com/WalksWithASwagger/kriskrug-wp/pull/1300)). The [KRÜG landing page](https://vancouver.beehiiv.com/subscribe) makes no frequency promise. "Got on this list" rather than "signed up" also stays true if any subscribers were imported. | 2026-11-12 |
+| Opening | One letter a month on AI, creativity and the rooms where it happens; "I'll earn every open" | [Homepage](https://kriskrug.co/) newsletter band: "Give me your email. I'll earn every open." and "Once a month on AI, creativity, and the rooms where this work actually happens." "A pace I can keep" is the drafter's guess at the reason, not a sourced claim (README, call 1). | 2026-11-12 |
 | Opening | Every November post came back to who gets a say | Editorial read of the four posts above; post 12979's title is "Who gets a say in Canada's AI future?" | 2026-11-12 |
 | Futureproof | Ran October 28 to 30 at the H.R. MacMillan Space Centre | [Futureproof: Year One](https://kriskrug.co/2026/11/01/futureproof-2026-year-one/) | 2026-11-12 |
-| Futureproof | About 10:30 on opening night, voice note outside the Sylvia Hotel; "A bunch of people trusted me."; "still sitting with" it; "pretty lit up" outside the Sylvia | Year One post | 2026-11-12 |
+| Futureproof | About 10:30 on opening night, voice note outside the Sylvia Hotel, "trying to get some of it down while it was fresh"; "A bunch of people trusted me."; "still sitting with" it | Year One post | 2026-11-12 |
 | Futureproof | A thank-you and notes for year two | Year One post: closing thanks and the section "What I'm taking into year two" | 2026-11-12 |
 | Futureproof | Amber Case brought us back to our bodies | Year One post, section "Amber brought us back to our bodies" | 2026-11-12 |
 | Futureproof | Jacob Ortiz put his project's misses on the screen | Year One post: five of fifteen questions that should have been refused got a cited answer to a different question, shown on his slides | 2026-11-12 |
@@ -46,7 +46,7 @@ Re-run the query before sending. A post published after November 12 is not in th
 | December | Wednesday, December 16: Vancouver AI at the H.R. MacMillan Space Centre, doors 6:00, program 7:00; Kris hosts; "Come late. Leave early. Nobody keeps score." | [Luma: dec-vanai](https://luma.com/dec-vanai); [kriskrug.co/events](https://kriskrug.co/events/) lists "Vancouver AI Community Meetup: December 2026 · Host & MC" | 2026-11-12 |
 | One question | Think of one AI decision around you; an assignment, a contract, something at work that used to be a conversation; who makes it and who lives with it | Canada Now post, section "The question Ashley left me with" | 2026-11-12 |
 | Sign-off | "See you in the room" | Kris's own sign-off on the [December meetup page](https://luma.com/dec-vanai) | 2026-11-12 |
-| Footer | AI-assistance line | Matches the disclosure line at the end of each November post | 2026-11-12 |
+| Footer | AI-assistance line ("Drafted with AI assistance ...") | The posts differ. Futureproof: Year One and the Grimes post end with "Written with AI assistance ..."; the Canada Now post ends with "Drafted with AI assistance ..."; You Can't Rent a Social Licence has no disclosure line. Kris decides the wording, or whether to keep it. | 2026-11-12 |
 
 Weekdays checked with Python: December 10, 2026 is a Thursday; December 16, 2026 is a Wednesday. Luma's stored start times (01:30 and 01:00 UTC) convert to 6:30 PM and 6:00 PM in America/Vancouver, matching the doors times in the descriptions.
 

@@ -16,10 +16,10 @@ This repo is public, so the draft can be read before it goes out. Everything in 
 
 ## Your calls
 
-1. **Why monthly.** "So here's a promise I can keep" is my guess at the reason. If yours is different, say it your way.
+1. **The opening.** It says the list got its first letter and there's one a month from here. It doesn't mention the old weekly promise: until October 25 that button linked to the BC + AI Ecosystem publication, not KRÜG, so most people on this list never saw it (history in `sources.md`). "Once a month is a pace I can keep" is my guess at your reason, so say it your way. "Got on this list" covers anyone who was imported; if everyone signed up themselves, "signed up" is warmer.
 2. **Subject line.** I'd go with "Who gets a say". If you pick another, change the `# Who gets a say` title at the top of `letter.md` to match.
-3. **The AI-assistance line** at the bottom matches the one on your November posts. Keep it, change it or cut it.
-4. **Anything published after November 12.** The letter covers the four posts that were live then. If another one lands first (the Gorgeous Ghost and Both Things Are True packages are both ready to stage), add a short section and check that "Every post I wrote in November came back to one question" still holds. If the new post went up in December, reword that line so it doesn't only say November.
+3. **The AI-assistance line** at the bottom says "Drafted with AI assistance". Your November posts aren't consistent: Futureproof: Year One and the Grimes post say "Written with AI assistance", the Canada Now post says "Drafted with AI assistance", and You Can't Rent a Social Licence has no line. Keep it, change it or cut it.
+4. **Two more November posts.** The letter covers the four posts live on November 12. I Made a Gorgeous Ghost (post 13003) is scheduled for November 19 and Both Things Are True (post 13004, the Both Hands Full stance piece) for November 24 ([#1315](https://github.com/WalksWithASwagger/kriskrug-wp/pull/1315)). A send in the December 1 to 9 window needs a short section for each, written from the live posts, and a rewrite of line 7, "Every post I wrote in November came back to one question", which only covers the four posts here. An agent can draft both sections once the posts are live. Re-run the REST query in `sources.md` for anything else.
 5. **The November 25 meetup** is left out because it hasn't happened yet. If you want two lines on it, write them from the room. The public billing is in `sources.md`, and Ashley Smith is on it, so it could close the Canada Now section.
 
 ## Send window
@@ -28,6 +28,7 @@ Best between December 1 and 9, while both December rooms are still ahead.
 
 - After December 10, cut the Film Club entry, and change "two December rooms" in preview 1 to "the December meetup".
 - On December 16 or 17, swap the December section for a few lines on the rooms and a pointer to January.
+- Preview 2 ends on "where to find me next". If the December section comes out, keep at least one date that's still ahead so that line stays true.
 
 ## In Beehiiv, before you send
 

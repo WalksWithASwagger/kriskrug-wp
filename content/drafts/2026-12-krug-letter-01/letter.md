@@ -2,13 +2,13 @@
 
 Hi, it's Kris.
 
-This is the first KRÜG letter. For a while my site promised you a weekly note. I never sent one. So here's a promise I can keep: one letter a month, on AI, creativity and the rooms where this stuff actually happens. The homepage says I'll earn every open. Let's see how I do.
+Somewhere along the way you got on this list, and this is the first letter KRÜG has ever sent. Thanks for sticking around. Once a month is a pace I can keep, so that's the deal from here: one letter on AI, creativity and the rooms where this stuff actually happens. The homepage says I'll earn every open. Let's see how I do.
 
 Every post I wrote in November came back to one question: who gets a say?
 
 ## Futureproof: Year One
 
-Futureproof ran October 28 to 30 at the H.R. MacMillan Space Centre. Around 10:30 on opening night I stood outside the Sylvia Hotel, still lit up, and recorded a voice note. The line I'm still sitting with: "A bunch of people trusted me."
+Futureproof ran October 28 to 30 at the H.R. MacMillan Space Centre. Around 10:30 on opening night I stood outside the Sylvia Hotel and recorded a voice note, trying to get it down while it was fresh. The line I'm still sitting with: "A bunch of people trusted me."
 
 The post is my thank-you and my notes for year two. **Amber Case** brought us back to our bodies. **Jacob Ortiz** put his own project's misses up on the screen, and I respect the hell out of that. **Brewster Kahle** said nope to coming back for another talk, then proposed a small stipend to bring researchers to Vancouver instead. **Michelle Diamond**'s photographs do a lot of the remembering.
 
