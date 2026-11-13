@@ -334,7 +334,7 @@ This repo has focused automated tests for the Notion publisher safety guards, op
 
 Automated tests:
 
-- `scripts/notion-to-wp/.venv/bin/python -m unittest discover -s scripts/notion-to-wp/tests -v`
+- `make python-test` (every Python suite through pytest; for one suite, `python3 -m pytest scripts/notion-to-wp/tests -v`)
 - `make test` (local: Python suites, JavaScript syntax, plugin and theme smoke. CI splits these into separate jobs and runs plugin smoke only when a `.php` file changes)
 - `make validate` (runs the focused WordPress PHP security ruleset)
 - `make verify` (runs the standard local gate: `test` + `docs-truth-check` + `validate`)

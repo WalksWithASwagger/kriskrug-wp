@@ -227,7 +227,13 @@ If a `Feature` post has ambiguous tags, dry-run output is marked `NEEDS CATEGORY
 The connector has focused stdlib tests for the post-incident safety guards:
 
 ```bash
-scripts/notion-to-wp/.venv/bin/python -m unittest discover scripts/notion-to-wp/tests
+make python-test
+```
+
+For this suite alone:
+
+```bash
+python3 -m pytest scripts/notion-to-wp/tests -v
 ```
 
 These tests do not call Notion or WordPress.
