@@ -1,13 +1,14 @@
 # `fixes/` index
 
-84 files live here and they are two very different kinds of thing mixed into one
-directory:
+This directory holds two very different kinds of thing mixed together (run
+`git ls-files fixes | wc -l` for the current file count; it is not kept here
+because it drifts):
 
-- **Snippet PHP sources** (23 `.php`). Some are the source of truth for PHP that
+- **Snippet and tag sources** (`.php` and `.js`). Some are the source of truth for PHP that
   is running in production via the Code Snippets plugin; others are inactive,
   superseded, or drafts. Editing any of them is prod-adjacent work until its
   current slot/provider state is proved.
-- **Supporting files** (61 non-PHP files). These include three served-root files,
+- **Supporting files** (everything else). These include three served-root files,
   this index, and archival handoff/reference artifacts. Nothing in the archival
   group runs in production.
 
@@ -35,7 +36,12 @@ Both look the same in a file listing. That is the trap this index exists to clos
 
 ---
 
-## Table A. Snippet PHP sources
+## Table A. Snippet and tag sources (`.php`, `.js`)
+
+Every tracked `fixes/*.php` and `fixes/*.js` file has a row below. Rows for the
+files that went live in September and October (Snippets 24, 25 and 26 and the
+#1090 GTM tag) were brought current on 2026-11-12 (#1227) from the deploy
+receipts, with logged-out spot checks the same day.
 
 Public behaviour verified 2026-08-15 (issue #741) by logged-out readback of
 `https://kriskrug.co/` and `https://kriskrug.co/2026/08/10/keep-the-machine-strange/`,
@@ -57,10 +63,11 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 | `og-restore-snippet.php` | Retired Open Graph + Twitter Card bridge | **Inactive; theme is current provider** | 12 | capture: 2026-07-24; render: 2026-08-15 | Authenticated capture records ID 12 with `active=false`. Current markup contains the theme-only `meta name="description"`, theme `og:site_name`, and curated post description; activating this snippet would make the theme stand down and regress those fields. See `docs/current-state/reports/og-restore-snippet-diagnosis-20260815.md` |
 | `gsc-404-query-param-canonicalize.php` | Canonicalizes legacy `?share=` tracking params out of GSC | **Live** | 8 | not re-checked here | Deploy receipt `docs/current-state/reports/gsc-404-live-deploy-20260618-050833Z.md` |
 | `robots-txt-ai-policy.php` | robots.txt policy via the WP filter | **Not the live provider** | none | 2026-08-15 | Live `/robots.txt` is the physical file (its own header says `Source: ... fixes/robots.txt`), which wins over the filter exactly as this file's header warns. See Table B |
-| `issue-331-archive-sitemap-policy.php` | Excludes author archives from the core sitemap | **Not live** | none | 2026-08-15 | `/wp-sitemap.xml` still lists `wp-sitemap-users-1.xml`. This is the full archive-policy option for #767; `issue-767-hide-user-sitemap.php` is the narrow users-provider-only alternative |
-| `issue-767-hide-rest-users.php` | Restricts unauthenticated GET/HEAD `/wp/v2/users` | **Not live; prep only** | none | 2026-08-16 | Draft for #767. Do not enable without KK approval and the Site Kit / block-editor checks in the file header |
-| `issue-767-disable-author-probes.php` | 404s `/?author=N` query probes; leaves pretty author archives to #331 | **Not live; prep only** | none | 2026-08-16 | Draft for #767. Default does not 404 `/author/<slug>/` |
-| `issue-767-hide-user-sitemap.php` | Removes the users sitemap provider only; preserves every other provider | **Not live; prep only** | none | 2026-08-28 | Narrow #767 alternative to the broader #331 archive policy; enable one or the other, not both |
+| `issue-331-archive-sitemap-policy.php` | v1 archive policy (author archives and taxonomies out of the core sitemap, archives noindex) | **Not live; superseded by `issue-331-archive-sitemap-policy-v2.php`** | none | 2026-11-12 | Never deployed. v2 replaced it before activation; do not activate both. Keep as the 2026-07-12 receipt artifact (`docs/current-state/reports/issue-331-archive-policy-20260712.md`). Its header comment is corrected in a separate comment-only PR (#1227) |
+| `issue-331-archive-sitemap-policy-v2.php` | **Canonical** #331 v2 archive policy: drops the users, category and tag sitemap providers, `noindex,follow` on author, tag, category and date archives | **Live** | 26 ("KK 331 v2: archive sitemap + indexability policy", front-end) | deployed 2026-09-03; sitemap readback 2026-11-12 | [Deploy receipt](../docs/current-state/reports/DEPLOY-767-331-2026-09-03.md) (byte-diffed against this file before activation). Logged-out `/wp-sitemap.xml` on 2026-11-12 lists two children, posts-post and posts-page. Reconciliation: [`sitemap-1130-reconciliation-2026-10-25.md`](../docs/current-state/reports/sitemap-1130-reconciliation-2026-10-25.md). Rollback: deactivate snippet 26, purge cache. #767 sitemap half is handled here, so `issue-767-hide-user-sitemap.php` was not deployed |
+| `issue-767-hide-rest-users.php` | Restricts unauthenticated GET/HEAD `/wp/v2/users` | **Live (v2)** | 24 ("KK 767: restrict unauthenticated REST users", global) | v1 live 2026-09-03; v2 live 2026-11-12; logged-out 401 re-checked 2026-11-12 | [Deploy receipt](../docs/current-state/reports/DEPLOY-767-331-2026-09-03.md) for v1. v2 (case-insensitive route match plus a controller-level backstop) was applied live on 2026-11-12 by the #767 session. **Its updated source lands with PR #1288**; until that merges this file is the v1 source and still carries the old prep-only header, so do not read that header as status. Snippet 24 is covered by #1288, not by #1227 |
+| `issue-767-disable-author-probes.php` | 404s `/?author=N` query probes; leaves pretty author archives to #331 | **Live** | 25 ("KK 767: disable author enumeration probes", front-end) | deployed 2026-09-03; `/?author=1` 404 re-checked 2026-11-12 | [Deploy receipt](../docs/current-state/reports/DEPLOY-767-331-2026-09-03.md): `/?author=1` and `/?author=18` went from 301 to 404; `/author/kk/` stays 200 as #331 requires. The file header still says prep only (stale); fixing it is comment-only and needs KK's go-ahead |
+| `issue-767-hide-user-sitemap.php` | Removes the users sitemap provider only; preserves every other provider | **Not live; not deployed** | none | 2026-11-12 | The September deploy skipped it because #331 v2 already drops the users provider and running both paths is forbidden ([receipt](../docs/current-state/reports/DEPLOY-767-331-2026-09-03.md)). Narrow alternative only; do not enable alongside snippet 26 |
 | `issue-1002-xmlrpc-constrain.php` | Fallback `xmlrpc_enabled` disable for #1002 | **Not live; prep only** | none | 2026-09-08 | Host/WAF deny is the recommended control. This snippet does not change GET/HEAD 405. Do not enable if Jetpack core is reactivated |
 | `issue-995-events-search-snippet.php` | Page 2250 `/events/` approved title + description via `get_post_metadata` | **Not live; prep only** | none | 2026-09-20 | Closeout in `docs/current-state/reports/issue-995-events-search-intent-20260920.md`. Last live-HTML readback: `issue-995-events-search-intent-20260908.md`. Do not activate without KK approval, a page-2250 snapshot, and rollback. Do not pair with snippet 12 |
 | `issue-997-homepage-paged-canonical.php` | 301 static-front-page `/page/{n}/` (n ≥ 2) to `/`; force homepage canonical if a 200 still renders | **Not live; prep only** | none | 2026-09-08 | Diagnosis in `docs/current-state/reports/issue-997-gsc-url-errors-20260908.md`. Same-document alias only. Do not pair with a theme copy of the same filter. Do not redirect `/3/` or other 404s to `/` |
@@ -72,6 +79,8 @@ slot or body is unchanged today; current-provider claims also use rendered outpu
 | `issue-43-twitter-cards.php` | Twitter/X card tags | **Not live** | none | 2026-08-15 | Live Twitter tags come from Aurora; authenticated capture shows the overlapping OG bridge (snippet 12) inactive |
 | `issue-8-aria-labels.php` | ARIA labels + focus rings for icon controls | **Not live** (draft) | none | 2026-08-15 | No `kk-issue-8-icon-accessibility` style id in live markup. Corroborated by the 13-route style-id enumeration in `docs/current-state/AURORA-STYLESHEET-DECISION-2026-08-02.md` (zero unknown ids) |
 | `issue-9-search-accessibility.php` | Accessible search form markup | **Not live** (draft) | none | 2026-08-15 | No `kk-site-search-field-` in live markup |
+| `issue-1090-krug-signup-tag.js` | GTM Custom HTML tag that records a completed KRÜG newsletter signup on the Beehiiv `signedUp` event (consent-gated) | **Live as a GTM tag, not a Code Snippet** | GTM container `GTM-MGD93937`, published version 2 ("KRÜG completed signup — #1090") | deployed 2026-10-25 | [Release receipt](../docs/current-state/reports/krug-conversion-1090-2026-10-25.md); import file `issue-1090-krug-signup-gtm.json`, handoff `issue-1090-conversion-handoff-2026-09-30.md`. Runs on `vancouver.beehiiv.com`, not on kriskrug.co. #1090 stays open until organic delivery is observed. Rollback: pause the tag and publish a new version, or restore GTM version 1 (empty container) |
+| `issue-1090-success-event.js` | Contract helper that would fire a GA4 event on a verified first-party success signal | **Not live** (its header says so) | none | 2026-11-12 | Candidate from the [#1090 preflight](../docs/current-state/reports/issue-1090-conversion-preflight-2026-09-29.md). The deployed conversion path is the GTM tag above, not this file. Do not enqueue it on kriskrug.co |
 
 **Reading the "Live?" column.** "Live" means current production behaviour matches
 this file. "Active in the capture" means only that the committed authenticated
@@ -103,7 +112,7 @@ WordPress filter at the same path, which is why `robots-txt-ai-policy.php` is in
 
 ## Applied handoff records (archival)
 
-The 47 files not covered by Table A, Table B, or this README are receipts and
+Files not covered by Table A, Table B, or this README are receipts and
 reference artifacts, not runtime code. Do not treat them as sources of truth for
 what is live; they describe what *was* applied or proposed at the time.
 
