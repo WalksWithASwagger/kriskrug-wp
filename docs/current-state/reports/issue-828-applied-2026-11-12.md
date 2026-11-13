@@ -35,7 +35,7 @@ The before hashes match the dry-run reads, so nothing changed between plan and w
 
 ## Snapshots
 
-Mode 0600 files in a mode 0700 folder, local-only under the `.gitignore` rule for `backup/issue-828-negotiation-checklist/`. The repo is public, so the authenticated `context=edit` records are not committed. They live in the checkout that ran the apply.
+Mode 0600 files in a mode 0700 folder. The apply wrote them to `backup/issue-828-negotiation-checklist/`, which the new `.gitignore` rule covers, in the agent worktree that ran it. Byte-identical copies are kept in the main checkout's ignored `.generated/current-state/issue-828-negotiation-checklist/`, which survives worktree cleanup, and the restore commands below point there. The repo is public, so the authenticated `context=edit` records are not committed.
 
 | ID | Snapshot | File SHA-256 |
 |---:|---|---|
@@ -63,19 +63,19 @@ The approved row-34 sentence, "The practical follow-through is the negotiation c
 ## Rollback
 
 ```bash
-make varlock-run CMD='python3 scripts/apply_issue_828_negotiation_checklist.py --restore backup/issue-828-negotiation-checklist/rest-post-1210-before-20261113T031022Z.json'
-make varlock-run CMD='python3 scripts/apply_issue_828_negotiation_checklist.py --restore backup/issue-828-negotiation-checklist/rest-post-1222-before-20261113T031047Z.json'
-make varlock-run CMD='python3 scripts/apply_issue_828_negotiation_checklist.py --restore backup/issue-828-negotiation-checklist/rest-post-1056-before-20261113T031059Z.json'
+make varlock-run CMD='python3 scripts/apply_issue_828_negotiation_checklist.py --restore .generated/current-state/issue-828-negotiation-checklist/rest-post-1210-before-20261113T031022Z.json'
+make varlock-run CMD='python3 scripts/apply_issue_828_negotiation_checklist.py --restore .generated/current-state/issue-828-negotiation-checklist/rest-post-1222-before-20261113T031047Z.json'
+make varlock-run CMD='python3 scripts/apply_issue_828_negotiation_checklist.py --restore .generated/current-state/issue-828-negotiation-checklist/rest-post-1056-before-20261113T031059Z.json'
 ```
 
 Each is a dry run. Add `--apply` to one command only with Kris's explicit rollback approval, after reconfirming the ID and slug.
 
 ## Scope boundary
 
-Titles, slugs, dates, status, excerpts, taxonomy, featured media, SEO meta, schema, theme, page 12013 and #827's rows 11 to 14 were not written. Parent #402 stays open.
+Titles, slugs, dates, status, excerpts, taxonomy, featured media, SEO meta, schema, theme, page 12013 and #827's rows 11 to 14 were not written. Parent #402 was already closed on 2026-10-26.
 
 ## Open for Kris
 
-1. Row 34 on `/photography/`: restore #827's coda line and add row 34 after it, approve new wording for the coda, or drop row 34.
+1. Row 34 on `/photography/`: restore #827's coda line and add row 34 after it, approve new wording for the coda, or drop row 34. This decision is tracked in the November roadmap's "Decisions waiting on Kris" table, so #828 can close without losing it.
 2. #827 rows 11 and 12 (the category-archive link and the 1056 fashion-years link) are no longer on live `/photography/` since the redesign. #827 is closed, so nothing tracks that loss.
 3. Post 1210's Jetpack SEO description still quotes the 2007 stub. Refreshing it would be a separate approved write.
