@@ -2,7 +2,7 @@
 
 Built 2026-11-12 after Kris's ruling on #771 to combine the art-project package (#771) with the making-of draft (#1016). All public checks below were logged-out GETs made on 2026-11-12 between 21:14 and 21:22 UTC. No WordPress write and no authenticated call was made.
 
-The base package `content/drafts/2026-08-12-gorgeous-ghost-art-project/` was read and left untouched. Its #925 pins still matched on 2026-11-12 (`post.md` `301a9baf...1414412`, `post.html` `f1fdc8fd...346f79326b`).
+The base package `content/drafts/2026-08-12-gorgeous-ghost-art-project/` (archived on 2026-11-12 to `content/drafts/archive/2026-08-12-gorgeous-ghost-art-project/`) was read and left untouched. Its #925 pins still matched on 2026-11-12 (`post.md` `301a9baf...1414412`, `post.html` `f1fdc8fd...346f79326b`).
 
 ## Claim log
 

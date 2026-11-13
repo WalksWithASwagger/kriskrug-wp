@@ -6,3 +6,4 @@ Packages moved out of the active `content/drafts/` queue. **Publishing scripts r
 |---|---|---|
 | `2026-05-24-nik-badminton-a-sassy-critique-setting-the-ai-record-straight` | 2026-08-16 | Unedited AI-generated critique of a real, named colleague. Still contains the model's sign-off addressed to KK and ends on the literal token `4o`. Reputational hazard; archived by KK ruling (#745). Not for publication in any form. |
 | `2026-10-04-work-cards-tidepool-supercluster` | 2026-11-12 | Shipped as Work index entries in PR #1281; card version superseded by the 2026-11-11 layout (#1212). |
+| `2026-08-12-gorgeous-ghost-art-project` | 2026-11-12 | Superseded by the combined package `content/drafts/2026-11-12-gorgeous-ghost-combined/` after Kris chose to combine #771 and #1016. Both packages claimed slug `gorgeous-ghost`; archived by Kris's ruling on 2026-11-12. Its #925 hash pins retire with it. |

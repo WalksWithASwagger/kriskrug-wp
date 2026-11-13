@@ -1,0 +1,43 @@
+{
+  "issue": 339,
+  "source_issues": [
+    335,
+    336
+  ],
+  "mode": "overwrite",
+  "captured": "2026-11-13T02:30:50Z",
+  "rechecked": "2026-11-13T02:50:14Z",
+  "live_wordpress_write_performed": false,
+  "items": [
+    {
+      "id": 35,
+      "slug": "the-lord-of-the-rings-drinking-game",
+      "issue": 335,
+      "modified": "2026-06-14T22:30:33",
+      "content_sha256": "0cef531f2f03a2fe4c52c42a52aea44564d81b165c4b08334098e69251ba48a0",
+      "live_before": {
+        "jetpack_seo_html_title": "The Lord of the Rings Drinking Game | Kris Kr\u00fcg",
+        "advanced_seo_description": "Well, I finally saw return of the king last night. I thought it was (predictably) great, and I (predictably) kicked myself for having not seeing it on the big screen."
+      },
+      "meta": {
+        "jetpack_seo_html_title": "The Lord of the Rings Drinking Game: 4 Original Rules",
+        "advanced_seo_description": "Four original Lord of the Rings drinking game rules for Frodo, Sam, Legolas, and cliff falls, plus a trilogy marathon option. Play responsibly."
+      }
+    },
+    {
+      "id": 8802,
+      "slug": "how-to-build-an-ai-second-brain-that-actually-works-for-you",
+      "issue": 336,
+      "modified": "2026-09-18T04:57:59",
+      "content_sha256": "da75b71fc03759cc368103c546622f9d377e5de6c1fd08bd1bbdcf8c45723040",
+      "live_before": {
+        "jetpack_seo_html_title": "Build an AI Second Brain That Actually Works",
+        "advanced_seo_description": "Most digital systems are designed for neurotypical productivity zombies. What if you built one optimized for your actual thought patterns instead?"
+      },
+      "meta": {
+        "jetpack_seo_html_title": "Build an AI Second Brain That Actually Works for You",
+        "advanced_seo_description": "Build an AI second brain that works with your thought patterns, captures creative chaos, and turns scattered notes and voice memos into finished work."
+      }
+    }
+  ]
+}
