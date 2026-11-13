@@ -8,8 +8,11 @@
  * membership plus gain noindex,follow. This snippet must not silently
  * convert that into a 404.
  *
- * PREP ONLY. Not deployed as of 2026-08-16. Do not paste into Code Snippets
- * without KK approval and a snippets snapshot.
+ * LIVE as Code Snippet 25 ("KK 767: disable author enumeration probes",
+ * front-end) since 2026-09-03; see
+ * docs/current-state/reports/DEPLOY-767-331-2026-09-03.md. The live snippet
+ * still carries the older header; the code is the same. Any change to the
+ * code needs KK approval and a snippets snapshot before saving it live.
  *
  * When pasting into Code Snippets: strip the opening <?php tag. Front-end
  * scope is enough (template_redirect). Running everywhere is also safe.
