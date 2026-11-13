@@ -80,7 +80,7 @@ class Issue339PublisherRefreshTests(unittest.TestCase):
                 self.assertTrue(value.strip())
                 self.assertNotIn(EM_DASH, value)
                 self.assertNotIn(EN_DASH, value)
-                value.encode("latin-1")
+                value.encode("cp1252")
 
         self.assertEqual(
             "The Lord of the Rings Drinking Game: 4 Original Rules",

@@ -195,6 +195,7 @@ kriskrug.co's posts and postmeta tables use MySQL's `latin1`, which is really Wi
 - The SEO title, SEO description and Publicize message are plain text, so they must fit cp1252 (accents are composed with NFC first). Anything else, combining marks included (they make Jetpack's meta write fail with HTTP 500), stops the connector with exit 9 before any WordPress request, fails the local-draft quality gate, and stops `prepare_review_draft.py --wp-id` before any term or post write. The connector derives these fields from the title and the first paragraph, so a post whose title or opening carries such a character needs a cp1252 spelling there first.
 - C1 control characters (U+0080 to U+009F) are refused everywhere; they usually mean text was decoded with the wrong charset.
 - Any other raw character outside cp1252 left in a request body raises `UnstorableText` before the request is sent.
+- The connector, the local-draft quality gate and `prepare_review_draft.py` check every request a run will make (title, content, excerpt, alt text and term names as well as meta) before the first upload or term write, because media trash is off on this site and an orphaned upload is permanent. The connector exits 9.
 
 ## Category routing
 

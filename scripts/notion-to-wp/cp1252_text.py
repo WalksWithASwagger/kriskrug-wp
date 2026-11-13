@@ -141,9 +141,27 @@ def storable_payload(payload: dict) -> dict:
 
     Returns a new dict, so the caller's payload keeps the text it started with.
     """
-    encoded = {
-        key: encode_html(value) if key in HTML_TEXT_FIELDS and isinstance(value, str) else value
-        for key, value in payload.items()
-    }
+    encoded = {}
+    for key, value in payload.items():
+        if key in HTML_TEXT_FIELDS and isinstance(value, str):
+            try:
+                value = encode_html(value)
+            except UnstorableText as exc:
+                raise UnstorableText(f"{key}: {exc}") from None
+        encoded[key] = value
     assert_storable(encoded)
     return encoded
+
+
+def assert_sendable(payload: dict, *, alt_texts=(), term_names=()) -> None:
+    """Raise UnstorableText if any request a run will make cannot be sent.
+
+    The client checks each request as it sends it, which is after the media
+    uploads and term writes that come first. Media trash is off on this site,
+    so writers call this before their first upload or term write.
+    """
+    storable_payload(payload)
+    for alt in alt_texts:
+        storable_payload({"alt_text": alt})
+    for name in term_names:
+        storable_payload({"name": name})

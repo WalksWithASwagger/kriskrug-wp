@@ -319,6 +319,20 @@ class CreateLocalWPDraftTests(unittest.TestCase):
                         create_local_wp_draft.create_local_draft(post_md, dry_run=False)
                 wordpress.assert_not_called()
 
+    def test_quality_gate_refuses_a_body_it_cannot_send_before_any_write(self):
+        bodies = {
+            "C1 control": "<!-- wp:paragraph --><p>it\x92s</p><!-- /wp:paragraph -->",
+            "style": '<!-- wp:html --><style>.a::after{content:"→"}</style><!-- /wp:html -->',
+        }
+        for label, body in bodies.items():
+            with self.subTest(label), tempfile.TemporaryDirectory() as tmp:
+                post_md = self.write_package(Path(tmp))
+                (post_md.parent / "post.html").write_text(body, encoding="utf-8")
+                with mock.patch.object(create_local_wp_draft, "WordPress") as wordpress:
+                    with self.assertRaisesRegex(RuntimeError, "quality gate failed: content: "):
+                        create_local_wp_draft.create_local_draft(post_md, dry_run=False)
+                wordpress.assert_not_called()
+
 
 if __name__ == "__main__":
     unittest.main()

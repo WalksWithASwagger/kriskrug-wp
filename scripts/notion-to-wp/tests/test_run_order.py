@@ -48,7 +48,7 @@ TITLE_ROUND_TRIPS = {
         "Café Krüg",
         "CafÃ© KrÃ¼g",
     ),
-    # Non-latin1 text as the writers will send it once #1225 lands.
+    # Text outside cp1252, as the writers send it since #1225.
     "Eth&#7885;&#769;s": (
         ["Eth&#7885;&#769;s", "Ethọ́s"],
         "Eth&#7885;&#769;s",

@@ -77,7 +77,7 @@ class FakeWordPress:
 class PrepareReviewDraftSeoMetaTests(unittest.TestCase):
     """SEO meta goes through the shared cp1252 rule before any write (#1225)."""
 
-    def write_post(self, root: Path, seo_title: str) -> Path:
+    def write_post(self, root: Path, seo_title: str, body: str = "word " * 50) -> Path:
         post = root / "post.md"
         post.write_text(
             "---\n"
@@ -88,7 +88,7 @@ class PrepareReviewDraftSeoMetaTests(unittest.TestCase):
             "seo:\n"
             f"  meta_title: {seo_title}\n"
             "  meta_description: About the lab\n"
-            "---\n\n" + "word " * 50 + "\n",
+            "---\n\n" + body + "\n",
             encoding="utf-8",
         )
         return post
@@ -112,6 +112,15 @@ class PrepareReviewDraftSeoMetaTests(unittest.TestCase):
 
         self.assertEqual(code, 4)
         self.assertIn("ERROR: SEO title has characters the database cannot store", out)
+        self.assertEqual(wp.writes, [])
+
+    def test_body_it_cannot_send_exits_4_before_any_term_write(self):
+        wp = FakeWordPress()
+        with tempfile.TemporaryDirectory() as tmp:
+            code, out = self.run_main(self.write_post(Path(tmp), "KK’s Lab", body="it\x92s " * 50), wp)
+
+        self.assertEqual(code, 4)
+        self.assertIn("ERROR: content: text has C1 control characters", out)
         self.assertEqual(wp.writes, [])
 
     def test_storable_seo_meta_is_sent_as_built(self):

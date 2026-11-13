@@ -16,7 +16,7 @@ import sync_event_media  # noqa: E402
 
 
 class EventMediaAltTextTests(unittest.TestCase):
-    def test_alt_text_above_latin1_is_sent_as_references(self):
+    def test_alt_text_outside_cp1252_is_sent_as_references(self):
         uploaded = mock.Mock()
         uploaded.json.return_value = {"id": 77, "source_url": "https://example.test/hero.jpg"}
         wp = sync_event_media.WPMedia.__new__(sync_event_media.WPMedia)

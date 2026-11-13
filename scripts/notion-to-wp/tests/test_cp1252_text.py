@@ -388,6 +388,14 @@ class CaptionedNotion(FakeNotion):
         return blocks
 
 
+class MisdecodedNotion(FakeNotion):
+    def block_children(self, page_id):
+        blocks = notion_blocks()
+        # U+0092 is what cp1252's apostrophe byte becomes when read as latin-1.
+        blocks.insert(1, {"type": "paragraph", "paragraph": {"rich_text": [{"plain_text": "it\x92s"}]}})
+        return blocks
+
+
 class ConnectorTests(WritesAllowed):
     def setUp(self):
         super().setUp()
@@ -457,6 +465,32 @@ class ConnectorTests(WritesAllowed):
         self.assertIn(f"{ETHOS_NCR} Lab &#8594; main stage", post["content"]["raw"])
         self.assertEqual(post["meta"]["jetpack_seo_html_title"], "KK’s “Field” Notes | Kris Krüg")
         self.assertEqual(site.media[501]["alt_text"], f"{ETHOS_NCR} Lab &#8594; main stage")
+
+    def test_body_that_cannot_be_sent_exits_9_before_any_upload_or_term_write(self):
+        style_body = '<!-- wp:html --><style>.a::after{content:"→"}</style><!-- /wp:html -->'
+        cases = {
+            "C1 control in the body": (
+                mock.patch.object(kk_notion_to_wp, "Notion", MisdecodedNotion),
+                "content: text has C1 control characters",
+            ),
+            "character outside cp1252 inside <style>": (
+                mock.patch.object(
+                    kk_notion_to_wp.block_rules, "render_blocks", lambda blocks, ctx=None: style_body
+                ),
+                "content: <style> holds characters",
+            ),
+        }
+        for label, (patcher, message) in cases.items():
+            for dry_run in (True, False):
+                with self.subTest(label=label, dry_run=dry_run), patcher:
+                    wp = FakeWordPress()
+
+                    code, logs = self.run_connector(wp, dry_run=dry_run)
+
+                    self.assertEqual(code, 9, logs)
+                    self.assertIn(message, logs)
+                    self.assertEqual(wp.calls, [])
+                    self.assertEqual(wp.writes(), [])
 
 
 if __name__ == "__main__":

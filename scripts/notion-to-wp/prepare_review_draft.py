@@ -17,7 +17,7 @@ from typing import Iterable
 
 import yaml
 
-from cp1252_text import UnstorableText
+from cp1252_text import UnstorableText, assert_sendable
 from kk_notion_to_wp import WordPress, load_config, update_title_guard
 from publish_common import build_seo_meta, verify_seo_meta_landed
 
@@ -309,6 +309,7 @@ def update_wp_draft(pkg: DraftPackage, html_body: str, wp_id: int, *, fail_on_wa
     }
     categories = pkg.frontmatter.get("categories") or []
     tags = pkg.frontmatter.get("tags") or []
+    assert_sendable(payload, term_names=[str(value) for value in (*categories, *tags)])
     if categories:
         payload["categories"] = ensure_terms(wp, "categories", categories)
     if tags:
