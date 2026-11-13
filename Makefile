@@ -1,7 +1,7 @@
 # kriskrug-wp Development Makefile
 # Quick access to common development commands
 
-.PHONY: help test python-test ruff-changed large-file-check javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check env-check varlock-run clean
+.PHONY: help test python-test ruff-changed large-file-check javascript-syntax php-syntax plugin-smoke theme-smoke verify validate issues dashboard stats backup-check wp-package aurora-package sidebar-promos-package marquee-package draft-queue-audit jetpack-feedback-audit seo-audit public-image-audit performance-audit wp7-smoke seo-publisher-smoke sitemap-followthrough check-live-parity wp7-admin-readiness current-state-drift-check morning-truth morning-truth-checkpoint status-readonly docs-truth-check voice-check changelog env-check varlock-run clean
 
 PYTHON ?= python3
 VARLOCK ?= varlock

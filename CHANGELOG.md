@@ -25,7 +25,7 @@ next weekly refresh.
 
 ## [2026-09-29 to 2026-11-12]
 
-Generated 2026-11-12 with `make changelog SINCE=2026-09-29`: **120** merged PRs
+Generated 2026-11-12 with `make changelog SINCE=2026-09-29`: **122** merged PRs
 (earliest `2026-09-29T15:35:38Z`). Anything merged after that run is picked up
 by the next weekly refresh.
 
@@ -98,6 +98,7 @@ by the next weekly refresh.
 
 ### CI and tests
 
+- Harden the workflow and add large-file and PHP compatibility gates (#1272)
 - Retire the swarm-era agent definitions, state records and disabled workflows (#1265)
 - Make every existing test run in CI (#1258)
 - Patch Playground isomorphic-git development dependency (#1206)
@@ -129,6 +130,7 @@ by the next weekly refresh.
 
 ### Docs and ops
 
+- Cut the November 12 roadmap and repoint the front doors (#1284)
 - Define merge lanes for scripts, tests, Makefile, CI and dependency PRs (#1269)
 - Drop the local design-proofs path from the Writing review (#1282)
 - Record the Events cadence decision and the Dec 16 ruling (#1268)
