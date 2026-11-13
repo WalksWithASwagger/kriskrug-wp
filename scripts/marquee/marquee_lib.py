@@ -2,12 +2,19 @@
 from __future__ import annotations
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 MARQUEE_JSON = ROOT / "content" / "marquee" / "marquee.json"
 DRAFTS_DIR = ROOT / "content" / "drafts"
 DIST_DIR = ROOT / "content" / "marquee" / "dist"
+
+# The Notion publisher's slugify folds Latin letters the same way (#1257).
+_PUBLISHER_DIR = str(ROOT / "scripts" / "notion-to-wp")
+if _PUBLISHER_DIR not in sys.path:
+    sys.path.append(_PUBLISHER_DIR)
+from cp1252_text import fold_latin  # noqa: E402
 
 # Board geometry: the LED board reads best at ~16 chars/line, up to 3 lines.
 MAX_LINE_CHARS = 16
@@ -24,7 +31,11 @@ def save(data: dict) -> None:
 
 
 def slugify(text: str) -> str:
-    text = re.sub(r"[^\w\s-]", "", text.lower())
+    """Accents are folded first, so the slug sent is the one WordPress stores.
+
+    "Krüg" becomes "krug", as in the Notion publisher's slugify (#1257).
+    """
+    text = re.sub(r"[^\w\s-]", "", fold_latin(text).lower())
     return re.sub(r"[\s_]+", "-", text).strip("-")[:60]
 
 
