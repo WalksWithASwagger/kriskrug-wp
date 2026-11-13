@@ -74,7 +74,9 @@ class VarlockContractTests(unittest.TestCase):
             readme,
         )
         self.assertNotIn("cp scripts/notion-to-wp/.env.example scripts/notion-to-wp/.env", readme)
-        self.assertIn("unittest discover scripts/notion-to-wp/tests", readme)
+        self.assertIn("make python-test", readme)
+        self.assertIn("pytest scripts/notion-to-wp/tests", readme)
+        self.assertNotIn("unittest discover", readme)
         self.assertNotIn("varlock run --inject vars -- python -m unittest", readme)
 
 
