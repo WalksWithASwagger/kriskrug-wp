@@ -5,6 +5,13 @@
   "payload": "wp-payloads/ai-policy.html",
   "status_target": "draft",
   "wordpress_id": 13005,
+  "wordpress_draft": {
+    "staged": "2026-11-13T03:24Z",
+    "content_sha256": "ef5c4fcaebc015713b410cd1eca64dbc0118dddda1a85f5a3287a847cd2597f3",
+    "content_bytes": 14630,
+    "matches_payload": false,
+    "note": "The hash and size are the readback taken when the draft was staged. Draft 13005 still holds that earlier body, which has no scope sentence. The payload in this pack changed after review and no longer matches it. The draft gets the current payload when the final body is staged before publishing (#886)."
+  },
   "comment_status": "closed",
   "ping_status": "closed",
   "excerpt": "I use AI a lot. Here is what I use it for, what has to be real first, what I will not fake, and how I own whatever ships.",
@@ -12,9 +19,10 @@
     "jetpack_seo_html_title": "How I Use AI (And Where I Draw the Line) | Kris Krüg",
     "advanced_seo_description": "I use AI a lot. This is what I use it for, what I check before anything ships, and where I draw the line: fake people, fake evidence, stolen voice."
   },
-  "meta_note": "Excerpt and SEO meta are proposals for Kris to approve with the publish step. They are not written to WordPress while the page is a draft.",
+  "meta_note": "Excerpt and SEO meta are proposals for Kris to approve. They have not been written to WordPress. Once approved, they are staged in the draft together with the final body, before the status flip.",
   "readback_markers": [
     "<!-- ai-policy-2026:page -->",
+    "not legal terms, a privacy policy, or a client contract",
     "The short version: Both Hands Full",
     "What I will not fake",
     "I own what ships",
@@ -22,6 +30,13 @@
     "Last updated:",
     "https://kriskrug.co/contact/"
   ],
+  "publish_absent_markers": [
+    "YYYY-MM-DD",
+    "Pending Kris Krüg",
+    "Proposed AI-assistance",
+    "proposed public transparency"
+  ],
+  "publish_absent_markers_note": "Pending-only text. Once publish_approval is recorded, the tests fail if any of these is still in the body. The public readback after publishing must find none of them.",
   "source": {
     "policy": "policy.md",
     "policy_sha256": "8dc5c70576f420a677140fcc1f7ebfc0d46b437d7de13d7de6b74a2f13d7ebf5",
@@ -34,6 +49,7 @@
     "issues": [883, 885]
   },
   "publish_approval": null,
+  "publish_approval_note": "Stays null until Kris approves the final copy for publication (#886). Then it holds two fields: date, an ISO date that also fills the 'Last updated' line, and record, his words.",
   "publish_edits": [
     {
       "find": "Last updated: YYYY-MM-DD",
@@ -44,9 +60,13 @@
       "replace": "AI-assistance disclosure"
     },
     {
-      "find": "<strong>Pending Kris Krüg's review and approval:</strong> ",
-      "replace": ""
+      "find": "<strong>Pending Kris Krüg's review and approval:</strong> AI assisted with research",
+      "replace": "AI assisted with research"
+    },
+    {
+      "find": "This is a proposed public transparency statement",
+      "replace": "This is a public transparency statement"
     }
   ],
-  "publish_edits_note": "Applied only after Kris approves publication (#886). Record publish_approval, set status_target to publish, apply these edits, then write the body and flip the status of wordpress_id."
+  "publish_edits_note": "The order for #886. First, after Kris approves the final copy for publication: record publish_approval, set status_target to publish and apply these edits to the payload, with {publish_date} set to publish_approval.date. The tests then check the final body. Second, stage that final body in draft wordpress_id while it is still a draft, so the preview Kris checks is exactly what will go public. Third, after his yes on that preview, publishing is a status-only flip of that ID, with no slug, title or body change (#886 step 9). Every replace is non-empty so the tests can rebuild the pending page from the final one."
 }

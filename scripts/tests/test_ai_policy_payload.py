@@ -2,19 +2,20 @@
 
 The payload is policy.md, approved by Kris on 2026-11-12, converted to body-only
 Aurora HTML. These checks hold it to that source word for word and to the
-release gate in #886: the body carries no publish date and no approved
-disclosure until page-meta.json records Kris's separate publish approval.
+release gate in #886, in both states page-meta.json can record. While
+publish_approval is null the body keeps its placeholders. Once it is recorded,
+the body must be the final one: the approval date and no pending wording.
 """
 
 from __future__ import annotations
 
-import copy
 import difflib
 import hashlib
 import json
 import re
 import sys
 import unittest
+from datetime import date, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -108,7 +109,10 @@ GENERIC_LINK_TEXT = frozenset(
 # rule would otherwise see a literal em dash.
 EM_DASH_CHAR = chr(0x2014)
 NON_CP1252_CHAR = chr(0x2192)
-EM_DASH = re.compile(rf"{EM_DASH_CHAR}|&mdash;|&#8212;|&#x2014;", re.IGNORECASE)
+EM_DASH = re.compile(rf"{EM_DASH_CHAR}|&mdash;|&#0*8212;?|&#x0*2014;?", re.IGNORECASE)
+# WordPress's wptexturize turns "---" and a spaced "--" into an em dash on the
+# public page, so plain hyphens can ship one that never appears in the file.
+DOUBLE_HYPHEN = "--"
 BLOCK_TAGS = frozenset(
     {
         "p",
@@ -126,17 +130,31 @@ BLOCK_TAGS = frozenset(
     }
 )
 
-# The title line becomes the WordPress title (the template's only H1). The
-# review note is the one passage Kris's ruling removes from the public body.
+# The title line becomes the WordPress title (the template's only H1). Of the
+# review note, only its first sentence leaves the body. The scope sentence is
+# #883's architecture decision, and no ruling from Kris removes it.
 TITLE_LINE = "# How I Use AI (And Where I Draw the Line)"
-REVIEW_NOTE = (
-    "> Draft for Kris Krüg's review. This is a proposed public transparency "
-    "statement, not legal terms, a privacy policy, or a client contract."
+REVIEW_PREFIX = "Draft for Kris Krüg's review. "
+SCOPE_PENDING = (
+    "This is a proposed public transparency statement, not legal terms, a "
+    "privacy policy, or a client contract."
 )
+SCOPE_FINAL = SCOPE_PENDING.replace("a proposed public", "a public")
+REVIEW_NOTE = f"> {REVIEW_PREFIX}{SCOPE_PENDING}"
 DATE_TOKEN = "YYYY-MM-DD"
 PENDING_PREFIX = "Pending Kris Krüg's review and approval:"
 PENDING_HEADING = "Proposed AI-assistance disclosure"
 FINAL_HEADING = "AI-assistance disclosure"
+PENDING_WORDING = re.compile(r"pending|proposed", re.IGNORECASE)
+PENDING_ONLY_TEXT = (
+    DATE_TOKEN,
+    "Pending Kris Krüg",
+    "Proposed AI-assistance",
+    "proposed public transparency",
+)
+# Stands in for Kris's approval only while page-meta.json records none. Once it
+# records one, the tests use that date instead.
+SIMULATED_APPROVAL = {"date": "2031-01-01", "record": "simulated in tests"}
 CRAWLER_CLAIM = (
     "My public site is intentionally open to search and AI crawlers for discovery "
     "and citation."
@@ -173,6 +191,10 @@ MAX_HEADING_CHARS = 60
 
 def squash(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
+
+
+def has_em_dash(value: str) -> bool:
+    return bool(EM_DASH.search(value)) or DOUBLE_HYPHEN in value
 
 
 class PayloadDoc(HTMLParser):
@@ -231,7 +253,9 @@ class PayloadDoc(HTMLParser):
 
 def policy_lines(policy_md: str) -> list[str]:
     return [
-        line for line in policy_md.splitlines() if line not in (TITLE_LINE, REVIEW_NOTE)
+        f"> {SCOPE_PENDING}" if line == REVIEW_NOTE else line
+        for line in policy_md.splitlines()
+        if line != TITLE_LINE
     ]
 
 
@@ -272,11 +296,12 @@ def policy_list_items(policy_md: str) -> list[str]:
 
 
 def comparable(text: str) -> str:
-    """Neutralize the three spans the publish step is allowed to change."""
+    """Neutralize the four spans the publish step is allowed to change."""
     text = re.sub(
         r"Last updated: (?:YYYY-MM-DD|\d{4}-\d{2}-\d{2})", "Last updated: <date>", text
     )
     text = text.replace(f"{PENDING_PREFIX} ", "")
+    text = text.replace(SCOPE_PENDING, SCOPE_FINAL)
     return text.replace(PENDING_HEADING, FINAL_HEADING)
 
 
@@ -325,8 +350,14 @@ def audit(html: str, meta: dict, policy_md: str) -> list[str]:
         ):
             failures.append(f"link: {href!r} has non-descriptive text {label!r}")
 
-    if EM_DASH.search(html):
-        failures.append("em-dash: the payload contains an em dash")
+    # The raw pass covers attributes. The parsed pass covers every entity form
+    # and skips the block comments, which legitimately contain "--".
+    if EM_DASH.search(html) or has_em_dash(text):
+        failures.append(
+            "em-dash: the payload has an em dash, or a '--' WordPress turns into one"
+        )
+    if has_em_dash(policy_md):
+        failures.append("em-dash: policy.md has an em dash or a '--'")
     try:
         sent = storable_payload({"title": meta["title"], "content": html})
     except UnstorableText as exc:
@@ -391,23 +422,24 @@ def audit(html: str, meta: dict, policy_md: str) -> list[str]:
         if (
             disclosure_heads != [PENDING_HEADING]
             or f"{PENDING_PREFIX} AI assisted" not in text
+            or SCOPE_PENDING not in text
         ):
             failures.append(
-                "approval: disclosure claims approval but page-meta.json records none"
+                "approval: the body reads as approved but page-meta.json records none"
             )
     else:
-        if updated and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", updated[0]):
+        if updated and updated[0] != approval["date"]:
             failures.append(
-                f"date: 'Last updated' must be a real date after approval, got {updated[0]}"
+                f"date: 'Last updated' is {updated[0]}, "
+                f"publish approval is dated {approval['date']}"
             )
-        if (
-            disclosure_heads != [FINAL_HEADING]
-            or "Pending" in text
-            or "Proposed" in text
-        ):
-            failures.append(
-                "approval: the pending disclosure survived publish approval"
-            )
+        if disclosure_heads != [FINAL_HEADING] or PENDING_WORDING.search(text):
+            failures.append("approval: pending wording survived publish approval")
+        for marker in meta["publish_absent_markers"]:
+            if marker in html or marker in text:
+                failures.append(
+                    f"absent: {marker!r} is still in the body after publish approval"
+                )
     if "remains accountable for it." not in text:
         failures.append("approval: disclosure no longer says Kris remains accountable")
 
@@ -417,11 +449,23 @@ def audit(html: str, meta: dict, policy_md: str) -> list[str]:
     return failures
 
 
-def apply_publish_edits(html: str, meta: dict, publish_date: str) -> str:
-    for edit in meta["publish_edits"]:
-        html = html.replace(
-            edit["find"], edit["replace"].format(publish_date=publish_date)
-        )
+def publish_edit_pairs(meta: dict) -> list[tuple[str, str]]:
+    publish_date = meta["publish_approval"]["date"]
+    return [
+        (edit["find"], edit["replace"].format(publish_date=publish_date))
+        for edit in meta["publish_edits"]
+    ]
+
+
+def apply_publish_edits(html: str, meta: dict) -> str:
+    for pending, final in publish_edit_pairs(meta):
+        html = html.replace(pending, final)
+    return html
+
+
+def revert_publish_edits(html: str, meta: dict) -> str:
+    for pending, final in publish_edit_pairs(meta):
+        html = html.replace(final, pending)
     return html
 
 
@@ -465,10 +509,31 @@ class AiPolicyPayloadTests(unittest.TestCase):
         cls.html = cls.payload_path.read_text(encoding="utf-8")
         cls.policy = (PACK / cls.meta["source"]["policy"]).read_text(encoding="utf-8")
         cls.doc = PayloadDoc(cls.html)
+        # Both gate states are built from whichever one is committed, so the
+        # suite runs the same way before and after publish approval.
+        if cls.meta["publish_approval"] is None:
+            cls.pending_html, cls.pending_meta = cls.html, cls.meta
+            cls.released_meta = {
+                **cls.meta,
+                "status_target": "publish",
+                "publish_approval": SIMULATED_APPROVAL,
+            }
+            cls.released_html = apply_publish_edits(cls.html, cls.released_meta)
+        else:
+            cls.released_html, cls.released_meta = cls.html, cls.meta
+            cls.pending_meta = {
+                **cls.meta,
+                "status_target": "draft",
+                "publish_approval": None,
+            }
+            cls.pending_html = revert_publish_edits(cls.html, cls.meta)
+        cls.publish_date = cls.released_meta["publish_approval"]["date"]
 
-    def assertFailsWith(self, category, html=None, meta=None):
+    def assertFailsWith(self, category, html=None, meta=None, policy=None):
         failures = audit(
-            self.html if html is None else html, meta or self.meta, self.policy
+            self.html if html is None else html,
+            meta or self.meta,
+            self.policy if policy is None else policy,
         )
         self.assertTrue(
             any(failure.startswith(f"{category}:") for failure in failures),
@@ -497,7 +562,13 @@ class AiPolicyPayloadTests(unittest.TestCase):
         lines = self.policy.splitlines()
         self.assertEqual(1, lines.count(TITLE_LINE))
         self.assertEqual(1, lines.count(REVIEW_NOTE))
-        self.assertNotIn("Draft for Kris", self.html)
+        self.assertNotIn(REVIEW_PREFIX.strip(), self.doc.text)
+        self.assertEqual(
+            1,
+            self.doc.text.count(
+                "not legal terms, a privacy policy, or a client contract."
+            ),
+        )
 
     def test_metadata_contract(self):
         meta = self.meta
@@ -510,6 +581,7 @@ class AiPolicyPayloadTests(unittest.TestCase):
             self.assertEqual("draft", meta["status_target"])
         else:
             self.assertRegex(meta["publish_approval"]["date"], r"^\d{4}-\d{2}-\d{2}$")
+            date.fromisoformat(meta["publish_approval"]["date"])
             self.assertTrue(meta["publish_approval"]["record"].strip())
         wordpress_id = meta["wordpress_id"]
         self.assertTrue(
@@ -522,6 +594,21 @@ class AiPolicyPayloadTests(unittest.TestCase):
             {key: meta[key] for key in ("comment_status", "ping_status")},
         )
         self.assertTrue(meta["readback_markers"])
+        self.assertLessEqual(
+            set(PENDING_ONLY_TEXT), set(meta["publish_absent_markers"])
+        )
+        self.assertFalse(
+            set(meta["readback_markers"]) & set(meta["publish_absent_markers"])
+        )
+
+    def test_draft_record_does_not_overclaim_parity(self):
+        draft = self.meta["wordpress_draft"]
+        payload = self.payload_path.read_bytes()
+        same = (
+            hashlib.sha256(payload).hexdigest() == draft["content_sha256"]
+            and len(payload) == draft["content_bytes"]
+        )
+        self.assertEqual(same, draft["matches_payload"])
 
     def test_metadata_copy_is_storable_and_plain(self):
         meta = self.meta
@@ -534,7 +621,7 @@ class AiPolicyPayloadTests(unittest.TestCase):
             ("seo description", description),
         ):
             self.assertTrue(value.strip(), field)
-            self.assertIsNone(EM_DASH.search(value), f"{field} has an em dash")
+            self.assertFalse(has_em_dash(value), f"{field} has an em dash")
         self.assertEqual(title, plain_meta_text(title, "jetpack_seo_html_title"))
         self.assertEqual(
             description, plain_meta_text(description, "advanced_seo_description")
@@ -547,10 +634,18 @@ class AiPolicyPayloadTests(unittest.TestCase):
 
     def test_reads_in_order_without_css(self):
         text = self.doc.text
+        approval = self.meta["publish_approval"]
+        scope, updated = (
+            (SCOPE_PENDING, DATE_TOKEN)
+            if approval is None
+            else (SCOPE_FINAL, approval["date"])
+        )
         self.assertTrue(
             text.startswith(
-                f"Last updated: {DATE_TOKEN} The short version: Both Hands Full I use AI a lot."
-            )
+                f"{scope} Last updated: {updated} "
+                "The short version: Both Hands Full I use AI a lot."
+            ),
+            text[:200],
         )
         self.assertTrue(
             text.endswith("approved the final version and remains accountable for it.")
@@ -601,22 +696,134 @@ class AiPolicyPayloadTests(unittest.TestCase):
         )
         self.assertTrue(robots_blocks_ai(robots))
 
-    def test_publish_edits_are_exact_and_unused_until_approval(self):
-        self.assertIsNone(self.meta["publish_approval"])
-        for edit in self.meta["publish_edits"]:
-            self.assertEqual(1, self.html.count(edit["find"]), edit["find"])
+    def test_committed_body_matches_the_recorded_gate_state(self):
+        approval = self.meta["publish_approval"]
+        text = self.doc.text
+        if approval is None:
+            self.assertEqual("draft", self.meta["status_target"])
+            self.assertIn(f"Last updated: {DATE_TOKEN}", text)
+            self.assertIn(SCOPE_PENDING, text)
+            for edit in self.meta["publish_edits"]:
+                self.assertEqual(1, self.html.count(edit["find"]), edit["find"])
+        else:
+            self.assertIn(f"Last updated: {approval['date']}", text)
+            self.assertIn(SCOPE_FINAL, text)
+            for leftover in (DATE_TOKEN, "Pending", "Proposed"):
+                self.assertNotIn(leftover, self.html)
+                self.assertNotIn(leftover, text)
+            self.assertIsNone(PENDING_WORDING.search(text))
+            for pending, final in publish_edit_pairs(self.meta):
+                self.assertEqual(0, self.html.count(pending), pending)
+                self.assertEqual(1, self.html.count(final), final)
 
-    def test_publish_edits_produce_a_passing_release(self):
-        meta = copy.deepcopy(self.meta)
-        meta.update(
-            status_target="publish",
-            wordpress_id=meta["wordpress_id"] or 1,
-            publish_approval={"date": "2026-12-01", "record": "simulated in tests"},
+    def test_gate_states_convert_both_ways(self):
+        # An empty replacement could not be found again in the final page, and
+        # the pending page could then not be rebuilt once approval is recorded.
+        for pending, final in publish_edit_pairs(self.released_meta):
+            self.assertTrue(final, pending)
+            self.assertEqual(1, self.pending_html.count(pending), pending)
+            self.assertEqual(1, self.released_html.count(final), final)
+            self.assertEqual(0, self.released_html.count(pending), pending)
+        self.assertEqual(
+            self.released_html,
+            apply_publish_edits(self.pending_html, self.released_meta),
         )
-        released = apply_publish_edits(self.html, meta, "2026-12-01")
-        self.assertEqual([], audit(released, meta, self.policy))
-        self.assertIn("Last updated: 2026-12-01", released)
-        self.assertFailsWith("approval", html=self.html, meta=meta)
+        self.assertEqual(
+            self.pending_html,
+            revert_publish_edits(self.released_html, self.released_meta),
+        )
+        for marker in self.meta["publish_absent_markers"]:
+            self.assertIn(marker, self.pending_html)
+            self.assertNotIn(marker, self.released_html)
+
+    def test_pending_page_passes_and_refuses_an_early_release(self):
+        html, meta = self.pending_html, self.pending_meta
+        self.assertEqual([], audit(html, meta, self.policy))
+        cases = (
+            (
+                "date",
+                "date filled early",
+                html.replace(
+                    f"Last updated: {DATE_TOKEN}", f"Last updated: {self.publish_date}"
+                ),
+            ),
+            (
+                "approval",
+                "pending prefix removed",
+                html.replace(f"<strong>{PENDING_PREFIX}</strong> ", ""),
+            ),
+            (
+                "approval",
+                "heading renamed",
+                html.replace(PENDING_HEADING, FINAL_HEADING),
+            ),
+            (
+                "approval",
+                "scope sentence no longer proposed",
+                html.replace(SCOPE_PENDING, SCOPE_FINAL),
+            ),
+            ("approval", "final body without approval", self.released_html),
+        )
+        for category, name, mutated in cases:
+            with self.subTest(name):
+                self.assertNotEqual(html, mutated, "mutation did not apply")
+                self.assertFailsWith(category, html=mutated, meta=meta)
+
+    def test_released_page_passes_and_refuses_pending_leftovers(self):
+        html, meta = self.released_html, self.released_meta
+        self.assertEqual([], audit(html, meta, self.policy))
+        self.assertIn(f"Last updated: {self.publish_date}", PayloadDoc(html).text)
+        another_date = (
+            date.fromisoformat(self.publish_date) + timedelta(days=1)
+        ).isoformat()
+        disclosure = "<p>AI assisted with research"
+        cases = (
+            (
+                "date",
+                "not the approval date",
+                html.replace(self.publish_date, another_date),
+            ),
+            (
+                "date",
+                "placeholder date left",
+                html.replace(self.publish_date, DATE_TOKEN),
+            ),
+            (
+                "approval",
+                "pending heading left",
+                html.replace(f">{FINAL_HEADING}<", f">{PENDING_HEADING}<"),
+            ),
+            (
+                "approval",
+                "pending prefix left",
+                html.replace(
+                    disclosure,
+                    f"<p><strong>{PENDING_PREFIX}</strong> AI assisted with research",
+                ),
+            ),
+            (
+                "approval",
+                "scope sentence still proposed",
+                html.replace(SCOPE_FINAL, SCOPE_PENDING),
+            ),
+            ("approval", "no edit applied", self.pending_html),
+            (
+                "absent",
+                "marker spelled with an entity",
+                html.replace(
+                    disclosure, "<p>Pending Kris Kr&uuml;g: AI assisted with research"
+                ),
+            ),
+        )
+        for category, name, mutated in cases:
+            with self.subTest(name):
+                self.assertNotEqual(html, mutated, "mutation did not apply")
+                self.assertFailsWith(category, html=mutated, meta=meta)
+        for pending, final in publish_edit_pairs(meta):
+            with self.subTest(unapplied=pending):
+                self.assertFailsWith(
+                    "absent", html=html.replace(final, pending), meta=meta
+                )
 
     def test_safety_mutations_are_rejected(self):
         lead = '<p class="aurora-page-lead">'
@@ -637,17 +844,11 @@ class AiPolicyPayloadTests(unittest.TestCase):
                 contact, 'href="http://localhost:10003/contact/"'
             ),
             "link": self.html.replace(contact, 'href="https://example.com/contact/"'),
-            "em-dash": self.html.replace(
-                "Useful does not mean clean.", f"Useful {EM_DASH_CHAR} not clean."
-            ),
             "cp1252": self.html.replace(
                 "I use AI a lot.</p>", f"I use AI a lot {NON_CP1252_CHAR}</p>"
             ),
             "drift": self.html.replace(
                 "should be labelled near", "will always be labelled near"
-            ),
-            "date": self.html.replace(
-                f"Last updated: {DATE_TOKEN}", "Last updated: 2026-11-12"
             ),
             "crawler": self.html.replace(
                 CRAWLER_CLAIM,
@@ -671,17 +872,45 @@ class AiPolicyPayloadTests(unittest.TestCase):
             with self.subTest(category="private-url"):
                 self.assertFailsWith("private-url", html=html)
 
-    def test_fake_approval_disclosures_are_rejected(self):
-        for name, html in (
-            (
-                "pending prefix removed",
-                self.html.replace(f"<strong>{PENDING_PREFIX}</strong> ", ""),
-            ),
-            ("heading renamed", self.html.replace(PENDING_HEADING, FINAL_HEADING)),
+    def test_scope_sentence_cannot_be_dropped_silently(self):
+        without = self.html.replace(f"<p>{SCOPE_PENDING}</p>\n", "").replace(
+            f"<p>{SCOPE_FINAL}</p>\n", ""
+        )
+        self.assertNotEqual(self.html, without, "mutation did not apply")
+        self.assertFailsWith("drift", html=without)
+        self.assertFailsWith("marker", html=without)
+
+    def test_em_dashes_are_rejected_in_every_form(self):
+        target = "Useful does not mean clean."
+        self.assertEqual(1, self.html.count(target))
+        self.assertEqual(1, self.policy.count(target))
+        for form in (
+            EM_DASH_CHAR,
+            "&mdash;",
+            "&#8212;",
+            "&#08212;",
+            "&#8212",
+            "&#x2014;",
+            "&#X002014;",
+            "--",
+            "---",
+            "&#45;&#45;",
         ):
-            with self.subTest(name):
-                self.assertNotEqual(self.html, html)
-                self.assertFailsWith("approval", html=html)
+            with self.subTest(payload=form):
+                self.assertFailsWith(
+                    "em-dash", html=self.html.replace(target, f"Useful {form} clean.")
+                )
+        attribute = self.html.replace(
+            '<h2 id="cost">', f'<h2 id="cost" title="Cost {EM_DASH_CHAR} prompt">'
+        )
+        self.assertNotEqual(self.html, attribute, "mutation did not apply")
+        self.assertFailsWith("em-dash", html=attribute)
+        for form in (EM_DASH_CHAR, "&mdash;", "&#08212;", "--", "---"):
+            with self.subTest(policy=form):
+                self.assertFailsWith(
+                    "em-dash",
+                    policy=self.policy.replace(target, f"Useful {form} clean."),
+                )
 
 
 if __name__ == "__main__":
