@@ -1,3 +1,5 @@
+import contextlib
+import io
 import sys
 import tempfile
 import unittest
@@ -318,6 +320,29 @@ class CreateLocalWPDraftTests(unittest.TestCase):
                     with self.assertRaisesRegex(RuntimeError, "quality gate failed: SEO"):
                         create_local_wp_draft.create_local_draft(post_md, dry_run=False)
                 wordpress.assert_not_called()
+
+    def test_hand_written_seo_meta_is_refused_not_folded(self):
+        # Frontmatter SEO meta is the operator's own copy, so the fold that
+        # the connector applies to the meta it derives never applies here.
+        with tempfile.TemporaryDirectory() as tmp:
+            post_md = self.write_package(Path(tmp), seo_title="Ethọ́s Lab")
+            argv = ["create_local_wp_draft.py", str(post_md), "--execute"]
+            stdout, stderr = io.StringIO(), io.StringIO()
+            with (
+                mock.patch.object(sys, "argv", argv),
+                mock.patch.object(create_local_wp_draft, "load_wp_config") as load_wp_config,
+                mock.patch.object(create_local_wp_draft, "WordPress") as wordpress,
+                contextlib.redirect_stdout(stdout),
+                contextlib.redirect_stderr(stderr),
+            ):
+                code = create_local_wp_draft.main()
+
+        self.assertEqual(code, 2)
+        self.assertIn("SEO title has characters the database cannot store", stderr.getvalue())
+        self.assertIn("U+0301 COMBINING ACUTE ACCENT", stderr.getvalue())
+        self.assertNotIn("seo: folded", stdout.getvalue() + stderr.getvalue())
+        load_wp_config.assert_not_called()
+        wordpress.assert_not_called()
 
     def test_quality_gate_refuses_a_body_it_cannot_send_before_any_write(self):
         bodies = {
