@@ -46,7 +46,9 @@ class ConnectorPayloadTests(unittest.TestCase):
             },
         )
 
-    def test_seo_meta_with_combining_marks_is_refused(self):
+    def test_seo_meta_passed_in_unfolded_is_refused(self):
+        # run() folds the SEO title and description it derives before this
+        # point, so an unfolded value here did not come from it: fail closed.
         combining_title = "Ethọ́s Lab Block Party | Kris Krüg"
         with self.assertRaisesRegex(UnstorableText, "SEO title .*Combining marks"):
             connector_payload.build_wp_payload(
@@ -63,8 +65,42 @@ class ConnectorPayloadTests(unittest.TestCase):
                 meta_desc="A description.",
             )
 
+    def test_publicize_message_derived_from_the_excerpt_is_folded_with_a_warning(self):
+        excerpt = "Ethọ́s Lab → Łódź 🙂 opened the night."
+        warnings = []
+
+        payload = connector_payload.build_wp_payload(
+            title="Ethọ́s Lab",
+            slug="ethos-lab",
+            force_publish=False,
+            pub_datetime="2026-06-23T12:00:00",
+            author_id=1,
+            excerpt=excerpt,
+            body_html="<p>Body</p>",
+            page_id="12345678-1234-1234-1234-123456789abc",
+            featured=False,
+            seo_title="Ethos Lab | Kris Krüg",
+            meta_desc="Ethos Lab Lódz opened the night.",
+            warn=warnings.append,
+        )
+
+        self.assertEqual(
+            payload["meta"]["jetpack_publicize_message"], "Ethos Lab Lódz opened the night."
+        )
+        self.assertEqual(
+            warnings,
+            [
+                f'seo: folded jetpack_publicize_message: "{excerpt}" -> '
+                '"Ethos Lab Lódz opened the night."'
+            ],
+        )
+        # The client sends these as numeric references; only plain-text meta folds.
+        self.assertEqual(payload["title"], "Ethọ́s Lab")
+        self.assertEqual(payload["excerpt"], excerpt)
+
     def test_plain_text_meta_keeps_cp1252_punctuation_as_written(self):
         long_excerpt = "Kris Krüg’s café notes. " + "x" * 260
+        warnings = []
         payload = connector_payload.build_wp_payload(
             title="KK’s Field Notes",
             slug="kks-field-notes",
@@ -77,8 +113,10 @@ class ConnectorPayloadTests(unittest.TestCase):
             featured=False,
             seo_title="KK’s Field Notes | Kris Krüg",
             meta_desc="“Café Krüg” – the notes…",
+            warn=warnings.append,
         )
 
+        self.assertEqual(warnings, [])
         meta = payload["meta"]
         self.assertEqual(meta["jetpack_seo_html_title"], "KK’s Field Notes | Kris Krüg")
         self.assertEqual(meta["advanced_seo_description"], "“Café Krüg” – the notes…")

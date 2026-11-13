@@ -19,6 +19,8 @@ from types import SimpleNamespace
 from unittest import mock
 from urllib.parse import urlsplit
 
+import yaml
+
 SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPT_DIR))
 
@@ -26,6 +28,7 @@ import kk_notion_to_wp  # noqa: E402
 from cp1252_text import (  # noqa: E402
     UnstorableText,
     assert_storable,
+    derived_meta_text,
     encode_html,
     plain_meta_text,
     storable_payload,
@@ -220,6 +223,49 @@ class PlainMetaTextTests(unittest.TestCase):
             plain_meta_text(f"Kr{chr(0x81)}g", "SEO title")
 
 
+class DerivedMetaTextTests(unittest.TestCase):
+    """Meta a writer derives folds to plain letters instead of refusing (KK, 2026-11-12)."""
+
+    def test_characters_outside_cp1252_fold_with_one_warning(self):
+        cases = {
+            f"{ETHOS} Lab": "Ethos Lab",
+            "Read this → now": "Read this now",
+            "Notes 🙂 from the lab": "Notes from the lab",
+            "Łódź field notes": "Lódz field notes",
+        }
+        for text, folded in cases.items():
+            with self.subTest(text=text):
+                warnings = []
+
+                self.assertEqual(
+                    derived_meta_text(text, "advanced_seo_description", warnings.append), folded
+                )
+                self.assertEqual(
+                    warnings, [f'seo: folded advanced_seo_description: "{text}" -> "{folded}"']
+                )
+
+    def test_cp1252_text_is_never_touched_or_warned_about(self):
+        for text in ("Kris Krüg", "Café Krüg × ½", CP1252_PUNCTUATION, "Krüg’s “notes” – 2025–2026…"):
+            with self.subTest(text=text):
+                warnings = []
+
+                folded = derived_meta_text(text, "jetpack_seo_html_title", warnings.append)
+
+                self.assertEqual(folded.encode("utf-8"), text.encode("utf-8"))
+                self.assertEqual(warnings, [])
+
+    def test_only_the_characters_cp1252_cannot_store_change(self):
+        warnings = []
+
+        folded = derived_meta_text(
+            f"KK’s {ETHOS} – Krüg → Łódź 🙂", "jetpack_publicize_message", warnings.append
+        )
+
+        self.assertEqual(folded, "KK’s Ethos – Krüg Lódz")
+        self.assertEqual(unstorable(folded), [])
+        self.assertEqual(len(warnings), 1)
+
+
 class StorablePayloadTests(unittest.TestCase):
     def test_html_fields_are_encoded_and_the_rest_left_alone(self):
         payload = {
@@ -388,6 +434,24 @@ class CaptionedNotion(FakeNotion):
         return blocks
 
 
+UNSTORABLE_TITLE = f"{ETHOS} Lab → Łódź 🙂"
+FOLDED_SEO_TITLE = "Ethos Lab Lódz | Kris Krüg"
+OPENING = f"{ETHOS} Lab → Łódź 🙂 opened the night with forty people in the room."
+FOLDED_OPENING = "Ethos Lab Lódz opened the night with forty people in the room."
+FOLD_WARNINGS = (
+    f'seo: folded advanced_seo_description: "{OPENING}" -> "{FOLDED_OPENING}"',
+    f'seo: folded jetpack_seo_html_title: "{UNSTORABLE_TITLE} | Kris Krüg" -> "{FOLDED_SEO_TITLE}"',
+    f'seo: folded jetpack_publicize_message: "{OPENING}" -> "{FOLDED_OPENING}"',
+)
+
+
+class UnstorableOpeningNotion(CaptionedNotion):
+    def block_children(self, page_id):
+        blocks = super().block_children(page_id)
+        blocks[0]["paragraph"]["rich_text"] = [{"plain_text": OPENING}]
+        return blocks
+
+
 class MisdecodedNotion(FakeNotion):
     def block_children(self, page_id):
         blocks = notion_blocks()
@@ -437,19 +501,54 @@ class ConnectorTests(WritesAllowed):
                 )
         return code, logs.getvalue()
 
-    def test_title_the_seo_meta_cannot_carry_exits_9_before_any_request(self):
-        for dry_run in (True, False):
-            with self.subTest(dry_run=dry_run):
-                wp = FakeWordPress()
+    def test_derived_meta_folds_with_one_warning_per_field_in_a_dry_run(self):
+        wp = FakeWordPress()
 
-                code, logs = self.run_connector(
-                    wp, dry_run=dry_run, title_override=f"{ETHOS} Lab Block Party"
-                )
+        with mock.patch.object(kk_notion_to_wp, "Notion", UnstorableOpeningNotion):
+            code, logs = self.run_connector(wp, dry_run=True, title_override=UNSTORABLE_TITLE)
 
-                self.assertEqual(code, 9)
-                self.assertEqual(wp.calls, [])
-                self.assertIn("SEO title has characters the database cannot store", logs)
-                self.assertIn("No WP write was attempted.", logs)
+        self.assertEqual(code, 0, logs)
+        self.assertEqual(wp.calls, [])
+        for line in FOLD_WARNINGS:
+            self.assertEqual(logs.count(line), 1, line)
+        # The package holds what WordPress will store, so the local-draft
+        # scripts accept its SEO frontmatter.
+        [post_md] = (self.tmp / "drafts").glob("*/post.md")
+        frontmatter = yaml.safe_load(post_md.read_text(encoding="utf-8").split("---\n")[1])
+        self.assertEqual(
+            frontmatter["seo"],
+            {"meta_title": FOLDED_SEO_TITLE, "meta_description": FOLDED_OPENING},
+        )
+        self.assertEqual(frontmatter["title"], UNSTORABLE_TITLE)
+        self.assertEqual(frontmatter["excerpt"], OPENING)
+
+    def test_derived_meta_folds_and_the_publish_continues(self):
+        site = FakeCp1252Site()
+
+        with mock.patch.object(kk_notion_to_wp, "Notion", UnstorableOpeningNotion):
+            code, logs = self.run_connector(
+                wordpress_over(site), dry_run=False, title_override=UNSTORABLE_TITLE
+            )
+
+        self.assertEqual(code, 0, logs)
+        for line in FOLD_WARNINGS:
+            self.assertEqual(logs.count(line), 1, line)
+        self.assertEqual([ch for _, body in site.json_bodies for ch in unstorable(body)], [])
+        post = site.posts[701]
+        seo_keys = ("jetpack_seo_html_title", "advanced_seo_description", "jetpack_publicize_message")
+        self.assertEqual(
+            {key: post["meta"][key] for key in seo_keys},
+            {
+                "jetpack_seo_html_title": FOLDED_SEO_TITLE,
+                "advanced_seo_description": FOLDED_OPENING,
+                "jetpack_publicize_message": FOLDED_OPENING,
+            },
+        )
+        # Title, excerpt and body keep every character, as numeric references.
+        self.assertEqual(post["title"]["raw"], to_ncr(UNSTORABLE_TITLE))
+        self.assertIn(to_ncr(OPENING), post["content"]["raw"])
+        [(_, body)] = [(path, body) for path, body in site.json_bodies if path.endswith("/posts")]
+        self.assertEqual(body["excerpt"], to_ncr(OPENING))
 
     def test_create_sends_nothing_outside_cp1252_and_reads_back_clean(self):
         site = FakeCp1252Site()
@@ -459,6 +558,7 @@ class ConnectorTests(WritesAllowed):
         )
 
         self.assertEqual(code, 0, logs)
+        self.assertNotIn("seo: folded", logs)
         self.assertEqual([ch for _, body in site.json_bodies for ch in unstorable(body)], [])
         post = site.posts[701]
         self.assertEqual(post["title"]["raw"], "KK’s “Field” Notes")
