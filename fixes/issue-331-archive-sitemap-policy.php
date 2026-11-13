@@ -2,9 +2,12 @@
 /**
  * KK archive sitemap and indexability policy.
  *
- * Canonical source for the production Code Snippets entry. When pasting into
- * Code Snippets, remove the opening PHP tag. Production deployment remains a
- * separate human-approved step documented in the issue #331 receipt.
+ * SUPERSEDED and never deployed. The live Code Snippet is 26, sourced from
+ * fixes/issue-331-archive-sitemap-policy-v2.php (live since 2026-09-03, see
+ * docs/current-state/reports/DEPLOY-767-331-2026-09-03.md). Do not activate
+ * this file; it is kept as the 2026-07-12 receipt artifact.
+ *
+ * When pasting into Code Snippets, remove the opening PHP tag.
  *
  * Rollback: deactivate this snippet, purge the approved production cache, and
  * repeat the sitemap and representative archive readback.
