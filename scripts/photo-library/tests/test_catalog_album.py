@@ -11,7 +11,7 @@ from pathlib import Path
 SCRIPT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPT_ROOT))
 
-import catalog_album
+import catalog_album  # noqa: E402 (needs the sys.path insert above)
 
 
 class CatalogAlbumTests(unittest.TestCase):

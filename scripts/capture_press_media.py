@@ -32,7 +32,6 @@ import textwrap
 from datetime import datetime, timezone
 from io import BytesIO
 from pathlib import Path
-from urllib.parse import parse_qs, urlparse
 
 import requests
 

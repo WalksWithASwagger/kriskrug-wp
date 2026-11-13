@@ -1,0 +1,107 @@
+[
+  {
+    "url": "https://archive.news.gov.bc.ca/releases/news_releases_2024-2028/2026HMA0086-001016.htm",
+    "status": 200,
+    "final_url": "https://archive.news.gov.bc.ca/releases/news_releases_2024-2028/2026HMA0086-001016.htm"
+  },
+  {
+    "url": "https://bc-ai.ca/",
+    "status": 200,
+    "final_url": "https://bc-ai.ca/"
+  },
+  {
+    "url": "https://bc-ai.ca/communities/life-sciences-ai",
+    "status": 200,
+    "final_url": "https://bc-ai.ca/communities/life-sciences-ai"
+  },
+  {
+    "url": "https://bc-ai.ca/events/2026-05-05-life-sciences-meetup",
+    "status": 200,
+    "final_url": "https://bc-ai.ca/events/2026-05-05-life-sciences-meetup"
+  },
+  {
+    "url": "https://bc-ai.ca/events/2026-08-12-bc-ai-life-sciences-meetup",
+    "status": 200,
+    "final_url": "https://bc-ai.ca/events/2026-08-12-bc-ai-life-sciences-meetup"
+  },
+  {
+    "url": "https://bc-ai.ca/events/2026-09-08-bc-ai-life-sciences-clinical-ai-in-practice",
+    "status": 200,
+    "final_url": "https://bc-ai.ca/events/2026-09-08-bc-ai-life-sciences-clinical-ai-in-practice"
+  },
+  {
+    "url": "https://bc-ai.ca/news/adoption-is-not-the-goal",
+    "status": 200,
+    "final_url": "https://bc-ai.ca/news/adoption-is-not-the-goal"
+  },
+  {
+    "url": "https://bc-ai.ca/news/the-ai-values-gap",
+    "status": 200,
+    "final_url": "https://bc-ai.ca/news/the-ai-values-gap"
+  },
+  {
+    "url": "https://cessationtherapeutics.com/science/",
+    "status": 200,
+    "final_url": "https://cessationtherapeutics.com/science/"
+  },
+  {
+    "url": "https://dailyhive.com/vancouver/vancouver-dtes-ashtrey-recovery-centre",
+    "status": 200,
+    "final_url": "https://dailyhive.com/vancouver/vancouver-dtes-ashtrey-recovery-centre"
+  },
+  {
+    "url": "https://doi.org/10.5281/zenodo.19582415",
+    "status": 403,
+    "final_url": "https://zenodo.org/doi/10.5281/zenodo.19582415"
+  },
+  {
+    "url": "https://economyofwisdom.org/",
+    "status": 200,
+    "final_url": "https://economyofwisdom.org/"
+  },
+  {
+    "url": "https://kriskrug.co/2010/11/10/photography-ethics-on-vancouvers-downtown-eastside/",
+    "status": 200,
+    "final_url": "https://kriskrug.co/2010/11/10/photography-ethics-on-vancouvers-downtown-eastside/"
+  },
+  {
+    "url": "https://vantechjournal.com/p/three-ways-ai-could-make-a-difference-in-vancouver-s-downtown-eastside",
+    "status": 200,
+    "final_url": "https://vantechjournal.com/p/three-ways-ai-could-make-a-difference-in-vancouver-s-downtown-eastside"
+  },
+  {
+    "url": "https://www.bccsu.ca/opioid-use-disorder/",
+    "status": 200,
+    "final_url": "https://www.bccsu.ca/opioid-use-disorder/"
+  },
+  {
+    "url": "https://www.flickr.com/photos/kk/5159967257/",
+    "status": 403,
+    "final_url": "https://www.flickr.com/photos/kk/5159967257/"
+  },
+  {
+    "url": "https://www.intellomx.com/",
+    "status": 200,
+    "final_url": "https://www.intellomx.com/"
+  },
+  {
+    "url": "https://www.psu.edu/news/research/story/qa-can-weight-loss-drugs-help-addiction-treatment",
+    "status": 200,
+    "final_url": "https://www.psu.edu/news/research/story/qa-can-weight-loss-drugs-help-addiction-treatment"
+  },
+  {
+    "url": "https://www.vancityops.com/",
+    "status": 200,
+    "final_url": "https://www.vancityops.com/"
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=13EEEP6wKWE",
+    "status": 200,
+    "final_url": "https://www.youtube.com/watch?v=13EEEP6wKWE"
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=ma1Mn1aWpjs&t=34s",
+    "status": 200,
+    "final_url": "https://www.youtube.com/watch?v=ma1Mn1aWpjs&t=34s"
+  }
+]

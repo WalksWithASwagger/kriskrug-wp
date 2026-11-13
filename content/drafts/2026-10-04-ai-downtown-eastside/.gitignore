@@ -1,0 +1,14 @@
+# kriskrug-wp is a PUBLIC repo. Post 12919 is published and its photos live in
+# the WordPress media library (12915-12918, 12920, 12921). Source notes, draft
+# revisions, authenticated context=edit readbacks and staged photos of
+# community members stay local (#1213).
+assets/
+revision-1/
+revision-2-before-media-refresh/
+source-notes.md
+preview.html
+preview.css
+build_preview.py
+wordpress/*
+!wordpress/verification.json
+!wordpress/link-check.json
