@@ -342,7 +342,8 @@ def assert_review_gate(targets: dict) -> None:
         sys.exit(
             "[ABORT] reviewed_body_sha256 is unset. Kris must review the draft before any apply."
         )
-    observed = hashlib.sha256(load_draft_body().encode("utf-8")).hexdigest()
+    # Hash the file as stored so the gate agrees with the shasum the reviewer ran.
+    observed = hashlib.sha256(DRAFT_BODY_PATH.read_bytes()).hexdigest()
     if observed != approved:
         sys.exit(
             f"[ABORT] reviewed_body_sha256 mismatch: observed {observed}, expected {approved}."
