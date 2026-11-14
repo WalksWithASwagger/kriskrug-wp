@@ -27,7 +27,7 @@ At about 10:30 on the opening night of Futureproof Festival, I stood outside the
 
 “It was really good. It was delicious.”
 
-Amber Case had got people thinking about their bodies and their relationships with technology. The AI Builders Fellows had shown real work. Brewster Kahle had answered my invitation to give another talk with a proposal to support more research. Philippe Pasquier had taken us somewhere strange with a live generative performance. Friends I’ve known for years were meeting people I’d only recently met myself.
+[Amber Case](https://www.futureproof.website/2026/proceedings/sessions/amber-case/) had got people thinking about their bodies and their relationships with technology. The AI Builders Fellows had shown real work. Brewster Kahle had answered my invitation to give another talk with a proposal to support more research. Philippe Pasquier had taken us somewhere strange with a live generative performance. Friends I’ve known for years were meeting people I’d only recently met myself.
 
 Then I said the thing that mattered most:
 
@@ -95,9 +95,9 @@ Outside the Sylvia, I was still trying to describe what Amber had done: “stole
 
 ## Put the work on the screen
 
-The AI Builders Fellowship was one of the parts of opening night that meant the most to me. Internet Archive Canada and BC + AI had given builders an opportunity to work with the public record. Jacob Ortiz and Daniel Shavit came to show what they’d made.
+The AI Builders Fellowship was one of the parts of opening night that meant the most to me. Internet Archive Canada and BC + AI had given builders an opportunity to work with the public record. Jacob Ortiz and [Daniel Shavit](https://www.futureproof.website/2026/proceedings/sessions/daniel-shavit/) came to show what they’d made.
 
-Jacob’s project, The Archive Argues With Itself, lets you question Canada’s public-health records and open the scanned pages behind an answer. That last part matters enormously. A smooth paragraph can make a weak answer sound settled. Being able to look at the page gives you somewhere to stand when you question it.
+Jacob’s project, [The Archive Argues With Itself](https://www.futureproof.website/2026/proceedings/sessions/jacob-ortiz/), lets you question Canada’s public-health records and open the scanned pages behind an answer. That last part matters enormously. A smooth paragraph can make a weak answer sound settled. Being able to look at the page gives you somewhere to stand when you question it.
 
 His presentation included the encouraging results and the awkward ones. On one slide, he reported that 166 of 178 checked sentences had every claim supported by the page they cited. On another, he showed five questions out of fifteen that should have produced a refusal but instead got a true, cited answer to a slightly different question. Those were his project’s audit results, with the limits stated on the slides.
 
@@ -125,7 +125,7 @@ I meant it. Giving somebody enough support to pursue a good question is one of t
 
 ## Brewster changed the question
 
-Brewster Kahle followed the fellows. Having the founder of the Internet Archive there, after those demonstrations, connected the work in front of us to the years of collecting and preserving that made it possible.
+[Brewster Kahle followed the fellows](https://www.futureproof.website/2026/proceedings/sessions/brewster-kahle/). Having the founder of the Internet Archive there, after those demonstrations, connected the work in front of us to the years of collecting and preserving that made it possible.
 
 At the end of his talk, I asked whether he would come back and talk about archiving open-weight models and studying bias by asking different models the same questions.
 
@@ -145,15 +145,15 @@ Public memory belongs in this conversation. Every useful thing the fellows showe
 
 Jos Duncan-Asé on stage for “Who Gets to Tell the Story.” October 29. Photo: Michelle Diamond / Diamond’s Edge Photography.
 
-Jos Duncan-Asé’s session title, Who Gets to Tell the Story, belongs near the centre of how I think about AI. So much of the argument comes down to who gets to describe other people, whose knowledge gets treated as material, and who has the power to correct the record.
+Jos Duncan-Asé’s session title, [Who Gets to Tell the Story](https://www.futureproof.website/2026/proceedings/sessions/jos-duncan-ase/), belongs near the centre of how I think about AI. So much of the argument comes down to who gets to describe other people, whose knowledge gets treated as material, and who has the power to correct the record.
 
 I’ve spent years pointing a camera at people. A photograph is a decision about what gets included and what stays outside the frame. I bring that awareness to AI. Someone selected the material. Someone chose the categories. Someone decided what a satisfactory answer looks like. Those choices carry a view of the world, whether the interface admits it or not.
 
 On Thursday morning I said, “Before this was the Space Center, before it was Kitsilano, before it was Vancouver, it was indigenous land, and it still is.”
 
-That has to mean something in a conversation about ownership and the future. I wanted Indigenous language technology and data sovereignty in this program because communities have their own purposes, responsibilities and authority over their knowledge. Michael Running Wolf and Peter-Lucas Jones were part of that program. I’m interested in what people can build on their own terms, and in our responsibility to listen when those terms differ from ours.
+That has to mean something in a conversation about ownership and the future. I wanted Indigenous language technology and data sovereignty in this program because communities have their own purposes, responsibilities and authority over their knowledge. [Michael Running Wolf](https://www.futureproof.website/2026/proceedings/sessions/michael-running-wolf/) and [Peter-Lucas Jones](https://www.futureproof.website/2026/proceedings/sessions/peter-lucas-jones/) were part of that program. I’m interested in what people can build on their own terms, and in our responsibility to listen when those terms differ from ours.
 
-Friday’s conversation between Ana Serrano and Prem Gill brought creativity and cultural policy into the same room. These questions need artists, cultural institutions and communities involved in making decisions. I don’t want us waiting politely for a handful of technology companies to decide what happens to culture and then sending us the updated terms.
+[Friday’s conversation between Ana Serrano and Prem Gill](https://www.futureproof.website/2026/proceedings/sessions/ana-serrano-prem-gill/) brought creativity and cultural policy into the same room. These questions need artists, cultural institutions and communities involved in making decisions. I don’t want us waiting politely for a handful of technology companies to decide what happens to culture and then sending us the updated terms.
 
 ![Two speakers discuss AI, creativity and cultural policy beneath their projected session card.](https://kriskrug.co/wp-content/uploads/2026/11/futureproof-year-one-michelle-diamond-fpd3-179.jpg)
 
@@ -161,7 +161,7 @@ Ana Serrano and Prem Gill discuss AI, creativity and cultural policy. October 30
 
 ## Make room for the weird stuff
 
-Philippe Pasquier’s opening-night performance is still mixed up in my memory with the relief of having got the festival started. Outside the Sylvia, I described it as a trip, something like a séance with composers. I was still finding words for it.
+[Philippe Pasquier’s opening-night performance](https://www.futureproof.website/2026/proceedings/sessions/philippe-pasquier-live-set/) is still mixed up in my memory with the relief of having got the festival started. Outside the Sylvia, I described it as a trip, something like a séance with composers. I was still finding words for it.
 
 Artists should be able to use AI as an instrument, experiment with it, criticize it, make something beautiful or unsettling, and find out what they think in the process. We don’t have to reduce every creative encounter to an argument about productivity. Sometimes you need to experience the thing before you have language for it.
 

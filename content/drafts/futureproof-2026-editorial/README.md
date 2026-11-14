@@ -10,9 +10,9 @@ This package records the final published article for [#1165](https://github.com/
 - `media.json` records the twelve existing public WordPress images, credits, captions and alt text. Nine photographs are by Michelle Diamond / Diamond’s Edge Photography; three presentation images are from Amber Case and Jacob Ortiz. No image binaries or private source material are included.
 - Featured image: existing media **12935**. Author: **1**, Kris Krüg. Category: **1662**, Vancouver AI Ecosystem. No new tags.
 - Slug: `futureproof-2026-year-one`. Publication: `2026-11-01T14:52:04` local / `2026-11-01T22:52:04Z`.
-- Body SHA-256: `f93a859e4ce457e99d1699db7c99b05c34cb2500eacd684c49d87a34d615cf59`.
+- Body SHA-256: `95181882a208494276564f6db7fa82db541ffb5cd737ca6a994494bae9af8ef7`.
 
-The exact saved body includes the AI-assistance disclosure, five contextual internal links, the released festival gallery and program, and a linked photography credit. The current body links separately to the 2026 proceedings and the approved BC + AI community recap. The post uses its own canonical URL and the existing BlogPosting/Person schema.
+The exact saved body includes the AI-assistance disclosure, five contextual internal links, the released festival gallery and program, and a linked photography credit. The current body links separately to the 2026 proceedings and the approved BC + AI community recap, and links nine talks to their recaps in the proceedings. The post uses its own canonical URL and the existing BlogPosting/Person schema.
 
 ## Release verification
 
@@ -49,6 +49,28 @@ The private snapshot, exact diff and verification receipt are in
 Rollback requires a fresh identity/current-body check before restoring the
 saved previous body; preserve any subsequent edits. This completes #1165's
 remaining link dependency. The optional second essay remains a separate choice.
+
+## Proceedings recap links: 2026-11-14
+
+On November 14 Kris approved the prepared recap links for [futureproof-festival#3706](https://github.com/WalksWithASwagger/futureproof-festival/issues/3706). Nine phrases that already discuss a 2026 talk now link to that talk's recap at `https://www.futureproof.website/2026/proceedings/sessions/<id>/`:
+
+| Phrase | Recap id |
+|---|---|
+| Amber Case (third paragraph) | `amber-case` |
+| Daniel Shavit (Fellowship paragraph) | `daniel-shavit` |
+| The Archive Argues With Itself (paragraph, not the caption) | `jacob-ortiz` |
+| Brewster Kahle followed the fellows | `brewster-kahle` |
+| Who Gets to Tell the Story (paragraph, not the image text) | `jos-duncan-ase` |
+| Michael Running Wolf | `michael-running-wolf` |
+| Peter-Lucas Jones | `peter-lucas-jones` |
+| Friday’s conversation between Ana Serrano and Prem Gill | `ana-serrano-prem-gill` |
+| Philippe Pasquier’s opening-night performance | `philippe-pasquier-live-set` |
+
+- Each recap returned 200 with its own canonical before it was linked. Only anchors changed. The visible text is the same, and removing the nine anchors gives back the previous body (`f93a859e…`) exactly.
+- One content-only update, verified at 18:45 UTC on November 14. The authenticated readback matches `post.html` and the body hash above. ID, slug, status, dates, title, excerpt, author, featured image, taxonomy, metadata and comment settings are unchanged.
+- The canonical URL and a fresh public request both returned 200, with one H1, the original self-canonical and each new link exactly once.
+
+In the same pass, post 12978 gained four recap links and post 12949's Naomi Klein and Catherine Warren link moved to their recap. Neither post has a package in this repository. The private snapshots, diffs and receipts are in `.generated/current-state/futureproof-3706-recap-links-2026-11-14/`. Rollback works as above: check the slug and ID, confirm the body still matches this hash, then restore the saved previous body through a content-only update.
 
 ## Future maintenance
 
