@@ -16,7 +16,8 @@ This file records Kris's rulings and the final copy in the repo. The lane that w
 - 23:56:49 UTC: the final body was staged in draft 13005 for his preview. It was the merged payload with all four publish edits applied and the date 2026-11-13: SHA-256 `f8a1ef5be855e9b8ba44a0b2bf7191d1a797caad467056fa0994406384b0e70d`, 14,667 bytes. The excerpt was written with it.
 - Kris previewed that draft and gave ruling 2.
 - The scope paragraph came out of the body. The final body is the staged one minus that single line and its newline: SHA-256 `97e97a43e33158fb42dac99fac335df20a02ddec2ae76cb8ba8e44b905bb53fd`, 14,562 bytes. It is [`ai-policy.html`](../../../content/source-packs/ai-policy-2026/wp-payloads/ai-policy.html) in this repo, byte for byte.
-- Page 13005 published: `ORCHESTRATOR_FILLS` (UTC time of the status flip).
+- 2026-11-14 00:06:34 UTC: the scope paragraph was removed from draft 13005 with a content-only write, after a snapshot. The readback matched the final body exactly and the page was still a draft.
+- 2026-11-14 00:06:55 UTC (November 13, 17:06 in Vancouver): page 13005 published with a status-only write, after another snapshot. Slug, title and body did not change.
 
 ## What the scope ruling changes
 
@@ -33,7 +34,16 @@ The review note at the top of `policy.md` reads "Draft for Kris Krüg's review. 
 
 ## Public checks
 
-`ORCHESTRATOR_FILLS` (logged-out checks after the flip: status code and final URL for `https://kriskrug.co/ai-policy/`, the canonical tag, every `readback_markers` entry present, every `publish_absent_markers` entry and the scope phrase absent, and the live body hash against `97e97a43...`).
+Logged out at 00:08 UTC on 2026-11-14, on a cache-busted URL and on the plain URL, with the same result both times:
+
+- `https://kriskrug.co/ai-policy/` returns 200. The canonical tag is the same URL, and there is one `h1`.
+- The `<title>` is `How I Use AI (And Where I Draw the Line) | Kris Krüg` and the meta description is the excerpt, both WordPress defaults.
+- Present: "The short version: Both Hands Full", "What I will not fake", "I own what ships", "AI-assistance disclosure" and "Last updated: 2026-11-13".
+- Absent: `YYYY-MM-DD`, "Pending Kris", "Proposed AI-assistance", "public transparency statement" and "not legal terms". No em dash is in the page text.
+- The page is listed in `wp-sitemap-posts-page-1.xml`, it is not `noindex`, and public REST returns it with `status: publish`.
+- The authenticated readback of `content.raw` after the flip hashes to `97e97a43e33158fb42dac99fac335df20a02ddec2ae76cb8ba8e44b905bb53fd`, the payload in this repo.
+
+Rollback: three edit-context snapshots (before the final body, before the scope removal, before the publish) are kept locally under the ignored `.generated/current-state/ai-policy-draft-2026-11-12/` in the main checkout. To unpublish, set the page back to `draft` with a status-only write and read it back. Never delete the page.
 
 ## Repo state after this record
 

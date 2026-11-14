@@ -15,9 +15,9 @@
     "content_bytes": 14562,
     "matches_payload": true,
     "content_note": "The body the page carries after Kris's ruling: the staged final body minus the scope paragraph line and its newline. It is this pack's payload, byte for byte. Removing the scope line from the page and publishing it are done by the orchestrating session after the ruling, which checks the live readback against this hash. The lane that wrote this record made no WordPress call.",
-    "published": "ORCHESTRATOR_FILLS",
-    "public_readback": "ORCHESTRATOR_FILLS",
-    "fill_note": "The orchestrating session fills the two fields above: published with the UTC time of the status flip, public_readback with the result of the logged-out checks."
+    "published": "2026-11-14T00:06:55Z",
+    "public_readback": "Logged out on 2026-11-14 at 00:08 UTC, cache-busted and on the plain URL: https://kriskrug.co/ai-policy/ returns 200 with canonical https://kriskrug.co/ai-policy/, one h1, the title 'How I Use AI (And Where I Draw the Line) | Kris Krüg' and the excerpt as its meta description. The readback markers checked are present, including 'Last updated: 2026-11-13'. No pending-only text and no scope phrase is in the page. The page is in wp-sitemap-posts-page-1.xml, and public REST reports status publish. The authenticated readback of content.raw after the flip hashes to 97e97a43e33158fb42dac99fac335df20a02ddec2ae76cb8ba8e44b905bb53fd.",
+    "fill_note": "The orchestrating session filled the two fields above after the status flip: published is the UTC time WordPress recorded, public_readback the result of the logged-out checks."
   },
   "comment_status": "closed",
   "ping_status": "closed",
