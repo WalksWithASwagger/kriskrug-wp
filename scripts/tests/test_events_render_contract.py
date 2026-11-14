@@ -520,11 +520,14 @@ class RealCatalogSmoke(unittest.TestCase):
         """Live 2026-10-17 gap: Sept 30 still Next up; festival still Save the date.
 
         Clock is the SEO/AEO audit moment. Product contract is date-based
-        rolloff, not bucket_hint. Festival identity stays off this page:
-        the row's own url only, no Event JSON-LD. After the festival that url
-        moved from the sold-out tickets page to the 2026 proceedings
-        (futureproof-festival#3706), so this historical clock renders it too.
+        rolloff, not bucket_hint. Festival identity stays off this page: the
+        card links to the row's own url, with no Event JSON-LD. That url moved
+        from the tickets page to the 2026 proceedings after the festival
+        (futureproof-festival#3706); the post-festival test pins it.
         """
+        festival_url = next(
+            e["url"] for e in lib.load_catalog()["events"] if e["id"] == "futureproof-festival-2026"
+        )
         audit_now = "2026-10-17T09:57:00-07:00"
         with tempfile.TemporaryDirectory() as tmp:
             html = self.render_main(
@@ -541,12 +544,28 @@ class RealCatalogSmoke(unittest.TestCase):
             re.DOTALL,
         )
         self.assertIsNotNone(festival)
-        self.assertIn('href="https://www.futureproof.website/2026/proceedings/"', festival.group(0))
+        self.assertIn(f'href="{festival_url}"', festival.group(0))
         self.assertIn(">Get tickets<", festival.group(0))
         self.assertNotIn("Save the date", html)
         self.assertNotIn('href="https://futureproof.website/"', html)
         self.assertNotIn("Register on Luma", html)
         self.assertIn('data-event-id="vancouver-ai-meetup-2026-09-30"', html)
+
+    def test_past_festival_tile_and_record_row_link_to_the_2026_proceedings(self):
+        """After the festival, both shipped links leave the sold-out tickets page (#3706)."""
+        with tempfile.TemporaryDirectory() as tmp:
+            html = self.render_main(
+                Path(tmp) / "events-2250.generated.html", now="2026-11-14T12:00:00-08:00"
+            )
+        hub = 'href="https://www.futureproof.website/2026/proceedings/"'
+        for pattern in (
+            r'<article class="kk-ev-tile"[^>]*data-event-id="futureproof-festival-2026".*?</article>',
+            r'<li class="kk-ev-rec"[^>]*data-event-id="futureproof-festival-2026".*?</li>',
+        ):
+            element = re.search(pattern, html, re.DOTALL)
+            self.assertIsNotNone(element, pattern)
+            self.assertIn(hub, element.group(0))
+        self.assertNotIn("futureproof.website/tickets/", html)
 
 
 if __name__ == "__main__":
