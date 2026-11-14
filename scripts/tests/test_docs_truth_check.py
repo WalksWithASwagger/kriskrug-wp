@@ -111,9 +111,11 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
             docs_truth_check.ACTIVE_GUIDANCE_PATHS,
         )
 
-    def test_october_snapshot_is_active_and_predecessors_are_historical(self):
-        self.assertIn(Path("docs/current-state/CURRENT-STATE-2026-10-25.md"),
+    def test_november_snapshot_is_active_and_predecessors_are_historical(self):
+        self.assertIn(Path("docs/current-state/CURRENT-STATE-2026-11-13.md"),
                       docs_truth_check.ACTIVE_GUIDANCE_PATHS)
+        self.assertNotIn(Path("docs/current-state/CURRENT-STATE-2026-10-25.md"),
+                         docs_truth_check.ACTIVE_GUIDANCE_PATHS)
         self.assertNotIn(Path("docs/current-state/CURRENT-STATE-2026-09-21.md"),
                          docs_truth_check.ACTIVE_GUIDANCE_PATHS)
         self.assertNotIn(Path("docs/current-state/CURRENT-STATE-2026-07-30.md"),
@@ -124,7 +126,7 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
             "docs/INDEX.md": (
                 "| `WORK-PLAN-2026-08-25.md` | Active two-session runbook |\n"
             ),
-            "docs/current-state/CURRENT-STATE-2026-10-25.md": (
+            "docs/current-state/CURRENT-STATE-2026-11-13.md": (
                 "Latest dated runbook: WORK-PLAN-2026-08-25.md.\n"
             ),
             "docs/current-state/MASTER-PLAN-2026-07-30.md": (
@@ -191,7 +193,7 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
 
     def test_rejects_pre_cleanup_worktree_status(self):
         findings = scan_text(
-            "docs/current-state/CURRENT-STATE-2026-10-25.md",
+            "docs/current-state/CURRENT-STATE-2026-11-13.md",
             "Three `/private/tmp` worktree registrations were prunable.\n",
         )
 
@@ -202,7 +204,7 @@ class ActiveFrontDoorRegressionTests(unittest.TestCase):
             "docs/current-state/README.md": (
                 "ROADMAP-2026-11-12.md\n0 open PRs, 43 open issues.\n"
             ),
-            "docs/current-state/CURRENT-STATE-2026-10-25.md": "Open issues: `40`.\n",
+            "docs/current-state/CURRENT-STATE-2026-11-13.md": "Open issues: `40`.\n",
         }
 
         for path, text in samples.items():
@@ -557,7 +559,7 @@ class AuthorityHubAndReleaseGuidanceTests(unittest.TestCase):
             "docs/INDEX.md": (
                 "continue with the separately approval-gated packs beginning at #830\n"
             ),
-            "docs/current-state/CURRENT-STATE-2026-10-25.md": (
+            "docs/current-state/CURRENT-STATE-2026-11-13.md": (
                 "#829 is live and verified; #830 is the next separately approval-gated child\n"
             ),
             "docs/current-state/WORK-PLAN-2026-09-09.md": (

@@ -186,7 +186,7 @@ ACTIVE_GUIDANCE_PATHS = {
     Path("README.md"),
     Path("docs/INDEX.md"),
     Path("docs/current-state/README.md"),
-    Path("docs/current-state/CURRENT-STATE-2026-10-25.md"),
+    Path("docs/current-state/CURRENT-STATE-2026-11-13.md"),
     CURRENT_ROADMAP,
     RETAINED_PROCEDURES_PLAN,
     Path("docs/current-state/MASTER-PLAN-2026-07-30.md"),
@@ -255,18 +255,23 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
             "The audited current-state access guide must use Varlock, live counts by command, and the retired-swarm status.",
         ),
     ],
-    Path("docs/current-state/CURRENT-STATE-2026-10-25.md"): [
+    Path("docs/current-state/CURRENT-STATE-2026-11-13.md"): [
         (
             re.compile(r"(?:Latest dated runbook|front door)[^\n]*WORK-PLAN-2026-08-25\.md", re.I),
             "WORK-PLAN-2026-08-25.md is archived; the declared snapshot must not call it a runbook or front door (retained procedures live in `WORK-PLAN-2026-09-09.md`).",
         ),
         (
-            re.compile(r"Open PRs:\s*`1`[^\n]*#710", re.I),
-            "The parked PR #710 counter is stale; rerun `make status-readonly`.",
-        ),
-        (
             re.compile(r"Three `/private/tmp` worktree registrations were prunable", re.I),
             "The approved #738 cleanup is complete; do not describe its stale registrations as pending.",
+        ),
+    ],
+    # The #710 and 65-draft counters come from older snapshots. The November
+    # snapshot was cut from a fresh readback, and a future queue of 65 drafts
+    # would be real, so these two stay scoped to the October file.
+    Path("docs/current-state/CURRENT-STATE-2026-10-25.md"): [
+        (
+            re.compile(r"Open PRs:\s*`1`[^\n]*#710", re.I),
+            "The parked PR #710 counter is stale; rerun `make status-readonly`.",
         ),
         (
             re.compile(r"WordPress draft queue:[^\n]*`65`\s*draft posts", re.I),

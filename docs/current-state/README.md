@@ -7,21 +7,21 @@ parked until April), the work delivered on November 12 and the decisions still
 waiting on him. The [November 11 roadmap](ROADMAP-2026-11-11.md), the
 [maintenance report](reports/repo-maintenance-2026-11-11.md) and the
 [same-day follow-through](reports/morning-followthrough-2026-11-11.md) are the
-dated evidence behind it. The October 25 snapshot remains the declared drift
-baseline until #1214 cuts the November one; its old counts and theme version
-are dated evidence.
+dated evidence behind it. The November 13 snapshot is the declared drift
+baseline (#1214); the October 25 snapshot's counts and theme version are dated
+evidence.
 
 ## Current front door: 2026-11-12
 
 1. [ROADMAP-2026-11-12.md](ROADMAP-2026-11-12.md): direction, priority themes, agent lane and decision queue through March 2027.
-2. [CURRENT-STATE-2026-10-25.md](CURRENT-STATE-2026-10-25.md): Makefile drift baseline, to compare with a fresh readback.
+2. [CURRENT-STATE-2026-11-13.md](CURRENT-STATE-2026-11-13.md): Makefile drift baseline, to compare with a fresh readback.
 3. [WORK-PLAN-2026-09-09.md](WORK-PLAN-2026-09-09.md): retained identity, snapshot and approval procedures. Its September queue is historical; #834 is complete.
 4. [TWO-TRACK-MODEL.md](TWO-TRACK-MODEL.md): content versus theme boundaries.
 5. [INCIDENT-2026-05-15-overwritten-post.md](INCIDENT-2026-05-15-overwritten-post.md): standing slug/idempotency rules, with later approval policy in AGENTS.md.
 6. [AGENT-RUNTIME-REFERENCE.md](AGENT-RUNTIME-REFERENCE.md), [environment schema](../../.env.schema) and [Varlock rollout](VARLOCK-ROLLOUT-2026-07-16.md): runtime, auth and validation.
 
-November 12 startup observed WordPress 7.0.8 and public Aurora 1.7.1. `main`
-now carries Aurora 1.7.2, merged but not deployed. About, Photography,
+The November 13 snapshot readback observed WordPress 7.0.8 and Aurora 1.7.3
+both live and on `main`. About, Photography,
 MØTLEYKRÜG, Contact and Publications source matches the approved live bodies.
 Do not repeat completed page redesigns, #331's archive policy, the dependency
 security patches or the November 12 audit work listed in the roadmap.

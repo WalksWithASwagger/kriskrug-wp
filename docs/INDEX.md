@@ -16,7 +16,7 @@ Start with the [November 12 roadmap](current-state/ROADMAP-2026-11-12.md), the d
 | [`current-state/ROADMAP-2026-11-11.md`](current-state/ROADMAP-2026-11-11.md) | Historical November 11 queue, superseded on 2026-11-12 |
 | [`current-state/WEEK-PLAN-2026-09-28.md`](current-state/WEEK-PLAN-2026-09-28.md) | Historical September 28–October 4 priorities and maintenance receipt |
 | [`current-state/README.md`](current-state/README.md) | Index; front door pointers |
-| [`current-state/CURRENT-STATE-2026-10-25.md`](current-state/CURRENT-STATE-2026-10-25.md) | Declared snapshot for drift checks; compare its dated values with `make status-readonly` |
+| [`current-state/CURRENT-STATE-2026-11-13.md`](current-state/CURRENT-STATE-2026-11-13.md) | Declared snapshot for drift checks; compare its dated values with `make status-readonly` |
 | [`current-state/WORK-PLAN-2026-09-09.md`](current-state/WORK-PLAN-2026-09-09.md) | Retained live-lane safety procedures; September queue is historical and #834 is complete |
 | [`current-state/MASTER-PLAN-2026-07-30.md`](current-state/MASTER-PLAN-2026-07-30.md) | Historical hygiene plan; use the November roadmap for remaining work |
 | [`current-state/TWO-TRACK-MODEL.md`](current-state/TWO-TRACK-MODEL.md) | Active Track A / Track B decision rule |

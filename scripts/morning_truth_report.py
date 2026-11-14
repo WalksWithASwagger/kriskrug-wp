@@ -261,7 +261,7 @@ def main() -> int:
     parser.add_argument("--expect-version", default="7.0.8")
     parser.add_argument(
         "--work-plan",
-        default="docs/current-state/CURRENT-STATE-2026-10-25.md",
+        default="docs/current-state/CURRENT-STATE-2026-11-13.md",
         help="Declared state doc used for drift checks.",
     )
     parser.add_argument(

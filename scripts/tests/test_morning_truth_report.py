@@ -200,7 +200,7 @@ class MorningTruthAvailabilityTests(unittest.TestCase):
                 self.assertEqual(command[command.index("--expect-version") + 1], "7.0.8")
             if title == "Current-State Drift Check (JSON)":
                 self.assertEqual(command[command.index("--work-plan") + 1],
-                                 "docs/current-state/CURRENT-STATE-2026-10-25.md")
+                                 "docs/current-state/CURRENT-STATE-2026-11-13.md")
             output = json.dumps(smoke) if title == "WP7 Public Smoke (JSON)" else (
                 "[]" if title in ("Issue JSON", "PR JSON") else '{"checks": []}'
             )
@@ -254,16 +254,16 @@ class StartupBaselineTests(unittest.TestCase):
             with self.subTest(target=target):
                 result = subprocess.run(["make", "-n", target], cwd=root,
                                         capture_output=True, text=True, check=True)
-                self.assertIn("WORK_PLAN:-docs/current-state/CURRENT-STATE-2026-10-25.md",
+                self.assertIn("WORK_PLAN:-docs/current-state/CURRENT-STATE-2026-11-13.md",
                               result.stdout)
                 if target != "current-state-drift-check":
                     self.assertIn("EXPECT_VERSION:-7.0.8", result.stdout)
-        self.assertIn("CURRENT-STATE-2026-10-25.md", (root / "AGENTS.md").read_text())
+        self.assertIn("CURRENT-STATE-2026-11-13.md", (root / "AGENTS.md").read_text())
 
-    def test_direct_drift_script_uses_october_snapshot(self):
+    def test_direct_drift_script_uses_november_snapshot(self):
         with mock.patch.object(sys, "argv", ["drift"]):
             args = check_current_state_drift.parse_args()
-        self.assertEqual(args.work_plan, Path("docs/current-state/CURRENT-STATE-2026-10-25.md"))
+        self.assertEqual(args.work_plan, Path("docs/current-state/CURRENT-STATE-2026-11-13.md"))
 
 
 class MorningTruthOutputPathTests(unittest.TestCase):
