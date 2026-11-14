@@ -2,7 +2,7 @@
 
 November 13, 2026. Release record for #886, epic #883. The draft's own record is the [staging receipt](ai-policy-draft-2026-11-12.md).
 
-This file records Kris's rulings and the final copy in the repo. The lane that wrote it made no WordPress call. The orchestrating session made the live writes and the publish, and fills in the two places marked for it below: the publish time and the public checks.
+This file records Kris's rulings and the final copy in the repo. The lane that wrote it made no WordPress call. The orchestrating session made the live writes and the publish, and then added the publish time and the public checks below.
 
 ## Kris's rulings, in chat on 2026-11-13
 
@@ -49,7 +49,7 @@ Rollback: three edit-context snapshots (before the final body, before the scope 
 
 - `publish_approval` is recorded with the date 2026-11-13, and `status_target` is `publish`.
 - `publish_edits` keeps the three remaining edits, already applied. The fourth, which dropped "proposed" from the scope sentence, left with the sentence.
-- `wordpress_page` replaces `wordpress_draft`. It holds both hashes, `matches_payload: true` for the final body, and the two fields the orchestrating session fills.
+- `wordpress_page` replaces `wordpress_draft`. It holds both hashes, `matches_payload: true` for the final body, the publish time and the public readback.
 
 ## Rollback
 
