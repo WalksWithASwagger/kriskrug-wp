@@ -516,12 +516,14 @@ class RealCatalogSmoke(unittest.TestCase):
         self.assertNotIn('"@type":"Event"', html)
         self.assertNotIn('"@type": "Event"', html)
 
-    def test_audit_clock_drops_meetup_33_and_points_festival_at_tickets(self):
+    def test_audit_clock_drops_meetup_33_and_keeps_festival_on_its_row_url(self):
         """Live 2026-10-17 gap: Sept 30 still Next up; festival still Save the date.
 
         Clock is the SEO/AEO audit moment. Product contract is date-based
         rolloff, not bucket_hint. Festival identity stays off this page:
-        tickets href only, no Event JSON-LD.
+        the row's own url only, no Event JSON-LD. After the festival that url
+        moved from the sold-out tickets page to the 2026 proceedings
+        (futureproof-festival#3706), so this historical clock renders it too.
         """
         audit_now = "2026-10-17T09:57:00-07:00"
         with tempfile.TemporaryDirectory() as tmp:
@@ -539,7 +541,7 @@ class RealCatalogSmoke(unittest.TestCase):
             re.DOTALL,
         )
         self.assertIsNotNone(festival)
-        self.assertIn("https://www.futureproof.website/tickets/", festival.group(0))
+        self.assertIn('href="https://www.futureproof.website/2026/proceedings/"', festival.group(0))
         self.assertIn(">Get tickets<", festival.group(0))
         self.assertNotIn("Save the date", html)
         self.assertNotIn('href="https://futureproof.website/"', html)
