@@ -15,7 +15,7 @@ import json
 import re
 import sys
 import unittest
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -130,9 +130,9 @@ BLOCK_TAGS = frozenset(
     }
 )
 
-# The title line becomes the WordPress title (the template's only H1). Of the
-# review note, only its first sentence leaves the body. The scope sentence is
-# #883's architecture decision, and no ruling from Kris removes it.
+# The title line becomes the WordPress title (the template's only H1). The
+# review note's scope sentence is #883's architecture decision, so it is out
+# of the body only because page-meta.json records Kris's ruling to drop it.
 TITLE_LINE = "# How I Use AI (And Where I Draw the Line)"
 REVIEW_PREFIX = "Draft for Kris Krüg's review. "
 SCOPE_PENDING = (
@@ -140,7 +140,10 @@ SCOPE_PENDING = (
     "privacy policy, or a client contract."
 )
 SCOPE_FINAL = SCOPE_PENDING.replace("a proposed public", "a public")
+SCOPE_PHRASE = "not legal terms, a privacy policy, or a client contract"
 REVIEW_NOTE = f"> {REVIEW_PREFIX}{SCOPE_PENDING}"
+RULING_WORDS = "Drop the scope line, then publish"
+FILL_TOKEN = "ORCHESTRATOR_FILLS"
 DATE_TOKEN = "YYYY-MM-DD"
 PENDING_PREFIX = "Pending Kris Krüg's review and approval:"
 PENDING_HEADING = "Proposed AI-assistance disclosure"
@@ -150,7 +153,6 @@ PENDING_ONLY_TEXT = (
     DATE_TOKEN,
     "Pending Kris Krüg",
     "Proposed AI-assistance",
-    "proposed public transparency",
 )
 # Stands in for Kris's approval only while page-meta.json records none. Once it
 # records one, the tests use that date instead.
@@ -253,9 +255,7 @@ class PayloadDoc(HTMLParser):
 
 def policy_lines(policy_md: str) -> list[str]:
     return [
-        f"> {SCOPE_PENDING}" if line == REVIEW_NOTE else line
-        for line in policy_md.splitlines()
-        if line != TITLE_LINE
+        line for line in policy_md.splitlines() if line not in (TITLE_LINE, REVIEW_NOTE)
     ]
 
 
@@ -296,12 +296,11 @@ def policy_list_items(policy_md: str) -> list[str]:
 
 
 def comparable(text: str) -> str:
-    """Neutralize the four spans the publish step is allowed to change."""
+    """Neutralize the three spans the publish step is allowed to change."""
     text = re.sub(
         r"Last updated: (?:YYYY-MM-DD|\d{4}-\d{2}-\d{2})", "Last updated: <date>", text
     )
     text = text.replace(f"{PENDING_PREFIX} ", "")
-    text = text.replace(SCOPE_PENDING, SCOPE_FINAL)
     return text.replace(PENDING_HEADING, FINAL_HEADING)
 
 
@@ -422,7 +421,6 @@ def audit(html: str, meta: dict, policy_md: str) -> list[str]:
         if (
             disclosure_heads != [PENDING_HEADING]
             or f"{PENDING_PREFIX} AI assisted" not in text
-            or SCOPE_PENDING not in text
         ):
             failures.append(
                 "approval: the body reads as approved but page-meta.json records none"
@@ -442,6 +440,20 @@ def audit(html: str, meta: dict, policy_md: str) -> list[str]:
                 )
     if "remains accountable for it." not in text:
         failures.append("approval: disclosure no longer says Kris remains accountable")
+
+    ruling = meta.get("review_note_ruling") or {}
+    if not (
+        str(ruling.get("record", "")).strip()
+        and re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(ruling.get("date", "")))
+    ):
+        failures.append(
+            "ruling: the review note is out of the body with no ruling from Kris on record"
+        )
+    for phrase in {SCOPE_PHRASE, ruling.get("absent_from_body") or SCOPE_PHRASE}:
+        if phrase in text:
+            failures.append(
+                f"ruling: {phrase!r} is in the body, against the recorded ruling"
+            )
 
     for marker in meta.get("readback_markers", []):
         if marker not in html:
@@ -563,12 +575,6 @@ class AiPolicyPayloadTests(unittest.TestCase):
         self.assertEqual(1, lines.count(TITLE_LINE))
         self.assertEqual(1, lines.count(REVIEW_NOTE))
         self.assertNotIn(REVIEW_PREFIX.strip(), self.doc.text)
-        self.assertEqual(
-            1,
-            self.doc.text.count(
-                "not legal terms, a privacy policy, or a client contract."
-            ),
-        )
 
     def test_metadata_contract(self):
         meta = self.meta
@@ -601,14 +607,30 @@ class AiPolicyPayloadTests(unittest.TestCase):
             set(meta["readback_markers"]) & set(meta["publish_absent_markers"])
         )
 
-    def test_draft_record_does_not_overclaim_parity(self):
-        draft = self.meta["wordpress_draft"]
+    def test_page_record_does_not_overclaim_parity(self):
+        page = self.meta["wordpress_page"]
         payload = self.payload_path.read_bytes()
         same = (
-            hashlib.sha256(payload).hexdigest() == draft["content_sha256"]
-            and len(payload) == draft["content_bytes"]
+            hashlib.sha256(payload).hexdigest() == page["content_sha256"]
+            and len(payload) == page["content_bytes"]
         )
-        self.assertEqual(same, draft["matches_payload"])
+        self.assertEqual(same, page["matches_payload"])
+        self.assertRegex(page["staged_content_sha256"], r"^[0-9a-f]{64}$")
+        self.assertNotEqual(page["staged_content_sha256"], page["content_sha256"])
+
+    def test_page_record_fields_are_filled_or_marked(self):
+        page = self.meta["wordpress_page"]
+        datetime.fromisoformat(page["final_body_staged"].replace("Z", "+00:00"))
+        if page["published"] != FILL_TOKEN:
+            datetime.fromisoformat(page["published"].replace("Z", "+00:00"))
+        self.assertTrue(str(page["public_readback"]).strip())
+
+    def test_what_was_written_is_recorded(self):
+        meta = self.meta
+        self.assertIs(True, meta["excerpt_written"])
+        self.assertIs(False, meta["meta_written"])
+        self.assertIn("Leave the defaults", meta["meta_ruling"]["record"])
+        date.fromisoformat(meta["meta_ruling"]["date"])
 
     def test_metadata_copy_is_storable_and_plain(self):
         meta = self.meta
@@ -635,14 +657,10 @@ class AiPolicyPayloadTests(unittest.TestCase):
     def test_reads_in_order_without_css(self):
         text = self.doc.text
         approval = self.meta["publish_approval"]
-        scope, updated = (
-            (SCOPE_PENDING, DATE_TOKEN)
-            if approval is None
-            else (SCOPE_FINAL, approval["date"])
-        )
+        updated = DATE_TOKEN if approval is None else approval["date"]
         self.assertTrue(
             text.startswith(
-                f"{scope} Last updated: {updated} "
+                f"Last updated: {updated} "
                 "The short version: Both Hands Full I use AI a lot."
             ),
             text[:200],
@@ -702,12 +720,10 @@ class AiPolicyPayloadTests(unittest.TestCase):
         if approval is None:
             self.assertEqual("draft", self.meta["status_target"])
             self.assertIn(f"Last updated: {DATE_TOKEN}", text)
-            self.assertIn(SCOPE_PENDING, text)
             for edit in self.meta["publish_edits"]:
                 self.assertEqual(1, self.html.count(edit["find"]), edit["find"])
         else:
             self.assertIn(f"Last updated: {approval['date']}", text)
-            self.assertIn(SCOPE_FINAL, text)
             for leftover in (DATE_TOKEN, "Pending", "Proposed"):
                 self.assertNotIn(leftover, self.html)
                 self.assertNotIn(leftover, text)
@@ -757,11 +773,6 @@ class AiPolicyPayloadTests(unittest.TestCase):
                 "heading renamed",
                 html.replace(PENDING_HEADING, FINAL_HEADING),
             ),
-            (
-                "approval",
-                "scope sentence no longer proposed",
-                html.replace(SCOPE_PENDING, SCOPE_FINAL),
-            ),
             ("approval", "final body without approval", self.released_html),
         )
         for category, name, mutated in cases:
@@ -800,11 +811,6 @@ class AiPolicyPayloadTests(unittest.TestCase):
                     disclosure,
                     f"<p><strong>{PENDING_PREFIX}</strong> AI assisted with research",
                 ),
-            ),
-            (
-                "approval",
-                "scope sentence still proposed",
-                html.replace(SCOPE_FINAL, SCOPE_PENDING),
             ),
             ("approval", "no edit applied", self.pending_html),
             (
@@ -872,13 +878,35 @@ class AiPolicyPayloadTests(unittest.TestCase):
             with self.subTest(category="private-url"):
                 self.assertFailsWith("private-url", html=html)
 
-    def test_scope_sentence_cannot_be_dropped_silently(self):
-        without = self.html.replace(f"<p>{SCOPE_PENDING}</p>\n", "").replace(
-            f"<p>{SCOPE_FINAL}</p>\n", ""
+    def test_scope_sentence_is_out_only_by_recorded_ruling(self):
+        ruling = self.meta["review_note_ruling"]
+        self.assertIn(RULING_WORDS, ruling["record"])
+        date.fromisoformat(ruling["date"])
+        self.assertEqual(SCOPE_PHRASE, ruling["absent_from_body"])
+        self.assertIn(SCOPE_PHRASE, self.policy)
+        self.assertNotIn(SCOPE_PHRASE, self.doc.text)
+        self.assertNotIn(SCOPE_PHRASE, self.meta["readback_markers"])
+
+        unrecorded = (
+            ("ruling removed", None),
+            ("record blank", {**ruling, "record": " "}),
+            ("no date", {**ruling, "date": ""}),
         )
-        self.assertNotEqual(self.html, without, "mutation did not apply")
-        self.assertFailsWith("drift", html=without)
-        self.assertFailsWith("marker", html=without)
+        for name, value in unrecorded:
+            with self.subTest(name):
+                meta = {**self.meta, "review_note_ruling": value}
+                self.assertFailsWith("ruling", meta=meta)
+
+        opening = "<!-- ai-policy-2026:page -->\n"
+        for name, sentence in (
+            ("pending wording", SCOPE_PENDING),
+            ("final wording", SCOPE_FINAL),
+        ):
+            with self.subTest(returned=name):
+                back = self.html.replace(opening, f"{opening}<p>{sentence}</p>\n")
+                self.assertNotEqual(self.html, back, "mutation did not apply")
+                self.assertFailsWith("ruling", html=back)
+                self.assertFailsWith("drift", html=back)
 
     def test_em_dashes_are_rejected_in_every_form(self):
         target = "Useful does not mean clean."
