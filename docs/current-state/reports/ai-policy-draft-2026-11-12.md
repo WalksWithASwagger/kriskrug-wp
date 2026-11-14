@@ -2,6 +2,8 @@
 
 Created November 12, 2026, under Kris's approval in chat after he read `policy.md`: "Approve the draft, build it". That covered building the payload (#885) and creating the page as one unpublished draft. Publishing is #886 and needs his separate yes. Epic #883.
 
+> Later on November 13, Kris previewed the final copy and ruled on publishing. That is in the [publish receipt](ai-policy-publish-2026-11-13.md). This file is the record of the draft and is kept as it was written.
+
 ## Update, November 13, 2026: the repo payload moved on, the draft did not
 
 Review of PR #1316 found that the first payload dropped the scope sentence ("not legal terms, a privacy policy, or a client contract") with no ruling from Kris on record. The payload in the repo now keeps that sentence as its first paragraph, so it no longer matches what WordPress holds.

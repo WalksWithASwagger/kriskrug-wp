@@ -3,26 +3,39 @@
   "title": "How I Use AI (And Where I Draw the Line)",
   "canonical_url": "https://kriskrug.co/ai-policy/",
   "payload": "wp-payloads/ai-policy.html",
-  "status_target": "draft",
+  "status_target": "publish",
   "wordpress_id": 13005,
-  "wordpress_draft": {
-    "staged": "2026-11-13T03:24Z",
-    "content_sha256": "ef5c4fcaebc015713b410cd1eca64dbc0118dddda1a85f5a3287a847cd2597f3",
-    "content_bytes": 14630,
-    "matches_payload": false,
-    "note": "The hash and size are the readback taken when the draft was staged. Draft 13005 still holds that earlier body, which has no scope sentence. The payload in this pack changed after review and no longer matches it. The draft gets the current payload when the final body is staged before publishing (#886)."
+  "wordpress_page": {
+    "first_staged": "2026-11-13T03:24Z",
+    "final_body_staged": "2026-11-13T23:56:49Z",
+    "staged_content_sha256": "f8a1ef5be855e9b8ba44a0b2bf7191d1a797caad467056fa0994406384b0e70d",
+    "staged_content_bytes": 14667,
+    "staged_note": "The final body Kris previewed in draft 13005: the merged payload with all four publish edits applied and the date 2026-11-13. It still had the scope sentence.",
+    "content_sha256": "97e97a43e33158fb42dac99fac335df20a02ddec2ae76cb8ba8e44b905bb53fd",
+    "content_bytes": 14562,
+    "matches_payload": true,
+    "content_note": "The body the page carries after Kris's ruling: the staged final body minus the scope paragraph line and its newline. It is this pack's payload, byte for byte. Removing the scope line from the page and publishing it are done by the orchestrating session after the ruling, which checks the live readback against this hash. The lane that wrote this record made no WordPress call.",
+    "published": "2026-11-14T00:06:55Z",
+    "public_readback": "Logged out on 2026-11-14 at 00:08 UTC, cache-busted and on the plain URL: https://kriskrug.co/ai-policy/ returns 200 with canonical https://kriskrug.co/ai-policy/, one h1, the title 'How I Use AI (And Where I Draw the Line) | Kris Krüg' and the excerpt as its meta description. The readback markers checked are present, including 'Last updated: 2026-11-13'. No pending-only text and no scope phrase is in the page. The page is in wp-sitemap-posts-page-1.xml, and public REST reports status publish. The authenticated readback of content.raw after the flip hashes to 97e97a43e33158fb42dac99fac335df20a02ddec2ae76cb8ba8e44b905bb53fd.",
+    "fill_note": "The orchestrating session filled the two fields above after the status flip: published is the UTC time WordPress recorded, public_readback the result of the logged-out checks."
   },
   "comment_status": "closed",
   "ping_status": "closed",
   "excerpt": "I use AI a lot. Here is what I use it for, what has to be real first, what I will not fake, and how I own whatever ships.",
+  "excerpt_written": true,
+  "excerpt_note": "Written to WordPress with the final body, by the orchestrating session.",
   "meta": {
     "jetpack_seo_html_title": "How I Use AI (And Where I Draw the Line) | Kris Krüg",
     "advanced_seo_description": "I use AI a lot. This is what I use it for, what I check before anything ships, and where I draw the line: fake people, fake evidence, stolen voice."
   },
-  "meta_note": "Excerpt and SEO meta are proposals for Kris to approve. They have not been written to WordPress. Once approved, they are staged in the draft together with the final body, before the status flip.",
+  "meta_written": false,
+  "meta_ruling": {
+    "date": "2026-11-13",
+    "record": "Kris ruled in chat on the SEO title and description: \"Leave the defaults\"."
+  },
+  "meta_note": "Proposals only. Neither field was written to WordPress. Pages do not expose jetpack_seo_html_title or advanced_seo_description over REST, and Kris chose the defaults, so the page uses the title and description WordPress generates.",
   "readback_markers": [
     "<!-- ai-policy-2026:page -->",
-    "not legal terms, a privacy policy, or a client contract",
     "The short version: Both Hands Full",
     "What I will not fake",
     "I own what ships",
@@ -33,10 +46,15 @@
   "publish_absent_markers": [
     "YYYY-MM-DD",
     "Pending Kris Krüg",
-    "Proposed AI-assistance",
-    "proposed public transparency"
+    "Proposed AI-assistance"
   ],
-  "publish_absent_markers_note": "Pending-only text. Once publish_approval is recorded, the tests fail if any of these is still in the body. The public readback after publishing must find none of them.",
+  "publish_absent_markers_note": "Pending-only text. With publish_approval recorded, the tests fail if any of these is in the body. The public readback must find none of them.",
+  "review_note_ruling": {
+    "date": "2026-11-13",
+    "record": "Kris ruled in chat: \"Drop the scope line, then publish\".",
+    "absent_from_body": "not legal terms, a privacy policy, or a client contract",
+    "note": "The review note at the top of policy.md has two sentences. The first was never in the body. The second, the scope sentence, was kept until Kris ruled on it. By this ruling the whole review note is out of the body. The tests fail if the sentence returns, or if this record is missing while the sentence is gone."
+  },
   "source": {
     "policy": "policy.md",
     "policy_sha256": "8dc5c70576f420a677140fcc1f7ebfc0d46b437d7de13d7de6b74a2f13d7ebf5",
@@ -48,8 +66,12 @@
     "record": "Kris approved the policy.md draft in chat after reading it: \"Approve the draft, build it\". Scope: build this payload and create the page in WordPress as an unpublished draft.",
     "issues": [883, 885]
   },
-  "publish_approval": null,
-  "publish_approval_note": "Stays null until Kris approves the final copy for publication (#886). Then it holds two fields: date, an ISO date that also fills the 'Last updated' line, and record, his words.",
+  "publish_approval": {
+    "date": "2026-11-13",
+    "record": "Kris ruled in chat on 2026-11-13: \"Drop the scope line, then publish\". Earlier the same day he chose \"Stage final copy, I'll preview\". The final body was staged in draft 13005 at 2026-11-13T23:56:49Z, he previewed it, and then he gave that ruling.",
+    "issues": [883, 886]
+  },
+  "publish_approval_note": "date is an ISO date and also fills the 'Last updated' line. record holds his words.",
   "publish_edits": [
     {
       "find": "Last updated: YYYY-MM-DD",
@@ -62,11 +84,7 @@
     {
       "find": "<strong>Pending Kris Krüg's review and approval:</strong> AI assisted with research",
       "replace": "AI assisted with research"
-    },
-    {
-      "find": "This is a proposed public transparency statement",
-      "replace": "This is a public transparency statement"
     }
   ],
-  "publish_edits_note": "The order for #886. First, after Kris approves the final copy for publication: record publish_approval, set status_target to publish and apply these edits to the payload, with {publish_date} set to publish_approval.date. The tests then check the final body. Second, stage that final body in draft wordpress_id while it is still a draft, so the preview Kris checks is exactly what will go public. Third, after his yes on that preview, publishing is a status-only flip of that ID, with no slug, title or body change (#886 step 9). Every replace is non-empty so the tests can rebuild the pending page from the final one."
+  "publish_edits_note": "These three edits are already applied to the payload, with {publish_date} set to publish_approval.date. They stay on record so the tests can rebuild the pending page from the final one and keep checking both states. A fourth edit dropped the word \"proposed\" from the scope sentence. It left with the sentence."
 }
