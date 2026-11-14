@@ -5,7 +5,7 @@
 
 PYTHON ?= python3
 VARLOCK ?= varlock
-WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-10-25.md
+WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-11-13.md
 EXPECT_VERSION_DEFAULT := 7.0.8
 # Every tracked script, so a new file is checked without editing this list.
 # Dated reports under docs/current-state/reports/ are frozen evidence.

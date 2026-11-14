@@ -1,5 +1,7 @@
 # Current State Snapshot - 2026-10-25
 
+> Historical snapshot. The declared baseline is now [CURRENT-STATE-2026-11-13.md](CURRENT-STATE-2026-11-13.md). Preserve the observations below as October evidence.
+
 **Snapshot:** Sunday, October 25, 2026, refreshed after the approved November
 meetup and ALL IN page update at 2026-10-26 05:15 UTC. This is the declared drift baseline, not a
 promise that counters remain unchanged. Run `make status-readonly` for current
