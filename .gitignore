@@ -127,3 +127,9 @@ backup/issue-828-negotiation-checklist/
 
 # Local WordPress journal review snapshots and screenshots.
 /.generated/blog-review/
+
+# One-off run scratch: pre-write rollback snapshots, readbacks and the scripts
+# that made them. The repo is public; receipts live in docs/current-state/reports/.
+/.generated/events-overhaul-recovery-2026-11-10/
+/.generated/seo-audit-2026-09-06/
+/.generated/umlaut-sweep-20260907/
