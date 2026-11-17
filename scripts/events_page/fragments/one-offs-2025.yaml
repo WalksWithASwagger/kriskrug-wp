@@ -45,6 +45,25 @@ events:
   - Vancouver
   status: confirmed
   cta_past: Details
+- id: 2025-10-19-lll-summit-systems-thinking-ai-agents
+  title: Launch-Learn-Lead (LLL) Summit 2025
+  date: '2025-10-19'
+  bucket_hint: past
+  kind: one-off
+  role: Feature talk
+  venue: UBC Robson Square, Theatre C300
+  city: Vancouver
+  url: https://luma.com/lllsummit
+  image: null
+  blurb: 'Feature talk at the LLLSummit / Synova Consulting summit: Systems Thinking for AI Assistants, Automations, and Agents.'
+  label: Oct 19, 2025 · UBC Robson Square · Feature talk
+  tags:
+  - Feature talk
+  - Vancouver
+  status: confirmed
+  docs:
+    video:
+    - https://www.youtube.com/watch?v=d8CvTTSWqj8
 - id: 2025-09-02-amd-media-copilot-workshop
   title: AMD Media CoPilot AI Workshop
   date: '2025-09-02'
