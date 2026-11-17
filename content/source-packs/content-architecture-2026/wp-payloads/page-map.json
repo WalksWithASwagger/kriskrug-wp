@@ -4,49 +4,91 @@
     "slug": "generative-ai-services",
     "url": "https://kriskrug.co/generative-ai-services/",
     "payload": "services.html",
-    "markers": ["AI for the work you actually do.", "Community systems", "/contact/#strategy-training-inquiry"]
+    "markers": [
+      "AI for the work you actually do.",
+      "Community systems",
+      "/contact/#strategy-training-inquiry"
+    ]
   },
   "contact": {
     "id": 2418,
     "slug": "contact",
     "url": "https://kriskrug.co/contact/",
     "payload": "contact.html",
-    "markers": ["showpiece-page", "mailto:feelmoreplants@gmail.com", "What to include", "id=\"strategy-training-inquiry\""]
+    "markers": [
+      "showpiece-page",
+      "mailto:feelmoreplants@gmail.com",
+      "What to include",
+      "id=\"strategy-training-inquiry\""
+    ]
   },
   "work": {
     "id": 2672,
     "slug": "work",
     "url": "https://kriskrug.co/work/",
     "payload": "work.html",
-    "markers": ["work-editorial", "Futureproof Festival of AI", "Vancouver AI Meetup", "The Sky Smoked Back", "project-index", "BC + AI Ecosystem", "Creative AI Human Lab", "TIDEPOOL.ING", "Little Supercluster"]
+    "markers": [
+      "work-editorial",
+      "Futureproof Festival of AI",
+      "Vancouver AI Meetup",
+      "The Sky Smoked Back",
+      "project-index",
+      "BC + AI Ecosystem",
+      "Creative AI Human Lab",
+      "TIDEPOOL.ING",
+      "Little Supercluster"
+    ]
   },
   "about": {
     "id": 1208,
     "slug": "about",
     "url": "https://kriskrug.co/about/",
     "payload": "about.html",
-    "markers": ["showpiece-page", "How I got here", "Galiano", "about-ecosystem"]
+    "markers": [
+      "showpiece-page",
+      "How I got here",
+      "Galiano",
+      "about-ecosystem"
+    ]
   },
   "speaking": {
     "id": 1887,
     "slug": "speaking",
     "url": "https://kriskrug.co/speaking/",
     "payload": "speaking.html",
-    "markers": ["Both things are true.", "Signature keynotes", "Bring the talk to your room", "-c7mgY2aSgM"]
+    "markers": [
+      "Both things are true.",
+      "Signature keynotes",
+      "Bring the talk to your room",
+      "-c7mgY2aSgM",
+      "Download the one-page keynote brief (PDF)",
+      "https://kriskrug.co/wp-content/uploads/2026/11/kris-krug-keynote-brief.pdf"
+    ]
   },
   "responsible_ai_professional": {
     "id": 11914,
     "slug": "responsible-ai-professional",
     "url": "https://kriskrug.co/responsible-ai-professional/",
     "payload": "responsible-ai-professional.html",
-    "markers": ["Responsible AI Professional", "Practical ethics for people shipping real systems", "Join the next cohort"]
+    "markers": [
+      "Responsible AI Professional",
+      "Practical ethics for people shipping real systems",
+      "Join the next cohort"
+    ]
   },
   "podcast_epk": {
     "id": 3609,
     "slug": "podcast-guesting-page-epk",
     "url": "https://kriskrug.co/podcast-guesting-page-epk/",
     "payload": "podcast-guesting-page-epk.html",
-    "markers": ["AI commentator, podcast guest, and event host", "What I bring to the mic", "Watch Kris in a real conversation", "Approved downloads", "Brand at a glance", "Book Kris for media"]
+    "markers": [
+      "AI commentator, podcast guest, and event host",
+      "What I bring to the mic",
+      "Watch Kris in a real conversation",
+      "Approved downloads",
+      "Brand at a glance",
+      "Book Kris for media"
+    ]
   },
   "testimonials": {
     "id": 2409,
@@ -69,13 +111,23 @@
     "slug": "photography",
     "url": "https://kriskrug.co/photography/",
     "payload": "photography.html",
-    "markers": ["showpiece-page", "Deepwater Horizon", "White tern in flight", "photo-dialog"]
+    "markers": [
+      "showpiece-page",
+      "Deepwater Horizon",
+      "White tern in flight",
+      "photo-dialog"
+    ]
   },
   "motleykrug-podcast": {
     "id": 2828,
     "slug": "motleykrug-podcast",
     "url": "https://kriskrug.co/motleykrug-podcast/",
     "payload": "motleykrug-podcast.html",
-    "markers": ["showpiece-page", "MØTLEYKRÜG", "episode-1071691", "podcast-guesting-page-epk"]
+    "markers": [
+      "showpiece-page",
+      "MØTLEYKRÜG",
+      "episode-1071691",
+      "podcast-guesting-page-epk"
+    ]
   }
 }
