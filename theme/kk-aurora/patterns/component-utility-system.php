@@ -26,8 +26,8 @@
     <p class="aurora-kicker">Newsletter</p>
     <h3>Get the useful weird stuff.</h3>
     <p>AI field notes, community signal, creative tools, and culture-first operating notes.</p>
-    <a class="aurora-button aurora-button-primary" href="https://vancouver.beehiiv.com/">Join the newsletter</a>
-    <p class="aurora-form-message">Opens the Beehiiv signup.</p>
+    <a class="aurora-button aurora-button-primary" href="/subscribe/">Join the newsletter</a>
+    <p class="aurora-form-message">A monthly letter from Kris Krüg.</p>
   </section>
   <!-- /wp:html -->
 
