@@ -4,6 +4,8 @@ Kris approved the reviewed Speaking-page proposal for publication in chat.
 WordPress page **1887**, exact slug **speaking**, was updated on November 17
 at **18:19:45 UTC**. The canonical payload in this release records the saved
 WordPress body, using the deploy tooling's whitespace normalization.
+The existing page-map readback markers now identify the approved headline,
+booking CTA and LaSalle recording. All eleven existing page-payload tests pass.
 
 The page leads with “Both things are true,” expands the Both Hands Full
 keynote, pairs its LaSalle image with the full LaSalle recording, and adds
