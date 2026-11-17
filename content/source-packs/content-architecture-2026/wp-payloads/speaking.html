@@ -1,6 +1,6 @@
 <!-- wp:html -->
 <!-- content-architecture-2026:speaking -->
-<!-- Reuse the approved live Meetup 30 site frame. CreativeMornings and LaSalle stills remain excluded. -->
+<!-- Speaking proposal prepared for Kris's review on November 17, 2026. -->
 <style>
 body.page-id-1887 #aurora-main:has(.aurora-speaking-page) .aurora-page-header {
   position: absolute;
@@ -132,7 +132,7 @@ body.page-id-1887 #aurora-main .aurora-speaking-page .speaking-opening .speaking
   font-size: .88rem;
   font-weight: 700;
 }
-#aurora-main .aurora-speaking-page :is(.speaking-book, .speaking-play) {
+#aurora-main .aurora-speaking-page a:is(.speaking-book, .speaking-play) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -151,7 +151,7 @@ body.page-id-1887 #aurora-main .aurora-speaking-page .speaking-opening .speaking
   color: var(--speak-stage);
   background: var(--speak-lime);
 }
-#aurora-main .aurora-speaking-page :is(.speaking-book, .speaking-play):hover {
+#aurora-main .aurora-speaking-page a:is(.speaking-book, .speaking-play):hover {
   color: var(--speak-stage);
   background: var(--speak-paper);
 }
@@ -311,34 +311,75 @@ body.page-id-1887 #aurora-main .aurora-speaking-page .speaking-opening .speaking
 @media (prefers-reduced-motion: reduce) {
   .aurora-speaking-page :is(.speaking-play, .speaking-filters button) { transition: none; }
 }
+.aurora-speaking-page .speaking-featured { padding-block-end: 0; }
+.aurora-speaking-page .speaking-featured-body { max-width: 70ch; }
+#aurora-main .aurora-speaking-page .speaking-featured-body p + p { margin-top: 1rem; }
+.aurora-speaking-page .speaking-featured-body ul { padding-left: 1.3rem; margin-block: 1.4rem; }
+.aurora-speaking-page .speaking-november-proof { border-top: 1px solid #a7aa8d; padding-top: 24px; margin-top: 24px; }
+#aurora-main .aurora-speaking-page .speaking-november-proof h3 { margin-block: 10px; font-size: clamp(1.7rem, 3vw, 2.6rem); }
+.aurora-speaking-page .speaking-november-proof p { max-width: 70ch; }
+.aurora-speaking-page .speaking-november-proof a { display: inline-block; margin-top: 12px; }
+.aurora-speaking-page .speaking-organizer { display: grid; grid-template-columns: minmax(160px, 260px) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; margin-bottom: 36px; }
+.aurora-speaking-page .speaking-organizer img { display: block; width: 100%; height: auto; }
+#aurora-main .aurora-speaking-page .speaking-organizer h3 { font-size: clamp(1.7rem, 3vw, 2.9rem); margin-bottom: 16px; }
+#aurora-main .aurora-speaking-page .speaking-organizer p + p { margin-top: 16px; }
+.aurora-speaking-page .speaking-organizer figcaption { font-size: .75rem; padding-top: 8px; }
+@media (max-width: 600px) {
+  .aurora-speaking-page .speaking-organizer { grid-template-columns: minmax(0, 1fr); }
+  .aurora-speaking-page .speaking-organizer figure { width: min(220px, 70%); }
+}
 </style>
 <div class="aurora-speaking-page">
   <section class="speaking-opening" aria-labelledby="speaking-title">
     <div class="speaking-wrap speaking-stage">
       <div class="speaking-intro">
         <p class="speaking-label">Kris Krüg · Vancouver, BC</p>
-        <h2 id="speaking-title">AI keynotes that make the room braver.</h2>
-        <p>I bring live demos, field stories, and the hard questions about AI. Your room leaves with language to talk about it and something real to try.</p>
+        <h2 id="speaking-title">Both things are true.</h2>
+        <p>AI has changed my creative practice. The questions about consent, power, and who gets paid are still right here. I bring both into the room.</p>
+        <p>Keynotes and workshops for creative conferences, associations, and teams making decisions about AI.</p>
         <p class="speaking-actions">
-          <a class="speaking-book" href="/contact/#inquiries">Book Kris for a keynote <span aria-hidden="true">&#x2197;</span></a>
-          <a href="#signature-keynotes">Find your talk <span aria-hidden="true">&#x2193;</span></a>
+          <a class="speaking-book" href="/contact/#inquiries">Bring the talk to your room <span aria-hidden="true">&#x2197;</span></a>
+          <a href="#signature-keynotes">Explore the talks <span aria-hidden="true">&#x2193;</span></a>
         </p>
       </div>
       <figure class="speaking-feature">
         <div class="speaking-screen">
-          <img src="https://s5102.pcdn.co/wp-content/themes/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community-1200.webp"
-            srcset="https://s5102.pcdn.co/wp-content/themes/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community-600.webp 600w, https://s5102.pcdn.co/wp-content/themes/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community-1200.webp 1200w, https://s5102.pcdn.co/wp-content/themes/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community.jpg 1600w"
+          <img src="https://kriskrug.co/wp-content/uploads/2026/05/kk-laSalle-both-hands-full-10-scaled.jpg"
             sizes="(max-width: 800px) 92vw, (max-width: 1320px) 49vw, 620px"
-            alt="Kris Krüg faces a room of raised hands at Vancouver AI Community Meetup 30."
-            width="1600" height="1066" loading="eager" decoding="async" fetchpriority="high"/>
-          <a class="speaking-play" data-speaking-play href="https://www.youtube.com/watch?v=hYT-hsml_ds" aria-label="Play Punk Rock AI from CreativeMornings Vancouver"><span aria-hidden="true">&#x25B6;</span> Play Punk Rock AI</a>
+            alt="Kris Krüg presenting Both Hands Full at LaSalle College Vancouver"
+            width="2560" height="1440" loading="eager" decoding="async" fetchpriority="high"/>
+          <a class="speaking-play" data-speaking-play href="https://www.youtube.com/watch?v=-c7mgY2aSgM" aria-label="Play Both Hands Full at LaSalle College Vancouver"><span aria-hidden="true">&#x25B6;</span> Watch Both Hands Full</a>
         </div>
         <div class="speaking-recording">
-          <strong>CreativeMornings Vancouver</strong>
-          <a href="https://www.youtube.com/watch?v=hYT-hsml_ds">Full recording on YouTube <span aria-hidden="true">&#x2197;</span></a>
+          <strong>LaSalle College Vancouver</strong>
+          <a href="https://www.youtube.com/watch?v=-c7mgY2aSgM">Full keynote and Q&amp;A <span aria-hidden="true">&#x2197;</span></a>
         </div>
-        <figcaption>Stage photo from Vancouver AI Meetup 30, H.R. MacMillan Space Centre, June 24, 2026. Michelle Diamond / Diamond’s Edge Photography.</figcaption>
+        <figcaption>Both Hands Full at LaSalle College Vancouver. Keynote recording, with Q&amp;A.</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="speaking-wrap speaking-section speaking-featured" aria-labelledby="featured-keynote-title">
+    <header class="speaking-section-head">
+      <div>
+        <p class="speaking-label">Featured keynote</p>
+        <h2 id="featured-keynote-title">Both Hands Full</h2>
+      </div>
+      <p>The theft is real. The transformation is real. Holding both is where the useful conversation starts.</p>
+    </header>
+    <div class="speaking-featured-body">
+      <p>I use AI every day. I also found roughly 1,800 of my photographs in a major training corpus. A search result tells us something about the dataset. It leaves serious questions about consent and which models used what.</p>
+      <p>This talk starts with the uncomfortable part and stays there long enough to do something with it. We work through creative labour, taste, dependence on tools, and the choices we still get to make.</p>
+      <ul>
+        <li>Name what you refuse to outsource.</li>
+        <li>Make your critique and your curiosity specific.</li>
+        <li>Try the Both/And exercise with the people in your room.</li>
+      </ul>
+      <p class="speaking-actions">
+        <a class="speaking-book" href="/contact/#inquiries">Ask about Both Hands Full</a>
+        <a href="https://www.bothhandsfull.com/script">Read the talk</a>
+        <a href="https://www.bothhandsfull.com/exercises/both-and">Try the exercise</a>
+      </p>
     </div>
   </section>
 
@@ -437,7 +478,7 @@ body.page-id-1887 #aurora-main .aurora-speaking-page .speaking-opening .speaking
           <p class="speaking-label">On stage</p>
           <h2 id="speaking-recordings-title">Watch the talks.</h2>
         </div>
-        <p>Two full recordings from very different rooms.</p>
+        <p>Watch two full talks and see the programme for my November conference session.</p>
       </header>
       <div class="speaking-recordings">
         <article>
@@ -455,6 +496,12 @@ body.page-id-1887 #aurora-main .aurora-speaking-page .speaking-opening .speaking
           <a href="/2026/05/15/your-taste-is-your-moat/">Companion essay <span aria-hidden="true">&#x2197;</span></a>
         </article>
       </div>
+      <article class="speaking-november-proof">
+        <p class="speaking-label">Prompt Victoria · November 5, 2026</p>
+        <h3>Field Notes From the Rooms Where AI Gets Real</h3>
+        <p>Main Theatre, Victoria Conference Centre. Stories from the rooms where people are making decisions about AI, with consent and human judgment in the conversation.</p>
+        <a href="https://promptvictoria.ca/session/field-notes-from-the-rooms-where-ai-gets-real/">See the conference programme</a>
+      </article>
     </div>
   </section>
 
@@ -464,8 +511,20 @@ body.page-id-1887 #aurora-main .aurora-speaking-page .speaking-opening .speaking
         <p class="speaking-label">For organizers</p>
         <h2 id="speaking-booking-title">Let’s plan your room.</h2>
       </div>
-      <p>Send the audience, date, location, format, and the question your room is trying to answer. I’ll shape the talk around the people who’ll be there.</p>
+      <p>Tell me who’s coming, what they’re wrestling with, and what you want them to leave able to do. I’ll shape the talk around the people in the room.</p>
     </header>
+    <div class="speaking-organizer">
+      <figure>
+        <img src="https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-close-2026-scaled.jpg" alt="Kris Krüg beside the staircase at CreativeMornings Vancouver" width="1707" height="2560" loading="lazy" decoding="async"/>
+        <figcaption>Photo by Michelle Diamond.</figcaption>
+      </figure>
+      <div>
+        <h3>Give me the shape of it.</h3>
+        <p>Send the event, audience, date, location or platform, format, and budget range if you have one. Tell me the question your room is already asking.</p>
+        <p class="speaking-actions"><a class="speaking-book" href="mailto:feelmoreplants@gmail.com?subject=Keynote+or+workshop+inquiry&amp;body=Hi+Kris%2C%0A%0AEvent+and+organizer%3A%0AAudience%3A%0ADate+and+location+or+platform%3A%0AFormat+and+time+available%3A%0AWhat+we+want+people+to+leave+able+to+do%3A%0ABudget+range+%28if+known%29%3A%0A">Start the booking email</a><a href="/contact/#inquiries">More ways to get in touch</a></p>
+        <p><a href="https://kriskrug.co/wp-content/uploads/2026/07/kris-krug-creativemornings-portrait-close-2026-scaled.jpg" download>Download the cleared headshot</a> · Photo credit, Michelle Diamond.</p>
+      </div>
+    </div>
     <details>
       <summary>Formats</summary>
       <dl>
@@ -508,8 +567,8 @@ body.page-id-1887 #aurora-main .aurora-speaking-page .speaking-opening .speaking
     event.preventDefault();
 
     const player = document.createElement('iframe');
-    player.title = 'Punk Rock AI at CreativeMornings Vancouver';
-    player.src = 'https://www.youtube-nocookie.com/embed/hYT-hsml_ds?autoplay=1';
+    player.title = 'Both Hands Full at LaSalle College Vancouver';
+    player.src = 'https://www.youtube-nocookie.com/embed/-c7mgY2aSgM?autoplay=1';
     player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
     player.allowFullscreen = true;
     player.referrerPolicy = 'strict-origin-when-cross-origin';
