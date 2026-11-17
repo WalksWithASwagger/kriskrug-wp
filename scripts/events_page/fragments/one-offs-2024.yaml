@@ -116,3 +116,20 @@ events:
   date_confidence: approximate
   hero_hint: 'no source art on file; Rafiki generation OK later per #590 packet'
   cta_past: Details
+- id: 2024-12-20-ai-ethical-dilemma-ai-on-trial
+  title: "AI's Ethical Dilemma, Series 2: AI on Trial"
+  date: '2024-12-20'
+  bucket_hint: past
+  kind: one-off
+  role: Co-host
+  venue: Northeastern University, Vancouver
+  city: Vancouver
+  url: https://lu.ma/0bkrcn8u
+  recap_url: https://kriskrug.co/2024/12/20/fears-hopes-and-dreams-for-our-relationship-with-ai/
+  image: null
+  blurb: Co-hosted the second edition of Polina Moshenets' AI's Ethical Dilemma series, a public debate on AI's risks and possibilities at Northeastern University in Vancouver.
+  label: Dec 20, 2024 · Northeastern University, Vancouver · Co-host
+  tags:
+  - Co-host
+  - Vancouver
+  status: confirmed
