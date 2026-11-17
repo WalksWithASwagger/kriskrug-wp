@@ -76,6 +76,7 @@ assert.doesNotMatch(serializedCommands, /(?:[:,\[])99(?=[,}\]])/);
 
 for (const options of [
   { host: 'kriskrug.beehiiv.com' },
+  { host: 'futureprooffestival.beehiiv.com' },
   { host: 'kriskrug.co' },
   { route: '/thanks' },
   { route: '/p/article' },

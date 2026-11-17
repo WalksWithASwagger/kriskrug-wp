@@ -28,7 +28,7 @@ class Issue416HomepageNewsletterTests(unittest.TestCase):
         self.assertIn("Monthly letter", self.band)
         self.assertIn("Give me your email. I'll earn every open.", self.band)
         self.assertIn("Get the monthly letter", self.band)
-        self.assertEqual(1, self.band.count("vancouver.beehiiv.com"))
+        self.assertEqual(1, self.band.count('href="/subscribe/"'))
         self.assertEqual(1, self.band.count("aurora-button-primary"))
         self.assertIn("aurora-newsletter-thumbs-query", self.band)
         self.assertIn("aurora-newsletter-thumb-media", self.band)
