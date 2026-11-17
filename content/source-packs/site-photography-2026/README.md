@@ -2,6 +2,8 @@
 
 Four user-supplied photographs prepared for the `kriskrug.co` media library and future Track A page work.
 
+On November 17, 2026, Kris confirmed blanket clearance from Michelle Diamond to use her photographs in his work. That includes event promotion for RGD using the CreativeMornings close portrait. Keep her credit with the image. See the [portrait manifest](media-manifest.json), [stage photography manifest](speaking-stage-manifest.json), and [press kit manifest](../content-architecture-2026/press-kit/assets/manifest.json) for attribution and source details.
+
 ## What is in this pack
 
 | Asset | Photographer | Best role | Important limit |

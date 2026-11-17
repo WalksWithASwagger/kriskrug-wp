@@ -3,6 +3,7 @@
   "collection": "Speaking-page stage photography, 2026",
   "wordpress_base_url": "https://kriskrug.co",
   "rights_note": "This manifest carries only assets that are BOTH local to this repo AND have a written rights basis. Every other stage-action candidate found for issue #637 is either already in the media library (nothing to ingest) or has no clearance on file. Uncleared assets are listed under not_for_ingestion, which ingest_media_manifest.py does not read, so --execute cannot upload them. Full reasoning and per-asset evidence: content/drafts/2026-07-26-speaking-page/photography-inventory.md.",
+  "michelle_diamond_clearance": "On 2026-11-17, Kris Krüg confirmed blanket clearance from Michelle Diamond to use her photographs in his work, including use of the CreativeMornings close portrait in RGD event promotion. Retain her credit. Record this as Kris's attestation for his use.",
   "assets": [
     {
       "file": "../../../theme/kk-aurora/assets/img/vancouver-ai-meetup-30-kris-community.jpg",
@@ -19,7 +20,7 @@
       "creator": "Michelle Diamond",
       "embedded_creator": null,
       "credit": "Photo: Michelle Diamond, Diamond's Edge Photography.",
-      "rights_basis": "KK committed this file himself in 6b0ae1d (2026-07-25) as \"the canonical approved event photo\", which is the site-use approval. The photographer is NOT embedded in this copy (EXIF stripped); it was established by frame match against the BC + AI photo pipeline manifest for gallery vancouver-ai-meetup-2026-06, whose gallery photographer and per-photo photographer are both Michelle Diamond. A reuse scope confirmation from Michelle Diamond is NOT on file. Live precedent for the credit line exists on this site (media 12663). Do not upgrade this string to \"cleared\".",
+      "rights_basis": "KK committed this file himself in 6b0ae1d (2026-07-25) as \"the canonical approved event photo\", which is the site-use approval. The photographer is NOT embedded in this copy (EXIF stripped); it was established by frame match against the BC + AI photo pipeline manifest for gallery vancouver-ai-meetup-2026-06, whose gallery photographer and per-photo photographer are both Michelle Diamond. Kris confirmed broader reuse clearance on 2026-11-17, as recorded above. Live precedent for the credit line exists on this site (media 12663).",
       "photographer_evidence": {
         "pipeline_manifest": "/Users/kk/Code/bcai-website/.local-clone/photo-galleries/vancouver-ai-meetup-2026-06/manifest.json",
         "pipeline_sha": "d685ce1b23b377f356d91a78c3b4bf16741b0f44179eb2a5905fdae36e2f4c3f",
@@ -55,10 +56,10 @@
       "event": "CreativeMornings Vancouver, Punk Rock AI",
       "event_date": "2026-05-01",
       "creator": "Michelle Diamond (inferred, see below)",
-      "rights_basis": "NO CLEARANCE ON FILE. Deliberately excluded from assets[] so that --execute cannot upload it.",
-      "why_held_back": "This is a 1200x800 Photon copy of https://www.punkrockai.com/public/photos/michelle-diamond/195.webp (1800x1200), recorded as such in content/source-packs/keynotes-2026/assets/asset-manifest.md line 12. It is the strongest CreativeMornings stage frame in either repo and it is also the frame the live /speaking/ page hotlinks. Ingesting it would fix the hotlink and would also publish a photograph nobody has asked permission for. Permission first, then move this row into assets[].",
+      "rights_basis": "Historically held for clearance. Kris confirmed broader reuse on 2026-11-17 for verified Michelle Diamond photographs. This derivative remains excluded from ingestion while the photographer attribution and source are verified.",
+      "why_held_back": "This is a 1200x800 Photon copy of https://www.punkrockai.com/public/photos/michelle-diamond/195.webp (1800x1200), recorded as such in content/source-packs/keynotes-2026/assets/asset-manifest.md line 12. It is the strongest CreativeMornings stage frame in either repo and it is also the frame the live /speaking/ page hotlinks. Ingesting the verified original would fix the hotlink. Check the original and confirm its attribution before moving an asset into the ingestion list.",
       "photographer_evidence": "Third-party host path is literally /photos/michelle-diamond/. Same-event proof: media 11727 (kk-cmvan-keynote-header.png) shows the identical CreativeMornings city-code bunting, the identical white marquee, the identical flat-panel screen and stand, and Kris in the identical cream denim shirt. The two portraits shot at that same event (media 12627 and 12628) carry embedded IPTC credit michellediamond and are recorded in media-manifest.json with creator Michelle Diamond.",
-      "blocking_question_for_kk": "Ask Michelle Diamond for reuse scope on the CreativeMornings Punk Rock AI set, then ingest at 1800x1200 from the source rather than this 1200px derivative."
+      "blocking_question_for_kk": "Locate the 1800x1200 source and verify its creator before ingesting."
     }
   ],
   "not_in_this_manifest": {
