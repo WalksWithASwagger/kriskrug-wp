@@ -5,6 +5,8 @@
 
 PYTHON ?= python3
 VARLOCK ?= varlock
+# Documented opt-ins enable side effects only when set to exactly 1.
+flag_if_one = $$(if [ "$${$(1):-}" = 1 ]; then printf '%s' '$(2)'; fi)
 WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-11-20.md
 EXPECT_VERSION_DEFAULT := 7.0.9
 # Every tracked script, so a new file is checked without editing this list.
@@ -145,21 +147,31 @@ list-prs: ## List open pull requests
 list-workflows: ## List recent workflow runs
 	@gh run list --limit 10
 
+define repo_stats_query
+query($$owner: String!, $$name: String!) {
+  repository(owner: $$owner, name: $$name) {
+    totalIssues: issues { totalCount }
+    openIssues: issues(states: OPEN) { totalCount }
+    closedIssues: issues(states: CLOSED) { totalCount }
+    totalPRs: pullRequests { totalCount }
+    openPRs: pullRequests(states: OPEN) { totalCount }
+    mergedPRs: pullRequests(states: MERGED) { totalCount }
+    labels { totalCount }
+  }
+}
+endef
+
+define repo_stats_format
+.data.repository |
+"Issues: \(.totalIssues.totalCount) total, \(.openIssues.totalCount) open, \(.closedIssues.totalCount) closed",
+"Pull requests: \(.totalPRs.totalCount) total, \(.openPRs.totalCount) open, \(.mergedPRs.totalCount) merged",
+"Labels: \(.labels.totalCount)"
+endef
+
 stats: ## Show repository statistics
 	@echo "kriskrug-wp Repository Stats"
-	@echo ""
-	@echo "Issues:"
-	@gh issue list --state all --json number --jq '. | length' | xargs -I {} echo "  Total: {}"
-	@gh issue list --state open --json number --jq '. | length' | xargs -I {} echo "  Open: {}"
-	@gh issue list --state closed --json number --jq '. | length' | xargs -I {} echo "  Closed: {}"
-	@echo ""
-	@echo "Pull Requests:"
-	@gh pr list --state all --json number --jq '. | length' | xargs -I {} echo "  Total: {}"
-	@gh pr list --state open --json number --jq '. | length' | xargs -I {} echo "  Open: {}"
-	@gh pr list --state merged --json number --jq '. | length' | xargs -I {} echo "  Merged: {}"
-	@echo ""
-	@echo "Labels:"
-	@gh label list --json name --jq '. | length' | xargs -I {} echo "  Total: {}"
+	@gh api graphql -F owner='{owner}' -F name='{repo}' -f query='$(strip $(repo_stats_query))' \
+		--jq '$(strip $(repo_stats_format))'
 	@echo ""
 	@echo "Recent Activity:"
 	@gh run list --limit 5
@@ -183,9 +195,9 @@ wp-package: ## Package a WP theme/plugin upload zip. Args: SOURCE KIND LABEL ROL
 		--output-dir "$${OUTPUT_DIR:-$$HOME/Desktop}" \
 		$${ROLLBACK_REF:+--rollback-ref "$${ROLLBACK_REF}"} \
 		$${ROLLBACK_LABEL:+--rollback-label "$${ROLLBACK_LABEL}"} \
-		$${OPEN_ADMIN:+--open-admin} \
-		$${COPY_PATH:+--copy-path} \
-		$${ALLOW_DIRTY:+--allow-dirty} \
+		$(call flag_if_one,OPEN_ADMIN,--open-admin) \
+		$(call flag_if_one,COPY_PATH,--copy-path) \
+		$(call flag_if_one,ALLOW_DIRTY,--allow-dirty) \
 		$${REPORT:+--report "$${REPORT}"}
 
 aurora-package: ## Package KK Aurora for wp-admin upload. Args: LABEL ROLLBACK_REF OPEN_ADMIN=1 COPY_PATH=1
@@ -215,7 +227,7 @@ seo-audit: ## Read-only SEO inventory: theme-registered meta on posts; exit 2 if
 
 seo-backfill: ## Additive-only SEO meta backfill (default DRY-RUN). Live: EXECUTE=1. Args: KIND LIMIT SINCE IDS ORDER FIELDS PROBE_ID BACKUP_DIR
 	@scripts/notion-to-wp/.venv/bin/python scripts/seo-backfill/backfill_meta.py \
-		$${EXECUTE:+--execute} \
+		$(call flag_if_one,EXECUTE,--execute) \
 		--kind "$${KIND:-post}" --order "$${ORDER:-recent}" --fields "$${FIELDS:-seo_title,meta_desc,social}" \
 		$${LIMIT:+--limit $${LIMIT}} $${SINCE:+--since $${SINCE}} $${IDS:+--ids $${IDS}} \
 		$${PROBE_ID:+--probe-id $${PROBE_ID}} $${BACKUP_DIR:+--backup-dir $${BACKUP_DIR}} \
@@ -224,8 +236,8 @@ seo-backfill: ## Additive-only SEO meta backfill (default DRY-RUN). Live: EXECUT
 public-image-audit: ## Audit public-rendered images (dry-run). Args: IDS URLS DEFAULT_URLS=1 CHECK_URLS=1 FORMAT OUTPUT
 	@python3 scripts/public_image_audit.py \
 		--kind "$${KIND:-post,page}" --limit "$${LIMIT:-50}" --since "$${SINCE:-2025-01-01}" \
-		$${IDS:+--ids "$${IDS}"} $${URLS:+--urls "$${URLS}"} $${DEFAULT_URLS:+--default-urls} \
-		$${CHECK_URLS:+--check-urls} --timeout "$${TIMEOUT:-20}" --format "$${FORMAT:-markdown}" $${OUTPUT:+--output "$${OUTPUT}"}
+		$${IDS:+--ids "$${IDS}"} $${URLS:+--urls "$${URLS}"} $(call flag_if_one,DEFAULT_URLS,--default-urls) \
+		$(call flag_if_one,CHECK_URLS,--check-urls) --timeout "$${TIMEOUT:-20}" --format "$${FORMAT:-markdown}" $${OUTPUT:+--output "$${OUTPUT}"}
 
 performance-audit: ## Run read-only public performance baseline. Args: ROUTES SAMPLES LONGFORM_URL FORMAT OUTPUT
 	@python3 scripts/performance_audit.py \
@@ -366,7 +378,7 @@ css-inventory-freeze: ## Re-record .css-budget.json. Raising a number needs WAIV
 		$(if $(WAIVER_REASON),--waiver-reason '$(WAIVER_REASON)',)
 
 css-coverage: ## Live-route CSS coverage (read-only GETs against kriskrug.co). RECORD=1 saves it
-	@$(PYTHON) scripts/css_inventory.py --coverage $(if $(LIVE_CORPUS),--live-corpus $(LIVE_CORPUS),--fetch-routes) $(if $(RECORD),--record,)
+	@$(PYTHON) scripts/css_inventory.py --coverage $(if $(LIVE_CORPUS),--live-corpus $(LIVE_CORPUS),--fetch-routes) $(call flag_if_one,RECORD,--record)
 
 # --- #473 visual regression ---
 # Visual-regression baseline harness (AURORA-STYLESHEET-REBUILD-PLAN.md §4).
