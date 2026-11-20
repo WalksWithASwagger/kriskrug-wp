@@ -10,7 +10,7 @@ The first run started on November 16 and ended at the account usage limit before
 
 ## November 20 recovery sweep
 
-A manual sweep checked the catalog against authenticated WordPress page 2250 and the logged-out Events page. All three showed 86 past rooms, 33 meetup editions, 41 frames and three upcoming cards. The private receipt `sweep-2026-11-20.md` in the directory above holds the exact proposed diff and coverage. It proposes adding the November 18 City Hall appearance and crediting the November 25 opening talk, *Original Intelligence*, on the existing meetup card. Review the proposal before applying it.
+A manual sweep checked the catalog against authenticated WordPress page 2250 and the logged-out Events page. All three showed 86 past rooms, 33 meetup editions, 41 frames and three upcoming cards. The private receipt `sweep-2026-11-20.md` holds the source evidence and exact diff. Kris approved both catalog changes. The catalog now includes the November 18 City Hall appearance and the November 25 opening talk, *Original Intelligence*. Its November 20 render shows 87 past rooms, 33 editions, 41 frames and three upcoming cards. Publishing these changes on page 2250 requires separate approval. [Catalog PR #1349](https://github.com/WalksWithASwagger/kriskrug-wp/pull/1349)
 
 ## November 11 manual sweep
 
