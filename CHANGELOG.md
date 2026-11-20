@@ -20,8 +20,76 @@ paths, and does not add descriptions beyond the PR title.
 
 ## [Unreleased]
 
-Nothing yet. Merges after the newest dated section below land here until the
-next weekly refresh.
+See [pull requests merged since November 20](https://github.com/WalksWithASwagger/kriskrug-wp/pulls?q=is%3Apr+is%3Amerged+merged%3A%3E%3D2026-11-20) for the current window.
+
+## [2026-11-13 to 2026-11-19]
+
+49 additional merged PRs. The preceding section already includes #1269,
+#1272, #1280 and #1284, which also fall inside this UTC window.
+
+### Content
+
+- Add approved keynote booking brief (#1334)
+- Add two verified past appearances to Events (#1332)
+- Record the approved Speaking-page release (#1331)
+- Clarify the personal KRÜG signup path (#1328) (#1329)
+- Record the Year One proceedings recap links (#1326)
+- Point the Futureproof Events tile at the 2026 proceedings (#1325)
+- Record the /ai-policy/ publish ruling and final copy (#886) (#1323)
+- Build /ai-policy/ and stage it as WordPress draft 13005 (#885) (#1316)
+- Stage the BC + AI year one draft (#967) (#1314)
+- Draft KRÜG letter issue one (December) (#1311)
+- Publish the #828 negotiation checklist (page 12013 skipped) (#1312)
+- Schedule Both Things Are True and Gorgeous Ghost, archive the old package (#1315)
+- Re-cut the #339 publisher packet against the live site (#1307)
+- Apply Kris's rulings to the Gorgeous Ghost and Both Hands Full packages (#1308)
+- Record the live Work index release (#1212) (#1298)
+- Stage the Both Hands Full stance piece draft (#959) (#1296)
+- Reconcile drifted page payloads with live (#1294)
+- Promise a monthly KRÜG letter instead of a weekly note (#1289)
+
+### Theme
+
+- Route KRÜG newsletter calls to Subscribe (#1328) (#1330)
+- Promise a monthly KRÜG letter in the footer, homepage and blog (Aurora 1.7.3) (#1293)
+
+### Publisher and tooling
+
+- Make credential loading consistent and drop the hard-coded SFTP user (#1310)
+- Say in the Snippet 5 source header that the #1238 flags are live (#1318)
+- Refuse writes WordPress cannot store, in the shared client and the marquee slug (#1313)
+- Fold derived SEO meta to plain letters instead of exiting 9 (#1295)
+- Block mixed-case REST users routes in the #767 snippet (#1288)
+- Add make ruff-all for the whole-tree Ruff check (#1286)
+- Send text outside cp1252 to WordPress as numeric references (#1273)
+- Keep a post's status on connector --update unless --publish (#1275)
+
+### CI and tests
+
+- Bump the npm-minor-patch group with 2 updates (#1322)
+- Update ruff requirement from >=0.17.3 to >=0.17.4 (#1321)
+- Bump github/codeql-action/upload-sarif from 4.39.2 to 4.39.3 in the actions-minor-patch group (#1320)
+- Run plugin smoke on every pull request (#1306)
+
+### Docs and ops
+
+- Record Michelle Diamond photo clearance (#1333)
+- Ignore three one-off .generated run folders (#1327)
+- Cut the November 13 current-state snapshot and repoint the drift baseline (#1324)
+- Bring the November roadmap current and add a dated checklist (#1319)
+- Correct the Snippet 5 release receipt and re-tie its pin test (#1317)
+- Record the Snippet 5 JSON_HEX_TAG release (#1238) (#1305)
+- File the November 2026 baseline measurement readout (#1309)
+- Freeze the Aurora 1.7.3 visual baseline manifest (#1304)
+- Describe the pytest suites and drop stale local-path claims (#1302)
+- Record the monthly KRÜG letter release (Aurora 1.7.3, homepage template, Contact) (#1300)
+- Record the Dec 16 Events release on page 2250 (#1299)
+- Correct the stale header comment in the v1 #331 snippet source (#1292)
+- Record the Aurora 1.7.2 production deploy (#1297)
+- Add the monthly measurement readout template (#1291)
+- Bring fixes/README in line with live Code Snippets 24 to 26 (#1290)
+- Land the September closeout wording from the local checkpoint (#1287)
+- Bring CHANGELOG.md current and add changelog generator (#1285)
 
 ## [2026-09-29 to 2026-11-12]
 

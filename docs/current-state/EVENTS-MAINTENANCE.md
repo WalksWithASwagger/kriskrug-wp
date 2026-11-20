@@ -2,13 +2,17 @@
 
 Owner: Kris Krüg. Implementation issue: [#1102](https://github.com/WalksWithASwagger/kriskrug-wp/issues/1102).
 
-**Cadence decision, 2026-11-12: Option A.** Kris chose to reinstate the weekly propose-only sweep as a Codex automation named **Kriskrug Events weekly proposals**, Monday at 09:00 America/Vancouver, owned by Kris. Notice channel: the automation's own Codex thread, used only as step 7 below allows (a new proposal, a live defect or an access decision). Every run also writes a private receipt under `.generated/current-state/events-maintenance/`. No email, no message to anyone else and no issue comment. **State: automation not yet created; awaiting KK's go-ahead.** Creating it is a separate approval from this decision. Until it is installed and its first run is confirmed from run history, the sweep runs by hand.
+## Weekly sweep
 
-History: the September setup recorded a weekly Codex heartbeat with the same name and slot in the originating chat. The November 11 parallel read-only audit found no Events heartbeat in Codex automations, Claude scheduled tasks or launchd, and a November 12 recheck of all three found none either. The historical setup is not current delivery proof.
+**Kriskrug Events weekly proposals** is active in Codex on Mondays at 09:00 America/Vancouver. Kris owns it. Each completed sweep saves a private receipt in `.generated/current-state/events-maintenance/`. Step 7 defines when the run should also post a notice in its own chat.
 
-The contract below remains local review material, with no publication or source-catalog changes. Its scheduled-run rules apply once the automation is installed.
+The first run started on November 16 and ended at the account usage limit before it wrote a receipt. Check the latest dated receipt and the corresponding run history before treating a week as covered. Issue #1102 records the cadence decision.
 
-## Latest manual sweep — 2026-11-11
+## November 20 recovery sweep
+
+A manual sweep checked the catalog against authenticated WordPress page 2250 and the logged-out Events page. All three showed 86 past rooms, 33 meetup editions, 41 frames and three upcoming cards. The private receipt `sweep-2026-11-20.md` in the directory above holds the exact proposed diff and coverage. It proposes adding the November 18 City Hall appearance and crediting the November 25 opening talk, *Original Intelligence*, on the existing meetup card. Review the proposal before applying it.
+
+## November 11 manual sweep
 
 The public-source sweep found no confirmed change to apply. The shared catalog
 has 87 entries; the public page showed 84 past rooms, 33 meetup editions and
@@ -52,7 +56,7 @@ Kris approves the concrete event/page proposal before application. Approval can 
 
 When a new confirmation arrives in an active authorized session, run steps 3–7 that day. When publishing event coverage, run the linked publisher checklist in the same approved pass. On the day after an event, verify the automatic transition and propose any newly available documentation links.
 
-These are operating hooks, not installed webhooks. The chosen recurring worker is weekly and not yet installed; it does not promise instant inbox/iMessage monitoring or guaranteed day-after execution. #1102 remains open for the install, the first verified run and, if required, a separately scoped event-driven intake integration. Do not expand access or create watchers silently.
+These hooks run during an authorized session. The installed weekly worker reads the sources listed above. Same-day confirmations and day-after checks depend on a session running at those times.
 
 ## Current baseline and applied first proposal
 

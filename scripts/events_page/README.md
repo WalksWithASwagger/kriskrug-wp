@@ -20,7 +20,7 @@ The complete record is a year-grouped typographic index of **past** publishable 
 
 Confirmed upcoming events are sorted by their start date. The first four spotlight cards are visible; later cards wait hidden so the browser can promote them when an earlier event retires. Art-bearing upcoming events also have a held-back sheet tile (`data-tile-upcoming`). At the cutoff, the script retires the spotlight, releases its tile and record row, and updates the counters without moving nodes between grids.
 
-## Layout
+## Pipeline files
 
 | File | Role |
 |---|---|
