@@ -4,7 +4,7 @@
 **Lane:** Docs / ops first; then Track A or Track B — never interleaved in one commit.
 **Does not authorize** live WordPress writes, theme deploys, or history rewrite.
 
-Retained procedures: [`WORK-PLAN-2026-09-09.md`](WORK-PLAN-2026-09-09.md). Declared drift snapshot: [`CURRENT-STATE-2026-11-13.md`](CURRENT-STATE-2026-11-13.md).
+Retained procedures: [`WORK-PLAN-2026-09-09.md`](WORK-PLAN-2026-09-09.md). The [current-state index](README.md) identifies the declared drift snapshot.
 
 **2026-08-28 reading note:** Phases 0–3 below record the July hygiene reset; do not execute their old branch or issue lists as a current queue. Use the dated runbook, the open GitHub issue list, and `make status-readonly` for current work.
 

@@ -15,6 +15,9 @@ from typing import Any
 from common import WPClient, has_wp_process_credentials, wp_queue_counts
 
 
+CURRENT_SNAPSHOT = Path("docs/current-state/CURRENT-STATE-2026-11-20.md")
+
+
 @dataclass
 class CommandResult:
     command: list[str]
@@ -57,10 +60,10 @@ def parse_declared_values(work_plan: Path) -> dict[str, Any]:
     patterns: dict[str, str] = {
         "open_prs": r"Open PRs:\s*`(\d+)`",
         "open_issues": r"Open issues:\s*`(\d+)`",
-        "wp_version": r"Production still publicly reports WordPress `([^`]+)`",
-        "future_posts": r"WordPress draft queue:\s*`(\d+)`\s*scheduled posts,",
-        "draft_posts": r"WordPress draft queue:\s*`\d+`\s*scheduled posts,\s*`(\d+)`\s*draft posts,",
-        "draft_pages": r"WordPress draft queue:\s*`\d+`\s*scheduled posts,\s*`\d+`\s*draft posts,\s*`(\d+)`\s*draft pages\.",
+        "wp_version": r"Production (?:still )?publicly reports WordPress `([^`]+)`",
+        "future_posts": r"WordPress draft queue:\s*`(\d+)`\s*scheduled posts?,",
+        "draft_posts": r"WordPress draft queue:\s*`\d+`\s*scheduled posts?,\s*`(\d+)`\s*draft posts,",
+        "draft_pages": r"WordPress draft queue:\s*`\d+`\s*scheduled posts?,\s*`\d+`\s*draft posts,\s*`(\d+)`\s*draft pages\.",
     }
     declared: dict[str, Any] = {}
     for key, pattern in patterns.items():
@@ -174,7 +177,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--work-plan",
         type=Path,
-        default=Path("docs/current-state/CURRENT-STATE-2026-11-13.md"),
+        default=CURRENT_SNAPSHOT,
         help="Path to the state doc containing declared snapshot values.",
     )
     parser.add_argument("--base-url", default="https://kriskrug.co", help="Site URL for smoke checks.")

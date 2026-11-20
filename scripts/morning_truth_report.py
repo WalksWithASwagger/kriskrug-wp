@@ -13,6 +13,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+from check_current_state_drift import CURRENT_SNAPSHOT
 from common import WPClient, has_wp_process_credentials, wp_queue_counts
 
 
@@ -258,10 +259,10 @@ def resolve_output_path(
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-url", default="https://kriskrug.co")
-    parser.add_argument("--expect-version", default="7.0.8")
+    parser.add_argument("--expect-version", default="7.0.9")
     parser.add_argument(
         "--work-plan",
-        default="docs/current-state/CURRENT-STATE-2026-11-13.md",
+        default=str(CURRENT_SNAPSHOT),
         help="Declared state doc used for drift checks.",
     )
     parser.add_argument(

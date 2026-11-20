@@ -177,6 +177,7 @@ STALE_FRONT_DOOR_PATTERNS: list[tuple[re.Pattern[str], str]] = [
 
 # Cutting a new roadmap: change this one path and repoint the links in
 # AGENTS.md, docs/INDEX.md and docs/current-state/README.md in the same PR.
+CURRENT_SNAPSHOT = Path("docs/current-state/CURRENT-STATE-2026-11-20.md")
 CURRENT_ROADMAP = Path("docs/current-state/ROADMAP-2026-11-12.md")
 RETAINED_PROCEDURES_PLAN = Path("docs/current-state/WORK-PLAN-2026-09-09.md")
 ARCHIVED_WORK_PLAN = Path("docs/current-state/WORK-PLAN-2026-08-25.md")
@@ -186,7 +187,7 @@ ACTIVE_GUIDANCE_PATHS = {
     Path("README.md"),
     Path("docs/INDEX.md"),
     Path("docs/current-state/README.md"),
-    Path("docs/current-state/CURRENT-STATE-2026-11-13.md"),
+    CURRENT_SNAPSHOT,
     CURRENT_ROADMAP,
     RETAINED_PROCEDURES_PLAN,
     Path("docs/current-state/MASTER-PLAN-2026-07-30.md"),
@@ -255,7 +256,7 @@ PATH_SCOPED_STALE_PATTERNS: dict[Path, list[tuple[re.Pattern[str], str]]] = {
             "The audited current-state access guide must use Varlock, live counts by command, and the retired-swarm status.",
         ),
     ],
-    Path("docs/current-state/CURRENT-STATE-2026-11-13.md"): [
+    CURRENT_SNAPSHOT: [
         (
             re.compile(r"(?:Latest dated runbook|front door)[^\n]*WORK-PLAN-2026-08-25\.md", re.I),
             "WORK-PLAN-2026-08-25.md is archived; the declared snapshot must not call it a runbook or front door (retained procedures live in `WORK-PLAN-2026-09-09.md`).",

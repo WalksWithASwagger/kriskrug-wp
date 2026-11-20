@@ -5,8 +5,8 @@
 
 PYTHON ?= python3
 VARLOCK ?= varlock
-WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-11-13.md
-EXPECT_VERSION_DEFAULT := 7.0.8
+WORK_PLAN_DEFAULT := docs/current-state/CURRENT-STATE-2026-11-20.md
+EXPECT_VERSION_DEFAULT := 7.0.9
 # Every tracked script, so a new file is checked without editing this list.
 # Dated reports under docs/current-state/reports/ are frozen evidence.
 JAVASCRIPT_FILES = $(shell git ls-files -- '*.js' '*.cjs' '*.mjs' \
@@ -242,7 +242,7 @@ jetpack-feedback-audit: ## Run PII-safe read-only Jetpack Forms feedback counts/
 		python3 scripts/jetpack_feedback_audit.py $${ENV_FILE:+--env-file "$$ENV_FILE"}; \
 	fi
 
-wp7-smoke: ## Run read-only public WP rollout smoke checks (BASE_URL=https://kriskrug.co EXPECT_VERSION=7.0.8)
+wp7-smoke: ## Run read-only public WP rollout smoke checks (optional BASE_URL and EXPECT_VERSION)
 	@python3 scripts/wp7-public-smoke.py --base-url "$${BASE_URL:-https://kriskrug.co}" --timeout "$${REQUEST_TIMEOUT:-20}" $${EXPECT_VERSION:+--expect-version "$$EXPECT_VERSION"}
 
 seo-publisher-smoke: ## Run read-only publisher/schema smoke checks (#425) (BASE_URL=https://kriskrug.co)
