@@ -1582,7 +1582,8 @@ events:
   end_date: '2026-11-25'
   location: H.R. MacMillan Space Centre, Vancouver
   kind: meetup
-  role: Host & MC
+  role: Host, MC and opening speaker
+  blurb: Kris opens with Original Intelligence, a talk about what the community is teaching him about AI.
   url: https://luma.com/nov-vanai
   docs:
     recap: []

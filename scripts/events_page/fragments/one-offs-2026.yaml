@@ -206,3 +206,16 @@ events:
   image:
     path: repo:content/source-packs/keynotes-2026/video-research/thumbnails/whistler-institute.jpg
     alt: 'Whistler Institute talk video thumbnail: Building the Creative Technology Future'
+
+- id: 2026-11-18-vancouver-council-digital-infrastructure
+  title: 'Vancouver City Council: Addressing the Risks of Digital Infrastructure'
+  date: '2026-11-18'
+  kind: external
+  role: Public speaker on Motion 10
+  location: Vancouver City Hall
+  url: https://csg001-harmony.sliq.net/00317/Harmony/en/PowerBrowser/PowerBrowserV2/20261118/-1/22062
+  docs:
+    recap:
+    - https://kriskrug.co/2026/11/18/vancouver-ai-data-centres-public-benefit/
+  image: null
+  status: confirmed
