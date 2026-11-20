@@ -12,8 +12,7 @@ Python CLIs and PHP validation gates. Live WordPress runs on Pagely and is not
 file-synced with this checkout.
 
 CI pins PHP 8.2 and Python 3.12. JavaScript syntax checks and the
-WordPress Playground browser job both use Node 24. Playground 3.1.62
-requires Node >=24.18.0 and npm >=11.16.0. Local versions may differ. Check
+WordPress Playground browser job both use Node 24. Local versions may differ. Check
 `php --version` before explaining a local PHP result. PHPCompatibilityWP
 checks versions independently of the local interpreter: `phpcs.xml.dist`
 holds `fixes/` and `inc/` to PHP 8.1 and later, and
@@ -90,27 +89,12 @@ scheduled. Read the Actions API before treating a workflow as live:
 gh api repos/WalksWithASwagger/kriskrug-wp/actions/workflows --jq '[.workflows[] | {name,state,path}]'
 ```
 
-Dated API readback **2026-09-30**:
+The November 20 Actions API readback lists four active workflows. Test PR and backlog-reconcile are defined in this repo. GitHub supplies Dependabot Updates and Dependency Graph.
 
-| Name | Path | State |
-|---|---|---|
-| Test PR | `.github/workflows/test-pr.yml` | `active` |
-| backlog-reconcile | `.github/workflows/backlog-reconcile.yml` | `active` |
-| Dependabot Updates | `dynamic/dependabot/dependabot-updates` | `active` |
-| Dependency Graph | `dynamic/dependabot/update-graph` | `active` |
-| Auto-Triage Issues | `.github/workflows/auto-triage.yml` | `disabled_manually` |
-| Marquee Weekly Scan | `.github/workflows/marquee-weekly.yml` | `disabled_manually` |
-
-Auto-Triage Issues and Marquee Weekly Scan sat disabled for an unknown reason
-until KK ruled on 2026-11-12 (#1220) to delete both YAML files. Without a file
-on `main` neither can run, though the Actions API may keep listing them by name.
-Do not recreate them or edit repository settings to restore them. Historical
-swarm docs (`docs/architecture.md`,
-`docs/automation-guide.md`) describe files, not current Actions state.
+Kris retired Auto-Triage Issues and Marquee Weekly Scan on November 12 (#1220). Their YAML files were deleted. Historical swarm design records live in [architecture](../architecture.md) and the [automation guide](../automation-guide.md).
 
 `practice-preview` is a local-only Make target. CI's `practice-browser` job
 runs `make practice-browser-test` (which runs `practice-test` first) and
 `make events-browser-test` on every pull request. Setup, Node/npm split, and
 the fixture-vs-production boundary live in
-[`CONTRIBUTING.md`](../../CONTRIBUTING.md). Playground 3.1.62 still requires
-Node >=24.18.0 and npm >=11.16.0; JavaScript syntax checks use Node 24 too.
+[the contributor guide](../../CONTRIBUTING.md).

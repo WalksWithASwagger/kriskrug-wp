@@ -18,6 +18,8 @@ Each draft folder is date-and-slug scoped:
 
 This structure is created by the Notion publisher and then edited/reviewed by humans before publication.
 
+Some published packages retain relative image references after their binaries were removed from the checkout. For those packages, consult the removal PR for the original Git paths before reusing an image. [First removal](https://github.com/WalksWithASwagger/kriskrug-wp/pull/558) · [Second removal](https://github.com/WalksWithASwagger/kriskrug-wp/pull/679)
+
 ## What does not count as published
 
 Files in this directory are draft artifacts only. A folder existing here does not mean the post is live.
@@ -57,9 +59,6 @@ Copy [`docs/current-state/templates/owned-distribution-backlink-checklist.md`](.
 
 ## Related docs
 
-- `scripts/notion-to-wp/README.md`
-- `scripts/notion-to-wp/create_local_wp_draft.py`
-- `docs/current-state/templates/owned-distribution-backlink-checklist.md`
-- `docs/current-state/SEO-INDEXING-RUNBOOK.md`
-- `docs/current-state/NEXT-PUBLISHING-PLAN-2026-05-18.md`
-- `docs/current-state/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md`
+- [Notion publisher guide](../../scripts/notion-to-wp/README.md) and [local draft creation script](../../scripts/notion-to-wp/create_local_wp_draft.py)
+- [SEO and indexing runbook](../../docs/current-state/SEO-INDEXING-RUNBOOK.md)
+- Historical [May publishing plan](../../docs/current-state/archive/NEXT-PUBLISHING-PLAN-2026-05-18.md) and [draft backlog audit](../../docs/current-state/archive/POST-DRAFT-BACKLOG-AUDIT-2026-05-18.md)
