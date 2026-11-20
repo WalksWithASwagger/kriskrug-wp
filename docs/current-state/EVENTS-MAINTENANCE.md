@@ -10,7 +10,9 @@ The first run started on November 16 and ended at the account usage limit before
 
 ## November 20 recovery sweep
 
-A manual sweep checked the catalog against authenticated WordPress page 2250 and the logged-out Events page. All three showed 86 past rooms, 33 meetup editions, 41 frames and three upcoming cards. The private receipt `sweep-2026-11-20.md` holds the source evidence and exact diff. Kris approved both catalog changes. The catalog now includes the November 18 City Hall appearance and the November 25 opening talk, *Original Intelligence*. Its November 20 render shows 87 past rooms, 33 editions, 41 frames and three upcoming cards. Publishing these changes on page 2250 requires separate approval. [Catalog PR #1349](https://github.com/WalksWithASwagger/kriskrug-wp/pull/1349)
+A manual sweep checked the catalog against authenticated WordPress page 2250 and the logged-out Events page. All three showed 86 past rooms, 33 meetup editions, 41 frames and three upcoming cards. The private receipt `sweep-2026-11-20.md` holds the source evidence and exact diff. Kris approved both updates for publication. On November 20 at 18:51 UTC, WordPress page 2250 gained the November 18 City Hall appearance with its official recording and recap, and the November 25 meetup card gained the opening talk, *Original Intelligence*. The authenticated page body matched the approved render byte for byte. The ordinary logged-out URL returned HTTP 200 with both entries, 87 past rooms, 33 editions and 41 frames. All 42 image tags were preserved. [Live Events page](https://kriskrug.co/events/) · [Catalog PR #1349](https://github.com/WalksWithASwagger/kriskrug-wp/pull/1349)
+
+The private rollback snapshot is `nov20-events-release.J2WfIB/page-2250-events-20261120T185131Z.json` under the receipt directory above. The prior body SHA-256 was `1969531c4719b9a0163f9326c561be44181d5490bd10b98f2813a3dd7ed8078e`. The verified published body SHA-256 was `9e230300065a0803ec0be6d2fd4f7a6e7a402767aedf74ac3f3c61e70079c855`.
 
 ## November 11 manual sweep
 
