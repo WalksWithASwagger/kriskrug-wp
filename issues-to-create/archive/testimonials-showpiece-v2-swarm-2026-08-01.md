@@ -4,7 +4,7 @@
 **Epic:** [#593](https://github.com/WalksWithASwagger/kriskrug-wp/issues/593)  
 **Plan:** Testimonials showpiece v2 (Cursor plan)  
 **Live target:** https://kriskrug.co/testimonials/ (WP page **2409**)  
-**Kickoff doc:** [`content/drafts/2026-08-01-testimonials-overhaul/START-HERE.md`](../content/drafts/2026-08-01-testimonials-overhaul/START-HERE.md)  
+**Kickoff doc:** [`content/drafts/2026-08-01-testimonials-overhaul/START-HERE.md`](../../content/drafts/2026-08-01-testimonials-overhaul/START-HERE.md)
 **Out of scope forever:** homepage #415, Jetpack CPT, Review schema, headshots, auto-sync
 
 ## Later kickoff (copy-paste)
