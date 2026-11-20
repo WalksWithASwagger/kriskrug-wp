@@ -6,7 +6,7 @@
 **Repo:** [WalksWithASwagger/kriskrug-wp](https://github.com/WalksWithASwagger/kriskrug-wp)
 **Operating model:** Two tracks — see [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md)
 
-This repository is the **operations + content hub** for [kriskrug.co](https://kriskrug.co/). The live WordPress install is not file-synced here (it runs on Pagely). This repo holds everything *adjacent* to the site: audit snapshots, draft content before publication, deployment-ready code snippets, packaged helper plugins, and the Notion → WordPress publisher.
+The live WordPress install runs on Pagely. This repo holds its Aurora theme, audit tools, editorial drafts, helper plugins and Notion → WordPress publisher.
 
 **If you're an AI agent landing in this repo cold, start at [`AGENTS.md`](AGENTS.md).**
 
@@ -29,10 +29,6 @@ This repository is used for:
 3. **Custom WordPress code** — schema markup, theme tweaks, helper plugins (see [`fixes/`](fixes/), [`inc/`](inc/), and [`plugins/`](plugins/))
 4. **Aurora theme work** — canonical theme source is tracked on `main`, with lane-scoped feature branches for bounded changes; verify any historical evidence branch still exists before relying on it
 5. **Issue tracking + project management** for fixes, content, and theme work
-
-### Why a Separate Repo?
-
-The live WordPress site is not file-synced with this repo (it runs on Pagely). This repo holds everything *adjacent* to the site: audit data, draft content before publication, deployment-ready code snippets, and runbooks. See [Project Structure](#project-structure) for the layout.
 
 ## Project Structure
 
@@ -138,7 +134,8 @@ If you're editing a post, page, schema, redirect, or category → Track A. If yo
 
 There is no local app server. The live WordPress site runs on Pagely and is not file-synced with this repo. "Running" this repo means the CLI and validation surfaces:
 
-- `make status-readonly` for startup truth; use `make morning-truth` only when a local generated copy is useful
+- `make help` lists the supported commands and their options.
+- `make doctor` checks the runtime. `make status-readonly` checks the site and queue; use `make morning-truth` only when a local generated copy is useful
 - `make test` for the local test suite (Python, JavaScript syntax, plugin and theme smoke). CI runs these as separate jobs with their own triggers; see [What CI runs](CONTRIBUTING.md#what-ci-runs)
 - `make ruff-changed BASE_REF=origin/main` for the E4/E7/E9/F Ruff baseline on Python files changed by the current branch; the existing repo-wide backlog is not part of this ratchet
 - `make validate` for the WordPress PHP security ruleset (run `composer install` first)
@@ -172,7 +169,7 @@ An older issue-to-PR pipeline (orchestrator → analyzer → test-writer → imp
 - **Custom code:** PHP snippets (Code Snippets plugin on prod), `inc/digital-composting.php`, and packaged helper plugins such as `plugins/kk-sidebar-promos/`
 - **CLI Tools:** GitHub CLI (`gh`), Claude Code / Cursor agents
 - **Languages:** PHP, JavaScript, Python, Bash
-- **CI runtimes:** PHP 8.2, Python 3.12, and Node 24 for both JavaScript syntax and the WordPress Playground browser job (pinned in [`.github/workflows/test-pr.yml`](.github/workflows/test-pr.yml)); Playground 3.1.62 requires Node >=24.18.0 and npm >=11.16.0. The Aurora theme itself declares a minimum of PHP 8.0 in [`theme/kk-aurora/style.css`](theme/kk-aurora/style.css)
+- **CI runtimes:** PHP 8.2, Python 3.12 and Node 24. See the [contributor guide](CONTRIBUTING.md#what-ci-runs) for the browser-test requirements and the [Aurora stylesheet](theme/kk-aurora/style.css) for the theme’s minimum PHP version.
 
 ## Issue Labels
 

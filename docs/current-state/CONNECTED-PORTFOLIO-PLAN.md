@@ -1,5 +1,7 @@
 # Open Studio: connected portfolio of practice
 
+**Status, November 20:** Open Studio is parked until April 2027. Issues #977 and #983 are closed. Keep the prepared proof for the April review. [Quarterly roadmap](ROADMAP-2026-11-12.md)
+
 **Decision:** KK approved the Open Studio successor blueprint on 2026-09-06 and
 requested development issues and their ordered agent swarm. This document records
 that approved destination. It supersedes only the earlier forward roadmap and
@@ -12,7 +14,7 @@ Implementation completion, human evaluation and live-release authority are
 separate gates. The [operations front door](README.md), repository instructions
 and fresh readbacks still govern operational work.
 
-Single tracker: [#977](https://github.com/WalksWithASwagger/kriskrug-wp/issues/977).
+Original tracker: [#977](https://github.com/WalksWithASwagger/kriskrug-wp/issues/977).
 The issue map below is the first-proof scope, not permission to implement the
 whole roadmap. No future experiment is automatically dispatched.
 
