@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import morning_truth_report  # noqa: E402
 import check_current_state_drift  # noqa: E402
+import docs_truth_check  # noqa: E402
 
 
 def _http_error(code: int) -> HTTPError:
@@ -197,10 +198,13 @@ class MorningTruthAvailabilityTests(unittest.TestCase):
         def command(title, command, cwd, **kwargs):
             self.assertNotIn("origin/aurora/v2", " ".join(command))
             if title == "WP7 Public Smoke (JSON)":
-                self.assertEqual(command[command.index("--expect-version") + 1], "7.0.8")
+                self.assertEqual(command[command.index("--expect-version") + 1],
+                                 check_current_state_drift.parse_declared_values(
+                                     Path(__file__).resolve().parents[2] / check_current_state_drift.CURRENT_SNAPSHOT
+                                 )["wp_version"])
             if title == "Current-State Drift Check (JSON)":
                 self.assertEqual(command[command.index("--work-plan") + 1],
-                                 "docs/current-state/CURRENT-STATE-2026-11-13.md")
+                                 str(check_current_state_drift.CURRENT_SNAPSHOT))
             output = json.dumps(smoke) if title == "WP7 Public Smoke (JSON)" else (
                 "[]" if title in ("Issue JSON", "PR JSON") else '{"checks": []}'
             )
@@ -249,21 +253,28 @@ class MorningTruthAvailabilityTests(unittest.TestCase):
 class StartupBaselineTests(unittest.TestCase):
     def test_make_defaults_match_declared_snapshot_and_preserve_overrides(self):
         root = Path(__file__).resolve().parents[2]
+        snapshot = check_current_state_drift.CURRENT_SNAPSHOT
+        declared = check_current_state_drift.parse_declared_values(root / snapshot)
+        self.assertNotIn(None, declared.values())
+        version = declared["wp_version"]
+        fixture = (root / "scripts/tests/playground-wordpress.mjs").read_text()
+        self.assertIn(f"PLAYGROUND_WP_VERSION = '{version}'", fixture)
+        self.assertEqual(snapshot, docs_truth_check.CURRENT_SNAPSHOT)
         for target in ("status-readonly", "morning-truth", "morning-truth-checkpoint",
                        "current-state-drift-check"):
             with self.subTest(target=target):
                 result = subprocess.run(["make", "-n", target], cwd=root,
                                         capture_output=True, text=True, check=True)
-                self.assertIn("WORK_PLAN:-docs/current-state/CURRENT-STATE-2026-11-13.md",
+                self.assertIn(f"WORK_PLAN:-{snapshot}",
                               result.stdout)
                 if target != "current-state-drift-check":
-                    self.assertIn("EXPECT_VERSION:-7.0.8", result.stdout)
-        self.assertIn("CURRENT-STATE-2026-11-13.md", (root / "AGENTS.md").read_text())
+                    self.assertIn(f"EXPECT_VERSION:-{version}", result.stdout)
+        self.assertIn(str(snapshot), (root / "AGENTS.md").read_text())
 
     def test_direct_drift_script_uses_november_snapshot(self):
         with mock.patch.object(sys, "argv", ["drift"]):
             args = check_current_state_drift.parse_args()
-        self.assertEqual(args.work_plan, Path("docs/current-state/CURRENT-STATE-2026-11-13.md"))
+        self.assertEqual(args.work_plan, check_current_state_drift.CURRENT_SNAPSHOT)
 
 
 class MorningTruthOutputPathTests(unittest.TestCase):

@@ -1,5 +1,7 @@
 # Current State Snapshot - 2026-11-13
 
+> Historical snapshot. See the [current-state index](README.md) for the active drift baseline.
+
 **Snapshot:** Friday, November 13, 2026, 17:20 America/Vancouver
 (2026-11-14 00:20 UTC), from `make varlock-run CMD='make status-readonly'`
 after the November 12 and 13 pass had finished. This is the declared drift
