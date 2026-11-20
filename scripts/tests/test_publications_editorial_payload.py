@@ -114,11 +114,11 @@ class PublicationsEditorialPayloadTest(unittest.TestCase):
 
     def test_complete_reverse_chronological_inventory(self):
         self.assertEqual(4, len(re.findall(r'<(?:article|a) class="kk-press-feature[ "]', self.payload)))
-        self.assertEqual(30, self.payload.count('<article class="kk-press-entry'))
+        self.assertEqual(31, self.payload.count('<article class="kk-press-entry'))
         self.assertEqual(25, self.payload.count("<li><time"))
 
         dates = re.findall(r'datetime="(\d{4}-\d{2}-\d{2})"', self.payload)
-        self.assertEqual(59, len(dates))
+        self.assertEqual(60, len(dates))
         self.assertEqual(sorted(dates, reverse=True), dates)
 
     def test_hero_ledger_matches_actual_dated_entries(self):
