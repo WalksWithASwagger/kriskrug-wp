@@ -1,10 +1,12 @@
 # Inside kriskrug.co
 
-[![The kriskrug.co homepage, with a close-up portrait of Kris and the headline “The model is the message.”](docs/images/kriskrug-homepage.jpg)](https://kriskrug.co/)
+[![Desktop preview of the Aurora homepage from the May 2026 redesign](https://raw.githubusercontent.com/WalksWithASwagger/kriskrug-wp/96a1a6bc38caa42d82c8f818c5fe83ed72a2292b/docs/current-state/aurora-smoke-2026-05-18/aurora-home-desktop.png)](https://kriskrug.co/)
+
+*Aurora homepage preview, May 2026. Click through for the current site.*
 
 I’m Kris Krüg, a photographer in Vancouver. [This is my personal site](https://kriskrug.co/), where photographs, writing, and talks from a few decades on the web share a WordPress install. Two good places to poke around:
 
-* [Aurora, the WordPress theme](theme/kk-aurora/). Start here for the templates and styles behind the site you see above.
+* [Aurora, the WordPress theme](theme/kk-aurora/). Start here for the templates and styles behind the site.
 * [The Notion to WordPress publisher](scripts/notion-to-wp/README.md). Follow a draft from Notion blocks to Gutenberg. The README walks through previewing a post before publishing it.
 
 ## Maintaining the site
