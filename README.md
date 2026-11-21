@@ -1,24 +1,15 @@
-# kriskrug-wp — Operations Hub for kriskrug.co
+# Inside kriskrug.co
 
-> The personal site of Kris Krug: photographer, AI community builder, keynote speaker.
+[![The kriskrug.co homepage, with a close-up portrait of Kris and the headline “The model is the message.”](docs/images/kriskrug-homepage.jpg)](https://kriskrug.co/)
 
-**Live site:** [kriskrug.co](https://kriskrug.co/) (Pagely-hosted WordPress, Aurora `kk-aurora` theme)
-**Repo:** [WalksWithASwagger/kriskrug-wp](https://github.com/WalksWithASwagger/kriskrug-wp)
-**Operating model:** Two tracks — see [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md)
+I’m Kris Krüg, a photographer in Vancouver. [This is my personal site](https://kriskrug.co/), where photographs, writing, and talks from a few decades on the web share a WordPress install. Two good places to poke around:
 
-The live WordPress install runs on Pagely. This repo holds its Aurora theme, audit tools, editorial drafts, helper plugins and Notion → WordPress publisher.
+* [Aurora, the WordPress theme](theme/kk-aurora/). Start here for the templates and styles behind the site you see above.
+* [The Notion to WordPress publisher](scripts/notion-to-wp/README.md). Follow a draft from Notion blocks to Gutenberg. The README walks through previewing a post before publishing it.
 
-**If you're an AI agent landing in this repo cold, start at [`AGENTS.md`](AGENTS.md).**
+## Maintaining the site
 
-Current priorities: [November 12 roadmap](docs/current-state/ROADMAP-2026-11-12.md).
-The [maintenance report](docs/current-state/reports/repo-maintenance-2026-11-11.md)
-records verification, issue reconciliation, and branch recovery.
-
-## About Kris Krug
-
-Kris Krug is a person, not an organization: a Vancouver-based photographer, AI community builder, and keynote speaker. [kriskrug.co](https://kriskrug.co/) is his personal site, covering his photography, writing, speaking, and community work.
-
-Kris also convenes the BC + AI ecosystem community, but that project lives at [bc-ai.ca](https://bc-ai.ca/) and in its own repos. This repo is only about keeping his personal site healthy: publishing posts, maintaining the Aurora theme, and keeping SEO and schema in shape.
+The live install runs on Pagely. For work in this repo, start with [the contributor instructions](AGENTS.md), [the current site notes](docs/current-state/README.md), and [the two-track operating model](docs/current-state/TWO-TRACK-MODEL.md). The [November 11 maintenance report](docs/current-state/reports/repo-maintenance-2026-11-11.md) records an earlier verification and branch recovery pass.
 
 ## Repository Purpose
 
