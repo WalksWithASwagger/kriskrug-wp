@@ -17,9 +17,9 @@
 
 | Stat | Value | Context | Source |
 |------|-------|---------|--------|
-| BC+AI Members | **250** | Current membership count | User-provided (Kris) |
-| Vancouver AI Attendees | **2,400+** | Cumulative 2024 | BC+AI recap |
-| Photos (Creative Commons) | **130,000+** | Shared under CC license | Photo.Kris.is |
+| BC+AI Members | **250**, as of Jan 2026 — re-verify before use | Membership count | User-provided (Kris) |
+| Vancouver AI Attendees | **2,400+**, as of 2024 — re-verify before use | Cumulative 2024 | BC+AI recap |
+| Photos (Creative Commons) | **130,000+**, as of Jan 2026 — re-verify before use | Shared under CC license | Photo.Kris.is |
 | Years in Tech | **25+** | Career span | Career history |
 
 ### Photography Credentials (Verified)
