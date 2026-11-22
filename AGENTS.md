@@ -9,12 +9,11 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 ## Read this in order (top of repo, top of context)
 
 1. [`docs/current-state/README.md`](docs/current-state/README.md) — current-state front door; run `make status-readonly` for live counters
-2. [`docs/current-state/CURRENT-STATE-2026-11-20.md`](docs/current-state/CURRENT-STATE-2026-11-20.md) — declared snapshot for drift/morning-truth (Makefile default)
-3. [`docs/current-state/ROADMAP-2026-11-12.md`](docs/current-state/ROADMAP-2026-11-12.md) — direction, priority themes, agent lane and Kris's decision queue through March 2027
-4. [`docs/current-state/WORK-PLAN-2026-09-09.md`](docs/current-state/WORK-PLAN-2026-09-09.md) — retained live-lane procedures; its September issue queue is historical
-5. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — Track A / Track B decision rule
-6. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — standing publisher safety rules
-7. [`docs/current-state/AGENT-RUNTIME-REFERENCE.md`](docs/current-state/AGENT-RUNTIME-REFERENCE.md) and [`.env.schema`](.env.schema) — runtime and secret-handling reference
+2. The current snapshot and roadmap linked from [`docs/current-state/README.md`](docs/current-state/README.md) — declared snapshot for drift/morning-truth, plus direction and priority themes
+3. [`docs/current-state/WORK-PLAN-2026-09-09.md`](docs/current-state/WORK-PLAN-2026-09-09.md) — retained live-lane procedures; its September issue queue is historical
+4. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — Track A / Track B decision rule
+5. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — standing publisher safety rules
+6. [`docs/current-state/AGENT-RUNTIME-REFERENCE.md`](docs/current-state/AGENT-RUNTIME-REFERENCE.md) and [`.env.schema`](.env.schema) — runtime and secret-handling reference
 
 Older May–June plans live under [`docs/current-state/archive/`](docs/current-state/archive/) (#549). The July [master plan](docs/current-state/MASTER-PLAN-2026-07-30.md) records completed hygiene work. Bannered predecessors are historical; use the November roadmap and fresh GitHub state for the queue.
 
@@ -31,9 +30,9 @@ Older May–June plans live under [`docs/current-state/archive/`](docs/current-s
 
 Legacy branch split context is in [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md). Treat branch-specific rules there as historical unless reconfirmed by a newer handoff.
 
-## Hard safety rules (post 2026-05-15 incident)
+## Hard safety rules
 
-1. **Rollback path before destructive operations.** The strict backup/restore proof gate was retired on 2026-05-22. Use dry-runs, slug/ID checks, page/post snapshots, reversible deploy steps, and KK approval for risky live changes. Use a full backup when the blast radius justifies it, but do not block ordinary publish/review work solely on restore-drill proof.
+1. **Rollback path before destructive operations:** use dry-runs, slug/ID checks, snapshots, reversible deploy steps, and KK approval for risky live changes; use a full backup when the blast radius justifies it.
 2. **Slug-based idempotency** for the Notion → WP connector. Never PATCH a WP post without first verifying that the slug match is the intended target. See [`INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md).
 3. **Keep commits lane-scoped.** `main` is now canonical for both content and theme truth; do not mix unrelated Track A + Track B edits in one commit.
 4. **Don't run the connector on production without `--dry-run` first.**
@@ -42,13 +41,9 @@ Legacy branch split context is in [`TWO-TRACK-MODEL.md`](docs/current-state/TWO-
 
 Use `docs/current-state/README.md`, the active operating docs, and fresh
 GitHub readback for current operating state. A workflow YAML file is not an
-enabled workflow; read the Actions API before claiming one runs. Auto-Triage
-Issues and Marquee Weekly Scan sat `disabled_manually` and were deleted on
-2026-11-12 by KK's ruling (#1220), together with the swarm's agent
-definitions, state records and config. Do not recreate those two workflows or
-the swarm files. Bannered historical documents, the retired GitHub Actions
-swarm, old Cloudways setup, and `aurora/v2` branch references are evidence
-only. Do not revive their commands or workflows.
+enabled workflow; read the Actions API before claiming one runs. Do not recreate the retired Auto-Triage Issues or Marquee Weekly Scan
+workflows, or the retired agent-swarm files. Bannered historical documents
+and old setup references are evidence only.
 
 ## How to publish a post (Track A)
 
@@ -67,7 +62,7 @@ See [`scripts/notion-to-wp/README.md`](scripts/notion-to-wp/README.md). Short ve
 
 ### Merge lanes
 
-KK set these lanes on 2026-11-12 (#1233). Every changed path falls in exactly one lane, and a PR takes the strictest lane of any file it touches. A path the table does not name takes the KK go-ahead lane until the table names it. This table is the only copy; `CONTRIBUTING.md` and the PR template point here.
+Every changed path falls in exactly one lane, and a PR takes the strictest lane of any file it touches. A path the table does not name takes the KK go-ahead lane until the table names it. This table is the only copy; `CONTRIBUTING.md` and the PR template point here.
 
 | Lane | Paths | Who merges |
 |---|---|---|
@@ -78,7 +73,7 @@ KK set these lanes on 2026-11-12 (#1233). Every changed path falls in exactly on
 
 - **Agent merge:** `main` requires **0 approving reviews**, **`Test PR / summary` green**, and the branch **up to date with `main`** (`strict: true`). Merge with `gh pr merge <n> --squash --delete-branch`, **no `--admin`**. Use `--admin` only when KK explicitly asks to override a red or stale check. Force pushes and branch deletion on `main` stay blocked.
 - **Agent merge after review:** the same conditions, once the diff has been reviewed against its issue. A green check is not a review.
-- **KK go-ahead:** since 2026-08-23 this is a **convention, not an enforced gate**. No CI job blocks those paths, so it rests on you following it.
+- **KK go-ahead:** The KK go-ahead lane is a convention, not an enforced gate; no CI job blocks those paths.
 - **A merge never authorizes a deploy.** Deploying to live WordPress is a separate act and needs explicit KK approval every time.
 
 ## When in doubt
