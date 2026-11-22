@@ -9,11 +9,12 @@ The operations + content hub for [kriskrug.co](https://kriskrug.co/) — a Pagel
 ## Read this in order (top of repo, top of context)
 
 1. [`docs/current-state/README.md`](docs/current-state/README.md) — current-state front door; run `make status-readonly` for live counters
-2. The current snapshot and roadmap linked from [`docs/current-state/README.md`](docs/current-state/README.md) — declared snapshot for drift/morning-truth, plus direction and priority themes
-3. [`docs/current-state/WORK-PLAN-2026-09-09.md`](docs/current-state/WORK-PLAN-2026-09-09.md) — retained live-lane procedures; its September issue queue is historical
-4. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — Track A / Track B decision rule
-5. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — standing publisher safety rules
-6. [`docs/current-state/AGENT-RUNTIME-REFERENCE.md`](docs/current-state/AGENT-RUNTIME-REFERENCE.md) and [`.env.schema`](.env.schema) — runtime and secret-handling reference
+2. [`docs/current-state/CURRENT-STATE-2026-11-20.md`](docs/current-state/CURRENT-STATE-2026-11-20.md) — declared snapshot for drift/morning-truth (Makefile default)
+3. [`docs/current-state/ROADMAP-2026-11-12.md`](docs/current-state/ROADMAP-2026-11-12.md) — direction, priority themes, agent lane and Kris's decision queue through March 2027
+4. [`docs/current-state/WORK-PLAN-2026-09-09.md`](docs/current-state/WORK-PLAN-2026-09-09.md) — retained live-lane procedures; its September issue queue is historical
+5. [`docs/current-state/TWO-TRACK-MODEL.md`](docs/current-state/TWO-TRACK-MODEL.md) — Track A / Track B decision rule
+6. [`docs/current-state/INCIDENT-2026-05-15-overwritten-post.md`](docs/current-state/INCIDENT-2026-05-15-overwritten-post.md) — standing publisher safety rules
+7. [`docs/current-state/AGENT-RUNTIME-REFERENCE.md`](docs/current-state/AGENT-RUNTIME-REFERENCE.md) and [`.env.schema`](.env.schema) — runtime and secret-handling reference
 
 Older May–June plans live under [`docs/current-state/archive/`](docs/current-state/archive/) (#549). The July [master plan](docs/current-state/MASTER-PLAN-2026-07-30.md) records completed hygiene work. Bannered predecessors are historical; use the November roadmap and fresh GitHub state for the queue.
 
