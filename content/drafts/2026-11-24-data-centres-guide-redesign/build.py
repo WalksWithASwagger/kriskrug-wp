@@ -187,10 +187,11 @@ hero_text = "\n".join(
     ]
 )
 portrait = image(
-    2682,
-    f"{UP}/2023/07/krug-1-768x702.jpg",
-    "Kris Krüg in a black knit cap, lit in amber and blue",
+    12629,
+    f"{UP}/2026/07/kris-krug-van-ai-portrait-2025-682x1024.jpg",
+    "Kris Krüg smiling with arms crossed, wearing teal glasses, a cap, and a VAN-AI shirt",
     "dc-hero__portrait",
+    size="large",
     caption="Kris Krüg · founder, BC + AI",
 )
 hero = group(
