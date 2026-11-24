@@ -50,15 +50,19 @@ events:
   title: AI for Magazines Without Losing the Plot
   date: '2026-11-23'
   end: '2026-11-23T12:00:00-08:00'
-  bucket_hint: upcoming
+  bucket_hint: past
   kind: external
   role: Guest lecture
   url: https://albertamagazines.com/events/ai-for-magazines-without-losing-the-plot/
-  image: {}
-  blurb: One hour in AMPA's Strategies for Canadian Magazines series, hosted by Joyce Byrne, for publishers,
-    editors and creative leads on small teams. Where AI can buy back time in a magazine workflow without
-    handing over editorial judgment, creative voice, source relationships or reader trust. Delegate the
-    mechanics, keep the meaning.
+  image:
+    alt: 'Title slide: AI for magazines without losing the plot. A lamp lights a stack of old magazines'
+    media_id: 13065
+    url: https://kriskrug.co/wp-content/uploads/2026/11/ampa-2026-featured.webp
+  blurb: An hour with Canada's magazine publishers in AMPA's Strategies for Canadian Magazines series,
+    hosted by Joyce Byrne. I told them they're kind of lucky, because they kept everything they ever
+    published, and that the archive is the place to start. Both hands full, one test for every use of
+    AI (does it build trust with readers or put it at risk), and three stories from my own files. The
+    deck wore the look of Spark Online, the web magazine I started in 1998.
   label: Monday, Nov 23 · 11am–12pm PST · Online
   tags:
   - Webinar
