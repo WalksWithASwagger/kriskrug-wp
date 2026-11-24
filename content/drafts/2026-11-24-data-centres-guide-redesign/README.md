@@ -1,9 +1,9 @@
 # Data-centre reading guide redesign (page 13069)
 
-Status: preview only. Not applied to the live page.
+Status: applied 2026-11-24 18:12 UTC with Kris's approval. Page 13069 content replaced and featured image set to media 13080 (the Canva export). Preview draft 13079 is in the trash. Before and after values are in `apply-log.json`.
 
 - Live page: https://kriskrug.co/data-centres-public-compute-and-the-public-interest/ (page 13069)
-- Preview draft: page 13079, `https://kriskrug.co/?page_id=13079&preview=true` (draft, needs a logged-in session)
+- Preview draft: page 13079 (trashed after apply)
 - Share graphic: Canva design `DAHb2eq1NCQ` (1200 x 630), photo 12629 as a full-height right panel. Edits are held in an open Canva transaction until Kris approves.
 
 ## What changed
@@ -39,10 +39,17 @@ The CSS is inline in a `wp:html` block and scoped to `.dc-guide`. No theme, snip
 - `content.new.html`: the proposed page content.
 - `share-graphic-preview.png`: preview of the Canva graphic.
 
-## Apply (after Kris approves)
+## Apply (done 2026-11-24)
 
 1. Replace the `content` of page 13069 with `content.new.html` (REST `POST /wp/v2/pages/13069`).
 2. After the share graphic is approved, export it from Canva as a 1200 x 630 JPG, upload it, and set it as the page's `featured_media`. That replaces media 12908 as the og:image.
 3. Purge the page cache and check the live page, then trash draft 13079.
 
 Rollback: post `content.raw.html` back to page 13069 and set `featured_media` to 12908.
+
+## Live checks after apply
+
+- Logged-out fetch: the page serves the new markup from both caches, with the old protest image gone.
+- og:image and twitter:image point at media 13080 (`data-centres-public-compute-guide-share-1200x630-1.jpg`). Jetpack serves it at 1024 x 538, the same 1.91:1 ratio.
+- Description, canonical and all three JSON-LD blocks (Person, BreadcrumbList, CollectionPage) are unchanged and parse.
+- WordPress stores `--` inside block attributes as `\u002d\u002d`. The stored content equals `content.new.html` once that is unescaped.
