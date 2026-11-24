@@ -37,7 +37,7 @@ The CSS is inline in a `wp:html` block and scoped to `.dc-guide`. No theme, snip
 - `content.raw.html`: the live content of page 13069 as of 2026-11-24 17:07 UTC. This is the rollback copy and the input to `build.py`.
 - `guide.css`, `build.py`: source. `python3 build.py` writes `content.new.html`.
 - `content.new.html`: the proposed page content.
-- `share-graphic-preview.png`: preview of the Canva graphic.
+- The share graphic itself is media 13080 in the WordPress library and Canva design `DAHb2eq1NCQ`. The repo keeps no image copies, per its large-file policy.
 
 ## Apply (done 2026-11-24)
 
