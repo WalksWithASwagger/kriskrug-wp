@@ -54,6 +54,7 @@ events:
   kind: external
   role: Guest lecture
   url: https://albertamagazines.com/events/ai-for-magazines-without-losing-the-plot/
+  recap_url: https://kriskrug.co/2026/11/23/ai-for-magazines-without-losing-the-plot/
   image:
     alt: 'Title slide: AI for magazines without losing the plot. A lamp lights a stack of old magazines'
     media_id: 13065
