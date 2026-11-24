@@ -1,0 +1,500 @@
+<!-- wp:group {"align":"full","className":"dc-guide"} -->
+<div class="wp-block-group alignfull dc-guide"><!-- wp:html -->
+<style id="dc-guide-css">
+/* Data-centre reading guide. Scoped to .dc-guide; tokens follow kk-aurora. */
+body:has(.dc-guide) { overflow-x: clip; }
+body:has(.dc-guide) .aurora-page-header { display: none; }
+body:has(.dc-guide) .aurora-page-2026 { padding-top: 0 !important; padding-bottom: 0 !important; }
+.dc-guide p { max-width: none; }
+/* kk-aurora sets heading colour inside a cascade layer, which outranks unlayered !important; text-fill-color is not set there. */
+.dc-guide .dc-hero__title, .dc-guide .dc-watch .dc-chapter__title { -webkit-text-fill-color: var(--paper); }
+.dc-guide {
+  --ink: #171310; --paper: #efe6d2; --card: #f8f3e8; --line: rgba(23,19,16,.14);
+  --muted: #5c5044; --body: #3d342c; --amber: #e8b53a; --cyan: #39a8d8;
+  --rust: #9a2f14; --blue: #2b57a6; --pink: #b8265f;
+  --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --display: 'Space Grotesk', system-ui, sans-serif;
+  --wrap: 1120px; --gut: clamp(18px, 4vw, 40px);
+  counter-reset: dc-card;
+  margin-top: 0 !important;
+}
+.dc-guide p { margin: 0; }
+.dc-guide .wp-block-group { margin-block: 0; }
+.dc-guide .dc-hero, .dc-guide .dc-watch {
+  width: 100vw; max-width: none; margin-left: calc(50% - 50vw) !important; margin-right: calc(50% - 50vw) !important;
+}
+
+/* Hero */
+.dc-guide .dc-hero {
+  background:
+    radial-gradient(60% 80% at 92% 10%, rgba(57,168,216,.28), transparent 60%),
+    radial-gradient(50% 70% at 62% 100%, rgba(232,181,58,.22), transparent 65%),
+    var(--ink);
+  color: var(--paper);
+  margin-top: 0 !important;
+  padding: clamp(40px, 7vw, 96px) var(--gut) clamp(56px, 8vw, 112px);
+}
+.dc-guide .dc-hero__inner {
+  max-width: var(--wrap); margin: 0 auto !important;
+  display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px); align-items: center;
+}
+.dc-guide .dc-kicker {
+  font-family: var(--mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 1.1rem; --aurora-ink-soft: var(--amber); --revive-ink-soft: var(--amber);}
+.dc-guide .dc-hero__title {
+  font-family: var(--display); font-weight: 700; color: var(--paper) !important;
+  font-size: clamp(2.4rem, 5.4vw, 4.6rem); line-height: 1.02; letter-spacing: -.025em;
+  margin: 0 0 1.6rem; max-width: 14ch; text-wrap: balance; hyphens: manual; -webkit-hyphens: manual;
+}
+.dc-guide .dc-hero__title::before { display: none; }
+.dc-guide .dc-hero__lede { font-size: clamp(1.05rem, 1.4vw, 1.2rem); line-height: 1.65; color: #e6dcc2; max-width: 60ch; --aurora-ink-soft: #e6dcc2; --revive-ink-soft: #e6dcc2;}
+.dc-guide .dc-hero__note {
+  margin-top: 1.2rem; padding-left: 14px; border-left: 3px solid var(--amber);
+  font-size: 1rem; line-height: 1.55; color: #d9cdb0; max-width: 52ch; --aurora-ink-soft: #d9cdb0; --revive-ink-soft: #d9cdb0;}
+.dc-guide .dc-hero__portrait { margin: 0; position: relative; justify-self: center; width: min(100%, 400px); }
+.dc-guide .dc-hero__portrait::before {
+  content: ""; position: absolute; inset: 22px -22px -22px 22px;
+  border: 2px solid rgba(232,181,58,.55); border-radius: 999px 999px 22px 22px;
+}
+.dc-guide .dc-hero__portrait img {
+  position: relative; display: block; width: 100%; height: auto; aspect-ratio: 4 / 5;
+  object-fit: cover; object-position: 50% 28%;
+  border-radius: 999px 999px 18px 18px; padding: 5px;
+  background: linear-gradient(165deg, var(--amber), #d6337a 50%, var(--cyan));
+}
+.dc-guide .dc-hero__portrait figcaption {
+  position: relative; margin-top: 1.4rem; text-align: center;
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: #bfb39a !important;
+}
+
+/* The ask */
+.dc-guide .dc-asks {
+  position: relative; z-index: 1; max-width: var(--wrap);
+  margin: calc(-1 * clamp(28px, 4vw, 52px)) auto 0 !important;
+  background: var(--card); border-radius: 14px; box-shadow: 0 18px 40px -24px rgba(23,19,16,.45);
+  padding: clamp(20px, 3vw, 32px); border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--rust), #d6337a, var(--cyan)) 1;
+}
+.dc-guide .dc-asks__label, .dc-guide .dc-chapter__num {
+  font-family: var(--mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); --aurora-ink-soft: var(--muted); --revive-ink-soft: var(--muted);}
+.dc-guide .dc-asks__row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 1rem 0 !important; counter-reset: dc-ask; }
+.dc-guide .dc-ask {
+  counter-increment: dc-ask; font-size: 1.05rem; line-height: 1.4; color: var(--body);
+  padding-top: 2.4rem; position: relative; --aurora-ink-soft: var(--body); --revive-ink-soft: var(--body);}
+.dc-guide .dc-ask::before {
+  content: "0" counter(dc-ask); position: absolute; top: 0; left: 0;
+  font-family: var(--display); font-weight: 700; font-size: 1.8rem; line-height: 1; color: var(--rust);
+}
+.dc-guide .dc-ask strong { font-family: var(--display); color: var(--ink); --aurora-ink-soft: var(--ink); --revive-ink-soft: var(--ink);}
+.dc-guide .dc-asks__result {
+  padding-top: 1rem; border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: .8rem; letter-spacing: .04em; color: #1b6e6a; --aurora-ink-soft: #1b6e6a; --revive-ink-soft: #1b6e6a;}
+.dc-guide .dc-asks__result::before { content: "\2713\00a0\00a0"; font-weight: 700; }
+
+/* Chapters */
+.dc-guide .dc-chapter { max-width: var(--wrap); margin: clamp(56px, 8vw, 104px) auto 0 !important; }
+.dc-guide .dc-chapter--1 { --ch: var(--rust); }
+.dc-guide .dc-chapter--2 { --ch: var(--blue); }
+.dc-guide .dc-chapter--3 { --ch: var(--pink); }
+.dc-guide .dc-chapter__num { color: var(--ch, var(--amber)); --aurora-ink-soft: var(--ch, var(--amber)); --revive-ink-soft: var(--ch, var(--amber));}
+.dc-guide .dc-chapter__title { font-family: var(--display); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; margin: .4rem 0 clamp(22px, 3vw, 36px) !important; }
+.dc-guide .dc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2.6vw, 32px); }
+
+/* Cards */
+.dc-guide .dc-card {
+  counter-increment: dc-card; position: relative; display: flex; flex-direction: column;
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.dc-guide .dc-card:hover { transform: translateY(-3px); box-shadow: 0 22px 40px -26px rgba(23,19,16,.55); }
+.dc-guide .dc-card:has(a:focus-visible) { outline: 3px solid var(--ch); outline-offset: 3px; }
+.dc-guide .dc-card__shot { margin: 0 !important; position: relative; background: var(--ch); padding: 34px 16px 0; }
+.dc-guide .dc-card__shot::before {
+  content: ""; position: absolute; top: 14px; left: 16px; width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,.75); box-shadow: 14px 0 rgba(255,255,255,.5), 28px 0 rgba(255,255,255,.3);
+}
+.dc-guide .dc-card__shot::after {
+  position: absolute; top: 9px; right: 16px; font-family: var(--mono); font-size: .68rem; letter-spacing: .06em;
+  color: rgba(255,255,255,.88);
+}
+.dc-guide .dc-card--kk .dc-card__shot::after { content: "kriskrug.co"; }
+.dc-guide .dc-card--bcai .dc-card__shot::after { content: "bc-ai.ca"; }
+.dc-guide .dc-card__shot img {
+  display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; object-position: top;
+  border-radius: 7px 7px 0 0; box-shadow: 0 -2px 18px rgba(0,0,0,.25);
+  filter: saturate(.85); transition: filter .2s ease;
+}
+.dc-guide .dc-card:hover .dc-card__shot img { filter: none; }
+.dc-guide .dc-card__body { position: relative; padding: 22px 24px 24px 24px; display: flex; flex-direction: column; gap: .6rem; flex: 1; }
+.dc-guide .dc-card__body::before {
+  content: counter(dc-card, decimal-leading-zero); position: absolute; top: -26px; left: 22px;
+  width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--ink); color: var(--paper); font-family: var(--display); font-weight: 700; font-size: 1.05rem;
+  box-shadow: 0 0 0 4px var(--card);
+}
+.dc-guide .dc-card__meta {
+  padding-left: 64px; min-height: 26px; font-family: var(--mono); font-size: .72rem;
+  letter-spacing: .07em; text-transform: uppercase; color: var(--muted); --aurora-ink-soft: var(--muted); --revive-ink-soft: var(--muted);}
+.dc-guide .dc-card__meta strong {
+  background: var(--amber); color: var(--ink); padding: 2px 7px; border-radius: 3px; font-weight: 700; --aurora-ink-soft: var(--ink); --revive-ink-soft: var(--ink);}
+.dc-guide .dc-card__title {
+  font-family: var(--display); font-size: clamp(1.3rem, 2vw, 1.55rem); line-height: 1.16;
+  letter-spacing: -.01em; margin: .3rem 0 0 !important; hyphens: manual; -webkit-hyphens: manual;
+}
+.dc-guide .dc-card__title::before { display: none; }
+.dc-guide .dc-card__title a { color: var(--ink) !important; text-decoration: none; background: none; }
+/* Card is overflow:hidden, so an oversized hit area covers exactly the card, image included. */
+.dc-guide .dc-card__title a::after { content: ""; position: absolute; inset: -2000px; z-index: 1; }
+.dc-guide .dc-card .dc-card__title a { position: static; }
+.dc-guide .dc-card:hover .dc-card__title a { text-decoration: underline; text-decoration-color: var(--ch); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.dc-guide .dc-card__dek { font-size: 1rem; line-height: 1.55; color: var(--body); --aurora-ink-soft: var(--body); --revive-ink-soft: var(--body);}
+.dc-guide .dc-card__body::after {
+  margin-top: auto; padding-top: .6rem; font-family: var(--mono); font-size: .78rem; letter-spacing: .04em; color: var(--ch);
+}
+.dc-guide .dc-card--kk .dc-card__body::after { content: "Read on kriskrug.co  \2192"; }
+.dc-guide .dc-card--bcai .dc-card__body::after { content: "Read on bc-ai.ca  \2192"; }
+.dc-guide .dc-card--wide { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }
+.dc-guide .dc-card--wide .dc-card__shot { padding: 40px 22px 22px; display: flex; align-items: center; }
+.dc-guide .dc-card--wide .dc-card__shot img { border-radius: 7px; }
+.dc-guide .dc-card--wide .dc-card__body { padding: 34px 32px; justify-content: center; }
+.dc-guide .dc-card--wide .dc-card__body::before { position: static; margin-bottom: .2rem; }
+.dc-guide .dc-card--wide .dc-card__meta { padding-left: 0; }
+.dc-guide .dc-card--wide .dc-card__title { font-size: clamp(1.6rem, 2.6vw, 2.15rem); }
+.dc-guide .dc-card--wide .dc-card__body::after { margin-top: .4rem; }
+
+/* Watch */
+.dc-guide .dc-watch {
+  margin-top: clamp(64px, 9vw, 120px) !important; background: var(--ink); color: var(--paper);
+  padding: clamp(48px, 7vw, 96px) var(--gut);
+}
+.dc-guide .dc-watch__inner { max-width: 880px; margin: 0 auto !important; }
+.dc-guide .dc-watch .dc-chapter__title { color: var(--paper) !important; }
+.dc-guide .dc-watch .wp-block-embed { margin: 0 !important; }
+.dc-guide .dc-watch .wp-block-embed__wrapper { border-radius: 12px; overflow: hidden; box-shadow: 0 0 0 1px rgba(239,230,210,.15), 0 30px 60px -30px #000; }
+.dc-guide .dc-watch .wp-element-caption { color: #bfb39a !important; -webkit-text-fill-color: #bfb39a; margin-left: 0; margin-right: 0; font-size: .9rem; text-align: left; margin-top: .9rem; }
+.dc-guide .dc-watch__list { list-style: none; padding: 0; margin: 2rem 0 0 !important; border-top: 1px solid rgba(239,230,210,.18); }
+.dc-guide .dc-watch__list li {
+  position: relative; padding: 1.05rem 0 1.05rem 3rem; border-bottom: 1px solid rgba(239,230,210,.18);
+  color: #d9cdb0; --revive-ink-soft: #d9cdb0; --aurora-ink-soft: #d9cdb0; line-height: 1.5; margin: 0;
+}
+.dc-guide .dc-watch__list li::before {
+  content: "\25B6"; position: absolute; left: 0; top: 1.05rem; width: 2rem; height: 2rem; border-radius: 50%;
+  display: grid; place-items: center; font-size: .7rem; background: var(--amber); color: var(--ink);
+}
+.dc-guide .dc-watch__list a { color: var(--amber) !important; -webkit-text-fill-color: var(--amber); font-weight: 600; text-underline-offset: 3px; }
+
+@media (max-width: 820px) {
+  .dc-guide .dc-hero__inner { grid-template-columns: 1fr; }
+  .dc-guide .dc-hero__portrait { order: -1; width: min(44vw, 180px); justify-self: start; margin-left: 4px; }
+  .dc-guide .dc-hero__portrait::before { inset: 10px -10px -10px 10px; }
+  .dc-guide .dc-hero__portrait figcaption { text-align: left; margin-top: .9rem; font-size: .62rem; white-space: nowrap; }
+  .dc-guide .dc-hero { padding-top: 32px; }
+  .dc-guide .dc-asks { margin-left: var(--gut) !important; margin-right: var(--gut) !important; }
+  .dc-guide .dc-asks__row { grid-template-columns: 1fr; gap: 14px; }
+  .dc-guide .dc-ask { padding: 0 0 0 3rem; }
+  .dc-guide .dc-ask::before { font-size: 1.4rem; top: .05rem; }
+  .dc-guide .dc-grid, .dc-guide .dc-card--wide { grid-template-columns: 1fr; }
+  .dc-guide .dc-card--wide .dc-card__shot { padding: 34px 16px 0; }
+  .dc-guide .dc-card--wide .dc-card__shot img { border-radius: 7px 7px 0 0; }
+  .dc-guide .dc-card--wide .dc-card__body { padding: 22px 24px 24px; }
+  .dc-guide .dc-card--wide .dc-card__body::before { position: absolute; margin: 0; }
+  .dc-guide .dc-card--wide .dc-card__meta { padding-left: 64px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dc-guide .dc-card, .dc-guide .dc-card__shot img { transition: none; }
+  .dc-guide .dc-card:hover { transform: none; }
+}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:group {"className":"dc-hero"} -->
+<div class="wp-block-group dc-hero">
+<!-- wp:group {"className":"dc-hero__inner"} -->
+<div class="wp-block-group dc-hero__inner">
+<!-- wp:group {"className":"dc-hero__text"} -->
+<div class="wp-block-group dc-hero__text">
+<!-- wp:paragraph {"className":"dc-kicker"} -->
+<p class="dc-kicker">A reading guide · Vancouver and B.C.</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"className":"dc-hero__title"} -->
+<h1 class="wp-block-heading dc-hero__title">Data centres, public compute and the public interest</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"dc-hero__lede"} -->
+<p class="dc-hero__lede">I'm Kris Krüg, founder of BC + AI. I want useful AI infrastructure here: clean, green, just compute that we can explain to the people who live beside it. My ask is assessment, disclosure and a public benefit people can point to, including access to the computing itself: GPU hours for students, researchers, nonprofits, startups and Indigenous-led projects. On November 18 I asked Vancouver council to pass Motion 10 on digital infrastructure. It passed unanimously.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"dc-hero__note"} -->
+<p class="dc-hero__note">This page collects where I've written it down. Pieces marked "start here" are the shortest route to my position.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:image {"id":2682,"sizeSlug":"medium_large","linkDestination":"none","className":"dc-hero__portrait"} -->
+<figure class="wp-block-image size-medium_large dc-hero__portrait"><img src="https://kriskrug.co/wp-content/uploads/2023/07/krug-1-768x702.jpg" alt="Kris Krüg in a black knit cap, lit in amber and blue" class="wp-image-2682"/><figcaption class="wp-element-caption">Kris Krüg · founder, BC + AI</figcaption></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"dc-asks"} -->
+<div class="wp-block-group dc-asks">
+<!-- wp:paragraph {"className":"dc-asks__label"} -->
+<p class="dc-asks__label">The ask, in three parts</p>
+<!-- /wp:paragraph -->
+<!-- wp:group {"className":"dc-asks__row"} -->
+<div class="wp-block-group dc-asks__row">
+<!-- wp:paragraph {"className":"dc-ask"} -->
+<p class="dc-ask"><strong>Assess</strong> the impacts</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"dc-ask"} -->
+<p class="dc-ask"><strong>Disclose</strong> the numbers</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"dc-ask"} -->
+<p class="dc-ask"><strong>Make the public benefit concrete</strong>, including public GPU hours</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:paragraph {"className":"dc-asks__result"} -->
+<p class="dc-asks__result">Motion 10 on digital infrastructure · Vancouver · passed unanimously, Nov 18, 2026</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"dc-chapter dc-chapter--1"} -->
+<div class="wp-block-group dc-chapter dc-chapter--1">
+<!-- wp:paragraph {"className":"dc-chapter__num"} -->
+<p class="dc-chapter__num">Part 1 of 4</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"dc-chapter__title"} -->
+<h2 class="wp-block-heading dc-chapter__title">Vancouver</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"dc-grid"} -->
+<div class="wp-block-group dc-grid">
+<!-- wp:group {"className":"dc-card dc-card--kk dc-card--start dc-card--wide"} -->
+<div class="wp-block-group dc-card dc-card--kk dc-card--start dc-card--wide">
+<!-- wp:image {"id":13071,"sizeSlug":"medium_large","linkDestination":"none","className":"dc-card__shot"} -->
+<figure class="wp-block-image size-medium_large dc-card__shot"><img src="https://kriskrug.co/wp-content/uploads/2026/11/1-guide-card-council-768x403.jpg" alt="Screenshot of the top of Kris Krüg's post on what he asked Vancouver council for on Motion 10" class="wp-image-13071"/></figure>
+<!-- /wp:image -->
+<!-- wp:group {"className":"dc-card__body"} -->
+<div class="wp-block-group dc-card__body">
+<!-- wp:paragraph {"className":"dc-card__meta"} -->
+<p class="dc-card__meta"><strong>Start here</strong> · kriskrug.co · Nov 18, 2026</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"dc-card__title"} -->
+<h3 class="wp-block-heading dc-card__title"><a href="https://kriskrug.co/2026/11/18/vancouver-ai-data-centres-public-benefit/">What I asked Vancouver council for on Nov 18</a></h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"dc-card__dek"} -->
+<p class="dc-card__dek">Assess the impacts, disclose the numbers, and make the public benefit concrete, including public GPU hours. My speech, the sources and the video.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"dc-card dc-card--bcai dc-card--start"} -->
+<div class="wp-block-group dc-card dc-card--bcai dc-card--start">
+<!-- wp:image {"id":13072,"sizeSlug":"medium_large","linkDestination":"none","className":"dc-card__shot"} -->
+<figure class="wp-block-image size-medium_large dc-card__shot"><img src="https://kriskrug.co/wp-content/uploads/2026/11/2-guide-card-motion-768x403.jpg" alt="Screenshot of the BC + AI explainer on the Vancouver data-centre motion" class="wp-image-13072"/></figure>
+<!-- /wp:image -->
+<!-- wp:group {"className":"dc-card__body"} -->
+<div class="wp-block-group dc-card__body">
+<!-- wp:paragraph {"className":"dc-card__meta"} -->
+<p class="dc-card__meta"><strong>Start here</strong> · BC + AI · Nov 18, 2026</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"dc-card__title"} -->
+<h3 class="wp-block-heading dc-card__title"><a href="https://bc-ai.ca/news/vancouver-data-centre-motion-what-changes">What the Vancouver data-centre motion actually changes</a></h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"dc-card__dek"} -->
+<p class="dc-card__dek">BC + AI's explainer on the motion that passed.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"dc-card dc-card--kk"} -->
+<div class="wp-block-group dc-card dc-card--kk">
+<!-- wp:image {"id":13073,"sizeSlug":"medium_large","linkDestination":"none","className":"dc-card__shot"} -->
+<figure class="wp-block-image size-medium_large dc-card__shot"><img src="https://kriskrug.co/wp-content/uploads/2026/11/3-guide-card-thirsty-768x403.jpg" alt="Screenshot of Kris Krüg's field piece from the Oct 3 Vancouver data-centre protest" class="wp-image-13073"/></figure>
+<!-- /wp:image -->
+<!-- wp:group {"className":"dc-card__body"} -->
+<div class="wp-block-group dc-card__body">
+<!-- wp:paragraph {"className":"dc-card__meta"} -->
+<p class="dc-card__meta">kriskrug.co · Oct 4, 2026</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"dc-card__title"} -->
+<h3 class="wp-block-heading dc-card__title"><a href="https://kriskrug.co/2026/10/04/whos-the-thirsty-little-democracy/">Who's the Thirsty Little Democracy?</a></h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"dc-card__dek"} -->
+<p class="dc-card__dek">A field piece from the Oct 3 Vancouver data-centre protest: land, water, public power, and where I stand with the movement.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"dc-chapter dc-chapter--2"} -->
+<div class="wp-block-group dc-chapter dc-chapter--2">
+<!-- wp:paragraph {"className":"dc-chapter__num"} -->
+<p class="dc-chapter__num">Part 2 of 4</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"dc-chapter__title"} -->
+<h2 class="wp-block-heading dc-chapter__title">The public compute proposal</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"dc-grid"} -->
+<div class="wp-block-group dc-grid">
+<!-- wp:group {"className":"dc-card dc-card--bcai dc-card--start dc-card--wide"} -->
+<div class="wp-block-group dc-card dc-card--bcai dc-card--start dc-card--wide">
+<!-- wp:image {"id":13074,"sizeSlug":"medium_large","linkDestination":"none","className":"dc-card__shot"} -->
+<figure class="wp-block-image size-medium_large dc-card__shot"><img src="https://kriskrug.co/wp-content/uploads/2026/11/4-guide-card-compute-768x403.jpg" alt="Screenshot of the BC Public Compute Project page" class="wp-image-13074"/></figure>
+<!-- /wp:image -->
+<!-- wp:group {"className":"dc-card__body"} -->
+<div class="wp-block-group dc-card__body">
+<!-- wp:paragraph {"className":"dc-card__meta"} -->
+<p class="dc-card__meta"><strong>Start here</strong> · BC + AI</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"dc-card__title"} -->
+<h3 class="wp-block-heading dc-card__title"><a href="https://bc-ai.ca/public-compute">The BC Public Compute Project</a></h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"dc-card__dek"} -->
+<p class="dc-card__dek">BC + AI's framework for data centres in B.C.: who owns the infrastructure, who benefits, and what stays here. The position paper is linked from the page.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"dc-card dc-card--bcai"} -->
+<div class="wp-block-group dc-card dc-card--bcai">
+<!-- wp:image {"id":13075,"sizeSlug":"medium_large","linkDestination":"none","className":"dc-card__shot"} -->
+<figure class="wp-block-image size-medium_large dc-card__shot"><img src="https://kriskrug.co/wp-content/uploads/2026/11/5-guide-card-tests-768x403.jpg" alt="Screenshot of the BC + AI essay with Kris Krüg's five tests for a BC AI economy" class="wp-image-13075"/></figure>
+<!-- /wp:image -->
+<!-- wp:group {"className":"dc-card__body"} -->
+<div class="wp-block-group dc-card__body">
+<!-- wp:paragraph {"className":"dc-card__meta"} -->
+<p class="dc-card__meta">BC + AI · Aug 3, 2026</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"dc-card__title"} -->
+<h3 class="wp-block-heading dc-card__title"><a href="https://bc-ai.ca/news/what-kind-of-ai-province-do-we-want-to-build">What Kind of AI Province Should BC Build?</a></h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"dc-card__dek"} -->
+<p class="dc-card__dek">My five tests for a BC AI economy, including "compute with a public bargain, not a blank cheque." The shortest statement of the principle behind my council ask.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"dc-card dc-card--bcai"} -->
+<div class="wp-block-group dc-card dc-card--bcai">
+<!-- wp:image {"id":13076,"sizeSlug":"medium_large","linkDestination":"none","className":"dc-card__shot"} -->
+<figure class="wp-block-image size-medium_large dc-card__shot"><img src="https://kriskrug.co/wp-content/uploads/2026/11/6-guide-card-taskforce-768x403.jpg" alt="Screenshot of BC + AI's response to Canada's AI Task Force" class="wp-image-13076"/></figure>
+<!-- /wp:image -->
+<!-- wp:group {"className":"dc-card__body"} -->
+<div class="wp-block-group dc-card__body">
+<!-- wp:paragraph {"className":"dc-card__meta"} -->
+<p class="dc-card__meta">BC + AI · Feb 8, 2026</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"dc-card__title"} -->
+<h3 class="wp-block-heading dc-card__title"><a href="https://bc-ai.ca/news/bcs-response-to-the-canada-s-ai-task-force">BC + AI's response to Canada's AI Task Force</a></h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"dc-card__dek"} -->
+<p class="dc-card__dek">The broader national policy context.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"dc-chapter dc-chapter--3"} -->
+<div class="wp-block-group dc-chapter dc-chapter--3">
+<!-- wp:paragraph {"className":"dc-chapter__num"} -->
+<p class="dc-chapter__num">Part 3 of 4</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"dc-chapter__title"} -->
+<h2 class="wp-block-heading dc-chapter__title">Consent and community benefit</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"dc-grid"} -->
+<div class="wp-block-group dc-grid">
+<!-- wp:group {"className":"dc-card dc-card--bcai"} -->
+<div class="wp-block-group dc-card dc-card--bcai">
+<!-- wp:image {"id":13077,"sizeSlug":"medium_large","linkDestination":"none","className":"dc-card__shot"} -->
+<figure class="wp-block-image size-medium_large dc-card__shot"><img src="https://kriskrug.co/wp-content/uploads/2026/11/7-guide-card-grid-768x403.jpg" alt="Screenshot of the BC + AI essay Both Hands on the Grid" class="wp-image-13077"/></figure>
+<!-- /wp:image -->
+<!-- wp:group {"className":"dc-card__body"} -->
+<div class="wp-block-group dc-card__body">
+<!-- wp:paragraph {"className":"dc-card__meta"} -->
+<p class="dc-card__meta">BC + AI · Jul 22, 2026</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"dc-card__title"} -->
+<h3 class="wp-block-heading dc-card__title"><a href="https://bc-ai.ca/news/both-hands-on-the-grid">Both Hands on the Grid</a></h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"dc-card__dek"} -->
+<p class="dc-card__dek">My fuller essay on infrastructure, community consent, and the outcomes I want in writing.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"dc-card dc-card--kk"} -->
+<div class="wp-block-group dc-card dc-card--kk">
+<!-- wp:image {"id":13078,"sizeSlug":"medium_large","linkDestination":"none","className":"dc-card__shot"} -->
+<figure class="wp-block-image size-medium_large dc-card__shot"><img src="https://kriskrug.co/wp-content/uploads/2026/11/8-guide-card-licence-768x403.jpg" alt="Screenshot of Kris Krüg's post on public consent and the UBC Global Summit AI protest" class="wp-image-13078"/></figure>
+<!-- /wp:image -->
+<!-- wp:group {"className":"dc-card__body"} -->
+<div class="wp-block-group dc-card__body">
+<!-- wp:paragraph {"className":"dc-card__meta"} -->
+<p class="dc-card__meta">kriskrug.co · Nov 2, 2026</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"dc-card__title"} -->
+<h3 class="wp-block-heading dc-card__title"><a href="https://kriskrug.co/2026/11/02/you-cant-rent-a-social-licence/">You Can't Rent a Social Licence</a></h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"dc-card__dek"} -->
+<p class="dc-card__dek">Why process and public consent matter, told through the UBC Global Summit AI protest.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"dc-watch"} -->
+<div class="wp-block-group dc-watch">
+<!-- wp:group {"className":"dc-watch__inner"} -->
+<div class="wp-block-group dc-watch__inner">
+<!-- wp:paragraph {"className":"dc-chapter__num"} -->
+<p class="dc-chapter__num">Part 4 of 4</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"className":"dc-chapter__title"} -->
+<h2 class="wp-block-heading dc-chapter__title">Watch</h2>
+<!-- /wp:heading -->
+<!-- wp:embed {"url":"https://www.youtube.com/watch?v=n_aGBFGnPzo","type":"video","providerNameSlug":"youtube","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+https://www.youtube.com/watch?v=n_aGBFGnPzo
+</div><figcaption class="wp-element-caption">Kris Krüg on Stewart Muir's Power Struggle: Canada's AI Power Struggle: Energy, Data Centres &amp; Sovereignty (YouTube)</figcaption></figure>
+<!-- /wp:embed -->
+<!-- wp:list {"className":"dc-watch__list"} -->
+<ul class="wp-block-list dc-watch__list"><!-- wp:list-item -->
+<li><a href="https://www.youtube.com/watch?v=Br6YTgcdZGY">City of Vancouver recording, November 18, 2026</a>. The full committee meeting; my remarks are on Motion 10.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><a href="https://www.youtube.com/watch?v=wjc1-bnjU4s&amp;t=1519s">AI &amp; Climate Impact panel, Vancouver AI Community Meetup (Nov 2025)</a>. The water-justice and data-centre chapter starts at 25:19.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:html -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://kriskrug.co/data-centres-public-compute-and-the-public-interest/#page", "url": "https://kriskrug.co/data-centres-public-compute-and-the-public-interest/", "name": "Data centres, public compute and the public interest", "description": "Kris Krüg's position on AI data centres and public compute, with eight pieces to read: Vancouver's Motion 10, the BC Public Compute Project and more.", "author": {"@id": "https://kriskrug.co/#person"}, "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "What I asked Vancouver council for on Nov 18", "url": "https://kriskrug.co/2026/11/18/vancouver-ai-data-centres-public-benefit/"}, {"@type": "ListItem", "position": 2, "name": "What the Vancouver data-centre motion actually changes", "url": "https://bc-ai.ca/news/vancouver-data-centre-motion-what-changes"}, {"@type": "ListItem", "position": 3, "name": "Who's the Thirsty Little Democracy?", "url": "https://kriskrug.co/2026/10/04/whos-the-thirsty-little-democracy/"}, {"@type": "ListItem", "position": 4, "name": "The BC Public Compute Project", "url": "https://bc-ai.ca/public-compute"}, {"@type": "ListItem", "position": 5, "name": "What Kind of AI Province Should BC Build?", "url": "https://bc-ai.ca/news/what-kind-of-ai-province-do-we-want-to-build"}, {"@type": "ListItem", "position": 6, "name": "BC + AI's response to Canada's AI Task Force", "url": "https://bc-ai.ca/news/bcs-response-to-the-canada-s-ai-task-force"}, {"@type": "ListItem", "position": 7, "name": "Both Hands on the Grid", "url": "https://bc-ai.ca/news/both-hands-on-the-grid"}, {"@type": "ListItem", "position": 8, "name": "You Can't Rent a Social Licence", "url": "https://kriskrug.co/2026/11/02/you-cant-rent-a-social-licence/"}]}}]}</script>
+<!-- /wp:html -->
