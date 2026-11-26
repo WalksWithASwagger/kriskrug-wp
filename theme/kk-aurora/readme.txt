@@ -42,6 +42,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 Deploy status for every version lives in `CHANGELOG.md`, the deploy ledger.
 
+= 1.7.4 =
+* Link the Data Centres & Public Compute reading guide after Worldview in the footer (#1361).
+
 = 1.7.3 =
 * copy (#1278): the footer newsletter tile, the homepage newsletter band and the /blog/ eyebrow promise a monthly letter instead of a weekly email. Wording only; no links, classes or block markup changed. 1.7.2 went live on 2026-11-12.
 
