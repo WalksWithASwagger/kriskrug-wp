@@ -1,6 +1,6 @@
 # Canonical Python test environment for this repo. CI installs this file, and it is the only one that can run `make python-test` and `make ruff-changed` (it is the superset: runtime deps plus pytest and Ruff).
 requests>=2.34.2
 python-dotenv>=1.2.4
-pyyaml>=6.0.3
+pyyaml>=6.0.4
 pytest>=9.2.0
 ruff>=0.17.5
