@@ -30,6 +30,27 @@ The dialogue ran under the [Chatham House Rule](https://www.chathamhouse.org/abo
 | Internal links (Nov 18 council post, Both Hands Full) | Both resolve (200) | Nov 18 link text changed to "what I asked council last week" to match that post's title |
 | Planetizen (Hoggan) and Castanet (Canseco) links | Not verified, 403 on automated fetch | KK or the publisher session to click through |
 
+## Depth rewrite, 2026-11-26 (evening)
+
+KK called the first pass superficial: voice good, but it barely touched the substance and left out his own work on the subject. The rewrite (about 3,300 words) keeps the voice and the Chatham House line, and ties the room's ideas to KK's published trail. Every new fact comes from KK's own live posts, which cite their primary sources:
+
+- Prior Wosk Centre link: AutoLoom at SFU's Dialogue on Technology summit, Dec 2024 (kk-kb appearance record, Beehiiv newsletter).
+- SFU Dialogue on Technology survey (79% more concerned than excited), Angus Reid (68%, 74%), Léger (81%, 46%): from *You Can't Rent a Social Licence*.
+- Motion 10 (passed unanimously Nov 18), the two council questions, the library card for compute, the Compute Community Centre proposal: from the Nov 18 council post.
+- October 3 protest coalition (moratorium as the floor), Cedar George-Parker's opening: from *Who's the thirsty little democracy?*
+- 24 mandate letters, AI in exactly one; the Minister of State for AI dropped: from the Nov 24 and Nov 25 posts.
+- Surrey access story: from *Who gets a say*. "Stay in the room" and the Bob Mackin parking lot: from *AI Is Already a Campaign Issue*.
+- New sticky lines: "Snark is what contempt looks like when it's trying to stay polite", "an announcement with chairs", "Does the question survive both sides of the argument?", childcare as the model for public compute.
+- New close: KK's own Both/And dual statement, and the problem child gets an invite.
+
+All 14 kriskrug.co and bc-ai.ca links return 200. The council PDF, Angus Reid and Léger links block automated fetches but are the same links KK's published posts use.
+
+### New decisions for KK
+
+1. **Citizenship line (confirm before publishing).** The opener says KK has lived in Canada since 1995, couldn't vote in either election, and started his citizenship application "this month". This comes from KK's own remarks in the Nov 25 meetup transcript. Confirm the timing, and that you want it public.
+2. **Your dual statement.** The homework section ends with a Both/And statement written for you ("right about power and agency, wrong if they think the answer is no compute at all"). Make sure it's yours, or rewrite it.
+3. **The problem child invite.** The closing line invites him to dinner. Keep it if you mean it.
+
 ## Source transcript
 
 The transcript and notes KK sent for this post were not in this repo, the local Claude sessions, Wispr Flow or Plaud (Plaud was signed out). KK's first-person lines (the snide/"problem child" story, the agency line, Both Hands Full) were edited for rhythm but not re-checked against the transcript. KK reviewed the edit and waived the transcript check on 2026-11-26.
