@@ -47,9 +47,9 @@ All 14 kriskrug.co and bc-ai.ca links return 200. The council PDF, Angus Reid an
 
 ### New decisions for KK
 
-1. **Citizenship line (confirm before publishing).** The opener says KK has lived in Canada since 1995, couldn't vote in either election, and started his citizenship application "this month". This comes from KK's own remarks in the Nov 25 meetup transcript. Confirm the timing, and that you want it public.
-2. **Your dual statement.** The homework section ends with a Both/And statement written for you ("right about power and agency, wrong if they think the answer is no compute at all"). Make sure it's yours, or rewrite it.
-3. **The problem child invite.** The closing line invites him to dinner. Keep it if you mean it.
+1. **Citizenship line.** Resolved: KK keeps it (2026-11-26). KK wondered whether permanent residents can vote municipally; they can't. Vancouver's [2026 election pamphlet](https://vancouver.ca/files/cov/2026-election-information-pamphlet-english.pdf) says "Permanent residents cannot vote", and the province confirms only citizens vote in local elections. So "couldn't vote in either of those elections" stands.
+2. **Your dual statement.** Resolved: KK keeps it (2026-11-26).
+3. **The problem child invite.** Resolved: KK keeps it (2026-11-26).
 
 ## Source transcript
 
