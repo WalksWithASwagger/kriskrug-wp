@@ -91,7 +91,7 @@ Deliberately not used: the Nest megaphone photo (12957). Next to the problem chi
 - Tags: reused bc-politics and civic-election instead of creating "dialogue"; created only "Democracy".
 - Publisher: `scripts/notion-to-wp/publish_data_centre_street_address.py` (dry-run default; --execute, --update, --publish).
 - WordPress **draft id 13103** created and verified: 9 images, 2 YouTube embeds rendering, 4 pull quotes, SEO title and description landed, featured 13101. Not published.
-- Andrea Reimer hero idea declined: she isn't named publicly as part of the series, so her photo would identify a participant under the Chatham House Rule.
+- A hero built on a photo of a person from the day was declined: it could identify a participant under the Chatham House Rule.
 
 ## Published (2026-11-26)
 
