@@ -92,3 +92,8 @@ Deliberately not used: the Nest megaphone photo (12957). Next to the problem chi
 - Publisher: `scripts/notion-to-wp/publish_data_centre_street_address.py` (dry-run default; --execute, --update, --publish).
 - WordPress **draft id 13103** created and verified: 9 images, 2 YouTube embeds rendering, 4 pull quotes, SEO title and description landed, featured 13101. Not published.
 - Andrea Reimer hero idea declined: she isn't named publicly as part of the series, so her photo would identify a participant under the Chatham House Rule.
+
+## Published (2026-11-26)
+
+- KK said "Publish it" with hero A. Post 13103 published at https://kriskrug.co/2026/11/26/the-data-centre-has-a-street-address/ through `--publish` (slug-verified; all eight post checks OK).
+- Logged-out readback: HTTP 200, title "The Data Centre Has a Street Address | Kris Krüg", og:image is the hero at 1024x576, 2 YouTube iframes, 14 captions, no em dashes on the page. No cache purge needed.
