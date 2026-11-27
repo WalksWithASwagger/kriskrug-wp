@@ -32,7 +32,7 @@ The dialogue ran under the [Chatham House Rule](https://www.chathamhouse.org/abo
 
 ## Source transcript
 
-The transcript and notes KK sent for this post were not in this repo, the local Claude sessions, Wispr Flow or Plaud (Plaud was signed out). KK's first-person lines (the snide/"problem child" story, the agency line, Both Hands Full) were edited for rhythm but not re-checked against the transcript. Do that pass before publishing.
+The transcript and notes KK sent for this post were not in this repo, the local Claude sessions, Wispr Flow or Plaud (Plaud was signed out). KK's first-person lines (the snide/"problem child" story, the agency line, Both Hands Full) were edited for rhythm but not re-checked against the transcript. KK reviewed the edit and waived the transcript check on 2026-11-26.
 
 ## Decisions for KK
 
