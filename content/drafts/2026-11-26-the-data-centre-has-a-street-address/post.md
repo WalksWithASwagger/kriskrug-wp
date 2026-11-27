@@ -12,8 +12,10 @@ tags:
   - both-hands-full
   - data-centres
   - vancouver
+  - bc-politics
+  - civic-election
   - democracy
-  - dialogue
+featured_image: images/data-centre-street-address-hero.jpg
 featured: false
 seo:
   meta_title: "The Data Centre Has a Street Address | Kris Krüg"
@@ -30,6 +32,9 @@ sources:
 Thursday I spent the day in the Asia Pacific Hall at SFU's [Morris J. Wosk Centre for Dialogue](https://sfu.ca/dialogue/about/history.html), 580 West Hastings, for the second Bridging the Political Divide dialogue.
 
 The building went up in 1920 as a Toronto Dominion Bank branch. SFU calls it the only known facility in North America purpose-built for convening dialogue. A room built to hold money, rebuilt to hold arguments. I'll take it.
+
+![A 1981 trolleybus passes the Toronto-Dominion Bank building on West Hastings Street, Vancouver.](file:td-bank-580-west-hastings-1981-steve-morgan.jpg)
+*580 West Hastings in 1981, back when it still held money. Photo: Steve Morgan, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Vancouver_Brill_trolleybus_passing_1920_Toronto-Dominion_Bank_building_on_Hastings_St_in_1981.jpg).*
 
 I've been in that room before. Two Decembers ago I showed the AutoLoom portrait project at SFU's [Dialogue on Technology](https://kriskrug.beehiiv.com/p/vancouver-ai-revolution) summit, same building. That project has since put out some of the most useful numbers we have on how British Columbians actually feel about AI. More on those below.
 

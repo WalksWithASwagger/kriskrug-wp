@@ -84,7 +84,11 @@ Convention in `post.md`: an image is `![alt](media:ID)` with its caption on the 
 
 Deliberately not used: the Nest megaphone photo (12957). Next to the problem child story it could read as him.
 
-## Not yet done
+## Hero and WordPress (2026-11-26)
 
-- **Hero image.** KK to supply his own photo from the day (Wosk Centre exterior or the hall from behind, no faces), then run featured-image-forge before it ships.
-- No WordPress draft created. Connector dry-run first, slug match second.
+- KK's camera was lost; no photos from the day. KK chose his own Oct 3 transparency-sign photo (media 12912) as the hero base. Built in KK house style (dark band, cream plus rainbow-gradient headline, cyan/magenta offset tag, KRÜG badge). featured-image-forge QC: mechanical gates pass; visual pass on og 1.91:1, 16:9 card, 1:1 square and 300px thumb. The headline survives every crop; the square crop loses only the badge. Uploaded as media 13101. Alternate layout (band at bottom) kept in the session scratchpad.
+- Added inline: the 1981 Toronto-Dominion Bank photo of 580 West Hastings, Steve Morgan, CC BY-SA 4.0 via Wikimedia Commons, credited in the caption (media 13102).
+- Tags: reused bc-politics and civic-election instead of creating "dialogue"; created only "Democracy".
+- Publisher: `scripts/notion-to-wp/publish_data_centre_street_address.py` (dry-run default; --execute, --update, --publish).
+- WordPress **draft id 13103** created and verified: 9 images, 2 YouTube embeds rendering, 4 pull quotes, SEO title and description landed, featured 13101. Not published.
+- Andrea Reimer hero idea declined: she isn't named publicly as part of the series, so her photo would identify a participant under the Chatham House Rule.
