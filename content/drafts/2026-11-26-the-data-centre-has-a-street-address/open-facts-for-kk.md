@@ -1,6 +1,6 @@
 # Open facts for KK: The Data Centre Has a Street Address
 
-First draft, written 2026-11-26 from KK's own remarks at the SFU Bridging the Political Divide dialogue (Nov 26, 2026) plus public sources. Nothing here has touched WordPress.
+First draft written 2026-11-26 from KK's own remarks at the SFU Bridging the Political Divide dialogue (Nov 26, 2026) plus public sources. Audited and voice-edited the same evening. Nothing here has touched WordPress.
 
 ## Chatham House Rule (read first)
 
@@ -10,18 +10,41 @@ The dialogue ran under the [Chatham House Rule](https://www.chathamhouse.org/abo
 - The only first-person material in the post is KK's own. Everything else is unattributed themes.
 - Photos: no identifiable participants without their consent. Venue, objects, KK's own notes and KK's own archive only. All slots are documentary; no generated images.
 
+## Locked
+
+- Title "The Data Centre Has a Street Address" and slug `the-data-centre-has-a-street-address` (KK, 2026-11-26).
+
+## Audit, 2026-11-26 (public sources)
+
+| Claim | Result | Change made |
+|---|---|---|
+| Building built as a TD Bank branch in 1920; "only known facility in North America purpose-built for convening dialogue" | Confirmed, [SFU history page](https://sfu.ca/dialogue/about/history.html) | None |
+| Venue address | Eventbrite gives 580 West Hastings, Asia Pacific Hall. SFU's general contact address is 515 West Hastings (Harbour Centre). | Post now says 580 West Hastings, Asia Pacific Hall |
+| BC Conservatives 64 of 93 seats; Eby resigned as NDP leader | Confirmed, The Hub (Oct 26). 64 was the preliminary count, final count Nov 6. Election was Saturday Oct 24, one week after Oct 17. | None |
+| Pete Fry, first Green mayor, Oct 17 | **Not verified.** vancouver.ca refuses automated fetches (403). | None. KK to confirm |
+| When the Map Is Useless is multi-year; Bridging the Political Divide is one of its two parts; who it convenes | Confirmed, SFU initiative page | "one half" reworded to "one of two parts" |
+| First dialogue (April) asked "what is democracy actually for?" | Overstated. Eventbrite says the April dialogue explored "our common understanding of democracy". | Reworded |
+| Naomi Klein "opened day two" with a "keynote" | **Wrong.** Futureproof lists her as "A FanTrust Conversation with Naomi Klein", Friday Oct 30, 9:30 AM, which was the last day. Topic: *End Times Fascism* with Astra Taylor. | Reframed as a conversation on the festival's last morning. The "street address" framing is now presented as KK's own takeaway, not her quote |
+| Home Challenge (host up to six, including one person you disagree with, report back) | Label confirmed on the SFU page; details sit in a linked Google Drive file that was not opened | None. Comes from the session |
+| Podcast, next dialogue March 22 | Not on any public page. SFU does run a "Talk Dialogue to Me" podcast, but not as part of this initiative. | Kept as heard in the room. KK to confirm |
+| Internal links (Nov 18 council post, Both Hands Full) | Both resolve (200) | Nov 18 link text changed to "what I asked council last week" to match that post's title |
+| Planetizen (Hoggan) and Castanet (Canseco) links | Not verified, 403 on automated fetch | KK or the publisher session to click through |
+
+## Source transcript
+
+The transcript and notes KK sent for this post were not in this repo, the local Claude sessions, Wispr Flow or Plaud (Plaud was signed out). KK's first-person lines (the snide/"problem child" story, the agency line, Both Hands Full) were edited for rhythm but not re-checked against the transcript. Do that pass before publishing.
+
 ## Decisions for KK
 
-1. **Headline.** Four options are in the HTML comment at the top of `post.md`. Slug and SEO currently follow option 1.
-2. **Naming the hosts.** Check with the convening team and with the friend who invited you before naming or tagging anyone. If they say yes, update the credits.
-3. **Naomi Klein paraphrase.** Confirm the "street address and a hydro hookup" framing matches how you remember her Futureproof keynote, and that "opened day two" is right.
-4. **"Our problem child."** The new councillor is unnamed on purpose. Keep it that way, or cut the anecdote if it still reads as identifiable.
-5. **The dinner commitment.** "I'm in" publicly commits you to hosting a home challenge dinner.
-6. **March 22.** The next dialogue date came from the session; confirm the year (presumably 2027) before publishing.
-7. **Category and tags.** `Responsible AI & Policy` plus `both-hands-full`, `data-centres`, `vancouver`, `democracy`, `dialogue`. `democracy` and `dialogue` may be new terms; check before the connector creates them.
-8. **BC Public Compute.** Optional link in "Both hands full" if the project page is live.
+1. **"Our problem child."** The demo regular who ran for office is unnamed on purpose. Megaphone, own photographer and "young newcomer" may still be enough to identify him locally. Keep, soften or cut.
+2. **Naming the hosts.** Check with the convening team and the friend who invited you before naming or tagging anyone.
+3. **The dinner commitment.** "I'm in" publicly commits you to hosting a Home Challenge dinner. The call to action is "Get in touch" with no link; add your contact page if you want one.
+4. **March 22.** Confirm it, and the year (2027).
+5. **Category and tags.** `Responsible AI & Policy` plus `both-hands-full`, `data-centres`, `vancouver`, `democracy`, `dialogue`. `democracy` and `dialogue` may be new terms; check before the connector creates them.
+6. **BC Public Compute.** Optional link in "Both hands full" if the project page is live.
+7. **Pull quotes.** Two `>>>` pull quotes added (values line, megawatts line). Swap if others hit harder.
 
-## Not yet verified
+## Not yet done
 
-- Internal links `2026/11/18/vancouver-ai-data-centres-public-benefit/` and `2026/01/24/both-hands-full/` are taken from other packages in this repo, not checked live.
-- No alt text yet: photos are not chosen.
+- No alt text: photos not chosen.
+- No WordPress draft created. Connector dry-run first, slug match second.
