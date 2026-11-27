@@ -1,0 +1,99 @@
+# Open facts for KK: The Data Centre Has a Street Address
+
+First draft written 2026-11-26 from KK's own remarks at the SFU Bridging the Political Divide dialogue (Nov 26, 2026) plus public sources. Audited and voice-edited the same evening. Nothing here has touched WordPress.
+
+## Chatham House Rule (read first)
+
+The dialogue ran under the [Chatham House Rule](https://www.chathamhouse.org/about-us/chatham-house-rule): information can be used, but no speaker or participant can be identified. This repo is **public**, so the same rule applies to everything committed here.
+
+- Do not add attendee names, affiliations, quotes attributed to other participants, or recordings/transcripts of the session to this package.
+- The only first-person material in the post is KK's own. Everything else is unattributed themes.
+- Photos: no identifiable participants without their consent. Venue, objects, KK's own notes and KK's own archive only. All slots are documentary; no generated images.
+
+## Locked
+
+- Title "The Data Centre Has a Street Address" and slug `the-data-centre-has-a-street-address` (KK, 2026-11-26).
+
+## Audit, 2026-11-26 (public sources)
+
+| Claim | Result | Change made |
+|---|---|---|
+| Building built as a TD Bank branch in 1920; "only known facility in North America purpose-built for convening dialogue" | Confirmed, [SFU history page](https://sfu.ca/dialogue/about/history.html) | None |
+| Venue address | Eventbrite gives 580 West Hastings, Asia Pacific Hall. SFU's general contact address is 515 West Hastings (Harbour Centre). | Post now says 580 West Hastings, Asia Pacific Hall |
+| BC Conservatives 64 of 93 seats; Eby resigned as NDP leader | Confirmed, The Hub (Oct 26). 64 was the preliminary count, final count Nov 6. Election was Saturday Oct 24, one week after Oct 17. | None |
+| Pete Fry, first Green mayor, Oct 17 | Confirmed by search: City of Vancouver official results, CTV, Castanet ("Vancouver progressives take power as Green Pete Fry is elected mayor"). vancouver.ca blocks automated fetches. | None |
+| When the Map Is Useless is multi-year; Bridging the Political Divide is one of its two parts; who it convenes | Confirmed, SFU initiative page | "one half" reworded to "one of two parts" |
+| First dialogue (April) asked "what is democracy actually for?" | Overstated. Eventbrite says the April dialogue explored "our common understanding of democracy". | Reworded |
+| Naomi Klein "opened day two" with a "keynote" | **Wrong.** Futureproof lists her as "A FanTrust Conversation with Naomi Klein", Friday Oct 30, 9:30 AM, which was the last day. Topic: *End Times Fascism* with Astra Taylor. | Reframed as a conversation on the festival's last morning. The "street address" framing is now presented as KK's own takeaway, not her quote |
+| Home Challenge (host up to six, including one person you disagree with, report back) | Label confirmed on the SFU page; details sit in a linked Google Drive file that was not opened | None. Comes from the session |
+| Podcast, next dialogue March 22 | Not on any public page. SFU does run a "Talk Dialogue to Me" podcast, but not as part of this initiative. | Kept as heard in the room. KK confirmed March 22, 2027 |
+| Internal links (Nov 18 council post, Both Hands Full) | Both resolve (200) | Nov 18 link text changed to "what I asked council last week" to match that post's title |
+| Planetizen (Hoggan) and Castanet (Canseco) links | Both pages exist (confirmed by search; the sites block automated fetches). Planetizen: Dave Biggs interviews James Hoggan. Castanet: Mario Canseco, "10 issues that shaped B.C.'s 2026 provincial election". | None |
+
+## Depth rewrite, 2026-11-26 (evening)
+
+KK called the first pass superficial: voice good, but it barely touched the substance and left out his own work on the subject. The rewrite (about 3,300 words) keeps the voice and the Chatham House line, and ties the room's ideas to KK's published trail. Every new fact comes from KK's own live posts, which cite their primary sources:
+
+- Prior Wosk Centre link: AutoLoom at SFU's Dialogue on Technology summit, Dec 2024 (kk-kb appearance record, Beehiiv newsletter).
+- SFU Dialogue on Technology survey (79% more concerned than excited), Angus Reid (68%, 74%), Léger (81%, 46%): from *You Can't Rent a Social Licence*.
+- Motion 10 (passed unanimously Nov 18), the two council questions, the library card for compute, the Compute Community Centre proposal: from the Nov 18 council post.
+- October 3 protest coalition (moratorium as the floor), Cedar George-Parker's opening: from *Who's the thirsty little democracy?*
+- 24 mandate letters, AI in exactly one; the Minister of State for AI dropped: from the Nov 24 and Nov 25 posts.
+- Surrey access story: from *Who gets a say*. "Stay in the room" and the Bob Mackin parking lot: from *AI Is Already a Campaign Issue*.
+- New sticky lines: "Snark is what contempt looks like when it's trying to stay polite", "an announcement with chairs", "Does the question survive both sides of the argument?", childcare as the model for public compute.
+- New close: KK's own Both/And dual statement, and the problem child gets an invite.
+
+All 14 kriskrug.co and bc-ai.ca links return 200. The council PDF, Angus Reid and Léger links block automated fetches but are the same links KK's published posts use.
+
+### New decisions for KK
+
+1. **Citizenship line.** Resolved: KK keeps it (2026-11-26). KK wondered whether permanent residents can vote municipally; they can't. Vancouver's [2026 election pamphlet](https://vancouver.ca/files/cov/2026-election-information-pamphlet-english.pdf) says "Permanent residents cannot vote", and the province confirms only citizens vote in local elections. So "couldn't vote in either of those elections" stands.
+2. **Your dual statement.** Resolved: KK keeps it (2026-11-26).
+3. **The problem child invite.** Resolved: KK keeps it (2026-11-26).
+
+## Source transcript
+
+The transcript and notes KK sent for this post were not in this repo, the local Claude sessions, Wispr Flow or Plaud (Plaud was signed out). KK's first-person lines (the snide/"problem child" story, the agency line, Both Hands Full) were edited for rhythm but not re-checked against the transcript. KK reviewed the edit and waived the transcript check on 2026-11-26.
+
+## Decisions for KK
+
+1. **"Our problem child."** Resolved: KK keeps the story as written (2026-11-26). He stays unnamed.
+2. **Naming the hosts.** Check with the convening team and the friend who invited you before naming or tagging anyone.
+3. **The dinner commitment.** "I'm in" publicly commits you to hosting a Home Challenge dinner. The call to action is "Get in touch" with no link; add your contact page if you want one.
+4. **March 22.** Resolved: KK confirmed March 22, 2027 (2026-11-26). The post now says so.
+5. **Category and tags.** `Responsible AI & Policy` plus `both-hands-full`, `data-centres`, `vancouver`, `democracy`, `dialogue`. `democracy` and `dialogue` may be new terms; check before the connector creates them.
+6. **BC Public Compute.** Optional link in "Both hands full" if the project page is live.
+7. **Pull quotes.** Two `>>>` pull quotes added (values line, megawatts line). Swap if others hit harder.
+
+## Media (placed 2026-11-26)
+
+Convention in `post.md`: an image is `![alt](media:ID)` with its caption on the next line in italics. A video is a bare YouTube URL on its own line (WordPress auto-embeds) with its caption on the next line. All eight media IDs return 200 from the kriskrug.co media endpoint. Everything is reused from KK's published posts, with credits carried over.
+
+| Section | Media | Source post |
+|---|---|---|
+| Snark | 12909 sign-making, Oct 3 (no faces) | Thirsty little democracy |
+| Street address | 11978 "People need WATER not AI", May 23 | Social Licence |
+| Social licence | 12959 Nest atrium, Nov 2 | Social Licence |
+| Social licence | 12770 AI Ethical Futures Lab group | Social Licence |
+| Social licence | 12911 lawn with leaflets, Oct 3 | Thirsty little democracy |
+| City hall | YouTube Br6YTgcdZGY, City of Vancouver Nov 18 committee recording | Nov 18 council post |
+| City hall | 13030 Compute Community Centre diagram (credit Sev Geraskin / Economy of Wisdom) | Nov 18 council post |
+| Both hands full | YouTube -c7mgY2aSgM at 4:05, LaSalle keynote | Both Things Are True |
+| Tables | 12938 Futureproof lunch (credit Michelle Diamond) | Futureproof: Year One |
+| Homework | 12941 "You Hold Your Future" keepsake (credit Michelle Diamond) | Futureproof: Year One |
+
+Deliberately not used: the Nest megaphone photo (12957). Next to the problem child story it could read as him.
+
+## Hero and WordPress (2026-11-26)
+
+- KK's camera was lost; no photos from the day. KK chose his own Oct 3 transparency-sign photo (media 12912) as the hero base. Built in KK house style (dark band, cream plus rainbow-gradient headline, cyan/magenta offset tag, KRÜG badge). featured-image-forge QC: mechanical gates pass; visual pass on og 1.91:1, 16:9 card, 1:1 square and 300px thumb. The headline survives every crop; the square crop loses only the badge. Uploaded as media 13101. Alternate layout (band at bottom) kept in the session scratchpad.
+- Added inline: the 1981 Toronto-Dominion Bank photo of 580 West Hastings, Steve Morgan, CC BY-SA 4.0 via Wikimedia Commons, credited in the caption (media 13102).
+- Tags: reused bc-politics and civic-election instead of creating "dialogue"; created only "Democracy".
+- Publisher: `scripts/notion-to-wp/publish_data_centre_street_address.py` (dry-run default; --execute, --update, --publish).
+- WordPress **draft id 13103** created and verified: 9 images, 2 YouTube embeds rendering, 4 pull quotes, SEO title and description landed, featured 13101. Not published.
+- A hero built on a photo of a person from the day was declined: it could identify a participant under the Chatham House Rule.
+
+## Published (2026-11-26)
+
+- KK said "Publish it" with hero A. Post 13103 published at https://kriskrug.co/2026/11/26/the-data-centre-has-a-street-address/ through `--publish` (slug-verified; all eight post checks OK).
+- Logged-out readback: HTTP 200, title "The Data Centre Has a Street Address | Kris Krüg", og:image is the hero at 1024x576, 2 YouTube iframes, 14 captions, no em dashes on the page. No cache purge needed.
