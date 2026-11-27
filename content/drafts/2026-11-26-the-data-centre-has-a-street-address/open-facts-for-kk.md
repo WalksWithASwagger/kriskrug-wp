@@ -21,14 +21,14 @@ The dialogue ran under the [Chatham House Rule](https://www.chathamhouse.org/abo
 | Building built as a TD Bank branch in 1920; "only known facility in North America purpose-built for convening dialogue" | Confirmed, [SFU history page](https://sfu.ca/dialogue/about/history.html) | None |
 | Venue address | Eventbrite gives 580 West Hastings, Asia Pacific Hall. SFU's general contact address is 515 West Hastings (Harbour Centre). | Post now says 580 West Hastings, Asia Pacific Hall |
 | BC Conservatives 64 of 93 seats; Eby resigned as NDP leader | Confirmed, The Hub (Oct 26). 64 was the preliminary count, final count Nov 6. Election was Saturday Oct 24, one week after Oct 17. | None |
-| Pete Fry, first Green mayor, Oct 17 | **Not verified.** vancouver.ca refuses automated fetches (403). | None. KK to confirm |
+| Pete Fry, first Green mayor, Oct 17 | Confirmed by search: City of Vancouver official results, CTV, Castanet ("Vancouver progressives take power as Green Pete Fry is elected mayor"). vancouver.ca blocks automated fetches. | None |
 | When the Map Is Useless is multi-year; Bridging the Political Divide is one of its two parts; who it convenes | Confirmed, SFU initiative page | "one half" reworded to "one of two parts" |
 | First dialogue (April) asked "what is democracy actually for?" | Overstated. Eventbrite says the April dialogue explored "our common understanding of democracy". | Reworded |
 | Naomi Klein "opened day two" with a "keynote" | **Wrong.** Futureproof lists her as "A FanTrust Conversation with Naomi Klein", Friday Oct 30, 9:30 AM, which was the last day. Topic: *End Times Fascism* with Astra Taylor. | Reframed as a conversation on the festival's last morning. The "street address" framing is now presented as KK's own takeaway, not her quote |
 | Home Challenge (host up to six, including one person you disagree with, report back) | Label confirmed on the SFU page; details sit in a linked Google Drive file that was not opened | None. Comes from the session |
 | Podcast, next dialogue March 22 | Not on any public page. SFU does run a "Talk Dialogue to Me" podcast, but not as part of this initiative. | Kept as heard in the room. KK confirmed March 22, 2027 |
 | Internal links (Nov 18 council post, Both Hands Full) | Both resolve (200) | Nov 18 link text changed to "what I asked council last week" to match that post's title |
-| Planetizen (Hoggan) and Castanet (Canseco) links | Not verified, 403 on automated fetch | KK or the publisher session to click through |
+| Planetizen (Hoggan) and Castanet (Canseco) links | Both pages exist (confirmed by search; the sites block automated fetches). Planetizen: Dave Biggs interviews James Hoggan. Castanet: Mario Canseco, "10 issues that shaped B.C.'s 2026 provincial election". | None |
 
 ## Depth rewrite, 2026-11-26 (evening)
 
@@ -65,7 +65,26 @@ The transcript and notes KK sent for this post were not in this repo, the local 
 6. **BC Public Compute.** Optional link in "Both hands full" if the project page is live.
 7. **Pull quotes.** Two `>>>` pull quotes added (values line, megawatts line). Swap if others hit harder.
 
+## Media (placed 2026-11-26)
+
+Convention in `post.md`: an image is `![alt](media:ID)` with its caption on the next line in italics. A video is a bare YouTube URL on its own line (WordPress auto-embeds) with its caption on the next line. All eight media IDs return 200 from the kriskrug.co media endpoint. Everything is reused from KK's published posts, with credits carried over.
+
+| Section | Media | Source post |
+|---|---|---|
+| Snark | 12909 sign-making, Oct 3 (no faces) | Thirsty little democracy |
+| Street address | 11978 "People need WATER not AI", May 23 | Social Licence |
+| Social licence | 12959 Nest atrium, Nov 2 | Social Licence |
+| Social licence | 12770 AI Ethical Futures Lab group | Social Licence |
+| Social licence | 12911 lawn with leaflets, Oct 3 | Thirsty little democracy |
+| City hall | YouTube Br6YTgcdZGY, City of Vancouver Nov 18 committee recording | Nov 18 council post |
+| City hall | 13030 Compute Community Centre diagram (credit Sev Geraskin / Economy of Wisdom) | Nov 18 council post |
+| Both hands full | YouTube -c7mgY2aSgM at 4:05, LaSalle keynote | Both Things Are True |
+| Tables | 12938 Futureproof lunch (credit Michelle Diamond) | Futureproof: Year One |
+| Homework | 12941 "You Hold Your Future" keepsake (credit Michelle Diamond) | Futureproof: Year One |
+
+Deliberately not used: the Nest megaphone photo (12957). Next to the problem child story it could read as him.
+
 ## Not yet done
 
-- No alt text: photos not chosen.
+- **Hero image.** KK to supply his own photo from the day (Wosk Centre exterior or the hall from behind, no faces), then run featured-image-forge before it ships.
 - No WordPress draft created. Connector dry-run first, slug match second.

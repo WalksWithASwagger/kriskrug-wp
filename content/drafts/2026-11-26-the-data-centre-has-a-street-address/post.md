@@ -39,7 +39,7 @@ Same province. Same month. The city went one way, the province went the other, a
 
 Here's mine, for the record. I've lived in Canada since 1995. I couldn't vote in either of those elections. I started my citizenship application this month, partly so that next time I can do more than write about it.
 
-<!-- PHOTO 1 (hero): Wosk Centre exterior on West Hastings, or the Asia Pacific Hall shot wide from behind with no faces readable. Caption: SFU's Morris J. Wosk Centre for Dialogue, Vancouver, November 26, 2026. -->
+<!-- HERO (KK to supply): your own photo from today. Wosk Centre exterior on West Hastings, or the Asia Pacific Hall shot wide from behind with no faces readable. Caption: SFU's Morris J. Wosk Centre for Dialogue, Vancouver, November 26, 2026. Photo: Kris Krüg. Run featured-image-forge before it ships. -->
 
 ## What this thing is
 
@@ -63,6 +63,9 @@ I spent a lot of the last few months at the data centre demos, [photographing](h
 
 It felt like he was stoking the fire so he could ride it into office. Maybe that's unfair. I get why a young newcomer would grab that energy and aim it at a ballot box. But that's what it felt like from where I stood.
 
+![A red marker adds lettering to a cardboard sign laid out on the grass.](media:12909)
+*Making signs before the October 3 data centre protest, Vancouver. Photo: Kris Krüg.*
+
 So what was the value under the snark? Trust. Integrity. Respect for the slow, unglamorous work of building coalitions that don't eat themselves.
 
 Here's the part that stung. When students [brought pots and pans to the AMS Nest](https://kriskrug.co/2026/11/02/you-cant-rent-a-social-licence/) to protest an AI summit this month, I wrote that I knew the noise was inconvenient and I also wanted to know what made people bring the pots. I gave a whole building full of strangers that grace. I didn't give it to the one guy I saw every week.
@@ -70,8 +73,6 @@ Here's the part that stung. When students [brought pots and pans to the AMS Nest
 Snark is what contempt looks like when it's trying to stay polite. And contempt is the thing this whole dialogue exists to take apart. Not my proudest discovery. Turned out to be a pretty good compass though.
 
 >>> Snark is what contempt looks like when it's trying to stay polite.
-
-<!-- PHOTO 2: Your values card or notebook page from the exercise, shot tight. No other people's handwriting visible. -->
 
 ## The data centre has a street address
 
@@ -82,6 +83,9 @@ Here's my version. Most of what scares people about technology has nowhere to pr
 A data centre is different. It has a street address and a hydro hookup. It needs a permit, a rezoning, a grid connection. You can stand in front of it. You can call your MLA about it. You can register to speak at council about it, which is exactly what [I did on November 18](https://kriskrug.co/2026/11/18/vancouver-ai-data-centres-public-benefit/).
 
 So people show up carrying everything at once. Loneliness. Rent. Big tech. Microsoft. The climate. The job that got automated. The art that got scraped. When I walked with [Vancouver's first big anti-AI march](https://kriskrug.co/2026/05/23/you-cant-drink-data/) in May, the signs were about water, jobs, creative work and the right to think for yourself. One building ends up carrying all of it.
+
+![A handmade sign reads People need WATER not AI.](media:11978)
+*Vancouver, May 23, 2026. A demand about water, carried into the street. Photo: Kris Krüg.*
 
 And if you answer all of that with water usage stats, you've already stopped listening.
 
@@ -111,15 +115,24 @@ This is where the dialogue and the data centre fight become the same conversatio
 
 A social licence is the public trust that lets something take root in a community. You can't buy it. You can't PR it. And here's what I keep coming back to: [trust has to stay a judgment people can withhold](https://kriskrug.co/2026/11/02/you-cant-rent-a-social-licence/). If the invitation to participate already has the answer filled in, it's an announcement with chairs.
 
+![People gather around the atrium stairs inside the AMS Nest, with a UBC DIVEST banner stretched across the rail.](media:12959)
+*The November 2 protest inside UBC's AMS Nest. Photo: Kris Krüg.*
+
 So the question for every consultation, every summit, every dialogue, including the one I spent Thursday in: are we inviting people to shape the future, or to sit through its announcement?
 
+We've tried to do the slower version ourselves. In September our [AI Ethical Futures Lab](https://bc-ai.ca/communities/futures-lab/ai-transparency) worked through Ottawa's AI transparency questions with about twenty people in Vancouver. Peter Van Garderen facilitated, Tanya Slingsby hosted at Parker Street Studios, and Sara Taherzadeh wrote it up. The doubt in that room was the same doubt I heard Thursday: will any of this change anything? So the submission asks the federal government to say which recommendations it accepts, defers or rejects, and why. Show your work. It's the same ask every table at the Wosk Centre kept circling.
+
+![AI Ethical Futures Lab participants gathered for a group photograph, with the Lab name above them.](media:12770)
+*AI Ethical Futures Lab, session seven, Mount Pleasant Community Centre, September 1, 2026. Photo: Kris Krüg.*
+
 The best bridging I saw this fall happened on a lawn. At the [October 3 protest](https://kriskrug.co/2026/10/04/whos-the-thirsty-little-democracy/), the organizers openly admitted they disagreed. Some wanted enforceable rules. Some wanted to stop the projects outright. A moratorium was the floor they could all stand on together. An imperfect coalition that could still agree on the next decision it wanted changed.
+
+![A group talks on the lawn with leaflets in hand, while someone writes on a sign behind them.](media:12911)
+*The October 3 protest, Vancouver. Photo: Kris Krüg.*
 
 That same afternoon, Cedar George-Parker opened with the moss and his grandmother's definition of rich: how much you give. Then a council candidate got into public power, public land, data residency and who controls the systems. Those are questions that survive whether you think AI is miraculous, monstrous or mostly a very confident autocomplete with a marketing budget.
 
 That's my working test for a bridge now. Does the question survive both sides of the argument? If it does, you can build on it.
-
-<!-- PHOTO 3: From your own archive: the October 3 protest or the May march shot wide (signs, crowd, building). Documentary only. -->
 
 ## What a bridge looks like at city hall
 
@@ -127,11 +140,17 @@ On November 18 I went to council to speak to [Motion 10, Addressing the Risks of
 
 I put two questions to council, and I'll put them to you:
 
+https://www.youtube.com/watch?v=Br6YTgcdZGY
+*City of Vancouver's recording of the November 18 Standing Committee on City Finance and Services. My remarks are on Motion 10.*
+
 >>> Is the harm acceptable, and does the public share in the returns?
 
 People who love data centres and people who hate them can both work with those two questions. That's the point.
 
 For the second one, I pitched a library card for compute. Public access to GPU time for students, researchers, nonprofits, startups and Indigenous-led projects, with actual humans there to help you use it. The [Compute Community Centre proposal](https://economyofwisdom.org/compute-community-centre/) from the Economy of Wisdom Foundation puts a price tag on that idea worth arguing about. Walk in with a question before you have a company, a cloud budget or a pitch deck.
+
+![Economy of Wisdom's Compute Community Centre diagram: 12 homes, 48 public terminals and 19 GPU nodes.](media:13030)
+*The Compute Community Centre, from Sev Geraskin's October 29 presentation at Futureproof. Original diagram: Sev Geraskin / Economy of Wisdom. Figures are proposal estimates; no site or funding has been secured.*
 
 That idea clicked even harder for me at the dialogue, and I'll get to why.
 
@@ -140,6 +159,9 @@ That idea clicked even harder for me at the dialogue, and I'll get to why.
 This is [the stance I keep coming back to](https://kriskrug.co/2026/11/24/both-things-are-true/) with BC + AI. One hand curious and building. The other hand critical, demanding transparency, wanting to know exactly what's getting plugged into our grid. At minimum, peel back fifteen years of obfuscation so we know what we're signing up for.
 
 People hear "both hands full" and assume I'm splitting the difference. I'm not. Fence-sitting is refusing to take a position. Both hands full is taking two at once. I followed the same logic out to the grid in [Both Hands on the Power Cord](https://kriskrug.co/2026/08/03/both-hands-on-the-power-cord/).
+
+https://www.youtube.com/watch?v=-c7mgY2aSgM&t=245s
+*Both Hands Full at LaSalle College Vancouver, Q&A included. The line the whole talk hangs on lands at 4:05.*
 
 Some of my own crowd asks why I'd push to regulate the very thing we build with. That's exactly why. If we want people to trust what we make, we have to be the ones asking the hard questions first. Out loud. On the record.
 
@@ -163,6 +185,9 @@ What stuck with me at the May march was how young that crowd was. People being p
 
 **Organizing should be fun.** Food, music, art, kids welcome. People join for the cause. They stay for the belonging, and for feeling like their piece counts. This is the whole reason our meetups [don't do panels, they do portals](https://kriskrug.co/2025/04/07/we-dont-do-panels-we-do-portals/). Nobody builds a movement out of a slide deck.
 
+![Festival attendees sharing lunch and conversation beside the windows.](media:12938)
+*Lunch between sessions at Futureproof, October 29, 2026. Photo: Michelle Diamond / Diamond's Edge Photography.*
+
 **Facts alone don't move people.** On AI infrastructure and Canadian sovereignty, stories about local benefit matter as much as the numbers. Small founders can't just pack up for the US the way big companies threaten to. Family, immigration and roots keep people here. Which is also why "sovereign" has to mean more than [servers with a Canadian address](https://kriskrug.co/2026/06/16/sovereign-ai-for-whom/). Sovereign for whom?
 
 **Universal programs survive elections.** People shared stories of paying $200 a day for childcare. A program built for everyone tends to survive a change in government. One built for a narrow few gets cut.
@@ -170,8 +195,6 @@ What stuck with me at the May march was how young that crowd was. People being p
 This is the one that rewired my thinking about compute. A tax credit for AI companies is a narrow-few program. The next government kills it, or the next downturn does. A public library card for compute, open to the student, the nonprofit and the founder alike, is the childcare model. Build the public benefit for everybody and it has a fighting chance of outliving whoever's in charge.
 
 >>> Build the public benefit for everybody and it has a fighting chance of outliving whoever's in charge.
-
-<!-- PHOTO 4: Detail shot: coffee cups, comment cards, the lunch tables before people sat down. No faces. -->
 
 ## The homework
 
@@ -189,7 +212,10 @@ And yes, the problem child gets an invite.
 
 Who's coming to dinner?
 
-<!-- PHOTO 5: Your own dinner table, set for six. Or save this slot for the real dinner and update the post after. -->
+![Hands hold a round black festival keepsake reading You Hold Your Future.](media:12941)
+*"You Hold Your Future." A Futureproof keepsake, October 30, 2026. Photo: Michelle Diamond / Diamond's Edge Photography.*
+
+<!-- Optional later: swap in your own dinner table, set for six, after the real dinner. -->
 
 ## Worth your time
 
