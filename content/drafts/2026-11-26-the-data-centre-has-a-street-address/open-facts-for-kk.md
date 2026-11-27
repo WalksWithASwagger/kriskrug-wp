@@ -26,7 +26,7 @@ The dialogue ran under the [Chatham House Rule](https://www.chathamhouse.org/abo
 | First dialogue (April) asked "what is democracy actually for?" | Overstated. Eventbrite says the April dialogue explored "our common understanding of democracy". | Reworded |
 | Naomi Klein "opened day two" with a "keynote" | **Wrong.** Futureproof lists her as "A FanTrust Conversation with Naomi Klein", Friday Oct 30, 9:30 AM, which was the last day. Topic: *End Times Fascism* with Astra Taylor. | Reframed as a conversation on the festival's last morning. The "street address" framing is now presented as KK's own takeaway, not her quote |
 | Home Challenge (host up to six, including one person you disagree with, report back) | Label confirmed on the SFU page; details sit in a linked Google Drive file that was not opened | None. Comes from the session |
-| Podcast, next dialogue March 22 | Not on any public page. SFU does run a "Talk Dialogue to Me" podcast, but not as part of this initiative. | Kept as heard in the room. KK to confirm |
+| Podcast, next dialogue March 22 | Not on any public page. SFU does run a "Talk Dialogue to Me" podcast, but not as part of this initiative. | Kept as heard in the room. KK confirmed March 22, 2027 |
 | Internal links (Nov 18 council post, Both Hands Full) | Both resolve (200) | Nov 18 link text changed to "what I asked council last week" to match that post's title |
 | Planetizen (Hoggan) and Castanet (Canseco) links | Not verified, 403 on automated fetch | KK or the publisher session to click through |
 
@@ -36,10 +36,10 @@ The transcript and notes KK sent for this post were not in this repo, the local 
 
 ## Decisions for KK
 
-1. **"Our problem child."** The demo regular who ran for office is unnamed on purpose. Megaphone, own photographer and "young newcomer" may still be enough to identify him locally. Keep, soften or cut.
+1. **"Our problem child."** Resolved: KK keeps the story as written (2026-11-26). He stays unnamed.
 2. **Naming the hosts.** Check with the convening team and the friend who invited you before naming or tagging anyone.
 3. **The dinner commitment.** "I'm in" publicly commits you to hosting a Home Challenge dinner. The call to action is "Get in touch" with no link; add your contact page if you want one.
-4. **March 22.** Confirm it, and the year (2027).
+4. **March 22.** Resolved: KK confirmed March 22, 2027 (2026-11-26). The post now says so.
 5. **Category and tags.** `Responsible AI & Policy` plus `both-hands-full`, `data-centres`, `vancouver`, `democracy`, `dialogue`. `democracy` and `dialogue` may be new terms; check before the connector creates them.
 6. **BC Public Compute.** Optional link in "Both hands full" if the project page is live.
 7. **Pull quotes.** Two `>>>` pull quotes added (values line, megawatts line). Swap if others hit harder.

@@ -110,7 +110,7 @@ No names, per the rule. These are the threads I'm still pulling on.
 
 The organizers sent us home with an assignment, the [Bridging the Political Divide Home Challenge](https://www.sfu.ca/dialogue/what-we-do/initiatives/map-is-useless.html). Host up to six people at your place, including at least one person you disagree with. Then report back on how it went and what got in the way.
 
-They're also working on a podcast, so these ideas can travel beyond the room without breaking the rule. The next dialogue is set for March 22.
+They're also working on a podcast, so these ideas can travel beyond the room without breaking the rule. The next dialogue is set for March 22, 2027.
 
 I'm in. If you think I'm dead wrong about AI, data centres or anything else, you're exactly who I want at my table. Get in touch.
 
