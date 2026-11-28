@@ -175,7 +175,7 @@ def card(c):
 hero_text = "\n".join(
     [
         para("dc-kicker", "A reading guide · Vancouver and B.C."),
-        heading(1, "dc-hero__title", "Data centres, public compute and the public interest"),
+        heading(2, "dc-hero__title", "Data centres, public compute and the public interest"),
         para(
             "dc-hero__lede",
             "I'm Kris Krüg, founder of BC + AI. I want useful AI infrastructure here: clean, green, just compute that we can explain to the people who live beside it. My ask is assessment, disclosure and a public benefit people can point to, including access to the computing itself: GPU hours for students, researchers, nonprofits, startups and Indigenous-led projects. On November 18 I asked Vancouver council to pass Motion 10 on digital infrastructure. It passed unanimously.",

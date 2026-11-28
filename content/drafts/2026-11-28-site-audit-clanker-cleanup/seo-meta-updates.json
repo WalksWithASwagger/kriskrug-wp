@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-11-28",
+  "status": "PREP ONLY: do not apply live without explicit KK approval and rollback snapshots",
+  "requires_aurora_version": "1.7.5 (for REST page meta registration in inc/seo-meta-rest.php)",
+  "pages": [
+    {
+      "id": 2808,
+      "slug": "subscribe",
+      "url": "https://kriskrug.co/subscribe/",
+      "reason": "Replace 2023 generic ChatGPT meta description ('thrilling landscape... navigate the ever-evolving') and legacy title.",
+      "meta": {
+        "jetpack_seo_html_title": "Subscribe to KRÜG | Kris Krüg",
+        "advanced_seo_description": "Once a month on AI, creativity, and the rooms where this work happens. Real examples, named people, no hype. Free from Kris Krüg."
+      }
+    },
+    {
+      "id": 2672,
+      "slug": "work",
+      "url": "https://kriskrug.co/work/",
+      "reason": "Fix canonical spellings (BC + AI, Ethọ́s Lab) in page meta description.",
+      "meta": {
+        "advanced_seo_description": "Selected work from Kris Krüg: Futureproof Festival of AI, Vancouver AI Meetup, BC + AI, Ethọ́s Lab Block Party, films, and experimental AI builds."
+      }
+    },
+    {
+      "id": 2666,
+      "slug": "generative-ai-services",
+      "url": "https://kriskrug.co/generative-ai-services/",
+      "reason": "Fix canonical spelling (BC + AI) and lead with keynotes per Q1 2027 roadmap.",
+      "meta": {
+        "advanced_seo_description": "AI keynotes, hands-on workshops, responsible AI strategy, and community systems from Kris Krüg, Executive Director of BC + AI."
+      }
+    }
+  ],
+  "options": [
+    {
+      "option_name": "advanced_seo_front_page_description",
+      "url": "https://kriskrug.co/",
+      "reason": "Fix canonical spelling (BC + AI) and align with Aurora's canonical homepage_meta_description() fallback.",
+      "value": "Kris Krüg is a Vancouver AI keynote speaker, creative technologist, and community builder leading BC + AI and curating Futureproof Festival."
+    }
+  ]
+}
