@@ -3,7 +3,17 @@
 <style id="dc-guide-css">
 /* Data-centre reading guide. Scoped to .dc-guide; tokens follow kk-aurora. */
 body:has(.dc-guide) { overflow-x: clip; }
-body:has(.dc-guide) .aurora-page-header { display: none; }
+body:has(.dc-guide) .aurora-page-header {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  margin: -1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
 body:has(.dc-guide) .aurora-page-2026 { padding-top: 0 !important; padding-bottom: 0 !important; }
 .dc-guide p { max-width: none; }
 /* kk-aurora sets heading colour inside a cascade layer, which outranks unlayered !important; text-fill-color is not set there. */
@@ -211,8 +221,8 @@ body:has(.dc-guide) .aurora-page-2026 { padding-top: 0 !important; padding-botto
 <!-- wp:paragraph {"className":"dc-kicker"} -->
 <p class="dc-kicker">A reading guide · Vancouver and B.C.</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":1,"className":"dc-hero__title"} -->
-<h1 class="wp-block-heading dc-hero__title">Data centres, public compute and the public interest</h1>
+<!-- wp:heading {"className":"dc-hero__title"} -->
+<h2 class="wp-block-heading dc-hero__title">Data centres, public compute and the public interest</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"dc-hero__lede"} -->
 <p class="dc-hero__lede">I'm Kris Krüg, founder of BC + AI. I want useful AI infrastructure here: clean, green, just compute that we can explain to the people who live beside it. My ask is assessment, disclosure and a public benefit people can point to, including access to the computing itself: GPU hours for students, researchers, nonprofits, startups and Indigenous-led projects. On November 18 I asked Vancouver council to pass Motion 10 on digital infrastructure. It passed unanimously.</p>
