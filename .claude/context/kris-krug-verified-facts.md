@@ -17,9 +17,9 @@
 
 | Stat | Value | Context | Source |
 |------|-------|---------|--------|
-| BC+AI Members | **250** | Current membership count | User-provided (Kris) |
-| Vancouver AI Attendees | **2,400+** | Cumulative 2024 | BC+AI recap |
-| Photos (Creative Commons) | **130,000+** | Shared under CC license | Photo.Kris.is |
+| BC+AI Members | **250**, as of Jan 2026 — re-verify before use | Membership count | User-provided (Kris) |
+| Vancouver AI Attendees | **2,400+**, as of 2024 — re-verify before use | Cumulative 2024 | BC+AI recap |
+| Photos (Creative Commons) | **130,000+**, as of Jan 2026 — re-verify before use | Shared under CC license | Photo.Kris.is |
 | Years in Tech | **25+** | Career span | Career history |
 
 ### Photography Credentials (Verified)
@@ -28,7 +28,7 @@
 - Rolling Stone
 - The New Yorker
 - Open-source photography community contributor
-- 130,000+ photos under Creative Commons
+- 130,000+ photos under Creative Commons, as of Jan 2026 — re-verify before use
 
 ### Career History (Verified)
 
@@ -64,9 +64,9 @@
 | "2,000+ BC+AI members" | Actually 250 |
 | "CTO of Indigenomics.ai" | Not verified; he's an ally/contributor |
 | "$200B Indigenous economic discovery" (as his claim) | This is Carol Anne Hilton's work |
-| "500K+ photos" | Actually ~130,000 |
+| "500K+ photos" | Actually ~130,000, as of Jan 2026 — re-verify before use |
 | "30+ years experience" | Actually 25+ years |
-| "50+ Vancouver AI events" | Use "2,400+ attendees in 2024" instead |
+| "50+ Vancouver AI events" | Use "2,400+ attendees in 2024" instead — figure as of 2024, re-verify before use |
 
 ---
 
