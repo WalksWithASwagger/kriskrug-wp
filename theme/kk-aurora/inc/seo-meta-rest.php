@@ -30,34 +30,41 @@ if (!defined('ABSPATH')) {
 add_action(
     'init',
     function (): void {
-        register_post_meta(
-            'post',
-            'jetpack_seo_html_title',
-            [
-                'type' => 'string',
-                'single' => true,
-                'show_in_rest' => true,
-                'default' => '',
-                'sanitize_callback' => 'sanitize_text_field',
-                'auth_callback' => function (): bool {
-                    return current_user_can('edit_posts');
-                },
-            ]
-        );
+        $post_types = [
+            'post' => 'edit_posts',
+            'page' => 'edit_pages',
+        ];
 
-        register_post_meta(
-            'post',
-            'advanced_seo_description',
-            [
-                'type' => 'string',
-                'single' => true,
-                'show_in_rest' => true,
-                'default' => '',
-                'sanitize_callback' => 'sanitize_textarea_field',
-                'auth_callback' => function (): bool {
-                    return current_user_can('edit_posts');
-                },
-            ]
-        );
+        foreach ($post_types as $post_type => $capability) {
+            register_post_meta(
+                $post_type,
+                'jetpack_seo_html_title',
+                [
+                    'type' => 'string',
+                    'single' => true,
+                    'show_in_rest' => true,
+                    'default' => '',
+                    'sanitize_callback' => 'sanitize_text_field',
+                    'auth_callback' => static function () use ($capability): bool {
+                        return current_user_can($capability);
+                    },
+                ]
+            );
+
+            register_post_meta(
+                $post_type,
+                'advanced_seo_description',
+                [
+                    'type' => 'string',
+                    'single' => true,
+                    'show_in_rest' => true,
+                    'default' => '',
+                    'sanitize_callback' => 'sanitize_textarea_field',
+                    'auth_callback' => static function () use ($capability): bool {
+                        return current_user_can($capability);
+                    },
+                ]
+            );
+        }
     }
 );

@@ -36,8 +36,9 @@ class Homepage411WorkBandTests(unittest.TestCase):
     def test_work_band_uses_named_heading_and_receipts_copy(self):
         self.assertIn("BC + AI. Futureproof. The", self.work)
         self.assertIn("250+ members, 94+ events, 3,000+ through the door", self.work)
-        self.assertIn("Frontier tech without the hype deck", self.work)
-        self.assertIn("No doom sermon", self.work)
+        self.assertIn("2026 proceedings", self.work)
+        self.assertIn("Keynotes 2027", self.work)
+        self.assertNotIn("October 28–30, 2026", self.work)
         self.assertNotIn("What Kris is", self.work)
         self.assertNotIn("trust layer", self.work)
         self.assertNotIn("operating conditions", self.work)

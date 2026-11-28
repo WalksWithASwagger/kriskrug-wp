@@ -42,6 +42,9 @@ Built for Full Site Editing with WCAG 2.1 AA accessibility.
 
 Deploy status for every version lives in `CHANGELOG.md`, the deploy ledger.
 
+= 1.7.5 =
+* Brand voice, keynote-first conversion, and runtime hygiene pass: first-person hero and keynote-led CTAs on front-page, named Brittney Ashley testimonial, removal of duplicate recent-writing query loop, keynote + monthly letter closeout on single posts, `/ai-policy/` footer link, removal of duplicate scroll-reveal/blur logic in `micro-interactions.js`, and `page` SEO meta REST registration in `inc/seo-meta-rest.php`.
+
 = 1.7.4 =
 * Link the Data Centres & Public Compute reading guide after Worldview in the footer (#1361).
 
