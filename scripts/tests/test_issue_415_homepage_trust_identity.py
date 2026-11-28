@@ -89,7 +89,8 @@ class Issue415HomepageTrustIdentityTests(unittest.TestCase):
         self.assertIn('id="what-people-say"', source)
         self.assertIn("Jai Djwa", source)
         self.assertIn("Ed Kennedy", source)
-        self.assertIn("Audience feedback", source)
+        self.assertIn("Brittney Ashley, Creative Dynamics", source)
+        self.assertNotIn("Audience feedback", source)
         self.assertIn('href="/testimonials/"', source)
         # Work triptych still routes to the three real destinations.
         self.assertIn('id="aurora-work-title"', source)

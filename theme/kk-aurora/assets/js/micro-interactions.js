@@ -34,84 +34,8 @@
     });
   }
 
-  // ============================================
-  // SMOOTH REVEAL ON SCROLL
-  // Intersection Observer based, no GSAP needed
-  // ============================================
-  
-  function initScrollReveal() {
-    if (prefersReducedMotion) {
-      // Just show everything
-      document.querySelectorAll('[data-reveal]').forEach(el => {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-      });
-      return;
-    }
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-revealed');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -10% 0px'
-    });
-
-    // #701: reveal in-viewport nodes SYNCHRONOUSLY, before the opacity-0 base
-    // style below is injected. The stylesheet no longer ships an initial hide
-    // (see revive-port.css "Soft reveals"), so this ordering guarantees content
-    // that has already painted is never blanked — not even for one frame. Only
-    // below-the-fold nodes get the hide + scroll-reveal treatment.
-    const targets = Array.from(document.querySelectorAll('[data-reveal], [data-reveal-stagger]'));
-    targets.forEach(el => {
-      const r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) {
-        el.classList.add('is-revealed');
-      } else {
-        observer.observe(el);
-      }
-    });
-
-    // Add base styles
-    const style = document.createElement('style');
-    style.textContent = `
-      [data-reveal] {
-        opacity: 0;
-        transform: translateY(24px);
-        transition:
-          opacity 1.2s cubic-bezier(0.25, 0.1, 0.25, 1),
-          transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
-      }
-      
-      [data-reveal].is-revealed {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      
-      /* Stagger children */
-      [data-reveal-stagger] > * {
-        opacity: 0;
-        transform: translateY(18px);
-        transition:
-          opacity 1.1s cubic-bezier(0.25, 0.1, 0.25, 1),
-          transform 1.1s cubic-bezier(0.25, 0.1, 0.25, 1);
-      }
-      
-      /* Catch-all so children beyond the 6 listed below (e.g. a DB-driven grid) still reveal */
-      [data-reveal-stagger].is-revealed > * { opacity: 1; transform: translateY(0); }
-      [data-reveal-stagger].is-revealed > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
-      [data-reveal-stagger].is-revealed > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
-      [data-reveal-stagger].is-revealed > *:nth-child(3) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
-      [data-reveal-stagger].is-revealed > *:nth-child(4) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
-      [data-reveal-stagger].is-revealed > *:nth-child(5) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
-      [data-reveal-stagger].is-revealed > *:nth-child(6) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
-    `;
-    document.head.appendChild(style);
-  }
+  // Scroll reveal and lazy-image loading are owned by theme.js so non-journal
+  // pages do not run competing IntersectionObservers, 1.2s fades, or 10px blurs.
 
   // ============================================
   // TEXT SPLIT FOR ANIMATION
@@ -314,48 +238,12 @@
   }
 
   // ============================================
-  // IMAGE LAZY LOAD WITH BLUR
-  // Graceful reveal
-  // ============================================
-  
-  function initImageReveal() {
-    const style = document.createElement('style');
-    style.textContent = `
-      img[loading="lazy"] {
-        opacity: 0;
-        filter: blur(10px);
-        transition: 
-          opacity 0.5s ease,
-          filter 0.5s ease;
-      }
-      
-      img[loading="lazy"].is-loaded {
-        opacity: 1;
-        filter: blur(0);
-      }
-    `;
-    document.head.appendChild(style);
-    
-    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-      if (img.complete) {
-        img.classList.add('is-loaded');
-      } else {
-        img.addEventListener('load', () => {
-          img.classList.add('is-loaded');
-        }, { once: true });
-      }
-    });
-  }
-
-  // ============================================
   // INITIALIZE
   // ============================================
   
   function init() {
-    initScrollReveal();
     initCounters();
     initHeaderTransform();
-    initImageReveal();
     const motionProfile = document.body?.dataset?.auroraMotionProfile;
     if (motionProfile === 'enhanced') {
       initCardSpotlight();

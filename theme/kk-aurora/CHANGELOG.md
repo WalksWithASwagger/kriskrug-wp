@@ -20,6 +20,16 @@ When you cut a new release, add a line here and follow
 
 ---
 
+## 1.7.5
+**Deployed:** Not yet; pending KK review, pixel gate, and verified SFTP release.
+Brand voice, keynote-first conversion, and runtime hygiene pass across the homepage, single-post template, footers, JS, and page SEO meta registration:
+- Rewrote homepage hero dek into first-person voice and pointed the hero primary CTA and Keynote service card straight to `/speaking/`.
+- Updated homepage Futureproof card copy to post-festival proceedings, updated Keynotes to 2027, replaced `Strategic intervention.` with `Bring me into the work.`, removed the leaked compliance sentence on `#what-people-say`, replaced anonymous `Audience feedback` with verified testimonial from Brittney Ashley (Creative Dynamics), and removed the duplicate `queryId: 16` recent-writing loop under `#newsletter`.
+- Added a keynote booking link and `.aurora-journal-newsletter` monthly-letter band to `templates/single.html`, expanded `parts/journal-footer.html` with Speaking/Work/Newsletter links, and linked `/ai-policy/` in `parts/footer.html`.
+- Removed duplicate scroll-reveal (`1.2s` fade) and lazy-image blur (`10px`) systems from `assets/js/micro-interactions.js` that competed with `assets/js/theme.js`.
+- Extended `inc/seo-meta-rest.php` to register `jetpack_seo_html_title` and `advanced_seo_description` for `page` in addition to `post`.
+- Production release note: snapshot and synchronize saved database templates `kk-aurora//front-page` and `kk-aurora//single` (wp_id 12415) alongside the theme swap, then regenerate Jetpack Boost critical CSS and purge caches.
+
 ## 1.7.4
 **Deployed:** Not yet; pending verified SFTP release.
 Add one footer link after Worldview to the published Data Centres & Public Compute reading guide (#1361).

@@ -24,15 +24,14 @@ class Issue416HomepageNewsletterTests(unittest.TestCase):
         cls.front = FRONT_PAGE.read_text(encoding="utf-8")
         cls.band = _newsletter_block(cls.front)
 
-    def test_one_clear_cta_and_kept_thumbnails(self):
+    def test_one_clear_cta_and_no_duplicate_writing_loop(self):
         self.assertIn("Monthly letter", self.band)
         self.assertIn("Give me your email. I'll earn every open.", self.band)
         self.assertIn("Get the monthly letter", self.band)
         self.assertEqual(1, self.band.count('href="/subscribe/"'))
         self.assertEqual(1, self.band.count("aurora-button-primary"))
-        self.assertIn("aurora-newsletter-thumbs-query", self.band)
-        self.assertIn("aurora-newsletter-thumb-media", self.band)
-        self.assertIn("Recent writing", self.band)
+        self.assertNotIn("aurora-newsletter-thumbs-query", self.band)
+        self.assertNotIn("queryId\":16", self.band)
 
     def test_cliche_stays_gone_and_e2e_is_not_claimed(self):
         self.assertNotRegex(self.band, re.compile(r"field notes", re.I))
